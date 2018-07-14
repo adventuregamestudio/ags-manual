@@ -1,36 +1,28 @@
-[]()
+# Adventure Game Studio Help Files
 
-Adventure Game Studio 3.4.1 {#adventure-game-studio-3.4.1 align="CENTER"}
----------------------------
+How to generate the help files from the wiki!
 
-### by Chris Jones et al. {#by-chris-jones-et-al. align="CENTER"}
+[Edit the Help in the Wiki](https://github.com/ericoporto/agshelp/wiki)
 
-------------------------------------------------------------------------
+Alternatively, you can clone and edit the Wiki Locally
 
-Welcome to Adventure Game Studio! This new Windows Help version of the
-manual should help you get even more out of AGS. Enjoy!
+    git clone https://github.com/ericoporto/agshelp.wiki.git
 
-Contents
---------
+The help file is generated using [Python 3 Sphinx](http://www.sphinx-doc.org/en/master/)!
 
--   [Copyright and terms of use](ags1.md#topic0)
--   [Introduction](ags2.md#topic1)
--   [The run-time engine](ags4.md#topic3)
--   [Tutorial](ags8.md#topic5)
--   [Other Features](ags12.md#topic20)
--   [Scripting](ags28.md#topic41)
--   [Reference](ags81.md#topic76)
--   [Frequently Asked Questions](ags86.md#topic85)
--   [Upgrading to AGS 2.7](ags87.md#UpgradingTo27)
--   [Upgrading to AGS 2.71](ags88.md#UpgradingTo271)
--   [Upgrading to AGS 3.0](ags89.md#UpgradeTo30)
--   [Upgrading to AGS 3.1](ags90.md#UpgradeTo31)
--   [Upgrading to AGS 3.2](ags91.md#UpgradeTo32)
--   [Upgrading to AGS 3.3](ags92.md#UpgradeTo33)
--   [Upgrading to AGS 3.3.5](ags93.md#UpgradeTo335)
--   [Upgrading to AGS 3.4](ags94.md#UpgradeTo34)
--   [Upgrading to AGS 3.4.1](ags95.md#UpgradeTo341)
--   [Anonymous usage information](ags96.md#AnonymousUsageInfo)
--   [Contacting the developers](ags97.md#topic86)
--   [Credits](ags98.md#Credits)
+This documentation assumes you have Sphinx already installed and configured and is using a UNIX compatible OS.
+
+To build the help files, clone this repository first!
+
+    git clone git@github.com:ericoporto/agshelp.git
+    cd agshelp
+
+Then you need to get the wiki files
+
+    cd sphinx-files
+    ./get-help-source.sh
+
+Now just use make to create any help version you want! Example for html files:
+
+    make html
 
