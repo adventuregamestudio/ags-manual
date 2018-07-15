@@ -14,23 +14,30 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   agshelp.wiki/ags1
-   agshelp.wiki/ags2
-   agshelp.wiki/ags4
-   agshelp.wiki/ags12
-   agshelp.wiki/ags28
-   agshelp.wiki/ags81
-   agshelp.wiki/ags86
-   agshelp.wiki/ags87
-   agshelp.wiki/ags88
-   agshelp.wiki/ags89
-   agshelp.wiki/ags90
-   agshelp.wiki/ags91
-   agshelp.wiki/ags92
-   agshelp.wiki/ags93
-   agshelp.wiki/ags94
-   agshelp.wiki/ags95
-   agshelp.wiki/ags96
-   agshelp.wiki/ags97
-   agshelp.wiki/ags98
+   agshelp.wiki/Introduction
+   agshelp.wiki/FAQ
+   agshelp.wiki/Tutorial
+
+   agshelp.wiki/EditorRoom
+   agshelp.wiki/EditorCharacter
+   agshelp.wiki/EditingGUIs
+   agshelp.wiki/EditorSprite
+   agshelp.wiki/EditorView
+   agshelp.wiki/EditorInventoryItems
+   agshelp.wiki/OtherFeatures
+
+   agshelp.wiki/RuntimeEngine
+   agshelp.wiki/GraphicsDriver
+   agshelp.wiki/Setup
+
+   agshelp.wiki/Scripting
+   agshelp.wiki/Reference
+
+   agshelp.wiki/UpgradingFromPreviousVersion
+
+   agshelp.wiki/Copyright
+   agshelp.wiki/AnonymousUsageInfo
+   agshelp.wiki/Credits
+
+   agshelp.wiki/ContactingTheDevelopers
 
