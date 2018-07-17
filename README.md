@@ -25,7 +25,6 @@ To build the help files, clone this repository first!
 
 Then you need to get the wiki files
 
-    cd sphinx-files
     ./get-help-source.sh
 
 Now just use make to create any help version you want! **Example for html files and a help file**:

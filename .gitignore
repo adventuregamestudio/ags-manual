@@ -6,9 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
-# I want to ignore the source and build directories on sphinx-files
-sphinx-files/build
-sphinx-files/source
+# I want to ignore the source of sphinx
+source/
 
 # Distribution / packaging
 .Python
