@@ -15,7 +15,8 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import recommonmark
+from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
@@ -160,3 +161,10 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: 'https://github.com/ericoporto/agshelp/wiki/' + url,
+            'auto_toc_tree_section': 'Contents',
+            'enable_inline_math': False,
+            }, True)
+    app.add_transform(AutoStructify)
