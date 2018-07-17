@@ -1,0 +1,76 @@
+#!/usr/bin/awk -f
+
+function get_page_name(path) {
+	split_count = split(path, parts, "/")
+	filename = parts[split_count]	
+	split_count = split(filename, parts, ".")
+	
+	if (split_count == 1)
+		return filename
+		
+	ext_length = length(parts[split_count]) + 1
+	return substr(filename, 1, length(filename) - ext_length)
+}
+
+function make_link(page, anchor) {
+	link = anchor
+	# remove leading spaces and hashes
+	gsub("^ *##* *", "", link)	
+	# remove punctuation
+	gsub("[\.\?\(\)\+\*!,#]", "", link)
+	# convert spaces to dashes
+	gsub(" ", "-", link)
+	return sprintf("%s#%s", page, tolower(link))
+}
+
+BEGIN {
+	count = 0
+	bad = 0
+	good = 0
+
+	for (i = 0; i < ARGC; i++) {
+		pagename = get_page_name(ARGV[i])
+		targets[pagename] = null
+		count ++
+
+		while ((getline line < ARGV[i]) > 0) {
+			if (match(line, "^ *##.*") != 0) {
+				link = make_link(pagename, substr(line, RSTART, RLENGTH))
+				if (!(link in targets)) {
+					targets[link] = null
+					count ++
+				}
+			}
+		}
+
+	}
+}
+
+{
+	if (match($0, "\[[^\(\)]*\]\([^\[\]]*\)") != 0) {
+		line = substr($0, RSTART, RLENGTH)
+		start = index(line, "(") + 1
+		end = index(line, ")")
+		link = substr(line, start, end - start)
+
+		# ignore links to images
+		if (tolower(link) ~ "\.(jpg|gif|png)$")
+			next
+		
+		if (index(link, "#") == 1)
+			link = get_page_name(FILENAME) link
+
+		if (link in targets) {
+			good ++
+		} else {
+			bad ++
+			printf("Bad link %s on page %s (line %d)\n", link, FILENAME, FNR)
+		}
+	}
+}
+
+END {
+	printf("\nFound %d pages/anchors\n", count)
+	printf("Total links: %d\n", good + bad)
+	printf("Bad links: %d\n", bad)
+}
