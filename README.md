@@ -43,3 +43,9 @@ If there is need to deploy in a different server, edit the url resolver at the e
                 'enable_inline_math': False,
                 }, True)
         app.add_transform(AutoStructify)
+
+## checking wiki links
+
+If making a lot of changes, the included AWK script can validate links within a directory:
+
+    ./checklinks path/to/wiki/source/*.md
