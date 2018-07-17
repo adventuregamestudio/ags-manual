@@ -56,6 +56,10 @@ BEGIN {
 		# ignore links to images
 		if (tolower(link) ~ "\.(jpg|gif|png)$")
 			next
+			
+		# ignore actual web links
+		if (tolower(link) ~ "^https?://")
+			next
 		
 		if (index(link, "#") == 1)
 			link = get_page_name(FILENAME) link
