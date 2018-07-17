@@ -1,0 +1,26 @@
+language: python
+sudo: false
+
+python:
+  - "3.6"
+
+before_install:
+  # Make sure that things work even if the locale is set to C (which
+  # effectively means ASCII). Some of the input rst files have unicode
+  # characters and we need to deal with this gracefully.
+  - |
+    if [[ $LOCALE == C ]]; then
+        export LC_CTYPE=C
+        export LC_ALL=C
+        export LANG=C
+    fi
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - bash get-help-source.sh
+  - make html
+  - ./checklinks source/*.md > build/__check_link_results.txt
+
+# after_success:
