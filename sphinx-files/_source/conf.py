@@ -49,7 +49,7 @@ templates_path = ['sphinx_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = ['.rst', '.md']
+source_suffix = ['.md']
 
 source_parsers = {
    '.md': 'recommonmark.parser.CommonMarkParser',
@@ -163,7 +163,7 @@ texinfo_documents = [
 # -- Extension configuration -------------------------------------------------
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: 'https://github.com/ericoporto/agshelp/wiki/' + url,
+            'url_resolver': lambda url: 'https://ericoporto.github.io/agshelp/' + url,
             'auto_toc_tree_section': 'Contents',
             'enable_inline_math': False,
             }, True)

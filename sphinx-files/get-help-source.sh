@@ -2,8 +2,7 @@
 
 ./clean-help-source.sh
 
-cd source
+git clone https://github.com/ericoporto/agshelp.wiki.git source
 
-git clone https://github.com/ericoporto/agshelp.wiki.git
-
-cd ..
+cp _source/conf.py source/conf.py
+mv source/Home.md source/index.md
