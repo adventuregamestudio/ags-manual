@@ -54,7 +54,7 @@ BEGIN {
 		link = substr(line, start, end - start)
 
 		# ignore links to images
-		if (tolower(link) ~ "\.(jpg|gif|png)$")
+		if (tolower(link) ~ "\\.(jpg|gif|png)$")
 			next
 			
 		# ignore actual web links
