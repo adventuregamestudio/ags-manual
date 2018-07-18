@@ -47,7 +47,7 @@ BEGIN {
 }
 
 {
-	if (match($0, "\[[^\(\)]*\]\([^\[\]]*\)") != 0) {
+	if (match($0, "\\[[^\\(\\)\\]]*\\]\\([^\\[\\]\\)]*\\)") != 0) {
 		line = substr($0, RSTART, RLENGTH)
 		start = index(line, "(") + 1
 		end = index(line, ")")
