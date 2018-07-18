@@ -77,4 +77,9 @@ END {
 	printf("\nFound %d pages/anchors\n", count)
 	printf("Total links: %d\n", good + bad)
 	printf("Bad links: %d\n", bad)
+	
+	if (bad > 0)
+		exit 1
+		
+	exit 0
 }
