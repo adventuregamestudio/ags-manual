@@ -21,7 +21,7 @@ install:
 script:
   - bash get-help-source.sh
   - make html
-  - ./checklinks source/*.md > build/__check_link_results.txt
+  - ./checklinks source/*.md > build/html/_check_link_results.txt
   - touch build/html/.nojekyll
 
 deploy:
