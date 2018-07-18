@@ -51,3 +51,5 @@ If there is need to deploy in a different server, edit the url resolver at the e
 If making a lot of changes, the included AWK script can validate links within a directory:
 
     ./checklinks path/to/wiki/source/*.md
+
+[current Travis-CI checklinks here](https://ericoporto.github.io/agshelp/_check_link_results.txt)
