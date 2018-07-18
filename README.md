@@ -1,8 +1,10 @@
 # Adventure Game Studio Help Files
 
-The help files can be edited on the wiki or cloned locally and pushed. You can also create issues if something is wrong.
+[![Build Status](https://travis-ci.org/ericoporto/agshelp.svg?branch=master)](https://travis-ci.org/ericoporto/agshelp)
 
 [**Edit the Help in the Wiki**](https://github.com/ericoporto/agshelp/wiki) | [**Revision History**](https://github.com/ericoporto/agshelp/wiki/Home/_history)
+
+The help files can be edited on the wiki or cloned locally and pushed. Create issues if something is wrong.
 
 Alternatively, you can clone and edit the Wiki Locally
 
