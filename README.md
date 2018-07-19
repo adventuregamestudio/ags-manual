@@ -52,4 +52,5 @@ If making a lot of changes, the included AWK script can validate links within a 
 
     ./checklinks path/to/wiki/source/*.md
 
-[current Travis-CI checklinks here](https://ericoporto.github.io/agshelp/_check_link_results.txt)
+A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/ericoporto/agshelp).
+
