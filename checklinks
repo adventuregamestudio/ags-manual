@@ -30,6 +30,13 @@ BEGIN {
 
 	for (i = 0; i < ARGC; i++) {
 		pagename = get_page_name(ARGV[i])
+
+		# ignore the symlinked index file
+		if (pagename == "index") {
+			ARGV[i] = null
+			continue
+		}
+
 		targets[pagename] = null
 		count ++
 
@@ -47,6 +54,9 @@ BEGIN {
 }
 
 {
+	if (FNR == 1)
+		pagename = get_page_name(FILENAME)
+
 	if (match($0, "\\[[^\\(\\)\\]]*\\]\\([^\\[\\]\\)]*\\)") != 0) {
 		line = substr($0, RSTART, RLENGTH)
 		start = index(line, "(") + 1
@@ -62,7 +72,7 @@ BEGIN {
 			next
 		
 		if (index(link, "#") == 1)
-			link = get_page_name(FILENAME) link
+			link = pagename link
 
 		if (link in targets) {
 			good ++
