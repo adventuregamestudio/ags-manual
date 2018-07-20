@@ -19,7 +19,7 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - bash get-help-source.sh
+  - ./get-help-source.sh
   - make html
   - ./checklinks source/*.md 
   - touch build/html/.nojekyll
