@@ -1,8 +1,8 @@
 # Adventure Game Studio Help Files
 
-[![Build Status](https://travis-ci.org/ericoporto/agshelp.svg?branch=master)](https://travis-ci.org/ericoporto/agshelp)
+[![Build Status](https://travis-ci.org/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.org/ericoporto/agshelp)
 
-[**Edit the Help in the Wiki**](https://github.com/ericoporto/agshelp/wiki) | [**Revision History**](https://github.com/ericoporto/agshelp/wiki/_history)
+[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
 
 The help files can be edited on the wiki or cloned locally and pushed. Create issues if something is wrong.
 
@@ -12,7 +12,7 @@ Alternatively, you can clone and edit the Wiki Locally
 
 ## Read the help files
 
-[Build rendered on ericoporto.github.io/agshelp/](https://ericoporto.github.io/agshelp/)
+[Build rendered on ericoporto.github.io/agshelp/](https://adventuregamestudio.github.io/ags-manual)
 
 ## How to generate the help files from the wiki!
 
@@ -22,7 +22,7 @@ This documentation assumes you have Sphinx already installed and configured and 
 
 To build the help files, clone this repository first!
 
-    git clone git@github.com:ericoporto/agshelp.git
+    git clone git@github.com:adventuregamestudio/ags-manual.git
     cd agshelp
 
 Then you need to get the wiki files
@@ -40,7 +40,7 @@ If there is need to deploy in a different server, edit the url resolver at the e
     # -- Extension configuration -------------------------------------------------
     def setup(app):
         app.add_config_value('recommonmark_config', {
-                'url_resolver': lambda url: 'https://ericoporto.github.io/agshelp/' + url,
+                'url_resolver': lambda url: 'https://adventuregamestudio.github.io/ags-manual/' + url,
                 'auto_toc_tree_section': 'Contents',
                 'enable_inline_math': False,
                 }, True)
@@ -52,5 +52,5 @@ If making a lot of changes, the included AWK script can validate links within a 
 
     ./checklinks path/to/wiki/source/*.md
 
-A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/ericoporto/agshelp).
+A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/adventuregamestudio/ags-manual).
 
