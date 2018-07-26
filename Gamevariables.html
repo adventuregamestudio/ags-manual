@@ -1,0 +1,271 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Game variables &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="game-variables">
+<span id="game-variables"></span><h1>Game variables<a class="headerlink" href="#game-variables" title="Permalink to this headline">¶</a></h1>
+<p>The following variables are available to your script. They allow you to
+do various tweaks to the engine at run-time.</p>
+<p>Names in <strong>bold</strong> are <strong>read-only variables</strong> and should NOT be modified
+by the script.</p>
+<p>All the following variables are <code class="docutils literal notranslate"><span class="pre">int</span></code> variables.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th><strong>variable</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>game.abort_key</td>
+<td>The keycode for Abort Game, which allows the you to quit even if your script is stuck. Default 324 (Alt+X).</td>
+</tr>
+<tr>
+<td>game.ambient_sounds_persist</td>
+<td>If 0 (default), ambient sounds are stopped on room change. Set to 1 to tell AGS to leave ambient sounds playing when going to a new room.</td>
+</tr>
+<tr>
+<td>game.anim_background_speed</td>
+<td>The current room's animating background speed - same values as in editor.</td>
+</tr>
+<tr>
+<td>game.auto_use_walkto_points</td>
+<td>Default 1; set to 0 to stop AGS automatically using hotspot walk-to points.</td>
+</tr>
+<tr>
+<td>game.bgspeech_game_speed</td>
+<td>If 0 (default), background speech stays on the screen for the same amount of time, no matter what the game speed. If 1, the amount of time it stays is relative to the game speed.</td>
+</tr>
+<tr>
+<td>game.bgspeech_stay_on_display</td>
+<td>If 0 (default), background speech is removed when a Say command happens; if 1, it isn't.</td>
+</tr>
+<tr>
+<td>game.close_mouth_end_speech_time</td>
+<td>At the end of speech text, the speech animation will stop for this number of game loops. Default 10. No affect in voice mode.</td>
+</tr>
+<tr>
+<td>game.debug_mode</td>
+<td>Whether we are in debug mode or not.</td>
+</tr>
+<tr>
+<td>game.dialog_options_highlight_color</td>
+<td>Color used to draw the active (selected) dialog option</td>
+</tr>
+<tr>
+<td>game.dialog_options_x</td>
+<td>Offset into dialog options GUI to compensate for borders</td>
+</tr>
+<tr>
+<td>game.dialog_options_y</td>
+<td>Offset into dialog options GUI to compensate for borders</td>
+</tr>
+<tr>
+<td>game.disable_antialiasing</td>
+<td>Set to 1 to disable smoothing of scaled characters, overriding the user's choice in Setup. Default 0.</td>
+</tr>
+<tr>
+<td>game.following_room_timer</td>
+<td>How long to wait before following char emerges in new room, default 150. (higher is longer).</td>
+</tr>
+<tr>
+<td>game.keep_screen_during_instant_transition</td>
+<td>Normally the Instant transition blacks the screen in 8-bit colour modes, to avoid strange palette effects. However you can set this to 1 to prevent it doing so.</td>
+</tr>
+<tr>
+<td><strong>game.inv_activated</strong></td>
+<td>Inventory item that the player last clicked on. Useful for unhandled_event.</td>
+</tr>
+<tr>
+<td>game.inventory_greys_out</td>
+<td>Set to 1 to make inventory controls grey out when GUI disabled is set to "GUIs Grey Out"</td>
+</tr>
+<tr>
+<td>game.lipsync_speed</td>
+<td>Similar to Game.TextReadingSpeed, but this determines how quickly the text is 'read' out by the mouth moving. You should normally only set this faster than text_speed, otherwise the reading will get cut off when the text times out. Default 15.</td>
+</tr>
+<tr>
+<td>game.max_dialogoption_width</td>
+<td>Maximum width of textwindow-based dialog options box. Default 180.</td>
+</tr>
+<tr>
+<td>game.min_dialogoption_width</td>
+<td>Minimum width of textwindow-based dialog options box. Default 0.</td>
+</tr>
+<tr>
+<td>game.narrator_speech</td>
+<td>Which character ID to use for voice speech within Display() command. Default initial player character. You can also use NARRATOR which uses 'NARR' prefix - special narrator character.</td>
+</tr>
+<tr>
+<td>game.no_textbg_when_voice</td>
+<td>Normally 0. If 1, and the Sierra-style With Background speech style is in use, will change to the Sierra-style (No Bg) if a voice speech line is present.</td>
+</tr>
+<tr>
+<td>game.read_dialog_option_color</td>
+<td>By default, -1. You can set this to a colour number, in which case dialog options that the player has selected before will be displayed in this colour.</td>
+</tr>
+<tr>
+<td>game.roomscript_finished</td>
+<td>The on_call function has completed executing. (See <a href="Game#callroomscript">CallRoomScript</a>)</td>
+</tr>
+<tr>
+<td><strong>game.score</strong></td>
+<td>The player's score. To modify the score, use the GiveScore script function.</td>
+</tr>
+<tr>
+<td>game.score_sound</td>
+<td>Sound effect to play when the player gets points, originally set in the editor.</td>
+</tr>
+<tr>
+<td>game.screenshot_height</td>
+<td>The height of screenshot images when saved into save games. The largest you can have is the full screen size (320x200), which gives the highest quality but the largest size save game files. The default is 160x100.</td>
+</tr>
+<tr>
+<td>game.screenshot_width</td>
+<td>The width of screenshot images when saved into save games.</td>
+</tr>
+<tr>
+<td>game.show_single_dialog_option</td>
+<td>If only a single dialog option is available, show it anyway (default=0)</td>
+</tr>
+<tr>
+<td>game.sierra_inv_color</td>
+<td>The background color of the sierra-style inventory.</td>
+</tr>
+<tr>
+<td>game.skip_display</td>
+<td>Setting for how Display() messages are skipped; valid values are same as for Speech.SkipStyle (default 3).</td>
+</tr>
+<tr>
+<td>game.skip_speech_specific_key</td>
+<td>Default 0. You can set it to a keycode, in which case only that key can skip speech text.</td>
+</tr>
+<tr>
+<td>game.speech_bubble_width</td>
+<td>Maximum width of the thought bubble text window (default 100)</td>
+</tr>
+<tr>
+<td>game.speech_text_align</td>
+<td>Sets how text in Lucasarts-style speech is aligned. Same possible values as game.text_align, default eAlignCentre</td>
+</tr>
+<tr>
+<td>game.speech_text_gui</td>
+<td>The textwindow GUI number used for sierra-style speech.</td>
+</tr>
+<tr>
+<td>game.text_align</td>
+<td>Sets how text in message boxes and Sierra-style speech is aligned:<br>eAlignLeft: text aligned to left within message box (default)<br>eAlignCentre: text is centred within the message box<br>eAlignRight: text is right-aligned within the message box<br>These options do not affect Lucasarts-style speech, which is always centred.</td>
+</tr>
+<tr>
+<td>game.text_shadow_color</td>
+<td>Color used for speech text shadow (default 16).</td>
+</tr>
+<tr>
+<td>game.top_bar_XXXX</td>
+<td>Customizations for <a href="DisplayAt#displaytopbar">DisplayTopBar</a>, see link for details</td>
+</tr>
+<tr>
+<td>game.total_score</td>
+<td>Maximum possible score, initially set in the editor.</td>
+</tr>
+<tr>
+<td>game.used_mode</td>
+<td>Cursor mode used with last click (use with "any click" events to find out which mode was used)</td>
+</tr>
+<tr>
+<td><strong>mouse.x</strong></td>
+<td>Mouse X co-ordinate when the last game loop was run (320-res)</td>
+</tr>
+<tr>
+<td><strong>mouse.y</strong></td>
+<td>Mouse Y co-ordinate when the last game loop was run (320-res)</td>
+</tr>
+<tr>
+<td>palette[SLOT].r</td>
+<td>The red component (0-63) of palette slot SLOT</td>
+</tr>
+<tr>
+<td>palette[SLOT].g</td>
+<td>The green component (0-63) of palette slot SLOT</td>
+</tr>
+<tr>
+<td>palette[SLOT].b</td>
+<td>The blue component (0-63) of palette slot SLOT</td>
+</tr>
+<tr>
+<td>player.[x,y,name,...]</td>
+<td>Alias to the current player character.</td>
+</tr>
+</tbody>
+</table></div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Gamevariables.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

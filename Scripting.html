@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Scripting API &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="scripting-api">
+<span id="scripting-api"></span><h1>Scripting API<a class="headerlink" href="#scripting-api" title="Permalink to this headline">¶</a></h1>
+<p>The AGS scripting system allows you to write a mini-program, giving you
+great control over your game.</p>
+<ul class="simple">
+<li><a class="reference external" href="TextScriptEvents"><strong>Predefined global script functions</strong></a></li>
+<li><a class="reference external" href="RepExec"><strong>repeatedly_execute / repeatedly_execute_always</strong></a></li>
+<li><a class="reference external" href="CustomDialogOptions"><strong>Custom dialog options rendering</strong></a><br></li>
+<li><a class="reference external" href="BuiltInEnums"><strong>Built-in enumerated types</strong></a><br></li>
+<li><a class="reference external" href="managedmodifier"><strong>Script language keywords</strong></a><br></li>
+<li><a class="reference external" href="AudioChannel#audiochannelcommands"><strong>AudioChannel functions and
+properties</strong></a><br></li>
+<li><a class="reference external" href="AudioClip"><strong>AudioClip functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Character"><strong>Character functions and properties</strong></a><br></li>
+<li><a class="reference external" href="DateTime"><strong>DateTime functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Dialog"><strong>Dialog functions and properties</strong></a><br></li>
+<li><a class="reference external" href="DialogOptionsRenderingInfo#dialogoptionsrenderinginfofunctions"><strong>DialogOptionsRenderingInfo functions and
+properties</strong></a><br></li>
+<li><a class="reference external" href="DrawingSurfaceFunctions"><strong>DrawingSurface functions and
+properties</strong></a><br></li>
+<li><a class="reference external" href="DynamicSprite"><strong>DynamicSprite functions and properties</strong></a><br></li>
+<li><a class="reference external" href="File"><strong>File functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Game"><strong>Game / Global functions</strong></a><br></li>
+<li><a class="reference external" href="GUI"><strong>GUI functions and properties</strong></a><br></li>
+<li><a class="reference external" href="GUIControl"><strong>GUI control functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Button"><strong>GUI Button functions and properties</strong></a><br></li>
+<li><a class="reference external" href="GUI"><strong>GUI InvWindow functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Label"><strong>GUI Label functions and properties</strong></a><br></li>
+<li><a class="reference external" href="ListBox"><strong>GUI List Box functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Slider"><strong>GUI Slider properties</strong></a><br></li>
+<li><a class="reference external" href="TextBox"><strong>GUI Text Box functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Hotspot"><strong>Hotspot functions and properties</strong></a><br></li>
+<li><a class="reference external" href="InventoryItem"><strong>Inventory item functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Maths"><strong>Maths functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Mouse"><strong>Mouse functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Game"><strong>Multimedia functions</strong></a><br></li>
+<li><a class="reference external" href="Object"><strong>Object functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Overlay"><strong>Overlay functions and properties</strong></a><br></li>
+<li><a class="reference external" href="CyclePalette"><strong>Palette functions</strong></a><br></li>
+<li><a class="reference external" href="Parser"><strong>Parser functions</strong></a><br></li>
+<li><a class="reference external" href="Region"><strong>Region functions and properties</strong></a><br></li>
+<li><a class="reference external" href="Room"><strong>Room functions</strong></a><br></li>
+<li><a class="reference external" href="ShakeScreen"><strong>Screen functions</strong></a><br></li>
+<li><a class="reference external" href="Speech"><strong>Speech functions and properties</strong></a><br></li>
+<li><a class="reference external" href="String"><strong>String functions</strong></a><br></li>
+<li><a class="reference external" href="System"><strong>System functions and properties</strong></a><br></li>
+<li><a class="reference external" href="DisplayAt"><strong>Text display / Speech functions</strong></a><br></li>
+<li><a class="reference external" href="ViewFrame"><strong>ViewFrame functions and properties</strong></a><br></li>
+<li><a class="reference external" href="SCUMM_VERBCOIN_GUI"><strong>SCUMM_VERBCOIN_GUI functions</strong></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Scripting.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

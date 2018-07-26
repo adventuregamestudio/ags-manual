@@ -1,0 +1,314 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GUI InvWindow functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gui-invwindow-functions-and-properties">
+<span id="gui-invwindow-functions-and-properties"></span><h1>GUI InvWindow functions and properties<a class="headerlink" href="#gui-invwindow-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#bringtofront">BringToFront</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#clickable">Clickable property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#enabled">Enabled property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#height">Height property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#id">ID property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#owninggui">OwningGUI property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#sendtoback">SendToBack</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setposition">SetPosition</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setsize">SetSize</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#visible">Visible property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#width">Width property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#x">X property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#y">Y property</a><br>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#zorder">ZOrder property</a></p>
+<p><a class="reference external" href="#scrolldown">ScrollDown</a><br>
+<a class="reference external" href="#scrollup">ScrollUp</a><br>
+<a class="reference external" href="#charactertouse">CharacterToUse property</a><br>
+<a class="reference external" href="#itematindex">ItemAtIndex property</a><br>
+<a class="reference external" href="#itemcount">ItemCount property</a><br>
+<a class="reference external" href="#itemheight">ItemHeight property</a><br>
+<a class="reference external" href="#itemwidth">ItemWidth property</a><br>
+<a class="reference external" href="#itemsperrow">ItemsPerRow property</a><br>
+<a class="reference external" href="#rowcount">RowCount property</a><br>
+<a class="reference external" href="#topitem">TopItem property</a></p>
+<hr class="docutils" />
+<div class="section" id="scrolldown">
+<span id="scrolldown"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InvWindow</span><span class="o">.</span><span class="n">ScrollDown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Scrolls the inventory window down one line, if there are more items to
+display. If the inventory window is already at the bottom, then nothing
+happens.</p>
+<p>You would usually use this in response to a GUI button press on a Down
+arrow button on your GUI.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">invMain</span><span class="o">.</span><span class="n">ScrollDown</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will scroll the <em>invMain</em> inv window down one row.</p>
+<p><em>See Also:</em> <a class="reference external" href="#scrollup">InvWindow.ScrollUp</a>,
+<a class="reference external" href="#topitem">InvWindow.TopItem</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="scrollup">
+<span id="scrollup"></span><h2>ScrollUp<a class="headerlink" href="#scrollup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">InvWindow</span><span class="o">.</span><span class="n">ScrollUp</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Scrolls the inventory window up one line, if there are more items to
+display. If the inventory window is already at the top, then nothing
+happens.</p>
+<p>You would usually use this in response to a GUI button press on an Up
+arrow button on your GUI.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">invMain</span><span class="o">.</span><span class="n">ScrollUp</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will scroll the <em>invMain</em> inv window up one row.</p>
+<p><em>See Also:</em> <a class="reference external" href="#scrolldown">InvWindow.ScrollDown</a>,
+<a class="reference external" href="#topitem">InvWindow.TopItem</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="charactertouse">
+<span id="charactertouse"></span><h2>CharacterToUse<a class="headerlink" href="#charactertouse" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Character</span><span class="o">*</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">CharacterToUse</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets which character the inventory window is currently displaying
+the inventory for. This is either set to a specific character, or it can
+be set to <em>null</em>, in which case the inventory window will track the
+current player character (this is the default).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">invMain</span><span class="o">.</span><span class="n">CharacterToUse</span> <span class="o">=</span> <span class="n">cJack</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will change the <em>invMain</em> inventory window to display character JACK’s
+inventory.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="itematindex">
+<span id="itematindex"></span><h2>ItemAtIndex<a class="headerlink" href="#itematindex" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">InventoryItem</span><span class="o">*</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">ItemAtIndex</span><span class="p">[];</span>
+</pre></div>
+</div>
+<p>Gets the inventory item that is currently displayed at the specified
+index in this inventory window. The number of items in the window can be
+retrieved with the <a class="reference external" href="#itemcount">ItemCount</a> property.
+Indexes range from 0 to ItemCount - 1.</p>
+<p>If an invalid index is supplied, <em>null</em> is returned.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">firstOne</span> <span class="o">=</span> <span class="n">invMain</span><span class="o">.</span><span class="n">ItemAtIndex</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Name</span><span class="p">;</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;First item is </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">firstOne</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the name of the first item displayed in the <em>invMain</em>
+inventory window.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemcount">InvWindow.ItemCount</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="itemcount">
+<span id="itemcount"></span><h2>ItemCount<a class="headerlink" href="#itemcount" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.num_inv_items, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">ItemCount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the total number of items contained in the inventory window. This
+will tend to equal the total number of items that the character has
+(though it may not if the “Display multiple items multiple times” game
+setting is not checked).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">invMain</span><span class="o">.</span><span class="n">ItemCount</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">invMain</span><span class="o">.</span><span class="n">ItemsPerRow</span> <span class="o">*</span> <span class="n">invMain</span><span class="o">.</span><span class="n">RowCount</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">btnInvUp</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+  <span class="n">btnInvDown</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are
+more inventory items than will fit in the inventory window.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itematindex">InvWindow.ItemAtIndex</a>,
+<a class="reference external" href="#itemsperrow">InvWindow.ItemsPerRow</a>,
+<a class="reference external" href="#rowcount">InvWindow.RowCount</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="itemheight">
+<span id="itemheight"></span><h2>ItemHeight<a class="headerlink" href="#itemheight" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">ItemHeight</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets the height of the rows in the inventory window. You should
+generally set this up in game_start to the height of your largest
+inventory item. The default is 22.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">invMain</span><span class="o">.</span><span class="n">ItemWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">invMain</span><span class="o">.</span><span class="n">ItemHeight</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemwidth">InvWindow.ItemWidth</a>,
+<a class="reference external" href="#rowcount">InvWindow.RowCount</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="itemwidth">
+<span id="itemwidth"></span><h2>ItemWidth<a class="headerlink" href="#itemwidth" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">ItemWidth</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets the width of the items in the inventory window. You should
+generally set this up in game_start to the width of your largest
+inventory item. The default is 40.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">invMain</span><span class="o">.</span><span class="n">ItemWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">invMain</span><span class="o">.</span><span class="n">ItemHeight</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemheight">InvWindow.ItemHeight</a>,
+<a class="reference external" href="#itemsperrow">InvWindow.ItemsPerRow</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="itemsperrow">
+<span id="itemsperrow"></span><h2>ItemsPerRow<a class="headerlink" href="#itemsperrow" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.items_per_line, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">ItemsPerRow</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the number of items that can be displayed in each row of the
+inventory window. This is calculated by the width of the inventory
+window divided by the individual ItemWidth.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The inventory window can show </span><span class="si">%d</span><span class="s2"> items at a time&quot;</span><span class="p">,</span> <span class="n">invMain</span><span class="o">.</span><span class="n">ItemsPerRow</span> <span class="o">*</span> <span class="n">invMain</span><span class="o">.</span><span class="n">RowCount</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>displays how many items can be visible in the invMain window at once.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemwidth">InvWindow.ItemWidth</a>,
+<a class="reference external" href="#rowcount">InvWindow.RowCount</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="rowcount">
+<span id="rowcount"></span><h2>RowCount<a class="headerlink" href="#rowcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">RowCount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the number of rows that can be displayed within the inventory
+window. This is calculated by dividing the height of the window by the
+individual ItemHeight.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The inventory window can show </span><span class="si">%d</span><span class="s2"> items at a time&quot;</span><span class="p">,</span> <span class="n">invMain</span><span class="o">.</span><span class="n">ItemsPerRow</span> <span class="o">*</span> <span class="n">invMain</span><span class="o">.</span><span class="n">RowCount</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>displays how many items can be visible in the invMain window at once.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemheight">InvWindow.ItemHeight</a>,
+<a class="reference external" href="#itemsperrow">InvWindow.ItemsPerRow</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="topitem">
+<span id="topitem"></span><h2>TopItem<a class="headerlink" href="#topitem" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.top_inv_item, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">InvWindow</span><span class="o">.</span><span class="n">TopItem</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets the index of the first item currently displayed in the
+inventory window. The first item is represented by 0, and the last item
+is has an index of <a class="reference external" href="#itemcount">ItemCount</a> - 1.</p>
+<p>You can use this to work out whether to display scroll arrows or not.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">invMain</span><span class="o">.</span><span class="n">TopItem</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">btnScrollUp</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">btnScrollUp</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>makes the <em>btnScrollUp</em> button visible or invisible depending on whether
+the inventory list can be scrolled up.</p>
+<p><em>See Also:</em> <a class="reference external" href="#itemcount">InvWindow.ItemCount</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GUI InvWindow functions and properties</a><ul>
+<li><a class="reference internal" href="#scrolldown">ScrollDown</a></li>
+<li><a class="reference internal" href="#scrollup">ScrollUp</a></li>
+<li><a class="reference internal" href="#charactertouse">CharacterToUse</a></li>
+<li><a class="reference internal" href="#itematindex">ItemAtIndex</a></li>
+<li><a class="reference internal" href="#itemcount">ItemCount</a></li>
+<li><a class="reference internal" href="#itemheight">ItemHeight</a></li>
+<li><a class="reference internal" href="#itemwidth">ItemWidth</a></li>
+<li><a class="reference internal" href="#itemsperrow">ItemsPerRow</a></li>
+<li><a class="reference internal" href="#rowcount">RowCount</a></li>
+<li><a class="reference internal" href="#topitem">TopItem</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/InvWindow.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

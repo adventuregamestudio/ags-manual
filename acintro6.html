@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started with AGS - Part 6 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-ags-part-6">
+<span id="getting-started-with-ags-part-6"></span><h1><strong>Getting Started with AGS - Part 6</strong><a class="headerlink" href="#getting-started-with-ags-part-6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-your-own-graphics">
+<span id="using-your-own-graphics"></span><h2>Using your own graphics<a class="headerlink" href="#using-your-own-graphics" title="Permalink to this headline">¶</a></h2>
+<p>When you were choosing the graphics for the object earlier in this
+tutorial, you probably noticed that the images available didn’t look up
+to much. This is no problem, because you can import your own graphics
+using the Sprite Manager.</p>
+<p>Double-click <em>“Sprites”</em> near the top of the project tree. This opens up
+the Sprite Manager, where you can see the complete sprite set for the
+game.</p>
+<p>AGS uses these sprites for all game graphics, except room backgrounds.
+The Sprite Manager is the central place where you do all your graphics
+importing. Whenever you want to use images in the game (for mouse
+cursors, views, objects, etc), you select an image to use from here.</p>
+<p>There are two ways to import your graphics - either overwrite an
+existing sprite with your graphic, or create a new slot for it. To
+overwrite an existing sprite, right-click the sprite and select
+<em>“Replace sprite from file”</em>. To import a new slot, right-click on the
+background of the window and choose <em>“Import new sprite from file”</em>. If
+your game is hi-colour, you’ll also have options to paste from the
+clipboard.</p>
+<p>Note that the sprite graphics you import must be the same colour depth
+as your backgrounds - ie. if you have a 256-colour game, you must import
+256-colour sprites.</p>
+<p><img alt="" src="_images/intro6_1.jpg" /><br>
+<em>Right-clicking to replace existing sprite</em></p>
+<p>So, let’s replace the default key image with something of our own.
+Right-click on it and choose “<em>Replace sprite from file</em>”. Select the
+file that you want in the dialog, and then you’ll be presented with
+this:</p>
+<p><img alt="" src="_images/intro6_2.jpg" /><br>
+<em>The “Import Sprite” window</em></p>
+<p>This is the Import Sprite window. You’ll see the image from the file
+that you chose, along with various options. The Zoom slider on the left
+allows you to zoom in on the image (very useful for 320x200-resolution
+graphics), and the “Transparent colour” option allows you to choose how
+AGS decides which colour is the image’s transparent colour.</p>
+<p>Now, you have two choices. If you want to import the whole image, just
+click the “Import Whole Image” button, and you’re done. If on the other
+hand you only want to import a portion of the image, then you need to
+right-drag the mouse within the image to select the area that you want
+to import. Once you’ve got it right, left-click to confirm and the
+selected area of the image will be imported.</p>
+<p><strong>NOTE:</strong> For character graphics, make sure you import graphics that are
+a suitable size for the game backgrounds. For example, don’t import a
+320x200-sized image for your character, since it will take up the whole
+screen. A good size would be about 20x50 pixels. This will look really
+small in the Import window, but your game runs at a much lower
+resolution so it’ll look much larger.</p>
+<p><img alt="" src="_images/icon_info.gif" /><br>
+NOTE (256-colour only): You may well find that the colours on your graphic look slightly strange once you’ve imported the image. This is because by default only the first 41 of the palette colours are allocated to sprites, so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colours assigned to sprites, at the expense of background colours (see the earlier part of the tutorial for palette setup).</p>
+<div class="section" id="tiled-sprite-import">
+<span id="tiled-sprite-import"></span><h3>Tiled sprite import<a class="headerlink" href="#tiled-sprite-import" title="Permalink to this headline">¶</a></h3>
+<p>This feature allows you to import a grid of sprites into separate slots</p>
+<ul class="simple">
+<li>for example, if you have several frames of a character animation side
+by side in the source bitmap. To do this, simply check the “Tiled sprite
+import” box, and align your rectangle on the top left sprite. When you
+click the left mouse button, you will get an extra step which allows you
+to size the grid:</li>
+</ul>
+<p>Click the left button again once you are happy with the grid. Each of
+the cells will be imported as a separate sprite.</p>
+<p><img alt="" src="_images/icon_info.gif" /><br>
+NOTE: Tiled sprite import only works if you selected “Import new sprite from file”. If you used the “Replace sprite” option, only the first tile will be imported.</p>
+<p>Go to part 7: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/acintro7">Animations</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 6</strong></a><ul>
+<li><a class="reference internal" href="#using-your-own-graphics">Using your own graphics</a><ul>
+<li><a class="reference internal" href="#tiled-sprite-import">Tiled sprite import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/acintro6.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

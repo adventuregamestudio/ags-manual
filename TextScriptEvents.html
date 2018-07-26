@@ -1,0 +1,333 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Predefined global script functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="predefined-global-script-functions">
+<span id="predefined-global-script-functions"></span><h1>Predefined global script functions<a class="headerlink" href="#predefined-global-script-functions" title="Permalink to this headline">¶</a></h1>
+<p>In your main global script file, there are some functions which are
+automatically added when you create the game. These are global events,
+and the function is called when a particular event happens. There are
+also some other events which you can add if you want to.</p>
+<p>The available event functions are:</p>
+<p>dialog_request (int parameter)</p>
+<p>Called when a dialog script line “run-script” is processed. PARAMETER is
+the value of the number following the “run-script” on that line of the
+dialog script.</p>
+<p>game_start ()</p>
+<p>Called at the start of the game, before the first room is loaded. You
+can use this to set up the initial positions of characters, and to turn
+GUIs on and off. <strong>You cannot run animations or do anything else which
+relies on a room being loaded</strong>.</p>
+<p>interface_click (int interface, int button)</p>
+<p><strong>(Now Obsolete)</strong> Called when the player clicks on a button on a GUI
+which has its action set as “Run script”. INTERFACE is the number of the
+GUI which they clicked on. BUTTON is the object number of the button
+within this GUI.</p>
+<p>on_event (EventType event, int data)</p>
+<p>Called whenever certain game events happen. The value of DATA depends on
+which event has occurred. This allows you to perform checks or update
+things every time the player does something, regardless of which room it
+is in. The possible values of event are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eEventEnterRoomBeforeFadein</span>
+      <span class="n">called</span> <span class="n">just</span> <span class="n">before</span> <span class="n">room</span> <span class="n">Player</span> <span class="n">Enters</span> <span class="n">Room</span> <span class="n">event</span> <span class="ow">is</span> <span class="n">run</span><span class="o">.</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">new</span> <span class="n">room</span> <span class="n">number</span>
+<span class="n">eEventLeaveRoom</span>
+      <span class="n">called</span> <span class="n">just</span> <span class="n">after</span> <span class="n">room</span> <span class="n">Player</span> <span class="n">Leaves</span> <span class="n">Room</span> <span class="n">event</span> <span class="ow">is</span> <span class="n">run</span><span class="o">.</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">room</span> <span class="n">number</span> <span class="n">they</span> <span class="n">are</span> <span class="n">leaving</span>
+<span class="n">eEventGotScore</span>
+      <span class="n">called</span> <span class="n">whenever</span> <span class="n">the</span> <span class="n">player</span><span class="s1">&#39;s score changes</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">number</span> <span class="n">of</span> <span class="n">points</span> <span class="n">they</span> <span class="n">got</span>
+<span class="n">eEventGUIMouseDown</span>
+      <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">mouse</span> <span class="n">button</span> <span class="ow">is</span> <span class="n">pressed</span> <span class="n">down</span> <span class="n">over</span> <span class="n">a</span> <span class="n">GUI</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">GUI</span> <span class="n">number</span>
+<span class="n">eEventGUIMouseUp</span>
+      <span class="n">called</span> <span class="n">when</span> <span class="n">a</span> <span class="n">mouse</span> <span class="n">button</span> <span class="ow">is</span> <span class="n">released</span> <span class="n">over</span> <span class="n">a</span> <span class="n">GUI</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">GUI</span> <span class="n">number</span>
+<span class="n">eEventAddInventory</span>
+      <span class="n">the</span> <span class="n">player</span> <span class="n">just</span> <span class="n">got</span> <span class="n">a</span> <span class="n">new</span> <span class="n">inventory</span> <span class="n">item</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">inventory</span> <span class="n">item</span> <span class="n">number</span> <span class="n">that</span> <span class="n">was</span> <span class="n">added</span>
+<span class="n">eEventLoseInventory</span>
+      <span class="n">the</span> <span class="n">player</span> <span class="n">just</span> <span class="n">lost</span> <span class="n">an</span> <span class="n">inventory</span> <span class="n">item</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">inventory</span> <span class="n">item</span> <span class="n">number</span> <span class="n">that</span> <span class="n">was</span> <span class="n">lost</span>
+<span class="n">eEventRestoreGame</span>
+      <span class="n">tells</span> <span class="n">your</span> <span class="n">game</span> <span class="n">that</span> <span class="n">it</span> <span class="n">has</span> <span class="n">just</span> <span class="n">been</span> <span class="n">restored</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">save</span> <span class="n">game</span>
+      <span class="n">DATA</span> <span class="o">=</span> <span class="n">save</span> <span class="n">slot</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>on_key_press (eKeyCode keycode)</p>
+<p>Called whenever a key is pressed on the keyboard. KEYCODE holds the
+ASCII value of the key. A list of these values is in <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ASCIIcodes">this
+section</a>.</p>
+<p>on_mouse_click (MouseButton button)</p>
+<p>Called when the player clicks a mouse button. BUTTON is either LEFT,
+RIGHT or MIDDLE, depending on which button was clicked. The “mouse.x”
+and “mouse.y” global variables contain the mouse’s position.<br>
+If ‘Handle inventory clicks in script’ is enabled in the game options,
+this function can also be called with eMouseLeftInv, eMouseMiddleInv or
+eMouseRightInv, which indicate a left, middle or right click on an
+inventory item, respectively.<br>
+If ‘Enable mouse wheel support’ is enabled, this function can also be
+called with eMouseWheelNorth or eMouseWheelSouth, which indicate the
+user moving the mouse wheel north or south, respectively.</p>
+<p>repeatedly_execute()</p>
+<p>Called every game cycle (normally 40 times per second). See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/RepExec">this help
+page</a> for more information.</p>
+<p>repeatedly_execute_always()</p>
+<p>Called every game cycle, even when a blocking routine (eg.
+speech/cutscene) is in progress. You <strong>cannot</strong> call any blocking
+functions from this event handler. <strong>repeatedly_execute_always</strong> is
+called <strong>BEFORE</strong> the game objects (characters, rooms, etc) get updated.
+See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/RepExec">this help page</a> for more information.</p>
+<p>late_repeatedly_execute_always()</p>
+<p>Called every game cycle, even when a blocking routine (eg.
+speech/cutscene) is in progress. You <strong>cannot</strong> call any blocking
+functions from this event handler. <strong>late_repeatedly_execute_always</strong>
+is called <strong>AFTER</strong> the game objects (characters, rooms, etc) got
+updated, but before game is redrawn on screen.</p>
+<p>unhandled_event (int what, int type)</p>
+<p>Called when an event occurs, but no handler is set up in the Events
+list. This could be used to display a default “I can’t do that” type of
+message. The values of WHAT and TYPE tell you what the player did.<br>
+The possible values are listed below:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>WHAT</th>
+<th>TYPE</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Look at hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>Interact with hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>Use inventory on hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>Talk to hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>Pick up hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8</td>
+<td>Cursor Mode 8 on hotspot</td>
+</tr>
+<tr>
+<td>1</td>
+<td>9</td>
+<td>Cursor Mode 9 on hotspot</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>Look at object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>Interact with object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>Talk to object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>Use inventory on object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>Pick up object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>Cursor Mode 8 on object</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>Cursor Mode 9 on object</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>Look at character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>Interact with character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>Speak to character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>Use inventory on character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>Pick up character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>Cursor Mode 8 on character</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>Cursor Mode 9 on character</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Look at nothing (ie. no hotspot)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>Interact with nothing</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>Use inventory with nothing</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>Talk to nothing</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>Look at inventory</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>Interact with inventory (currently not possible)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>Speak to inventory</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>Use an inventory item on another</td>
+</tr>
+<tr>
+<td>5</td>
+<td>4</td>
+<td>Other click on inventory</td>
+</tr>
+</tbody>
+</table><p>Note that the “Character stands on hotspot” event does not trigger this
+function, and it will not be triggered if there is an “Any click” event
+defined.</p>
+<p>This function is <strong>not</strong> triggered if the player clicks on nothing
+(hotspot 0).</p>
+<p>The <em>on_key_press</em> and <em>on_mouse_click</em> events can also be handled
+by individual room scripts. If you add their function definitions to
+your room script in a similar way to how they are in the global script,
+the room script can intercept the keypress/mouseclick first, and then
+decide whether to pass it on to the global script or not. See the
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#claimevent">ClaimEvent</a> function for more.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/TextScriptEvents.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

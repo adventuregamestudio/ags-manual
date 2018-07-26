@@ -1,0 +1,112 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Translations &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="translations">
+<span id="translations"></span><h1>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h1>
+<p>AGS now makes it easy for you to create translations of your games.
+Right-click the “Translations” node in the tree, and choose “New
+translation”. Once you’ve named it, AGS will ask if you want to populate
+the file now. Say yes.</p>
+<p>Creating the translation writes all lines of game text to the file - no
+script sources, just all the displayable text from the game. The file is
+generated with each line of text separated by a blank line.</p>
+<p>You can now give this file to your translators. They should <strong>fill in
+each blank line with the corresponding translation of the English line
+above it (DO NOT REPLACE THE ORIGINAL ENGLISH LINES WITH THE
+TRANSLATION)</strong>. If a line is left blank, it will simply not be
+translated.</p>
+<p>Once the translation is done, right-click the translation and choose
+“Compile”. It will be converted into a compiled translation (<code class="docutils literal notranslate"><span class="pre">.TRA</span></code>)
+file in the Compiled folder, which can be used with the game engine.</p>
+<p>Run the game Setup program, and select the translation from the
+drop-down box. Then, run the game, and all the text should be
+translated.</p>
+<p><em>NOTE: With SCI fonts, only 128 characters are available, so many of the
+extended characters needed for non-english translations are not
+available. You may need to use substitute characters, or consider using
+TTF fonts for international applications. However, bear in mind that TTF
+rendering slows down the engine.</em></p>
+<p>While most in-game text is translated automatically, there are a few
+instances when this is not possible. These are when a script uses
+functions like Append to build up a string, or CompareTo to check some
+user input. In these cases, you can use the
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#gettranslation">GetTranslation</a> function to make it work.</p>
+<p>You’ll also have noticed a “Update” option when right-clicking a
+translation. This is useful if you’ve got a translated version of your
+game, but you want to update the game and add a few bits in. Once you’ve
+updated your game, run the Update Translation option and the translation
+file you select will get any new bits of text added to it at the bottom
+– then you can just ask your translator to additionally translate these
+lines.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Translations.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

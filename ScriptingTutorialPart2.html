@@ -1,0 +1,324 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Text Scripting Tutorial - Part 2 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="text-scripting-tutorial-part-2">
+<span id="text-scripting-tutorial-part-2"></span><h1><strong>Text Scripting Tutorial - Part 2</strong><a class="headerlink" href="#text-scripting-tutorial-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="recap">
+<span id="recap"></span><h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
+<p>In the first tutorial, we covered the basics of scripting - how to write
+a simple script, use variables and conditional statements. You now know
+how to call all the built-in functions and write a fairly decent script.
+So, what’s next?</p>
+</div>
+<div class="section" id="loops">
+<span id="loops"></span><h2>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h2>
+<p>You may find it useful to have a sequence of commands that are executed
+more than once. AGS supports this, using the <em>while</em> keyword. Its format
+is virtually identical to <em>if</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">counter</span> <span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This means that the body of the <em>while</em> statement is repeatedly
+processed, as long as the condition is true. So, in this case, since
+counter starts as 1, the loop will be run 9 times, since on the tenth
+time counter will be 10 and therefore it will stop.</p>
+<p><strong><em>NOTE</em></strong>: be careful with while loops - it is possible to crash your
+game by using a badly written one. Consider this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">counter</span> <span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, c<em>ounter</em> starts off as 1, so the loop will run. Then, it will
+increase to 2. Since it is still greater than 0, the loop will run
+again. This particular loop will run forever, since <em>counter</em> can never
+become less than 1, and your game will grind to a halt.</p>
+</div>
+<div class="section" id="multiple-conditions">
+<span id="multiple-conditions"></span><h2>Multiple conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h2>
+<p>On several occasions, you don’t just want to decide what to do based on
+one variable - there may be a combination of things you want to
+consider.<br>
+For example, suppose that you want to display a message if the player
+has <strong>two</strong> specific inventory items. You could do this, and put two **
+<em>if</em> statements inside each other:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iFirstItem</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iSecondItem</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You have both the items!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>However, this is quite unwieldy and if you have a lot of conditions it
+will look rather messy. So, AGS lets you do it this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iFirstItem</span><span class="p">))</span> <span class="o">&amp;&amp;</span>
+    <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iSecondItem</span><span class="p">))</span> <span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You have both the items!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This makes use of the <strong>&amp;&amp;</strong> operator. Note that you need an extra pair
+of outer parenthesis, to contain the whole expression. Each part of the
+expression goes inside parenthesis, as normal, and they are joined with
+the &amp;&amp; symbol.</p>
+<p>You can extend this to as many checks as you like. For example, this
+will display the message if the <em>openedDoor</em> variable is currently set
+to true, and the variable <em>timer</em> is between 5 and 10.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">openedDoor</span> <span class="o">==</span> <span class="n">true</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">timer</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">timer</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;It&#39;s all working out fine.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>‘OR’ expressions</strong></p>
+<p>Sometimes you will want to do some processing if one <strong>or</strong> another
+condition is true. For example, you might want to let the player open a
+door if he has either the door key or a chainsaw.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iDoorKey</span><span class="p">))</span> <span class="o">||</span>
+    <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iChainsaw</span><span class="p">))</span> <span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">ChangeRoom</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The operator here is the double-vertical-bar <strong>||</strong> operator. It works
+similarly to the &amp;&amp; operator, but it will process the commands inside it
+if either one expression, or the other, or both, are true.</p>
+</div>
+<div class="section" id="doing-one-thing-or-another">
+<span id="doing-one-thing-or-another"></span><h2>Doing one thing or another<a class="headerlink" href="#doing-one-thing-or-another" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, you want the script to take one course of action if a
+variable is set, and another course of action if it isn’t. Initially,
+you might think you would do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span> <span class="k">else</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>That would work – however, there is a neater way, using the <strong>else</strong>
+keyword:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span> <span class="k">else</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This also allows you to modify the variable inside the first block of
+code, without affecting whether the second block gets run or not.</p>
+<p>You can do as many tests as you like, using the <strong>else if</strong> keyword. So,
+a complete piece of code could look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">something</span> <span class="n">different</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">do</span> <span class="n">this</span> <span class="k">if</span> <span class="n">it</span><span class="s1">&#39;s not 5 or 6</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="your-own-functions">
+<span id="your-own-functions"></span><h2>Your Own Functions<a class="headerlink" href="#your-own-functions" title="Permalink to this headline">¶</a></h2>
+<p>You’ve probably noticed in the manual, it mentioning functions such as
+<em>repeatedly_execute</em>, and <em>on_event</em>, and how you can add them to your
+global script to do cool stuff. But you may be wondering, how exactly to
+go about it.</p>
+<p>Remember in tutorial 1, we learnt about function <strong>parameters</strong> and how
+they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions
+like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">dialog_request</span><span class="p">(</span><span class="nb">int</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="o">//</span> <span class="n">contents</span> <span class="n">of</span> <span class="n">function</span> <span class="n">go</span> <span class="n">here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You start with the keyword <em>function</em>, then follow it by the function
+name, and then parenthesis listing the parameter types and names. For
+each parameter that you want, you need to write its type (<em>int</em> or
+<em>string</em>), followed by the name it will be known by inside the function.
+This name can be anything you like - it is similar to naming a variable.</p>
+<p>There are some <strong>fixed</strong> functions, such as dialog_request and
+on_event, which are part of AGS and therefore you <strong>MUST</strong> use the
+correct number and type of parameters.  However, you may also add your
+own functions by naming them however you like, and having as many
+parameters as you need.</p>
+<p>Functions are useful if you have a block of script code that you need to
+use in two different places - putting it in a function instead means you
+don’t have to copy &amp; paste, and that if you modify it, all other script
+that relies on it gets updated too.</p>
+<p>To call your function from elsewhere in the script, just do it exactly
+like you call a built-in function - ie. just write its name, parameters
+then a semicolon.</p>
+<p>I think a couple of examples are in order. First of all, let’s show a
+fixed function, on_event:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">on_event</span> <span class="p">(</span><span class="n">EventType</span> <span class="n">event</span><span class="p">,</span> <span class="nb">int</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="k">if</span> <span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">eEventGotScore</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">data</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+   <span class="p">{</span>
+     <span class="n">aSpecialScoreSound</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+   <span class="p">}</span>
+   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You just got </span><span class="si">%d</span><span class="s2"> points!&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>With this script, whenever the player scores points, they will get a
+message telling them so. Also, if they happen to get 5 points at once,
+it will play audio clip <em>aSpecialScoreSound</em>.</p>
+<p>As you can see, you use the function parameters just like any other
+script variables.</p>
+<p><strong>Our own function</strong></p>
+<p>Now, suppose we have a special animation of the player doing a dance,
+and we want to be able to play it from various points in the script. By
+far the easiest way to do this would be to put it in a function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">do_dance</span><span class="p">()</span>
+<span class="p">{</span>
+ <span class="n">cEgo</span><span class="o">.</span><span class="n">LockView</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+ <span class="n">cEgo</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+ <span class="n">cEgo</span><span class="o">.</span><span class="n">UnlockView</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function runs view 10, loop 2, as the character’s animation, waits
+until it finishes and then reverts to the default view.</p>
+<p><em>TIP</em>: if you’re wondering where to place your custom functions, just
+open up the global script (Game menu, Edit Global Script) and write them
+in there. The function must be outside all other functions.</p>
+<p>Now, elsewhere in your script, when you want the player to dance, just
+do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do_dance</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><strong>Returning a value</strong></p>
+<p>You may have noticed that some of the built-in functions, such as
+IsGamePaused, return a value to the script. You can do this from your
+own functions, using the <strong>return</strong> keyword. So:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">add</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+ <span class="nb">int</span> <span class="n">result</span><span class="p">;</span>
+ <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+ <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function adds the two numbers together and returns the result (a
+useless function in practice since the + operator does the same thing,
+but it demonstrates the point).<br>
+Another part of your script could then do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>for example.</p>
+<p><strong>Using functions from room scripts</strong></p>
+<p>You may notice that when you add your own function to your global
+script, you can call it fine from other places in the global script but
+attempting to use it in a room script gives a parse error. The manual
+explains how to solve this using the script header.</p>
+</div>
+<div class="section" id="conclusions">
+<span id="conclusions"></span><h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>We’ve covered some of the more advanced topics of scripting. I’m sure
+there’s a lot of stuff I’ve forgotten to mention, so feel free to
+comment on it on the forums.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Text Scripting Tutorial - Part 2</strong></a><ul>
+<li><a class="reference internal" href="#recap">Recap</a></li>
+<li><a class="reference internal" href="#loops">Loops</a></li>
+<li><a class="reference internal" href="#multiple-conditions">Multiple conditions</a></li>
+<li><a class="reference internal" href="#doing-one-thing-or-another">Doing one thing or another</a></li>
+<li><a class="reference internal" href="#your-own-functions">Your Own Functions</a></li>
+<li><a class="reference internal" href="#conclusions">Conclusions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ScriptingTutorialPart2.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

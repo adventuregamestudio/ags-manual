@@ -1,0 +1,521 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GUI functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gui-functions-and-properties">
+<span id="gui-functions-and-properties"></span><h1>GUI functions and properties<a class="headerlink" href="#gui-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#centre">Centre</a><br>
+<a class="reference external" href="#click">Click</a><br>
+<a class="reference external" href="#getatscreenxy">GetAtScreenXY</a><br>
+<a class="reference external" href="#processclick">ProcessClick</a><br>
+<a class="reference external" href="#setposition">SetPosition</a><br>
+<a class="reference external" href="#setsize">SetSize</a><br>
+<a class="reference external" href="#backgroundgraphic">BackgroundGraphic property</a><br>
+<a class="reference external" href="#clickable">Clickable property</a><br>
+<a class="reference external" href="#controlcount">ControlCount property</a><br>
+<a class="reference external" href="#controls">Controls property</a><br>
+<a class="reference external" href="#height">Height property</a><br>
+<a class="reference external" href="#id">ID property</a><br>
+<a class="reference external" href="#transparency">Transparency property</a><br>
+<a class="reference external" href="#visible">Visible property</a><br>
+<a class="reference external" href="#width">Width property</a><br>
+<a class="reference external" href="#x">X property</a><br>
+<a class="reference external" href="#y">Y property</a><br>
+<a class="reference external" href="#zorder">ZOrder property</a></p>
+<hr class="docutils" />
+<div class="section" id="centre">
+<span id="centre"></span><h2>Centre<a class="headerlink" href="#centre" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">Centre</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Centres the specified GUI in the middle of the screen. Useful if you’ve
+been moving it around with SetPosition and just want to return it to the
+centre.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gControlpanel</span><span class="o">.</span><span class="n">Centre</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will centre the CONTROLPANEL GUI in the middle of the screen.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="click">
+<span id="click"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">Click</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Forces GUI’s OnClick event. If there is a script function bound to that
+event it will be run, otherwise nothing happens.</p>
+<p><strong>NOTE:</strong> GUI.Click should not to be confused with <strong>static</strong> function
+GUI.ProcessClick. GUI.Click is called for specific GUI and does not
+impose any other conditions, while GUI.ProcessClick is called for “any
+GUI element that happen to be at the given coordinates”.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gMainMenu</span><span class="o">.</span><span class="n">Click</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>triggers OnClick event for gMainMenu.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#click">Button.Click</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#processclick">GUI.ProcessClick</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getatscreenxy">
+<span id="getatscreenxy"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">GUI</span><span class="o">*</span> <span class="n">GUI</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If
+there is, returns its GUI. If two GUIs overlap, the frontmost one will
+be returned - this can be changed with the GUI.ZOrder property.</p>
+<p>If there is not currently a displayed, clickable GUI at the location
+then <em>null</em> is returned. If null is returned, do NOT attempt to call any
+methods or use any properties of the GUI (since it does not actually
+exist).</p>
+<p><strong>NOTE:</strong> This command will not find any GUIs that are set as
+Non-Clickable (ie. the “Clickable” checkbox not checked).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span> <span class="o">*</span><span class="n">theGui</span> <span class="o">=</span> <span class="n">GUI</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">theGui</span> <span class="o">==</span> <span class="n">gInventory</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Inventory GUI at mouse location.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">theGui</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;No GUI at mouse location&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;GUI </span><span class="si">%d</span><span class="s2"> at mouse location.&quot;</span><span class="p">,</span> <span class="n">theGui</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will display the number of the GUI that the mouse is over.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#getatscreenxy">GUIControl.GetAtScreenXY</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#id">GUI.ID</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#zorder">GUI.ZOrder</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="processclick">
+<span id="processclick"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ProcessClick</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">CursorMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the
+specified cursor mode. This “click” has special behavior in that it
+<strong>only affects GUI and GUI controls</strong> under given coordinates. Any
+conditions attached to the first interface elements on given coordinates
+will be executed. Other game elements (room objects, hotspots,
+characters) will be <strong>ignored</strong>.</p>
+<p>The available cursor modes are the ones you define on your Cursors tab
+(but with eMode prepended to them). Usually these are eModeWalkto,
+eModeLookat, etc.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ProcessClick</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">eModePointer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will simulate clicking the mouse on co-ordinates (100, 50) in the
+Pointer mode, which will ignore anything but interface.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#click">Mouse.Click</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setposition">
+<span id="setposition"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUIPosition, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Moves the top-left corner of GUI to the new location (X,Y) on the
+screen. This allows you to dynamically move GUIs around on the screen
+while the game is running. The co-ordinates are screen co-ordinates, not
+room co-ordinates, and use the same scale as in the editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will move the VERBCOIN GUI to the position where the cursor is.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#centre">GUI.Centre</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#backgroundgraphic">GUI.BackgroundGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setposition">GUIControl.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setsize">GUI.SetSize</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#x">GUI.X</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#y">GUI.Y</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setsize">
+<span id="setsize"></span><h2>SetSize<a class="headerlink" href="#setsize" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUISize, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">SetSize</span><span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the GUI to have the new size WIDTH x HEIGHT</p>
+<p>This could be useful for initially hiding an ‘Advanced’ part of an
+options screen and such like.</p>
+<p>The size is in the normal 320x200-resolution pixels. Setting the size to
+320, 200 will cause the GUI to take up the entire screen.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gIconbar</span><span class="o">.</span><span class="n">SetSize</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>changes the ICONBAR GUI to be the size of half the screen</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#centre">GUI.Centre</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#height">GUI.Height</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setposition">GUIControl.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#width">GUI.Width</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="backgroundgraphic">
+<span id="backgroundgraphic"></span><h2>BackgroundGraphic<a class="headerlink" href="#backgroundgraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">BackgroundGraphic</span>
+</pre></div>
+</div>
+<p>Gets/sets the background image of the GUI.</p>
+<p>You can set this to 0 to remove the background image from the GUI.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#normalgraphic">Button.NormalGraphic</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="clickable">
+<span id="clickable"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUIClickable, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Clickable</span>
+</pre></div>
+</div>
+<p>Gets/sets whether the GUI is clickable or not. This allows you to modify
+the “Clickable” checkbox from the GUI Editor.</p>
+<p>If this is set to 1, then the GUI will respond to mouse clicks as
+normal.</p>
+<p>If this is set to 0, then this GUI cannot be clicked on by the mouse.
+This might be useful for a transparent overlay GUI which displays
+information, and you want the player to be able to click on whatever is
+underneath.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gStatusline</span><span class="o">.</span><span class="n">Clickable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>sets the STATUSLINE GUI to no longer respond to mouse clicks.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#getatscreenxy">GUI.GetAtScreenXY</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="controlcount">
+<span id="controlcount"></span><h2>ControlCount<a class="headerlink" href="#controlcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ControlCount</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the number of controls on the GUI. You won’t normally need to use
+this property, but in some circumstances you may wish to iterate through
+all the GUI’s controls, and this allows you to determine where to stop.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">ControlCount</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">gInventory</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+  <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>disables all controls on the INVENTORY GUI.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#controls">GUI.Controls</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="controls">
+<span id="controls"></span><h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUIControl</span><span class="o">*</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Provides an array which allows you to access controls on the GUI by
+their index. You should not normally need to do this, since accessing
+the controls by their name is far easier; however, if you need to
+interoperate with legacy code that uses the control number, this can
+come in useful.</p>
+<p>Returns the GUIControl object for the specified control index, or <em>null</em>
+if you give an invalid control index.</p>
+<p>You can cast the GUIControl to the appropriate type using the AsButton,
+AsListBox, etc methods on it.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUIControl</span> <span class="o">*</span><span class="n">control</span> <span class="o">=</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">control</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The inventory GUI doesn&#39;t have a control number 4.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">control</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+  <span class="n">control</span><span class="o">.</span><span class="n">AsListBox</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;New item!!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>gets list box number 4 from the INVENTORY GUI, and then adds an item to
+it. If control 4 isn’t a listbox, you will get a Null Reference error.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#astype">GUIControl.As*</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#controlcount">GUI.ControlCount</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="height">
+<span id="height"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Height</span>
+</pre></div>
+</div>
+<p>Gets/sets the height of the GUI. This allows you to dynamically change
+the size of the GUI on the screen.</p>
+<p>The height is specified in the normal 320-resolution style.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The icon bar GUI is </span><span class="si">%d</span><span class="s2"> pixels high.&quot;</span><span class="p">,</span> <span class="n">gIconbar</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>displays the height of the ICONBAR GUI.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setsize">GUI.SetSize</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#width">GUI.Width</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id">
+<span id="id"></span><h2>ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ID</span>
+</pre></div>
+</div>
+<p>Gets the GUI’s ID number. This is the GUI’s number from the editor, and
+is useful if you need to interoperate with legacy code that uses the
+GUI’s number rather than object name.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetGUIClickable</span><span class="p">(</span><span class="n">gIconbar</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">gIconbar</span><span class="o">.</span><span class="n">Clickable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI
+clickable, and then uses the equivalent modern property to stop it being
+clickable.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#id">GUIControl.ID</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="transparency">
+<span id="transparency"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Transparency</span>
+</pre></div>
+</div>
+<p>Gets/sets the GUI translucency, in percent.</p>
+<p>Setting this to 100 means the GUI is totally invisible, and lower values
+represent varying levels of translucency. Set it to 0 to stop the GUI
+being translucent.</p>
+<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
+<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent GUI can
+significantly slow down AGS.</p>
+<p>Some rounding is done internally when the transparency is stored –
+therefore, if you get the transparency after setting it, the value you
+get back might be one out. Therefore, using a loop with
+<code class="docutils literal notranslate"><span class="pre">gInventory.Transparency++;</span></code> is not recommended as it will probably end
+too quickly.</p>
+<p>In order to fade a GUI in/out, the best approach is shown in the example
+below:</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">trans</span> <span class="o">=</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">Transparency</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">trans</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">trans</span><span class="o">++</span><span class="p">;</span>
+  <span class="n">gInventory</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="n">trans</span><span class="p">;</span>
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#transparency">Object.Transparency</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="visible">
+<span id="visible"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GUIOff, which is now obsolete)</em><br>
+<em>(Formerly known as GUIOn, which is now obsolete)</em><br>
+<em>(Formerly known as InterfaceOff, which is now obsolete)</em><br>
+<em>(Formerly known as InterfaceOn, which is now obsolete)</em><br>
+<em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Visible</span>
+</pre></div>
+</div>
+<p>Gets/sets whether the GUI is visible or not. This property has behaves
+differently depending on the GUI popup style.</p>
+<p>For “Normal” and “Persistent” GUIs, this property simply switches the
+GUI on and off, and has no further effects.</p>
+<p>For “Popup modal” GUIs, setting Visible to true causes the game to
+become paused until the GUI is removed by setting Visible back to false
+(eg. when the user presses an OK button or something similar).</p>
+<p>For “Mouse Ypos” GUIs, the Visible property does not actually determine
+whether the GUI can be seen, but instead it controls whether the GUI
+<strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse
+to the top of the screen will not activate the GUI; if it is <em>true</em>,
+then the GUI will be allowed to be popped up.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gSettings</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will turn on the SETTINGS GUI.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isgamepaused">IsGamePaused</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="width">
+<span id="width"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Width</span>
+</pre></div>
+</div>
+<p>Gets/sets the width of the GUI. This allows you to dynamically change
+the size of the GUI on the screen.</p>
+<p>The width is specified in the normal 320-resolution style.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gInventory</span><span class="o">.</span><span class="n">Width</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>makes the INVENTORY GUI 5 pixels wider.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#height">GUI.Height</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setsize">GUI.SetSize</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="x">
+<span id="x"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+<p>Gets/sets the X position of the GUI. This allows you to dynamically
+change the position of the GUI on the screen.</p>
+<p>The X position is the left-hand side of the GUI, and can be between 0
+and 320. The co-ordinates used are screen co-ordinates, not room
+co-ordinates, and are in the normal 320-resolution style.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">X</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>moves the VERBCOIN GUI right 5 pixels.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#y">GUI.Y</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="y">
+<span id="y"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Y</span>
+</pre></div>
+</div>
+<p>Gets/sets the Y position of the GUI. This allows you to dynamically
+change the position of the GUI on the screen.</p>
+<p>The Y position is the top edge of the GUI, and can be between 0 and 200
+(or 240, depending on room height). The co-ordinates used are screen
+co-ordinates, not room co-ordinates, and are in the normal
+320x200-resolution style.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">Y</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>moves the VERBCOIN GUI down 5 pixels.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#x">GUI.X</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="zorder">
+<span id="zorder"></span><h2>ZOrder<a class="headerlink" href="#zorder" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetGUIZOrder, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ZOrder</span>
+</pre></div>
+</div>
+<p>Gets/sets the z-order of the GUI. This allows you to dynamically change
+the ordering of GUIs on the screen.</p>
+<p>The Z-order setting is an arbitrary number between 0 and 1000. AGS draws
+the GUIs in order, from the lowest numbered at the back to the highest
+numbered at the front.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gStatusline</span><span class="o">.</span><span class="n">ZOrder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#getatscreenxy">GUI.GetAtScreenXY</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GUI functions and properties</a><ul>
+<li><a class="reference internal" href="#centre">Centre</a></li>
+<li><a class="reference internal" href="#click">Click</a></li>
+<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
+<li><a class="reference internal" href="#setposition">SetPosition</a></li>
+<li><a class="reference internal" href="#setsize">SetSize</a></li>
+<li><a class="reference internal" href="#backgroundgraphic">BackgroundGraphic</a></li>
+<li><a class="reference internal" href="#clickable">Clickable</a></li>
+<li><a class="reference internal" href="#controlcount">ControlCount</a></li>
+<li><a class="reference internal" href="#controls">Controls</a></li>
+<li><a class="reference internal" href="#height">Height</a></li>
+<li><a class="reference internal" href="#id">ID</a></li>
+<li><a class="reference internal" href="#transparency">Transparency</a></li>
+<li><a class="reference internal" href="#visible">Visible</a></li>
+<li><a class="reference internal" href="#width">Width</a></li>
+<li><a class="reference internal" href="#x">X</a></li>
+<li><a class="reference internal" href="#y">Y</a></li>
+<li><a class="reference internal" href="#zorder">ZOrder</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/GUI.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

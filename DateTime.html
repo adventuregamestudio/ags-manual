@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DateTime functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="datetime-functions-and-properties">
+<span id="datetime-functions-and-properties"></span><h1>DateTime functions and properties<a class="headerlink" href="#datetime-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#now">Now property</a><br>
+<a class="reference external" href="#dayofmonth">DayOfMonth property</a><br>
+<a class="reference external" href="#hour">Hour property</a><br>
+<a class="reference external" href="#minute">Minute property</a><br>
+<a class="reference external" href="#month">Month property</a><br>
+<a class="reference external" href="#rawtime">RawTime property</a><br>
+<a class="reference external" href="#second">Second property</a><br>
+<a class="reference external" href="#year">Year property</a></p>
+<hr class="docutils" />
+<div class="section" id="now">
+<span id="now"></span><h2>Now<a class="headerlink" href="#now" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetTime, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">DateTime</span><span class="o">*</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Now</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the current system time. You could use this for timing a loop, or
+for effects like telling the player to go to bed, and so on.</p>
+<p>A <em>DateTime</em> object is returned, which contains various properties that
+you can use.</p>
+<p>Note that the DateTime object that you get will not be kept up to date
+with the current time; it will remain static with the time at which you
+called DateTime.Now.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span> <span class="o">*</span><span class="n">dt</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Now</span><span class="p">;</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The date is: </span><span class="si">%02d</span><span class="s2">/</span><span class="si">%02d</span><span class="s2">/</span><span class="si">%04d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">DayOfMonth</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">Year</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The time is: </span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">Hour</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">Minute</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">Second</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the current date and time in 24-hour format</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#dayofmonth">DateTime.DayOfMonth</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#hour">DateTime.Hour</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#minute">DateTime.Minute</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#month">DateTime.Month</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#rawtime">DateTime.RawTime</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#second">DateTime.Second</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#year">DateTime.Year</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="dayofmonth">
+<span id="dayofmonth"></span><h2>DayOfMonth<a class="headerlink" href="#dayofmonth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">DayOfMonth</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the day of the month represented by the DateTime object. This will
+be from 1 to 31, representing the current day within the month.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="hour">
+<span id="hour"></span><h2>Hour<a class="headerlink" href="#hour" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Hour</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the hour represented by the DateTime object. This will be from 0 to
+23, representing the hour in 24-hour format.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="minute">
+<span id="minute"></span><h2>Minute<a class="headerlink" href="#minute" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Minute</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the minute represented by the DateTime object. This will be from 0
+to 59, representing the minute in 24-hour format.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="month">
+<span id="month"></span><h2>Month<a class="headerlink" href="#month" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Month</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the month represented by the DateTime object. This will be from 1
+to 12, representing the month of the year.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="rawtime">
+<span id="rawtime"></span><h2>RawTime<a class="headerlink" href="#rawtime" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetRawTime, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">RawTime</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This function returns the raw system time, as the number of seconds
+since January 1970. While this value is not useful in itself, you can
+use it to calculate time differences by getting the value at the start
+of the game, for example, and then getting the value later on, and the
+difference between the two is how much time has elapsed.</p>
+<p><strong>NOTE:</strong> Because this accesses the real-time clock on the users’
+system, it is not a good idea to use this for long term timing tasks,
+since if the user saves the game and then restores it later, the Time
+value returned by this function will obviously include the difference
+when they were not playing.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span> <span class="o">*</span><span class="n">dt</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Now</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">RawTime</span><span class="p">;</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Now</span><span class="p">;</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;After the wait it is now </span><span class="si">%d</span><span class="s2"> seconds later.&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">RawTime</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>should display that 3 seconds have elapsed.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#settimer">SetTimer</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="second">
+<span id="second"></span><h2>Second<a class="headerlink" href="#second" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Second</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the second represented by the DateTime object. This will be from 0
+to 59, representing the second.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="year">
+<span id="year"></span><h2>Year<a class="headerlink" href="#year" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DateTime</span><span class="o">.</span><span class="n">Year</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the year represented by the DateTime object. This is the full year,
+for example <em>2005</em>.</p>
+<p>Example: For an example, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a>.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DateTime#now">DateTime.Now</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DateTime functions and properties</a><ul>
+<li><a class="reference internal" href="#now">Now</a></li>
+<li><a class="reference internal" href="#dayofmonth">DayOfMonth</a></li>
+<li><a class="reference internal" href="#hour">Hour</a></li>
+<li><a class="reference internal" href="#minute">Minute</a></li>
+<li><a class="reference internal" href="#month">Month</a></li>
+<li><a class="reference internal" href="#rawtime">RawTime</a></li>
+<li><a class="reference internal" href="#second">Second</a></li>
+<li><a class="reference internal" href="#year">Year</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/DateTime.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

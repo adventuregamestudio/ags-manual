@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Extender functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="extender-functions">
+<span id="extender-functions"></span><h1>Extender functions<a class="headerlink" href="#extender-functions" title="Permalink to this headline">¶</a></h1>
+<p>Suppose that you wanted to add a new function, “Scream”, to characters
+which would make them cry out “AARRRGGGHHH”. Because the Character type
+is defined within AGS, it’s not possible for you to just add a method to
+it.</p>
+<p>That’s where Extender Functions come in. Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">Scream</span><span class="p">(</span><span class="n">this</span> <span class="n">Character</span><span class="o">*</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">this</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This adds a new “Scream” function to the Character type, so that in your
+script code elsewhere you can do things like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">player</span><span class="o">.</span><span class="n">Scream</span><span class="p">();</span>
+<span class="n">character</span><span class="p">[</span><span class="n">EGO</span><span class="p">]</span><span class="o">.</span><span class="n">Scream</span><span class="p">();</span>
+<span class="n">cJohn</span><span class="o">.</span><span class="n">Scream</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>and so on.</p>
+<p><strong>Where do I put this code?</strong></p>
+<p>In the script header, you’d put:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">function</span> <span class="pre">Scream(this</span> <span class="pre">Character*);</span></code></p>
+<p>and then put the main function in the script file. This will then allow
+it to be used by other scripts.</p>
+<p><strong>Static extenders</strong></p>
+<p>Since AGS 3.4.0 you may also create static extender functions, that is
+functions that are called from type, rather than an actual object.
+Static extender declaration is a bit different, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">AbsInt</span><span class="p">(</span><span class="n">static</span> <span class="n">Maths</span><span class="p">,</span> <span class="nb">int</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">value</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You declare the function’s import in the script header:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">int</span> <span class="pre">AbsInt(static</span> <span class="pre">Maths,</span> <span class="pre">int</span> <span class="pre">value);</span></code></p>
+<p>and you use such function as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Maths</span><span class="o">.</span><span class="n">AbsInt</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ExtenderFunctions.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

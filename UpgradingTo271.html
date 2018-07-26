@@ -1,0 +1,136 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Upgrading to AGS 2.71 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="upgrading-to-ags-2-71">
+<span id="upgrading-to-ags-2-71"></span><h1>Upgrading to AGS 2.71<a class="headerlink" href="#upgrading-to-ags-2-71" title="Permalink to this headline">¶</a></h1>
+<p>AGS 2.71 adds new simple string support to the scripting language.
+Strings have long been a pain to use in AGS, but this is finally
+addressed by v2.71.</p>
+<p>There’s a new String type (that’s a capital ‘S’). These new strings
+behave like Java/<code class="docutils literal notranslate"><span class="pre">C#</span></code> strings in that you can easily assign to and
+manipulate them.</p>
+<p>For example, in 2.7 and previous versions, you had to do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="n">text</span><span class="p">;</span>
+<span class="n">StrCopy</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;This is my text&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>in 2.71, you can now do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is my text&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Furthermore, the == and != operators can be used to compare strings for
+equality (equivalent to using StrComp but much more intuitive). An
+additional benefit is that there is no longer a need for GetText() and
+SetText() methods – instead, we can now just have Text properties.</p>
+<p>All the old-style functions that took a “string buffer” parameter have
+now been replaced with new ones that return a string instead. Where
+properties have been created, you should be able to use them like any
+other property, so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lblLabel</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">buttonValue</span> <span class="o">=</span> <span class="n">btnOK</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>and so on.</p>
+<p><strong>NOTE:</strong> Some of the new functions are provided on the Game object –
+for example, the new GetSaveSlotDescription function needs to be called
+like this:<br>
+<code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">description</span> <span class="pre">=</span> <span class="pre">Game.GetSaveSlotDescription(10);</span></code><br>
+This is part of a move towards all built-in functions being
+object-based, but watch out for it as it could well cause some
+confusion. The manual will show you which functions require this.</p>
+<p>Rather than using old functions like StrCat and StrContains, you now
+call the functions directly on the strings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will mean that <em>text</em> now contains “HelloWorld”.<br>
+Note the <strong>text =</strong> in that expression. Functions like Append will
+return a modified version of the string, they won’t actually change the
+original. Therefore, to update the <em>text</em> variable you need to assign
+the result to it.</p>
+<p><strong>Backwards compatibility</strong></p>
+<p>In order to maintain backwards compatibility, a new “const” keyword has
+been added. This applies only to old-style strings, and allows them to
+interoperate with the new ones. A new-style String can be passed to a
+function that expects a “const string” (which means that it will not be
+allowed to change the string’s contents), but cannot be passed to a
+function that expects a “string” (since it could overwrite the string
+data and mess things up).</p>
+<p>So, you may find that any custom functions you have that take a string
+parameter stop working. If this is the case, change the parameter from
+“string” to “const string” and that should fix it.</p>
+<p>Apologies for the inconvenience, but this is the only way to allow new
+Strings to interoperate safely with old-style strings.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/UpgradingTo271.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

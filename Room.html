@@ -1,0 +1,867 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Room functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="room-functions">
+<span id="room-functions"></span><h1>Room functions<a class="headerlink" href="#room-functions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#arethingsoverlapping">AreThingsOverlapping</a><br>
+<a class="reference external" href="#disablegroundlevelareas">DisableGroundLevelAreas</a><br>
+<a class="reference external" href="#enablegroundlevelareas">EnableGroundLevelAreas</a><br>
+<a class="reference external" href="#getbackgroundframe">GetBackgroundFrame</a><br>
+<a class="reference external" href="#getdrawingsurfaceforbackground">GetDrawingSurfaceForBackground</a><br>
+<a class="reference external" href="#getplayercharacter">GetPlayerCharacter</a><br>
+<a class="reference external" href="#getproperty">GetProperty</a><br>
+<a class="reference external" href="#gettextproperty">GetTextProperty</a><br>
+<a class="reference external" href="#setproperty">SetProperty</a><br>
+<a class="reference external" href="#settextproperty">SetTextProperty</a><br>
+<a class="reference external" href="#getscalingat">GetScalingAt</a><br>
+<a class="reference external" href="#getviewportx">GetViewportX</a><br>
+<a class="reference external" href="#getviewporty">GetViewportY</a><br>
+<a class="reference external" href="#getwalkableareaat">GetWalkableAreaAt</a><br>
+<a class="reference external" href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a><br>
+<a class="reference external" href="#processclick">ProcessClick</a><br>
+<a class="reference external" href="#releaseviewport">ReleaseViewport</a><br>
+<a class="reference external" href="#removewalkablearea">RemoveWalkableArea</a><br>
+<a class="reference external" href="#resetroom">ResetRoom</a><br>
+<a class="reference external" href="#restorewalkablearea">RestoreWalkableArea</a><br>
+<a class="reference external" href="#setareascaling">SetAreaScaling</a><br>
+<a class="reference external" href="#setbackgroundframe">SetBackgroundFrame</a><br>
+<a class="reference external" href="#setviewport">SetViewport</a><br>
+<a class="reference external" href="#setwalkbehindbase">SetWalkBehindBase</a><br>
+<a class="reference external" href="#bottomedge">BottomEdge property</a><br>
+<a class="reference external" href="#colordepth">ColorDepth property</a><br>
+<a class="reference external" href="#height">Height property</a><br>
+<a class="reference external" href="#leftedge">LeftEdge property</a><br>
+<a class="reference external" href="#messages">Messages property</a><br>
+<a class="reference external" href="#musiconload">MusicOnLoad property</a><br>
+<a class="reference external" href="#objectcount">ObjectCount property</a><br>
+<a class="reference external" href="#rightedge">RightEdge property</a><br>
+<a class="reference external" href="#topedge">TopEdge property</a><br>
+<a class="reference external" href="#width">Width property</a></p>
+<hr class="docutils" />
+<div class="section" id="arethingsoverlapping">
+<span id="arethingsoverlapping"></span><h2>AreThingsOverlapping<a class="headerlink" href="#arethingsoverlapping" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AreThingsOverlapping</span><span class="p">(</span><span class="nb">int</span> <span class="n">thing1</span><span class="p">,</span> <span class="nb">int</span> <span class="n">thing2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Checks whether two characters or objects are overlapping each other on
+screen. This simply carries out a quick rectangular check on the two
+things to decide - so if they have large transparent regions around the
+edges, it may seem to be overlapping too soon.</p>
+<p>THING1 and THING2 can either be a CHARID, or can be an object number
+PLUS 1000. So for example, passing EGO as THING1, and 1004 as THING2,
+will compare the character EGO with Object 4 in the current room.</p>
+<p>Returns 0 if they are not overlapping, or the overlapping amount if they
+are. This amount is an arbitrary scale, but 1 means they are just about
+touching, all the way up to higher numbers for more overlappingness.</p>
+<p>Calling this function with both the parameters as objects is the same as
+calling Object.IsCollidingWithObject.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">AreThingsOverlapping</span><span class="p">(</span><span class="mi">1002</span><span class="p">,</span> <span class="n">EGO</span><span class="p">))</span> <span class="p">{</span>
+  <span class="o">//</span> <span class="n">code</span> <span class="n">here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will run the code if object 2 is overlapping EGO. This could be useful
+if object 2 was a bullet, for instance.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#iscollidingwithchar">Character.IsCollidingWithChar</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="disablegroundlevelareas">
+<span id="disablegroundlevelareas"></span><h2>DisableGroundLevelAreas<a class="headerlink" href="#disablegroundlevelareas" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisableGroundLevelAreas</span><span class="p">(</span><span class="nb">int</span> <span class="n">disableTints</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Disables all ground-level events. This means that all Region events, the
+Player Stands On Hotspot event, and the room edges become disabled.</p>
+<p>This command is useful in conjunction with the character[].z variable,
+if you want the player to be able to temporarily fly or levitate, for
+example. It allows you to stop the character from triggering Player
+Stands On events while they are in the air.</p>
+<p>This command is also useful during some cutscenes, if you don’t want the
+player to trigger events as they walk around the room while in the
+cutscene.</p>
+<p>The DISABLETINTS parameter specifies whether the visual effects of the
+regions (ie. light levels and tints) are also disabled. If you pass this
+as 0, then just the events will be turned off.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisableGroundLevelAreas</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will disable all ground-level events, but leave light levels working</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#enabled">Hotspot.Enabled</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#enabled">Region.Enabled</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#enablegroundlevelareas">EnableGroundLevelAreas</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="enablegroundlevelareas">
+<span id="enablegroundlevelareas"></span><h2>EnableGroundLevelAreas<a class="headerlink" href="#enablegroundlevelareas" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EnableGroundLevelAreas</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Re-enables all ground-level events. This is used to reverse the effects
+of using the DisableGroundLevelAreas command, and will return things to
+normal.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EnableGroundLevelAreas</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will re-enable all ground-level events.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#enabled">Hotspot.Enabled</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#enabled">Region.Enabled</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#disablegroundlevelareas">DisableGroundLevelAreas</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getbackgroundframe">
+<span id="getbackgroundframe"></span><h2>GetBackgroundFrame<a class="headerlink" href="#getbackgroundframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetBackgroundFrame</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the number of the current background being displayed. In a room
+without animating backgrounds, this will always return 0. Otherwise, the
+current frame number is returned from 0 to 4.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetBackgroundFrame</span><span class="p">()</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span>
+  <span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will turn on object 2 if the background frame of the room is frame 4.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setbackgroundframe">SetBackgroundFrame</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getdrawingsurfaceforbackground">
+<span id="getdrawingsurfaceforbackground"></span><h2>GetDrawingSurfaceForBackground<a class="headerlink" href="#getdrawingsurfaceforbackground" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">DrawingSurface</span><span class="o">*</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">(</span><span class="n">optional</span> <span class="nb">int</span> <span class="n">backgroundNumber</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gets a drawing surface for a room background, which allows you to
+directly draw onto the room’s background image. You can provide a
+background frame number if you want to modify a specific frame;
+otherwise, the current background’s surface will be returned.</p>
+<p>After calling this method, use the various <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions">DrawingSurface
+functions</a> to modify the background,
+then call Release on the surface when you are finished.</p>
+<p>Any changes you make will only last until the player leaves the room, at
+which point they will be lost. If you need to make long-lasting changes,
+you can either use this method in the Player Enters Room event, or
+consider using an alternate background frame for the changed image.</p>
+<p><strong>NOTE:</strong> Drawing onto the room background can be slow, especially when
+using the Direct3D driver. Do not use this command in
+repeatedly_execute; make sure you only use this command when absolutely
+necessary.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>draws a yellow diagonal line across the top-left of the current room
+background, then releases the image.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getplayercharacter">
+<span id="getplayercharacter"></span><h2>GetPlayerCharacter<a class="headerlink" href="#getplayercharacter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetPlayerCharacter</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>THIS COMMAND IS NOW OBSOLETE.</strong><br>
+The recommended replacement is to use the player character’s ID
+property, as follows:</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player character number is </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#id">Character.ID</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getproperty">
+<span id="getproperty"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function GetRoomProperty, which is now
+obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Room</span><span class="o">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">string</span> <span class="nb">property</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the custom property setting of the PROPERTY for the current
+room.</p>
+<p>This command works with Number properties (it returns the number), and
+with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
+<p>Use the equivalent Room.GetTextProperty function to get a text property.</p>
+<p>Note that you cannot retrieve room properties of other rooms - only the
+current room can be checked.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">Room</span><span class="o">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="s2">&quot;CanBeAttackedHere&quot;</span><span class="p">))</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;An evil monster lunges at you!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will print the message if the current room has its “CanBeAttackedHere”
+box ticked.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#gettextproperty">Room.GetTextProperty</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="gettextproperty">
+<span id="gettextproperty"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function GetRoomPropertyText, which is now
+obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">String</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">(</span><span class="n">string</span> <span class="nb">property</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the custom property setting of the PROPERTY for the current
+room.</p>
+<p>This command works with Text properties only. The property’s text will
+be returned from this function.</p>
+<p>Use the equivalent Room.GetProperty function to get a non-text property.</p>
+<p>Note that you cannot retrieve room properties of other rooms - only the
+current room can be checked.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">description</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The room&#39;s description: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will retrieve the room’s “description” property then display it.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getproperty">Room.GetProperty</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setproperty">
+<span id="setproperty"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Room</span><span class="o">.</span><span class="n">SetProperty</span><span class="p">(</span><span class="n">const</span> <span class="n">string</span> <span class="nb">property</span><span class="p">,</span> <span class="nb">int</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room.
+Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Number properties (it sets the numeric value),
+and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
+otherwise).</p>
+<p>Use the equivalent SetTextProperty function to set new text property
+value.</p>
+<p>Note that you cannot set room properties of other rooms - only the
+current room.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Room</span><span class="o">.</span><span class="n">SetProperty</span><span class="p">(</span><span class="s2">&quot;Darkness&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change room’s “Darkness” custom property to 10.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#settextproperty">Room.SetTextProperty</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="settextproperty">
+<span id="settextproperty"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Room</span><span class="o">.</span><span class="n">SetTextProperty</span><span class="p">(</span><span class="n">const</span> <span class="n">string</span> <span class="nb">property</span><span class="p">,</span> <span class="n">const</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
+room. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Text properties only. The property’s text will
+be changed to new value.</p>
+<p>Use the equivalent SetProperty function to set a non-text property.</p>
+<p>Note that you cannot set room properties of other rooms - only the
+current room.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Room</span><span class="o">.</span><span class="n">SetTextProperty</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;The Throne Room&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change room’s “description” property.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setproperty">Room.SetProperty</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getscalingat">
+<span id="getscalingat"></span><h2>GetScalingAt<a class="headerlink" href="#getscalingat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetScalingAt</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the room area scaling at room co-ordinates (X,Y).</p>
+<p>The value returned is from 1 to 200, with 100 being the normal un-scaled
+setting.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetScalingAt</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;The player is currently at normal size.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getwalkableareaat">GetWalkableAreaAt</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setareascaling">SetAreaScaling</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getviewportx">
+<span id="getviewportx"></span><h2>GetViewportX<a class="headerlink" href="#getviewportx" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetViewportX</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the X-offset of the current viewport in a scrolling room. This
+allows you to find out what part of the room the player is looking at.
+The co-ordinate returned is the left edge of the screen, and so it can
+have a value between 0 and (ROOM WIDTH - 320).</p>
+<p>If the room is a non-scrolling room, returns 0.</p>
+<p>See the SetViewport function description for more information.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetViewportX</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">)</span>
+    <span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will turn object 2 on if the player has scrolled the room by 100 pixels
+to the right.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getviewporty">GetViewportY</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setviewport">SetViewport</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getviewporty">
+<span id="getviewporty"></span><h2>GetViewportY<a class="headerlink" href="#getviewporty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetViewportY</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns the Y-offset of the current viewport in a scrolling room. This
+allows you to find out what part of the room the player is looking at.
+The co-ordinate returned is the top edge of the screen, and so it can
+have a value between 0 and (ROOM HEIGHT - 200).</p>
+<p>If the room is a non-scrolling room, returns 0.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetViewportY</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will turn object 2 on if the player has scrolled the room by 20 pixels
+to the bottom.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getviewportx">GetViewportX</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setviewport">SetViewport</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getwalkableareaat">
+<span id="getwalkableareaat"></span><h2>GetWalkableAreaAt<a class="headerlink" href="#getwalkableareaat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GetWalkableAreaAt</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the number of the walkable area at SCREEN co-ordinates (X,Y). If
+there is no walkable area there, or if invalid co-ordinates are
+specified, returns 0.</p>
+<p>NOTE: The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates.
+This means that with a scrolling room, the co-ordinates you pass are
+relative to the screen’s current position, and NOT absolute room
+co-ordinates. This means that this function is suitable for use with the
+mouse cursor position variables.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetWalkableAreaAt</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You can&#39;t walk there.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#getatroomxy">Region.GetAtRoomXY</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getscalingat">GetScalingAt</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="hasplayerbeeninroom">
+<span id="hasplayerbeeninroom"></span><h2>HasPlayerBeenInRoom<a class="headerlink" href="#hasplayerbeeninroom" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HasPlayerBeenInRoom</span><span class="p">(</span><span class="nb">int</span> <span class="n">room_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Checks whether the player has ever been in ROOM_NUMBER (ie. has the
+‘First Time Player Enters Room’ event there ever been run). Returns 1 if
+they have, and 0 if they haven’t.</p>
+<p>You can use this function to determine whether the player has been to a
+particular location previously. If you reset the room with ResetRoom,
+then this command will return 0 until they enter the room again.</p>
+<p>This command will always return 1 if you ask it about the current room;
+and it will always return 0 if you ask it about a non-state saving room
+(ie. rooms numbered <p>&amp;gt;</p>
+ 300).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">HasPlayerBeenInRoom</span><span class="p">(</span><span class="mi">14</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player has been to room 14 before.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will display a message if the player has been to room 14.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#resetroom">ResetRoom</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="processclick">
+<span id="processclick"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function ProcessClick, which is now
+obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">Room</span><span class="o">.</span><span class="n">ProcessClick</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">CursorMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the
+specified cursor mode. This “click” has special behavior in that it
+<strong>only affects Room elements and characters</strong> under given coordinates.
+Any conditions attached to the first object found on given coordinates
+will be executed. Game interface (buttons, sliders, and so on) will be
+<strong>ignored</strong>. Even if the coordinates happen to lie on a button, the
+simulated click will “pass through” that button as if it was not
+present.</p>
+<p>The available cursor modes are the ones you define on your Cursors tab
+(but with eMode prepended to them). Usually these are eModeWalkto,
+eModeLookat, etc.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Room</span><span class="o">.</span><span class="n">ProcessClick</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">eModeLookat</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will simulate a click in the Look mode on co-ordinates (100, 50).</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#processclick">GUI.ProcessClick</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#click">Mouse.Click</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="releaseviewport">
+<span id="releaseviewport"></span><h2>ReleaseViewport<a class="headerlink" href="#releaseviewport" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ReleaseViewport</span> <span class="p">()</span>
+</pre></div>
+</div>
+<p>Releases the lock on the screen viewport, allowing it to automatically
+scroll around following the player character as normal.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">SetViewport</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+   <span class="n">x</span><span class="o">++</span><span class="p">;</span>
+   <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">ReleaseViewport</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will scroll the room 100 pixels to the right and then return the screen
+to its original position and unlock the screen viewport.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setviewport">SetViewport</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="removewalkablearea">
+<span id="removewalkablearea"></span><h2>RemoveWalkableArea<a class="headerlink" href="#removewalkablearea" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveWalkableArea</span> <span class="p">(</span><span class="nb">int</span> <span class="n">areanum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Removes the walkable areas in colour AREANUM from the current room. You
+can put the area back with RestoreWalkableArea.</p>
+<p>NOTE: When the player leaves the screen, all the walkable areas are
+reset. Therefore, if you want an area to remain off when they leave the
+screen, you will need to set a flag, then run the RemoveWalkableArea
+command in the “Player enters room” event when they return.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveWalkableArea</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will make the walking area 5 unwalkable.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#restorewalkablearea">RestoreWalkableArea</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="resetroom">
+<span id="resetroom"></span><h2>ResetRoom<a class="headerlink" href="#resetroom" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ResetRoom</span> <span class="p">(</span><span class="nb">int</span> <span class="n">room_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Discards all the data that the engine has in memory about when the
+player last visited ROOM_NUMBER, and resets it as if they’d never been
+there. The next time the player goes to that room, all the objects and
+scripts will be in their initial state (as set up in the editor), and
+not how they were when the player left the room. The “First time enters
+room” event will be run when they enter this room again.</p>
+<p>This function is useful if you want to have a “View intro” option to
+allow the player to watch an intro again - this function can reset all
+the objects in the intro rooms to their starting positions.</p>
+<p>NOTE: You cannot reset the current room (ie. the room that the player is
+in).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ResetRoom</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will reset the intro room so it can be played again if the player wants
+to.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#hasplayerbeeninroom">HasPlayerBeenInRoom</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="restorewalkablearea">
+<span id="restorewalkablearea"></span><h2>RestoreWalkableArea<a class="headerlink" href="#restorewalkablearea" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RestoreWalkableArea</span> <span class="p">(</span><span class="nb">int</span> <span class="n">areanum</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Makes the area AREANUM walkable again.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RestoreWalkableArea</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will make the walking area 4 walkable again.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#removewalkablearea">RemoveWalkableArea</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setareascaling">
+<span id="setareascaling"></span><h2>SetAreaScaling<a class="headerlink" href="#setareascaling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetAreaScaling</span><span class="p">(</span><span class="nb">int</span> <span class="n">area</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">max</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes walkable area number AREA’s scaling.</p>
+<p>There are two ways to use this command:<br></p>
+<ol class="simple">
+<li>Pass the same value for MIN and MAX. This will give the walkable area
+fixed scaling (same as setting it in the editor with “Use continuous
+scaling” un-ticked).<br></li>
+<li>Pass different values for MIN and MAX. In this case, continuous
+scaling is enabled for the walkable area, and will go from MIN at the
+top to MAX at the bottom.</li>
+</ol>
+<p>MIN and MAX have ranges from 5 to 200, the same as in the editor. Pass
+100 for both values to revert to the normal zoom level (100<code class="docutils literal notranslate"><span class="pre">%</span></code>) for that
+area.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetAreaScaling</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">170</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will set walkable area 5 to use continuous scaling from 120 to 170
+percent.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getscalingat">GetScalingAt</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getwalkableareaat">GetWalkableAreaAt</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setbackgroundframe">
+<span id="setbackgroundframe"></span><h2>SetBackgroundFrame<a class="headerlink" href="#setbackgroundframe" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetBackgroundFrame</span> <span class="p">(</span><span class="nb">int</span> <span class="n">frame</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Locks the background to frame number FRAME of an animating-background
+screen. (Values for FRAME are from 0 to 4). This allows you to use the
+animating backgrounds feature for another purpose - you can have two
+frames of the background, one for example with a spaceship crashed on
+it. Then, once the right event has happened, call SetBackgroundFrame in
+the Player Enters Room event to set the background before the screen
+fades in.</p>
+<p>Pass the <em>frame</em> as -1 to return to the default behaviour of
+automatically cycling through all the background frames.</p>
+<p>The frame lock is released when the game changes rooms.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">SetBackgroundFrame</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the current room’s background frame to 4 if the global
+integer 20 is 1.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getbackgroundframe">GetBackgroundFrame</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setviewport">
+<span id="setviewport"></span><h2>SetViewport<a class="headerlink" href="#setviewport" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetViewport</span> <span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Locks the screen viewport to having the top-left hand corner at (X,Y) in
+a scrolling room. This allows you to manually pan across a scrolling
+room or to have the screen follow a non-player character.</p>
+<p>The lock is released when you either call ReleaseViewport or the player
+changes rooms.</p>
+<p><strong>NOTE:</strong> The co-ordinates supplied are 320x200-scale co-ordinates, and
+will be automatically multiplied up by the engine.</p>
+<p><strong>NOTE:</strong> This function has no effect if the current room isn’t a
+scrolling room.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ypos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">ypos</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">SetViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ypos</span><span class="p">);</span>
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="n">ypos</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">ReleaseViewport</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will scroll the screen down from the top 60 pixels, then release it back
+to follow the player around.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getviewportx">GetViewportX</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getviewporty">GetViewportY</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#releaseviewport">ReleaseViewport</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setwalkbehindbase">
+<span id="setwalkbehindbase"></span><h2>SetWalkBehindBase<a class="headerlink" href="#setwalkbehindbase" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetWalkBehindBase</span> <span class="p">(</span><span class="nb">int</span> <span class="n">area</span><span class="p">,</span> <span class="nb">int</span> <span class="n">baseline</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the walk-behind AREA to have new BASELINE. This effectively
+allows you to turn walk-behinds on and off, although you can do other
+tricks with it as well. BASELINE is from 1 to the height of the room
+(normally 200) and moves the line which you set originally in the
+editor.</p>
+<p>Passing BASELINE as 0 disables the walk-behind area, so that the player
+will always walk in front of it.</p>
+<p>Basically, if the character’s feet are below BASELINE, he will be drawn
+in front of it, otherwise he will be drawn behind it.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetWalkBehindBase</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will disable the walkbehind area number 3.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#baseline">Object.Baseline</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="bottomedge">
+<span id="bottomedge"></span><h2>BottomEdge<a class="headerlink" href="#bottomedge" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">BottomEdge</span>
+</pre></div>
+</div>
+<p>Returns the Y co-ordinate of the bottom edge of the room, as set in the
+Room Settings pane of the editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room&#39;s bottom edge is at </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">BottomEdge</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#leftedge">Room.LeftEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#rightedge">Room.RightEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#topedge">Room.TopEdge</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="colordepth">
+<span id="colordepth"></span><h2>ColorDepth<a class="headerlink" href="#colordepth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">ColorDepth</span>
+</pre></div>
+</div>
+<p>Returns the colour depth of the room’s background scene. This is
+important if you want to use DrawImage, since any sprites that you draw
+must be the same colour depth as the room itself.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room background is </span><span class="si">%d</span><span class="s2">-bit colour.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">ColorDepth</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawimage">DrawingSurface.DrawImage</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="height">
+<span id="height"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.room_height, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">Height</span>
+</pre></div>
+</div>
+<p>Returns the height of the room, in 320x200-style co-ordinates. This is
+the same height as is displayed as the “Relative size” in the Editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room size is </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">Width</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#width">Room.Width</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="leftedge">
+<span id="leftedge"></span><h2>LeftEdge<a class="headerlink" href="#leftedge" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">LeftEdge</span>
+</pre></div>
+</div>
+<p>Returns the X co-ordinate of the left edge of the room, as set in the
+Room Settings pane of the editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room&#39;s left edge is at </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">LeftEdge</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#bottomedge">Room.BottomEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#rightedge">Room.RightEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#topedge">Room.TopEdge</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="messages">
+<span id="messages"></span><h2>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function GetMessageText, which is now
+obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">String</span> <span class="n">Room</span><span class="o">.</span><span class="n">Messages</span><span class="p">[</span><span class="nb">int</span> <span class="n">message</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Gets the text of the specified room message. This is useful if you want
+to store, for example, a room description in Message 1 in each room –
+this property allows you to retrieve the text for that message from the
+current room.</p>
+<p>If an invalid message number is supplied, <em>null</em> will be returned.
+Otherwise, the message contents will be returned.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">message1</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">Messages</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Message 1 says: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">message1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will print the contents of room message 1.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="musiconload">
+<span id="musiconload"></span><h2>MusicOnLoad<a class="headerlink" href="#musiconload" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">MusicOnLoad</span>
+</pre></div>
+</div>
+<p><strong>This property is now obsolete.</strong> It is still accessible for backwards
+compatibility with old games.</p>
+<p>Returns the music number that is set to play when the player enters this
+room, as set in the “Room Settings” pane in the editor. If no music is
+set for this room, returns 0.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room plays music </span><span class="si">%d</span><span class="s2"> when the player enters.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">MusicOnLoad</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objectcount">
+<span id="objectcount"></span><h2>ObjectCount<a class="headerlink" href="#objectcount" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">ObjectCount</span>
+</pre></div>
+</div>
+<p>Returns the number of objects in the room.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room contains </span><span class="si">%d</span><span class="s2"> objects.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">ObjectCount</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="rightedge">
+<span id="rightedge"></span><h2>RightEdge<a class="headerlink" href="#rightedge" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">RightEdge</span>
+</pre></div>
+</div>
+<p>Returns the X co-ordinate of the right edge of the room, as set in the
+Room Settings pane of the editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room&#39;s right edge is at </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">RightEdge</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#bottomedge">Room.BottomEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#leftedge">Room.LeftEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#topedge">Room.TopEdge</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="topedge">
+<span id="topedge"></span><h2>TopEdge<a class="headerlink" href="#topedge" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">TopEdge</span>
+</pre></div>
+</div>
+<p>Returns the Y co-ordinate of the top edge of the room, as set in the
+Room Settings pane of the editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room&#39;s top edge is at </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">TopEdge</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#bottomedge">Room.BottomEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#leftedge">Room.LeftEdge</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#rightedge">Room.RightEdge</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="width">
+<span id="width"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.room_width, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">Room</span><span class="o">.</span><span class="n">Width</span>
+</pre></div>
+</div>
+<p>Returns the width of the room, in 320x200-style co-ordinates. This is
+the same width as is displayed as the “Relative size” in the Editor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current room size is </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">Width</span><span class="p">,</span> <span class="n">Room</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#height">Room.Height</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Room functions</a><ul>
+<li><a class="reference internal" href="#arethingsoverlapping">AreThingsOverlapping</a></li>
+<li><a class="reference internal" href="#disablegroundlevelareas">DisableGroundLevelAreas</a></li>
+<li><a class="reference internal" href="#enablegroundlevelareas">EnableGroundLevelAreas</a></li>
+<li><a class="reference internal" href="#getbackgroundframe">GetBackgroundFrame</a></li>
+<li><a class="reference internal" href="#getdrawingsurfaceforbackground">GetDrawingSurfaceForBackground</a></li>
+<li><a class="reference internal" href="#getplayercharacter">GetPlayerCharacter</a></li>
+<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
+<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
+<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
+<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
+<li><a class="reference internal" href="#getscalingat">GetScalingAt</a></li>
+<li><a class="reference internal" href="#getviewportx">GetViewportX</a></li>
+<li><a class="reference internal" href="#getviewporty">GetViewportY</a></li>
+<li><a class="reference internal" href="#getwalkableareaat">GetWalkableAreaAt</a></li>
+<li><a class="reference internal" href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a></li>
+<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
+<li><a class="reference internal" href="#releaseviewport">ReleaseViewport</a></li>
+<li><a class="reference internal" href="#removewalkablearea">RemoveWalkableArea</a></li>
+<li><a class="reference internal" href="#resetroom">ResetRoom</a></li>
+<li><a class="reference internal" href="#restorewalkablearea">RestoreWalkableArea</a></li>
+<li><a class="reference internal" href="#setareascaling">SetAreaScaling</a></li>
+<li><a class="reference internal" href="#setbackgroundframe">SetBackgroundFrame</a></li>
+<li><a class="reference internal" href="#setviewport">SetViewport</a></li>
+<li><a class="reference internal" href="#setwalkbehindbase">SetWalkBehindBase</a></li>
+<li><a class="reference internal" href="#bottomedge">BottomEdge</a></li>
+<li><a class="reference internal" href="#colordepth">ColorDepth</a></li>
+<li><a class="reference internal" href="#height">Height</a></li>
+<li><a class="reference internal" href="#leftedge">LeftEdge</a></li>
+<li><a class="reference internal" href="#messages">Messages</a></li>
+<li><a class="reference internal" href="#musiconload">MusicOnLoad</a></li>
+<li><a class="reference internal" href="#objectcount">ObjectCount</a></li>
+<li><a class="reference internal" href="#rightedge">RightEdge</a></li>
+<li><a class="reference internal" href="#topedge">TopEdge</a></li>
+<li><a class="reference internal" href="#width">Width</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Room.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

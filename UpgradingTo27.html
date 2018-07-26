@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Upgrading to AGS 2.7 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="upgrading-to-ags-2-7">
+<span id="upgrading-to-ags-2-7"></span><h1>Upgrading to AGS 2.7<a class="headerlink" href="#upgrading-to-ags-2-7" title="Permalink to this headline">¶</a></h1>
+<p>The script language in AGS 2.7 has changed quite significantly from
+previous versions. Many of the script commands have become
+<em>object-based</em>, which has several advantages over the previous approach.
+This page will attempt to introduce you to the new method and explain
+its benefits.</p>
+<p>Firstly, so that you can get an idea of the changes, here’s an example
+of some old-style script commands and their new equivalents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AnimateObjectEx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ListBoxAdd</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;New item&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>becomes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oWaterfall</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">eOnce</span><span class="p">,</span> <span class="n">eForwards</span><span class="p">,</span> <span class="n">eBlock</span><span class="p">);</span>
+<span class="n">lstTest</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;New item&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Just from looking at that example the advantages should be obvious; the
+script is more intuitive for people to learn, much easier to read (no
+guessing what all the numbers mean in the AnimateObjectEx call), and
+therefore you’re less likely to make mistakes when using it. GUI
+controls having names brings it much more into line with Visual
+Basic-style GUI development, so you don’t have to remember what control
+number all your buttons are.</p>
+<p>The script editor’s autocomplete functionality has been significantly
+enhanced to aid in all this as well. You’ll see as you start to
+experiment that autocomplete pops up more often and lists only the
+relevant commands thanks to object-based scripting.</p>
+<p><strong>So does this mean I have to throw out all my scripts?</strong></p>
+<p>No, certainly not! The new version is fully backwards compatible, so all
+your existing scripts will continue to work just fine. However, for any
+new scripts that you write, it’s strongly recommended that you use the
+new object-based commands.</p>
+<p><strong>Ok, so uh… what’s changed exactly?</strong></p>
+<p>The script language syntax hasn’t changed at all (that’s the way you use
+semicolons, brackets, and so on). It’s still just like it was before,
+but with some new additions. Most significantly, most commands are now
+called <strong>on something</strong>. For example, the old command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">StopMoving(EGO);</span></code></p>
+<p>Just from looking at that, it’s not at all obvious what StopMoving does.
+Does it stop a character moving, an object moving, or does it stop the
+screen moving? It’s not intuitive. So now, rather than supplying the
+character as a parameter to the function, you actually call the function
+<strong>on</strong> the character. So:</p>
+<p><code class="docutils literal notranslate"><span class="pre">character[EGO].StopMoving();</span></code></p>
+<p>Now it’s perfectly clear that it’s the character EGO that we want to
+stop moving.</p>
+<p>Suppose you’re wondering what commands you can call on a character.
+Previously it was hard to tell, but now if you type <code class="docutils literal notranslate"><span class="pre">character[EGO].</span></code> in
+the script editor, auto-complete will pop up and list all the valid
+functions and properties that you can access on the character.</p>
+<p><strong>So I have to keep typing character[EGO] all the time? What a pain!</strong></p>
+<p>Not so fast! Most of the new object-based commands can be called in two
+ways – either through the main array as we just saw, but also through
+what’s called the character’s <strong>Script O-Name</strong>. This is a shorthand
+that allows you to directly access things, and for characters it is the
+script name in sentence case, with a “c” added to the beginning. So, in
+this example it would be:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cEgo.StopMoving();</span></code></p>
+<p>This line has an identical effect to the one with character[EGO] that
+we used above.</p>
+<p>Furthermore, the <em>player</em> variable is now kept up to date with the
+current player character, so it is actually useful. In a multi-character
+game, what you previously had to write like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">StopMoving(GetPlayerCharacter());</span></code></p>
+<p>can now be done like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">player.StopMoving();</span></code></p>
+<p><strong>Hmm, I see… so what exactly has been object-ised?</strong></p>
+<p>Currently, the following object-based things are available:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Global array</th>
+<th>Object name example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>character[]</td>
+<td>cEgo</td>
+</tr>
+<tr>
+<td>object[]</td>
+<td>oDoor</td>
+</tr>
+<tr>
+<td>hotspot[]</td>
+<td>hTree</td>
+</tr>
+<tr>
+<td>gui[]</td>
+<td>gInventory</td>
+</tr>
+<tr>
+<td>inventory[]</td>
+<td>iPinkPoster</td>
+</tr>
+<tr>
+<td>region[]</td>
+<td>(none)</td>
+</tr>
+</tbody>
+</table><p>GUI controls are handled slightly differently. They all have a script
+name, and are directly accessed via that. For example, if you set the
+script name of a list box to “lstSaves”, then you would use “lstSaves.”
+to access it. There is no global array of GUI controls.</p>
+<p><strong>How do I find out the new equivalents of old functions?</strong></p>
+<p>The help file’s index has been set up to automatically redirect you to
+the new commands. Just open the help file, go to the index and type in
+the name of an old command, and it will bring you to the new
+object-based equivalent (if there is one).</p>
+<p><strong>Which commands haven’t been changed?</strong></p>
+<p>Commands which don’t operate on anything in particular (and therefore
+wouldn’t really benefit from being object-based) have been left alone.
+For example, SaveGameSlot, QuitGame and so on have all remained
+identical to how they were in previous versions.</p>
+<p><strong>What’s the deal with these “eBlock” type things?</strong></p>
+<p>AGS now supports <strong>enumerated types</strong>. Basically, in situations where
+you have to choose one from a list of possible options, an enumerated
+type (or <em>enum</em>) now steps in. In the past, you had commands with
+descriptions like this:</p>
+<p>“Pass 1 if you want the function to block, or 0 if you don’t”.</p>
+<p>This lead to lots of 1’s and 0’s in function calls, which are hard to
+read. Now, instead of this each number is represented by an
+easy-to-remember word (such as <em>eBlock</em> and <em>eNoBlock</em>). Even better,
+when you call a function that uses an enum parameter, auto-complete
+automatically pops up the list of options for you to choose from.</p>
+<p>See the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier">enum keyword</a> description for information on
+how to create your own.</p>
+<p><strong>So do I have to pass all these things like eBlock every time I call
+the function?</strong></p>
+<p>Nope! Many functions now support <strong>optional parameters</strong>, where the most
+common options are selected automatically. If you look at the help for a
+function such as the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Animate character
+command</a>, you’ll see some of the parameters
+are defined as “optional”. This means that you don’t have to supply
+them; if you don’t, the default option that will be chosen is described
+in the help for that command.</p>
+<p><strong>So what else is new?</strong></p>
+<p>Well, 2.7 introduces the <em>float</em> data type, so AGS now finally supports
+floating-point arithmetic in your scripts. Also, for more advanced
+scripters, you can create your own member functions (including protected
+and static ones) to write cleaner script than just having a bunch of
+global functions.</p>
+<p>Also, the script editor is now much better at checking your script for
+errors. You may well find that a script which compiled fine before no
+longer works on 2.7. Hopefully the error message should direct you
+towards fixing any problems.</p>
+<p><strong>Is there anything else I should watch out for?</strong></p>
+<p>Because of the new additions, the script language has more reserved
+words than before. For example, words like “gui”, “object” and “hotspot”
+are now reserved (since they are used to access the global arrays). If
+your script uses any variables with these names, it will no longer work.
+You’ll need to change the variable name in order to compile.</p>
+<p>Also, the script language now supports <em>pointers</em>. Because they are a
+fairly complex topic, there’s a <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Pointers">separate page</a>
+devoted to explaining what they are.</p>
+<p><strong>Blimey, that’s a lot to take in. Where do I start?</strong></p>
+<p>I’d recommend attempting to write your next section of script in the new
+way. Each time you’re about to use an old-style command, simply look it
+up in the manual to find out what it’s replacement is.</p>
+<p>Once you get used to the new system, I’m sure you’ll agree that it is a
+significant improvement over the old scripting system and you’ll start
+to enjoy the benefits of faster and more intuitive coding.</p>
+<p>As always, if there’s something you really can’t get your head round,
+post on the AGS Forums and we’ll help you out as best we can!</p>
+<p>Have fun,<br>
+CJ</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/UpgradingTo27.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

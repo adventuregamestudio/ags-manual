@@ -1,0 +1,113 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Graphics driver selection &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="graphics-driver-selection">
+<span id="graphics-driver-selection"></span><h1>Graphics driver selection<a class="headerlink" href="#graphics-driver-selection" title="Permalink to this headline">¶</a></h1>
+<p>AGS has three available graphics drivers when run on Windows –
+DirectDraw, Direct3D and OpenGL.</p>
+<p>DirectDraw is the ‘classic’ software graphics driver, that AGS has used
+ever since the initial Windows version was released. It’s perfectly fine
+for simple games that don’t use many large sprites, tinting or alpha
+blending. It’s also quite fast at doing RawDrawing to the screen.</p>
+<p>Direct3D is a newer, hardware accelerated graphics driver. It uses the
+Direct3D 9.0 to render the game in a fully hardware-accelerated
+environment. This means that the game will run a lot faster if you use
+features such as alpha blending and tinting, which are quite slow to
+perform in software mode. However, with Direct3D doing RawDraw
+operations can be quite slow, and the driver won’t work on all graphics
+cards.</p>
+<p>It should be noted that DirectDraw and Direct3D 9 drivers are know to
+sometimes fail to work on latest versions of the Windows because of
+compatibility issues.</p>
+<p>OpenGL is another hardware accelerated graphics driver, and because it
+is not strictly linked to particular version of DirectX, it may work
+where Direct3D failed. Other than that, it should not have any
+significant perfomance differences from the former.</p>
+<p>No matter which you choose as your default graphics driver, the player
+can always run the Setup program and switch to using the other driver if
+they are having problems on their PC.</p>
+<p><strong>System Requirements</strong></p>
+<p><strong>DirectDraw</strong>: any Windows-based PC with DirectX 5 or later installed<br>
+<strong>Direct3D</strong>: any Windows-based PC with DirectX 9.0 installed and a
+graphics card designed for DirectX 8.1 or later (most cards manufactured
+from 2003 onwards)<br>
+<strong>OpenGL</strong>: your graphics card drivers should provide support for
+OpenGL 3.0 or higher for the game visuals to have full functionality.</p>
+<p>If you are running with Direct3D 9 selected and get the error message
+“Graphics card does not support Pixel Shader 1.4” on startup, this
+indicates that your graphics card is too old to run with the Direct3D
+driver. You should try one of the other two drivers instead.</p>
+<p>See Also: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/System#hardwareacceleration">System.HardwareAcceleration
+property</a></p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/GraphicsDriver.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

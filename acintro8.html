@@ -1,0 +1,228 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started with AGS - Part 8 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-ags-part-8">
+<span id="getting-started-with-ags-part-8"></span><h1><strong>Getting Started with AGS - Part 8</strong><a class="headerlink" href="#getting-started-with-ags-part-8" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conversations">
+<span id="conversations"></span><h2>Conversations<a class="headerlink" href="#conversations" title="Permalink to this headline">¶</a></h2>
+<p>What fun would an adventure be if there were no other characters to talk
+to? Probably not much!</p>
+<p>How much you go into dialog depends of course on your game style.
+Generally, Sierra games used to just have one fixed line of dialog which
+the characters would talk about, possibly changing if you talked to the
+same person again.<br>
+Lucasarts games (and some Sierra titles such as Quest for Glory) on the
+other hand, had complete dialog trees through which you could choose
+your topics to talk about.</p>
+<p>AGS lets you do it whichever way you want. We’ll start off by looking at
+the complete dialog tree approach, and then see how easy it is to cut it
+down to get a Sierra-style system.</p>
+<p>Now, before we go any further, let’s consider for a moment what
+conversation structure we want. It’s going to be a lot easier to
+implement if we have this planned in advance. For this tutorial, we’ll
+go for a structure like this:</p>
+<p><img alt="" src="_images/intro8_1.jpg" /><br>
+<em>Our planned dialog tree</em></p>
+<p>In other words, when we first speak to the other character, we will say
+“Greetings!”. After he replies, we will then be presented with three
+options to choose from.<br>
+The “Tell me more about your wares” option will then lead us to be able
+to ask a different set of questions.</p>
+<p>Before we begin, we need to create a second character - we can’t just
+have Roger talking to himself! Go to the “Characters” node, right-click
+it and choose “New Character”. Double-click the new “cChar1” entry to
+open him up.</p>
+<p>In the property grid, give the new character a RealName – I’ll call him
+<em>Merchant</em>. Now - and this bit is vital - you also need to set this new
+character’s <strong>script name</strong>. This is the name by which we refer to him
+when creating our dialogs. I’ll just use “cMerchant” as the script name.
+I’d recommend you set it to something sensible like this, and don’t just
+leave it as “cChar1” or else your dialog scripts will get very
+confusing!</p>
+<p>Ok, all done? Expand the “Dialogs” node in the editor, and you’ll see
+one existing “0” entry. We’d may as well use it since it’s there, so
+double-click it. (If not, you can always right-click the Dialogs node
+and choose “New dialog” to make a new one). You’ll see this rather empty
+window:</p>
+<p><img alt="" src="_images/intro8_2.jpg" /><br>
+<em>The dialog editor</em></p>
+<p>Conversations in AGS are made up of <strong>topics</strong>. A topic consists of a
+set of options that the player can talk about - not all of which are
+necessarily available to the player at the start of the game. When the
+player selects an option from a topic, the topic’s <strong>dialog script</strong> is
+run.</p>
+<p>Each topic can contain some start-up text, which is displayed before the
+options are presented to the player. Our “Greetings” line qualifies for
+this, so we don’t need to make a special topic for it. A <strong>topic</strong> is
+also referred to as a <strong>dialog</strong> in AGS – the two words are one and the
+same thing.</p>
+<p>Right, let’s make our first dialog. Click the “Create new option” button
+three times, and three new rows will appear in the window. You’ll also
+notice some new lines being added to the script on the right hand side.
+Make sure that the “Show” checkbox is ticked for all the options – this
+determines whether the options are initially available to the player or
+not.</p>
+<p>Also, this dialog currently has no name, but we’ll need to give it one
+so that we can access it later. The convention in AGS is for dialogs to
+start with “d”, so I’m going to call this “dMerchant”. Use the property
+grid to set the name, as usual.</p>
+<p>Now, type in some text to the three new text boxes:</p>
+<p><img alt="" src="_images/intro8_3.jpg" /><br>
+<em>We’ve inserted three options for topic 0</em></p>
+<p>While we’re at it, let’s create the next set of options too. Right click
+the “Dialogs” node in the project tree, and select “New Dialog”. A new
+blank Dialog 1 is created. Double-click on this, and again, create three
+new options and type them in. In the property grid, change the Name from
+“dDialog1” to “dWares”.</p>
+<p>Now, go back to the first dialog (select it in the tab bar), and let’s
+have a look at the script. This is <strong>not</strong> the same type of script that
+we’ve used for our events like picking up the key. It’s a much simpler
+dialog-only scripting language.</p>
+<p>Each of the “&#64;” lines is an <strong>entry point</strong>. These define the different
+places where your script can start. The “&#64;S” entry point happens when
+the topic is first started - and so this is where we want our
+“Greetings” text to be displayed.</p>
+<p>Dialog scripting is very simple. It takes the form:</p>
+<p>SCRIPTNAME: “Text to say”</p>
+<p>So, in between the “&#64;S” and the “&#64;1” lines, insert a couple of new
+lines, and type the following:</p>
+<p>EGO: “Greetings!”<br>
+MERCHANT: “Hello there!”<br>
+return</p>
+<p>Remember, these are the <strong>script names</strong> of the characters (but without
+the initial “c”). The “return” is essential, because it tells AGS to
+stop running the script at that point and to display the options to the
+player.</p>
+<p>The numbered entry points will be run when the player selects the
+appropriate option - for example, if the player clicks the “Who are
+you?” option, then entry point &#64;1 will run.</p>
+<p>Here’s a finished script for this topic:</p>
+<p><img alt="" src="_images/intro8_5.jpg" /><br>
+<em>Our finished dialog script</em></p>
+<p>The <em>goto-dialog</em> command takes the player to another dialog - in this
+case, the new “dWares” dialog we just created (with questions about the
+merchant’s wares).<br>
+The <em>stop</em> command tells AGS to end the conversation and return to the
+game (whereas <em>return</em> returns them to the list of options to talk
+about).</p>
+<p>Now, we’re not quite done … we’ve got to deal with our second dialog
+too! In the tab bar, click the “Dialog: dWares” tab to return to the
+main topic. Fill in the script however you like. You can use the
+<em>goto-previous</em> command to take the player back to the first list of
+options when they get bored of talking about his wares.</p>
+<p>Here’s my completed script for dWares:</p>
+<p><img alt="" src="_images/intro8_6.jpg" /><br>
+<em>Dialog script for dWares</em></p>
+<p>As you can see, it’s done very similarly to the first one. Notice the
+use of “return” in the startup entry point, to make sure that it doesn’t
+go on and run the next bit of script straight away.</p>
+<p>We’re almost done! All we’ve got to do now is add a way for the player
+to initiate the conversation.</p>
+<p>Open up the Character editor for the new <em>cMerchant</em> character. Change
+his StartingRoom to room 1 (ie. the same as the player character), and
+position him at let’s say X:260, Y:130. You can always change this
+later.</p>
+<p>Now, still with the Merchant open, go to his Events list. Using your
+skills from earlier on in this tutorial, add a command to initiate the
+dialog when the player talks to the Merchant. Now, we’re all set!</p>
+<p><img alt="" src="_images/intro8_7.jpg" /><br>
+<em>Event script to launch the dialog</em></p>
+<p>Test the game, talk to the Merchant, and try out the conversation.</p>
+<p><strong>More on conversations</strong></p>
+<p>You may have noticed the “Show” and “Say” check-boxes in the dialog
+editors. You’ll have noticed that when the player selects an option, the
+player character will say the option text. However, there are times when
+you won’t want this to happen, and if you un-tick the “Say” box for an
+option, the character won’t repeat the text when the player selects it.</p>
+<p>The “Show” box determines whether the option is initially available to
+the player. If you uncheck it, then that option won’t appear to start
+with. You can enable it later using the <em>option-on</em> dialog script
+command, or the <em>dDialogName.SetOptionState</em> script command.</p>
+<p>There is also a dialog script command called <em>option-off</em>, which you can
+use to stop a particular option from appearing once the character has
+found out all the vital information. See the manual reference for more.</p>
+<p>If there is only one option enabled for a topic, then the game selects
+it automatically. You can use this to make Sierra-style conversations,
+because the options will never be shown to the player in this case.</p>
+<p>Go to part 9: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/acintro9">Cursors and fonts</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 8</strong></a><ul>
+<li><a class="reference internal" href="#conversations">Conversations</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/acintro8.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

@@ -1,0 +1,408 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AudioChannel functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audiochannel-functions-and-properties">
+<span id="audiochannel-functions-and-properties"></span><h1>AudioChannel functions and properties<a class="headerlink" href="#audiochannel-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p>The AudioChannel instance represents a currently playing audio file. You
+can use this instance to check the status of playing sounds, and adjust
+them.</p>
+<p><a class="reference external" href="#seek">Seek</a><br>
+<a class="reference external" href="#setroomlocation">SetRoomLocation</a><br>
+<a class="reference external" href="#speed">Speed property</a><br>
+<a class="reference external" href="#stop">Stop</a><br>
+<a class="reference external" href="#id">ID property</a><br>
+<a class="reference external" href="#isplaying">IsPlaying property</a><br>
+<a class="reference external" href="#lengthms">LengthMs property</a><br>
+<a class="reference external" href="#panning">Panning property</a><br>
+<a class="reference external" href="#playingclip">PlayingClip property</a><br>
+<a class="reference external" href="#position">Position property</a><br>
+<a class="reference external" href="#positionms">PositionMs property</a><br>
+<a class="reference external" href="#volume">Volume property</a></p>
+<hr class="docutils" />
+<div class="section" id="seek">
+<span id="seek"></span><h2>Seek<a class="headerlink" href="#seek" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SeekMIDIPosition, which is now obsolete)</em><br>
+<em>(Formerly known as SeekMODPattern, which is now obsolete)</em><br>
+<em>(Formerly known as SeekMP3PosMillis, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">.</span><span class="n">Seek</span><span class="p">(</span><span class="nb">int</span> <span class="n">position</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Seeks the audio clip that is currently playing on this channel to
+<em>position</em>.</p>
+<p>What <em>position</em> represents depends on the FileType of the audio clip:</p>
+<ul class="simple">
+<li><strong>MIDI</strong> - the beat number</li>
+<li><strong>MOD/XM/S3M</strong> - the pattern number</li>
+<li><strong>WAV/VOC</strong> - the sample number (eg. in a 22050 Hz sound, 22050 =
+1 second)</li>
+<li><strong>OGG/MP3</strong> - milliseconds offset</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Seek</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, wait for a second, then
+seek it back to the start.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#position">AudioChannel.Position</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setroomlocation">
+<span id="setroomlocation"></span><h2>SetRoomLocation<a class="headerlink" href="#setroomlocation" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly part of PlayAmbientSound, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">.</span><span class="n">SetRoomLocation</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the currently playing audio to be a directional sound, eminating
+from (x,y).</p>
+<p>The volume of the channel will be dynamically adjusted depending on how
+close the player character is to the co-ordinates. Therefore, as the
+player walks closer the volume will increase, and as they walk away the
+volume will decrease.</p>
+<p>The channel’s Volume setting sets the maximum possible volume when the
+player is standing on the specified co-ordinates.</p>
+<p>Pass the co-ordinates as (0,0) to remove the directional effect and
+return this channel to playing at its normal volume.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aMachine</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">SetRoomLocation</span><span class="p">(</span><span class="n">oMachine</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">oMachine</span><span class="o">.</span><span class="n">Y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aMachine</em> audio clip, and set it at the location
+of the <em>oMachine</em> room object.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#volume">AudioChannel.Volume</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="speed">
+<span id="speed"></span><h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">Speed</span>
+</pre></div>
+</div>
+<p>Gets/sets the playing audio clip’s playback speed. The value is defined
+in clip’s milliseconds per second: 1000 is default, meaning 1000 of
+clip’s ms in 1 real second (scale 1:1). Set <p>&amp;lt;</p>
+ 1000 for slower play
+and <p>&amp;gt;</p>
+ 1000 for faster play. <strong>NOTE:</strong> currently works for MP3 and OGG
+audio clips only.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aFunnyTalk</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Speed</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>plays <em>aFunnyTalk</em> clip at the double speed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="stop">
+<span id="stop"></span><h2>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as StopAmbientSound, which is now obsolete)</em><br>
+<em>(Formerly known as StopChannel, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Stops the sound that is currently playing on this audio channel.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Stop</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, wait for a second, then
+stop it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#stopaudio">Game.StopAudio</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id">
+<span id="id"></span><h2>ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">ID</span>
+</pre></div>
+</div>
+<p>Gets the Channel ID of this audio channel. You will not normally need to
+use this, but it can be used for inter-operating with legacy commands
+such as StopChannel.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Explosion playing on channel </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, and display which
+channel it is playing on.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="isplaying">
+<span id="isplaying"></span><h2>IsPlaying<a class="headerlink" href="#isplaying" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsChannelPlaying, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">IsPlaying</span>
+</pre></div>
+</div>
+<p>Gets whether this audio channel is currently playing a sound. Returns
+<em>true</em> if it is, or <em>false</em> if it is not.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">IsPlaying</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Finished playing the explosion&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, and wait until it
+finishes.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="lengthms">
+<span id="lengthms"></span><h2>LengthMs<a class="headerlink" href="#lengthms" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">LengthMs</span>
+</pre></div>
+</div>
+<p>Gets the length of the audio playing on this channel, in milliseconds.</p>
+<p>This is supported by all file types, but with MIDI music it is only
+accurate to the nearest second.</p>
+<p>If this channel is not currently playing any audio, returns 0.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The Explosion sound is </span><span class="si">%d</span><span class="s2"> ms long.&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">.</span><span class="n">LengthMs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, then display its length.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#positionms">AudioChannel.PositionMs</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="panning">
+<span id="panning"></span><h2>Panning<a class="headerlink" href="#panning" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">Panning</span>
+</pre></div>
+</div>
+<p>Gets/sets the panning of this audio channel.</p>
+<p>Panning allows you to adjust the stereo balance of the audio. The
+default is 0, which is centred and will play at the same volume on both
+speakers. However you can adjust this between -100 (fully left) to 100
+(fully right) to adjust the balance between the speakers.</p>
+<p><strong>NOTE:</strong> MIDI music files do not support panning.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Panning</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip on the left speaker only.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playingclip">
+<span id="playingclip"></span><h2>PlayingClip<a class="headerlink" href="#playingclip" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetCurrentMusic, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">AudioClip</span><span class="o">*</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">PlayingClip</span>
+</pre></div>
+</div>
+<p>Gets the audio clip that is playing on this channel. This allows you to
+find out the type of the clip, and other information.</p>
+<p>Returns <em>null</em> if there is no sound currently playing on this channel.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">AudioChannels</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">PlayingClip</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Nothing is playing on channel 2&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Channel 2 is playing a clip of type </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">.</span><span class="n">PlayingClip</span><span class="o">.</span><span class="n">Type</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will display what is currently playing on audio channel 2.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/System#audiochannels">System.AudioChannels</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="position">
+<span id="position"></span><h2>Position<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetMIDIPosition, which is now obsolete)</em><br>
+<em>(Formerly known as GetMODPattern, which is now obsolete)</em><br>
+<em>(Formerly known as GetMP3PosMillis, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">Position</span>
+</pre></div>
+</div>
+<p>Gets the current position of the audio playing on this channel.</p>
+<p>What <em>position</em> represents depends on the FileType of the audio clip:</p>
+<ul class="simple">
+<li><strong>MIDI</strong> - the beat number</li>
+<li><strong>MOD/XM/S3M</strong> - the pattern number</li>
+<li><strong>WAV/VOC</strong> - the sample number (eg. in a 22050 Hz sound, 22050 =
+1 second)</li>
+<li><strong>OGG/MP3</strong> - milliseconds offset</li>
+</ul>
+<p>This property is read-only. If you want to change the current playback
+position within the audio file, use the
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a> function.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Seek</span><span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">Position</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, wait for a second, then
+seek it ahead one second (if it is OGG/MP3/WAV).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#positionms">AudioChannel.PositionMs</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="positionms">
+<span id="positionms"></span><h2>PositionMs<a class="headerlink" href="#positionms" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">PositionMs</span>
+</pre></div>
+</div>
+<p>Gets the current position of the audio playing on this channel, in
+milliseconds.</p>
+<p>This is supported by all file types except MIDI, and returns the current
+offset into the sound in milliseconds. MIDI files will always return 0.</p>
+<p>This property is read-only. If you want to change the current playback
+position within the audio file, use the
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a> function.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;After 1 second, offset is </span><span class="si">%d</span><span class="s2"> ms.&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">.</span><span class="n">PositionMs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, wait for a second, then
+display its position.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#lengthms">AudioChannel.LengthMs</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#position">AudioChannel.Position</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="volume">
+<span id="volume"></span><h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetChannelVolume, which is now obsolete)</em><br>
+<em>(Formerly known as SetMusicVolume, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">AudioChannel</span><span class="o">.</span><span class="n">Volume</span>
+</pre></div>
+</div>
+<p>Gets/sets the volume of this audio channel, from 0 to 100. This allows
+you to dynamically adjust the volume of a playing sound.</p>
+<p>This command adjusts the volume of this channel relative to the other
+channels. It is still constrained within the overall volume, set by the
+System.Volume property.</p>
+<p><strong>NOTE:</strong> This command only affects the current sound being played on
+the channel. When a new audio clip starts playing on this channel, the
+volume will be set to the DefaultVolume of the new audio clip.</p>
+<p><strong>NOTE:</strong> The volume returned by this property is the channel’s base
+volume, ie. it does not include the effects of any directional audio set
+with SetRoomLocation, or any temporary volume drop while speech is
+playing.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">channel</span><span class="o">.</span><span class="n">Volume</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will start playing the <em>aExplosion</em> audio clip, wait for a second, then
+reduce its volume.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#setroomlocation">AudioChannel.SetRoomLocation</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#setaudiotypevolume">Game.SetAudioTypeVolume</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/System#volume">System.Volume</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AudioChannel functions and properties</a><ul>
+<li><a class="reference internal" href="#seek">Seek</a></li>
+<li><a class="reference internal" href="#setroomlocation">SetRoomLocation</a></li>
+<li><a class="reference internal" href="#speed">Speed</a></li>
+<li><a class="reference internal" href="#stop">Stop</a></li>
+<li><a class="reference internal" href="#id">ID</a></li>
+<li><a class="reference internal" href="#isplaying">IsPlaying</a></li>
+<li><a class="reference internal" href="#lengthms">LengthMs</a></li>
+<li><a class="reference internal" href="#panning">Panning</a></li>
+<li><a class="reference internal" href="#playingclip">PlayingClip</a></li>
+<li><a class="reference internal" href="#position">Position</a></li>
+<li><a class="reference internal" href="#positionms">PositionMs</a></li>
+<li><a class="reference internal" href="#volume">Volume</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/AudioChannel.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>String formatting &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="string-formatting">
+<span id="string-formatting"></span><h1>String formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h1>
+<p>You will find many times in your game when you need to create a string
+based on the values of variables, and functions like
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DisplayAt#display">Display</a> and
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/String#format">String.Format</a> allow you to do so.</p>
+<p>AGS uses printf-style argument formatting (used by the C language). This
+means that you intersperse your text with special codes to insert a
+variable’s value. These special codes begin with a percent sign, and
+then specify the variable type. The actual variables that you want to
+display are then listed afterwards.</p>
+<p>The special codes you can use are as follows:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%d</td>
+<td>Integer (use to display value of int and short variables)</td>
+</tr>
+<tr>
+<td>%0Xd</td>
+<td>Integer left-padded with up to X zeros</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>String (use to display string variables)</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>Character (displays the ASCII character of the supplied value)</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>Float (displays a float variable)</td>
+</tr>
+<tr>
+<td>%.Xf</td>
+<td>Float to X decimal places</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>Display the percent character (ie. no variable)</td>
+</tr>
+<tr>
+<td>[</td>
+<td>Inserts a new line into the message</td>
+</tr>
+</tbody>
+</table><p>Some examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">life</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="nb">float</span> <span class="n">twoPi</span> <span class="o">=</span> <span class="n">Maths</span><span class="o">.</span><span class="n">Pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;A string variable&quot;</span><span class="p">;</span>
+
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;A normal string with no variables.&quot;</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The meaning of life is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">life</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The meaning of life in 3 digits is </span><span class="si">%03d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">life</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;2 times Pi is </span><span class="si">%f</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">twoPi</span><span class="p">);</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The message says: </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>would display:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="n">normal</span> <span class="n">string</span> <span class="k">with</span> <span class="n">no</span> <span class="n">variables</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">meaning</span> <span class="n">of</span> <span class="n">life</span> <span class="ow">is</span> <span class="mf">42.</span>
+<span class="n">The</span> <span class="n">meaning</span> <span class="n">of</span> <span class="n">life</span> <span class="ow">in</span> <span class="mi">3</span> <span class="n">digits</span> <span class="ow">is</span> <span class="mf">042.</span>
+<span class="mi">2</span> <span class="n">times</span> <span class="n">Pi</span> <span class="ow">is</span> <span class="mf">6.283186</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">message</span> <span class="n">says</span><span class="p">:</span> <span class="n">A</span> <span class="n">string</span> <span class="n">variable</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>You can display as many variables as you like in one line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">life</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="nb">float</span> <span class="n">twoPi</span> <span class="o">=</span> <span class="n">Maths</span><span class="o">.</span><span class="n">Pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">;</span>
+
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Life is </span><span class="si">%d</span><span class="s2">, 2 x Pi = </span><span class="si">%f</span><span class="s2">, and my dinner is </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">life</span><span class="p">,</span> <span class="n">twoPi</span><span class="p">,</span> <span class="s2">&quot;awful&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>but, <strong>be very careful</strong> that you supply the right number of variables
+to correspond with the tags you use in the text. If you don’t supply
+enough variables, your game could crash.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/StringFormats.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

@@ -1,0 +1,619 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DrawingSurface functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="drawingsurface-functions-and-properties">
+<span id="drawingsurface-functions-and-properties"></span><h1>DrawingSurface functions and properties<a class="headerlink" href="#drawingsurface-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p>The DrawingSurface family of functions allow you to directly draw onto
+dynamic sprites and room backgrounds in the game. You get a drawing
+surface by calling
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>
+or
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a>,
+and you can then use the following methods to draw onto the surface.</p>
+<p><strong>IMPORTANT:</strong> You <strong>MUST</strong> call the
+<a class="reference external" href="#release">Release</a> method when you have
+finished drawing onto the surface. This allows AGS to update its cached
+copies of the image and upload it to video memory if appropriate.</p>
+<p><a class="reference external" href="#clear">Clear</a><br>
+<a class="reference external" href="#createcopy">CreateCopy</a><br>
+<a class="reference external" href="#drawcircle">DrawCircle</a><br>
+<a class="reference external" href="#drawimage">DrawImage</a><br>
+<a class="reference external" href="#drawline">DrawLine</a><br>
+<a class="reference external" href="#drawmessagewrapped">DrawMessageWrapped</a><br>
+<a class="reference external" href="#drawpixel">DrawPixel</a><br>
+<a class="reference external" href="#drawrectangle">DrawRectangle</a><br>
+<a class="reference external" href="#drawstring">DrawString</a><br>
+<a class="reference external" href="#drawstringwrapped">DrawStringWrapped</a><br>
+<a class="reference external" href="#drawsurface">DrawSurface</a><br>
+<a class="reference external" href="#drawtriangle">DrawTriangle</a><br>
+<a class="reference external" href="#release">Release</a><br>
+<a class="reference external" href="#drawingcolor">DrawingColor property</a><br>
+<a class="reference external" href="#getpixel">GetPixel</a><br>
+<a class="reference external" href="#height">Height property</a><br>
+<a class="reference external" href="#usehighrescoordinates">UseHighResCoordinates property</a><br>
+<a class="reference external" href="#width">Width property</a></p>
+<hr class="docutils" />
+<div class="section" id="clear">
+<span id="clear"></span><h2>Clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawClearScreen, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">Clear</span><span class="p">(</span><span class="n">optional</span> <span class="nb">int</span> <span class="n">colour</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Clears the surface to the specified COLOUR (this is a number you can
+find in the Colours pane of the editor). The current contents of the
+surface will be lost.</p>
+<p>If you do not supply the COLOUR parameter, or use COLOR_TRANSPARENT,
+the surface will be cleared to be fully transparent.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Clear</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>clears the room background to be fully yellow, then draws a pink circle
+in the middle of it.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="createcopy">
+<span id="createcopy"></span><h2>CreateCopy<a class="headerlink" href="#createcopy" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawSaveScreen, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">*</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">CreateCopy</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Makes a backup copy of the current surface, in order that it can be
+restored later. This could be useful to back up a background scene
+before writing over it, or to save a certain state of your drawing to
+restore later.</p>
+<p>Unlike the obsolete RawSaveScreen command in previous versions of AGS,
+backup surfaces created with this command are not lost when the player
+changes room or restores a game. However, surfaces containing a copy of
+room backgrounds can be <strong>very large</strong>, using up a large amount of
+memory and can increase the save game sizes significantly. Therefore, it
+is <strong>strongly recommended</strong> that you Release any backup copy surfaces as
+soon as you are done with them.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">backup</span> <span class="o">=</span> <span class="n">surface</span><span class="o">.</span><span class="n">CreateCopy</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawTriangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawSurface</span><span class="p">(</span><span class="n">backup</span><span class="p">);</span>
+<span class="n">backup</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will save a copy of the room background, draw a triangle onto it, wait
+for a while and then restore the original background.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawsurface">DrawingSurface.DrawSurface</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawcircle">
+<span id="drawcircle"></span><h2>DrawCircle<a class="headerlink" href="#drawcircle" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawCircle, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws a filled circle of radius RADIUS with its centre at (X,Y) in the
+current drawing colour.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw a circle in the centre of the screen, of 50 pixels radius.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawimage">
+<span id="drawimage"></span><h2>DrawImage<a class="headerlink" href="#drawimage" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawImage, which is now obsolete)</em><br>
+<em>(Formerly known as RawDrawImageResized, which is now obsolete)</em><br>
+<em>(Formerly known as RawDrawImageTransparent, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawImage</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">slot</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">int</span> <span class="n">transparency</span><span class="p">,</span>
+                         <span class="n">optional</span> <span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">int</span> <span class="n">height</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws image SLOT from the sprite manager onto the surface at location
+(X,Y).</p>
+<p>Optionally, you can also specify the transparency of the image. This is
+a number from 0-100; using a <em>transparency</em> of 50 will draw the image
+semi-transparent; using 0 means it will not be transparent.</p>
+<p>You can also resize the image as you draw it. In order to do this,
+simply specify a <em>width</em> and <em>height</em> that you wish to resize the image
+to when it is drawn.</p>
+<p><strong>NOTE:</strong> This command only works if the image to be drawn is the same
+colour depth as the surface that you are drawing onto.</p>
+<p><strong>NOTE:</strong> Transparency does not work in 256-colour games, or with
+256-colour sprites.</p>
+<p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not
+SCREEN co-ordinates. This means that in a scrolling room you can draw
+outside the current visible area.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawImage</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">oDoor</span><span class="o">.</span><span class="n">Graphic</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw the <em>oDoor</em> object’s graphic onto the room background at (100,
+100), at <code class="docutils literal notranslate"><span class="pre">40%</span></code> transparency.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#drawstring">DrawingSurface.DrawString</a>,
+<a class="reference external" href="#drawsurface">DrawingSurface.DrawSurface</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#colordepth">Room.ColorDepth</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawline">
+<span id="drawline"></span><h2>DrawLine<a class="headerlink" href="#drawline" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawLine, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="nb">int</span> <span class="n">from_x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">from_y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">to_x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">to_y</span><span class="p">,</span>
+                        <span class="n">optional</span> <span class="nb">int</span> <span class="n">thickness</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws a line from (FROM_X, FROM_Y) to (TO_X, TO_Y) in the surface’s
+current drawing colour.</p>
+<p>The <em>thickness</em> parameter allows you to specify how thick the line is,
+the default being 1 pixel.</p>
+<p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not
+SCREEN co-ordinates. This means that in a scrolling room you can draw
+outside the current visible area.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw a line from the left top of the screen (0,0) to the middle of
+the screen (160,100);</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawcircle">DrawingSurface.DrawCircle</a>,
+<a class="reference external" href="#drawrectangle">DrawingSurface.DrawRectangle</a>,
+<a class="reference external" href="#drawtriangle">DrawingSurface.DrawTriangle</a>,
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawmessagewrapped">
+<span id="drawmessagewrapped"></span><h2>DrawMessageWrapped<a class="headerlink" href="#drawmessagewrapped" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawPrintMessageWrapped, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawMessageWrapped</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">width</span><span class="p">,</span>
+                                  <span class="n">FontType</span> <span class="n">font</span><span class="p">,</span> <span class="nb">int</span> <span class="n">message_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws the room message MESSAGE_NUMBER onto the surface at (x,y), using
+the specified FONT.</p>
+<p>WIDTH is the width of the virtual textbox enclosing the text, and is the
+point that the text will wrap at. This command is designed for writing a
+long message to the screen with it wrapping normally like a standard
+label would do.</p>
+<p>The text will be printed using the current drawing colour.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawMessageWrapped</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="n">Game</span><span class="o">.</span><span class="n">NormalFont</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will display message 10 in the centre of the screen, starting from Y =</p>
+<ol class="simple">
+<li></li>
+</ol>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawstring">DrawingSurface.DrawString</a>,
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a>,
+<a class="reference external" href="#drawstringwrapped">DrawingSurface.DrawStringWrapped</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawpixel">
+<span id="drawpixel"></span><h2>DrawPixel<a class="headerlink" href="#drawpixel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawPixel</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws a single pixel onto the surface at (X,Y) in the current colour.
+The pixel thickness respects the
+<a class="reference external" href="#usehighrescoordinates">UseHighResCoordinates</a>
+property.</p>
+<p><strong>NOTE:</strong> This command is not fast enough to use repeatedly to build up
+an image. Only use it for single pixel adjustments.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawPixel</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>draws a yellow pixel in the top left of the room background</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a>,
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#getpixel">DrawingSurface.GetPixel</a>,
+<a class="reference external" href="#usehighrescoordinates">DrawingSurface.UseHighResCoordinates</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawrectangle">
+<span id="drawrectangle"></span><h2>DrawRectangle<a class="headerlink" href="#drawrectangle" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawRectangle, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawRectangle</span><span class="p">(</span><span class="nb">int</span> <span class="n">x1</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y1</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x2</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws a filled rectangle in the current colour with its top-left corner
+at (x1,y1) and its bottom right corner at (x2, y2)</p>
+<p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not
+SCREEN co-ordinates. This means that in a scrolling room you can draw
+outside the current visible area.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw a rectangle over the top left hand quarter of the screen.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawimage">DrawingSurface.DrawImage</a>,
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawstring">
+<span id="drawstring"></span><h2>DrawString<a class="headerlink" href="#drawstring" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawPrint, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawString</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">FontType</span> <span class="n">font</span><span class="p">,</span> <span class="n">string</span> <span class="n">text</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws the <em>text</em> onto the surface at (x, y), using the supplied font
+number. The text will be drawn in the current drawing colour.</p>
+<p>You can insert the value of variables into the message. For more
+information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+section.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">Game</span><span class="o">.</span><span class="n">NormalFont</span><span class="p">,</span> <span class="s2">&quot;Text written into the background!&quot;</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will write some text onto the middle-left of the room background</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#gettextwidth">GetTextWidth</a>,
+<a class="reference external" href="#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>,
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawstringwrapped">
+<span id="drawstringwrapped"></span><h2>DrawStringWrapped<a class="headerlink" href="#drawstringwrapped" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawStringWrapped</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">width</span><span class="p">,</span>
+                                 <span class="n">FontType</span> <span class="n">font</span><span class="p">,</span> <span class="n">Alignment</span><span class="p">,</span>
+                                 <span class="n">const</span> <span class="n">string</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws the <em>text</em> onto the surface at (x,y), using the specified FONT.</p>
+<p><em>width</em> is the width of the virtual textbox enclosing the text, and is
+the point that the text will wrap at. You can use the <em>alignment</em>
+parameter to determine how the text is horizontally aligned.</p>
+<p>The text will be printed using the current drawing colour.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawStringWrapped</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="n">Game</span><span class="o">.</span><span class="n">NormalFont</span><span class="p">,</span> <span class="n">eAlignCentre</span><span class="p">,</span> <span class="s2">&quot;Hello, my name is Bob.&quot;</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will display the text in the centre of the screen, starting from Y = 40.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawstring">DrawingSurface.DrawString</a>,
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a>,
+<a class="reference external" href="#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawsurface">
+<span id="drawsurface"></span><h2>DrawSurface<a class="headerlink" href="#drawsurface" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawFrameTransparent, which is now obsolete)</em><br>
+<em>(Formerly known as RawRestoreScreen, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawSurface</span><span class="p">(</span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">source</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">int</span> <span class="n">transparency</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws the specified surface on top of this surface, optionally using
+<em>transparency</em> percent transparency.</p>
+<p>This allows you to perform day-to-night fading and other special
+effects.</p>
+<p><strong>NOTE:</strong> You cannot use the <em>transparency</em> parameter with 256-colour
+surfaces.</p>
+<p><strong>NOTE:</strong> This command can be a bit on the slow side, so don’t call it
+from repeatedly_execute.</p>
+<p><strong>TIP:</strong> If you want to gradually fade in a second background, create a
+copy of the original surface and then restore it after each iteration,
+otherwise the backgrounds will converge too quickly.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">mainBackground</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">nightBackground</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">mainBackground</span><span class="o">.</span><span class="n">DrawSurface</span><span class="p">(</span><span class="n">nightBackground</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="n">mainBackground</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+<span class="n">nightBackground</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>this will draw background frame 1 onto frame 0 at 50<code class="docutils literal notranslate"><span class="pre">%</span></code> opacity.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawimage">DrawingSurface.DrawImage</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawtriangle">
+<span id="drawtriangle"></span><h2>DrawTriangle<a class="headerlink" href="#drawtriangle" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawDrawTriangle, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawTriangle</span><span class="p">(</span><span class="nb">int</span> <span class="n">x1</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y1</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x2</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y2</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x3</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Draws a filled triangle in the current colour with corners at the points
+(x1,y1), (x2,y2) and (x3,y3).</p>
+<p>Well, don’t look at me, you might find it useful for something :-)</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawTriangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw a triangle with corners at the points (0,0),(160,100),(0,200).</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawimage">DrawingSurface.DrawImage</a>,
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#drawrectangle">DrawingSurface.DrawRectangle</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="release">
+<span id="release"></span><h2>Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span><span class="o">.</span><span class="n">Release</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Tells AGS that you have finished drawing onto this surface, and that AGS
+can now upload the changed image into video memory.</p>
+<p>After calling this method, you can no longer use the DrawingSurface
+instance. To do any further drawing, you need to get the surface again.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>draws a yellow diagonal line across the top-left of the current room
+background, then releases the image.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="drawingcolor">
+<span id="drawingcolor"></span><h2>DrawingColor<a class="headerlink" href="#drawingcolor" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RawSetColor, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">DrawingColor</span>
+</pre></div>
+</div>
+<p>Gets/sets the current drawing colour on this surface. Set this before
+using commands like <a class="reference external" href="#drawline">DrawLine</a>, which
+use this colour for their drawing.</p>
+<p>You can set this either to an AGS Colour Number (as you’d get from the
+Colours pane in the editor) or to the special constant
+COLOR_TRANSPARENT, which allows you to draw transparent areas onto the
+surface.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="n">Game</span><span class="o">.</span><span class="n">GetColorFromRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will draw a yellow line from the left top of the screen (0,0) to the
+middle of the screen (160,100), and a white line from the bottom left to
+the middle.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawcircle">DrawingSurface.DrawCircle</a>,
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#drawrectangle">DrawingSurface.DrawRectangle</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getcolorfromrgb">Game.GetColorFromRGB</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getpixel">
+<span id="getpixel"></span><h2>GetPixel<a class="headerlink" href="#getpixel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">GetPixel</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the AGS Colour Number of the pixel at (X,Y) on the surface.</p>
+<p><strong>NOTE:</strong> In high-colour games, the first 32 colour numbers have a
+special meaning due to an AGS feature which maintains compatibility with
+8-bit games. Therefore, if you draw onto the surface using a blue colour
+number 0-31 you will get a different number when you GetPixel – and in
+fact the colour drawn may not be what you expect. To get around this,
+add 1 Red or Green component to adjust the colour number out of this
+range.</p>
+<p><strong>NOTE:</strong> This command is relatively slow. Don’t use it to try and
+process an entire image.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The colour of the middle pixel is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">GetPixel</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>displays the pixel colour of the centre pixel on the screen.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a>,
+<a class="reference external" href="#drawpixel">DrawingSurface.DrawPixel</a>,
+<a class="reference external" href="#usehighrescoordinates">DrawingSurface.UseHighResCoordinates</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="height">
+<span id="height"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">Height</span>
+</pre></div>
+</div>
+<p>Gets the height of the surface.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The background is </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">Width</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>displays the size of the surface to the player</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#usehighrescoordinates">DrawingSurface.UseHighResCoordinates</a>,
+<a class="reference external" href="#width">DrawingSurface.Width</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="usehighrescoordinates">
+<span id="usehighrescoordinates"></span><h2>UseHighResCoordinates<a class="headerlink" href="#usehighrescoordinates" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">UseHighResCoordinates</span>
+</pre></div>
+</div>
+<p>Gets/sets whether you want to use high-resolution co-ordinates with this
+surface.</p>
+<p>By default, this property will be set such that drawing surface
+co-ordinates use the same co-ordinate system as the rest of the game, as
+per the “Use low-res co-ordinates in script” game setting. However, if
+your game is 640x400 or higher you can customize whether this drawing
+surface uses native co-ordinates or the low-res 320x200 co-ordinates by
+changing this property.</p>
+<p>Setting this property affects <strong>ALL</strong> other commands performed on this
+drawing surface, including the <a class="reference external" href="#width">Width</a>
+and <a class="reference external" href="#height">Height</a> properties.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">UseHighResCoordinates</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawingColor</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>draws a yellow line from the top left of the screen to the middle of the
+screen. If we hadn’t set <em>UseHighResCoordinates</em> to true, this would
+draw a line from the top left to the bottom right of the screen.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#drawcircle">DrawingSurface.DrawCircle</a>,
+<a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="#drawrectangle">DrawingSurface.DrawRectangle</a>,
+<a class="reference external" href="#drawtriangle">DrawingSurface.DrawTriangle</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="width">
+<span id="width"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">DrawingSurface</span><span class="o">.</span><span class="n">Width</span>
+</pre></div>
+</div>
+<p>Gets the width of the surface.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The background is </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">Width</span><span class="p">,</span> <span class="n">surface</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+<span class="n">surface</span><span class="o">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>displays the size of the surface to the player</p>
+<p><em>See Also:</em> <a class="reference external" href="#height">DrawingSurface.Height</a>,
+<a class="reference external" href="#usehighrescoordinates">DrawingSurface.UseHighResCoordinates</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DrawingSurface functions and properties</a><ul>
+<li><a class="reference internal" href="#clear">Clear</a></li>
+<li><a class="reference internal" href="#createcopy">CreateCopy</a></li>
+<li><a class="reference internal" href="#drawcircle">DrawCircle</a></li>
+<li><a class="reference internal" href="#drawimage">DrawImage</a></li>
+<li><a class="reference internal" href="#drawline">DrawLine</a></li>
+<li><a class="reference internal" href="#drawmessagewrapped">DrawMessageWrapped</a></li>
+<li><a class="reference internal" href="#drawpixel">DrawPixel</a></li>
+<li><a class="reference internal" href="#drawrectangle">DrawRectangle</a></li>
+<li><a class="reference internal" href="#drawstring">DrawString</a></li>
+<li><a class="reference internal" href="#drawstringwrapped">DrawStringWrapped</a></li>
+<li><a class="reference internal" href="#drawsurface">DrawSurface</a></li>
+<li><a class="reference internal" href="#drawtriangle">DrawTriangle</a></li>
+<li><a class="reference internal" href="#release">Release</a></li>
+<li><a class="reference internal" href="#drawingcolor">DrawingColor</a></li>
+<li><a class="reference internal" href="#getpixel">GetPixel</a></li>
+<li><a class="reference internal" href="#height">Height</a></li>
+<li><a class="reference internal" href="#usehighrescoordinates">UseHighResCoordinates</a></li>
+<li><a class="reference internal" href="#width">Width</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/DrawingSurfaceFunctions.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

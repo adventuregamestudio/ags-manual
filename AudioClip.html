@@ -1,0 +1,271 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AudioClip functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="audioclip-functions-and-properties">
+<span id="audioclip-functions-and-properties"></span><h1>AudioClip functions and properties<a class="headerlink" href="#audioclip-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p>AudioClips are created when you import files in the AGS Editor. The
+commands in this section allow to play them.</p>
+<p><a class="reference external" href="#play">Play</a><br>
+<a class="reference external" href="#playfrom">PlayFrom</a><br>
+<a class="reference external" href="#playqueued">PlayQueued</a><br>
+<a class="reference external" href="#stop">Stop</a><br>
+<a class="reference external" href="#filetype">FileType property</a><br>
+<a class="reference external" href="#isavailable">IsAvailable property</a><br>
+<a class="reference external" href="#type">Type property</a></p>
+<hr class="docutils" />
+<div class="section" id="play">
+<span id="play"></span><h2>Play<a class="headerlink" href="#play" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as PlayAmbientSound, which is now obsolete)</em><br>
+<em>(Formerly known as PlayMP3File, which is now obsolete)</em><br>
+<em>(Formerly known as PlayMusic, which is now obsolete)</em><br>
+<em>(Formerly known as PlaySound, which is now obsolete)</em><br>
+<em>(Formerly known as PlaySoundEx, which is now obsolete)</em><br>
+<em>(Formerly known as SetMusicRepeat, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span> <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plays the audio clip.</p>
+<p>Optionally you can supply a priority and Repeat setting; if you do not
+supply these, the defaults set for the audio clip in the editor will be
+used.</p>
+<p>This command searches through all the available audio channels to find
+one that is available for this type of audio. If no spare channels are
+found, it will try to find one that is playing a clip with a lower or
+equal priority, and interrupt it to replace it with this new sound.</p>
+<p>If all audio channels are busy playing higher priority sounds, then this
+new audio clip will not be played.</p>
+<p>This command returns the AudioChannel instance that the new sound is
+playing on, or <em>null</em> if it did not play for any reason.</p>
+<p><strong>NOTE:</strong> AGS can only play one MIDI file at a time.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>plays the <em>aExplosion</em> audio clip.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playfrom">AudioClip.PlayFrom</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playqueued">AudioClip.PlayQueued</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#stop">AudioClip.Stop</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playfrom">
+<span id="playfrom"></span><h2>PlayFrom<a class="headerlink" href="#playfrom" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">PlayFrom</span><span class="p">(</span><span class="nb">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span>
+                                 <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the
+position, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a> help
+page.</p>
+<p>Otherwise, this command behaves identially to
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>. Please see that help page
+for more information.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">PlayFrom</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if
+it is OGG/MP3).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playqueued">
+<span id="playqueued"></span><h2>PlayQueued<a class="headerlink" href="#playqueued" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as PlayMusicQueued, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span><span class="o">*</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">PlayQueued</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioPriority</span><span class="p">,</span> <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plays the audio clip, or queues it to be played later if it cannot be
+played now.</p>
+<p>This command behaves identially to
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>, except that if there are no
+available audio channels, it will queue this audio clip to be played
+when a channel becomes available.</p>
+<p>Additionally, unlike the Play command, using PlayQueued will not
+interrupt an existing audio clip with an equal priority; it will only
+interrupt clips with a lower priority.</p>
+<p>You can queue up to 10 tracks in the audio queue. Note that if you queue
+audio clips to be played after a repeating audio clip, they will never
+be played.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">aAftermath</span><span class="o">.</span><span class="n">PlayQueued</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to
+be played afterwards.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="stop">
+<span id="stop"></span><h2>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioClip</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Stops all currently playing instances of this audio clip.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">aExplosion</span><span class="o">.</span><span class="n">Stop</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it
+again.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="filetype">
+<span id="filetype"></span><h2>FileType<a class="headerlink" href="#filetype" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">AudioFileType</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">FileType</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the file type of this audio clip. This is useful in conjunction
+with the PlayFrom and Seek commands to determine what the position
+offset represents.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">FileType</span> <span class="o">==</span> <span class="n">eAudioFileMIDI</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Explosion is a MIDI file!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>displays a message if aExplosion is a MIDI file</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#position">AudioChannel.Position</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playfrom">AudioClip.PlayFrom</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="isavailable">
+<span id="isavailable"></span><h2>IsAvailable<a class="headerlink" href="#isavailable" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsMusicVoxAvailable, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">IsAvailable</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets whether this audio clip is available on the player’s system.</p>
+<p>This will normally be <em>true</em>, unless the clip was bundled in the
+external AUDIO.VOX file and the player does not have the file on their
+system.</p>
+<p>You do not normally need to check this property, since the Play command
+will silently fail if it cannot find the audio clip to play.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">IsAvailable</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">aExplosion</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>checks if the aExplosion audio clip is available, and if so plays it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="type">
+<span id="type"></span><h2>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">AudioType</span> <span class="n">AudioClip</span><span class="o">.</span><span class="n">Type</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets the type of this audio clip, as initially set in the editor.</p>
+<p>The AudioType allows you to group audio clips into areas such as Sound
+and Music.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">aExplosion</span><span class="o">.</span><span class="n">Type</span> <span class="o">==</span> <span class="n">eAudioTypeMusic</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Explosion is music!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>displays a message if the <em>aExplosion</em> clip is music.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#isaudioplaying">Game.IsAudioPlaying</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AudioClip functions and properties</a><ul>
+<li><a class="reference internal" href="#play">Play</a></li>
+<li><a class="reference internal" href="#playfrom">PlayFrom</a></li>
+<li><a class="reference internal" href="#playqueued">PlayQueued</a></li>
+<li><a class="reference internal" href="#stop">Stop</a></li>
+<li><a class="reference internal" href="#filetype">FileType</a></li>
+<li><a class="reference internal" href="#isavailable">IsAvailable</a></li>
+<li><a class="reference internal" href="#type">Type</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/AudioClip.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

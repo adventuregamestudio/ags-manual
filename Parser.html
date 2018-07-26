@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Parser functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="parser-functions">
+<span id="parser-functions"></span><h1>Parser functions<a class="headerlink" href="#parser-functions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#findwordid">FindWordID</a><br>
+<a class="reference external" href="#parsetext">ParseText</a><br>
+<a class="reference external" href="#said">Said</a><br>
+<a class="reference external" href="#saidunknownword">SaidUnknownWord</a></p>
+<hr class="docutils" />
+<div class="section" id="findwordid">
+<span id="findwordid"></span><h2>FindWordID<a class="headerlink" href="#findwordid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">Parser</span><span class="o">.</span><span class="n">FindWordID</span><span class="p">(</span><span class="n">string</span> <span class="n">wordToFind</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Looks up <em>wordToFind</em> in the text parser dictionary, and returns the ID
+number.</p>
+<p>If the word is not found, returns -1.<br>
+Otherwise, the Word Group number is returned, as seen in the Text Parser
+tab in the editor.</p>
+<p>You can determine if two words are synonyms by looking them both up and
+seeing if the returned IDs are the same.</p>
+<p>Ignore words are returned as ID 0.</p>
+<p>This function is useful if you want to use the AGS Text Parser
+dictionary, but implement some custom parsing functionality instead of
+using the standard ParseText function.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="k">if</span> <span class="p">(</span><span class="n">Parser</span><span class="o">.</span><span class="n">FindWordID</span><span class="p">(</span><span class="s2">&quot;machine&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+ <span class="p">{</span>
+   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;machine is in the game dictionary&quot;</span><span class="p">);</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>will display a message if the game dictionary includes “machine”</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#parsetext">Parser.ParseText</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="parsetext">
+<span id="parsetext"></span><h2>ParseText<a class="headerlink" href="#parsetext" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Parser</span><span class="o">.</span><span class="n">ParseText</span><span class="p">(</span><span class="n">string</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stores the supplied user text string for later use by Said. You need to
+call this command first with the user’s input before using the Said
+command. You would usually call this inside the text box’s OnActivate
+event handler.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">String</span> <span class="n">command</span> <span class="o">=</span> <span class="n">txtParser</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span>
+ <span class="n">Parser</span><span class="o">.</span><span class="n">ParseText</span><span class="p">(</span><span class="n">command</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will get the players input and store it in string “command” for use with
+the said command.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#findwordid">Parser.FindWordID</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#said">Parser.Said</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="said">
+<span id="said"></span><h2>Said<a class="headerlink" href="#said" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Parser</span><span class="o">.</span><span class="n">Said</span><span class="p">(</span><span class="n">string</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Checks whether the player typed in TEXT in their input passed to
+ParseText. Returns <em>true</em> if it matches, <em>false</em> otherwise.</p>
+<p>See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/TextParser">the text parser documentation</a> for a more
+detailed description.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="nb">input</span> <span class="o">=</span> <span class="n">txtParserInput</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span>
+<span class="n">Parser</span><span class="o">.</span><span class="n">ParseText</span><span class="p">(</span><span class="nb">input</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Parser</span><span class="o">.</span><span class="n">Said</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">txtParserInput</span><span class="o">.</span><span class="n">Text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="n">RestoreGameDialog</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will bring up the restore game dialogue if the player types “load” in
+the text parser.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#parsetext">Parser.ParseText</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#saidunknownword">Parser.SaidUnknownWord</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="saidunknownword">
+<span id="saidunknownword"></span><h2>SaidUnknownWord<a class="headerlink" href="#saidunknownword" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">String</span> <span class="n">Parser</span><span class="o">.</span><span class="n">SaidUnknownWord</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If a word not in the game dictionary was submitted to the last ParseText
+call, then the word is returned by this command. This allows you to
+display a message like “Sorry, this game doesn’t recognise ‘XXXX’.”</p>
+<p>If all the words were recognised, this returns null.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">badWord</span> <span class="o">=</span> <span class="n">Parser</span><span class="o">.</span><span class="n">SaidUnknownWord</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">badWord</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span>
+   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You can&#39;t use &#39;</span><span class="si">%s</span><span class="s2">&#39; in this game.&quot;</span><span class="p">,</span> <span class="n">badWord</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the message if the player types a word that’s not in the
+vocabulary.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#parsetext">Parser.ParseText</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Parser#said">Parser.Said</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Parser functions</a><ul>
+<li><a class="reference internal" href="#findwordid">FindWordID</a></li>
+<li><a class="reference internal" href="#parsetext">ParseText</a></li>
+<li><a class="reference internal" href="#said">Said</a></li>
+<li><a class="reference internal" href="#saidunknownword">SaidUnknownWord</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Parser.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

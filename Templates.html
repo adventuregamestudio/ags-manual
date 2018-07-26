@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>New Game templates &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="new-game-templates">
+<span id="new-game-templates"></span><h1>New Game templates<a class="headerlink" href="#new-game-templates" title="Permalink to this headline">¶</a></h1>
+<p>When you choose “Start a new game” in the initial “Welcome to AGS”
+dialog box, a window appears with various templates that you can base
+your game off.</p>
+<p>AGS comes with a few standard templates, but you can create your own
+too.</p>
+<p><strong>Using downloaded templates</strong></p>
+<p>If you’ve downloaded a game template from the internet, you should find
+a file with a .AGT extension. This is the AGS Template File, and you
+just need to copy it into the “Templates” folder within the AGS Editor
+directory.</p>
+<p><strong>Creating your own template</strong></p>
+<p>A game template is basically just an archive containing all of the game
+source files, which are then extracted into the new folder when the user
+creates a new game. It is similar to you just zipping up your game
+folder and sending it to a friend - except that this way looks far more
+professional.</p>
+<p>To create a template, first of all you create a game as normal in the
+editor. Once you have everything set up how you want it, select “Make
+template from this game” on the File menu. This will prompt you for a
+name for the template (this is what will appear under its icon in the
+“Start New Game” dialog box), and then it will go away and compile the
+template for you.</p>
+<p>The template game takes the following files from your game folder: Core
+game files (GAME.AGF, ACSPRSET.SPR), all script and room files, all
+sound and music files, all fonts, game icons, and *.TXT (to allow you
+to include a README.TXT or whatever).</p>
+<p>If you include a <strong>template.ico</strong> file in your game folder when you make
+the template, then it will be used as the icon in the Start New Game
+dialog box. Otherwise, the icon will be taken from user.ico (if
+present), or if not it will get the default AGS icon.</p>
+<p>You can also include a “template.txt” file in your game folder. If you
+do, then its contents will be displayed to the user in a messagebox
+after they create a new game based on the template. You could use this
+to explain briefly about any key aspects of the template, or it could
+tell them to read your README.TXT file. This file should be quite small</p>
+<ul class="simple">
+<li>its entire contents need to fit into a standard message box.</li>
+</ul>
+<p><strong>NOTE:</strong> Do not simply make a template out of a half-finished game. If
+you want to make a template, you should start a game from scratch and
+make your changes - the user probably doesn’t want to already have a
+semi-completed game when they use your template.</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Templates.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

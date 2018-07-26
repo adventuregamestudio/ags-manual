@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Script language keywords &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="script-language-keywords">
+<span id="script-language-keywords"></span><h1>Script language keywords<a class="headerlink" href="#script-language-keywords" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#arrays">Arrays</a><br>
+<a class="reference external" href="#data-types">Data types</a><br>
+<a class="reference external" href="#operators">Operators</a><br>
+<a class="reference external" href="#constants">Constants</a><br>
+<a class="reference external" href="#version-checking">Version checking</a><br>
+<a class="reference external" href="#if-else-statements">if, else statements</a><br>
+<a class="reference external" href="#switch-case-statements">switch, case statements</a><br>
+<a class="reference external" href="#while">while</a><br>
+<a class="reference external" href="#dowhile">do..while</a><br>
+<a class="reference external" href="#for">for</a><br>
+<a class="reference external" href="#break">break</a><br>
+<a class="reference external" href="#continue">continue</a><br>
+<a class="reference external" href="#function">function</a><br>
+<a class="reference external" href="#return">return</a><br>
+<a class="reference external" href="#struct">struct</a><br>
+<a class="reference external" href="#managed">managed</a><br>
+<a class="reference external" href="#new">new</a><br>
+<a class="reference external" href="#enum">enum</a><br>
+<a class="reference external" href="#this">this</a><br>
+<a class="reference external" href="#import">import</a><br>
+<a class="reference external" href="#export">export</a><br>
+<a class="reference external" href="#noloopcheck">noloopcheck</a></p>
+<hr class="docutils" />
+<div class="section" id="arrays">
+<span id="arrays"></span><h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<p><em>data_type</em> <em>name</em> <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>size</em> <code class="docutils literal notranslate"><span class="pre">];</span></code></p>
+<p>Arrays allow you to easily create several variables of the same type.
+For example, suppose you wanted to store a health variable for all the
+different characters in the game. One way would be to declare several
+different variables like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">egoHealth</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">badGuyHealth</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">swordsmanHealth</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>but that quickly gets messy and difficult to keep up to date, since you
+need to use different script code to update each one. So instead, you
+can do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">health</span><span class="p">[</span><span class="mi">50</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>This example declares 50 int variables, all called <em>health</em>.<br>
+You access each seperate variable via its <strong>index</strong> (the number in the
+brackets). Indexes start from 0, so in this case the <em>health</em> array can
+be accessed by indexes 0 to 49. If you attempt to access an invalid
+index, your game will exit with an error.</p>
+<p>Here’s an example of using the array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">health</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">health</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">health</span><span class="p">[</span><span class="n">player</span><span class="o">.</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that
+corresponds to the player character’s ID number to 10.</p>
+<p>See Also: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicArrays">Dynamic arrays</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="data-types">
+<span id="data-types"></span><h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>Single byte data type, can store a single character or number 0 to 255</td>
+</tr>
+<tr>
+<td>short</td>
+<td>16-bit integer, can store numbers from -32,768 to 32,767</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32-bit integer, can store from -2,147,483,648 to 2,147,483,647</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Stores a string of characters</td>
+</tr>
+<tr>
+<td>float</td>
+<td>32-bit floating point number. Accuracy normally about 6 decimal places, but varies depending on the size of the number being stored.</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>a variable that stores either 'true' or 'false'</td>
+</tr>
+</tbody>
+</table><p>You will normally only need to use the <strong>int</strong> and <strong>String</strong> data
+types. The smaller types are only useful for conserving memory if you
+are creating a very large number of variables.</p>
+<p>To declare a variable, write the type followed by the variable name,
+then a semicolon. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">my_variable;</span></code></p>
+<p>declares a new 32-bit integer called my_variable</p>
+<p><strong>WARNING:</strong> When using the <em>float</em> data type, you may find that the ==
+and != operators don’t seem to work properly. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.0</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mf">6.0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Result is 6!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>may not always work. This is due to the nature of floating point
+variables, and the solution is to code like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.0</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">((</span><span class="n">result</span> <span class="o">&gt;</span> <span class="mf">5.99</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">result</span> <span class="o">&lt;</span> <span class="mf">6.01</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Result is 6!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The way floating point numbers are stored means that 6 might actually be
+stored as 6.000001 or 5.999999; this is a common gotcha to all
+programming languages so just be aware of it if you use any floating
+point arithmetic.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="operators">
+<span id="operators"></span><h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>The AGS scripting engine supports the following operators in
+expressions. They are listed in order of precedence, with the most
+tightly bound at the top of the list.</p>
+<p><strong>WARNING:</strong> When using operators of equal precedence, AGS by default
+evaluates them right-to-left. So, the expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">5</span> <span class="pre">-</span> <span class="pre">4</span> <span class="pre">-</span> <span class="pre">2;</span></code>
+evaluates as <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">5</span> <span class="pre">-</span> <span class="pre">(4</span> <span class="pre">-</span> <span class="pre">2);</span></code> which is not what you might expect.
+Always use parenthesis to make it clear what you want.<br>
+The “Left-to-right operator precedence” option on the General Settings
+pane allows you to control this behaviour.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>NOT</td>
+<td>if (!a)</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiply</td>
+<td>a = b * c;</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Divide</td>
+<td>a = b / c;</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Remainder</td>
+<td>a = b % c;</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Add</td>
+<td>a = b + c;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtract</td>
+<td>a = b - c;</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Bitwise Left Shift</td>
+<td>a = b &lt;&lt; c;</td>
+</tr>
+<tr>
+<td>>></td>
+<td>Bitwise Right Shift</td>
+<td>a = b >> c;</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>Bitwise AND</td>
+<td>a = b &amp; c;</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Bitwise OR</td>
+<td>a = b | c;</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Bitwise XOR</td>
+<td>a = b ^ c;</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Is equal to</td>
+<td>if (a == b)</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Is not equal to</td>
+<td>if (a != b)</td>
+</tr>
+<tr>
+<td>></td>
+<td>Is greater than</td>
+<td>if (a > b)</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Is less than</td>
+<td>if (a &lt; b)</td>
+</tr>
+<tr>
+<td>>=</td>
+<td>Is greater than or equal</td>
+<td>if (a >= b)</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Is less than or equal</td>
+<td>if (a &lt;= b)</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>Logical AND</td>
+<td>if (a &amp;&amp; b)</td>
+</tr>
+<tr>
+<td>||</td>
+<td>Logical OR</td>
+<td>if (a || b)</td>
+</tr>
+</tbody>
+</table><p>This order of precedence allows expressions such as the following to
+evaluate as expected:</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(!a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">4)</span></code></p>
+<p>which will execute the ‘if’ block if <strong>a</strong> is 0 and <strong>b</strong> is less than</p>
+<ol class="simple">
+<li></li>
+</ol>
+<p>However, it is always good practice to use parenthesis to group
+expressions. It’s much more readable to script the above expression like
+this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">((!a)</span> <span class="pre">&amp;&amp;</span> <span class="pre">(b</span> <span class="pre">&lt;</span> <span class="pre">4))</span></code></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="constants">
+<span id="constants"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<p>The following predefined macros are available in your scripts:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEBUG</td>
+<td>Defined if the game is being compiled in debug mode, not defined otherwise</td>
+</tr>
+<tr>
+<td>SCRIPT_API_vXXX</td>
+<td>Defined if corresponding version of script API is enabled (e.g. SCRIPT_API_v340)</td>
+</tr>
+<tr>
+<td>SCRIPT_COMPAT_vXXX</td>
+<td>Defined if certain compatibility level is enabled (e.g. SCRIPT_COMPAT_v321)</td>
+</tr>
+<tr>
+<td>STRICT</td>
+<td>Defined if "Enforce Object Based Scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr>
+<td>STRICT_STRINGS</td>
+<td>Defined if "Enforce new-style strings" is enabled, not defined otherwise</td>
+</tr>
+<tr>
+<td>STRICT_AUDIO</td>
+<td>Defined if "Enforce new-style audio scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr>
+<td>LRPRECEDENCE</td>
+<td>Defined if "Left-to-right operator precedence" is enabled, not defined otherwise</td>
+</tr>
+<tr>
+<td>AGS_NEW_STRINGS</td>
+<td>Defined if AGS 2.71 or later (with new-String support), not defined otherwise</td>
+</tr>
+<tr>
+<td>NEW_DIALOGOPTS_API</td>
+<td>Defined if "Use old-style dialog options rendering API" is disabled</td>
+</tr>
+<tr>
+<td>AGS_SUPPORTS_IFVER</td>
+<td>Defined if AGS 2.72 or later (with <code>#ifver</code> support), not defined otherwise</td>
+</tr>
+<tr>
+<td>AGS_MAX_INV_ITEMS</td>
+<td>The maximum number of inventory items</td>
+</tr>
+<tr>
+<td>AGS_MAX_OBJECTS</td>
+<td>The maximum objects per room</td>
+</tr>
+<tr>
+<td>AGS_MAX_HOTSPOTS</td>
+<td>The maximum hotspots per room</td>
+</tr>
+<tr>
+<td>AGS_MAX_REGIONS</td>
+<td>The maximum regions per room</td>
+</tr>
+</tbody>
+</table><p>You can check for whether a macro is defined or not by using the
+<code class="docutils literal notranslate"><span class="pre">#ifdef</span></code> and <code class="docutils literal notranslate"><span class="pre">#ifndef</span></code> keywords:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifndef STRICT</span>
+  <span class="o">//</span> <span class="n">only</span> <span class="nb">compile</span> <span class="n">the</span> <span class="n">MoveCharacter</span> <span class="n">command</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">using</span> <span class="nb">object</span><span class="o">-</span><span class="n">based</span> <span class="n">scripting</span>
+  <span class="n">MoveCharacter</span><span class="p">(</span><span class="n">EGO</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifdef DEBUG</span>
+  <span class="o">//</span> <span class="n">only</span> <span class="n">display</span> <span class="n">this</span> <span class="n">when</span> <span class="n">the</span> <span class="n">game</span> <span class="ow">is</span> <span class="n">compiled</span> <span class="ow">in</span> <span class="n">debug</span> <span class="n">mode</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Debugging information&quot;</span><span class="p">);</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>There is also an <code class="docutils literal notranslate"><span class="pre">#error</span></code> directive you can use to stop the script
+compiling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifndef AGS_NEW_STRINGS</span>
+<span class="c1">#error This script requires at least AGS 2.71</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>The other constants (AGS_MAX_\*) are useful if you are writing some
+script code that you want to be portable to different versions of AGS,
+and to pick up the limits from the user’s AGS version. For example, if
+you wanted to store some extra information on all the inventory items,
+you could do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">invWeights</span><span class="p">[</span><span class="n">AGS_MAX_INV_ITEMS</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>To get the actual number of things in the game rather than the AGS
+limit, use the
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#charactercount">Game.CharacterCount</a>-style properties.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="version-checking">
+<span id="version-checking"></span><h2>Version checking<a class="headerlink" href="#version-checking" title="Permalink to this headline">¶</a></h2>
+<p>If you are writing a script module, you may need to check which version
+of AGS the user of your module is using.</p>
+<p>For this purpose there are two directives:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifver 2.72</span>
+<span class="o">//</span> <span class="n">do</span> <span class="n">stuff</span> <span class="k">for</span> <span class="mf">2.72</span> <span class="ow">and</span> <span class="n">above</span>
+<span class="c1">#endif</span>
+<span class="c1">#ifnver 2.72</span>
+<span class="o">//</span> <span class="n">do</span> <span class="n">stuff</span> <span class="k">for</span> <span class="mf">2.71</span> <span class="ow">and</span> <span class="n">below</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Note that this ability was only added in 2.72, so you cannot use the
+<code class="docutils literal notranslate"><span class="pre">#ifver</span></code> checks if you want your module to work with earlier versions
+than this.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="if-else-statements">
+<span id="if-else-statements"></span><h2>if, else statements<a class="headerlink" href="#if-else-statements" title="Permalink to this headline">¶</a></h2>
+<p><strong>if (</strong> <em>expression</em> <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>statements1</em><br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code><br>
+[ <strong>else</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>statements2</em><br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code> ]</p>
+<p>If <em>expression</em> is true, then <em>statements1</em> are run.</p>
+<p>If <em>expression</em> is not true, and there is an <strong>else</strong> clause present,
+then <em>statements2</em> are run instead.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Globalint 5 is 10.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Globalint 5 is not 10.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the first message will be displayed if the return value
+from <code class="docutils literal notranslate"><span class="pre">GetGlobalInt(5)</span></code> is 10, and the second message will be displayed
+if it is not.</p>
+<p><strong>if</strong> statements can be nested inside <strong>else</strong> statements to produce an
+“else if” effect. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Globalint 5 is 1.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Globalint 5 is 2.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Globalint 5 is not 1 or 2.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="switch-case-statements">
+<span id="switch-case-statements"></span><h2>switch, case statements<a class="headerlink" href="#switch-case-statements" title="Permalink to this headline">¶</a></h2>
+<p><strong>switch (</strong> <em>expression</em> <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+[ <strong>case</strong> <em>expression</em>:<br>
+<em>statements</em><br>
+[ <strong>break</strong>; ] ]<br>
+[ <strong>default:</strong><br>
+<em>statements</em><br>
+[ <strong>break</strong>; ] ]<br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>Calculates first <em>expression</em> in the <strong>switch</strong> header, then finds a
+<strong>case</strong> statement which <em>constant expression</em> matches the <em>result</em> of
+the previous calculation, and begins executing statements under that
+<strong>case</strong>. When doing so, it ignores any other <strong>case</strong> statements, but
+runs all the statements under them. Stops only when reaching the
+switch’s end, or <strong>break</strong> statement. If the result of <em>expression</em> is
+not found in any of the <strong>case</strong> lines, then goes to <strong>default</strong> line
+and runs statements from that point. If no <strong>default</strong> statement found
+in the switch, then the whole switch is skipped. <strong>Switch</strong> may have any
+number of <strong>case</strong> statements and only one <strong>default</strong> statement, but
+they may be arranged in any order.</p>
+<p>Unlike many programming languages, AGS allows expression result of any
+type (integer, boolean, string, pointers).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span> <span class="p">(</span><span class="n">player</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">case</span> <span class="n">cEgo</span><span class="p">:</span> <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Hello, my name is Ego, default player controlled character.&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+<span class="n">case</span> <span class="n">cJohn</span><span class="p">:</span> <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Greetings, I am John, the male character.&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+<span class="n">case</span> <span class="n">cMary</span><span class="p">:</span> <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Hi there, I am Mary, the female character.&quot;</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+<span class="n">default</span><span class="p">:</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;I am not really sure what character the player is controlling, this might be a bug&quot;</span><span class="p">);</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example with “fall-through” cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span> <span class="p">(</span><span class="n">player</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">case</span> <span class="n">cJohn</span><span class="p">:</span>
+<span class="n">case</span> <span class="n">cMary</span><span class="p">:</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;I like oranges.&quot;</span><span class="p">)</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="n">case</span> <span class="n">cEgo</span><span class="p">:</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;I like apples.&quot;</span><span class="p">);</span>
+<span class="n">default</span><span class="p">:</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;I would like some berries.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above example both cJohn and cMary cases lead to “I like oranges”
+line. cEgo sais “I like apples” and then also “I would like some
+berries”. If there were any other player controlled character, not
+mentioned in this switch, they would go straight to default line.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="while">
+<span id="while"></span><h2>while<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h2>
+<p><strong>while (</strong> <em>expression</em> <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>statements</em><br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>Runs <em>statements</em> continuously, while <em>expression</em> is true.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will run the script <code class="docutils literal notranslate"><span class="pre">Wait(1);</span></code> repeatedly, as long as <code class="docutils literal notranslate"><span class="pre">cEgo.Moving</span></code> is
+not zero. Once it is zero, the <strong>while</strong> statement will exit at the end
+of the loop.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="do-while">
+<span id="do-while"></span><h2>do..while<a class="headerlink" href="#do-while" title="Permalink to this headline">¶</a></h2>
+<p><strong>do</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>statements</em><br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code> <strong>while (</strong> <em>expression</em> <strong>);</strong></p>
+<p>Similarily to <a class="reference external" href="#while">while</a> runs <em>statements</em>
+continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it
+checks the expression AFTER executing statements, not before. This also
+means that the statements will be executed at least once.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do</span>
+<span class="p">{</span>
+  <span class="n">cEgo</span><span class="o">.</span><span class="n">Move</span><span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">eKeyRightArrow</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>will run the script <code class="docutils literal notranslate"><span class="pre">cEgo.Move(cEgo.x</span> <span class="pre">+</span> <span class="pre">1,</span> <span class="pre">cEgo.y);</span></code> once, and then
+continue run it repeatedly, as long as the right arrow key is pressed by
+player.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="for">
+<span id="for"></span><h2>for<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
+<p><strong>for (</strong> [<em>initialization</em>]<strong>;</strong> [<em>expression</em>]<strong>;</strong>
+[<em>iteration</em>] <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>statements</em><br>
+<code class="docutils literal notranslate"><span class="pre">}</span></code></p>
+<p>This loop command first performs <em>initialization</em> statements, then runs
+<em>statements</em> inside curved brackets continuously. Each time before
+executing these statements it checks whether <em>expression</em> is true, and
+if not - ends the loop. Each time after statements were executed it
+additionally runs <em>iteration</em> statements.</p>
+<p><em>Initialization</em> is commonly used to declare variables or setting up
+existing variable values. If a new variable is declared in
+<em>initialization</em> - such variable will exist and may be used only inside
+the loop. <em>Iteration</em> step is usually meant to “move” to the next step,
+by changing some variable value. Every part of the command header -
+<em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may
+be <strong>for</strong> command without initialization, or without iteration, or even
+without conditional expression (in which case loop should be ended with
+either <a class="reference external" href="#break">break</a> or <a class="reference external" href="#return">return</a>.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Game</span><span class="o">.</span><span class="n">CharacterCount</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;My name is </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">character</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will look over every character in game and display their names.</p>
+<p>Another example (note missing initialization and iteration):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(;</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;)</span>
+<span class="p">{</span>
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will repeat <code class="docutils literal notranslate"><span class="pre">Wait(1);</span></code> until cEgo character does not move beyond
+coordinate x = 100.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="break">
+<span id="break"></span><h2>break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
+<p><strong>break</strong>;</p>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> statement ends the execution of most inner loop or
+<a class="reference external" href="#switch-case-statements">switch</a> immediately. After this script
+continues running from the next line after loop or switch.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">eKeyEscape</span><span class="p">))</span>
+    <span class="k">break</span><span class="p">;</span>
+
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will run the script <code class="docutils literal notranslate"><span class="pre">Wait(1);</span></code> repeatedly, as long as <code class="docutils literal notranslate"><span class="pre">cEgo.Moving</span></code> is
+not zero. If player presses Escape key, the loop is terminated
+immediately.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="continue">
+<span id="continue"></span><h2>continue<a class="headerlink" href="#continue" title="Permalink to this headline">¶</a></h2>
+<p><strong>continue</strong>;</p>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> statement makes the loop skip remaining statements in current
+iteration and proceed to the next end-condition check, followed by the
+loop restart, if condition is still met, or loop end. If in <a class="reference external" href="#for">for</a>
+kind of loop, the <em>iteration</em> statement is executed right before that.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="o">//</span> <span class="n">multiple</span> <span class="n">statements</span> <span class="n">here</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="k">continue</span><span class="p">;</span>
+
+  <span class="o">//</span> <span class="n">more</span> <span class="n">statements</span> <span class="n">following</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will run first part of the loop statements always, and second part only
+when <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">50</span></code>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="function">
+<span id="function"></span><h2>function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
+<p><strong>function</strong> <em>name</em> <code class="docutils literal notranslate"><span class="pre">(</span></code> [<em>type1 param1</em>, <em>type2 param2</em>, … ] <code class="docutils literal notranslate"><span class="pre">)</span></code></p>
+<p>Declares a custom function in your script. A function is a way in which
+you can separate out commonly used code into its own place, and thus
+avoid duplicating code.</p>
+<p>For example, suppose that you quite often want to play a sound and add
+an inventory item at the same time. You could write both commands each
+time, or you could define a custom function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">AddInvAndPlaySound</span><span class="p">(</span><span class="n">InventoryItem</span><span class="o">*</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">player</span><span class="o">.</span><span class="n">AddInventory</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+  <span class="n">aInventorySound</span><span class="o">.</span><span class="n">Play</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>then, elsewhere in your code you can simply call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AddInvAndPlaySound</span><span class="p">(</span><span class="n">iKey</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>to add inventory item <em>iKey</em> and play the sound.</p>
+<p>Generally, you place your functions in your global script. You then need
+to add an <a class="reference external" href="#import">import</a> line to your script header to allow the
+function to be called from room scripts.</p>
+<p><strong>Optional parameters</strong></p>
+<p>You can make <em>int</em> parameters optional if there is a default value that
+the user doesn’t need to supply. To do this, change the script header
+<em>import</em> declaration like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">function</span> <span class="n">TestFunction</span><span class="p">(</span><span class="nb">int</span> <span class="n">stuff</span><span class="p">,</span> <span class="nb">int</span> <span class="n">things</span> <span class="o">=</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>that declares a function with a mandatory <em>stuff</em> parameter, and an
+optional <em>things</em> parameter. If the caller does not supply the second
+parameter, it will default to 5.</p>
+<p><strong>NOTE:</strong> To use optional parameters, you need to have an “import”
+declaration for the function in the script header. The default values
+cannot be specified in the actual function declaration itself.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="return">
+<span id="return"></span><h2>return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h2>
+<p><strong>return</strong>;</p>
+<p>Immediately quits currently run function and returns to the previous
+script function current one was called from, if there was any, otherwise
+passes execution to engine. <strong>return</strong> can be put in any place in the
+the function, no matter if it is inside the if/else statement group,
+loop or switch - it will still work as immediate function exit.</p>
+<p>If the function is declared with return type other than <strong>void</strong> (or
+simply like <code class="docutils literal notranslate"><span class="pre">function</span></code>), then the <strong>return</strong> statement <strong>has</strong> to
+specify <strong>return value</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GetHowManyTradeGoodsShopkeeperHas</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Alternatively, when function is not supposed to have any return value,
+sometimes you may want to break out of current function before it ends
+naturally:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function DoThisAndOptionallyThat(bool do_all) {
+  // multiple statements here
+
+  if (!do_all)
+    return; // quit the function prematurely
+
+  // more statements following
+}
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="struct">
+<span id="struct"></span><h2>struct<a class="headerlink" href="#struct" title="Permalink to this headline">¶</a></h2>
+<p><strong>struct</strong> <em>name</em> <code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p>Declares a custom struct type in your script.<br>
+Structs allow you to group together related variables in order to make
+your script more structured and readable. For example, suppose that
+wanted to store some information on weapons that the player could carry.
+You could declare the variables like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">swordDamage</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">swordPrice</span><span class="p">;</span>
+<span class="n">String</span> <span class="n">swordName</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>but that quickly gets out of hand and leaves you with tons of variables
+to keep track of. This is where structs come in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Weapon</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">damage</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">price</span><span class="p">;</span>
+  <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Now, you can declare a struct in one go, like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Weapon</span> <span class="n">sword</span><span class="p">;</span>
+<span class="n">sword</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">sword</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">sword</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fine sword&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Much neater and better organised. You can also combine structs with
+<a class="reference external" href="#arrays">arrays</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">at</span> <span class="n">top</span> <span class="n">of</span> <span class="n">script</span>
+<span class="n">Weapon</span> <span class="n">weapons</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="o">//</span> <span class="n">inside</span> <span class="n">script</span> <span class="n">function</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fine sword&quot;</span><span class="p">;</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+<span class="n">weapons</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Poison dagger&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>structs are essential if you have complex data that you need to store in
+your scripts.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="managed">
+<span id="managed"></span><h2>managed<a class="headerlink" href="#managed" title="Permalink to this headline">¶</a></h2>
+<p><strong>managed struct</strong> <em>name</em> <code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p><strong>Managed</strong> is a modifier that can be applied to <strong>struct</strong> declaration
+to make them managed structs.</p>
+<p>Managed structs are special in the way that objects of their types are
+created in dynamic pool as opposed to global variables, that exist from
+the game start to when the game is shut down, and local variables, that
+exist only when their function is run. You cannot declare a variable of
+managed struct, but only a pointer variable.</p>
+<p>The advantage of such managed (or dynamic) objects is that they are
+created only when needed and disposed of when no longer needed. Also,
+since you work with pointer to object instead of object itself, you may
+assign them to another variable without copying object itself, pass them
+to function as parameter, or return from the function.</p>
+<p><strong>IMPORTANT:</strong> there is a big limitation for user-defined managed
+structs now, it is that they themselves cannot have members of pointer
+types (or dynamic arrays).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">managed</span> <span class="n">struct</span> <span class="n">Apple</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">color</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">freshness</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This declares managed struct. To declare a pointer to such struct you
+do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span><span class="o">*</span> <span class="n">my_apple</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This creates a pointer variable <code class="docutils literal notranslate"><span class="pre">my_apple</span></code> of managed type <code class="docutils literal notranslate"><span class="pre">Apple</span></code>.</p>
+<p>However, this does <strong>not</strong> create an object itself yet, and <code class="docutils literal notranslate"><span class="pre">my_apple</span></code>
+is assigned <strong>null</strong> value now. If you try to access struct members
+using <code class="docutils literal notranslate"><span class="pre">my_apple</span></code> now, you will get errors. To create an actual object
+you need to use a <a class="reference external" href="#new">new</a> keyword:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_apple</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Apple</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The object is now created in the dynamic memory pool, and variable
+<code class="docutils literal notranslate"><span class="pre">my_apple</span></code> <strong>points</strong> to it. This lets us access object contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_apple</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Game</span><span class="o">.</span><span class="n">GetColorFromRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">my_apple</span><span class="o">.</span><span class="n">freshness</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You may copy pointer to another variable of same type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span><span class="o">*</span> <span class="n">apple2</span> <span class="o">=</span> <span class="n">my_apple</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This does <strong>not</strong> copy object itself, only its address in dynamic pool,
+meaning both variables - <code class="docutils literal notranslate"><span class="pre">my_apple</span></code> and <code class="docutils literal notranslate"><span class="pre">appl2</span></code> - point to same object!</p>
+<p>You may write a function that take such pointer as parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">DisplayAppleDescription</span><span class="p">(</span><span class="n">Apple</span><span class="o">*</span> <span class="n">apple</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;Apple has color </span><span class="si">%d</span><span class="s2"> and freshness </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">apple</span><span class="o">.</span><span class="n">color</span><span class="p">,</span> <span class="n">apple</span><span class="o">.</span><span class="n">freshness</span><span class="p">);</span>
+  <span class="n">Display</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and then call it like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayAppleDescription</span><span class="p">(</span><span class="n">my_apple</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You may write a function that returns pointer to apple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span><span class="o">*</span> <span class="n">CreateYellowApple</span><span class="p">(</span><span class="nb">int</span> <span class="n">fresh</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Apple</span><span class="o">*</span> <span class="n">apple</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Apple</span><span class="p">;</span>
+  <span class="n">apple</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">Game</span><span class="o">.</span><span class="n">GetColorFromRGB</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+  <span class="n">apple</span><span class="o">.</span><span class="n">freshness</span> <span class="o">=</span> <span class="n">fresh</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">apple</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and then use such function just like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Apple</span> <span class="o">*</span><span class="n">my_apple</span> <span class="o">=</span> <span class="n">CreateYellowApple</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>When does the dynamic object gets destroyed?</strong> After you created
+dynamic object as described above, it will exist in memory as long as
+<em>there is at least one pointer variable pointing to it</em>. As soon as the
+last pointer gets destroyed itself (for example, if it was local
+function variable, and function ended), or is assigned another object,
+or simply assigned <code class="docutils literal notranslate"><span class="pre">null</span></code>, then the dynamic object is removed from your
+game forever.</p>
+<p>See Also: <a class="reference external" href="#new">new</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Pointers">Pointers in
+AGS</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="new">
+<span id="new"></span><h2>new<a class="headerlink" href="#new" title="Permalink to this headline">¶</a></h2>
+<p><em>pointer_variable</em> = <strong>new</strong> <em>managed_type</em>;</p>
+<p>Creates a new dynamic (managed) object of <em>managed_type</em> and assigns it
+to <em>pointer_variable</em>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Here</span> <span class="n">we</span> <span class="n">declare</span> <span class="n">a</span> <span class="n">managed</span> <span class="n">struct</span> <span class="k">for</span> <span class="n">Apple</span>
+<span class="n">managed</span> <span class="n">struct</span> <span class="n">Apple</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">color</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">freshness</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="o">...</span><span class="ow">and</span> <span class="n">declare</span> <span class="n">a</span> <span class="k">global</span> <span class="n">pointer</span> <span class="n">to</span> <span class="n">Apple</span>
+<span class="n">Apple</span><span class="o">*</span> <span class="n">SomeApple</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">At</span> <span class="n">the</span> <span class="n">game</span> <span class="n">start</span> <span class="n">we</span> <span class="n">create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">dynamic</span> <span class="nb">object</span> <span class="n">of</span> <span class="n">Apple</span> <span class="nb">type</span>
+<span class="o">//</span> <span class="ow">and</span> <span class="n">assign</span> <span class="n">its</span> <span class="n">address</span> <span class="n">to</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">variable</span>
+<span class="n">function</span> <span class="n">game_start</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">SomeApple</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Apple</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See Also: <a class="reference external" href="#managed">managed</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Pointers">Pointers in AGS</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="enum">
+<span id="enum"></span><h2>enum<a class="headerlink" href="#enum" title="Permalink to this headline">¶</a></h2>
+<p><strong>Recommended for advanced users only</strong></p>
+<p><strong>enum</strong> <em>name</em> <code class="docutils literal notranslate"><span class="pre">{</span></code><br>
+<em>option1</em> [ = <em>value1</em> ],<br>
+<em>option2</em> [ = <em>value2</em> ],<br>
+…<br>
+<code class="docutils literal notranslate"><span class="pre">};</span></code></p>
+<p>Declares an enumeration type. An enumeration allows you to group
+together a set of related options, where only one will be true at any
+one time – a bit like the contents of a list box.</p>
+<p>For example, if you have a script function, <em>doStuff</em>, that can perform
+3 different operations, you could do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">doStuff</span><span class="p">(</span><span class="nb">int</span> <span class="n">param</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">do</span> <span class="n">something</span> <span class="k">else</span>
+  <span class="p">}</span>
+  <span class="o">//</span> <span class="n">etc</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>but it’s hard to read, and when calling the function from elsewhere in
+your script, it’s not clear what 1 or 2 means. That’s where enums come
+in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">DoStuffOption</span> <span class="p">{</span>
+  <span class="n">BakeCake</span><span class="p">,</span>
+  <span class="n">DoLaundry</span>
+<span class="p">};</span>
+
+<span class="n">function</span> <span class="n">doStuff</span><span class="p">(</span><span class="n">DoStuffOption</span> <span class="n">param</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="o">==</span> <span class="n">BakeCake</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">do</span> <span class="n">something</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">param</span> <span class="o">==</span> <span class="n">DoLaundry</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">do</span> <span class="n">something</span> <span class="k">else</span>
+  <span class="p">}</span>
+  <span class="o">//</span> <span class="n">etc</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and then the calling code looks like:<br>
+<code class="docutils literal notranslate"><span class="pre">doStuff(BakeCake);</span></code><br>
+thus making it perfectly clear what the command will do.</p>
+<p>Normally, you would put the enum definition into the script header.</p>
+<p>In summary, enums are not an essential part of scripting and you can get
+away perfectly well without using them, but in some specific situations
+they’re very handy.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="this">
+<span id="this"></span><h2>this<a class="headerlink" href="#this" title="Permalink to this headline">¶</a></h2>
+<p>There are two uses for the <code class="docutils literal notranslate"><span class="pre">this</span></code> keyword.</p>
+<p><strong>1. Accessing members of the current struct</strong></p>
+<p>When you are creating custom <a class="reference external" href="#struct">structs</a>, you use the “this” keyword
+inside member functions to refer to the current struct. For example:</p>
+<p>Suppose you had this in your script header:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">MyStruct</span> <span class="p">{</span>
+  <span class="nb">int</span> <span class="n">myValue</span><span class="p">;</span>
+
+  <span class="kn">import</span> <span class="nn">function</span> <span class="n">MyMethod</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Then, in your main script, you could put this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">MyStruct</span><span class="p">::</span><span class="n">MyMethod</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">this</span><span class="o">.</span><span class="n">myValue</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">MyStruct::MyMethod</span></code> tells AGS that you are defining the function
+<em>MyMethod</em> which belongs to the struct <em>MyStruct</em> (the <code class="docutils literal notranslate"><span class="pre">::</span></code> operator
+means “belongs to”).</p>
+<p>The code above will mean that when the MyMethod function is called, it
+sets the <code class="docutils literal notranslate"><span class="pre">myValue</span></code> variable to 5.</p>
+<p><strong>2. Declaring extender functions</strong></p>
+<p>Please see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ExtenderFunctions">Extender functions</a> page
+for details.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="import">
+<span id="import"></span><h2>import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<p><strong>import</strong> <em>declaration</em> ;</p>
+<p>Declares <em>declaration</em> as a variable or function which is external to
+the current script, but that the script needs access to it. You use this
+to provide your room scripts with access to parts of your global script.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">int</span> <span class="n">counter</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">function</span> <span class="n">add_numbers</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This imports an integer variable <code class="docutils literal notranslate"><span class="pre">counter</span></code> and the function
+<code class="docutils literal notranslate"><span class="pre">add_numbers</span></code> from the global script to enable the current script to
+call them. You normally place import statements into the script header
+so that all rooms can benefit from them.</p>
+<p>In order to import the variable, it must have been exported from the
+global script with the <a class="reference external" href="#export">export keyword</a>.</p>
+<p><strong>NOTE:</strong> You <strong>MUST</strong> import external variables with the correct type.
+If <code class="docutils literal notranslate"><span class="pre">counter</span></code> was declared as a <strong>short</strong> in the global script, you MUST
+import it as a short, otherwise your game may crash.</p>
+<p><strong>NOTE:</strong> You cannot import old-style <code class="docutils literal notranslate"><span class="pre">string</span></code> variables (this does not
+apply to new-style <code class="docutils literal notranslate"><span class="pre">String</span></code> variables).</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="export">
+<span id="export"></span><h2>export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
+<p><strong>export</strong> <em>variable</em> [, <em>variable</em> … ] ;</p>
+<p>Declares that <em>variable</em> can be exported and accessed by other scripts.
+You must place this at the <strong>end</strong> of your global script. You can export
+many variables with one export line.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">my_variable</span><span class="p">;</span>
+<span class="n">export</span> <span class="n">counter</span><span class="p">,</span> <span class="n">strength</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This exports three variables - my_variable, counter and strength.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="noloopcheck">
+<span id="noloopcheck"></span><h2>noloopcheck<a class="headerlink" href="#noloopcheck" title="Permalink to this headline">¶</a></h2>
+<p>function <strong>noloopcheck</strong> <em>function_name</em> ( <em>parameters …</em> ) <code class="docutils literal notranslate"><span class="pre">{</span></code></p>
+<p>The noloopcheck keyword disables the script loop checking for the
+current function.</p>
+<p>Normally, if a <a class="reference external" href="#dowhile">while</a> loop runs for more than
+150,000 loops, AGS will assume that the script has hung and abort the
+game. This is to assist scripting since otherwise the game would lock up
+if you scripted a loop wrongly.</p>
+<p>However, there are some rare situations in which you need a loop to run
+several thousand times (for example, when initialising a very large
+array). In this case, the <em>noloopcheck</em> keyword can be used to stop AGS
+aborting your script.</p>
+<p><strong>NOTE:</strong> The <em>noloopcheck</em> keyword must be placed between “function”
+and the function’s name.<br>
+If you import the function into the script header, you <strong>do not</strong>
+include the “noloopcheck” keyword in the import declaration – it is
+only included in the actual function body.</p>
+<p><strong>NOTE:</strong> If AGS gives you a script iterations error, <strong>DO NOT</strong> just
+automatically add this keyword as a way to fix the problem – more often
+than not, it is a fault in your scripting and using this keyword will
+mean that the game will hang rather than abort.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">noloopcheck</span> <span class="n">initialize_array</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">char</span> <span class="n">bigarray</span><span class="p">[</span><span class="mi">200000</span><span class="p">];</span>
+  <span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">200000</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">bigarray</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>without the “noloopcheck” keyword here, AGS would abort that script.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Script language keywords</a><ul>
+<li><a class="reference internal" href="#arrays">Arrays</a></li>
+<li><a class="reference internal" href="#data-types">Data types</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#constants">Constants</a></li>
+<li><a class="reference internal" href="#version-checking">Version checking</a></li>
+<li><a class="reference internal" href="#if-else-statements">if, else statements</a></li>
+<li><a class="reference internal" href="#switch-case-statements">switch, case statements</a></li>
+<li><a class="reference internal" href="#while">while</a></li>
+<li><a class="reference internal" href="#do-while">do..while</a></li>
+<li><a class="reference internal" href="#for">for</a></li>
+<li><a class="reference internal" href="#break">break</a></li>
+<li><a class="reference internal" href="#continue">continue</a></li>
+<li><a class="reference internal" href="#function">function</a></li>
+<li><a class="reference internal" href="#return">return</a></li>
+<li><a class="reference internal" href="#struct">struct</a></li>
+<li><a class="reference internal" href="#managed">managed</a></li>
+<li><a class="reference internal" href="#new">new</a></li>
+<li><a class="reference internal" href="#enum">enum</a></li>
+<li><a class="reference internal" href="#this">this</a></li>
+<li><a class="reference internal" href="#import">import</a></li>
+<li><a class="reference internal" href="#export">export</a></li>
+<li><a class="reference internal" href="#noloopcheck">noloopcheck</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/managedmodifier.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

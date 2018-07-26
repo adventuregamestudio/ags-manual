@@ -1,0 +1,247 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Text display / Speech functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="text-display-speech-functions">
+<span id="text-display-speech-functions"></span><h1>Text display / Speech functions<a class="headerlink" href="#text-display-speech-functions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#display">Display</a><br>
+<a class="reference external" href="#displayat">DisplayAt</a><br>
+<a class="reference external" href="#displayaty">DisplayAtY</a><br>
+<a class="reference external" href="#displaymessage">DisplayMessage</a><br>
+<a class="reference external" href="#displaymessageaty">DisplayMessageAtY</a><br>
+<a class="reference external" href="#displaytopbar">DisplayTopBar</a></p>
+<hr class="docutils" />
+<div class="section" id="display">
+<span id="display"></span><h2>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span> <span class="p">(</span><span class="n">string</span> <span class="n">message</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Displays a message to the screen. It will be displayed in the standard
+message box, and centred in the middle of the screen.</p>
+<p>You can insert the value of variables into the message. For more
+information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+section.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">my_counter</span><span class="p">;</span>
+<span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;The counter is currently set to </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">my_counter</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will replace the ‘<code class="docutils literal notranslate"><span class="pre">%d</span></code>’ with the value of the variable “my_counter”.</p>
+<p>NOTE: Display is a blocking function - that is, control will not return
+to the script until the player has removed the text window (by pressing
+a key or clicking the mouse). While the window is displayed, all other
+processing, like animations and interface display, are disabled. This is
+usually used for responses to the player LOOKing at things.</p>
+<p><em>See Also:</em> <a class="reference external" href="#displayat">DisplayAt</a>,
+<a class="reference external" href="#displaymessage">DisplayMessage</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a>,
+<a class="reference external" href="#displaytopbar">DisplayTopBar</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/String#format">String.Format</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="displayat">
+<span id="displayat"></span><h2>DisplayAt<a class="headerlink" href="#displayat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayAt</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">string</span> <span class="n">message</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Identical to the “Display” function, only this allows you to define the
+position and size of the window where the text is displayed. The X and Y
+variables define the co-ordinates of the upper-left corner of the
+window.</p>
+<p>The WIDTH variable defines the maximum width of the window. The height
+is then automatically calculated so that the message fits into the
+window.</p>
+<p>You can insert the value of variables into the message. For more
+information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+section.</p>
+<p>Note: This is a blocking call. See the “Display” help for more
+information.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayAt</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;This is a message&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the message at coordinates 50,50 in a box 100 pixels wide.</p>
+<p><em>See Also:</em> <a class="reference external" href="#display">Display</a>,
+<a class="reference external" href="#displayaty">DisplayAtY</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="displayaty">
+<span id="displayaty"></span><h2>DisplayAtY<a class="headerlink" href="#displayaty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayAtY</span> <span class="p">(</span><span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">string</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similar to the Display function, except that this will display the
+message box at the specified Y location on the screen. The Y defines the
+co-ordinate of the top of the message box. The horizontal positioning
+will be automatically calculated as usual.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayAt</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;This is a message&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the message at y coordinate 50.</p>
+<p><em>See Also:</em> <a class="reference external" href="#display">Display</a>,
+<a class="reference external" href="#displayat">DisplayAt</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="displaymessage">
+<span id="displaymessage"></span><h2>DisplayMessage<a class="headerlink" href="#displaymessage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayMessage</span> <span class="p">(</span><span class="nb">int</span> <span class="n">message_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Identical to the Display function, but this uses a message text defined
+in the AGS Editor rather than in the script. It will either use a
+message from the current room, or a global message (if message_number
+<p>&amp;gt;</p>
+= 500).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayMessage</span><span class="p">(</span><span class="mi">220</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the message 220 of the Room message editor.</p>
+<p><em>See Also:</em> <a class="reference external" href="#display">Display</a>,
+<a class="reference external" href="#displaymessageaty">DisplayMessageAtY</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="displaymessageaty">
+<span id="displaymessageaty"></span><h2>DisplayMessageAtY<a class="headerlink" href="#displaymessageaty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayMessageAtY</span> <span class="p">(</span><span class="nb">int</span> <span class="n">message_number</span><span class="p">,</span> <span class="nb">int</span> <span class="n">yposition</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Identical to the DisplayMessage function, except that the text box is
+positioned with its top at YPOSITION, the same way as DisplayAtY works.</p>
+<p>This is useful if you have an important graphic in the middle of the
+screen that the text box would normally cover up - with this function
+you can place the message above or below it.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayMessageAtY</span><span class="p">(</span><span class="mi">527</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display global message 527, in the lower half of the screen.</p>
+<p><em>See Also:</em> <a class="reference external" href="#displayaty">DisplayAtY</a>,
+<a class="reference external" href="#displaymessage">DisplayMessage</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="displaytopbar">
+<span id="displaytopbar"></span><h2>DisplayTopBar<a class="headerlink" href="#displaytopbar" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayTopBar</span><span class="p">(</span><span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">text_color</span><span class="p">,</span> <span class="nb">int</span> <span class="n">back_color</span><span class="p">,</span> <span class="n">string</span> <span class="n">titleText</span><span class="p">,</span> <span class="n">string</span> <span class="n">message</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Displays a message in a text window, with a caption bar on top of it.</p>
+<p>This displays MESSAGE in a similar way to the normal Display command,
+but above the text window a caption bar will be displayed with TITLETEXT
+in it. This method was used in some early Sierra games to indicate who
+was talking by having their name in the caption, and can be handy if you
+don’t want to draw a talking view for a character.</p>
+<p>You can insert the value of variables into the message. For more
+information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+section.</p>
+<p>The Y parameter specifies the Y location on the screen where the message
+box will appear. The default is 25.</p>
+<p>The TEXT_COLOR parameter specifies the text colour of the top bar, and
+the BACK_COLOR specifies the background colour of the top bar.</p>
+<p>You can pass 0 for Y, TEXT_COLOR or BACK_COLOR - if you do, it will
+use the setting you used last time.</p>
+<p>There are a couple of game variables available which can further
+customize the look of the bar. You can change these before calling
+DisplayTopBar.</p>
+<p><strong>game.top_bar_bordercolor</strong> sets the colour used for the bar’s border
+(set to the same colour as the backcolor if you don’t want a border)<br>
+<strong>game.top_bar_borderwidth</strong> sets the width of the bar’s border, in
+pixels (default 1)<br>
+<strong>game.top_bar_font</strong> sets the font to use for the top bar. The
+default is -1, which means that the current Normal font is used. Set it
+to a specific number to use that font instead.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DisplayTopBar</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;Evil wizard&quot;</span><span class="p">,</span> <span class="s2">&quot;Get out of my house and never return!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display “Get out of my house and never return!” in the message box,
+with the caption bar reading “Evil wizard”. The message box will have
+dark grey text on a light gray background.</p>
+<p><em>See Also:</em> <a class="reference external" href="#display">Display</a>,
+<a class="reference external" href="#displayat">DisplayAt</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Text display / Speech functions</a><ul>
+<li><a class="reference internal" href="#display">Display</a></li>
+<li><a class="reference internal" href="#displayat">DisplayAt</a></li>
+<li><a class="reference internal" href="#displayaty">DisplayAtY</a></li>
+<li><a class="reference internal" href="#displaymessage">DisplayMessage</a></li>
+<li><a class="reference internal" href="#displaymessageaty">DisplayMessageAtY</a></li>
+<li><a class="reference internal" href="#displaytopbar">DisplayTopBar</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/DisplayAt.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

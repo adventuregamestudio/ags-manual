@@ -1,0 +1,386 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SCUMM_VERBCOIN_GUI functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="scumm-verbcoin-gui-functions">
+<span id="scumm-verbcoin-gui-functions"></span><h1>SCUMM_VERBCOIN_GUI functions<a class="headerlink" href="#scumm-verbcoin-gui-functions" title="Permalink to this headline">¶</a></h1>
+<p>SCUMM_VERBCOIN_GUI is a script module that is included with the Verb
+Coin template. The functions in this section are only available if you
+have created your game using that template.</p>
+<p><a class="reference external" href="#deselect">Deselect</a><br>
+<a class="reference external" href="#disableverbcoingui">DisableVerbCoinGUI</a><br>
+<a class="reference external" href="#doubleclickspeed">DoubleClickSpeed</a><br>
+<a class="reference external" href="#goinventory">GoInventory</a><br>
+<a class="reference external" href="#item_count">Item_Count</a><br>
+<a class="reference external" href="#invscroll_left">InvScroll_Left</a><br>
+<a class="reference external" href="#invscroll_right">InvScroll_Right</a><br>
+<a class="reference external" href="#inv_border_active">Inv_Border_active</a><br>
+<a class="reference external" href="#inv_border_setpos">Inv_Border_SetPos</a><br>
+<a class="reference external" href="#inventory_gui">Inventory_GUI</a><br>
+<a class="reference external" href="#runinteraction">RunInteraction</a><br>
+<a class="reference external" href="#select">Select</a><br>
+<a class="reference external" href="#verbcoin_gui">Verbcoin_GUI</a><br>
+<a class="reference external" href="#verbgraphic">verbgraphic</a><br>
+<a class="reference external" href="#doubleclick-variable">doubleclick (variable)</a></p>
+<hr class="docutils" />
+<div class="section" id="deselect">
+<span id="deselect"></span><h2>Deselect<a class="headerlink" href="#deselect" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Deselect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Deselect an item if it is active or quit the inventory. Used for
+keyboard support.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#runinteraction">SCUMM_VERBCOIN_GUI.RunInteraction</a>,
+<a class="reference external" href="#select">SCUMM_VERBCOIN_GUI.Select</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="disableverbcoingui">
+<span id="disableverbcoingui"></span><h2>DisableVerbCoinGUI<a class="headerlink" href="#disableverbcoingui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">DisableVerbCoinGUI</span><span class="p">(</span><span class="nb">bool</span> <span class="n">disabled</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Activates/deactivates the SCUMM Verbcoin GUI system. This can be used to
+turn the SCUMM VerbCoin system on and off at runtime.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">DisableVerbCoinGUI</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will disable all verbcoin processing code.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="doubleclickspeed">
+<span id="doubleclickspeed"></span><h2>DoubleClickSpeed<a class="headerlink" href="#doubleclickspeed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">DoubleClickSpeed</span><span class="p">(</span><span class="nb">int</span> <span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the time frame in which a double-click can be registered. Increase
+this value for slower double-clicks, decrease this value for quicker
+double-clicks.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">DoubleClickSpeed</span><span class="p">(</span><span class="n">GetGameSpeed</span><span class="p">()</span><span class="o">/</span><span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will set the double-click speed to 1/4 of a second. (This is a good
+default)</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#doubleclick-variable">SCUMM_VERBCOIN_GUI.doubleclick</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="goinventory">
+<span id="goinventory"></span><h2>GoInventory<a class="headerlink" href="#goinventory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">GoInventory</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This function opens and closes your inventory.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="item-count">
+<span id="item-count"></span><h2>Item_Count<a class="headerlink" href="#item-count" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Item_Count</span><span class="p">(</span><span class="nb">int</span> <span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the number of items that inventory scrolling will use to position
+to the next x amount of items.</p>
+<p>This value should equal the amount of items that fit in your inventory
+window.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Item_Count</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will make sure that on the next inventory scroll you will start with
+item 11, 21, 31, …</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#invscroll_left">SCUMM_VERBCOIN_GUI.InvScroll_Left</a>,
+<a class="reference external" href="#invscroll_right">SCUMM_VERBCOIN_GUI.InvScroll_Right</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="invscroll-left">
+<span id="invscroll-left"></span><h2>InvScroll_Left<a class="headerlink" href="#invscroll-left" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">InvScroll_Left</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Scrolls the inventory to the left, by the number of items set with
+Item_Count.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#item_count">SCUMM_VERBCOIN_GUI.Item_Count</a>,
+<a class="reference external" href="#invscroll_right">SCUMM_VERBCOIN_GUI.InvScroll_Right</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="invscroll-right">
+<span id="invscroll-right"></span><h2>InvScroll_Right<a class="headerlink" href="#invscroll-right" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">InvScroll_Right</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Scrolls the inventory to the right, by the number of items set with
+Item_Count.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#item_count">SCUMM_VERBCOIN_GUI.Item_Count</a>,
+<a class="reference external" href="#invscroll_left">SCUMM_VERBCOIN_GUI.InvScroll_Left</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="inv-border-active">
+<span id="inv-border-active"></span><h2>Inv_Border_active<a class="headerlink" href="#inv-border-active" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inv_Border_active</span><span class="p">(</span><span class="nb">bool</span> <span class="n">x_borders</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">y_borders</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets which inventory exit borders are active.</p>
+<p>Inventory exit borders determine where the inventory will exit when
+moving over a line.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inv_Border_active</span><span class="p">(</span><span class="n">false</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will make the game exit the inventory when moving the mouse over either
+the top or the bottom of the screen.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#inv_border_setpos">SCUMM_VERBCOIN_GUI.Inv_Border_SetPos</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="inv-border-setpos">
+<span id="inv-border-setpos"></span><h2>Inv_Border_SetPos<a class="headerlink" href="#inv-border-setpos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inv_Border_SetPos</span><span class="p">(</span><span class="nb">int</span> <span class="n">top</span><span class="p">,</span> <span class="nb">int</span> <span class="n">bottom</span><span class="p">,</span>
+                                            <span class="nb">int</span> <span class="n">left</span><span class="p">,</span> <span class="nb">int</span> <span class="n">right</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the inventory exit border positions.</p>
+<p>Inventory exit borders determine where the inventory will exit when
+moving over a line.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inv_Border_SetPos</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">295</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will set the top exit border to y-coordinate 20, the bottom border to
+y-coordinate 220, the left border to x-coordinate 20 and the right
+border to x-coordinate 295</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#inv_border_active">SCUMM_VERBCOIN_GUI.Inv_Border_active</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="inventory-gui">
+<span id="inventory-gui"></span><h2>Inventory_GUI<a class="headerlink" href="#inventory-gui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inventory_GUI</span><span class="p">(</span><span class="nb">int</span> <span class="n">gInventory_ID</span><span class="p">,</span><span class="nb">int</span> <span class="n">gInvUnderlay_ID</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the inventory gui ID’s, so the module will know which GUI is your
+inventory and which GUI is the inventory underlay.</p>
+<p>This allows you to change your inventory GUI’s on the fly, which is
+particularly interesting if you have a game with multiple playable
+characters. You could have a different inventory for each character!</p>
+<p>If the game is 32-bit with alpha-blended (transparent) GUI buttons on
+the inventory, you need to use an Underlay gui which contains the actual
+inventory background, and the regular gui which is empty except for the
+inventory window and the gui buttons.</p>
+<p>If your game does not use alpha-blended GUI buttons, leave the underlay
+inventory empty. (use sprite 0 for its background)</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Inventory_GUI</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will tell the module your inventory gui is GUI nr.2 and that the
+underlay gui is GUI nr.3</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="runinteraction">
+<span id="runinteraction"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">RunInteraction</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Runs the event of choice. Used for keyboard support.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">RunInteraction</span><span class="p">(</span><span class="n">eModeTalkto</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See Also:</em>
+<a class="reference external" href="#deselect">SCUMM_VERBCOIN_GUI.Deselect</a>,
+<a class="reference external" href="#select">SCUMM_VERBCOIN_GUI.Select</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="select">
+<span id="select"></span><h2>Select<a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Select</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Selects an item, or if an item is active tries to use it. Used for
+keyboard support.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#deselect">SCUMM_VERBCOIN_GUI.Deselect</a>,
+<a class="reference external" href="#runinteraction">SCUMM_VERBCOIN_GUI.RunInteraction</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="verbcoin-gui">
+<span id="verbcoin-gui"></span><h2>Verbcoin_GUI<a class="headerlink" href="#verbcoin-gui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Verbcoin_GUI</span><span class="p">(</span><span class="nb">int</span> <span class="n">gVerbcoin_ID</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the verbcoin gui ID, so the module will know which GUI is your
+verbcoin GUI.</p>
+<p>This is particularly useful if you have a game with multiple playable
+characters, where you could have a different verbcoin for each
+character.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">Verbcoin_GUI</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will tell the module your verbcoin gui is GUI nr.1</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="verbgraphic">
+<span id="verbgraphic"></span><h2>verbgraphic<a class="headerlink" href="#verbgraphic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">verbgraphic</span><span class="p">(</span><span class="n">ButtonChoice</span><span class="p">,</span> <span class="nb">int</span> <span class="n">sprite_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Attaches a verbcoin sprite to a button. This sprite will be displayed
+when moving over the button.</p>
+<p>The only exception is the ‘bIdle’ button, which is not a button but the
+default verbcoin graphic with no buttons active.</p>
+<p><strong>NOTE:</strong> This function is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SCUMM_VERBCOIN_GUI</span><span class="o">.</span><span class="n">verbgraphic</span><span class="p">(</span><span class="n">bTalk</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will set the sprite for moving over the talk button to sprite 2</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="doubleclick-variable">
+<span id="doubleclick-variable"></span><h2>doubleclick (variable)<a class="headerlink" href="#doubleclick-variable" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="nb">bool</span> <span class="n">doubleclick</span>
+</pre></div>
+</div>
+<p>Used to determine when a double-click has occured.</p>
+<p><strong>NOTE:</strong> This variable is part of the Verb Coin template and is only
+available if you used this template to create your game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="p">(</span><span class="n">doubleclick</span> <span class="o">==</span> <span class="n">false</span><span class="p">){</span>
+    <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You made a single-click&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You just made a double-click!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<p>will display “You made a single-click” when you made a single-click on
+the object/hotspot/character/…</p>
+<p><em>See Also:</em>
+<a class="reference external" href="#doubleclickspeed">SCUMM_VERBCOIN_GUI.DoubleClickSpeed</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SCUMM_VERBCOIN_GUI functions</a><ul>
+<li><a class="reference internal" href="#deselect">Deselect</a></li>
+<li><a class="reference internal" href="#disableverbcoingui">DisableVerbCoinGUI</a></li>
+<li><a class="reference internal" href="#doubleclickspeed">DoubleClickSpeed</a></li>
+<li><a class="reference internal" href="#goinventory">GoInventory</a></li>
+<li><a class="reference internal" href="#item-count">Item_Count</a></li>
+<li><a class="reference internal" href="#invscroll-left">InvScroll_Left</a></li>
+<li><a class="reference internal" href="#invscroll-right">InvScroll_Right</a></li>
+<li><a class="reference internal" href="#inv-border-active">Inv_Border_active</a></li>
+<li><a class="reference internal" href="#inv-border-setpos">Inv_Border_SetPos</a></li>
+<li><a class="reference internal" href="#inventory-gui">Inventory_GUI</a></li>
+<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
+<li><a class="reference internal" href="#select">Select</a></li>
+<li><a class="reference internal" href="#verbcoin-gui">Verbcoin_GUI</a></li>
+<li><a class="reference internal" href="#verbgraphic">verbgraphic</a></li>
+<li><a class="reference internal" href="#doubleclick-variable">doubleclick (variable)</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/SCUMM_VERBCOIN_GUI.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

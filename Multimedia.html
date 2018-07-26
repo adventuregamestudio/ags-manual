@@ -1,0 +1,390 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Multimedia functions &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multimedia-functions">
+<span id="multimedia-functions"></span><h1>Multimedia functions<a class="headerlink" href="#multimedia-functions" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#cdaudio">CDAudio</a><br>
+<a class="reference external" href="#isaudioplaying">IsAudioPlaying</a><br>
+<a class="reference external" href="#isspeechvoxavailable">IsSpeechVoxAvailable</a><br>
+<a class="reference external" href="#playflic">PlayFlic</a><br>
+<a class="reference external" href="#playsilentmidi">PlaySilentMIDI</a><br>
+<a class="reference external" href="#playvideo">PlayVideo</a><br>
+<a class="reference external" href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a><br>
+<a class="reference external" href="#setaudiotypevolume">SetAudioTypeVolume</a><br>
+<a class="reference external" href="#setspeechvolume">SetSpeechVolume</a><br>
+<a class="reference external" href="#stopaudio">StopAudio</a></p>
+<hr class="docutils" />
+<div class="section" id="cdaudio">
+<span id="cdaudio"></span><h2>CDAudio<a class="headerlink" href="#cdaudio" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CDAudio</span> <span class="p">(</span><span class="n">eCDAudioFunction</span><span class="p">,</span> <span class="nb">int</span> <span class="n">param</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function allows you to play and control an audio CD in your game.
+Different tasks are performed, depending on the value of the
+AudioFunction parameter. If there is no CD-ROM drive on the system, the
+function does nothing.</p>
+<p>The PARAM parameter is used by some of the functions for various
+reasons; if it is not needed for the particular function you are
+calling, pass zero instead.</p>
+<p>The tasks performed are as follows depending on the COMMAND parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eCDIsDriverPresent</span> <span class="o">-</span> <span class="n">checks</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">CD</span><span class="o">-</span><span class="n">ROM</span> <span class="n">driver</span> <span class="n">available</span> <span class="n">on</span>
+   <span class="n">the</span> <span class="n">system</span><span class="o">.</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">there</span> <span class="ow">is</span> <span class="ow">not</span><span class="o">.</span>
+<span class="n">eCDGetPlayingStatus</span> <span class="o">-</span> <span class="n">checks</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">CD</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">currently</span> <span class="n">playing</span>
+   <span class="n">an</span> <span class="n">audio</span> <span class="n">track</span><span class="o">.</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span><span class="p">,</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span><span class="o">.</span>
+<span class="n">eCDPlayTrack</span> <span class="o">-</span> <span class="n">starts</span> <span class="n">playback</span> <span class="kn">from</span> <span class="nn">track</span> <span class="n">PARAM</span> <span class="n">on</span> <span class="n">the</span> <span class="n">CD</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">track</span>
+   <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="p">,</span> <span class="ow">or</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">data</span> <span class="n">track</span><span class="p">,</span> <span class="n">nothing</span> <span class="n">happens</span><span class="o">.</span>
+<span class="n">eCDPausePlayback</span> <span class="o">-</span> <span class="n">pauses</span> <span class="n">the</span> <span class="n">currently</span> <span class="n">playing</span> <span class="n">audio</span> <span class="n">track</span><span class="o">.</span>
+<span class="n">eCDResumePlayback</span> <span class="o">-</span> <span class="n">continues</span> <span class="kn">from</span> <span class="nn">where</span> <span class="n">the</span> <span class="n">track</span> <span class="n">was</span> <span class="n">paused</span><span class="o">.</span>
+<span class="n">eCDGetNumTracks</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">tracks</span> <span class="n">on</span> <span class="n">the</span> <span class="n">CD</span>
+   <span class="n">currently</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">drive</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">empty</span><span class="p">,</span> <span class="n">returns</span> <span class="mf">0.</span>
+<span class="n">eCDEject</span> <span class="o">-</span> <span class="n">ejects</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">tray</span> <span class="k">if</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">has</span> <span class="n">the</span> <span class="n">ability</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span>
+   <span class="n">a</span> <span class="n">feature</span> <span class="n">you</span><span class="s1">&#39;ll play with to start off because it&#39;</span><span class="n">s</span> <span class="n">neat</span><span class="p">,</span> <span class="ow">and</span> <span class="n">then</span>
+   <span class="n">realize</span> <span class="n">that</span> <span class="n">it</span> <span class="n">has</span> <span class="n">no</span> <span class="n">real</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">game</span><span class="o">.</span>
+   <span class="n">Your</span> <span class="n">script</span> <span class="n">does</span> <span class="ow">not</span> <span class="k">continue</span> <span class="n">until</span> <span class="n">the</span> <span class="n">drive</span> <span class="ow">is</span> <span class="n">fully</span> <span class="n">ejected</span><span class="o">.</span>
+<span class="n">eCDCloseTray</span> <span class="o">-</span> <span class="n">the</span> <span class="n">reverse</span> <span class="n">of</span> <span class="n">Eject</span><span class="o">.</span> <span class="n">This</span> <span class="n">will</span> <span class="n">pull</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">tray</span> <span class="n">back</span>
+   <span class="ow">in</span> <span class="n">again</span><span class="o">.</span> <span class="n">Your</span> <span class="n">script</span> <span class="n">does</span> <span class="ow">not</span> <span class="k">continue</span> <span class="n">until</span> <span class="n">the</span> <span class="n">drive</span> <span class="n">has</span> <span class="n">been</span>
+   <span class="n">fully</span> <span class="n">closed</span><span class="o">.</span>
+<span class="n">eCDGetCDDriveCount</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">CD</span> <span class="n">drives</span> <span class="ow">in</span> <span class="n">the</span>
+   <span class="n">system</span><span class="p">,</span> <span class="n">normally</span> <span class="mf">1.</span>
+<span class="n">eCDSelectActiveCDDrive</span> <span class="o">-</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">current</span> <span class="n">CD</span> <span class="n">drive</span> <span class="n">to</span> <span class="n">PARAM</span><span class="p">,</span>
+   <span class="n">where</span> <span class="n">PARAM</span> <span class="n">ranges</span> <span class="kn">from</span> <span class="mi">1</span> <span class="n">to</span> <span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">CD</span> <span class="n">drives</span><span class="p">)</span><span class="o">.</span> <span class="n">All</span> <span class="n">the</span> <span class="n">other</span>
+   <span class="n">CD</span> <span class="n">Audio</span> <span class="n">functions</span> <span class="n">operate</span> <span class="n">on</span> <span class="n">the</span> <span class="n">current</span> <span class="n">CD</span> <span class="n">drive</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>NOTE: These CD Audio functions are slow compared to all the other script
+functions. This will not be noticeable if you call them from most
+scripts, but using CDAudio in a repeatedly_execute script will
+noticeably slow down the game.</p>
+<p><strong>Cross-Platform Support</strong></p>
+<p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><br>
+MS-DOS: <strong>Yes, if CD-ROM device driver loaded</strong><br>
+Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><br>
+MacOS: <strong>No</strong></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CDAudio</span><span class="p">(</span><span class="n">eCDPlayTrack</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will play track 3 of the CD that’s in the CD ROM drive.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="isaudioplaying">
+<span id="isaudioplaying"></span><h2>IsAudioPlaying<a class="headerlink" href="#isaudioplaying" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><br>
+<em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Game</span><span class="o">.</span><span class="n">IsAudioPlaying</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns <em>true</em> if there is currently audio playing of the specified
+type. If you don’t supply an audio type, then <em>true</em> will be returned
+if there is any audio at all playing in the game.</p>
+<p>If no audio of the specified type is playing, returns <em>false</em>. You can
+use this to wait for some music to finish playing, for example.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">IsAudioPlaying</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>waits for any currently playing music to finish.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="#stopaudio">Game.StopAudio</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="isspeechvoxavailable">
+<span id="isspeechvoxavailable"></span><h2>IsSpeechVoxAvailable<a class="headerlink" href="#isspeechvoxavailable" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IsSpeechVoxAvailable</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Returns whether the SPEECH.VOX file is being used by the game. This
+could be useful if you have an optional speech download pack, and you
+want to know whether the player has it or not.</p>
+<p>Returns 1 if the speech files are available, 0 if not.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">IsSpeechVoxAvailable</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You don&#39;t have the voice pack&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display a message if the voice pack is not available.</p>
+<p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now
+been renamed to avoid confusion.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#isavailable">AudioClip.IsAvailable</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playflic">
+<span id="playflic"></span><h2>PlayFlic<a class="headerlink" href="#playflic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayFlic</span> <span class="p">(</span><span class="nb">int</span> <span class="n">flic_number</span><span class="p">,</span> <span class="nb">int</span> <span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and
+FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
+<p>OPTIONS has these meanings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>  <span class="n">player</span> <span class="n">can</span><span class="s1">&#39;t skip animation</span>
+<span class="mi">1</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="n">ESC</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">animation</span>
+<span class="mi">2</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">click</span> <span class="n">mouse</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">animation</span>
+<span class="o">+</span><span class="mi">10</span> <span class="p">(</span><span class="n">ie</span><span class="o">.</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">stretch</span> <span class="n">to</span> <span class="n">full</span><span class="o">-</span><span class="n">screen</span><span class="p">,</span> <span class="n">just</span> <span class="n">play</span> <span class="n">at</span> <span class="n">flc</span> <span class="n">size</span>
+<span class="o">+</span><span class="mi">100</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">screen</span> <span class="n">before</span> <span class="n">starting</span> <span class="n">playback</span>
+</pre></div>
+</div>
+<p>The game is paused while the animation plays.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayFlic</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will play flic2 and the player will be able to skip the flic by pressing
+the ESC key.</p>
+<p><em>See Also:</em> <a class="reference external" href="#playvideo">PlayVideo</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playsilentmidi">
+<span id="playsilentmidi"></span><h2>PlaySilentMIDI<a class="headerlink" href="#playsilentmidi" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlaySilentMIDI</span> <span class="p">(</span><span class="nb">int</span> <span class="n">music_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This command is obsolete.</p>
+<p>Use the AudioClip.Play command and set its Volume property to 0 to
+simulate this effect.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#volume">AudioChannel.Volume</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="playvideo">
+<span id="playvideo"></span><h2>PlayVideo<a class="headerlink" href="#playvideo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayVideo</span> <span class="p">(</span><span class="n">string</span> <span class="n">filename</span><span class="p">,</span> <span class="n">VideoSkipStyle</span><span class="p">,</span> <span class="nb">int</span> <span class="n">flags</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported
+by Media Player. The game is paused while the video plays.</p>
+<p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eVideoSkipNotAllowed</span>     <span class="n">player</span> <span class="n">can</span><span class="s1">&#39;t skip video</span>
+<span class="n">eVideoSkipEscKey</span>         <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="n">ESC</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">video</span>
+<span class="n">eVideoSkipAnyKey</span>         <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="n">to</span> <span class="n">skip</span> <span class="n">video</span>
+<span class="n">eVideoSkipAnyKeyOrMouse</span>  <span class="n">player</span> <span class="n">can</span> <span class="n">press</span> <span class="nb">any</span> <span class="n">key</span> <span class="ow">or</span> <span class="n">click</span> <span class="n">mouse</span> <span class="n">to</span> <span class="n">skip</span>
+</pre></div>
+</div>
+<p>FLAGS can be one of the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">played</span> <span class="n">at</span> <span class="n">original</span> <span class="n">size</span><span class="p">,</span> <span class="k">with</span> <span class="n">AVI</span> <span class="n">audio</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="p">,</span> <span class="k">with</span> <span class="n">appropriate</span>
+   <span class="n">black</span> <span class="n">borders</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">its</span> <span class="n">aspect</span> <span class="n">ratio</span> <span class="ow">and</span> <span class="n">AVI</span> <span class="n">audio</span><span class="o">.</span>
+<span class="mi">10</span><span class="p">:</span> <span class="n">original</span> <span class="n">size</span><span class="p">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="p">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="p">)</span>
+<span class="mi">11</span><span class="p">:</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="p">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="p">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are two distinct type of videos that the PlayVideo function can
+play.</p>
+<p>The first is OGG Theora, which is a recently introduced video file
+format. AGS has built-in support for playing these videos, so everyone
+who plays your game will be able to see the video. OGG Theora videos are
+also built into the game EXE file when you compile the game (just make
+sure the file has a .OGV extension and is placed in your main game
+folder).</p>
+<p>The second type of files that AGS can play is anything supported by
+Windows Media Player. This includes AVI, MPG and more. However, in order
+for these to work on the player’s system, they will need to have the
+correct codecs installed. For example, if you create your video with the
+XVid codec, the player will need to have XVid installed to be able to
+view it. These types of video cannot be included into the game EXE, so
+you will have to place them separately in the Compiled folder for them
+to work.</p>
+<p><strong>NOTE:</strong> In 256-colour games, PlayVideo is not supported. Please use a
+FLC/FLI video with the <a class="reference external" href="#playflic">PlayFlic</a> command instead.</p>
+<p><strong>Cross-Platform Support</strong></p>
+<p>Windows: <strong>Yes</strong><br>
+MS-DOS: <strong>No</strong><br>
+Linux: <strong>No</strong><br>
+MacOS: <strong>Yes</strong></p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PlayVideo</span><span class="p">(</span><span class="s2">&quot;intro.mpg&quot;</span><span class="p">,</span> <span class="n">eVideoSkipEscKey</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will play the video Intro.mpg, allowing the player to skip with ESC if
+they’ve seen it before.</p>
+<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later
+versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="#playflic">PlayFlic</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setaudiotypespeechvolumedrop">
+<span id="setaudiotypespeechvolumedrop"></span><h2>SetAudioTypeSpeechVolumeDrop<a class="headerlink" href="#setaudiotypespeechvolumedrop" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as game.speech_music_drop, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeSpeechVolumeDrop</span><span class="p">(</span><span class="n">AudioType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">volumeReduction</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the VolumeReductionWhileSpeechPlaying of the specified
+<em>AudioType</em>. This changes the setting, initially set in the Audio Types
+part of the editor. It specifies how much the volume of clips of this
+type will be reduced by while speech is playing.</p>
+<p>Specify 0 for no volume adjustment, up to 100 which will completely
+silence these audio clips while speech is playing.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeSpeechVolumeDrop</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will reduce the volume of Music audio clips by 25 percentage points
+while speech is playing.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setaudiotypevolume">
+<span id="setaudiotypevolume"></span><h2>SetAudioTypeVolume<a class="headerlink" href="#setaudiotypevolume" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetSoundVolume, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeVolume</span><span class="p">(</span><span class="n">AudioType</span><span class="p">,</span> <span class="nb">int</span> <span class="n">volume</span><span class="p">,</span> <span class="n">ChangeVolumeType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the default volume of the specified <em>AudioType</em>. This allows you
+to change the volume of all audio clips of a particular type, so that
+you can easily control sound and music volume separately, for example.</p>
+<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute
+sound of that type completely.</p>
+<p>Possible values for <em>ChangeVolumeType</em> are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eVolChangeExisting</span>      <span class="n">change</span> <span class="n">the</span> <span class="n">volume</span> <span class="n">of</span> <span class="n">currently</span> <span class="n">playing</span> <span class="n">audio</span> <span class="n">clips</span>
+<span class="n">eVolSetFutureDefault</span>    <span class="n">change</span> <span class="n">the</span> <span class="n">default</span> <span class="n">volume</span> <span class="k">for</span> <span class="n">clips</span> <span class="n">of</span> <span class="n">this</span> <span class="nb">type</span>
+<span class="n">eVolExistingAndFuture</span>   <span class="n">change</span> <span class="n">both</span> <span class="n">currently</span> <span class="n">playing</span> <span class="ow">and</span> <span class="n">future</span> <span class="n">audio</span>
+</pre></div>
+</div>
+<p>Initially general AudioType volume is not set, meaning that all future
+audio will be playing using their own custom volumes. If you use the
+<em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the
+DefaultVolume property for all audio clips of this type will be
+overridden. This means that any DefaultVolume set up in the editor will
+be lost.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">SetAudioTypeVolume</span><span class="p">(</span><span class="n">eAudioTypeMusic</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">eVolExistingAndFuture</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the volume of all currently playing and future music to
+<code class="docutils literal notranslate"><span class="pre">20%</span></code>.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="#setspeechvolume">SetSpeechVolume</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/System#volume">System.Volume</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setspeechvolume">
+<span id="setspeechvolume"></span><h2>SetSpeechVolume<a class="headerlink" href="#setspeechvolume" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetSpeechVolume</span> <span class="p">(</span><span class="nb">int</span> <span class="n">volume</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255
+is the loudest. The default speech volume is 255 so this function can
+only be used to reduce the volume.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetSpeechVolume</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will set the speech volume to 200.</p>
+<p><em>See Also:</em> <a class="reference external" href="#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="stopaudio">
+<span id="stopaudio"></span><h2>StopAudio<a class="headerlink" href="#stopaudio" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><br>
+<em>(Formerly known as StopMusic, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Game</span><span class="o">.</span><span class="n">StopAudio</span><span class="p">(</span><span class="n">optional</span> <span class="n">AudioType</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stops all currently playing audio. If you pass no parameters, then all
+audio will be stopped. Alternatively, you can pass one of the AudioTypes
+which will only stop audio clips of that type.</p>
+<p>If there are any audio clips queued up with PlayQueued, they will also
+be cancelled.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Game</span><span class="o">.</span><span class="n">StopAudio</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>will stop all currently playing audio.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="#isaudioplaying">Game.IsAudioPlaying</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#stop">AudioChannel.Stop</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Multimedia functions</a><ul>
+<li><a class="reference internal" href="#cdaudio">CDAudio</a></li>
+<li><a class="reference internal" href="#isaudioplaying">IsAudioPlaying</a></li>
+<li><a class="reference internal" href="#isspeechvoxavailable">IsSpeechVoxAvailable</a></li>
+<li><a class="reference internal" href="#playflic">PlayFlic</a></li>
+<li><a class="reference internal" href="#playsilentmidi">PlaySilentMIDI</a></li>
+<li><a class="reference internal" href="#playvideo">PlayVideo</a></li>
+<li><a class="reference internal" href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a></li>
+<li><a class="reference internal" href="#setaudiotypevolume">SetAudioTypeVolume</a></li>
+<li><a class="reference internal" href="#setspeechvolume">SetSpeechVolume</a></li>
+<li><a class="reference internal" href="#stopaudio">StopAudio</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Multimedia.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

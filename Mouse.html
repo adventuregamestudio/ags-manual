@@ -1,0 +1,562 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Mouse functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mouse-functions-and-properties">
+<span id="mouse-functions-and-properties"></span><h1>Mouse functions and properties<a class="headerlink" href="#mouse-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#changemodegraphic">ChangeModeGraphic</a><br>
+<a class="reference external" href="#changemodehotspot">ChangeModeHotspot</a><br>
+<a class="reference external" href="#changemodeview">ChangeModeView</a><br>
+<a class="reference external" href="#click">Click</a><br>
+<a class="reference external" href="#controlenabled">ControlEnabled property</a><br>
+<a class="reference external" href="#disablemode">DisableMode</a><br>
+<a class="reference external" href="#enablemode">EnableMode</a><br>
+<a class="reference external" href="#getmodegraphic">GetModeGraphic</a><br>
+<a class="reference external" href="#isbuttondown">IsButtonDown</a><br>
+<a class="reference external" href="#ismodeenabled">IsModeEnabled</a><br>
+<a class="reference external" href="#savecursoruntilitleaves">SaveCursorUntilItLeaves</a><br>
+<a class="reference external" href="#selectnextmode">SelectNextMode</a><br>
+<a class="reference external" href="#selectpreviousmode">SelectPreviousMode</a><br>
+<a class="reference external" href="#setbounds">SetBounds</a><br>
+<a class="reference external" href="#setposition">SetPosition</a><br>
+<a class="reference external" href="#speed">Speed property</a><br>
+<a class="reference external" href="#update">Update</a><br>
+<a class="reference external" href="#usedefaultgraphic">UseDefaultGraphic</a><br>
+<a class="reference external" href="#usemodegraphic">UseModeGraphic</a><br>
+<a class="reference external" href="#mode">Mode property</a><br>
+<a class="reference external" href="#visible">Visible property</a></p>
+<hr class="docutils" />
+<div class="section" id="changemodegraphic">
+<span id="changemodegraphic"></span><h2>ChangeModeGraphic<a class="headerlink" href="#changemodegraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ChangeCursorGraphic, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">slot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the specified mouse cursor mode’s cursor graphic to SLOT. This
+allows you to dynamically change what a mouse cursor looks like.</p>
+<p><strong>NOTE:</strong> To change what the Use Inventory cursor looks like, you should
+change the active inventory item’s
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#cursorgraphic">CursorGraphic</a> property instead
+of using this function.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeGraphic</span><span class="p">(</span><span class="n">eModeLookat</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the cursor’s graphic for look mode to the image that’s
+imported in the sprite’s manager slot 120.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodehotspot">Mouse.ChangeModeHotspot</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodeview">Mouse.ChangeModeView</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#getmodegraphic">Mouse.GetModeGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="changemodehotspot">
+<span id="changemodehotspot"></span><h2>ChangeModeHotspot<a class="headerlink" href="#changemodehotspot" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ChangeCursorHotspot, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeHotspot</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Permanently changes the specified mouse cursor mode’s hotspot on the
+cursor graphic to (X,Y). This is the offset into the graphic where the
+click takes effect. (0,0) is the upper left corner of the cursor
+graphic.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeHotspot</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the cursor’s hotspot for walk mode to coordinates 10,10.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodeview">Mouse.ChangeModeView</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="changemodeview">
+<span id="changemodeview"></span><h2>ChangeModeView<a class="headerlink" href="#changemodeview" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeView</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">view</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the specified mouse cursor mode’s animation view to VIEW.</p>
+<p>You can pass <em>view</em> as -1 to stop the cursor from animating.</p>
+<p>This allows you to dynamically change the view used for the cursor’s
+animation while the game is running.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeView</span><span class="p">(</span><span class="n">eModeLookat</span><span class="p">,</span> <span class="n">ROLLEYES</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the Look cursor’s view to ROLLEYES.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodehotspot">Mouse.ChangeModeHotspot</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="click">
+<span id="click"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">Click</span><span class="p">(</span><span class="n">MouseButton</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fires mouse click event at current mouse position (at mouse.x /
+mouse.y). This is in all aspects identical to what would happen if a
+player clicked actual mouse button. This function may be useful to
+simulate player actions in game, or create automatic demonstrations
+(like tutorials).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">Mouse</span><span class="o">.</span><span class="n">Click</span><span class="p">(</span><span class="n">eMouseLeft</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will simulate user click at (100,100).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#processclick">GUI.ProcessClick</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="controlenabled">
+<span id="controlenabled"></span><h2>ControlEnabled<a class="headerlink" href="#controlenabled" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">ControlEnabled</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Tells if the mouse cursor movement is currently being controlled by AGS
+engine; otherwise it is controlled by operation system. This is usually
+true only when game is run in fullscreen mode.</p>
+<p>This property may be useful to know if custom mouse speed setting is
+applied or not.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sldMouseSpeed</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">ControlEnabled</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>makes mouse speed slider visible only if the mouse is controlled by the
+game.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#speed">Mouse.Speed</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="disablemode">
+<span id="disablemode"></span><h2>DisableMode<a class="headerlink" href="#disablemode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as DisableCursorMode, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">DisableMode</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Disables the mouse cursor MODE. Any attempts to set the cursor to this
+mode while it is disabled (such as using UseModeGraphic) will fail. This
+function also greys out and disables any interface buttons whose
+left-click command is set as “Set mode X”, where X is equal to MODE.</p>
+<p>If the current cursor mode is MODE, then the engine will change it to
+the next enabled standard cursor.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">DisableMode</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will make the walk mode unavailable until it’s enabled again.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#enablemode">Mouse.EnableMode</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#ismodeenabled">Mouse.IsModeEnabled</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="enablemode">
+<span id="enablemode"></span><h2>EnableMode<a class="headerlink" href="#enablemode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as EnableCursorMode, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">EnableMode</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Re-enables the mouse cursor mode MODE. This function also enables any
+interface buttons which were disabled by the DisableMode command.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">EnableMode</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will enable cursor mode walk which was disabled before.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#disablemode">Mouse.DisableMode</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#ismodeenabled">Mouse.IsModeEnabled</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="ismodeenabled">
+<span id="ismodeenabled"></span><h2>IsModeEnabled<a class="headerlink" href="#ismodeenabled" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">IsModeEnabled</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns whether the specified mouse cursor is currently enabled.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">IsModeEnabled</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">))</span> <span class="p">{</span>
+  <span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">eModeWalkto</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will change the the “WalkTo” cursor mode, but only if it’s currently
+enabled.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#enablemode">Mouse.EnableMode</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#disablemode">Mouse.DisableMode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="getmodegraphic">
+<span id="getmodegraphic"></span><h2>GetModeGraphic<a class="headerlink" href="#getmodegraphic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">GetModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns the sprite slot number of the specified mouse cursor mode.</p>
+<p>This could be useful if you want to change it manually with
+ChangeModeGraphic but be able to remember what it was before.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current mouse cursor sprite is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">GetModeGraphic</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>will display the sprite slot number of the current mouse cursor.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="isbuttondown">
+<span id="isbuttondown"></span><h2>IsButtonDown<a class="headerlink" href="#isbuttondown" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function IsButtonDown, which is now
+obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">IsButtonDown</span><span class="p">(</span><span class="n">MouseButton</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tests whether the user has the specified mouse button down. BUTTON must
+either be eMouseLeft, eMouseRight or eMouseMiddle.</p>
+<p>Returns <em>true</em> if the button is currently pressed, <em>false</em> if not. This
+could be used to test the length of a mouse click and similar effects.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">timer</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="o">//</span> <span class="p">(</span><span class="n">at</span> <span class="n">top</span> <span class="n">of</span> <span class="n">script</span> <span class="n">file</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">IsButtonDown</span><span class="p">(</span><span class="n">eMouseRight</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">40</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You pressed the right button for 1 sec&quot;</span><span class="p">);</span>
+    <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will display the message if the player presses the right button for 1
+sec.</p>
+<p><em>Compatibility:</em> <em>eMouseMiddle</em> supported by <strong>AGS 3.2.0</strong> and later
+versions.<br>
+<em>eMouseLeft</em> and <em>eMouseRight</em> supported by all versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#iskeypressed">IsKeyPressed</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="savecursoruntilitleaves">
+<span id="savecursoruntilitleaves"></span><h2>SaveCursorUntilItLeaves<a class="headerlink" href="#savecursoruntilitleaves" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SaveCursorForLocationChange, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SaveCursorUntilItLeaves</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Saves the current mouse cursor, and restores it when the mouse leaves
+the current hotspot, object or character.</p>
+<p>This allows you to temporarily change the mouse cursor when the mouse
+moves over a hotspot, and have it automatically change back to the old
+cursor when the player moves the mouse away.</p>
+<p><strong>NOTE:</strong> You must call this <strong>BEFORE</strong> you change to your new temporary
+cursor, or the new cursor will be saved by this command.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SaveCursorUntilItLeaves</span><span class="p">();</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">eModeTalk</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>will change the cursor mode to Talk for as long as the mouse is over the
+current object</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="selectnextmode">
+<span id="selectnextmode"></span><h2>SelectNextMode<a class="headerlink" href="#selectnextmode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetNextCursorMode, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SelectNextMode</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Selects the next enabled mouse cursor mode. This is useful for
+Sierra-style right-click cycling through modes. This function will
+choose the next mode marked as a Standard Mode, and will also use the
+Use Inventory mode if the player has an active inventory item.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="selectpreviousmode">
+<span id="selectpreviousmode"></span><h2>SelectPreviousMode<a class="headerlink" href="#selectpreviousmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SelectPreviousMode</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Selects the previous enabled mouse cursor mode. This is useful for
+Sierra-style right-click cycling through modes. This function will
+choose the previous mode marked as a Standard Mode, and will also use
+the Use Inventory mode if the player has an active inventory item.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setbounds">
+<span id="setbounds"></span><h2>SetBounds<a class="headerlink" href="#setbounds" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMouseBounds, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="nb">int</span> <span class="n">left</span><span class="p">,</span> <span class="nb">int</span> <span class="n">top</span><span class="p">,</span> <span class="nb">int</span> <span class="n">right</span><span class="p">,</span> <span class="nb">int</span> <span class="n">bottom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Restricts the area where the mouse can move on screen. The four
+parameters are the relevant pixel co-ordinates of that edge of the
+bounding rectangle. They are in the usual range (0,0) - (320,200).</p>
+<p>You can pass (0,0,0,0) to disable the bounding rectangle and allow the
+mouse to move everywhere, as usual.</p>
+<p><em>NOTE:</em> The effect of this function only lasts until the player leaves
+the screen, at which point the cursor bounds will be reset.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will restrict the mouse cursor to the bottom-right quarter of the
+screen.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#setposition">Mouse.SetPosition</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="setposition">
+<span id="setposition"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMousePosition, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Moves the mouse pointer to screen co-ordinates (X,Y). They are in the
+usual range (0,0) - (320,200/240). The mouse.x and mouse.y variables
+will be updated to reflect the new position.</p>
+<p><strong>NOTE:</strong> Only use this command when absolutely necessary. Moving the
+mouse cursor for the player is a sure way to irritate them if you do it
+too often during the game.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will place the mouse cursor in the centre of the screen.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#setbounds">Mouse.SetBounds</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="speed">
+<span id="speed"></span><h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">float</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Speed</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the
+range 0-1 make cursor movement slower, values higher than 1 make cursor
+movement faster.</p>
+<p>Mouse speed changed this way will be saved to the configuration file
+when player exits the game. Next time game starts it will restore the
+last value you applied, unless player has modified it in the setup
+program.</p>
+<p>The custom mouse speed is only applied if mouse cursor movement is
+currently being controlled by the game, which is usually true only when
+game is run in fullscreen mode. Setting this property has no effect
+otherwise. You can use
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#controlenabled">Mouse.ControlEnabled</a> to know if speed
+will be applied.</p>
+<p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to
+achieve gameplay effect (such as character’s loss of coordination, and
+so forth).</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">Speed</span> <span class="o">=</span> <span class="n">IntToFloat</span><span class="p">(</span><span class="n">sldMouseSpeed</span><span class="o">.</span><span class="n">Value</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>converts slider control’s position into mouse speed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#controlenabled">Mouse.ControlEnabled</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#setposition">Mouse.SetPosition</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="update">
+<span id="update"></span><h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RefreshMouse, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">Update</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Updates the global variables “mouse.x” and “mouse.y” with the current
+position of the mouse. Normally, these variables are set just before
+each script function is executed. However, if you have a very long
+script where the mouse may have moved since the start of the function,
+and you need the exact current location, then this command will update
+the variables.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse was at: </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">Update</span><span class="p">();</span>
+<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse is now at: </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will display the mouse position just before each dialog box is displayed</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="usedefaultgraphic">
+<span id="usedefaultgraphic"></span><h2>UseDefaultGraphic<a class="headerlink" href="#usedefaultgraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetDefaultCursor, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">UseDefaultGraphic</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Changes the appearance of the mouse cursor to the default for the
+current cursor mode. Use this to restore the cursor picture after you
+changed it with the UseModeGraphic function.</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#usemodegraphic">Mouse.UseModeGraphic</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="usemodegraphic">
+<span id="usemodegraphic"></span><h2>UseModeGraphic<a class="headerlink" href="#usemodegraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMouseCursor, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">UseModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Changes the appearance of the mouse cursor to use the specified cursor.
+Unlike the Mouse.Mode property, this does not change the mode used if
+the user clicks on a hotspot. This is useful for displaying a “wait”
+cursor temporarily.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">UseModeGraphic</span><span class="p">(</span><span class="n">eModeWait</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>will change the mouse cursor to the cursor ‘Wait’ specified in the
+Cursors tab.</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#usedefaultgraphic">Mouse.UseDefaultGraphic</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="mode">
+<span id="mode"></span><h2>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetCursorMode, which is now obsolete)</em><br>
+<em>(Formerly known as SetCursorMode, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Mode</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets the current mode of the mouse cursor. This is one of the
+cursor modes from your Cursors tab (but with eMode prepended). For
+example, a cursor mode called “Walk to” on your cursors tab would be
+eModeWalkto.</p>
+<p>Setting this changes both the appearance of the cursor and the Cursor
+Mode used if the player clicks on a hotspot.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">==</span> <span class="n">eModeWalkto</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="o">//</span> <span class="n">code</span> <span class="n">here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
+<p><em>See Also:</em>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#savecursoruntilitleaves">Mouse.SaveCursorUntilItLeaves</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#usemodegraphic">Mouse.UseModeGraphic</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#selectnextmode">Mouse.SelectNextMode</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="visible">
+<span id="visible"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as HideMouseCursor, which is now obsolete)</em><br>
+<em>(Formerly known as ShowMouseCursor, which is now obsolete)</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Visible</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Gets/sets whether the mouse cursor is visible. This is initially true by
+default, but setting this to false is useful for briefly hiding the
+cursor on occasions when you don’t want it around.</p>
+<p>If you want the Lucasarts-style where the mouse cursor is never visible
+during cutscenes then a much easier solution is simply to import a
+transparent graphic over the default wait cursor, so that the Wait
+cursor becomes invisible.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+<span class="n">mouse</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>hides the mouse, waits for a second, then turns it back on again</p>
+<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#usemodegraphic">Mouse.UseModeGraphic</a></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mouse functions and properties</a><ul>
+<li><a class="reference internal" href="#changemodegraphic">ChangeModeGraphic</a></li>
+<li><a class="reference internal" href="#changemodehotspot">ChangeModeHotspot</a></li>
+<li><a class="reference internal" href="#changemodeview">ChangeModeView</a></li>
+<li><a class="reference internal" href="#click">Click</a></li>
+<li><a class="reference internal" href="#controlenabled">ControlEnabled</a></li>
+<li><a class="reference internal" href="#disablemode">DisableMode</a></li>
+<li><a class="reference internal" href="#enablemode">EnableMode</a></li>
+<li><a class="reference internal" href="#ismodeenabled">IsModeEnabled</a></li>
+<li><a class="reference internal" href="#getmodegraphic">GetModeGraphic</a></li>
+<li><a class="reference internal" href="#isbuttondown">IsButtonDown</a></li>
+<li><a class="reference internal" href="#savecursoruntilitleaves">SaveCursorUntilItLeaves</a></li>
+<li><a class="reference internal" href="#selectnextmode">SelectNextMode</a></li>
+<li><a class="reference internal" href="#selectpreviousmode">SelectPreviousMode</a></li>
+<li><a class="reference internal" href="#setbounds">SetBounds</a></li>
+<li><a class="reference internal" href="#setposition">SetPosition</a></li>
+<li><a class="reference internal" href="#speed">Speed</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+<li><a class="reference internal" href="#usedefaultgraphic">UseDefaultGraphic</a></li>
+<li><a class="reference internal" href="#usemodegraphic">UseModeGraphic</a></li>
+<li><a class="reference internal" href="#mode">Mode</a></li>
+<li><a class="reference internal" href="#visible">Visible</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Mouse.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

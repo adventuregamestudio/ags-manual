@@ -1,0 +1,216 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started with AGS - Part 3 &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started-with-ags-part-3">
+<span id="getting-started-with-ags-part-3"></span><h1><strong>Getting Started with AGS - Part 3</strong><a class="headerlink" href="#getting-started-with-ags-part-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adding-some-interaction">
+<span id="adding-some-interaction"></span><h2>Adding some interaction<a class="headerlink" href="#adding-some-interaction" title="Permalink to this headline">¶</a></h2>
+<p>Ok, so we now have a working room. The player can walk around it as much
+as they like. However, our game so far is pretty boring - the player
+can’t actually do anything of value yet!</p>
+<p>AGS provides you with three types of things that the player can interact
+with - <em>hotspots</em>, <em>objects</em> and <em>characters</em>:</p>
+<ul class="simple">
+<li>A <strong>hotspot</strong> is an area of the background image that the player can
+look at and interact with. Hotspots are generally used for parts of
+the screen such as a tree or the grass which won’t change as the
+game progresses.</li>
+<li>An <strong>object</strong> is an item in the room that can move around the
+screen, and be switched on and off at will. Objects must stay within
+the room that they are created in.</li>
+<li>A <strong>character</strong> is like an object, except that it can move between
+rooms and therefore appear all over the game. Characters also have
+special properties such as talking animations and so forth, which
+means you will usually use one to represent each NPC
+(non-player character) in the game.</li>
+</ul>
+<div class="section" id="hotspots">
+<span id="hotspots"></span><h3>Hotspots<a class="headerlink" href="#hotspots" title="Permalink to this headline">¶</a></h3>
+<p>The easiest thing to start off with is hotspots. Make sure you’ve got
+the room editor open, and select “Hotspots” from the drop-down list box
+(the same place where we selected “Walkable areas” earlier).</p>
+<p>Hotspots are drawn in exactly the same way as walk-behind and walkable
+areas. You’ll probably want to use several different Hotspots for
+different areas of the screen. After drawing your first hotspot, change
+the Selected Hotspot using the drop-down list above the property grid,
+and you can draw in a different colour. All the other hotspots will be
+greyed out.</p>
+<p><img alt="" src="_images/intro3_1.jpg" /><br>
+<em>I’ve drawn four types of hotspot onto my screen</em></p>
+<p>Once you’ve drawn a hotspot, there are two other fields to set:</p>
+<ul class="simple">
+<li><em>The hotspot’s description</em>. This sets a player-friendly name for
+the hotspot, which is vital if you are going to use a
+Lucasarts-style interface where the player can move the mouse over
+the screen to see what’s where. If you’re using a Sierra-style
+interface then this name will never be displayed to the player, but
+it’s useful to fill it in anyway for your own benefit. By default
+this is “Hotspot 1”, “Hotspot 2”, etc.</li>
+<li><em>The hotspot’s Name:</em> This is a name by which the hotspot can be
+referred to in the room script. This name cannot have any spaces or
+special characters – just the letters <em>a</em> to <em>z</em>. The convention in
+AGS is to start the script names for hotspots with an <em>h</em>, for
+example <em>hDoor</em>. The name must be unique within the room.</li>
+</ul>
+<p><img alt="" src="_images/icon_info.gif" /><br>
+In the Areas editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasise which hotspot you have selected to edit. You can change this behaviour by toggling the “show non-selected masks greyed out” button at the right hand end of the toolbar.</p>
+</div>
+<div class="section" id="interactions">
+<span id="interactions"></span><h3>Interactions<a class="headerlink" href="#interactions" title="Permalink to this headline">¶</a></h3>
+<p>Right, now it’s time to make something happen! Make sure the first
+hotspot is selected, and click the Events button:</p>
+<p><img alt="" src="_images/intro3_2.jpg" /><br>
+<em>The events list</em></p>
+<p>You’ll see that the property grid changes to list all the events for
+this hotspot. Events occur when the player does certain things in the
+game. At the moment, nothing is set to happen in response to any of the
+events, so whatever the player does to the hotspot, they will get no
+reply.</p>
+<p>Right, let’s start with something simple. When the player looks at my
+hotspot, I want to display a message telling them what they can see.
+Click on the “Look at hotspot” row, and a “…” button will appear.</p>
+<p><img alt="" src="_images/intro3_3.jpg" /><br>
+<em>The “…” button</em></p>
+<p>Click the “…” button. This will create an entry in the script for this
+event, and you’ll find yourself taken to the script editor. If instead
+you get a message telling you that the hotspot needs a name, read back
+up for how to set a name for the hotspot, earlier in this article.</p>
+<p>So, you’re now in the script editor. It all looks a bit bare and
+intimidating, but you should have something like this:</p>
+<p><img alt="" src="_images/intro3_4.jpg" /><br>
+<em>Script editor after adding a hotspot event</em></p>
+<p>The “<em>function hDoor_Look</em>” line defines that the script underneath
+will be run when this event occurs. In AGS, the curly brackets { and }
+are used to mark the start and end of a block of script. Anything that
+you type in between them will be run as part of this event.</p>
+<p>There’s a seperate tutorial giving you an introduction to the scripting
+language, so I won’t attempt to explain it here. But we can start with
+something very simple, using the <em>Display</em> command, which displays a
+message to the player. Type in something like this:</p>
+<p><img alt="" src="_images/intro3_5.jpg" /><br>
+<em>A simple script</em></p>
+<p>Once you’re done, click on the “Room 1” tab to return to the main room editor</p>
+</div>
+<div class="section" id="walk-to-points">
+<span id="walk-to-points"></span><h3>Walk-to points<a class="headerlink" href="#walk-to-points" title="Permalink to this headline">¶</a></h3>
+<p>Ok, since we’re back editing hotspots, let me quickly explain the
+“Walk-to point” option in the property grid. This allows you to set a
+position for each hotspot that the character will walk to whenever the
+player interacts with the hotspot - just like the way the Lucasarts
+games like Monkey Island worked.</p>
+<p>If you set a walk-to point, then whenever the player clicks interact or
+talk on the hotspot, the main character will first walk to the walk-to
+point before the relevant event is triggered. If you want, the character
+can also walk there when the LOOK mode is used - this option is
+configurable in the game General Settings pane.</p>
+<p>To remove a walk-to point, simply set it to 0,0.</p>
+</div>
+<div class="section" id="edges-revisited">
+<span id="edges-revisited"></span><h3>Edges revisited<a class="headerlink" href="#edges-revisited" title="Permalink to this headline">¶</a></h3>
+<p>Ok, so we’ve covered the basics of creating a room. However, there’s one
+thing that we did a while back that we need to clear up - yes, the
+edges.</p>
+<p>Select “Edges” again in the list box. Now, click the Events button in
+the property grid and this time we’ll see the events for the room
+itself. Among the events listed, you’ll see “Walks off left edge”,
+“Walks off right edge”, and so on. These are fired when the player
+character crosses the edges that we defined back in part 2. Normally,
+you’ll use the <em>player.ChangeRoom</em> script command for these events, to
+take the player to a different room.</p>
+<p>Now, hit F5 to try out our latest additions! Make sure that when you
+look at hotspot 1 the game displays the message that you typed into the
+script.</p>
+<p><strong>Scripting tutorial</strong></p>
+<p>Now might be a good time to check out the scripting tutorial to get a
+better understanding of what your script code is doing. Alternatively,
+finish off this tutorial first and then check out the scripting
+tutorial.</p>
+<p>Go to part 4: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/acintro4">Objects and inventory</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 3</strong></a><ul>
+<li><a class="reference internal" href="#adding-some-interaction">Adding some interaction</a><ul>
+<li><a class="reference internal" href="#hotspots">Hotspots</a></li>
+<li><a class="reference internal" href="#interactions">Interactions</a></li>
+<li><a class="reference internal" href="#walk-to-points">Walk-to points</a></li>
+<li><a class="reference internal" href="#edges-revisited">Edges revisited</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/acintro3.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>

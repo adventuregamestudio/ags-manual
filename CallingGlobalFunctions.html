@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Calling global functions from local scripts &#8212; AGSHelp 3.4.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="calling-global-functions-from-local-scripts">
+<span id="calling-global-functions-from-local-scripts"></span><h1>Calling global functions from local scripts<a class="headerlink" href="#calling-global-functions-from-local-scripts" title="Permalink to this headline">¶</a></h1>
+<p>You can now call your global script functions directly from your rooms.
+This means that if you have a common script that you want to use in
+response to various different events during the game, you can call it
+from your room scripts rather than duplicating code.</p>
+<p>To use a global function, open up the main script header
+(GlobalScript.ash), and add a line similar to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">function</span> <span class="n">my_function_name</span> <span class="p">(</span><span class="n">parameters</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Where <em>my_function_name</em> is the name of the global script function,
+and <em>parameters</em> is a list of the TYPES ONLY of the parameters it takes.
+For example, if you had in your global script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">do_animation</span> <span class="p">(</span><span class="nb">int</span> <span class="n">anim_number</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+</div>
+<p>then you would write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">function</span> <span class="n">do_animation</span> <span class="p">(</span><span class="nb">int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To use the function, you just call it normally in your script, eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">do_animation</span> <span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also return a value to the caller by using the “return”
+statement, and the local script picks this up the same way it does with
+built-in functions. For example, the end of your global script function
+could be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="mi">51</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>then the local script just does:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">value</span> <span class="o">=</span> <span class="n">do_animation</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/CallingGlobalFunctions.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 25, 2018, 10:18:53 PM</div>
+
+  </body>
+</html>
