@@ -1,6 +1,6 @@
 # Adventure Game Studio Help Files
 
-[![Build Status](https://travis-ci.org/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.org/ericoporto/agshelp)
+[![Build Status](https://travis-ci.org/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.org/adventuregamestudio/ags-manual)
 
 [**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
 
@@ -8,11 +8,11 @@ The help files can be edited on the wiki or cloned locally and pushed. Create is
 
 Alternatively, you can clone and edit the Wiki Locally
 
-    git clone https://github.com/ericoporto/agshelp.wiki.git
+    git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
 
 ## Read the help files
 
-[Build rendered on ericoporto.github.io/agshelp/](https://adventuregamestudio.github.io/ags-manual)
+[Build rendered on adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual)
 
 ## How to generate the help files from the wiki!
 

@@ -2,7 +2,7 @@
 
 dir="source"
 opts="--depth=1 --branch=master"
-url="https://github.com/ericoporto/agshelp.wiki.git"
+url="https://github.com/adventuregamestudio/ags-manual.wiki.git"
 
 release=`uname -r`
 os=`uname -o`
