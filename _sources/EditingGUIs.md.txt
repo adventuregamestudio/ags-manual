@@ -105,11 +105,13 @@ As well as typing normal text into the label, you can add some special
 markers which allow the text to change during the game. The following
 tokens will be replaced with the relevant values in the game:
 
-     @GAMENAME@    The game's name, specified on the Game Settings pane
-     @OVERHOTSPOT@ Name of the hotspot which the cursor is over
-     @SCORE@       The player's current score
-     @SCORETEXT@   The text "Score: X of XX" with the relevant numbers filled in.
-     @TOTALSCORE@  The maximum possible score, specified on the Game Settings pane
+Token | Description
+--- | ---
+@GAMENAME@ | The game's name, specified on the Game Settings pane
+@OVERHOTSPOT@ | Name of the hotspot which the cursor is over
+@SCORE@ | The player's current score
+@SCORETEXT@ | The text "Score: X of XX" with the relevant numbers filled in
+@TOTALSCORE@ | The maximum possible score, specified on the Game Settings pane
 
 Example: You have @SCORE@ out of @TOTALSCORE@ points.
 
