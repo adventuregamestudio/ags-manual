@@ -30,7 +30,7 @@ Example:
     }
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-[ViewFrame.Graphic](ViewFrame#graphic)
+[ViewFrame.Graphic](#graphic)
 
 ---
 
@@ -49,8 +49,8 @@ Example:
       frame.View, frame.Loop, frame.Frame);
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-[ViewFrame.Loop](ViewFrame#loop),
-[ViewFrame.View](ViewFrame#view)
+[ViewFrame.Loop](#loop),
+[ViewFrame.View](#view)
 
 ---
 
@@ -120,8 +120,8 @@ Example:
       frame.View, frame.Loop, frame.Frame);
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-[ViewFrame.Frame](ViewFrame#frame),
-[ViewFrame.View](ViewFrame#view)
+[ViewFrame.Frame](#frame),
+[ViewFrame.View](#view)
 
 ---
 
@@ -158,6 +158,6 @@ Example:
       frame.View, frame.Loop, frame.Frame);
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-[ViewFrame.Loop](ViewFrame#loop),
-[ViewFrame.Frame](ViewFrame#frame)
+[ViewFrame.Loop](#loop),
+[ViewFrame.Frame](#frame)
 

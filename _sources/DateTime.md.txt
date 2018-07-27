@@ -36,13 +36,13 @@ Example:
 
 will display the current date and time in 24-hour format
 
-*See Also:* [DateTime.DayOfMonth](DateTime#dayofmonth),
-[DateTime.Hour](DateTime#hour),
-[DateTime.Minute](DateTime#minute),
-[DateTime.Month](DateTime#month),
-[DateTime.RawTime](DateTime#rawtime),
-[DateTime.Second](DateTime#second),
-[DateTime.Year](DateTime#year)
+*See Also:* [DateTime.DayOfMonth](#dayofmonth),
+[DateTime.Hour](#hour),
+[DateTime.Minute](#minute),
+[DateTime.Month](#month),
+[DateTime.RawTime](#rawtime),
+[DateTime.Second](#second),
+[DateTime.Year](#year)
 
 ---
 
@@ -53,9 +53,9 @@ will display the current date and time in 24-hour format
 Gets the day of the month represented by the DateTime object. This will
 be from 1 to 31, representing the current day within the month.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)
 
 ---
 
@@ -66,9 +66,9 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 Gets the hour represented by the DateTime object. This will be from 0 to
 23, representing the hour in 24-hour format.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)
 
 ---
 
@@ -79,9 +79,9 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 Gets the minute represented by the DateTime object. This will be from 0
 to 59, representing the minute in 24-hour format.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)
 
 ---
 
@@ -92,9 +92,9 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 Gets the month represented by the DateTime object. This will be from 1
 to 12, representing the month of the year.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)
 
 ---
 
@@ -126,7 +126,7 @@ Example:
 
 should display that 3 seconds have elapsed.
 
-*See Also:* [DateTime.Now](DateTime#now),
+*See Also:* [DateTime.Now](#now),
 [SetTimer](Game#settimer)
 
 ---
@@ -138,9 +138,9 @@ should display that 3 seconds have elapsed.
 Gets the second represented by the DateTime object. This will be from 0
 to 59, representing the second.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)
 
 ---
 
@@ -151,6 +151,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 Gets the year represented by the DateTime object. This is the full year,
 for example *2005*.
 
-Example: For an example, see [DateTime.Now](DateTime#now).
+Example: For an example, see [DateTime.Now](#now).
 
-*See Also:* [DateTime.Now](DateTime#now)
+*See Also:* [DateTime.Now](#now)

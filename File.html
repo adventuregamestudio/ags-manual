@@ -200,10 +200,10 @@ variables.</p>
 <p>will open the file temp.tmp in the save game folder for writing. An
 error message is displayed if the file could not be created. Otherwise,
 it will write the string “test string” to the file and close it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#close">File.Close</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#exists">File.Exists</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#close">File.Close</a>,
+<a class="reference external" href="#exists">File.Exists</a>,
+<a class="reference external" href="#readstringback">File.ReadStringBack</a>,
+<a class="reference external" href="#writestring">File.WriteString</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="close">
@@ -222,7 +222,7 @@ function when you have finished reading/writing the file.</p>
 </div>
 <p>will open the file test.dat, write the string “test string”, and close
 it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#open">File.Open</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="delete">
@@ -242,8 +242,8 @@ File pointer to use it. See the example below.</p>
 <p>will delete the file “temp.tmp” from the app data directory, if it
 exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#exists">File.Exists</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#exists">File.Exists</a>,
+<a class="reference external" href="#open">File.Open</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="exists">
@@ -272,8 +272,8 @@ File pointer to use it. See the example below.</p>
 </div>
 <p>will create the file “temp.tmp” if it doesn’t exist</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#delete">File.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">File.Delete</a>,
+<a class="reference external" href="#open">File.Open</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="readint">
@@ -293,8 +293,8 @@ integers written with File.WriteInt can be read back.</p>
 </div>
 <p>will open the file stats.dat, read an integer into number and then close
 the file.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writeint">File.WriteInt</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readstringback">File.ReadStringBack</a>,
+<a class="reference external" href="#writeint">File.WriteInt</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="readrawchar">
@@ -314,9 +314,9 @@ it is recommended for expert users only.</p>
 </div>
 <p>will read a raw character from file stats.txt and writes it to the
 string ‘buffer’.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readrawint">File.ReadRawInt</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writerawchar">File.WriteRawChar</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readstringback">File.ReadStringBack</a>,
+<a class="reference external" href="#readrawint">File.ReadRawInt</a>,
+<a class="reference external" href="#writerawchar">File.WriteRawChar</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="readrawint">
@@ -338,8 +338,8 @@ performed.</p>
 </div>
 <p>will read a raw integer from file stats.txt and put it into the integer
 number.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readrawchar">File.ReadRawChar</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readstringback">File.ReadStringBack</a>,
+<a class="reference external" href="#readrawchar">File.ReadRawChar</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="readrawlineback">
@@ -366,7 +366,7 @@ if (input != null) {
 </pre></div>
 </div>
 <p>will display the contents of the ‘error.log’ file, if it exists</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writerawline">File.WriteRawLine</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#writerawline">File.WriteRawLine</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="readstringback">
@@ -389,8 +389,8 @@ files, even text files.</p>
 <p>will open the file test.dat (which you have previously written with
 File.WriteString) and read a string into the buffer. Then close the
 file.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#open">File.Open</a>,
+<a class="reference external" href="#writestring">File.WriteString</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="seek">
@@ -429,7 +429,7 @@ know written format precisely.</p>
 <p>will open the file test.dat, read <code class="docutils literal notranslate"><span class="pre">first_value</span></code>, skip 256 bytes, read
 <code class="docutils literal notranslate"><span class="pre">second_value</span></code>, and close the file.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#position">File.Position</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#position">File.Position</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="writeint">
@@ -449,8 +449,8 @@ File.Open, and you can read the value back later with File.ReadInt.</p>
 </pre></div>
 </div>
 <p>will open the file stats.dat and write the integer number in it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readint">File.ReadInt</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readint">File.ReadInt</a>,
+<a class="reference external" href="#writestring">File.WriteString</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="writerawchar">
@@ -476,8 +476,8 @@ can contain any value from 0 to 255.</p>
 </div>
 <p>will write the text “AB”, followed by a carriage return character, to
 the file.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readrawchar">File.ReadRawChar</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writeint">File.WriteInt</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readrawchar">File.ReadRawChar</a>,
+<a class="reference external" href="#writeint">File.WriteInt</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="writerawline">
@@ -498,8 +498,8 @@ characters.</p>
 </pre></div>
 </div>
 <p>will write an error line in the file error.log.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readrawlineback">File.ReadRawLineBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readrawlineback">File.ReadRawLineBack</a>,
+<a class="reference external" href="#writestring">File.WriteString</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="writestring">
@@ -523,9 +523,9 @@ the file, which can only be read back by using File.ReadStringBack.</p>
 <p>will open the file temp.tmp for writing. If it cannot create the file,
 it will display an error message. Otherwise, it will write the string
 “test string” and close it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#writerawline">File.WriteRawLine</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#readstringback">File.ReadStringBack</a>,
+<a class="reference external" href="#open">File.Open</a>,
+<a class="reference external" href="#writerawline">File.WriteRawLine</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="eof">
@@ -548,9 +548,9 @@ output.Close();
 </div>
 <p>will display every character in the file test.dat, one by one, to the
 screen.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#error">File.Error</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#error">File.Error</a>,
+<a class="reference external" href="#open">File.Open</a>,
+<a class="reference external" href="#readstringback">File.ReadStringBack</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="error">
@@ -567,7 +567,7 @@ user removes the disk that is being read from.</p>
 data. The File.Open function will return null if there was an error
 actually opening or creating the file.</p>
 <p>To find out whether all data has been read from a file, use
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#eof">EOF</a> instead.</p>
+<a class="reference external" href="#eof">EOF</a> instead.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> <span class="o">*</span><span class="n">output</span> <span class="o">=</span> <span class="n">File</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s2">&quot;test.dat&quot;</span><span class="p">,</span> <span class="n">eFileWrite</span><span class="p">);</span>
 <span class="n">output</span><span class="o">.</span><span class="n">WriteInt</span><span class="p">(</span><span class="mi">51</span><span class="p">);</span>
@@ -579,8 +579,8 @@ actually opening or creating the file.</p>
 </div>
 <p>will write a number to the file ‘test.dat’, and display a message if
 there was a problem.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#eof">File.EOF</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#readstringback">File.ReadStringBack</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#eof">File.EOF</a>,
+<a class="reference external" href="#readstringback">File.ReadStringBack</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="position">
@@ -606,7 +606,7 @@ function has read or written.</p>
 <p>will open file, pass the file pointer to some custom function, then
 display amount of data that function wrote.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#seek">File.Seek</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#seek">File.Seek</a></p>
 </div>
 </div>
 
@@ -625,7 +625,7 @@ display amount of data that function wrote.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

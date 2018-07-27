@@ -53,7 +53,7 @@ runs selected dialog option when player presses Enter/Return key.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.ActiveOptionID](DialogOptionsRenderingInfo#activeoptionid)
+[DialogOptionsRenderingInfo.ActiveOptionID](#activeoptionid)
 
 ---
 
@@ -109,7 +109,7 @@ always selects the first option
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.RunActiveOption](DialogOptionsRenderingInfo#runactiveoption),
+[DialogOptionsRenderingInfo.RunActiveOption](#runactiveoption),
 [Dialog.GetOptionState](Dialog#getoptionstate)
 
 ---
@@ -127,7 +127,7 @@ options](CustomDialogOptions) page.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:* [Dialog.GetOptionState](Dialog#getoptionstate),
-[DialogOptionsRenderingInfo.Surface](DialogOptionsRenderingInfo#surface)
+[DialogOptionsRenderingInfo.Surface](#surface)
 
 ---
 
@@ -157,8 +157,8 @@ options in.
 *Compatibility:* Supported by **AGS 3.3.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.Height](DialogOptionsRenderingInfo#height),
-[DialogOptionsRenderingInfo.Width](DialogOptionsRenderingInfo#width)
+[DialogOptionsRenderingInfo.Height](#height),
+[DialogOptionsRenderingInfo.Width](#width)
 
 ---
 
@@ -185,7 +185,7 @@ creates a 300x150 size area to draw the dialog options in
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.Width](DialogOptionsRenderingInfo#width)
+[DialogOptionsRenderingInfo.Width](#width)
 
 ---
 
@@ -218,9 +218,9 @@ options area
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.Width](DialogOptionsRenderingInfo#width),
-[DialogOptionsRenderingInfo.ParserTextBoxX](DialogOptionsRenderingInfo#parsertextboxx),
-[DialogOptionsRenderingInfo.ParserTextBoxY](DialogOptionsRenderingInfo#parsertextboxy)
+[DialogOptionsRenderingInfo.Width](#width),
+[DialogOptionsRenderingInfo.ParserTextBoxX](#parsertextboxx),
+[DialogOptionsRenderingInfo.ParserTextBoxY](#parsertextboxy)
 
 ---
 
@@ -257,8 +257,8 @@ options area
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.ParserTextBoxWidth](DialogOptionsRenderingInfo#parsertextboxwidth),
-[DialogOptionsRenderingInfo.ParserTextBoxY](DialogOptionsRenderingInfo#parsertextboxy)
+[DialogOptionsRenderingInfo.ParserTextBoxWidth](#parsertextboxwidth),
+[DialogOptionsRenderingInfo.ParserTextBoxY](#parsertextboxy)
 
 ---
 
@@ -295,7 +295,7 @@ options area
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.ParserTextBoxX](DialogOptionsRenderingInfo#parsertextboxx)
+[DialogOptionsRenderingInfo.ParserTextBoxX](#parsertextboxx)
 
 ---
 
@@ -354,7 +354,7 @@ creates a 300x150 size area to draw the dialog options in
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.Height](DialogOptionsRenderingInfo#height)
+[DialogOptionsRenderingInfo.Height](#height)
 
 ---
 
@@ -384,7 +384,7 @@ creates a 200x150 size area at (50, 20) to draw the dialog options in
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.Y](DialogOptionsRenderingInfo#y)
+[DialogOptionsRenderingInfo.Y](#y)
 
 ---
 
@@ -414,5 +414,5 @@ creates a 200x150 size area at (50, 20) to draw the dialog options in
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:*
-[DialogOptionsRenderingInfo.X](DialogOptionsRenderingInfo#x)
+[DialogOptionsRenderingInfo.X](#x)
 

@@ -239,9 +239,9 @@ play the animation once only. This happens in the background. Then,
 object 1 will animate backwards using loop 1 of its current view, at
 speed 3. The function won’t return until the animation is finished.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animating">Object.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setview">Object.SetView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopanimating">Object.StopAnimating</a></p>
+<a class="reference external" href="#animating">Object.Animating</a>,
+<a class="reference external" href="#setview">Object.SetView</a>,
+<a class="reference external" href="#stopanimating">Object.StopAnimating</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getatscreenxy">
@@ -283,7 +283,7 @@ with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 </div>
 <p>will print the message if object 0 has its “Value” property set to more
 than 200.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#gettextproperty">Object.GetTextProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#gettextproperty">Object.GetTextProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="gettextproperty">
@@ -304,7 +304,7 @@ be returned from this function.</p>
 </pre></div>
 </div>
 <p>will retrieve Object 0’s “description” property then display it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#getproperty">Object.GetProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#getproperty">Object.GetProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setproperty">
@@ -325,7 +325,7 @@ value.</p>
 </div>
 <p>will change Table’s “ItemCapacity” custom property to 5.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#settextproperty">Object.SetTextProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#settextproperty">Object.SetTextProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="settextproperty">
@@ -344,7 +344,7 @@ be changed to new value.</p>
 </div>
 <p>will change table’s “description” property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setproperty">Object.SetProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setproperty">Object.SetProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="iscollidingwithobject">
@@ -418,9 +418,9 @@ from its current location to (X,Y), ignoring the room walkable areas.</p>
 </div>
 <p>will move object 2 to 125,40 and return control to the player when the
 object gets there.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#moving">Object.Moving</a>,
+<p><em>See Also:</em> <a class="reference external" href="#moving">Object.Moving</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopmoving">Object.StopMoving</a></p>
+<a class="reference external" href="#stopmoving">Object.StopMoving</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="removetint">
@@ -438,7 +438,7 @@ room’s ambient tint.</p>
 </pre></div>
 </div>
 <p>will tint object 1 green for a second, then turn it back to normal.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="isinteractionavailable">
@@ -459,7 +459,7 @@ been run.</p>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#runinteraction">Object.RunInteraction</a></p>
+<a class="reference external" href="#runinteraction">Object.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="runinteraction">
@@ -477,7 +477,7 @@ object in the current room, using the specified cursor mode.</p>
 <p>will execute the code defined in object 3’s “Interact with object” event
 handler.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#isinteractionavailable">Object.IsInteractionAvailable</a>,
+<a class="reference external" href="#isinteractionavailable">Object.IsInteractionAvailable</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#runinteraction">Character.RunInteraction</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
 </div>
@@ -504,7 +504,7 @@ level and local region light level.</p>
 </div>
 <p>This will give the lamp maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#lightlevel">Region.LightLevel</a></p>
@@ -526,8 +526,8 @@ separately, but provides a more convenient way of doing so.</p>
 </pre></div>
 </div>
 <p>will change object’s 2 position to 50,100.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#x">Object.X</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#y">Object.Y</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#x">Object.X</a>,
+<a class="reference external" href="#y">Object.Y</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setview">
@@ -549,7 +549,7 @@ which view to animate the object with.</p>
 </div>
 <p>will change object 3’s view to view number 14, and change object 1 to
 view 5, loop 2, frame 0.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="stopanimating">
@@ -566,8 +566,8 @@ until you change it or start a new animation.</p>
 </pre></div>
 </div>
 <p>will stop object 2 animating if it currently is doing so.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animating">Object.Animating</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a>,
+<a class="reference external" href="#animating">Object.Animating</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="stopmoving">
@@ -585,8 +585,8 @@ until any further commands are issued.</p>
 </pre></div>
 </div>
 <p>will stop object 2 moving if it currently is doing so.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#moving">Object.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a>,
+<p><em>See Also:</em> <a class="reference external" href="#moving">Object.Moving</a>,
+<a class="reference external" href="#move">Object.Move</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">Character.StopMoving</a></p>
 </div>
 <hr class="docutils" />
@@ -606,7 +606,7 @@ room. For this reason, passing the SATURATION as 0 to this function does
 not turn it off - rather, it ensures that no tint is applied to the
 object (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient
-tint for this object, call <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#removetint">RemoveTint</a>.</p>
+tint for this object, call <a class="reference external" href="#removetint">RemoveTint</a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour
 sprites.</p>
 <p>Example:</p>
@@ -614,7 +614,7 @@ sprites.</p>
 </pre></div>
 </div>
 <p>will tint object 1 green.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#removetint">Object.RemoveTint</a>,
+<p><em>See Also:</em> <a class="reference external" href="#removetint">Object.RemoveTint</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
@@ -627,7 +627,7 @@ sprites.</p>
 <p>Returns 1 if the specified object is currently animating.<br>
 Returns 0 if the object has finished its animation.</p>
 <p>This property is read-only. To change object animation, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Animate</a> command.</p>
+<a class="reference external" href="#animate">Animate</a> command.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Animating</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -636,10 +636,10 @@ Returns 0 if the object has finished its animation.</p>
 <p>will animate object 2 and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so
 you wouldn’t need to do this.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#moving">Object.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopanimating">Object.StopAnimating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#x">Object.X</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#y">Object.Y</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a>,
+<a class="reference external" href="#moving">Object.Moving</a>,
+<a class="reference external" href="#stopanimating">Object.StopAnimating</a>,
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#x">Object.X</a>, <a class="reference external" href="#y">Object.Y</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="baseline">
@@ -665,7 +665,7 @@ the object’s Y co-ordinate.</p>
 <li></li>
 </ol>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#baseline">Character.Baseline</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#y">Object.Y</a>,
+<a class="reference external" href="#y">Object.Y</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setwalkbehindbase">SetWalkBehindBase</a></p>
 </div>
 <hr class="docutils" />
@@ -683,15 +683,15 @@ to be the object’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the object effectively
 removes by being there.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#solid">Solid</a> property is set to <em>true</em>.</p>
+<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oRock</span><span class="o">.</span><span class="n">BlockingHeight</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>will make the Rock object block 20 pixels high (10 above and 10 below
 its baseline)</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#blockingwidth">Object.BlockingWidth</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#solid">Object.Solid</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#blockingwidth">Object.BlockingWidth</a>,
+<a class="reference external" href="#solid">Object.Solid</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blockingwidth">
@@ -708,15 +708,15 @@ to be the object’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the object effectively
 removes by being there.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#solid">Solid</a> property is set to <em>true</em>.</p>
+<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oRock</span><span class="o">.</span><span class="n">BlockingWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>will make the Rock object block 50 pixels wide (25 pixels to the left of
 his centre, and 25 to the right)</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#blockingheight">Object.BlockingHeight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#solid">Object.Solid</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#blockingheight">Object.BlockingHeight</a>,
+<a class="reference external" href="#solid">Object.Solid</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="clickable">
@@ -738,7 +738,7 @@ it to be clicked on by the player.</p>
 </div>
 <p>will make object 2 ignore clicks from the player.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#clickable">Character.Clickable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
+<a class="reference external" href="#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="frame">
@@ -756,9 +756,9 @@ functions.</p>
 </pre></div>
 </div>
 <p>will display the oDoor object’s current frame number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#graphic">Object.Graphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#loop">Object.Loop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#view">Object.View</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#graphic">Object.Graphic</a>,
+<a class="reference external" href="#loop">Object.Loop</a>,
+<a class="reference external" href="#view">Object.View</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="graphic">
@@ -778,7 +778,7 @@ Graphic, then the animation will be stopped.</p>
 </div>
 <p>will change the object 2’s image to the image stored in the sprite
 manager’s slot 100.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setview">Object.SetView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setview">Object.SetView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="hasexplicitlight">
@@ -787,13 +787,13 @@ manager’s slot 100.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the object has a light set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a> command.</p>
+<a class="reference external" href="#setlightlevel">Object.SetLightLevel</a> command.</p>
 <p>Returns <em>false</em> if the object has no explicit light level, but it may
 still be lighted by
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a> or a region
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Object.SetLightLevel</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="hasexplicittint">
@@ -802,12 +802,12 @@ light.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the object has a tint set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p>Returns <em>false</em> if the object has no explicit tint, but it may still be
 tinted by <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a> or a region tint.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#removetint">Object.RemoveTint</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#removetint">Object.RemoveTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id">
@@ -845,7 +845,7 @@ appropriate on walkable areas.</p>
 </div>
 <p>will tell the Door object not to be scaled on walkable areas.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
+<a class="reference external" href="#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="ignorewalkbehinds">
@@ -869,9 +869,9 @@ using the Direct3D driver.</p>
 </pre></div>
 </div>
 <p>will make object 1 ignore walk behinds.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#baseline">Object.Baseline</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#clickable">Object.Clickable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#ignorescaling">Object.IgnoreScaling</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#baseline">Object.Baseline</a>,
+<a class="reference external" href="#clickable">Object.Clickable</a>,
+<a class="reference external" href="#ignorescaling">Object.IgnoreScaling</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lightlevel">
@@ -880,12 +880,12 @@ using the Direct3D driver.</p>
 </pre></div>
 </div>
 <p>If the object has an individual light set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a> command, this
+<a class="reference external" href="#setlightlevel">Object.SetLightLevel</a> command, this
 property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns
 0 even if the object is affected by the ambient or region’s light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a>,
+<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Object.SetLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,</p>
 </div>
 <hr class="docutils" />
@@ -904,9 +904,9 @@ functions.</p>
 </pre></div>
 </div>
 <p>will display the oDoor object’s current loop number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#frame">Object.Frame</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#graphic">Object.Graphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#view">Object.View</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#frame">Object.Frame</a>,
+<a class="reference external" href="#graphic">Object.Graphic</a>,
+<a class="reference external" href="#view">Object.View</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="moving">
@@ -917,8 +917,8 @@ functions.</p>
 </div>
 <p>Returns 1 if the object is currently moving, or 0 if not.</p>
 <p>This property is read-only; to change the object’s movement, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Move</a> and
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopmoving">StopMoving</a> commands.</p>
+<a class="reference external" href="#move">Move</a> and
+<a class="reference external" href="#stopmoving">StopMoving</a> commands.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Move</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -926,8 +926,8 @@ functions.</p>
 </div>
 <p>will move object 2 to 125,40 and return control to the player when the
 object gets there.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animating">Object.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopmoving">Object.StopMoving</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animating">Object.Animating</a>,
+<a class="reference external" href="#stopmoving">Object.StopMoving</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="name">
@@ -964,8 +964,8 @@ objects from moving through them.</p>
 </pre></div>
 </div>
 <p>will mean that the Smallrock object blocks the path of characters.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#blockingheight">Object.BlockingHeight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#blockingwidth">Object.BlockingWidth</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#blockingheight">Object.BlockingHeight</a>,
+<a class="reference external" href="#blockingwidth">Object.BlockingWidth</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintblue">
@@ -975,16 +975,16 @@ objects from moving through them.</p>
 </div>
 <p>Gets the <em>Blue</em> setting for the object’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a> property is
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
 false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintred">Object.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintluminance">Object.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a>,
+<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
+<a class="reference external" href="#tintred">Object.TintRed</a>,
+<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintgreen">
@@ -994,16 +994,16 @@ false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Green</em> setting for the object’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a> property is
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
 false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintred">Object.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintsaturation">Object.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintluminance">Object.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#tintblue">Object.TintBlue</a>,
+<a class="reference external" href="#tintred">Object.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Object.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintred">
@@ -1013,16 +1013,16 @@ false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Red</em> setting for the object’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a> property is
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
 false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintsaturation">Object.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintluminance">Object.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#tintblue">Object.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
+<a class="reference external" href="#tintsaturation">Object.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintsaturation">
@@ -1032,16 +1032,16 @@ false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>saturation</em> setting for the object’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a> property is
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
 false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintred">Object.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintluminance">Object.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#tintblue">Object.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
+<a class="reference external" href="#tintred">Object.TintRed</a>,
+<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintluminance">
@@ -1051,16 +1051,16 @@ false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>luminance</em> setting for the object’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a> command.</p>
+<a class="reference external" href="#tint">Object.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#hasexplicittint">Object.HasExplicitTint</a> property is
+<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
 false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tint">Object.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintred">Object.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#tintsaturation">Object.TintSaturation</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
+<a class="reference external" href="#tintblue">Object.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
+<a class="reference external" href="#tintred">Object.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Object.TintSaturation</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="transparency">
@@ -1113,10 +1113,10 @@ function. To remove the view, set the Graphic property to a sprite slot.</p>
 </pre></div>
 </div>
 <p>will display the oDoor object’s current view number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setview">Object.SetView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#graphic">Object.Graphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#loop">Object.Loop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#frame">Object.Frame</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#setview">Object.SetView</a>,
+<a class="reference external" href="#graphic">Object.Graphic</a>,
+<a class="reference external" href="#loop">Object.Loop</a>,
+<a class="reference external" href="#frame">Object.Frame</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="visible">
@@ -1150,10 +1150,10 @@ object is switched on and visible in the room. If you set this to 0
 </pre></div>
 </div>
 <p>will display the X co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#y">Object.Y</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animating">Object.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#visible">Object.Visible</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setposition">Object.SetPosition</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#y">Object.Y</a>,
+<a class="reference external" href="#animating">Object.Animating</a>,
+<a class="reference external" href="#visible">Object.Visible</a>,
+<a class="reference external" href="#setposition">Object.SetPosition</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="y">
@@ -1174,10 +1174,10 @@ sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
 </pre></div>
 </div>
 <p>will display the Y co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animating">Object.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#baseline">Object.Baseline</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#x">Object.X</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setposition">Object.SetPosition</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animating">Object.Animating</a>,
+<a class="reference external" href="#baseline">Object.Baseline</a>,
+<a class="reference external" href="#x">Object.X</a>,
+<a class="reference external" href="#setposition">Object.SetPosition</a></p>
 </div>
 </div>
 
@@ -1196,7 +1196,7 @@ sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

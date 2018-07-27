@@ -95,9 +95,9 @@ object 1 will animate backwards using loop 1 of its current view, at
 speed 3. The function won't return until the animation is finished.
 
 *See Also:* [Character.Animate](Character#animate),
-[Object.Animating](Object#animating),
-[Object.SetView](Object#setview),
-[Object.StopAnimating](Object#stopanimating)
+[Object.Animating](#animating),
+[Object.SetView](#setview),
+[Object.StopAnimating](#stopanimating)
 
 ---
 
@@ -148,7 +148,7 @@ Example:
 will print the message if object 0 has its "Value" property set to more
 than 200.
 
-*See Also:* [Object.GetTextProperty](Object#gettextproperty)
+*See Also:* [Object.GetTextProperty](#gettextproperty)
 
 ---
 
@@ -174,7 +174,7 @@ Example:
 
 will retrieve Object 0's "description" property then display it.
 
-*See Also:* [Object.GetProperty](Object#getproperty)
+*See Also:* [Object.GetProperty](#getproperty)
 
 ---
 
@@ -200,7 +200,7 @@ will change Table's "ItemCapacity" custom property to 5.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Object.SetTextProperty](Object#settextproperty)
+*See Also:* [Object.SetTextProperty](#settextproperty)
 
 ---
 
@@ -224,7 +224,7 @@ will change table's "description" property.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Object.SetProperty](Object#setproperty)
+*See Also:* [Object.SetProperty](#setproperty)
 
 ---
 
@@ -313,9 +313,9 @@ Example:
 will move object 2 to 125,40 and return control to the player when the
 object gets there.
 
-*See Also:* [Object.Moving](Object#moving),
+*See Also:* [Object.Moving](#moving),
 [Character.Walk](Character#walk),
-[Object.StopMoving](Object#stopmoving)
+[Object.StopMoving](#stopmoving)
 
 ---
 
@@ -336,7 +336,7 @@ Example:
 
 will tint object 1 green for a second, then turn it back to normal.
 
-*See Also:* [Object.Tint](Object#tint)
+*See Also:* [Object.Tint](#tint)
 
 ---
 
@@ -360,7 +360,7 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-[Object.RunInteraction](Object#runinteraction)
+[Object.RunInteraction](#runinteraction)
 
 ---
 
@@ -381,7 +381,7 @@ will execute the code defined in object 3's "Interact with object" event
 handler.
 
 *See Also:* [Room.ProcessClick](Room#processclick),
-[Object.IsInteractionAvailable](Object#isinteractionavailable),
+[Object.IsInteractionAvailable](#isinteractionavailable),
 [Character.RunInteraction](Character#runinteraction),
 [Hotspot.RunInteraction](Hotspot#runinteraction)
 
@@ -416,7 +416,7 @@ This will give the lamp maximal individual brightness.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
+*See Also:* [Object.Tint](#tint),
 [SetAmbientLightLevel](Game#setambientlightlevel),
 [Character.SetLightLevel](Character#setlightlevel),
 [Region.LightLevel](Region#lightlevel)
@@ -443,8 +443,8 @@ Example:
 
 will change object's 2 position to 50,100.
 
-*See Also:* [Object.X](Object#x),
-[Object.Y](Object#y)
+*See Also:* [Object.X](#x),
+[Object.Y](#y)
 
 ---
 
@@ -470,7 +470,7 @@ Example:
 will change object 3's view to view number 14, and change object 1 to
 view 5, loop 2, frame 0.
 
-*See Also:* [Object.Animate](Object#animate)
+*See Also:* [Object.Animate](#animate)
 
 ---
 
@@ -489,8 +489,8 @@ Example:
 
 will stop object 2 animating if it currently is doing so.
 
-*See Also:* [Object.Animate](Object#animate),
-[Object.Animating](Object#animating)
+*See Also:* [Object.Animate](#animate),
+[Object.Animating](#animating)
 
 ---
 
@@ -511,8 +511,8 @@ Example:
 
 will stop object 2 moving if it currently is doing so.
 
-*See Also:* [Object.Moving](Object#moving),
-[Object.Move](Object#move),
+*See Also:* [Object.Moving](#moving),
+[Object.Move](#move),
 [Character.StopMoving](Character#stopmoving)
 
 ---
@@ -536,7 +536,7 @@ not turn it off - rather, it ensures that no tint is applied to the
 object (even if an ambient tint is set).
 
 To remove the tint set by this function and return to using the ambient
-tint for this object, call [RemoveTint](Object#removetint).
+tint for this object, call [RemoveTint](#removetint).
 
 **NOTE:** This function only works in hi-colour games and with hi-colour
 sprites.
@@ -547,7 +547,7 @@ Example:
 
 will tint object 1 green.
 
-*See Also:* [Object.RemoveTint](Object#removetint),
+*See Also:* [Object.RemoveTint](#removetint),
 [SetAmbientTint](Game#setambienttint)
 
 ---
@@ -562,7 +562,7 @@ Returns 1 if the specified object is currently animating.<br>
 Returns 0 if the object has finished its animation.
 
 This property is read-only. To change object animation, use the
-[Animate](Object#animate) command.
+[Animate](#animate) command.
 
 Example:
 
@@ -574,10 +574,10 @@ will animate object 2 and wait until the animation finishes.
 In reality, you would simply use the Blocking parameter of Animate so
 you wouldn't need to do this.
 
-*See Also:* [Object.Animate](Object#animate),
-[Object.Moving](Object#moving),
-[Object.StopAnimating](Object#stopanimating),
-[Object.X](Object#x), [Object.Y](Object#y)
+*See Also:* [Object.Animate](#animate),
+[Object.Moving](#moving),
+[Object.StopAnimating](#stopanimating),
+[Object.X](Object#x), [Object.Y](#y)
 
 ---
 
@@ -606,7 +606,7 @@ will change object's 4 baseline to a line positioned at y coordinate
 100.
 
 *See Also:* [Character.Baseline](Character#baseline),
-[Object.Y](Object#y),
+[Object.Y](#y),
 [SetWalkBehindBase](Room#setwalkbehindbase)
 
 ---
@@ -627,7 +627,7 @@ pixels, which is the size of walkable area that the object effectively
 removes by being there.
 
 **NOTE:** This property has no effect unless the
-[Solid](Object#solid) property is set to *true*.
+[Solid](#solid) property is set to *true*.
 
 Example:
 
@@ -636,8 +636,8 @@ Example:
 will make the Rock object block 20 pixels high (10 above and 10 below
 its baseline)
 
-*See Also:* [Object.BlockingWidth](Object#blockingwidth),
-[Object.Solid](Object#solid)
+*See Also:* [Object.BlockingWidth](#blockingwidth),
+[Object.Solid](#solid)
 
 ---
 
@@ -657,7 +657,7 @@ pixels, which is the size of walkable area that the object effectively
 removes by being there.
 
 **NOTE:** This property has no effect unless the
-[Solid](Object#solid) property is set to *true*.
+[Solid](#solid) property is set to *true*.
 
 Example:
 
@@ -666,8 +666,8 @@ Example:
 will make the Rock object block 50 pixels wide (25 pixels to the left of
 his centre, and 25 to the right)
 
-*See Also:* [Object.BlockingHeight](Object#blockingheight),
-[Object.Solid](Object#solid)
+*See Also:* [Object.BlockingHeight](#blockingheight),
+[Object.Solid](#solid)
 
 ---
 
@@ -693,7 +693,7 @@ Example:
 will make object 2 ignore clicks from the player.
 
 *See Also:* [Character.Clickable](Character#clickable),
-[Object.IgnoreWalkbehinds](Object#ignorewalkbehinds)
+[Object.IgnoreWalkbehinds](#ignorewalkbehinds)
 
 ---
 
@@ -714,9 +714,9 @@ Example:
 
 will display the oDoor object's current frame number
 
-*SeeAlso:* [Object.Graphic](Object#graphic),
-[Object.Loop](Object#loop),
-[Object.View](Object#view)
+*SeeAlso:* [Object.Graphic](#graphic),
+[Object.Loop](#loop),
+[Object.View](#view)
 
 ---
 
@@ -739,7 +739,7 @@ Example:
 will change the object 2's image to the image stored in the sprite
 manager's slot 100.
 
-*See Also:* [Object.SetView](Object#setview)
+*See Also:* [Object.SetView](#setview)
 
 ---
 
@@ -748,7 +748,7 @@ manager's slot 100.
     readonly bool Object.HasExplicitTint
 
 Returns *true* if the object has a light set explicitly with the
-[Object.SetLightLevel](Object#setlightlevel) command.
+[Object.SetLightLevel](#setlightlevel) command.
 
 Returns *false* if the object has no explicit light level, but it may
 still be lighted by
@@ -757,7 +757,7 @@ light.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*SeeAlso:* [Object.SetLightLevel](Object#setlightlevel)
+*SeeAlso:* [Object.SetLightLevel](#setlightlevel)
 
 ---
 
@@ -766,15 +766,15 @@ light.
     readonly bool Object.HasExplicitTint
 
 Returns *true* if the object has a tint set explicitly with the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 Returns *false* if the object has no explicit tint, but it may still be
 tinted by [SetAmbientTint](Game#setambienttint) or a region tint.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*SeeAlso:* [Object.Tint](Object#tint),
-[Object.RemoveTint](Object#removetint)
+*SeeAlso:* [Object.Tint](#tint),
+[Object.RemoveTint](#removetint)
 
 ---
 
@@ -814,7 +814,7 @@ Example:
 will tell the Door object not to be scaled on walkable areas.
 
 *See Also:*
-[Object.IgnoreWalkbehinds](Object#ignorewalkbehinds)
+[Object.IgnoreWalkbehinds](#ignorewalkbehinds)
 
 ---
 
@@ -843,9 +843,9 @@ Example:
 
 will make object 1 ignore walk behinds.
 
-*See Also:* [Object.Baseline](Object#baseline),
-[Object.Clickable](Object#clickable),
-[Object.IgnoreScaling](Object#ignorescaling)
+*See Also:* [Object.Baseline](#baseline),
+[Object.Clickable](#clickable),
+[Object.IgnoreScaling](#ignorescaling)
 
 ---
 
@@ -854,7 +854,7 @@ will make object 1 ignore walk behinds.
     readonly int Object.LightLevel
 
 If the object has an individual light set explicitly with the
-[Object.SetLightLevel](Object#setlightlevel) command, this
+[Object.SetLightLevel](#setlightlevel) command, this
 property returns the light level value. Otherwise it returns 0.
 
 **NOTE:** without individual light level set, Object.LightLevel returns
@@ -862,7 +862,7 @@ property returns the light level value. Otherwise it returns 0.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*SeeAlso:* [Object.SetLightLevel](Object#setlightlevel),
+*SeeAlso:* [Object.SetLightLevel](#setlightlevel),
 [SetAmbientLightLevel](Game#setambientlightlevel),
 
 ---
@@ -884,9 +884,9 @@ Example:
 
 will display the oDoor object's current loop number
 
-*SeeAlso:* [Object.Frame](Object#frame),
-[Object.Graphic](Object#graphic),
-[Object.View](Object#view)
+*SeeAlso:* [Object.Frame](#frame),
+[Object.Graphic](#graphic),
+[Object.View](#view)
 
 ---
 
@@ -899,8 +899,8 @@ will display the oDoor object's current loop number
 Returns 1 if the object is currently moving, or 0 if not.
 
 This property is read-only; to change the object's movement, use the
-[Move](Object#move) and
-[StopMoving](Object#stopmoving) commands.
+[Move](#move) and
+[StopMoving](#stopmoving) commands.
 
 Example:
 
@@ -910,8 +910,8 @@ Example:
 will move object 2 to 125,40 and return control to the player when the
 object gets there.
 
-*See Also:* [Object.Animating](Object#animating),
-[Object.StopMoving](Object#stopmoving)
+*See Also:* [Object.Animating](#animating),
+[Object.StopMoving](#stopmoving)
 
 ---
 
@@ -956,8 +956,8 @@ Example:
 
 will mean that the Smallrock object blocks the path of characters.
 
-*See Also:* [Object.BlockingHeight](Object#blockingheight),
-[Object.BlockingWidth](Object#blockingwidth)
+*See Also:* [Object.BlockingHeight](#blockingheight),
+[Object.BlockingWidth](#blockingwidth)
 
 ---
 
@@ -968,19 +968,19 @@ will mean that the Smallrock object blocks the path of characters.
 Gets the *Blue* setting for the object's current tint.
 
 This property is read-only; to change it, use the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 **NOTE:** If the
-[Object.HasExplicitTint](Object#hasexplicittint) property is
+[Object.HasExplicitTint](#hasexplicittint) property is
 false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
-[Object.HasExplicitTint](Object#hasexplicittint),
-[Object.TintGreen](Object#tintgreen),
-[Object.TintRed](Object#tintred),
-[Object.TintLuminance](Object#tintluminance)
+*See Also:* [Object.Tint](#tint),
+[Object.HasExplicitTint](#hasexplicittint),
+[Object.TintGreen](#tintgreen),
+[Object.TintRed](#tintred),
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -991,19 +991,19 @@ false, then this value is meaningless.
 Gets the *Green* setting for the object's current tint.
 
 This property is read-only; to change it, use the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 **NOTE:** If the
-[Object.HasExplicitTint](Object#hasexplicittint) property is
+[Object.HasExplicitTint](#hasexplicittint) property is
 false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
-[Object.TintBlue](Object#tintblue),
-[Object.TintRed](Object#tintred),
-[Object.TintSaturation](Object#tintsaturation),
-[Object.TintLuminance](Object#tintluminance)
+*See Also:* [Object.Tint](#tint),
+[Object.TintBlue](#tintblue),
+[Object.TintRed](#tintred),
+[Object.TintSaturation](#tintsaturation),
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1014,19 +1014,19 @@ false, then this value is meaningless.
 Gets the *Red* setting for the object's current tint.
 
 This property is read-only; to change it, use the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 **NOTE:** If the
-[Object.HasExplicitTint](Object#hasexplicittint) property is
+[Object.HasExplicitTint](#hasexplicittint) property is
 false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
-[Object.TintBlue](Object#tintblue),
-[Object.TintGreen](Object#tintgreen),
-[Object.TintSaturation](Object#tintsaturation),
-[Object.TintLuminance](Object#tintluminance)
+*See Also:* [Object.Tint](#tint),
+[Object.TintBlue](#tintblue),
+[Object.TintGreen](#tintgreen),
+[Object.TintSaturation](#tintsaturation),
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1037,19 +1037,19 @@ false, then this value is meaningless.
 Gets the *saturation* setting for the object's current tint.
 
 This property is read-only; to change it, use the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 **NOTE:** If the
-[Object.HasExplicitTint](Object#hasexplicittint) property is
+[Object.HasExplicitTint](#hasexplicittint) property is
 false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
-[Object.TintBlue](Object#tintblue),
-[Object.TintGreen](Object#tintgreen),
-[Object.TintRed](Object#tintred),
-[Object.TintLuminance](Object#tintluminance)
+*See Also:* [Object.Tint](#tint),
+[Object.TintBlue](#tintblue),
+[Object.TintGreen](#tintgreen),
+[Object.TintRed](#tintred),
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1060,19 +1060,19 @@ false, then this value is meaningless.
 Gets the *luminance* setting for the object's current tint.
 
 This property is read-only; to change it, use the
-[Object.Tint](Object#tint) command.
+[Object.Tint](#tint) command.
 
 **NOTE:** If the
-[Object.HasExplicitTint](Object#hasexplicittint) property is
+[Object.HasExplicitTint](#hasexplicittint) property is
 false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
-*See Also:* [Object.Tint](Object#tint),
-[Object.TintBlue](Object#tintblue),
-[Object.TintGreen](Object#tintgreen),
-[Object.TintRed](Object#tintred),
-[Object.TintSaturation](Object#tintsaturation)
+*See Also:* [Object.Tint](#tint),
+[Object.TintBlue](#tintblue),
+[Object.TintGreen](#tintgreen),
+[Object.TintRed](#tintred),
+[Object.TintSaturation](#tintsaturation)
 
 ---
 
@@ -1136,10 +1136,10 @@ Example:
 
 will display the oDoor object's current view number
 
-*SeeAlso:* [Object.SetView](Object#setview),
-[Object.Graphic](Object#graphic),
-[Object.Loop](Object#loop),
-[Object.Frame](Object#frame)
+*SeeAlso:* [Object.SetView](#setview),
+[Object.Graphic](#graphic),
+[Object.Loop](#loop),
+[Object.Frame](#frame)
 
 ---
 
@@ -1179,10 +1179,10 @@ Example:
 
 will display the X co-ordinate of object 1.
 
-*See Also:* [Object.Y](Object#y),
-[Object.Animating](Object#animating),
-[Object.Visible](Object#visible),
-[Object.SetPosition](Object#setposition)
+*See Also:* [Object.Y](#y),
+[Object.Animating](#animating),
+[Object.Visible](#visible),
+[Object.SetPosition](#setposition)
 
 ---
 
@@ -1208,8 +1208,8 @@ Example:
 
 will display the Y co-ordinate of object 1.
 
-*See Also:* [Object.Animating](Object#animating),
-[Object.Baseline](Object#baseline),
-[Object.X](Object#x),
-[Object.SetPosition](Object#setposition)
+*See Also:* [Object.Animating](#animating),
+[Object.Baseline](#baseline),
+[Object.X](#x),
+[Object.SetPosition](#setposition)
 

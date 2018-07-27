@@ -101,7 +101,7 @@ will disable all ground-level events, but leave light levels working
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-[EnableGroundLevelAreas](Room#enablegroundlevelareas)
+[EnableGroundLevelAreas](#enablegroundlevelareas)
 
 ---
 
@@ -121,7 +121,7 @@ will re-enable all ground-level events.
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-[DisableGroundLevelAreas](Room#disablegroundlevelareas)
+[DisableGroundLevelAreas](#disablegroundlevelareas)
 
 ---
 
@@ -140,7 +140,7 @@ Example:
 
 will turn on object 2 if the background frame of the room is frame 4.
 
-*See Also:* [SetBackgroundFrame](Room#setbackgroundframe)
+*See Also:* [SetBackgroundFrame](#setbackgroundframe)
 
 ---
 
@@ -225,7 +225,7 @@ Example:
 will print the message if the current room has its "CanBeAttackedHere"
 box ticked.
 
-*See Also:* [Room.GetTextProperty](Room#gettextproperty)
+*See Also:* [Room.GetTextProperty](#gettextproperty)
 
 ---
 
@@ -254,7 +254,7 @@ Example:
 
 will retrieve the room's "description" property then display it.
 
-*See Also:* [Room.GetProperty](Room#getproperty)
+*See Also:* [Room.GetProperty](#getproperty)
 
 ---
 
@@ -283,7 +283,7 @@ will change room's "Darkness" custom property to 10.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Room.SetTextProperty](Room#settextproperty)
+*See Also:* [Room.SetTextProperty](#settextproperty)
 
 ---
 
@@ -310,7 +310,7 @@ will change room's "description" property.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Room.SetProperty](Room#setproperty)
+*See Also:* [Room.SetProperty](#setproperty)
 
 ---
 
@@ -328,8 +328,8 @@ Example:
     if (GetScalingAt(player.x, player.y) == 100)
         Display ("The player is currently at normal size.");
 
-*See Also:* [GetWalkableAreaAt](Room#getwalkableareaat),
-[SetAreaScaling](Room#setareascaling)
+*See Also:* [GetWalkableAreaAt](#getwalkableareaat),
+[SetAreaScaling](#setareascaling)
 
 ---
 
@@ -354,8 +354,8 @@ Example:
 will turn object 2 on if the player has scrolled the room by 100 pixels
 to the right.
 
-*See Also:* [GetViewportY](Room#getviewporty),
-[SetViewport](Room#setviewport)
+*See Also:* [GetViewportY](#getviewporty),
+[SetViewport](#setviewport)
 
 ---
 
@@ -378,8 +378,8 @@ Example:
 will turn object 2 on if the player has scrolled the room by 20 pixels
 to the bottom.
 
-*See Also:* [GetViewportX](Room#getviewportx),
-[SetViewport](Room#setviewport)
+*See Also:* [GetViewportX](#getviewportx),
+[SetViewport](#setviewport)
 
 ---
 
@@ -404,7 +404,7 @@ Example:
 
 *See Also:* [Hotspot.GetAtScreenXY](Hotspot#getatscreenxy),
 [Region.GetAtRoomXY](Region#getatroomxy),
-[GetScalingAt](Room#getscalingat)
+[GetScalingAt](#getscalingat)
 
 ---
 
@@ -432,7 +432,7 @@ Example:
 
 will display a message if the player has been to room 14.
 
-*See Also:* [ResetRoom](Room#resetroom)
+*See Also:* [ResetRoom](#resetroom)
 
 ---
 
@@ -489,7 +489,7 @@ Example:
 will scroll the room 100 pixels to the right and then return the screen
 to its original position and unlock the screen viewport.
 
-*See Also:* [SetViewport](Room#setviewport)
+*See Also:* [SetViewport](#setviewport)
 
 ---
 
@@ -511,7 +511,7 @@ Example:
 
 will make the walking area 5 unwalkable.
 
-*See Also:* [RestoreWalkableArea](Room#restorewalkablearea)
+*See Also:* [RestoreWalkableArea](#restorewalkablearea)
 
 ---
 
@@ -540,7 +540,7 @@ Example:
 will reset the intro room so it can be played again if the player wants
 to.
 
-*See Also:* [HasPlayerBeenInRoom](Room#hasplayerbeeninroom)
+*See Also:* [HasPlayerBeenInRoom](#hasplayerbeeninroom)
 
 ---
 
@@ -556,7 +556,7 @@ Example:
 
 will make the walking area 4 walkable again.
 
-*See Also:* [RemoveWalkableArea](Room#removewalkablearea)
+*See Also:* [RemoveWalkableArea](#removewalkablearea)
 
 ---
 
@@ -585,8 +585,8 @@ Example:
 will set walkable area 5 to use continuous scaling from 120 to 170
 percent.
 
-*See Also:* [GetScalingAt](Room#getscalingat),
-[GetWalkableAreaAt](Room#getwalkableareaat)
+*See Also:* [GetScalingAt](#getscalingat),
+[GetWalkableAreaAt](#getwalkableareaat)
 
 ---
 
@@ -615,7 +615,7 @@ Example:
 will change the current room's background frame to 4 if the global
 integer 20 is 1.
 
-*See Also:* [GetBackgroundFrame](Room#getbackgroundframe)
+*See Also:* [GetBackgroundFrame](#getbackgroundframe)
 
 ---
 
@@ -649,9 +649,9 @@ Example:
 will scroll the screen down from the top 60 pixels, then release it back
 to follow the player around.
 
-*See Also:* [GetViewportX](Room#getviewportx),
-[GetViewportY](Room#getviewporty),
-[ReleaseViewport](Room#releaseviewport)
+*See Also:* [GetViewportX](#getviewportx),
+[GetViewportY](#getviewporty),
+[ReleaseViewport](#releaseviewport)
 
 ---
 
@@ -692,9 +692,9 @@ Example:
 
     Display("The current room's bottom edge is at %d.", Room.BottomEdge);
 
-*See Also:* [Room.LeftEdge](Room#leftedge),
-[Room.RightEdge](Room#rightedge),
-[Room.TopEdge](Room#topedge)
+*See Also:* [Room.LeftEdge](#leftedge),
+[Room.RightEdge](#rightedge),
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -728,7 +728,7 @@ Example:
 
     Display("The current room size is %d x %d.", Room.Width, Room.Height);
 
-*See Also:* [Room.Width](Room#width)
+*See Also:* [Room.Width](#width)
 
 ---
 
@@ -743,9 +743,9 @@ Example:
 
     Display("The current room's left edge is at %d.", Room.LeftEdge);
 
-*See Also:* [Room.BottomEdge](Room#bottomedge),
-[Room.RightEdge](Room#rightedge),
-[Room.TopEdge](Room#topedge)
+*See Also:* [Room.BottomEdge](#bottomedge),
+[Room.RightEdge](#rightedge),
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -815,9 +815,9 @@ Example:
 
     Display("The current room's right edge is at %d.", Room.RightEdge);
 
-*See Also:* [Room.BottomEdge](Room#bottomedge),
-[Room.LeftEdge](Room#leftedge),
-[Room.TopEdge](Room#topedge)
+*See Also:* [Room.BottomEdge](#bottomedge),
+[Room.LeftEdge](#leftedge),
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -832,9 +832,9 @@ Example:
 
     Display("The current room's top edge is at %d.", Room.TopEdge);
 
-*See Also:* [Room.BottomEdge](Room#bottomedge),
-[Room.LeftEdge](Room#leftedge),
-[Room.RightEdge](Room#rightedge)
+*See Also:* [Room.BottomEdge](#bottomedge),
+[Room.LeftEdge](#leftedge),
+[Room.RightEdge](#rightedge)
 
 ---
 
@@ -851,5 +851,5 @@ Example:
 
     Display("The current room size is %d x %d.", Room.Width, Room.Height);
 
-*See Also:* [Room.Height](Room#height)
+*See Also:* [Room.Height](#height)
 

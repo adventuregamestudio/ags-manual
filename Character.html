@@ -331,8 +331,8 @@ parameter.</p>
 </pre></div>
 </div>
 <p>will give inventory item iKey to character EGO.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasinventory">Character.HasInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loseinventory">Character.LoseInventory</a>,
+<p><em>See Also:</em> <a class="reference external" href="#hasinventory">Character.HasInventory</a>,
+<a class="reference external" href="#loseinventory">Character.LoseInventory</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#updateinventory">UpdateInventory</a></p>
 </div>
 <hr class="docutils" />
@@ -359,8 +359,8 @@ leave again.</p>
 <p>tells character SOMEGUY to first of all walk to the centre of the screen
 normally (obeying walkable areas), then move to the bottom left corner
 and then top left corner afterwards.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#move">Character.Move</a>
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="animate">
@@ -377,7 +377,7 @@ the fastest, and increasing numbers mean slower. The delay for each
 frame is worked out as DELAY + FRAME SPD, so the individual frame speeds
 are relative to this overall speed.</p>
 <p>Before using this command, you should use
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">LockView</a> in order to select the view you
+<a class="reference external" href="#lockview">LockView</a> in order to select the view you
 want to animate with and prevent any automatic animations (eg. walking
 or idle animations) from playing.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously
@@ -437,7 +437,7 @@ coordinates 100,50. This will also mean that the game moves into room 4.</p>
 <p><em>Compatibility:</em> Optional <em>direction</em> parameter is supported only by
 <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroomautoposition">Character.ChangeRoomAutoPosition</a></p>
+<a class="reference external" href="#changeroomautoposition">Character.ChangeRoomAutoPosition</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="changeroomautoposition">
@@ -471,7 +471,7 @@ so on) after this command within the same function.</p>
 <p>will move the player character to room 4 and place him half way down the
 right hand side of the screen. This will also mean that the game moves
 into room 4.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroom">Character.ChangeRoom</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#changeroom">Character.ChangeRoom</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="changeview">
@@ -492,8 +492,8 @@ the character’s normal walking view.</p>
 </pre></div>
 </div>
 <p>will make the EGO character use view number 5 as his walking view.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#normalview">Character.NormalView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#lockview">Character.LockView</a>,
+<a class="reference external" href="#normalview">Character.NormalView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="facecharacter">
@@ -525,10 +525,10 @@ Wait(1);</p>
 </div>
 <p>will make the character EGO face the character MAN</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facedirection">Character.FaceDirection</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facelocation">Character.FaceLocation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#faceobject">Character.FaceObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<a class="reference external" href="#facedirection">Character.FaceDirection</a>,
+<a class="reference external" href="#facelocation">Character.FaceLocation</a>,
+<a class="reference external" href="#faceobject">Character.FaceObject</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="facedirection">
@@ -559,10 +559,10 @@ Wait(1);</p>
 <p>will make the character EGO face up-right.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facelocation">Character.FaceLocation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#faceobject">Character.FaceObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="#facelocation">Character.FaceLocation</a>,
+<a class="reference external" href="#faceobject">Character.FaceObject</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="facelocation">
@@ -596,10 +596,10 @@ Wait(1);</p>
 </div>
 <p>will make the character face to the east.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facedirection">Character.FaceDirection</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#faceobject">Character.FaceObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="#facedirection">Character.FaceDirection</a>,
+<a class="reference external" href="#faceobject">Character.FaceObject</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="faceobject">
@@ -628,10 +628,10 @@ Wait(1);</p>
 </div>
 <p>will make the player character face object 2.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facedirection">Character.FaceDirection</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facelocation">Character.FaceLocation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="#facedirection">Character.FaceDirection</a>,
+<a class="reference external" href="#facelocation">Character.FaceLocation</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="followcharacter">
@@ -725,7 +725,7 @@ with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <li></li>
 </ol>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#gettextproperty">Character.GetTextProperty</a></p>
+<a class="reference external" href="#gettextproperty">Character.GetTextProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="gettextproperty">
@@ -746,7 +746,7 @@ be returned from this function.</p>
 </pre></div>
 </div>
 <p>will retrieve EGO’s “description” property and display it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#getproperty">Character.GetProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#getproperty">Character.GetProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setproperty">
@@ -768,7 +768,7 @@ value.</p>
 <p>will change EGO character’s “XPLevel” custom property to 10.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#settextproperty">Character.SetTextProperty</a></p>
+<a class="reference external" href="#settextproperty">Character.SetTextProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="settextproperty">
@@ -787,7 +787,7 @@ be changed to new value.</p>
 </div>
 <p>will change EGO’s “description” property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setproperty">Character.SetProperty</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setproperty">Character.SetProperty</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="hasexplicitlight">
@@ -796,13 +796,13 @@ be changed to new value.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the character has a light set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a> command.</p>
+<a class="reference external" href="#setlightlevel">Character.SetLightLevel</a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit light level, but it may
 still be lighted by
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a> or a region
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Character.SetLightLevel</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="hasinventory">
@@ -823,9 +823,9 @@ example, <em>iPoster</em>).</p>
 </div>
 <p>will display a message if the player has the key.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addinventory">Character.AddInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#inventoryquantity">Character.InventoryQuantity</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loseinventory">Character.LoseInventory</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#addinventory">Character.AddInventory</a>,
+<a class="reference external" href="#inventoryquantity">Character.InventoryQuantity</a>,
+<a class="reference external" href="#loseinventory">Character.LoseInventory</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="iscollidingwithchar">
@@ -846,7 +846,7 @@ behind the other, it will not be marked as colliding.</p>
 <p>will execute the colliding code only if the characters EGO and MAN are
 colliding.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#iscollidingwithobject">Character.IsCollidingWithObject</a>,
+<a class="reference external" href="#iscollidingwithobject">Character.IsCollidingWithObject</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#arethingsoverlapping">AreThingsOverlapping</a></p>
 </div>
@@ -870,7 +870,7 @@ character is standing on the object.</p>
 <p>will execute the colliding code only if the character EGO and the object
 number 3 are colliding.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#iscollidingwithchar">Character.IsCollidingWithChar</a>,
+<a class="reference external" href="#iscollidingwithchar">Character.IsCollidingWithChar</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#arethingsoverlapping">AreThingsOverlapping</a></p>
 </div>
@@ -881,13 +881,13 @@ number 3 are colliding.</p>
 </pre></div>
 </div>
 <p>If the character has an individual light set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a> command,
+<a class="reference external" href="#setlightlevel">Character.SetLightLevel</a> command,
 this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Character.LightLevel
 returns 0 even if the character is affected by the ambient or region’s
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a>,
+<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Character.SetLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a></p>
 </div>
 <hr class="docutils" />
@@ -920,12 +920,12 @@ using loop 0, wait until the animation finishes and then return the
 character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeview">Character.ChangeView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechview">Character.SpeechView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewaligned">Character.LockViewAligned</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewoffset">Character.LockViewOffset</a>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#unlockview">Character.UnlockView</a>,</p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Character.Animate</a>,
+<a class="reference external" href="#changeview">Character.ChangeView</a>,
+<a class="reference external" href="#speechview">Character.SpeechView</a>,
+<a class="reference external" href="#lockviewaligned">Character.LockViewAligned</a>,
+<a class="reference external" href="#lockviewoffset">Character.LockViewOffset</a>
+<a class="reference external" href="#unlockview">Character.UnlockView</a>,</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lockviewaligned">
@@ -988,9 +988,9 @@ using loop 1, wait until the animation finishes and then return the
 character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewoffset">Character.LockViewOffset</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#unlockview">Character.UnlockView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#lockview">Character.LockView</a>,
+<a class="reference external" href="#lockviewoffset">Character.LockViewOffset</a>,
+<a class="reference external" href="#unlockview">Character.UnlockView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lockviewframe">
@@ -1018,9 +1018,9 @@ character will keep moving). The default is eStopMoving.</p>
 second, then return him to normal.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#unlockview">Character.UnlockView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Character.Animate</a>,
+<a class="reference external" href="#lockview">Character.LockView</a>,
+<a class="reference external" href="#unlockview">Character.UnlockView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lockviewoffset">
@@ -1063,9 +1063,9 @@ to take control back.</p>
 all frames will be shifted 1 pixel right and 1 pixel up.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewaligned">Character.LockViewAligned</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#unlockview">Character.UnlockView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#lockview">Character.LockView</a>,
+<a class="reference external" href="#lockviewaligned">Character.LockViewAligned</a>,
+<a class="reference external" href="#unlockview">Character.UnlockView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="loseinventory">
@@ -1085,7 +1085,7 @@ they do not have the item, nothing happens.</p>
 </div>
 <p>will make the character EGO lose the inventory item iKey from the
 inventory tab</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addinventory">Character.AddInventory</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#addinventory">Character.AddInventory</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="move">
@@ -1097,7 +1097,7 @@ inventory tab</p>
 <p>Starts the character moving from its current location to (X,Y), but does
 not play the character’s walking animation.</p>
 <p>The parameters to this command are identical to the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a> command – see that page for
+<a class="reference external" href="#walk">Character.Walk</a> command – see that page for
 more details. The only difference is that <em>Walk</em> plays the walking
 animation whereas <em>Move</em> does not.</p>
 <p>In the vast majority of cases, you will use <strong>Character.Walk</strong> instead.</p>
@@ -1109,12 +1109,12 @@ animation whereas <em>Move</em> does not.</p>
 animation. The script will not continue until the character has reached
 his destination.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addwaypoint">Character.AddWaypoint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
+<p><em>See Also:</em> <a class="reference external" href="#addwaypoint">Character.AddWaypoint</a>,
+<a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="#walk">Character.Walk</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#movecharactertoobject">MoveCharacterToObject</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">Character.StopMoving</a></p>
+<a class="reference external" href="#stopmoving">Character.StopMoving</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="placeonwalkablearea">
@@ -1156,8 +1156,8 @@ the room’s ambient tint.</p>
 <p>will tint the player character green for a second, then turn it back to
 normal.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a></p>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>,
+<a class="reference external" href="#tint">Character.Tint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="isinteractionavailable">
@@ -1178,7 +1178,7 @@ been run.</p>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#runinteraction">Character.RunInteraction</a></p>
+<a class="reference external" href="#runinteraction">Character.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="runinteraction">
@@ -1196,7 +1196,7 @@ modes, as defined in your Cursors tab in the editor.</p>
 </div>
 <p>will execute the code defined in the MAN’s “TALK TO CHARACTER” event.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#isinteractionavailable">Character.IsInteractionAvailable</a>,
+<a class="reference external" href="#isinteractionavailable">Character.IsInteractionAvailable</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#runinteraction">InventoryItem.RunInteraction</a></p>
 </div>
@@ -1222,9 +1222,9 @@ section.</p>
 <p>will display the message above the character’s EGO head like the LEC
 games, whilst playing the character’s talking animation.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DisplayAt#display">Display</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#sayat">Character.SayAt</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#saybackground">Character.SayBackground</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Character.Think</a></p>
+<a class="reference external" href="#sayat">Character.SayAt</a>,
+<a class="reference external" href="#saybackground">Character.SayBackground</a>,
+<a class="reference external" href="#think">Character.Think</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="sayat">
@@ -1233,7 +1233,7 @@ games, whilst playing the character’s talking animation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SayAt</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="n">string</span> <span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Similar to <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Say</a>, except that the text is
+<p>Similar to <a class="reference external" href="#say">Say</a>, except that the text is
 displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
 <p>You can use this function to write the character’s speech text anywhere
 you like, and AGS will still play the character’s talking animation and
@@ -1245,8 +1245,8 @@ so on if appropriate.</p>
 </div>
 <p>will display the message in the top right corner of the screen, whilst
 playing the character’s talking animation.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#saybackground">Character.SayBackground</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#say">Character.Say</a>,
+<a class="reference external" href="#saybackground">Character.SayBackground</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="saybackground">
@@ -1275,7 +1275,7 @@ is used (unless you set the global variable
 </div>
 <p>will display the message above character MAN’s head without pausing the
 game.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#say">Character.Say</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setasplayer">
@@ -1297,8 +1297,8 @@ be updated to point to the specified character.</p>
 <p>will change the character that the player controls to character MAN and
 also change to the room that MAN is in, if he is not in the current
 room.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#id">Character.ID</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroom">Character.ChangeRoom</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#id">Character.ID</a>,
+<a class="reference external" href="#changeroom">Character.ChangeRoom</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setlightlevel">
@@ -1312,7 +1312,7 @@ room.</p>
 effect, but you may still use negative values to produce darkening
 effect.</p>
 <p>To disable character lighting and tinting effects, call
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#removetint">RemoveTint</a>.</p>
+<a class="reference external" href="#removetint">RemoveTint</a>.</p>
 <p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the
 character.</p>
 <p><strong>NOTE:</strong> Character’s individual light level OVERRIDES both ambient
@@ -1323,7 +1323,7 @@ light level and local region light level.</p>
 </div>
 <p>This will give character EGO maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#lightlevel">Region.LightLevel</a></p>
@@ -1378,11 +1378,11 @@ so you must stop him first.</p>
 </div>
 <p>will change the character EGO’s speed to 10.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animationspeed">Character.AnimationSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">Character.StopMoving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walkspeedx">Character.WalkSpeedX</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walkspeedy">Character.WalkSpeedY</a></p>
+<a class="reference external" href="#animationspeed">Character.AnimationSpeed</a>,
+<a class="reference external" href="#stopmoving">Character.StopMoving</a>,
+<a class="reference external" href="#walk">Character.Walk</a>,
+<a class="reference external" href="#walkspeedx">Character.WalkSpeedX</a>,
+<a class="reference external" href="#walkspeedy">Character.WalkSpeedY</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="stopmoving">
@@ -1401,7 +1401,7 @@ the current loop.</p>
 </pre></div>
 </div>
 <p>will stop the character when he reaches the coordinate x=300.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
+<p><em>See Also:</em> <a class="reference external" href="#walk">Character.Walk</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopmoving">Object.StopMoving</a></p>
 </div>
 <hr class="docutils" />
@@ -1442,11 +1442,11 @@ section.</p>
 <p>will display the message above EGO’s head and play the character’s
 thinking animation.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkwhilethinking">Character.BlinkWhileThinking</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinkingframe">Character.ThinkingFrame</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinkview">Character.ThinkView</a>,
+<a class="reference external" href="#blinkwhilethinking">Character.BlinkWhileThinking</a>,
+<a class="reference external" href="#say">Character.Say</a>,
+<a class="reference external" href="#thinking">Character.Thinking</a>,
+<a class="reference external" href="#thinkingframe">Character.ThinkingFrame</a>,
+<a class="reference external" href="#thinkview">Character.ThinkView</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Gamevariables">game.speech_bubble_width</a></p>
 </div>
 <hr class="docutils" />
@@ -1466,7 +1466,7 @@ not turn it off - rather, it ensures that no tint is applied to the
 character (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient
 tint for this character, call
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#removetint">RemoveTint</a>.</p>
+<a class="reference external" href="#removetint">RemoveTint</a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour
 sprites.</p>
 <p>Example:</p>
@@ -1475,8 +1475,8 @@ sprites.</p>
 </div>
 <p>will tint the EGO character green.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#removetint">Character.RemoveTint</a>,
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>,
+<a class="reference external" href="#removetint">Character.RemoveTint</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
@@ -1487,16 +1487,16 @@ sprites.</p>
 </div>
 <p>Gets the <em>Blue</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintgreen">Character.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintred">Character.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintluminance">Character.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>,
+<a class="reference external" href="#tintgreen">Character.TintGreen</a>,
+<a class="reference external" href="#tintred">Character.TintRed</a>,
+<a class="reference external" href="#tintluminance">Character.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintgreen">
@@ -1506,16 +1506,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Green</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintblue">Character.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintred">Character.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintsaturation">Character.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintluminance">Character.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#tintblue">Character.TintBlue</a>,
+<a class="reference external" href="#tintred">Character.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Character.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Character.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintred">
@@ -1525,16 +1525,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Red</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintblue">Character.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintgreen">Character.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintsaturation">Character.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintluminance">Character.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#tintblue">Character.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Character.TintGreen</a>,
+<a class="reference external" href="#tintsaturation">Character.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Character.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintsaturation">
@@ -1544,16 +1544,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>saturation</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintblue">Character.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintgreen">Character.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintred">Character.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintluminance">Character.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#tintblue">Character.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Character.TintGreen</a>,
+<a class="reference external" href="#tintred">Character.TintRed</a>,
+<a class="reference external" href="#tintluminance">Character.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintluminance">
@@ -1563,16 +1563,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>luminance</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p><strong>NOTE:</strong> If the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasexplicittint">Character.HasExplicitTint</a>
+<a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintblue">Character.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintgreen">Character.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintred">Character.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tintsaturation">Character.TintSaturation</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#tintblue">Character.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Character.TintGreen</a>,
+<a class="reference external" href="#tintred">Character.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Character.TintSaturation</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="unlockview">
@@ -1598,7 +1598,7 @@ character will keep moving). The default is eStopMoving.</p>
 character to its normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#lockview">Character.LockView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="walk">
@@ -1623,23 +1623,23 @@ areas.</p>
 directly from its current location to (X,Y), ignoring the room walkable
 areas.</p>
 <p>If you don’t want the character’s walking animation to play, you can use
-the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Move</a> command instead.</p>
+the <a class="reference external" href="#move">Move</a> command instead.</p>
 <p><strong>NOTE:</strong> this function only works with characters which are on the
 current screen.</p>
 <p><strong>NOTE:</strong> if you need to find out when the character has reached its
-destination, use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Moving</a> property.</p>
+destination, use the <a class="reference external" href="#moving">Moving</a> property.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Walk</span><span class="p">(</span><span class="mi">155</span><span class="p">,</span> <span class="mi">122</span><span class="p">,</span> <span class="n">eBlock</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>will make the character walk to 155,122. The script will not continue
 until the character has reached his destination.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addwaypoint">Character.AddWaypoint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
+<p><em>See Also:</em> <a class="reference external" href="#addwaypoint">Character.AddWaypoint</a>,
+<a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="#move">Character.Move</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#movecharactertoobject">MoveCharacterToObject</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">Character.StopMoving</a></p>
+<a class="reference external" href="#stopmoving">Character.StopMoving</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="walkstraight">
@@ -1664,7 +1664,7 @@ not resume until the character finishes moving.</p>
 </div>
 <p>will move the character EGO in a straight line towards co ordinates
 166,78 until he hits a non walkable area.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="activeinventory">
@@ -1697,7 +1697,7 @@ that the player has the inventory item)</p>
 <p>Returns 1 if the character is currently animating.<br>
 Returns 0 if the character has finished its animation.</p>
 <p>This property is read-only. To change character animation, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Animate</a> command.</p>
+<a class="reference external" href="#animate">Animate</a> command.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">Animating</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -1706,10 +1706,10 @@ Returns 0 if the character has finished its animation.</p>
 <p>will animate EGO and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so
 you wouldn’t need to do this.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speaking">Character.Speaking</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animate">Character.Animate</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#speaking">Character.Speaking</a>,
+<a class="reference external" href="#thinking">Character.Thinking</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="animationspeed">
@@ -1724,8 +1724,8 @@ you wouldn’t need to do this.</p>
 </pre></div>
 </div>
 <p>will change the player character’s animation speed to 4.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setwalkspeed">Character.SetWalkSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechanimationdelay">Character.SpeechAnimationDelay</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setwalkspeed">Character.SetWalkSpeed</a>,
+<a class="reference external" href="#speechanimationdelay">Character.SpeechAnimationDelay</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="baseline">
@@ -1763,7 +1763,7 @@ the game waits between playing the blinking animation. This is specified
 in game loops - an interval of 80 would play the blinking animation
 about every 2 seconds.</p>
 <p>This property has no effect if no
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkview">BlinkView</a> has been set.</p>
+<a class="reference external" href="#blinkview">BlinkView</a> has been set.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">BlinkView</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">cEgo</span><span class="o">.</span><span class="n">BlinkInterval</span> <span class="o">=</span> <span class="mi">160</span><span class="p">;</span>
@@ -1771,8 +1771,8 @@ about every 2 seconds.</p>
 </div>
 <p>will change the character EGO’s blink view to view 10, and play the
 animation every 4 seconds.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkview">Character.BlinkView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechview">Character.SpeechView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#blinkview">Character.BlinkView</a>,
+<a class="reference external" href="#speechview">Character.SpeechView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blinkview">
@@ -1783,7 +1783,7 @@ animation every 4 seconds.</p>
 </div>
 <p>Gets/sets the character’s blinking view. To stop the character from
 blinking, set this to -1.</p>
-<p>The <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkinterval">BlinkInterval</a> property sets how
+<p>The <a class="reference external" href="#blinkinterval">BlinkInterval</a> property sets how
 often the blinking animation is played.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">BlinkView</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -1793,8 +1793,8 @@ often the blinking animation is played.</p>
 <p>will change the character EGO’s blink view to view 10, and play the
 animation every 4 seconds.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkinterval">Character.BlinkInterval</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechview">Character.SpeechView</a></p>
+<a class="reference external" href="#blinkinterval">Character.BlinkInterval</a>,
+<a class="reference external" href="#speechview">Character.SpeechView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blinkwhilethinking">
@@ -1811,8 +1811,8 @@ from blinking while Thinking by setting this to false.</p>
 </pre></div>
 </div>
 <p>will stop EGO from blinking while his thinking animation is playing.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkview">Character.BlinkView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Character.Think</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#blinkview">Character.BlinkView</a>,
+<a class="reference external" href="#think">Character.Think</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blockingheight">
@@ -1829,15 +1829,15 @@ calculated to be the character’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the character
 effectively removes by standing on it.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#solid">Solid</a> property is set to <em>true</em>.</p>
+<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">BlockingHeight</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>will make EGO block 20 pixels high (10 above and 10 below his baseline)</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blockingwidth">Character.BlockingWidth</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#solid">Character.Solid</a></p>
+<a class="reference external" href="#blockingwidth">Character.BlockingWidth</a>,
+<a class="reference external" href="#solid">Character.Solid</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blockingwidth">
@@ -1854,7 +1854,7 @@ calculated to be the character’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the character
 effectively removes by standing on it.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#solid">Solid</a> property is set to <em>true</em>.</p>
+<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">BlockingWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
 </pre></div>
@@ -1862,8 +1862,8 @@ effectively removes by standing on it.</p>
 <p>will make EGO block 50 pixels wide (25 pixels to the left of his X
 co-ordinate, and 25 to the right)</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blockingheight">Character.BlockingHeight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#solid">Character.Solid</a></p>
+<a class="reference external" href="#blockingheight">Character.BlockingHeight</a>,
+<a class="reference external" href="#solid">Character.Solid</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="clickable">
@@ -1885,9 +1885,9 @@ whatever is behind them (as with the old Lucasarts games).</p>
 </div>
 <p>will make the game ignore clicks on the character MAN.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#clickable">Object.Clickable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<a class="reference external" href="#move">Character.Move</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="destinationx">
@@ -1898,10 +1898,10 @@ whatever is behind them (as with the old Lucasarts games).</p>
 <p>Gets the X coordinate of the character’s final moving destination. If
 character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#destinationy">Character.DestinationY</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#destinationy">Character.DestinationY</a>,
+<a class="reference external" href="#move">Character.Move</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="destinationy">
@@ -1912,10 +1912,10 @@ character is not walking or moving it is equal to its current position.</p>
 <p>Gets the Y coordinate of the character’s final moving destination. If
 character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#destinationx">Character.DestinationX</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#destinationx">Character.DestinationX</a>,
+<a class="reference external" href="#move">Character.Move</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="diagonalloops">
@@ -1948,9 +1948,9 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>displays EGO’s current frame number within his view.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loop">Character.Loop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#view">Character.View</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#animate">Character.Animate</a>,
+<a class="reference external" href="#loop">Character.Loop</a>,
+<a class="reference external" href="#view">Character.View</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="hasexplicittint">
@@ -1959,7 +1959,7 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the character has a tint set explicitly with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a> command.</p>
+<a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit tint, but it may still
 be tinted by <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a> or a region
 tint.</p>
@@ -1972,8 +1972,8 @@ tint.</p>
 </div>
 <p>removes the player’s tint if it currently has one.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#removetint">Character.RemoveTint</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#tint">Character.Tint</a>,
+<a class="reference external" href="#removetint">Character.RemoveTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id">
@@ -1999,13 +1999,13 @@ uses the character’s number rather than name.</p>
 <p>Gets the character’s current idle view. If the character doesn’t have
 one, returns -1.</p>
 <p>This property is read-only; to change the view, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setidleview">SetIdleView</a> function.</p>
+<a class="reference external" href="#setidleview">SetIdleView</a> function.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;EGO&#39;s idle view is currently view </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">IdleView</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>will display EGO’s current idle view number.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setidleview">SetIdleView</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#setidleview">SetIdleView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="ignorelighting">
@@ -2046,7 +2046,7 @@ using the Direct3D driver.</p>
 </pre></div>
 </div>
 <p>will make the character EGO ignore walk-behinds.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#baseline">Character.Baseline</a>,
+<p><em>See Also:</em> <a class="reference external" href="#baseline">Character.Baseline</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
 </div>
 <hr class="docutils" />
@@ -2067,7 +2067,7 @@ an easier method.</p>
 updated. In this case, you must call UpdateInventory to see any new or
 removed items.</p>
 <p>If you just want to quickly check whether the character has a particular
-item or not, use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasinventory">HasInventory</a>
+item or not, use the <a class="reference external" href="#hasinventory">HasInventory</a>
 function instead.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player has $</span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">InventoryQuantity</span><span class="p">[</span><span class="n">iCash</span><span class="o">.</span><span class="n">ID</span><span class="p">]);</span>
@@ -2075,9 +2075,9 @@ function instead.</p>
 </div>
 <p>will display how many inventory items of type iCash the player has.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#updateinventory">UpdateInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addinventory">Character.AddInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#hasinventory">Character.HasInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loseinventory">Character.LoseInventory</a></p>
+<a class="reference external" href="#addinventory">Character.AddInventory</a>,
+<a class="reference external" href="#hasinventory">Character.HasInventory</a>,
+<a class="reference external" href="#loseinventory">Character.LoseInventory</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="loop">
@@ -2093,9 +2093,9 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>displays EGO’s current loop number within his view.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#frame">Character.Frame</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#view">Character.View</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#animate">Character.Animate</a>,
+<a class="reference external" href="#frame">Character.Frame</a>,
+<a class="reference external" href="#view">Character.View</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="manualscaling">
@@ -2110,7 +2110,7 @@ walkable area that he is walking on, or whether it is set manually by
 the script. This is equivalent to the “Ignore room area scaling”
 checkbox in the editor.</p>
 <p>If this is set to <em>true</em>, then the character’s scaling level is set
-manually by the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#scaling">Scaling</a> property (by
+manually by the <a class="reference external" href="#scaling">Scaling</a> property (by
 default this is <code class="docutils literal notranslate"><span class="pre">100%</span></code>). If it is set to <em>false</em>, then the character
 will be stretched or shrunk automatically as appropriate on walkable
 areas.</p>
@@ -2121,7 +2121,7 @@ areas.</p>
 </div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to
 <code class="docutils literal notranslate"><span class="pre">50%</span></code> zoom level.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#scaling">Character.Scaling</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#scaling">Character.Scaling</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="movementlinkedtoanimation">
@@ -2147,9 +2147,9 @@ and was a game-wide setting.</p>
 <p>will turn off movement-linked animation for the player character, walk
 him to (50,100), then turn it back on again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#move">Character.Move</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="moving">
@@ -2160,8 +2160,8 @@ him to (50,100), then turn it back on again.</p>
 </div>
 <p>Returns <em>true</em> if the character is currently moving, or <em>false</em> if not.</p>
 <p>This property is read-only; to change the character’s movement, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Walk</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Move</a> and
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">StopMoving</a> commands.</p>
+<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Walk</a>, <a class="reference external" href="#move">Move</a> and
+<a class="reference external" href="#stopmoving">StopMoving</a> commands.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Walk</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -2169,12 +2169,12 @@ him to (50,100), then turn it back on again.</p>
 </div>
 <p>will move EGO to 125,40 and return control to the player when he gets
 there.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animating">Character.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speaking">Character.Speaking</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#stopmoving">Character.StopMoving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animating">Character.Animating</a>,
+<a class="reference external" href="#move">Character.Move</a>,
+<a class="reference external" href="#speaking">Character.Speaking</a>,
+<a class="reference external" href="#stopmoving">Character.StopMoving</a>,
+<a class="reference external" href="#thinking">Character.Thinking</a>,
+<a class="reference external" href="#walk">Character.Walk</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="name">
@@ -2204,7 +2204,7 @@ the name it will be truncated to that length.</p>
 walking view, that is used when his view is not locked to something
 else.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeview">ChangeView</a> command.</p>
+<a class="reference external" href="#changeview">ChangeView</a> command.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">cEgo</span><span class="o">.</span><span class="n">View</span> <span class="o">==</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">NormalView</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;EGO is not animating, not talking and not idle.&quot;</span><span class="p">);</span>
@@ -2213,8 +2213,8 @@ else.</p>
 </div>
 <p>will display a message if EGO is currently displayed using his normal
 view.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeview">Character.ChangeView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#view">Character.View</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#changeview">Character.ChangeView</a>,
+<a class="reference external" href="#view">Character.View</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="previousroom">
@@ -2228,7 +2228,7 @@ character is still in the room that they started in, this will be -1.
 Otherwise, it will be the room number of the room that they were last
 in.</p>
 <p>This is a read-only property. It is set automatically by
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroom">ChangeRoom</a>.</p>
+<a class="reference external" href="#changeroom">ChangeRoom</a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;EGO&#39;s previous room was </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">PreviousRoom</span><span class="p">);</span>
 </pre></div>
@@ -2244,7 +2244,7 @@ in.</p>
 </div>
 <p>Gets the room number that the character is currently in.</p>
 <p>This is a read-only property. It is set by
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroom">ChangeRoom</a>.</p>
+<a class="reference external" href="#changeroom">ChangeRoom</a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;EGO is in room </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">cEgo</span><span class="o">.</span><span class="n">Room</span><span class="p">);</span>
 </pre></div>
@@ -2270,7 +2270,7 @@ at his normal speed.</p>
 </pre></div>
 </div>
 <p>will mean that EGO’s speed is adjusted in line with his scaling</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#scalevolume">Character.ScaleVolume</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#scalevolume">Character.ScaleVolume</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="scalevolume">
@@ -2294,7 +2294,7 @@ appropriate in scaled walkable areas.</p>
 <p>will mean that EGO’s footstep sounds are adjusted in line with his
 scaling</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#scalemovespeed">Character.ScaleMoveSpeed</a></p>
+<a class="reference external" href="#scalemovespeed">Character.ScaleMoveSpeed</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="scaling">
@@ -2307,7 +2307,7 @@ scaling</p>
 zoom level, which will be between 5 and 200 (the default being 100 if
 they are not currently scaled).</p>
 <p>You can only set the value of this property if
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#manualscaling">ManualScaling</a> is enabled for the
+<a class="reference external" href="#manualscaling">ManualScaling</a> is enabled for the
 character; otherwise, the scaling is determined automatically based on
 the walkable area that the character is on.</p>
 <p>Example:</p>
@@ -2317,7 +2317,7 @@ the walkable area that the character is on.</p>
 </div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to
 <code class="docutils literal notranslate"><span class="pre">50%</span></code> zoom level.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#manualscaling">Character.ManualScaling</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#manualscaling">Character.ManualScaling</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="solid">
@@ -2338,8 +2338,8 @@ him.</p>
 </div>
 <p>will mean that EGO blocks the path other characters.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blockingheight">Character.BlockingHeight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blockingwidth">Character.BlockingWidth</a></p>
+<a class="reference external" href="#blockingheight">Character.BlockingHeight</a>,
+<a class="reference external" href="#blockingwidth">Character.BlockingWidth</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="speaking">
@@ -2362,11 +2362,11 @@ useful to access from the (late_)repeatedly_execute_always handler.</p>
 </div>
 <p>will animate the character using loop 3 while they are talking (only
 useful with Sierra-style speech).</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animating">Character.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speakingframe">Character.SpeakingFrame</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#animating">Character.Animating</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#say">Character.Say</a>,
+<a class="reference external" href="#speakingframe">Character.SpeakingFrame</a>,
+<a class="reference external" href="#thinking">Character.Thinking</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="speakingframe">
@@ -2380,7 +2380,7 @@ synchronize events with the progress of the close-up face talking
 animation.</p>
 <p>This property is read-only. It is only accessible while the character is
 speaking; if you attempt to call it when
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speaking">Character.Speaking</a> is <em>false</em> then it
+<a class="reference external" href="#speaking">Character.Speaking</a> is <em>false</em> then it
 will raise an error.</p>
 <p>Since speaking is a blocking command, this property will probably only
 be useful access from the (late_)repeatedly_execute_always handler.</p>
@@ -2394,8 +2394,8 @@ be useful access from the (late_)repeatedly_execute_always handler.</p>
 </div>
 <p>will move cMan to the right every time the talking animation loops back
 to Frame 0.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#say">Character.Say</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speaking">Character.Speaking</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#say">Character.Say</a>,
+<a class="reference external" href="#speaking">Character.Speaking</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="speechanimationdelay">
@@ -2417,8 +2417,8 @@ the Speech.GlobalSpeechAnimationDelay property value is used instead.</p>
 <p>will change the player character’s speech animation speed to 4.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animationspeed">Character.AnimationSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechview">Character.SpeechView</a>,
+<a class="reference external" href="#animationspeed">Character.AnimationSpeed</a>,
+<a class="reference external" href="#speechview">Character.SpeechView</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#textreadingspeed">Game.TextReadingSpeed</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#globalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#useglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a>,</p>
@@ -2440,7 +2440,7 @@ from the Palette Editor.</p>
 </pre></div>
 </div>
 <p>will change the character’s EGO talking color to yellow.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechview">Character.SpeechView</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#speechview">Character.SpeechView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="speechview">
@@ -2459,10 +2459,10 @@ conversations.</p>
 </pre></div>
 </div>
 <p>will change the character EGO’s speech view to view 10.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeview">Character.ChangeView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#blinkview">Character.BlinkView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechanimationdelay">Character.SpeechAnimationDelay</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speechcolor">Character.SpeechColor</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#changeview">Character.ChangeView</a>,
+<a class="reference external" href="#blinkview">Character.BlinkView</a>,
+<a class="reference external" href="#speechanimationdelay">Character.SpeechAnimationDelay</a>,
+<a class="reference external" href="#speechcolor">Character.SpeechColor</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="thinking">
@@ -2488,11 +2488,11 @@ useful to access from the (late_)repeatedly_execute_always handler.</p>
 </div>
 <p>this will keep character semi-transparent while he is thinking.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animating">Character.Animating</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#moving">Character.Moving</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#speaking">Character.Speaking</a>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Character.Think</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinkingframe">Character.ThinkingFrame</a>,</p>
+<p><em>See Also:</em> <a class="reference external" href="#animating">Character.Animating</a>,
+<a class="reference external" href="#moving">Character.Moving</a>,
+<a class="reference external" href="#speaking">Character.Speaking</a>
+<a class="reference external" href="#think">Character.Think</a>,
+<a class="reference external" href="#thinkingframe">Character.ThinkingFrame</a>,</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="thinkingframe">
@@ -2506,7 +2506,7 @@ synchronize events with the progress of the close-up face talking
 animation.</p>
 <p>This property is read-only. It is only accessible while the character is
 thinking; if you attempt to call it when
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a> is <em>false</em> then it
+<a class="reference external" href="#thinking">Character.Thinking</a> is <em>false</em> then it
 will raise an error.</p>
 <p>Since thinking is a blocking command, this property will probably only
 be useful access from the (late_)repeatedly_execute_always handler.</p>
@@ -2521,8 +2521,8 @@ be useful access from the (late_)repeatedly_execute_always handler.</p>
 <p>will move cMan to the right every time the thinking animation loops back
 to Frame 0.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Character.Think</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#thinking">Character.Thinking</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#think">Character.Think</a>,
+<a class="reference external" href="#thinking">Character.Thinking</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="thinkview">
@@ -2538,7 +2538,7 @@ character when a thought is being displayed.</p>
 </pre></div>
 </div>
 <p>will change the character EGO’s thinking view to 14.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Character.Think</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#think">Character.Think</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="transparency">
@@ -2609,11 +2609,11 @@ LockView functions.</p>
 </pre></div>
 </div>
 <p>will display EGO’s current view number.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeview">Character.ChangeView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#frame">Character.Frame</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockview">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loop">Character.Loop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#normalview">Character.NormalView</a></p>
+<p><em>SeeAlso:</em> <a class="reference external" href="#changeview">Character.ChangeView</a>,
+<a class="reference external" href="#frame">Character.Frame</a>,
+<a class="reference external" href="#lockview">Character.LockView</a>,
+<a class="reference external" href="#loop">Character.Loop</a>,
+<a class="reference external" href="#normalview">Character.NormalView</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="walkspeedx">
@@ -2630,8 +2630,8 @@ SetWalkSpeed function.</p>
 </pre></div>
 </div>
 <p>will display the player’s X speed.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setwalkspeed">Character.SetWalkSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walkspeedy">Character.WalkSpeedY</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setwalkspeed">Character.SetWalkSpeed</a>,
+<a class="reference external" href="#walkspeedy">Character.WalkSpeedY</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="walkspeedy">
@@ -2648,8 +2648,8 @@ SetWalkSpeed function.</p>
 </pre></div>
 </div>
 <p>will display the player’s Y speed.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setwalkspeed">Character.SetWalkSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walkspeedx">Character.WalkSpeedX</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#setwalkspeed">Character.SetWalkSpeed</a>,
+<a class="reference external" href="#walkspeedx">Character.WalkSpeedX</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="x">
@@ -2668,8 +2668,8 @@ co-ordinates.</p>
 </pre></div>
 </div>
 <p>displays the player character’s current coordinates.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#y">Character.y</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#z">Character.z</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#y">Character.y</a>,
+<a class="reference external" href="#z">Character.z</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="y">
@@ -2688,8 +2688,8 @@ co-ordinates.</p>
 </pre></div>
 </div>
 <p>displays the player character’s current coordinates.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#x">Character.x</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#z">Character.z</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#x">Character.x</a>,
+<a class="reference external" href="#z">Character.z</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="z">
@@ -2710,8 +2710,8 @@ make the character float.</p>
 </pre></div>
 </div>
 <p>gradually levitates the character up to 20 pixels.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#x">Character.x</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#y">Character.y</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#x">Character.x</a>,
+<a class="reference external" href="#y">Character.y</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setcharacterproperty">
@@ -2721,13 +2721,13 @@ make the character float.</p>
 </div>
 <p><strong>This command is now obsolete. It has been replaced by the following
 properties:</strong></p>
-<p><a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#clickable">Clickable</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#diagonalloops">DiagonalLoops</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#ignorelighting">IgnoreLighting</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#manualscaling">ManualScaling</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#scalemovespeed">ScaleMoveSpeed</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#solid">Solid</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#turnbeforewalking">TurnBeforeWalking</a></p>
+<p><a class="reference external" href="#clickable">Clickable</a><br>
+<a class="reference external" href="#diagonalloops">DiagonalLoops</a><br>
+<a class="reference external" href="#ignorelighting">IgnoreLighting</a><br>
+<a class="reference external" href="#manualscaling">ManualScaling</a><br>
+<a class="reference external" href="#scalemovespeed">ScaleMoveSpeed</a><br>
+<a class="reference external" href="#solid">Solid</a><br>
+<a class="reference external" href="#turnbeforewalking">TurnBeforeWalking</a></p>
 </div>
 </div>
 
@@ -2746,7 +2746,7 @@ properties:</strong></p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

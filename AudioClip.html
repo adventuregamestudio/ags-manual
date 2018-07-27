@@ -155,9 +155,9 @@ playing on, or <em>null</em> if it did not play for any reason.</p>
 </div>
 <p>plays the <em>aExplosion</em> audio clip.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playfrom">AudioClip.PlayFrom</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playqueued">AudioClip.PlayQueued</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#stop">AudioClip.Stop</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#playfrom">AudioClip.PlayFrom</a>,
+<a class="reference external" href="#playqueued">AudioClip.PlayQueued</a>,
+<a class="reference external" href="#stop">AudioClip.Stop</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="playfrom">
@@ -170,7 +170,7 @@ playing on, or <em>null</em> if it did not play for any reason.</p>
 position, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a> help
 page.</p>
 <p>Otherwise, this command behaves identially to
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>. Please see that help page
+<a class="reference external" href="#play">AudioClip.Play</a>. Please see that help page
 for more information.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aExplosion</span><span class="o">.</span><span class="n">PlayFrom</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
@@ -179,7 +179,7 @@ for more information.</p>
 <p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if
 it is OGG/MP3).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="playqueued">
@@ -191,7 +191,7 @@ it is OGG/MP3).</p>
 <p>Plays the audio clip, or queues it to be played later if it cannot be
 played now.</p>
 <p>This command behaves identially to
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>, except that if there are no
+<a class="reference external" href="#play">AudioClip.Play</a>, except that if there are no
 available audio channels, it will queue this audio clip to be played
 when a channel becomes available.</p>
 <p>Additionally, unlike the Play command, using PlayQueued will not
@@ -208,7 +208,7 @@ be played.</p>
 <p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to
 be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="stop">
@@ -226,7 +226,7 @@ be played afterwards.</p>
 <p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it
 again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="filetype">
@@ -248,7 +248,7 @@ offset represents.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#seek">AudioChannel.Seek</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioChannel#position">AudioChannel.Position</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playfrom">AudioClip.PlayFrom</a></p>
+<a class="reference external" href="#playfrom">AudioClip.PlayFrom</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="isavailable">
@@ -272,7 +272,7 @@ will silently fail if it cannot find the audio clip to play.</p>
 </div>
 <p>checks if the aExplosion audio clip is available, and if so plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="type">
@@ -292,7 +292,7 @@ and Music.</p>
 </div>
 <p>displays a message if the <em>aExplosion</em> clip is music.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
+<p><em>See Also:</em> <a class="reference external" href="#play">AudioClip.Play</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#isaudioplaying">Game.IsAudioPlaying</a></p>
 </div>
 </div>
@@ -312,7 +312,7 @@ and Music.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

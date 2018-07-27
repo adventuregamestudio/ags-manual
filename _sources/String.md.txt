@@ -47,9 +47,9 @@ Example:
 
 will display "HelloWorld".
 
-*See Also:* [String.AppendChar](String#appendchar),
-[String.Substring](String#substring),
-[String.Truncate](String#truncate)
+*See Also:* [String.AppendChar](#appendchar),
+[String.Substring](#substring),
+[String.Truncate](#truncate)
 
 ---
 
@@ -75,7 +75,7 @@ Example:
 
 will display "Hello".
 
-*See Also:* [String.Append](String#append)
+*See Also:* [String.Append](#append)
 
 ---
 
@@ -161,8 +161,8 @@ will display the "Ends with script!" message.
 
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
-*See Also:* [String.IndexOf](String#indexof),
-[String.StartsWith](String#startswith)
+*See Also:* [String.IndexOf](#indexof),
+[String.StartsWith](#startswith)
 
 ---
 
@@ -221,8 +221,8 @@ Example:
       Display("a needle was found starting at character %d in the string.", result);
     }
 
-*See Also:* [String.EndsWith](String#endswith),
-[String.StartsWith](String#startswith)
+*See Also:* [String.EndsWith](#endswith),
+[String.StartsWith](#startswith)
 
 ---
 
@@ -277,7 +277,7 @@ Example:
 
 will display "Old: THIS is a test string, new: this is a test string".
 
-*See Also:* [String.UpperCase](String#uppercase)
+*See Also:* [String.UpperCase](#uppercase)
 
 ---
 
@@ -306,7 +306,7 @@ script!".
 
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
-*See Also:* [String.ReplaceCharAt](String#replacecharat)
+*See Also:* [String.ReplaceCharAt](#replacecharat)
 
 ---
 
@@ -333,8 +333,8 @@ Example:
 
 will display "Old: Hello, new: Hemlo".
 
-*See Also:* [String.Chars](String#chars),
-[String.Replace](String#replace)
+*See Also:* [String.Chars](#chars),
+[String.Replace](#replace)
 
 ---
 
@@ -360,8 +360,8 @@ will display the "Starts with hello!" message.
 
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
-*See Also:* [String.EndsWith](String#endswith),
-[String.IndexOf](String#indexof)
+*See Also:* [String.EndsWith](#endswith),
+[String.IndexOf](#indexof)
 
 ---
 
@@ -384,8 +384,8 @@ Example:
 
 will display "Original: Hello World!, Substring: lo Wo".
 
-*See Also:* [String.Append](String#append),
-[String.Chars](String#chars)
+*See Also:* [String.Append](#append),
+[String.Chars](#chars)
 
 ---
 
@@ -407,8 +407,8 @@ Example:
 
 will display "Original: Hello World!, Truncated: Hell".
 
-*See Also:* [String.Append](String#append),
-[String.Substring](String#substring)
+*See Also:* [String.Append](#append),
+[String.Substring](#substring)
 
 ---
 
@@ -432,7 +432,7 @@ Example:
 
 will display "Old: THIS is a test string, new: THIS IS A TEST STRING".
 
-*See Also:* [String.LowerCase](String#lowercase)
+*See Also:* [String.LowerCase](#lowercase)
 
 ---
 
@@ -456,11 +456,11 @@ will set number1 value to 57.362 and number2 value to 0.0 This function
 is useful for processing strings input from the user.
 
 **NOTE:** To convert a float to a string, you can use the
-[String.Format](String#format) command.
+[String.Format](#format) command.
 
 *See Also:* [Game.InputBox](Game#inputbox),
-[String.AsInt](String#asint),
-[String.Format](String#format)
+[String.AsInt](#asint),
+[String.Format](#format)
 
 ---
 
@@ -491,11 +491,11 @@ will set number1 value to 53 and number2 value to 0. This function is
 useful for processing strings input from the user.
 
 **NOTE:** To convert an integer to a string, you can use the
-[String.Format](String#format) command.
+[String.Format](#format) command.
 
 *See Also:* [Game.InputBox](Game#inputbox),
-[String.AsFloat](String#asfloat),
-[String.Format](String#format)
+[String.AsFloat](#asfloat),
+[String.Format](#format)
 
 ---
 
@@ -515,7 +515,7 @@ If POSITION is outside the string, this function returns 0.
 
 **NOTE:** The *Chars* array is read-only. If you want to change one of
 the characters in the string, use
-[String.ReplaceCharAt](String#replacecharat).
+[String.ReplaceCharAt](#replacecharat).
 
 Example:
 
@@ -524,8 +524,8 @@ Example:
 
 will display "The 4th character is: s".
 
-*See Also:* [String.Length](String#length),
-[String.ReplaceCharAt](String#replacecharat)
+*See Also:* [String.Length](#length),
+[String.ReplaceCharAt](#replacecharat)
 
 ---
 

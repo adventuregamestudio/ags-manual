@@ -163,7 +163,7 @@ channel. This command is useful if you just want to create a new sprite
 and then use the DrawingSurface commands to draw onto it.</p>
 <p>If the game colour depth is lower than 32-bit, then the
 <em>hasAlphaChannel</em> parameter will be ignored.</p>
-<p>Use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">Graphic</a> property of the
+<p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is
@@ -186,9 +186,9 @@ and at that point call Delete.</p>
 </div>
 <p>creates a 50x30 sprite, draws a white dot in the middle, then deletes
 the sprite.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">DynamicSprite.Graphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
+<a class="reference external" href="#graphic">DynamicSprite.Graphic</a>,
+<a class="reference external" href="#getdrawingsurface">DynamicSprite.GetDrawingSurface</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfrombackground">
@@ -210,7 +210,7 @@ must either supply all or none of the x, y, width and height parameters;
 if you do supply them, this allows you to just get a small portion of
 the background image into the new sprite. All co-ordinates are in
 320x200-resolution room co-ordinates.</p>
-<p>Use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">Graphic</a> property of the
+<p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is
@@ -232,7 +232,7 @@ and at that point call Delete.</p>
 </div>
 <p>creates a copy of the centre 60x60 area on the background, and draws it
 onto the top left corner of the background image.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfromdrawingsurface">
@@ -250,7 +250,7 @@ DrawingSurface’s
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#usehighrescoordinates">UseHighResCoordinates</a>
 setting, so make sure that the type of co-ordinates that you are using
 match up with what the drawing surface expects.</p>
-<p>Use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">Graphic</a> property of the
+<p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is
@@ -274,7 +274,7 @@ and at that point call Delete.</p>
 <p>changes object 0’s image to be just the top-left corner of what it
 previously was.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfromexistingsprite">
@@ -288,7 +288,7 @@ previously was.</p>
 <p>Returns the DynamicSprite instance representing the new sprite. This
 function is useful as it effectively allows you to apply transformations
 such as resizing to any sprite in the game.</p>
-<p>Use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">Graphic</a> property of the
+<p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><em>preserveAlphaChannel</em> determines whether the sprite’s alpha channel
@@ -316,8 +316,8 @@ and at that point call Delete.</p>
 </div>
 <p>creates a copy of object 0’s current sprite, resizes it down to 20x20,
 and then draws the result onto the background.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
+<a class="reference external" href="#resize">DynamicSprite.Resize</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfromfile">
@@ -330,7 +330,7 @@ and then draws the result onto the background.</p>
 <p>Returns the DynamicSprite instance representing the sprite, or <em>null</em> if
 the image could not be loaded (file not found or unsupported format).</p>
 <p>Only BMP and PCX files can be loaded with this command.</p>
-<p>Use the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">Graphic</a> property of the
+<p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like
@@ -357,8 +357,8 @@ and at that point call Delete.</p>
 <p>will load the file “CustomAvatar.bmp” and if successful draw the image
 near the middle of the screen.</p>
 <p>Once the image is finished with, Delete should be called on it.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
+<a class="reference external" href="#createfromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfromsavegame">
@@ -398,10 +398,10 @@ and at that point call Delete.</p>
 <p>will load the screenshot for save game 1 and resize it to 50x50. It then
 places it onto the btnScrnshot GUI button.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a>,
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromfile">DynamicSprite.CreateFromFile</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a></p>
+<a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
+<a class="reference external" href="#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="createfromscreenshot">
@@ -440,10 +440,10 @@ and at that point call Delete.</p>
 </div>
 <p>places a screen grab of the current game session onto btnScrnshot.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a>,
+<p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromfile">DynamicSprite.CreateFromFile</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
+<a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
+<a class="reference external" href="#createfromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="changecanvassize">
@@ -453,11 +453,11 @@ and at that point call Delete.</p>
 </div>
 <p>Changes the sprite size to <em>width</em> x <em>height</em>, placing the current image
 at offset (x, y) within the new canvas. Unlike the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">Resize</a> command, the current image is
+<a class="reference external" href="#resize">Resize</a> command, the current image is
 kept at its original size.</p>
 <p>This function allows you to enlarge the sprite background in order to
 draw more onto it than its current boundaries allow. It is effectively
-the opposite of <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#crop">Crop</a>. The additional
+the opposite of <a class="reference external" href="#crop">Crop</a>. The additional
 surface area will be transparent.</p>
 <p>The width and height are specified in 320x200-resolution units.</p>
 <p>Example:</p>
@@ -472,10 +472,10 @@ surface area will be transparent.</p>
 </div>
 <p>creates a dynamic sprite as a copy of sprite 10, enlarges it by 5 pixels
 to the left and right, and draws a line in the new area to the left.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#crop">DynamicSprite.Crop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#crop">DynamicSprite.Crop</a>,
+<a class="reference external" href="#resize">DynamicSprite.Resize</a>,
+<a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="copytransparencymask">
@@ -509,7 +509,7 @@ sprite.</p>
 <p>creates a dynamic sprite as a copy of sprite 10, changes its
 transparency mask to use that of sprite 11, and displays it on object 0.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromexistingsprite">DynamicSprite.CreateFromExistingSprite</a></p>
+<a class="reference external" href="#createfromexistingsprite">DynamicSprite.CreateFromExistingSprite</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="crop">
@@ -535,10 +535,10 @@ HEIGHT in size will remain.</p>
 <p>will load the CustomAvatar.bmp image, cut off the left and top 10
 pixels, and then draw it onto the room background at (100,100).</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#changecanvassize">DynamicSprite.ChangeCanvasSize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#flip">DynamicSprite.Flip</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<a class="reference external" href="#changecanvassize">DynamicSprite.ChangeCanvasSize</a>,
+<a class="reference external" href="#flip">DynamicSprite.Flip</a>,
+<a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="delete">
@@ -567,8 +567,8 @@ instead.</p>
 graphic, wait 5 seconds, then change object 1 back to its old sprite 22
 and free the new image.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#graphic">DynamicSprite.Graphic</a></p>
+<a class="reference external" href="#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a>,
+<a class="reference external" href="#graphic">DynamicSprite.Graphic</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="flip">
@@ -591,9 +591,9 @@ and free the new image.</p>
 </div>
 <p>will load the CustomAvatar.bmp image, flip it upside down, and then draw
 it onto the room background at (100,100).</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#crop">DynamicSprite.Crop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#rotate">DynamicSprite.Rotate</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#crop">DynamicSprite.Crop</a>,
+<a class="reference external" href="#resize">DynamicSprite.Resize</a>,
+<a class="reference external" href="#rotate">DynamicSprite.Rotate</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getdrawingsurface">
@@ -621,7 +621,7 @@ call Release on the surface when you are finished.</p>
 draws a pink diagonal line across it, sets this new sprite onto the
 object for 1 second and then removes it.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromexistingsprite">DynamicSprite.CreateFromExistingSprite</a>,
+<a class="reference external" href="#createfromexistingsprite">DynamicSprite.CreateFromExistingSprite</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
 </div>
@@ -648,12 +648,12 @@ resize sprites every game loop; only do it when necessary.</p>
 <p>will load the CustomAvatar.bmp image, stretch it to double its original
 size, and then draw it onto the room background at (100,100).</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#changecanvassize">DynamicSprite.ChangeCanvasSize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#crop">DynamicSprite.Crop</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#flip">DynamicSprite.Flip</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#rotate">DynamicSprite.Rotate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<a class="reference external" href="#changecanvassize">DynamicSprite.ChangeCanvasSize</a>,
+<a class="reference external" href="#crop">DynamicSprite.Crop</a>,
+<a class="reference external" href="#flip">DynamicSprite.Flip</a>,
+<a class="reference external" href="#rotate">DynamicSprite.Rotate</a>,
+<a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="rotate">
@@ -683,10 +683,10 @@ rotate sprites every game loop; only do it when necessary.</p>
 </div>
 <p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise,
 draw the result onto the screen, and then delete the image.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#flip">DynamicSprite.Flip</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#flip">DynamicSprite.Flip</a>,
+<a class="reference external" href="#resize">DynamicSprite.Resize</a>,
+<a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="savetofile">
@@ -710,7 +710,7 @@ with <a class="reference external" href="https://adventuregamestudio.github.io/a
 <p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise,
 then save the result back to the disk.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromfile">DynamicSprite.CreateFromFile</a>,
+<a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#savescreenshot">SaveScreenShot</a></p>
 </div>
 <hr class="docutils" />
@@ -738,9 +738,9 @@ the already tinted sprite from the first call.</p>
 </div>
 <p>creates a copy of object 0’s sprite, tints it red, and draws it onto the
 room background.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#flip">DynamicSprite.Flip</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a>,
+<p><em>See Also:</em> <a class="reference external" href="#flip">DynamicSprite.Flip</a>,
+<a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
@@ -761,8 +761,8 @@ usually will be the case).</p>
 </pre></div>
 </div>
 <p>displays the colour depth of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="graphic">
@@ -784,8 +784,8 @@ value can then be passed to other functions and properties, such as
 <p>takes a screen shot, and draws it onto the background scene at
 (100,100).</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#delete">DynamicSprite.Delete</a></p>
+<a class="reference external" href="#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a>,
+<a class="reference external" href="#delete">DynamicSprite.Delete</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="height">
@@ -804,8 +804,8 @@ value can then be passed to other functions and properties, such as
 </pre></div>
 </div>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#width">DynamicSprite.Width</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#resize">DynamicSprite.Resize</a>,
+<a class="reference external" href="#width">DynamicSprite.Width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="width">
@@ -824,8 +824,8 @@ value can then be passed to other functions and properties, such as
 </pre></div>
 </div>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#height">DynamicSprite.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#resize">DynamicSprite.Resize</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#height">DynamicSprite.Height</a>,
+<a class="reference external" href="#resize">DynamicSprite.Resize</a></p>
 </div>
 </div>
 
@@ -844,7 +844,7 @@ value can then be passed to other functions and properties, such as
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

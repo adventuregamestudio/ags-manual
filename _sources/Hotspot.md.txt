@@ -70,7 +70,7 @@ Example:
 will print the message if hotspot 1 has its "Value" property set to more
 than 200.
 
-*See Also:* [Hotspot.GetTextProperty](Hotspot#gettextproperty)
+*See Also:* [Hotspot.GetTextProperty](#gettextproperty)
 
 ---
 
@@ -95,7 +95,7 @@ Example:
 
 will retrieve hotspot 2's "description" property and display it.
 
-*See Also:* [Hotspot.GetProperty](Hotspot#getproperty)
+*See Also:* [Hotspot.GetProperty](#getproperty)
 
 ---
 
@@ -121,7 +121,7 @@ will change Door hotspot's "LockDifficulty" custom property to 5.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Hotspot.SetTextProperty](Hotspot#settextproperty)
+*See Also:* [Hotspot.SetTextProperty](#settextproperty)
 
 ---
 
@@ -145,7 +145,7 @@ will change Door's "description" property.
 
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
-*See Also:* [Hotspot.SetProperty](Hotspot#setproperty)
+*See Also:* [Hotspot.SetProperty](#setproperty)
 
 ---
 
@@ -169,7 +169,7 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-[Hotspot.RunInteraction](Hotspot#runinteraction)
+[Hotspot.RunInteraction](#runinteraction)
 
 ---
 
@@ -190,7 +190,7 @@ will run the code defined in the "LOOK AT HOTSPOT" event for hotspot
 hDoor.
 
 *See Also:* [Room.ProcessClick](Room#processclick),
-[Hotspot.IsInteractionAvailable](Hotspot#isinteractionavailable),
+[Hotspot.IsInteractionAvailable](#isinteractionavailable),
 [Character.RunInteraction](Character#runinteraction),
 [Object.RunInteraction](Object#runinteraction)
 
@@ -240,7 +240,7 @@ Example:
 displays hDoor's hotspot number, and then displays hotspot 3's number
 (which will be 3).
 
-*See Also:* [Hotspot.GetAtScreenXY](Hotspot#getatscreenxy)
+*See Also:* [Hotspot.GetAtScreenXY](#getatscreenxy)
 
 ---
 
@@ -281,7 +281,7 @@ Example:
 
 will move the character to hotspot hTable's walk-to point.
 
-*See Also:* [Hotspot.WalkToY](Hotspot#walktoy),
+*See Also:* [Hotspot.WalkToY](#walktoy),
 [MoveCharacterToHotspot](Game#movecharactertohotspot)
 
 ---
@@ -301,6 +301,6 @@ Example:
 
 will move the character to hotspot hTable's walk-to point.
 
-*See Also:* [Hotspot.WalkToX](Hotspot#walktox),
+*See Also:* [Hotspot.WalkToX](#walktox),
 [MoveCharacterToHotspot](Game#movecharactertohotspot)
 

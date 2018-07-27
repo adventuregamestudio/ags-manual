@@ -201,7 +201,7 @@ need to use it in Player Enters Room if you want a permanent change.</p>
 <p>will set region 2’s RGB tint to (180, 20, 20) with 50<code class="docutils literal notranslate"><span class="pre">%</span></code> opacity.</p>
 <p><em>Compatibility:</em> Optional <em>luminance</em> parameter is supported only by
 <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#lightlevel">Region.LightLevel</a>,
+<p><em>See Also:</em> <a class="reference external" href="#lightlevel">Region.LightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
@@ -241,7 +241,7 @@ with old script using the number-based region functions.</p>
 </pre></div>
 </div>
 <p>displays region 3’s number (which will be 3).</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#getatroomxy">Region.GetAtRoomXY</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#getatroomxy">Region.GetAtRoomXY</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lightlevel">
@@ -274,7 +274,7 @@ and object light levels.</p>
 </pre></div>
 </div>
 <p>will set region 2’s level light to 100 if the Global Integer 10 is 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a>,
 <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a></p>
@@ -297,7 +297,7 @@ TintSaturation and TintLuminance properties are invalid.</p>
 </pre></div>
 </div>
 <p>will display a message if region 4 is tinted</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintblue">
@@ -307,8 +307,8 @@ TintSaturation and TintLuminance properties are invalid.</p>
 </div>
 <p>Gets the <em>Blue</em> setting for the region’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>
+<a class="reference external" href="#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a class="reference external" href="#tintenabled">Region.TintEnabled</a>
 property is false, then this value is meaningless.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">TintEnabled</span><span class="p">)</span> <span class="p">{</span>
@@ -319,11 +319,11 @@ property is false, then this value is meaningless.</p>
 </pre></div>
 </div>
 <p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintgreen">Region.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintred">Region.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintluminance">Region.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
+<a class="reference external" href="#tintenabled">Region.TintEnabled</a>,
+<a class="reference external" href="#tintgreen">Region.TintGreen</a>,
+<a class="reference external" href="#tintred">Region.TintRed</a>,
+<a class="reference external" href="#tintluminance">Region.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintgreen">
@@ -333,8 +333,8 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Green</em> setting for the region’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>
+<a class="reference external" href="#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a class="reference external" href="#tintenabled">Region.TintEnabled</a>
 property is false, then this value is meaningless.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">TintEnabled</span><span class="p">)</span> <span class="p">{</span>
@@ -345,12 +345,12 @@ property is false, then this value is meaningless.</p>
 </pre></div>
 </div>
 <p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintblue">Region.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintred">Region.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintsaturation">Region.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintluminance">Region.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
+<a class="reference external" href="#tintenabled">Region.TintEnabled</a>,
+<a class="reference external" href="#tintblue">Region.TintBlue</a>,
+<a class="reference external" href="#tintred">Region.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Region.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Region.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintred">
@@ -360,8 +360,8 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Red</em> setting for the region’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>
+<a class="reference external" href="#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a class="reference external" href="#tintenabled">Region.TintEnabled</a>
 property is false, then this value is meaningless.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">TintEnabled</span><span class="p">)</span> <span class="p">{</span>
@@ -372,12 +372,12 @@ property is false, then this value is meaningless.</p>
 </pre></div>
 </div>
 <p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintblue">Region.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintgreen">Region.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintsaturation">Region.TintSaturation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintluminance">Region.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
+<a class="reference external" href="#tintenabled">Region.TintEnabled</a>,
+<a class="reference external" href="#tintblue">Region.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Region.TintGreen</a>,
+<a class="reference external" href="#tintsaturation">Region.TintSaturation</a>,
+<a class="reference external" href="#tintluminance">Region.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintsaturation">
@@ -387,8 +387,8 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>saturation</em> setting for the region’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>
+<a class="reference external" href="#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a class="reference external" href="#tintenabled">Region.TintEnabled</a>
 property is false, then this value is meaningless.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">TintEnabled</span><span class="p">)</span> <span class="p">{</span>
@@ -399,12 +399,12 @@ property is false, then this value is meaningless.</p>
 </pre></div>
 </div>
 <p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintblue">Region.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintgreen">Region.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintred">Region.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintluminance">Region.TintLuminance</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
+<a class="reference external" href="#tintenabled">Region.TintEnabled</a>,
+<a class="reference external" href="#tintblue">Region.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Region.TintGreen</a>,
+<a class="reference external" href="#tintred">Region.TintRed</a>,
+<a class="reference external" href="#tintluminance">Region.TintLuminance</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintluminance">
@@ -414,15 +414,15 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>luminance</em> setting for the region’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>
+<a class="reference external" href="#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a class="reference external" href="#tintenabled">Region.TintEnabled</a>
 property is false, then this value is meaningless.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintenabled">Region.TintEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintblue">Region.TintBlue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintgreen">Region.TintGreen</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintred">Region.TintRed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#tintsaturation">Region.TintSaturation</a></p>
+<p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
+<a class="reference external" href="#tintenabled">Region.TintEnabled</a>,
+<a class="reference external" href="#tintblue">Region.TintBlue</a>,
+<a class="reference external" href="#tintgreen">Region.TintGreen</a>,
+<a class="reference external" href="#tintred">Region.TintRed</a>,
+<a class="reference external" href="#tintsaturation">Region.TintSaturation</a></p>
 </div>
 </div>
 
@@ -441,7 +441,7 @@ property is false, then this value is meaningless.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 7:48:29 PM.<br/>
+      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>
