@@ -295,8 +295,8 @@ available game resources.
 
 This is meant mainly for debug purposes.
 
-**NOTE:** System.RuntimeInfo is a more convenient analogue of Debug(1,
-0) command, being more explicit and working on both release and debug
+**NOTE:** System.RuntimeInfo is a more convenient analogue of Debug(1,0) command, 
+being more explicit and working on both release and debug
 modes of the game.
 
 Example:
