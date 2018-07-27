@@ -1,36 +1,209 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Character functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
 
   </head><body>
-  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          AGS Manual</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
 
-          <div class="body" role="main">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             
+                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">AGS Manual <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Character functions and properties</a><ul>
+<li><a class="reference internal" href="#addinventory">AddInventory</a></li>
+<li><a class="reference internal" href="#addwaypoint">AddWaypoint</a></li>
+<li><a class="reference internal" href="#animate">Animate</a></li>
+<li><a class="reference internal" href="#changeroom">ChangeRoom</a></li>
+<li><a class="reference internal" href="#changeroomautoposition">ChangeRoomAutoPosition</a></li>
+<li><a class="reference internal" href="#changeview">ChangeView</a></li>
+<li><a class="reference internal" href="#facecharacter">FaceCharacter</a></li>
+<li><a class="reference internal" href="#facedirection">FaceDirection</a></li>
+<li><a class="reference internal" href="#facelocation">FaceLocation</a></li>
+<li><a class="reference internal" href="#faceobject">FaceObject</a></li>
+<li><a class="reference internal" href="#followcharacter">FollowCharacter</a></li>
+<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
+<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
+<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
+<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
+<li><a class="reference internal" href="#hasexplicitlight">HasExplicitLight</a></li>
+<li><a class="reference internal" href="#hasinventory">HasInventory</a></li>
+<li><a class="reference internal" href="#iscollidingwithchar">IsCollidingWithChar</a></li>
+<li><a class="reference internal" href="#iscollidingwithobject">IsCollidingWithObject</a></li>
+<li><a class="reference internal" href="#lightlevel">LightLevel</a></li>
+<li><a class="reference internal" href="#lockview">LockView</a></li>
+<li><a class="reference internal" href="#lockviewaligned">LockViewAligned</a></li>
+<li><a class="reference internal" href="#lockviewframe">LockViewFrame</a></li>
+<li><a class="reference internal" href="#lockviewoffset">LockViewOffset</a></li>
+<li><a class="reference internal" href="#loseinventory">LoseInventory</a></li>
+<li><a class="reference internal" href="#move">Move</a></li>
+<li><a class="reference internal" href="#placeonwalkablearea">PlaceOnWalkableArea</a></li>
+<li><a class="reference internal" href="#removetint">RemoveTint</a></li>
+<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
+<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
+<li><a class="reference internal" href="#say">Say</a></li>
+<li><a class="reference internal" href="#sayat">SayAt</a></li>
+<li><a class="reference internal" href="#saybackground">SayBackground</a></li>
+<li><a class="reference internal" href="#setasplayer">SetAsPlayer</a></li>
+<li><a class="reference internal" href="#setlightlevel">SetLightLevel</a></li>
+<li><a class="reference internal" href="#setidleview">SetIdleView</a></li>
+<li><a class="reference internal" href="#setwalkspeed">SetWalkSpeed</a></li>
+<li><a class="reference internal" href="#stopmoving">StopMoving</a></li>
+<li><a class="reference internal" href="#think">Think</a></li>
+<li><a class="reference internal" href="#tint">Tint</a></li>
+<li><a class="reference internal" href="#tintblue">TintBlue</a></li>
+<li><a class="reference internal" href="#tintgreen">TintGreen</a></li>
+<li><a class="reference internal" href="#tintred">TintRed</a></li>
+<li><a class="reference internal" href="#tintsaturation">TintSaturation</a></li>
+<li><a class="reference internal" href="#tintluminance">TintLuminance</a></li>
+<li><a class="reference internal" href="#unlockview">UnlockView</a></li>
+<li><a class="reference internal" href="#walk">Walk</a></li>
+<li><a class="reference internal" href="#walkstraight">WalkStraight</a></li>
+<li><a class="reference internal" href="#activeinventory">ActiveInventory</a></li>
+<li><a class="reference internal" href="#animating">Animating</a></li>
+<li><a class="reference internal" href="#animationspeed">AnimationSpeed</a></li>
+<li><a class="reference internal" href="#baseline">Baseline</a></li>
+<li><a class="reference internal" href="#blinkinterval">BlinkInterval</a></li>
+<li><a class="reference internal" href="#blinkview">BlinkView</a></li>
+<li><a class="reference internal" href="#blinkwhilethinking">BlinkWhileThinking</a></li>
+<li><a class="reference internal" href="#blockingheight">BlockingHeight</a></li>
+<li><a class="reference internal" href="#blockingwidth">BlockingWidth</a></li>
+<li><a class="reference internal" href="#clickable">Clickable</a></li>
+<li><a class="reference internal" href="#destinationx">DestinationX</a></li>
+<li><a class="reference internal" href="#destinationy">DestinationY</a></li>
+<li><a class="reference internal" href="#diagonalloops">DiagonalLoops</a></li>
+<li><a class="reference internal" href="#frame">Frame</a></li>
+<li><a class="reference internal" href="#hasexplicittint">HasExplicitTint</a></li>
+<li><a class="reference internal" href="#id">ID</a></li>
+<li><a class="reference internal" href="#idleview">IdleView</a></li>
+<li><a class="reference internal" href="#ignorelighting">IgnoreLighting</a></li>
+<li><a class="reference internal" href="#ignorewalkbehinds">IgnoreWalkbehinds</a></li>
+<li><a class="reference internal" href="#inventoryquantity">InventoryQuantity</a></li>
+<li><a class="reference internal" href="#loop">Loop</a></li>
+<li><a class="reference internal" href="#manualscaling">ManualScaling</a></li>
+<li><a class="reference internal" href="#movementlinkedtoanimation">MovementLinkedToAnimation</a></li>
+<li><a class="reference internal" href="#moving">Moving</a></li>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#normalview">NormalView</a></li>
+<li><a class="reference internal" href="#previousroom">PreviousRoom</a></li>
+<li><a class="reference internal" href="#room">Room</a></li>
+<li><a class="reference internal" href="#scalemovespeed">ScaleMoveSpeed</a></li>
+<li><a class="reference internal" href="#scalevolume">ScaleVolume</a></li>
+<li><a class="reference internal" href="#scaling">Scaling</a></li>
+<li><a class="reference internal" href="#solid">Solid</a></li>
+<li><a class="reference internal" href="#speaking">Speaking</a></li>
+<li><a class="reference internal" href="#speakingframe">SpeakingFrame</a></li>
+<li><a class="reference internal" href="#speechanimationdelay">SpeechAnimationDelay</a></li>
+<li><a class="reference internal" href="#speechcolor">SpeechColor</a></li>
+<li><a class="reference internal" href="#speechview">SpeechView</a></li>
+<li><a class="reference internal" href="#thinking">Thinking</a></li>
+<li><a class="reference internal" href="#thinkingframe">ThinkingFrame</a></li>
+<li><a class="reference internal" href="#thinkview">ThinkView</a></li>
+<li><a class="reference internal" href="#transparency">Transparency</a></li>
+<li><a class="reference internal" href="#turnbeforewalking">TurnBeforeWalking</a></li>
+<li><a class="reference internal" href="#view">View</a></li>
+<li><a class="reference internal" href="#walkspeedx">WalkSpeedX</a></li>
+<li><a class="reference internal" href="#walkspeedy">WalkSpeedY</a></li>
+<li><a class="reference internal" href="#x">x</a></li>
+<li><a class="reference internal" href="#y">y</a></li>
+<li><a class="reference internal" href="#z">z</a></li>
+<li><a class="reference internal" href="#setcharacterproperty">SetCharacterProperty</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/Character.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
   <div class="section" id="character-functions-and-properties">
 <span id="character-functions-and-properties"></span><h1>Character functions and properties<a class="headerlink" href="#character-functions-and-properties" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="#addinventory">AddInventory</a><br>
@@ -2559,147 +2732,11 @@ properties:</strong></p>
 </div>
 
 
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Character functions and properties</a><ul>
-<li><a class="reference internal" href="#addinventory">AddInventory</a></li>
-<li><a class="reference internal" href="#addwaypoint">AddWaypoint</a></li>
-<li><a class="reference internal" href="#animate">Animate</a></li>
-<li><a class="reference internal" href="#changeroom">ChangeRoom</a></li>
-<li><a class="reference internal" href="#changeroomautoposition">ChangeRoomAutoPosition</a></li>
-<li><a class="reference internal" href="#changeview">ChangeView</a></li>
-<li><a class="reference internal" href="#facecharacter">FaceCharacter</a></li>
-<li><a class="reference internal" href="#facedirection">FaceDirection</a></li>
-<li><a class="reference internal" href="#facelocation">FaceLocation</a></li>
-<li><a class="reference internal" href="#faceobject">FaceObject</a></li>
-<li><a class="reference internal" href="#followcharacter">FollowCharacter</a></li>
-<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
-<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
-<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
-<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
-<li><a class="reference internal" href="#hasexplicitlight">HasExplicitLight</a></li>
-<li><a class="reference internal" href="#hasinventory">HasInventory</a></li>
-<li><a class="reference internal" href="#iscollidingwithchar">IsCollidingWithChar</a></li>
-<li><a class="reference internal" href="#iscollidingwithobject">IsCollidingWithObject</a></li>
-<li><a class="reference internal" href="#lightlevel">LightLevel</a></li>
-<li><a class="reference internal" href="#lockview">LockView</a></li>
-<li><a class="reference internal" href="#lockviewaligned">LockViewAligned</a></li>
-<li><a class="reference internal" href="#lockviewframe">LockViewFrame</a></li>
-<li><a class="reference internal" href="#lockviewoffset">LockViewOffset</a></li>
-<li><a class="reference internal" href="#loseinventory">LoseInventory</a></li>
-<li><a class="reference internal" href="#move">Move</a></li>
-<li><a class="reference internal" href="#placeonwalkablearea">PlaceOnWalkableArea</a></li>
-<li><a class="reference internal" href="#removetint">RemoveTint</a></li>
-<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
-<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
-<li><a class="reference internal" href="#say">Say</a></li>
-<li><a class="reference internal" href="#sayat">SayAt</a></li>
-<li><a class="reference internal" href="#saybackground">SayBackground</a></li>
-<li><a class="reference internal" href="#setasplayer">SetAsPlayer</a></li>
-<li><a class="reference internal" href="#setlightlevel">SetLightLevel</a></li>
-<li><a class="reference internal" href="#setidleview">SetIdleView</a></li>
-<li><a class="reference internal" href="#setwalkspeed">SetWalkSpeed</a></li>
-<li><a class="reference internal" href="#stopmoving">StopMoving</a></li>
-<li><a class="reference internal" href="#think">Think</a></li>
-<li><a class="reference internal" href="#tint">Tint</a></li>
-<li><a class="reference internal" href="#tintblue">TintBlue</a></li>
-<li><a class="reference internal" href="#tintgreen">TintGreen</a></li>
-<li><a class="reference internal" href="#tintred">TintRed</a></li>
-<li><a class="reference internal" href="#tintsaturation">TintSaturation</a></li>
-<li><a class="reference internal" href="#tintluminance">TintLuminance</a></li>
-<li><a class="reference internal" href="#unlockview">UnlockView</a></li>
-<li><a class="reference internal" href="#walk">Walk</a></li>
-<li><a class="reference internal" href="#walkstraight">WalkStraight</a></li>
-<li><a class="reference internal" href="#activeinventory">ActiveInventory</a></li>
-<li><a class="reference internal" href="#animating">Animating</a></li>
-<li><a class="reference internal" href="#animationspeed">AnimationSpeed</a></li>
-<li><a class="reference internal" href="#baseline">Baseline</a></li>
-<li><a class="reference internal" href="#blinkinterval">BlinkInterval</a></li>
-<li><a class="reference internal" href="#blinkview">BlinkView</a></li>
-<li><a class="reference internal" href="#blinkwhilethinking">BlinkWhileThinking</a></li>
-<li><a class="reference internal" href="#blockingheight">BlockingHeight</a></li>
-<li><a class="reference internal" href="#blockingwidth">BlockingWidth</a></li>
-<li><a class="reference internal" href="#clickable">Clickable</a></li>
-<li><a class="reference internal" href="#destinationx">DestinationX</a></li>
-<li><a class="reference internal" href="#destinationy">DestinationY</a></li>
-<li><a class="reference internal" href="#diagonalloops">DiagonalLoops</a></li>
-<li><a class="reference internal" href="#frame">Frame</a></li>
-<li><a class="reference internal" href="#hasexplicittint">HasExplicitTint</a></li>
-<li><a class="reference internal" href="#id">ID</a></li>
-<li><a class="reference internal" href="#idleview">IdleView</a></li>
-<li><a class="reference internal" href="#ignorelighting">IgnoreLighting</a></li>
-<li><a class="reference internal" href="#ignorewalkbehinds">IgnoreWalkbehinds</a></li>
-<li><a class="reference internal" href="#inventoryquantity">InventoryQuantity</a></li>
-<li><a class="reference internal" href="#loop">Loop</a></li>
-<li><a class="reference internal" href="#manualscaling">ManualScaling</a></li>
-<li><a class="reference internal" href="#movementlinkedtoanimation">MovementLinkedToAnimation</a></li>
-<li><a class="reference internal" href="#moving">Moving</a></li>
-<li><a class="reference internal" href="#name">Name</a></li>
-<li><a class="reference internal" href="#normalview">NormalView</a></li>
-<li><a class="reference internal" href="#previousroom">PreviousRoom</a></li>
-<li><a class="reference internal" href="#room">Room</a></li>
-<li><a class="reference internal" href="#scalemovespeed">ScaleMoveSpeed</a></li>
-<li><a class="reference internal" href="#scalevolume">ScaleVolume</a></li>
-<li><a class="reference internal" href="#scaling">Scaling</a></li>
-<li><a class="reference internal" href="#solid">Solid</a></li>
-<li><a class="reference internal" href="#speaking">Speaking</a></li>
-<li><a class="reference internal" href="#speakingframe">SpeakingFrame</a></li>
-<li><a class="reference internal" href="#speechanimationdelay">SpeechAnimationDelay</a></li>
-<li><a class="reference internal" href="#speechcolor">SpeechColor</a></li>
-<li><a class="reference internal" href="#speechview">SpeechView</a></li>
-<li><a class="reference internal" href="#thinking">Thinking</a></li>
-<li><a class="reference internal" href="#thinkingframe">ThinkingFrame</a></li>
-<li><a class="reference internal" href="#thinkview">ThinkView</a></li>
-<li><a class="reference internal" href="#transparency">Transparency</a></li>
-<li><a class="reference internal" href="#turnbeforewalking">TurnBeforeWalking</a></li>
-<li><a class="reference internal" href="#view">View</a></li>
-<li><a class="reference internal" href="#walkspeedx">WalkSpeedX</a></li>
-<li><a class="reference internal" href="#walkspeedy">WalkSpeedY</a></li>
-<li><a class="reference internal" href="#x">x</a></li>
-<li><a class="reference internal" href="#y">y</a></li>
-<li><a class="reference internal" href="#z">z</a></li>
-<li><a class="reference internal" href="#setcharacterproperty">SetCharacterProperty</a></li>
-</ul>
-</li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/Character.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
     </div>
+      
+  </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-<div class="footer">&copy;2018, AGS Team<br>build date: Jul 27, 2018, 1:44:55 AM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 27, 2018, 3:13:03 AM</div>
 
   </body>
 </html>

@@ -1,36 +1,203 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Game / Global functions &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
 
   </head><body>
-  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          AGS Manual</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
 
-          <div class="body" role="main">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             
+                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">AGS Manual <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Game / Global functions</a><ul>
+<li><a class="reference internal" href="#abortgame">AbortGame</a></li>
+<li><a class="reference internal" href="#callroomscript">CallRoomScript</a></li>
+<li><a class="reference internal" href="#changetranslation">ChangeTranslation</a></li>
+<li><a class="reference internal" href="#claimevent">ClaimEvent</a></li>
+<li><a class="reference internal" href="#debug">Debug</a></li>
+<li><a class="reference internal" href="#deletesaveslot">DeleteSaveSlot</a></li>
+<li><a class="reference internal" href="#disableinterface">DisableInterface</a></li>
+<li><a class="reference internal" href="#doonceonly">DoOnceOnly</a></li>
+<li><a class="reference internal" href="#enableinterface">EnableInterface</a></li>
+<li><a class="reference internal" href="#endcutscene">EndCutscene</a></li>
+<li><a class="reference internal" href="#getcolorfromrgb">GetColorFromRGB</a></li>
+<li><a class="reference internal" href="#getframecountforloop">GetFrameCountForLoop</a></li>
+<li><a class="reference internal" href="#getgameoption">GetGameOption</a></li>
+<li><a class="reference internal" href="#getgameparameter">GetGameParameter</a></li>
+<li><a class="reference internal" href="#getgamespeed">GetGameSpeed</a></li>
+<li><a class="reference internal" href="#getglobalint">GetGlobalInt</a></li>
+<li><a class="reference internal" href="#getgraphicalvariable">GetGraphicalVariable</a></li>
+<li><a class="reference internal" href="#getlocationname">GetLocationName</a></li>
+<li><a class="reference internal" href="#getlocationtype">GetLocationType</a></li>
+<li><a class="reference internal" href="#getloopcountforview">GetLoopCountForView</a></li>
+<li><a class="reference internal" href="#getrunnextsettingforloop">GetRunNextSettingForLoop</a></li>
+<li><a class="reference internal" href="#getsaveslotdescription">GetSaveSlotDescription</a></li>
+<li><a class="reference internal" href="#gettextheight">GetTextHeight</a></li>
+<li><a class="reference internal" href="#gettextwidth">GetTextWidth</a></li>
+<li><a class="reference internal" href="#gettranslation">GetTranslation</a></li>
+<li><a class="reference internal" href="#getviewframe">GetViewFrame</a></li>
+<li><a class="reference internal" href="#givescore">GiveScore</a></li>
+<li><a class="reference internal" href="#getfontheight">GetFontHeight</a></li>
+<li><a class="reference internal" href="#getfontlinespacing">GetFontLineSpacing</a></li>
+<li><a class="reference internal" href="#inputbox">InputBox</a></li>
+<li><a class="reference internal" href="#inventoryscreen">InventoryScreen</a></li>
+<li><a class="reference internal" href="#isgamepaused">IsGamePaused</a></li>
+<li><a class="reference internal" href="#isinterfaceenabled">IsInterfaceEnabled</a></li>
+<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
+<li><a class="reference internal" href="#iskeypressed">IsKeyPressed</a></li>
+<li><a class="reference internal" href="#ispluginloaded">IsPluginLoaded</a></li>
+<li><a class="reference internal" href="#istimerexpired">IsTimerExpired</a></li>
+<li><a class="reference internal" href="#istranslationavailable">IsTranslationAvailable</a></li>
+<li><a class="reference internal" href="#movecharactertohotspot">MoveCharacterToHotspot</a></li>
+<li><a class="reference internal" href="#movecharactertoobject">MoveCharacterToObject</a></li>
+<li><a class="reference internal" href="#pausegame">PauseGame</a></li>
+<li><a class="reference internal" href="#quitgame">QuitGame</a></li>
+<li><a class="reference internal" href="#random">Random</a></li>
+<li><a class="reference internal" href="#restartgame">RestartGame</a></li>
+<li><a class="reference internal" href="#restoregamedialog">RestoreGameDialog</a></li>
+<li><a class="reference internal" href="#restoregameslot">RestoreGameSlot</a></li>
+<li><a class="reference internal" href="#runagsgame">RunAGSGame</a></li>
+<li><a class="reference internal" href="#savegamedialog">SaveGameDialog</a></li>
+<li><a class="reference internal" href="#savegameslot">SaveGameSlot</a></li>
+<li><a class="reference internal" href="#savescreenshot">SaveScreenShot</a></li>
+<li><a class="reference internal" href="#setambientlightlevel">SetAmbientLightLevel</a></li>
+<li><a class="reference internal" href="#setambienttint">SetAmbientTint</a></li>
+<li><a class="reference internal" href="#setgameoption">SetGameOption</a></li>
+<li><a class="reference internal" href="#setgamespeed">SetGameSpeed</a></li>
+<li><a class="reference internal" href="#setglobalint">SetGlobalInt</a></li>
+<li><a class="reference internal" href="#setgraphicalvariable">SetGraphicalVariable</a></li>
+<li><a class="reference internal" href="#setmultitaskingmode">SetMultitaskingMode</a></li>
+<li><a class="reference internal" href="#setrestartpoint">SetRestartPoint</a></li>
+<li><a class="reference internal" href="#setsavegamedirectory">SetSaveGameDirectory</a></li>
+<li><a class="reference internal" href="#settextwindowgui">SetTextWindowGUI</a></li>
+<li><a class="reference internal" href="#settimer">SetTimer</a></li>
+<li><a class="reference internal" href="#skipuntilcharacterstops">SkipUntilCharacterStops</a></li>
+<li><a class="reference internal" href="#startcutscene">StartCutscene</a></li>
+<li><a class="reference internal" href="#updateinventory">UpdateInventory</a></li>
+<li><a class="reference internal" href="#unpausegame">UnPauseGame</a></li>
+<li><a class="reference internal" href="#wait">Wait</a></li>
+<li><a class="reference internal" href="#waitkey">WaitKey</a></li>
+<li><a class="reference internal" href="#waitmousekey">WaitMouseKey</a></li>
+<li><a class="reference internal" href="#audioclipcount">AudioClipCount</a></li>
+<li><a class="reference internal" href="#audioclips">AudioClips</a></li>
+<li><a class="reference internal" href="#charactercount">CharacterCount</a></li>
+<li><a class="reference internal" href="#dialogcount">DialogCount</a></li>
+<li><a class="reference internal" href="#filename">FileName</a></li>
+<li><a class="reference internal" href="#fontcount">FontCount</a></li>
+<li><a class="reference internal" href="#globalmessages">GlobalMessages</a></li>
+<li><a class="reference internal" href="#globalstrings">GlobalStrings</a></li>
+<li><a class="reference internal" href="#guicount">GUICount</a></li>
+<li><a class="reference internal" href="#ignoreuserinputaftertexttimeoutms">IgnoreUserInputAfterTextTimeoutMs</a></li>
+<li><a class="reference internal" href="#inskippablecutscene">InSkippableCutscene</a></li>
+<li><a class="reference internal" href="#inventoryitemcount">InventoryItemCount</a></li>
+<li><a class="reference internal" href="#minimumtextdisplaytimems">MinimumTextDisplayTimeMs</a></li>
+<li><a class="reference internal" href="#mousecursorcount">MouseCursorCount</a></li>
+<li><a class="reference internal" href="#name">Name</a></li>
+<li><a class="reference internal" href="#normalfont">NormalFont</a></li>
+<li><a class="reference internal" href="#skippingcutscene">SkippingCutscene</a></li>
+<li><a class="reference internal" href="#speechfont">SpeechFont</a></li>
+<li><a class="reference internal" href="#spriteheight">SpriteHeight</a></li>
+<li><a class="reference internal" href="#spritewidth">SpriteWidth</a></li>
+<li><a class="reference internal" href="#textreadingspeed">TextReadingSpeed</a></li>
+<li><a class="reference internal" href="#translationfilename">TranslationFilename</a></li>
+<li><a class="reference internal" href="#usenativecoordinates">UseNativeCoordinates</a></li>
+<li><a class="reference internal" href="#viewcount">ViewCount</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/Game.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
   <div class="section" id="game-global-functions">
 <span id="game-global-functions"></span><h1>Game / Global functions<a class="headerlink" href="#game-global-functions" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="#abortgame">AbortGame</a><br>
@@ -2296,141 +2463,11 @@ views for some reason. Valid views are numbered from 1 to ViewCount.</p>
 </div>
 
 
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Game / Global functions</a><ul>
-<li><a class="reference internal" href="#abortgame">AbortGame</a></li>
-<li><a class="reference internal" href="#callroomscript">CallRoomScript</a></li>
-<li><a class="reference internal" href="#changetranslation">ChangeTranslation</a></li>
-<li><a class="reference internal" href="#claimevent">ClaimEvent</a></li>
-<li><a class="reference internal" href="#debug">Debug</a></li>
-<li><a class="reference internal" href="#deletesaveslot">DeleteSaveSlot</a></li>
-<li><a class="reference internal" href="#disableinterface">DisableInterface</a></li>
-<li><a class="reference internal" href="#doonceonly">DoOnceOnly</a></li>
-<li><a class="reference internal" href="#enableinterface">EnableInterface</a></li>
-<li><a class="reference internal" href="#endcutscene">EndCutscene</a></li>
-<li><a class="reference internal" href="#getcolorfromrgb">GetColorFromRGB</a></li>
-<li><a class="reference internal" href="#getframecountforloop">GetFrameCountForLoop</a></li>
-<li><a class="reference internal" href="#getgameoption">GetGameOption</a></li>
-<li><a class="reference internal" href="#getgameparameter">GetGameParameter</a></li>
-<li><a class="reference internal" href="#getgamespeed">GetGameSpeed</a></li>
-<li><a class="reference internal" href="#getglobalint">GetGlobalInt</a></li>
-<li><a class="reference internal" href="#getgraphicalvariable">GetGraphicalVariable</a></li>
-<li><a class="reference internal" href="#getlocationname">GetLocationName</a></li>
-<li><a class="reference internal" href="#getlocationtype">GetLocationType</a></li>
-<li><a class="reference internal" href="#getloopcountforview">GetLoopCountForView</a></li>
-<li><a class="reference internal" href="#getrunnextsettingforloop">GetRunNextSettingForLoop</a></li>
-<li><a class="reference internal" href="#getsaveslotdescription">GetSaveSlotDescription</a></li>
-<li><a class="reference internal" href="#gettextheight">GetTextHeight</a></li>
-<li><a class="reference internal" href="#gettextwidth">GetTextWidth</a></li>
-<li><a class="reference internal" href="#gettranslation">GetTranslation</a></li>
-<li><a class="reference internal" href="#getviewframe">GetViewFrame</a></li>
-<li><a class="reference internal" href="#givescore">GiveScore</a></li>
-<li><a class="reference internal" href="#getfontheight">GetFontHeight</a></li>
-<li><a class="reference internal" href="#getfontlinespacing">GetFontLineSpacing</a></li>
-<li><a class="reference internal" href="#inputbox">InputBox</a></li>
-<li><a class="reference internal" href="#inventoryscreen">InventoryScreen</a></li>
-<li><a class="reference internal" href="#isgamepaused">IsGamePaused</a></li>
-<li><a class="reference internal" href="#isinterfaceenabled">IsInterfaceEnabled</a></li>
-<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
-<li><a class="reference internal" href="#iskeypressed">IsKeyPressed</a></li>
-<li><a class="reference internal" href="#ispluginloaded">IsPluginLoaded</a></li>
-<li><a class="reference internal" href="#istimerexpired">IsTimerExpired</a></li>
-<li><a class="reference internal" href="#istranslationavailable">IsTranslationAvailable</a></li>
-<li><a class="reference internal" href="#movecharactertohotspot">MoveCharacterToHotspot</a></li>
-<li><a class="reference internal" href="#movecharactertoobject">MoveCharacterToObject</a></li>
-<li><a class="reference internal" href="#pausegame">PauseGame</a></li>
-<li><a class="reference internal" href="#quitgame">QuitGame</a></li>
-<li><a class="reference internal" href="#random">Random</a></li>
-<li><a class="reference internal" href="#restartgame">RestartGame</a></li>
-<li><a class="reference internal" href="#restoregamedialog">RestoreGameDialog</a></li>
-<li><a class="reference internal" href="#restoregameslot">RestoreGameSlot</a></li>
-<li><a class="reference internal" href="#runagsgame">RunAGSGame</a></li>
-<li><a class="reference internal" href="#savegamedialog">SaveGameDialog</a></li>
-<li><a class="reference internal" href="#savegameslot">SaveGameSlot</a></li>
-<li><a class="reference internal" href="#savescreenshot">SaveScreenShot</a></li>
-<li><a class="reference internal" href="#setambientlightlevel">SetAmbientLightLevel</a></li>
-<li><a class="reference internal" href="#setambienttint">SetAmbientTint</a></li>
-<li><a class="reference internal" href="#setgameoption">SetGameOption</a></li>
-<li><a class="reference internal" href="#setgamespeed">SetGameSpeed</a></li>
-<li><a class="reference internal" href="#setglobalint">SetGlobalInt</a></li>
-<li><a class="reference internal" href="#setgraphicalvariable">SetGraphicalVariable</a></li>
-<li><a class="reference internal" href="#setmultitaskingmode">SetMultitaskingMode</a></li>
-<li><a class="reference internal" href="#setrestartpoint">SetRestartPoint</a></li>
-<li><a class="reference internal" href="#setsavegamedirectory">SetSaveGameDirectory</a></li>
-<li><a class="reference internal" href="#settextwindowgui">SetTextWindowGUI</a></li>
-<li><a class="reference internal" href="#settimer">SetTimer</a></li>
-<li><a class="reference internal" href="#skipuntilcharacterstops">SkipUntilCharacterStops</a></li>
-<li><a class="reference internal" href="#startcutscene">StartCutscene</a></li>
-<li><a class="reference internal" href="#updateinventory">UpdateInventory</a></li>
-<li><a class="reference internal" href="#unpausegame">UnPauseGame</a></li>
-<li><a class="reference internal" href="#wait">Wait</a></li>
-<li><a class="reference internal" href="#waitkey">WaitKey</a></li>
-<li><a class="reference internal" href="#waitmousekey">WaitMouseKey</a></li>
-<li><a class="reference internal" href="#audioclipcount">AudioClipCount</a></li>
-<li><a class="reference internal" href="#audioclips">AudioClips</a></li>
-<li><a class="reference internal" href="#charactercount">CharacterCount</a></li>
-<li><a class="reference internal" href="#dialogcount">DialogCount</a></li>
-<li><a class="reference internal" href="#filename">FileName</a></li>
-<li><a class="reference internal" href="#fontcount">FontCount</a></li>
-<li><a class="reference internal" href="#globalmessages">GlobalMessages</a></li>
-<li><a class="reference internal" href="#globalstrings">GlobalStrings</a></li>
-<li><a class="reference internal" href="#guicount">GUICount</a></li>
-<li><a class="reference internal" href="#ignoreuserinputaftertexttimeoutms">IgnoreUserInputAfterTextTimeoutMs</a></li>
-<li><a class="reference internal" href="#inskippablecutscene">InSkippableCutscene</a></li>
-<li><a class="reference internal" href="#inventoryitemcount">InventoryItemCount</a></li>
-<li><a class="reference internal" href="#minimumtextdisplaytimems">MinimumTextDisplayTimeMs</a></li>
-<li><a class="reference internal" href="#mousecursorcount">MouseCursorCount</a></li>
-<li><a class="reference internal" href="#name">Name</a></li>
-<li><a class="reference internal" href="#normalfont">NormalFont</a></li>
-<li><a class="reference internal" href="#skippingcutscene">SkippingCutscene</a></li>
-<li><a class="reference internal" href="#speechfont">SpeechFont</a></li>
-<li><a class="reference internal" href="#spriteheight">SpriteHeight</a></li>
-<li><a class="reference internal" href="#spritewidth">SpriteWidth</a></li>
-<li><a class="reference internal" href="#textreadingspeed">TextReadingSpeed</a></li>
-<li><a class="reference internal" href="#translationfilename">TranslationFilename</a></li>
-<li><a class="reference internal" href="#usenativecoordinates">UseNativeCoordinates</a></li>
-<li><a class="reference internal" href="#viewcount">ViewCount</a></li>
-</ul>
-</li>
-</ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/Game.md.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
     </div>
+      
+  </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-<div class="footer">&copy;2018, AGS Team<br>build date: Jul 27, 2018, 1:44:55 AM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jul 27, 2018, 3:13:03 AM</div>
 
   </body>
 </html>
