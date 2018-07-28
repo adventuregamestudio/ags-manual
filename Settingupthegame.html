@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -638,7 +694,7 @@ script function will be run, with its parameter being the dialog topic
 number that the player was in.</p>
 <p>AGS automatically calls ParseText with the text they typed in before it
 calls dialog_request, so you can use Said() calls to respond. See the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/TextParser">text parser</a> section for more info.</p>
+<a class="reference external" href="TextParser">text parser</a> section for more info.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="general-settings">
@@ -657,9 +713,9 @@ devices support. 16-bit is rather a compatibility setting, that will
 reduce the size of your game resources at the cost of colour
 precision. 8-bit colour mode is a special feature for making
 palette-based games. See Also: <a class="reference external" href="#palette-setup">Palette setup</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/CyclePalette">Palette functions</a></li>
+<a class="reference external" href="CyclePalette">Palette functions</a></li>
 <li><strong>Developer name</strong> - this will add the provided string to the game’s
-executable properties, which will also be shown in <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/IntegrationWithWindows#gameexplorer">Windows Game
+executable properties, which will also be shown in <a class="reference external" href="IntegrationWithWindows#gameexplorer">Windows Game
 Explorer</a>, if you configure integration
 with one.</li>
 <li><strong>Enable letterbox mode</strong> - only available if your game’s resolution
@@ -673,11 +729,11 @@ for custom viewport size.</li>
 the window title, and also added to the game’s
 executable properties.</li>
 <li><strong>Maximum possible score</strong> - the maximum score your game has, if you
-are using score mechanics, such as <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#givescore">GiveScore</a>
+are using score mechanics, such as <a class="reference external" href="Game#givescore">GiveScore</a>
 script function.</li>
 <li><strong>Put sound and sprite files in source control</strong> - whether game
 resources, such as sprites and audio, are put under source control.
-For more information see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/SourceControl">Source Control
+For more information see <a class="reference external" href="SourceControl">Source Control
 integration</a>.</li>
 <li><strong>Render sprites at screen resolution</strong> - whether characters and
 objects should be scaled in screen pixels rather than game pixels.
@@ -743,7 +799,7 @@ be off; it may only be useful when importing really old game project
 where such setting was a norm.</li>
 <li><strong>Use old-style custom dialog options API</strong> - switch to using
 pre-AGS 3.4.0 custom dialog options callbacks. The differences
-between old and new APIs <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/UpgradeTo34">are explained in this
+between old and new APIs <a class="reference external" href="UpgradeTo34">are explained in this
 topic</a>.</li>
 </ul>
 <p><strong>Character movement</strong></p>
@@ -764,8 +820,8 @@ correct direction using available animation frames, rather than just
 suddenly switching to face the right way.</li>
 <li><strong>Characters turn to face direction</strong> - if set, then when a
 character turns round with the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facelocation">Character.FaceLocation</a> or
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a> script
+<a class="reference external" href="Character#facelocation">Character.FaceLocation</a> or
+<a class="reference external" href="Character#facecharacter">Character.FaceCharacter</a> script
 commands, they will visibly turn around using their available loops.
 If this option is not set, they will immediately appear facing their
 new direction.</li>
@@ -781,9 +837,9 @@ debug mode is on, you can press Ctrl-X to teleport to any room,
 Ctrl-S to give all inventory items, Ctrl-A to display walkable areas
 on the screen, and Ctrl-D to display statistics about the
 current room. When debug mode is off, these do nothing. See the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Debuggingfeatures">Debugging features</a> section for more.</li>
+<a class="reference external" href="Debuggingfeatures">Debugging features</a> section for more.</li>
 <li><strong>Split resource files into X MB-sized chunks</strong> - see
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DistGame#splitting-resource-files">here</a> for information.</li>
+<a class="reference external" href="DistGame#splitting-resource-files">here</a> for information.</li>
 </ul>
 <p><strong>Dialog</strong></p>
 <ul>
@@ -882,8 +938,8 @@ won’t be changed.</li>
 <ul class="simple">
 <li><strong>Enhanced save games</strong> - makes your game’s saves compatible with
 Windows Game Explorer. For detailed information please refer to:
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/IntegrationWithWindows#enhanced-save-games">Enhanced Saved Games</a><br>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/IntegrationWithWindows#windows-game-explorer">Windows Game Explorer</a></li>
+<a class="reference external" href="IntegrationWithWindows#enhanced-save-games">Enhanced Saved Games</a><br>
+<a class="reference external" href="IntegrationWithWindows#windows-game-explorer">Windows Game Explorer</a></li>
 <li><strong>Save games extension</strong> - determines the special extension for your
 save files.</li>
 <li><strong>Save games folder name</strong> - determines the name of folder created
@@ -921,11 +977,11 @@ anti-aliasing only works in hi-color games (in 256-colour games, the
 output will look blurred and unreadable).</li>
 <li><strong>Custom text-windows GUI</strong> - allows you to customize the standard
 text window appearance in the game, using the specified interface
-element. See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/EditingGUIs#customized-text-windows">here</a> for more
+element. See <a class="reference external" href="EditingGUIs#customized-text-windows">here</a> for more
 information.</li>
 <li><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is
 used for displaying thoughts with
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#think">Think</a>.</li>
+<a class="reference external" href="Character#think">Think</a>.</li>
 <li><strong>Fonts designed for high resolution</strong> - normally, if the player
 chooses high resolution for their game, then the fonts will be
 scaled up to match. However, if you have drawn your fonts for the
@@ -955,7 +1011,7 @@ or whether it was a transparent part of the graphic. If this option
 is enabled and they click on a transparent pixel, then the hotspot
 behind the object will be activated instead.</li>
 <li><strong>Sprite alpha rendering style</strong> - determines which rendering method
-to use in 32-bit games when an image is drawn over <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions">drawing
+to use in 32-bit games when an image is drawn over <a class="reference external" href="DrawingSurfaceFunctions">drawing
 surface</a>. The “Proper alpha
 belnding” choice is meant for full alpha blending support, “Classic”
 style exists for compatibility with older versions of AGS only.</li>
@@ -963,7 +1019,7 @@ style exists for compatibility with older versions of AGS only.</li>
 happens to buttons on your GUIs while the game interface is
 disabled (eg. during a cutscene).</li>
 </ul>
-<p><strong>Windows Game Explorer</strong> See: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/IntegrationWithWindows#gameexplorer">Windows Game
+<p><strong>Windows Game Explorer</strong> See: <a class="reference external" href="IntegrationWithWindows#gameexplorer">Windows Game
 Explorer</a></p>
 </div>
 <hr class="docutils" />
@@ -975,7 +1031,7 @@ setup utility (winsetup.exe) anymore, because it modifies config file in
 the user’s personal documents folder instead of game folder. For that
 reason you should be doing it from this Editor’s page now.</p>
 <p>Most of the options here correspond to the ones you may find in the
-setup utility. For their meaning please refer to <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Setup">related
+setup utility. For their meaning please refer to <a class="reference external" href="Setup">related
 topic</a>.</p>
 <p>Additionally, following settings are available:</p>
 <p><strong>Setup appearance</strong></p>
@@ -1007,7 +1063,7 @@ in setup program.</li>
 <p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next
 game compilation, so if you change these settings you will need to
 rebuild your game one more time to apply them.</p>
-<p>See also: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Setup">Run-time engine setup</a></p>
+<p>See also: <a class="reference external" href="Setup">Run-time engine setup</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="cursors">
@@ -1122,7 +1178,7 @@ Game.NormalFont and Game.SpeechFont properties in your script.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

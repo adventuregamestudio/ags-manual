@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -203,8 +259,8 @@ calling Object.IsCollidingWithObject.</p>
 <p>will run the code if object 2 is overlapping EGO. This could be useful
 if object 2 was a bullet, for instance.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#iscollidingwithchar">Character.IsCollidingWithChar</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a></p>
+<a class="reference external" href="Character#iscollidingwithchar">Character.IsCollidingWithChar</a>,
+<a class="reference external" href="Object#iscollidingwithobject">Object.IsCollidingWithObject</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="disablegroundlevelareas">
@@ -229,8 +285,8 @@ as 0, then just the events will be turned off.</p>
 </pre></div>
 </div>
 <p>will disable all ground-level events, but leave light levels working</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#enabled">Hotspot.Enabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#enabled">Region.Enabled</a>,
+<p><em>See Also:</em> <a class="reference external" href="Hotspot#enabled">Hotspot.Enabled</a>,
+<a class="reference external" href="Region#enabled">Region.Enabled</a>,
 <a class="reference external" href="#enablegroundlevelareas">EnableGroundLevelAreas</a></p>
 </div>
 <hr class="docutils" />
@@ -247,8 +303,8 @@ normal.</p>
 </pre></div>
 </div>
 <p>will re-enable all ground-level events.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#enabled">Hotspot.Enabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#enabled">Region.Enabled</a>,
+<p><em>See Also:</em> <a class="reference external" href="Hotspot#enabled">Hotspot.Enabled</a>,
+<a class="reference external" href="Region#enabled">Region.Enabled</a>,
 <a class="reference external" href="#disablegroundlevelareas">DisableGroundLevelAreas</a></p>
 </div>
 <hr class="docutils" />
@@ -278,7 +334,7 @@ current frame number is returned from 0 to 4.</p>
 directly draw onto the room’s background image. You can provide a
 background frame number if you want to modify a specific frame;
 otherwise, the current background’s surface will be returned.</p>
-<p>After calling this method, use the various <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions">DrawingSurface
+<p>After calling this method, use the various <a class="reference external" href="DrawingSurfaceFunctions">DrawingSurface
 functions</a> to modify the background,
 then call Release on the surface when you are finished.</p>
 <p>Any changes you make will only last until the player leaves the room, at
@@ -299,8 +355,8 @@ necessary.</p>
 <p>draws a yellow diagonal line across the top-left of the current room
 background, then releases the image.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
+<a class="reference external" href="DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getplayercharacter">
@@ -315,7 +371,7 @@ property, as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player character number is </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">player</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#id">Character.ID</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Character#id">Character.ID</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getproperty">
@@ -487,8 +543,8 @@ mouse cursor position variables.</p>
     <span class="n">Display</span> <span class="p">(</span><span class="s2">&quot;You can&#39;t walk there.&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#getatroomxy">Region.GetAtRoomXY</a>,
+<p><em>See Also:</em> <a class="reference external" href="Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
+<a class="reference external" href="Region#getatroomxy">Region.GetAtRoomXY</a>,
 <a class="reference external" href="#getscalingat">GetScalingAt</a></p>
 </div>
 <hr class="docutils" />
@@ -540,10 +596,10 @@ eModeLookat, etc.</p>
 </pre></div>
 </div>
 <p>will simulate a click in the Look mode on co-ordinates (100, 50).</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#processclick">GUI.ProcessClick</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#click">Mouse.Click</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
+<p><em>See Also:</em> <a class="reference external" href="GUI#processclick">GUI.ProcessClick</a>,
+<a class="reference external" href="Mouse#click">Mouse.Click</a>,
+<a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
+<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="releaseviewport">
@@ -729,7 +785,7 @@ in front of it, otherwise he will be drawn behind it.</p>
 </pre></div>
 </div>
 <p>will disable the walkbehind area number 3.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#baseline">Object.Baseline</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Object#baseline">Object.Baseline</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="bottomedge">
@@ -761,7 +817,7 @@ must be the same colour depth as the room itself.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawimage">DrawingSurface.DrawImage</a></p>
+<a class="reference external" href="DrawingSurfaceFunctions#drawimage">DrawingSurface.DrawImage</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="height">
@@ -908,7 +964,7 @@ the same width as is displayed as the “Relative size” in the Editor.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

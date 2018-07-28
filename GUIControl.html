@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -168,7 +224,7 @@ probably want to use this in conjunction with GetGUIAtLocation.</p>
 </pre></div>
 </div>
 <p>will display what control the mouse is over.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#getatscreenxy">GUI.GetAtScreenXY</a></p>
+<p><em>See Also:</em> <a class="reference external" href="GUI#getatscreenxy">GUI.GetAtScreenXY</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="astype">
@@ -196,7 +252,7 @@ returns <em>null</em>.</p>
 </div>
 <p>attempts to set Button 2 on GUI ICONBAR to have NormalGraphic 44, but if
 that control is not a button, prints a message.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#controls">GUI.Controls</a></p>
+<p><em>See Also:</em> <a class="reference external" href="GUI#controls">GUI.Controls</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="bringtofront">
@@ -312,7 +368,7 @@ legacy code that uses the control’s number rather than object name.</p>
 <p>uses the obsolete SetGUIObjectEnabled function to enable the lstSaves
 list box, and then uses the equivalent modern property to disable it.</p>
 <p><em>See Also:</em> <a class="reference external" href="#owninggui">GUIControl.OwningGUI</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#id">GUI.ID</a></p>
+<a class="reference external" href="GUI#id">GUI.ID</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="owninggui">
@@ -322,7 +378,7 @@ list box, and then uses the equivalent modern property to disable it.</p>
 </div>
 <p>Gets the GUI control’s owning GUI, which is the GUI that contains the
 control.</p>
-<p>Returns a GUI, which allows you to use all the usual <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI">GUI functions and
+<p>Returns a GUI, which allows you to use all the usual <a class="reference external" href="GUI">GUI functions and
 properties</a>.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
@@ -336,7 +392,7 @@ properties</a>.</p>
 <p>turns off the GUI that contains the lstSaves list box, then turns it on
 again using the niftier full pathing approach.</p>
 <p><em>See Also:</em> <a class="reference external" href="#id">GUIControl.ID</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#id">GUI.ID</a></p>
+<a class="reference external" href="GUI#id">GUI.ID</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="sendtoback">
@@ -379,7 +435,7 @@ with GUI.SetSize if you want to create dynamically resizable GUIs.</p>
 <p>will move the <em>btnConfirm</em> button to be positioned at (40,10) within the
 GUI.</p>
 <p><em>See Also:</em> <a class="reference external" href="#enabled">GUIControl.Enabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setposition">GUI.SetPosition</a>,
+<a class="reference external" href="GUI#setposition">GUI.SetPosition</a>,
 <a class="reference external" href="#setsize">GUIControl.SetSize</a>,
 <a class="reference external" href="#x">GUIControl.X</a>,
 <a class="reference external" href="#y">GUIControl.Y</a></p>
@@ -405,7 +461,7 @@ resizable GUIs.</p>
 <p>will resize the <em>invMain</em> control to have a size of 160 x 100.</p>
 <p><em>See Also:</em> <a class="reference external" href="#height">GUIControl.Height</a>,
 <a class="reference external" href="#setposition">GUIControl.SetPosition</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setsize">GUI.SetSize</a>,
+<a class="reference external" href="GUI#setsize">GUI.SetSize</a>,
 <a class="reference external" href="#width">GUIControl.Width</a>,</p>
 </div>
 <hr class="docutils" />
@@ -532,7 +588,7 @@ be applied instead.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

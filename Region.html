@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -151,7 +207,7 @@ rooms.</p>
   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player is not currently standing on a region.&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getwalkableareaat">GetWalkableAreaAt</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Room#getwalkableareaat">GetWalkableAreaAt</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="runinteraction">
@@ -174,8 +230,8 @@ take a cursor mode. Instead, it uses an event type as follows:</p>
 <p>will run the actions defined in the event handler script for “Player
 walks onto region” for region 4.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#runinteraction">Character.RunInteraction</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
+<a class="reference external" href="Character#runinteraction">Character.RunInteraction</a>,
+<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tint">
@@ -189,7 +245,7 @@ percent saturation.</p>
 <p>The red, green and blue values are between 0 and 255, and you supply the
 same values that you would use in the editor.</p>
 <p>For the meaning of all the parameters, see
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a>.</p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a>.</p>
 <p><strong>NOTE</strong>: The tint will be reset when the player leaves the room, so you
 need to use it in Player Enters Room if you want a permanent change.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games.</p>
@@ -202,7 +258,7 @@ need to use it in Player Enters Room if you want a permanent change.</p>
 <p><em>Compatibility:</em> Optional <em>luminance</em> parameter is supported only by
 <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference external" href="#lightlevel">Region.LightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="enabled">
@@ -224,9 +280,9 @@ events will not get run.</p>
 </pre></div>
 </div>
 <p>will disable region number 3.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#enabled">Hotspot.Enabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#removewalkablearea">RemoveWalkableArea</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#restorewalkablearea">RestoreWalkableArea</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Hotspot#enabled">Hotspot.Enabled</a>,
+<a class="reference external" href="Room#removewalkablearea">RemoveWalkableArea</a>,
+<a class="reference external" href="Room#restorewalkablearea">RestoreWalkableArea</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="id">
@@ -275,9 +331,9 @@ and object light levels.</p>
 </div>
 <p>will set region 2’s level light to 100 if the Global Integer 10 is 1.</p>
 <p><em>See Also:</em> <a class="reference external" href="#tint">Region.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setlightlevel">Character.SetLightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a></p>
+<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a>,
+<a class="reference external" href="Character#setlightlevel">Character.SetLightLevel</a>,
+<a class="reference external" href="Object#setlightlevel">Object.SetLightLevel</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintenabled">
@@ -441,7 +497,7 @@ property is false, then this value is meaningless.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

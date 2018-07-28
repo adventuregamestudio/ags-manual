@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -179,7 +235,7 @@ GUI element that happen to be at the given coordinates”.</p>
 </div>
 <p>triggers OnClick event for gMainMenu.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#click">Button.Click</a>,
+<p><em>See Also:</em> <a class="reference external" href="Button#click">Button.Click</a>,
 <a class="reference external" href="#processclick">GUI.ProcessClick</a></p>
 </div>
 <hr class="docutils" />
@@ -213,8 +269,8 @@ Non-Clickable (ie. the “Clickable” checkbox not checked).</p>
 </div>
 <p>will display the number of the GUI that the mouse is over.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#getatscreenxy">GUIControl.GetAtScreenXY</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#id">GUI.ID</a>, <a class="reference external" href="#zorder">GUI.ZOrder</a></p>
+<a class="reference external" href="GUIControl#getatscreenxy">GUIControl.GetAtScreenXY</a>,
+<a class="reference external" href="GUI#id">GUI.ID</a>, <a class="reference external" href="#zorder">GUI.ZOrder</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="processclick">
@@ -238,8 +294,8 @@ eModeLookat, etc.</p>
 <p>will simulate clicking the mouse on co-ordinates (100, 50) in the
 Pointer mode, which will ignore anything but interface.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#click">Mouse.Click</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Mouse#click">Mouse.Click</a>,
+<a class="reference external" href="Room#processclick">Room.ProcessClick</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setposition">
@@ -259,8 +315,8 @@ room co-ordinates, and use the same scale as in the editor.</p>
 <p>will move the VERBCOIN GUI to the position where the cursor is.</p>
 <p><em>See Also:</em> <a class="reference external" href="#centre">GUI.Centre</a>,
 <a class="reference external" href="#backgroundgraphic">GUI.BackgroundGraphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setposition">GUIControl.SetPosition</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUI#setsize">GUI.SetSize</a>, <a class="reference external" href="#x">GUI.X</a>,
+<a class="reference external" href="GUIControl#setposition">GUIControl.SetPosition</a>,
+<a class="reference external" href="GUI#setsize">GUI.SetSize</a>, <a class="reference external" href="#x">GUI.X</a>,
 <a class="reference external" href="#y">GUI.Y</a></p>
 </div>
 <hr class="docutils" />
@@ -282,7 +338,7 @@ options screen and such like.</p>
 <p>changes the ICONBAR GUI to be the size of half the screen</p>
 <p><em>See Also:</em> <a class="reference external" href="#centre">GUI.Centre</a>,
 <a class="reference external" href="#height">GUI.Height</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#setposition">GUIControl.SetPosition</a>,
+<a class="reference external" href="GUIControl#setposition">GUIControl.SetPosition</a>,
 <a class="reference external" href="#setposition">GUI.SetPosition</a>,
 <a class="reference external" href="#width">GUI.Width</a></p>
 </div>
@@ -296,7 +352,7 @@ options screen and such like.</p>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
 <p><em>See Also:</em> <a class="reference external" href="#setposition">GUI.SetPosition</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#normalgraphic">Button.NormalGraphic</a></p>
+<a class="reference external" href="Button#normalgraphic">Button.NormalGraphic</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="clickable">
@@ -368,7 +424,7 @@ AsListBox, etc methods on it.</p>
 </div>
 <p>gets list box number 4 from the INVENTORY GUI, and then adds an item to
 it. If control 4 isn’t a listbox, you will get a Null Reference error.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#astype">GUIControl.As*</a>,
+<p><em>See Also:</em> <a class="reference external" href="GUIControl#astype">GUIControl.As*</a>,
 <a class="reference external" href="#controlcount">GUI.ControlCount</a></p>
 </div>
 <hr class="docutils" />
@@ -405,7 +461,7 @@ GUI’s number rather than object name.</p>
 <p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI
 clickable, and then uses the equivalent modern property to stop it being
 clickable.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/GUIControl#id">GUIControl.ID</a></p>
+<p><em>See Also:</em> <a class="reference external" href="GUIControl#id">GUIControl.ID</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="transparency">
@@ -438,7 +494,7 @@ below:</p>
 </pre></div>
 </div>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#transparency">Object.Transparency</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Object#transparency">Object.Transparency</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="visible">
@@ -468,7 +524,7 @@ then the GUI will be allowed to be popped up.</p>
 </pre></div>
 </div>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isgamepaused">IsGamePaused</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Game#isgamepaused">IsGamePaused</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="width">
@@ -562,7 +618,7 @@ numbered at the front.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

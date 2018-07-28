@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -333,7 +389,7 @@ parameter.</p>
 <p>will give inventory item iKey to character EGO.</p>
 <p><em>See Also:</em> <a class="reference external" href="#hasinventory">Character.HasInventory</a>,
 <a class="reference external" href="#loseinventory">Character.LoseInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#updateinventory">UpdateInventory</a></p>
+<a class="reference external" href="Game#updateinventory">UpdateInventory</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="addwaypoint">
@@ -401,7 +457,7 @@ continue). The default is eBlock.</p>
 </div>
 <p>will animate the character once using loop number 3 of view 5 backwards,
 and wait until the animation finishes before returning.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Object#animate">Object.Animate</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="changeroom">
@@ -699,9 +755,9 @@ be seen by this function.</p>
 </pre></div>
 </div>
 <p>will display the message if the mouse cursor is over the EGO character</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#getatscreenxy">Object.GetAtScreenXY</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getlocationname">Game.GetLocationName</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
+<a class="reference external" href="Object#getatscreenxy">Object.GetAtScreenXY</a>,
+<a class="reference external" href="Game#getlocationname">Game.GetLocationName</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getproperty">
@@ -799,7 +855,7 @@ be changed to new value.</p>
 <a class="reference external" href="#setlightlevel">Character.SetLightLevel</a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit light level, but it may
 still be lighted by
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a> or a region
+<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a> or a region
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
 <p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Character.SetLightLevel</a></p>
@@ -847,8 +903,8 @@ behind the other, it will not be marked as colliding.</p>
 colliding.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#iscollidingwithobject">Character.IsCollidingWithObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#arethingsoverlapping">AreThingsOverlapping</a></p>
+<a class="reference external" href="Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
+<a class="reference external" href="Room#arethingsoverlapping">AreThingsOverlapping</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="iscollidingwithobject">
@@ -871,8 +927,8 @@ character is standing on the object.</p>
 number 3 are colliding.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#iscollidingwithchar">Character.IsCollidingWithChar</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#arethingsoverlapping">AreThingsOverlapping</a></p>
+<a class="reference external" href="Object#iscollidingwithobject">Object.IsCollidingWithObject</a>,
+<a class="reference external" href="Room#arethingsoverlapping">AreThingsOverlapping</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lightlevel">
@@ -888,7 +944,7 @@ returns 0 even if the character is affected by the ambient or region’s
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
 <p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Character.SetLightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a></p>
+<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="lockview">
@@ -1112,8 +1168,8 @@ his destination.</p>
 <p><em>See Also:</em> <a class="reference external" href="#addwaypoint">Character.AddWaypoint</a>,
 <a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
 <a class="reference external" href="#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#movecharactertoobject">MoveCharacterToObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a>,
+<a class="reference external" href="Game#movecharactertoobject">MoveCharacterToObject</a>,
+<a class="reference external" href="Object#move">Object.Move</a>,
 <a class="reference external" href="#stopmoving">Character.StopMoving</a></p>
 </div>
 <hr class="docutils" />
@@ -1177,7 +1233,7 @@ been run.</p>
 </pre></div>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
+<p><em>See Also:</em> <a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
 <a class="reference external" href="#runinteraction">Character.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
@@ -1195,10 +1251,10 @@ modes, as defined in your Cursors tab in the editor.</p>
 </pre></div>
 </div>
 <p>will execute the code defined in the MAN’s “TALK TO CHARACTER” event.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a>,
+<p><em>See Also:</em> <a class="reference external" href="Room#processclick">Room.ProcessClick</a>,
 <a class="reference external" href="#isinteractionavailable">Character.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#runinteraction">InventoryItem.RunInteraction</a></p>
+<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a>,
+<a class="reference external" href="InventoryItem#runinteraction">InventoryItem.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="say">
@@ -1213,7 +1269,7 @@ able to click it away depending on the setting of “Player can’t skip
 speech text”. The text displayed by this function looks identical to
 that used by the dialog system.</p>
 <p>You can insert the value of variables into the message. For more
-information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+information, see the <a class="reference external" href="StringFormats">string formatting</a>
 section.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;My name is ego&quot;</span><span class="p">);</span>
@@ -1221,7 +1277,7 @@ section.</p>
 </div>
 <p>will display the message above the character’s EGO head like the LEC
 games, whilst playing the character’s talking animation.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DisplayAt#display">Display</a>,
+<p><em>See Also:</em> <a class="reference external" href="DisplayAt#display">Display</a>,
 <a class="reference external" href="#sayat">Character.SayAt</a>,
 <a class="reference external" href="#saybackground">Character.SayBackground</a>,
 <a class="reference external" href="#think">Character.Think</a></p>
@@ -1268,7 +1324,7 @@ remove the text prematurely.</p>
 removed and replaced with the new MESSAGE.</p>
 <p>All background speech is automatically removed when a normal Say command
 is used (unless you set the global variable
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Gamevariables">game.bgspeech_stay_on_display</a> to 1).</p>
+<a class="reference external" href="Gamevariables">game.bgspeech_stay_on_display</a> to 1).</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cMan</span><span class="o">.</span><span class="n">SayBackground</span><span class="p">(</span><span class="s2">&quot;Hey, why won&#39;t you talk to me?&quot;</span><span class="p">);</span>
 </pre></div>
@@ -1324,9 +1380,9 @@ light level and local region light level.</p>
 <p>This will give character EGO maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference external" href="#tint">Character.Tint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambientlightlevel">SetAmbientLightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setlightlevel">Object.SetLightLevel</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Region#lightlevel">Region.LightLevel</a></p>
+<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a>,
+<a class="reference external" href="Object#setlightlevel">Object.SetLightLevel</a>,
+<a class="reference external" href="Region#lightlevel">Region.LightLevel</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="setidleview">
@@ -1402,7 +1458,7 @@ the current loop.</p>
 </div>
 <p>will stop the character when he reaches the coordinate x=300.</p>
 <p><em>See Also:</em> <a class="reference external" href="#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#stopmoving">Object.StopMoving</a></p>
+<a class="reference external" href="Object#stopmoving">Object.StopMoving</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="think">
@@ -1433,7 +1489,7 @@ top of the screen as normal.</p>
 <p>If the character has a thinking animation, it will just loop through
 once (it won’t repeat).</p>
 <p>You can insert the value of variables into the message. For more
-information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+information, see the <a class="reference external" href="StringFormats">string formatting</a>
 section.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Think</span><span class="p">(</span><span class="s2">&quot;I wonder what&#39;s for dinner.&quot;</span><span class="p">);</span>
@@ -1447,7 +1503,7 @@ thinking animation.</p>
 <a class="reference external" href="#thinking">Character.Thinking</a>,
 <a class="reference external" href="#thinkingframe">Character.ThinkingFrame</a>,
 <a class="reference external" href="#thinkview">Character.ThinkView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Gamevariables">game.speech_bubble_width</a></p>
+<a class="reference external" href="Gamevariables">game.speech_bubble_width</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tint">
@@ -1459,7 +1515,7 @@ thinking animation.</p>
 <p>Tints the character on the screen to (RED, GREEN, BLUE) with SATURATION
 percent saturation.</p>
 <p>This function applies a tint to a specific character. For the meaning of
-all the parameters, see <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a>.</p>
+all the parameters, see <a class="reference external" href="Game#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the
 room. For this reason, passing the SATURATION as 0 to this function does
 not turn it off - rather, it ensures that no tint is applied to the
@@ -1477,7 +1533,7 @@ sprites.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#hasexplicittint">Character.HasExplicitTint</a>,
 <a class="reference external" href="#removetint">Character.RemoveTint</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tintblue">
@@ -1637,8 +1693,8 @@ until the character has reached his destination.</p>
 <p><em>See Also:</em> <a class="reference external" href="#addwaypoint">Character.AddWaypoint</a>,
 <a class="reference external" href="#facecharacter">Character.FaceCharacter</a>,
 <a class="reference external" href="#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#movecharactertoobject">MoveCharacterToObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a>,
+<a class="reference external" href="Game#movecharactertoobject">MoveCharacterToObject</a>,
+<a class="reference external" href="Object#move">Object.Move</a>,
 <a class="reference external" href="#stopmoving">Character.StopMoving</a></p>
 </div>
 <hr class="docutils" />
@@ -1748,8 +1804,8 @@ collisions, or for walk-behinds) to a line positioned at y coordinate =</p>
 <ol class="simple">
 <li></li>
 </ol>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#baseline">Object.Baseline</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setwalkbehindbase">SetWalkBehindBase</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Object#baseline">Object.Baseline</a>,
+<a class="reference external" href="Room#setwalkbehindbase">SetWalkBehindBase</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="blinkinterval">
@@ -1884,7 +1940,7 @@ whatever is behind them (as with the old Lucasarts games).</p>
 </pre></div>
 </div>
 <p>will make the game ignore clicks on the character MAN.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#clickable">Object.Clickable</a>,
+<p><em>See Also:</em> <a class="reference external" href="Object#clickable">Object.Clickable</a>,
 <a class="reference external" href="#move">Character.Move</a>,
 <a class="reference external" href="#moving">Character.Moving</a>,
 <a class="reference external" href="#walk">Character.Walk</a></p>
@@ -1961,7 +2017,7 @@ this directly, but will use the Animate command to play an animation.</p>
 <p>Returns <em>true</em> if the character has a tint set explicitly with the
 <a class="reference external" href="#tint">Character.Tint</a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit tint, but it may still
-be tinted by <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a> or a region
+be tinted by <a class="reference external" href="Game#setambienttint">SetAmbientTint</a> or a region
 tint.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasExplicitTint</span><span class="p">)</span>
@@ -2047,7 +2103,7 @@ using the Direct3D driver.</p>
 </div>
 <p>will make the character EGO ignore walk-behinds.</p>
 <p><em>See Also:</em> <a class="reference external" href="#baseline">Character.Baseline</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
+<a class="reference external" href="Object#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="inventoryquantity">
@@ -2074,7 +2130,7 @@ function instead.</p>
 </pre></div>
 </div>
 <p>will display how many inventory items of type iCash the player has.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#updateinventory">UpdateInventory</a>,
+<p><em>See Also:</em> <a class="reference external" href="Game#updateinventory">UpdateInventory</a>,
 <a class="reference external" href="#addinventory">Character.AddInventory</a>,
 <a class="reference external" href="#hasinventory">Character.HasInventory</a>,
 <a class="reference external" href="#loseinventory">Character.LoseInventory</a></p>
@@ -2160,7 +2216,7 @@ him to (50,100), then turn it back on again.</p>
 </div>
 <p>Returns <em>true</em> if the character is currently moving, or <em>false</em> if not.</p>
 <p>This property is read-only; to change the character’s movement, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Walk</a>, <a class="reference external" href="#move">Move</a> and
+<a class="reference external" href="Character#walk">Walk</a>, <a class="reference external" href="#move">Move</a> and
 <a class="reference external" href="#stopmoving">StopMoving</a> commands.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cEgo</span><span class="o">.</span><span class="n">Walk</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
@@ -2419,9 +2475,9 @@ the Speech.GlobalSpeechAnimationDelay property value is used instead.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#animationspeed">Character.AnimationSpeed</a>,
 <a class="reference external" href="#speechview">Character.SpeechView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#textreadingspeed">Game.TextReadingSpeed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#globalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#useglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a>,</p>
+<a class="reference external" href="Game#textreadingspeed">Game.TextReadingSpeed</a>,
+<a class="reference external" href="Speech#globalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a>,
+<a class="reference external" href="Speech#useglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a>,</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="speechcolor">
@@ -2572,7 +2628,7 @@ example below:</p>
 </div>
 <p>will gradually fade out the character from its current transparency
 level to being fully invisible.</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#transparency">Object.Transparency</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Object#transparency">Object.Transparency</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="turnbeforewalking">
@@ -2746,7 +2802,7 @@ properties:</strong></p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

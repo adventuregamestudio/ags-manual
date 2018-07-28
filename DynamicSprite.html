@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -247,7 +303,7 @@ of the drawing surface. This allows you to easily create new sprites
 from portions of other sprites.</p>
 <p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the
 DrawingSurface’s
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#usehighrescoordinates">UseHighResCoordinates</a>
+<a class="reference external" href="DrawingSurfaceFunctions#usehighrescoordinates">UseHighResCoordinates</a>
 setting, so make sure that the type of co-ordinates that you are using
 match up with what the drawing surface expects.</p>
 <p>Use the <a class="reference external" href="#graphic">Graphic</a> property of the
@@ -334,7 +390,7 @@ the image could not be loaded (file not found or unsupported format).</p>
 DynamicSprite to interface with other commands and to use the new sprite
 in the game.</p>
 <p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like
-with <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a> and similar commands.</p>
+with <a class="reference external" href="File#open">File.Open</a> and similar commands.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is
 not controlled by the normal AGS sprite cache and will not be
 automatically disposed of. Therefore, when you are finished with the
@@ -399,7 +455,7 @@ and at that point call Delete.</p>
 places it onto the btnScrnshot GUI button.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
 <p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
+<a class="reference external" href="Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
 <a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
 <a class="reference external" href="#createfromscreenshot">DynamicSprite.CreateFromScreenShot</a></p>
 </div>
@@ -441,7 +497,7 @@ and at that point call Delete.</p>
 <p>places a screen grab of the current game session onto btnScrnshot.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
 <p><em>See Also:</em> <a class="reference external" href="#delete">DynamicSprite.Delete</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
+<a class="reference external" href="Game#getsaveslotdescription">Game.GetSaveSlotDescription</a>,
 <a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
 <a class="reference external" href="#createfromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
 </div>
@@ -603,7 +659,7 @@ it onto the room background at (100,100).</p>
 </div>
 <p>Gets the drawing surface for this dynamic sprite, which allows you to
 modify the sprite by drawing onto it in various ways.</p>
-<p>After calling this method, use the various <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions">DrawingSurface
+<p>After calling this method, use the various <a class="reference external" href="DrawingSurfaceFunctions">DrawingSurface
 functions</a> to modify the sprite, then
 call Release on the surface when you are finished.</p>
 <p>Example:</p>
@@ -622,8 +678,8 @@ draws a pink diagonal line across it, sets this new sprite onto the
 object for 1 second and then removes it.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#createfromexistingsprite">DynamicSprite.CreateFromExistingSprite</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
+<a class="reference external" href="DrawingSurfaceFunctions#drawline">DrawingSurface.DrawLine</a>,
+<a class="reference external" href="DrawingSurfaceFunctions#release">DrawingSurface.Release</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="resize">
@@ -699,7 +755,7 @@ draw the result onto the screen, and then delete the image.</p>
 only two file types that the engine supports.</p>
 <p>Returns 1 if the sprite was saved successfully, or 0 if it failed.</p>
 <p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like
-with <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a> and similar commands.</p>
+with <a class="reference external" href="File#open">File.Open</a> and similar commands.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DynamicSprite</span><span class="o">*</span> <span class="n">sprite</span> <span class="o">=</span> <span class="n">DynamicSprite</span><span class="o">.</span><span class="n">CreateFromFile</span><span class="p">(</span><span class="s2">&quot;CustomAvatar.bmp&quot;</span><span class="p">);</span>
 <span class="n">sprite</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
@@ -711,7 +767,7 @@ with <a class="reference external" href="https://adventuregamestudio.github.io/a
 then save the result back to the disk.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#createfromfile">DynamicSprite.CreateFromFile</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#savescreenshot">SaveScreenShot</a></p>
+<a class="reference external" href="Game#savescreenshot">SaveScreenShot</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="tint">
@@ -721,7 +777,7 @@ then save the result back to the disk.</p>
 </div>
 <p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent
 saturation. For the meaning of all the parameters, see
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a>.</p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function is permanent for the dynamic sprite –
 after the tint has been set, it is not possible to remove it. If you
 call Tint again with different parameters, it will apply the new tint to
@@ -741,7 +797,7 @@ room background.</p>
 <p><em>See Also:</em> <a class="reference external" href="#flip">DynamicSprite.Flip</a>,
 <a class="reference external" href="#height">DynamicSprite.Height</a>,
 <a class="reference external" href="#width">DynamicSprite.Width</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="colordepth">
@@ -772,7 +828,7 @@ usually will be the case).</p>
 </div>
 <p>Gets the sprite slot number in which this dynamic sprite is stored. This
 value can then be passed to other functions and properties, such as
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#normalgraphic">Button.NormalGraphic</a>.</p>
+<a class="reference external" href="Button#normalgraphic">Button.NormalGraphic</a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DynamicSprite</span><span class="o">*</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">DynamicSprite</span><span class="o">.</span><span class="n">CreateFromScreenShot</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 <span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
@@ -844,7 +900,7 @@ value can then be passed to other functions and properties, such as
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

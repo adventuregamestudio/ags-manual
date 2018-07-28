@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -106,7 +162,7 @@
       
   <div class="section" id="built-in-enumerated-types">
 <span id="built-in-enumerated-types"></span><h1>Built-in enumerated types<a class="headerlink" href="#built-in-enumerated-types" title="Permalink to this headline">¶</a></h1>
-<p>AGS has several <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#enum">enumerated types</a> built in. These are
+<p>AGS has several <a class="reference external" href="managedmodifier#enum">enumerated types</a> built in. These are
 used in calls to various commands, and will usually pop up automatically
 in autocomplete. However, for times where autocomplete doesn’t do the
 job, having a manual reference is invaluable:</p>
@@ -116,15 +172,15 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facelocation">Character.FaceLocation</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#faceobject">Character.FaceObject</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walkstraight">Character.WalkStraight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Character#animate">Character.Animate</a>,
+<a class="reference external" href="Character#facecharacter">Character.FaceCharacter</a>,
+<a class="reference external" href="Character#facelocation">Character.FaceLocation</a>,
+<a class="reference external" href="Character#faceobject">Character.FaceObject</a>,
+<a class="reference external" href="Character#move">Character.Move</a>,
+<a class="reference external" href="Character#walk">Character.Walk</a>,
+<a class="reference external" href="Character#walkstraight">Character.WalkStraight</a>,
+<a class="reference external" href="Object#animate">Object.Animate</a>,
+<a class="reference external" href="Object#move">Object.Move</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CharacterDirection</span> <span class="p">{</span>
   <span class="n">eDirectionDown</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="n">eDirectionLeft</span><span class="p">,</span>
@@ -138,25 +194,25 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#changeroom">Character.ChangeRoom</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#facedirection">Character.FaceDirection</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Character#changeroom">Character.ChangeRoom</a>,
+<a class="reference external" href="Character#facedirection">Character.FaceDirection</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Direction</span> <span class="p">{</span>
   <span class="n">eForwards</span><span class="p">,</span>
   <span class="n">eBackwards</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Character#animate">Character.Animate</a>,
+<a class="reference external" href="Object#animate">Object.Animate</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">WalkWhere</span> <span class="p">{</span>
   <span class="n">eAnywhere</span><span class="p">,</span>
   <span class="n">eWalkableAreas</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#move">Character.Move</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#walk">Character.Walk</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#move">Object.Move</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Character#move">Character.Move</a>,
+<a class="reference external" href="Character#walk">Character.Walk</a>,
+<a class="reference external" href="Object#move">Object.Move</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">StopMovementStyle</span>
 <span class="p">{</span>
   <span class="n">eKeepMoving</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -164,17 +220,17 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewaligned">Character.LockView</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewoffset">Character.LockViewFrame</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Character#lockviewaligned">Character.LockView</a>,
+<a class="reference external" href="Character#lockviewoffset">Character.LockViewFrame</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">RepeatStyle</span> <span class="p">{</span>
   <span class="n">eOnce</span><span class="p">,</span>
   <span class="n">eRepeat</span>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#animate">Button.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#animate">Character.Animate</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#animate">Object.Animate</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Button#animate">Button.Animate</a>,
+<a class="reference external" href="Character#animate">Character.Animate</a>,
+<a class="reference external" href="Object#animate">Object.Animate</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Alignment</span> <span class="p">{</span>
   <span class="n">eAlignLeft</span><span class="p">,</span>
   <span class="n">eAlignCentre</span><span class="p">,</span>
@@ -183,7 +239,7 @@ job, having a manual reference is invaluable:</p>
 </pre></div>
 </div>
 <p><em>Used by:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#lockviewaligned">Character.LockViewAligned</a></p>
+<a class="reference external" href="Character#lockviewaligned">Character.LockViewAligned</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eFlipDirection</span> <span class="p">{</span>
   <span class="n">eFlipLeftToRight</span><span class="p">,</span>
   <span class="n">eFlipUpsideDown</span><span class="p">,</span>
@@ -191,7 +247,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#flip">DynamicSprite.Flip</a></p>
+<p><em>Used by:</em> <a class="reference external" href="DynamicSprite#flip">DynamicSprite.Flip</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">TransitionStyle</span> <span class="p">{</span>
   <span class="n">eTransitionFade</span><span class="p">,</span>
   <span class="n">eTransitionInstant</span><span class="p">,</span>
@@ -201,8 +257,8 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ShakeScreen#setscreentransition">SetScreenTransition</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ShakeScreen#setnextscreentransition">SetNextScreenTransition</a></p>
+<p><em>Used by:</em> <a class="reference external" href="ShakeScreen#setscreentransition">SetScreenTransition</a>,
+<a class="reference external" href="ShakeScreen#setnextscreentransition">SetNextScreenTransition</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">MouseButton</span> <span class="p">{</span>
   <span class="n">eMouseLeft</span><span class="p">,</span>
   <span class="n">eMouseRight</span><span class="p">,</span>
@@ -215,7 +271,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#isbuttondown">Mouse.IsButtonDown</a><br>
+<p><em>Used by:</em> <a class="reference external" href="Mouse#isbuttondown">Mouse.IsButtonDown</a><br>
 <em>Passed into:</em> on_mouse_click</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">EventType</span> <span class="p">{</span>
   <span class="n">eEventLeaveRoom</span><span class="p">,</span>
@@ -237,7 +293,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Maths#floattoint">FloatToInt</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Maths#floattoint">FloatToInt</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eSpeechStyle</span> <span class="p">{</span>
   <span class="n">eSpeechLucasarts</span><span class="p">,</span>
   <span class="n">eSpeechSierra</span><span class="p">,</span>
@@ -246,7 +302,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#style">Speech.Style</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Speech#style">Speech.Style</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">SkipSpeechStyle</span> <span class="p">{</span>
   <span class="n">eSkipKeyMouseTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="n">eSkipKeyTime</span>      <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
@@ -258,7 +314,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#skipstyle">Speech.SkipStyle</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Speech#skipstyle">Speech.SkipStyle</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eVoiceMode</span> <span class="p">{</span>
   <span class="n">eSpeechTextOnly</span><span class="p">,</span>
   <span class="n">eSpeechVoiceAndText</span><span class="p">,</span>
@@ -266,7 +322,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Speech#voicemode">Speech.VoiceMode</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Speech#voicemode">Speech.VoiceMode</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">DialogOptionState</span> <span class="p">{</span>
   <span class="n">eOptionOff</span><span class="p">,</span>
   <span class="n">eOptionOn</span><span class="p">,</span>
@@ -274,8 +330,8 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Dialog#getoptionstate">Dialog.GetOptionState</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Dialog#setoptionstate">Dialog.SetOptionState</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Dialog#getoptionstate">Dialog.GetOptionState</a>,
+<a class="reference external" href="Dialog#setoptionstate">Dialog.SetOptionState</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CutsceneSkipType</span> <span class="p">{</span>
   <span class="n">eSkipESCOnly</span><span class="p">,</span>
   <span class="n">eSkipAnyKey</span><span class="p">,</span>
@@ -285,7 +341,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#startcutscene">StartCutscene</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Game#startcutscene">StartCutscene</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eOperatingSystem</span> <span class="p">{</span>
   <span class="n">eOSDOS</span><span class="p">,</span>
   <span class="n">eOSWindows</span><span class="p">,</span>
@@ -297,7 +353,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/System#operatingsystem">System.OperatingSystem</a></p>
+<p><em>Used by:</em> <a class="reference external" href="System#operatingsystem">System.OperatingSystem</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eCDAudioFunction</span> <span class="p">{</span>
   <span class="n">eCDIsDriverPresent</span><span class="p">,</span>
   <span class="n">eCDGetPlayingStatus</span><span class="p">,</span>
@@ -312,7 +368,7 @@ job, having a manual reference is invaluable:</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#cdaudio">CDAudio</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Multimedia#cdaudio">CDAudio</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CursorMode</span> <span class="p">{</span>
   <span class="n">eModeXXXX</span><span class="p">,</span>
   <span class="n">eModeXXXX</span><span class="p">,</span>
@@ -323,23 +379,23 @@ job, having a manual reference is invaluable:</p>
 <p>The CursorMode enumeration is generated automatically based on your
 mouse cursors. The cursor mode name is taken, all its spaces are
 removed, and <em>eMode</em> is added to the front.<br>
-<em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#changemodehotspot">Mouse.ChangeModeHotspot</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#disablemode">Mouse.DisableMode</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#enablemode">Mouse.EnableMode</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#ismodeenabled">Mouse.IsModeEnabled</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#usemodegraphic">Mouse.UseModeGraphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Mouse#mode">Mouse.Mode</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#runinteraction">InventoryItem.RunInteraction</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#isinteractionavailable">Hotspot.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#runinteraction">Hotspot.RunInteraction</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#isinteractionavailable">Object.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#runinteraction">Object.RunInteraction</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#isinteractionavailable">Character.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#runinteraction">Character.RunInteraction</a></p>
+<em>Used by:</em> <a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
+<a class="reference external" href="Room#processclick">Room.ProcessClick</a>,
+<a class="reference external" href="Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
+<a class="reference external" href="Mouse#changemodehotspot">Mouse.ChangeModeHotspot</a>,
+<a class="reference external" href="Mouse#disablemode">Mouse.DisableMode</a>,
+<a class="reference external" href="Mouse#enablemode">Mouse.EnableMode</a>,
+<a class="reference external" href="Mouse#ismodeenabled">Mouse.IsModeEnabled</a>,
+<a class="reference external" href="Mouse#usemodegraphic">Mouse.UseModeGraphic</a>,
+<a class="reference external" href="Mouse#mode">Mouse.Mode</a>,
+<a class="reference external" href="InventoryItem#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>,
+<a class="reference external" href="InventoryItem#runinteraction">InventoryItem.RunInteraction</a>,
+<a class="reference external" href="Hotspot#isinteractionavailable">Hotspot.IsInteractionAvailable</a>,
+<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a>,
+<a class="reference external" href="Object#isinteractionavailable">Object.IsInteractionAvailable</a>,
+<a class="reference external" href="Object#runinteraction">Object.RunInteraction</a>,
+<a class="reference external" href="Character#isinteractionavailable">Character.IsInteractionAvailable</a>,
+<a class="reference external" href="Character#runinteraction">Character.RunInteraction</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FontType</span> <span class="p">{</span>
   <span class="n">eFontXXXX</span><span class="p">,</span>
   <span class="n">eFontXXXX</span><span class="p">,</span>
@@ -350,19 +406,19 @@ removed, and <em>eMode</em> is added to the front.<br>
 <p>The FontType enumeration is generated automatically based on your fonts.
 The font name is taken, all its spaces are removed, and <em>eFont</em> is added
 to the front.<br>
-<em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Button#font">Button.Font</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawstring">DrawingSurface.DrawString</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DrawingSurfaceFunctions#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#normalfont">Game.NormalFont</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#speechfont">Game.SpeechFont</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#gettextheight">GetTextHeight</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#gettextwidth">GetTextWidth</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Label#font">Label.Font</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ListBox#font">ListBox.Font</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/TextBox#font">TextBox.Font</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Overlay#createtextual">Overlay.CreateTextual</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Overlay#settext">Overlay.SetText</a></p>
+<em>Used by:</em> <a class="reference external" href="Button#font">Button.Font</a>,
+<a class="reference external" href="DrawingSurfaceFunctions#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a>,
+<a class="reference external" href="DrawingSurfaceFunctions#drawstring">DrawingSurface.DrawString</a>,
+<a class="reference external" href="DrawingSurfaceFunctions#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>,
+<a class="reference external" href="Game#normalfont">Game.NormalFont</a>,
+<a class="reference external" href="Game#speechfont">Game.SpeechFont</a>,
+<a class="reference external" href="Game#gettextheight">GetTextHeight</a>,
+<a class="reference external" href="Game#gettextwidth">GetTextWidth</a>,
+<a class="reference external" href="Label#font">Label.Font</a>,
+<a class="reference external" href="ListBox#font">ListBox.Font</a>,
+<a class="reference external" href="TextBox#font">TextBox.Font</a>,
+<a class="reference external" href="Overlay#createtextual">Overlay.CreateTextual</a>,
+<a class="reference external" href="Overlay#settext">Overlay.SetText</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">LocationType</span> <span class="p">{</span>
   <span class="n">eLocationNothing</span><span class="p">,</span>
   <span class="n">eLocationHotspot</span><span class="p">,</span>
@@ -371,7 +427,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Returned by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getlocationtype">GetLocationType</a></p>
+<p><em>Returned by:</em> <a class="reference external" href="Game#getlocationtype">GetLocationType</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FileMode</span> <span class="p">{</span>
   <span class="n">eFileRead</span><span class="p">,</span>
   <span class="n">eFileWrite</span><span class="p">,</span>
@@ -379,7 +435,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#open">File.Open</a></p>
+<p><em>Used by:</em> <a class="reference external" href="File#open">File.Open</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FileSeek</span> <span class="p">{</span>
   <span class="n">eSeekBegin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="n">eSeekCurrent</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
@@ -387,7 +443,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/File#seek">File.Seek</a></p>
+<p><em>Used by:</em> <a class="reference external" href="File#seek">File.Seek</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">DialogOptionSayStyle</span> <span class="p">{</span>
   <span class="n">eSayUseOptionSetting</span><span class="p">,</span>
   <span class="n">eSayAlways</span><span class="p">,</span>
@@ -395,7 +451,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Dialog#displayoptions">Dialog.DisplayOptions</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Dialog#displayoptions">Dialog.DisplayOptions</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">VideoSkipStyle</span> <span class="p">{</span>
   <span class="n">eVideoSkipNotAllowed</span><span class="p">,</span>
   <span class="n">eVideoSkipEscKey</span><span class="p">,</span>
@@ -404,7 +460,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Multimedia#playvideo">PlayVideo</a></p>
+<p><em>Used by:</em> <a class="reference external" href="Multimedia#playvideo">PlayVideo</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">AudioFileType</span> <span class="p">{</span>
   <span class="n">eAudioFileOGG</span><span class="p">,</span>
   <span class="n">eAudioFileMP3</span><span class="p">,</span>
@@ -415,7 +471,7 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#filetype">AudioClip.FileType</a></p>
+<p><em>Used by:</em> <a class="reference external" href="AudioClip#filetype">AudioClip.FileType</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">AudioPriority</span> <span class="p">{</span>
   <span class="n">eAudioPriorityVeryLow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
   <span class="n">eAudioPriorityLow</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
@@ -425,9 +481,9 @@ to the front.<br>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#play">AudioClip.Play</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playfrom">AudioClip.PlayFrom</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/AudioClip#playqueued">AudioClip.PlayQueued</a></p>
+<p><em>Used by:</em> <a class="reference external" href="AudioClip#play">AudioClip.Play</a>,
+<a class="reference external" href="AudioClip#playfrom">AudioClip.PlayFrom</a>,
+<a class="reference external" href="AudioClip#playqueued">AudioClip.PlayQueued</a></p>
 </div>
 
 
@@ -445,7 +501,7 @@ to the front.<br>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

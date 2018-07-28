@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -151,16 +207,16 @@ they had to keep their default values set in the Editor throughout the
 course of the game. Now this restriction was eliminated and you can
 change any existing custom property in game script, using appropriate
 SetProperty and SetTextProperty functions:</p>
-<p><a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#setproperty">Character.SetProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#settextproperty">Character.SetTextProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#setproperty">Hotspot.SetProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Hotspot#settextproperty">Hotspot.SetTextProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#setproperty">InventoryItem.SetProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/InventoryItem#settextproperty">InventoryItem.SetTextProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#setproperty">Object.SetProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Object#settextproperty">Object.SetTextProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#setproperty">Room.SetProperty</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#settextproperty">Room.SetTextProperty</a></p>
+<p><a class="reference external" href="Character#setproperty">Character.SetProperty</a>,
+<a class="reference external" href="Character#settextproperty">Character.SetTextProperty</a>,
+<a class="reference external" href="Hotspot#setproperty">Hotspot.SetProperty</a>,
+<a class="reference external" href="Hotspot#settextproperty">Hotspot.SetTextProperty</a>,
+<a class="reference external" href="InventoryItem#setproperty">InventoryItem.SetProperty</a>,
+<a class="reference external" href="InventoryItem#settextproperty">InventoryItem.SetTextProperty</a>,
+<a class="reference external" href="Object#setproperty">Object.SetProperty</a>,
+<a class="reference external" href="Object#settextproperty">Object.SetTextProperty</a>,
+<a class="reference external" href="Room#setproperty">Room.SetProperty</a>,
+<a class="reference external" href="Room#settextproperty">Room.SetTextProperty</a></p>
 <p>Besides, the number of properties is no longer limited by 30, you may
 make as much of them as you need for your game.</p>
 <p><strong>Extended WFN fonts</strong></p>
@@ -184,13 +240,13 @@ condition, second is <code class="docutils literal notranslate"><span class="pre
 variable, define end condition and write iteration - all in its header.
 Another introduced command is <code class="docutils literal notranslate"><span class="pre">switch</span></code>. One <code class="docutils literal notranslate"><span class="pre">switch</span></code> can replace a long
 list of <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> blocks.</p>
-<p>See: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#switch-case-statements">switch</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#dowhile">do..while</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#for">for</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#break">break</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#continue">continue</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#managed">managed</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/managedmodifier#new">new</a></p>
+<p>See: <a class="reference external" href="managedmodifier#switch-case-statements">switch</a>,
+<a class="reference external" href="managedmodifier#dowhile">do..while</a>,
+<a class="reference external" href="managedmodifier#for">for</a>,
+<a class="reference external" href="managedmodifier#break">break</a>,
+<a class="reference external" href="managedmodifier#continue">continue</a>,
+<a class="reference external" href="managedmodifier#managed">managed</a>,
+<a class="reference external" href="managedmodifier#new">new</a></p>
 <p><strong>Custom Dialog Options rendering extended</strong></p>
 <p>In the past the custom dialog rendering was strictly tied to mouse
 movement and clicks. Now it is extended to give you more freedom in
@@ -203,11 +259,11 @@ screen.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> will now be called always, even if user
 clicks on the option, but on other hand option won’t be run without
 explicit command:
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DialogOptionsRenderingInfo#runactiveoption">RunActiveOption</a>.</p>
+<a class="reference external" href="DialogOptionsRenderingInfo#runactiveoption">RunActiveOption</a>.</p>
 <p>Along with RunActiveOption,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DialogOptionsRenderingInfo">DialogOptionsRenderingInfo</a>
+<a class="reference external" href="DialogOptionsRenderingInfo">DialogOptionsRenderingInfo</a>
 struct received another member function:
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DialogOptionsRenderingInfo#update">Update</a>. It forces options
+<a class="reference external" href="DialogOptionsRenderingInfo#update">Update</a>. It forces options
 GUI to redraw itself, hence may be used to implement custom animation,
 or similar behavior.</p>
 <p><strong>IMPORTANT:</strong> The <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> callback was deprecated
@@ -219,7 +275,7 @@ Settings called “Use old-style custom dialog options API”. This will
 disable all the new stuff, but return <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> and
 make <code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> behave as it did before.</p>
 <p>For detailed information see:
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/CustomDialogOptions">Custom dialog options rendering</a></p>
+<a class="reference external" href="CustomDialogOptions">Custom dialog options rendering</a></p>
 <p><strong>Some functions object-ised</strong></p>
 <table border="1" class="docutils">
 <thead>
@@ -260,7 +316,7 @@ maximal number of script modules is no longer limited.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

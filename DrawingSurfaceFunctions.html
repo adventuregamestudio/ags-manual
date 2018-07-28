@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -129,9 +185,9 @@
 <p>The DrawingSurface family of functions allow you to directly draw onto
 dynamic sprites and room backgrounds in the game. You get a drawing
 surface by calling
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>
+<a class="reference external" href="DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>
 or
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a>,
+<a class="reference external" href="Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a>,
 and you can then use the following methods to draw onto the surface.</p>
 <p><strong>IMPORTANT:</strong> You <strong>MUST</strong> call the
 <a class="reference external" href="#release">Release</a> method when you have
@@ -271,7 +327,7 @@ outside the current visible area.</p>
 <a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
 <a class="reference external" href="#drawstring">DrawingSurface.DrawString</a>,
 <a class="reference external" href="#drawsurface">DrawingSurface.DrawSurface</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#colordepth">Room.ColorDepth</a></p>
+<a class="reference external" href="Room#colordepth">Room.ColorDepth</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="drawline">
@@ -394,7 +450,7 @@ outside the current visible area.</p>
 <p>Draws the <em>text</em> onto the surface at (x, y), using the supplied font
 number. The text will be drawn in the current drawing colour.</p>
 <p>You can insert the value of variables into the message. For more
-information, see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/StringFormats">string formatting</a>
+information, see the <a class="reference external" href="StringFormats">string formatting</a>
 section.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DrawingSurface</span> <span class="o">*</span><span class="n">surface</span> <span class="o">=</span> <span class="n">Room</span><span class="o">.</span><span class="n">GetDrawingSurfaceForBackground</span><span class="p">();</span>
@@ -404,7 +460,7 @@ section.</p>
 </pre></div>
 </div>
 <p>will write some text onto the middle-left of the room background</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#gettextwidth">GetTextWidth</a>,
+<p><em>See Also:</em> <a class="reference external" href="Game#gettextwidth">GetTextWidth</a>,
 <a class="reference external" href="#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>,
 <a class="reference external" href="#drawingcolor">DrawingSurface.DrawingColor</a></p>
 </div>
@@ -465,7 +521,7 @@ otherwise the backgrounds will converge too quickly.</p>
 <p>this will draw background frame 1 onto frame 0 at 50<code class="docutils literal notranslate"><span class="pre">%</span></code> opacity.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#drawimage">DrawingSurface.DrawImage</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#setambienttint">SetAmbientTint</a></p>
+<a class="reference external" href="Game#setambienttint">SetAmbientTint</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="drawtriangle">
@@ -510,8 +566,8 @@ instance. To do any further drawing, you need to get the surface again.</p>
 <p>draws a yellow diagonal line across the top-left of the current room
 background, then releases the image.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a></p>
+<a class="reference external" href="DynamicSprite#getdrawingsurface">DynamicSprite.GetDrawingSurface</a>,
+<a class="reference external" href="Room#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="drawingcolor">
@@ -543,7 +599,7 @@ the middle.</p>
 <a class="reference external" href="#drawcircle">DrawingSurface.DrawCircle</a>,
 <a class="reference external" href="#drawline">DrawingSurface.DrawLine</a>,
 <a class="reference external" href="#drawrectangle">DrawingSurface.DrawRectangle</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getcolorfromrgb">Game.GetColorFromRGB</a></p>
+<a class="reference external" href="Game#getcolorfromrgb">Game.GetColorFromRGB</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getpixel">
@@ -660,7 +716,7 @@ draw a line from the top left to the bottom right of the screen.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

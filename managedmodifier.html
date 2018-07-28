@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -184,7 +240,7 @@ index, your game will exit with an error.</p>
 </div>
 <p>this sets Health 3 to 50, Health 4 to 100, and the Health index that
 corresponds to the player character’s ID number to 10.</p>
-<p>See Also: <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/DynamicArrays">Dynamic arrays</a></p>
+<p>See Also: <a class="reference external" href="DynamicArrays">Dynamic arrays</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="data-types">
@@ -477,7 +533,7 @@ you could do:</p>
 </div>
 <p>To get the actual number of things in the game rather than the AGS
 limit, use the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#charactercount">Game.CharacterCount</a>-style properties.</p>
+<a class="reference external" href="Game#charactercount">Game.CharacterCount</a>-style properties.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="version-checking">
@@ -908,7 +964,7 @@ last pointer gets destroyed itself (for example, if it was local
 function variable, and function ended), or is assigned another object,
 or simply assigned <code class="docutils literal notranslate"><span class="pre">null</span></code>, then the dynamic object is removed from your
 game forever.</p>
-<p>See Also: <a class="reference external" href="#new">new</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Pointers">Pointers in
+<p>See Also: <a class="reference external" href="#new">new</a>, <a class="reference external" href="Pointers">Pointers in
 AGS</a></p>
 </div>
 <hr class="docutils" />
@@ -935,7 +991,7 @@ to <em>pointer_variable</em>.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See Also: <a class="reference external" href="#managed">managed</a>, <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Pointers">Pointers in AGS</a></p>
+<p>See Also: <a class="reference external" href="#managed">managed</a>, <a class="reference external" href="Pointers">Pointers in AGS</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="enum">
@@ -1017,7 +1073,7 @@ means “belongs to”).</p>
 <p>The code above will mean that when the MyMethod function is called, it
 sets the <code class="docutils literal notranslate"><span class="pre">myValue</span></code> variable to 5.</p>
 <p><strong>2. Declaring extender functions</strong></p>
-<p>Please see the <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ExtenderFunctions">Extender functions</a> page
+<p>Please see the <a class="reference external" href="ExtenderFunctions">Extender functions</a> page
 for details.</p>
 </div>
 <hr class="docutils" />
@@ -1111,7 +1167,7 @@ mean that the game will hang rather than abort.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

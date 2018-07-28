@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -158,7 +214,7 @@ is in. The possible values of event are:</p>
 </div>
 <p>on_key_press (eKeyCode keycode)</p>
 <p>Called whenever a key is pressed on the keyboard. KEYCODE holds the
-ASCII value of the key. A list of these values is in <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/ASCIIcodes">this
+ASCII value of the key. A list of these values is in <a class="reference external" href="ASCIIcodes">this
 section</a>.</p>
 <p>on_mouse_click (MouseButton button)</p>
 <p>Called when the player clicks a mouse button. BUTTON is either LEFT,
@@ -172,14 +228,14 @@ If ‘Enable mouse wheel support’ is enabled, this function can also be
 called with eMouseWheelNorth or eMouseWheelSouth, which indicate the
 user moving the mouse wheel north or south, respectively.</p>
 <p>repeatedly_execute()</p>
-<p>Called every game cycle (normally 40 times per second). See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/RepExec">this help
+<p>Called every game cycle (normally 40 times per second). See <a class="reference external" href="RepExec">this help
 page</a> for more information.</p>
 <p>repeatedly_execute_always()</p>
 <p>Called every game cycle, even when a blocking routine (eg.
 speech/cutscene) is in progress. You <strong>cannot</strong> call any blocking
 functions from this event handler. <strong>repeatedly_execute_always</strong> is
 called <strong>BEFORE</strong> the game objects (characters, rooms, etc) get updated.
-See <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/RepExec">this help page</a> for more information.</p>
+See <a class="reference external" href="RepExec">this help page</a> for more information.</p>
 <p>late_repeatedly_execute_always()</p>
 <p>Called every game cycle, even when a blocking routine (eg.
 speech/cutscene) is in progress. You <strong>cannot</strong> call any blocking
@@ -361,7 +417,7 @@ by individual room scripts. If you add their function definitions to
 your room script in a similar way to how they are in the global script,
 the room script can intercept the keypress/mouseclick first, and then
 decide whether to pass it on to the global script or not. See the
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#claimevent">ClaimEvent</a> function for more.</p>
+<a class="reference external" href="Game#claimevent">ClaimEvent</a> function for more.</p>
 </div>
 
 
@@ -379,7 +435,7 @@ decide whether to pass it on to the global script or not. See the
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

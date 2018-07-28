@@ -52,7 +52,63 @@
      href="index.html">AGS Manual <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"></ul>
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
+</ul>
+</ul>
 </li>
               
                 <li class="dropdown">
@@ -161,7 +217,7 @@ with the mouse cursor position variables.</p>
 </div>
 <p>will display the number of the inv item that the mouse is over</p>
 <p><em>See Also:</em> <a class="reference external" href="#name">InventoryItem.Name</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getlocationname">Game.GetLocationName</a></p>
+<a class="reference external" href="Game#getlocationname">Game.GetLocationName</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="getproperty">
@@ -271,7 +327,7 @@ example.</p>
   <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;looking at this item would not do anything.&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#isinteractionavailable">IsInteractionAvailable</a>,
+<p><em>See Also:</em> <a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
 <a class="reference external" href="#runinteraction">InventoryItem.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
@@ -293,8 +349,8 @@ the player clicks on the item (Handle Inv Clicks needs to be enabled for
 this to work)</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#runinteraction">Character.RunInteraction</a></p>
+<a class="reference external" href="Room#processclick">Room.ProcessClick</a>,
+<a class="reference external" href="Character#runinteraction">Character.RunInteraction</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="cursorgraphic">
@@ -356,8 +412,8 @@ require an inventory number to add.</p>
 </div>
 <p>uses the obsolete AddInventory command to add the shovel to EGO’s
 inventory</p>
-<p><em>See Also:</em> <a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#addinventory">Character.AddInventory</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Character#loseinventory">Character.LoseInventory</a></p>
+<p><em>See Also:</em> <a class="reference external" href="Character#addinventory">Character.AddInventory</a>,
+<a class="reference external" href="Character#loseinventory">Character.LoseInventory</a></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="name">
@@ -385,7 +441,7 @@ truncated.</p>
 <p><em>See Also:</em>
 <a class="reference external" href="#getatscreenxy">InventoryItem.GetAtScreenXY</a>,
 <a class="reference external" href="#graphic">InventoryItem.Graphic</a>,
-<a class="reference external" href="https://adventuregamestudio.github.io/ags-manual/Game#getlocationname">Game.GetLocationName</a></p>
+<a class="reference external" href="Game#getlocationname">Game.GetLocationName</a></p>
 </div>
 </div>
 
@@ -404,7 +460,7 @@ truncated.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 27, 2018, 10:49:42 PM.<br/>
+      Last updated on Jul 28, 2018, 10:27:24 AM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>
