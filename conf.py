@@ -239,7 +239,6 @@ texinfo_documents = [
 # -- Extension configuration -------------------------------------------------
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'url_resolver': lambda url: 'https://adventuregamestudio.github.io/ags-manual/' + url,
             'auto_toc_tree_section': 'Contents',
             'enable_inline_math': False,
             }, True)
