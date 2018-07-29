@@ -35,6 +35,7 @@ deploy:
     api_key:
       secure: JGB+RmDcFnZQ5DwKLpwzu8dD3YGJMcxHMJg7iyle4qrR4/nUqdv91QQgmNGT3PFHu0Zxi4XEKLMvCpkG0dODaW/0zaJt+fbEAWx43i3SllsYHypZu/L49xKStBxPAT55stuwRzaQU3mos59io8KdHCYJDUZWlwpk8Kjrp6Jyfd+nbaW/sPV9JgJTcFur85aZZ6uL/GU6Xz5N96/gGMnnfTog7WQ19tZjCzU7TnkOngmUPn7Qyr+BFffAWNysxuLmPO9WihdtG+VCs1ssxGU/gF5iWk2Yx089VQRbZPJfOqZGsbfIoX+HAmo1ApKJ2rRZAllVRIImSPerkSpBA/pTmGMzeUWxKj8LrVfk85IKRC1YoZs7lzImi+aEGVEDFXEltBPIi2z6Rqtd9nkiSB6RsQfdwd4aIIfBcHPP+/XU3zbo5AGu0qoHqPEmbafFPJzKpRcnuwoNLwizkL+2DglRYWRngfSDs/b8GUN/KJsNfVrsfZ6gmqH2NjaVU4YCmJvlF+xRR33G2f28oLu4clWHkYiFJ2clP5jDL9bboZdB6zgPpiwO3Es0Y8QyK3UHlvf743V6PfVwsXJrh3FdNuu6/Vl6bIyS9gl78UJcyMrYKrVPFZjJeZksu6IPsQ6cPBpINNX1G+2kFY1Q6CMoKQ87svmG2bNPAGhg72q9Rwg6DsU=
     file: ags-manual-wiki-md-source.zip
+    skip_cleanup: true
     on:
       branch: master
       tags: true
