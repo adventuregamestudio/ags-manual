@@ -1,34 +1,39 @@
 language: python
 sudo: false
-
 python:
-  - "3.6"
-
+- '3.6'
 before_install:
-  # Make sure that things work even if the locale is set to C (which
-  # effectively means ASCII). Some of the input rst files have unicode
-  # characters and we need to deal with this gracefully.
+- |
+  if [[ $LOCALE == C ]]; then
+      export LC_CTYPE=C
+      export LC_ALL=C
+      export LANG=C
+  fi
+install:
+- pip install -r requirements.txt
+script:
+- "./get-help-source.sh"
+- make html
+- "./checklinks source/*.md"
+- touch build/html/.nojekyll
+before_deploy:
   - |
-    if [[ $LOCALE == C ]]; then
-        export LC_CTYPE=C
-        export LC_ALL=C
-        export LANG=C
+    if ! [ "$BEFORE_DEPLOY_RUN" ]; then
+      export BEFORE_DEPLOY_RUN=1;
+      zip ags-manual-wiki-md-source.zip  source/*.md source/images/*
     fi
 
-install:
-  - pip install -r requirements.txt
-
-script:
-  - ./get-help-source.sh
-  - make html
-  - ./checklinks source/*.md 
-  - touch build/html/.nojekyll
-
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
-  on:
-    branch: master
-  local_dir: build/html/
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+    keep-history: true
+    on:
+      branch: master
+    local_dir: build/html/
+  - provider: releases
+    api_key:
+      secure: JGB+RmDcFnZQ5DwKLpwzu8dD3YGJMcxHMJg7iyle4qrR4/nUqdv91QQgmNGT3PFHu0Zxi4XEKLMvCpkG0dODaW/0zaJt+fbEAWx43i3SllsYHypZu/L49xKStBxPAT55stuwRzaQU3mos59io8KdHCYJDUZWlwpk8Kjrp6Jyfd+nbaW/sPV9JgJTcFur85aZZ6uL/GU6Xz5N96/gGMnnfTog7WQ19tZjCzU7TnkOngmUPn7Qyr+BFffAWNysxuLmPO9WihdtG+VCs1ssxGU/gF5iWk2Yx089VQRbZPJfOqZGsbfIoX+HAmo1ApKJ2rRZAllVRIImSPerkSpBA/pTmGMzeUWxKj8LrVfk85IKRC1YoZs7lzImi+aEGVEDFXEltBPIi2z6Rqtd9nkiSB6RsQfdwd4aIIfBcHPP+/XU3zbo5AGu0qoHqPEmbafFPJzKpRcnuwoNLwizkL+2DglRYWRngfSDs/b8GUN/KJsNfVrsfZ6gmqH2NjaVU4YCmJvlF+xRR33G2f28oLu4clWHkYiFJ2clP5jDL9bboZdB6zgPpiwO3Es0Y8QyK3UHlvf743V6PfVwsXJrh3FdNuu6/Vl6bIyS9gl78UJcyMrYKrVPFZjJeZksu6IPsQ6cPBpINNX1G+2kFY1Q6CMoKQ87svmG2bNPAGhg72q9Rwg6DsU=
+    file: ags-manual-wiki-md-source.zip
+    on:
+      repo: adventuregamestudio/ags-manual
