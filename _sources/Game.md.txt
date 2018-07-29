@@ -78,8 +78,7 @@ Game / Global functions
 [GlobalMessages property](#globalmessages)<br>
 [GlobalStrings property](#globalstrings)<br>
 [GUICount property](#guicount)<br>
-[IgnoreUserInputAfterTextTimeoutMs
-property](#ignoreuserinputaftertexttimeoutms)<br>
+[IgnoreUserInputAfterTextTimeoutMs property](#ignoreuserinputaftertexttimeoutms)<br>
 [InSkippableCutscene property](#inskippablecutscene)<br>
 [InventoryItemCount property](#inventoryitemcount)<br>
 [MinimumTextDisplayTimeMs property](#minimumtextdisplaytimems)<br>
@@ -521,9 +520,9 @@ user has raised it )
 
 Returns the value of global int INDEX.
 
-**NOTE:** GlobalInts are now considered obsolete. Consider using [global
-variables](GlobalVariables#globalvariables) instead, which allow you to name
-the variables.
+**NOTE:** GlobalInts are now considered obsolete. Consider using
+[global variables](GlobalVariables) instead, which allow you to
+name the variables.
 
 Example:
 
@@ -547,8 +546,8 @@ This allows your script to access the values of variables set in the
 interaction editor.
 
 **NOTE:** This command is obsolete, and is only provided for backwards
-compatibility with AGS 2.x. When writing new code, use [global
-variables](GlobalVariables#globalvariables) instead.
+compatibility with AGS 2.x. When writing new code, use
+[global variables](GlobalVariables) instead.
 
 Example:
 
@@ -867,8 +866,8 @@ overlapping.
 **NOTE:** this is the distance between the **top** of the first line and
 the **top** of the next line, and **not** distance between bottom of
 first line and top of next one. If you need to calculate the **gap**
-between the lines, then subtract [font's
-height](#getfontheight) from the line spacing value.
+between the lines, then subtract [font's height](#getfontheight) from
+the line spacing value.
 
 Example:
 
@@ -1586,9 +1585,9 @@ from any other script using GetGlobalInt.
 
 There are 500 available global variables, from index 0 to 499.
 
-**NOTE:** GlobalInts are now considered obsolete. Consider using [global
-variables](GlobalVariables#globalvariables) instead, which allow you to name
-the variables.
+**NOTE:** GlobalInts are now considered obsolete. Consider using
+[global variables](GlobalVariables) instead, which allow you to
+name the variables.
 
 Example:
 
@@ -1609,8 +1608,8 @@ allows your script to change the values of variables set in the
 interaction editor.
 
 **NOTE:** This command is obsolete, and is only provided for backwards
-compatibility with AGS 2.x. When writing new code, use [global
-variables](GlobalVariables#globalvariables) instead.
+compatibility with AGS 2.x. When writing new code, use
+[global variables](GlobalVariables) instead.
 
 Example:
 

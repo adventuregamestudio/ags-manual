@@ -641,9 +641,9 @@ SetGameOption. **Basic properties**
     palette-based games. See Also: [Palette setup](#palette-setup),
     [Palette functions](CyclePalette)
 -   **Developer name** - this will add the provided string to the game's
-    executable properties, which will also be shown in [Windows Game
-    Explorer](IntegrationWithWindows#gameexplorer), if you configure integration
-    with one.
+    executable properties, which will also be shown in
+    [Windows Game Explorer](IntegrationWithWindows#windows-game-explorer),
+    if you configure integration with one.
 -   **Enable letterbox mode** - only available if your game's resolution
     is 320x200 or 640x400. If you enable it, your game will run as
     320x240 and 640x480 game correspondingly, while keeping room
@@ -659,8 +659,7 @@ SetGameOption. **Basic properties**
     script function.
 -   **Put sound and sprite files in source control** - whether game
     resources, such as sprites and audio, are put under source control.
-    For more information see [Source Control
-    integration](SourceControl).
+    For more information see [Source Control integration](SourceControl).
 -   **Render sprites at screen resolution** - whether characters and
     objects should be scaled in screen pixels rather than game pixels.
     What this means is that when low-resolution game is run in larger
@@ -725,8 +724,7 @@ SetGameOption. **Basic properties**
     where such setting was a norm.
 -   **Use old-style custom dialog options API** - switch to using
     pre-AGS 3.4.0 custom dialog options callbacks. The differences
-    between old and new APIs [are explained in this
-    topic](UpgradeTo34).
+    between old and new APIs [are explained in this topic](UpgradeTo34).
 
 **Character movement**
 
@@ -928,16 +926,16 @@ SetGameOption. **Basic properties**
     is enabled and they click on a transparent pixel, then the hotspot
     behind the object will be activated instead.
 -   **Sprite alpha rendering style** - determines which rendering method
-    to use in 32-bit games when an image is drawn over [drawing
-    surface](DrawingSurfaceFunctions). The "Proper alpha
+    to use in 32-bit games when an image is drawn over
+    [drawing surface](DrawingSurfaceFunctions). The "Proper alpha
     belnding" choice is meant for full alpha blending support, "Classic"
     style exists for compatibility with older versions of AGS only.
 -   **When player interface is disabled, GUI should** - determines what
     happens to buttons on your GUIs while the game interface is
     disabled (eg. during a cutscene).
 
-**Windows Game Explorer** See: [Windows Game
-Explorer](IntegrationWithWindows#gameexplorer)
+**Windows Game Explorer** See:
+[Windows Game Explorer](IntegrationWithWindows#windows-game-explorer)
 
 ---
 
@@ -950,8 +948,7 @@ the user's personal documents folder instead of game folder. For that
 reason you should be doing it from this Editor's page now.
 
 Most of the options here correspond to the ones you may find in the
-setup utility. For their meaning please refer to [related
-topic](Setup).
+setup utility. For their meaning please refer to [related topic](Setup).
 
 Additionally, following settings are available:
 
@@ -1042,11 +1039,11 @@ SCI fonts can be created in two ways:
 
 -   Extract the font from a Sierra game, using the SCI Decoder program
     available on the internet.
--   Create your own font and save it in SCI Font format, using the [SCI
-    Graphic Studio program](http://scigraphicstudio.cjb.net).
+-   Create your own font and save it in SCI Font format, using the
+    [SCI Graphic Studio program](http://scigraphicstudio.cjb.net).
 
-There are also some fonts available on the [AGS
-website](http://www.adventuregamestudio.co.uk/fonts).
+There are also some fonts available on the
+[AGS website](http://www.adventuregamestudio.co.uk/fonts).
 
 When choosing whether to use SCI or TTF font following should be taken
 into account:

@@ -10,22 +10,15 @@ described in the linked page.
 [Update](#update)<br>
 [ActiveOptionID property](#activeoptionid)<br>
 [DialogToRender property](#dialogtorender)<br>
-[HasAlphaChannel property
-(DialogOptionsRenderingInfo)](#hasalphachannel)<br>
-[Height property
-(DialogOptionsRenderingInfo)](#height)<br>
-[ParserTextBoxWidth
-property](#parsertextboxwidth)<br>
+[HasAlphaChannel property (DialogOptionsRenderingInfo)](#hasalphachannel)<br>
+[Height property (DialogOptionsRenderingInfo)](#height)<br>
+[ParserTextBoxWidth property](#parsertextboxwidth)<br>
 [ParserTextBoxX property](#parsertextboxx)<br>
 [ParserTextBoxY property](#parsertextboxy)<br>
-[Surface property
-(DialogOptionsRenderingInfo)](#surface)<br>
-[Width property
-(DialogOptionsRenderingInfo)](#width)<br>
-[X property
-(DialogOptionsRenderingInfo)](#x)<br>
-[Y property
-(DialogOptionsRenderingInfo)](#y)
+[Surface property (DialogOptionsRenderingInfo)](#surface)<br>
+[Width property (DialogOptionsRenderingInfo)](#width)<br>
+[X property (DialogOptionsRenderingInfo)](#x)<br>
+[Y property (DialogOptionsRenderingInfo)](#y)
 
 ---
 
@@ -121,8 +114,8 @@ always selects the first option
 Gets the dialog that needs to be rendered. You can loop through all the
 options in the dialog in order to decide what to display on the screen.
 
-Example: For an example please see the [custom dialog
-options](CustomDialogOptions) page.
+Example: For an example please see the
+[custom dialog options](CustomDialogOptions) page.
 
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
@@ -326,8 +319,7 @@ clears the dialog options area to yellow.
 
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
-*See Also:* [DrawingSurface
-functions](DrawingSurfaceFunctions)
+*See Also:* [DrawingSurface functions](DrawingSurfaceFunctions)
 
 ---
 

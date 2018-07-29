@@ -688,8 +688,7 @@ function variable, and function ended), or is assigned another object,
 or simply assigned `null`, then the dynamic object is removed from your
 game forever.
 
-See Also: [new](#new), [Pointers in
-AGS](Pointers)
+See Also: [new](#new), [Pointers in AGS](Pointers)
 
 ---
 

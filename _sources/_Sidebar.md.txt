@@ -1,12 +1,12 @@
 ***Getting Started in AGS***
 
-[**Introduction**](Introduction)
+[Introduction](Introduction)
 
 -   [System Requirements](SystemRequirements)
 
-[**Frequently Asked Questions**](FAQ)
+[Frequently Asked Questions](FAQ)
 
-[**Tutorial**](Tutorial)
+[Tutorial](Tutorial)
 
 -   [Starting off](StartingOff)
 -   [Setting up the game](Settingupthegame)
@@ -15,19 +15,19 @@
 
 ***Editor Reference***
 
-[**Room Editor**](EditorRoom)
+[Room Editor](EditorRoom)
 
-[**Character Editor**](EditorCharacter)
+[Character Editor](EditorCharacter)
 
-[**GUI Editor**](EditingGUIs)
+[GUI Editor](EditingGUIs)
 
-[**Sprite Manager**](EditorSprite)
+[Sprite Manager](EditorSprite)
 
-[**View Editor**](EditorView)
+[View Editor](EditorView)
 
-[**Inventory Items Editor**](EditorInventoryItems)
+[Inventory Items Editor](EditorInventoryItems)
 
-[**Other Features**](OtherFeatures)
+[Other Features](OtherFeatures)
 
 -   [Music and sound](MusAndSound)
 -   [Distributing your game](DistGame)
@@ -46,15 +46,15 @@
 
 ***Engine***
 
-[**The run-time engine**](RuntimeEngine)
+[The run-time engine](RuntimeEngine)
 
-[**Graphics driver selection**](GraphicsDriver)
+[Graphics driver selection](GraphicsDriver)
 
-[**Engine Setup Program**](Setup)
+[Engine Setup Program](Setup)
 
 ***Scripting***
 
-[**Scripting**](Scripting)
+[Scripting](Scripting)
 
 -   [Scripting tutorial part 1](ScriptingTutorialPart1)
 -   [Scripting tutorial part 2](ScriptingTutorialPart2)
@@ -109,7 +109,7 @@
 -   [ViewFrame functions and properties](ViewFrame)
 -   [SCUMM_VERBCOIN_GUI functions](SCUMM_VERBCOIN_GUI)
 
-[**Reference**](Reference)
+[Reference](Reference)
 -   [Event Types](EventTypes)
 -   [System limits](SystemLimits)
 -   [Keyboard Shortcuts](KeyboardShortcuts)
@@ -117,7 +117,7 @@
 
 ***Working on Legacy games***
 
-[**Upgrading from a previous version**](UpgradingFromPreviousVersion)
+[Upgrading from a previous version](UpgradingFromPreviousVersion)
 
 -   [Upgrading to AGS 2.7](UpgradingTo27)
 -   [Upgrading to AGS 2.71](UpgradingTo271)
@@ -132,12 +132,12 @@
 
 ***Legal Notice***
 
-[**Copyright and terms of use**](Copyright)
+[Copyright and terms of use](Copyright)
 
-[**Anonymous usage information**](AnonymousUsageInfo)
+[Anonymous usage information](AnonymousUsageInfo)
 
-[**Credits**](Credits)
+[Credits](Credits)
 
 ***Getting in touch***
 
-[**Contacting the developers**](ContactingTheDevelopers)
+[Contacting the developers](ContactingTheDevelopers)

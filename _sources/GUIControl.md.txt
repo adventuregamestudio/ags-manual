@@ -235,8 +235,8 @@ list box, and then uses the equivalent modern property to disable it.
 Gets the GUI control's owning GUI, which is the GUI that contains the
 control.
 
-Returns a GUI, which allows you to use all the usual [GUI functions and
-properties](GUI).
+Returns a GUI, which allows you to use all the usual
+[GUI functions and properties](GUI).
 
 **Applies To**
 

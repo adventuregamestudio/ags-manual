@@ -401,7 +401,8 @@ We've covered the basics, so that hopefully you can now write a script
 of your own. There are many more advanced features that the system can
 do, but this should be enough to get you started.
 
-When you're ready, feel free to proceed to the [Tutorial Chapter 2 - The
-Patronising Text Returns](ScriptingTutorialPart2) which covers more advanced topics.
+When you're ready, feel free to proceed to the
+[Tutorial Chapter 2 - The Patronising Text Returns](ScriptingTutorialPart2)
+which covers more advanced topics.
 
 Enjoy AGS!

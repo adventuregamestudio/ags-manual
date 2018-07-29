@@ -44,5 +44,4 @@ If you are running with Direct3D 9 selected and get the error message
 indicates that your graphics card is too old to run with the Direct3D
 driver. You should try one of the other two drivers instead.
 
-See Also: [System.HardwareAcceleration
-property](System#hardwareacceleration)
+See Also: [System.HardwareAcceleration property](System#hardwareacceleration)

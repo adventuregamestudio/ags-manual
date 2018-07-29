@@ -72,8 +72,7 @@ Character functions and properties
 [InventoryQuantity property](#inventoryquantity)<br>
 [Loop property](#loop)<br>
 [ManualScaling property](#manualscaling)<br>
-[MovementLinkedToAnimation
-property](#movementlinkedtoanimation)<br>
+[MovementLinkedToAnimation property](#movementlinkedtoanimation)<br>
 [Moving property](#moving)<br>
 [Name property](#name)<br>
 [NormalView property](#normalview)<br>

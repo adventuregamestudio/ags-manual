@@ -1,6 +1,6 @@
 **Stop press!**<br>
-Densming has created some excellent **[Video
-Tutorials](http://www.youtube.com/view_play_list?p=21DB402CB4DAEAEF)**
+Densming has created some excellent
+[Video Tutorials](https://www.youtube.com/view_play_list?p=21DB402CB4DAEAEF)
 on Youtube, which guide you through the process of creating a game. If
 you find videos easier to follow than text, check them out!
 

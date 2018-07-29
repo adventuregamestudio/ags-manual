@@ -551,8 +551,8 @@ it onto the room background at (100,100).
 Gets the drawing surface for this dynamic sprite, which allows you to
 modify the sprite by drawing onto it in various ways.
 
-After calling this method, use the various [DrawingSurface
-functions](DrawingSurfaceFunctions) to modify the sprite, then
+After calling this method, use the various
+[DrawingSurface functions](DrawingSurfaceFunctions) to modify the sprite, then
 call Release on the surface when you are finished.
 
 Example:

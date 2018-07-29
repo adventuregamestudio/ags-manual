@@ -63,8 +63,7 @@ is in. The possible values of event are:
 on_key_press (eKeyCode keycode)
 
 Called whenever a key is pressed on the keyboard. KEYCODE holds the
-ASCII value of the key. A list of these values is in [this
-section](ASCIIcodes).
+ASCII value of the key. A list of these values is in [this section](ASCIIcodes).
 
 on_mouse_click (MouseButton button)
 
@@ -81,8 +80,8 @@ user moving the mouse wheel north or south, respectively.
 
 repeatedly_execute()
 
-Called every game cycle (normally 40 times per second). See [this help
-page](RepExec) for more information.
+Called every game cycle (normally 40 times per second). See
+[this help page](RepExec) for more information.
 
 repeatedly_execute_always()
 

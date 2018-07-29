@@ -43,8 +43,8 @@ The maximal number of Fonts has been increased from 15 to 30.
 **New Speech class**
 
 There's now a new Speech script class that contains several
-speech-related properties. This renders a number of [global
-functions](Game) obsolete, as well as some of the
+speech-related properties. This renders a number of
+[global functions](Game) obsolete, as well as some of the
 [game variables](Gamevariables). If you are using any of them
 in your script you will likely get compilation errors. Simply replace
 them by the corresponding Speech properties, as shown in the table

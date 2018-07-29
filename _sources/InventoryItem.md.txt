@@ -6,8 +6,7 @@ Inventory item functions and properties
 [GetTextProperty](#gettextproperty)<br>
 [SetProperty](#setproperty)<br>
 [SetTextProperty](#settextproperty)<br>
-[IsInteractionAvailable
-(inventory)](#isinteractionavailable)<br>
+[IsInteractionAvailable (inventory)](#isinteractionavailable)<br>
 [RunInteraction](#runinteraction)<br>
 [CursorGraphic property](#cursorgraphic)<br>
 [Graphic property](#graphic)<br>

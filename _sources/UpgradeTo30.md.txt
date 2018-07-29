@@ -6,8 +6,8 @@ even taken aback by this new editor. But don't worry, once you've got
 used to it I'm sure you'll agree that it's a massive improvement over
 the old one.
 
-The best place to start is probably to flick through [the
-tutorial](StartingOff), which has been updated for AGS 3 and by
+The best place to start is probably to flick through
+[the tutorial](StartingOff), which has been updated for AGS 3 and by
 following it through you should get a good feeling for how the editor
 works.
 

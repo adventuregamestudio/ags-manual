@@ -333,8 +333,7 @@
 <a class="reference external" href="#globalmessages">GlobalMessages property</a><br>
 <a class="reference external" href="#globalstrings">GlobalStrings property</a><br>
 <a class="reference external" href="#guicount">GUICount property</a><br>
-<a class="reference external" href="#ignoreuserinputaftertexttimeoutms">IgnoreUserInputAfterTextTimeoutMs
-property</a><br>
+<a class="reference external" href="#ignoreuserinputaftertexttimeoutms">IgnoreUserInputAfterTextTimeoutMs property</a><br>
 <a class="reference external" href="#inskippablecutscene">InSkippableCutscene property</a><br>
 <a class="reference external" href="#inventoryitemcount">InventoryItemCount property</a><br>
 <a class="reference external" href="#minimumtextdisplaytimems">MinimumTextDisplayTimeMs property</a><br>
@@ -725,9 +724,9 @@ user has raised it )</p>
 </pre></div>
 </div>
 <p>Returns the value of global int INDEX.</p>
-<p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using <a class="reference external" href="GlobalVariables#globalvariables">global
-variables</a> instead, which allow you to name
-the variables.</p>
+<p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using
+<a class="reference external" href="GlobalVariables">global variables</a> instead, which allow you to
+name the variables.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
   <span class="o">//</span> <span class="n">code</span> <span class="n">here</span>
@@ -748,8 +747,8 @@ the variables.</p>
 This allows your script to access the values of variables set in the
 interaction editor.</p>
 <p><strong>NOTE:</strong> This command is obsolete, and is only provided for backwards
-compatibility with AGS 2.x. When writing new code, use <a class="reference external" href="GlobalVariables#globalvariables">global
-variables</a> instead.</p>
+compatibility with AGS 2.x. When writing new code, use
+<a class="reference external" href="GlobalVariables">global variables</a> instead.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGraphicalVariable</span><span class="p">(</span><span class="s2">&quot;climbed rock&quot;</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
    <span class="p">{</span> <span class="n">code</span> <span class="n">here</span> <span class="p">}</span>
@@ -1029,8 +1028,8 @@ overlapping.</p>
 <p><strong>NOTE:</strong> this is the distance between the <strong>top</strong> of the first line and
 the <strong>top</strong> of the next line, and <strong>not</strong> distance between bottom of
 first line and top of next one. If you need to calculate the <strong>gap</strong>
-between the lines, then subtract <a class="reference external" href="#getfontheight">font’s
-height</a> from the line spacing value.</p>
+between the lines, then subtract <a class="reference external" href="#getfontheight">font’s height</a> from
+the line spacing value.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">GetFontHeight</span><span class="p">(</span><span class="n">eFontSpeech</span><span class="p">);</span>
 <span class="nb">int</span> <span class="n">spacing</span> <span class="o">=</span> <span class="n">GetFontLineSpacing</span><span class="p">(</span><span class="n">eFontSpeech</span><span class="p">);</span>
@@ -1726,9 +1725,9 @@ player’s screen refresh).</p>
 <p>Sets the global int INDEX to VALUE. You can then retrieve this value
 from any other script using GetGlobalInt.</p>
 <p>There are 500 available global variables, from index 0 to 499.</p>
-<p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using <a class="reference external" href="GlobalVariables#globalvariables">global
-variables</a> instead, which allow you to name
-the variables.</p>
+<p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using
+<a class="reference external" href="GlobalVariables">global variables</a> instead, which allow you to
+name the variables.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetGlobalInt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -1746,8 +1745,8 @@ the variables.</p>
 allows your script to change the values of variables set in the
 interaction editor.</p>
 <p><strong>NOTE:</strong> This command is obsolete, and is only provided for backwards
-compatibility with AGS 2.x. When writing new code, use <a class="reference external" href="GlobalVariables#globalvariables">global
-variables</a> instead.</p>
+compatibility with AGS 2.x. When writing new code, use
+<a class="reference external" href="GlobalVariables">global variables</a> instead.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetGraphicalVariable</span><span class="p">(</span><span class="s2">&quot;climbed rock&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -2533,7 +2532,7 @@ views for some reason. Valid views are numbered from 1 to ViewCount.</p>
     </p>
     <p>
         &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 29, 2018, 3:26:19 PM.<br/>
+      Last updated on Jul 29, 2018, 6:33:48 PM.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
     </p>
   </div>

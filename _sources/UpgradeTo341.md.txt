@@ -46,8 +46,8 @@ directly create default config for your game using winsetup.exe.
 "Graphics driver" option has migrated from "General Settings" to
 "Default Setup".
 
-For detailed information about Default Setup page refer to: [Default
-setup](Settingupthegame#default%20setup).
+For detailed information about Default Setup page refer to:
+[Default setup](Settingupthegame#default-setup).
 
 **Script API selector**
 
