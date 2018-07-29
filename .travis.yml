@@ -28,6 +28,7 @@ before_deploy:
       pushd build/htmlhelp/
       zip -r ../../ags-manual-hhp-build.zip *
       popd
+      ./make-chm-help.sh
     fi
 
 deploy:
@@ -44,6 +45,7 @@ deploy:
     file: 
       - "ags-manual-wiki-md-source.zip"
       - "ags-manual-hhp-build.zip"
+      - "AGSHelpdoc.chm"
     skip_cleanup: true
     on:
       branch: master
