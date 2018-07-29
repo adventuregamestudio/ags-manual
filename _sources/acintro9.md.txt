@@ -105,15 +105,15 @@ means that they are only useful for English. If you want to support other
 languages then you'll need to import a TTF font in order for the extended
 characters such as é, í and ñ to work.
 
-Where can you get a SCI font? Well, there are three ways:
+Where can you get a SCI font? Well, there are two ways:
 
 * Create your own font and save it in SCI Font format, using
-  [Radiant's FontEdit application](http://www.tdrdesign.net/downloads/fontedit.exe).
+  [Radiant's FontEdit application](http://www.adventuregamestudio.co.uk/forums/index.php?topic=23521.0).
 * Extract the font from a Sierra game, using the SCI Decoder program available
   on the internet (note however that this will have copyright implications for
   your game).
 * You can get a Sierra SCI Font Pack on the
-  [AGS website](http://www.adventuregamestudio.co.uk/fonts).
+  [AGS website](http://www.adventuregamestudio.co.uk/site/ags/sci_fonts/).
 
 ![](images/icon_info.gif)<br>
 If you go to your Windows Fonts folder to try and import a TTF font, you will

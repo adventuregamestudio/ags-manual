@@ -1043,7 +1043,7 @@ SCI fonts can be created in two ways:
     [SCI Graphic Studio program](http://scigraphicstudio.cjb.net).
 
 There are also some fonts available on the
-[AGS website](http://www.adventuregamestudio.co.uk/fonts).
+[AGS website](http://www.adventuregamestudio.co.uk/site/ags/sci_fonts/).
 
 When choosing whether to use SCI or TTF font following should be taken
 into account:
