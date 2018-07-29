@@ -70,7 +70,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = []
+# exclude_patterns = []
+exclude_patterns = ['_Sidebar.md']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -239,7 +240,8 @@ texinfo_documents = [
 # -- Extension configuration -------------------------------------------------
 def setup(app):
     app.add_config_value('recommonmark_config', {
-            'auto_toc_tree_section': 'Contents',
+            # 'auto_toc_tree_section': 'Contents',
+            'enable_auto_toc_tree': True,
             'enable_inline_math': False,
             }, True)
     app.add_transform(AutoStructify)
