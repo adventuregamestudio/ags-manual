@@ -33,19 +33,6 @@ Now just use make to create any help version you want! **Example for html files 
 
     make htmlhelp
 
-## deploying in a different server
-
-If there is need to deploy in a different server, edit the url resolver at the end of `conf.py` to point to the correct url.
-
-    # -- Extension configuration -------------------------------------------------
-    def setup(app):
-        app.add_config_value('recommonmark_config', {
-                'url_resolver': lambda url: 'https://adventuregamestudio.github.io/ags-manual/' + url,
-                'auto_toc_tree_section': 'Contents',
-                'enable_inline_math': False,
-                }, True)
-        app.add_transform(AutoStructify)
-
 ## checking wiki links
 
 If making a lot of changes, the included AWK script can validate links within a directory:
