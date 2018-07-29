@@ -6,43 +6,42 @@ great control over your game.
 
 - [Predefined global script functions](TextScriptEvents)
 - [repeatedly_execute / repeatedly_execute_always](RepExec) 
-- [Custom dialog options rendering](CustomDialogOptions)<br>
-- [Built-in enumerated types](BuiltInEnums)<br>
-- [Script language keywords](managedmodifier)<br>
-- [AudioChannel functions and properties](AudioChannel)<br>
-- [AudioClip functions and properties](AudioClip)<br>
-- [Character functions and properties](Character)<br>
-- [DateTime functions and properties](DateTime)<br>
-- [Dialog functions and properties](Dialog)<br>
-- [DialogOptionsRenderingInfo functions and properties](DialogOptionsRenderingInfo)<br>
-- [DrawingSurface functions and properties](DrawingSurfaceFunctions)<br>
-- [DynamicSprite functions and properties](DynamicSprite)<br>
-- [File functions and properties](File)<br>
-- [Game / Global functions](Game)<br>
-- [GUI functions and properties](GUI)<br>
-- [GUI control functions and properties](GUIControl)<br>
-- [GUI Button functions and properties](Button)<br>
-- [GUI InvWindow functions and properties](GUI)<br>
-- [GUI Label functions and properties](Label)<br>
-- [GUI List Box functions and properties](ListBox)<br>
-- [GUI Slider properties](Slider)<br>
-- [GUI Text Box functions and properties](TextBox)<br>
-- [Hotspot functions and properties](Hotspot)<br>
-- [Inventory item functions and properties](InventoryItem)<br>
-- [Maths functions and properties](Maths)<br>
-- [Mouse functions and properties](Mouse)<br>
-- [Multimedia functions](Game)<br>
-- [Object functions and properties](Object)<br>
-- [Overlay functions and properties](Overlay)<br>
-- [Palette functions](CyclePalette)<br>
-- [Parser functions](Parser)<br>
-- [Region functions and properties](Region)<br>
-- [Room functions](Room)<br>
-- [Screen functions](ShakeScreen)<br>
-- [Speech functions and properties](Speech)<br>
-- [String functions](String)<br>
-- [System functions and properties](System)<br>
-- [Text display / Speech functions](DisplayAt)<br>
-- [ViewFrame functions and properties](ViewFrame)<br>
+- [Custom dialog options rendering](CustomDialogOptions)
+- [Built-in enumerated types](BuiltInEnums)
+- [Script language keywords](managedmodifier)
+- [AudioChannel functions and properties](AudioChannel)
+- [AudioClip functions and properties](AudioClip)
+- [Character functions and properties](Character)
+- [DateTime functions and properties](DateTime)
+- [Dialog functions and properties](Dialog)
+- [DialogOptionsRenderingInfo functions and properties](DialogOptionsRenderingInfo)
+- [DrawingSurface functions and properties](DrawingSurfaceFunctions)
+- [DynamicSprite functions and properties](DynamicSprite)
+- [File functions and properties](File)
+- [Game / Global functions](Game)
+- [GUI functions and properties](GUI)
+- [GUI control functions and properties](GUIControl)
+- [GUI Button functions and properties](Button)
+- [GUI InvWindow functions and properties](GUI)
+- [GUI Label functions and properties](Label)
+- [GUI List Box functions and properties](ListBox)
+- [GUI Slider properties](Slider)
+- [GUI Text Box functions and properties](TextBox)
+- [Hotspot functions and properties](Hotspot)
+- [Inventory item functions and properties](InventoryItem)
+- [Maths functions and properties](Maths)
+- [Mouse functions and properties](Mouse)
+- [Multimedia functions](Game)
+- [Object functions and properties](Object)
+- [Overlay functions and properties](Overlay)
+- [Palette functions](CyclePalette)
+- [Parser functions](Parser)
+- [Region functions and properties](Region)
+- [Room functions](Room)
+- [Screen functions](ShakeScreen)
+- [Speech functions and properties](Speech)
+- [String functions](String)
+- [System functions and properties](System)
+- [Text display / Speech functions](DisplayAt)
+- [ViewFrame functions and properties](ViewFrame)
 - [SCUMM_VERBCOIN_GUI functions](SCUMM_VERBCOIN_GUI)
-

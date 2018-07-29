@@ -1040,7 +1040,7 @@ SCI fonts can be created in two ways:
 -   Extract the font from a Sierra game, using the SCI Decoder program
     available on the internet.
 -   Create your own font and save it in SCI Font format, using the
-    [SCI Graphic Studio program](http://scigraphicstudio.cjb.net).
+    [SCI Graphic Studio program](http://sci.sierrahelp.com/Tools/SCITools.html).
 
 There are also some fonts available on the
 [AGS website](http://www.adventuregamestudio.co.uk/site/ags/sci_fonts/).
