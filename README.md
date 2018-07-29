@@ -6,8 +6,6 @@
 
 The help files can be edited on the wiki or cloned locally and pushed. Create issues if something is wrong.
 
-Alternatively, you can clone and edit the Wiki Locally
-
     git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
 
 ## Read the help files
@@ -29,9 +27,9 @@ Then you need to get the wiki files
 
     ./get-help-source.sh
 
-Now just use make to create any help version you want! **Example for html files and a help file**:
+Now just use make to create any help version you want! **Example for html files**:
 
-    make htmlhelp
+    make html
 
 ## checking wiki links
 
@@ -40,4 +38,8 @@ If making a lot of changes, the included AWK script can validate links within a 
     ./checklinks path/to/wiki/source/*.md
 
 A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/adventuregamestudio/ags-manual).
+
+Additionally, you can also run sphinx linkchecker for verifying also broken external links.
+
+    make linkcheck
 
