@@ -54,6 +54,13 @@ coverage.xml
 *.mo
 *.pot
 
+# the chmcmd binary and md5
+chmcmd
+chmcmd.md5
+
+# the resulting chm docs
+*.chm
+
 # Django stuff:
 *.log
 local_settings.py
@@ -92,6 +99,18 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# usual things on the venv
+bin/
+lib/
+lib64/
+share/
+
+# this is a pip-delete-this-directory
+src/
+
+# pip on venv
+pip-selfcheck.json
 
 # Spyder project settings
 .spyderproject
