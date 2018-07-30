@@ -19,5 +19,5 @@ Making a game has never been so productive!
 
 To get started, [read the tutorial](StartingOff).
 
-[System Requirements](SystemRequirements)
+- [System Requirements](SystemRequirements)
 

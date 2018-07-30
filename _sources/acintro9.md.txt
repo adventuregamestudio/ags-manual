@@ -134,4 +134,4 @@ a grasp of the AGS basics. If there's anything you didn't really understand or
 that you think should be covered but wasn't, please let us know on the Beginners
 Technical Forum, so that the tutorials can be improved to explain it better.
 
-[Return to tutorials index](acintro)
+[Return to tutorials index](StartingOff)
