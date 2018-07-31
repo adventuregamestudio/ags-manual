@@ -28,7 +28,7 @@ before_deploy:
       pushd build/htmlhelp/
       zip -r ../../ags-manual-hhp-build.zip *
       popd
-      ./make-chm-help.sh
+      ./make-chm-from-htmlhelp.sh
     fi
 
 deploy:

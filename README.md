@@ -10,13 +10,15 @@ The help files can be edited on the wiki or cloned locally and pushed. Create is
 
 ## Read the help files
 
-[Build rendered on adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual)
+The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual) .
+
+You can also download it from [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest) .
 
 ## How to generate the help files from the wiki!
 
 The help file is generated using [Python 3 Sphinx](http://www.sphinx-doc.org/en/master/)!
 
-This documentation assumes you have Sphinx already installed and configured and is using a UNIX compatible OS.
+This documentation assumes you have Sphinx already installed and configured and you have access to a Unix-style *bash* compatible shell.
 
 To build the help files, clone this repository first!
 
@@ -39,7 +41,7 @@ If making a lot of changes, the included AWK script can validate links within a 
 
 A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/adventuregamestudio/ags-manual).
 
-Additionally, you can also run sphinx linkchecker for verifying also broken external links.
+Additionally, *sphinx linkchecker* can check if external links are broken.
 
     make linkcheck
 
