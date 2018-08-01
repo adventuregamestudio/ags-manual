@@ -1,4 +1,13 @@
 {% extends '!layout.html' %}
+
+{% block header %}
+    {% if builder == 'htmlhelp' %}
+{{ toc }}
+    {% else %}
+{{ super() }}
+    {% endif %}
+{% endblock %}
+
 {% block footer %}
     {% if style == 'alabaster.css' %}
 <div class="footer">&copy;{{ copyright }}<br>build date: {{ last_updated }}</div>
