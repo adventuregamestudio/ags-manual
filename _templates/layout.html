@@ -1,11 +1,12 @@
 {% extends '!layout.html' %}
 
-{% block header %}
-    {% if builder == 'htmlhelp' %}
-{{ toc }}
-    {% else %}
-{{ super() }}
+{% block document %}
+    {% if display_toc and builder == 'htmlhelp' %}
+<h1>{{ title }}</h1>
+{{ toc|replace('<li><a class="reference internal" href="#">' ~ title ~ '</a><ul>', '') }}
+{{ super()|replace('<h1>' ~ title ~ '</h1>', '') }}
     {% endif %}
+{{ super() }}
 {% endblock %}
 
 {% block footer %}
