@@ -19,3 +19,30 @@ fi
 rm -rf "$dir"
 [ "$windows" -eq "1" ] && opts="--config core.symlinks=true $opts"
 git clone $opts $url $dir
+
+## temporarily modify the source for testing purposes
+
+# remove all manually defined anchor links
+sed -E -i "s/^[ \*-]*\[[^]]*\]\(#[^)]+\)(<br>)?$//g" source/*.md
+
+# remodel the Home page
+sed -i "s/## Contents//" source/Home.md
+sed -i "s/^\*\*/## /" source/Home.md
+sed -i "s/\*\*//" source/Home.md
+
+rm source/index.md
+mv source/Home.md source/index.md
+
+# write a new index file
+cat << EOF > source/contents.rst
+Contents
+========
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+
+   Welcome <index>
+   *
+   
+EOF
