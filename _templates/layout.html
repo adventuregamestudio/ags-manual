@@ -1,7 +1,7 @@
 {% extends '!layout.html' %}
 
 {% block document %}
-    {% if display_toc and builder == 'htmlhelp' %}
+    {% if display_toc and pagename != "index" and builder == 'htmlhelp' %}
 <h1>{{ title }}</h1>
 {{ toc|replace('<li><a class="reference internal" href="#">' ~ title ~ '</a><ul>', '') }}
 {{ super()|replace('<h1>' ~ title ~ '</h1>', '') }}

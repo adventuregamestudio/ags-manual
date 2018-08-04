@@ -4,23 +4,13 @@ dir="source"
 opts="--depth=1 --branch=master"
 url="https://github.com/adventuregamestudio/ags-manual.wiki.git"
 
-release=`uname -r`
-os=`uname -o`
-windows=0
-
-if [ ! "${release%Microsoft}" = "${release}" ]; then
-	# Windows Subsystem for Linux
-	windows=1
-elif [ "$os" = "Msys" ]; then
-	# Msys (subsystem from Git installer)
-	windows=1
-fi
-
 rm -rf "$dir"
-[ "$windows" -eq "1" ] && opts="--config core.symlinks=true $opts"
 git clone $opts $url $dir
 
 ## temporarily modify the source for testing purposes
+
+# not using the symlink any more
+rm source/index.md
 
 # remove all manually defined anchor links
 sed -E -i "s/^[ \*-]*\[[^]]*\]\(#[^)]+\)(<br>)?$//g" source/*.md
@@ -29,20 +19,45 @@ sed -E -i "s/^[ \*-]*\[[^]]*\]\(#[^)]+\)(<br>)?$//g" source/*.md
 sed -i "s/## Contents//" source/Home.md
 sed -i "s/^\*\*/## /" source/Home.md
 sed -i "s/\*\*//" source/Home.md
+sed -E -zi "s/\n\n+/\n\n/g" source/Home.md
 
-rm source/index.md
-mv source/Home.md source/index.md
+## end of temp changes
 
 # write a new index file
-cat << EOF > source/contents.rst
-Contents
-========
+awk -v maxdepth=1 -v outfile="source/index.rst" '
+{
+	if ($1 == "#") {
+		sub("^# *", "")
 
-.. toctree::
-   :glob:
-   :maxdepth: 2
+		underline = ""
+		for (i = 0; i < length($0); i ++)
+			underline = "=" underline
 
-   Welcome <index>
-   *
-   
-EOF
+		printf("%s\n%s\n", $0, underline) > outfile
+	}
+
+	else if ($1 == "##") {
+		sub("^## *", "")
+
+		underline = ""
+		for (i = 0; i < length($0); i ++)
+			underline = "-" underline
+
+		printf("\n%s\n%s\n\n.. toctree::\n   :maxdepth: %d\n\n", $0, underline, maxdepth) >> outfile
+	}
+
+	else if ($1 == "*" || $1 == "-" || $1 == "+") {
+		match($0, "\[[^\]]*\]")
+		label = substr($0, RSTART + 1, RLENGTH - 2)
+
+		match($0, "\([^\)]+\)")
+		link = substr($0, RSTART + 1, RLENGTH - 2)
+
+		printf("   %s <%s>\n", label, link) >> outfile
+	}
+}
+
+END {
+	printf("\n.. toctree::\n   :glob:\n   :hidden:\n\n   *\n") >> outfile
+}
+' < source/Home.md
