@@ -33,7 +33,23 @@ Now just use make to create any help version you want! **Example for html files*
 
     make html
 
-## checking wiki links
+## Indexing
+
+Index directives are added automatically, based on heading styles.
+
+Markdown | Indexed as
+--- | ---
+\#\# Heading | Single entry: 'Heading'
+\#\#\# Sub-heading | Paired entry: 'Heading' <-> 'Sub-heading'
+
+Using \#\#\# without a preceeding \#\# on the page will generate a warning and be ignored by Sphinx, so it won't appear in the index. To create an H2 style heading without an index entry, use the alternate H2 markup:
+
+    Heading
+    -------
+    
+H1 headings are not checked, effectively reserving their use for primary document titles.
+
+## Checking wiki links
 
 If making a lot of changes, the included AWK script can validate links within a directory:
 
@@ -44,4 +60,3 @@ A checklinks task is run on every Travis-CI build, and the build will fail for a
 Additionally, *sphinx linkchecker* can check if external links are broken.
 
     make linkcheck
-
