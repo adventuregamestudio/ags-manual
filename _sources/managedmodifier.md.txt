@@ -1,5 +1,7 @@
-Script language keywords
-------------------------
+.. index::
+   single: Script language keywords
+
+## Script language keywords
 
 
 
@@ -27,7 +29,7 @@ Script language keywords
 ---
 
 .. index::
-   pair: ; Arrays
+   pair: Script language keywords; Arrays
 
 ### Arrays
 
@@ -68,7 +70,7 @@ See Also: [Dynamic arrays](DynamicArrays)
 ---
 
 .. index::
-   pair: ; Data types
+   pair: Script language keywords; Data types
 
 ### Data types
 
@@ -116,7 +118,7 @@ point arithmetic.
 ---
 
 .. index::
-   pair: ; Operators
+   pair: Script language keywords; Operators
 
 ### Operators
 
@@ -170,7 +172,7 @@ this:
 ---
 
 .. index::
-   pair: ; Constants
+   pair: Script language keywords; Constants
 
 ### Constants
 
@@ -227,7 +229,7 @@ limit, use the
 ---
 
 .. index::
-   pair: ; Version checking
+   pair: Script language keywords; Version checking
 
 ### Version checking
 
@@ -250,7 +252,7 @@ than this.
 ---
 
 .. index::
-   pair: ; if, else statements
+   pair: Script language keywords; if, else statements
 
 ### if, else statements
 
@@ -295,7 +297,7 @@ if it is not.
 ---
 
 .. index::
-   pair: ; switch, case statements
+   pair: Script language keywords; switch, case statements
 
 ### switch, case statements
 
@@ -357,7 +359,7 @@ mentioned in this switch, they would go straight to default line.
 ---
 
 .. index::
-   pair: ; while
+   pair: Script language keywords; while
 
 ### while
 
@@ -380,7 +382,7 @@ of the loop.
 ---
 
 .. index::
-   pair: ; do..while
+   pair: Script language keywords; do..while
 
 ### do..while
 
@@ -408,7 +410,7 @@ player.
 ---
 
 .. index::
-   pair: ; for
+   pair: Script language keywords; for
 
 ### for
 
@@ -455,7 +457,7 @@ coordinate x = 100.
 ---
 
 .. index::
-   pair: ; break
+   pair: Script language keywords; break
 
 ### break
 
@@ -481,7 +483,7 @@ immediately.
 ---
 
 .. index::
-   pair: ; continue
+   pair: Script language keywords; continue
 
 ### continue
 
@@ -510,7 +512,7 @@ when `i <= 50`.
 ---
 
 .. index::
-   pair: ; function
+   pair: Script language keywords; function
 
 ### function
 
@@ -558,7 +560,7 @@ cannot be specified in the actual function declaration itself.
 ---
 
 .. index::
-   pair: ; return
+   pair: Script language keywords; return
 
 ### return
 
@@ -594,7 +596,7 @@ naturally:
 ---
 
 .. index::
-   pair: ; struct
+   pair: Script language keywords; struct
 
 ### struct
 
@@ -645,7 +647,7 @@ your scripts.
 ---
 
 .. index::
-   pair: ; managed
+   pair: Script language keywords; managed
 
 ### managed
 
@@ -741,7 +743,7 @@ See Also: [new](#new), [Pointers in AGS](Pointers)
 ---
 
 .. index::
-   pair: ; new
+   pair: Script language keywords; new
 
 ### new
 
@@ -773,7 +775,7 @@ See Also: [managed](#managed), [Pointers in AGS](Pointers)
 ---
 
 .. index::
-   pair: ; enum
+   pair: Script language keywords; enum
 
 ### enum
 
@@ -834,7 +836,7 @@ they're very handy.
 ---
 
 .. index::
-   pair: ; this
+   pair: Script language keywords; this
 
 ### this
 
@@ -875,7 +877,7 @@ for details.
 ---
 
 .. index::
-   pair: ; import
+   pair: Script language keywords; import
 
 ### import
 
@@ -908,7 +910,7 @@ apply to new-style `String` variables).
 ---
 
 .. index::
-   pair: ; export
+   pair: Script language keywords; export
 
 ### export
 
@@ -928,7 +930,7 @@ This exports three variables - my_variable, counter and strength.
 ---
 
 .. index::
-   pair: ; noloopcheck
+   pair: Script language keywords; noloopcheck
 
 ### noloopcheck
 

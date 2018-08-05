@@ -1,12 +1,14 @@
-**Scripting Tutorial**
-----------------------
+.. index::
+   single: Scripting Tutorial
+
+## Scripting Tutorial
 
 In AGS, all the interactivity in the game is handled using scripts.
 They're an essential part of game-making, so it's important that we go
 through how to use them.
 
 .. index::
-   pair: ; The Basics
+   pair: Scripting Tutorial; The Basics
 
 ### The Basics
 
@@ -44,7 +46,7 @@ help you remember what your script is doing. You can add comments to
 your script simply by starting the line with the `//` symbol.
 
 .. index::
-   pair: ; Commands Explained
+   pair: Scripting Tutorial; Commands Explained
 
 ### Commands Explained
 
@@ -106,7 +108,7 @@ This is what we already did in the main tutorial, but having examined it
 in more detail it should now make more sense why we've done it this way.
 
 .. index::
-   pair: ; Instances
+   pair: Scripting Tutorial; Instances
 
 ### Instances
 
@@ -150,7 +152,7 @@ control different characters) then you can use the *player* instance to
 do so.
 
 .. index::
-   pair: ; Command Sequences
+   pair: Scripting Tutorial; Command Sequences
 
 ### Command Sequences
 
@@ -177,7 +179,7 @@ will mean that the player gets the two messages in the order you
 specified.
 
 .. index::
-   pair: ; Recap
+   pair: Scripting Tutorial; Recap
 
 ### Recap
 
@@ -191,7 +193,7 @@ So, did you remember these vital points:
 -   The *player* instance corresponds to the current player character.
 
 .. index::
-   pair: ; Variables
+   pair: Scripting Tutorial; Variables
 
 ### Variables
 
@@ -352,7 +354,7 @@ the script functions SetGlobalInt and GetGlobalInt to access them. See
 their manual descriptions for more information.
 
 .. index::
-   pair: ; Functions that return a value
+   pair: Scripting Tutorial; Functions that return a value
 
 ### Functions that return a value
 
@@ -381,7 +383,7 @@ example, you can do:
 Be sure to remember the parenthesis ().
 
 .. index::
-   pair: ; Common Shortcuts
+   pair: Scripting Tutorial; Common Shortcuts
 
 ### Common Shortcuts
 
@@ -420,7 +422,7 @@ which is equivalent to:
       Display("counter is non-zero");
 
 .. index::
-   pair: ; Summary
+   pair: Scripting Tutorial; Summary
 
 ### Summary
 

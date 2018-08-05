@@ -1,5 +1,7 @@
-GUI Button functions and properties
------------------------------------
+.. index::
+   single: GUI Button functions and properties
+
+## GUI Button functions and properties
 
 [BringToFront](GUIControl#bringtofront)<br>
 [Clickable property](GUIControl#clickable)<br>
@@ -34,7 +36,7 @@ GUI Button functions and properties
 ---
 
 .. index::
-   pair: ; Click
+   pair: GUI Button functions and properties; Click
 
 ### Click
 
@@ -51,7 +53,7 @@ that event it will be run, otherwise nothing happens.
 ---
 
 .. index::
-   pair: ; Animate
+   pair: GUI Button functions and properties; Animate
 
 ### Animate
 
@@ -97,7 +99,7 @@ delay of 4 cycles per frame, and repeat the animation continually.
 ---
 
 .. index::
-   pair: ; Animating
+   pair: GUI Button functions and properties; Animating
 
 ### Animating
 
@@ -127,7 +129,7 @@ will animate button and wait until the animation finishes.
 ---
 
 .. index::
-   pair: ; Frame
+   pair: GUI Button functions and properties; Frame
 
 ### Frame
 
@@ -150,7 +152,7 @@ This property is read-only. To change button's animation, use the
 ---
 
 .. index::
-   pair: ; Loop
+   pair: GUI Button functions and properties; Loop
 
 ### Loop
 
@@ -173,7 +175,7 @@ This property is read-only. To change button's animation, use the
 ---
 
 .. index::
-   pair: ; View
+   pair: GUI Button functions and properties; View
 
 ### View
 
@@ -196,7 +198,7 @@ This property is read-only. To change button's animation, use the
 ---
 
 .. index::
-   pair: ; ClipImage
+   pair: GUI Button functions and properties; ClipImage
 
 ### ClipImage
 
@@ -226,7 +228,7 @@ button's clickable area.
 ---
 
 .. index::
-   pair: ; Font
+   pair: GUI Button functions and properties; Font
 
 ### Font
 
@@ -249,7 +251,7 @@ will change the *btnOK* button to use Font "Main".
 ---
 
 .. index::
-   pair: ; Graphic
+   pair: GUI Button functions and properties; Graphic
 
 ### Graphic
 
@@ -279,7 +281,7 @@ will display btnPlay's current sprite number.
 ---
 
 .. index::
-   pair: ; MouseOverGraphic
+   pair: GUI Button functions and properties; MouseOverGraphic
 
 ### MouseOverGraphic
 
@@ -304,7 +306,7 @@ will display btnPlay's mouse-over sprite number.
 ---
 
 .. index::
-   pair: ; NormalGraphic
+   pair: GUI Button functions and properties; NormalGraphic
 
 ### NormalGraphic
 
@@ -334,7 +336,7 @@ will display btnPlay's normal sprite number.
 ---
 
 .. index::
-   pair: ; PushedGraphic
+   pair: GUI Button functions and properties; PushedGraphic
 
 ### PushedGraphic
 
@@ -360,7 +362,7 @@ will display btnPlay's pushed sprite number.
 ---
 
 .. index::
-   pair: ; Text
+   pair: GUI Button functions and properties; Text
 
 ### Text
 
@@ -386,7 +388,7 @@ will display the old text, then change button btnController to read
 ---
 
 .. index::
-   pair: ; TextColor
+   pair: GUI Button functions and properties; TextColor
 
 ### TextColor
 

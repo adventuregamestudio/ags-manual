@@ -1,5 +1,7 @@
-GUI InvWindow functions and properties
---------------------------------------
+.. index::
+   single: GUI InvWindow functions and properties
+
+## GUI InvWindow functions and properties
 
 [BringToFront](GUIControl#bringtofront)<br>
 [Clickable property](GUIControl#clickable)<br>
@@ -30,7 +32,7 @@ GUI InvWindow functions and properties
 ---
 
 .. index::
-   pair: ; ScrollDown
+   pair: GUI InvWindow functions and properties; ScrollDown
 
 ### ScrollDown
 
@@ -55,7 +57,7 @@ will scroll the *invMain* inv window down one row.
 ---
 
 .. index::
-   pair: ; ScrollUp
+   pair: GUI InvWindow functions and properties; ScrollUp
 
 ### ScrollUp
 
@@ -80,7 +82,7 @@ will scroll the *invMain* inv window up one row.
 ---
 
 .. index::
-   pair: ; CharacterToUse
+   pair: GUI InvWindow functions and properties; CharacterToUse
 
 ### CharacterToUse
 
@@ -101,7 +103,7 @@ inventory.
 ---
 
 .. index::
-   pair: ; ItemAtIndex
+   pair: GUI InvWindow functions and properties; ItemAtIndex
 
 ### ItemAtIndex
 
@@ -127,7 +129,7 @@ inventory window.
 ---
 
 .. index::
-   pair: ; ItemCount
+   pair: GUI InvWindow functions and properties; ItemCount
 
 ### ItemCount
 
@@ -157,7 +159,7 @@ more inventory items than will fit in the inventory window.
 ---
 
 .. index::
-   pair: ; ItemHeight
+   pair: GUI InvWindow functions and properties; ItemHeight
 
 ### ItemHeight
 
@@ -182,7 +184,7 @@ sets the *invMain* inventory window to use item cells 50x30 large.
 ---
 
 .. index::
-   pair: ; ItemWidth
+   pair: GUI InvWindow functions and properties; ItemWidth
 
 ### ItemWidth
 
@@ -207,7 +209,7 @@ sets the *invMain* inventory window to use item cells 50x30 large.
 ---
 
 .. index::
-   pair: ; ItemsPerRow
+   pair: GUI InvWindow functions and properties; ItemsPerRow
 
 ### ItemsPerRow
 
@@ -231,7 +233,7 @@ displays how many items can be visible in the invMain window at once.
 ---
 
 .. index::
-   pair: ; RowCount
+   pair: GUI InvWindow functions and properties; RowCount
 
 ### RowCount
 
@@ -253,7 +255,7 @@ displays how many items can be visible in the invMain window at once.
 ---
 
 .. index::
-   pair: ; TopItem
+   pair: GUI InvWindow functions and properties; TopItem
 
 ### TopItem
 

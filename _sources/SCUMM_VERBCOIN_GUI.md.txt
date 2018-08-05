@@ -1,5 +1,7 @@
-SCUMM_VERBCOIN_GUI functions
-------------------------------
+.. index::
+   single: SCUMM_VERBCOIN_GUI functions
+
+## SCUMM_VERBCOIN_GUI functions
 
 SCUMM_VERBCOIN_GUI is a script module that is included with the Verb
 Coin template. The functions in this section are only available if you
@@ -24,7 +26,7 @@ have created your game using that template.
 ---
 
 .. index::
-   pair: ; Deselect
+   pair: SCUMM_VERBCOIN_GUI functions; Deselect
 
 ### Deselect
 
@@ -43,7 +45,7 @@ available if you used this template to create your game.
 ---
 
 .. index::
-   pair: ; DisableVerbCoinGUI
+   pair: SCUMM_VERBCOIN_GUI functions; DisableVerbCoinGUI
 
 ### DisableVerbCoinGUI
 
@@ -64,7 +66,7 @@ will disable all verbcoin processing code.
 ---
 
 .. index::
-   pair: ; DoubleClickSpeed
+   pair: SCUMM_VERBCOIN_GUI functions; DoubleClickSpeed
 
 ### DoubleClickSpeed
 
@@ -90,7 +92,7 @@ default)
 ---
 
 .. index::
-   pair: ; GoInventory
+   pair: SCUMM_VERBCOIN_GUI functions; GoInventory
 
 ### GoInventory
 
@@ -104,7 +106,7 @@ available if you used this template to create your game.
 ---
 
 .. index::
-   pair: ; Item_Count
+   pair: SCUMM_VERBCOIN_GUI functions; Item_Count
 
 ### Item_Count
 
@@ -133,7 +135,7 @@ item 11, 21, 31, ...
 ---
 
 .. index::
-   pair: ; InvScroll_Left
+   pair: SCUMM_VERBCOIN_GUI functions; InvScroll_Left
 
 ### InvScroll_Left
 
@@ -152,7 +154,7 @@ available if you used this template to create your game.
 ---
 
 .. index::
-   pair: ; InvScroll_Right
+   pair: SCUMM_VERBCOIN_GUI functions; InvScroll_Right
 
 ### InvScroll_Right
 
@@ -171,7 +173,7 @@ available if you used this template to create your game.
 ---
 
 .. index::
-   pair: ; Inv_Border_active
+   pair: SCUMM_VERBCOIN_GUI functions; Inv_Border_active
 
 ### Inv_Border_active
 
@@ -198,7 +200,7 @@ the top or the bottom of the screen.
 ---
 
 .. index::
-   pair: ; Inv_Border_SetPos
+   pair: SCUMM_VERBCOIN_GUI functions; Inv_Border_SetPos
 
 ### Inv_Border_SetPos
 
@@ -227,7 +229,7 @@ border to x-coordinate 295
 ---
 
 .. index::
-   pair: ; Inventory_GUI
+   pair: SCUMM_VERBCOIN_GUI functions; Inventory_GUI
 
 ### Inventory_GUI
 
@@ -261,7 +263,7 @@ underlay gui is GUI nr.3
 ---
 
 .. index::
-   pair: ; RunInteraction
+   pair: SCUMM_VERBCOIN_GUI functions; RunInteraction
 
 ### RunInteraction
 
@@ -283,7 +285,7 @@ Example:
 ---
 
 .. index::
-   pair: ; Select
+   pair: SCUMM_VERBCOIN_GUI functions; Select
 
 ### Select
 
@@ -302,7 +304,7 @@ available if you used this template to create your game.
 ---
 
 .. index::
-   pair: ; Verbcoin_GUI
+   pair: SCUMM_VERBCOIN_GUI functions; Verbcoin_GUI
 
 ### Verbcoin_GUI
 
@@ -327,7 +329,7 @@ will tell the module your verbcoin gui is GUI nr.1
 ---
 
 .. index::
-   pair: ; verbgraphic
+   pair: SCUMM_VERBCOIN_GUI functions; verbgraphic
 
 ### verbgraphic
 
@@ -351,7 +353,7 @@ will set the sprite for moving over the talk button to sprite 2
 ---
 
 .. index::
-   pair: ; doubleclick (variable)
+   pair: SCUMM_VERBCOIN_GUI functions; doubleclick (variable)
 
 ### doubleclick (variable)
 

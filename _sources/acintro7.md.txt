@@ -1,8 +1,10 @@
-**Getting Started with AGS - Part 7**
--------------------------------------
+.. index::
+   single: Getting Started with AGS - Part 7
+
+## Getting Started with AGS - Part 7
 
 .. index::
-   pair: ; Animations
+   pair: Getting Started with AGS - Part 7; Animations
 
 ### Animations
 
@@ -58,7 +60,7 @@ for all types of animations in the game. How you actually run an
 animation in the game will be explained later on.
 
 .. index::
-   pair: ; Characters
+   pair: Getting Started with AGS - Part 7; Characters
 
 ### Characters
 
@@ -118,7 +120,7 @@ contain the letters A-Z, whereas the *RealName* field can contain any
 spaces, numbers, etc.
 
 .. index::
-   pair: ; Game starting point
+   pair: Getting Started with AGS - Part 7; Game starting point
 
 ### Game starting point
 
@@ -130,7 +132,7 @@ character is used to determine which room the game starts off in.
 TIP: This feature can be handy for testing various parts of your game. For example, when you're working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.
 
 .. index::
-   pair: ; Cutscenes
+   pair: Getting Started with AGS - Part 7; Cutscenes
 
 ### Cutscenes
 

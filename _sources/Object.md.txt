@@ -1,5 +1,7 @@
-Object functions and properties
--------------------------------
+.. index::
+   single: Object functions and properties
+
+## Object functions and properties
 
 
 
@@ -50,7 +52,7 @@ Object functions and properties
 ---
 
 .. index::
-   pair: ; Animate
+   pair: Object functions and properties; Animate
 
 ### Animate
 
@@ -105,7 +107,7 @@ speed 3. The function won't return until the animation is finished.
 ---
 
 .. index::
-   pair: ; GetAtScreenXY
+   pair: Object functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -133,7 +135,7 @@ will execute the code only if object oRock is on the screen coordinates
 ---
 
 .. index::
-   pair: ; GetProperty
+   pair: Object functions and properties; GetProperty
 
 ### GetProperty
 
@@ -162,7 +164,7 @@ than 200.
 ---
 
 .. index::
-   pair: ; GetTextProperty
+   pair: Object functions and properties; GetTextProperty
 
 ### GetTextProperty
 
@@ -191,7 +193,7 @@ will retrieve Object 0's "description" property then display it.
 ---
 
 .. index::
-   pair: ; SetProperty
+   pair: Object functions and properties; SetProperty
 
 ### SetProperty
 
@@ -220,7 +222,7 @@ will change Table's "ItemCapacity" custom property to 5.
 ---
 
 .. index::
-   pair: ; SetTextProperty
+   pair: Object functions and properties; SetTextProperty
 
 ### SetTextProperty
 
@@ -247,7 +249,7 @@ will change table's "description" property.
 ---
 
 .. index::
-   pair: ; IsCollidingWithObject
+   pair: Object functions and properties; IsCollidingWithObject
 
 ### IsCollidingWithObject
 
@@ -275,7 +277,7 @@ will display the message if the objects 2 and 3 are colliding.
 ---
 
 .. index::
-   pair: ; MergeIntoBackground
+   pair: Object functions and properties; MergeIntoBackground
 
 ### MergeIntoBackground
 
@@ -306,7 +308,7 @@ the object unusable.
 ---
 
 .. index::
-   pair: ; Move
+   pair: Object functions and properties; Move
 
 ### Move
 
@@ -347,7 +349,7 @@ object gets there.
 ---
 
 .. index::
-   pair: ; RemoveTint
+   pair: Object functions and properties; RemoveTint
 
 ### RemoveTint
 
@@ -371,7 +373,7 @@ will tint object 1 green for a second, then turn it back to normal.
 ---
 
 .. index::
-   pair: ; IsInteractionAvailable
+   pair: Object functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -398,7 +400,7 @@ Example:
 ---
 
 .. index::
-   pair: ; RunInteraction
+   pair: Object functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -424,7 +426,7 @@ handler.
 ---
 
 .. index::
-   pair: ; SetLightLevel
+   pair: Object functions and properties; SetLightLevel
 
 ### SetLightLevel
 
@@ -463,7 +465,7 @@ This will give the lamp maximal individual brightness.
 ---
 
 .. index::
-   pair: ; SetPosition
+   pair: Object functions and properties; SetPosition
 
 ### SetPosition
 
@@ -491,7 +493,7 @@ will change object's 2 position to 50,100.
 ---
 
 .. index::
-   pair: ; SetView
+   pair: Object functions and properties; SetView
 
 ### SetView
 
@@ -520,7 +522,7 @@ view 5, loop 2, frame 0.
 ---
 
 .. index::
-   pair: ; StopAnimating
+   pair: Object functions and properties; StopAnimating
 
 ### StopAnimating
 
@@ -543,7 +545,7 @@ will stop object 2 animating if it currently is doing so.
 ---
 
 .. index::
-   pair: ; StopMoving
+   pair: Object functions and properties; StopMoving
 
 ### StopMoving
 
@@ -569,7 +571,7 @@ will stop object 2 moving if it currently is doing so.
 ---
 
 .. index::
-   pair: ; Tint
+   pair: Object functions and properties; Tint
 
 ### Tint
 
@@ -607,7 +609,7 @@ will tint object 1 green.
 ---
 
 .. index::
-   pair: ; Animating
+   pair: Object functions and properties; Animating
 
 ### Animating
 
@@ -639,7 +641,7 @@ you wouldn't need to do this.
 ---
 
 .. index::
-   pair: ; Baseline
+   pair: Object functions and properties; Baseline
 
 ### Baseline
 
@@ -672,7 +674,7 @@ will change object's 4 baseline to a line positioned at y coordinate
 ---
 
 .. index::
-   pair: ; BlockingHeight
+   pair: Object functions and properties; BlockingHeight
 
 ### BlockingHeight
 
@@ -705,7 +707,7 @@ its baseline)
 ---
 
 .. index::
-   pair: ; BlockingWidth
+   pair: Object functions and properties; BlockingWidth
 
 ### BlockingWidth
 
@@ -738,7 +740,7 @@ his centre, and 25 to the right)
 ---
 
 .. index::
-   pair: ; Clickable
+   pair: Object functions and properties; Clickable
 
 ### Clickable
 
@@ -767,7 +769,7 @@ will make object 2 ignore clicks from the player.
 ---
 
 .. index::
-   pair: ; Frame
+   pair: Object functions and properties; Frame
 
 ### Frame
 
@@ -793,7 +795,7 @@ will display the oDoor object's current frame number
 ---
 
 .. index::
-   pair: ; Graphic
+   pair: Object functions and properties; Graphic
 
 ### Graphic
 
@@ -819,7 +821,7 @@ manager's slot 100.
 ---
 
 .. index::
-   pair: ; HasExplicitLight
+   pair: Object functions and properties; HasExplicitLight
 
 ### HasExplicitLight
 
@@ -840,7 +842,7 @@ light.
 ---
 
 .. index::
-   pair: ; HasExplicitTint
+   pair: Object functions and properties; HasExplicitTint
 
 ### HasExplicitTint
 
@@ -860,7 +862,7 @@ tinted by [SetAmbientTint](Game#setambienttint) or a region tint.
 ---
 
 .. index::
-   pair: ; ID
+   pair: Object functions and properties; ID
 
 ### ID
 
@@ -880,7 +882,7 @@ uses the obsolete MoveObject function to move the Rock object to (100,
 ---
 
 .. index::
-   pair: ; IgnoreScaling
+   pair: Object functions and properties; IgnoreScaling
 
 ### IgnoreScaling
 
@@ -906,7 +908,7 @@ will tell the Door object not to be scaled on walkable areas.
 ---
 
 .. index::
-   pair: ; IgnoreWalkbehinds
+   pair: Object functions and properties; IgnoreWalkbehinds
 
 ### IgnoreWalkbehinds
 
@@ -940,7 +942,7 @@ will make object 1 ignore walk behinds.
 ---
 
 .. index::
-   pair: ; LightLevel
+   pair: Object functions and properties; LightLevel
 
 ### LightLevel
 
@@ -961,7 +963,7 @@ property returns the light level value. Otherwise it returns 0.
 ---
 
 .. index::
-   pair: ; Loop
+   pair: Object functions and properties; Loop
 
 ### Loop
 
@@ -987,7 +989,7 @@ will display the oDoor object's current loop number
 ---
 
 .. index::
-   pair: ; Moving
+   pair: Object functions and properties; Moving
 
 ### Moving
 
@@ -1015,7 +1017,7 @@ object gets there.
 ---
 
 .. index::
-   pair: ; Name
+   pair: Object functions and properties; Name
 
 ### Name
 
@@ -1040,7 +1042,7 @@ will retrieve and then display object 0's name.
 ---
 
 .. index::
-   pair: ; Solid
+   pair: Object functions and properties; Solid
 
 ### Solid
 
@@ -1067,7 +1069,7 @@ will mean that the Smallrock object blocks the path of characters.
 ---
 
 .. index::
-   pair: ; TintBlue
+   pair: Object functions and properties; TintBlue
 
 ### TintBlue
 
@@ -1093,7 +1095,7 @@ false, then this value is meaningless.
 ---
 
 .. index::
-   pair: ; TintGreen
+   pair: Object functions and properties; TintGreen
 
 ### TintGreen
 
@@ -1119,7 +1121,7 @@ false, then this value is meaningless.
 ---
 
 .. index::
-   pair: ; TintRed
+   pair: Object functions and properties; TintRed
 
 ### TintRed
 
@@ -1145,7 +1147,7 @@ false, then this value is meaningless.
 ---
 
 .. index::
-   pair: ; TintSaturation
+   pair: Object functions and properties; TintSaturation
 
 ### TintSaturation
 
@@ -1171,7 +1173,7 @@ false, then this value is meaningless.
 ---
 
 .. index::
-   pair: ; TintLuminance
+   pair: Object functions and properties; TintLuminance
 
 ### TintLuminance
 
@@ -1197,7 +1199,7 @@ false, then this value is meaningless.
 ---
 
 .. index::
-   pair: ; Transparency
+   pair: Object functions and properties; Transparency
 
 ### Transparency
 
@@ -1243,7 +1245,7 @@ to being fully invisible.
 ---
 
 .. index::
-   pair: ; View
+   pair: Object functions and properties; View
 
 ### View
 
@@ -1270,7 +1272,7 @@ will display the oDoor object's current view number
 ---
 
 .. index::
-   pair: ; Visible
+   pair: Object functions and properties; Visible
 
 ### Visible
 
@@ -1293,7 +1295,7 @@ will make object number 5 in the current room disappear.
 ---
 
 .. index::
-   pair: ; X
+   pair: Object functions and properties; X
 
 ### X
 
@@ -1319,7 +1321,7 @@ will display the X co-ordinate of object 1.
 ---
 
 .. index::
-   pair: ; Y
+   pair: Object functions and properties; Y
 
 ### Y
 

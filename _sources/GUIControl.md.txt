@@ -1,5 +1,7 @@
-GUI control functions and properties
-------------------------------------
+.. index::
+   single: GUI control functions and properties
+
+## GUI control functions and properties
 
 This section lists the functions and properties common to all types of
 GUI control. Each individual control type (Button, ListBox, etc) also
@@ -25,7 +27,7 @@ has its own specific section.
 ---
 
 .. index::
-   pair: ; GetAtScreenXY
+   pair: GUI control functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -58,7 +60,7 @@ will display what control the mouse is over.
 ---
 
 .. index::
-   pair: ; AsType
+   pair: GUI control functions and properties; AsType
 
 ### AsType
 
@@ -91,7 +93,7 @@ that control is not a button, prints a message.
 ---
 
 .. index::
-   pair: ; BringToFront
+   pair: GUI control functions and properties; BringToFront
 
 ### BringToFront
 
@@ -117,7 +119,7 @@ on the GUI.
 ---
 
 .. index::
-   pair: ; Clickable
+   pair: GUI control functions and properties; Clickable
 
 ### Clickable
 
@@ -155,7 +157,7 @@ will make the *btnSaveGame* button non-clickable.
 ---
 
 .. index::
-   pair: ; Enabled
+   pair: GUI control functions and properties; Enabled
 
 ### Enabled
 
@@ -197,7 +199,7 @@ will disable the *btnSaveGame* button.
 ---
 
 .. index::
-   pair: ; Height
+   pair: GUI control functions and properties; Height
 
 ### Height
 
@@ -222,7 +224,7 @@ makes the *btnConfirm* button 20 pixels high.
 ---
 
 .. index::
-   pair: ; ID
+   pair: GUI control functions and properties; ID
 
 ### ID
 
@@ -250,7 +252,7 @@ list box, and then uses the equivalent modern property to disable it.
 ---
 
 .. index::
-   pair: ; OwningGUI
+   pair: GUI control functions and properties; OwningGUI
 
 ### OwningGUI
 
@@ -282,7 +284,7 @@ again using the niftier full pathing approach.
 ---
 
 .. index::
-   pair: ; SendToBack
+   pair: GUI control functions and properties; SendToBack
 
 ### SendToBack
 
@@ -309,7 +311,7 @@ the GUI.
 ---
 
 .. index::
-   pair: ; SetPosition
+   pair: GUI control functions and properties; SetPosition
 
 ### SetPosition
 
@@ -344,7 +346,7 @@ GUI.
 ---
 
 .. index::
-   pair: ; SetSize
+   pair: GUI control functions and properties; SetSize
 
 ### SetSize
 
@@ -377,7 +379,7 @@ will resize the *invMain* control to have a size of 160 x 100.
 ---
 
 .. index::
-   pair: ; Visible
+   pair: GUI control functions and properties; Visible
 
 ### Visible
 
@@ -405,7 +407,7 @@ will make the *btnSaveGame* button invisible.
 ---
 
 .. index::
-   pair: ; Width
+   pair: GUI control functions and properties; Width
 
 ### Width
 
@@ -430,7 +432,7 @@ makes the *btnConfirm* button 110 pixels wide.
 ---
 
 .. index::
-   pair: ; X
+   pair: GUI control functions and properties; X
 
 ### X
 
@@ -459,7 +461,7 @@ left of its GUI.
 ---
 
 .. index::
-   pair: ; Y
+   pair: GUI control functions and properties; Y
 
 ### Y
 
@@ -488,7 +490,7 @@ top of its GUI.
 ---
 
 .. index::
-   pair: ; ZOrder
+   pair: GUI control functions and properties; ZOrder
 
 ### ZOrder
 

@@ -1,5 +1,7 @@
-File functions and properties
------------------------------
+.. index::
+   single: File functions and properties
+
+## File functions and properties
 
 
 
@@ -22,7 +24,7 @@ File functions and properties
 ---
 
 .. index::
-   pair: ; Open
+   pair: File functions and properties; Open
 
 ### Open
 
@@ -98,7 +100,7 @@ it will write the string "test string" to the file and close it.
 ---
 
 .. index::
-   pair: ; Close
+   pair: File functions and properties; Close
 
 ### Close
 
@@ -123,7 +125,7 @@ it.
 ---
 
 .. index::
-   pair: ; Delete
+   pair: File functions and properties; Delete
 
 ### Delete
 
@@ -152,7 +154,7 @@ exists.
 ---
 
 .. index::
-   pair: ; Exists
+   pair: File functions and properties; Exists
 
 ### Exists
 
@@ -190,7 +192,7 @@ will create the file "temp.tmp" if it doesn't exist
 ---
 
 .. index::
-   pair: ; ReadInt
+   pair: File functions and properties; ReadInt
 
 ### ReadInt
 
@@ -217,7 +219,7 @@ the file.
 ---
 
 .. index::
-   pair: ; ReadRawChar
+   pair: File functions and properties; ReadRawChar
 
 ### ReadRawChar
 
@@ -245,7 +247,7 @@ string 'buffer'.
 ---
 
 .. index::
-   pair: ; ReadRawInt
+   pair: File functions and properties; ReadRawInt
 
 ### ReadRawInt
 
@@ -274,7 +276,7 @@ number.
 ---
 
 .. index::
-   pair: ; ReadRawLineBack
+   pair: File functions and properties; ReadRawLineBack
 
 ### ReadRawLineBack
 
@@ -308,7 +310,7 @@ will display the contents of the 'error.log' file, if it exists
 ---
 
 .. index::
-   pair: ; ReadStringBack
+   pair: File functions and properties; ReadStringBack
 
 ### ReadStringBack
 
@@ -338,7 +340,7 @@ file.
 ---
 
 .. index::
-   pair: ; Seek
+   pair: File functions and properties; Seek
 
 ### Seek
 
@@ -386,7 +388,7 @@ will open the file test.dat, read `first_value`, skip 256 bytes, read
 ---
 
 .. index::
-   pair: ; WriteInt
+   pair: File functions and properties; WriteInt
 
 ### WriteInt
 
@@ -413,7 +415,7 @@ will open the file stats.dat and write the integer number in it.
 ---
 
 .. index::
-   pair: ; WriteRawChar
+   pair: File functions and properties; WriteRawChar
 
 ### WriteRawChar
 
@@ -447,7 +449,7 @@ the file.
 ---
 
 .. index::
-   pair: ; WriteRawLine
+   pair: File functions and properties; WriteRawLine
 
 ### WriteRawLine
 
@@ -476,7 +478,7 @@ will write an error line in the file error.log.
 ---
 
 .. index::
-   pair: ; WriteString
+   pair: File functions and properties; WriteString
 
 ### WriteString
 
@@ -508,7 +510,7 @@ it will display an error message. Otherwise, it will write the string
 ---
 
 .. index::
-   pair: ; EOF
+   pair: File functions and properties; EOF
 
 ### EOF
 
@@ -539,7 +541,7 @@ screen.
 ---
 
 .. index::
-   pair: ; Error
+   pair: File functions and properties; Error
 
 ### Error
 
@@ -578,7 +580,7 @@ there was a problem.
 ---
 
 .. index::
-   pair: ; Position
+   pair: File functions and properties; Position
 
 ### Position
 

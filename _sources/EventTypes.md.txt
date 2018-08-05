@@ -1,5 +1,7 @@
-Event Types
------------
+.. index::
+   single: Event Types
+
+## Event Types
 
 The following events are available in the "Events" section of the
 Properties Window (when clicking the lightning bolt icon).
@@ -14,7 +16,7 @@ Properties Window (when clicking the lightning bolt icon).
 ---
 
 .. index::
-   pair: ; Hotspot events
+   pair: Event Types; Hotspot events
 
 ### Hotspot events
 
@@ -59,7 +61,7 @@ use this to highlight the cursor, and for other various effects.
 ---
 
 .. index::
-   pair: ; Object events
+   pair: Event Types; Object events
 
 ### Object events
 
@@ -86,7 +88,7 @@ more information.
 ---
 
 .. index::
-   pair: ; Room events
+   pair: Event Types; Room events
 
 ### Room events
 
@@ -144,7 +146,7 @@ out.
 ---
 
 .. index::
-   pair: ; Inventory item events
+   pair: Event Types; Inventory item events
 
 ### Inventory item events
 
@@ -185,7 +187,7 @@ item.
 ---
 
 .. index::
-   pair: ; Character events
+   pair: Event Types; Character events
 
 ### Character events
 
@@ -215,7 +217,7 @@ talk and use_inv) on the character.
 ---
 
 .. index::
-   pair: ; Region events
+   pair: Event Types; Region events
 
 ### Region events
 

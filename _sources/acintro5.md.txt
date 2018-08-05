@@ -1,8 +1,10 @@
-**Getting Started with AGS - Part 5**
--------------------------------------
+.. index::
+   single: Getting Started with AGS - Part 5
+
+## Getting Started with AGS - Part 5
 
 .. index::
-   pair: ; Managing Inventory
+   pair: Getting Started with AGS - Part 5; Managing Inventory
 
 ### Managing Inventory
 

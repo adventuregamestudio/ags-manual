@@ -1,12 +1,14 @@
-**Getting Started with AGS - Part 2**
--------------------------------------
+.. index::
+   single: Getting Started with AGS - Part 2
+
+## Getting Started with AGS - Part 2
 
 In AGS, games are made up of several *rooms*, which the player moves
 between in order to play the game. Each room is one screen that has its
 own background, hotspots and objects.
 
 .. index::
-   pair: ; Creating your first room
+   pair: Getting Started with AGS - Part 2; Creating your first room
 
 ### Creating your first room
 

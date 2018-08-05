@@ -1,5 +1,7 @@
-Advanced room features
-----------------------
+.. index::
+   single: Advanced room features
+
+## Advanced room features
 
 This section describes slightly more advanced things you can do with the
 rooms.
@@ -13,7 +15,7 @@ rooms.
 ---
 
 .. index::
-   pair: ; Character scaling
+   pair: Advanced room features; Character scaling
 
 ### Character scaling
 
@@ -46,7 +48,7 @@ another as he walks towards the back or front of the screen.
 ---
 
 .. index::
-   pair: ; Scrolling
+   pair: Advanced room features; Scrolling
 
 ### Scrolling
 
@@ -68,7 +70,7 @@ character.
 ---
 
 .. index::
-   pair: ; Importing a file as the walkable area mask
+   pair: Advanced room features; Importing a file as the walkable area mask
 
 ### Importing a file as the walkable area mask
 
@@ -93,7 +95,7 @@ bitmap. Use only palette indexes 0 to 15.
 ---
 
 .. index::
-   pair: ; Animating background scenes
+   pair: Advanced room features; Animating background scenes
 
 ### Animating background scenes
 
@@ -137,7 +139,7 @@ such as CyclePalette or SetPalRGB on screens with animating backgrounds.
 ---
 
 .. index::
-   pair: ; Lighting effects
+   pair: Advanced room features; Lighting effects
 
 ### Lighting effects
 

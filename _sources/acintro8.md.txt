@@ -1,8 +1,10 @@
-**Getting Started with AGS - Part 8**
--------------------------------------
+.. index::
+   single: Getting Started with AGS - Part 8
+
+## Getting Started with AGS - Part 8
 
 .. index::
-   pair: ; Conversations
+   pair: Getting Started with AGS - Part 8; Conversations
 
 ### Conversations
 

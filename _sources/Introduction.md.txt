@@ -1,5 +1,7 @@
-Introduction
-------------
+.. index::
+   single: Introduction
+
+## Introduction
 
 Adventure Game Studio
 

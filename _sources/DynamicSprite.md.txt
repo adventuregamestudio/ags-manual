@@ -1,5 +1,7 @@
-DynamicSprite functions and properties
---------------------------------------
+.. index::
+   single: DynamicSprite functions and properties
+
+## DynamicSprite functions and properties
 
 
 
@@ -26,7 +28,7 @@ DynamicSprite functions and properties
 ---
 
 .. index::
-   pair: ; Create
+   pair: DynamicSprite functions and properties; Create
 
 ### Create
 
@@ -75,7 +77,7 @@ the sprite.
 ---
 
 .. index::
-   pair: ; CreateFromBackground
+   pair: DynamicSprite functions and properties; CreateFromBackground
 
 ### CreateFromBackground
 
@@ -130,7 +132,7 @@ onto the top left corner of the background image.
 ---
 
 .. index::
-   pair: ; CreateFromDrawingSurface
+   pair: DynamicSprite functions and properties; CreateFromDrawingSurface
 
 ### CreateFromDrawingSurface
 
@@ -182,7 +184,7 @@ previously was.
 ---
 
 .. index::
-   pair: ; CreateFromExistingSprite
+   pair: DynamicSprite functions and properties; CreateFromExistingSprite
 
 ### CreateFromExistingSprite
 
@@ -235,7 +237,7 @@ and then draws the result onto the background.
 ---
 
 .. index::
-   pair: ; CreateFromFile
+   pair: DynamicSprite functions and properties; CreateFromFile
 
 ### CreateFromFile
 
@@ -289,7 +291,7 @@ Once the image is finished with, Delete should be called on it.
 ---
 
 .. index::
-   pair: ; CreateFromSaveGame
+   pair: DynamicSprite functions and properties; CreateFromSaveGame
 
 ### CreateFromSaveGame
 
@@ -343,7 +345,7 @@ Once the GUI is disposed of, Delete should be called on the sprite.
 ---
 
 .. index::
-   pair: ; CreateFromScreenShot
+   pair: DynamicSprite functions and properties; CreateFromScreenShot
 
 ### CreateFromScreenShot
 
@@ -395,7 +397,7 @@ Once the GUI is disposed of, Delete should be called on the sprite.
 ---
 
 .. index::
-   pair: ; ChangeCanvasSize
+   pair: DynamicSprite functions and properties; ChangeCanvasSize
 
 ### ChangeCanvasSize
 
@@ -434,7 +436,7 @@ to the left and right, and draws a line in the new area to the left.
 ---
 
 .. index::
-   pair: ; CopyTransparencyMask
+   pair: DynamicSprite functions and properties; CopyTransparencyMask
 
 ### CopyTransparencyMask
 
@@ -477,7 +479,7 @@ transparency mask to use that of sprite 11, and displays it on object 0.
 ---
 
 .. index::
-   pair: ; Crop
+   pair: DynamicSprite functions and properties; Crop
 
 ### Crop
 
@@ -512,7 +514,7 @@ pixels, and then draw it onto the room background at (100,100).
 ---
 
 .. index::
-   pair: ; Delete
+   pair: DynamicSprite functions and properties; Delete
 
 ### Delete
 
@@ -550,7 +552,7 @@ and free the new image.
 ---
 
 .. index::
-   pair: ; Flip
+   pair: DynamicSprite functions and properties; Flip
 
 ### Flip
 
@@ -581,7 +583,7 @@ it onto the room background at (100,100).
 ---
 
 .. index::
-   pair: ; GetDrawingSurface
+   pair: DynamicSprite functions and properties; GetDrawingSurface
 
 ### GetDrawingSurface
 
@@ -617,7 +619,7 @@ object for 1 second and then removes it.
 ---
 
 .. index::
-   pair: ; Resize
+   pair: DynamicSprite functions and properties; Resize
 
 ### Resize
 
@@ -654,7 +656,7 @@ size, and then draw it onto the room background at (100,100).
 ---
 
 .. index::
-   pair: ; Rotate
+   pair: DynamicSprite functions and properties; Rotate
 
 ### Rotate
 
@@ -695,7 +697,7 @@ draw the result onto the screen, and then delete the image.
 ---
 
 .. index::
-   pair: ; SaveToFile
+   pair: DynamicSprite functions and properties; SaveToFile
 
 ### SaveToFile
 
@@ -728,7 +730,7 @@ then save the result back to the disk.
 ---
 
 .. index::
-   pair: ; Tint
+   pair: DynamicSprite functions and properties; Tint
 
 ### Tint
 
@@ -765,7 +767,7 @@ room background.
 ---
 
 .. index::
-   pair: ; ColorDepth
+   pair: DynamicSprite functions and properties; ColorDepth
 
 ### ColorDepth
 
@@ -791,7 +793,7 @@ displays the colour depth of the CustomAvatar.bmp image.
 ---
 
 .. index::
-   pair: ; Graphic
+   pair: DynamicSprite functions and properties; Graphic
 
 ### Graphic
 
@@ -819,7 +821,7 @@ takes a screen shot, and draws it onto the background scene at
 ---
 
 .. index::
-   pair: ; Height
+   pair: DynamicSprite functions and properties; Height
 
 ### Height
 
@@ -844,7 +846,7 @@ displays the size of the CustomAvatar.bmp image.
 ---
 
 .. index::
-   pair: ; Width
+   pair: DynamicSprite functions and properties; Width
 
 ### Width
 

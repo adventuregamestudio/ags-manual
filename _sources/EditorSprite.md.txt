@@ -1,3 +1,5 @@
-Sprite Manager
---------------
+.. index::
+   single: Sprite Manager
+
+## Sprite Manager
 

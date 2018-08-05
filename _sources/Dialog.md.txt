@@ -1,5 +1,7 @@
-Dialog functions and properties
--------------------------------
+.. index::
+   single: Dialog functions and properties
+
+## Dialog functions and properties
 
 
 
@@ -16,7 +18,7 @@ Dialog functions and properties
 ---
 
 .. index::
-   pair: ; DisplayOptions
+   pair: Dialog functions and properties; DisplayOptions
 
 ### DisplayOptions
 
@@ -70,7 +72,7 @@ depending on what the player selected.
 ---
 
 .. index::
-   pair: ; GetOptionState
+   pair: Dialog functions and properties; GetOptionState
 
 ### GetOptionState
 
@@ -113,7 +115,7 @@ currently switched on.
 ---
 
 .. index::
-   pair: ; GetOptionText
+   pair: Dialog functions and properties; GetOptionText
 
 ### GetOptionText
 
@@ -139,7 +141,7 @@ will display the text for the third option of the dJoeBloggs dialog.
 ---
 
 .. index::
-   pair: ; HasOptionBeenChosen
+   pair: Dialog functions and properties; HasOptionBeenChosen
 
 ### HasOptionBeenChosen
 
@@ -169,7 +171,7 @@ before.
 ---
 
 .. index::
-   pair: ; ID
+   pair: Dialog functions and properties; ID
 
 ### ID
 
@@ -191,7 +193,7 @@ will display the ID number of the dFisherman dialog
 ---
 
 .. index::
-   pair: ; OptionCount
+   pair: Dialog functions and properties; OptionCount
 
 ### OptionCount
 
@@ -216,7 +218,7 @@ will display the number of options in the dFisherman dialog.
 ---
 
 .. index::
-   pair: ; SetHasOptionBeenChosen
+   pair: Dialog functions and properties; SetHasOptionBeenChosen
 
 ### SetHasOptionBeenChosen
 
@@ -246,7 +248,7 @@ will mark option 1 of dialog dDialog1 as "not chosen yet".
 ---
 
 .. index::
-   pair: ; SetOptionState
+   pair: Dialog functions and properties; SetOptionState
 
 ### SetOptionState
 
@@ -290,7 +292,7 @@ will enable option 2 of topic number 4 if the Global Integer 10 is 1.
 ---
 
 .. index::
-   pair: ; ShowTextParser
+   pair: Dialog functions and properties; ShowTextParser
 
 ### ShowTextParser
 
@@ -315,7 +317,7 @@ will display a message if dFisherman has the option enabled
 ---
 
 .. index::
-   pair: ; Start
+   pair: Dialog functions and properties; Start
 
 ### Start
 
@@ -344,7 +346,7 @@ will start the conversation topic named dMerchant.
 ---
 
 .. index::
-   pair: ; StopDialog
+   pair: Dialog functions and properties; StopDialog
 
 ### StopDialog
 

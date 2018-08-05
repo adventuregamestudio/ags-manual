@@ -1,5 +1,7 @@
-DrawingSurface functions and properties
----------------------------------------
+.. index::
+   single: DrawingSurface functions and properties
+
+## DrawingSurface functions and properties
 
 The DrawingSurface family of functions allow you to directly draw onto
 dynamic sprites and room backgrounds in the game. You get a drawing
@@ -36,7 +38,7 @@ copies of the image and upload it to video memory if appropriate.
 ---
 
 .. index::
-   pair: ; Clear
+   pair: DrawingSurface functions and properties; Clear
 
 ### Clear
 
@@ -68,7 +70,7 @@ in the middle of it.
 ---
 
 .. index::
-   pair: ; CreateCopy
+   pair: DrawingSurface functions and properties; CreateCopy
 
 ### CreateCopy
 
@@ -108,7 +110,7 @@ for a while and then restore the original background.
 ---
 
 .. index::
-   pair: ; DrawCircle
+   pair: DrawingSurface functions and properties; DrawCircle
 
 ### DrawCircle
 
@@ -135,7 +137,7 @@ will draw a circle in the centre of the screen, of 50 pixels radius.
 ---
 
 .. index::
-   pair: ; DrawImage
+   pair: DrawingSurface functions and properties; DrawImage
 
 ### DrawImage
 
@@ -185,7 +187,7 @@ will draw the *oDoor* object's graphic onto the room background at (100,
 ---
 
 .. index::
-   pair: ; DrawLine
+   pair: DrawingSurface functions and properties; DrawLine
 
 ### DrawLine
 
@@ -223,7 +225,7 @@ the screen (160,100);
 ---
 
 .. index::
-   pair: ; DrawMessageWrapped
+   pair: DrawingSurface functions and properties; DrawMessageWrapped
 
 ### DrawMessageWrapped
 
@@ -260,7 +262,7 @@ will display message 10 in the centre of the screen, starting from Y =
 ---
 
 .. index::
-   pair: ; DrawPixel
+   pair: DrawingSurface functions and properties; DrawPixel
 
 ### DrawPixel
 
@@ -292,7 +294,7 @@ draws a yellow pixel in the top left of the room background
 ---
 
 .. index::
-   pair: ; DrawRectangle
+   pair: DrawingSurface functions and properties; DrawRectangle
 
 ### DrawRectangle
 
@@ -323,7 +325,7 @@ will draw a rectangle over the top left hand quarter of the screen.
 ---
 
 .. index::
-   pair: ; DrawString
+   pair: DrawingSurface functions and properties; DrawString
 
 ### DrawString
 
@@ -354,7 +356,7 @@ will write some text onto the middle-left of the room background
 ---
 
 .. index::
-   pair: ; DrawStringWrapped
+   pair: DrawingSurface functions and properties; DrawStringWrapped
 
 ### DrawStringWrapped
 
@@ -389,7 +391,7 @@ will display the text in the centre of the screen, starting from Y = 40.
 ---
 
 .. index::
-   pair: ; DrawSurface
+   pair: DrawingSurface functions and properties; DrawSurface
 
 ### DrawSurface
 
@@ -431,7 +433,7 @@ this will draw background frame 1 onto frame 0 at 50`%` opacity.
 ---
 
 .. index::
-   pair: ; DrawTriangle
+   pair: DrawingSurface functions and properties; DrawTriangle
 
 ### DrawTriangle
 
@@ -461,7 +463,7 @@ will draw a triangle with corners at the points (0,0),(160,100),(0,200).
 ---
 
 .. index::
-   pair: ; Release
+   pair: DrawingSurface functions and properties; Release
 
 ### Release
 
@@ -490,7 +492,7 @@ background, then releases the image.
 ---
 
 .. index::
-   pair: ; DrawingColor
+   pair: DrawingSurface functions and properties; DrawingColor
 
 ### DrawingColor
 
@@ -529,7 +531,7 @@ the middle.
 ---
 
 .. index::
-   pair: ; GetPixel
+   pair: DrawingSurface functions and properties; GetPixel
 
 ### GetPixel
 
@@ -566,7 +568,7 @@ displays the pixel colour of the centre pixel on the screen.
 ---
 
 .. index::
-   pair: ; Height
+   pair: DrawingSurface functions and properties; Height
 
 ### Height
 
@@ -589,7 +591,7 @@ displays the size of the surface to the player
 ---
 
 .. index::
-   pair: ; UseHighResCoordinates
+   pair: DrawingSurface functions and properties; UseHighResCoordinates
 
 ### UseHighResCoordinates
 
@@ -630,7 +632,7 @@ draw a line from the top left to the bottom right of the screen.
 ---
 
 .. index::
-   pair: ; Width
+   pair: DrawingSurface functions and properties; Width
 
 ### Width
 

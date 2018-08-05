@@ -1,5 +1,7 @@
-Pointers in AGS
----------------
+.. index::
+   single: Pointers in AGS
+
+## Pointers in AGS
 
 Various commands in the new scripting language will require you to use
 pointers. This section has been split into three separate topics to
@@ -13,7 +15,7 @@ experience -- select one of the links below:
 ---
 
 .. index::
-   pair: ; Pointers for programming newbies
+   pair: Pointers in AGS; Pointers for programming newbies
 
 ### Pointers for programming newbies
 
@@ -107,7 +109,7 @@ can't work out, feel free to ask on the Technical forums.
 ---
 
 .. index::
-   pair: ; Pointers for people who know Java or C#
+   pair: Pointers in AGS; Pointers for people who know Java or C#
 
 ### Pointers for people who know Java or C#
 
@@ -154,7 +156,7 @@ the memory to be freed.
 ---
 
 .. index::
-   pair: ; Pointers for people who know C or C++
+   pair: Pointers in AGS; Pointers for people who know C or C++
 
 ### Pointers for people who know C or C++
 

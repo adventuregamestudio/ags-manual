@@ -1,5 +1,7 @@
-Palette functions
------------------
+.. index::
+   single: Palette functions
+
+## Palette functions
 
 
 
@@ -8,7 +10,7 @@ Palette functions
 ---
 
 .. index::
-   pair: ; CyclePalette
+   pair: Palette functions; CyclePalette
 
 ### CyclePalette
 
@@ -38,7 +40,7 @@ give a color effect.
 ---
 
 .. index::
-   pair: ; SetPalRGB
+   pair: Palette functions; SetPalRGB
 
 ### SetPalRGB
 
@@ -71,7 +73,7 @@ will change palette slot number 10 from light green to yellow
 ---
 
 .. index::
-   pair: ; UpdatePalette
+   pair: Palette functions; UpdatePalette
 
 ### UpdatePalette
 

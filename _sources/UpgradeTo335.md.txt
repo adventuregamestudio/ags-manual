@@ -1,5 +1,7 @@
-Upgrading to AGS 3.3.5
-----------------------
+.. index::
+   single: Upgrading to AGS 3.3.5
+
+## Upgrading to AGS 3.3.5
 
 Since 3.3.5 AGS does not allow to **write** any files into other path
 rather than "`$SAVEGAMEDIR$`" (personal user saves directory) or

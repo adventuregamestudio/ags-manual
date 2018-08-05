@@ -1,5 +1,7 @@
-Parser functions
-----------------
+.. index::
+   single: Parser functions
+
+## Parser functions
 
 
 
@@ -9,7 +11,7 @@ Parser functions
 ---
 
 .. index::
-   pair: ; FindWordID
+   pair: Parser functions; FindWordID
 
 ### FindWordID
 
@@ -47,7 +49,7 @@ will display a message if the game dictionary includes "machine"
 ---
 
 .. index::
-   pair: ; ParseText
+   pair: Parser functions; ParseText
 
 ### ParseText
 
@@ -72,7 +74,7 @@ the said command.
 ---
 
 .. index::
-   pair: ; Said
+   pair: Parser functions; Said
 
 ### Said
 
@@ -102,7 +104,7 @@ the text parser.
 ---
 
 .. index::
-   pair: ; SaidUnknownWord
+   pair: Parser functions; SaidUnknownWord
 
 ### SaidUnknownWord
 

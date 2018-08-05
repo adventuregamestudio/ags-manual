@@ -1,5 +1,7 @@
-Hotspot functions and properties
---------------------------------
+.. index::
+   single: Hotspot functions and properties
+
+## Hotspot functions and properties
 
 
 
@@ -17,7 +19,7 @@ Hotspot functions and properties
 ---
 
 .. index::
-   pair: ; GetAtScreenXY
+   pair: Hotspot functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -53,7 +55,7 @@ will display a message depending on what the mouse is on.
 ---
 
 .. index::
-   pair: ; GetProperty
+   pair: Hotspot functions and properties; GetProperty
 
 ### GetProperty
 
@@ -81,7 +83,7 @@ than 200.
 ---
 
 .. index::
-   pair: ; GetTextProperty
+   pair: Hotspot functions and properties; GetTextProperty
 
 ### GetTextProperty
 
@@ -109,7 +111,7 @@ will retrieve hotspot 2's "description" property and display it.
 ---
 
 .. index::
-   pair: ; SetProperty
+   pair: Hotspot functions and properties; SetProperty
 
 ### SetProperty
 
@@ -138,7 +140,7 @@ will change Door hotspot's "LockDifficulty" custom property to 5.
 ---
 
 .. index::
-   pair: ; SetTextProperty
+   pair: Hotspot functions and properties; SetTextProperty
 
 ### SetTextProperty
 
@@ -165,7 +167,7 @@ will change Door's "description" property.
 ---
 
 .. index::
-   pair: ; IsInteractionAvailable
+   pair: Hotspot functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -192,7 +194,7 @@ Example:
 ---
 
 .. index::
-   pair: ; RunInteraction
+   pair: Hotspot functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -218,7 +220,7 @@ hDoor.
 ---
 
 .. index::
-   pair: ; Enabled
+   pair: Hotspot functions and properties; Enabled
 
 ### Enabled
 
@@ -250,7 +252,7 @@ will disable the hBrownTree hotspot.
 ---
 
 .. index::
-   pair: ; ID
+   pair: Hotspot functions and properties; ID
 
 ### ID
 
@@ -272,7 +274,7 @@ displays hDoor's hotspot number, and then displays hotspot 3's number
 ---
 
 .. index::
-   pair: ; Name
+   pair: Hotspot functions and properties; Name
 
 ### Name
 
@@ -297,7 +299,7 @@ will retrieve and then display hotspot 3's name.
 ---
 
 .. index::
-   pair: ; WalkToX
+   pair: Hotspot functions and properties; WalkToX
 
 ### WalkToX
 
@@ -320,7 +322,7 @@ will move the character to hotspot hTable's walk-to point.
 ---
 
 .. index::
-   pair: ; WalkToY
+   pair: Hotspot functions and properties; WalkToY
 
 ### WalkToY
 

@@ -1,5 +1,7 @@
-String functions
-----------------
+.. index::
+   single: String functions
+
+## String functions
 
 
 
@@ -24,7 +26,7 @@ String functions
 ---
 
 .. index::
-   pair: ; Append
+   pair: String functions; Append
 
 ### Append
 
@@ -57,7 +59,7 @@ will display "HelloWorld".
 ---
 
 .. index::
-   pair: ; AppendChar
+   pair: String functions; AppendChar
 
 ### AppendChar
 
@@ -86,7 +88,7 @@ will display "Hello".
 ---
 
 .. index::
-   pair: ; CompareTo
+   pair: String functions; CompareTo
 
 ### CompareTo
 
@@ -130,7 +132,7 @@ will display "Strings match with case sensitivity off!", and then
 ---
 
 .. index::
-   pair: ; Copy
+   pair: String functions; Copy
 
 ### Copy
 
@@ -152,7 +154,7 @@ will display "This is a test string".
 ---
 
 .. index::
-   pair: ; EndsWith
+   pair: String functions; EndsWith
 
 ### EndsWith
 
@@ -182,7 +184,7 @@ will display the "Ends with script!" message.
 ---
 
 .. index::
-   pair: ; Format
+   pair: String functions; Format
 
 ### Format
 
@@ -213,7 +215,7 @@ will create a text string containing "10".
 ---
 
 .. index::
-   pair: ; IndexOf
+   pair: String functions; IndexOf
 
 ### IndexOf
 
@@ -248,7 +250,7 @@ Example:
 ---
 
 .. index::
-   pair: ; IsNullOrEmpty
+   pair: String functions; IsNullOrEmpty
 
 ### IsNullOrEmpty
 
@@ -282,7 +284,7 @@ will set the myString variable to "Some text" if it is null or empty
 ---
 
 .. index::
-   pair: ; LowerCase
+   pair: String functions; LowerCase
 
 ### LowerCase
 
@@ -309,7 +311,7 @@ will display "Old: THIS is a test string, new: this is a test string".
 ---
 
 .. index::
-   pair: ; Replace
+   pair: String functions; Replace
 
 ### Replace
 
@@ -341,7 +343,7 @@ script!".
 ---
 
 .. index::
-   pair: ; ReplaceCharAt
+   pair: String functions; ReplaceCharAt
 
 ### ReplaceCharAt
 
@@ -372,7 +374,7 @@ will display "Old: Hello, new: Hemlo".
 ---
 
 .. index::
-   pair: ; StartsWith
+   pair: String functions; StartsWith
 
 ### StartsWith
 
@@ -402,7 +404,7 @@ will display the "Starts with hello!" message.
 ---
 
 .. index::
-   pair: ; Substring
+   pair: String functions; Substring
 
 ### Substring
 
@@ -429,7 +431,7 @@ will display "Original: Hello World!, Substring: lo Wo".
 ---
 
 .. index::
-   pair: ; Truncate
+   pair: String functions; Truncate
 
 ### Truncate
 
@@ -455,7 +457,7 @@ will display "Original: Hello World!, Truncated: Hell".
 ---
 
 .. index::
-   pair: ; UpperCase
+   pair: String functions; UpperCase
 
 ### UpperCase
 
@@ -482,7 +484,7 @@ will display "Old: THIS is a test string, new: THIS IS A TEST STRING".
 ---
 
 .. index::
-   pair: ; AsFloat
+   pair: String functions; AsFloat
 
 ### AsFloat
 
@@ -513,7 +515,7 @@ is useful for processing strings input from the user.
 ---
 
 .. index::
-   pair: ; AsInt
+   pair: String functions; AsInt
 
 ### AsInt
 
@@ -551,7 +553,7 @@ useful for processing strings input from the user.
 ---
 
 .. index::
-   pair: ; Chars
+   pair: String functions; Chars
 
 ### Chars
 
@@ -584,7 +586,7 @@ will display "The 4th character is: s".
 ---
 
 .. index::
-   pair: ; Length
+   pair: String functions; Length
 
 ### Length
 

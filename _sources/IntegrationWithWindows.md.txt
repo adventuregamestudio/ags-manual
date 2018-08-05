@@ -1,5 +1,7 @@
-Integration with Windows
-------------------------
+.. index::
+   single: Integration with Windows
+
+## Integration with Windows
 
 AGS has the ability to integrate with Windows in two ways. Firstly, it
 can be set up to launch save games directly from explorer when the
@@ -13,7 +15,7 @@ can integrate with the Game Explorer feature.
 ---
 
 .. index::
-   pair: ; Enhanced Save Games
+   pair: Integration with Windows; Enhanced Save Games
 
 ### Enhanced Save Games
 
@@ -76,7 +78,7 @@ MacOS: **No**
 ---
 
 .. index::
-   pair: ; Windows Game Explorer
+   pair: Integration with Windows; Windows Game Explorer
 
 ### Windows Game Explorer
 

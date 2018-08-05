@@ -1,5 +1,7 @@
-Music and sound
----------------
+.. index::
+   single: Music and sound
+
+## Music and sound
 
 Sound and music are an essential part of any gameplay experience, and
 AGS 3.2 and higher provides a re-written audio system giving you full
@@ -163,7 +165,7 @@ supported commands:
 ---
 
 .. index::
-   pair: ; Voice speech
+   pair: Music and sound; Voice speech
 
 ### Voice speech
 
@@ -216,7 +218,7 @@ not present.
 ---
 
 .. index::
-   pair: ; The AudioCache folder
+   pair: Music and sound; The AudioCache folder
 
 ### The AudioCache folder
 

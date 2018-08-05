@@ -1,5 +1,7 @@
-Multimedia functions
---------------------
+.. index::
+   single: Multimedia functions
+
+## Multimedia functions
 
 
 
@@ -15,7 +17,7 @@ Multimedia functions
 ---
 
 .. index::
-   pair: ; CDAudio
+   pair: Multimedia functions; CDAudio
 
 ### CDAudio
 
@@ -76,7 +78,7 @@ will play track 3 of the CD that's in the CD ROM drive.
 ---
 
 .. index::
-   pair: ; IsAudioPlaying
+   pair: Multimedia functions; IsAudioPlaying
 
 ### IsAudioPlaying
 
@@ -108,7 +110,7 @@ waits for any currently playing music to finish.
 ---
 
 .. index::
-   pair: ; IsSpeechVoxAvailable
+   pair: Multimedia functions; IsSpeechVoxAvailable
 
 ### IsSpeechVoxAvailable
 
@@ -135,7 +137,7 @@ been renamed to avoid confusion.
 ---
 
 .. index::
-   pair: ; PlayFlic
+   pair: Multimedia functions; PlayFlic
 
 ### PlayFlic
 
@@ -166,7 +168,7 @@ the ESC key.
 ---
 
 .. index::
-   pair: ; PlaySilentMIDI
+   pair: Multimedia functions; PlaySilentMIDI
 
 ### PlaySilentMIDI
 
@@ -183,7 +185,7 @@ simulate this effect.
 ---
 
 .. index::
-   pair: ; PlayVideo
+   pair: Multimedia functions; PlayVideo
 
 ### PlayVideo
 
@@ -251,7 +253,7 @@ versions.
 ---
 
 .. index::
-   pair: ; SetAudioTypeSpeechVolumeDrop
+   pair: Multimedia functions; SetAudioTypeSpeechVolumeDrop
 
 ### SetAudioTypeSpeechVolumeDrop
 
@@ -281,7 +283,7 @@ while speech is playing.
 ---
 
 .. index::
-   pair: ; SetAudioTypeVolume
+   pair: Multimedia functions; SetAudioTypeVolume
 
 ### SetAudioTypeVolume
 
@@ -325,7 +327,7 @@ will change the volume of all currently playing and future music to
 ---
 
 .. index::
-   pair: ; SetSpeechVolume
+   pair: Multimedia functions; SetSpeechVolume
 
 ### SetSpeechVolume
 
@@ -346,7 +348,7 @@ will set the speech volume to 200.
 ---
 
 .. index::
-   pair: ; StopAudio
+   pair: Multimedia functions; StopAudio
 
 ### StopAudio
 

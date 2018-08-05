@@ -1,5 +1,7 @@
-Region functions and properties
--------------------------------
+.. index::
+   single: Region functions and properties
+
+## Region functions and properties
 
 
 
@@ -17,7 +19,7 @@ Region functions and properties
 ---
 
 .. index::
-   pair: ; GetAtRoomXY
+   pair: Region functions and properties; GetAtRoomXY
 
 ### GetAtRoomXY
 
@@ -44,7 +46,7 @@ Example:
 ---
 
 .. index::
-   pair: ; RunInteraction
+   pair: Region functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -76,7 +78,7 @@ walks onto region" for region 4.
 ---
 
 .. index::
-   pair: ; Tint
+   pair: Region functions and properties; Tint
 
 ### Tint
 
@@ -115,7 +117,7 @@ will set region 2's RGB tint to (180, 20, 20) with 50`%` opacity.
 ---
 
 .. index::
-   pair: ; Enabled
+   pair: Region functions and properties; Enabled
 
 ### Enabled
 
@@ -146,7 +148,7 @@ will disable region number 3.
 ---
 
 .. index::
-   pair: ; ID
+   pair: Region functions and properties; ID
 
 ### ID
 
@@ -166,7 +168,7 @@ displays region 3's number (which will be 3).
 ---
 
 .. index::
-   pair: ; LightLevel
+   pair: Region functions and properties; LightLevel
 
 ### LightLevel
 
@@ -214,7 +216,7 @@ will set region 2's level light to 100 if the Global Integer 10 is 1.
 ---
 
 .. index::
-   pair: ; TintEnabled
+   pair: Region functions and properties; TintEnabled
 
 ### TintEnabled
 
@@ -241,7 +243,7 @@ will display a message if region 4 is tinted
 ---
 
 .. index::
-   pair: ; TintBlue
+   pair: Region functions and properties; TintBlue
 
 ### TintBlue
 
@@ -274,7 +276,7 @@ will display a message with the region's tints.
 ---
 
 .. index::
-   pair: ; TintGreen
+   pair: Region functions and properties; TintGreen
 
 ### TintGreen
 
@@ -308,7 +310,7 @@ will display a message with the region's tints.
 ---
 
 .. index::
-   pair: ; TintRed
+   pair: Region functions and properties; TintRed
 
 ### TintRed
 
@@ -342,7 +344,7 @@ will display a message with the region's tints.
 ---
 
 .. index::
-   pair: ; TintSaturation
+   pair: Region functions and properties; TintSaturation
 
 ### TintSaturation
 
@@ -376,7 +378,7 @@ will display a message with the region's tints.
 ---
 
 .. index::
-   pair: ; TintLuminance
+   pair: Region functions and properties; TintLuminance
 
 ### TintLuminance
 

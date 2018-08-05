@@ -1,5 +1,7 @@
-DialogOptionsRenderingInfo functions and properties
----
+.. index::
+   single: DialogOptionsRenderingInfo functions and properties
+
+## DialogOptionsRenderingInfo functions and properties
 
 The DialogOptionsRenderingInfo instance is used by the [custom dialog
 options](CustomDialogOptions) system. You can never create one
@@ -23,7 +25,7 @@ described in the linked page.
 ---
 
 .. index::
-   pair: ; RunActiveOption
+   pair: DialogOptionsRenderingInfo functions and properties; RunActiveOption
 
 ### RunActiveOption
 
@@ -54,7 +56,7 @@ runs selected dialog option when player presses Enter/Return key.
 ---
 
 .. index::
-   pair: ; Update
+   pair: DialogOptionsRenderingInfo functions and properties; Update
 
 ### Update
 
@@ -80,7 +82,7 @@ current script ends.
 ---
 
 .. index::
-   pair: ; ActiveOptionID
+   pair: DialogOptionsRenderingInfo functions and properties; ActiveOptionID
 
 ### ActiveOptionID
 
@@ -117,7 +119,7 @@ always selects the first option
 ---
 
 .. index::
-   pair: ; DialogToRender
+   pair: DialogOptionsRenderingInfo functions and properties; DialogToRender
 
 ### DialogToRender
 
@@ -137,7 +139,7 @@ Example: For an example please see the
 ---
 
 .. index::
-   pair: ; HasAlphaChannel
+   pair: DialogOptionsRenderingInfo functions and properties; HasAlphaChannel
 
 ### HasAlphaChannel
 
@@ -171,7 +173,7 @@ options in.
 ---
 
 .. index::
-   pair: ; Height
+   pair: DialogOptionsRenderingInfo functions and properties; Height
 
 ### Height
 
@@ -201,7 +203,7 @@ creates a 300x150 size area to draw the dialog options in
 ---
 
 .. index::
-   pair: ; ParserTextBoxWidth
+   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxWidth
 
 ### ParserTextBoxWidth
 
@@ -239,7 +241,7 @@ options area
 ---
 
 .. index::
-   pair: ; ParserTextBoxX
+   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxX
 
 ### ParserTextBoxX
 
@@ -280,7 +282,7 @@ options area
 ---
 
 .. index::
-   pair: ; ParserTextBoxY
+   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxY
 
 ### ParserTextBoxY
 
@@ -320,7 +322,7 @@ options area
 ---
 
 .. index::
-   pair: ; Surface
+   pair: DialogOptionsRenderingInfo functions and properties; Surface
 
 ### Surface
 
@@ -354,7 +356,7 @@ clears the dialog options area to yellow.
 ---
 
 .. index::
-   pair: ; Width
+   pair: DialogOptionsRenderingInfo functions and properties; Width
 
 ### Width
 
@@ -384,7 +386,7 @@ creates a 300x150 size area to draw the dialog options in
 ---
 
 .. index::
-   pair: ; X
+   pair: DialogOptionsRenderingInfo functions and properties; X
 
 ### X
 
@@ -417,7 +419,7 @@ creates a 200x150 size area at (50, 20) to draw the dialog options in
 ---
 
 .. index::
-   pair: ; Y
+   pair: DialogOptionsRenderingInfo functions and properties; Y
 
 ### Y
 

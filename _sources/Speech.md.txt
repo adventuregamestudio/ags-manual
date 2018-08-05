@@ -1,5 +1,7 @@
-Speech functions and properties
--------------------------------
+.. index::
+   single: Speech functions and properties
+
+## Speech functions and properties
 
 
 
@@ -17,7 +19,7 @@ Speech functions and properties
 ---
 
 .. index::
-   pair: ; AnimationStopTimeMargin
+   pair: Speech functions and properties; AnimationStopTimeMargin
 
 ### AnimationStopTimeMargin
 
@@ -46,7 +48,7 @@ game speed) before speech time ends.
 ---
 
 .. index::
-   pair: ; CustomPortraitPlacement
+   pair: Speech functions and properties; CustomPortraitPlacement
 
 ### CustomPortraitPlacement
 
@@ -69,7 +71,7 @@ used.
 ---
 
 .. index::
-   pair: ; DisplayPostTimeMs
+   pair: Speech functions and properties; DisplayPostTimeMs
 
 ### DisplayPostTimeMs
 
@@ -93,7 +95,7 @@ and is set to zero by default.
 ---
 
 .. index::
-   pair: ; GlobalSpeechAnimationDelay
+   pair: Speech functions and properties; GlobalSpeechAnimationDelay
 
 ### GlobalSpeechAnimationDelay
 
@@ -120,7 +122,7 @@ used instead.
 ---
 
 .. index::
-   pair: ; PortraitXOffset
+   pair: Speech functions and properties; PortraitXOffset
 
 ### PortraitXOffset
 
@@ -144,7 +146,7 @@ side and respected portrait's border.
 ---
 
 .. index::
-   pair: ; PortraitY
+   pair: Speech functions and properties; PortraitY
 
 ### PortraitY
 
@@ -164,7 +166,7 @@ Gets/sets the character's speech portrait **y** coordinate on screen.
 ---
 
 .. index::
-   pair: ; SkipKey
+   pair: Speech functions and properties; SkipKey
 
 ### SkipKey
 
@@ -191,7 +193,7 @@ will assign the "space" key to skip the speech.
 ---
 
 .. index::
-   pair: ; SkipStyle
+   pair: Speech functions and properties; SkipStyle
 
 ### SkipStyle
 
@@ -226,7 +228,7 @@ or a key.
 ---
 
 .. index::
-   pair: ; Style
+   pair: Speech functions and properties; Style
 
 ### Style
 
@@ -255,7 +257,7 @@ will change the speech style to a close up portrait of the character.
 ---
 
 .. index::
-   pair: ; TextAlignment
+   pair: Speech functions and properties; TextAlignment
 
 ### TextAlignment
 
@@ -282,7 +284,7 @@ will align the speech text at the right side.
 ---
 
 .. index::
-   pair: ; UseGlobalSpeechAnimationDelay
+   pair: Speech functions and properties; UseGlobalSpeechAnimationDelay
 
 ### UseGlobalSpeechAnimationDelay
 
@@ -307,7 +309,7 @@ will make the game use global speech animation delay.
 ---
 
 .. index::
-   pair: ; VoiceMode
+   pair: Speech functions and properties; VoiceMode
 
 ### VoiceMode
 

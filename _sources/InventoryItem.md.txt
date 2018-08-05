@@ -1,5 +1,7 @@
-Inventory item functions and properties
----------------------------------------
+.. index::
+   single: Inventory item functions and properties
+
+## Inventory item functions and properties
 
 
 
@@ -16,7 +18,7 @@ Inventory item functions and properties
 ---
 
 .. index::
-   pair: ; GetAtScreenXY
+   pair: Inventory item functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -56,7 +58,7 @@ will display the number of the inv item that the mouse is over
 ---
 
 .. index::
-   pair: ; GetProperty
+   pair: Inventory item functions and properties; GetProperty
 
 ### GetProperty
 
@@ -85,7 +87,7 @@ to more than 200.
 ---
 
 .. index::
-   pair: ; GetTextProperty
+   pair: Inventory item functions and properties; GetTextProperty
 
 ### GetTextProperty
 
@@ -115,7 +117,7 @@ will retrieve inv item 2's "description" property and display it.
 ---
 
 .. index::
-   pair: ; SetProperty
+   pair: Inventory item functions and properties; SetProperty
 
 ### SetProperty
 
@@ -146,7 +148,7 @@ will change Stone's "weight" custom property to 120.
 ---
 
 .. index::
-   pair: ; SetTextProperty
+   pair: Inventory item functions and properties; SetTextProperty
 
 ### SetTextProperty
 
@@ -175,7 +177,7 @@ will change key's "description" property.
 ---
 
 .. index::
-   pair: ; IsInteractionAvailable
+   pair: Inventory item functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -206,7 +208,7 @@ Example:
 ---
 
 .. index::
-   pair: ; RunInteraction
+   pair: Inventory item functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -234,7 +236,7 @@ this to work)
 ---
 
 .. index::
-   pair: ; CursorGraphic
+   pair: Inventory item functions and properties; CursorGraphic
 
 ### CursorGraphic
 
@@ -260,7 +262,7 @@ will display inventory item *iKey*'s cursor graphic.
 ---
 
 .. index::
-   pair: ; Graphic
+   pair: Inventory item functions and properties; Graphic
 
 ### Graphic
 
@@ -293,7 +295,7 @@ slot.
 ---
 
 .. index::
-   pair: ; ID
+   pair: Inventory item functions and properties; ID
 
 ### ID
 
@@ -316,7 +318,7 @@ inventory
 ---
 
 .. index::
-   pair: ; Name
+   pair: Inventory item functions and properties; Name
 
 ### Name
 

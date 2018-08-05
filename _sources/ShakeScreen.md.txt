@@ -1,5 +1,7 @@
-Screen functions
-----------------
+.. index::
+   single: Screen functions
+
+## Screen functions
 
 
 
@@ -14,7 +16,7 @@ Screen functions
 ---
 
 .. index::
-   pair: ; FadeIn
+   pair: Screen functions; FadeIn
 
 ### FadeIn
 
@@ -41,7 +43,7 @@ in again.
 ---
 
 .. index::
-   pair: ; FadeOut
+   pair: Screen functions; FadeOut
 
 ### FadeOut
 
@@ -67,7 +69,7 @@ in again.
 ---
 
 .. index::
-   pair: ; FlipScreen
+   pair: Screen functions; FlipScreen
 
 ### FlipScreen
 
@@ -97,7 +99,7 @@ will flip the screen upside down.
 ---
 
 .. index::
-   pair: ; SetFadeColor
+   pair: Screen functions; SetFadeColor
 
 ### SetFadeColor
 
@@ -124,7 +126,7 @@ SeeAlso: [FadeIn](#fadein), [FadeOut](#fadeout),
 ---
 
 .. index::
-   pair: ; SetNextScreenTransition
+   pair: Screen functions; SetNextScreenTransition
 
 ### SetNextScreenTransition
 
@@ -150,7 +152,7 @@ SeeAlso: [SetScreenTransition](#setscreentransition)
 ---
 
 .. index::
-   pair: ; SetScreenTransition
+   pair: Screen functions; SetScreenTransition
 
 ### SetScreenTransition
 
@@ -179,7 +181,7 @@ SeeAlso: [SetNextScreenTransition](#setnextscreentransition)
 ---
 
 .. index::
-   pair: ; ShakeScreen
+   pair: Screen functions; ShakeScreen
 
 ### ShakeScreen
 
@@ -199,7 +201,7 @@ will shake the screen a little.
 ---
 
 .. index::
-   pair: ; ShakeScreenBackground
+   pair: Screen functions; ShakeScreenBackground
 
 ### ShakeScreenBackground
 
@@ -232,7 +234,7 @@ will shake the screen a little for 2 seconds.
 ---
 
 .. index::
-   pair: ; TintScreen
+   pair: Screen functions; TintScreen
 
 ### TintScreen
 

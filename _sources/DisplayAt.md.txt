@@ -1,5 +1,7 @@
-Text display / Speech functions
--------------------------------
+.. index::
+   single: Text display / Speech functions
+
+## Text display / Speech functions
 
 
 
@@ -11,7 +13,7 @@ Text display / Speech functions
 ---
 
 .. index::
-   pair: ; Display
+   pair: Text display / Speech functions; Display
 
 ### Display
 
@@ -46,7 +48,7 @@ usually used for responses to the player LOOKing at things.
 ---
 
 .. index::
-   pair: ; DisplayAt
+   pair: Text display / Speech functions; DisplayAt
 
 ### DisplayAt
 
@@ -80,7 +82,7 @@ will display the message at coordinates 50,50 in a box 100 pixels wide.
 ---
 
 .. index::
-   pair: ; DisplayAtY
+   pair: Text display / Speech functions; DisplayAtY
 
 ### DisplayAtY
 
@@ -103,7 +105,7 @@ will display the message at y coordinate 50.
 ---
 
 .. index::
-   pair: ; DisplayMessage
+   pair: Text display / Speech functions; DisplayMessage
 
 ### DisplayMessage
 
@@ -126,7 +128,7 @@ will display the message 220 of the Room message editor.
 ---
 
 .. index::
-   pair: ; DisplayMessageAtY
+   pair: Text display / Speech functions; DisplayMessageAtY
 
 ### DisplayMessageAtY
 
@@ -151,7 +153,7 @@ will display global message 527, in the lower half of the screen.
 ---
 
 .. index::
-   pair: ; DisplayTopBar
+   pair: Text display / Speech functions; DisplayTopBar
 
 ### DisplayTopBar
 

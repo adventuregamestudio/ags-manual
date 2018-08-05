@@ -1,5 +1,7 @@
-AudioChannel functions and properties
--------------------------------------
+.. index::
+   single: AudioChannel functions and properties
+
+## AudioChannel functions and properties
 
 The AudioChannel instance represents a currently playing audio file. You
 can use this instance to check the status of playing sounds, and adjust
@@ -21,7 +23,7 @@ them.
 ---
 
 .. index::
-   pair: ; Seek
+   pair: AudioChannel functions and properties; Seek
 
 ### Seek
 
@@ -58,7 +60,7 @@ seek it back to the start.
 ---
 
 .. index::
-   pair: ; SetRoomLocation
+   pair: AudioChannel functions and properties; SetRoomLocation
 
 ### SetRoomLocation
 
@@ -95,7 +97,7 @@ of the *oMachine* room object.
 ---
 
 .. index::
-   pair: ; Speed
+   pair: AudioChannel functions and properties; Speed
 
 ### Speed
 
@@ -119,7 +121,7 @@ plays *aFunnyTalk* clip at the double speed.
 ---
 
 .. index::
-   pair: ; Stop
+   pair: AudioChannel functions and properties; Stop
 
 ### Stop
 
@@ -146,7 +148,7 @@ stop it.
 ---
 
 .. index::
-   pair: ; ID
+   pair: AudioChannel functions and properties; ID
 
 ### ID
 
@@ -169,7 +171,7 @@ channel it is playing on.
 ---
 
 .. index::
-   pair: ; IsPlaying
+   pair: AudioChannel functions and properties; IsPlaying
 
 ### IsPlaying
 
@@ -196,7 +198,7 @@ finishes.
 ---
 
 .. index::
-   pair: ; LengthMs
+   pair: AudioChannel functions and properties; LengthMs
 
 ### LengthMs
 
@@ -223,7 +225,7 @@ will start playing the *aExplosion* audio clip, then display its length.
 ---
 
 .. index::
-   pair: ; Panning
+   pair: AudioChannel functions and properties; Panning
 
 ### Panning
 
@@ -252,7 +254,7 @@ will start playing the *aExplosion* audio clip on the left speaker only.
 ---
 
 .. index::
-   pair: ; PlayingClip
+   pair: AudioChannel functions and properties; PlayingClip
 
 ### PlayingClip
 
@@ -287,7 +289,7 @@ will display what is currently playing on audio channel 2.
 ---
 
 .. index::
-   pair: ; Position
+   pair: AudioChannel functions and properties; Position
 
 ### Position
 
@@ -329,7 +331,7 @@ seek it ahead one second (if it is OGG/MP3/WAV).
 ---
 
 .. index::
-   pair: ; PositionMs
+   pair: AudioChannel functions and properties; PositionMs
 
 ### PositionMs
 
@@ -363,7 +365,7 @@ display its position.
 ---
 
 .. index::
-   pair: ; Volume
+   pair: AudioChannel functions and properties; Volume
 
 ### Volume
 

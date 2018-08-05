@@ -1,5 +1,7 @@
-Distributing your game
-----------------------
+.. index::
+   single: Distributing your game
+
+## Distributing your game
 
 When you choose the "Build EXE" option in the Editor, a "Compiled"
 sub-directory is created in your game's folder, where more
@@ -38,7 +40,7 @@ audio download, if your game uses lots of sound files but you don't want
 the player to have to download them.
 
 .. index::
-   pair: ; Licensing
+   pair: Distributing your game; Licensing
 
 ### Licensing
 
@@ -60,7 +62,7 @@ You must also comply with the licence for AGS:
 ---
 
 .. index::
-   pair: ; Custom icon
+   pair: Distributing your game; Custom icon
 
 ### Custom icon
 
@@ -83,7 +85,7 @@ folder.
 ---
 
 .. index::
-   pair: ; Splitting resource files
+   pair: Distributing your game; Splitting resource files
 
 ### Splitting resource files
 

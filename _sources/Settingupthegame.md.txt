@@ -1,5 +1,7 @@
-Setting up the game
--------------------
+.. index::
+   single: Setting up the game
+
+## Setting up the game
 
 Now that you know how to create a room, it's time to set up the
 game-wide settings. These include inventory items, sprite graphics,
@@ -20,7 +22,7 @@ palette setup and other things which do not depend on individual rooms.
 ---
 
 .. index::
-   pair: ; Palette setup
+   pair: Setting up the game; Palette setup
 
 ### Palette setup
 
@@ -72,7 +74,7 @@ and JASC PSP palette files.
 ---
 
 .. index::
-   pair: ; Inventory
+   pair: Setting up the game; Inventory
 
 ### Inventory
 
@@ -131,7 +133,7 @@ surrounding 4 pixels.
 ---
 
 .. index::
-   pair: ; Importing your own sprite graphics
+   pair: Setting up the game; Importing your own sprite graphics
 
 ### Importing your own sprite graphics
 
@@ -239,7 +241,7 @@ be applied to alpha-blended characters.
 ---
 
 .. index::
-   pair: ; Introduction sequences
+   pair: Setting up the game; Introduction sequences
 
 ### Introduction sequences
 
@@ -266,7 +268,7 @@ experience of how to use these functions.
 ---
 
 .. index::
-   pair: ; Animations
+   pair: Setting up the game; Animations
 
 ### Animations
 
@@ -320,7 +322,7 @@ command to actually start the animation.
 ---
 
 .. index::
-   pair: ; Characters
+   pair: Setting up the game; Characters
 
 ### Characters
 
@@ -472,7 +474,7 @@ overwrite an existing character.*
 ---
 
 .. index::
-   pair: ; Conversations
+   pair: Setting up the game; Conversations
 
 ### Conversations
 
@@ -643,7 +645,7 @@ calls dialog_request, so you can use Said() calls to respond. See the
 ---
 
 .. index::
-   pair: ; General settings
+   pair: Setting up the game; General settings
 
 ### General settings
 
@@ -964,7 +966,7 @@ SetGameOption. **Basic properties**
 ---
 
 .. index::
-   pair: ; Default setup
+   pair: Setting up the game; Default setup
 
 ### Default setup
 
@@ -1014,7 +1016,7 @@ See also: [Run-time engine setup](Setup)
 ---
 
 .. index::
-   pair: ; Cursors
+   pair: Setting up the game; Cursors
 
 ### Cursors
 
@@ -1060,7 +1062,7 @@ For the standard modes,
 ---
 
 .. index::
-   pair: ; Fonts
+   pair: Setting up the game; Fonts
 
 ### Fonts
 

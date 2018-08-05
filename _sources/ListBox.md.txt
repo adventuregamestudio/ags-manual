@@ -1,5 +1,7 @@
-GUI List Box functions and properties
--------------------------------------
+.. index::
+   single: GUI List Box functions and properties
+
+## GUI List Box functions and properties
 
 [BringToFront](GUIControl#bringtofront)<br>
 [Clickable property](GUIControl#clickable)<br>
@@ -39,7 +41,7 @@ GUI List Box functions and properties
 ---
 
 .. index::
-   pair: ; AddItem
+   pair: GUI List Box functions and properties; AddItem
 
 ### AddItem
 
@@ -70,7 +72,7 @@ will take the input from the user and add it to the listbox.
 ---
 
 .. index::
-   pair: ; Clear
+   pair: GUI List Box functions and properties; Clear
 
 ### Clear
 
@@ -91,7 +93,7 @@ will remove all the items from listbox *lstNoteBook*.
 ---
 
 .. index::
-   pair: ; FillDirList
+   pair: GUI List Box functions and properties; FillDirList
 
 ### FillDirList
 
@@ -128,7 +130,7 @@ actually for this task you would use FillSaveGameList instead.
 ---
 
 .. index::
-   pair: ; FillSaveGameList
+   pair: GUI List Box functions and properties; FillSaveGameList
 
 ### FillSaveGameList
 
@@ -165,7 +167,7 @@ will fill listbox *lstSaveGames* with the list of the saved games.
 ---
 
 .. index::
-   pair: ; GetItemAtLocation
+   pair: GUI List Box functions and properties; GetItemAtLocation
 
 ### GetItemAtLocation
 
@@ -197,7 +199,7 @@ will display the item text that the mouse is currently hovering over.
 ---
 
 .. index::
-   pair: ; InsertItemAt
+   pair: GUI List Box functions and properties; InsertItemAt
 
 ### InsertItemAt
 
@@ -227,7 +229,7 @@ will insert the Third Item in between the First and Second items.
 ---
 
 .. index::
-   pair: ; RemoveItem
+   pair: GUI List Box functions and properties; RemoveItem
 
 ### RemoveItem
 
@@ -259,7 +261,7 @@ the list box will now just contain "Second item".
 ---
 
 .. index::
-   pair: ; ScrollDown
+   pair: GUI List Box functions and properties; ScrollDown
 
 ### ScrollDown
 
@@ -279,7 +281,7 @@ will scroll the *lstTest* list box down one row.
 ---
 
 .. index::
-   pair: ; ScrollUp
+   pair: GUI List Box functions and properties; ScrollUp
 
 ### ScrollUp
 
@@ -299,7 +301,7 @@ will scroll the *lstTest* list box up one row.
 ---
 
 .. index::
-   pair: ; Font
+   pair: GUI List Box functions and properties; Font
 
 ### Font
 
@@ -319,7 +321,7 @@ will change the *lstSaveGames* list box to use Font "Speech".
 ---
 
 .. index::
-   pair: ; HideBorder
+   pair: GUI List Box functions and properties; HideBorder
 
 ### HideBorder
 
@@ -342,7 +344,7 @@ will hide the border around the Save Games list box.
 ---
 
 .. index::
-   pair: ; HideScrollArrows
+   pair: GUI List Box functions and properties; HideScrollArrows
 
 ### HideScrollArrows
 
@@ -370,7 +372,7 @@ will hide the built-in scroll arrows on the list box.
 ---
 
 .. index::
-   pair: ; ItemCount
+   pair: GUI List Box functions and properties; ItemCount
 
 ### ItemCount
 
@@ -395,7 +397,7 @@ will pass the number of saved games to the int saves.
 ---
 
 .. index::
-   pair: ; Items
+   pair: GUI List Box functions and properties; Items
 
 ### Items
 
@@ -427,7 +429,7 @@ will get the text of the selected item in the list box.
 ---
 
 .. index::
-   pair: ; RowCount
+   pair: GUI List Box functions and properties; RowCount
 
 ### RowCount
 
@@ -453,7 +455,7 @@ will display the number of rows that the listbox can display.
 ---
 
 .. index::
-   pair: ; SaveGameSlots
+   pair: GUI List Box functions and properties; SaveGameSlots
 
 ### SaveGameSlots
 
@@ -486,7 +488,7 @@ FillSaveGameList had been used previously.
 ---
 
 .. index::
-   pair: ; SelectedIndex
+   pair: GUI List Box functions and properties; SelectedIndex
 
 ### SelectedIndex
 
@@ -511,7 +513,7 @@ will get the text of the selected item in the listbox.
 ---
 
 .. index::
-   pair: ; TopItem
+   pair: GUI List Box functions and properties; TopItem
 
 ### TopItem
 
@@ -535,7 +537,7 @@ list.
 ---
 
 .. index::
-   pair: ; Translated
+   pair: GUI List Box functions and properties; Translated
 
 ### Translated
 

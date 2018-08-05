@@ -1,5 +1,7 @@
-Mouse functions and properties
-------------------------------
+.. index::
+   single: Mouse functions and properties
+
+## Mouse functions and properties
 
 
 
@@ -26,7 +28,7 @@ Mouse functions and properties
 ---
 
 .. index::
-   pair: ; ChangeModeGraphic
+   pair: Mouse functions and properties; ChangeModeGraphic
 
 ### ChangeModeGraphic
 
@@ -58,7 +60,7 @@ imported in the sprite's manager slot 120.
 ---
 
 .. index::
-   pair: ; ChangeModeHotspot
+   pair: Mouse functions and properties; ChangeModeHotspot
 
 ### ChangeModeHotspot
 
@@ -84,7 +86,7 @@ will change the cursor's hotspot for walk mode to coordinates 10,10.
 ---
 
 .. index::
-   pair: ; ChangeModeView
+   pair: Mouse functions and properties; ChangeModeView
 
 ### ChangeModeView
 
@@ -110,7 +112,7 @@ will change the Look cursor's view to ROLLEYES.
 ---
 
 .. index::
-   pair: ; Click
+   pair: Mouse functions and properties; Click
 
 ### Click
 
@@ -137,7 +139,7 @@ This will simulate user click at (100,100).
 ---
 
 .. index::
-   pair: ; ControlEnabled
+   pair: Mouse functions and properties; ControlEnabled
 
 ### ControlEnabled
 
@@ -164,7 +166,7 @@ game.
 ---
 
 .. index::
-   pair: ; DisableMode
+   pair: Mouse functions and properties; DisableMode
 
 ### DisableMode
 
@@ -192,7 +194,7 @@ will make the walk mode unavailable until it's enabled again.
 ---
 
 .. index::
-   pair: ; EnableMode
+   pair: Mouse functions and properties; EnableMode
 
 ### EnableMode
 
@@ -215,7 +217,7 @@ will enable cursor mode walk which was disabled before.
 ---
 
 .. index::
-   pair: ; IsModeEnabled
+   pair: Mouse functions and properties; IsModeEnabled
 
 ### IsModeEnabled
 
@@ -238,7 +240,7 @@ enabled.
 ---
 
 .. index::
-   pair: ; GetModeGraphic
+   pair: Mouse functions and properties; GetModeGraphic
 
 ### GetModeGraphic
 
@@ -260,7 +262,7 @@ will display the sprite slot number of the current mouse cursor.
 ---
 
 .. index::
-   pair: ; IsButtonDown
+   pair: Mouse functions and properties; IsButtonDown
 
 ### IsButtonDown
 
@@ -300,7 +302,7 @@ versions.<br>
 ---
 
 .. index::
-   pair: ; SaveCursorUntilItLeaves
+   pair: Mouse functions and properties; SaveCursorUntilItLeaves
 
 ### SaveCursorUntilItLeaves
 
@@ -331,7 +333,7 @@ current object
 ---
 
 .. index::
-   pair: ; SelectNextMode
+   pair: Mouse functions and properties; SelectNextMode
 
 ### SelectNextMode
 
@@ -349,7 +351,7 @@ Use Inventory mode if the player has an active inventory item.
 ---
 
 .. index::
-   pair: ; SelectPreviousMode
+   pair: Mouse functions and properties; SelectPreviousMode
 
 ### SelectPreviousMode
 
@@ -365,7 +367,7 @@ the Use Inventory mode if the player has an active inventory item.
 ---
 
 .. index::
-   pair: ; SetBounds
+   pair: Mouse functions and properties; SetBounds
 
 ### SetBounds
 
@@ -395,7 +397,7 @@ screen.
 ---
 
 .. index::
-   pair: ; SetPosition
+   pair: Mouse functions and properties; SetPosition
 
 ### SetPosition
 
@@ -422,7 +424,7 @@ will place the mouse cursor in the centre of the screen.
 ---
 
 .. index::
-   pair: ; Speed
+   pair: Mouse functions and properties; Speed
 
 ### Speed
 
@@ -462,7 +464,7 @@ converts slider control's position into mouse speed.
 ---
 
 .. index::
-   pair: ; Update
+   pair: Mouse functions and properties; Update
 
 ### Update
 
@@ -488,7 +490,7 @@ will display the mouse position just before each dialog box is displayed
 ---
 
 .. index::
-   pair: ; UseDefaultGraphic
+   pair: Mouse functions and properties; UseDefaultGraphic
 
 ### UseDefaultGraphic
 
@@ -505,7 +507,7 @@ changed it with the UseModeGraphic function.
 ---
 
 .. index::
-   pair: ; UseModeGraphic
+   pair: Mouse functions and properties; UseModeGraphic
 
 ### UseModeGraphic
 
@@ -533,7 +535,7 @@ Cursors tab.
 ---
 
 .. index::
-   pair: ; Mode
+   pair: Mouse functions and properties; Mode
 
 ### Mode
 
@@ -567,7 +569,7 @@ will execute the code only if the current cursor mode is MODE 0 (WALK).
 ---
 
 .. index::
-   pair: ; Visible
+   pair: Mouse functions and properties; Visible
 
 ### Visible
 

@@ -1,5 +1,7 @@
-GUI Slider properties
----------------------
+.. index::
+   single: GUI Slider properties
+
+## GUI Slider properties
 
 [BringToFront](GUIControl#bringtofront)<br>
 [Clickable property](GUIControl#clickable)<br>
@@ -26,7 +28,7 @@ GUI Slider properties
 ---
 
 .. index::
-   pair: ; BackgroundGraphic
+   pair: GUI Slider properties; BackgroundGraphic
 
 ### BackgroundGraphic
 
@@ -51,7 +53,7 @@ displays the *sldHealth* slider's background image
 ---
 
 .. index::
-   pair: ; HandleGraphic
+   pair: GUI Slider properties; HandleGraphic
 
 ### HandleGraphic
 
@@ -79,7 +81,7 @@ displays the *sldHealth* slider's handle image
 ---
 
 .. index::
-   pair: ; HandleOffset
+   pair: GUI Slider properties; HandleOffset
 
 ### HandleOffset
 
@@ -102,7 +104,7 @@ the right.
 ---
 
 .. index::
-   pair: ; Max
+   pair: GUI Slider properties; Max
 
 ### Max
 
@@ -127,7 +129,7 @@ sets the maximum value of the *sldHealth* slider to 200.
 ---
 
 .. index::
-   pair: ; Min
+   pair: GUI Slider properties; Min
 
 ### Min
 
@@ -153,7 +155,7 @@ sets the minimum value of the *sldHealth* slider to 0.
 ---
 
 .. index::
-   pair: ; Value
+   pair: GUI Slider properties; Value
 
 ### Value
 

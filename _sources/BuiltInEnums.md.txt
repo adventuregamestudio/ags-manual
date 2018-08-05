@@ -1,5 +1,7 @@
-Built-in enumerated types
--------------------------
+.. index::
+   single: Built-in enumerated types
+
+## Built-in enumerated types
 
 AGS has several [enumerated types](managedmodifier#enum) built in. These are
 used in calls to various commands, and will usually pop up automatically

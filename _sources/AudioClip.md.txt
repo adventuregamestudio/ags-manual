@@ -1,5 +1,7 @@
-AudioClip functions and properties
-----------------------------------
+.. index::
+   single: AudioClip functions and properties
+
+## AudioClip functions and properties
 
 AudioClips are created when you import files in the AGS Editor. The
 commands in this section allow to play them.
@@ -15,7 +17,7 @@ commands in this section allow to play them.
 ---
 
 .. index::
-   pair: ; Play
+   pair: AudioClip functions and properties; Play
 
 ### Play
 
@@ -62,7 +64,7 @@ plays the *aExplosion* audio clip.
 ---
 
 .. index::
-   pair: ; PlayFrom
+   pair: AudioClip functions and properties; PlayFrom
 
 ### PlayFrom
 
@@ -91,7 +93,7 @@ it is OGG/MP3).
 ---
 
 .. index::
-   pair: ; PlayQueued
+   pair: AudioClip functions and properties; PlayQueued
 
 ### PlayQueued
 
@@ -130,7 +132,7 @@ be played afterwards.
 ---
 
 .. index::
-   pair: ; Stop
+   pair: AudioClip functions and properties; Stop
 
 ### Stop
 
@@ -154,7 +156,7 @@ again.
 ---
 
 .. index::
-   pair: ; FileType
+   pair: AudioClip functions and properties; FileType
 
 ### FileType
 
@@ -182,7 +184,7 @@ displays a message if aExplosion is a MIDI file
 ---
 
 .. index::
-   pair: ; IsAvailable
+   pair: AudioClip functions and properties; IsAvailable
 
 ### IsAvailable
 
@@ -215,7 +217,7 @@ checks if the aExplosion audio clip is available, and if so plays it.
 ---
 
 .. index::
-   pair: ; Type
+   pair: AudioClip functions and properties; Type
 
 ### Type
 

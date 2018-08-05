@@ -1,5 +1,7 @@
-Lip sync
---------
+.. index::
+   single: Lip sync
+
+## Lip sync
 
 Lip sync is a way to animate character talking in connection with
 particular letters and their combinations (phonemes).
@@ -22,7 +24,7 @@ editor.
 ---
 
 .. index::
-   pair: ; Text-based lip syncing
+   pair: Lip sync; Text-based lip syncing
 
 ### Text-based lip syncing
 
@@ -47,7 +49,7 @@ encountered.
 ---
 
 .. index::
-   pair: ; Voice-based lip sync
+   pair: Lip sync; Voice-based lip sync
 
 ### Voice-based lip sync
 
@@ -67,7 +69,7 @@ supports two such data formats: **PAMELA** and **Papagayo**.
 ---
 
 .. index::
-   pair: ; PAMELA
+   pair: Lip sync; PAMELA
 
 ### PAMELA
 
@@ -103,7 +105,7 @@ strongly recommended that you use OGG or WAV for speech.
 ---
 
 .. index::
-   pair: ; Papagayo
+   pair: Lip sync; Papagayo
 
 ### Papagayo
 

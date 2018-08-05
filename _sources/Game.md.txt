@@ -1,5 +1,7 @@
-Game / Global functions
----
+.. index::
+   single: Game / Global functions
+
+## Game / Global functions
 
 
 
@@ -97,7 +99,7 @@ Game / Global functions
 ---
 
 .. index::
-   pair: ; AbortGame
+   pair: Game / Global functions; AbortGame
 
 ### AbortGame
 
@@ -131,7 +133,7 @@ SeeAlso: [QuitGame](#quitgame)
 ---
 
 .. index::
-   pair: ; CallRoomScript
+   pair: Game / Global functions; CallRoomScript
 
 ### CallRoomScript
 
@@ -176,7 +178,7 @@ SeeAlso: [The text parser documentation](TextParser)
 ---
 
 .. index::
-   pair: ; ChangeTranslation
+   pair: Game / Global functions; ChangeTranslation
 
 ### ChangeTranslation
 
@@ -216,7 +218,7 @@ will attempt to change the translation to Spanish
 ---
 
 .. index::
-   pair: ; ClaimEvent
+   pair: Game / Global functions; ClaimEvent
 
 ### ClaimEvent
 
@@ -258,7 +260,7 @@ SeeAlso: [Script events](TextScriptEvents)
 ---
 
 .. index::
-   pair: ; Debug
+   pair: Game / Global functions; Debug
 
 ### Debug
 
@@ -297,7 +299,7 @@ with what they do:
 ---
 
 .. index::
-   pair: ; DeleteSaveSlot
+   pair: Game / Global functions; DeleteSaveSlot
 
 ### DeleteSaveSlot
 
@@ -322,7 +324,7 @@ deletes save game slot 130 (which we should have saved earlier).
 ---
 
 .. index::
-   pair: ; DisableInterface
+   pair: Game / Global functions; DisableInterface
 
 ### DisableInterface
 
@@ -351,7 +353,7 @@ will disable the user's interface.
 ---
 
 .. index::
-   pair: ; DoOnceOnly
+   pair: Game / Global functions; DoOnceOnly
 
 ### DoOnceOnly
 
@@ -386,7 +388,7 @@ will give the player 5 points the first time this script is run.
 ---
 
 .. index::
-   pair: ; EnableInterface
+   pair: Game / Global functions; EnableInterface
 
 ### EnableInterface
 
@@ -408,7 +410,7 @@ will enable the user's interface.
 ---
 
 .. index::
-   pair: ; EndCutscene
+   pair: Game / Global functions; EndCutscene
 
 ### EndCutscene
 
@@ -425,7 +427,7 @@ watched the cutscene, or 1 if they skipped it.
 ---
 
 .. index::
-   pair: ; GetColorFromRGB
+   pair: Game / Global functions; GetColorFromRGB
 
 ### GetColorFromRGB
 
@@ -458,7 +460,7 @@ will draw a bright green line onto the room background
 ---
 
 .. index::
-   pair: ; GetFrameCountForLoop
+   pair: Game / Global functions; GetFrameCountForLoop
 
 ### GetFrameCountForLoop
 
@@ -485,7 +487,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GetGameOption
+   pair: Game / Global functions; GetGameOption
 
 ### GetGameOption
 
@@ -510,7 +512,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GetGameParameter
+   pair: Game / Global functions; GetGameParameter
 
 ### GetGameParameter
 
@@ -538,7 +540,7 @@ GP_NUMINVITEMS)
 ---
 
 .. index::
-   pair: ; GetGameSpeed
+   pair: Game / Global functions; GetGameSpeed
 
 ### GetGameSpeed
 
@@ -560,7 +562,7 @@ user has raised it )
 ---
 
 .. index::
-   pair: ; GetGlobalInt
+   pair: Game / Global functions; GetGlobalInt
 
 ### GetGlobalInt
 
@@ -586,7 +588,7 @@ will execute the code only if Global Integer 20 is 1.
 ---
 
 .. index::
-   pair: ; GetGraphicalVariable
+   pair: Game / Global functions; GetGraphicalVariable
 
 ### GetGraphicalVariable
 
@@ -614,7 +616,7 @@ will execute the code only if interaction variable \"climbed rock\" is
 ---
 
 .. index::
-   pair: ; GetLocationName
+   pair: Game / Global functions; GetLocationName
 
 ### GetLocationName
 
@@ -652,7 +654,7 @@ variable.
 ---
 
 .. index::
-   pair: ; GetLocationType
+   pair: Game / Global functions; GetLocationType
 
 ### GetLocationType
 
@@ -687,7 +689,7 @@ will set the cursor mode to talk if the cursor is over a character.
 ---
 
 .. index::
-   pair: ; GetLoopCountForView
+   pair: Game / Global functions; GetLoopCountForView
 
 ### GetLoopCountForView
 
@@ -713,7 +715,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GetRunNextSettingForLoop
+   pair: Game / Global functions; GetRunNextSettingForLoop
 
 ### GetRunNextSettingForLoop
 
@@ -744,7 +746,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GetSaveSlotDescription
+   pair: Game / Global functions; GetSaveSlotDescription
 
 ### GetSaveSlotDescription
 
@@ -771,7 +773,7 @@ will get the description of save slot 10 into the variable.
 ---
 
 .. index::
-   pair: ; GetTextHeight
+   pair: Game / Global functions; GetTextHeight
 
 ### GetTextHeight
 
@@ -802,7 +804,7 @@ screen.
 ---
 
 .. index::
-   pair: ; GetTextWidth
+   pair: Game / Global functions; GetTextWidth
 
 ### GetTextWidth
 
@@ -833,7 +835,7 @@ will print \"Hello!\" onto the middle of the background scene.
 ---
 
 .. index::
-   pair: ; GetTranslation
+   pair: Game / Global functions; GetTranslation
 
 ### GetTranslation
 
@@ -860,7 +862,7 @@ unchanged, so it is always safe to use this function.
 ---
 
 .. index::
-   pair: ; GetViewFrame
+   pair: Game / Global functions; GetViewFrame
 
 ### GetViewFrame
 
@@ -892,7 +894,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GiveScore
+   pair: Game / Global functions; GiveScore
 
 ### GiveScore
 
@@ -916,7 +918,7 @@ will give 5 points to the player.
 ---
 
 .. index::
-   pair: ; GetFontHeight
+   pair: Game / Global functions; GetFontHeight
 
 ### GetFontHeight
 
@@ -938,7 +940,7 @@ will store the speech font's height in the variable.
 ---
 
 .. index::
-   pair: ; GetFontLineSpacing
+   pair: Game / Global functions; GetFontLineSpacing
 
 ### GetFontLineSpacing
 
@@ -972,7 +974,7 @@ speech font.
 ---
 
 .. index::
-   pair: ; InputBox
+   pair: Game / Global functions; InputBox
 
 ### InputBox
 
@@ -1008,7 +1010,7 @@ the user presses Cancel, the NAME string will be blank.
 ---
 
 .. index::
-   pair: ; InventoryScreen
+   pair: Game / Global functions; InventoryScreen
 
 ### InventoryScreen
 
@@ -1024,7 +1026,7 @@ Instead of using this command, you should create your own Inventory GUI.
 ---
 
 .. index::
-   pair: ; IsGamePaused
+   pair: Game / Global functions; IsGamePaused
 
 ### IsGamePaused
 
@@ -1047,7 +1049,7 @@ will unpause the game if it's paused.
 ---
 
 .. index::
-   pair: ; IsInterfaceEnabled
+   pair: Game / Global functions; IsInterfaceEnabled
 
 ### IsInterfaceEnabled
 
@@ -1071,7 +1073,7 @@ will disable the user interface if it's enabled.
 ---
 
 .. index::
-   pair: ; IsInteractionAvailable
+   pair: Game / Global functions; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -1103,7 +1105,7 @@ Example:
 ---
 
 .. index::
-   pair: ; IsKeyPressed
+   pair: Game / Global functions; IsKeyPressed
 
 ### IsKeyPressed
 
@@ -1140,7 +1142,7 @@ pressed.
 ---
 
 .. index::
-   pair: ; IsPluginLoaded
+   pair: Game / Global functions; IsPluginLoaded
 
 ### IsPluginLoaded
 
@@ -1166,7 +1168,7 @@ will display a message if plugin is present.
 ---
 
 .. index::
-   pair: ; IsTimerExpired
+   pair: Game / Global functions; IsTimerExpired
 
 ### IsTimerExpired
 
@@ -1192,7 +1194,7 @@ will display a message when timer 1 expires.
 ---
 
 .. index::
-   pair: ; IsTranslationAvailable
+   pair: Game / Global functions; IsTranslationAvailable
 
 ### IsTranslationAvailable
 
@@ -1209,7 +1211,7 @@ Returns 1 if a translation is in use, 0 if not.
 ---
 
 .. index::
-   pair: ; MoveCharacterToHotspot
+   pair: Game / Global functions; MoveCharacterToHotspot
 
 ### MoveCharacterToHotspot
 
@@ -1238,7 +1240,7 @@ will move the character EGO to the hotspot's 6 \"walk to point\".
 ---
 
 .. index::
-   pair: ; MoveCharacterToObject
+   pair: Game / Global functions; MoveCharacterToObject
 
 ### MoveCharacterToObject
 
@@ -1265,7 +1267,7 @@ Will move the character EGO below object number 0, then turn off object
 ---
 
 .. index::
-   pair: ; PauseGame
+   pair: Game / Global functions; PauseGame
 
 ### PauseGame
 
@@ -1294,7 +1296,7 @@ will pause the game if the player presses the space bar
 ---
 
 .. index::
-   pair: ; QuitGame
+   pair: Game / Global functions; QuitGame
 
 ### QuitGame
 
@@ -1317,7 +1319,7 @@ will quit the game without asking the player to confirm.
 ---
 
 .. index::
-   pair: ; Random
+   pair: Game / Global functions; Random
 
 ### Random
 
@@ -1346,7 +1348,7 @@ result.
 ---
 
 .. index::
-   pair: ; RestartGame
+   pair: Game / Global functions; RestartGame
 
 ### RestartGame
 
@@ -1365,7 +1367,7 @@ will restart the game if the player presses the F7 key.
 ---
 
 .. index::
-   pair: ; RestoreGameDialog
+   pair: Game / Global functions; RestoreGameDialog
 
 ### RestoreGameDialog
 
@@ -1389,7 +1391,7 @@ will bring up the restore game dialog if the player presses the F5 key.
 ---
 
 .. index::
-   pair: ; RestoreGameSlot
+   pair: Game / Global functions; RestoreGameSlot
 
 ### RestoreGameSlot
 
@@ -1420,7 +1422,7 @@ will restore game slot 30 if this slot number exists.
 ---
 
 .. index::
-   pair: ; RunAGSGame
+   pair: Game / Global functions; RunAGSGame
 
 ### RunAGSGame
 
@@ -1468,7 +1470,7 @@ will run the MyGame game, passing it the value 51.
 ---
 
 .. index::
-   pair: ; SaveGameDialog
+   pair: Game / Global functions; SaveGameDialog
 
 ### SaveGameDialog
 
@@ -1493,7 +1495,7 @@ will bring up the save game dialog if the player presses the F3 key.
 ---
 
 .. index::
-   pair: ; SaveGameSlot
+   pair: Game / Global functions; SaveGameSlot
 
 ### SaveGameSlot
 
@@ -1525,7 +1527,7 @@ will save the current game position to slot 30 with the description
 ---
 
 .. index::
-   pair: ; SaveScreenShot
+   pair: Game / Global functions; SaveScreenShot
 
 ### SaveScreenShot
 
@@ -1556,7 +1558,7 @@ the filename the player typed.
 ---
 
 .. index::
-   pair: ; SetAmbientLightLevel
+   pair: Game / Global functions; SetAmbientLightLevel
 
 ### SetAmbientLightLevel
 
@@ -1599,7 +1601,7 @@ do not have individual light levels).
 ---
 
 .. index::
-   pair: ; SetAmbientTint
+   pair: Game / Global functions; SetAmbientTint
 
 ### SetAmbientTint
 
@@ -1645,7 +1647,7 @@ will tint everything on the screen with a hint of blue.
 ---
 
 .. index::
-   pair: ; SetGameOption
+   pair: Game / Global functions; SetGameOption
 
 ### SetGameOption
 
@@ -1702,7 +1704,7 @@ will disable pixel-perfect click detection.
 ---
 
 .. index::
-   pair: ; SetGameSpeed
+   pair: Game / Global functions; SetGameSpeed
 
 ### SetGameSpeed
 
@@ -1739,7 +1741,7 @@ will set the game speed to 80.
 ---
 
 .. index::
-   pair: ; SetGlobalInt
+   pair: Game / Global functions; SetGlobalInt
 
 ### SetGlobalInt
 
@@ -1765,7 +1767,7 @@ will set the Global Integer 10 to 1.
 ---
 
 .. index::
-   pair: ; SetGraphicalVariable
+   pair: Game / Global functions; SetGraphicalVariable
 
 ### SetGraphicalVariable
 
@@ -1790,7 +1792,7 @@ will set the interaction editor \"climbed rock\" variable to 1.
 ---
 
 .. index::
-   pair: ; SetMultitaskingMode
+   pair: Game / Global functions; SetMultitaskingMode
 
 ### SetMultitaskingMode
 
@@ -1827,7 +1829,7 @@ will mean that the game continues to run in the background.
 ---
 
 .. index::
-   pair: ; SetRestartPoint
+   pair: Game / Global functions; SetRestartPoint
 
 ### SetRestartPoint
 
@@ -1850,7 +1852,7 @@ background.
 ---
 
 .. index::
-   pair: ; SetSaveGameDirectory
+   pair: Game / Global functions; SetSaveGameDirectory
 
 ### SetSaveGameDirectory
 
@@ -1899,7 +1901,7 @@ to do this in game_start).
 ---
 
 .. index::
-   pair: ; SetTextWindowGUI
+   pair: Game / Global functions; SetTextWindowGUI
 
 ### SetTextWindowGUI
 
@@ -1921,7 +1923,7 @@ future.
 ---
 
 .. index::
-   pair: ; SetTimer
+   pair: Game / Global functions; SetTimer
 
 ### SetTimer
 
@@ -1949,7 +1951,7 @@ will set the timer 1 to expire after 1000 game cycles.
 ---
 
 .. index::
-   pair: ; SkipUntilCharacterStops
+   pair: Game / Global functions; SkipUntilCharacterStops
 
 ### SkipUntilCharacterStops
 
@@ -1981,7 +1983,7 @@ blocking cutscene.
 ---
 
 .. index::
-   pair: ; StartCutscene
+   pair: Game / Global functions; StartCutscene
 
 ### StartCutscene
 
@@ -2021,7 +2023,7 @@ ESC the game could appear to hang.
 ---
 
 .. index::
-   pair: ; UpdateInventory
+   pair: Game / Global functions; UpdateInventory
 
 ### UpdateInventory
 
@@ -2044,7 +2046,7 @@ the editor.
 ---
 
 .. index::
-   pair: ; UnPauseGame
+   pair: Game / Global functions; UnPauseGame
 
 ### UnPauseGame
 
@@ -2064,7 +2066,7 @@ will unpause the game if it is paused.
 ---
 
 .. index::
-   pair: ; Wait
+   pair: Game / Global functions; Wait
 
 ### Wait
 
@@ -2090,7 +2092,7 @@ wait for 2 seconds (80 game cycles) and then face right.
 ---
 
 .. index::
-   pair: ; WaitKey
+   pair: Game / Global functions; WaitKey
 
 ### WaitKey
 
@@ -2117,7 +2119,7 @@ presses a key.
 ---
 
 .. index::
-   pair: ; WaitMouseKey
+   pair: Game / Global functions; WaitMouseKey
 
 ### WaitMouseKey
 
@@ -2145,7 +2147,7 @@ presses a key or clicks the mouse.
 ---
 
 .. index::
-   pair: ; AudioClipCount
+   pair: Game / Global functions; AudioClipCount
 
 ### AudioClipCount
 
@@ -2163,7 +2165,7 @@ audio clips for some reason.
 ---
 
 .. index::
-   pair: ; AudioClips
+   pair: Game / Global functions; AudioClips
 
 ### AudioClips
 
@@ -2190,7 +2192,7 @@ Example:
 ---
 
 .. index::
-   pair: ; CharacterCount
+   pair: Game / Global functions; CharacterCount
 
 ### CharacterCount
 
@@ -2210,7 +2212,7 @@ Example:
 ---
 
 .. index::
-   pair: ; DialogCount
+   pair: Game / Global functions; DialogCount
 
 ### DialogCount
 
@@ -2231,7 +2233,7 @@ Example:
 ---
 
 .. index::
-   pair: ; FileName
+   pair: Game / Global functions; FileName
 
 ### FileName
 
@@ -2252,7 +2254,7 @@ will display the game filename.
 ---
 
 .. index::
-   pair: ; FontCount
+   pair: Game / Global functions; FontCount
 
 ### FontCount
 
@@ -2270,7 +2272,7 @@ Example:
 ---
 
 .. index::
-   pair: ; GlobalMessages
+   pair: Game / Global functions; GlobalMessages
 
 ### GlobalMessages
 
@@ -2298,7 +2300,7 @@ will display global message 997.
 ---
 
 .. index::
-   pair: ; GlobalStrings
+   pair: Game / Global functions; GlobalStrings
 
 ### GlobalStrings
 
@@ -2324,7 +2326,7 @@ will set global string 15 to contain \"Joe\".
 ---
 
 .. index::
-   pair: ; GUICount
+   pair: Game / Global functions; GUICount
 
 ### GUICount
 
@@ -2345,7 +2347,7 @@ Example:
 ---
 
 .. index::
-   pair: ; IgnoreUserInputAfterTextTimeoutMs
+   pair: Game / Global functions; IgnoreUserInputAfterTextTimeoutMs
 
 ### IgnoreUserInputAfterTextTimeoutMs
 
@@ -2380,7 +2382,7 @@ text is automatically removed from the screen.
 ---
 
 .. index::
-   pair: ; InSkippableCutscene
+   pair: Game / Global functions; InSkippableCutscene
 
 ### InSkippableCutscene
 
@@ -2419,7 +2421,7 @@ will display a message if we are within a cutscene
 ---
 
 .. index::
-   pair: ; InventoryItemCount
+   pair: Game / Global functions; InventoryItemCount
 
 ### InventoryItemCount
 
@@ -2438,7 +2440,7 @@ Example:
 ---
 
 .. index::
-   pair: ; MinimumTextDisplayTimeMs
+   pair: Game / Global functions; MinimumTextDisplayTimeMs
 
 ### MinimumTextDisplayTimeMs
 
@@ -2475,7 +2477,7 @@ for at least 2 seconds
 ---
 
 .. index::
-   pair: ; MouseCursorCount
+   pair: Game / Global functions; MouseCursorCount
 
 ### MouseCursorCount
 
@@ -2493,7 +2495,7 @@ Example:
 ---
 
 .. index::
-   pair: ; Name
+   pair: Game / Global functions; Name
 
 ### Name
 
@@ -2514,7 +2516,7 @@ will display the game name.
 ---
 
 .. index::
-   pair: ; NormalFont
+   pair: Game / Global functions; NormalFont
 
 ### NormalFont
 
@@ -2546,7 +2548,7 @@ will change the normal font to the font \"Special\".
 ---
 
 .. index::
-   pair: ; SkippingCutscene
+   pair: Game / Global functions; SkippingCutscene
 
 ### SkippingCutscene
 
@@ -2586,7 +2588,7 @@ cutscene.
 ---
 
 .. index::
-   pair: ; SpeechFont
+   pair: Game / Global functions; SpeechFont
 
 ### SpeechFont
 
@@ -2611,7 +2613,7 @@ will change the speech font to \"Standard\".
 ---
 
 .. index::
-   pair: ; SpriteHeight
+   pair: Game / Global functions; SpriteHeight
 
 ### SpriteHeight
 
@@ -2634,7 +2636,7 @@ Example:
 ---
 
 .. index::
-   pair: ; SpriteWidth
+   pair: Game / Global functions; SpriteWidth
 
 ### SpriteWidth
 
@@ -2657,7 +2659,7 @@ Example:
 ---
 
 .. index::
-   pair: ; TextReadingSpeed
+   pair: Game / Global functions; TextReadingSpeed
 
 ### TextReadingSpeed
 
@@ -2697,7 +2699,7 @@ on-screen for twice as long as usual.
 ---
 
 .. index::
-   pair: ; TranslationFilename
+   pair: Game / Global functions; TranslationFilename
 
 ### TranslationFilename
 
@@ -2723,7 +2725,7 @@ Example:
 ---
 
 .. index::
-   pair: ; UseNativeCoordinates
+   pair: Game / Global functions; UseNativeCoordinates
 
 ### UseNativeCoordinates
 
@@ -2759,7 +2761,7 @@ Example:
 ---
 
 .. index::
-   pair: ; ViewCount
+   pair: Game / Global functions; ViewCount
 
 ### ViewCount
 

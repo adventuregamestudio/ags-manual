@@ -1,5 +1,7 @@
-**Getting Started with AGS**
-----------------------------
+.. index::
+   single: Getting Started with AGS
+
+## Getting Started with AGS
 
 So, you've downloaded AGS. You want to make an adventure game. But where
 do you start?
@@ -10,7 +12,7 @@ screenshots where extra options have been added and so forth, but most
 of what's here should still apply).
 
 .. index::
-   pair: ; Creating the game
+   pair: Getting Started with AGS; Creating the game
 
 ### Creating the game
 
@@ -70,7 +72,7 @@ presented with the main AGS Editor window:
 So, there's your new game, ready and waiting for you to create it!
 
 .. index::
-   pair: ; Starting off
+   pair: Getting Started with AGS; Starting off
 
 ### Starting off
 
@@ -118,7 +120,7 @@ game. As you get a feel for AGS, you can decide what suits you best, and
 change these options again later.
 
 .. index::
-   pair: ; Colour choices
+   pair: Getting Started with AGS; Colour choices
 
 ### Colour choices
 
@@ -144,7 +146,7 @@ will be set to the game's colour depth. Should you change your mind
 later, you would have to re-import all the graphics).*
 
 .. index::
-   pair: ; Creating a 256-colour game
+   pair: Getting Started with AGS; Creating a 256-colour game
 
 ### Creating a 256-colour game
 
@@ -193,7 +195,7 @@ scheme you're going for with your graphics.
 You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.
 
 .. index::
-   pair: ; Creating a 16-bit or 32-bit colour game
+   pair: Getting Started with AGS; Creating a 16-bit or 32-bit colour game
 
 ### Creating a 16-bit or 32-bit colour game
 
@@ -203,7 +205,7 @@ your desired colour depth. A warning message will prompt you to make
 sure. Confirm it, and you're done.
 
 .. index::
-   pair: ; Game Resolution
+   pair: Getting Started with AGS; Game Resolution
 
 ### Game Resolution
 

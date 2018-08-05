@@ -1,8 +1,10 @@
-**Text Scripting Tutorial - Part 2**
-------------------------------------
+.. index::
+   single: Text Scripting Tutorial - Part 2
+
+## Text Scripting Tutorial - Part 2
 
 .. index::
-   pair: ; Recap
+   pair: Text Scripting Tutorial - Part 2; Recap
 
 ### Recap
 
@@ -12,7 +14,7 @@ how to call all the built-in functions and write a fairly decent script.
 So, what's next?
 
 .. index::
-   pair: ; Loops
+   pair: Text Scripting Tutorial - Part 2; Loops
 
 ### Loops
 
@@ -44,7 +46,7 @@ again. This particular loop will run forever, since *counter* can never
 become less than 1, and your game will grind to a halt.
 
 .. index::
-   pair: ; Multiple conditions
+   pair: Text Scripting Tutorial - Part 2; Multiple conditions
 
 ### Multiple conditions
 
@@ -103,7 +105,7 @@ similarly to the && operator, but it will process the commands inside it
 if either one expression, or the other, or both, are true.
 
 .. index::
-   pair: ; Doing one thing or another
+   pair: Text Scripting Tutorial - Part 2; Doing one thing or another
 
 ### Doing one thing or another
 
@@ -145,7 +147,7 @@ a complete piece of code could look like this:
     }
 
 .. index::
-   pair: ; Your Own Functions
+   pair: Text Scripting Tutorial - Part 2; Your Own Functions
 
 ### Your Own Functions
 
@@ -261,7 +263,7 @@ attempting to use it in a room script gives a parse error. The manual
 explains how to solve this using the script header.
 
 .. index::
-   pair: ; Conclusions
+   pair: Text Scripting Tutorial - Part 2; Conclusions
 
 ### Conclusions
 

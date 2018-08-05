@@ -1,5 +1,7 @@
-Overlay functions and properties
---------------------------------
+.. index::
+   single: Overlay functions and properties
+
+## Overlay functions and properties
 
 
 
@@ -12,7 +14,7 @@ Overlay functions and properties
 ---
 
 .. index::
-   pair: ; CreateGraphical
+   pair: Overlay functions and properties; CreateGraphical
 
 ### CreateGraphical
 
@@ -48,7 +50,7 @@ it.
 ---
 
 .. index::
-   pair: ; CreateTextual
+   pair: Overlay functions and properties; CreateTextual
 
 ### CreateTextual
 
@@ -110,7 +112,7 @@ removed.
 ---
 
 .. index::
-   pair: ; Remove
+   pair: Overlay functions and properties; Remove
 
 ### Remove
 
@@ -135,7 +137,7 @@ and then remove the overlay from the screen.
 ---
 
 .. index::
-   pair: ; SetText
+   pair: Overlay functions and properties; SetText
 
 ### SetText
 
@@ -165,7 +167,7 @@ and then replace the overlay with another one.
 ---
 
 .. index::
-   pair: ; Valid
+   pair: Overlay functions and properties; Valid
 
 ### Valid
 
@@ -192,7 +194,7 @@ Then, removes the overlay and prints Valid again (which will now be 0).
 ---
 
 .. index::
-   pair: ; X
+   pair: Overlay functions and properties; X
 
 ### X
 
@@ -223,7 +225,7 @@ creates a text overlay, then gradually slides it across the screen.
 ---
 
 .. index::
-   pair: ; Y
+   pair: Overlay functions and properties; Y
 
 ### Y
 

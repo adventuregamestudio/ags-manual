@@ -1,8 +1,10 @@
-**Getting Started with AGS - Part 4**
--------------------------------------
+.. index::
+   single: Getting Started with AGS - Part 4
+
+## Getting Started with AGS - Part 4
 
 .. index::
-   pair: ; Objects
+   pair: Getting Started with AGS - Part 4; Objects
 
 ### Objects
 
@@ -77,7 +79,7 @@ Right, now back to the pressing matter at hand - letting the player pick
 up the key.
 
 .. index::
-   pair: ; Inventory
+   pair: Getting Started with AGS - Part 4; Inventory
 
 ### Inventory
 
@@ -133,7 +135,6 @@ command:
 ![](images/intro4_5.jpg)<br>
 *Script for taking the key*
 
-
 Note that our solution is not perfect - the player can click the hand
 icon on the key from anywhere in the room and it will disappear. We are
 also not displaying a message informing the player of what happened.
@@ -144,7 +145,7 @@ before, and try it out. Once the player has taken the key, call up his
 inventory and you should see the large key picture there.
 
 .. index::
-   pair: ; Room Settings
+   pair: Getting Started with AGS - Part 4; Room Settings
 
 ### Room Settings
 

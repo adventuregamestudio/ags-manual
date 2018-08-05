@@ -1,5 +1,7 @@
-The run-time engine
--------------------
+.. index::
+   single: The run-time engine
+
+## The run-time engine
 
 The engine (also called the "interpreter") is what runs your game and is
 what the end player will use.

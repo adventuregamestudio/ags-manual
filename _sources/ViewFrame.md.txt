@@ -1,5 +1,7 @@
-ViewFrame functions and properties
-----------------------------------
+.. index::
+   single: ViewFrame functions and properties
+
+## ViewFrame functions and properties
 
 
 
@@ -12,7 +14,7 @@ ViewFrame functions and properties
 ---
 
 .. index::
-   pair: ; Flipped
+   pair: ViewFrame functions and properties; Flipped
 
 ### Flipped
 
@@ -38,7 +40,7 @@ Example:
 ---
 
 .. index::
-   pair: ; Frame
+   pair: ViewFrame functions and properties; Frame
 
 ### Frame
 
@@ -61,7 +63,7 @@ Example:
 ---
 
 .. index::
-   pair: ; Graphic
+   pair: ViewFrame functions and properties; Graphic
 
 ### Graphic
 
@@ -81,7 +83,7 @@ Example:
 ---
 
 .. index::
-   pair: ; LinkedAudio
+   pair: ViewFrame functions and properties; LinkedAudio
 
 ### LinkedAudio
 
@@ -118,7 +120,7 @@ if so, plays it.
 ---
 
 .. index::
-   pair: ; Loop
+   pair: ViewFrame functions and properties; Loop
 
 ### Loop
 
@@ -141,7 +143,7 @@ Example:
 ---
 
 .. index::
-   pair: ; Speed
+   pair: ViewFrame functions and properties; Speed
 
 ### Speed
 
@@ -162,7 +164,7 @@ Example:
 ---
 
 .. index::
-   pair: ; View
+   pair: ViewFrame functions and properties; View
 
 ### View
 

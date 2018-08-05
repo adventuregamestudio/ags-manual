@@ -1,3 +1,5 @@
-Character Editor
-----------------
+.. index::
+   single: Character Editor
+
+## Character Editor
 

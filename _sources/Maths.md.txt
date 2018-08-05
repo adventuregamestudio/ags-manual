@@ -1,5 +1,7 @@
-Maths functions and properties
-------------------------------
+.. index::
+   single: Maths functions and properties
+
+## Maths functions and properties
 
 
 
@@ -25,7 +27,7 @@ Maths functions and properties
 ---
 
 .. index::
-   pair: ; FloatToInt
+   pair: Maths functions and properties; FloatToInt
 
 ### FloatToInt
 
@@ -53,7 +55,7 @@ displays the integer value of 10.7, rounded in the three different ways.
 ---
 
 .. index::
-   pair: ; IntToFloat
+   pair: Maths functions and properties; IntToFloat
 
 ### IntToFloat
 
@@ -75,7 +77,7 @@ loads 10.0 into the variable *number*.
 ---
 
 .. index::
-   pair: ; ArcCos
+   pair: Maths functions and properties; ArcCos
 
 ### ArcCos
 
@@ -98,7 +100,7 @@ calculates the arc-cosine of 1.0 and places it into variable *angle*.
 ---
 
 .. index::
-   pair: ; ArcSin
+   pair: Maths functions and properties; ArcSin
 
 ### ArcSin
 
@@ -121,7 +123,7 @@ calculates the arc-sine of 0.5 and places it into variable *angle*.
 ---
 
 .. index::
-   pair: ; ArcTan
+   pair: Maths functions and properties; ArcTan
 
 ### ArcTan
 
@@ -145,7 +147,7 @@ calculates the arc-tan of 0.5 and places it into variable *angle*.
 ---
 
 .. index::
-   pair: ; ArcTan2
+   pair: Maths functions and properties; ArcTan2
 
 ### ArcTan2
 
@@ -171,7 +173,7 @@ calculates the arc-tan of -862.42 / 78.5149 and places it into variable
 ---
 
 .. index::
-   pair: ; Cos
+   pair: Maths functions and properties; Cos
 
 ### Cos
 
@@ -197,7 +199,7 @@ variable *cosine*.
 ---
 
 .. index::
-   pair: ; Cosh
+   pair: Maths functions and properties; Cosh
 
 ### Cosh
 
@@ -224,7 +226,7 @@ variable *hcos*.
 ---
 
 .. index::
-   pair: ; DegreesToRadians
+   pair: Maths functions and properties; DegreesToRadians
 
 ### DegreesToRadians
 
@@ -251,7 +253,7 @@ variable *cosine*.
 ---
 
 .. index::
-   pair: ; Exp
+   pair: Maths functions and properties; Exp
 
 ### Exp
 
@@ -278,7 +280,7 @@ the variable.
 ---
 
 .. index::
-   pair: ; Log
+   pair: Maths functions and properties; Log
 
 ### Log
 
@@ -303,7 +305,7 @@ variable.
 ---
 
 .. index::
-   pair: ; Log10
+   pair: Maths functions and properties; Log10
 
 ### Log10
 
@@ -328,7 +330,7 @@ the variable.
 ---
 
 .. index::
-   pair: ; RadiansToDegrees
+   pair: Maths functions and properties; RadiansToDegrees
 
 ### RadiansToDegrees
 
@@ -354,7 +356,7 @@ converts *PI* radians into degrees (which is 180).
 ---
 
 .. index::
-   pair: ; RaiseToPower
+   pair: Maths functions and properties; RaiseToPower
 
 ### RaiseToPower
 
@@ -375,7 +377,7 @@ calculates 4 to the power 3 (which is 64).
 ---
 
 .. index::
-   pair: ; Sin
+   pair: Maths functions and properties; Sin
 
 ### Sin
 
@@ -401,7 +403,7 @@ variable *sine*.
 ---
 
 .. index::
-   pair: ; Sinh
+   pair: Maths functions and properties; Sinh
 
 ### Sinh
 
@@ -429,7 +431,7 @@ variable *hsine*.
 ---
 
 .. index::
-   pair: ; Sqrt
+   pair: Maths functions and properties; Sqrt
 
 ### Sqrt
 
@@ -453,7 +455,7 @@ displays the square root of 4 (rounded down to the nearest integer).
 ---
 
 .. index::
-   pair: ; Tan
+   pair: Maths functions and properties; Tan
 
 ### Tan
 
@@ -479,7 +481,7 @@ variable *tan*.
 ---
 
 .. index::
-   pair: ; Tanh
+   pair: Maths functions and properties; Tanh
 
 ### Tanh
 
@@ -507,7 +509,7 @@ calculates the hyperbolic tan of 45 degrees and places it into variable
 ---
 
 .. index::
-   pair: ; Pi
+   pair: Maths functions and properties; Pi
 
 ### Pi
 

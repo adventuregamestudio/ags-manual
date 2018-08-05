@@ -1,5 +1,7 @@
-Editing the GUIs
-----------------
+.. index::
+   single: Editing the GUIs
+
+## Editing the GUIs
 
 The game interface is split up into GUIs. Each GUI is a rectangular
 region on the screen which is drawn on top of the background scene. Each
@@ -70,7 +72,7 @@ in the same way as character names. For example, if a GUI is called
 ---
 
 .. index::
-   pair: ; GUI buttons
+   pair: Editing the GUIs; GUI buttons
 
 ### GUI buttons
 
@@ -94,7 +96,7 @@ To delete a GUI button, right-click it and choose Delete.
 ---
 
 .. index::
-   pair: ; Interface text
+   pair: Editing the GUIs; Interface text
 
 ### Interface text
 
@@ -127,7 +129,7 @@ or centre, as well as change its font and colour.
 ---
 
 .. index::
-   pair: ; Customized Text Windows
+   pair: Editing the GUIs; Customized Text Windows
 
 ### Customized Text Windows
 
@@ -161,7 +163,7 @@ window's border and text inside of it.
 ---
 
 .. index::
-   pair: ; Custom inventory
+   pair: Editing the GUIs; Custom inventory
 
 ### Custom inventory
 
@@ -181,7 +183,7 @@ section.
 ---
 
 .. index::
-   pair: ; Sliders
+   pair: Editing the GUIs; Sliders
 
 ### Sliders
 
@@ -212,7 +214,7 @@ script property.
 ---
 
 .. index::
-   pair: ; Text Boxes
+   pair: Editing the GUIs; Text Boxes
 
 ### Text Boxes
 
@@ -229,7 +231,7 @@ then use the TextBox.Text property to retrieve what they typed in.
 ---
 
 .. index::
-   pair: ; List Boxes
+   pair: Editing the GUIs; List Boxes
 
 ### List Boxes
 
