@@ -4,6 +4,7 @@ dir="source"
 opts="--depth=1 --branch=master"
 url="https://github.com/adventuregamestudio/ags-manual.wiki.git"
 
+echo "--> Getting wiki source"
 rm -rf "$dir"
 git clone $opts $url $dir
 
@@ -21,9 +22,13 @@ sed -i "s/^\*\*/## /" source/Home.md
 sed -i "s/\*\*//" source/Home.md
 sed -E -zi "s/\n\n+/\n\n/g" source/Home.md
 
+# update heading for test purposes
+sed -E -i -e "1s/^/## /;2d" source/Character.md
+
 ## end of temp changes
 
 # write a new index file
+echo "--> Generating index.rst"
 awk -v maxdepth=1 -v outfile="source/index.rst" '
 {
 	if ($1 == "#") {
@@ -60,4 +65,27 @@ awk -v maxdepth=1 -v outfile="source/index.rst" '
 END {
 	printf("\n.. toctree::\n   :glob:\n   :hidden:\n\n   *\n") >> outfile
 }
-' < source/Home.md
+' < source/Home.md && rm -f source/Home.md
+
+# insert index directives
+echo "--> Inserting index directives for H2 and H3"
+sed -E -i '
+	/^### / {
+		i\
+.. index::
+		H;x
+		s/(.*)\n### (.*)/   pair: \1; \2\n/
+		p
+		s/   pair: (.*);.*/\1/
+		x
+	}
+	/^## / {
+		s/^## *//
+		h
+		i\
+.. index::
+		s/^/   single: /
+		p
+		s/   single: (.*)/\n## \1/
+	}
+' source/*.md
