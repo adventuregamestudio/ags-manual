@@ -52,10 +52,10 @@ awk -v maxdepth=1 -v outfile="source/index.rst" '
 	}
 
 	else if ($1 == "*" || $1 == "-" || $1 == "+") {
-		match($0, "\[[^\]]*\]")
+		match($0, "\\[[^\]]*\\]")
 		label = substr($0, RSTART + 1, RLENGTH - 2)
 
-		match($0, "\([^\)]+\)")
+		match($0, "\\([^\)]+\\)")
 		link = substr($0, RSTART + 1, RLENGTH - 2)
 
 		printf("   %s <%s>\n", label, link) >> outfile
