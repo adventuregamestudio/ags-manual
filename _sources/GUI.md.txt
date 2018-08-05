@@ -1,26 +1,29 @@
 GUI functions and properties
 ----------------------------
 
-[Centre](#centre)<br>
-[Click](#click)<br>
-[GetAtScreenXY](#getatscreenxy)<br>
-[ProcessClick](#processclick)<br>
-[SetPosition](#setposition)<br>
-[SetSize](#setsize)<br>
-[BackgroundGraphic property](#backgroundgraphic)<br>
-[Clickable property](#clickable)<br>
-[ControlCount property](#controlcount)<br>
-[Controls property](#controls)<br>
-[Height property](#height)<br>
-[ID property](#id)<br>
-[Transparency property](#transparency)<br>
-[Visible property](#visible)<br>
-[Width property](#width)<br>
-[X property](#x)<br>
-[Y property](#y)<br>
-[ZOrder property](#zorder)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Centre
 
 ### Centre
 
@@ -41,6 +44,9 @@ will centre the CONTROLPANEL GUI in the middle of the screen.
 *See Also:* [GUI.SetPosition](#setposition)
 
 ---
+
+.. index::
+   pair: ; Click
 
 ### Click
 
@@ -63,9 +69,12 @@ triggers OnClick event for gMainMenu.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [Button.Click](Button#click),
-[GUI.ProcessClick](#processclick)
+
 
 ---
+
+.. index::
+   pair: ; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -106,6 +115,9 @@ will display the number of the GUI that the mouse is over.
 
 ---
 
+.. index::
+   pair: ; ProcessClick
+
 ### ProcessClick
 
     static void GUI.ProcessClick(int x, int y, CursorMode)
@@ -135,6 +147,9 @@ Pointer mode, which will ignore anything but interface.
 
 ---
 
+.. index::
+   pair: ; SetPosition
+
 ### SetPosition
 
 *(Formerly known as SetGUIPosition, which is now obsolete)*
@@ -156,9 +171,12 @@ will move the VERBCOIN GUI to the position where the cursor is.
 [GUI.BackgroundGraphic](#backgroundgraphic),
 [GUIControl.SetPosition](GUIControl#setposition),
 [GUI.SetSize](GUI#setsize), [GUI.X](#x),
-[GUI.Y](#y)
+
 
 ---
+
+.. index::
+   pair: ; SetSize
 
 ### SetSize
 
@@ -184,9 +202,12 @@ changes the ICONBAR GUI to be the size of half the screen
 [GUI.Height](#height),
 [GUIControl.SetPosition](GUIControl#setposition),
 [GUI.SetPosition](#setposition),
-[GUI.Width](#width)
+
 
 ---
+
+.. index::
+   pair: ; BackgroundGraphic
 
 ### BackgroundGraphic
 
@@ -202,6 +223,9 @@ You can set this to 0 to remove the background image from the GUI.
 [Button.NormalGraphic](Button#normalgraphic)
 
 ---
+
+.. index::
+   pair: ; Clickable
 
 ### Clickable
 
@@ -230,6 +254,9 @@ sets the STATUSLINE GUI to no longer respond to mouse clicks.
 
 ---
 
+.. index::
+   pair: ; ControlCount
+
 ### ControlCount
 
     readonly int GUI.ControlCount;
@@ -251,6 +278,9 @@ disables all controls on the INVENTORY GUI.
 *See Also:* [GUI.Controls](#controls)
 
 ---
+
+.. index::
+   pair: ; Controls
 
 ### Controls
 
@@ -283,9 +313,12 @@ gets list box number 4 from the INVENTORY GUI, and then adds an item to
 it. If control 4 isn't a listbox, you will get a Null Reference error.
 
 *See Also:* [GUIControl.As\*](GUIControl#astype),
-[GUI.ControlCount](#controlcount)
+
 
 ---
+
+.. index::
+   pair: ; Height
 
 ### Height
 
@@ -303,9 +336,12 @@ Example:
 displays the height of the ICONBAR GUI.
 
 *See Also:* [GUI.SetSize](#setsize),
-[GUI.Width](#width)
+
 
 ---
+
+.. index::
+   pair: ; ID
 
 ### ID
 
@@ -327,6 +363,9 @@ clickable.
 *See Also:* [GUIControl.ID](GUIControl#id)
 
 ---
+
+.. index::
+   pair: ; Transparency
 
 ### Transparency
 
@@ -369,6 +408,9 @@ will gradually fade the INVENTORY GUI out until it is invisible.
 
 ---
 
+.. index::
+   pair: ; Visible
+
 ### Visible
 
 *(Formerly known as GUIOff, which is now obsolete)*<br>
@@ -405,6 +447,9 @@ will turn on the SETTINGS GUI.
 
 ---
 
+.. index::
+   pair: ; Width
+
 ### Width
 
     int GUI.Width
@@ -421,9 +466,12 @@ Example:
 makes the INVENTORY GUI 5 pixels wider.
 
 *See Also:* [GUI.Height](#height),
-[GUI.SetSize](#setsize)
+
 
 ---
+
+.. index::
+   pair: ; X
 
 ### X
 
@@ -443,9 +491,12 @@ Example:
 moves the VERBCOIN GUI right 5 pixels.
 
 *See Also:* [GUI.SetPosition](#setposition),
-[GUI.Y](#y)
+
 
 ---
+
+.. index::
+   pair: ; Y
 
 ### Y
 
@@ -466,9 +517,12 @@ Example:
 moves the VERBCOIN GUI down 5 pixels.
 
 *See Also:* [GUI.SetPosition](#setposition),
-[GUI.X](#x)
+
 
 ---
+
+.. index::
+   pair: ; ZOrder
 
 ### ZOrder
 

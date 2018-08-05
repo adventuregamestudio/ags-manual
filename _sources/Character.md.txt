@@ -1,106 +1,111 @@
-Character functions and properties
-----------------------------------
+.. index::
+   single: Character functions and properties
 
-[AddInventory](#addinventory)<br>
-[AddWaypoint](#addwaypoint)<br>
-[Animate](#animate)<br>
-[ChangeRoom](#changeroom)<br>
-[ChangeRoomAutoPosition](#changeroomautoposition)<br>
-[ChangeView](#changeview)<br>
-[FaceCharacter](#facecharacter)<br>
-[FaceDirection](#facedirection)<br>
-[FaceLocation](#facelocation)<br>
-[FaceObject](#faceobject)<br>
-[FollowCharacter](#followcharacter)<br>
-[GetAtScreenXY](#getatscreenxy)<br>
-[GetProperty](#getproperty)<br>
-[GetTextProperty](#gettextproperty)<br>
-[SetProperty](#setproperty)<br>
-[SetTextProperty](#settextproperty)<br>
-[HasExplicitLight property](#hasexplicitlight)<br>
-[HasInventory](#hasinventory)<br>
-[IsCollidingWithChar](#iscollidingwithchar)<br>
-[IsCollidingWithObject](#iscollidingwithobject)<br>
-[LightLevel property](#lightlevel)<br>
-[LockView](#lockview)<br>
-[LockViewAligned](#lockviewaligned)<br>
-[LockViewFrame](#lockviewframe)<br>
-[LockViewOffset](#lockviewoffset)<br>
-[LoseInventory](#loseinventory)<br>
-[Move](#move)<br>
-[PlaceOnWalkableArea](#placeonwalkablearea)<br>
-[RemoveTint](#removetint)<br>
-[IsInteractionAvailable](#isinteractionavailable)<br>
-[RunInteraction](#runinteraction)<br>
-[Say](#say)<br>
-[SayAt](#sayat)<br>
-[SayBackground](#saybackground)<br>
-[SetAsPlayer](#setasplayer)<br>
-[SetLightLevel](#setlightlevel)<br>
-[SetIdleView](#setidleview)<br>
-[SetWalkSpeed](#setwalkspeed)<br>
-[StopMoving](#stopmoving)<br>
-[Think](#think)<br>
-[Tint](#tint)<br>
-[TintBlue property](#tintblue)<br>
-[TintGreen property](#tintgreen)<br>
-[TintRed property](#tintred)<br>
-[TintSaturation property](#tintsaturation)<br>
-[TintLuminance property](#tintluminance)<br>
-[UnlockView](#unlockview)<br>
-[Walk](#walk)<br>
-[WalkStraight](#walkstraight)<br>
-[ActiveInventory property](#activeinventory)<br>
-[Animating property](#animating)<br>
-[AnimationSpeed property](#animationspeed)<br>
-[Baseline property](#baseline)<br>
-[BlinkInterval property](#blinkinterval)<br>
-[BlinkView property](#blinkview)<br>
-[BlinkWhileThinking property](#blinkwhilethinking)<br>
-[BlockingHeight property](#blockingheight)<br>
-[BlockingWidth property](#blockingwidth)<br>
-[Clickable property](#clickable)<br>
-[DestinationX property](#destinationx)<br>
-[DestinationY property](#destinationy)<br>
-[DiagonalLoops property](#diagonalloops)<br>
-[Frame property](#frame)<br>
-[HasExplicitTint property](#hasexplicittint)<br>
-[ID property](#id)<br>
-[IdleView property](#idleview)<br>
-[IgnoreLighting property](#ignorelighting)<br>
-[IgnoreWalkbehinds property](#ignorewalkbehinds)<br>
-[InventoryQuantity property](#inventoryquantity)<br>
-[Loop property](#loop)<br>
-[ManualScaling property](#manualscaling)<br>
-[MovementLinkedToAnimation property](#movementlinkedtoanimation)<br>
-[Moving property](#moving)<br>
-[Name property](#name)<br>
-[NormalView property](#normalview)<br>
-[PreviousRoom property](#previousroom)<br>
-[Room property](#room)<br>
-[ScaleMoveSpeed property](#scalemovespeed)<br>
-[ScaleVolume property](#scalevolume)<br>
-[Scaling property](#scaling)<br>
-[Solid property](#solid)<br>
-[Speaking property](#speaking)<br>
-[SpeakingFrame property](#speakingframe)<br>
-[SpeechAnimationDelay property](#speechanimationdelay)<br>
-[SpeechColor property](#speechcolor)<br>
-[SpeechView property](#speechview)<br>
-[Thinking property](#thinking)<br>
-[ThinkingFrame property](#thinkingframe)<br>
-[ThinkView property](#thinkview)<br>
-[Transparency property](#transparency)<br>
-[TurnBeforeWalking property](#turnbeforewalking)<br>
-[View property](#view)<br>
-[WalkSpeedX property](#walkspeedx)<br>
-[WalkSpeedY property](#walkspeedy)<br>
-[x property](#x)<br>
-[y property](#y)<br>
-[z property](#z)<br>
-[SetCharacterProperty](#setcharacterproperty)
+## Character functions and properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; AddInventory
 
 ### AddInventory
 
@@ -137,6 +142,9 @@ will give inventory item iKey to character EGO.
 
 ---
 
+.. index::
+   pair: Character functions and properties; AddWaypoint
+
 ### AddWaypoint
 
 *(Formerly known as MoveCharacterPath, which is now obsolete)*
@@ -164,9 +172,12 @@ normally (obeying walkable areas), then move to the bottom left corner
 and then top left corner afterwards.
 
 *See Also:* [Character.Move](#move)
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Animate
 
 ### Animate
 
@@ -217,6 +228,9 @@ and wait until the animation finishes before returning.
 
 ---
 
+.. index::
+   pair: Character functions and properties; ChangeRoom
+
 ### ChangeRoom
 
 *(Formerly known as NewRoom, which is now obsolete)*<br>
@@ -258,9 +272,12 @@ coordinates 100,50. This will also mean that the game moves into room 4.
 **AGS 3.4.0** and later versions.
 
 *See Also:*
-[Character.ChangeRoomAutoPosition](#changeroomautoposition)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; ChangeRoomAutoPosition
 
 ### ChangeRoomAutoPosition
 
@@ -302,6 +319,9 @@ into room 4.
 
 ---
 
+.. index::
+   pair: Character functions and properties; ChangeView
+
 ### ChangeView
 
 *(Formerly known as ChangeCharacterView, which is now obsolete)*
@@ -324,9 +344,12 @@ Example:
 will make the EGO character use view number 5 as his walking view.
 
 *See Also:* [Character.LockView](#lockview),
-[Character.NormalView](#normalview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; FaceCharacter
 
 ### FaceCharacter
 
@@ -364,9 +387,12 @@ will make the character EGO face the character MAN
 [Character.FaceDirection](#facedirection),
 [Character.FaceLocation](#facelocation),
 [Character.FaceObject](#faceobject),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; FaceDirection
 
 ### FaceDirection
 
@@ -403,9 +429,12 @@ will make the character EGO face up-right.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceLocation](#facelocation),
 [Character.FaceObject](#faceobject),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; FaceLocation
 
 ### FaceLocation
 
@@ -445,9 +474,12 @@ will make the character face to the east.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceDirection](#facedirection),
 [Character.FaceObject](#faceobject),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; FaceObject
 
 ### FaceObject
 
@@ -481,9 +513,12 @@ will make the player character face object 2.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceDirection](#facedirection),
 [Character.FaceLocation](#facelocation),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; FollowCharacter
 
 ### FollowCharacter
 
@@ -541,6 +576,9 @@ near him and waiting for a while before he makes his move.
 
 ---
 
+.. index::
+   pair: Character functions and properties; GetAtScreenXY
+
 ### GetAtScreenXY
 
 *(Formerly known as global function GetCharacterAt, which is now
@@ -569,6 +607,9 @@ will display the message if the mouse cursor is over the EGO character
 
 ---
 
+.. index::
+   pair: Character functions and properties; GetProperty
+
 ### GetProperty
 
 *(Formerly known as GetCharacterProperty, which is now obsolete)*
@@ -592,9 +633,12 @@ will print the message if EGO has its "Value" property set to more than
 200.
 
 *See Also:*
-[Character.GetTextProperty](#gettextproperty)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; GetTextProperty
 
 ### GetTextProperty
 
@@ -622,6 +666,9 @@ will retrieve EGO's "description" property and display it.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SetProperty
+
 ### SetProperty
 
     bool Character.SetProperty(const string property, int value)
@@ -645,9 +692,12 @@ will change EGO character's "XPLevel" custom property to 10.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:*
-[Character.SetTextProperty](#settextproperty)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SetTextProperty
 
 ### SetTextProperty
 
@@ -673,6 +723,9 @@ will change EGO's "description" property.
 
 ---
 
+.. index::
+   pair: Character functions and properties; HasExplicitLight
+
 ### HasExplicitLight
 
     readonly bool Character.HasExplicitTint
@@ -690,6 +743,9 @@ light.
 *SeeAlso:* [Character.SetLightLevel](#setlightlevel)
 
 ---
+
+.. index::
+   pair: Character functions and properties; HasInventory
 
 ### HasInventory
 
@@ -714,9 +770,12 @@ will display a message if the player has the key.
 
 *See Also:* [Character.AddInventory](#addinventory),
 [Character.InventoryQuantity](#inventoryquantity),
-[Character.LoseInventory](#loseinventory)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; IsCollidingWithChar
 
 ### IsCollidingWithChar
 
@@ -744,6 +803,9 @@ colliding.
 [AreThingsOverlapping](Room#arethingsoverlapping)
 
 ---
+
+.. index::
+   pair: Character functions and properties; IsCollidingWithObject
 
 ### IsCollidingWithObject
 
@@ -773,6 +835,9 @@ number 3 are colliding.
 
 ---
 
+.. index::
+   pair: Character functions and properties; LightLevel
+
 ### LightLevel
 
     readonly int Character.LightLevel
@@ -791,6 +856,9 @@ light.
 [SetAmbientLightLevel](Game#setambientlightlevel)
 
 ---
+
+.. index::
+   pair: Character functions and properties; LockView
 
 ### LockView
 
@@ -830,10 +898,13 @@ only by **AGS 3.4.1** and later versions.
 [Character.ChangeView](#changeview),
 [Character.SpeechView](#speechview),
 [Character.LockViewAligned](#lockviewaligned),
-[Character.LockViewOffset](#lockviewoffset)
+
 [Character.UnlockView](#unlockview),
 
 ---
+
+.. index::
+   pair: Character functions and properties; LockViewAligned
 
 ### LockViewAligned
 
@@ -890,9 +961,12 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.LockView](#lockview),
 [Character.LockViewOffset](#lockviewoffset),
-[Character.UnlockView](#unlockview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; LockViewFrame
 
 ### LockViewFrame
 
@@ -926,9 +1000,12 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.Animate](#animate),
 [Character.LockView](#lockview),
-[Character.UnlockView](#unlockview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; LockViewOffset
 
 ### LockViewOffset
 
@@ -980,9 +1057,12 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.LockView](#lockview),
 [Character.LockViewAligned](#lockviewaligned),
-[Character.UnlockView](#unlockview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; LoseInventory
 
 ### LoseInventory
 
@@ -1007,6 +1087,9 @@ inventory tab
 *See Also:* [Character.AddInventory](#addinventory)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Move
 
 ### Move
 
@@ -1038,9 +1121,12 @@ his destination.
 [Character.Walk](#walk),
 [MoveCharacterToObject](Game#movecharactertoobject),
 [Object.Move](Object#move),
-[Character.StopMoving](#stopmoving)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; PlaceOnWalkableArea
 
 ### PlaceOnWalkableArea
 
@@ -1068,6 +1154,9 @@ a walkable area.
 
 ---
 
+.. index::
+   pair: Character functions and properties; RemoveTint
+
 ### RemoveTint
 
     Character.RemoveTint()
@@ -1086,9 +1175,12 @@ normal.
 
 *See Also:*
 [Character.HasExplicitTint](#hasexplicittint),
-[Character.Tint](#tint)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -1110,9 +1202,12 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-[Character.RunInteraction](#runinteraction)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -1136,6 +1231,9 @@ will execute the code defined in the MAN's "TALK TO CHARACTER" event.
 [InventoryItem.RunInteraction](InventoryItem#runinteraction)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Say
 
 ### Say
 
@@ -1163,9 +1261,12 @@ games, whilst playing the character's talking animation.
 *See Also:* [Display](DisplayAt#display),
 [Character.SayAt](#sayat),
 [Character.SayBackground](#saybackground),
-[Character.Think](#think)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SayAt
 
 ### SayAt
 
@@ -1190,9 +1291,12 @@ will display the message in the top right corner of the screen, whilst
 playing the character's talking animation.
 
 *See Also:* [Character.Say](#say),
-[Character.SayBackground](#saybackground)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SayBackground
 
 ### SayBackground
 
@@ -1229,6 +1333,9 @@ game.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SetAsPlayer
+
 ### SetAsPlayer
 
 *(Formerly known as SetPlayerCharacter, which is now obsolete)*
@@ -1252,9 +1359,12 @@ also change to the room that MAN is in, if he is not in the current
 room.
 
 *See Also:* [Character.ID](#id),
-[Character.ChangeRoom](#changeroom)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SetLightLevel
 
 ### SetLightLevel
 
@@ -1292,6 +1402,9 @@ This will give character EGO maximal individual brightness.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SetIdleView
+
 ### SetIdleView
 
 *(Formerly known as SetCharacterIdle, which is now obsolete)*
@@ -1325,6 +1438,9 @@ be played if the character is idle for 30 seconds.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SetWalkSpeed
+
 ### SetWalkSpeed
 
 *(Formerly known as SetCharacterSpeed, which is now obsolete)*<br>
@@ -1355,9 +1471,12 @@ will change the character EGO's speed to 10.
 [Character.StopMoving](#stopmoving),
 [Character.Walk](#walk),
 [Character.WalkSpeedX](#walkspeedx),
-[Character.WalkSpeedY](#walkspeedy)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; StopMoving
 
 ### StopMoving
 
@@ -1381,6 +1500,9 @@ will stop the character when he reaches the coordinate x=300.
 [Object.StopMoving](Object#stopmoving)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Think
 
 ### Think
 
@@ -1436,6 +1558,9 @@ thinking animation.
 
 ---
 
+.. index::
+   pair: Character functions and properties; Tint
+
 ### Tint
 
     Character.Tint(int red, int green, int blue,
@@ -1472,6 +1597,9 @@ will tint the EGO character green.
 
 ---
 
+.. index::
+   pair: Character functions and properties; TintBlue
+
 ### TintBlue
 
     readonly int Character.TintBlue
@@ -1482,7 +1610,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-[Character.HasExplicitTint](#hasexplicittint)
+
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1491,9 +1619,12 @@ property is false, then this value is meaningless.
 [Character.HasExplicitTint](#hasexplicittint),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-[Character.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; TintGreen
 
 ### TintGreen
 
@@ -1505,7 +1636,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-[Character.HasExplicitTint](#hasexplicittint)
+
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1514,9 +1645,12 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintRed](#tintred),
 [Character.TintSaturation](#tintsaturation),
-[Character.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; TintRed
 
 ### TintRed
 
@@ -1528,7 +1662,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-[Character.HasExplicitTint](#hasexplicittint)
+
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1537,9 +1671,12 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintSaturation](#tintsaturation),
-[Character.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; TintSaturation
 
 ### TintSaturation
 
@@ -1551,7 +1688,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-[Character.HasExplicitTint](#hasexplicittint)
+
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1560,9 +1697,12 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-[Character.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; TintLuminance
 
 ### TintLuminance
 
@@ -1574,7 +1714,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-[Character.HasExplicitTint](#hasexplicittint)
+
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1583,9 +1723,12 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-[Character.TintSaturation](#tintsaturation)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; UnlockView
 
 ### UnlockView
 
@@ -1617,6 +1760,9 @@ only by **AGS 3.4.1** and later versions.
 *See Also:* [Character.LockView](#lockview)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Walk
 
 ### Walk
 
@@ -1665,9 +1811,12 @@ until the character has reached his destination.
 [Character.Move](#move),
 [MoveCharacterToObject](Game#movecharactertoobject),
 [Object.Move](Object#move),
-[Character.StopMoving](#stopmoving)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; WalkStraight
 
 ### WalkStraight
 
@@ -1698,6 +1847,9 @@ will move the character EGO in a straight line towards co ordinates
 
 ---
 
+.. index::
+   pair: Character functions and properties; ActiveInventory
+
 ### ActiveInventory
 
 *(Formerly known as SetActiveInventory, which is now obsolete)*<br>
@@ -1722,6 +1874,9 @@ will make the inventory item iKey active (before you use it make sure
 that the player has the inventory item)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Animating
 
 ### Animating
 
@@ -1748,9 +1903,12 @@ you wouldn't need to do this.
 *See Also:* [Character.Animate](#animate),
 [Character.Moving](#moving),
 [Character.Speaking](#speaking),
-[Character.Thinking](#thinking)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; AnimationSpeed
 
 ### AnimationSpeed
 
@@ -1767,9 +1925,12 @@ Example:
 will change the player character's animation speed to 4.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-[Character.SpeechAnimationDelay](#speechanimationdelay)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Baseline
 
 ### Baseline
 
@@ -1797,6 +1958,9 @@ collisions, or for walk-behinds) to a line positioned at y coordinate =
 
 ---
 
+.. index::
+   pair: Character functions and properties; BlinkInterval
+
 ### BlinkInterval
 
 *(Formerly part of SetCharacterBlinkView, which is now obsolete)*
@@ -1820,9 +1984,12 @@ will change the character EGO's blink view to view 10, and play the
 animation every 4 seconds.
 
 *See Also:* [Character.BlinkView](#blinkview),
-[Character.SpeechView](#speechview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; BlinkView
 
 ### BlinkView
 
@@ -1846,9 +2013,12 @@ animation every 4 seconds.
 
 *See Also:*
 [Character.BlinkInterval](#blinkinterval),
-[Character.SpeechView](#speechview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; BlinkWhileThinking
 
 ### BlinkWhileThinking
 
@@ -1866,9 +2036,12 @@ Example:
 will stop EGO from blinking while his thinking animation is playing.
 
 *See Also:* [Character.BlinkView](#blinkview),
-[Character.Think](#think)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; BlockingHeight
 
 ### BlockingHeight
 
@@ -1896,9 +2069,12 @@ will make EGO block 20 pixels high (10 above and 10 below his baseline)
 
 *See Also:*
 [Character.BlockingWidth](#blockingwidth),
-[Character.Solid](#solid)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; BlockingWidth
 
 ### BlockingWidth
 
@@ -1927,9 +2103,12 @@ co-ordinate, and 25 to the right)
 
 *See Also:*
 [Character.BlockingHeight](#blockingheight),
-[Character.Solid](#solid)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Clickable
 
 ### Clickable
 
@@ -1955,9 +2134,12 @@ will make the game ignore clicks on the character MAN.
 *See Also:* [Object.Clickable](Object#clickable),
 [Character.Move](#move),
 [Character.Moving](#moving),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; DestinationX
 
 ### DestinationX
 
@@ -1971,9 +2153,12 @@ character is not walking or moving it is equal to its current position.
 *See Also:* [Character.DestinationY](#destinationy),
 [Character.Move](#move),
 [Character.Moving](#moving),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; DestinationY
 
 ### DestinationY
 
@@ -1987,9 +2172,12 @@ character is not walking or moving it is equal to its current position.
 *See Also:* [Character.DestinationX](#destinationx),
 [Character.Move](#move),
 [Character.Moving](#moving),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; DiagonalLoops
 
 ### DiagonalLoops
 
@@ -2010,6 +2198,9 @@ will enable diagonal walking loops for character EGO.
 
 ---
 
+.. index::
+   pair: Character functions and properties; Frame
+
 ### Frame
 
 *(Formerly known as character\[\].frame, which is now obsolete)*
@@ -2027,9 +2218,12 @@ displays EGO's current frame number within his view.
 
 *SeeAlso:* [Character.Animate](#animate),
 [Character.Loop](#loop),
-[Character.View](#view)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; HasExplicitTint
 
 ### HasExplicitTint
 
@@ -2054,9 +2248,12 @@ removes the player's tint if it currently has one.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *SeeAlso:* [Character.Tint](#tint),
-[Character.RemoveTint](#removetint)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; ID
 
 ### ID
 
@@ -2073,6 +2270,9 @@ Example:
 uses the obsolete MoveCharacter function to move EGO to (100, 50)
 
 ---
+
+.. index::
+   pair: Character functions and properties; IdleView
 
 ### IdleView
 
@@ -2094,6 +2294,9 @@ will display EGO's current idle view number.
 
 ---
 
+.. index::
+   pair: Character functions and properties; IgnoreLighting
+
 ### IgnoreLighting
 
 *(Formerly known as SetCharacterIgnoreLight, which is now obsolete)*
@@ -2113,6 +2316,9 @@ will make the character look the same no matter if he stands on regions
 with different light levels.
 
 ---
+
+.. index::
+   pair: Character functions and properties; IgnoreWalkbehinds
 
 ### IgnoreWalkbehinds
 
@@ -2142,6 +2348,9 @@ will make the character EGO ignore walk-behinds.
 [Object.IgnoreWalkbehinds](Object#ignorewalkbehinds)
 
 ---
+
+.. index::
+   pair: Character functions and properties; InventoryQuantity
 
 ### InventoryQuantity
 
@@ -2175,9 +2384,12 @@ will display how many inventory items of type iCash the player has.
 *See Also:* [UpdateInventory](Game#updateinventory),
 [Character.AddInventory](#addinventory),
 [Character.HasInventory](#hasinventory),
-[Character.LoseInventory](#loseinventory)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Loop
 
 ### Loop
 
@@ -2196,9 +2408,12 @@ displays EGO's current loop number within his view.
 
 *SeeAlso:* [Character.Animate](#animate),
 [Character.Frame](#frame),
-[Character.View](#view)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; ManualScaling
 
 ### ManualScaling
 
@@ -2230,6 +2445,9 @@ will tell EGO to ignore walkable area scaling levels and be fixed to
 
 ---
 
+.. index::
+   pair: Character functions and properties; MovementLinkedToAnimation
+
 ### MovementLinkedToAnimation
 
     bool Character.MovementLinkedToAnimation
@@ -2259,9 +2477,12 @@ him to (50,100), then turn it back on again.
 
 *See Also:* [Character.Move](#move),
 [Character.Moving](#moving),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Moving
 
 ### Moving
 
@@ -2288,9 +2509,12 @@ there.
 [Character.Speaking](#speaking),
 [Character.StopMoving](#stopmoving),
 [Character.Thinking](#thinking),
-[Character.Walk](#walk)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Name
 
 ### Name
 
@@ -2311,6 +2535,9 @@ Example:
 will display the name of the player character
 
 ---
+
+.. index::
+   pair: Character functions and properties; NormalView
 
 ### NormalView
 
@@ -2335,9 +2562,12 @@ will display a message if EGO is currently displayed using his normal
 view.
 
 *See Also:* [Character.ChangeView](#changeview),
-[Character.View](#view)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; PreviousRoom
 
 ### PreviousRoom
 
@@ -2361,6 +2591,9 @@ will display the EGO character's previous room.
 
 ---
 
+.. index::
+   pair: Character functions and properties; Room
+
 ### Room
 
 *(Formerly known as character\[\].room, which is now obsolete)*
@@ -2379,6 +2612,9 @@ Example:
 will display the EGO character's current room.
 
 ---
+
+.. index::
+   pair: Character functions and properties; ScaleMoveSpeed
 
 ### ScaleMoveSpeed
 
@@ -2405,6 +2641,9 @@ will mean that EGO's speed is adjusted in line with his scaling
 
 ---
 
+.. index::
+   pair: Character functions and properties; ScaleVolume
+
 ### ScaleVolume
 
     bool Character.ScaleVolume
@@ -2428,9 +2667,12 @@ will mean that EGO's footstep sounds are adjusted in line with his
 scaling
 
 *See Also:*
-[Character.ScaleMoveSpeed](#scalemovespeed)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Scaling
 
 ### Scaling
 
@@ -2459,6 +2701,9 @@ will tell EGO to ignore walkable area scaling levels and be fixed to
 
 ---
 
+.. index::
+   pair: Character functions and properties; Solid
+
 ### Solid
 
 *(Formerly part of SetCharacterProperty, which is now obsolete)*
@@ -2481,9 +2726,12 @@ will mean that EGO blocks the path other characters.
 
 *See Also:*
 [Character.BlockingHeight](#blockingheight),
-[Character.BlockingWidth](#blockingwidth)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Speaking
 
 ### Speaking
 
@@ -2512,9 +2760,12 @@ useful with Sierra-style speech).
 [Character.Moving](#moving),
 [Character.Say](#say),
 [Character.SpeakingFrame](#speakingframe),
-[Character.Thinking](#thinking)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SpeakingFrame
 
 ### SpeakingFrame
 
@@ -2545,9 +2796,12 @@ will move cMan to the right every time the talking animation loops back
 to Frame 0.
 
 *See Also:* [Character.Say](#say),
-[Character.Speaking](#speaking)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SpeechAnimationDelay
 
 ### SpeechAnimationDelay
 
@@ -2580,6 +2834,9 @@ will change the player character's speech animation speed to 4.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SpeechColor
+
 ### SpeechColor
 
 *(Formerly known as SetTalkingColor, which is now obsolete)*
@@ -2603,6 +2860,9 @@ will change the character's EGO talking color to yellow.
 
 ---
 
+.. index::
+   pair: Character functions and properties; SpeechView
+
 ### SpeechView
 
 *(Formerly known as SetCharacterSpeechView, which is now obsolete)*<br>
@@ -2625,9 +2885,12 @@ will change the character EGO's speech view to view 10.
 *See Also:* [Character.ChangeView](#changeview),
 [Character.BlinkView](#blinkview),
 [Character.SpeechAnimationDelay](#speechanimationdelay),
-[Character.SpeechColor](#speechcolor)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; Thinking
 
 ### Thinking
 
@@ -2658,11 +2921,14 @@ this will keep character semi-transparent while he is thinking.
 
 *See Also:* [Character.Animating](#animating),
 [Character.Moving](#moving),
-[Character.Speaking](#speaking)
+
 [Character.Think](#think),
 [Character.ThinkingFrame](#thinkingframe),
 
 ---
+
+.. index::
+   pair: Character functions and properties; ThinkingFrame
 
 ### ThinkingFrame
 
@@ -2695,9 +2961,12 @@ to Frame 0.
 *Compatibility:* Supported by **AGS 3.3.4** and later versions.
 
 *See Also:* [Character.Think](#think),
-[Character.Thinking](#thinking)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; ThinkView
 
 ### ThinkView
 
@@ -2717,6 +2986,9 @@ will change the character EGO's thinking view to 14.
 *See Also:* [Character.Think](#think)
 
 ---
+
+.. index::
+   pair: Character functions and properties; Transparency
 
 ### Transparency
 
@@ -2759,6 +3031,9 @@ level to being fully invisible.
 
 ---
 
+.. index::
+   pair: Character functions and properties; TurnBeforeWalking
+
 ### TurnBeforeWalking
 
 *(Formerly part of SetCharacterProperty, which is now obsolete)*
@@ -2783,6 +3058,9 @@ whenever he walks.
 
 ---
 
+.. index::
+   pair: Character functions and properties; View
+
 ### View
 
     readonly int Character.View
@@ -2802,9 +3080,12 @@ will display EGO's current view number.
 [Character.Frame](#frame),
 [Character.LockView](#lockview),
 [Character.Loop](#loop),
-[Character.NormalView](#normalview)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; WalkSpeedX
 
 ### WalkSpeedX
 
@@ -2823,9 +3104,12 @@ Example:
 will display the player's X speed.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-[Character.WalkSpeedY](#walkspeedy)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; WalkSpeedY
 
 ### WalkSpeedY
 
@@ -2844,9 +3128,12 @@ Example:
 will display the player's Y speed.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-[Character.WalkSpeedX](#walkspeedx)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; x
 
 ### x
 
@@ -2867,9 +3154,12 @@ Example:
 displays the player character's current coordinates.
 
 *See Also:* [Character.y](#y),
-[Character.z](#z)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; y
 
 ### y
 
@@ -2890,9 +3180,12 @@ Example:
 displays the player character's current coordinates.
 
 *See Also:* [Character.x](#x),
-[Character.z](#z)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; z
 
 ### z
 
@@ -2915,9 +3208,12 @@ Example:
 gradually levitates the character up to 20 pixels.
 
 *See Also:* [Character.x](#x),
-[Character.y](#y)
+
 
 ---
+
+.. index::
+   pair: Character functions and properties; SetCharacterProperty
 
 ### SetCharacterProperty
 
@@ -2926,11 +3222,11 @@ gradually levitates the character up to 20 pixels.
 **This command is now obsolete. It has been replaced by the following
 properties:**
 
-[Clickable](#clickable)<br>
-[DiagonalLoops](#diagonalloops)<br>
-[IgnoreLighting](#ignorelighting)<br>
-[ManualScaling](#manualscaling)<br>
-[ScaleMoveSpeed](#scalemovespeed)<br>
-[Solid](#solid)<br>
-[TurnBeforeWalking](#turnbeforewalking)
+
+
+
+
+
+
+
 

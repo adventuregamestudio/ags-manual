@@ -1,28 +1,31 @@
 Maths functions and properties
 ------------------------------
 
-[FloatToInt](#floattoint)<br>
-[IntToFloat](#inttofloat)<br>
-[ArcCos](#arccos)<br>
-[ArcSin](#arcsin)<br>
-[ArcTan](#arctan)<br>
-[ArcTan2](#arctan2)<br>
-[Cos](#cos)<br>
-[Cosh](#cosh)<br>
-[DegreesToRadians](#degreestoradians)<br>
-[Exp](#exp)<br>
-[Log](#log)<br>
-[Log10](#log10)<br>
-[RadiansToDegrees](#radianstodegrees)<br>
-[RaiseToPower](#raisetopower)<br>
-[Sin](#sin)<br>
-[Sinh](#sinh)<br>
-[Sqrt](#sqrt)<br>
-[Tan](#tan)<br>
-[Tanh](#tanh)<br>
-[Pi property](#pi)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; FloatToInt
 
 ### FloatToInt
 
@@ -49,6 +52,9 @@ displays the integer value of 10.7, rounded in the three different ways.
 
 ---
 
+.. index::
+   pair: ; IntToFloat
+
 ### IntToFloat
 
     float IntToFloat(int value)
@@ -67,6 +73,9 @@ loads 10.0 into the variable *number*.
 *See Also:* [FloatToInt](#floattoint)
 
 ---
+
+.. index::
+   pair: ; ArcCos
 
 ### ArcCos
 
@@ -88,6 +97,9 @@ calculates the arc-cosine of 1.0 and places it into variable *angle*.
 
 ---
 
+.. index::
+   pair: ; ArcSin
+
 ### ArcSin
 
     float Maths.ArcSin(float value)
@@ -108,6 +120,9 @@ calculates the arc-sine of 0.5 and places it into variable *angle*.
 
 ---
 
+.. index::
+   pair: ; ArcTan
+
 ### ArcTan
 
     float Maths.ArcTan(float value)
@@ -125,9 +140,12 @@ calculates the arc-tan of 0.5 and places it into variable *angle*.
 
 *See Also:* [Maths.ArcTan2](#arctan2),
 [Maths.DegreesToRadians](#degreestoradians),
-[Maths.Tan](#tan)
+
 
 ---
+
+.. index::
+   pair: ; ArcTan2
 
 ### ArcTan2
 
@@ -148,9 +166,12 @@ calculates the arc-tan of -862.42 / 78.5149 and places it into variable
 *angle*.
 
 *See Also:* [Maths.DegreesToRadians](#degreestoradians),
-[Maths.ArcTan](#arctan)
+
 
 ---
+
+.. index::
+   pair: ; Cos
 
 ### Cos
 
@@ -174,6 +195,9 @@ variable *cosine*.
 [Maths.Sin](#sin), [Maths.Tan](#tan)
 
 ---
+
+.. index::
+   pair: ; Cosh
 
 ### Cosh
 
@@ -199,6 +223,9 @@ variable *hcos*.
 
 ---
 
+.. index::
+   pair: ; DegreesToRadians
+
 ### DegreesToRadians
 
     float Maths.DegreesToRadians(float degrees)
@@ -223,6 +250,9 @@ variable *cosine*.
 
 ---
 
+.. index::
+   pair: ; Exp
+
 ### Exp
 
     float Maths.Exp(float x)
@@ -243,9 +273,12 @@ the variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Log](#log),
-[Maths.Log10](#log10)
+
 
 ---
+
+.. index::
+   pair: ; Log
 
 ### Log
 
@@ -265,9 +298,12 @@ variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Exp](#exp),
-[Maths.Log10](#log10)
+
 
 ---
+
+.. index::
+   pair: ; Log10
 
 ### Log10
 
@@ -287,9 +323,12 @@ the variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Exp](#exp),
-[Maths.Log](#log)
+
 
 ---
+
+.. index::
+   pair: ; RadiansToDegrees
 
 ### RadiansToDegrees
 
@@ -314,6 +353,9 @@ converts *PI* radians into degrees (which is 180).
 
 ---
 
+.. index::
+   pair: ; RaiseToPower
+
 ### RaiseToPower
 
     float Maths.RaiseToPower(float base, float exponent)
@@ -331,6 +373,9 @@ calculates 4 to the power 3 (which is 64).
 *See Also:* [Maths.Sqrt](#sqrt)
 
 ---
+
+.. index::
+   pair: ; Sin
 
 ### Sin
 
@@ -354,6 +399,9 @@ variable *sine*.
 [Maths.Cos](#cos), [Maths.Tan](#tan)
 
 ---
+
+.. index::
+   pair: ; Sinh
 
 ### Sinh
 
@@ -380,6 +428,9 @@ variable *hsine*.
 
 ---
 
+.. index::
+   pair: ; Sqrt
+
 ### Sqrt
 
     float Maths.Sqrt(float value)
@@ -400,6 +451,9 @@ displays the square root of 4 (rounded down to the nearest integer).
 [Maths.Sin](#sin), [Maths.Tan](#tan)
 
 ---
+
+.. index::
+   pair: ; Tan
 
 ### Tan
 
@@ -423,6 +477,9 @@ variable *tan*.
 [Maths.Cos](#cos), [Maths.Sin](#sin)
 
 ---
+
+.. index::
+   pair: ; Tanh
 
 ### Tanh
 
@@ -448,6 +505,9 @@ calculates the hyperbolic tan of 45 degrees and places it into variable
 [Maths.Cos](#cos), [Maths.Sin](#sin)
 
 ---
+
+.. index::
+   pair: ; Pi
 
 ### Pi
 

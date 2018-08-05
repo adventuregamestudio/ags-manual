@@ -1,12 +1,15 @@
 Parser functions
 ----------------
 
-[FindWordID](#findwordid)<br>
-[ParseText](#parsetext)<br>
-[Said](#said)<br>
-[SaidUnknownWord](#saidunknownword)
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; FindWordID
 
 ### FindWordID
 
@@ -43,6 +46,9 @@ will display a message if the game dictionary includes "machine"
 
 ---
 
+.. index::
+   pair: ; ParseText
+
 ### ParseText
 
     static Parser.ParseText(string text)
@@ -61,9 +67,12 @@ will get the players input and store it in string "command" for use with
 the said command.
 
 *See Also:* [Parser.FindWordID](#findwordid),
-[Parser.Said](#said)
+
 
 ---
+
+.. index::
+   pair: ; Said
 
 ### Said
 
@@ -88,9 +97,12 @@ will bring up the restore game dialogue if the player types "load" in
 the text parser.
 
 *See Also:* [Parser.ParseText](#parsetext),
-[Parser.SaidUnknownWord](#saidunknownword)
+
 
 ---
+
+.. index::
+   pair: ; SaidUnknownWord
 
 ### SaidUnknownWord
 
@@ -112,4 +124,4 @@ will display the message if the player types a word that's not in the
 vocabulary.
 
 *See Also:* [Parser.ParseText](#parsetext),
-[Parser.Said](#said)
+

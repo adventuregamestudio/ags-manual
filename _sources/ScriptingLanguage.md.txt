@@ -6,6 +6,7 @@ great control over your game.
 
 - [Scripting tutorial part 1](ScriptingTutorialPart1)
 - [Scripting tutorial part 2](ScriptingTutorialPart2)
+- [Script language keywords](managedmodifier)
 - [Pointers in AGS](Pointers)
 - [Calling global functions from local scripts](CallingGlobalFunctions)
 - [The script header](TheScriptHeader)

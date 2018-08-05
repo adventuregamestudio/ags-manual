@@ -5,19 +5,22 @@ Now that you know how to create a room, it's time to set up the
 game-wide settings. These include inventory items, sprite graphics,
 palette setup and other things which do not depend on individual rooms.
 
-[Palette setup](#palette-setup)<br>
-[Inventory](#inventory)<br>
-[Importing your own sprite graphics](#importing-your-own-sprite-graphics)<br>
-[Introduction sequences](#introduction-sequences)<br>
-[Animations](#animations)<br>
-[Characters](#characters)<br>
-[Conversations](#conversations)<br>
-[General settings](#general-settings)<br>
-[Default setup](#default-setup)<br>
-[Cursors](#cursors)<br>
-[Fonts](#fonts)
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Palette setup
 
 ### Palette setup
 
@@ -67,6 +70,9 @@ entries from the PAL or PCX file you choose. It can read standard
 and JASC PSP palette files.
 
 ---
+
+.. index::
+   pair: ; Inventory
 
 ### Inventory
 
@@ -123,6 +129,9 @@ hotspot is. You can enter the colour for the centre dot and also for the
 surrounding 4 pixels.
 
 ---
+
+.. index::
+   pair: ; Importing your own sprite graphics
 
 ### Importing your own sprite graphics
 
@@ -229,6 +238,9 @@ be applied to alpha-blended characters.
 
 ---
 
+.. index::
+   pair: ; Introduction sequences
+
 ### Introduction sequences
 
 You can easily add intro, outro and cutscene sequences to your game.
@@ -252,6 +264,9 @@ leave this until you are more comfortable with AGS, and have some
 experience of how to use these functions.
 
 ---
+
+.. index::
+   pair: ; Animations
 
 ### Animations
 
@@ -303,6 +318,9 @@ Object.SetView script command), and then use the Object.Animate script
 command to actually start the animation.
 
 ---
+
+.. index::
+   pair: ; Characters
 
 ### Characters
 
@@ -452,6 +470,9 @@ created and all the settings imported.
 overwrite an existing character.*
 
 ---
+
+.. index::
+   pair: ; Conversations
 
 ### Conversations
 
@@ -620,6 +641,9 @@ calls dialog_request, so you can use Said() calls to respond. See the
 [text parser](TextParser) section for more info.
 
 ---
+
+.. index::
+   pair: ; General settings
 
 ### General settings
 
@@ -939,6 +963,9 @@ SetGameOption. **Basic properties**
 
 ---
 
+.. index::
+   pair: ; Default setup
+
 ### Default setup
 
 The Default setup pane lets you create the default runtime configuration
@@ -986,6 +1013,9 @@ See also: [Run-time engine setup](Setup)
 
 ---
 
+.. index::
+   pair: ; Cursors
+
 ### Cursors
 
 The Cursors node of the editor shows you the current mouse cursor modes
@@ -1028,6 +1058,9 @@ For the standard modes,
     the cursor mode.
 
 ---
+
+.. index::
+   pair: ; Fonts
 
 ### Fonts
 

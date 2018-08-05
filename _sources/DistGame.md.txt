@@ -37,6 +37,9 @@ as "InSeperateVOX" in the editor. This allows you to have an optional
 audio download, if your game uses lots of sound files but you don't want
 the player to have to download them.
 
+.. index::
+   pair: ; Licensing
+
 ### Licensing
 
 Due to the licenses of code used by AGS, your documentation
@@ -55,6 +58,9 @@ You must also comply with the licence for AGS:
 [Artistic License 2.0](http://www.opensource.org/licenses/artistic-license-2.0.php)
 
 ---
+
+.. index::
+   pair: ; Custom icon
 
 ### Custom icon
 
@@ -75,6 +81,9 @@ so, create your icon as above but name it **setup.ico** in the game
 folder.
 
 ---
+
+.. index::
+   pair: ; Splitting resource files
 
 ### Splitting resource files
 

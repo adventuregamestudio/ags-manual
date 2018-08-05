@@ -1,227 +1,541 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>System functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Text display / Speech functions" href="DisplayAt.html" />
-    <link rel="prev" title="String functions" href="String.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="System limits" href="SystemLimits.html" />
+    <link rel="prev" title="String formatting" href="StringFormats.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="system-functions-and-properties">
+<h1>System functions and properties<a class="headerlink" href="#system-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="audiochannelcount">
+<span id="index-0"></span><h2>AudioChannelCount<a class="headerlink" href="#audiochannelcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.AudioChannelCount;
+</pre></div>
+</div>
+<p>Gets the number of Audio Channels available to the game (in the current
+version of AGS this is 8).</p>
+<p>This is useful if you want to loop through all the audio channels and
+check what is playing on them.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;There are %d audio channels.&quot;, System.AudioChannelCount);
+</pre></div>
+</div>
+<p>will display a message with the number of audio channels.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.AudioChannels</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="audiochannels">
+<span id="index-1"></span><h2>AudioChannels<a class="headerlink" href="#audiochannels" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static AudioChannel* System.AudioChannels[];
+</pre></div>
+</div>
+<p>Gets the AudioChannel instance for the specified channel number. This
+allows you to query the audio channel and find out what is playing on
+it.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AudioChannel *channel = System.AudioChannels[2];
+Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
+</pre></div>
+</div>
+<p>will display a message with Audio Channel 2’s current volume.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel</span></a>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="capslock">
+<span id="index-2"></span><h2>CapsLock<a class="headerlink" href="#capslock" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.CapsLock;
+</pre></div>
+</div>
+<p>Gets whether Caps Lock is active on the player’s system.</p>
+<p>You might want to use this to warn the player to switch it off before
+typing a password in, for example.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.CapsLock)
+{
+  Display(&quot;The CAPS LOCK light is on.&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if Caps Lock is on.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.NumLock</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="colordepth">
+<span id="index-3"></span><h2>ColorDepth<a class="headerlink" href="#colordepth" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.color_depth, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.ColorDepth;
+</pre></div>
+</div>
+<p>Returns the colour depth at which the game is running. This is the
+overall game colour depth setting, and it is possible for individual
+sprites or backgrounds to be different.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
+                                  System.ScreenHeight, System.ColorDepth);
+</pre></div>
+</div>
+<p>will display the current resolution and colour depth</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="gamma">
+<span id="index-4"></span><h2>Gamma<a class="headerlink" href="#gamma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int System.Gamma;
+</pre></div>
+</div>
+<p>Gets/sets the current screen Gamma level. This is 100 by default, and
+you can set it anywhere from 0 (pitch black) to 200 (double normal
+brightness).</p>
+<p>must return <em>true</em> in order for this property to have any effect.</p>
+<p>Because every player’s monitor will be different, you should normally
+use this property linked to a GUI Slider in order to allow the player to
+adjust it to suit their system.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.SupportsGammaControl) {
+  System.Gamma = 150;
+}
+</pre></div>
+</div>
+<p>will turn the screen brightness up to <code class="docutils literal notranslate"><span class="pre">50%</span></code> higher than normal</p>
+<p><em>See Also:</em></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hardwareacceleration">
+<span id="index-5"></span><h2>HardwareAcceleration<a class="headerlink" href="#hardwareacceleration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.HardwareAcceleration;
+</pre></div>
+</div>
+<p>Returns whether the game is running with hardware acceleration (eg.
+Direct3D). If this is the case then RawDrawing is likely to be slower,
+but alpha blending and large sprites are likely to be faster, than when
+the non-accelerated driver is used.</p>
+<p><strong>Cross-Platform Support</strong></p>
+<p>Windows: <strong>Direct3D driver</strong><span class="raw-html-m2r"><br></span>
+MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
+Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
+MacOS: <strong>No</strong></p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.HardwareAcceleration) {
+  Display(&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if the game is being run with hardware
+acceleration</p>
+<p>See Also: <a class="reference internal" href="GraphicsDriver.html"><span class="doc">AGS Graphics Drivers</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hasinputfocus">
+<span id="index-6"></span><h2>HasInputFocus<a class="headerlink" href="#hasinputfocus" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.HasInputFocus;
+</pre></div>
+</div>
+<p>Tells whether the game window currently has input focus, meaning it is
+active and player can control the game.</p>
+<p>If your game is made to continue running in the background, when the
+user switches out from game, you may use this property in scripts to
+know if that actually happened.</p>
+<p>Examples:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (!System.HasInputFocus)
+  return;
+</pre></div>
+</div>
+<p>skips the rest of the function if player has switched out from the game.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">System</span><span class="p">.</span><span class="nx">HasInputFocus</span> <span class="o">&amp;&amp;</span> <span class="nx">IsGamePaused</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">PauseGame</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">HasInputFocus</span> <span class="o">&amp;&amp;</span> <span class="nx">IsGamePaused</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">UnPauseGame</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>pauses game when player switches out, and unpauses it when player
+switches back to game.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">SetMultitaskingMode</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="numlock">
+<span id="index-7"></span><h2>NumLock<a class="headerlink" href="#numlock" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.NumLock;
+</pre></div>
+</div>
+<p>Gets whether Num Lock is active on the player’s system.</p>
+<p>You might want to use this to warn the player to switch it off before
+using the numeric keypad arrow keys, for example.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.NumLock)
+{
+  Display(&quot;The NUM LOCK light is on.&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if Num Lock is on.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="operatingsystem">
+<span id="index-8"></span><h2>OperatingSystem<a class="headerlink" href="#operatingsystem" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.os, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static eOperatingSystem System.OperatingSystem;
+</pre></div>
+</div>
+<p>Returns which operating system the game is currently running under. It
+can be one of the following values:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eOSDOS
+eOSWindows
+eOSLinux
+eOSMacOS
+eOSAndroid
+eOSiOS
+eOSPSP
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.OperatingSystem == eOSWindows) {
+  Display(&quot;Running on Windows!&quot;);
+}
+else {
+  Display(&quot;Not running on Windows!&quot;);
+}
+</pre></div>
+</div>
+<hr class="docutils" />
+</div>
+<div class="section" id="renderatscreenresolution">
+<span id="index-9"></span><h2>RenderAtScreenResolution<a class="headerlink" href="#renderatscreenresolution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool System.RenderAtScreenResolution;
+</pre></div>
+</div>
+<p>Gets/sets whether sprites are rendered at screen resolution (if it’s
+<strong>true</strong>) or native game resolution (if it’s <strong>false</strong>).</p>
+<p>When your game has low native resolution and player is running it in
+high display mode (for example 320x200 game being run in 1920x1080),
+then turning this property on will let engine to take advantage of
+higher display resolution and draw characters and objects less pixelated
+when they are scaled up or down (e.g. on walkable area with scaling).</p>
+<p><strong>IMPORTANT:</strong> unless you have locked this parameter to certain value in
+your game’s <a class="reference internal" href="Settingupthegame.html"><span class="doc">General settings</span></a>, players may also change it
+in the setup program. In such case it is suggested that you do not
+unconditionally modify this property in script, but rather provide a
+menu option for toggling it at runtime.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="runtimeinfo">
+<span id="index-10"></span><h2>RuntimeInfo<a class="headerlink" href="#runtimeinfo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static String System.RuntimeInfo;
+</pre></div>
+</div>
+<p>Returns the string containing short description of the enviroment the
+game is currently running in, such as engine version, graphics mode, and
+available game resources.</p>
+<p>This is meant mainly for debug purposes.</p>
+<p><strong>NOTE:</strong> System.RuntimeInfo is a more convenient analogue of Debug(1,0) command,
+being more explicit and working on both release and debug
+modes of the game.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">on_key_press</span><span class="p">(</span><span class="nx">eKeyCode</span> <span class="nx">keycode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyCtrlV</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Display</span><span class="p">(</span><span class="nx">System</span><span class="p">.</span><span class="nx">RuntimeInfo</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Debug</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="screenheight">
+<span id="index-11"></span><h2>ScreenHeight<a class="headerlink" href="#screenheight" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.screen_height, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.ScreenHeight;
+</pre></div>
+</div>
+<p>Returns the actual screen height that the game is running at. If a
+graphic filter is in use, the resolution returned will be that before
+any stretching by the filter has been applied. If letterbox borders are
+enabled, the screen size reported will include the size of these
+borders.</p>
+<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when
+working with co-ordinates. Co-ordinates are relative to the viewport, so
+you should use <span class="xref std std-ref">System.ViewportHeight</span>
+instead. Use the ScreenHeight property only for reporting purposes.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
+                                  System.ScreenHeight, System.ColorDepth);
+</pre></div>
+</div>
+<p>will display the current resolution and colour depth</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ColorDepth</span>,
+<span class="xref std std-ref">System.ScreenWidth</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="screenwidth">
+<span id="index-12"></span><h2>ScreenWidth<a class="headerlink" href="#screenwidth" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.screen_width, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.ScreenWidth;
+</pre></div>
+</div>
+<p>Returns the actual screen width that the game is running at. If a
+graphic filter is in use, the resolution returned will be that before
+any stretching by the filter has been applied. If widescreen side
+borders are enabled, the screen width reported will include the size of
+these borders.</p>
+<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when
+working with co-ordinates. Co-ordinates are relative to the viewport, so
+you should use <span class="xref std std-ref">System.ViewportWidth</span>
+instead. Use the ScreenWidth property only for reporting purposes.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
+                                  System.ScreenHeight, System.ColorDepth);
+</pre></div>
+</div>
+<p>will display the current resolution and colour depth</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ColorDepth</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="scrolllock">
+<span id="index-13"></span><h2>ScrollLock<a class="headerlink" href="#scrolllock" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.ScrollLock;
+</pre></div>
+</div>
+<p>Gets whether Scroll Lock is active on the player’s system.</p>
+<p>Note that when running your game under the debugger, the Scroll Lock key
+will break out of the game into the debugger, so it is not advised that
+you use it for any other purpose in your game.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.ScrollLock)
+{
+  Display(&quot;The SCROLL LOCK light is on.&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if Scroll Lock is on.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="supportsgammacontrol">
+<span id="index-14"></span><h2>SupportsGammaControl<a class="headerlink" href="#supportsgammacontrol" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool System.SupportsGammaControl;
+</pre></div>
+</div>
+<p>Gets whether the player’s PC supports changing the screen’s gamma
+control settings.</p>
+<p>This must return <em>true</em> before you try and change the
+<span class="xref std std-ref">System.Gamma</span> property. The situations in which
+this will be supported are listed below.</p>
+<p><strong>Cross-Platform Support</strong></p>
+<p>Windows: <strong>Full-screen only</strong><span class="raw-html-m2r"><br></span>
+MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
+Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
+MacOS: <strong>No</strong></p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.SupportsGammaControl) {
+  Display(&quot;We can change the system gamma level!&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if the system supports changing the gamma</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.Gamma</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="version">
+<span id="index-15"></span><h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.version, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static String System.Version;
+</pre></div>
+</div>
+<p>Returns the AGS engine version number. This could be useful from within
+script modules in order to use features available on a particular engine
+version, or work around any known bugs.</p>
+<p>The string returned is the full version number, for example “2.71.833”.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;AGS version: %s&quot;</span><span class="o">,</span> <span class="nt">System</span><span class="p">.</span><span class="nc">Version</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display the AGS version number</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="viewportheight">
+<span id="index-16"></span><h2>ViewportHeight<a class="headerlink" href="#viewportheight" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.viewport_height, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.ViewportHeight;
+</pre></div>
+</div>
+<p>Returns the height of the current viewport. This is reported in the same
+co-ordinate system that the game is using, so you can use this to find
+out what the maximum possible Y co-ordinate is within the screen.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Game viewport: %d x %d&quot;</span><span class="o">,</span> <span class="nt">System</span><span class="p">.</span><span class="nc">ViewportWidth</span><span class="o">,</span> <span class="nt">System</span><span class="p">.</span><span class="nc">ViewportHeight</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display the current viewport size</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="viewportwidth">
+<span id="index-17"></span><h2>ViewportWidth<a class="headerlink" href="#viewportwidth" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.viewport_width, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int System.ViewportWidth;
+</pre></div>
+</div>
+<p>Returns the width of the current viewport. This is reported in the same
+co-ordinate system that the game is using, so you can use this to find
+out what the maximum possible X co-ordinate is within the screen.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Game viewport: %d x %d&quot;</span><span class="o">,</span> <span class="nt">System</span><span class="p">.</span><span class="nc">ViewportWidth</span><span class="o">,</span> <span class="nt">System</span><span class="p">.</span><span class="nc">ViewportHeight</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display the current viewport size</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenWidth</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="volume">
+<span id="index-18"></span><h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetDigitalMasterVolume, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as SetMusicMasterVolume, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int System.Volume;
+</pre></div>
+</div>
+<p>Gets/sets the overall system volume, from 0 to 100. This is the master
+volume control, that affects all audio in the game. You would usually
+attach this to a GUI Slider to enable the player to control the volume
+from some sort of Control Panel GUI.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>System.Volume = 80;
+</pre></div>
+</div>
+<p>will set the overall output volume to 80.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel.Volume</span></a>,
+<a class="reference internal" href="Multimedia.html"><span class="doc">Game.SetAudioTypeVolume</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="vsync">
+<span id="index-19"></span><h2>VSync<a class="headerlink" href="#vsync" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.vsync, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool System.VSync;
+</pre></div>
+</div>
+<p>Gets/sets whether AGS waits for the vertical retrace before rendering
+each frame. This is off by default.</p>
+<p>If you switch this on, it can help to reduce the “tearing” effect that
+you can get when the screen scrolls. However, doing so will lock the
+game frame rate to the monitor’s refresh rate, which will mean you
+cannot reliably set a game speed higher than 60 fps.</p>
+<p><strong>NOTE:</strong> This property has no effect with the Direct3D driver.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.VSync) {
+  Display(&quot;Vertical retrace sync is enabled!&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if vsync is on</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="windowed">
+<span id="index-20"></span><h2>Windowed<a class="headerlink" href="#windowed" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as system.windowed, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool System.Windowed;
+</pre></div>
+</div>
+<p>Gets/sets whether the game is running in a window (<em>true</em>) or
+full-screen (<em>false</em>).</p>
+<p>If you set this property at runtime, the game will try to switch to
+alternate window mode. If it fails, it will return to previous one.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (System.Windowed) {
+  Display(&quot;Game is running in a window!&quot;);
+}
+</pre></div>
+</div>
+<p>will display a message if the game is running in a window</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">on_key_press</span><span class="p">(</span><span class="nx">eKeyCode</span> <span class="nx">keycode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyEscape</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">System</span><span class="p">.</span><span class="nx">Windowed</span> <span class="o">=</span> <span class="o">!</span><span class="nx">System</span><span class="p">.</span><span class="nx">Windowed</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will switch from windowed to fullscreen mode and vice-versa whenever
+player presses Escape key.</p>
+<p><em>Compatibility:</em> This property was read-only before <strong>AGS 3.4.1</strong>; it
+can be set in <strong>AGS 3.4.1</strong> and later versions.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
       </div>
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="StringFormats.html" title="previous chapter">String formatting</a></li>
+      <li>Next: <a href="SystemLimits.html" title="next chapter">System limits</a></li>
+  </ul></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">System functions and properties</a><ul>
 <li><a class="reference internal" href="#audiochannelcount">AudioChannelCount</a></li>
 <li><a class="reference internal" href="#audiochannels">AudioChannels</a></li>
@@ -247,573 +561,13 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="String.html" title="Previous Chapter: String functions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; String functions</span>
-    </a>
-  </li>
-  <li>
-    <a href="DisplayAt.html" title="Next Chapter: Text display / Speech functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Text display ... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/System.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
         </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="system-functions-and-properties">
-<span id="system-functions-and-properties"></span><h1>System functions and properties<a class="headerlink" href="#system-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#audiochannelcount">AudioChannelCount property</a><br>
-<a class="reference external" href="#audiochannels">AudioChannels property</a><br>
-<a class="reference external" href="#capslock">CapsLock property</a><br>
-<a class="reference external" href="#colordepth">ColorDepth property</a><br>
-<a class="reference external" href="#gamma">Gamma property</a><br>
-<a class="reference external" href="#hardwareacceleration">HardwareAcceleration property</a><br>
-<a class="reference external" href="#hasinputfocus">HasInputFocus property</a><br>
-<a class="reference external" href="#numlock">NumLock property</a><br>
-<a class="reference external" href="#operatingsystem">OperatingSystem property</a><br>
-<a class="reference external" href="#renderatscreenresolution">RenderAtScreenResolution property</a><br>
-<a class="reference external" href="#runtimeinfo">RuntimeInfo property</a><br>
-<a class="reference external" href="#screenheight">ScreenHeight property</a><br>
-<a class="reference external" href="#screenwidth">ScreenWidth property</a><br>
-<a class="reference external" href="#scrolllock">ScrollLock property</a><br>
-<a class="reference external" href="#supportsgammacontrol">SupportsGammaControl property</a><br>
-<a class="reference external" href="#version">Version property</a><br>
-<a class="reference external" href="#viewportheight">ViewportHeight property</a><br>
-<a class="reference external" href="#viewportwidth">ViewportWidth property</a><br>
-<a class="reference external" href="#volume">Volume property</a><br>
-<a class="reference external" href="#vsync">VSync property</a><br>
-<a class="reference external" href="#windowed">Windowed property</a></p>
-<hr class="docutils" />
-<div class="section" id="audiochannelcount">
-<span id="audiochannelcount"></span><h2>AudioChannelCount<a class="headerlink" href="#audiochannelcount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">AudioChannelCount</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets the number of Audio Channels available to the game (in the current
-version of AGS this is 8).</p>
-<p>This is useful if you want to loop through all the audio channels and
-check what is playing on them.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">%d</span><span class="s2"> audio channels.&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">AudioChannelCount</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display a message with the number of audio channels.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#audiochannels">System.AudioChannels</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="audiochannels">
-<span id="audiochannels"></span><h2>AudioChannels<a class="headerlink" href="#audiochannels" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">AudioChannel</span><span class="o">*</span> <span class="n">System</span><span class="o">.</span><span class="n">AudioChannels</span><span class="p">[];</span>
-</pre></div>
-</div>
-<p>Gets the AudioChannel instance for the specified channel number. This
-allows you to query the audio channel and find out what is playing on
-it.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AudioChannel</span> <span class="o">*</span><span class="n">channel</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">AudioChannels</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Channel 2&#39;s current volume is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">channel</span><span class="o">.</span><span class="n">Volume</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display a message with Audio Channel 2’s current volume.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="AudioChannel">AudioChannel</a>,
-<a class="reference external" href="#audiochannelcount">System.AudioChannelCount</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="capslock">
-<span id="capslock"></span><h2>CapsLock<a class="headerlink" href="#capslock" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">CapsLock</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets whether Caps Lock is active on the player’s system.</p>
-<p>You might want to use this to warn the player to switch it off before
-typing a password in, for example.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">CapsLock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The CAPS LOCK light is on.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if Caps Lock is on.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#numlock">System.NumLock</a>,
-<a class="reference external" href="#scrolllock">System.ScrollLock</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="colordepth">
-<span id="colordepth"></span><h2>ColorDepth<a class="headerlink" href="#colordepth" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.color_depth, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">ColorDepth</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the colour depth at which the game is running. This is the
-overall game colour depth setting, and it is possible for individual
-sprites or backgrounds to be different.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game is running at: </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">-bit colour&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ScreenWidth</span><span class="p">,</span>
-                                  <span class="n">System</span><span class="o">.</span><span class="n">ScreenHeight</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ColorDepth</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <a class="reference external" href="#screenheight">System.ScreenHeight</a>,
-<a class="reference external" href="#screenwidth">System.ScreenWidth</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="gamma">
-<span id="gamma"></span><h2>Gamma<a class="headerlink" href="#gamma" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">Gamma</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets the current screen Gamma level. This is 100 by default, and
-you can set it anywhere from 0 (pitch black) to 200 (double normal
-brightness).</p>
-<p><a class="reference external" href="#supportsgammacontrol">System.SupportsGammaControl</a>
-must return <em>true</em> in order for this property to have any effect.</p>
-<p>Because every player’s monitor will be different, you should normally
-use this property linked to a GUI Slider in order to allow the player to
-adjust it to suit their system.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">SupportsGammaControl</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">System</span><span class="o">.</span><span class="n">Gamma</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will turn the screen brightness up to <code class="docutils literal notranslate"><span class="pre">50%</span></code> higher than normal</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#supportsgammacontrol">System.SupportsGammaControl</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hardwareacceleration">
-<span id="hardwareacceleration"></span><h2>HardwareAcceleration<a class="headerlink" href="#hardwareacceleration" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">HardwareAcceleration</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns whether the game is running with hardware acceleration (eg.
-Direct3D). If this is the case then RawDrawing is likely to be slower,
-but alpha blending and large sprites are likely to be faster, than when
-the non-accelerated driver is used.</p>
-<p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Direct3D driver</strong><br>
-MS-DOS: <strong>No</strong><br>
-Linux: <strong>No</strong><br>
-MacOS: <strong>No</strong></p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">HardwareAcceleration</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if the game is being run with hardware
-acceleration</p>
-<p>See Also: <a class="reference external" href="GraphicsDriver">AGS Graphics Drivers</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hasinputfocus">
-<span id="hasinputfocus"></span><h2>HasInputFocus<a class="headerlink" href="#hasinputfocus" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">HasInputFocus</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Tells whether the game window currently has input focus, meaning it is
-active and player can control the game.</p>
-<p>If your game is made to continue running in the background, when the
-user switches out from game, you may use this property in scripts to
-know if that actually happened.</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (!System.HasInputFocus)
-  return;
-</pre></div>
-</div>
-<p>skips the rest of the function if player has switched out from the game.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function repeatedly_execute()
-{
-  if (!System.HasInputFocus &amp;&amp; IsGamePaused() == 0) {
-    PauseGame();
-  } else if (System.HasInputFocus &amp;&amp; IsGamePaused() == 1) {
-    UnPauseGame();
-  }
-}
-</pre></div>
-</div>
-<p>pauses game when player switches out, and unpauses it when player
-switches back to game.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#setmultitaskingmode">SetMultitaskingMode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="numlock">
-<span id="numlock"></span><h2>NumLock<a class="headerlink" href="#numlock" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">NumLock</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets whether Num Lock is active on the player’s system.</p>
-<p>You might want to use this to warn the player to switch it off before
-using the numeric keypad arrow keys, for example.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">NumLock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The NUM LOCK light is on.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if Num Lock is on.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#capslock">System.CapsLock</a>,
-<a class="reference external" href="#scrolllock">System.ScrollLock</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="operatingsystem">
-<span id="operatingsystem"></span><h2>OperatingSystem<a class="headerlink" href="#operatingsystem" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.os, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">eOperatingSystem</span> <span class="n">System</span><span class="o">.</span><span class="n">OperatingSystem</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns which operating system the game is currently running under. It
-can be one of the following values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eOSDOS</span>
-<span class="n">eOSWindows</span>
-<span class="n">eOSLinux</span>
-<span class="n">eOSMacOS</span>
-<span class="n">eOSAndroid</span>
-<span class="n">eOSiOS</span>
-<span class="n">eOSPSP</span>
-</pre></div>
-</div>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">OperatingSystem</span> <span class="o">==</span> <span class="n">eOSWindows</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Running on Windows!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Not running on Windows!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="renderatscreenresolution">
-<span id="renderatscreenresolution"></span><h2>RenderAtScreenResolution<a class="headerlink" href="#renderatscreenresolution" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">RenderAtScreenResolution</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets whether sprites are rendered at screen resolution (if it’s
-<strong>true</strong>) or native game resolution (if it’s <strong>false</strong>).</p>
-<p>When your game has low native resolution and player is running it in
-high display mode (for example 320x200 game being run in 1920x1080),
-then turning this property on will let engine to take advantage of
-higher display resolution and draw characters and objects less pixelated
-when they are scaled up or down (e.g. on walkable area with scaling).</p>
-<p><strong>IMPORTANT:</strong> unless you have locked this parameter to certain value in
-your game’s <a class="reference external" href="Settingupthegame#general-settings">General settings</a>, players may also change it
-in the setup program. In such case it is suggested that you do not
-unconditionally modify this property in script, but rather provide a
-menu option for toggling it at runtime.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="runtimeinfo">
-<span id="runtimeinfo"></span><h2>RuntimeInfo<a class="headerlink" href="#runtimeinfo" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">String</span> <span class="n">System</span><span class="o">.</span><span class="n">RuntimeInfo</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the string containing short description of the enviroment the
-game is currently running in, such as engine version, graphics mode, and
-available game resources.</p>
-<p>This is meant mainly for debug purposes.</p>
-<p><strong>NOTE:</strong> System.RuntimeInfo is a more convenient analogue of Debug(1,0) command,
-being more explicit and working on both release and debug
-modes of the game.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">on_key_press</span><span class="p">(</span><span class="n">eKeyCode</span> <span class="n">keycode</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">keycode</span> <span class="o">==</span> <span class="n">eKeyCtrlV</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">Display</span><span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">RuntimeInfo</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#debug">Debug</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="screenheight">
-<span id="screenheight"></span><h2>ScreenHeight<a class="headerlink" href="#screenheight" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.screen_height, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">ScreenHeight</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the actual screen height that the game is running at. If a
-graphic filter is in use, the resolution returned will be that before
-any stretching by the filter has been applied. If letterbox borders are
-enabled, the screen size reported will include the size of these
-borders.</p>
-<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when
-working with co-ordinates. Co-ordinates are relative to the viewport, so
-you should use <a class="reference external" href="#viewportheight">System.ViewportHeight</a>
-instead. Use the ScreenHeight property only for reporting purposes.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game is running at: </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">-bit colour&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ScreenWidth</span><span class="p">,</span>
-                                  <span class="n">System</span><span class="o">.</span><span class="n">ScreenHeight</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ColorDepth</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <a class="reference external" href="#colordepth">System.ColorDepth</a>,
-<a class="reference external" href="#screenwidth">System.ScreenWidth</a>,
-<a class="reference external" href="#viewportheight">System.ViewportHeight</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="screenwidth">
-<span id="screenwidth"></span><h2>ScreenWidth<a class="headerlink" href="#screenwidth" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.screen_width, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">ScreenWidth</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the actual screen width that the game is running at. If a
-graphic filter is in use, the resolution returned will be that before
-any stretching by the filter has been applied. If widescreen side
-borders are enabled, the screen width reported will include the size of
-these borders.</p>
-<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when
-working with co-ordinates. Co-ordinates are relative to the viewport, so
-you should use <a class="reference external" href="#viewportwidth">System.ViewportWidth</a>
-instead. Use the ScreenWidth property only for reporting purposes.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game is running at: </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">-bit colour&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ScreenWidth</span><span class="p">,</span>
-                                  <span class="n">System</span><span class="o">.</span><span class="n">ScreenHeight</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ColorDepth</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <a class="reference external" href="#colordepth">System.ColorDepth</a>,
-<a class="reference external" href="#screenheight">System.ScreenHeight</a>
-<a class="reference external" href="#viewportwidth">System.ViewportWidth</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="scrolllock">
-<span id="scrolllock"></span><h2>ScrollLock<a class="headerlink" href="#scrolllock" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">ScrollLock</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets whether Scroll Lock is active on the player’s system.</p>
-<p>Note that when running your game under the debugger, the Scroll Lock key
-will break out of the game into the debugger, so it is not advised that
-you use it for any other purpose in your game.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">ScrollLock</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The SCROLL LOCK light is on.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if Scroll Lock is on.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#capslock">System.CapsLock</a>,
-<a class="reference external" href="#numlock">System.NumLock</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="supportsgammacontrol">
-<span id="supportsgammacontrol"></span><h2>SupportsGammaControl<a class="headerlink" href="#supportsgammacontrol" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">SupportsGammaControl</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets whether the player’s PC supports changing the screen’s gamma
-control settings.</p>
-<p>This must return <em>true</em> before you try and change the
-<a class="reference external" href="#gamma">System.Gamma</a> property. The situations in which
-this will be supported are listed below.</p>
-<p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Full-screen only</strong><br>
-MS-DOS: <strong>No</strong><br>
-Linux: <strong>No</strong><br>
-MacOS: <strong>No</strong></p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">SupportsGammaControl</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;We can change the system gamma level!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if the system supports changing the gamma</p>
-<p><em>See Also:</em> <a class="reference external" href="#gamma">System.Gamma</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="version">
-<span id="version"></span><h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.version, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="n">String</span> <span class="n">System</span><span class="o">.</span><span class="n">Version</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the AGS engine version number. This could be useful from within
-script modules in order to use features available on a particular engine
-version, or work around any known bugs.</p>
-<p>The string returned is the full version number, for example “2.71.833”.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;AGS version: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">Version</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the AGS version number</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="viewportheight">
-<span id="viewportheight"></span><h2>ViewportHeight<a class="headerlink" href="#viewportheight" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.viewport_height, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportHeight</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the height of the current viewport. This is reported in the same
-co-ordinate system that the game is using, so you can use this to find
-out what the maximum possible Y co-ordinate is within the screen.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game viewport: </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportWidth</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportHeight</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the current viewport size</p>
-<p><em>See Also:</em> <a class="reference external" href="#screenheight">System.ScreenHeight</a>,
-<a class="reference external" href="#viewportwidth">System.ViewportWidth</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="viewportwidth">
-<span id="viewportwidth"></span><h2>ViewportWidth<a class="headerlink" href="#viewportwidth" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.viewport_width, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportWidth</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the width of the current viewport. This is reported in the same
-co-ordinate system that the game is using, so you can use this to find
-out what the maximum possible X co-ordinate is within the screen.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game viewport: </span><span class="si">%d</span><span class="s2"> x </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportWidth</span><span class="p">,</span> <span class="n">System</span><span class="o">.</span><span class="n">ViewportHeight</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the current viewport size</p>
-<p><em>See Also:</em> <a class="reference external" href="#screenwidth">System.ScreenWidth</a>,
-<a class="reference external" href="#viewportheight">System.ViewportHeight</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="volume">
-<span id="volume"></span><h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetDigitalMasterVolume, which is now obsolete)</em><br>
-<em>(Formerly known as SetMusicMasterVolume, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">System</span><span class="o">.</span><span class="n">Volume</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets the overall system volume, from 0 to 100. This is the master
-volume control, that affects all audio in the game. You would usually
-attach this to a GUI Slider to enable the player to control the volume
-from some sort of Control Panel GUI.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="n">Volume</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will set the overall output volume to 80.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="AudioChannel#volume">AudioChannel.Volume</a>,
-<a class="reference external" href="Multimedia#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="vsync">
-<span id="vsync"></span><h2>VSync<a class="headerlink" href="#vsync" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.vsync, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">VSync</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets whether AGS waits for the vertical retrace before rendering
-each frame. This is off by default.</p>
-<p>If you switch this on, it can help to reduce the “tearing” effect that
-you can get when the screen scrolls. However, doing so will lock the
-game frame rate to the monitor’s refresh rate, which will mean you
-cannot reliably set a game speed higher than 60 fps.</p>
-<p><strong>NOTE:</strong> This property has no effect with the Direct3D driver.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">VSync</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Vertical retrace sync is enabled!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if vsync is on</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="windowed">
-<span id="windowed"></span><h2>Windowed<a class="headerlink" href="#windowed" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as system.windowed, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">System</span><span class="o">.</span><span class="n">Windowed</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the game is running in a window (<em>true</em>) or
-full-screen (<em>false</em>).</p>
-<p>If you set this property at runtime, the game will try to switch to
-alternate window mode. If it fails, it will return to previous one.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="n">Windowed</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Game is running in a window!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display a message if the game is running in a window</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>function on_key_press(eKeyCode keycode) {
-  if (keycode == eKeyEscape) {
-    System.Windowed = !System.Windowed;
-  }
-}
-</pre></div>
-</div>
-<p>will switch from windowed to fullscreen mode and vice-versa whenever
-player presses Escape key.</p>
-<p><em>Compatibility:</em> This property was read-only before <strong>AGS 3.4.1</strong>; it
-can be set in <strong>AGS 3.4.1</strong> and later versions.</p>
-</div>
-</div>
-
-
-    </div>
-      
-  </div>
-</div>
     
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

@@ -16,11 +16,14 @@ GUI Text Box functions and properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[Font property](#font)<br>
-[Text property](#text)<br>
-[TextColor property](#textcolor)
+
+
+
 
 ---
+
+.. index::
+   pair: ; Font
 
 ### Font
 
@@ -39,9 +42,12 @@ Example:
 will change the *txtUserInput* text box to use Font "Normal".
 
 *See Also:* [Label.Font](Label#font),
-[TextBox.Text](#text)
+
 
 ---
+
+.. index::
+   pair: ; Text
 
 ### Text
 
@@ -67,6 +73,9 @@ will clear the txtUserInput text box.
 [Label.Text](Label#text)
 
 ---
+
+.. index::
+   pair: ; TextColor
 
 ### TextColor
 

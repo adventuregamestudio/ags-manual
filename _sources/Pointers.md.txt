@@ -6,11 +6,14 @@ pointers. This section has been split into three separate topics to
 introduce you to pointers depending on your previous programming
 experience -- select one of the links below:
 
-[Pointers for programming newbies](#pointers-for-programming-newbies)<br>
-[Pointers for people who know Java or C#](#pointers-for-people-who-know-java-or-c)<br>
-[Pointers for people who know C or C++](#pointers-for-people-who-know-c-or-c)
+
+
+
 
 ---
+
+.. index::
+   pair: ; Pointers for programming newbies
 
 ### Pointers for programming newbies
 
@@ -103,6 +106,9 @@ can't work out, feel free to ask on the Technical forums.
 
 ---
 
+.. index::
+   pair: ; Pointers for people who know Java or C#
+
 ### Pointers for people who know Java or C#
 
 AGS pointers work in a very similar way to object variables in Java and
@@ -146,6 +152,9 @@ idea to set them to *null* when you're no longer using them, to allow
 the memory to be freed.
 
 ---
+
+.. index::
+   pair: ; Pointers for people who know C or C++
 
 ### Pointers for people who know C or C++
 

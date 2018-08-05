@@ -1,307 +1,48 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Setting up the game &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Advanced room features" href="AdvancedRoomFeatures.html" />
-    <link rel="prev" title="Getting Started with AGS - Part 9" href="acintro9.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="Screen functions" href="ShakeScreen.html" />
+    <link rel="prev" title="Text Scripting Tutorial - Part 2" href="ScriptingTutorialPart2.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Setting up the game</a><ul>
-<li><a class="reference internal" href="#palette-setup">Palette setup</a></li>
-<li><a class="reference internal" href="#inventory">Inventory</a></li>
-<li><a class="reference internal" href="#importing-your-own-sprite-graphics">Importing your own sprite graphics</a></li>
-<li><a class="reference internal" href="#introduction-sequences">Introduction sequences</a></li>
-<li><a class="reference internal" href="#animations">Animations</a></li>
-<li><a class="reference internal" href="#characters">Characters</a></li>
-<li><a class="reference internal" href="#conversations">Conversations</a></li>
-<li><a class="reference internal" href="#general-settings">General settings</a></li>
-<li><a class="reference internal" href="#default-setup">Default setup</a></li>
-<li><a class="reference internal" href="#cursors">Cursors</a></li>
-<li><a class="reference internal" href="#fonts">Fonts</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="acintro9.html" title="Previous Chapter: Getting Started with AGS - Part 9"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Getting Start...</span>
-    </a>
-  </li>
-  <li>
-    <a href="AdvancedRoomFeatures.html" title="Next Chapter: Advanced room features"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Advanced room... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/Settingupthegame.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="setting-up-the-game">
-<span id="setting-up-the-game"></span><h1>Setting up the game<a class="headerlink" href="#setting-up-the-game" title="Permalink to this headline">¶</a></h1>
+<h1>Setting up the game<a class="headerlink" href="#setting-up-the-game" title="Permalink to this headline">¶</a></h1>
 <p>Now that you know how to create a room, it’s time to set up the
 game-wide settings. These include inventory items, sprite graphics,
 palette setup and other things which do not depend on individual rooms.</p>
-<p><a class="reference external" href="#palette-setup">Palette setup</a><br>
-<a class="reference external" href="#inventory">Inventory</a><br>
-<a class="reference external" href="#importing-your-own-sprite-graphics">Importing your own sprite graphics</a><br>
-<a class="reference external" href="#introduction-sequences">Introduction sequences</a><br>
-<a class="reference external" href="#animations">Animations</a><br>
-<a class="reference external" href="#characters">Characters</a><br>
-<a class="reference external" href="#conversations">Conversations</a><br>
-<a class="reference external" href="#general-settings">General settings</a><br>
-<a class="reference external" href="#default-setup">Default setup</a><br>
-<a class="reference external" href="#cursors">Cursors</a><br>
-<a class="reference external" href="#fonts">Fonts</a></p>
 <hr class="docutils" />
 <div class="section" id="palette-setup">
-<span id="palette-setup"></span><h2>Palette setup<a class="headerlink" href="#palette-setup" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Palette setup<a class="headerlink" href="#palette-setup" title="Permalink to this headline">¶</a></h2>
 <p>The first thing you need to do when you create a new game is to decide
 whether you want to use 8-bit (palette-based) colour or 32/16-bit
 (true-colour / hi-colour). If you want to use 32/16-bit colour, you can
@@ -338,10 +79,10 @@ you can see all the game-wide colours in the file.</p>
 entries from the PAL or PCX file you choose. It can read standard
 768-byte PAL files, SCI palette resources (renamed to extension .pal)
 and JASC PSP palette files.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="inventory">
-<span id="inventory"></span><h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
 <p>Most adventure games allow the player to carry a set of objects, which
 he can then use to solve puzzles. Adventure Game Studio makes this
 inventory easy for you to manage.</p>
@@ -385,10 +126,10 @@ that when the selects an inventory item, the mouse cursor for it will
 have a dot and mini-crosshair drawn on it, to show the player where the
 hotspot is. You can enter the colour for the centre dot and also for the
 surrounding 4 pixels.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="importing-your-own-sprite-graphics">
-<span id="importing-your-own-sprite-graphics"></span><h2>Importing your own sprite graphics<a class="headerlink" href="#importing-your-own-sprite-graphics" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Importing your own sprite graphics<a class="headerlink" href="#importing-your-own-sprite-graphics" title="Permalink to this headline">¶</a></h2>
 <p>When you were choosing the graphics for the object earlier in this
 tutorial, you probably noticed that most of the graphics available
 didn’t look up to much. This is no problem, because you can import your
@@ -414,7 +155,7 @@ to import. Alternatively, you can import the entire image with the
 <p><em>NOTE (256-colour only): You may well find that the colours on your
 graphic look slightly strange in the AGS Editor. This is because the
 sprites are only allocated, by default, the first 41 of the palette
-colours (see the <a class="reference external" href="#palette-setup">palette section</a>), so your graphic
+colours (see the :ref:`palette section &lt;palette-setup&gt;`), so your graphic
 will be remapped to this much smaller palette. If you find that many of
 your imported sprites look strange, you can increase the number of
 colours assigned to sprites, at the expense of background colours (again
@@ -437,12 +178,14 @@ Right-click on a folder in the tree to rename it or make a sub-folder.</p>
 <p>You can delete a folder by right-clicking on it and selecting the
 “Delete” option; beware though that <strong>this will also delete all the
 sprites in the folder</strong>.</p>
-<p>* <em>NOTE: A few people have experienced problems when importing from
-clipboard, in that the image colours get reversed (red becomes blue,
+<ul class="simple">
+<li><a href="#id1"><span class="problematic" id="id2">*</span></a>NOTE: A few people have experienced problems when importing from</li>
+</ul>
+<p>clipboard, in that the image colours get reversed (red becomes blue,
 blue becomes red, and so on) when they are running Windows at 24-bit or
 32-bit colour. If this happens to you, there are two solutions: (a) turn
 down your desktop colour depth to 16-bit to run the AGS Editor, or (b)
-import your sprites from files rather than the clipboard.</em></p>
+import your sprites from files rather than the clipboard.*</p>
 <p><strong>Tiled sprite import</strong></p>
 <p>You may have noticed a checkbox called “Tiled sprite import”. Some
 people find this a useful way of importing many frames of a character’s
@@ -470,10 +213,10 @@ GUI.Transparency) will be ignored.</p>
 <p><strong>NOTE:</strong> Currently, alpha blended sprites cannot be antialiased, so if
 you have the Anti Alias Sprites option turned on in Setup, it will not
 be applied to alpha-blended characters.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="introduction-sequences">
-<span id="introduction-sequences"></span><h2>Introduction sequences<a class="headerlink" href="#introduction-sequences" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Introduction sequences<a class="headerlink" href="#introduction-sequences" title="Permalink to this headline">¶</a></h2>
 <p>You can easily add intro, outro and cutscene sequences to your game.
 There is no specific function to do these, but using the provided
 animation and script commands you can create almost anything you might
@@ -490,10 +233,10 @@ there.</em></p>
 as Character.Walk, Object.SetView, and so forth. I would suggest you
 leave this until you are more comfortable with AGS, and have some
 experience of how to use these functions.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="animations">
-<span id="animations"></span><h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
 <p>In most games you will use some sort of animation during the game,
 whether it be a flag waving in the breeze or the player bending over to
 pick something up. The term “animation” refers to the ability to change
@@ -522,7 +265,7 @@ animation is run, an overall animation speed will be set, so the actual
 speed of the frame will be: overall_speed + frame_speed . Note that
 you can use negative numbers for the frame delay to make it particularly
 fast, for example setting it to -3 means that the frame will stay for
-hardly any time at all.<br>
+hardly any time at all.<span class="raw-html-m2r"><br></span>
 Animation speed is specified in Game Loops (ie. animation speed 4 will
 show the frame for 4 game loops - at 40fps, that would be 0.1 seconds).</p>
 <p>The “Sound” propery allows you to enter a sound number that will be
@@ -533,10 +276,10 @@ be explained in detail later. Briefly, to animate an object, you first
 of all need to set the object’s view to the correct view number (use the
 Object.SetView script command), and then use the Object.Animate script
 command to actually start the animation.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="characters">
-<span id="characters"></span><h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
 <p>A character is similar to an object, except that it can change rooms,
 maintain its own inventory, and take part in conversations (more on
 these later). It can also have its own custom animation speed and
@@ -569,18 +312,18 @@ the “StartX” and “StartY” properties to type in the X,Y co-ordinates you
 want him to start at. These co-ordinates define where the middle of his
 feet will be placed.</p>
 <p>The “NormalView” is where you set what the character looks like. You
-must create a view in the <a class="reference external" href="#animations">View Editor</a>, and this view
+must create a view in the <span class="xref std std-ref">View Editor</span>, and this view
 must have either 4 or 8 loops. If you use 4 loops, then when walking
 diagonally the closest straight direction is used for the graphics. Each
 loop is used for the character walking in one direction, as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Loop</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">down</span> <span class="p">(</span><span class="n">towards</span> <span class="n">screen</span><span class="p">)</span>
- <span class="n">Loop</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">left</span>
- <span class="n">Loop</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">right</span>
- <span class="n">Loop</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">up</span> <span class="p">(</span><span class="n">away</span> <span class="kn">from</span> <span class="nn">screen</span><span class="p">)</span>
- <span class="n">Loop</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">diagonally</span> <span class="n">down</span><span class="o">-</span><span class="n">right</span>
- <span class="n">Loop</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">diagonally</span> <span class="n">up</span><span class="o">-</span><span class="n">right</span>
- <span class="n">Loop</span> <span class="mi">6</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">diagonally</span> <span class="n">down</span><span class="o">-</span><span class="n">left</span>
- <span class="n">Loop</span> <span class="mi">7</span> <span class="o">-</span> <span class="n">walking</span> <span class="n">diagonally</span> <span class="n">up</span><span class="o">-</span><span class="n">left</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Loop 0 - walking down (towards screen)
+Loop 1 - walking left
+Loop 2 - walking right
+Loop 3 - walking up (away from screen)
+Loop 4 - walking diagonally down-right
+Loop 5 - walking diagonally up-right
+Loop 6 - walking diagonally down-left
+Loop 7 - walking diagonally up-left
 </pre></div>
 </div>
 <p>To change the rate at which the character animates, change the Animation
@@ -626,7 +369,7 @@ want to use this for effects such as blinking (hence the name). If you
 set a view here, it will play intermittently while the character talks
 (it is drawn on top of the normal talking view). The default time
 between it playing is 3-4 seconds, but you can change this with the
-Character.BlinkInterval script property.<br>
+Character.BlinkInterval script property.<span class="raw-html-m2r"><br></span>
 <strong>NOTE</strong>: the blinking view is currently only supported with
 sierra-style speech.</p>
 <p>“UseRoomAreaLighting” allows you to tell AGS whether this character will
@@ -658,10 +401,10 @@ CHA file which you exported earlier. A new character slot will be
 created and all the settings imported.</p>
 <p><em>NOTE: Because importing always creates a new slot, you cannot use it to
 overwrite an existing character.</em></p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="conversations">
-<span id="conversations"></span><h2>Conversations<a class="headerlink" href="#conversations" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Conversations<a class="headerlink" href="#conversations" title="Permalink to this headline">¶</a></h2>
 <p>While the old Sierra games were mainly based on action and not talking,
 the Lucasarts games took the opposite approach.</p>
 <p>If you want to create a game with conversations where the player can
@@ -702,7 +445,7 @@ something similar.</p>
 NAME (not full name), followed by a colon, then a space, and then what
 you want them to say. For example, if my main character’s script name is
 EGO, I would write</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ego</span><span class="p">:</span> <span class="s2">&quot;I am very happy today because it&#39;s my birthday.&quot;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ego: &quot;I am very happy today because it&#39;s my birthday.&quot;
 </pre></div>
 </div>
 <p>The character name is used by the system to choose the correct colour
@@ -719,11 +462,11 @@ pause briefly as if they are stopping to think, and nothing will be
 displayed.</p>
 <p>To signal the end of the script for this option, place a “return”
 command on the last line of it. For example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@1</span>
-<span class="n">ego</span><span class="p">:</span> <span class="s2">&quot;Hello. How are you?&quot;</span>
-<span class="n">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">eye</span><span class="o">.</span>
-<span class="n">otherman</span><span class="p">:</span> <span class="o">...</span>
-<span class="n">otherman</span><span class="p">:</span> <span class="s2">&quot;I&#39;m fine.&quot;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="mi">@1</span>
+<span class="nl">ego</span><span class="p">:</span> <span class="s">&quot;Hello. How are you?&quot;</span>
+<span class="nl">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="k">in</span> <span class="n">the</span> <span class="n">eye</span><span class="p">.</span>
+<span class="nl">otherman</span><span class="p">:</span> <span class="p">...</span>
+<span class="nl">otherman</span><span class="p">:</span> <span class="s">&quot;I&#39;m fine.&quot;</span>
 <span class="k">return</span>
 </pre></div>
 </div>
@@ -737,24 +480,24 @@ lines signify that AGS should interpret the line as a normal scripting
 command rather than a dialog scripting command.</p>
 <p>The dialog commands available are:</p>
 <ul class="simple">
-<li><strong>goto-dialog X</strong><br>
+<li><strong>goto-dialog X</strong><span class="raw-html-m2r"><br></span>
 Switches the current topic to Topic X, and displays the current list
 of choices for that topic.</li>
-<li><strong>goto-previous</strong><br>
+<li><strong>goto-previous</strong><span class="raw-html-m2r"><br></span>
 Returns to the previous topic that this one was called from. If the
 dialog started on this topic, then the dialog will be stopped.</li>
-<li><strong>option-off X</strong><br>
+<li><strong>option-off X</strong><span class="raw-html-m2r"><br></span>
 Turns option X for the current topic off, meaning it won’t be
 displayed in the list of choices next time.</li>
-<li><strong>option-off-forever X</strong><br>
+<li><strong>option-off-forever X</strong><span class="raw-html-m2r"><br></span>
 Turns option X off permanently. It will never again be displayed,
 not even if an “option-on” command is used.</li>
-<li><strong>option-on X</strong><br>
+<li><strong>option-on X</strong><span class="raw-html-m2r"><br></span>
 Turns option X for the current topic on, including it in the list of
 choices to the player next time they are displayed.</li>
-<li><strong>return</strong><br>
+<li><strong>return</strong><span class="raw-html-m2r"><br></span>
 Stops the script and returns to the list of choices.</li>
-<li><strong>stop</strong><br>
+<li><strong>stop</strong><span class="raw-html-m2r"><br></span>
 Stops the conversation and returns the player to the game.</li>
 </ul>
 <p>For an example of a dialog script, load the demo game into the editor
@@ -765,12 +508,12 @@ you want to do in the dialog. You might want to give the player an
 inventory item or add some points to their score, for example.</p>
 <p>AGS now lets you put normal scripting commands in your dialog script, by
 indenting the line with spaces or tabs. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@1</span>
-<span class="n">ego</span><span class="p">:</span> <span class="s2">&quot;Hello. How are you?&quot;</span>
-<span class="n">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">eye</span><span class="o">.</span>
-  <span class="n">player</span><span class="o">.</span><span class="n">AddInventory</span><span class="p">(</span><span class="n">iKey</span><span class="p">);</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;This line is displayed from a normal script command&quot;</span><span class="p">);</span>
-<span class="n">otherman</span><span class="p">:</span> <span class="s2">&quot;I&#39;m fine.&quot;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="mi">@1</span>
+<span class="nl">ego</span><span class="p">:</span> <span class="s">&quot;Hello. How are you?&quot;</span>
+<span class="nl">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="k">in</span> <span class="n">the</span> <span class="n">eye</span><span class="p">.</span>
+  <span class="n">player</span><span class="p">.</span><span class="n">AddInventory</span><span class="p">(</span><span class="n">iKey</span><span class="p">);</span>
+  <span class="n">Display</span><span class="p">(</span><span class="s">&quot;This line is displayed from a normal script command&quot;</span><span class="p">);</span>
+<span class="nl">otherman</span><span class="p">:</span> <span class="s">&quot;I&#39;m fine.&quot;</span>
 <span class="k">return</span>
 </pre></div>
 </div>
@@ -783,14 +526,14 @@ access the currently running dialog.</p>
 tokens <code class="docutils literal notranslate"><span class="pre">RUN_DIALOG_GOTO_PREVIOUS</span></code>, <code class="docutils literal notranslate"><span class="pre">RUN_DIALOG_RETURN</span></code> and
 <code class="docutils literal notranslate"><span class="pre">RUN_DIALOG_STOP_DIALOG</span></code> are available which you can <code class="docutils literal notranslate"><span class="pre">return</span></code> from
 inside a script block. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@1</span>
-<span class="n">ego</span><span class="p">:</span> <span class="s2">&quot;Hello. How are you?&quot;</span>
-<span class="n">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">eye</span><span class="o">.</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iKey</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">player</span><span class="o">.</span><span class="n">Say</span><span class="p">(</span><span class="s2">&quot;Actually, I&#39;d better go.&quot;</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="mi">@1</span>
+<span class="nl">ego</span><span class="p">:</span> <span class="s">&quot;Hello. How are you?&quot;</span>
+<span class="nl">narrator</span><span class="p">:</span> <span class="n">The</span> <span class="n">man</span> <span class="n">looks</span> <span class="n">you</span> <span class="k">in</span> <span class="n">the</span> <span class="n">eye</span><span class="p">.</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">HasInventory</span><span class="p">(</span><span class="n">iKey</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;Actually, I&#39;d better go.&quot;</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">RUN_DIALOG_STOP_DIALOG</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="n">otherman</span><span class="p">:</span> <span class="s2">&quot;Here&#39;s a key for you.&quot;</span>
+<span class="nl">otherman</span><span class="p">:</span> <span class="s">&quot;Here&#39;s a key for you.&quot;</span>
 <span class="k">return</span>
 </pre></div>
 </div>
@@ -804,11 +547,11 @@ script function will be run, with its parameter being the dialog topic
 number that the player was in.</p>
 <p>AGS automatically calls ParseText with the text they typed in before it
 calls dialog_request, so you can use Said() calls to respond. See the
-<a class="reference external" href="TextParser">text parser</a> section for more info.</p>
-</div>
+<a class="reference internal" href="TextParser.html"><span class="doc">text parser</span></a> section for more info.</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="general-settings">
-<span id="general-settings"></span><h2>General settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>General settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h2>
 <p>The General Settings pane contains a list of all the various overall
 options that you can set for your game.</p>
 <p>Note that some things listed here are explained later in the
@@ -822,11 +565,11 @@ is 32-bit, which lets you use all the range of colours contemporary
 devices support. 16-bit is rather a compatibility setting, that will
 reduce the size of your game resources at the cost of colour
 precision. 8-bit colour mode is a special feature for making
-palette-based games. See Also: <a class="reference external" href="#palette-setup">Palette setup</a>,
-<a class="reference external" href="CyclePalette">Palette functions</a></li>
+palette-based games. See Also: <span class="xref std std-ref">Palette setup</span>,
+<a class="reference internal" href="CyclePalette.html"><span class="doc">Palette functions</span></a></li>
 <li><strong>Developer name</strong> - this will add the provided string to the game’s
 executable properties, which will also be shown in
-<a class="reference external" href="IntegrationWithWindows#windows-game-explorer">Windows Game Explorer</a>,
+<a class="reference internal" href="IntegrationWithWindows.html"><span class="doc">Windows Game Explorer</span></a>,
 if you configure integration with one.</li>
 <li><strong>Enable letterbox mode</strong> - only available if your game’s resolution
 is 320x200 or 640x400. If you enable it, your game will run as
@@ -839,11 +582,11 @@ for custom viewport size.</li>
 the window title, and also added to the game’s
 executable properties.</li>
 <li><strong>Maximum possible score</strong> - the maximum score your game has, if you
-are using score mechanics, such as <a class="reference external" href="Game#givescore">GiveScore</a>
+are using score mechanics, such as <a class="reference internal" href="Game.html"><span class="doc">GiveScore</span></a>
 script function.</li>
 <li><strong>Put sound and sprite files in source control</strong> - whether game
 resources, such as sprites and audio, are put under source control.
-For more information see <a class="reference external" href="SourceControl">Source Control integration</a>.</li>
+For more information see <a class="reference internal" href="SourceControl.html"><span class="doc">Source Control integration</span></a>.</li>
 <li><strong>Render sprites at screen resolution</strong> - whether characters and
 objects should be scaled in screen pixels rather than game pixels.
 What this means is that when low-resolution game is run in larger
@@ -908,7 +651,7 @@ be off; it may only be useful when importing really old game project
 where such setting was a norm.</li>
 <li><strong>Use old-style custom dialog options API</strong> - switch to using
 pre-AGS 3.4.0 custom dialog options callbacks. The differences
-between old and new APIs <a class="reference external" href="UpgradeTo34">are explained in this topic</a>.</li>
+between old and new APIs <a class="reference internal" href="UpgradeTo34.html"><span class="doc">are explained in this topic</span></a>.</li>
 </ul>
 <p><strong>Character movement</strong></p>
 <ul class="simple">
@@ -928,8 +671,8 @@ correct direction using available animation frames, rather than just
 suddenly switching to face the right way.</li>
 <li><strong>Characters turn to face direction</strong> - if set, then when a
 character turns round with the
-<a class="reference external" href="Character#facelocation">Character.FaceLocation</a> or
-<a class="reference external" href="Character#facecharacter">Character.FaceCharacter</a> script
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceLocation</span></a> or
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceCharacter</span></a> script
 commands, they will visibly turn around using their available loops.
 If this option is not set, they will immediately appear facing their
 new direction.</li>
@@ -945,9 +688,9 @@ debug mode is on, you can press Ctrl-X to teleport to any room,
 Ctrl-S to give all inventory items, Ctrl-A to display walkable areas
 on the screen, and Ctrl-D to display statistics about the
 current room. When debug mode is off, these do nothing. See the
-<a class="reference external" href="Debuggingfeatures">Debugging features</a> section for more.</li>
+<a class="reference internal" href="Debuggingfeatures.html"><span class="doc">Debugging features</span></a> section for more.</li>
 <li><strong>Split resource files into X MB-sized chunks</strong> - see
-<a class="reference external" href="DistGame#splitting-resource-files">here</a> for information.</li>
+<a class="reference internal" href="DistGame.html"><span class="doc">here</span></a> for information.</li>
 </ul>
 <p><strong>Dialog</strong></p>
 <ul>
@@ -967,7 +710,7 @@ personal preference.</p>
 <li><p class="first"><strong>Number dialog options</strong> - enables keyboard shortcuts to choose
 dialog options (keys 1-9) and adds an index number before each
 dialog option when they are displayed to the player. For example,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. Hello there!
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>1. Hello there!
 2. Goodbye
 </pre></div>
 </div>
@@ -994,14 +737,14 @@ depending on where the characters are standing.</p>
 <li><p class="first"><strong>Speech style</strong> - in the default Lucasarts-style speech, when a
 character talks, the speech text is displayed above their head in
 the game, and the character’s talking view is used to animate the
-actual character.<br>
+actual character.<span class="raw-html-m2r"><br></span>
 However, if you set this option to Sierra-style then the talking
 view is used to display an animating portrait separately in the
 top-left of the screen, with the text to the right of it. This is
 similar to the way that Space Quest 5, King’s Quest 6 and other
 later Sierra games worked. You can also cycle to another option,
 “Sierra- style with background”, which is the same except a text
-window is drawn behind the speech text to make it easier to read.<br>
+window is drawn behind the speech text to make it easier to read.<span class="raw-html-m2r"><br></span>
 “Whole Screen” uses a full-screen character portrait, like the way
 that QFG4 worked.</p>
 </li>
@@ -1046,8 +789,8 @@ won’t be changed.</li>
 <ul class="simple">
 <li><strong>Enhanced save games</strong> - makes your game’s saves compatible with
 Windows Game Explorer. For detailed information please refer to:
-<a class="reference external" href="IntegrationWithWindows#enhanced-save-games">Enhanced Saved Games</a><br>
-<a class="reference external" href="IntegrationWithWindows#windows-game-explorer">Windows Game Explorer</a></li>
+<a class="reference internal" href="IntegrationWithWindows.html"><span class="doc">Enhanced Saved Games</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="IntegrationWithWindows.html"><span class="doc">Windows Game Explorer</span></a></li>
 <li><strong>Save games extension</strong> - determines the special extension for your
 save files.</li>
 <li><strong>Save games folder name</strong> - determines the name of folder created
@@ -1085,11 +828,11 @@ anti-aliasing only works in hi-color games (in 256-colour games, the
 output will look blurred and unreadable).</li>
 <li><strong>Custom text-windows GUI</strong> - allows you to customize the standard
 text window appearance in the game, using the specified interface
-element. See <a class="reference external" href="EditingGUIs#customized-text-windows">here</a> for more
+element. See <a class="reference internal" href="EditingGUIs.html"><span class="doc">here</span></a> for more
 information.</li>
 <li><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is
 used for displaying thoughts with
-<a class="reference external" href="Character#think">Think</a>.</li>
+<a class="reference internal" href="Character.html"><span class="doc">Think</span></a>.</li>
 <li><strong>Fonts designed for high resolution</strong> - normally, if the player
 chooses high resolution for their game, then the fonts will be
 scaled up to match. However, if you have drawn your fonts for the
@@ -1120,7 +863,7 @@ is enabled and they click on a transparent pixel, then the hotspot
 behind the object will be activated instead.</li>
 <li><strong>Sprite alpha rendering style</strong> - determines which rendering method
 to use in 32-bit games when an image is drawn over
-<a class="reference external" href="DrawingSurfaceFunctions">drawing surface</a>. The “Proper alpha
+<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">drawing surface</span></a>. The “Proper alpha
 belnding” choice is meant for full alpha blending support, “Classic”
 style exists for compatibility with older versions of AGS only.</li>
 <li><strong>When player interface is disabled, GUI should</strong> - determines what
@@ -1128,18 +871,18 @@ happens to buttons on your GUIs while the game interface is
 disabled (eg. during a cutscene).</li>
 </ul>
 <p><strong>Windows Game Explorer</strong> See:
-<a class="reference external" href="IntegrationWithWindows#windows-game-explorer">Windows Game Explorer</a></p>
-</div>
+<a class="reference internal" href="IntegrationWithWindows.html"><span class="doc">Windows Game Explorer</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="default-setup">
-<span id="default-setup"></span><h2>Default setup<a class="headerlink" href="#default-setup" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Default setup<a class="headerlink" href="#default-setup" title="Permalink to this headline">¶</a></h2>
 <p>The Default setup pane lets you create the default runtime configuration
 for your game. Since AGS 3.3.5 you cannot directly do that using game’s
 setup utility (winsetup.exe) anymore, because it modifies config file in
 the user’s personal documents folder instead of game folder. For that
 reason you should be doing it from this Editor’s page now.</p>
 <p>Most of the options here correspond to the ones you may find in the
-setup utility. For their meaning please refer to <a class="reference external" href="Setup">related topic</a>.</p>
+setup utility. For their meaning please refer to <a class="reference internal" href="Setup.html"><span class="doc">related topic</span></a>.</p>
 <p>Additionally, following settings are available:</p>
 <p><strong>Setup appearance</strong></p>
 <ul class="simple">
@@ -1150,7 +893,7 @@ program window.</li>
 <ul class="simple">
 <li><strong>Custom game saves path</strong> - defines where game will store its saves
 and individual user’s files (e.g. achievements). This path will be
-used to substitute default value of <code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code> token
+used to substitute default value of  token
 in scripts. Note that when being set up in the Editor, this option
 only accepts relative paths (when used they will be relative to the
 game’s location). This has to be done this way to prevent setting
@@ -1161,7 +904,7 @@ this path in setup program (where they are actually allowed to put
 absolute paths too).</li>
 <li><strong>Custom shared data path</strong> - defines where game will store its
 shared data files (e.g. hiscore tables). This path will be used to
-substitute default value of <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> token in scripts. Note
+substitute default value of  token in scripts. Note
 that this option only accepts relative paths, so typically you have
 to set this if you want to have data files created locally within
 the game’s folder. Players <strong>won’t</strong> normally be able to change it
@@ -1170,11 +913,11 @@ in setup program.</li>
 <p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next
 game compilation, so if you change these settings you will need to
 rebuild your game one more time to apply them.</p>
-<p>See also: <a class="reference external" href="Setup">Run-time engine setup</a></p>
-</div>
+<p>See also: <a class="reference internal" href="Setup.html"><span class="doc">Run-time engine setup</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="cursors">
-<span id="cursors"></span><h2>Cursors<a class="headerlink" href="#cursors" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Cursors<a class="headerlink" href="#cursors" title="Permalink to this headline">¶</a></h2>
 <p>The Cursors node of the editor shows you the current mouse cursor modes
 available in the game. Each cursor mode performs a different action
 within the game. Double-click one to open it up.</p>
@@ -1210,10 +953,10 @@ when clicked.</li>
 <li>Modes 1, 2, 3, 5, 8 and 9 will run the event with the same name as
 the cursor mode.</li>
 </ul>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="fonts">
-<span id="fonts"></span><h2>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
 <p>AGS comes with a couple of default fonts, but you can replace the and
 add your own. You can use both TrueType (TTF) and SCI fonts (Sierra’s
 font format).</p>
@@ -1271,25 +1014,60 @@ Game.NormalFont and Game.SpeechFont properties in your script.</p>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ScriptingTutorialPart2.html" title="previous chapter"><strong>Text Scripting Tutorial - Part 2</strong></a></li>
+      <li>Next: <a href="ShakeScreen.html" title="next chapter">Screen functions</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Setting up the game</a><ul>
+<li><a class="reference internal" href="#palette-setup">Palette setup</a></li>
+<li><a class="reference internal" href="#inventory">Inventory</a></li>
+<li><a class="reference internal" href="#importing-your-own-sprite-graphics">Importing your own sprite graphics</a></li>
+<li><a class="reference internal" href="#introduction-sequences">Introduction sequences</a></li>
+<li><a class="reference internal" href="#animations">Animations</a></li>
+<li><a class="reference internal" href="#characters">Characters</a></li>
+<li><a class="reference internal" href="#conversations">Conversations</a></li>
+<li><a class="reference internal" href="#general-settings">General settings</a></li>
+<li><a class="reference internal" href="#default-setup">Default setup</a></li>
+<li><a class="reference internal" href="#cursors">Cursors</a></li>
+<li><a class="reference internal" href="#fonts">Fonts</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

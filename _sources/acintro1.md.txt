@@ -9,6 +9,9 @@ If you have a newer version, there may be minor inconsistencies in the
 screenshots where extra options have been added and so forth, but most
 of what's here should still apply).
 
+.. index::
+   pair: ; Creating the game
+
 ### Creating the game
 
 Start up the AGS Editor by double-clicking the *AGSEditor.exe* file, and
@@ -66,6 +69,9 @@ presented with the main AGS Editor window:
 
 So, there's your new game, ready and waiting for you to create it!
 
+.. index::
+   pair: ; Starting off
+
 ### Starting off
 
 The main way that you navigate around the editor is using the **project
@@ -111,6 +117,9 @@ Personally, I would always enable these four options when starting a new
 game. As you get a feel for AGS, you can decide what suits you best, and
 change these options again later.
 
+.. index::
+   pair: ; Colour choices
+
 ### Colour choices
 
 Now, at this stage we really need to decide whether we want to create a
@@ -133,6 +142,9 @@ alpha-channel image transparency, use 32-bit colour.
 *(NOTE: We need to decide now because when you import graphics, they
 will be set to the game's colour depth. Should you change your mind
 later, you would have to re-import all the graphics).*
+
+.. index::
+   pair: ; Creating a 256-colour game
 
 ### Creating a 256-colour game
 
@@ -180,12 +192,18 @@ scheme you're going for with your graphics.
 ![](images/icon_info.gif)<br>
 You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.
 
+.. index::
+   pair: ; Creating a 16-bit or 32-bit colour game
+
 ### Creating a 16-bit or 32-bit colour game
 
 Back on the Game Settings pane, check out the very top option in the
 list. It's called "Colour depth", and all you have to do is change it to
 your desired colour depth. A warning message will prompt you to make
 sure. Confirm it, and you're done.
+
+.. index::
+   pair: ; Game Resolution
 
 ### Game Resolution
 

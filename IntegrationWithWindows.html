@@ -1,290 +1,49 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Integration with Windows &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Source Control integration" href="SourceControl.html" />
-    <link rel="prev" title="Auto-number speech files" href="AutonumberSpeechFiles.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="GUI InvWindow functions and properties" href="InvWindow.html" />
+    <link rel="prev" title="Hotspot functions and properties" href="Hotspot.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Integration with Windows</a><ul>
-<li><a class="reference internal" href="#enhanced-save-games">Enhanced Save Games</a></li>
-<li><a class="reference internal" href="#windows-game-explorer">Windows Game Explorer</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="AutonumberSpeechFiles.html" title="Previous Chapter: Auto-number speech files"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Auto-number s...</span>
-    </a>
-  </li>
-  <li>
-    <a href="SourceControl.html" title="Next Chapter: Source Control integration"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Source Contro... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/IntegrationWithWindows.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="integration-with-windows">
-<span id="integration-with-windows"></span><h1>Integration with Windows<a class="headerlink" href="#integration-with-windows" title="Permalink to this headline">¶</a></h1>
+<h1>Integration with Windows<a class="headerlink" href="#integration-with-windows" title="Permalink to this headline">¶</a></h1>
 <p>AGS has the ability to integrate with Windows in two ways. Firstly, it
 can be set up to launch save games directly from explorer when the
 player double-clicks them; and secondly, in Windows Vista and later, AGS
 can integrate with the Game Explorer feature.</p>
-<p><a class="reference external" href="#enhanced-save-games">Enhanced Save Games</a><br>
-<a class="reference external" href="#windows-game-explorer">Windows Game Explorer</a></p>
 <hr class="docutils" />
 <div class="section" id="enhanced-save-games">
-<span id="enhanced-save-games"></span><h2>Enhanced Save Games<a class="headerlink" href="#enhanced-save-games" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Enhanced Save Games<a class="headerlink" href="#enhanced-save-games" title="Permalink to this headline">¶</a></h2>
 <p>Optionally, AGS can set up Windows Explorer so that you can double-click
 on a save game file to directly launch the game and continue from where
 you left off.</p>
@@ -304,7 +63,8 @@ change, and therefore you will lose access to any existing saved games.</p>
 <p>If the player is running Windows Vista or later versions, then this
 feature will also allow them to see the save game description and
 screenshot (if enabled) in the Explorer preview window:</p>
-<p><img alt="" src="_images/GameExplorer3.jpg" /><br>
+<a class="reference external image-reference" href="images/GameExplorer3.jpg"><img alt="" src="_images/GameExplorer3.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Save games with embedded screenshots on Vista and later versions</em></p>
 <p><strong>Enabling the integration</strong></p>
 <p>Once you’ve built the game, the integration won’t be enabled
@@ -322,14 +82,14 @@ Then, run the shorcut and the associations should be created for you.</p>
 parameter. This will cause AGS to remove the associations from the
 player’s system.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes</strong><br>
-MS-DOS: <strong>No</strong><br>
-Linux: <strong>No</strong><br>
+<p>Windows: <strong>Yes</strong><span class="raw-html-m2r"><br></span>
+MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
+Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
 MacOS: <strong>No</strong></p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="windows-game-explorer">
-<span id="windows-game-explorer"></span><h2>Windows Game Explorer<a class="headerlink" href="#windows-game-explorer" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Windows Game Explorer<a class="headerlink" href="#windows-game-explorer" title="Permalink to this headline">¶</a></h2>
 <p>Windows Vista and later versions have a feature called the Game
 Explorer, which is a special folder on the Start Menu that lists all the
 games installed on the user’s system and provides easy shortcuts to play
@@ -338,7 +98,8 @@ them.</p>
 so you would need to distribute your game using an installer rather than
 just in a plain zip file, since you need to tell AGS to add the game to
 the list at install-time.</p>
-<p><img alt="" src="_images/GameExplorer1.jpg" /><br>
+<a class="reference external image-reference" href="images/GameExplorer1.jpg"><img alt="" src="_images/GameExplorer1.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The “Games” option launches the Game Explorer</em></p>
 <p><strong>Enabling Game Explorer support</strong></p>
 <p>Open the General Settings pane in the editor. If you scroll down to the
@@ -350,7 +111,7 @@ on Windows XP and earlier versions).</p>
 <p><strong>Game Explorer settings</strong></p>
 <p>The rest of the settings here allow you to set up various fields that
 the Game Explorer can display. <strong>Developer Website</strong> must be a URL
-starting with “http://” if you fill it in, and <strong>Version</strong> must be a
+starting with <code class="docutils literal notranslate"><span class="pre">http://</span></code> if you fill it in, and <strong>Version</strong> must be a
 four-point version number (eg. 1.0.0.0).</p>
 <p>The <strong>Windows Experience Index</strong> is a score that Windows gives each
 computer depending on its game-playing prowess. 1 is the lowest score,
@@ -373,8 +134,9 @@ be classed as “Unrated” by Windows.</p>
 your game, rather than the standard game icon. To utilise this, place a
 file called <code class="docutils literal notranslate"><span class="pre">GameExplorer.png</span></code> in your game folder, and rebuild the game
 EXE. This must be a PNG image, no larger than 256 x 256 pixels:</p>
-<p><img alt="" src="_images/GameExplorer2.jpg" /><br>
-<em>My game (“Chris Kwest”) in the Game Explorer</em></p>
+<a class="reference external image-reference" href="images/GameExplorer2.jpg"><img alt="" src="_images/GameExplorer2.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
+<em>Game “Chris Kwest” in the Game Explorer</em></p>
 <p><strong>Adding the game to the Game Explorer</strong></p>
 <p>In order to actually add the game to the Game Explorer’s list, you need
 to run the game executable with the special parameter <code class="docutils literal notranslate"><span class="pre">-registergame</span></code>
@@ -390,33 +152,59 @@ Explorer’s list.</p>
 Integration enabled, then the <code class="docutils literal notranslate"><span class="pre">-registergame</span></code> and <code class="docutils literal notranslate"><span class="pre">-unregistergame</span></code>
 commands will register/unregister both.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Vista and later</strong><br>
-MS-DOS: <strong>No</strong><br>
-Linux: <strong>No</strong><br>
+<p>Windows: <strong>Vista and later</strong><span class="raw-html-m2r"><br></span>
+MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
+Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
 MacOS: <strong>No</strong></p>
 </div>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Hotspot.html" title="previous chapter">Hotspot functions and properties</a></li>
+      <li>Next: <a href="InvWindow.html" title="next chapter">GUI InvWindow functions and properties</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Integration with Windows</a><ul>
+<li><a class="reference internal" href="#enhanced-save-games">Enhanced Save Games</a></li>
+<li><a class="reference internal" href="#windows-game-explorer">Windows Game Explorer</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

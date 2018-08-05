@@ -1,227 +1,470 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GUI List Box functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GUI Slider properties" href="Slider.html" />
-    <link rel="prev" title="GUI Label functions and properties" href="Label.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="Maths functions and properties" href="Maths.html" />
+    <link rel="prev" title="Lip sync" href="Lipsync.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gui-list-box-functions-and-properties">
+<h1>GUI List Box functions and properties<a class="headerlink" href="#gui-list-box-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="GUIControl.html"><span class="doc">BringToFront</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Clickable property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Enabled property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Height property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">ID property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">OwningGUI property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">SendToBack</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">SetPosition</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">SetSize</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Visible property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Width property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">X property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">Y property</span></a><span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="GUIControl.html"><span class="doc">ZOrder property</span></a></p>
+<hr class="docutils" />
+<div class="section" id="additem">
+<span id="index-0"></span><h2>AddItem<a class="headerlink" href="#additem" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxAdd, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.AddItem(string newitem)
+</pre></div>
+</div>
+<p>Adds NEWITEM to the specified list box. The item will be appended to the
+end of the list.</p>
+<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more
+than that, this function will return <em>false</em> and the item will not be
+added.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String input = txtUserInput.Text;
+lstChoices.AddItem(input);
+</pre></div>
+</div>
+<p>will take the input from the user and add it to the listbox.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.Clear</span>,
+<span class="xref std std-ref">ListBox.FillDirList</span>,
+<span class="xref std std-ref">ListBox.InsertItemAt</span>,
+<span class="xref std std-ref">ListBox.Items</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="clear">
+<span id="index-1"></span><h2>Clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxClear, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.Clear()
+</pre></div>
+</div>
+<p>Removes all items from the specified list box.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstNoteBook.Clear();
+</pre></div>
+</div>
+<p>will remove all the items from listbox <em>lstNoteBook</em>.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="filldirlist">
+<span id="index-2"></span><h2>FillDirList<a class="headerlink" href="#filldirlist" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxDirList, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.FillDirList(string filemask)
+</pre></div>
+</div>
+<p>Fills the list box with a list of filenames matching FILEMASK in the
+current directory. This could be useful if you have various data files
+and the player can choose which one to load.</p>
+<p>FILEMASK is a standard DOS/Windows search expression such as “<em>.dat” or
+“data</em>.*”</p>
+<p>When specifying file path you may use special location tags:<span class="raw-html-m2r"><br></span>
+, which allows you to explicitly access files in the game
+installation directory.<span class="raw-html-m2r"><br></span>
+, which allows you to access files in the save game
+directory.<span class="raw-html-m2r"><br></span>
+, which allows you to access files to a folder on the
+system which is accessible by and shared by all users.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.FillDirList(&quot;agssave.*&quot;);
+</pre></div>
+</div>
+<p>will fill the listbox with the list of the saved games. Note that
+actually for this task you would use FillSaveGameList instead.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span>,
+<span class="xref std std-ref">ListBox.Clear</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="fillsavegamelist">
+<span id="index-3"></span><h2>FillSaveGameList<a class="headerlink" href="#fillsavegamelist" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxSaveGameList, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.FillSaveGameList()
+</pre></div>
+</div>
+<p>Fills the specified listbox with the save game list, sorted correctly
+with the most recent game at the top of the list.</p>
+<p>The <span class="xref std std-ref">SaveGameSlots</span> property is updated
+to contain the save game slot number for each index in the list, so that
+you can do:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int index = lstSaveGames.SelectedIndex;
+RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> The save game list can only hold 50 save games. If
+ListBox.ItemCount returns 50 and you are doing a Save dialog box, you
+may want to make the user replace an existing file rather than saving a
+new one.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.FillSaveGameList();
+</pre></div>
+</div>
+<p>will fill listbox <em>lstSaveGames</em> with the list of the saved games.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.FillDirList</span>,
+<span class="xref std std-ref">ListBox.ItemCount</span>,
+<span class="xref std std-ref">ListBox.SaveGameSlots</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="getitematlocation">
+<span id="index-4"></span><h2>GetItemAtLocation<a class="headerlink" href="#getitematlocation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.GetItemAtLocation(int x, int y)
+</pre></div>
+</div>
+<p>Determines which item in the list box is at the screen co-ordinates
+(X,Y). This allows you to find out which item the mouse is hovering
+over, for instance.</p>
+<p>Returns the item index (where the first item is 0), or -1 if the
+specified co-ordinates are not over any item or are outside the list
+box.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int index = lstOptions.GetItemAtLocation(mouse.x, mouse.y);
+if (index &lt; 0) {
+  Display(&quot;The mouse is not over an item!&quot;);
+}
+else {
+  String selectedItem = lstOptions.Items[index];
+  Display(&quot;The mouse is over item &#39;%s&#39;.&quot;, selectedItem);
+}
+</pre></div>
+</div>
+<p>will display the item text that the mouse is currently hovering over.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.SelectedIndex</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="insertitemat">
+<span id="index-5"></span><h2>InsertItemAt<a class="headerlink" href="#insertitemat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.InsertItemAt(int index, string newitem)
+</pre></div>
+</div>
+<p>Inserts NEWITEM into the specified list box. The item will be inserted
+<strong>before</strong> the specified index.</p>
+<p>Listbox indexes go from 0 (the first item) to ItemCount - 1 (the last
+item). The new item will be inserted before the index you specify.</p>
+<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more
+than that, this function will return <em>false</em> and the item will not be
+added.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstChoices.AddItem(&quot;First item&quot;);
+lstChoices.AddItem(&quot;Second item&quot;);
+lstChoices.InsertItemAt(1, &quot;Third item&quot;);
+</pre></div>
+</div>
+<p>will insert the Third Item in between the First and Second items.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="removeitem">
+<span id="index-6"></span><h2>RemoveItem<a class="headerlink" href="#removeitem" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxRemove, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.RemoveItem(int item)
+</pre></div>
+</div>
+<p>Removes ITEM from the specified list box. ITEM is the list index of the
+item to remove, starting with 0 for the top item.</p>
+<p>If you want to remove all items from the list, then use
+<span class="xref std std-ref">ListBox.Clear</span> instead.</p>
+<p><strong>NOTE:</strong> Calling this function causes other items in the list to get
+re-numbered, so make sure you don’t keep around any references from
+ListBox.SelectedIndex and related functions while using this command.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstTest.AddItem(&quot;First item&quot;);
+lstTest.AddItem(&quot;Second item&quot;);
+lstTest.RemoveItem(0);
+</pre></div>
+</div>
+<p>the list box will now just contain “Second item”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.Clear</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="scrolldown">
+<span id="index-7"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.ScrollDown()
+</pre></div>
+</div>
+<p>Scrolls the list box down one row. If it is already at the bottom,
+nothing happens.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstTest.ScrollDown();
+</pre></div>
+</div>
+<p>will scroll the <em>lstTest</em> list box down one row.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.ScrollUp</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="scrollup">
+<span id="index-8"></span><h2>ScrollUp<a class="headerlink" href="#scrollup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ListBox.ScrollUp()
+</pre></div>
+</div>
+<p>Scrolls the list box up one row. If it is already at the top, nothing
+happens.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstTest.ScrollUp();
+</pre></div>
+</div>
+<p>will scroll the <em>lstTest</em> list box up one row.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.ScrollDown</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="font">
+<span id="index-9"></span><h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FontType ListBox.Font
+</pre></div>
+</div>
+<p>Gets/sets the font used by the specified list box.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.Font = eFontSpeech;
+</pre></div>
+</div>
+<p>will change the <em>lstSaveGames</em> list box to use Font “Speech”.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Label.html"><span class="doc">Label.Font</span></a>,
+<a class="reference internal" href="TextBox.html"><span class="doc">TextBox.Text</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hideborder">
+<span id="index-10"></span><h2>HideBorder<a class="headerlink" href="#hideborder" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool ListBox.HideBorder
+</pre></div>
+</div>
+<p>Gets/sets whether the list box’s border is hidden.</p>
+<p>Note that hiding the border will also implicitly hide the up/down scroll
+arrows for the list box.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.HideBorder = true;
+</pre></div>
+</div>
+<p>will hide the border around the Save Games list box.</p>
+<p><em>See Also:</em></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hidescrollarrows">
+<span id="index-11"></span><h2>HideScrollArrows<a class="headerlink" href="#hidescrollarrows" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool ListBox.HideScrollArrows
+</pre></div>
+</div>
+<p>Gets/sets whether the built-in up/down scroll arrows are hidden.</p>
+<p>Because the appearance of the scroll arrows is not customizable, you may
+wish to use this to hide them and provide your own arrows using GUI
+Button controls.</p>
+<p><strong>NOTE:</strong> If the list box’s “Hide Border” setting is enabled, then the
+scroll arrows will also be hidden, since “Hide Border” supersedes “Hide
+Scroll Arrows”. You only need to use this HideScrollArrows property if
+you want the border to be shown but the arrows hidden.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.HideScrollArrows = true;
+</pre></div>
+</div>
+<p>will hide the built-in scroll arrows on the list box.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.HideBorder</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="itemcount">
+<span id="index-12"></span><h2>ItemCount<a class="headerlink" href="#itemcount" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxGetNumItems, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ListBox.ItemCount
+</pre></div>
+</div>
+<p>Gets the number of items in the specified listbox. Valid item indexes
+range from 0 to (numItems - 1).</p>
+<p>This property is read-only. To change the item count, use the AddItem
+and RemoveItem methods.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int saves = lstSaveGames.ItemCount;
+</pre></div>
+</div>
+<p>will pass the number of saved games to the int saves.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.Items</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="items">
+<span id="index-13"></span><h2>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxGetItemText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ListBox.GetItemText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ListBox.SetItemText, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String ListBox.Items[index]
+</pre></div>
+</div>
+<p>Gets/sets the text of the list box item at INDEX.</p>
+<p>List box items are numbered starting from 0, so the first item is 0, the
+second is 1, and so on. The highest allowable index is ItemCount minus
+1.</p>
+<p>If you want to add a new item to the listbox, use the
+<span class="xref std std-ref">ListBox.AddItem</span> method.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String selectedItemText = lstOptions.Items[lstOptions.SelectedIndex];
+</pre></div>
+</div>
+<p>will get the text of the selected item in the list box.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.SelectedIndex</span>,
+<span class="xref std std-ref">ListBox.ItemCount</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="rowcount">
+<span id="index-14"></span><h2>RowCount<a class="headerlink" href="#rowcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ListBox.RowCount
+</pre></div>
+</div>
+<p>Gets the number of rows that can be shown within the list box. This
+depends on the size of the list box, and <strong>does not</strong> depend on how many
+items are actually stored in the list box.</p>
+<p>This property is read-only. To change the row count, adjust the height
+of the list box.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;You can currently see %d items from the listbox&#39;s contents&quot;, lstSaveGames.RowCount);
+</pre></div>
+</div>
+<p>will display the number of rows that the listbox can display.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.ItemCount</span>,
+<span class="xref std std-ref">ListBox.ScrollDown</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="savegameslots">
+<span id="index-15"></span><h2>SaveGameSlots<a class="headerlink" href="#savegameslots" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global array savegameindex, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ListBox.SaveGameSlots[];
+</pre></div>
+</div>
+<p>Contains the corresponding save game slot for each item in the list.</p>
+<p>This is necessary because the FillSaveGameList command sorts the list of
+save games to put the most recent first. Therefore, you can use this
+array to map the list box indexes back to the corresponding save game
+slot.</p>
+<p><strong>NOTE:</strong> You must use the FillSaveGameList command in order to populate
+this array.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int index = lstSaveGames.SelectedIndex;
+RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
+</pre></div>
+</div>
+<p>will restore the currently selected game in the list, assuming
+FillSaveGameList had been used previously.</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">ListBox.FillSaveGameList</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="selectedindex">
+<span id="index-16"></span><h2>SelectedIndex<a class="headerlink" href="#selectedindex" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxGetSelected, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ListBoxSetSelected, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int ListBox.SelectedIndex
+</pre></div>
+</div>
+<p>Gets/sets the index into the list of the currently selected item. The
+first item is 0, second is 1, and so on. If no item is selected, this is
+set to -1.</p>
+<p>You can set this to -1 to remove the highlight (ie. un-select all
+items).</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String selectedText = lstOptions.Items[lstOptions.SelectedIndex];
+</pre></div>
+</div>
+<p>will get the text of the selected item in the listbox.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="topitem">
+<span id="index-17"></span><h2>TopItem<a class="headerlink" href="#topitem" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ListBoxSetTopItem, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int ListBox.TopItem
+</pre></div>
+</div>
+<p>Gets/sets the top item in the list box. The top item is the first item
+that is visible within the list box, so changing this effectively
+scrolls the list up and down.</p>
+<p>Indexes for TopItem start from 0 for the first item in the list.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.TopItem = 0;
+</pre></div>
+</div>
+<p>will automatically scroll listbox <em>lstSaveGames</em> back to the top of the
+list.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="translated">
+<span id="index-18"></span><h2>Translated<a class="headerlink" href="#translated" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool ListBox.Translated
+</pre></div>
+</div>
+<p>Gets/sets whether the list box’s items are translated to the selected
+game language at runtime.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
       </div>
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Lipsync.html" title="previous chapter">Lip sync</a></li>
+      <li>Next: <a href="Maths.html" title="next chapter">Maths functions and properties</a></li>
+  </ul></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">GUI List Box functions and properties</a><ul>
 <li><a class="reference internal" href="#additem">AddItem</a></li>
 <li><a class="reference internal" href="#clear">Clear</a></li>
@@ -245,499 +488,13 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Label.html" title="Previous Chapter: GUI Label functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; GUI Label fun...</span>
-    </a>
-  </li>
-  <li>
-    <a href="Slider.html" title="Next Chapter: GUI Slider properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">GUI Slider properties &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/ListBox.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
         </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="gui-list-box-functions-and-properties">
-<span id="gui-list-box-functions-and-properties"></span><h1>GUI List Box functions and properties<a class="headerlink" href="#gui-list-box-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="GUIControl#bringtofront">BringToFront</a><br>
-<a class="reference external" href="GUIControl#clickable">Clickable property</a><br>
-<a class="reference external" href="GUIControl#enabled">Enabled property</a><br>
-<a class="reference external" href="GUIControl#height">Height property</a><br>
-<a class="reference external" href="GUIControl#id">ID property</a><br>
-<a class="reference external" href="GUIControl#owninggui">OwningGUI property</a><br>
-<a class="reference external" href="GUIControl#sendtoback">SendToBack</a><br>
-<a class="reference external" href="GUIControl#setposition">SetPosition</a><br>
-<a class="reference external" href="GUIControl#setsize">SetSize</a><br>
-<a class="reference external" href="GUIControl#visible">Visible property</a><br>
-<a class="reference external" href="GUIControl#width">Width property</a><br>
-<a class="reference external" href="GUIControl#x">X property</a><br>
-<a class="reference external" href="GUIControl#y">Y property</a><br>
-<a class="reference external" href="GUIControl#zorder">ZOrder property</a></p>
-<p><a class="reference external" href="#additem">AddItem</a><br>
-<a class="reference external" href="#clear">Clear</a><br>
-<a class="reference external" href="#filldirlist">FillDirList</a><br>
-<a class="reference external" href="#fillsavegamelist">FillSaveGameList</a><br>
-<a class="reference external" href="#getitematlocation">GetItemAtLocation</a><br>
-<a class="reference external" href="#insertitemat">InsertItemAt</a><br>
-<a class="reference external" href="#removeitem">RemoveItem</a><br>
-<a class="reference external" href="#scrolldown">ScrollDown</a><br>
-<a class="reference external" href="#scrollup">ScrollUp</a><br>
-<a class="reference external" href="#font">Font property</a><br>
-<a class="reference external" href="#hideborder">HideBorder property</a><br>
-<a class="reference external" href="#hidescrollarrows">HideScrollArrows property</a><br>
-<a class="reference external" href="#itemcount">ItemCount property</a><br>
-<a class="reference external" href="#items">Items property</a><br>
-<a class="reference external" href="#rowcount">RowCount property</a><br>
-<a class="reference external" href="#savegameslots">SaveGameSlots property</a><br>
-<a class="reference external" href="#selectedindex">SelectedIndex property</a><br>
-<a class="reference external" href="#topitem">TopItem property</a><br>
-<a class="reference external" href="#translated">Translated property</a></p>
-<hr class="docutils" />
-<div class="section" id="additem">
-<span id="additem"></span><h2>AddItem<a class="headerlink" href="#additem" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxAdd, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="n">string</span> <span class="n">newitem</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Adds NEWITEM to the specified list box. The item will be appended to the
-end of the list.</p>
-<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more
-than that, this function will return <em>false</em> and the item will not be
-added.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="nb">input</span> <span class="o">=</span> <span class="n">txtUserInput</span><span class="o">.</span><span class="n">Text</span><span class="p">;</span>
-<span class="n">lstChoices</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="nb">input</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will take the input from the user and add it to the listbox.</p>
-<p><em>See Also:</em> <a class="reference external" href="#clear">ListBox.Clear</a>,
-<a class="reference external" href="#filldirlist">ListBox.FillDirList</a>,
-<a class="reference external" href="#insertitemat">ListBox.InsertItemAt</a>,
-<a class="reference external" href="#items">ListBox.Items</a>,
-<a class="reference external" href="#removeitem">ListBox.RemoveItem</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="clear">
-<span id="clear"></span><h2>Clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxClear, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">Clear</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Removes all items from the specified list box.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstNoteBook</span><span class="o">.</span><span class="n">Clear</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will remove all the items from listbox <em>lstNoteBook</em>.</p>
-<p><em>See Also:</em> <a class="reference external" href="#additem">ListBox.AddItem</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="filldirlist">
-<span id="filldirlist"></span><h2>FillDirList<a class="headerlink" href="#filldirlist" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxDirList, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">FillDirList</span><span class="p">(</span><span class="n">string</span> <span class="n">filemask</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Fills the list box with a list of filenames matching FILEMASK in the
-current directory. This could be useful if you have various data files
-and the player can choose which one to load.</p>
-<p>FILEMASK is a standard DOS/Windows search expression such as “*.dat” or
-“data*.*”</p>
-<p>When specifying file path you may use special location tags:<br>
-<code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>, which allows you to explicitly access files in the game
-installation directory.<br>
-<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code>, which allows you to access files in the save game
-directory.<br>
-<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>, which allows you to access files to a folder on the
-system which is accessible by and shared by all users.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">FillDirList</span><span class="p">(</span><span class="s2">&quot;agssave.*&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will fill the listbox with the list of the saved games. Note that
-actually for this task you would use FillSaveGameList instead.</p>
-<p><em>See Also:</em> <a class="reference external" href="#additem">ListBox.AddItem</a>,
-<a class="reference external" href="#clear">ListBox.Clear</a>,
-<a class="reference external" href="#fillsavegamelist">ListBox.FillSaveGameList</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="fillsavegamelist">
-<span id="fillsavegamelist"></span><h2>FillSaveGameList<a class="headerlink" href="#fillsavegamelist" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxSaveGameList, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">FillSaveGameList</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Fills the specified listbox with the save game list, sorted correctly
-with the most recent game at the top of the list.</p>
-<p>The <a class="reference external" href="#savegameslots">SaveGameSlots</a> property is updated
-to contain the save game slot number for each index in the list, so that
-you can do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">lstSaveGames</span><span class="o">.</span><span class="n">SelectedIndex</span><span class="p">;</span>
-<span class="n">RestoreGameSlot</span><span class="p">(</span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">SaveGameSlots</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
-</pre></div>
-</div>
-<p><strong>NOTE:</strong> The save game list can only hold 50 save games. If
-ListBox.ItemCount returns 50 and you are doing a Save dialog box, you
-may want to make the user replace an existing file rather than saving a
-new one.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">FillSaveGameList</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will fill listbox <em>lstSaveGames</em> with the list of the saved games.</p>
-<p><em>See Also:</em> <a class="reference external" href="#filldirlist">ListBox.FillDirList</a>,
-<a class="reference external" href="#itemcount">ListBox.ItemCount</a>,
-<a class="reference external" href="#savegameslots">ListBox.SaveGameSlots</a>,
-<a class="reference external" href="#selectedindex">ListBox.SelectedIndex</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="getitematlocation">
-<span id="getitematlocation"></span><h2>GetItemAtLocation<a class="headerlink" href="#getitematlocation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">GetItemAtLocation</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Determines which item in the list box is at the screen co-ordinates
-(X,Y). This allows you to find out which item the mouse is hovering
-over, for instance.</p>
-<p>Returns the item index (where the first item is 0), or -1 if the
-specified co-ordinates are not over any item or are outside the list
-box.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">lstOptions</span><span class="o">.</span><span class="n">GetItemAtLocation</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse is not over an item!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">String</span> <span class="n">selectedItem</span> <span class="o">=</span> <span class="n">lstOptions</span><span class="o">.</span><span class="n">Items</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse is over item &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span><span class="p">,</span> <span class="n">selectedItem</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display the item text that the mouse is currently hovering over.</p>
-<p><em>See Also:</em> <a class="reference external" href="#selectedindex">ListBox.SelectedIndex</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="insertitemat">
-<span id="insertitemat"></span><h2>InsertItemAt<a class="headerlink" href="#insertitemat" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">InsertItemAt</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">string</span> <span class="n">newitem</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Inserts NEWITEM into the specified list box. The item will be inserted
-<strong>before</strong> the specified index.</p>
-<p>Listbox indexes go from 0 (the first item) to ItemCount - 1 (the last
-item). The new item will be inserted before the index you specify.</p>
-<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more
-than that, this function will return <em>false</em> and the item will not be
-added.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstChoices</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;First item&quot;</span><span class="p">);</span>
-<span class="n">lstChoices</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;Second item&quot;</span><span class="p">);</span>
-<span class="n">lstChoices</span><span class="o">.</span><span class="n">InsertItemAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Third item&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will insert the Third Item in between the First and Second items.</p>
-<p><em>See Also:</em> <a class="reference external" href="#additem">ListBox.AddItem</a>,
-<a class="reference external" href="#removeitem">ListBox.RemoveItem</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="removeitem">
-<span id="removeitem"></span><h2>RemoveItem<a class="headerlink" href="#removeitem" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxRemove, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">RemoveItem</span><span class="p">(</span><span class="nb">int</span> <span class="n">item</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Removes ITEM from the specified list box. ITEM is the list index of the
-item to remove, starting with 0 for the top item.</p>
-<p>If you want to remove all items from the list, then use
-<a class="reference external" href="#clear">ListBox.Clear</a> instead.</p>
-<p><strong>NOTE:</strong> Calling this function causes other items in the list to get
-re-numbered, so make sure you don’t keep around any references from
-ListBox.SelectedIndex and related functions while using this command.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstTest</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;First item&quot;</span><span class="p">);</span>
-<span class="n">lstTest</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;Second item&quot;</span><span class="p">);</span>
-<span class="n">lstTest</span><span class="o">.</span><span class="n">RemoveItem</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>the list box will now just contain “Second item”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#clear">ListBox.Clear</a>,
-<a class="reference external" href="#filldirlist">ListBox.FillDirList</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="scrolldown">
-<span id="scrolldown"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">ScrollDown</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Scrolls the list box down one row. If it is already at the bottom,
-nothing happens.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstTest</span><span class="o">.</span><span class="n">ScrollDown</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will scroll the <em>lstTest</em> list box down one row.</p>
-<p><em>See Also:</em> <a class="reference external" href="#scrollup">ListBox.ScrollUp</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="scrollup">
-<span id="scrollup"></span><h2>ScrollUp<a class="headerlink" href="#scrollup" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ListBox</span><span class="o">.</span><span class="n">ScrollUp</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Scrolls the list box up one row. If it is already at the top, nothing
-happens.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstTest</span><span class="o">.</span><span class="n">ScrollUp</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will scroll the <em>lstTest</em> list box up one row.</p>
-<p><em>See Also:</em> <a class="reference external" href="#scrolldown">ListBox.ScrollDown</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="font">
-<span id="font"></span><h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FontType</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">Font</span>
-</pre></div>
-</div>
-<p>Gets/sets the font used by the specified list box.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">Font</span> <span class="o">=</span> <span class="n">eFontSpeech</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will change the <em>lstSaveGames</em> list box to use Font “Speech”.</p>
-<p><em>See Also:</em> <a class="reference external" href="Label#font">Label.Font</a>,
-<a class="reference external" href="TextBox#text">TextBox.Text</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hideborder">
-<span id="hideborder"></span><h2>HideBorder<a class="headerlink" href="#hideborder" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">HideBorder</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the list box’s border is hidden.</p>
-<p>Note that hiding the border will also implicitly hide the up/down scroll
-arrows for the list box.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">HideBorder</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will hide the border around the Save Games list box.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#hidescrollarrows">ListBox.HideScrollArrows</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hidescrollarrows">
-<span id="hidescrollarrows"></span><h2>HideScrollArrows<a class="headerlink" href="#hidescrollarrows" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">HideScrollArrows</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the built-in up/down scroll arrows are hidden.</p>
-<p>Because the appearance of the scroll arrows is not customizable, you may
-wish to use this to hide them and provide your own arrows using GUI
-Button controls.</p>
-<p><strong>NOTE:</strong> If the list box’s “Hide Border” setting is enabled, then the
-scroll arrows will also be hidden, since “Hide Border” supersedes “Hide
-Scroll Arrows”. You only need to use this HideScrollArrows property if
-you want the border to be shown but the arrows hidden.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">HideScrollArrows</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will hide the built-in scroll arrows on the list box.</p>
-<p><em>See Also:</em> <a class="reference external" href="#hideborder">ListBox.HideBorder</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="itemcount">
-<span id="itemcount"></span><h2>ItemCount<a class="headerlink" href="#itemcount" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxGetNumItems, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">ItemCount</span>
-</pre></div>
-</div>
-<p>Gets the number of items in the specified listbox. Valid item indexes
-range from 0 to (numItems - 1).</p>
-<p>This property is read-only. To change the item count, use the AddItem
-and RemoveItem methods.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">saves</span> <span class="o">=</span> <span class="n">lstSaveGames</span><span class="o">.</span><span class="n">ItemCount</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will pass the number of saved games to the int saves.</p>
-<p><em>See Also:</em> <a class="reference external" href="#items">ListBox.Items</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="items">
-<span id="items"></span><h2>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxGetItemText, which is now obsolete)</em><br>
-<em>(Formerly known as ListBox.GetItemText, which is now obsolete)</em><br>
-<em>(Formerly known as ListBox.SetItemText, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">Items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Gets/sets the text of the list box item at INDEX.</p>
-<p>List box items are numbered starting from 0, so the first item is 0, the
-second is 1, and so on. The highest allowable index is ItemCount minus</p>
-<ol class="simple">
-<li></li>
-</ol>
-<p>If you want to add a new item to the listbox, use the
-<a class="reference external" href="#additem">ListBox.AddItem</a> method.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">selectedItemText</span> <span class="o">=</span> <span class="n">lstOptions</span><span class="o">.</span><span class="n">Items</span><span class="p">[</span><span class="n">lstOptions</span><span class="o">.</span><span class="n">SelectedIndex</span><span class="p">];</span>
-</pre></div>
-</div>
-<p>will get the text of the selected item in the list box.</p>
-<p><em>See Also:</em> <a class="reference external" href="#selectedindex">ListBox.SelectedIndex</a>,
-<a class="reference external" href="#itemcount">ListBox.ItemCount</a>,
-<a class="reference external" href="#additem">ListBox.AddItem</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="rowcount">
-<span id="rowcount"></span><h2>RowCount<a class="headerlink" href="#rowcount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">RowCount</span>
-</pre></div>
-</div>
-<p>Gets the number of rows that can be shown within the list box. This
-depends on the size of the list box, and <strong>does not</strong> depend on how many
-items are actually stored in the list box.</p>
-<p>This property is read-only. To change the row count, adjust the height
-of the list box.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You can currently see </span><span class="si">%d</span><span class="s2"> items from the listbox&#39;s contents&quot;</span><span class="p">,</span> <span class="n">lstSaveGames</span><span class="o">.</span><span class="n">RowCount</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the number of rows that the listbox can display.</p>
-<p><em>See Also:</em> <a class="reference external" href="#itemcount">ListBox.ItemCount</a>,
-<a class="reference external" href="#scrolldown">ListBox.ScrollDown</a>,
-<a class="reference external" href="#scrollup">ListBox.ScrollUp</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="savegameslots">
-<span id="savegameslots"></span><h2>SaveGameSlots<a class="headerlink" href="#savegameslots" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global array savegameindex, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">SaveGameSlots</span><span class="p">[];</span>
-</pre></div>
-</div>
-<p>Contains the corresponding save game slot for each item in the list.</p>
-<p>This is necessary because the FillSaveGameList command sorts the list of
-save games to put the most recent first. Therefore, you can use this
-array to map the list box indexes back to the corresponding save game
-slot.</p>
-<p><strong>NOTE:</strong> You must use the FillSaveGameList command in order to populate
-this array.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">lstSaveGames</span><span class="o">.</span><span class="n">SelectedIndex</span><span class="p">;</span>
-<span class="n">RestoreGameSlot</span><span class="p">(</span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">SaveGameSlots</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
-</pre></div>
-</div>
-<p>will restore the currently selected game in the list, assuming
-FillSaveGameList had been used previously.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#fillsavegamelist">ListBox.FillSaveGameList</a>,
-<a class="reference external" href="#selectedindex">ListBox.SelectedIndex</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="selectedindex">
-<span id="selectedindex"></span><h2>SelectedIndex<a class="headerlink" href="#selectedindex" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxGetSelected, which is now obsolete)</em><br>
-<em>(Formerly known as ListBoxSetSelected, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">SelectedIndex</span>
-</pre></div>
-</div>
-<p>Gets/sets the index into the list of the currently selected item. The
-first item is 0, second is 1, and so on. If no item is selected, this is
-set to -1.</p>
-<p>You can set this to -1 to remove the highlight (ie. un-select all
-items).</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">selectedText</span> <span class="o">=</span> <span class="n">lstOptions</span><span class="o">.</span><span class="n">Items</span><span class="p">[</span><span class="n">lstOptions</span><span class="o">.</span><span class="n">SelectedIndex</span><span class="p">];</span>
-</pre></div>
-</div>
-<p>will get the text of the selected item in the listbox.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="topitem">
-<span id="topitem"></span><h2>TopItem<a class="headerlink" href="#topitem" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ListBoxSetTopItem, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">TopItem</span>
-</pre></div>
-</div>
-<p>Gets/sets the top item in the list box. The top item is the first item
-that is visible within the list box, so changing this effectively
-scrolls the list up and down.</p>
-<p>Indexes for TopItem start from 0 for the first item in the list.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lstSaveGames</span><span class="o">.</span><span class="n">TopItem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will automatically scroll listbox <em>lstSaveGames</em> back to the top of the
-list.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="translated">
-<span id="translated"></span><h2>Translated<a class="headerlink" href="#translated" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">ListBox</span><span class="o">.</span><span class="n">Translated</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the list box’s items are translated to the selected
-game language at runtime.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-</div>
-</div>
-
-
-    </div>
-      
-  </div>
-</div>
     
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

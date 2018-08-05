@@ -16,14 +16,17 @@ GUI Slider properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[BackgroundGraphic property](#backgroundgraphic)<br>
-[HandleGraphic property](#handlegraphic)<br>
-[HandleOffset property](#handleoffset)<br>
-[Max property](#max)<br>
-[Min property](#min)<br>
-[Value property](#value)
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; BackgroundGraphic
 
 ### BackgroundGraphic
 
@@ -47,6 +50,9 @@ displays the *sldHealth* slider's background image
 
 ---
 
+.. index::
+   pair: ; HandleGraphic
+
 ### HandleGraphic
 
     int Slider.HandleGraphic;
@@ -68,9 +74,12 @@ displays the *sldHealth* slider's handle image
 
 *See Also:*
 [Slider.BackgroundGraphic](#backgroundgraphic),
-[Slider.HandleOffset](#handleoffset)
+
 
 ---
+
+.. index::
+   pair: ; HandleOffset
 
 ### HandleOffset
 
@@ -92,6 +101,9 @@ the right.
 
 ---
 
+.. index::
+   pair: ; Max
+
 ### Max
 
     int Slider.Max;
@@ -110,9 +122,12 @@ Example:
 sets the maximum value of the *sldHealth* slider to 200.
 
 *See Also:* [Slider.Min](#min),
-[Slider.Value](#value)
+
 
 ---
+
+.. index::
+   pair: ; Min
 
 ### Min
 
@@ -133,9 +148,12 @@ Example:
 sets the minimum value of the *sldHealth* slider to 0.
 
 *See Also:* [Slider.Max](#max),
-[Slider.Value](#value)
+
 
 ---
+
+.. index::
+   pair: ; Value
 
 ### Value
 

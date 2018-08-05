@@ -8,7 +8,6 @@ great control over your game.
 - [repeatedly_execute / repeatedly_execute_always](RepExec) 
 - [Custom dialog options rendering](CustomDialogOptions)
 - [Built-in enumerated types](BuiltInEnums)
-- [Script language keywords](managedmodifier)
 - [AudioChannel functions and properties](AudioChannel)
 - [AudioClip functions and properties](AudioClip)
 - [Character functions and properties](Character)

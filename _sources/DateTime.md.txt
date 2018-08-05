@@ -1,16 +1,19 @@
 DateTime functions and properties
 ---------------------------------
 
-[Now property](#now)<br>
-[DayOfMonth property](#dayofmonth)<br>
-[Hour property](#hour)<br>
-[Minute property](#minute)<br>
-[Month property](#month)<br>
-[RawTime property](#rawtime)<br>
-[Second property](#second)<br>
-[Year property](#year)
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Now
 
 ### Now
 
@@ -42,9 +45,12 @@ will display the current date and time in 24-hour format
 [DateTime.Month](#month),
 [DateTime.RawTime](#rawtime),
 [DateTime.Second](#second),
-[DateTime.Year](#year)
+
 
 ---
+
+.. index::
+   pair: ; DayOfMonth
 
 ### DayOfMonth
 
@@ -59,6 +65,9 @@ Example: For an example, see [DateTime.Now](#now).
 
 ---
 
+.. index::
+   pair: ; Hour
+
 ### Hour
 
     readonly int DateTime.Hour;
@@ -71,6 +80,9 @@ Example: For an example, see [DateTime.Now](#now).
 *See Also:* [DateTime.Now](#now)
 
 ---
+
+.. index::
+   pair: ; Minute
 
 ### Minute
 
@@ -85,6 +97,9 @@ Example: For an example, see [DateTime.Now](#now).
 
 ---
 
+.. index::
+   pair: ; Month
+
 ### Month
 
     readonly int DateTime.Month;
@@ -97,6 +112,9 @@ Example: For an example, see [DateTime.Now](#now).
 *See Also:* [DateTime.Now](#now)
 
 ---
+
+.. index::
+   pair: ; RawTime
 
 ### RawTime
 
@@ -131,6 +149,9 @@ should display that 3 seconds have elapsed.
 
 ---
 
+.. index::
+   pair: ; Second
+
 ### Second
 
     readonly int DateTime.Second;
@@ -143,6 +164,9 @@ Example: For an example, see [DateTime.Now](#now).
 *See Also:* [DateTime.Now](#now)
 
 ---
+
+.. index::
+   pair: ; Year
 
 ### Year
 

@@ -1,0 +1,78 @@
+Adventure Game Studio
+=====================
+
+Getting Started in AGS
+----------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Introduction <Introduction>
+   Frequently Asked Questions <FAQ>
+   Tutorial <Tutorial>
+
+Editor Reference
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Room Editor <EditorRoom>
+   Character Editor <EditorCharacter>
+   GUI Editor <EditingGUIs>
+   Sprite Manager <EditorSprite>
+   View Editor <EditorView>
+   Inventory Items Editor <EditorInventoryItems>
+   Other Features <OtherFeatures>
+
+Engine
+------
+
+.. toctree::
+   :maxdepth: 1
+
+   The run-time engine <RuntimeEngine>
+   Graphics driver selection <GraphicsDriver>
+   Engine Setup Program <Setup>
+
+Scripting
+---------
+
+.. toctree::
+   :maxdepth: 1
+
+   Scripting Language <ScriptingLanguage>
+   Scripting Api <Scripting>
+   Reference <Reference>
+
+Working on Legacy games
+-----------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Upgrading from a previous version <UpgradingFromPreviousVersion>
+
+Legal Notice
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Copyright and terms of use <Copyright>
+   Anonymous usage information <AnonymousUsageInfo>
+   Credits <Credits>
+
+Getting in touch
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Contacting the developers <ContactingTheDevelopers>
+
+.. toctree::
+   :glob:
+   :hidden:
+
+   *

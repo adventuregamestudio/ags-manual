@@ -1,29 +1,32 @@
 System functions and properties
 -------------------------------
 
-[AudioChannelCount property](#audiochannelcount)<br>
-[AudioChannels property](#audiochannels)<br>
-[CapsLock property](#capslock)<br>
-[ColorDepth property](#colordepth)<br>
-[Gamma property](#gamma)<br>
-[HardwareAcceleration property](#hardwareacceleration)<br>
-[HasInputFocus property](#hasinputfocus)<br>
-[NumLock property](#numlock)<br>
-[OperatingSystem property](#operatingsystem)<br>
-[RenderAtScreenResolution property](#renderatscreenresolution)<br>
-[RuntimeInfo property](#runtimeinfo)<br>
-[ScreenHeight property](#screenheight)<br>
-[ScreenWidth property](#screenwidth)<br>
-[ScrollLock property](#scrolllock)<br>
-[SupportsGammaControl property](#supportsgammacontrol)<br>
-[Version property](#version)<br>
-[ViewportHeight property](#viewportheight)<br>
-[ViewportWidth property](#viewportwidth)<br>
-[Volume property](#volume)<br>
-[VSync property](#vsync)<br>
-[Windowed property](#windowed)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; AudioChannelCount
 
 ### AudioChannelCount
 
@@ -47,6 +50,9 @@ will display a message with the number of audio channels.
 
 ---
 
+.. index::
+   pair: ; AudioChannels
+
 ### AudioChannels
 
     readonly static AudioChannel* System.AudioChannels[];
@@ -65,9 +71,12 @@ will display a message with Audio Channel 2's current volume.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [AudioChannel](AudioChannel),
-[System.AudioChannelCount](#audiochannelcount)
+
 
 ---
+
+.. index::
+   pair: ; CapsLock
 
 ### CapsLock
 
@@ -90,9 +99,12 @@ will display a message if Caps Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.NumLock](#numlock),
-[System.ScrollLock](#scrolllock)
+
 
 ---
+
+.. index::
+   pair: ; ColorDepth
 
 ### ColorDepth
 
@@ -112,9 +124,12 @@ Example:
 will display the current resolution and colour depth
 
 *See Also:* [System.ScreenHeight](#screenheight),
-[System.ScreenWidth](#screenwidth)
+
 
 ---
+
+.. index::
+   pair: ; Gamma
 
 ### Gamma
 
@@ -124,7 +139,7 @@ Gets/sets the current screen Gamma level. This is 100 by default, and
 you can set it anywhere from 0 (pitch black) to 200 (double normal
 brightness).
 
-[System.SupportsGammaControl](#supportsgammacontrol)
+
 must return *true* in order for this property to have any effect.
 
 Because every player's monitor will be different, you should normally
@@ -140,9 +155,12 @@ Example:
 will turn the screen brightness up to `50%` higher than normal
 
 *See Also:*
-[System.SupportsGammaControl](#supportsgammacontrol)
+
 
 ---
+
+.. index::
+   pair: ; HardwareAcceleration
 
 ### HardwareAcceleration
 
@@ -172,6 +190,9 @@ acceleration
 See Also: [AGS Graphics Drivers](GraphicsDriver)
 
 ---
+
+.. index::
+   pair: ; HasInputFocus
 
 ### HasInputFocus
 
@@ -209,6 +230,9 @@ switches back to game.
 
 ---
 
+.. index::
+   pair: ; NumLock
+
 ### NumLock
 
     readonly static bool System.NumLock;
@@ -230,9 +254,12 @@ will display a message if Num Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.CapsLock](#capslock),
-[System.ScrollLock](#scrolllock)
+
 
 ---
+
+.. index::
+   pair: ; OperatingSystem
 
 ### OperatingSystem
 
@@ -262,6 +289,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; RenderAtScreenResolution
+
 ### RenderAtScreenResolution
 
     static bool System.RenderAtScreenResolution;
@@ -284,6 +314,9 @@ menu option for toggling it at runtime.
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
 ---
+
+.. index::
+   pair: ; RuntimeInfo
 
 ### RuntimeInfo
 
@@ -312,6 +345,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; ScreenHeight
+
 ### ScreenHeight
 
 *(Formerly known as system.screen_height, which is now obsolete)*
@@ -338,9 +374,12 @@ will display the current resolution and colour depth
 
 *See Also:* [System.ColorDepth](#colordepth),
 [System.ScreenWidth](#screenwidth),
-[System.ViewportHeight](#viewportheight)
+
 
 ---
+
+.. index::
+   pair: ; ScreenWidth
 
 ### ScreenWidth
 
@@ -367,10 +406,13 @@ Example:
 will display the current resolution and colour depth
 
 *See Also:* [System.ColorDepth](#colordepth),
-[System.ScreenHeight](#screenheight)
-[System.ViewportWidth](#viewportwidth)
+
+
 
 ---
+
+.. index::
+   pair: ; ScrollLock
 
 ### ScrollLock
 
@@ -394,9 +436,12 @@ will display a message if Scroll Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.CapsLock](#capslock),
-[System.NumLock](#numlock)
+
 
 ---
+
+.. index::
+   pair: ; SupportsGammaControl
 
 ### SupportsGammaControl
 
@@ -428,6 +473,9 @@ will display a message if the system supports changing the gamma
 
 ---
 
+.. index::
+   pair: ; Version
+
 ### Version
 
 *(Formerly known as system.version, which is now obsolete)*
@@ -448,6 +496,9 @@ will display the AGS version number
 
 ---
 
+.. index::
+   pair: ; ViewportHeight
+
 ### ViewportHeight
 
 *(Formerly known as system.viewport_height, which is now obsolete)*
@@ -465,9 +516,12 @@ Example:
 will display the current viewport size
 
 *See Also:* [System.ScreenHeight](#screenheight),
-[System.ViewportWidth](#viewportwidth)
+
 
 ---
+
+.. index::
+   pair: ; ViewportWidth
 
 ### ViewportWidth
 
@@ -486,9 +540,12 @@ Example:
 will display the current viewport size
 
 *See Also:* [System.ScreenWidth](#screenwidth),
-[System.ViewportHeight](#viewportheight)
+
 
 ---
+
+.. index::
+   pair: ; Volume
 
 ### Volume
 
@@ -515,6 +572,9 @@ will set the overall output volume to 80.
 
 ---
 
+.. index::
+   pair: ; VSync
+
 ### VSync
 
 *(Formerly known as system.vsync, which is now obsolete)*
@@ -540,6 +600,9 @@ Example:
 will display a message if vsync is on
 
 ---
+
+.. index::
+   pair: ; Windowed
 
 ### Windowed
 

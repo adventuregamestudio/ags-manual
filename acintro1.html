@@ -1,285 +1,42 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Getting Started with AGS &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started with AGS - Part 2" href="acintro2.html" />
-    <link rel="prev" title="Starting off" href="StartingOff.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="prev" title="&lt;no title&gt;" href="acintro.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#"><strong>Getting Started with AGS</strong></a><ul>
-<li><a class="reference internal" href="#creating-the-game">Creating the game</a></li>
-<li><a class="reference internal" href="#starting-off">Starting off</a></li>
-<li><a class="reference internal" href="#colour-choices">Colour choices</a></li>
-<li><a class="reference internal" href="#creating-a-256-colour-game">Creating a 256-colour game</a></li>
-<li><a class="reference internal" href="#creating-a-16-bit-or-32-bit-colour-game">Creating a 16-bit or 32-bit colour game</a></li>
-<li><a class="reference internal" href="#game-resolution">Game Resolution</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="StartingOff.html" title="Previous Chapter: Starting off"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Starting off</span>
-    </a>
-  </li>
-  <li>
-    <a href="acintro2.html" title="Next Chapter: Getting Started with AGS - Part 2"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Getting Start... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/acintro1.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="getting-started-with-ags">
-<span id="getting-started-with-ags"></span><h1><strong>Getting Started with AGS</strong><a class="headerlink" href="#getting-started-with-ags" title="Permalink to this headline">¶</a></h1>
+<h1><strong>Getting Started with AGS</strong><a class="headerlink" href="#getting-started-with-ags" title="Permalink to this headline">¶</a></h1>
 <p>So, you’ve downloaded AGS. You want to make an adventure game. But where
 do you start?</p>
 <p>(<strong>NOTE</strong>: before we start, this tutorial was made using v3.0 of AGS.
@@ -287,18 +44,21 @@ If you have a newer version, there may be minor inconsistencies in the
 screenshots where extra options have been added and so forth, but most
 of what’s here should still apply).</p>
 <div class="section" id="creating-the-game">
-<span id="creating-the-game"></span><h2>Creating the game<a class="headerlink" href="#creating-the-game" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Creating the game<a class="headerlink" href="#creating-the-game" title="Permalink to this headline">¶</a></h2>
 <p>Start up the AGS Editor by double-clicking the <em>AGSEditor.exe</em> file, and
 you should be greeted by the following screen:</p>
-<p><img alt="" src="_images/intro1.jpg" /><br>
+<a class="reference external image-reference" href="images/intro1.jpg"><img alt="" src="_images/intro1.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The “Welcome to AGS” dialog</em></p>
 <p>Make sure that “Start a new game” is selected, and click Continue.
 You’ll be presented with the Create New Game wizard:</p>
-<p><img alt="" src="_images/intro1a.jpg" /><br>
+<a class="reference external image-reference" href="images/intro1a.jpg"><img alt="" src="_images/intro1a.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Create New Game dialog</em></p>
 <p>So, without further ado, click Next, and you’ll see the Select Template
 screen:</p>
-<p><img alt="" src="_images/intro1b.jpg" /><br>
+<a class="reference external image-reference" href="images/intro1b.jpg"><img alt="" src="_images/intro1b.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Select Template dialog</em></p>
 <p>Here, you need to choose which template you’re going to use for your new
 game. AGS comes with three, and you can find others for download on the
@@ -308,7 +68,8 @@ some default graphics to get you started quickly. The “Empty Game”
 template is something you may want to use later on when you’re familiar
 with AGS - it comes with no default graphics at all.</p>
 <p>So, select “Default Game” and click Next.</p>
-<p><img alt="" src="_images/intro1c.jpg" /><br>
+<a class="reference external image-reference" href="images/intro1c.jpg"><img alt="" src="_images/intro1c.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Game Name dialog</em></p>
 <p>Finally, you need to decide on what to call your game. In the first box
 you can type the full name for your game. This is what will be displayed
@@ -324,17 +85,19 @@ final EXE file you compile.</p>
 that.</p>
 <p>Click the <em>Finish</em> button, and after a short wait you should be
 presented with the main AGS Editor window:</p>
-<p><img alt="" src="_images/intro2.jpg" /><br>
+<a class="reference external image-reference" href="images/intro2.jpg"><img alt="" src="_images/intro2.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The main editor window</em></p>
 <p>So, there’s your new game, ready and waiting for you to create it!</p>
 </div>
 <div class="section" id="starting-off">
-<span id="starting-off"></span><h2>Starting off<a class="headerlink" href="#starting-off" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Starting off<a class="headerlink" href="#starting-off" title="Permalink to this headline">¶</a></h2>
 <p>The main way that you navigate around the editor is using the <strong>project
 tree</strong> in the top-right corner, which allows you to access all the
 various parts of your game. Let’s start by scrolling to the top of the
 tree, and double-clicking the “General Settings” node:</p>
-<p><img alt="" src="_images/intro3.jpg" /><br>
+<a class="reference external image-reference" href="images/intro3.jpg"><img alt="" src="_images/intro3.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The General Settings pane</em></p>
 <p>This screenshot demonstrates three of the main editor features. The
 <strong>project tree</strong>, as we’ve already discussed, gives you access to the
@@ -370,7 +133,7 @@ game. As you get a feel for AGS, you can decide what suits you best, and
 change these options again later.</p>
 </div>
 <div class="section" id="colour-choices">
-<span id="colour-choices"></span><h2>Colour choices<a class="headerlink" href="#colour-choices" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Colour choices<a class="headerlink" href="#colour-choices" title="Permalink to this headline">¶</a></h2>
 <p>Now, at this stage we really need to decide whether we want to create a
 palette-based (8-bit, 256-colour) game, or a hi-color (16- or 32-bit)
 game. It’s highly recommended that you go with 16-bit colour, or 32-bit
@@ -390,10 +153,11 @@ will be set to the game’s colour depth. Should you change your mind
 later, you would have to re-import all the graphics).</em></p>
 </div>
 <div class="section" id="creating-a-256-colour-game">
-<span id="creating-a-256-colour-game"></span><h2>Creating a 256-colour game<a class="headerlink" href="#creating-a-256-colour-game" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Creating a 256-colour game<a class="headerlink" href="#creating-a-256-colour-game" title="Permalink to this headline">¶</a></h2>
 <p>Double-click the “Colours” node in the project tree. You should see
 this:</p>
-<p><img alt="" src="_images/intro4.jpg" /><br>
+<a class="reference external image-reference" href="images/intro4.jpg"><img alt="" src="_images/intro4.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The Palette Editor</em></p>
 <p>The palette display has a grid with the 256 colour slots on it. The
 first 40 colours are <strong>game-wide</strong> colours, which means that those
@@ -409,7 +173,8 @@ greyscale main character, the colours displayed are probably not enough.</p>
 <p>So, let’s swap some background colours for some game-wide ones. Select
 the first “X” slot, then hold shift and click on the last slot in the
 row marked “80”. The screen should look as follows:</p>
-<p><img alt="" src="_images/intro5.jpg" /><br>
+<a class="reference external image-reference" href="images/intro5.jpg"><img alt="" src="_images/intro5.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>We have selected colours 42-95</em></p>
 <p>We can now see the Property Grid in action. Change the “ColourType”
 setting from “Background” to “Gamewide”, and you’ll see the selected
@@ -422,48 +187,79 @@ the selected slots and choose the “Replace selected slots from file”
 option.</p>
 <p>What colours you use is up to you, and depends on what sort of colour
 scheme you’re going for with your graphics.</p>
-<p><img alt="" src="_images/icon_info.gif" /><br>
+<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
+<p><span class="raw-html-m2r"><br></span>
 You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.</p>
 </div>
 <div class="section" id="creating-a-16-bit-or-32-bit-colour-game">
-<span id="creating-a-16-bit-or-32-bit-colour-game"></span><h2>Creating a 16-bit or 32-bit colour game<a class="headerlink" href="#creating-a-16-bit-or-32-bit-colour-game" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Creating a 16-bit or 32-bit colour game<a class="headerlink" href="#creating-a-16-bit-or-32-bit-colour-game" title="Permalink to this headline">¶</a></h2>
 <p>Back on the Game Settings pane, check out the very top option in the
 list. It’s called “Colour depth”, and all you have to do is change it to
 your desired colour depth. A warning message will prompt you to make
 sure. Confirm it, and you’re done.</p>
 </div>
 <div class="section" id="game-resolution">
-<span id="game-resolution"></span><h2>Game Resolution<a class="headerlink" href="#game-resolution" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Game Resolution<a class="headerlink" href="#game-resolution" title="Permalink to this headline">¶</a></h2>
 <p>Having decided on our colour depth, the other important decision to make
 at this stage is what resolution we want the game to run at. Higher
 resolutions allow you to have more detailed graphics, but they need more
 memory and run slower than lower resolutions.</p>
 <p>Go back to the General Settings pane, and select your chosen resolution
 from the “Resolution” drop-down list.</p>
-<p>Go to part 2: <a class="reference external" href="acintro2">Creating your first room</a></p>
+<p>Go to part 2: <a class="reference internal" href="acintro2.html"><span class="doc">Creating your first room</span></a></p>
 </div>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="acintro.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="acintro2.html" title="next chapter"><strong>Getting Started with AGS - Part 2</strong></a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Getting Started with AGS</strong></a><ul>
+<li><a class="reference internal" href="#creating-the-game">Creating the game</a></li>
+<li><a class="reference internal" href="#starting-off">Starting off</a></li>
+<li><a class="reference internal" href="#colour-choices">Colour choices</a></li>
+<li><a class="reference internal" href="#creating-a-256-colour-game">Creating a 256-colour game</a></li>
+<li><a class="reference internal" href="#creating-a-16-bit-or-32-bit-colour-game">Creating a 16-bit or 32-bit colour game</a></li>
+<li><a class="reference internal" href="#game-resolution">Game Resolution</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

@@ -1,227 +1,504 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Mouse functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Multimedia functions" href="Multimedia.html" />
     <link rel="prev" title="Maths functions and properties" href="Maths.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mouse-functions-and-properties">
+<h1>Mouse functions and properties<a class="headerlink" href="#mouse-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="changemodegraphic">
+<span id="index-0"></span><h2>ChangeModeGraphic<a class="headerlink" href="#changemodegraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ChangeCursorGraphic, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.ChangeModeGraphic(CursorMode, int slot)
+</pre></div>
+</div>
+<p>Changes the specified mouse cursor mode’s cursor graphic to SLOT. This
+allows you to dynamically change what a mouse cursor looks like.</p>
+<p><strong>NOTE:</strong> To change what the Use Inventory cursor looks like, you should
+change the active inventory item’s
+<a class="reference internal" href="InventoryItem.html"><span class="doc">CursorGraphic</span></a> property instead
+of using this function.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.ChangeModeGraphic(eModeLookat, 120);
+</pre></div>
+</div>
+<p>will change the cursor’s graphic for look mode to the image that’s
+imported in the sprite’s manager slot 120.</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Mouse.ChangeModeHotspot</span>,
+<span class="xref std std-ref">Mouse.ChangeModeView</span>,
+<span class="xref std std-ref">Mouse.GetModeGraphic</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="changemodehotspot">
+<span id="index-1"></span><h2>ChangeModeHotspot<a class="headerlink" href="#changemodehotspot" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as ChangeCursorHotspot, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.ChangeModeHotspot(CursorMode, int x, int y)
+</pre></div>
+</div>
+<p>Permanently changes the specified mouse cursor mode’s hotspot on the
+cursor graphic to (X,Y). This is the offset into the graphic where the
+click takes effect. (0,0) is the upper left corner of the cursor
+graphic.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.ChangeModeHotspot(eModeWalkto, 10, 10);
+</pre></div>
+</div>
+<p>will change the cursor’s hotspot for walk mode to coordinates 10,10.</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="changemodeview">
+<span id="index-2"></span><h2>ChangeModeView<a class="headerlink" href="#changemodeview" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.ChangeModeView(CursorMode, int view)
+</pre></div>
+</div>
+<p>Changes the specified mouse cursor mode’s animation view to VIEW.</p>
+<p>You can pass <em>view</em> as -1 to stop the cursor from animating.</p>
+<p>This allows you to dynamically change the view used for the cursor’s
+animation while the game is running.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.ChangeModeView(eModeLookat, ROLLEYES);
+</pre></div>
+</div>
+<p>will change the Look cursor’s view to ROLLEYES.</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="click">
+<span id="index-3"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static void Click(MouseButton)
+</pre></div>
+</div>
+<p>Fires mouse click event at current mouse position (at mouse.x /
+mouse.y). This is in all aspects identical to what would happen if a
+player clicked actual mouse button. This function may be useful to
+simulate player actions in game, or create automatic demonstrations
+(like tutorials).</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SetPosition(100, 100);
+Mouse.Click(eMouseLeft);
+</pre></div>
+</div>
+<p>This will simulate user click at (100,100).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="GUI.html"><span class="doc">GUI.ProcessClick</span></a>,
+<a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="controlenabled">
+<span id="index-4"></span><h2>ControlEnabled<a class="headerlink" href="#controlenabled" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static bool Mouse.ControlEnabled;
+</pre></div>
+</div>
+<p>Tells if the mouse cursor movement is currently being controlled by AGS
+engine; otherwise it is controlled by operation system. This is usually
+true only when game is run in fullscreen mode.</p>
+<p>This property may be useful to know if custom mouse speed setting is
+applied or not.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>sldMouseSpeed.Visible = Mouse.ControlEnabled;
+</pre></div>
+</div>
+<p>makes mouse speed slider visible only if the mouse is controlled by the
+game.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.Speed</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="disablemode">
+<span id="index-5"></span><h2>DisableMode<a class="headerlink" href="#disablemode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as DisableCursorMode, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.DisableMode(int mode)
+</pre></div>
+</div>
+<p>Disables the mouse cursor MODE. Any attempts to set the cursor to this
+mode while it is disabled (such as using UseModeGraphic) will fail. This
+function also greys out and disables any interface buttons whose
+left-click command is set as “Set mode X”, where X is equal to MODE.</p>
+<p>If the current cursor mode is MODE, then the engine will change it to
+the next enabled standard cursor.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.DisableMode(eModeWalkto);
+</pre></div>
+</div>
+<p>will make the walk mode unavailable until it’s enabled again.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="enablemode">
+<span id="index-6"></span><h2>EnableMode<a class="headerlink" href="#enablemode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as EnableCursorMode, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.EnableMode(int mode)
+</pre></div>
+</div>
+<p>Re-enables the mouse cursor mode MODE. This function also enables any
+interface buttons which were disabled by the DisableMode command.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.EnableMode(eModeWalkto);
+</pre></div>
+</div>
+<p>will enable cursor mode walk which was disabled before.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.DisableMode</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="ismodeenabled">
+<span id="index-7"></span><h2>IsModeEnabled<a class="headerlink" href="#ismodeenabled" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool Mouse.IsModeEnabled(int mode)
+</pre></div>
+</div>
+<p>Returns whether the specified mouse cursor is currently enabled.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (mouse.IsModeEnabled(eModeWalkto)) {
+  mouse.Mode = eModeWalkto;
+}
+</pre></div>
+</div>
+<p>will change the the “WalkTo” cursor mode, but only if it’s currently
+enabled.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="getmodegraphic">
+<span id="index-8"></span><h2>GetModeGraphic<a class="headerlink" href="#getmodegraphic" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Mouse.GetModeGraphic(CursorMode)
+</pre></div>
+</div>
+<p>Returns the sprite slot number of the specified mouse cursor mode.</p>
+<p>This could be useful if you want to change it manually with
+ChangeModeGraphic but be able to remember what it was before.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current mouse cursor sprite is %d.&quot;, mouse.GetModeGraphic(mouse.Mode));
+</pre></div>
+</div>
+<p>will display the sprite slot number of the current mouse cursor.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.ChangeModeGraphic</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="isbuttondown">
+<span id="index-9"></span><h2>IsButtonDown<a class="headerlink" href="#isbuttondown" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function IsButtonDown, which is now
+obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.IsButtonDown(MouseButton)
+</pre></div>
+</div>
+<p>Tests whether the user has the specified mouse button down. BUTTON must
+either be eMouseLeft, eMouseRight or eMouseMiddle.</p>
+<p>Returns <em>true</em> if the button is currently pressed, <em>false</em> if not. This
+could be used to test the length of a mouse click and similar effects.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int timer=0;  // (at top of script file)
+if (mouse.IsButtonDown(eMouseRight)) {
+  if (timer == 40) {
+    Display(&quot;You pressed the right button for 1 sec&quot;);
+    timer = 0;
+  }
+  else {
+    timer++;
+  }
+}
+</pre></div>
+</div>
+<p>will display the message if the player presses the right button for 1
+sec.</p>
+<p><em>Compatibility:</em> <em>eMouseMiddle</em> supported by <strong>AGS 3.2.0</strong> and later
+versions.<span class="raw-html-m2r"><br></span>
+<em>eMouseLeft</em> and <em>eMouseRight</em> supported by all versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsKeyPressed</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="savecursoruntilitleaves">
+<span id="index-10"></span><h2>SaveCursorUntilItLeaves<a class="headerlink" href="#savecursoruntilitleaves" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SaveCursorForLocationChange, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SaveCursorUntilItLeaves()
+</pre></div>
+</div>
+<p>Saves the current mouse cursor, and restores it when the mouse leaves
+the current hotspot, object or character.</p>
+<p>This allows you to temporarily change the mouse cursor when the mouse
+moves over a hotspot, and have it automatically change back to the old
+cursor when the player moves the mouse away.</p>
+<p><strong>NOTE:</strong> You must call this <strong>BEFORE</strong> you change to your new temporary
+cursor, or the new cursor will be saved by this command.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.SaveCursorUntilItLeaves();
+mouse.Mode = eModeTalk;
+</pre></div>
+</div>
+<p>will change the cursor mode to Talk for as long as the mouse is over the
+current object</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.Mode</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="selectnextmode">
+<span id="index-11"></span><h2>SelectNextMode<a class="headerlink" href="#selectnextmode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetNextCursorMode, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SelectNextMode()
+</pre></div>
+</div>
+<p>Selects the next enabled mouse cursor mode. This is useful for
+Sierra-style right-click cycling through modes. This function will
+choose the next mode marked as a Standard Mode, and will also use the
+Use Inventory mode if the player has an active inventory item.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.Mode</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="selectpreviousmode">
+<span id="index-12"></span><h2>SelectPreviousMode<a class="headerlink" href="#selectpreviousmode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SelectPreviousMode()
+</pre></div>
+</div>
+<p>Selects the previous enabled mouse cursor mode. This is useful for
+Sierra-style right-click cycling through modes. This function will
+choose the previous mode marked as a Standard Mode, and will also use
+the Use Inventory mode if the player has an active inventory item.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.Mode</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setbounds">
+<span id="index-13"></span><h2>SetBounds<a class="headerlink" href="#setbounds" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMouseBounds, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SetBounds(int left, int top, int right, int bottom)
+</pre></div>
+</div>
+<p>Restricts the area where the mouse can move on screen. The four
+parameters are the relevant pixel co-ordinates of that edge of the
+bounding rectangle. They are in the usual range (0,0) - (320,200).</p>
+<p>You can pass (0,0,0,0) to disable the bounding rectangle and allow the
+mouse to move everywhere, as usual.</p>
+<p><em>NOTE:</em> The effect of this function only lasts until the player leaves
+the screen, at which point the cursor bounds will be reset.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.SetBounds(160, 100, 320, 200);
+</pre></div>
+</div>
+<p>will restrict the mouse cursor to the bottom-right quarter of the
+screen.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.SetPosition</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setposition">
+<span id="index-14"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMousePosition, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.SetPosition(int x, int y)
+</pre></div>
+</div>
+<p>Moves the mouse pointer to screen co-ordinates (X,Y). They are in the
+usual range (0,0) - (320,200/240). The mouse.x and mouse.y variables
+will be updated to reflect the new position.</p>
+<p><strong>NOTE:</strong> Only use this command when absolutely necessary. Moving the
+mouse cursor for the player is a sure way to irritate them if you do it
+too often during the game.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.SetPosition(160, 100);
+</pre></div>
+</div>
+<p>will place the mouse cursor in the centre of the screen.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.SetBounds</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="speed">
+<span id="index-15"></span><h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static float Mouse.Speed;
+</pre></div>
+</div>
+<p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the
+range 0-1 make cursor movement slower, values higher than 1 make cursor
+movement faster.</p>
+<p>Mouse speed changed this way will be saved to the configuration file
+when player exits the game. Next time game starts it will restore the
+last value you applied, unless player has modified it in the setup
+program.</p>
+<p>The custom mouse speed is only applied if mouse cursor movement is
+currently being controlled by the game, which is usually true only when
+game is run in fullscreen mode. Setting this property has no effect
+otherwise. You can use
+<span class="xref std std-ref">Mouse.ControlEnabled</span> to know if speed
+will be applied.</p>
+<p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to
+achieve gameplay effect (such as character’s loss of coordination, and
+so forth).</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.Speed = IntToFloat(sldMouseSpeed.Value) / 10.0;
+</pre></div>
+</div>
+<p>converts slider control’s position into mouse speed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.ControlEnabled</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="update">
+<span id="index-16"></span><h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RefreshMouse, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.Update();
+</pre></div>
+</div>
+<p>Updates the global variables “mouse.x” and “mouse.y” with the current
+position of the mouse. Normally, these variables are set just before
+each script function is executed. However, if you have a very long
+script where the mouse may have moved since the start of the function,
+and you need the exact current location, then this command will update
+the variables.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The mouse was at: %d, %d.&quot;</span><span class="o">,</span> <span class="nt">mouse</span><span class="p">.</span><span class="nc">x</span><span class="o">,</span> <span class="nt">mouse</span><span class="p">.</span><span class="nc">y</span><span class="o">);</span>
+<span class="nt">mouse</span><span class="p">.</span><span class="nc">Update</span><span class="o">();</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The mouse is now at: %d, %d.&quot;</span><span class="o">,</span> <span class="nt">mouse</span><span class="p">.</span><span class="nc">x</span><span class="o">,</span> <span class="nt">mouse</span><span class="p">.</span><span class="nc">y</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display the mouse position just before each dialog box is displayed</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="usedefaultgraphic">
+<span id="index-17"></span><h2>UseDefaultGraphic<a class="headerlink" href="#usedefaultgraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetDefaultCursor, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.UseDefaultGraphic()
+</pre></div>
+</div>
+<p>Changes the appearance of the mouse cursor to the default for the
+current cursor mode. Use this to restore the cursor picture after you
+changed it with the UseModeGraphic function.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.UseModeGraphic</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="usemodegraphic">
+<span id="index-18"></span><h2>UseModeGraphic<a class="headerlink" href="#usemodegraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetMouseCursor, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Mouse.UseModeGraphic(CursorMode)
+</pre></div>
+</div>
+<p>Changes the appearance of the mouse cursor to use the specified cursor.
+Unlike the Mouse.Mode property, this does not change the mode used if
+the user clicks on a hotspot. This is useful for displaying a “wait”
+cursor temporarily.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.UseModeGraphic(eModeWait);
+</pre></div>
+</div>
+<p>will change the mouse cursor to the cursor ‘Wait’ specified in the
+Cursors tab.</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,
+<span class="xref std std-ref">Mouse.Mode</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="mode">
+<span id="index-19"></span><h2>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetCursorMode, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as SetCursorMode, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Mouse.Mode;
+</pre></div>
+</div>
+<p>Gets/sets the current mode of the mouse cursor. This is one of the
+cursor modes from your Cursors tab (but with eMode prepended). For
+example, a cursor mode called “Walk to” on your cursors tab would be
+eModeWalkto.</p>
+<p>Setting this changes both the appearance of the cursor and the Cursor
+Mode used if the player clicks on a hotspot.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (mouse.Mode == eModeWalkto)
+{
+   // code here
+}
+</pre></div>
+</div>
+<p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Mouse.SaveCursorUntilItLeaves</span>,
+<span class="xref std std-ref">Mouse.UseModeGraphic</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="visible">
+<span id="index-20"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as HideMouseCursor, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ShowMouseCursor, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Mouse.Visible;
+</pre></div>
+</div>
+<p>Gets/sets whether the mouse cursor is visible. This is initially true by
+default, but setting this to false is useful for briefly hiding the
+cursor on occasions when you don’t want it around.</p>
+<p>If you want the Lucasarts-style where the mouse cursor is never visible
+during cutscenes then a much easier solution is simply to import a
+transparent graphic over the default wait cursor, so that the Wait
+cursor becomes invisible.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>mouse.Visible = false;
+Wait(40);
+mouse.Visible = true;
+</pre></div>
+</div>
+<p>hides the mouse, waits for a second, then turns it back on again</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.UseModeGraphic</span></p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
       </div>
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Maths.html" title="previous chapter">Maths functions and properties</a></li>
+      <li>Next: <a href="Multimedia.html" title="next chapter">Multimedia functions</a></li>
+  </ul></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Mouse functions and properties</a><ul>
 <li><a class="reference internal" href="#changemodegraphic">ChangeModeGraphic</a></li>
 <li><a class="reference internal" href="#changemodehotspot">ChangeModeHotspot</a></li>
@@ -247,533 +524,13 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Maths.html" title="Previous Chapter: Maths functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Maths functio...</span>
-    </a>
-  </li>
-  <li>
-    <a href="Multimedia.html" title="Next Chapter: Multimedia functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Multimedia functions &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/Mouse.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
         </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="mouse-functions-and-properties">
-<span id="mouse-functions-and-properties"></span><h1>Mouse functions and properties<a class="headerlink" href="#mouse-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#changemodegraphic">ChangeModeGraphic</a><br>
-<a class="reference external" href="#changemodehotspot">ChangeModeHotspot</a><br>
-<a class="reference external" href="#changemodeview">ChangeModeView</a><br>
-<a class="reference external" href="#click">Click</a><br>
-<a class="reference external" href="#controlenabled">ControlEnabled property</a><br>
-<a class="reference external" href="#disablemode">DisableMode</a><br>
-<a class="reference external" href="#enablemode">EnableMode</a><br>
-<a class="reference external" href="#getmodegraphic">GetModeGraphic</a><br>
-<a class="reference external" href="#isbuttondown">IsButtonDown</a><br>
-<a class="reference external" href="#ismodeenabled">IsModeEnabled</a><br>
-<a class="reference external" href="#savecursoruntilitleaves">SaveCursorUntilItLeaves</a><br>
-<a class="reference external" href="#selectnextmode">SelectNextMode</a><br>
-<a class="reference external" href="#selectpreviousmode">SelectPreviousMode</a><br>
-<a class="reference external" href="#setbounds">SetBounds</a><br>
-<a class="reference external" href="#setposition">SetPosition</a><br>
-<a class="reference external" href="#speed">Speed property</a><br>
-<a class="reference external" href="#update">Update</a><br>
-<a class="reference external" href="#usedefaultgraphic">UseDefaultGraphic</a><br>
-<a class="reference external" href="#usemodegraphic">UseModeGraphic</a><br>
-<a class="reference external" href="#mode">Mode property</a><br>
-<a class="reference external" href="#visible">Visible property</a></p>
-<hr class="docutils" />
-<div class="section" id="changemodegraphic">
-<span id="changemodegraphic"></span><h2>ChangeModeGraphic<a class="headerlink" href="#changemodegraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ChangeCursorGraphic, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">slot</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the specified mouse cursor mode’s cursor graphic to SLOT. This
-allows you to dynamically change what a mouse cursor looks like.</p>
-<p><strong>NOTE:</strong> To change what the Use Inventory cursor looks like, you should
-change the active inventory item’s
-<a class="reference external" href="InventoryItem#cursorgraphic">CursorGraphic</a> property instead
-of using this function.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeGraphic</span><span class="p">(</span><span class="n">eModeLookat</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change the cursor’s graphic for look mode to the image that’s
-imported in the sprite’s manager slot 120.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#changemodehotspot">Mouse.ChangeModeHotspot</a>,
-<a class="reference external" href="#changemodeview">Mouse.ChangeModeView</a>,
-<a class="reference external" href="#getmodegraphic">Mouse.GetModeGraphic</a>,
-<a class="reference external" href="#mode">Mouse.Mode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="changemodehotspot">
-<span id="changemodehotspot"></span><h2>ChangeModeHotspot<a class="headerlink" href="#changemodehotspot" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ChangeCursorHotspot, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeHotspot</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Permanently changes the specified mouse cursor mode’s hotspot on the
-cursor graphic to (X,Y). This is the offset into the graphic where the
-click takes effect. (0,0) is the upper left corner of the cursor
-graphic.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeHotspot</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change the cursor’s hotspot for walk mode to coordinates 10,10.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#changemodegraphic">Mouse.ChangeModeGraphic</a>,
-<a class="reference external" href="#changemodeview">Mouse.ChangeModeView</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="changemodeview">
-<span id="changemodeview"></span><h2>ChangeModeView<a class="headerlink" href="#changemodeview" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">ChangeModeView</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">view</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the specified mouse cursor mode’s animation view to VIEW.</p>
-<p>You can pass <em>view</em> as -1 to stop the cursor from animating.</p>
-<p>This allows you to dynamically change the view used for the cursor’s
-animation while the game is running.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">ChangeModeView</span><span class="p">(</span><span class="n">eModeLookat</span><span class="p">,</span> <span class="n">ROLLEYES</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change the Look cursor’s view to ROLLEYES.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#changemodegraphic">Mouse.ChangeModeGraphic</a>,
-<a class="reference external" href="#changemodehotspot">Mouse.ChangeModeHotspot</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="click">
-<span id="click"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">Click</span><span class="p">(</span><span class="n">MouseButton</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Fires mouse click event at current mouse position (at mouse.x /
-mouse.y). This is in all aspects identical to what would happen if a
-player clicked actual mouse button. This function may be useful to
-simulate player actions in game, or create automatic demonstrations
-(like tutorials).</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="n">Mouse</span><span class="o">.</span><span class="n">Click</span><span class="p">(</span><span class="n">eMouseLeft</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>This will simulate user click at (100,100).</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="GUI#processclick">GUI.ProcessClick</a>,
-<a class="reference external" href="Room#processclick">Room.ProcessClick</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="controlenabled">
-<span id="controlenabled"></span><h2>ControlEnabled<a class="headerlink" href="#controlenabled" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">static</span> <span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">ControlEnabled</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Tells if the mouse cursor movement is currently being controlled by AGS
-engine; otherwise it is controlled by operation system. This is usually
-true only when game is run in fullscreen mode.</p>
-<p>This property may be useful to know if custom mouse speed setting is
-applied or not.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sldMouseSpeed</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">ControlEnabled</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>makes mouse speed slider visible only if the mouse is controlled by the
-game.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#speed">Mouse.Speed</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="disablemode">
-<span id="disablemode"></span><h2>DisableMode<a class="headerlink" href="#disablemode" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as DisableCursorMode, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">DisableMode</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Disables the mouse cursor MODE. Any attempts to set the cursor to this
-mode while it is disabled (such as using UseModeGraphic) will fail. This
-function also greys out and disables any interface buttons whose
-left-click command is set as “Set mode X”, where X is equal to MODE.</p>
-<p>If the current cursor mode is MODE, then the engine will change it to
-the next enabled standard cursor.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">DisableMode</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will make the walk mode unavailable until it’s enabled again.</p>
-<p><em>See Also:</em> <a class="reference external" href="#enablemode">Mouse.EnableMode</a>,
-<a class="reference external" href="#ismodeenabled">Mouse.IsModeEnabled</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="enablemode">
-<span id="enablemode"></span><h2>EnableMode<a class="headerlink" href="#enablemode" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as EnableCursorMode, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">EnableMode</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Re-enables the mouse cursor mode MODE. This function also enables any
-interface buttons which were disabled by the DisableMode command.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">EnableMode</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will enable cursor mode walk which was disabled before.</p>
-<p><em>See Also:</em> <a class="reference external" href="#disablemode">Mouse.DisableMode</a>,
-<a class="reference external" href="#ismodeenabled">Mouse.IsModeEnabled</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="ismodeenabled">
-<span id="ismodeenabled"></span><h2>IsModeEnabled<a class="headerlink" href="#ismodeenabled" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">IsModeEnabled</span><span class="p">(</span><span class="nb">int</span> <span class="n">mode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns whether the specified mouse cursor is currently enabled.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">IsModeEnabled</span><span class="p">(</span><span class="n">eModeWalkto</span><span class="p">))</span> <span class="p">{</span>
-  <span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">eModeWalkto</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will change the the “WalkTo” cursor mode, but only if it’s currently
-enabled.</p>
-<p><em>See Also:</em> <a class="reference external" href="#enablemode">Mouse.EnableMode</a>,
-<a class="reference external" href="#disablemode">Mouse.DisableMode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="getmodegraphic">
-<span id="getmodegraphic"></span><h2>GetModeGraphic<a class="headerlink" href="#getmodegraphic" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">int</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">GetModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns the sprite slot number of the specified mouse cursor mode.</p>
-<p>This could be useful if you want to change it manually with
-ChangeModeGraphic but be able to remember what it was before.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The current mouse cursor sprite is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">GetModeGraphic</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span><span class="p">));</span>
-</pre></div>
-</div>
-<p>will display the sprite slot number of the current mouse cursor.</p>
-<p><em>See Also:</em> <a class="reference external" href="#changemodegraphic">Mouse.ChangeModeGraphic</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isbuttondown">
-<span id="isbuttondown"></span><h2>IsButtonDown<a class="headerlink" href="#isbuttondown" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function IsButtonDown, which is now
-obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">IsButtonDown</span><span class="p">(</span><span class="n">MouseButton</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Tests whether the user has the specified mouse button down. BUTTON must
-either be eMouseLeft, eMouseRight or eMouseMiddle.</p>
-<p>Returns <em>true</em> if the button is currently pressed, <em>false</em> if not. This
-could be used to test the length of a mouse click and similar effects.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">timer</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>  <span class="o">//</span> <span class="p">(</span><span class="n">at</span> <span class="n">top</span> <span class="n">of</span> <span class="n">script</span> <span class="n">file</span><span class="p">)</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">IsButtonDown</span><span class="p">(</span><span class="n">eMouseRight</span><span class="p">))</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">timer</span> <span class="o">==</span> <span class="mi">40</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You pressed the right button for 1 sec&quot;</span><span class="p">);</span>
-    <span class="n">timer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
-    <span class="n">timer</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display the message if the player presses the right button for 1
-sec.</p>
-<p><em>Compatibility:</em> <em>eMouseMiddle</em> supported by <strong>AGS 3.2.0</strong> and later
-versions.<br>
-<em>eMouseLeft</em> and <em>eMouseRight</em> supported by all versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#iskeypressed">IsKeyPressed</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="savecursoruntilitleaves">
-<span id="savecursoruntilitleaves"></span><h2>SaveCursorUntilItLeaves<a class="headerlink" href="#savecursoruntilitleaves" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SaveCursorForLocationChange, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SaveCursorUntilItLeaves</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Saves the current mouse cursor, and restores it when the mouse leaves
-the current hotspot, object or character.</p>
-<p>This allows you to temporarily change the mouse cursor when the mouse
-moves over a hotspot, and have it automatically change back to the old
-cursor when the player moves the mouse away.</p>
-<p><strong>NOTE:</strong> You must call this <strong>BEFORE</strong> you change to your new temporary
-cursor, or the new cursor will be saved by this command.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SaveCursorUntilItLeaves</span><span class="p">();</span>
-<span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">=</span> <span class="n">eModeTalk</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will change the cursor mode to Talk for as long as the mouse is over the
-current object</p>
-<p><em>See Also:</em> <a class="reference external" href="#mode">Mouse.Mode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="selectnextmode">
-<span id="selectnextmode"></span><h2>SelectNextMode<a class="headerlink" href="#selectnextmode" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetNextCursorMode, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SelectNextMode</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Selects the next enabled mouse cursor mode. This is useful for
-Sierra-style right-click cycling through modes. This function will
-choose the next mode marked as a Standard Mode, and will also use the
-Use Inventory mode if the player has an active inventory item.</p>
-<p><em>See Also:</em> <a class="reference external" href="#mode">Mouse.Mode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="selectpreviousmode">
-<span id="selectpreviousmode"></span><h2>SelectPreviousMode<a class="headerlink" href="#selectpreviousmode" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SelectPreviousMode</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Selects the previous enabled mouse cursor mode. This is useful for
-Sierra-style right-click cycling through modes. This function will
-choose the previous mode marked as a Standard Mode, and will also use
-the Use Inventory mode if the player has an active inventory item.</p>
-<p><em>See Also:</em> <a class="reference external" href="#mode">Mouse.Mode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setbounds">
-<span id="setbounds"></span><h2>SetBounds<a class="headerlink" href="#setbounds" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetMouseBounds, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="nb">int</span> <span class="n">left</span><span class="p">,</span> <span class="nb">int</span> <span class="n">top</span><span class="p">,</span> <span class="nb">int</span> <span class="n">right</span><span class="p">,</span> <span class="nb">int</span> <span class="n">bottom</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Restricts the area where the mouse can move on screen. The four
-parameters are the relevant pixel co-ordinates of that edge of the
-bounding rectangle. They are in the usual range (0,0) - (320,200).</p>
-<p>You can pass (0,0,0,0) to disable the bounding rectangle and allow the
-mouse to move everywhere, as usual.</p>
-<p><em>NOTE:</em> The effect of this function only lasts until the player leaves
-the screen, at which point the cursor bounds will be reset.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will restrict the mouse cursor to the bottom-right quarter of the
-screen.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setposition">Mouse.SetPosition</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setposition">
-<span id="setposition"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetMousePosition, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Moves the mouse pointer to screen co-ordinates (X,Y). They are in the
-usual range (0,0) - (320,200/240). The mouse.x and mouse.y variables
-will be updated to reflect the new position.</p>
-<p><strong>NOTE:</strong> Only use this command when absolutely necessary. Moving the
-mouse cursor for the player is a sure way to irritate them if you do it
-too often during the game.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will place the mouse cursor in the centre of the screen.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setbounds">Mouse.SetBounds</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="speed">
-<span id="speed"></span><h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">float</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Speed</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the
-range 0-1 make cursor movement slower, values higher than 1 make cursor
-movement faster.</p>
-<p>Mouse speed changed this way will be saved to the configuration file
-when player exits the game. Next time game starts it will restore the
-last value you applied, unless player has modified it in the setup
-program.</p>
-<p>The custom mouse speed is only applied if mouse cursor movement is
-currently being controlled by the game, which is usually true only when
-game is run in fullscreen mode. Setting this property has no effect
-otherwise. You can use
-<a class="reference external" href="#controlenabled">Mouse.ControlEnabled</a> to know if speed
-will be applied.</p>
-<p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to
-achieve gameplay effect (such as character’s loss of coordination, and
-so forth).</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">Speed</span> <span class="o">=</span> <span class="n">IntToFloat</span><span class="p">(</span><span class="n">sldMouseSpeed</span><span class="o">.</span><span class="n">Value</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>converts slider control’s position into mouse speed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#controlenabled">Mouse.ControlEnabled</a>,
-<a class="reference external" href="#setposition">Mouse.SetPosition</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="update">
-<span id="update"></span><h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as RefreshMouse, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">Update</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>Updates the global variables “mouse.x” and “mouse.y” with the current
-position of the mouse. Normally, these variables are set just before
-each script function is executed. However, if you have a very long
-script where the mouse may have moved since the start of the function,
-and you need the exact current location, then this command will update
-the variables.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse was at: </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
-<span class="n">mouse</span><span class="o">.</span><span class="n">Update</span><span class="p">();</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The mouse is now at: </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the mouse position just before each dialog box is displayed</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="usedefaultgraphic">
-<span id="usedefaultgraphic"></span><h2>UseDefaultGraphic<a class="headerlink" href="#usedefaultgraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetDefaultCursor, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">UseDefaultGraphic</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Changes the appearance of the mouse cursor to the default for the
-current cursor mode. Use this to restore the cursor picture after you
-changed it with the UseModeGraphic function.</p>
-<p><em>See Also:</em> <a class="reference external" href="#usemodegraphic">Mouse.UseModeGraphic</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="usemodegraphic">
-<span id="usemodegraphic"></span><h2>UseModeGraphic<a class="headerlink" href="#usemodegraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetMouseCursor, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mouse</span><span class="o">.</span><span class="n">UseModeGraphic</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the appearance of the mouse cursor to use the specified cursor.
-Unlike the Mouse.Mode property, this does not change the mode used if
-the user clicks on a hotspot. This is useful for displaying a “wait”
-cursor temporarily.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">UseModeGraphic</span><span class="p">(</span><span class="n">eModeWait</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change the mouse cursor to the cursor ‘Wait’ specified in the
-Cursors tab.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#changemodegraphic">Mouse.ChangeModeGraphic</a>,
-<a class="reference external" href="#mode">Mouse.Mode</a>,
-<a class="reference external" href="#usedefaultgraphic">Mouse.UseDefaultGraphic</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="mode">
-<span id="mode"></span><h2>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetCursorMode, which is now obsolete)</em><br>
-<em>(Formerly known as SetCursorMode, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Mode</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets the current mode of the mouse cursor. This is one of the
-cursor modes from your Cursors tab (but with eMode prepended). For
-example, a cursor mode called “Walk to” on your cursors tab would be
-eModeWalkto.</p>
-<p>Setting this changes both the appearance of the cursor and the Cursor
-Mode used if the player clicks on a hotspot.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">Mode</span> <span class="o">==</span> <span class="n">eModeWalkto</span><span class="p">)</span>
-<span class="p">{</span>
-   <span class="o">//</span> <span class="n">code</span> <span class="n">here</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#savecursoruntilitleaves">Mouse.SaveCursorUntilItLeaves</a>,
-<a class="reference external" href="#usemodegraphic">Mouse.UseModeGraphic</a>,
-<a class="reference external" href="#selectnextmode">Mouse.SelectNextMode</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="visible">
-<span id="visible"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as HideMouseCursor, which is now obsolete)</em><br>
-<em>(Formerly known as ShowMouseCursor, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">Visible</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the mouse cursor is visible. This is initially true by
-default, but setting this to false is useful for briefly hiding the
-cursor on occasions when you don’t want it around.</p>
-<p>If you want the Lucasarts-style where the mouse cursor is never visible
-during cutscenes then a much easier solution is simply to import a
-transparent graphic over the default wait cursor, so that the Wait
-cursor becomes invisible.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mouse</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
-<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-<span class="n">mouse</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>hides the mouse, waits for a second, then turns it back on again</p>
-<p><em>See Also:</em> <a class="reference external" href="#usemodegraphic">Mouse.UseModeGraphic</a></p>
-</div>
-</div>
-
-
-    </div>
-      
-  </div>
-</div>
     
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

@@ -1,27 +1,30 @@
 String functions
 ----------------
 
-[Append](#append)<br>
-[AppendChar](#appendchar)<br>
-[CompareTo](#compareto)<br>
-[Copy](#copy)<br>
-[EndsWith](#endswith)<br>
-[Format](#format)<br>
-[IndexOf](#indexof)<br>
-[IsNullOrEmpty](#isnullorempty)<br>
-[LowerCase](#lowercase)<br>
-[Replace](#replace)<br>
-[ReplaceCharAt](#replacecharat)<br>
-[StartsWith](#startswith)<br>
-[Substring](#substring)<br>
-[Truncate](#truncate)<br>
-[UpperCase](#uppercase)<br>
-[AsFloat property](#asfloat)<br>
-[AsInt property](#asint)<br>
-[Chars property](#chars)<br>
-[Length property](#length)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Append
 
 ### Append
 
@@ -49,9 +52,12 @@ will display "HelloWorld".
 
 *See Also:* [String.AppendChar](#appendchar),
 [String.Substring](#substring),
-[String.Truncate](#truncate)
+
 
 ---
+
+.. index::
+   pair: ; AppendChar
 
 ### AppendChar
 
@@ -78,6 +84,9 @@ will display "Hello".
 *See Also:* [String.Append](#append)
 
 ---
+
+.. index::
+   pair: ; CompareTo
 
 ### CompareTo
 
@@ -120,6 +129,9 @@ will display "Strings match with case sensitivity off!", and then
 
 ---
 
+.. index::
+   pair: ; Copy
+
 ### Copy
 
 *(Formerly known as global function StrCopy, which is now obsolete)*
@@ -138,6 +150,9 @@ Example:
 will display "This is a test string".
 
 ---
+
+.. index::
+   pair: ; EndsWith
 
 ### EndsWith
 
@@ -162,9 +177,12 @@ will display the "Ends with script!" message.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:* [String.IndexOf](#indexof),
-[String.StartsWith](#startswith)
+
 
 ---
+
+.. index::
+   pair: ; Format
 
 ### Format
 
@@ -194,6 +212,9 @@ will create a text string containing "10".
 
 ---
 
+.. index::
+   pair: ; IndexOf
+
 ### IndexOf
 
 *(Formerly known as global function StrContains, which is now
@@ -222,9 +243,12 @@ Example:
     }
 
 *See Also:* [String.EndsWith](#endswith),
-[String.StartsWith](#startswith)
+
 
 ---
+
+.. index::
+   pair: ; IsNullOrEmpty
 
 ### IsNullOrEmpty
 
@@ -257,6 +281,9 @@ will set the myString variable to "Some text" if it is null or empty
 
 ---
 
+.. index::
+   pair: ; LowerCase
+
 ### LowerCase
 
 *(Formerly known as global function StrToLowerCase, which is now
@@ -280,6 +307,9 @@ will display "Old: THIS is a test string, new: this is a test string".
 *See Also:* [String.UpperCase](#uppercase)
 
 ---
+
+.. index::
+   pair: ; Replace
 
 ### Replace
 
@@ -310,6 +340,9 @@ script!".
 
 ---
 
+.. index::
+   pair: ; ReplaceCharAt
+
 ### ReplaceCharAt
 
 *(Formerly known as global function StrSetCharAt, which is now
@@ -334,9 +367,12 @@ Example:
 will display "Old: Hello, new: Hemlo".
 
 *See Also:* [String.Chars](#chars),
-[String.Replace](#replace)
+
 
 ---
+
+.. index::
+   pair: ; StartsWith
 
 ### StartsWith
 
@@ -361,9 +397,12 @@ will display the "Starts with hello!" message.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:* [String.EndsWith](#endswith),
-[String.IndexOf](#indexof)
+
 
 ---
+
+.. index::
+   pair: ; Substring
 
 ### Substring
 
@@ -385,9 +424,12 @@ Example:
 will display "Original: Hello World!, Substring: lo Wo".
 
 *See Also:* [String.Append](#append),
-[String.Chars](#chars)
+
 
 ---
+
+.. index::
+   pair: ; Truncate
 
 ### Truncate
 
@@ -408,9 +450,12 @@ Example:
 will display "Original: Hello World!, Truncated: Hell".
 
 *See Also:* [String.Append](#append),
-[String.Substring](#substring)
+
 
 ---
+
+.. index::
+   pair: ; UpperCase
 
 ### UpperCase
 
@@ -436,6 +481,9 @@ will display "Old: THIS is a test string, new: THIS IS A TEST STRING".
 
 ---
 
+.. index::
+   pair: ; AsFloat
+
 ### AsFloat
 
     readonly float String.AsFloat;
@@ -460,9 +508,12 @@ is useful for processing strings input from the user.
 
 *See Also:* [Game.InputBox](Game#inputbox),
 [String.AsInt](#asint),
-[String.Format](#format)
+
 
 ---
+
+.. index::
+   pair: ; AsInt
 
 ### AsInt
 
@@ -495,9 +546,12 @@ useful for processing strings input from the user.
 
 *See Also:* [Game.InputBox](Game#inputbox),
 [String.AsFloat](#asfloat),
-[String.Format](#format)
+
 
 ---
+
+.. index::
+   pair: ; Chars
 
 ### Chars
 
@@ -525,9 +579,12 @@ Example:
 will display "The 4th character is: s".
 
 *See Also:* [String.Length](#length),
-[String.ReplaceCharAt](#replacecharat)
+
 
 ---
+
+.. index::
+   pair: ; Length
 
 ### Length
 

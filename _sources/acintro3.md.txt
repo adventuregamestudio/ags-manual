@@ -1,6 +1,9 @@
 **Getting Started with AGS - Part 3**
 -------------------------------------
 
+.. index::
+   pair: ; Adding some interaction
+
 ### Adding some interaction
 
 Ok, so we now have a working room. The player can walk around it as much

@@ -1,19 +1,22 @@
 Inventory item functions and properties
 ---------------------------------------
 
-[GetAtScreenXY](#getatscreenxy)<br>
-[GetProperty](#getproperty)<br>
-[GetTextProperty](#gettextproperty)<br>
-[SetProperty](#setproperty)<br>
-[SetTextProperty](#settextproperty)<br>
-[IsInteractionAvailable (inventory)](#isinteractionavailable)<br>
-[RunInteraction](#runinteraction)<br>
-[CursorGraphic property](#cursorgraphic)<br>
-[Graphic property](#graphic)<br>
-[ID property](#id)<br>
-[Name property](#name)
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -52,6 +55,9 @@ will display the number of the inv item that the mouse is over
 
 ---
 
+.. index::
+   pair: ; GetProperty
+
 ### GetProperty
 
 *(Formerly known as GetInvProperty, which is now obsolete)*
@@ -74,9 +80,12 @@ will print the message if inventory item 1 has its "Value" property set
 to more than 200.
 
 *See Also:*
-[InventoryItem.GetTextProperty](#gettextproperty)
+
 
 ---
+
+.. index::
+   pair: ; GetTextProperty
 
 ### GetTextProperty
 
@@ -101,9 +110,12 @@ Example:
 will retrieve inv item 2's "description" property and display it.
 
 *See Also:*
-[InventoryItem.GetProperty](#getproperty)
+
 
 ---
+
+.. index::
+   pair: ; SetProperty
 
 ### SetProperty
 
@@ -129,9 +141,12 @@ will change Stone's "weight" custom property to 120.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:*
-[InventoryItem.SetTextProperty](#settextproperty)
+
 
 ---
+
+.. index::
+   pair: ; SetTextProperty
 
 ### SetTextProperty
 
@@ -155,9 +170,12 @@ will change key's "description" property.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:*
-[InventoryItem.SetProperty](#setproperty)
+
 
 ---
+
+.. index::
+   pair: ; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -183,9 +201,12 @@ Example:
       Display("looking at this item would not do anything.");
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-[InventoryItem.RunInteraction](#runinteraction)
+
 
 ---
+
+.. index::
+   pair: ; RunInteraction
 
 ### RunInteraction
 
@@ -212,6 +233,9 @@ this to work)
 
 ---
 
+.. index::
+   pair: ; CursorGraphic
+
 ### CursorGraphic
 
     int InventoryItem.CursorGraphic
@@ -234,6 +258,9 @@ will display inventory item *iKey*'s cursor graphic.
 *See Also:* [InventoryItem.Graphic](#graphic)
 
 ---
+
+.. index::
+   pair: ; Graphic
 
 ### Graphic
 
@@ -261,9 +288,12 @@ slot.
 *See Also:*
 [InventoryItem.CursorGraphic](#cursorgraphic),
 [InventoryItem.GetAtScreenXY](#getatscreenxy),
-[InventoryItem.Name](#name)
+
 
 ---
+
+.. index::
+   pair: ; ID
 
 ### ID
 
@@ -284,6 +314,9 @@ inventory
 [Character.LoseInventory](Character#loseinventory)
 
 ---
+
+.. index::
+   pair: ; Name
 
 ### Name
 

@@ -1,227 +1,518 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>String functions &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="System functions and properties" href="System.html" />
-    <link rel="prev" title="Speech functions and properties" href="Speech.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="String formatting" href="StringFormats.html" />
+    <link rel="prev" title="Starting off" href="StartingOff.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="string-functions">
+<h1>String functions<a class="headerlink" href="#string-functions" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="append">
+<span id="index-0"></span><h2>Append<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrCat, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.Append(string str2)
+</pre></div>
+</div>
+<p>Appends the string STR2 to the end of the specified string, and returns
+the result.</p>
+<p><strong>IMPORTANT:</strong> The result of joining the strings together is returned as
+a new string from this command. The original string will <strong>NOT</strong> be
+changed. For example, the following script will not do anything:<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">mytext.Append(&quot;World&quot;);</span></code><span class="raw-html-m2r"><br></span>
+what you probably want instead is:<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">mytext.Append(&quot;World&quot;);</span></code></p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String mytext = &quot;Hello&quot;;
+mytext = mytext.Append(&quot;World&quot;);
+Display(mytext);
+</pre></div>
+</div>
+<p>will display “HelloWorld”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.AppendChar</span>,
+<span class="xref std std-ref">String.Substring</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="appendchar">
+<span id="index-1"></span><h2>AppendChar<a class="headerlink" href="#appendchar" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.AppendChar(char extraChar)
+</pre></div>
+</div>
+<p>Appends a single character to the end of the specified string, and
+returns the result.</p>
+<p><strong>IMPORTANT:</strong> The newly extended text is returned as a new string from
+this command. The original string will <strong>NOT</strong> be changed. For example,
+the following script will not do anything:<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">mytext.AppendChar('o');</span></code><span class="raw-html-m2r"><br></span>
+what you probably want instead is:<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">mytext.AppendChar('o');</span></code></p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String mytext = &quot;Hell&quot;;
+mytext = mytext.AppendChar(&#39;o&#39;);
+Display(mytext);
+</pre></div>
+</div>
+<p>will display “Hello”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.Append</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="compareto">
+<span id="index-2"></span><h2>CompareTo<a class="headerlink" href="#compareto" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrCaseComp, which is now
+obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as global function StrComp, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.CompareTo(string str2, optional bool caseSensitive)
+</pre></div>
+</div>
+<p>Compares the specified string to STR2. <em>caseSensitive</em> determines
+whether “Dog” and “dog” are equivalent; case sensitivity is off by
+default.</p>
+<p>Returns 0 if the strings match, a number less than 0 if this string is
+earlier in the alphabet than STR2, and a number greater than 0 if this
+string is later in the alphabet than STR2.</p>
+<p><strong>TIP:</strong> To do a case-sensitive comparison of two strings, it’s easier
+to just use the == operator.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String mytext = &quot;Hello&quot;;
+if (mytext.CompareTo(&quot;hello&quot;) == 0) {
+  Display(&quot;Strings match with case sensitivity off!&quot;);
+}
+else {
+  Display(&quot;Strings don&#39;t match with case sensitivity off!&quot;);
+}
+
+if (mytext == &quot;hello&quot;) {
+  Display(&quot;Strings match with case sensitivity on!&quot;);
+}
+else {
+  Display(&quot;Strings don&#39;t match with case sensitivity on!&quot;);
+}
+</pre></div>
+</div>
+<p>will display “Strings match with case sensitivity off!”, and then
+“Strings don’t match with case sensitivity on!”.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="copy">
+<span id="index-3"></span><h2>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrCopy, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.Copy()
+</pre></div>
+</div>
+<p>Returns a new copy of the specified string. You should not normally need
+to use this, since strings can be assigned using the = operator.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String mystring = &quot;This is a test string.&quot;;
+String newstring = mystring.Copy();
+Display(newstring);
+</pre></div>
+</div>
+<p>will display “This is a test string”.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="endswith">
+<span id="index-4"></span><h2>EndsWith<a class="headerlink" href="#endswith" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool String.EndsWith(string lookForText, optional bool caseSensitive)
+</pre></div>
+</div>
+<p>Returns <em>true</em> if this string ends with <em>lookForText</em>, or <em>false</em> if
+not.</p>
+<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
+that the function will only return <em>true</em> for an exact-case match.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String myString = &quot;Hello from the script!&quot;;
+if (myString.EndsWith(&quot;script!&quot;))
+{
+  Display(&quot;Ends with script!&quot;);
+}
+</pre></div>
+</div>
+<p>will display the “Ends with script!” message.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.IndexOf</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="format">
+<span id="index-5"></span><h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrFormat, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static String.Format(string fmt, ...)
+</pre></div>
+</div>
+<p>Processes the string FMT in the same way as the Display function does
+but instead of displaying it on the screen, returns the result as a new
+string.</p>
+<p>You can insert the value of variables into the message. For more
+information, see the <a class="reference internal" href="StringFormats.html"><span class="doc">string formatting</span></a>
+section.</p>
+<p><strong>NOTE:</strong> This function is static, which means you do not call it on an
+existing string variable, but use <code class="docutils literal notranslate"><span class="pre">String.Format()</span></code> instead.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int health=10;
+String text = String.Format(&quot;%d&quot;, health);
+</pre></div>
+</div>
+<p>will create a text string containing “10”.</p>
+<p><em>See Also:</em> <a class="reference internal" href="DisplayAt.html"><span class="doc">Display</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="indexof">
+<span id="index-6"></span><h2>IndexOf<a class="headerlink" href="#indexof" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrContains, which is now
+obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as String.Contains, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.IndexOf(string needle)
+</pre></div>
+</div>
+<p>Checks to see if NEEDLE is contained within the specified string.
+Returns the character position of the match if it is, or -1 if it is
+not.</p>
+<p>This function is not case sensitive; ie. testing “test string” for
+“sTRiN” would match.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String haystack = &quot;The haystack had a needle in it somewhere.&quot;;
+int result = haystack.IndexOf(&quot;a needle&quot;);
+
+if (result == -1) {
+  Display(&quot;The string didn&#39;t contain the needle.&quot;);
+}
+else {
+  Display(&quot;a needle was found starting at character %d in the string.&quot;, result);
+}
+</pre></div>
+</div>
+<p><em>See Also:</em> <span class="xref std std-ref">String.EndsWith</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="isnullorempty">
+<span id="index-7"></span><h2>IsNullOrEmpty<a class="headerlink" href="#isnullorempty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool String.IsNullOrEmpty(String stringToCheck)
+</pre></div>
+</div>
+<p>Returns whether the supplied string is null or empty. This is simply
+shorthand for the following:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if ((stringToCheck == null) || (stringToCheck == &quot;&quot;))
+</pre></div>
+</div>
+<p>in other words, you can easily use this to check whether a string has
+any text in it or not.</p>
+<p><strong>NOTE:</strong> This function is static, which means you do not call it on an
+existing string variable, but use <code class="docutils literal notranslate"><span class="pre">String.IsNullOrEmpty()</span></code> instead. See
+the example.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String myString;
+if (String.IsNullOrEmpty(myString))
+{
+  myString = &quot;Some text&quot;;
+}
+</pre></div>
+</div>
+<p>will set the myString variable to “Some text” if it is null or empty
+(which it is).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="lowercase">
+<span id="index-8"></span><h2>LowerCase<a class="headerlink" href="#lowercase" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrToLowerCase, which is now
+obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.LowerCase()
+</pre></div>
+</div>
+<p>Returns a lower case version of the specified string.</p>
+<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
+modify the original string.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">mystring</span> <span class="o">=</span> <span class="s2">&quot;THIS is a test string&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">lowercased</span> <span class="o">=</span> <span class="nt">mystring</span><span class="p">.</span><span class="nc">LowerCase</span><span class="o">();</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Old: %s, new: %s&quot;</span><span class="o">,</span> <span class="nt">mystring</span><span class="o">,</span> <span class="nt">lowercased</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Old: THIS is a test string, new: this is a test string”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.UpperCase</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="replace">
+<span id="index-9"></span><h2>Replace<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.Replace(string lookForText, string replaceWithText,
+               optional bool caseSensitive)
+</pre></div>
+</div>
+<p>Creates a copy of this string, with all instances of <em>lookForText</em>
+replaced with the <em>replaceWithText</em>.</p>
+<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
+that only case-sensitive matches of the <em>lookForText</em> will be replaced.</p>
+<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
+modify the original string.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">original</span> <span class="o">=</span> <span class="s2">&quot;Hello from the script!&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">changed</span> <span class="o">=</span> <span class="nt">original</span><span class="p">.</span><span class="nc">Replace</span><span class="o">(</span><span class="s2">&quot;hello&quot;</span><span class="o">,</span> <span class="s2">&quot;goodbye&quot;</span><span class="o">);</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Old: %s, new: %s&quot;</span><span class="o">,</span> <span class="nt">original</span><span class="o">,</span> <span class="nt">changed</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Old: Hello from the script!, new: goodbye from the
+script!”.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.ReplaceCharAt</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="replacecharat">
+<span id="index-10"></span><h2>ReplaceCharAt<a class="headerlink" href="#replacecharat" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrSetCharAt, which is now
+obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.ReplaceCharAt(int index, char newChar)
+</pre></div>
+</div>
+<p>Changes the character at INDEX in the string to NEWCHAR.</p>
+<p>INDEX is the character index into the string (where 0 is the first
+character, and the last allowable value is the string’s Length minus 1).</p>
+<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
+modify the original string.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">changed</span> <span class="o">=</span> <span class="nt">mystring</span><span class="p">.</span><span class="nc">ReplaceCharAt</span><span class="o">(</span><span class="nt">2</span><span class="o">,</span> <span class="s1">&#39;m&#39;</span><span class="o">);</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Old: %s, new: %s&quot;</span><span class="o">,</span> <span class="nt">newstring</span><span class="o">,</span> <span class="nt">changed</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Old: Hello, new: Hemlo”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.Chars</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="startswith">
+<span id="index-11"></span><h2>StartsWith<a class="headerlink" href="#startswith" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool String.StartsWith(string lookForText, optional bool caseSensitive)
+</pre></div>
+</div>
+<p>Returns <em>true</em> if this string starts with <em>lookForText</em>, or <em>false</em> if
+not.</p>
+<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
+that the function will only return <em>true</em> for an exact-case match.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String myString = &quot;Hello from the script!&quot;;
+if (myString.StartsWith(&quot;hello&quot;))
+{
+  Display(&quot;Starts with hello!&quot;);
+}
+</pre></div>
+</div>
+<p>will display the “Starts with hello!” message.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.EndsWith</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="substring">
+<span id="index-12"></span><h2>Substring<a class="headerlink" href="#substring" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.Substring(int index, int length)
+</pre></div>
+</div>
+<p>Returns part of the string, starting from character <em>index</em> and <em>length</em>
+characters long.</p>
+<p><em>index</em> is the initial character index, where 0 is the first character
+and (Length - 1) is the last. <em>length</em> specifies how many characters to
+retrieve.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">substring</span> <span class="o">=</span> <span class="nt">mystring</span><span class="p">.</span><span class="nc">Substring</span><span class="o">(</span><span class="nt">3</span><span class="o">,</span> <span class="nt">5</span><span class="o">);</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Original: %s, Substring: %s&quot;</span><span class="o">,</span> <span class="nt">mystring</span><span class="o">,</span> <span class="nt">substring</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Original: Hello World!, Substring: lo Wo”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.Append</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="truncate">
+<span id="index-13"></span><h2>Truncate<a class="headerlink" href="#truncate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.Truncate(int length)
+</pre></div>
+</div>
+<p>Returns a version of the string that has been truncated down to <em>length</em>
+characters.</p>
+<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
+modify the original string.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">truncated</span> <span class="o">=</span> <span class="nt">mystring</span><span class="p">.</span><span class="nc">Truncate</span><span class="o">(</span><span class="nt">4</span><span class="o">);</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Original: %s, Truncated: %s&quot;</span><span class="o">,</span> <span class="nt">mystring</span><span class="o">,</span> <span class="nt">truncated</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Original: Hello World!, Truncated: Hell”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.Append</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="uppercase">
+<span id="index-14"></span><h2>UpperCase<a class="headerlink" href="#uppercase" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrToUpperCase, which is now
+obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String.UpperCase()
+</pre></div>
+</div>
+<p>Returns an upper case version of the specified string.</p>
+<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
+modify the original string.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">mystring</span> <span class="o">=</span> <span class="s2">&quot;THIS is a test string&quot;</span><span class="o">;</span>
+<span class="nt">String</span> <span class="nt">uppercased</span> <span class="o">=</span> <span class="nt">mystring</span><span class="p">.</span><span class="nc">UpperCase</span><span class="o">();</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Old: %s, new: %s&quot;</span><span class="o">,</span> <span class="nt">mystring</span><span class="o">,</span> <span class="nt">uppercased</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Old: THIS is a test string, new: THIS IS A TEST STRING”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.LowerCase</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="asfloat">
+<span id="index-15"></span><h2>AsFloat<a class="headerlink" href="#asfloat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly float String.AsFloat;
+</pre></div>
+</div>
+<p>Converts the string into a float, and returns that value. Returns 0.0 if
+the string does not contain a number.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String text1, text2;
+float number1,number2;
+text1 = &quot;57.362&quot;;
+text2 = &quot;Hello&quot;;
+number1 = text1.AsFloat;
+number2 = text2.AsFloat;
+</pre></div>
+</div>
+<p>will set number1 value to 57.362 and number2 value to 0.0 This function
+is useful for processing strings input from the user.</p>
+<p><strong>NOTE:</strong> To convert a float to a string, you can use the
+<span class="xref std std-ref">String.Format</span> command.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.InputBox</span></a>,
+<span class="xref std std-ref">String.AsInt</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="asint">
+<span id="index-16"></span><h2>AsInt<a class="headerlink" href="#asint" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StringToInt, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int String.AsInt;
+</pre></div>
+</div>
+<p>Converts the string into an integer, and returns that value. Returns
+zero if the string does not present a number.</p>
+<p><strong>NOTE:</strong> This operation takes just the leading sequence of the
+characters from the string, if it contains digits and other symbols
+which could be a part of number. If the string has the valid number only
+in the middle, it will not work.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String text1, text2;
+int number1,number2;
+text1 = &quot;53&quot;;
+text2 = &quot;Hello&quot;;
+number1 = text1.AsInt;
+number2 = text2.AsInt;
+</pre></div>
+</div>
+<p>will set number1 value to 53 and number2 value to 0. This function is
+useful for processing strings input from the user.</p>
+<p><strong>NOTE:</strong> To convert an integer to a string, you can use the
+<span class="xref std std-ref">String.Format</span> command.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.InputBox</span></a>,
+<span class="xref std std-ref">String.AsFloat</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="chars">
+<span id="index-17"></span><h2>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrGetCharAt, which is now
+obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly char String.Chars[position];
+</pre></div>
+</div>
+<p>Returns the character at POSITION within the string.</p>
+<p>POSITION is the character index (where 0 is the first character, and the
+last allowable value is the Length minus 1).</p>
+<p>If POSITION is outside the string, this function returns 0.</p>
+<p><strong>NOTE:</strong> The <em>Chars</em> array is read-only. If you want to change one of
+the characters in the string, use
+<span class="xref std std-ref">String.ReplaceCharAt</span>.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">text</span> <span class="o">=</span> <span class="s2">&quot;This is my string.&quot;</span><span class="o">;</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The 4th character is: %c&quot;</span><span class="o">,</span> <span class="nt">text</span><span class="p">.</span><span class="nc">Chars</span><span class="cp">[</span><span class="mi">3</span><span class="cp">]</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “The 4th character is: s”.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">String.Length</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="length">
+<span id="index-18"></span><h2>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function StrLen, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int String.Length;
+</pre></div>
+</div>
+<p>Returns the length of the string, in characters.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">text</span> <span class="o">=</span> <span class="s2">&quot;This is my string.&quot;</span><span class="o">;</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Length: %d&quot;</span><span class="o">,</span> <span class="nt">text</span><span class="p">.</span><span class="nc">Length</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will display “Length: 18”.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
       </div>
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="StartingOff.html" title="previous chapter">Starting off</a></li>
+      <li>Next: <a href="StringFormats.html" title="next chapter">String formatting</a></li>
+  </ul></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">String functions</a><ul>
 <li><a class="reference internal" href="#append">Append</a></li>
 <li><a class="reference internal" href="#appendchar">AppendChar</a></li>
@@ -245,546 +536,13 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Speech.html" title="Previous Chapter: Speech functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Speech functi...</span>
-    </a>
-  </li>
-  <li>
-    <a href="System.html" title="Next Chapter: System functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">System functi... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/String.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
         </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="string-functions">
-<span id="string-functions"></span><h1>String functions<a class="headerlink" href="#string-functions" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#append">Append</a><br>
-<a class="reference external" href="#appendchar">AppendChar</a><br>
-<a class="reference external" href="#compareto">CompareTo</a><br>
-<a class="reference external" href="#copy">Copy</a><br>
-<a class="reference external" href="#endswith">EndsWith</a><br>
-<a class="reference external" href="#format">Format</a><br>
-<a class="reference external" href="#indexof">IndexOf</a><br>
-<a class="reference external" href="#isnullorempty">IsNullOrEmpty</a><br>
-<a class="reference external" href="#lowercase">LowerCase</a><br>
-<a class="reference external" href="#replace">Replace</a><br>
-<a class="reference external" href="#replacecharat">ReplaceCharAt</a><br>
-<a class="reference external" href="#startswith">StartsWith</a><br>
-<a class="reference external" href="#substring">Substring</a><br>
-<a class="reference external" href="#truncate">Truncate</a><br>
-<a class="reference external" href="#uppercase">UpperCase</a><br>
-<a class="reference external" href="#asfloat">AsFloat property</a><br>
-<a class="reference external" href="#asint">AsInt property</a><br>
-<a class="reference external" href="#chars">Chars property</a><br>
-<a class="reference external" href="#length">Length property</a></p>
-<hr class="docutils" />
-<div class="section" id="append">
-<span id="append"></span><h2>Append<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrCat, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">string</span> <span class="n">str2</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Appends the string STR2 to the end of the specified string, and returns
-the result.</p>
-<p><strong>IMPORTANT:</strong> The result of joining the strings together is returned as
-a new string from this command. The original string will <strong>NOT</strong> be
-changed. For example, the following script will not do anything:<br>
-<code class="docutils literal notranslate"><span class="pre">mytext.Append(&quot;World&quot;);</span></code><br>
-what you probably want instead is:<br>
-<code class="docutils literal notranslate"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">mytext.Append(&quot;World&quot;);</span></code></p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mytext</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-<span class="n">mytext</span> <span class="o">=</span> <span class="n">mytext</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="n">mytext</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “HelloWorld”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#appendchar">String.AppendChar</a>,
-<a class="reference external" href="#substring">String.Substring</a>,
-<a class="reference external" href="#truncate">String.Truncate</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="appendchar">
-<span id="appendchar"></span><h2>AppendChar<a class="headerlink" href="#appendchar" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">AppendChar</span><span class="p">(</span><span class="n">char</span> <span class="n">extraChar</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Appends a single character to the end of the specified string, and
-returns the result.</p>
-<p><strong>IMPORTANT:</strong> The newly extended text is returned as a new string from
-this command. The original string will <strong>NOT</strong> be changed. For example,
-the following script will not do anything:<br>
-<code class="docutils literal notranslate"><span class="pre">mytext.AppendChar('o');</span></code><br>
-what you probably want instead is:<br>
-<code class="docutils literal notranslate"><span class="pre">mytext</span> <span class="pre">=</span> <span class="pre">mytext.AppendChar('o');</span></code></p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mytext</span> <span class="o">=</span> <span class="s2">&quot;Hell&quot;</span><span class="p">;</span>
-<span class="n">mytext</span> <span class="o">=</span> <span class="n">mytext</span><span class="o">.</span><span class="n">AppendChar</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="n">mytext</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Hello”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#append">String.Append</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="compareto">
-<span id="compareto"></span><h2>CompareTo<a class="headerlink" href="#compareto" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrCaseComp, which is now
-obsolete)</em><br>
-<em>(Formerly known as global function StrComp, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="n">string</span> <span class="n">str2</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">bool</span> <span class="n">caseSensitive</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Compares the specified string to STR2. <em>caseSensitive</em> determines
-whether “Dog” and “dog” are equivalent; case sensitivity is off by
-default.</p>
-<p>Returns 0 if the strings match, a number less than 0 if this string is
-earlier in the alphabet than STR2, and a number greater than 0 if this
-string is later in the alphabet than STR2.</p>
-<p><strong>TIP:</strong> To do a case-sensitive comparison of two strings, it’s easier
-to just use the == operator.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mytext</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">mytext</span><span class="o">.</span><span class="n">CompareTo</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Strings match with case sensitivity off!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Strings don&#39;t match with case sensitivity off!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">mytext</span> <span class="o">==</span> <span class="s2">&quot;hello&quot;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Strings match with case sensitivity on!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Strings don&#39;t match with case sensitivity on!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display “Strings match with case sensitivity off!”, and then
-“Strings don’t match with case sensitivity on!”.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="copy">
-<span id="copy"></span><h2>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrCopy, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">Copy</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns a new copy of the specified string. You should not normally need
-to use this, since strings can be assigned using the = operator.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;This is a test string.&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">newstring</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">Copy</span><span class="p">();</span>
-<span class="n">Display</span><span class="p">(</span><span class="n">newstring</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “This is a test string”.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="endswith">
-<span id="endswith"></span><h2>EndsWith<a class="headerlink" href="#endswith" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">String</span><span class="o">.</span><span class="n">EndsWith</span><span class="p">(</span><span class="n">string</span> <span class="n">lookForText</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">bool</span> <span class="n">caseSensitive</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns <em>true</em> if this string ends with <em>lookForText</em>, or <em>false</em> if
-not.</p>
-<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
-that the function will only return <em>true</em> for an exact-case match.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">myString</span> <span class="o">=</span> <span class="s2">&quot;Hello from the script!&quot;</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">myString</span><span class="o">.</span><span class="n">EndsWith</span><span class="p">(</span><span class="s2">&quot;script!&quot;</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Ends with script!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display the “Ends with script!” message.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#indexof">String.IndexOf</a>,
-<a class="reference external" href="#startswith">String.StartsWith</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="format">
-<span id="format"></span><h2>Format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrFormat, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">String</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="n">string</span> <span class="n">fmt</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Processes the string FMT in the same way as the Display function does
-but instead of displaying it on the screen, returns the result as a new
-string.</p>
-<p>You can insert the value of variables into the message. For more
-information, see the <a class="reference external" href="StringFormats">string formatting</a>
-section.</p>
-<p><strong>NOTE:</strong> This function is static, which means you do not call it on an
-existing string variable, but use <code class="docutils literal notranslate"><span class="pre">String.Format()</span></code> instead.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">health</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="n">Format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">health</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will create a text string containing “10”.</p>
-<p><em>See Also:</em> <a class="reference external" href="DisplayAt#display">Display</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="indexof">
-<span id="indexof"></span><h2>IndexOf<a class="headerlink" href="#indexof" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrContains, which is now
-obsolete)</em><br>
-<em>(Formerly known as String.Contains, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="n">string</span> <span class="n">needle</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Checks to see if NEEDLE is contained within the specified string.
-Returns the character position of the match if it is, or -1 if it is
-not.</p>
-<p>This function is not case sensitive; ie. testing “test string” for
-“sTRiN” would match.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">haystack</span> <span class="o">=</span> <span class="s2">&quot;The haystack had a needle in it somewhere.&quot;</span><span class="p">;</span>
-<span class="nb">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">haystack</span><span class="o">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="s2">&quot;a needle&quot;</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The string didn&#39;t contain the needle.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;a needle was found starting at character </span><span class="si">%d</span><span class="s2"> in the string.&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference external" href="#endswith">String.EndsWith</a>,
-<a class="reference external" href="#startswith">String.StartsWith</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isnullorempty">
-<span id="isnullorempty"></span><h2>IsNullOrEmpty<a class="headerlink" href="#isnullorempty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="nb">bool</span> <span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">String</span> <span class="n">stringToCheck</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns whether the supplied string is null or empty. This is simply
-shorthand for the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">((</span><span class="n">stringToCheck</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">stringToCheck</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>in other words, you can easily use this to check whether a string has
-any text in it or not.</p>
-<p><strong>NOTE:</strong> This function is static, which means you do not call it on an
-existing string variable, but use <code class="docutils literal notranslate"><span class="pre">String.IsNullOrEmpty()</span></code> instead. See
-the example.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">myString</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">myString</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="n">myString</span> <span class="o">=</span> <span class="s2">&quot;Some text&quot;</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will set the myString variable to “Some text” if it is null or empty
-(which it is).</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="lowercase">
-<span id="lowercase"></span><h2>LowerCase<a class="headerlink" href="#lowercase" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrToLowerCase, which is now
-obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">LowerCase</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns a lower case version of the specified string.</p>
-<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
-modify the original string.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;THIS is a test string&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">lowercased</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">LowerCase</span><span class="p">();</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Old: </span><span class="si">%s</span><span class="s2">, new: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mystring</span><span class="p">,</span> <span class="n">lowercased</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Old: THIS is a test string, new: this is a test string”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#uppercase">String.UpperCase</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="replace">
-<span id="replace"></span><h2>Replace<a class="headerlink" href="#replace" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="n">string</span> <span class="n">lookForText</span><span class="p">,</span> <span class="n">string</span> <span class="n">replaceWithText</span><span class="p">,</span>
-               <span class="n">optional</span> <span class="nb">bool</span> <span class="n">caseSensitive</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Creates a copy of this string, with all instances of <em>lookForText</em>
-replaced with the <em>replaceWithText</em>.</p>
-<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
-that only case-sensitive matches of the <em>lookForText</em> will be replaced.</p>
-<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
-modify the original string.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">original</span> <span class="o">=</span> <span class="s2">&quot;Hello from the script!&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;goodbye&quot;</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Old: </span><span class="si">%s</span><span class="s2">, new: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">original</span><span class="p">,</span> <span class="n">changed</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Old: Hello from the script!, new: goodbye from the
-script!”.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#replacecharat">String.ReplaceCharAt</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="replacecharat">
-<span id="replacecharat"></span><h2>ReplaceCharAt<a class="headerlink" href="#replacecharat" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrSetCharAt, which is now
-obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">ReplaceCharAt</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="n">newChar</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the character at INDEX in the string to NEWCHAR.</p>
-<p>INDEX is the character index into the string (where 0 is the first
-character, and the last allowable value is the string’s Length minus 1).</p>
-<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
-modify the original string.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">ReplaceCharAt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Old: </span><span class="si">%s</span><span class="s2">, new: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">newstring</span><span class="p">,</span> <span class="n">changed</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Old: Hello, new: Hemlo”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#chars">String.Chars</a>,
-<a class="reference external" href="#replace">String.Replace</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="startswith">
-<span id="startswith"></span><h2>StartsWith<a class="headerlink" href="#startswith" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">String</span><span class="o">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="n">string</span> <span class="n">lookForText</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">bool</span> <span class="n">caseSensitive</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns <em>true</em> if this string starts with <em>lookForText</em>, or <em>false</em> if
-not.</p>
-<p><em>caseSensitive</em> is <em>false</em> by default, but you can set it to true so
-that the function will only return <em>true</em> for an exact-case match.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">myString</span> <span class="o">=</span> <span class="s2">&quot;Hello from the script!&quot;</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">myString</span><span class="o">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">))</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Starts with hello!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display the “Starts with hello!” message.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#endswith">String.EndsWith</a>,
-<a class="reference external" href="#indexof">String.IndexOf</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="substring">
-<span id="substring"></span><h2>Substring<a class="headerlink" href="#substring" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">Substring</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">,</span> <span class="nb">int</span> <span class="n">length</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns part of the string, starting from character <em>index</em> and <em>length</em>
-characters long.</p>
-<p><em>index</em> is the initial character index, where 0 is the first character
-and (Length - 1) is the last. <em>length</em> specifies how many characters to
-retrieve.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">substring</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">Substring</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Original: </span><span class="si">%s</span><span class="s2">, Substring: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mystring</span><span class="p">,</span> <span class="n">substring</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Original: Hello World!, Substring: lo Wo”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#append">String.Append</a>,
-<a class="reference external" href="#chars">String.Chars</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="truncate">
-<span id="truncate"></span><h2>Truncate<a class="headerlink" href="#truncate" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">Truncate</span><span class="p">(</span><span class="nb">int</span> <span class="n">length</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns a version of the string that has been truncated down to <em>length</em>
-characters.</p>
-<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
-modify the original string.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">truncated</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">Truncate</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Original: </span><span class="si">%s</span><span class="s2">, Truncated: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mystring</span><span class="p">,</span> <span class="n">truncated</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Original: Hello World!, Truncated: Hell”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#append">String.Append</a>,
-<a class="reference external" href="#substring">String.Substring</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="uppercase">
-<span id="uppercase"></span><h2>UpperCase<a class="headerlink" href="#uppercase" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrToUpperCase, which is now
-obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="n">UpperCase</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Returns an upper case version of the specified string.</p>
-<p><strong>NOTE:</strong> The new string is returned from this function; it does <strong>NOT</strong>
-modify the original string.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;THIS is a test string&quot;</span><span class="p">;</span>
-<span class="n">String</span> <span class="n">uppercased</span> <span class="o">=</span> <span class="n">mystring</span><span class="o">.</span><span class="n">UpperCase</span><span class="p">();</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Old: </span><span class="si">%s</span><span class="s2">, new: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mystring</span><span class="p">,</span> <span class="n">uppercased</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Old: THIS is a test string, new: THIS IS A TEST STRING”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#lowercase">String.LowerCase</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="asfloat">
-<span id="asfloat"></span><h2>AsFloat<a class="headerlink" href="#asfloat" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">float</span> <span class="n">String</span><span class="o">.</span><span class="n">AsFloat</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Converts the string into a float, and returns that value. Returns 0.0 if
-the string does not contain a number.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">;</span>
-<span class="nb">float</span> <span class="n">number1</span><span class="p">,</span><span class="n">number2</span><span class="p">;</span>
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;57.362&quot;</span><span class="p">;</span>
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-<span class="n">number1</span> <span class="o">=</span> <span class="n">text1</span><span class="o">.</span><span class="n">AsFloat</span><span class="p">;</span>
-<span class="n">number2</span> <span class="o">=</span> <span class="n">text2</span><span class="o">.</span><span class="n">AsFloat</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will set number1 value to 57.362 and number2 value to 0.0 This function
-is useful for processing strings input from the user.</p>
-<p><strong>NOTE:</strong> To convert a float to a string, you can use the
-<a class="reference external" href="#format">String.Format</a> command.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#inputbox">Game.InputBox</a>,
-<a class="reference external" href="#asint">String.AsInt</a>,
-<a class="reference external" href="#format">String.Format</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="asint">
-<span id="asint"></span><h2>AsInt<a class="headerlink" href="#asint" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StringToInt, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">String</span><span class="o">.</span><span class="n">AsInt</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Converts the string into an integer, and returns that value. Returns
-zero if the string does not present a number.</p>
-<p><strong>NOTE:</strong> This operation takes just the leading sequence of the
-characters from the string, if it contains digits and other symbols
-which could be a part of number. If the string has the valid number only
-in the middle, it will not work.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">;</span>
-<span class="nb">int</span> <span class="n">number1</span><span class="p">,</span><span class="n">number2</span><span class="p">;</span>
-<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;53&quot;</span><span class="p">;</span>
-<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">;</span>
-<span class="n">number1</span> <span class="o">=</span> <span class="n">text1</span><span class="o">.</span><span class="n">AsInt</span><span class="p">;</span>
-<span class="n">number2</span> <span class="o">=</span> <span class="n">text2</span><span class="o">.</span><span class="n">AsInt</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will set number1 value to 53 and number2 value to 0. This function is
-useful for processing strings input from the user.</p>
-<p><strong>NOTE:</strong> To convert an integer to a string, you can use the
-<a class="reference external" href="#format">String.Format</a> command.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#inputbox">Game.InputBox</a>,
-<a class="reference external" href="#asfloat">String.AsFloat</a>,
-<a class="reference external" href="#format">String.Format</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="chars">
-<span id="chars"></span><h2>Chars<a class="headerlink" href="#chars" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrGetCharAt, which is now
-obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">char</span> <span class="n">String</span><span class="o">.</span><span class="n">Chars</span><span class="p">[</span><span class="n">position</span><span class="p">];</span>
-</pre></div>
-</div>
-<p>Returns the character at POSITION within the string.</p>
-<p>POSITION is the character index (where 0 is the first character, and the
-last allowable value is the Length minus 1).</p>
-<p>If POSITION is outside the string, this function returns 0.</p>
-<p><strong>NOTE:</strong> The <em>Chars</em> array is read-only. If you want to change one of
-the characters in the string, use
-<a class="reference external" href="#replacecharat">String.ReplaceCharAt</a>.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is my string.&quot;</span><span class="p">;</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The 4th character is: </span><span class="si">%c</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">Chars</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
-</pre></div>
-</div>
-<p>will display “The 4th character is: s”.</p>
-<p><em>See Also:</em> <a class="reference external" href="#length">String.Length</a>,
-<a class="reference external" href="#replacecharat">String.ReplaceCharAt</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="length">
-<span id="length"></span><h2>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function StrLen, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">String</span><span class="o">.</span><span class="n">Length</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Returns the length of the string, in characters.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is my string.&quot;</span><span class="p">;</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Length: </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">Length</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display “Length: 18”.</p>
-</div>
-</div>
-
-
-    </div>
-      
-  </div>
-</div>
     
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

@@ -1,11 +1,14 @@
 Palette functions
 -----------------
 
-[CyclePalette](#cyclepalette)<br>
-[SetPalRGB](#setpalrgb)<br>
-[UpdatePalette](#updatepalette)
+
+
+
 
 ---
+
+.. index::
+   pair: ; CyclePalette
 
 ### CyclePalette
 
@@ -30,9 +33,12 @@ will cause the palette indexes from 10 to 200 cycle around one slot and
 give a color effect.
 
 *See Also:* [FadeIn](ShakeScreen#fadein), [FadeOut](ShakeScreen#fadeout),
-[SetPalRGB](#setpalrgb)
+
 
 ---
+
+.. index::
+   pair: ; SetPalRGB
 
 ### SetPalRGB
 
@@ -60,9 +66,12 @@ will change palette slot number 10 from light green to yellow
 
 *See Also:* [CyclePalette](#cyclepalette),
 [FadeIn](ShakeScreen#fadein), [FadeOut](ShakeScreen#fadeout),
-[UpdatePalette](#updatepalette)
+
 
 ---
+
+.. index::
+   pair: ; UpdatePalette
 
 ### UpdatePalette
 

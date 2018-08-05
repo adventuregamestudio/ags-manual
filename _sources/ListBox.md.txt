@@ -16,27 +16,30 @@ GUI List Box functions and properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[AddItem](#additem)<br>
-[Clear](#clear)<br>
-[FillDirList](#filldirlist)<br>
-[FillSaveGameList](#fillsavegamelist)<br>
-[GetItemAtLocation](#getitematlocation)<br>
-[InsertItemAt](#insertitemat)<br>
-[RemoveItem](#removeitem)<br>
-[ScrollDown](#scrolldown)<br>
-[ScrollUp](#scrollup)<br>
-[Font property](#font)<br>
-[HideBorder property](#hideborder)<br>
-[HideScrollArrows property](#hidescrollarrows)<br>
-[ItemCount property](#itemcount)<br>
-[Items property](#items)<br>
-[RowCount property](#rowcount)<br>
-[SaveGameSlots property](#savegameslots)<br>
-[SelectedIndex property](#selectedindex)<br>
-[TopItem property](#topitem)<br>
-[Translated property](#translated)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; AddItem
 
 ### AddItem
 
@@ -62,9 +65,12 @@ will take the input from the user and add it to the listbox.
 [ListBox.FillDirList](#filldirlist),
 [ListBox.InsertItemAt](#insertitemat),
 [ListBox.Items](#items),
-[ListBox.RemoveItem](#removeitem)
+
 
 ---
+
+.. index::
+   pair: ; Clear
 
 ### Clear
 
@@ -83,6 +89,9 @@ will remove all the items from listbox *lstNoteBook*.
 *See Also:* [ListBox.AddItem](#additem)
 
 ---
+
+.. index::
+   pair: ; FillDirList
 
 ### FillDirList
 
@@ -114,9 +123,12 @@ actually for this task you would use FillSaveGameList instead.
 
 *See Also:* [ListBox.AddItem](#additem),
 [ListBox.Clear](#clear),
-[ListBox.FillSaveGameList](#fillsavegamelist)
+
 
 ---
+
+.. index::
+   pair: ; FillSaveGameList
 
 ### FillSaveGameList
 
@@ -148,9 +160,12 @@ will fill listbox *lstSaveGames* with the list of the saved games.
 *See Also:* [ListBox.FillDirList](#filldirlist),
 [ListBox.ItemCount](#itemcount),
 [ListBox.SaveGameSlots](#savegameslots),
-[ListBox.SelectedIndex](#selectedindex)
+
 
 ---
+
+.. index::
+   pair: ; GetItemAtLocation
 
 ### GetItemAtLocation
 
@@ -181,6 +196,9 @@ will display the item text that the mouse is currently hovering over.
 
 ---
 
+.. index::
+   pair: ; InsertItemAt
+
 ### InsertItemAt
 
     ListBox.InsertItemAt(int index, string newitem)
@@ -204,9 +222,12 @@ Example:
 will insert the Third Item in between the First and Second items.
 
 *See Also:* [ListBox.AddItem](#additem),
-[ListBox.RemoveItem](#removeitem)
+
 
 ---
+
+.. index::
+   pair: ; RemoveItem
 
 ### RemoveItem
 
@@ -233,9 +254,12 @@ Example:
 the list box will now just contain "Second item".
 
 *See Also:* [ListBox.Clear](#clear),
-[ListBox.FillDirList](#filldirlist)
+
 
 ---
+
+.. index::
+   pair: ; ScrollDown
 
 ### ScrollDown
 
@@ -254,6 +278,9 @@ will scroll the *lstTest* list box down one row.
 
 ---
 
+.. index::
+   pair: ; ScrollUp
+
 ### ScrollUp
 
     ListBox.ScrollUp()
@@ -270,6 +297,9 @@ will scroll the *lstTest* list box up one row.
 *See Also:* [ListBox.ScrollDown](#scrolldown)
 
 ---
+
+.. index::
+   pair: ; Font
 
 ### Font
 
@@ -288,6 +318,9 @@ will change the *lstSaveGames* list box to use Font "Speech".
 
 ---
 
+.. index::
+   pair: ; HideBorder
+
 ### HideBorder
 
     bool ListBox.HideBorder
@@ -304,9 +337,12 @@ Example:
 will hide the border around the Save Games list box.
 
 *See Also:*
-[ListBox.HideScrollArrows](#hidescrollarrows)
+
 
 ---
+
+.. index::
+   pair: ; HideScrollArrows
 
 ### HideScrollArrows
 
@@ -333,6 +369,9 @@ will hide the built-in scroll arrows on the list box.
 
 ---
 
+.. index::
+   pair: ; ItemCount
+
 ### ItemCount
 
 *(Formerly known as ListBoxGetNumItems, which is now obsolete)*
@@ -354,6 +393,9 @@ will pass the number of saved games to the int saves.
 *See Also:* [ListBox.Items](#items)
 
 ---
+
+.. index::
+   pair: ; Items
 
 ### Items
 
@@ -380,9 +422,12 @@ will get the text of the selected item in the list box.
 
 *See Also:* [ListBox.SelectedIndex](#selectedindex),
 [ListBox.ItemCount](#itemcount),
-[ListBox.AddItem](#additem)
+
 
 ---
+
+.. index::
+   pair: ; RowCount
 
 ### RowCount
 
@@ -403,9 +448,12 @@ will display the number of rows that the listbox can display.
 
 *See Also:* [ListBox.ItemCount](#itemcount),
 [ListBox.ScrollDown](#scrolldown),
-[ListBox.ScrollUp](#scrollup)
+
 
 ---
+
+.. index::
+   pair: ; SaveGameSlots
 
 ### SaveGameSlots
 
@@ -433,9 +481,12 @@ FillSaveGameList had been used previously.
 
 *See Also:*
 [ListBox.FillSaveGameList](#fillsavegamelist),
-[ListBox.SelectedIndex](#selectedindex)
+
 
 ---
+
+.. index::
+   pair: ; SelectedIndex
 
 ### SelectedIndex
 
@@ -459,6 +510,9 @@ will get the text of the selected item in the listbox.
 
 ---
 
+.. index::
+   pair: ; TopItem
+
 ### TopItem
 
 *(Formerly known as ListBoxSetTopItem, which is now obsolete)*
@@ -479,6 +533,9 @@ will automatically scroll listbox *lstSaveGames* back to the top of the
 list.
 
 ---
+
+.. index::
+   pair: ; Translated
 
 ### Translated
 

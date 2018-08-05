@@ -16,18 +16,21 @@ GUI InvWindow functions and properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[ScrollDown](#scrolldown)<br>
-[ScrollUp](#scrollup)<br>
-[CharacterToUse property](#charactertouse)<br>
-[ItemAtIndex property](#itematindex)<br>
-[ItemCount property](#itemcount)<br>
-[ItemHeight property](#itemheight)<br>
-[ItemWidth property](#itemwidth)<br>
-[ItemsPerRow property](#itemsperrow)<br>
-[RowCount property](#rowcount)<br>
-[TopItem property](#topitem)
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; ScrollDown
 
 ### ScrollDown
 
@@ -47,9 +50,12 @@ Example:
 will scroll the *invMain* inv window down one row.
 
 *See Also:* [InvWindow.ScrollUp](#scrollup),
-[InvWindow.TopItem](#topitem)
+
 
 ---
+
+.. index::
+   pair: ; ScrollUp
 
 ### ScrollUp
 
@@ -69,9 +75,12 @@ Example:
 will scroll the *invMain* inv window up one row.
 
 *See Also:* [InvWindow.ScrollDown](#scrolldown),
-[InvWindow.TopItem](#topitem)
+
 
 ---
+
+.. index::
+   pair: ; CharacterToUse
 
 ### CharacterToUse
 
@@ -90,6 +99,9 @@ will change the *invMain* inventory window to display character JACK's
 inventory.
 
 ---
+
+.. index::
+   pair: ; ItemAtIndex
 
 ### ItemAtIndex
 
@@ -114,6 +126,9 @@ inventory window.
 
 ---
 
+.. index::
+   pair: ; ItemCount
+
 ### ItemCount
 
 *(Formerly known as game.num_inv_items, which is now obsolete)*
@@ -137,9 +152,12 @@ more inventory items than will fit in the inventory window.
 
 *See Also:* [InvWindow.ItemAtIndex](#itematindex),
 [InvWindow.ItemsPerRow](#itemsperrow),
-[InvWindow.RowCount](#rowcount)
+
 
 ---
+
+.. index::
+   pair: ; ItemHeight
 
 ### ItemHeight
 
@@ -159,9 +177,12 @@ Example:
 sets the *invMain* inventory window to use item cells 50x30 large.
 
 *See Also:* [InvWindow.ItemWidth](#itemwidth),
-[InvWindow.RowCount](#rowcount)
+
 
 ---
+
+.. index::
+   pair: ; ItemWidth
 
 ### ItemWidth
 
@@ -181,9 +202,12 @@ Example:
 sets the *invMain* inventory window to use item cells 50x30 large.
 
 *See Also:* [InvWindow.ItemHeight](#itemheight),
-[InvWindow.ItemsPerRow](#itemsperrow)
+
 
 ---
+
+.. index::
+   pair: ; ItemsPerRow
 
 ### ItemsPerRow
 
@@ -202,9 +226,12 @@ Example:
 displays how many items can be visible in the invMain window at once.
 
 *See Also:* [InvWindow.ItemWidth](#itemwidth),
-[InvWindow.RowCount](#rowcount)
+
 
 ---
+
+.. index::
+   pair: ; RowCount
 
 ### RowCount
 
@@ -221,9 +248,12 @@ Example:
 displays how many items can be visible in the invMain window at once.
 
 *See Also:* [InvWindow.ItemHeight](#itemheight),
-[InvWindow.ItemsPerRow](#itemsperrow)
+
 
 ---
+
+.. index::
+   pair: ; TopItem
 
 ### TopItem
 

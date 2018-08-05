@@ -1,933 +1,611 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>ASCII code table &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Upgrading from a previous version" href="UpgradingFromPreviousVersion.html" />
-    <link rel="prev" title="Keyboard Shortcuts" href="KeyboardShortcuts.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="Advanced room features" href="AdvancedRoomFeatures.html" />
+    <link rel="prev" title="Contacting the developers" href="ContactingTheDevelopers.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Reference.html">Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">ASCII code table</a></li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="KeyboardShortcuts.html" title="Previous Chapter: Keyboard Shortcuts"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Keyboard Shortcuts</span>
-    </a>
-  </li>
-  <li>
-    <a href="UpgradingFromPreviousVersion.html" title="Next Chapter: Upgrading from a previous version"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Upgrading fro... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/ASCIIcodes.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="ascii-code-table">
-<span id="ascii-code-table"></span><h1>ASCII code table<a class="headerlink" href="#ascii-code-table" title="Permalink to this headline">¶</a></h1>
+<h1>ASCII code table<a class="headerlink" href="#ascii-code-table" title="Permalink to this headline">¶</a></h1>
 <p>This section lists the key codes which can be passed to on_key_press
 and which keys they represent:</p>
 <table border="1" class="docutils">
-<thead>
-<tr>
-<th>AGS KeyCode</th>
-<th>Key</th>
-<th>ASCII code</th>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">AGS KeyCode</th>
+<th class="head">Key</th>
+<th class="head">ASCII code</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>eKeyNone</td>
+<tbody valign="top">
+<tr class="row-even"><td>eKeyNone</td>
 <td>none</td>
 <td>0</td>
 </tr>
-<tr>
-<td>eKeyCtrlA</td>
+<tr class="row-odd"><td>eKeyCtrlA</td>
 <td>Ctrl+A</td>
 <td>1</td>
 </tr>
-<tr>
-<td>eKeyCtrlB</td>
+<tr class="row-even"><td>eKeyCtrlB</td>
 <td>Ctrl+B</td>
 <td>2</td>
 </tr>
-<tr>
-<td>eKeyCtrlC</td>
+<tr class="row-odd"><td>eKeyCtrlC</td>
 <td>Ctrl+C</td>
 <td>3</td>
 </tr>
-<tr>
-<td>eKeyCtrlD</td>
+<tr class="row-even"><td>eKeyCtrlD</td>
 <td>Ctrl+D</td>
 <td>4</td>
 </tr>
-<tr>
-<td>eKeyCtrlE</td>
+<tr class="row-odd"><td>eKeyCtrlE</td>
 <td>Ctrl+E</td>
 <td>5</td>
 </tr>
-<tr>
-<td>eKeyCtrlF</td>
+<tr class="row-even"><td>eKeyCtrlF</td>
 <td>Ctrl+F</td>
 <td>6</td>
 </tr>
-<tr>
-<td>eKeyCtrlG</td>
+<tr class="row-odd"><td>eKeyCtrlG</td>
 <td>Ctrl+G</td>
 <td>7</td>
 </tr>
-<tr>
-<td>eKeyCtrlH</td>
+<tr class="row-even"><td>eKeyCtrlH</td>
 <td>Ctrl+H</td>
 <td>8</td>
 </tr>
-<tr>
-<td>eKeyCtrlI</td>
+<tr class="row-odd"><td>eKeyCtrlI</td>
 <td>Ctrl+I</td>
 <td>9</td>
 </tr>
-<tr>
-<td>eKeyCtrlJ</td>
+<tr class="row-even"><td>eKeyCtrlJ</td>
 <td>Ctrl+J</td>
 <td>10</td>
 </tr>
-<tr>
-<td>eKeyCtrlK</td>
+<tr class="row-odd"><td>eKeyCtrlK</td>
 <td>Ctrl+K</td>
 <td>11</td>
 </tr>
-<tr>
-<td>eKeyCtrlL</td>
+<tr class="row-even"><td>eKeyCtrlL</td>
 <td>Ctrl+L</td>
 <td>12</td>
 </tr>
-<tr>
-<td>eKeyCtrlM</td>
+<tr class="row-odd"><td>eKeyCtrlM</td>
 <td>Ctrl+M</td>
 <td>13</td>
 </tr>
-<tr>
-<td>eKeyCtrlN</td>
+<tr class="row-even"><td>eKeyCtrlN</td>
 <td>Ctrl+N</td>
 <td>14</td>
 </tr>
-<tr>
-<td>eKeyCtrlO</td>
+<tr class="row-odd"><td>eKeyCtrlO</td>
 <td>Ctrl+O</td>
 <td>15</td>
 </tr>
-<tr>
-<td>eKeyCtrlP</td>
+<tr class="row-even"><td>eKeyCtrlP</td>
 <td>Ctrl+P</td>
 <td>16</td>
 </tr>
-<tr>
-<td>eKeyCtrlQ</td>
+<tr class="row-odd"><td>eKeyCtrlQ</td>
 <td>Ctrl+Q</td>
 <td>17</td>
 </tr>
-<tr>
-<td>eKeyCtrlR</td>
+<tr class="row-even"><td>eKeyCtrlR</td>
 <td>Ctrl+R</td>
 <td>18</td>
 </tr>
-<tr>
-<td>eKeyCtrlS</td>
+<tr class="row-odd"><td>eKeyCtrlS</td>
 <td>Ctrl+S</td>
 <td>19</td>
 </tr>
-<tr>
-<td>eKeyCtrlT</td>
+<tr class="row-even"><td>eKeyCtrlT</td>
 <td>Ctrl+T</td>
 <td>20</td>
 </tr>
-<tr>
-<td>eKeyCtrlU</td>
+<tr class="row-odd"><td>eKeyCtrlU</td>
 <td>Ctrl+U</td>
 <td>21</td>
 </tr>
-<tr>
-<td>eKeyCtrlV</td>
+<tr class="row-even"><td>eKeyCtrlV</td>
 <td>Ctrl+V</td>
 <td>22</td>
 </tr>
-<tr>
-<td>eKeyCtrlW</td>
+<tr class="row-odd"><td>eKeyCtrlW</td>
 <td>Ctrl+W</td>
 <td>23</td>
 </tr>
-<tr>
-<td>eKeyCtrlX</td>
+<tr class="row-even"><td>eKeyCtrlX</td>
 <td>Ctrl+X</td>
 <td>24</td>
 </tr>
-<tr>
-<td>eKeyCtrlY</td>
+<tr class="row-odd"><td>eKeyCtrlY</td>
 <td>Ctrl+Y</td>
 <td>25</td>
 </tr>
-<tr>
-<td>eKeyCtrlZ</td>
+<tr class="row-even"><td>eKeyCtrlZ</td>
 <td>Ctrl+Z</td>
 <td>26</td>
 </tr>
-<tr>
-<td>eKey0</td>
+<tr class="row-odd"><td>eKey0</td>
 <td>0</td>
 <td>48</td>
 </tr>
-<tr>
-<td>eKey1</td>
+<tr class="row-even"><td>eKey1</td>
 <td>1</td>
 <td>49</td>
 </tr>
-<tr>
-<td>eKey2</td>
+<tr class="row-odd"><td>eKey2</td>
 <td>2</td>
 <td>50</td>
 </tr>
-<tr>
-<td>eKey3</td>
+<tr class="row-even"><td>eKey3</td>
 <td>3</td>
 <td>51</td>
 </tr>
-<tr>
-<td>eKey4</td>
+<tr class="row-odd"><td>eKey4</td>
 <td>4</td>
 <td>52</td>
 </tr>
-<tr>
-<td>eKey5</td>
+<tr class="row-even"><td>eKey5</td>
 <td>5</td>
 <td>53</td>
 </tr>
-<tr>
-<td>eKey6</td>
+<tr class="row-odd"><td>eKey6</td>
 <td>6</td>
 <td>54</td>
 </tr>
-<tr>
-<td>eKey7</td>
+<tr class="row-even"><td>eKey7</td>
 <td>7</td>
 <td>55</td>
 </tr>
-<tr>
-<td>eKey8</td>
+<tr class="row-odd"><td>eKey8</td>
 <td>8</td>
 <td>56</td>
 </tr>
-<tr>
-<td>eKey9</td>
+<tr class="row-even"><td>eKey9</td>
 <td>9</td>
 <td>57</td>
 </tr>
-<tr>
-<td>eKeyA</td>
+<tr class="row-odd"><td>eKeyA</td>
 <td>A</td>
 <td>65</td>
 </tr>
-<tr>
-<td>eKeyB</td>
+<tr class="row-even"><td>eKeyB</td>
 <td>B</td>
 <td>66</td>
 </tr>
-<tr>
-<td>eKeyC</td>
+<tr class="row-odd"><td>eKeyC</td>
 <td>C</td>
 <td>67</td>
 </tr>
-<tr>
-<td>eKeyD</td>
+<tr class="row-even"><td>eKeyD</td>
 <td>D</td>
 <td>68</td>
 </tr>
-<tr>
-<td>eKeyE</td>
+<tr class="row-odd"><td>eKeyE</td>
 <td>E</td>
 <td>69</td>
 </tr>
-<tr>
-<td>eKeyF</td>
+<tr class="row-even"><td>eKeyF</td>
 <td>F</td>
 <td>70</td>
 </tr>
-<tr>
-<td>eKeyG</td>
+<tr class="row-odd"><td>eKeyG</td>
 <td>G</td>
 <td>71</td>
 </tr>
-<tr>
-<td>eKeyH</td>
+<tr class="row-even"><td>eKeyH</td>
 <td>H</td>
 <td>72</td>
 </tr>
-<tr>
-<td>eKeyI</td>
+<tr class="row-odd"><td>eKeyI</td>
 <td>I</td>
 <td>73</td>
 </tr>
-<tr>
-<td>eKeyJ</td>
+<tr class="row-even"><td>eKeyJ</td>
 <td>J</td>
 <td>74</td>
 </tr>
-<tr>
-<td>eKeyK</td>
+<tr class="row-odd"><td>eKeyK</td>
 <td>K</td>
 <td>75</td>
 </tr>
-<tr>
-<td>eKeyL</td>
+<tr class="row-even"><td>eKeyL</td>
 <td>L</td>
 <td>76</td>
 </tr>
-<tr>
-<td>eKeyM</td>
+<tr class="row-odd"><td>eKeyM</td>
 <td>M</td>
 <td>77</td>
 </tr>
-<tr>
-<td>eKeyN</td>
+<tr class="row-even"><td>eKeyN</td>
 <td>N</td>
 <td>78</td>
 </tr>
-<tr>
-<td>eKeyO</td>
+<tr class="row-odd"><td>eKeyO</td>
 <td>O</td>
 <td>79</td>
 </tr>
-<tr>
-<td>eKeyP</td>
+<tr class="row-even"><td>eKeyP</td>
 <td>P</td>
 <td>80</td>
 </tr>
-<tr>
-<td>eKeyQ</td>
+<tr class="row-odd"><td>eKeyQ</td>
 <td>Q</td>
 <td>81</td>
 </tr>
-<tr>
-<td>eKeyR</td>
+<tr class="row-even"><td>eKeyR</td>
 <td>R</td>
 <td>82</td>
 </tr>
-<tr>
-<td>eKeyS</td>
+<tr class="row-odd"><td>eKeyS</td>
 <td>S</td>
 <td>83</td>
 </tr>
-<tr>
-<td>eKeyT</td>
+<tr class="row-even"><td>eKeyT</td>
 <td>T</td>
 <td>84</td>
 </tr>
-<tr>
-<td>eKeyU</td>
+<tr class="row-odd"><td>eKeyU</td>
 <td>U</td>
 <td>85</td>
 </tr>
-<tr>
-<td>eKeyV</td>
+<tr class="row-even"><td>eKeyV</td>
 <td>V</td>
 <td>86</td>
 </tr>
-<tr>
-<td>eKeyW</td>
+<tr class="row-odd"><td>eKeyW</td>
 <td>W</td>
 <td>87</td>
 </tr>
-<tr>
-<td>eKeyX</td>
+<tr class="row-even"><td>eKeyX</td>
 <td>X</td>
 <td>88</td>
 </tr>
-<tr>
-<td>eKeyY</td>
+<tr class="row-odd"><td>eKeyY</td>
 <td>Y</td>
 <td>89</td>
 </tr>
-<tr>
-<td>eKeyZ</td>
+<tr class="row-even"><td>eKeyZ</td>
 <td>Z</td>
 <td>90</td>
 </tr>
-<tr>
-<td>eKeyAmpersand</td>
+<tr class="row-odd"><td>eKeyAmpersand</td>
 <td>&amp;</td>
 <td>38</td>
 </tr>
-<tr>
-<td>eKeyAsterisk</td>
-<td>*</td>
+<tr class="row-even"><td>eKeyAsterisk</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
 <td>42</td>
 </tr>
-<tr>
-<td>eKeyAt</td>
-<td>@</td>
+<tr class="row-odd"><td>eKeyAt</td>
+<td>&#64;</td>
 <td>64</td>
 </tr>
-<tr>
-<td>eKeyBackSlash</td>
-<td>\</td>
+<tr class="row-even"><td>eKeyBackSlash</td>
+<td></td>
 <td>92</td>
 </tr>
-<tr>
-<td>eKeyBackspace</td>
+<tr class="row-odd"><td>eKeyBackspace</td>
 <td>Backspace</td>
 <td>8</td>
 </tr>
-<tr>
-<td>eKeyCloseBracket</td>
+<tr class="row-even"><td>eKeyCloseBracket</td>
 <td>]</td>
 <td>93</td>
 </tr>
-<tr>
-<td>eKeyCloseParenthesis</td>
+<tr class="row-odd"><td>eKeyCloseParenthesis</td>
 <td>)</td>
 <td>41</td>
 </tr>
-<tr>
-<td>eKeyColon</td>
+<tr class="row-even"><td>eKeyColon</td>
 <td>:</td>
 <td>58</td>
 </tr>
-<tr>
-<td>eKeyComma</td>
+<tr class="row-odd"><td>eKeyComma</td>
 <td>,</td>
 <td>44</td>
 </tr>
-<tr>
-<td>eKeyDelete</td>
+<tr class="row-even"><td>eKeyDelete</td>
 <td>Delete</td>
 <td>383</td>
 </tr>
-<tr>
-<td>eKeyDollar</td>
+<tr class="row-odd"><td>eKeyDollar</td>
 <td>$</td>
 <td>36</td>
 </tr>
-<tr>
-<td>eKeyDoubleQuote</td>
-<td>"</td>
+<tr class="row-even"><td>eKeyDoubleQuote</td>
+<td>“</td>
 <td>34</td>
 </tr>
-<tr>
-<td>eKeyEquals</td>
+<tr class="row-odd"><td>eKeyEquals</td>
 <td>=</td>
 <td>61</td>
 </tr>
-<tr>
-<td>eKeyEscape</td>
+<tr class="row-even"><td>eKeyEscape</td>
 <td>ESC</td>
 <td>27</td>
 </tr>
-<tr>
-<td>eKeyExclamationMark</td>
+<tr class="row-odd"><td>eKeyExclamationMark</td>
 <td>!</td>
 <td>33</td>
 </tr>
-<tr>
-<td>eKeyForwardSlash</td>
+<tr class="row-even"><td>eKeyForwardSlash</td>
 <td>/</td>
 <td>47</td>
 </tr>
-<tr>
-<td>eKeyGreaterThan</td>
+<tr class="row-odd"><td>eKeyGreaterThan</td>
 <td>&gt;</td>
 <td>62</td>
 </tr>
-<tr>
-<td>eKeyHash</td>
+<tr class="row-even"><td>eKeyHash</td>
 <td>#</td>
 <td>35</td>
 </tr>
-<tr>
-<td>eKeyHyphen</td>
-<td>-</td>
+<tr class="row-odd"><td>eKeyHyphen</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
 <td>45</td>
 </tr>
-<tr>
-<td>eKeyInsert</td>
+<tr class="row-even"><td>eKeyInsert</td>
 <td>Insert</td>
 <td>382</td>
 </tr>
-<tr>
-<td>eKeyLessThan</td>
+<tr class="row-odd"><td>eKeyLessThan</td>
 <td>&lt;</td>
 <td>60</td>
 </tr>
-<tr>
-<td>eKeyOpenBracket</td>
+<tr class="row-even"><td>eKeyOpenBracket</td>
 <td>[</td>
 <td>91</td>
 </tr>
-<tr>
-<td>eKeyOpenParenthesis</td>
+<tr class="row-odd"><td>eKeyOpenParenthesis</td>
 <td>(</td>
 <td>40</td>
 </tr>
-<tr>
-<td>eKeyPercent</td>
+<tr class="row-even"><td>eKeyPercent</td>
 <td>%</td>
 <td>37</td>
 </tr>
-<tr>
-<td>eKeyPeriod</td>
+<tr class="row-odd"><td>eKeyPeriod</td>
 <td>.</td>
 <td>46</td>
 </tr>
-<tr>
-<td>eKeyPlus</td>
-<td>+</td>
+<tr class="row-even"><td>eKeyPlus</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
 <td>43</td>
 </tr>
-<tr>
-<td>eKeyQuestionMark</td>
+<tr class="row-odd"><td>eKeyQuestionMark</td>
 <td>?</td>
 <td>63</td>
 </tr>
-<tr>
-<td>eKeyReturn</td>
+<tr class="row-even"><td>eKeyReturn</td>
 <td>RETURN</td>
 <td>13</td>
 </tr>
-<tr>
-<td>eKeySemiColon</td>
+<tr class="row-odd"><td>eKeySemiColon</td>
 <td>;</td>
 <td>59</td>
 </tr>
-<tr>
-<td>eKeySingleQuote</td>
-<td>'</td>
+<tr class="row-even"><td>eKeySingleQuote</td>
+<td>‘</td>
 <td>39</td>
 </tr>
-<tr>
-<td>eKeySpace</td>
+<tr class="row-odd"><td>eKeySpace</td>
 <td>SPACE</td>
 <td>32</td>
 </tr>
-<tr>
-<td>eKeyTab</td>
+<tr class="row-even"><td>eKeyTab</td>
 <td>TAB</td>
 <td>9</td>
 </tr>
-<tr>
-<td>eKeyUnderscore</td>
+<tr class="row-odd"><td>eKeyUnderscore</td>
 <td>_</td>
 <td>95</td>
 </tr>
-<tr>
-<td>eKeyF1</td>
+<tr class="row-even"><td>eKeyF1</td>
 <td>F1</td>
 <td>359</td>
 </tr>
-<tr>
-<td>eKeyF2</td>
+<tr class="row-odd"><td>eKeyF2</td>
 <td>F2</td>
 <td>360</td>
 </tr>
-<tr>
-<td>eKeyF3</td>
+<tr class="row-even"><td>eKeyF3</td>
 <td>F3</td>
 <td>361</td>
 </tr>
-<tr>
-<td>eKeyF4</td>
+<tr class="row-odd"><td>eKeyF4</td>
 <td>F4</td>
 <td>362</td>
 </tr>
-<tr>
-<td>eKeyF5</td>
+<tr class="row-even"><td>eKeyF5</td>
 <td>F5</td>
 <td>363</td>
 </tr>
-<tr>
-<td>eKeyF6</td>
+<tr class="row-odd"><td>eKeyF6</td>
 <td>F6</td>
 <td>364</td>
 </tr>
-<tr>
-<td>eKeyF7</td>
+<tr class="row-even"><td>eKeyF7</td>
 <td>F7</td>
 <td>365</td>
 </tr>
-<tr>
-<td>eKeyF8</td>
+<tr class="row-odd"><td>eKeyF8</td>
 <td>F8</td>
 <td>366</td>
 </tr>
-<tr>
-<td>eKeyF9</td>
+<tr class="row-even"><td>eKeyF9</td>
 <td>F9</td>
 <td>367</td>
 </tr>
-<tr>
-<td>eKeyF10</td>
+<tr class="row-odd"><td>eKeyF10</td>
 <td>F10</td>
 <td>368</td>
 </tr>
-<tr>
-<td>eKeyF11</td>
+<tr class="row-even"><td>eKeyF11</td>
 <td>F11</td>
 <td>433</td>
 </tr>
-<tr>
-<td>eKeyF12</td>
+<tr class="row-odd"><td>eKeyF12</td>
 <td>F12</td>
 <td>434</td>
 </tr>
-<tr>
-<td>eKeyHome</td>
+<tr class="row-even"><td>eKeyHome</td>
 <td>Home</td>
 <td>371</td>
 </tr>
-<tr>
-<td>eKeyUpArrow</td>
+<tr class="row-odd"><td>eKeyUpArrow</td>
 <td>UpArrow</td>
 <td>372</td>
 </tr>
-<tr>
-<td>eKeyPageUp</td>
+<tr class="row-even"><td>eKeyPageUp</td>
 <td>PageUp</td>
 <td>373</td>
 </tr>
-<tr>
-<td>eKeyLeftArrow</td>
+<tr class="row-odd"><td>eKeyLeftArrow</td>
 <td>LeftArrow</td>
 <td>375</td>
 </tr>
-<tr>
-<td>eKeyNumPad5</td>
+<tr class="row-even"><td>eKeyNumPad5</td>
 <td>NumPad 5</td>
 <td>376</td>
 </tr>
-<tr>
-<td>eKeyRightArrow</td>
+<tr class="row-odd"><td>eKeyRightArrow</td>
 <td>RightArrow</td>
 <td>377</td>
 </tr>
-<tr>
-<td>eKeyEnd</td>
+<tr class="row-even"><td>eKeyEnd</td>
 <td>End</td>
 <td>379</td>
 </tr>
-<tr>
-<td>eKeyDownArrow</td>
+<tr class="row-odd"><td>eKeyDownArrow</td>
 <td>DownArrow</td>
 <td>380</td>
 </tr>
-<tr>
-<td>eKeyPageDown</td>
+<tr class="row-even"><td>eKeyPageDown</td>
 <td>PageDown</td>
 <td>381</td>
 </tr>
 </tbody>
-</table><p>Use these key codes in your on_key_press function to process player
+</table>
+<p>Use these key codes in your on_key_press function to process player
 input. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">keycode</span> <span class="o">==</span> <span class="n">eKeyA</span><span class="p">)</span> <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You pressed A&quot;</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">keycode</span> <span class="o">==</span> <span class="n">eKeyPlus</span><span class="p">)</span> <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;You pressed the Plus key&quot;</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (keycode == eKeyA) Display(&quot;You pressed A&quot;);
+if (keycode == eKeyPlus) Display(&quot;You pressed the Plus key&quot;);
 </pre></div>
 </div>
 <p>The following extra codes can only be used with IsKeyPressed (ie.
 on_key_press is never called with these codes):</p>
 <table border="1" class="docutils">
-<thead>
-<tr>
-<th>Key</th>
-<th>ASCII code</th>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key</th>
+<th class="head">ASCII code</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>Left shift</td>
+<tbody valign="top">
+<tr class="row-even"><td>Left shift</td>
 <td>403</td>
 </tr>
-<tr>
-<td>Right shift</td>
+<tr class="row-odd"><td>Right shift</td>
 <td>404</td>
 </tr>
-<tr>
-<td>Left ctrl</td>
+<tr class="row-even"><td>Left ctrl</td>
 <td>405</td>
 </tr>
-<tr>
-<td>Right ctrl</td>
+<tr class="row-odd"><td>Right ctrl</td>
 <td>406</td>
 </tr>
-<tr>
-<td>Alt</td>
+<tr class="row-even"><td>Alt</td>
 <td>407</td>
 </tr>
 </tbody>
-</table></div>
-
-
-    </div>
-      
-  </div>
+</table>
 </div>
+
+
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ContactingTheDevelopers.html" title="previous chapter">Contacting the developers</a></li>
+      <li>Next: <a href="AdvancedRoomFeatures.html" title="next chapter">Advanced room features</a></li>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

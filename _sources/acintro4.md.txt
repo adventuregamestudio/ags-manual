@@ -1,6 +1,9 @@
 **Getting Started with AGS - Part 4**
 -------------------------------------
 
+.. index::
+   pair: ; Objects
+
 ### Objects
 
 Objects are items on the screen which, unlike hotspots, can move, change
@@ -73,6 +76,9 @@ The game speed is directly related to the number and size of objects on-screen. 
 Right, now back to the pressing matter at hand - letting the player pick
 up the key.
 
+.. index::
+   pair: ; Inventory
+
 ### Inventory
 
 Now wait, there's one more step we need to do first. At the moment we
@@ -136,6 +142,9 @@ But, the functionality is there, and this will do fine for now.
 Okey, so we now have a fully-working first room. Test the game as
 before, and try it out. Once the player has taken the key, call up his
 inventory and you should see the large key picture there.
+
+.. index::
+   pair: ; Room Settings
 
 ### Room Settings
 

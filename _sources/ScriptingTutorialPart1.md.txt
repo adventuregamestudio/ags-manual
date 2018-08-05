@@ -5,6 +5,9 @@ In AGS, all the interactivity in the game is handled using scripts.
 They're an essential part of game-making, so it's important that we go
 through how to use them.
 
+.. index::
+   pair: ; The Basics
+
 ### The Basics
 
 Right, we'll start off by doing something very simple - displaying a
@@ -39,6 +42,9 @@ It's important to mention here that lines beginning with a double-slash
 `//` are **comments** - AGS will ignore them, they are just there to
 help you remember what your script is doing. You can add comments to
 your script simply by starting the line with the `//` symbol.
+
+.. index::
+   pair: ; Commands Explained
 
 ### Commands Explained
 
@@ -99,6 +105,9 @@ can add this line to our script:
 This is what we already did in the main tutorial, but having examined it
 in more detail it should now make more sense why we've done it this way.
 
+.. index::
+   pair: ; Instances
+
 ### Instances
 
 The AGS script language is object-based. What this means is that many
@@ -140,6 +149,9 @@ the player character (especially useful in games where the player can
 control different characters) then you can use the *player* instance to
 do so.
 
+.. index::
+   pair: ; Command Sequences
+
 ### Command Sequences
 
 Suppose we want the player to be given a pink poster when they look at
@@ -164,6 +176,9 @@ you write them, so writing something like:
 will mean that the player gets the two messages in the order you
 specified.
 
+.. index::
+   pair: ; Recap
+
 ### Recap
 
 So, did you remember these vital points:
@@ -174,6 +189,9 @@ So, did you remember these vital points:
 -   To use an instance-based command, type the Script Name followed by a
     dot, followed by the command name.
 -   The *player* instance corresponds to the current player character.
+
+.. index::
+   pair: ; Variables
 
 ### Variables
 
@@ -333,6 +351,9 @@ tutorial. A simpler way is to use one of the 300 GlobalInts, which use
 the script functions SetGlobalInt and GetGlobalInt to access them. See
 their manual descriptions for more information.
 
+.. index::
+   pair: ; Functions that return a value
+
 ### Functions that return a value
 
 When reading function descriptions in the manual, you will notice that
@@ -358,6 +379,9 @@ example, you can do:
     }
 
 Be sure to remember the parenthesis ().
+
+.. index::
+   pair: ; Common Shortcuts
 
 ### Common Shortcuts
 
@@ -394,6 +418,9 @@ which is equivalent to:
 
     if (myCounter != 0)
       Display("counter is non-zero");
+
+.. index::
+   pair: ; Summary
 
 ### Summary
 

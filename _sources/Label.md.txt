@@ -16,11 +16,14 @@ GUI Label functions and properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[Font property](#font)<br>
-[Text property](#text)<br>
-[TextColor property](#textcolor)
+
+
+
 
 ---
+
+.. index::
+   pair: ; Font
 
 ### Font
 
@@ -47,6 +50,9 @@ translation is in use.
 
 ---
 
+.. index::
+   pair: ; Text
+
 ### Text
 
 *(Formerly known as SetLabelText, which is now obsolete)*<br>
@@ -69,9 +75,12 @@ will display the name of the location the cursor is over on label
 *See Also:* [Button.NormalGraphic](Button#normalgraphic),
 [Button.Text](Button#text),
 [Label.TextColor](#textcolor),
-[Label.Font](#font)
+
 
 ---
+
+.. index::
+   pair: ; TextColor
 
 ### TextColor
 
@@ -88,5 +97,5 @@ Example:
 will change label 'lblStatus' to have yellow text.
 
 *See Also:* [Label.Font](#font),
-[Label.Text](#text)
+
 

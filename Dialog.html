@@ -1,312 +1,53 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Dialog functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="DialogOptionsRenderingInfo functions and properties" href="DialogOptionsRenderingInfo.html" />
-    <link rel="prev" title="DateTime functions and properties" href="DateTime.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="prev" title="Debugging features" href="Debuggingfeatures.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Dialog functions and properties</a><ul>
-<li><a class="reference internal" href="#displayoptions">DisplayOptions</a></li>
-<li><a class="reference internal" href="#getoptionstate">GetOptionState</a></li>
-<li><a class="reference internal" href="#getoptiontext">GetOptionText</a></li>
-<li><a class="reference internal" href="#hasoptionbeenchosen">HasOptionBeenChosen</a></li>
-<li><a class="reference internal" href="#id">ID</a></li>
-<li><a class="reference internal" href="#optioncount">OptionCount</a></li>
-<li><a class="reference internal" href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></li>
-<li><a class="reference internal" href="#setoptionstate">SetOptionState</a></li>
-<li><a class="reference internal" href="#showtextparser">ShowTextParser</a></li>
-<li><a class="reference internal" href="#start">Start</a></li>
-<li><a class="reference internal" href="#stopdialog">StopDialog</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="DateTime.html" title="Previous Chapter: DateTime functions and properties"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; DateTime func...</span>
-    </a>
-  </li>
-  <li>
-    <a href="DialogOptionsRenderingInfo.html" title="Next Chapter: DialogOptionsRenderingInfo functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">DialogOptions... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/Dialog.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="dialog-functions-and-properties">
-<span id="dialog-functions-and-properties"></span><h1>Dialog functions and properties<a class="headerlink" href="#dialog-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#displayoptions">DisplayOptions</a><br>
-<a class="reference external" href="#getoptionstate">GetOptionState</a><br>
-<a class="reference external" href="#getoptiontext">GetOptionText</a><br>
-<a class="reference external" href="#hasoptionbeenchosen">HasOptionBeenChosen</a><br>
-<a class="reference external" href="#id">ID property</a><br>
-<a class="reference external" href="#optioncount">OptionCount property</a><br>
-<a class="reference external" href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a><br>
-<a class="reference external" href="#setoptionstate">SetOptionState</a><br>
-<a class="reference external" href="#showtextparser">ShowTextParser property</a><br>
-<a class="reference external" href="#start">Start</a><br>
-<a class="reference external" href="#stopdialog">StopDialog</a></p>
+<h1>Dialog functions and properties<a class="headerlink" href="#dialog-functions-and-properties" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="section" id="displayoptions">
-<span id="displayoptions"></span><h2>DisplayOptions<a class="headerlink" href="#displayoptions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">DisplayOptions</span><span class="p">(</span><span class="n">optional</span> <span class="n">DialogOptionSayStyle</span><span class="p">)</span>
+<span id="index-0"></span><h2>DisplayOptions<a class="headerlink" href="#displayoptions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Dialog.DisplayOptions(optional DialogOptionSayStyle)
 </pre></div>
 </div>
 <p>Presents the options for this dialog to the user and waits until they
 select one of them. The selected option number is returned.</p>
 <p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply
 displays the options and waits for the player to choose one. To run the
-dialog normally, use the <a class="reference external" href="#start">Dialog.Start</a> command
+dialog normally, use the <span class="xref std std-ref">Dialog.Start</span> command
 instead.</p>
 <p>This command is useful if you want to implement your own dialog system,
 but still use the standard AGS dialog option selection screens.</p>
@@ -319,33 +60,33 @@ editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
 <p>If the text parser is enabled for this dialog and the player types
 something into it rather than selecting an option, the special value
 <code class="docutils literal notranslate"><span class="pre">DIALOG_PARSER_SELECTED</span></code> will be returned, and AGS will have
-automatically called <a class="reference external" href="Parser#parsetext">Parser.ParseText</a> with
+automatically called <a class="reference internal" href="Parser.html"><span class="doc">Parser.ParseText</span></a> with
 the player’s text. Therefore, you can call
-<a class="reference external" href="Parser#said">Parser.Said</a> to process it.</p>
+<a class="reference internal" href="Parser.html"><span class="doc">Parser.Said</span></a> to process it.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dOldMan</span><span class="o">.</span><span class="n">DisplayOptions</span><span class="p">();</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">DIALOG_PARSER_SELECTED</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;They typed something into the parser!!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;They chose dialog option </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int result = dOldMan.DisplayOptions();
+if (result == DIALOG_PARSER_SELECTED)
+{
+  Display(&quot;They typed something into the parser!!&quot;);
+}
+else
+{
+  Display(&quot;They chose dialog option %d.&quot;, result);
+}
 </pre></div>
 </div>
 <p>will show the options for dialog <em>dOldMan</em> and display a message
 depending on what the player selected.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#start">Dialog.Start</a>,
-<a class="reference external" href="Parser#parsetext">Parser.ParseText</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.Start</span>,
+<a class="reference internal" href="Parser.html"><span class="doc">Parser.ParseText</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="getoptionstate">
-<span id="getoptionstate"></span><h2>GetOptionState<a class="headerlink" href="#getoptionstate" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>GetOptionState<a class="headerlink" href="#getoptionstate" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as global function GetDialogOption, which is now
 obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dialog</span><span class="o">.</span><span class="n">GetOptionState</span><span class="p">(</span><span class="nb">int</span> <span class="n">option</span><span class="p">)</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.GetOptionState(int option)
 </pre></div>
 </div>
 <p>Finds out whether an option in a conversation is available to the player
@@ -353,51 +94,49 @@ or not.</p>
 <p>OPTION is the option number within the dialog, from 1 to whatever the
 highest option is for that topic.</p>
 <p>The return value can have the following values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eOptionOff</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">disabled</span> <span class="o">-</span> <span class="n">the</span> <span class="n">player</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">see</span> <span class="n">it</span>
-<span class="n">eOptionOn</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">enabled</span> <span class="o">-</span> <span class="n">the</span> <span class="n">player</span> <span class="n">can</span> <span class="n">now</span> <span class="n">see</span> <span class="ow">and</span> <span class="n">use</span> <span class="n">it</span>
-<span class="n">eOptionOffForever</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">permanently</span> <span class="n">disabled</span> <span class="o">-</span> <span class="n">no</span> <span class="n">other</span> <span class="n">command</span> <span class="n">can</span> <span class="n">ever</span> <span class="n">turn</span>
-  <span class="n">it</span> <span class="n">back</span> <span class="n">on</span> <span class="n">again</span><span class="o">.</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eOptionOff
+  The option is disabled - the player will not see it
+eOptionOn
+  The option is enabled - the player can now see and use it
+eOptionOffForever
+  The option is permanently disabled - no other command can ever turn
+  it back on again.
 </pre></div>
 </div>
 <p>These are the same as the options passed to Dialog.SetOptionState.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dJoeExcited</span><span class="o">.</span><span class="n">GetOptionState</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="n">eOptionOn</span><span class="p">)</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;It&#39;s turned off&quot;</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dJoeExcited.GetOptionState(2) != eOptionOn)
+  Display(&quot;It&#39;s turned off&quot;);
 </pre></div>
 </div>
 <p>Will display a message if option 2 of dialog dJoeExcited is not
 currently switched on.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a>,
-<a class="reference external" href="#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>,
-<a class="reference external" href="#setoptionstate">Dialog.SetOptionState</a></p>
-</div>
+<span class="xref std std-ref">Dialog.HasOptionBeenChosen</span>,
+<span class="xref std std-ref">Dialog.SetHasOptionBeenChosen</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="getoptiontext">
-<span id="getoptiontext"></span><h2>GetOptionText<a class="headerlink" href="#getoptiontext" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">GetOptionText</span><span class="p">(</span><span class="nb">int</span> <span class="n">option</span><span class="p">)</span>
+<span id="index-2"></span><h2>GetOptionText<a class="headerlink" href="#getoptiontext" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Dialog.GetOptionText(int option)
 </pre></div>
 </div>
 <p>Returns the text for the specified dialog option.</p>
 <p>OPTION is the option number within the dialog, from 1 to whatever the
 highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">optionText</span> <span class="o">=</span> <span class="n">dJoeBloggs</span><span class="o">.</span><span class="n">GetOptionText</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Option 3 of dialog dJoeBloggs is </span><span class="si">%s</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="n">optionText</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String optionText = dJoeBloggs.GetOptionText(3);
+Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 </pre></div>
 </div>
 <p>will display the text for the third option of the dJoeBloggs dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#optioncount">Dialog.OptionCount</a>,
-<a class="reference external" href="#getoptionstate">Dialog.GetOptionState</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.OptionCount</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="hasoptionbeenchosen">
-<span id="hasoptionbeenchosen"></span><h2>HasOptionBeenChosen<a class="headerlink" href="#hasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">HasOptionBeenChosen</span><span class="p">(</span><span class="nb">int</span> <span class="n">option</span><span class="p">)</span>
+<span id="index-3"></span><h2>HasOptionBeenChosen<a class="headerlink" href="#hasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Dialog.HasOptionBeenChosen(int option)
 </pre></div>
 </div>
 <p>Finds out whether the player has already chosen the specified option in
@@ -407,54 +146,53 @@ already been chosen.</p>
 <p>OPTION is the option number within the dialog, from 1 to whatever the
 highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dJoeExcited</span><span class="o">.</span><span class="n">HasOptionBeenChosen</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The player has chosen option 2 in dialog dJoeExcited!&quot;</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dJoeExcited.HasOptionBeenChosen(2))
+  Display(&quot;The player has chosen option 2 in dialog dJoeExcited!&quot;);
 </pre></div>
 </div>
 <p>will display a message if the player has used option 2 of the dialog
 before.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getoptionstate">Dialog.GetOptionState</a>,
-<a class="reference external" href="#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>,</p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.GetOptionState</span>,
+<span class="xref std std-ref">Dialog.SetHasOptionBeenChosen</span>,</p>
 <hr class="docutils" />
-<div class="section" id="id">
-<span id="id"></span><h2>ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">ID</span><span class="p">;</span>
+</div>
+<div class="section" id="index-4">
+<span id="id"></span><h2>ID<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Dialog.ID;
 </pre></div>
 </div>
 <p>Gets the dialog ID number from the editor.</p>
 <p>This might be useful if you need to interoperate with legacy scripts
 that work with dialog ID numbers.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;dFisherman is Dialog </span><span class="si">%d</span><span class="s2">!&quot;</span><span class="p">,</span> <span class="n">dFisherman</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;dFisherman is Dialog %d!&quot;, dFisherman.ID);
 </pre></div>
 </div>
 <p>will display the ID number of the dFisherman dialog</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="optioncount">
-<span id="optioncount"></span><h2>OptionCount<a class="headerlink" href="#optioncount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">OptionCount</span><span class="p">;</span>
+<span id="index-5"></span><h2>OptionCount<a class="headerlink" href="#optioncount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Dialog.OptionCount;
 </pre></div>
 </div>
 <p>Gets the number of options that this dialog has.</p>
 <p>This might be useful in a script module if you want to iterate through
 all the possible choices in the dialog.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;dFisherman has </span><span class="si">%d</span><span class="s2"> options!&quot;</span><span class="p">,</span> <span class="n">dFisherman</span><span class="o">.</span><span class="n">OptionCount</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span>(<span class="s">&quot;dFisherman has %d options!&quot;</span>, <span class="n">dFisherman</span>.<span class="n">OptionCount</span>);
 </pre></div>
 </div>
 <p>will display the number of options in the dFisherman dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getoptiontext">Dialog.GetOptionText</a>,
-<a class="reference external" href="#getoptionstate">Dialog.GetOptionState</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.GetOptionText</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="sethasoptionbeenchosen">
-<span id="sethasoptionbeenchosen"></span><h2>SetHasOptionBeenChosen<a class="headerlink" href="#sethasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dialog</span><span class="o">.</span><span class="n">SetHasOptionBeenChosen</span><span class="p">(</span><span class="nb">int</span> <span class="n">option</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">chosen</span><span class="p">)</span>
+<span id="index-6"></span><h2>SetHasOptionBeenChosen<a class="headerlink" href="#sethasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.SetHasOptionBeenChosen(int option, bool chosen)
 </pre></div>
 </div>
 <p>Changes whether an option in a conversation is marked as previously
@@ -465,21 +203,20 @@ or force it change at any random moment.</p>
 <p>OPTION is the option number within the dialog, from 1 to whatever the
 highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dDialog1</span><span class="o">.</span><span class="n">HasOptionBeenChosen</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">dDialog1</span><span class="o">.</span><span class="n">SetHasOptionBeenChosen</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span> <span class="o">//</span> <span class="n">reset</span> <span class="n">the</span> <span class="n">option</span> <span class="n">state</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dDialog1.HasOptionBeenChosen(1))
+    dDialog1.SetHasOptionBeenChosen(1, false); // reset the option state
 </pre></div>
 </div>
 <p>will mark option 1 of dialog dDialog1 as “not chosen yet”.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getoptionstate">Dialog.GetOptionState</a>,
-<a class="reference external" href="#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.GetOptionState</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="setoptionstate">
-<span id="setoptionstate"></span><h2>SetOptionState<a class="headerlink" href="#setoptionstate" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>SetOptionState<a class="headerlink" href="#setoptionstate" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as global function SetDialogOption, which is now
 obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dialog</span><span class="o">.</span><span class="n">SetOptionState</span><span class="p">(</span><span class="nb">int</span> <span class="n">option</span><span class="p">,</span> <span class="n">DialogOptionState</span><span class="p">)</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.SetOptionState(int option, DialogOptionState)
 </pre></div>
 </div>
 <p>Changes whether an option in a conversation is available to the player
@@ -489,51 +226,50 @@ player has done certain things.</p>
 highest option is for that topic.</p>
 <p>The DialogOptionState controls what happens to this option. It can have
 the following values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eOptionOff</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">disabled</span> <span class="o">-</span> <span class="n">the</span> <span class="n">player</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">see</span> <span class="n">it</span>
-<span class="n">eOptionOn</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">enabled</span> <span class="o">-</span> <span class="n">the</span> <span class="n">player</span> <span class="n">can</span> <span class="n">now</span> <span class="n">see</span> <span class="ow">and</span> <span class="n">use</span> <span class="n">it</span>
-<span class="n">eOptionOffForever</span>
-  <span class="n">The</span> <span class="n">option</span> <span class="ow">is</span> <span class="n">permanently</span> <span class="n">disabled</span> <span class="o">-</span> <span class="n">no</span> <span class="n">other</span> <span class="n">command</span> <span class="n">can</span> <span class="n">ever</span> <span class="n">turn</span>
-  <span class="n">it</span> <span class="n">back</span> <span class="n">on</span> <span class="n">again</span><span class="o">.</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eOptionOff
+  The option is disabled - the player will not see it
+eOptionOn
+  The option is enabled - the player can now see and use it
+eOptionOffForever
+  The option is permanently disabled - no other command can ever turn
+  it back on again.
 </pre></div>
 </div>
 <p>These are equivalent to the option-off, option-on, and
 option-off-forever dialog commands.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">GetGlobalInt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">dialog</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">SetOptionState</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">eOptionOn</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetGlobalInt(10)==1)
+    dialog[4].SetOptionState(2, eOptionOn);
 </pre></div>
 </div>
 <p>will enable option 2 of topic number 4 if the Global Integer 10 is 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getoptionstate">Dialog.GetOptionState</a>,
-<a class="reference external" href="#start">Dialog.Start</a>,
-<a class="reference external" href="#stopdialog">StopDialog</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.GetOptionState</span>,
+<span class="xref std std-ref">Dialog.Start</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="showtextparser">
-<span id="showtextparser"></span><h2>ShowTextParser<a class="headerlink" href="#showtextparser" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">Dialog</span><span class="o">.</span><span class="n">ShowTextParser</span><span class="p">;</span>
+<span id="index-8"></span><h2>ShowTextParser<a class="headerlink" href="#showtextparser" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Dialog.ShowTextParser;
 </pre></div>
 </div>
 <p>Gets whether this dialog shows a text box allowing the player to type in
 text.</p>
 <p>This property is initially set in the Dialog Editor.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">dFisherman</span><span class="o">.</span><span class="n">ShowTextParser</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;dFisherman has a text box!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dFisherman.ShowTextParser)
+{
+  Display(&quot;dFisherman has a text box!&quot;);
+}
 </pre></div>
 </div>
 <p>will display a message if dFisherman has the option enabled</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.1</strong> and later versions.</p>
-</div>
 <hr class="docutils" />
+</div>
 <div class="section" id="start">
-<span id="start"></span><h2>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as global function RunDialog, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dialog</span><span class="o">.</span><span class="n">Start</span><span class="p">()</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.Start()
 </pre></div>
 </div>
 <p>Starts a conversation from the specified topic.</p>
@@ -543,17 +279,16 @@ run when the current script function finishes executing.</p>
 will specify that the game should return to this new topic when the
 script finishes.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dMerchant</span><span class="o">.</span><span class="n">Start</span><span class="p">();</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>dMerchant.Start();
 </pre></div>
 </div>
 <p>will start the conversation topic named dMerchant.</p>
-<p><em>See Also:</em> <a class="reference external" href="#displayoptions">Dialog.DisplayOptions</a>,
-<a class="reference external" href="#setoptionstate">Dialog.SetOptionState</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.DisplayOptions</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="stopdialog">
-<span id="stopdialog"></span><h2>StopDialog<a class="headerlink" href="#stopdialog" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StopDialog</span> <span class="p">()</span>
+<span id="index-10"></span><h2>StopDialog<a class="headerlink" href="#stopdialog" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>StopDialog ()
 </pre></div>
 </div>
 <p>This command can only be used from within the dialog_request function.
@@ -562,38 +297,73 @@ should stop rather than continuing with the dialog script.</p>
 <p>You can use this function to end the conversation depending on whether
 the player has/does a certain thing.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">function</span> <span class="n">dialog_request</span> <span class="p">(</span><span class="nb">int</span> <span class="n">dr</span><span class="p">)</span> <span class="p">{</span>
- <span class="k">if</span> <span class="p">(</span><span class="n">dr</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-   <span class="n">cEgo</span><span class="o">.</span><span class="n">AddInventory</span><span class="p">(</span><span class="n">iPoster</span><span class="p">);</span>
-   <span class="n">StopDialog</span><span class="p">();</span>
- <span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_request</span> <span class="p">(</span><span class="kr">int</span> <span class="nx">dr</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">dr</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">cEgo</span><span class="p">.</span><span class="nx">AddInventory</span><span class="p">(</span><span class="nx">iPoster</span><span class="p">);</span>
+  <span class="nx">StopDialog</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>will give the player the inventory item 3 and then end the conversation.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setoptionstate">Dialog.SetOptionState</a></p>
+<p><em>See Also:</em> <span class="xref std std-ref">Dialog.SetOptionState</span></p>
 </div>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Debuggingfeatures.html" title="previous chapter">Debugging features</a></li>
+      <li>Next: <a href="DialogOptionsRenderingInfo.html" title="next chapter">DialogOptionsRenderingInfo functions and properties</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dialog functions and properties</a><ul>
+<li><a class="reference internal" href="#displayoptions">DisplayOptions</a></li>
+<li><a class="reference internal" href="#getoptionstate">GetOptionState</a></li>
+<li><a class="reference internal" href="#getoptiontext">GetOptionText</a></li>
+<li><a class="reference internal" href="#hasoptionbeenchosen">HasOptionBeenChosen</a></li>
+<li><a class="reference internal" href="#index-4">ID</a></li>
+<li><a class="reference internal" href="#optioncount">OptionCount</a></li>
+<li><a class="reference internal" href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></li>
+<li><a class="reference internal" href="#setoptionstate">SetOptionState</a></li>
+<li><a class="reference internal" href="#showtextparser">ShowTextParser</a></li>
+<li><a class="reference internal" href="#start">Start</a></li>
+<li><a class="reference internal" href="#stopdialog">StopDialog</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

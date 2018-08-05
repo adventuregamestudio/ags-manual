@@ -1,18 +1,21 @@
 Multimedia functions
 --------------------
 
-[CDAudio](#cdaudio)<br>
-[IsAudioPlaying](#isaudioplaying)<br>
-[IsSpeechVoxAvailable](#isspeechvoxavailable)<br>
-[PlayFlic](#playflic)<br>
-[PlaySilentMIDI](#playsilentmidi)<br>
-[PlayVideo](#playvideo)<br>
-[SetAudioTypeSpeechVolumeDrop](#setaudiotypespeechvolumedrop)<br>
-[SetAudioTypeVolume](#setaudiotypevolume)<br>
-[SetSpeechVolume](#setspeechvolume)<br>
-[StopAudio](#stopaudio)
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; CDAudio
 
 ### CDAudio
 
@@ -72,6 +75,9 @@ will play track 3 of the CD that's in the CD ROM drive.
 
 ---
 
+.. index::
+   pair: ; IsAudioPlaying
+
 ### IsAudioPlaying
 
 *(Formerly known as IsMusicPlaying, which is now obsolete)*<br>
@@ -101,6 +107,9 @@ waits for any currently playing music to finish.
 
 ---
 
+.. index::
+   pair: ; IsSpeechVoxAvailable
+
 ### IsSpeechVoxAvailable
 
     IsSpeechVoxAvailable()
@@ -124,6 +133,9 @@ been renamed to avoid confusion.
 *See Also:* [AudioClip.IsAvailable](AudioClip#isavailable)
 
 ---
+
+.. index::
+   pair: ; PlayFlic
 
 ### PlayFlic
 
@@ -153,6 +165,9 @@ the ESC key.
 
 ---
 
+.. index::
+   pair: ; PlaySilentMIDI
+
 ### PlaySilentMIDI
 
     PlaySilentMIDI (int music_number)
@@ -166,6 +181,9 @@ simulate this effect.
 [AudioChannel.Volume](AudioChannel#volume)
 
 ---
+
+.. index::
+   pair: ; PlayVideo
 
 ### PlayVideo
 
@@ -232,6 +250,9 @@ versions.
 
 ---
 
+.. index::
+   pair: ; SetAudioTypeSpeechVolumeDrop
+
 ### SetAudioTypeSpeechVolumeDrop
 
 *(Formerly known as game.speech_music_drop, which is now obsolete)*
@@ -258,6 +279,9 @@ while speech is playing.
 *See Also:* [Game.SetAudioTypeVolume](#setaudiotypevolume)
 
 ---
+
+.. index::
+   pair: ; SetAudioTypeVolume
 
 ### SetAudioTypeVolume
 
@@ -300,6 +324,9 @@ will change the volume of all currently playing and future music to
 
 ---
 
+.. index::
+   pair: ; SetSpeechVolume
+
 ### SetSpeechVolume
 
     SetSpeechVolume (int volume)
@@ -317,6 +344,9 @@ will set the speech volume to 200.
 *See Also:* [Game.SetAudioTypeVolume](#setaudiotypevolume)
 
 ---
+
+.. index::
+   pair: ; StopAudio
 
 ### StopAudio
 

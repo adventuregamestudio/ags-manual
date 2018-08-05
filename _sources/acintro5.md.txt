@@ -1,6 +1,9 @@
 **Getting Started with AGS - Part 5**
 -------------------------------------
 
+.. index::
+   pair: ; Managing Inventory
+
 ### Managing Inventory
 
 Each character in the game can carry their own set of inventory items.

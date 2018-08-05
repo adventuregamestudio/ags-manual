@@ -1,42 +1,45 @@
 Room functions
 --------------
 
-[AreThingsOverlapping](#arethingsoverlapping)<br>
-[DisableGroundLevelAreas](#disablegroundlevelareas)<br>
-[EnableGroundLevelAreas](#enablegroundlevelareas)<br>
-[GetBackgroundFrame](#getbackgroundframe)<br>
-[GetDrawingSurfaceForBackground](#getdrawingsurfaceforbackground)<br>
-[GetPlayerCharacter](#getplayercharacter)<br>
-[GetProperty](#getproperty)<br>
-[GetTextProperty](#gettextproperty)<br>
-[SetProperty](#setproperty)<br>
-[SetTextProperty](#settextproperty)<br>
-[GetScalingAt](#getscalingat)<br>
-[GetViewportX](#getviewportx)<br>
-[GetViewportY](#getviewporty)<br>
-[GetWalkableAreaAt](#getwalkableareaat)<br>
-[HasPlayerBeenInRoom](#hasplayerbeeninroom)<br>
-[ProcessClick](#processclick)<br>
-[ReleaseViewport](#releaseviewport)<br>
-[RemoveWalkableArea](#removewalkablearea)<br>
-[ResetRoom](#resetroom)<br>
-[RestoreWalkableArea](#restorewalkablearea)<br>
-[SetAreaScaling](#setareascaling)<br>
-[SetBackgroundFrame](#setbackgroundframe)<br>
-[SetViewport](#setviewport)<br>
-[SetWalkBehindBase](#setwalkbehindbase)<br>
-[BottomEdge property](#bottomedge)<br>
-[ColorDepth property](#colordepth)<br>
-[Height property](#height)<br>
-[LeftEdge property](#leftedge)<br>
-[Messages property](#messages)<br>
-[MusicOnLoad property](#musiconload)<br>
-[ObjectCount property](#objectcount)<br>
-[RightEdge property](#rightedge)<br>
-[TopEdge property](#topedge)<br>
-[Width property](#width)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; AreThingsOverlapping
 
 ### AreThingsOverlapping
 
@@ -73,6 +76,9 @@ if object 2 was a bullet, for instance.
 
 ---
 
+.. index::
+   pair: ; DisableGroundLevelAreas
+
 ### DisableGroundLevelAreas
 
     DisableGroundLevelAreas(int disableTints)
@@ -101,9 +107,12 @@ will disable all ground-level events, but leave light levels working
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-[EnableGroundLevelAreas](#enablegroundlevelareas)
+
 
 ---
+
+.. index::
+   pair: ; EnableGroundLevelAreas
 
 ### EnableGroundLevelAreas
 
@@ -121,9 +130,12 @@ will re-enable all ground-level events.
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-[DisableGroundLevelAreas](#disablegroundlevelareas)
+
 
 ---
+
+.. index::
+   pair: ; GetBackgroundFrame
 
 ### GetBackgroundFrame
 
@@ -143,6 +155,9 @@ will turn on object 2 if the background frame of the room is frame 4.
 *See Also:* [SetBackgroundFrame](#setbackgroundframe)
 
 ---
+
+.. index::
+   pair: ; GetDrawingSurfaceForBackground
 
 ### GetDrawingSurfaceForBackground
 
@@ -183,6 +198,9 @@ background, then releases the image.
 
 ---
 
+.. index::
+   pair: ; GetPlayerCharacter
+
 ### GetPlayerCharacter
 
     GetPlayerCharacter ()
@@ -198,6 +216,9 @@ Example:
 *See Also:* [Character.ID](Character#id)
 
 ---
+
+.. index::
+   pair: ; GetProperty
 
 ### GetProperty
 
@@ -229,6 +250,9 @@ box ticked.
 
 ---
 
+.. index::
+   pair: ; GetTextProperty
+
 ### GetTextProperty
 
 *(Formerly known as global function GetRoomPropertyText, which is now
@@ -257,6 +281,9 @@ will retrieve the room's "description" property then display it.
 *See Also:* [Room.GetProperty](#getproperty)
 
 ---
+
+.. index::
+   pair: ; SetProperty
 
 ### SetProperty
 
@@ -287,6 +314,9 @@ will change room's "Darkness" custom property to 10.
 
 ---
 
+.. index::
+   pair: ; SetTextProperty
+
 ### SetTextProperty
 
     bool Room.SetTextProperty(const string property, const string value)
@@ -314,6 +344,9 @@ will change room's "description" property.
 
 ---
 
+.. index::
+   pair: ; GetScalingAt
+
 ### GetScalingAt
 
     GetScalingAt (int x, int y)
@@ -329,9 +362,12 @@ Example:
         Display ("The player is currently at normal size.");
 
 *See Also:* [GetWalkableAreaAt](#getwalkableareaat),
-[SetAreaScaling](#setareascaling)
+
 
 ---
+
+.. index::
+   pair: ; GetViewportX
 
 ### GetViewportX
 
@@ -355,9 +391,12 @@ will turn object 2 on if the player has scrolled the room by 100 pixels
 to the right.
 
 *See Also:* [GetViewportY](#getviewporty),
-[SetViewport](#setviewport)
+
 
 ---
+
+.. index::
+   pair: ; GetViewportY
 
 ### GetViewportY
 
@@ -379,9 +418,12 @@ will turn object 2 on if the player has scrolled the room by 20 pixels
 to the bottom.
 
 *See Also:* [GetViewportX](#getviewportx),
-[SetViewport](#setviewport)
+
 
 ---
+
+.. index::
+   pair: ; GetWalkableAreaAt
 
 ### GetWalkableAreaAt
 
@@ -404,9 +446,12 @@ Example:
 
 *See Also:* [Hotspot.GetAtScreenXY](Hotspot#getatscreenxy),
 [Region.GetAtRoomXY](Region#getatroomxy),
-[GetScalingAt](#getscalingat)
+
 
 ---
+
+.. index::
+   pair: ; HasPlayerBeenInRoom
 
 ### HasPlayerBeenInRoom
 
@@ -435,6 +480,9 @@ will display a message if the player has been to room 14.
 *See Also:* [ResetRoom](#resetroom)
 
 ---
+
+.. index::
+   pair: ; ProcessClick
 
 ### ProcessClick
 
@@ -469,6 +517,9 @@ will simulate a click in the Look mode on co-ordinates (100, 50).
 
 ---
 
+.. index::
+   pair: ; ReleaseViewport
+
 ### ReleaseViewport
 
     ReleaseViewport ()
@@ -493,6 +544,9 @@ to its original position and unlock the screen viewport.
 
 ---
 
+.. index::
+   pair: ; RemoveWalkableArea
+
 ### RemoveWalkableArea
 
     RemoveWalkableArea (int areanum)
@@ -514,6 +568,9 @@ will make the walking area 5 unwalkable.
 *See Also:* [RestoreWalkableArea](#restorewalkablearea)
 
 ---
+
+.. index::
+   pair: ; ResetRoom
 
 ### ResetRoom
 
@@ -544,6 +601,9 @@ to.
 
 ---
 
+.. index::
+   pair: ; RestoreWalkableArea
+
 ### RestoreWalkableArea
 
     RestoreWalkableArea (int areanum)
@@ -559,6 +619,9 @@ will make the walking area 4 walkable again.
 *See Also:* [RemoveWalkableArea](#removewalkablearea)
 
 ---
+
+.. index::
+   pair: ; SetAreaScaling
 
 ### SetAreaScaling
 
@@ -586,9 +649,12 @@ will set walkable area 5 to use continuous scaling from 120 to 170
 percent.
 
 *See Also:* [GetScalingAt](#getscalingat),
-[GetWalkableAreaAt](#getwalkableareaat)
+
 
 ---
+
+.. index::
+   pair: ; SetBackgroundFrame
 
 ### SetBackgroundFrame
 
@@ -618,6 +684,9 @@ integer 20 is 1.
 *See Also:* [GetBackgroundFrame](#getbackgroundframe)
 
 ---
+
+.. index::
+   pair: ; SetViewport
 
 ### SetViewport
 
@@ -651,9 +720,12 @@ to follow the player around.
 
 *See Also:* [GetViewportX](#getviewportx),
 [GetViewportY](#getviewporty),
-[ReleaseViewport](#releaseviewport)
+
 
 ---
+
+.. index::
+   pair: ; SetWalkBehindBase
 
 ### SetWalkBehindBase
 
@@ -681,6 +753,9 @@ will disable the walkbehind area number 3.
 
 ---
 
+.. index::
+   pair: ; BottomEdge
+
 ### BottomEdge
 
     readonly static int Room.BottomEdge
@@ -694,9 +769,12 @@ Example:
 
 *See Also:* [Room.LeftEdge](#leftedge),
 [Room.RightEdge](#rightedge),
-[Room.TopEdge](#topedge)
+
 
 ---
+
+.. index::
+   pair: ; ColorDepth
 
 ### ColorDepth
 
@@ -715,6 +793,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; Height
+
 ### Height
 
 *(Formerly known as game.room_height, which is now obsolete)*
@@ -732,6 +813,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; LeftEdge
+
 ### LeftEdge
 
     readonly static int Room.LeftEdge
@@ -745,9 +829,12 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.RightEdge](#rightedge),
-[Room.TopEdge](#topedge)
+
 
 ---
+
+.. index::
+   pair: ; Messages
 
 ### Messages
 
@@ -773,6 +860,9 @@ will print the contents of room message 1.
 
 ---
 
+.. index::
+   pair: ; MusicOnLoad
+
 ### MusicOnLoad
 
     readonly static int Room.MusicOnLoad
@@ -790,6 +880,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; ObjectCount
+
 ### ObjectCount
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -804,6 +897,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; RightEdge
+
 ### RightEdge
 
     readonly static int Room.RightEdge
@@ -817,9 +913,12 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.LeftEdge](#leftedge),
-[Room.TopEdge](#topedge)
+
 
 ---
+
+.. index::
+   pair: ; TopEdge
 
 ### TopEdge
 
@@ -834,9 +933,12 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.LeftEdge](#leftedge),
-[Room.RightEdge](#rightedge)
+
 
 ---
+
+.. index::
+   pair: ; Width
 
 ### Width
 

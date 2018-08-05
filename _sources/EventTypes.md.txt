@@ -4,14 +4,17 @@ Event Types
 The following events are available in the "Events" section of the
 Properties Window (when clicking the lightning bolt icon).
 
-[Hotspot events](#hotspot-events)<br>
-[Object events](#object-events)<br>
-[Room events](#room-events)<br>
-[Inventory item events](#inventory-item-events)<br>
-[Character events](#character-events)<br>
-[Region events](#region-events)
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Hotspot events
 
 ### Hotspot events
 
@@ -55,6 +58,9 @@ use this to highlight the cursor, and for other various effects.
 
 ---
 
+.. index::
+   pair: ; Object events
+
 ### Object events
 
 Look at object
@@ -78,6 +84,9 @@ works like "Use inventory on hotspot" - see that description (above) for
 more information.
 
 ---
+
+.. index::
+   pair: ; Room events
 
 ### Room events
 
@@ -134,6 +143,9 @@ out.
 
 ---
 
+.. index::
+   pair: ; Inventory item events
+
 ### Inventory item events
 
 Look at inventory
@@ -172,6 +184,9 @@ item.
 
 ---
 
+.. index::
+   pair: ; Character events
+
 ### Character events
 
 Look at character
@@ -198,6 +213,9 @@ occurs when the player clicks any other cursor mode (apart from look,
 talk and use_inv) on the character.
 
 ---
+
+.. index::
+   pair: ; Region events
 
 ### Region events
 

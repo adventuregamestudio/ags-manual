@@ -4,15 +4,18 @@ AudioClip functions and properties
 AudioClips are created when you import files in the AGS Editor. The
 commands in this section allow to play them.
 
-[Play](#play)<br>
-[PlayFrom](#playfrom)<br>
-[PlayQueued](#playqueued)<br>
-[Stop](#stop)<br>
-[FileType property](#filetype)<br>
-[IsAvailable property](#isavailable)<br>
-[Type property](#type)
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Play
 
 ### Play
 
@@ -54,9 +57,12 @@ plays the *aExplosion* audio clip.
 
 *See Also:* [AudioClip.PlayFrom](#playfrom),
 [AudioClip.PlayQueued](#playqueued),
-[AudioClip.Stop](#stop)
+
 
 ---
+
+.. index::
+   pair: ; PlayFrom
 
 ### PlayFrom
 
@@ -83,6 +89,9 @@ it is OGG/MP3).
 *See Also:* [AudioClip.Play](#play)
 
 ---
+
+.. index::
+   pair: ; PlayQueued
 
 ### PlayQueued
 
@@ -120,6 +129,9 @@ be played afterwards.
 
 ---
 
+.. index::
+   pair: ; Stop
+
 ### Stop
 
     AudioClip.Stop()
@@ -140,6 +152,9 @@ again.
 *See Also:* [AudioClip.Play](#play)
 
 ---
+
+.. index::
+   pair: ; FileType
 
 ### FileType
 
@@ -162,9 +177,12 @@ displays a message if aExplosion is a MIDI file
 
 *See Also:* [AudioChannel.Seek](AudioChannel#seek),
 [AudioChannel.Position](AudioChannel#position),
-[AudioClip.PlayFrom](#playfrom)
+
 
 ---
+
+.. index::
+   pair: ; IsAvailable
 
 ### IsAvailable
 
@@ -195,6 +213,9 @@ checks if the aExplosion audio clip is available, and if so plays it.
 *See Also:* [AudioClip.Play](#play)
 
 ---
+
+.. index::
+   pair: ; Type
 
 ### Type
 

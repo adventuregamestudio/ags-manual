@@ -1,227 +1,1031 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Object functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Overlay functions and properties" href="Overlay.html" />
-    <link rel="prev" title="Multimedia functions" href="Multimedia.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="prev" title="Music and sound" href="MusAndSound.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="object-functions-and-properties">
+<h1>Object functions and properties<a class="headerlink" href="#object-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="animate">
+<span id="index-0"></span><h2>Animate<a class="headerlink" href="#animate" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as AnimateObject, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as AnimateObjectEx, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.Animate(int loop, int delay, optional RepeatStyle,
+               optional BlockingStyle, optional Direction)
+</pre></div>
+</div>
+<p>Starts the object animating, using loop number LOOP of its current view.
+The overall speed of the animation is set with DELAY, where 0 is the
+fastest, and increasing numbers mean slower. The delay for each frame is
+worked out as DELAY + FRAME SPD, so the individual frame speeds are
+relative to this overall speed.</p>
+<p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously
+repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in
+which case the animation will start from the first frame of LOOP, and go
+through each frame in turn until the last frame, where it will stop. If
+RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it
+will go back to the first frame and start over again with the animation.
+If RepeatStyle is 2 then it will do the animation once, but then return
+the graphic to the first frame and stop (whereas repeat=0 will leave the
+graphic on the last frame).</p>
+<p>For <em>blocking</em> you can pass either eBlock (in which case the function
+will wait for the animation to finish before returning), or eNoBlock (in
+which case the animation will start to play, but your script will
+continue). The default is eBlock.</p>
+<p><em>direction</em> specifies which way the animation plays. You can either pass
+eForwards (the default) or eBackwards.</p>
+<p>You need to use SetView at some stage before this command, in order to
+set up the object’s current view.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[0].Animate(2, 5);
+object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
+</pre></div>
+</div>
+<p>will animate object 0 using loop 2 of its current view, at speed 5, and
+play the animation once only. This happens in the background. Then,
+object 1 will animate backwards using loop 1 of its current view, at
+speed 3. The function won’t return until the animation is finished.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Animate</span></a>,
+<span class="xref std std-ref">Object.Animating</span>,
+<span class="xref std std-ref">Object.SetView</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="getatscreenxy">
+<span id="index-1"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as global function GetObjectAt, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Object* Object.GetAtScreenXY(int x, int y)
+</pre></div>
+</div>
+<p>Checks if there is a room object at SCREEN co-ordinates (X,Y). Returns
+the object if there is, or <em>null</em> if there is not.</p>
+<p>See the description of GetLocationName for more on screen co-ordinates.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Object.GetAtScreenXY(211,145) == oRock) {
+  // code here
+}
+</pre></div>
+</div>
+<p>will execute the code only if object oRock is on the screen coordinates
+211,145.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>,
+<a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="getproperty">
+<span id="index-2"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectProperty, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.GetProperty(string property)
+</pre></div>
+</div>
+<p>Returns the custom property setting of the PROPERTY for the specified
+object.</p>
+<p>This command works with Number properties (it returns the number), and
+with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
+<p>Use the equivalent GetTextProperty function to get a text property.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (object[0].GetProperty(&quot;Value&quot;) &gt; 200)
+  Display(&quot;Object 0&#39;s value is over 200!&quot;);
+</pre></div>
+</div>
+<p>will print the message if object 0 has its “Value” property set to more
+than 200.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.GetTextProperty</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="gettextproperty">
+<span id="index-3"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectPropertyText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as Object.GetPropertyText, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Object.GetTextProperty(string property)
+</pre></div>
+</div>
+<p>Returns the custom property setting of the PROPERTY for the specified
+object.</p>
+<p>This command works with Text properties only. The property’s text will
+be returned from this function.</p>
+<p>Use the equivalent GetProperty function to get a non-text property.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">description</span> <span class="o">=</span> <span class="nt">object</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="p">.</span><span class="nc">GetTextProperty</span><span class="o">(</span><span class="s2">&quot;Description&quot;</span><span class="o">);</span>
+<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Object 0&#39;s description: %s&quot;</span><span class="o">,</span> <span class="nt">description</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>will retrieve Object 0’s “description” property then display it.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.GetProperty</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setproperty">
+<span id="index-4"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.SetProperty(const string property, int value)
+</pre></div>
+</div>
+<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room
+object. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Number properties (it sets the numeric value),
+and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
+otherwise).</p>
+<p>Use the equivalent SetTextProperty function to set new text property
+value.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oTable.SetProperty(&quot;ItemCapacity&quot;, 5);
+</pre></div>
+</div>
+<p>will change Table’s “ItemCapacity” custom property to 5.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.SetTextProperty</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="settextproperty">
+<span id="index-5"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>void Object.SetTextProperty(const string property, const string value)
+</pre></div>
+</div>
+<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
+room object.</p>
+<p>This command works with Text properties only. The property’s text will
+be changed to new value.</p>
+<p>Use the equivalent SetProperty function to set a non-text property.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oTable.SetTextProperty(&quot;Description&quot;, &quot;A dull furniture&quot;);
+</pre></div>
+</div>
+<p>will change table’s “description” property.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.SetProperty</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="iscollidingwithobject">
+<span id="index-6"></span><h2>IsCollidingWithObject<a class="headerlink" href="#iscollidingwithobject" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as AreObjectsColliding, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.IsCollidingWithObject(Object* obj2)
+</pre></div>
+</div>
+<p>Checks if the specified object and OBJ2 are touching each other. Returns
+<em>true</em> if they are, and <em>false</em> if they are not.</p>
+<p><strong>NOTE:</strong> This function only performs a rectangular check, even when
+pixel-perfect click detection is turned on.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (object[2].IsCollidingWithObject(object[3]))
+{
+  Display(&quot;object 2 and 3 are colliding!&quot;);
+}
+</pre></div>
+</div>
+<p>will display the message if the objects 2 and 3 are colliding.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Room.html"><span class="doc">AreThingsOverlapping</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="mergeintobackground">
+<span id="index-7"></span><h2>MergeIntoBackground<a class="headerlink" href="#mergeintobackground" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as MergeObject, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.MergeIntoBackground()
+</pre></div>
+</div>
+<p>Merges the object into the background scene for this room. By doing
+this, the object becomes part of the background and so does not slow the
+game down. This is a 1-way operation - once the object has been merged,
+it cannot be changed back and the state of the room is permanently
+altered. Therefore you should only use this function if a game event has
+occurred that means the room is permanently changed.</p>
+<p><strong>NOTE:</strong> after calling this function, you cannot use the object any
+more and it is permanently removed from the game.</p>
+<p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported
+at the same colour depth as the background graphic.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[3].MergeIntoBackground();
+</pre></div>
+</div>
+<p>will merge the object’s image into the room’s background image and make
+the object unusable.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="move">
+<span id="index-8"></span><h2>Move<a class="headerlink" href="#move" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as MoveObject, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as MoveObjectDirect, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.Move(int x, int y, int speed, optional BlockingStyle,
+            optional WalkWhere);
+</pre></div>
+</div>
+<p>Starts the object moving from its current location to (X,Y). It will
+move at speed SPEED, which uses the same scale as the character Walk
+Speed values in the AGS Editor.</p>
+<p>If <em>BlockingStyle</em> is eNoBlock (the default), then control returns to
+the script immediately, and the object will move in the background.</p>
+<p>If <em>BlockingStyle</em> is eBlock then this command will wait for the object
+to finish moving before your script resumes.</p>
+<p>If <em>WalkWhere</em> is eWalkableAreas (the default), then the object will
+attempt to get as close a possible to (X,Y) by using the room’s walkable
+areas.</p>
+<p>If <em>WalkWhere</em> is eAnywhere, then the object will simply walk directly
+from its current location to (X,Y), ignoring the room walkable areas.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].Move(125, 40, 4, eBlock);
+</pre></div>
+</div>
+<p>will move object 2 to 125,40 and return control to the player when the
+object gets there.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Moving</span>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="removetint">
+<span id="index-9"></span><h2>RemoveTint<a class="headerlink" href="#removetint" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RemoveObjectTint, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.RemoveTint()
+</pre></div>
+</div>
+<p>Undoes the effects of calling Tint, and returns the object to using the
+room’s ambient tint.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[1].Tint(0, 250, 0, 30, 100);
+Wait(40);
+object[1].RemoveTint();
+</pre></div>
+</div>
+<p>will tint object 1 green for a second, then turn it back to normal.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="isinteractionavailable">
+<span id="index-10"></span><h2>IsInteractionAvailable<a class="headerlink" href="#isinteractionavailable" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.IsInteractionAvailable(CursorMode)
+</pre></div>
+</div>
+<p>Checks whether there is an event handler defined for activating the room
+object in cursor mode MODE.</p>
+<p>This function is very similar to RunInteraction, except that rather than
+run the event handler script function, it simply returns <em>true</em> if
+something would have happened, or <em>false</em> if unhandled_event would have
+been run.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (oDoor.IsInteractionAvailable(eModeInteract) == 0)
+  Display(&quot;interacting with this door would not do anything.&quot;);
+</pre></div>
+</div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="runinteraction">
+<span id="index-11"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as RunObjectInteraction, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.RunInteraction(CursorMode)
+</pre></div>
+</div>
+<p>Runs the event handler as if the player had clicked the mouse on the
+object in the current room, using the specified cursor mode.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[3].RunInteraction(eModeInteract);
+</pre></div>
+</div>
+<p>will execute the code defined in object 3’s “Interact with object” event
+handler.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a>,
+<span class="xref std std-ref">Object.IsInteractionAvailable</span>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.RunInteraction</span></a>,
+<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.RunInteraction</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setlightlevel">
+<span id="index-12"></span><h2>SetLightLevel<a class="headerlink" href="#setlightlevel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>void Object.SetLightLevel(int light_level)
+</pre></div>
+</div>
+<p>Sets individual light level for this room object.</p>
+<p>The light level is from <strong>-100 to 100</strong>.</p>
+<p>In 8-bit games you cannot use positive light level for brightening
+effect, but you may still use negative values to produce darkening
+effect.</p>
+<p>To disable object lighting and tinting effects, call SetLightLevel with
+parameter <em>light_level</em> 0.</p>
+<p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the
+object.</p>
+<p><strong>NOTE:</strong> Object’s individual light level OVERRIDES both ambient light
+level and local region light level.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oLamp.LightLevel = 100;
+</pre></div>
+</div>
+<p>This will give the lamp maximal individual brightness.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.SetLightLevel</span></a>,
+<a class="reference internal" href="Region.html"><span class="doc">Region.LightLevel</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setposition">
+<span id="index-13"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectPosition, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.SetPosition(int x, int y)
+</pre></div>
+</div>
+<p>Changes the object’s position to (X,Y). These co-ordinates specify the
+lower-left hand corner of the object.</p>
+<p>This command is equivalent to setting the object.X and object.Y
+separately, but provides a more convenient way of doing so.</p>
+<p><strong>NOTE:</strong> This command cannot be used while the object is moving.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].SetPosition(50, 100);
+</pre></div>
+</div>
+<p>will change object’s 2 position to 50,100.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.X</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="setview">
+<span id="index-14"></span><h2>SetView<a class="headerlink" href="#setview" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectFrame, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as SetObjectView, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.SetView(int view, optional int loop, optional int frame)
+</pre></div>
+</div>
+<p>Sets the object’s view to VIEW, and changes the object’s graphic to
+FRAME of LOOP in VIEW. If you do not supply the loop or frame, they will
+be left unchanged.</p>
+<p>You must use this command before calling Animate, so that AGS knows
+which view to animate the object with.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[3].SetView(14);
+object[1].SetView(5, 2, 0);
+</pre></div>
+</div>
+<p>will change object 3’s view to view number 14, and change object 1 to
+view 5, loop 2, frame 0.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animate</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="stopanimating">
+<span id="index-15"></span><h2>StopAnimating<a class="headerlink" href="#stopanimating" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.StopAnimating()
+</pre></div>
+</div>
+<p>Stops the object from animating. It will remain on its current frame
+until you change it or start a new animation.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (object[2].Animating) {
+  object[2].StopAnimating();
+}
+</pre></div>
+</div>
+<p>will stop object 2 animating if it currently is doing so.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animate</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="stopmoving">
+<span id="index-16"></span><h2>StopMoving<a class="headerlink" href="#stopmoving" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as StopObjectMoving, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.StopMoving()
+</pre></div>
+</div>
+<p>Stops the object from moving. It will remain in its current position
+until any further commands are issued.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (object[2].Moving) {
+  object[2].StopMoving();
+}
+</pre></div>
+</div>
+<p>will stop object 2 moving if it currently is doing so.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Moving</span>,
+<span class="xref std std-ref">Object.Move</span>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.StopMoving</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tint">
+<span id="index-17"></span><h2>Tint<a class="headerlink" href="#tint" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectTint, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Object.Tint(int red, int green, int blue,
+            int saturation, int luminance)
+</pre></div>
+</div>
+<p>Tints the object on the screen to (RED, GREEN, BLUE) with SATURATION
+percent saturation.</p>
+<p>This function applies a tint to a specific object. For the meaning of
+all the parameters, see <a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a>.</p>
+<p>The tint set by this function overrides any ambient tint set for the
+room. For this reason, passing the SATURATION as 0 to this function does
+not turn it off - rather, it ensures that no tint is applied to the
+object (even if an ambient tint is set).</p>
+<p>To remove the tint set by this function and return to using the ambient
+tint for this object, call <span class="xref std std-ref">RemoveTint</span>.</p>
+<p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour
+sprites.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[1].Tint(0, 250, 0, 30, 100);
+</pre></div>
+</div>
+<p>will tint object 1 green.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.RemoveTint</span>,
+<a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="animating">
+<span id="index-18"></span><h2>Animating<a class="headerlink" href="#animating" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsObjectAnimating, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Object.Animating
+</pre></div>
+</div>
+<p>Returns 1 if the specified object is currently animating.<span class="raw-html-m2r"><br></span>
+Returns 0 if the object has finished its animation.</p>
+<p>This property is read-only. To change object animation, use the
+<span class="xref std std-ref">Animate</span> command.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].Animate(5, 0);
+while (object[2].Animating) Wait(1);
+</pre></div>
+</div>
+<p>will animate object 2 and wait until the animation finishes.</p>
+<p>In reality, you would simply use the Blocking parameter of Animate so
+you wouldn’t need to do this.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animate</span>,
+<span class="xref std std-ref">Object.Moving</span>,
+<span class="xref std std-ref">Object.StopAnimating</span>,
+<a class="reference internal" href="#"><span class="doc">Object.X</span></a>, <span class="xref std std-ref">Object.Y</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="baseline">
+<span id="index-19"></span><h2>Baseline<a class="headerlink" href="#baseline" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectBaseline, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as SetObjectBaseline, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.Baseline
+</pre></div>
+</div>
+<p>Gets/sets the object’s baseline. This allows you to modify the line you
+can set in the editor. You can disable the baseline (and revert to using
+the base of the object’s image on the screen) by setting it to 0.</p>
+<p>Otherwise, set it to the Y screen co-ordinate you want to use, normally
+from 1 to 200 unless you have a taller than usual room.</p>
+<p>If you want to get the baseline and it returns 0, then the baseline is
+the object’s Y co-ordinate.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[4].Baseline = 100;
+</pre></div>
+</div>
+<p>will change object’s 4 baseline to a line positioned at y coordinate
+100.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Baseline</span></a>,
+<span class="xref std std-ref">Object.Y</span>,
+<a class="reference internal" href="Room.html"><span class="doc">SetWalkBehindBase</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="blockingheight">
+<span id="index-20"></span><h2>BlockingHeight<a class="headerlink" href="#blockingheight" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.BlockingHeight
+</pre></div>
+</div>
+<p>Gets/sets the object’s blocking height.</p>
+<p>The blocking height determines how large of a blocking rectangle the
+object exerts to stop characters walking through it. If this is set to 0
+(the default), then the blocking rectangle is automatically calculated
+to be the object’s width, and 5 pixels high.</p>
+<p>You can manually change the setting by entering a blocking height in
+pixels, which is the size of walkable area that the object effectively
+removes by being there.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the
+<span class="xref std std-ref">Solid</span> property is set to <em>true</em>.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oRock.BlockingHeight = 20;
+</pre></div>
+</div>
+<p>will make the Rock object block 20 pixels high (10 above and 10 below
+its baseline)</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingWidth</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="blockingwidth">
+<span id="index-21"></span><h2>BlockingWidth<a class="headerlink" href="#blockingwidth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Character.BlockingWidth
+</pre></div>
+</div>
+<p>Gets/sets the object’s blocking width.</p>
+<p>The blocking width determines how large of a blocking rectangle the
+object exerts to stop characters walking through it. If this is set to 0
+(the default), then the blocking rectangle is automatically calculated
+to be the object’s width, and 5 pixels high.</p>
+<p>You can manually change the setting by entering a blocking width in
+pixels, which is the size of walkable area that the object effectively
+removes by being there.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the
+<span class="xref std std-ref">Solid</span> property is set to <em>true</em>.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oRock.BlockingWidth = 50;
+</pre></div>
+</div>
+<p>will make the Rock object block 50 pixels wide (25 pixels to the left of
+his centre, and 25 to the right)</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="clickable">
+<span id="index-22"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectClickable, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.Clickable
+</pre></div>
+</div>
+<p>Gets/sets whether the object is recognised as something which the player
+can interact with.</p>
+<p>If this is set to 1, then the player can look at, speak to, and so on
+the object. If it is set to 0, then the object will not respond to
+clicks and the mouse will activate whatever is behind the object. This
+is useful if you are using the object for visual effects and don’t want
+it to be clicked on by the player.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].Clickable = 0;
+</pre></div>
+</div>
+<p>will make object 2 ignore clicks from the player.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Clickable</span></a>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="frame">
+<span id="index-23"></span><h2>Frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.Frame
+</pre></div>
+</div>
+<p>Gets the frame number that the object is currently set to. If the object
+is not currently assigned a view, this will be 0 (in which case the
+Graphic property will hold its sprite number).</p>
+<p>This property is read-only. To change the frame, use the animation
+functions.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object oDoor&#39;s frame is currently %d.&quot;, oDoor.Frame);
+</pre></div>
+</div>
+<p>will display the oDoor object’s current frame number</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Graphic</span>,
+<span class="xref std std-ref">Object.Loop</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="graphic">
+<span id="index-24"></span><h2>Graphic<a class="headerlink" href="#graphic" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectGraphic, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as SetObjectGraphic, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.Graphic
+</pre></div>
+</div>
+<p>Gets/sets the sprite slot number that the object is currently displayed
+as. You can get the slot number from the Sprite Manager. If the object
+is currently animating (from an Animate command) and you change the
+Graphic, then the animation will be stopped.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].Graphic = 100;
+</pre></div>
+</div>
+<p>will change the object 2’s image to the image stored in the sprite
+manager’s slot 100.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.SetView</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hasexplicitlight">
+<span id="index-25"></span><h2>HasExplicitLight<a class="headerlink" href="#hasexplicitlight" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Object.HasExplicitTint
+</pre></div>
+</div>
+<p>Returns <em>true</em> if the object has a light set explicitly with the
+<span class="xref std std-ref">Object.SetLightLevel</span> command.</p>
+<p>Returns <em>false</em> if the object has no explicit light level, but it may
+still be lighted by
+<a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a> or a region
+light.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.SetLightLevel</span></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="hasexplicittint">
+<span id="index-26"></span><h2>HasExplicitTint<a class="headerlink" href="#hasexplicittint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Object.HasExplicitTint
+</pre></div>
+</div>
+<p>Returns <em>true</em> if the object has a tint set explicitly with the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p>Returns <em>false</em> if the object has no explicit tint, but it may still be
+tinted by <a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a> or a region tint.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Tint</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="index-27">
+<span id="id"></span><h2>ID<a class="headerlink" href="#index-27" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.ID
+</pre></div>
+</div>
+<p>Gets the object’s ID number. This is the object’s number from the
+editor, and is useful if you need to interoperate with legacy code that
+uses the object’s number rather than name.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>MoveObject(oRock.ID, 100, 50, 5);
+</pre></div>
+</div>
+<p>uses the obsolete MoveObject function to move the Rock object to (100,
+50) at speed 5.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="ignorescaling">
+<span id="index-28"></span><h2>IgnoreScaling<a class="headerlink" href="#ignorescaling" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.IgnoreScaling
+</pre></div>
+</div>
+<p>Gets/sets whether the object is affected by walkable area scaling. This
+is equivalent, <strong>though opposite</strong>, to the “Use walkable area scaling”
+checkbox in the Objects pane of the editor.</p>
+<p>If this is set to true, the object will always be the same size. If it
+is set to false, then the object will be stretched or shrunk as
+appropriate on walkable areas.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oDoor.IgnoreScaling = true;
+</pre></div>
+</div>
+<p>will tell the Door object not to be scaled on walkable areas.</p>
+<p><em>See Also:</em></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="ignorewalkbehinds">
+<span id="index-29"></span><h2>IgnoreWalkbehinds<a class="headerlink" href="#ignorewalkbehinds" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectIgnoreWalkbehinds, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.IgnoreWalkbehinds
+</pre></div>
+</div>
+<p>Sets whether the object is affected by walkbehind areas. Setting this to
+<em>false</em> (the default setting) means that the object will be placed
+behind walk-behind areas according to the relevant baselines.</p>
+<p>If this is set to <em>true</em>, then the object will never be placed behind a
+walk-behind area. This is useful if for example you want an object to be
+a picture on a wall, and the wall can be walked behind - but you also
+want it to act correctly in relation to characters, so changing its
+baseline wouldn’t work.</p>
+<p><strong>NOTE:</strong> enabling this property does not currently work properly when
+using the Direct3D driver.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[1].IgnoreWalkbehinds = true;
+</pre></div>
+</div>
+<p>will make object 1 ignore walk behinds.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Baseline</span>,
+<span class="xref std std-ref">Object.Clickable</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="lightlevel">
+<span id="index-30"></span><h2>LightLevel<a class="headerlink" href="#lightlevel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.LightLevel
+</pre></div>
+</div>
+<p>If the object has an individual light set explicitly with the
+<span class="xref std std-ref">Object.SetLightLevel</span> command, this
+property returns the light level value. Otherwise it returns 0.</p>
+<p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns
+0 even if the object is affected by the ambient or region’s light.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.SetLightLevel</span>,
+<a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="loop">
+<span id="index-31"></span><h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.Loop
+</pre></div>
+</div>
+<p>Gets the loop that the object is currently set to. If the object is not
+currently assigned a view, this will be 0 (in which case the Graphic
+property will hold its sprite number).</p>
+<p>This property is read-only. To change the loop, use the animation
+functions.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object oDoor&#39;s loop is currently %d.&quot;, oDoor.Loop);
+</pre></div>
+</div>
+<p>will display the oDoor object’s current loop number</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Frame</span>,
+<span class="xref std std-ref">Object.Graphic</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="moving">
+<span id="index-32"></span><h2>Moving<a class="headerlink" href="#moving" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsObjectMoving, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Object.Moving
+</pre></div>
+</div>
+<p>Returns 1 if the object is currently moving, or 0 if not.</p>
+<p>This property is read-only; to change the object’s movement, use the
+<span class="xref std std-ref">Move</span> and
+<span class="xref std std-ref">StopMoving</span> commands.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[2].Move(125,40,3);
+while (object[2].Moving) Wait(1);
+</pre></div>
+</div>
+<p>will move object 2 to 125,40 and return control to the player when the
+object gets there.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animating</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="name">
+<span id="index-33"></span><h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectName, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as Object.GetName, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly String Object.Name;
+</pre></div>
+</div>
+<p>Gets the name of the object.</p>
+<p><strong>NOTE</strong>: This property is read-only. It is not currently possible to
+change the name of an object at run-time.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object 0&#39;s name is %s.&quot;, object[0].Name);
+</pre></div>
+</div>
+<p>will retrieve and then display object 0’s name.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="solid">
+<span id="index-34"></span><h2>Solid<a class="headerlink" href="#solid" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.Solid
+</pre></div>
+</div>
+<p>Gets/sets whether the object can be walked through by characters.</p>
+<p>If this is set to true, then the object is solid and will block the path
+of solid characters. If this is set to false, then the object can be
+walked through by characters.</p>
+<p><strong>NOTE:</strong> solid objects only block characters, they don’t block other
+objects from moving through them.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>oSmallrock.Solid = true;
+</pre></div>
+</div>
+<p>will mean that the Smallrock object blocks the path of characters.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tintblue">
+<span id="index-35"></span><h2>TintBlue<a class="headerlink" href="#tintblue" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.TintBlue
+</pre></div>
+</div>
+<p>Gets the <em>Blue</em> setting for the object’s current tint.</p>
+<p>This property is read-only; to change it, use the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p><strong>NOTE:</strong> If the
+<span class="xref std std-ref">Object.HasExplicitTint</span> property is
+false, then this value is meaningless.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.HasExplicitTint</span>,
+<span class="xref std std-ref">Object.TintGreen</span>,
+<span class="xref std std-ref">Object.TintRed</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tintgreen">
+<span id="index-36"></span><h2>TintGreen<a class="headerlink" href="#tintgreen" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.TintGreen
+</pre></div>
+</div>
+<p>Gets the <em>Green</em> setting for the object’s current tint.</p>
+<p>This property is read-only; to change it, use the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p><strong>NOTE:</strong> If the
+<span class="xref std std-ref">Object.HasExplicitTint</span> property is
+false, then this value is meaningless.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.TintBlue</span>,
+<span class="xref std std-ref">Object.TintRed</span>,
+<span class="xref std std-ref">Object.TintSaturation</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tintred">
+<span id="index-37"></span><h2>TintRed<a class="headerlink" href="#tintred" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.TintRed
+</pre></div>
+</div>
+<p>Gets the <em>Red</em> setting for the object’s current tint.</p>
+<p>This property is read-only; to change it, use the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p><strong>NOTE:</strong> If the
+<span class="xref std std-ref">Object.HasExplicitTint</span> property is
+false, then this value is meaningless.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.TintBlue</span>,
+<span class="xref std std-ref">Object.TintGreen</span>,
+<span class="xref std std-ref">Object.TintSaturation</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tintsaturation">
+<span id="index-38"></span><h2>TintSaturation<a class="headerlink" href="#tintsaturation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.TintSaturation
+</pre></div>
+</div>
+<p>Gets the <em>saturation</em> setting for the object’s current tint.</p>
+<p>This property is read-only; to change it, use the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p><strong>NOTE:</strong> If the
+<span class="xref std std-ref">Object.HasExplicitTint</span> property is
+false, then this value is meaningless.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.TintBlue</span>,
+<span class="xref std std-ref">Object.TintGreen</span>,
+<span class="xref std std-ref">Object.TintRed</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tintluminance">
+<span id="index-39"></span><h2>TintLuminance<a class="headerlink" href="#tintluminance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.TintLuminance
+</pre></div>
+</div>
+<p>Gets the <em>luminance</em> setting for the object’s current tint.</p>
+<p>This property is read-only; to change it, use the
+<span class="xref std std-ref">Object.Tint</span> command.</p>
+<p><strong>NOTE:</strong> If the
+<span class="xref std std-ref">Object.HasExplicitTint</span> property is
+false, then this value is meaningless.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.TintBlue</span>,
+<span class="xref std std-ref">Object.TintGreen</span>,
+<span class="xref std std-ref">Object.TintRed</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="transparency">
+<span id="index-40"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as SetObjectTransparency, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.Transparency
+</pre></div>
+</div>
+<p>Gets/sets the object’s transparency level.</p>
+<p>If this is set to 100, it means that the object is totally invisible,
+and lower values represent varying levels of transparency. Set this to 0
+to stop the object being transparent.</p>
+<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
+<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent object
+can significantly slow down AGS.</p>
+<p>Some rounding is done internally when the transparency is stored –
+therefore, if you get the transparency after setting it, the value you
+get back might be one out. Therefore, using a loop with
+<code class="docutils literal notranslate"><span class="pre">object[0].Transparency++;</span></code> is not recommended as it will probably end
+too quickly.</p>
+<p>In order to fade an object in/out, the best approach is shown in the
+example below:</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int trans = object[0].Transparency;
+while (trans &lt; 100) {
+  trans++;
+  object[0].Transparency = trans;
+  Wait(1);
+}
+</pre></div>
+</div>
+<p>will gradually fade out the object from its current transparency level
+to being fully invisible.</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Transparency</span></a>,
+<a class="reference internal" href="GUI.html"><span class="doc">GUI.Transparency</span></a></p>
+<hr class="docutils" />
+</div>
+<div class="section" id="view">
+<span id="index-41"></span><h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Object.View
+</pre></div>
+</div>
+<p>Gets the view that the object is currently set to. This is either the
+view number, or 0 if the object is not currently assigned a view (in
+which case the Graphic property will hold its sprite number instead).</p>
+<p>This property is read-only. To change the view, use the SetView
+function. To remove the view, set the Graphic property to a sprite slot.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object oDoor&#39;s view is currently view %d.&quot;, oDoor.View);
+</pre></div>
+</div>
+<p>will display the oDoor object’s current view number</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.SetView</span>,
+<span class="xref std std-ref">Object.Graphic</span>,
+<span class="xref std std-ref">Object.Loop</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="visible">
+<span id="index-42"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as IsObjectOn, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ObjectOff, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as ObjectOn, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Object.Visible
+</pre></div>
+</div>
+<p>Gets/sets the visible state of the object. If this is 1 (true), the
+object is switched on and visible in the room. If you set this to 0
+(false), the object disappears and no longer appears in the room.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>object[5].Visible = false;
+</pre></div>
+</div>
+<p>will make object number 5 in the current room disappear.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="x">
+<span id="index-43"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectX, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.X
+</pre></div>
+</div>
+<p>Gets/sets the X co-ordinate of the object.</p>
+<p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object 1&#39;s X co-ordinate is %d.&quot;, object[1].X);
+</pre></div>
+</div>
+<p>will display the X co-ordinate of object 1.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Y</span>,
+<span class="xref std std-ref">Object.Animating</span>,
+<span class="xref std std-ref">Object.Visible</span>,</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="y">
+<span id="index-44"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GetObjectY, which is now obsolete)</em></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Object.Y
+</pre></div>
+</div>
+<p>Gets/sets the Y co-ordinate of the object, which is the bottom of the
+object’s image.</p>
+<p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
+<p><strong>NOTE:</strong> If you try to use this co-ordinate with Object.GetAtScreenXY,
+you will find that the object does not get picked up. The object’s
+sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
+(Object.Y - 1).</p>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Object 1&#39;s Y co-ordinate is %d.&quot;, object[1].Y);
+</pre></div>
+</div>
+<p>will display the Y co-ordinate of object 1.</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animating</span>,
+<span class="xref std std-ref">Object.Baseline</span>,
+<span class="xref std std-ref">Object.X</span>,</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
       </div>
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MusAndSound.html" title="previous chapter">Music and sound</a></li>
+      <li>Next: <a href="Overlay.html" title="next chapter">Overlay functions and properties</a></li>
+  </ul></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
 <li><a class="reference internal" href="#">Object functions and properties</a><ul>
 <li><a class="reference internal" href="#animate">Animate</a></li>
 <li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
@@ -250,7 +1054,7 @@
 <li><a class="reference internal" href="#graphic">Graphic</a></li>
 <li><a class="reference internal" href="#hasexplicitlight">HasExplicitLight</a></li>
 <li><a class="reference internal" href="#hasexplicittint">HasExplicitTint</a></li>
-<li><a class="reference internal" href="#id">ID</a></li>
+<li><a class="reference internal" href="#index-27">ID</a></li>
 <li><a class="reference internal" href="#ignorescaling">IgnoreScaling</a></li>
 <li><a class="reference internal" href="#ignorewalkbehinds">IgnoreWalkbehinds</a></li>
 <li><a class="reference internal" href="#lightlevel">LightLevel</a></li>
@@ -271,1102 +1075,13 @@
 </ul>
 </li>
 </ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Multimedia.html" title="Previous Chapter: Multimedia functions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Multimedia functions</span>
-    </a>
-  </li>
-  <li>
-    <a href="Overlay.html" title="Next Chapter: Overlay functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Overlay funct... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/Object.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
 
-          
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
         </div>
+      </div>
+      <div class="clearer"></div>
     </div>
-  </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
-  <div class="section" id="object-functions-and-properties">
-<span id="object-functions-and-properties"></span><h1>Object functions and properties<a class="headerlink" href="#object-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#animate">Animate</a><br>
-<a class="reference external" href="#getatscreenxy">GetAtScreenXY</a><br>
-<a class="reference external" href="#getproperty">GetProperty</a><br>
-<a class="reference external" href="#gettextproperty">GetTextProperty</a><br>
-<a class="reference external" href="#setproperty">SetProperty</a><br>
-<a class="reference external" href="#settextproperty">SetTextProperty</a><br>
-<a class="reference external" href="#iscollidingwithobject">IsCollidingWithObject</a><br>
-<a class="reference external" href="#mergeintobackground">MergeIntoBackground</a><br>
-<a class="reference external" href="#move">Move</a><br>
-<a class="reference external" href="#removetint">RemoveTint</a><br>
-<a class="reference external" href="#isinteractionavailable">IsInteractionAvailable</a><br>
-<a class="reference external" href="#runinteraction">RunInteraction</a><br>
-<a class="reference external" href="#setlightlevel">SetLightLevel</a><br>
-<a class="reference external" href="#setposition">SetPosition</a><br>
-<a class="reference external" href="#setview">SetView</a><br>
-<a class="reference external" href="#stopanimating">StopAnimating</a><br>
-<a class="reference external" href="#stopmoving">StopMoving</a><br>
-<a class="reference external" href="#tint">Tint</a><br>
-<a class="reference external" href="#animating">Animating property</a><br>
-<a class="reference external" href="#baseline">Baseline property</a><br>
-<a class="reference external" href="#blockingheight">BlockingHeight property</a><br>
-<a class="reference external" href="#blockingwidth">BlockingWidth property</a><br>
-<a class="reference external" href="#clickable">Clickable property</a><br>
-<a class="reference external" href="#frame">Frame property</a><br>
-<a class="reference external" href="#graphic">Graphic property</a><br>
-<a class="reference external" href="#hasexplicitlight">HasExplicitLight property</a><br>
-<a class="reference external" href="#hasexplicittint">HasExplicitTint property</a><br>
-<a class="reference external" href="#id">ID property</a><br>
-<a class="reference external" href="#ignorescaling">IgnoreScaling property</a><br>
-<a class="reference external" href="#ignorewalkbehinds">IgnoreWalkbehinds property</a><br>
-<a class="reference external" href="#lightlevel">LightLevel property</a><br>
-<a class="reference external" href="#loop">Loop property</a><br>
-<a class="reference external" href="#moving">Moving property</a><br>
-<a class="reference external" href="#name">Name property</a><br>
-<a class="reference external" href="#solid">Solid property</a><br>
-<a class="reference external" href="#tintblue">TintBlue property</a><br>
-<a class="reference external" href="#tintgreen">TintGreen property</a><br>
-<a class="reference external" href="#tintred">TintRed property</a><br>
-<a class="reference external" href="#tintsaturation">TintSaturation property</a><br>
-<a class="reference external" href="#tintluminance">TintLuminance property</a><br>
-<a class="reference external" href="#transparency">Transparency property</a><br>
-<a class="reference external" href="#view">View property</a><br>
-<a class="reference external" href="#visible">Visible property</a><br>
-<a class="reference external" href="#x">X property</a><br>
-<a class="reference external" href="#y">Y property</a></p>
-<hr class="docutils" />
-<div class="section" id="animate">
-<span id="animate"></span><h2>Animate<a class="headerlink" href="#animate" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as AnimateObject, which is now obsolete)</em><br>
-<em>(Formerly known as AnimateObjectEx, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="nb">int</span> <span class="n">loop</span><span class="p">,</span> <span class="nb">int</span> <span class="n">delay</span><span class="p">,</span> <span class="n">optional</span> <span class="n">RepeatStyle</span><span class="p">,</span>
-               <span class="n">optional</span> <span class="n">BlockingStyle</span><span class="p">,</span> <span class="n">optional</span> <span class="n">Direction</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Starts the object animating, using loop number LOOP of its current view.
-The overall speed of the animation is set with DELAY, where 0 is the
-fastest, and increasing numbers mean slower. The delay for each frame is
-worked out as DELAY + FRAME SPD, so the individual frame speeds are
-relative to this overall speed.</p>
-<p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously
-repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in
-which case the animation will start from the first frame of LOOP, and go
-through each frame in turn until the last frame, where it will stop. If
-RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it
-will go back to the first frame and start over again with the animation.
-If RepeatStyle is 2 then it will do the animation once, but then return
-the graphic to the first frame and stop (whereas repeat=0 will leave the
-graphic on the last frame).</p>
-<p>For <em>blocking</em> you can pass either eBlock (in which case the function
-will wait for the animation to finish before returning), or eNoBlock (in
-which case the animation will start to play, but your script will
-continue). The default is eBlock.</p>
-<p><em>direction</em> specifies which way the animation plays. You can either pass
-eForwards (the default) or eBackwards.</p>
-<p>You need to use SetView at some stage before this command, in order to
-set up the object’s current view.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">eOnce</span><span class="p">,</span> <span class="n">eBlock</span><span class="p">,</span> <span class="n">eBackwards</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will animate object 0 using loop 2 of its current view, at speed 5, and
-play the animation once only. This happens in the background. Then,
-object 1 will animate backwards using loop 1 of its current view, at
-speed 3. The function won’t return until the animation is finished.</p>
-<p><em>See Also:</em> <a class="reference external" href="Character#animate">Character.Animate</a>,
-<a class="reference external" href="#animating">Object.Animating</a>,
-<a class="reference external" href="#setview">Object.SetView</a>,
-<a class="reference external" href="#stopanimating">Object.StopAnimating</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="getatscreenxy">
-<span id="getatscreenxy"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetObjectAt, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">Object</span><span class="o">*</span> <span class="n">Object</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Checks if there is a room object at SCREEN co-ordinates (X,Y). Returns
-the object if there is, or <em>null</em> if there is not.</p>
-<p>See the description of GetLocationName for more on screen co-ordinates.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">Object</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="mi">211</span><span class="p">,</span><span class="mi">145</span><span class="p">)</span> <span class="o">==</span> <span class="n">oRock</span><span class="p">)</span> <span class="p">{</span>
-  <span class="o">//</span> <span class="n">code</span> <span class="n">here</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will execute the code only if object oRock is on the screen coordinates
-211,145.</p>
-<p><em>See Also:</em> <a class="reference external" href="Hotspot#getatscreenxy">Hotspot.GetAtScreenXY</a>,
-<a class="reference external" href="Game#getlocationname">Game.GetLocationName</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="getproperty">
-<span id="getproperty"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectProperty, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">string</span> <span class="nb">property</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns the custom property setting of the PROPERTY for the specified
-object.</p>
-<p>This command works with Number properties (it returns the number), and
-with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
-<p>Use the equivalent GetTextProperty function to get a text property.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">)</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object 0&#39;s value is over 200!&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will print the message if object 0 has its “Value” property set to more
-than 200.</p>
-<p><em>See Also:</em> <a class="reference external" href="#gettextproperty">Object.GetTextProperty</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="gettextproperty">
-<span id="gettextproperty"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectPropertyText, which is now obsolete)</em><br>
-<em>(Formerly known as Object.GetPropertyText, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">Object</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">(</span><span class="n">string</span> <span class="nb">property</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns the custom property setting of the PROPERTY for the specified
-object.</p>
-<p>This command works with Text properties only. The property’s text will
-be returned from this function.</p>
-<p>Use the equivalent GetProperty function to get a non-text property.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">description</span> <span class="o">=</span> <span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">);</span>
-<span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object 0&#39;s description: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will retrieve Object 0’s “description” property then display it.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getproperty">Object.GetProperty</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setproperty">
-<span id="setproperty"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">SetProperty</span><span class="p">(</span><span class="n">const</span> <span class="n">string</span> <span class="nb">property</span><span class="p">,</span> <span class="nb">int</span> <span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room
-object. Returns TRUE if such property exists and FALSE on failure.</p>
-<p>This command works with Number properties (it sets the numeric value),
-and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
-otherwise).</p>
-<p>Use the equivalent SetTextProperty function to set new text property
-value.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oTable</span><span class="o">.</span><span class="n">SetProperty</span><span class="p">(</span><span class="s2">&quot;ItemCapacity&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change Table’s “ItemCapacity” custom property to 5.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#settextproperty">Object.SetTextProperty</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="settextproperty">
-<span id="settextproperty"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Object</span><span class="o">.</span><span class="n">SetTextProperty</span><span class="p">(</span><span class="n">const</span> <span class="n">string</span> <span class="nb">property</span><span class="p">,</span> <span class="n">const</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
-room object.</p>
-<p>This command works with Text properties only. The property’s text will
-be changed to new value.</p>
-<p>Use the equivalent SetProperty function to set a non-text property.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oTable</span><span class="o">.</span><span class="n">SetTextProperty</span><span class="p">(</span><span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;A dull furniture&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change table’s “description” property.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setproperty">Object.SetProperty</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="iscollidingwithobject">
-<span id="iscollidingwithobject"></span><h2>IsCollidingWithObject<a class="headerlink" href="#iscollidingwithobject" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as AreObjectsColliding, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">IsCollidingWithObject</span><span class="p">(</span><span class="n">Object</span><span class="o">*</span> <span class="n">obj2</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Checks if the specified object and OBJ2 are touching each other. Returns
-<em>true</em> if they are, and <em>false</em> if they are not.</p>
-<p><strong>NOTE:</strong> This function only performs a rectangular check, even when
-pixel-perfect click detection is turned on.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">IsCollidingWithObject</span><span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-<span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;object 2 and 3 are colliding!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will display the message if the objects 2 and 3 are colliding.</p>
-<p><em>See Also:</em> <a class="reference external" href="Room#arethingsoverlapping">AreThingsOverlapping</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="mergeintobackground">
-<span id="mergeintobackground"></span><h2>MergeIntoBackground<a class="headerlink" href="#mergeintobackground" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as MergeObject, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">MergeIntoBackground</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Merges the object into the background scene for this room. By doing
-this, the object becomes part of the background and so does not slow the
-game down. This is a 1-way operation - once the object has been merged,
-it cannot be changed back and the state of the room is permanently
-altered. Therefore you should only use this function if a game event has
-occurred that means the room is permanently changed.</p>
-<p><strong>NOTE:</strong> after calling this function, you cannot use the object any
-more and it is permanently removed from the game.</p>
-<p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported
-at the same colour depth as the background graphic.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">MergeIntoBackground</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will merge the object’s image into the room’s background image and make
-the object unusable.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="move">
-<span id="move"></span><h2>Move<a class="headerlink" href="#move" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as MoveObject, which is now obsolete)</em><br>
-<em>(Formerly known as MoveObjectDirect, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">Move</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">int</span> <span class="n">speed</span><span class="p">,</span> <span class="n">optional</span> <span class="n">BlockingStyle</span><span class="p">,</span>
-            <span class="n">optional</span> <span class="n">WalkWhere</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Starts the object moving from its current location to (X,Y). It will
-move at speed SPEED, which uses the same scale as the character Walk
-Speed values in the AGS Editor.</p>
-<p>If <em>BlockingStyle</em> is eNoBlock (the default), then control returns to
-the script immediately, and the object will move in the background.</p>
-<p>If <em>BlockingStyle</em> is eBlock then this command will wait for the object
-to finish moving before your script resumes.</p>
-<p>If <em>WalkWhere</em> is eWalkableAreas (the default), then the object will
-attempt to get as close a possible to (X,Y) by using the room’s walkable
-areas.</p>
-<p>If <em>WalkWhere</em> is eAnywhere, then the object will simply walk directly
-from its current location to (X,Y), ignoring the room walkable areas.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Move</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">eBlock</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will move object 2 to 125,40 and return control to the player when the
-object gets there.</p>
-<p><em>See Also:</em> <a class="reference external" href="#moving">Object.Moving</a>,
-<a class="reference external" href="Character#walk">Character.Walk</a>,
-<a class="reference external" href="#stopmoving">Object.StopMoving</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="removetint">
-<span id="removetint"></span><h2>RemoveTint<a class="headerlink" href="#removetint" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as RemoveObjectTint, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">RemoveTint</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Undoes the effects of calling Tint, and returns the object to using the
-room’s ambient tint.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Tint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="n">Wait</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-<span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">RemoveTint</span><span class="p">();</span>
-</pre></div>
-</div>
-<p>will tint object 1 green for a second, then turn it back to normal.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="isinteractionavailable">
-<span id="isinteractionavailable"></span><h2>IsInteractionAvailable<a class="headerlink" href="#isinteractionavailable" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">IsInteractionAvailable</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Checks whether there is an event handler defined for activating the room
-object in cursor mode MODE.</p>
-<p>This function is very similar to RunInteraction, except that rather than
-run the event handler script function, it simply returns <em>true</em> if
-something would have happened, or <em>false</em> if unhandled_event would have
-been run.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">oDoor</span><span class="o">.</span><span class="n">IsInteractionAvailable</span><span class="p">(</span><span class="n">eModeInteract</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;interacting with this door would not do anything.&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="#runinteraction">Object.RunInteraction</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="runinteraction">
-<span id="runinteraction"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as RunObjectInteraction, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">RunInteraction</span><span class="p">(</span><span class="n">CursorMode</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Runs the event handler as if the player had clicked the mouse on the
-object in the current room, using the specified cursor mode.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">RunInteraction</span><span class="p">(</span><span class="n">eModeInteract</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will execute the code defined in object 3’s “Interact with object” event
-handler.</p>
-<p><em>See Also:</em> <a class="reference external" href="Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="#isinteractionavailable">Object.IsInteractionAvailable</a>,
-<a class="reference external" href="Character#runinteraction">Character.RunInteraction</a>,
-<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setlightlevel">
-<span id="setlightlevel"></span><h2>SetLightLevel<a class="headerlink" href="#setlightlevel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">Object</span><span class="o">.</span><span class="n">SetLightLevel</span><span class="p">(</span><span class="nb">int</span> <span class="n">light_level</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Sets individual light level for this room object.</p>
-<p>The light level is from <strong>-100 to 100</strong>.</p>
-<p>In 8-bit games you cannot use positive light level for brightening
-effect, but you may still use negative values to produce darkening
-effect.</p>
-<p>To disable object lighting and tinting effects, call SetLightLevel with
-parameter <em>light_level</em> 0.</p>
-<p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the
-object.</p>
-<p><strong>NOTE:</strong> Object’s individual light level OVERRIDES both ambient light
-level and local region light level.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oLamp</span><span class="o">.</span><span class="n">LightLevel</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>This will give the lamp maximal individual brightness.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a>,
-<a class="reference external" href="Character#setlightlevel">Character.SetLightLevel</a>,
-<a class="reference external" href="Region#lightlevel">Region.LightLevel</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setposition">
-<span id="setposition"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectPosition, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Changes the object’s position to (X,Y). These co-ordinates specify the
-lower-left hand corner of the object.</p>
-<p>This command is equivalent to setting the object.X and object.Y
-separately, but provides a more convenient way of doing so.</p>
-<p><strong>NOTE:</strong> This command cannot be used while the object is moving.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change object’s 2 position to 50,100.</p>
-<p><em>See Also:</em> <a class="reference external" href="#x">Object.X</a>,
-<a class="reference external" href="#y">Object.Y</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="setview">
-<span id="setview"></span><h2>SetView<a class="headerlink" href="#setview" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectFrame, which is now obsolete)</em><br>
-<em>(Formerly known as SetObjectView, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">SetView</span><span class="p">(</span><span class="nb">int</span> <span class="n">view</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">int</span> <span class="n">loop</span><span class="p">,</span> <span class="n">optional</span> <span class="nb">int</span> <span class="n">frame</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Sets the object’s view to VIEW, and changes the object’s graphic to
-FRAME of LOOP in VIEW. If you do not supply the loop or frame, they will
-be left unchanged.</p>
-<p>You must use this command before calling Animate, so that AGS knows
-which view to animate the object with.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">SetView</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
-<span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">SetView</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will change object 3’s view to view number 14, and change object 1 to
-view 5, loop 2, frame 0.</p>
-<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="stopanimating">
-<span id="stopanimating"></span><h2>StopAnimating<a class="headerlink" href="#stopanimating" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">StopAnimating</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Stops the object from animating. It will remain on its current frame
-until you change it or start a new animation.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Animating</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">StopAnimating</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will stop object 2 animating if it currently is doing so.</p>
-<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a>,
-<a class="reference external" href="#animating">Object.Animating</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="stopmoving">
-<span id="stopmoving"></span><h2>StopMoving<a class="headerlink" href="#stopmoving" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as StopObjectMoving, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">StopMoving</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Stops the object from moving. It will remain in its current position
-until any further commands are issued.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">StopMoving</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will stop object 2 moving if it currently is doing so.</p>
-<p><em>See Also:</em> <a class="reference external" href="#moving">Object.Moving</a>,
-<a class="reference external" href="#move">Object.Move</a>,
-<a class="reference external" href="Character#stopmoving">Character.StopMoving</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tint">
-<span id="tint"></span><h2>Tint<a class="headerlink" href="#tint" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectTint, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="o">.</span><span class="n">Tint</span><span class="p">(</span><span class="nb">int</span> <span class="n">red</span><span class="p">,</span> <span class="nb">int</span> <span class="n">green</span><span class="p">,</span> <span class="nb">int</span> <span class="n">blue</span><span class="p">,</span>
-            <span class="nb">int</span> <span class="n">saturation</span><span class="p">,</span> <span class="nb">int</span> <span class="n">luminance</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Tints the object on the screen to (RED, GREEN, BLUE) with SATURATION
-percent saturation.</p>
-<p>This function applies a tint to a specific object. For the meaning of
-all the parameters, see <a class="reference external" href="Game#setambienttint">SetAmbientTint</a>.</p>
-<p>The tint set by this function overrides any ambient tint set for the
-room. For this reason, passing the SATURATION as 0 to this function does
-not turn it off - rather, it ensures that no tint is applied to the
-object (even if an ambient tint is set).</p>
-<p>To remove the tint set by this function and return to using the ambient
-tint for this object, call <a class="reference external" href="#removetint">RemoveTint</a>.</p>
-<p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour
-sprites.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Tint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will tint object 1 green.</p>
-<p><em>See Also:</em> <a class="reference external" href="#removetint">Object.RemoveTint</a>,
-<a class="reference external" href="Game#setambienttint">SetAmbientTint</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="animating">
-<span id="animating"></span><h2>Animating<a class="headerlink" href="#animating" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsObjectAnimating, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">Animating</span>
-</pre></div>
-</div>
-<p>Returns 1 if the specified object is currently animating.<br>
-Returns 0 if the object has finished its animation.</p>
-<p>This property is read-only. To change object animation, use the
-<a class="reference external" href="#animate">Animate</a> command.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Animate</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Animating</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will animate object 2 and wait until the animation finishes.</p>
-<p>In reality, you would simply use the Blocking parameter of Animate so
-you wouldn’t need to do this.</p>
-<p><em>See Also:</em> <a class="reference external" href="#animate">Object.Animate</a>,
-<a class="reference external" href="#moving">Object.Moving</a>,
-<a class="reference external" href="#stopanimating">Object.StopAnimating</a>,
-<a class="reference external" href="Object#x">Object.X</a>, <a class="reference external" href="#y">Object.Y</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="baseline">
-<span id="baseline"></span><h2>Baseline<a class="headerlink" href="#baseline" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectBaseline, which is now obsolete)</em><br>
-<em>(Formerly known as SetObjectBaseline, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Baseline</span>
-</pre></div>
-</div>
-<p>Gets/sets the object’s baseline. This allows you to modify the line you
-can set in the editor. You can disable the baseline (and revert to using
-the base of the object’s image on the screen) by setting it to 0.</p>
-<p>Otherwise, set it to the Y screen co-ordinate you want to use, normally
-from 1 to 200 unless you have a taller than usual room.</p>
-<p>If you want to get the baseline and it returns 0, then the baseline is
-the object’s Y co-ordinate.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">Baseline</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will change object’s 4 baseline to a line positioned at y coordinate</p>
-<ol class="simple">
-<li></li>
-</ol>
-<p><em>See Also:</em> <a class="reference external" href="Character#baseline">Character.Baseline</a>,
-<a class="reference external" href="#y">Object.Y</a>,
-<a class="reference external" href="Room#setwalkbehindbase">SetWalkBehindBase</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="blockingheight">
-<span id="blockingheight"></span><h2>BlockingHeight<a class="headerlink" href="#blockingheight" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">BlockingHeight</span>
-</pre></div>
-</div>
-<p>Gets/sets the object’s blocking height.</p>
-<p>The blocking height determines how large of a blocking rectangle the
-object exerts to stop characters walking through it. If this is set to 0
-(the default), then the blocking rectangle is automatically calculated
-to be the object’s width, and 5 pixels high.</p>
-<p>You can manually change the setting by entering a blocking height in
-pixels, which is the size of walkable area that the object effectively
-removes by being there.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oRock</span><span class="o">.</span><span class="n">BlockingHeight</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will make the Rock object block 20 pixels high (10 above and 10 below
-its baseline)</p>
-<p><em>See Also:</em> <a class="reference external" href="#blockingwidth">Object.BlockingWidth</a>,
-<a class="reference external" href="#solid">Object.Solid</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="blockingwidth">
-<span id="blockingwidth"></span><h2>BlockingWidth<a class="headerlink" href="#blockingwidth" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Character</span><span class="o">.</span><span class="n">BlockingWidth</span>
-</pre></div>
-</div>
-<p>Gets/sets the object’s blocking width.</p>
-<p>The blocking width determines how large of a blocking rectangle the
-object exerts to stop characters walking through it. If this is set to 0
-(the default), then the blocking rectangle is automatically calculated
-to be the object’s width, and 5 pixels high.</p>
-<p>You can manually change the setting by entering a blocking width in
-pixels, which is the size of walkable area that the object effectively
-removes by being there.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the
-<a class="reference external" href="#solid">Solid</a> property is set to <em>true</em>.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oRock</span><span class="o">.</span><span class="n">BlockingWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will make the Rock object block 50 pixels wide (25 pixels to the left of
-his centre, and 25 to the right)</p>
-<p><em>See Also:</em> <a class="reference external" href="#blockingheight">Object.BlockingHeight</a>,
-<a class="reference external" href="#solid">Object.Solid</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="clickable">
-<span id="clickable"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectClickable, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">Clickable</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the object is recognised as something which the player
-can interact with.</p>
-<p>If this is set to 1, then the player can look at, speak to, and so on
-the object. If it is set to 0, then the object will not respond to
-clicks and the mouse will activate whatever is behind the object. This
-is useful if you are using the object for visual effects and don’t want
-it to be clicked on by the player.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Clickable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will make object 2 ignore clicks from the player.</p>
-<p><em>See Also:</em> <a class="reference external" href="Character#clickable">Character.Clickable</a>,
-<a class="reference external" href="#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="frame">
-<span id="frame"></span><h2>Frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Frame</span>
-</pre></div>
-</div>
-<p>Gets the frame number that the object is currently set to. If the object
-is not currently assigned a view, this will be 0 (in which case the
-Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change the frame, use the animation
-functions.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object oDoor&#39;s frame is currently </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">oDoor</span><span class="o">.</span><span class="n">Frame</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the oDoor object’s current frame number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#graphic">Object.Graphic</a>,
-<a class="reference external" href="#loop">Object.Loop</a>,
-<a class="reference external" href="#view">Object.View</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="graphic">
-<span id="graphic"></span><h2>Graphic<a class="headerlink" href="#graphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectGraphic, which is now obsolete)</em><br>
-<em>(Formerly known as SetObjectGraphic, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Graphic</span>
-</pre></div>
-</div>
-<p>Gets/sets the sprite slot number that the object is currently displayed
-as. You can get the slot number from the Sprite Manager. If the object
-is currently animating (from an Animate command) and you change the
-Graphic, then the animation will be stopped.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Graphic</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will change the object 2’s image to the image stored in the sprite
-manager’s slot 100.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setview">Object.SetView</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hasexplicitlight">
-<span id="hasexplicitlight"></span><h2>HasExplicitLight<a class="headerlink" href="#hasexplicitlight" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">HasExplicitTint</span>
-</pre></div>
-</div>
-<p>Returns <em>true</em> if the object has a light set explicitly with the
-<a class="reference external" href="#setlightlevel">Object.SetLightLevel</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit light level, but it may
-still be lighted by
-<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a> or a region
-light.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Object.SetLightLevel</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="hasexplicittint">
-<span id="hasexplicittint"></span><h2>HasExplicitTint<a class="headerlink" href="#hasexplicittint" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">HasExplicitTint</span>
-</pre></div>
-</div>
-<p>Returns <em>true</em> if the object has a tint set explicitly with the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit tint, but it may still be
-tinted by <a class="reference external" href="Game#setambienttint">SetAmbientTint</a> or a region tint.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#removetint">Object.RemoveTint</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="id">
-<span id="id"></span><h2>ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">ID</span>
-</pre></div>
-</div>
-<p>Gets the object’s ID number. This is the object’s number from the
-editor, and is useful if you need to interoperate with legacy code that
-uses the object’s number rather than name.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MoveObject</span><span class="p">(</span><span class="n">oRock</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>uses the obsolete MoveObject function to move the Rock object to (100,</p>
-<ol class="simple">
-<li>at speed 5.</li>
-</ol>
-</div>
-<hr class="docutils" />
-<div class="section" id="ignorescaling">
-<span id="ignorescaling"></span><h2>IgnoreScaling<a class="headerlink" href="#ignorescaling" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">IgnoreScaling</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the object is affected by walkable area scaling. This
-is equivalent, <strong>though opposite</strong>, to the “Use walkable area scaling”
-checkbox in the Objects pane of the editor.</p>
-<p>If this is set to true, the object will always be the same size. If it
-is set to false, then the object will be stretched or shrunk as
-appropriate on walkable areas.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oDoor</span><span class="o">.</span><span class="n">IgnoreScaling</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will tell the Door object not to be scaled on walkable areas.</p>
-<p><em>See Also:</em>
-<a class="reference external" href="#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="ignorewalkbehinds">
-<span id="ignorewalkbehinds"></span><h2>IgnoreWalkbehinds<a class="headerlink" href="#ignorewalkbehinds" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectIgnoreWalkbehinds, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">IgnoreWalkbehinds</span>
-</pre></div>
-</div>
-<p>Sets whether the object is affected by walkbehind areas. Setting this to
-<em>false</em> (the default setting) means that the object will be placed
-behind walk-behind areas according to the relevant baselines.</p>
-<p>If this is set to <em>true</em>, then the object will never be placed behind a
-walk-behind area. This is useful if for example you want an object to be
-a picture on a wall, and the wall can be walked behind - but you also
-want it to act correctly in relation to characters, so changing its
-baseline wouldn’t work.</p>
-<p><strong>NOTE:</strong> enabling this property does not currently work properly when
-using the Direct3D driver.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">IgnoreWalkbehinds</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will make object 1 ignore walk behinds.</p>
-<p><em>See Also:</em> <a class="reference external" href="#baseline">Object.Baseline</a>,
-<a class="reference external" href="#clickable">Object.Clickable</a>,
-<a class="reference external" href="#ignorescaling">Object.IgnoreScaling</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="lightlevel">
-<span id="lightlevel"></span><h2>LightLevel<a class="headerlink" href="#lightlevel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">LightLevel</span>
-</pre></div>
-</div>
-<p>If the object has an individual light set explicitly with the
-<a class="reference external" href="#setlightlevel">Object.SetLightLevel</a> command, this
-property returns the light level value. Otherwise it returns 0.</p>
-<p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns
-0 even if the object is affected by the ambient or region’s light.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#setlightlevel">Object.SetLightLevel</a>,
-<a class="reference external" href="Game#setambientlightlevel">SetAmbientLightLevel</a>,</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="loop">
-<span id="loop"></span><h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Loop</span>
-</pre></div>
-</div>
-<p>Gets the loop that the object is currently set to. If the object is not
-currently assigned a view, this will be 0 (in which case the Graphic
-property will hold its sprite number).</p>
-<p>This property is read-only. To change the loop, use the animation
-functions.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object oDoor&#39;s loop is currently </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">oDoor</span><span class="o">.</span><span class="n">Loop</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the oDoor object’s current loop number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#frame">Object.Frame</a>,
-<a class="reference external" href="#graphic">Object.Graphic</a>,
-<a class="reference external" href="#view">Object.View</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="moving">
-<span id="moving"></span><h2>Moving<a class="headerlink" href="#moving" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsObjectMoving, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">Moving</span>
-</pre></div>
-</div>
-<p>Returns 1 if the object is currently moving, or 0 if not.</p>
-<p>This property is read-only; to change the object’s movement, use the
-<a class="reference external" href="#move">Move</a> and
-<a class="reference external" href="#stopmoving">StopMoving</a> commands.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Move</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="nb">object</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">Moving</span><span class="p">)</span> <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will move object 2 to 125,40 and return control to the player when the
-object gets there.</p>
-<p><em>See Also:</em> <a class="reference external" href="#animating">Object.Animating</a>,
-<a class="reference external" href="#stopmoving">Object.StopMoving</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="name">
-<span id="name"></span><h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectName, which is now obsolete)</em><br>
-<em>(Formerly known as Object.GetName, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="n">String</span> <span class="n">Object</span><span class="o">.</span><span class="n">Name</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Gets the name of the object.</p>
-<p><strong>NOTE</strong>: This property is read-only. It is not currently possible to
-change the name of an object at run-time.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object 0&#39;s name is </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Name</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will retrieve and then display object 0’s name.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#getlocationname">Game.GetLocationName</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="solid">
-<span id="solid"></span><h2>Solid<a class="headerlink" href="#solid" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">Solid</span>
-</pre></div>
-</div>
-<p>Gets/sets whether the object can be walked through by characters.</p>
-<p>If this is set to true, then the object is solid and will block the path
-of solid characters. If this is set to false, then the object can be
-walked through by characters.</p>
-<p><strong>NOTE:</strong> solid objects only block characters, they don’t block other
-objects from moving through them.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oSmallrock</span><span class="o">.</span><span class="n">Solid</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will mean that the Smallrock object blocks the path of characters.</p>
-<p><em>See Also:</em> <a class="reference external" href="#blockingheight">Object.BlockingHeight</a>,
-<a class="reference external" href="#blockingwidth">Object.BlockingWidth</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tintblue">
-<span id="tintblue"></span><h2>TintBlue<a class="headerlink" href="#tintblue" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">TintBlue</span>
-</pre></div>
-</div>
-<p>Gets the <em>Blue</em> setting for the object’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
-false, then this value is meaningless.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a>,
-<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="#tintred">Object.TintRed</a>,
-<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tintgreen">
-<span id="tintgreen"></span><h2>TintGreen<a class="headerlink" href="#tintgreen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">TintGreen</span>
-</pre></div>
-</div>
-<p>Gets the <em>Green</em> setting for the object’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
-false, then this value is meaningless.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="#tintred">Object.TintRed</a>,
-<a class="reference external" href="#tintsaturation">Object.TintSaturation</a>,
-<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tintred">
-<span id="tintred"></span><h2>TintRed<a class="headerlink" href="#tintred" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">TintRed</span>
-</pre></div>
-</div>
-<p>Gets the <em>Red</em> setting for the object’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
-false, then this value is meaningless.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="#tintsaturation">Object.TintSaturation</a>,
-<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tintsaturation">
-<span id="tintsaturation"></span><h2>TintSaturation<a class="headerlink" href="#tintsaturation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">TintSaturation</span>
-</pre></div>
-</div>
-<p>Gets the <em>saturation</em> setting for the object’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
-false, then this value is meaningless.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="#tintred">Object.TintRed</a>,
-<a class="reference external" href="#tintluminance">Object.TintLuminance</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="tintluminance">
-<span id="tintluminance"></span><h2>TintLuminance<a class="headerlink" href="#tintluminance" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">TintLuminance</span>
-</pre></div>
-</div>
-<p>Gets the <em>luminance</em> setting for the object’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference external" href="#tint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the
-<a class="reference external" href="#hasexplicittint">Object.HasExplicitTint</a> property is
-false, then this value is meaningless.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="#tint">Object.Tint</a>,
-<a class="reference external" href="#tintblue">Object.TintBlue</a>,
-<a class="reference external" href="#tintgreen">Object.TintGreen</a>,
-<a class="reference external" href="#tintred">Object.TintRed</a>,
-<a class="reference external" href="#tintsaturation">Object.TintSaturation</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="transparency">
-<span id="transparency"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetObjectTransparency, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Transparency</span>
-</pre></div>
-</div>
-<p>Gets/sets the object’s transparency level.</p>
-<p>If this is set to 100, it means that the object is totally invisible,
-and lower values represent varying levels of transparency. Set this to 0
-to stop the object being transparent.</p>
-<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
-<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent object
-can significantly slow down AGS.</p>
-<p>Some rounding is done internally when the transparency is stored –
-therefore, if you get the transparency after setting it, the value you
-get back might be one out. Therefore, using a loop with
-<code class="docutils literal notranslate"><span class="pre">object[0].Transparency++;</span></code> is not recommended as it will probably end
-too quickly.</p>
-<p>In order to fade an object in/out, the best approach is shown in the
-example below:</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">trans</span> <span class="o">=</span> <span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Transparency</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">trans</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">trans</span><span class="o">++</span><span class="p">;</span>
-  <span class="nb">object</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="n">trans</span><span class="p">;</span>
-  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>will gradually fade out the object from its current transparency level
-to being fully invisible.</p>
-<p><em>See Also:</em> <a class="reference external" href="Character#transparency">Character.Transparency</a>,
-<a class="reference external" href="GUI#transparency">GUI.Transparency</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="view">
-<span id="view"></span><h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">View</span>
-</pre></div>
-</div>
-<p>Gets the view that the object is currently set to. This is either the
-view number, or 0 if the object is not currently assigned a view (in
-which case the Graphic property will hold its sprite number instead).</p>
-<p>This property is read-only. To change the view, use the SetView
-function. To remove the view, set the Graphic property to a sprite slot.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object oDoor&#39;s view is currently view </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">oDoor</span><span class="o">.</span><span class="n">View</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the oDoor object’s current view number</p>
-<p><em>SeeAlso:</em> <a class="reference external" href="#setview">Object.SetView</a>,
-<a class="reference external" href="#graphic">Object.Graphic</a>,
-<a class="reference external" href="#loop">Object.Loop</a>,
-<a class="reference external" href="#frame">Object.Frame</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="visible">
-<span id="visible"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsObjectOn, which is now obsolete)</em><br>
-<em>(Formerly known as ObjectOff, which is now obsolete)</em><br>
-<em>(Formerly known as ObjectOn, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">Object</span><span class="o">.</span><span class="n">Visible</span>
-</pre></div>
-</div>
-<p>Gets/sets the visible state of the object. If this is 1 (true), the
-object is switched on and visible in the room. If you set this to 0
-(false), the object disappears and no longer appears in the room.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>will make object number 5 in the current room disappear.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="x">
-<span id="x"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectX, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">X</span>
-</pre></div>
-</div>
-<p>Gets/sets the X co-ordinate of the object.</p>
-<p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object 1&#39;s X co-ordinate is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the X co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="#y">Object.Y</a>,
-<a class="reference external" href="#animating">Object.Animating</a>,
-<a class="reference external" href="#visible">Object.Visible</a>,
-<a class="reference external" href="#setposition">Object.SetPosition</a></p>
-</div>
-<hr class="docutils" />
-<div class="section" id="y">
-<span id="y"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetObjectY, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">Object</span><span class="o">.</span><span class="n">Y</span>
-</pre></div>
-</div>
-<p>Gets/sets the Y co-ordinate of the object, which is the bottom of the
-object’s image.</p>
-<p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
-<p><strong>NOTE:</strong> If you try to use this co-ordinate with Object.GetAtScreenXY,
-you will find that the object does not get picked up. The object’s
-sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
-(Object.Y - 1).</p>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Object 1&#39;s Y co-ordinate is </span><span class="si">%d</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">Y</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>will display the Y co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a class="reference external" href="#animating">Object.Animating</a>,
-<a class="reference external" href="#baseline">Object.Baseline</a>,
-<a class="reference external" href="#x">Object.X</a>,
-<a class="reference external" href="#setposition">Object.SetPosition</a></p>
-</div>
-</div>
-
-
-    </div>
-      
-  </div>
-</div>
     
-
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

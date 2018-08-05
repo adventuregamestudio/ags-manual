@@ -5,6 +5,9 @@ In AGS, games are made up of several *rooms*, which the player moves
 between in order to play the game. Each room is one screen that has its
 own background, hotspots and objects.
 
+.. index::
+   pair: ; Creating your first room
+
 ### Creating your first room
 
 Scroll down to the bottom of the project tree, and you'll see a node

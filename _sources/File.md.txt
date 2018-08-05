@@ -1,25 +1,28 @@
 File functions and properties
 -----------------------------
 
-[Open](#open)<br>
-[Close](#close)<br>
-[Delete](#delete)<br>
-[Exists](#exists)<br>
-[ReadInt](#readint)<br>
-[ReadRawChar](#readrawchar)<br>
-[ReadRawInt](#readrawint)<br>
-[ReadRawLineBack](#readrawlineback)<br>
-[ReadStringBack](#readstringback)<br>
-[Seek](#seek)<br>
-[WriteInt](#writeint)<br>
-[WriteRawChar](#writerawchar)<br>
-[WriteRawLine](#writerawline)<br>
-[WriteString](#writestring)<br>
-[EOF property](#eof)<br>
-[Error property](#error)<br>
-[Position property](#position)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Open
 
 ### Open
 
@@ -90,9 +93,12 @@ it will write the string "test string" to the file and close it.
 *See Also:* [File.Close](#close),
 [File.Exists](#exists),
 [File.ReadStringBack](#readstringback),
-[File.WriteString](#writestring)
+
 
 ---
+
+.. index::
+   pair: ; Close
 
 ### Close
 
@@ -116,6 +122,9 @@ it.
 
 ---
 
+.. index::
+   pair: ; Delete
+
 ### Delete
 
     static File.Delete(string filename)
@@ -138,9 +147,12 @@ exists.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [File.Exists](#exists),
-[File.Open](#open)
+
 
 ---
+
+.. index::
+   pair: ; Exists
 
 ### Exists
 
@@ -173,9 +185,12 @@ will create the file "temp.tmp" if it doesn't exist
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [File.Delete](#delete),
-[File.Open](#open)
+
 
 ---
+
+.. index::
+   pair: ; ReadInt
 
 ### ReadInt
 
@@ -197,9 +212,12 @@ will open the file stats.dat, read an integer into number and then close
 the file.
 
 *See Also:* [File.ReadStringBack](#readstringback),
-[File.WriteInt](#writeint)
+
 
 ---
+
+.. index::
+   pair: ; ReadRawChar
 
 ### ReadRawChar
 
@@ -222,9 +240,12 @@ string 'buffer'.
 
 *See Also:* [File.ReadStringBack](#readstringback),
 [File.ReadRawInt](#readrawint),
-[File.WriteRawChar](#writerawchar)
+
 
 ---
+
+.. index::
+   pair: ; ReadRawInt
 
 ### ReadRawInt
 
@@ -248,9 +269,12 @@ will read a raw integer from file stats.txt and put it into the integer
 number.
 
 *See Also:* [File.ReadStringBack](#readstringback),
-[File.ReadRawChar](#readrawchar)
+
 
 ---
+
+.. index::
+   pair: ; ReadRawLineBack
 
 ### ReadRawLineBack
 
@@ -283,6 +307,9 @@ will display the contents of the 'error.log' file, if it exists
 
 ---
 
+.. index::
+   pair: ; ReadStringBack
+
 ### ReadStringBack
 
 *(Formerly known as FileRead, which is now obsolete)*<br>
@@ -306,9 +333,12 @@ File.WriteString) and read a string into the buffer. Then close the
 file.
 
 *See Also:* [File.Open](#open),
-[File.WriteString](#writestring)
+
 
 ---
+
+.. index::
+   pair: ; Seek
 
 ### Seek
 
@@ -355,6 +385,9 @@ will open the file test.dat, read `first_value`, skip 256 bytes, read
 
 ---
 
+.. index::
+   pair: ; WriteInt
+
 ### WriteInt
 
 *(Formerly known as FileWriteInt, which is now obsolete)*
@@ -375,9 +408,12 @@ Example:
 will open the file stats.dat and write the integer number in it.
 
 *See Also:* [File.ReadInt](#readint),
-[File.WriteString](#writestring)
+
 
 ---
+
+.. index::
+   pair: ; WriteRawChar
 
 ### WriteRawChar
 
@@ -406,9 +442,12 @@ will write the text "AB", followed by a carriage return character, to
 the file.
 
 *See Also:* [File.ReadRawChar](#readrawchar),
-[File.WriteInt](#writeint)
+
 
 ---
+
+.. index::
+   pair: ; WriteRawLine
 
 ### WriteRawLine
 
@@ -432,9 +471,12 @@ Example:
 will write an error line in the file error.log.
 
 *See Also:* [File.ReadRawLineBack](#readrawlineback),
-[File.WriteString](#writestring)
+
 
 ---
+
+.. index::
+   pair: ; WriteString
 
 ### WriteString
 
@@ -461,9 +503,12 @@ it will display an error message. Otherwise, it will write the string
 
 *See Also:* [File.ReadStringBack](#readstringback),
 [File.Open](#open),
-[File.WriteRawLine](#writerawline)
+
 
 ---
+
+.. index::
+   pair: ; EOF
 
 ### EOF
 
@@ -489,9 +534,12 @@ screen.
 
 *See Also:* [File.Error](#error),
 [File.Open](#open),
-[File.ReadStringBack](#readstringback)
+
 
 ---
+
+.. index::
+   pair: ; Error
 
 ### Error
 
@@ -525,9 +573,12 @@ will write a number to the file 'test.dat', and display a message if
 there was a problem.
 
 *See Also:* [File.EOF](#eof),
-[File.ReadStringBack](#readstringback)
+
 
 ---
+
+.. index::
+   pair: ; Position
 
 ### Position
 

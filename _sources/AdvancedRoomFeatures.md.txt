@@ -4,13 +4,16 @@ Advanced room features
 This section describes slightly more advanced things you can do with the
 rooms.
 
-[Character scaling](#character-scaling)<br>
-[Scrolling](#scrolling)<br>
-[Importing a file as the walkable area mask](#importing-a-file-as-the-walkable-area-mask)<br>
-[Animating background scenes](#animating-background-scenes)<br>
-[Lighting effects](#lighting-effects)
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Character scaling
 
 ### Character scaling
 
@@ -42,6 +45,9 @@ another as he walks towards the back or front of the screen.
 
 ---
 
+.. index::
+   pair: ; Scrolling
+
 ### Scrolling
 
 It's easy to create scrolling rooms like the ones used in Lucasarts
@@ -60,6 +66,9 @@ manually scroll the room around if you don't want it to follow the
 character.
 
 ---
+
+.. index::
+   pair: ; Importing a file as the walkable area mask
 
 ### Importing a file as the walkable area mask
 
@@ -82,6 +91,9 @@ numbers.
 bitmap. Use only palette indexes 0 to 15.
 
 ---
+
+.. index::
+   pair: ; Animating background scenes
 
 ### Animating background scenes
 
@@ -123,6 +135,9 @@ palette will get reset - therefore you can't use special palette effects
 such as CyclePalette or SetPalRGB on screens with animating backgrounds.
 
 ---
+
+.. index::
+   pair: ; Lighting effects
 
 ### Lighting effects
 

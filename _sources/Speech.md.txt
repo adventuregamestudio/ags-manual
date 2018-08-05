@@ -1,20 +1,23 @@
 Speech functions and properties
 -------------------------------
 
-[AnimationStopTimeMargin](#animationstoptimemargin)<br>
-[CustomPortraitPlacement](#customportraitplacement)<br>
-[DisplayPostTimeMs](#displayposttimems)<br>
-[GlobalSpeechAnimationDelay](#globalspeechanimationdelay)<br>
-[PortraitXOffset](#portraitxoffset)<br>
-[PortraitY](#portraity)<br>
-[SkipKey](#skipkey)<br>
-[SkipStyle](#skipstyle)<br>
-[Style](#style)<br>
-[TextAlignment](#textalignment)<br>
-[UseGlobalSpeechAnimationDelay](#useglobalspeechanimationdelay)<br>
-[VoiceMode](#voicemode)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; AnimationStopTimeMargin
 
 ### AnimationStopTimeMargin
 
@@ -38,9 +41,12 @@ will stop talking animation 40 game loops (1 second with the default
 game speed) before speech time ends.
 
 *See Also:*
-[Speech.DisplayPostTimeMs](#displayposttimems)
+
 
 ---
+
+.. index::
+   pair: ; CustomPortraitPlacement
 
 ### CustomPortraitPlacement
 
@@ -58,9 +64,12 @@ used.
 *Compatibility:* Supported by **AGS 3.3.0** and later versions.
 
 *See Also:* [Speech.PortraitXOffset](#portraitxoffset),
-[Speech.PortraitY](#portraity)
+
 
 ---
+
+.. index::
+   pair: ; DisplayPostTimeMs
 
 ### DisplayPostTimeMs
 
@@ -79,9 +88,12 @@ and is set to zero by default.
 *Compatibility:* Supported by **AGS 3.3.0** and later versions.
 
 *See Also:*
-[Speech.AnimationStopTimeMargin](#animationstoptimemargin)
+
 
 ---
+
+.. index::
+   pair: ; GlobalSpeechAnimationDelay
 
 ### GlobalSpeechAnimationDelay
 
@@ -103,9 +115,12 @@ used instead.
 
 *See Also:*
 [Character.SpeechAnimationDelay](Character#speechanimationdelay),
-[Speech.UseGlobalSpeechAnimationDelay](#useglobalspeechanimationdelay)
+
 
 ---
+
+.. index::
+   pair: ; PortraitXOffset
 
 ### PortraitXOffset
 
@@ -124,9 +139,12 @@ side and respected portrait's border.
 
 *See Also:*
 [Speech.CustomPortraitPlacement](#customportraitplacement),
-[Speech.PortraitY](#portraity)
+
 
 ---
+
+.. index::
+   pair: ; PortraitY
 
 ### PortraitY
 
@@ -141,9 +159,12 @@ Gets/sets the character's speech portrait **y** coordinate on screen.
 
 *See Also:*
 [Speech.CustomPortraitPlacement](#customportraitplacement),
-[Speech.PortraitXOffset](#portraitxoffset)
+
 
 ---
+
+.. index::
+   pair: ; SkipKey
 
 ### SkipKey
 
@@ -168,6 +189,9 @@ will assign the "space" key to skip the speech.
 *See Also:* [Speech.SkipStyle](#skipstyle)
 
 ---
+
+.. index::
+   pair: ; SkipStyle
 
 ### SkipStyle
 
@@ -197,9 +221,12 @@ or a key.
 *See Also:*
 [Game.IgnoreUserInputAfterTextTimeoutMs](Game#ignoreuserinputaftertexttimeoutms),
 [Game.TextReadingSpeed](Game#textreadingspeed),
-[Game.Speech.SkipKey](#skipkey)
+
 
 ---
+
+.. index::
+   pair: ; Style
 
 ### Style
 
@@ -227,6 +254,9 @@ will change the speech style to a close up portrait of the character.
 
 ---
 
+.. index::
+   pair: ; TextAlignment
+
 ### TextAlignment
 
 *(Formerly known as game.speech_text_align, which is now obsolete)*
@@ -251,6 +281,9 @@ will align the speech text at the right side.
 
 ---
 
+.. index::
+   pair: ; UseGlobalSpeechAnimationDelay
+
 ### UseGlobalSpeechAnimationDelay
 
     static bool Speech.UseGlobalSpeechAnimationDelay
@@ -269,9 +302,12 @@ will make the game use global speech animation delay.
 
 *See Also:*
 [Character.SpeechAnimationDelay](Character#speechanimationdelay),
-[Speech.GlobalSpeechAnimationDelay](#globalspeechanimationdelay)
+
 
 ---
+
+.. index::
+   pair: ; VoiceMode
 
 ### VoiceMode
 

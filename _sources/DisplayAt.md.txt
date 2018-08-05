@@ -1,14 +1,17 @@
 Text display / Speech functions
 -------------------------------
 
-[Display](#display)<br>
-[DisplayAt](#displayat)<br>
-[DisplayAtY](#displayaty)<br>
-[DisplayMessage](#displaymessage)<br>
-[DisplayMessageAtY](#displaymessageaty)<br>
-[DisplayTopBar](#displaytopbar)
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Display
 
 ### Display
 
@@ -42,6 +45,9 @@ usually used for responses to the player LOOKing at things.
 
 ---
 
+.. index::
+   pair: ; DisplayAt
+
 ### DisplayAt
 
     DisplayAt(int x, int y, int width, string message, ...)
@@ -69,9 +75,12 @@ Example:
 will display the message at coordinates 50,50 in a box 100 pixels wide.
 
 *See Also:* [Display](#display),
-[DisplayAtY](#displayaty)
+
 
 ---
+
+.. index::
+   pair: ; DisplayAtY
 
 ### DisplayAtY
 
@@ -89,9 +98,12 @@ Example:
 will display the message at y coordinate 50.
 
 *See Also:* [Display](#display),
-[DisplayAt](#displayat)
+
 
 ---
+
+.. index::
+   pair: ; DisplayMessage
 
 ### DisplayMessage
 
@@ -109,9 +121,12 @@ Example:
 will display the message 220 of the Room message editor.
 
 *See Also:* [Display](#display),
-[DisplayMessageAtY](#displaymessageaty)
+
 
 ---
+
+.. index::
+   pair: ; DisplayMessageAtY
 
 ### DisplayMessageAtY
 
@@ -131,9 +146,12 @@ Example:
 will display global message 527, in the lower half of the screen.
 
 *See Also:* [DisplayAtY](#displayaty),
-[DisplayMessage](#displaymessage)
+
 
 ---
+
+.. index::
+   pair: ; DisplayTopBar
 
 ### DisplayTopBar
 
@@ -181,4 +199,4 @@ with the caption bar reading "Evil wizard". The message box will have
 dark grey text on a light gray background.
 
 *See Also:* [Display](#display),
-[DisplayAt](#displayat)
+

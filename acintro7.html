@@ -1,285 +1,44 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Getting Started with AGS - Part 7 &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Started with AGS - Part 8" href="acintro8.html" />
     <link rel="prev" title="Getting Started with AGS - Part 6" href="acintro6.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 7</strong></a><ul>
-<li><a class="reference internal" href="#animations">Animations</a></li>
-<li><a class="reference internal" href="#characters">Characters</a></li>
-<li><a class="reference internal" href="#game-starting-point">Game starting point</a></li>
-<li><a class="reference internal" href="#cutscenes">Cutscenes</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="acintro6.html" title="Previous Chapter: Getting Started with AGS - Part 6"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Getting Start...</span>
-    </a>
-  </li>
-  <li>
-    <a href="acintro8.html" title="Next Chapter: Getting Started with AGS - Part 8"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Getting Start... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/acintro7.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="getting-started-with-ags-part-7">
-<span id="getting-started-with-ags-part-7"></span><h1><strong>Getting Started with AGS - Part 7</strong><a class="headerlink" href="#getting-started-with-ags-part-7" title="Permalink to this headline">¶</a></h1>
+<h1><strong>Getting Started with AGS - Part 7</strong><a class="headerlink" href="#getting-started-with-ags-part-7" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="animations">
-<span id="animations"></span><h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
 <p>A graphical adventure game would be no good without animations. These
 range from commonly-used animations such as the main character walking,
 to a flag waving in the background in one particular screen.</p>
@@ -287,7 +46,8 @@ to a flag waving in the background in one particular screen.</p>
 more <em>loops</em>. A loop is a set of frames which, when played in sequence,
 give the illusion of movement. Expand the “Views” node in the project
 tree, and double-click the view 1:</p>
-<p><img alt="" src="_images/intro7_1.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_1.jpg"><img alt="" src="_images/intro7_1.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The View Editor showing view 1</em></p>
 <p>This is the View Editor where you will put together all your animations.
 You’ll notice lots of frames of Roger’s walking animation in this
@@ -297,14 +57,15 @@ from left to right. To change the image for a frame, double-click the
 image, and you’ll be presented with the sprite manager where you can
 select the image to use. <strong>All images for use with views are imported as
 usual via the sprite manager</strong> before they can be inserted into a
-frame.<br>
+frame.<span class="raw-html-m2r"><br></span>
 At the right hand end of each loop, you’ll see a “Create new frame”
 button, which you can click to create a new extra frame at the end of
 the loop. You can also right-click a frame to insert a new one before or
 after it.</p>
 <p>Left-click a frame to select it. When you do so, the property grid will
 be updated with the frame’s details:</p>
-<p><img alt="" src="_images/intro7_2.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_2.jpg"><img alt="" src="_images/intro7_2.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Property Grid showing frame properties</em></p>
 <ul class="simple">
 <li><strong>Delay</strong> is the frame’s <strong>relative</strong> speed. This number adds a
@@ -326,7 +87,7 @@ for all types of animations in the game. How you actually run an
 animation in the game will be explained later on.</p>
 </div>
 <div class="section" id="characters">
-<span id="characters"></span><h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
 <p>If you remember back to part 3 of this tutorial, we talked about three
 types of thing that the player can interact with - hotspots, objects and
 characters. We’ve covered the first two, so now it’s time to take a look
@@ -338,7 +99,8 @@ its own inventory and more.</p>
 you only have one character in the list, labelled “0: cEgo”. You can
 create a new character by right-clicking the “Characters” node. For now,
 double-click the “cEgo” character:</p>
-<p><img alt="" src="_images/intro7_3.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_3.jpg"><img alt="" src="_images/intro7_3.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The Character Editor</em></p>
 <p>The first thing you’ll notice is the text “This character is the player
 character” at the top of the window. This shows that the currently
@@ -356,10 +118,10 @@ off in at the beginning of the game.</li>
 <li><strong>NormalView</strong> - sets which view is used for the normal walking
 animation of the character. The view specified here must have 4 or 8
 loops, and the first frame of each loop is the standing still
-frame.<br>
+frame.<span class="raw-html-m2r"><br></span>
 For a 4-loop character, when walking diagonally the closest straight
 direction is chosen for display. With an 8-loop character, all 8
-directions are displayed depending on the character’s direction.<br>
+directions are displayed depending on the character’s direction.<span class="raw-html-m2r"><br></span>
 Which loop represents which direction is shown in the Views editor
 (eg. “Loop 0 (down)”).</li>
 <li><strong>Clickable</strong> - if this is not checked, then this character will be
@@ -377,19 +139,21 @@ contain the letters A-Z, whereas the <em>RealName</em> field can contain any
 spaces, numbers, etc.</p>
 </div>
 <div class="section" id="game-starting-point">
-<span id="game-starting-point"></span><h2>Game starting point<a class="headerlink" href="#game-starting-point" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Game starting point<a class="headerlink" href="#game-starting-point" title="Permalink to this headline">¶</a></h2>
 <p>Just in case you missed it, I’ll repeat what was just said in the
 Characters section - the “<em>Starts in room</em>” setting of the player
 character is used to determine which room the game starts off in.</p>
-<p><img alt="" src="_images/icon_info.gif" /><br>
+<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
+<p><span class="raw-html-m2r"><br></span>
 TIP: This feature can be handy for testing various parts of your game. For example, when you’re working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.</p>
 </div>
 <div class="section" id="cutscenes">
-<span id="cutscenes"></span><h2>Cutscenes<a class="headerlink" href="#cutscenes" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Cutscenes<a class="headerlink" href="#cutscenes" title="Permalink to this headline">¶</a></h2>
 <p>You can easily add intro, outro and cutscene sequences to your game.
 There is no specific feature to do this - you simply use the provided
 animation and movement commands to do whatever you like.</p>
-<p><img alt="" src="_images/icon_info.gif" /><br>
+<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
+<p><span class="raw-html-m2r"><br></span>
 A cutscene is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.</p>
 <p>Right, firstly let’s do something very simple. When the player goes to
 pick up the key from the floor of our room, we want him to walk over to
@@ -399,7 +163,8 @@ this? Yes, that’s right, we need to return to the Event Script for the
 key object. Go back to the Events List for the key object (remember, you
 open the room, select the “Objects” mode, then click on the key to
 select it):</p>
-<p><img alt="" src="_images/intro7_4.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_4.jpg"><img alt="" src="_images/intro7_4.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Remember this?</em></p>
 <p>The main difference you’ll notice now is that the “Interact object”
 event already has a name. This “oKey_Interact” is the name of the
@@ -411,7 +176,8 @@ existing command that makes the key invisible. We want to do an action
 on the player character (ie. move him), so type “player.” and
 auto-complete will pop up with the available commands. See if you can
 work out which one we need.</p>
-<p><img alt="" src="_images/intro7_5.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_5.jpg"><img alt="" src="_images/intro7_5.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>The Walk command needs X and Y co-ordinates</em></p>
 <p><strong>Eeek!</strong> It wants a destination X and Y location! We don’t know that,
 but we can find out! Click the “Room 1” tab on the tab bar at the top of
@@ -425,35 +191,64 @@ pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for
 Roger to get to those co-ordinates before continuing the script. If we
 didn’t do this, he would start to walk but the key would disappear
 before he got there! The final script should look like this:</p>
-<p><img alt="" src="_images/intro7_6.jpg" /><br>
+<a class="reference external image-reference" href="images/intro7_6.jpg"><img alt="" src="_images/intro7_6.jpg" /></a>
+<p><span class="raw-html-m2r"><br></span>
 <em>Our new command is run before the existing ones</em></p>
 <p>Now, hit F5 and try it out!</p>
 <p>OK, I think we’ve had enough of animations and cutscenes for now. We’ll
 return later to explore actual animations and more complex cutscenes.</p>
-<p>Go to part 8: <a class="reference external" href="acintro8">Conversations</a></p>
+<p>Go to part 8: <a class="reference internal" href="acintro8.html"><span class="doc">Conversations</span></a></p>
 </div>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="acintro6.html" title="previous chapter"><strong>Getting Started with AGS - Part 6</strong></a></li>
+      <li>Next: <a href="acintro8.html" title="next chapter"><strong>Getting Started with AGS - Part 8</strong></a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>Getting Started with AGS - Part 7</strong></a><ul>
+<li><a class="reference internal" href="#animations">Animations</a></li>
+<li><a class="reference internal" href="#characters">Characters</a></li>
+<li><a class="reference internal" href="#game-starting-point">Game starting point</a></li>
+<li><a class="reference internal" href="#cutscenes">Cutscenes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

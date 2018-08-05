@@ -157,10 +157,13 @@ supported commands:
 [AudioClip reference](AudioClip),
 [AudioChannel reference](AudioChannel)
 
-[Voice speech](#voice-speech)<br>
-[The AudioCache folder](#the-audiocache-folder)
+
+
 
 ---
+
+.. index::
+   pair: ; Voice speech
 
 ### Voice speech
 
@@ -211,6 +214,9 @@ not present.
 *SeeAlso:* [Speech.VoiceMode](Speech#voicemode)
 
 ---
+
+.. index::
+   pair: ; The AudioCache folder
 
 ### The AudioCache folder
 

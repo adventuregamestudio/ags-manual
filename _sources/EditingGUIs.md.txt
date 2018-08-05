@@ -59,15 +59,18 @@ in the same way as character names. For example, if a GUI is called
 
 `gIconBar.Visible = true;`
 
-[GUI buttons](#gui-buttons)<br>
-[Interface text](#interface-text)<br>
-[Customized Text Windows](#customized-text-windows)<br>
-[Custom inventory](#custom-inventory)<br>
-[Sliders](#sliders)<br>
-[Text Boxes](#text-boxes)<br>
-[List Boxes](#list-boxes)
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; GUI buttons
 
 ### GUI buttons
 
@@ -89,6 +92,9 @@ in the "New mode number" property.
 To delete a GUI button, right-click it and choose Delete.
 
 ---
+
+.. index::
+   pair: ; Interface text
 
 ### Interface text
 
@@ -119,6 +125,9 @@ The Properties window also allows you to align the text to left, right
 or centre, as well as change its font and colour.
 
 ---
+
+.. index::
+   pair: ; Customized Text Windows
 
 ### Customized Text Windows
 
@@ -151,6 +160,9 @@ window's border and text inside of it.
 
 ---
 
+.. index::
+   pair: ; Custom inventory
+
 ### Custom inventory
 
 Another option you may have noticed in the GUI editor is the Add
@@ -167,6 +179,9 @@ To see a full list of commands available for inventory windows, see the
 section.
 
 ---
+
+.. index::
+   pair: ; Sliders
 
 ### Sliders
 
@@ -196,6 +211,9 @@ script property.
 
 ---
 
+.. index::
+   pair: ; Text Boxes
+
 ### Text Boxes
 
 A text box is a simple device that allows the player to type information
@@ -209,6 +227,9 @@ presses Return in the text box, the OnActivate event is called. You can
 then use the TextBox.Text property to retrieve what they typed in.
 
 ---
+
+.. index::
+   pair: ; List Boxes
 
 ### List Boxes
 

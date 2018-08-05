@@ -1,20 +1,23 @@
 Region functions and properties
 -------------------------------
 
-[GetAtRoomXY](#getatroomxy)<br>
-[RunInteraction](#runinteraction)<br>
-[Tint](#tint)<br>
-[Enabled property](#enabled)<br>
-[ID property](#id)<br>
-[LightLevel property](#lightlevel)<br>
-[TintEnabled property](#tintenabled)<br>
-[TintBlue property](#tintblue)<br>
-[TintGreen property](#tintgreen)<br>
-[TintRed property](#tintred)<br>
-[TintSaturation property](#tintsaturation)<br>
-[TintLuminance property](#tintluminance)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; GetAtRoomXY
 
 ### GetAtRoomXY
 
@@ -39,6 +42,9 @@ Example:
 *See Also:* [GetWalkableAreaAt](Room#getwalkableareaat)
 
 ---
+
+.. index::
+   pair: ; RunInteraction
 
 ### RunInteraction
 
@@ -68,6 +74,9 @@ walks onto region" for region 4.
 [Hotspot.RunInteraction](Hotspot#runinteraction)
 
 ---
+
+.. index::
+   pair: ; Tint
 
 ### Tint
 
@@ -105,6 +114,9 @@ will set region 2's RGB tint to (180, 20, 20) with 50`%` opacity.
 
 ---
 
+.. index::
+   pair: ; Enabled
+
 ### Enabled
 
 *(Formerly known as DisableRegion, which is now obsolete)*<br>
@@ -133,6 +145,9 @@ will disable region number 3.
 
 ---
 
+.. index::
+   pair: ; ID
+
 ### ID
 
     readonly int Region.ID
@@ -149,6 +164,9 @@ displays region 3's number (which will be 3).
 *See Also:* [Region.GetAtRoomXY](#getatroomxy)
 
 ---
+
+.. index::
+   pair: ; LightLevel
 
 ### LightLevel
 
@@ -195,6 +213,9 @@ will set region 2's level light to 100 if the Global Integer 10 is 1.
 
 ---
 
+.. index::
+   pair: ; TintEnabled
+
 ### TintEnabled
 
     readonly bool Region.TintEnabled
@@ -218,6 +239,9 @@ will display a message if region 4 is tinted
 *See Also:* [Region.Tint](#tint)
 
 ---
+
+.. index::
+   pair: ; TintBlue
 
 ### TintBlue
 
@@ -245,9 +269,12 @@ will display a message with the region's tints.
 [Region.TintEnabled](#tintenabled),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-[Region.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: ; TintGreen
 
 ### TintGreen
 
@@ -276,9 +303,12 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintRed](#tintred),
 [Region.TintSaturation](#tintsaturation),
-[Region.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: ; TintRed
 
 ### TintRed
 
@@ -307,9 +337,12 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintSaturation](#tintsaturation),
-[Region.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: ; TintSaturation
 
 ### TintSaturation
 
@@ -338,9 +371,12 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-[Region.TintLuminance](#tintluminance)
+
 
 ---
+
+.. index::
+   pair: ; TintLuminance
 
 ### TintLuminance
 
@@ -359,5 +395,5 @@ property is false, then this value is meaningless.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-[Region.TintSaturation](#tintsaturation)
+
 

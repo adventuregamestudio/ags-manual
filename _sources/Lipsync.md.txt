@@ -14,12 +14,15 @@ actually saying those words.
 Lip sync is being configured on corresponding 'Lip Sync' pane in the
 editor.
 
-[Text-based lip syncing](#text-based-lip-syncing)<br>
-[Voice-based lip sync](#voice-based-lip-sync)<br>
-[PAMELA](#pamela)<br>
-[Papagayo](#papagayo)
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Text-based lip syncing
 
 ### Text-based lip syncing
 
@@ -43,6 +46,9 @@ encountered.
 
 ---
 
+.. index::
+   pair: ; Voice-based lip sync
+
 ### Voice-based lip sync
 
 AGS supports lip syncing voice speech to the talking animation. If you
@@ -59,6 +65,9 @@ applications that produce lip sync data based on voice clips. AGS
 supports two such data formats: **PAMELA** and **Papagayo**.
 
 ---
+
+.. index::
+   pair: ; PAMELA
 
 ### PAMELA
 
@@ -92,6 +101,9 @@ game.
 strongly recommended that you use OGG or WAV for speech.
 
 ---
+
+.. index::
+   pair: ; Papagayo
 
 ### Papagayo
 

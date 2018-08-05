@@ -1,621 +1,403 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Built-in enumerated types &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Script language keywords" href="managedmodifier.html" />
-    <link rel="prev" title="Custom dialog options rendering" href="CustomDialogOptions.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="next" title="GUI Button functions and properties" href="Button.html" />
+    <link rel="prev" title="Understanding blocking scripts" href="BlockingScripts.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUI.html">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Built-in enumerated types</a></li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="CustomDialogOptions.html" title="Previous Chapter: Custom dialog options rendering"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Custom dialog...</span>
-    </a>
-  </li>
-  <li>
-    <a href="managedmodifier.html" title="Next Chapter: Script language keywords"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Script langua... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/BuiltInEnums.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="built-in-enumerated-types">
-<span id="built-in-enumerated-types"></span><h1>Built-in enumerated types<a class="headerlink" href="#built-in-enumerated-types" title="Permalink to this headline">¶</a></h1>
-<p>AGS has several <a class="reference external" href="managedmodifier#enum">enumerated types</a> built in. These are
+<h1>Built-in enumerated types<a class="headerlink" href="#built-in-enumerated-types" title="Permalink to this headline">¶</a></h1>
+<p>AGS has several <a class="reference internal" href="managedmodifier.html"><span class="doc">enumerated types</span></a> built in. These are
 used in calls to various commands, and will usually pop up automatically
 in autocomplete. However, for times where autocomplete doesn’t do the
 job, having a manual reference is invaluable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">BlockingStyle</span> <span class="p">{</span>
-  <span class="n">eBlock</span><span class="p">,</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">BlockingStyle</span> {
+  <span class="n">eBlock</span>,
   <span class="n">eNoBlock</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Character#animate">Character.Animate</a>,
-<a class="reference external" href="Character#facecharacter">Character.FaceCharacter</a>,
-<a class="reference external" href="Character#facelocation">Character.FaceLocation</a>,
-<a class="reference external" href="Character#faceobject">Character.FaceObject</a>,
-<a class="reference external" href="Character#move">Character.Move</a>,
-<a class="reference external" href="Character#walk">Character.Walk</a>,
-<a class="reference external" href="Character#walkstraight">Character.WalkStraight</a>,
-<a class="reference external" href="Object#animate">Object.Animate</a>,
-<a class="reference external" href="Object#move">Object.Move</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CharacterDirection</span> <span class="p">{</span>
-  <span class="n">eDirectionDown</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">eDirectionLeft</span><span class="p">,</span>
-  <span class="n">eDirectionRight</span><span class="p">,</span>
-  <span class="n">eDirectionUp</span><span class="p">,</span>
-  <span class="n">eDirectionDownRight</span><span class="p">,</span>
-  <span class="n">eDirectionUpRight</span><span class="p">,</span>
-  <span class="n">eDirectionDownLeft</span><span class="p">,</span>
-  <span class="n">eDirectionUpLeft</span><span class="p">,</span>
-  <span class="n">eDirectionNone</span> <span class="o">=</span> <span class="n">SCR_NO_VALUE</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceLocation</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceObject</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.WalkStraight</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.Animate</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.Move</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">CharacterDirection</span> {
+  <span class="n">eDirectionDown</span> = <span class="mi">0</span>,
+  <span class="n">eDirectionLeft</span>,
+  <span class="n">eDirectionRight</span>,
+  <span class="n">eDirectionUp</span>,
+  <span class="n">eDirectionDownRight</span>,
+  <span class="n">eDirectionUpRight</span>,
+  <span class="n">eDirectionDownLeft</span>,
+  <span class="n">eDirectionUpLeft</span>,
+  <span class="n">eDirectionNone</span> = <span class="n">SCR_NO_VALUE</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Character#changeroom">Character.ChangeRoom</a>,
-<a class="reference external" href="Character#facedirection">Character.FaceDirection</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Direction</span> <span class="p">{</span>
-  <span class="n">eForwards</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.ChangeRoom</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.FaceDirection</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">Direction</span> {
+  <span class="n">eForwards</span>,
   <span class="n">eBackwards</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Character#animate">Character.Animate</a>,
-<a class="reference external" href="Object#animate">Object.Animate</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">WalkWhere</span> <span class="p">{</span>
-  <span class="n">eAnywhere</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.Animate</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">WalkWhere</span> {
+  <span class="n">eAnywhere</span>,
   <span class="n">eWalkableAreas</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Character#move">Character.Move</a>,
-<a class="reference external" href="Character#walk">Character.Walk</a>,
-<a class="reference external" href="Object#move">Object.Move</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">StopMovementStyle</span>
-<span class="p">{</span>
-  <span class="n">eKeepMoving</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">eStopMoving</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.Move</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">StopMovementStyle</span>
+{
+  <span class="n">eKeepMoving</span> = <span class="mi">0</span>,
+  <span class="n">eStopMoving</span> = <span class="mi">1</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Character#lockviewaligned">Character.LockView</a>,
-<a class="reference external" href="Character#lockviewoffset">Character.LockViewFrame</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">RepeatStyle</span> <span class="p">{</span>
-  <span class="n">eOnce</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.LockViewFrame</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">RepeatStyle</span> {
+  <span class="n">eOnce</span>,
   <span class="n">eRepeat</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Button#animate">Button.Animate</a>,
-<a class="reference external" href="Character#animate">Character.Animate</a>,
-<a class="reference external" href="Object#animate">Object.Animate</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Alignment</span> <span class="p">{</span>
-  <span class="n">eAlignLeft</span><span class="p">,</span>
-  <span class="n">eAlignCentre</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.Animate</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.Animate</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">Alignment</span> {
+  <span class="n">eAlignLeft</span>,
+  <span class="n">eAlignCentre</span>,
   <span class="n">eAlignRight</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
 <p><em>Used by:</em>
-<a class="reference external" href="Character#lockviewaligned">Character.LockViewAligned</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eFlipDirection</span> <span class="p">{</span>
-  <span class="n">eFlipLeftToRight</span><span class="p">,</span>
-  <span class="n">eFlipUpsideDown</span><span class="p">,</span>
+<a class="reference internal" href="Character.html"><span class="doc">Character.LockViewAligned</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">eFlipDirection</span> {
+  <span class="n">eFlipLeftToRight</span>,
+  <span class="n">eFlipUpsideDown</span>,
   <span class="n">eFlipBoth</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="DynamicSprite#flip">DynamicSprite.Flip</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">TransitionStyle</span> <span class="p">{</span>
-  <span class="n">eTransitionFade</span><span class="p">,</span>
-  <span class="n">eTransitionInstant</span><span class="p">,</span>
-  <span class="n">eTransitionDissolve</span><span class="p">,</span>
-  <span class="n">eTransitionBoxout</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="DynamicSprite.html"><span class="doc">DynamicSprite.Flip</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">TransitionStyle</span> {
+  <span class="n">eTransitionFade</span>,
+  <span class="n">eTransitionInstant</span>,
+  <span class="n">eTransitionDissolve</span>,
+  <span class="n">eTransitionBoxout</span>,
   <span class="n">eTransitionCrossfade</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="ShakeScreen#setscreentransition">SetScreenTransition</a>,
-<a class="reference external" href="ShakeScreen#setnextscreentransition">SetNextScreenTransition</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">MouseButton</span> <span class="p">{</span>
-  <span class="n">eMouseLeft</span><span class="p">,</span>
-  <span class="n">eMouseRight</span><span class="p">,</span>
-  <span class="n">eMouseMiddle</span><span class="p">,</span>
-  <span class="n">eMouseLeftInv</span><span class="p">,</span>
-  <span class="n">eMouseMiddleInv</span><span class="p">,</span>
-  <span class="n">eMouseRightInv</span><span class="p">,</span>
-  <span class="n">eMouseWheelNorth</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="ShakeScreen.html"><span class="doc">SetScreenTransition</span></a>,
+<a class="reference internal" href="ShakeScreen.html"><span class="doc">SetNextScreenTransition</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">MouseButton</span> {
+  <span class="n">eMouseLeft</span>,
+  <span class="n">eMouseRight</span>,
+  <span class="n">eMouseMiddle</span>,
+  <span class="n">eMouseLeftInv</span>,
+  <span class="n">eMouseMiddleInv</span>,
+  <span class="n">eMouseRightInv</span>,
+  <span class="n">eMouseWheelNorth</span>,
   <span class="n">eMouseWheelSouth</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Mouse#isbuttondown">Mouse.IsButtonDown</a><br>
+<p><em>Used by:</em> <a class="reference internal" href="Mouse.html"><span class="doc">Mouse.IsButtonDown</span></a><span class="raw-html-m2r"><br></span>
 <em>Passed into:</em> on_mouse_click</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">EventType</span> <span class="p">{</span>
-  <span class="n">eEventLeaveRoom</span><span class="p">,</span>
-  <span class="n">eEventEnterRoom</span><span class="p">,</span>
-  <span class="n">eEventGotScore</span><span class="p">,</span>
-  <span class="n">eEventGUIMouseDown</span><span class="p">,</span>
-  <span class="n">eEventGUIMouseUp</span><span class="p">,</span>
-  <span class="n">eEventAddInventory</span><span class="p">,</span>
-  <span class="n">eEventLoseInventory</span><span class="p">,</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">EventType</span> {
+  <span class="n">eEventLeaveRoom</span>,
+  <span class="n">eEventEnterRoom</span>,
+  <span class="n">eEventGotScore</span>,
+  <span class="n">eEventGUIMouseDown</span>,
+  <span class="n">eEventGUIMouseUp</span>,
+  <span class="n">eEventAddInventory</span>,
+  <span class="n">eEventLoseInventory</span>,
   <span class="n">eEventRestoreGame</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
 <p><em>Passed into:</em> on_event</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">RoundDirection</span> <span class="p">{</span>
-  <span class="n">eRoundDown</span><span class="p">,</span>
-  <span class="n">eRoundNearest</span><span class="p">,</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">RoundDirection</span> {
+  <span class="n">eRoundDown</span>,
+  <span class="n">eRoundNearest</span>,
   <span class="n">eRoundUp</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Maths#floattoint">FloatToInt</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eSpeechStyle</span> <span class="p">{</span>
-  <span class="n">eSpeechLucasarts</span><span class="p">,</span>
-  <span class="n">eSpeechSierra</span><span class="p">,</span>
-  <span class="n">eSpeechSierraWithBackground</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Maths.html"><span class="doc">FloatToInt</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">eSpeechStyle</span> {
+  <span class="n">eSpeechLucasarts</span>,
+  <span class="n">eSpeechSierra</span>,
+  <span class="n">eSpeechSierraWithBackground</span>,
   <span class="n">eSpeechFullScreen</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Speech#style">Speech.Style</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">SkipSpeechStyle</span> <span class="p">{</span>
-  <span class="n">eSkipKeyMouseTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">eSkipKeyTime</span>      <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="n">eSkipTime</span>         <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="n">eSkipKeyMouse</span>     <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="n">eSkipMouseTime</span>    <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="n">eSkipKey</span>          <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="n">eSkipMouse</span>        <span class="o">=</span> <span class="mi">6</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="Speech.html"><span class="doc">Speech.Style</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">SkipSpeechStyle</span> {
+  <span class="n">eSkipKeyMouseTime</span> = <span class="mi">0</span>,
+  <span class="n">eSkipKeyTime</span>      = <span class="mi">1</span>,
+  <span class="n">eSkipTime</span>         = <span class="mi">2</span>,
+  <span class="n">eSkipKeyMouse</span>     = <span class="mi">3</span>,
+  <span class="n">eSkipMouseTime</span>    = <span class="mi">4</span>,
+  <span class="n">eSkipKey</span>          = <span class="mi">5</span>,
+  <span class="n">eSkipMouse</span>        = <span class="mi">6</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Speech#skipstyle">Speech.SkipStyle</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eVoiceMode</span> <span class="p">{</span>
-  <span class="n">eSpeechTextOnly</span><span class="p">,</span>
-  <span class="n">eSpeechVoiceAndText</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Speech.html"><span class="doc">Speech.SkipStyle</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">eVoiceMode</span> {
+  <span class="n">eSpeechTextOnly</span>,
+  <span class="n">eSpeechVoiceAndText</span>,
   <span class="n">eSpeechVoiceOnly</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Speech#voicemode">Speech.VoiceMode</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">DialogOptionState</span> <span class="p">{</span>
-  <span class="n">eOptionOff</span><span class="p">,</span>
-  <span class="n">eOptionOn</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Speech.html"><span class="doc">Speech.VoiceMode</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">DialogOptionState</span> {
+  <span class="n">eOptionOff</span>,
+  <span class="n">eOptionOn</span>,
   <span class="n">eOptionOffForever</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Dialog#getoptionstate">Dialog.GetOptionState</a>,
-<a class="reference external" href="Dialog#setoptionstate">Dialog.SetOptionState</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CutsceneSkipType</span> <span class="p">{</span>
-  <span class="n">eSkipESCOnly</span><span class="p">,</span>
-  <span class="n">eSkipAnyKey</span><span class="p">,</span>
-  <span class="n">eSkipMouseClick</span><span class="p">,</span>
-  <span class="n">eSkipAnyKeyOrMouseClick</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Dialog.html"><span class="doc">Dialog.GetOptionState</span></a>,
+<a class="reference internal" href="Dialog.html"><span class="doc">Dialog.SetOptionState</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">CutsceneSkipType</span> {
+  <span class="n">eSkipESCOnly</span>,
+  <span class="n">eSkipAnyKey</span>,
+  <span class="n">eSkipMouseClick</span>,
+  <span class="n">eSkipAnyKeyOrMouseClick</span>,
   <span class="n">eSkipESCOrRightButton</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Game#startcutscene">StartCutscene</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eOperatingSystem</span> <span class="p">{</span>
-  <span class="n">eOSDOS</span><span class="p">,</span>
-  <span class="n">eOSWindows</span><span class="p">,</span>
-  <span class="n">eOSLinux</span><span class="p">,</span>
-  <span class="n">eOSMacOS</span><span class="p">,</span>
-  <span class="n">eOSAndroid</span><span class="p">,</span>
-  <span class="n">eOSiOS</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Game.html"><span class="doc">StartCutscene</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">eOperatingSystem</span> {
+  <span class="n">eOSDOS</span>,
+  <span class="n">eOSWindows</span>,
+  <span class="n">eOSLinux</span>,
+  <span class="n">eOSMacOS</span>,
+  <span class="n">eOSAndroid</span>,
+  <span class="n">eOSiOS</span>,
   <span class="n">eOSPSP</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="System#operatingsystem">System.OperatingSystem</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">eCDAudioFunction</span> <span class="p">{</span>
-  <span class="n">eCDIsDriverPresent</span><span class="p">,</span>
-  <span class="n">eCDGetPlayingStatus</span><span class="p">,</span>
-  <span class="n">eCDPlayTrack</span><span class="p">,</span>
-  <span class="n">eCDPausePlayback</span><span class="p">,</span>
-  <span class="n">eCDResumePlayback</span><span class="p">,</span>
-  <span class="n">eCDGetNumTracks</span><span class="p">,</span>
-  <span class="n">eCDEject</span><span class="p">,</span>
-  <span class="n">eCDCloseTray</span><span class="p">,</span>
-  <span class="n">eCDGetCDDriveCount</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="System.html"><span class="doc">System.OperatingSystem</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">eCDAudioFunction</span> {
+  <span class="n">eCDIsDriverPresent</span>,
+  <span class="n">eCDGetPlayingStatus</span>,
+  <span class="n">eCDPlayTrack</span>,
+  <span class="n">eCDPausePlayback</span>,
+  <span class="n">eCDResumePlayback</span>,
+  <span class="n">eCDGetNumTracks</span>,
+  <span class="n">eCDEject</span>,
+  <span class="n">eCDCloseTray</span>,
+  <span class="n">eCDGetCDDriveCount</span>,
   <span class="n">eCDSelectActiveCDDrive</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Multimedia#cdaudio">CDAudio</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">CursorMode</span> <span class="p">{</span>
-  <span class="n">eModeXXXX</span><span class="p">,</span>
-  <span class="n">eModeXXXX</span><span class="p">,</span>
-  <span class="o">...</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="Multimedia.html"><span class="doc">CDAudio</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">CursorMode</span> {
+  <span class="n">eModeXXXX</span>,
+  <span class="n">eModeXXXX</span>,
+  ...
+};
 </pre></div>
 </div>
 <p>The CursorMode enumeration is generated automatically based on your
 mouse cursors. The cursor mode name is taken, all its spaces are
-removed, and <em>eMode</em> is added to the front.<br>
-<em>Used by:</em> <a class="reference external" href="Game#isinteractionavailable">IsInteractionAvailable</a>,
-<a class="reference external" href="Room#processclick">Room.ProcessClick</a>,
-<a class="reference external" href="Mouse#changemodegraphic">Mouse.ChangeModeGraphic</a>,
-<a class="reference external" href="Mouse#changemodehotspot">Mouse.ChangeModeHotspot</a>,
-<a class="reference external" href="Mouse#disablemode">Mouse.DisableMode</a>,
-<a class="reference external" href="Mouse#enablemode">Mouse.EnableMode</a>,
-<a class="reference external" href="Mouse#ismodeenabled">Mouse.IsModeEnabled</a>,
-<a class="reference external" href="Mouse#usemodegraphic">Mouse.UseModeGraphic</a>,
-<a class="reference external" href="Mouse#mode">Mouse.Mode</a>,
-<a class="reference external" href="InventoryItem#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>,
-<a class="reference external" href="InventoryItem#runinteraction">InventoryItem.RunInteraction</a>,
-<a class="reference external" href="Hotspot#isinteractionavailable">Hotspot.IsInteractionAvailable</a>,
-<a class="reference external" href="Hotspot#runinteraction">Hotspot.RunInteraction</a>,
-<a class="reference external" href="Object#isinteractionavailable">Object.IsInteractionAvailable</a>,
-<a class="reference external" href="Object#runinteraction">Object.RunInteraction</a>,
-<a class="reference external" href="Character#isinteractionavailable">Character.IsInteractionAvailable</a>,
-<a class="reference external" href="Character#runinteraction">Character.RunInteraction</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FontType</span> <span class="p">{</span>
-  <span class="n">eFontXXXX</span><span class="p">,</span>
-  <span class="n">eFontXXXX</span><span class="p">,</span>
-  <span class="o">...</span>
-<span class="p">};</span>
+removed, and <em>eMode</em> is added to the front.<span class="raw-html-m2r"><br></span>
+<em>Used by:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
+<a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.ChangeModeGraphic</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.ChangeModeHotspot</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.DisableMode</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.EnableMode</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.IsModeEnabled</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.UseModeGraphic</span></a>,
+<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.Mode</span></a>,
+<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.IsInteractionAvailable</span></a>,
+<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.RunInteraction</span></a>,
+<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.IsInteractionAvailable</span></a>,
+<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.RunInteraction</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.IsInteractionAvailable</span></a>,
+<a class="reference internal" href="Object.html"><span class="doc">Object.RunInteraction</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.IsInteractionAvailable</span></a>,
+<a class="reference internal" href="Character.html"><span class="doc">Character.RunInteraction</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">FontType</span> {
+  <span class="n">eFontXXXX</span>,
+  <span class="n">eFontXXXX</span>,
+  ...
+};
 </pre></div>
 </div>
 <p>The FontType enumeration is generated automatically based on your fonts.
 The font name is taken, all its spaces are removed, and <em>eFont</em> is added
-to the front.<br>
-<em>Used by:</em> <a class="reference external" href="Button#font">Button.Font</a>,
-<a class="reference external" href="DrawingSurfaceFunctions#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a>,
-<a class="reference external" href="DrawingSurfaceFunctions#drawstring">DrawingSurface.DrawString</a>,
-<a class="reference external" href="DrawingSurfaceFunctions#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>,
-<a class="reference external" href="Game#normalfont">Game.NormalFont</a>,
-<a class="reference external" href="Game#speechfont">Game.SpeechFont</a>,
-<a class="reference external" href="Game#gettextheight">GetTextHeight</a>,
-<a class="reference external" href="Game#gettextwidth">GetTextWidth</a>,
-<a class="reference external" href="Label#font">Label.Font</a>,
-<a class="reference external" href="ListBox#font">ListBox.Font</a>,
-<a class="reference external" href="TextBox#font">TextBox.Font</a>,
-<a class="reference external" href="Overlay#createtextual">Overlay.CreateTextual</a>,
-<a class="reference external" href="Overlay#settext">Overlay.SetText</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">LocationType</span> <span class="p">{</span>
-  <span class="n">eLocationNothing</span><span class="p">,</span>
-  <span class="n">eLocationHotspot</span><span class="p">,</span>
-  <span class="n">eLocationCharacter</span><span class="p">,</span>
+to the front.<span class="raw-html-m2r"><br></span>
+<em>Used by:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.Font</span></a>,
+<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawMessageWrapped</span></a>,
+<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawString</span></a>,
+<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawStringWrapped</span></a>,
+<a class="reference internal" href="Game.html"><span class="doc">Game.NormalFont</span></a>,
+<a class="reference internal" href="Game.html"><span class="doc">Game.SpeechFont</span></a>,
+<a class="reference internal" href="Game.html"><span class="doc">GetTextHeight</span></a>,
+<a class="reference internal" href="Game.html"><span class="doc">GetTextWidth</span></a>,
+<a class="reference internal" href="Label.html"><span class="doc">Label.Font</span></a>,
+<a class="reference internal" href="ListBox.html"><span class="doc">ListBox.Font</span></a>,
+<a class="reference internal" href="TextBox.html"><span class="doc">TextBox.Font</span></a>,
+<a class="reference internal" href="Overlay.html"><span class="doc">Overlay.CreateTextual</span></a>,
+<a class="reference internal" href="Overlay.html"><span class="doc">Overlay.SetText</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">LocationType</span> {
+  <span class="n">eLocationNothing</span>,
+  <span class="n">eLocationHotspot</span>,
+  <span class="n">eLocationCharacter</span>,
   <span class="n">eLocationObject</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Returned by:</em> <a class="reference external" href="Game#getlocationtype">GetLocationType</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FileMode</span> <span class="p">{</span>
-  <span class="n">eFileRead</span><span class="p">,</span>
-  <span class="n">eFileWrite</span><span class="p">,</span>
+<p><em>Returned by:</em> <a class="reference internal" href="Game.html"><span class="doc">GetLocationType</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">FileMode</span> {
+  <span class="n">eFileRead</span>,
+  <span class="n">eFileWrite</span>,
   <span class="n">eFileAppend</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="File#open">File.Open</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">FileSeek</span> <span class="p">{</span>
-  <span class="n">eSeekBegin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="n">eSeekCurrent</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="n">eSeekEnd</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="File.html"><span class="doc">File.Open</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">FileSeek</span> {
+  <span class="n">eSeekBegin</span> = <span class="mi">0</span>,
+  <span class="n">eSeekCurrent</span> = <span class="mi">1</span>,
+  <span class="n">eSeekEnd</span> = <span class="mi">2</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="File#seek">File.Seek</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">DialogOptionSayStyle</span> <span class="p">{</span>
-  <span class="n">eSayUseOptionSetting</span><span class="p">,</span>
-  <span class="n">eSayAlways</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="File.html"><span class="doc">File.Seek</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">DialogOptionSayStyle</span> {
+  <span class="n">eSayUseOptionSetting</span>,
+  <span class="n">eSayAlways</span>,
   <span class="n">eSayNever</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Dialog#displayoptions">Dialog.DisplayOptions</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">VideoSkipStyle</span> <span class="p">{</span>
-  <span class="n">eVideoSkipNotAllowed</span><span class="p">,</span>
-  <span class="n">eVideoSkipEscKey</span><span class="p">,</span>
-  <span class="n">eVideoSkipAnyKey</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Dialog.html"><span class="doc">Dialog.DisplayOptions</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">VideoSkipStyle</span> {
+  <span class="n">eVideoSkipNotAllowed</span>,
+  <span class="n">eVideoSkipEscKey</span>,
+  <span class="n">eVideoSkipAnyKey</span>,
   <span class="n">eVideoSkipAnyKeyOrMouse</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="Multimedia#playvideo">PlayVideo</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">AudioFileType</span> <span class="p">{</span>
-  <span class="n">eAudioFileOGG</span><span class="p">,</span>
-  <span class="n">eAudioFileMP3</span><span class="p">,</span>
-  <span class="n">eAudioFileWAV</span><span class="p">,</span>
-  <span class="n">eAudioFileVOC</span><span class="p">,</span>
-  <span class="n">eAudioFileMIDI</span><span class="p">,</span>
+<p><em>Used by:</em> <a class="reference internal" href="Multimedia.html"><span class="doc">PlayVideo</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">AudioFileType</span> {
+  <span class="n">eAudioFileOGG</span>,
+  <span class="n">eAudioFileMP3</span>,
+  <span class="n">eAudioFileWAV</span>,
+  <span class="n">eAudioFileVOC</span>,
+  <span class="n">eAudioFileMIDI</span>,
   <span class="n">eAudioFileMOD</span>
-<span class="p">};</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="AudioClip#filetype">AudioClip.FileType</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">AudioPriority</span> <span class="p">{</span>
-  <span class="n">eAudioPriorityVeryLow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="n">eAudioPriorityLow</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="n">eAudioPriorityNormal</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
-  <span class="n">eAudioPriorityHigh</span> <span class="o">=</span> <span class="mi">75</span><span class="p">,</span>
-  <span class="n">eAudioPriorityVeryHigh</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="p">};</span>
+<p><em>Used by:</em> <a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.FileType</span></a></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span> <span class="n">AudioPriority</span> {
+  <span class="n">eAudioPriorityVeryLow</span> = <span class="mi">1</span>,
+  <span class="n">eAudioPriorityLow</span> = <span class="mi">25</span>,
+  <span class="n">eAudioPriorityNormal</span> = <span class="mi">50</span>,
+  <span class="n">eAudioPriorityHigh</span> = <span class="mi">75</span>,
+  <span class="n">eAudioPriorityVeryHigh</span> = <span class="mi">100</span>
+};
 </pre></div>
 </div>
-<p><em>Used by:</em> <a class="reference external" href="AudioClip#play">AudioClip.Play</a>,
-<a class="reference external" href="AudioClip#playfrom">AudioClip.PlayFrom</a>,
-<a class="reference external" href="AudioClip#playqueued">AudioClip.PlayQueued</a></p>
+<p><em>Used by:</em> <a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.Play</span></a>,
+<a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.PlayFrom</span></a>,
+<a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.PlayQueued</span></a></p>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="BlockingScripts.html" title="previous chapter">Understanding blocking scripts</a></li>
+      <li>Next: <a href="Button.html" title="next chapter">GUI Button functions and properties</a></li>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>

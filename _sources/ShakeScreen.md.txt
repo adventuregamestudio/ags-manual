@@ -1,17 +1,20 @@
 Screen functions
 ----------------
 
-[FadeIn](#fadein)<br>
-[FadeOut](#fadeout)<br>
-[FlipScreen](#flipscreen)<br>
-[SetFadeColor](#setfadecolor)<br>
-[SetNextScreenTransition](#setnextscreentransition)<br>
-[SetScreenTransition](#setscreentransition)<br>
-[ShakeScreen](#shakescreen)<br>
-[ShakeScreenBackground](#shakescreenbackground)<br>
-[TintScreen](#tintscreen)
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; FadeIn
 
 ### FadeIn
 
@@ -37,6 +40,9 @@ in again.
 
 ---
 
+.. index::
+   pair: ; FadeOut
+
 ### FadeOut
 
     FadeOut (int speed)
@@ -59,6 +65,9 @@ in again.
 [FadeIn](#fadein), [SetFadeColor](#setfadecolor)
 
 ---
+
+.. index::
+   pair: ; FlipScreen
 
 ### FlipScreen
 
@@ -87,6 +96,9 @@ will flip the screen upside down.
 
 ---
 
+.. index::
+   pair: ; SetFadeColor
+
 ### SetFadeColor
 
     SetFadeColor(int red, int green, int blue)
@@ -107,9 +119,12 @@ will mean that next time the screen fades out, it fades to red instead
 of black.
 
 SeeAlso: [FadeIn](#fadein), [FadeOut](#fadeout),
-[SetScreenTransition](#setscreentransition)
+
 
 ---
+
+.. index::
+   pair: ; SetNextScreenTransition
 
 ### SetNextScreenTransition
 
@@ -133,6 +148,9 @@ transition type from then on.
 SeeAlso: [SetScreenTransition](#setscreentransition)
 
 ---
+
+.. index::
+   pair: ; SetScreenTransition
 
 ### SetScreenTransition
 
@@ -160,6 +178,9 @@ SeeAlso: [SetNextScreenTransition](#setnextscreentransition)
 
 ---
 
+.. index::
+   pair: ; ShakeScreen
+
 ### ShakeScreen
 
     ShakeScreen (int amount)
@@ -176,6 +197,9 @@ will shake the screen a little.
 *See Also:* [ShakeScreenBackground](#shakescreenbackground)
 
 ---
+
+.. index::
+   pair: ; ShakeScreenBackground
 
 ### ShakeScreenBackground
 
@@ -206,6 +230,9 @@ will shake the screen a little for 2 seconds.
 *See Also:* [ShakeScreen](#shakescreen)
 
 ---
+
+.. index::
+   pair: ; TintScreen
 
 ### TintScreen
 

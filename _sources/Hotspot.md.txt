@@ -1,20 +1,23 @@
 Hotspot functions and properties
 --------------------------------
 
-[GetAtScreenXY](#getatscreenxy)<br>
-[GetProperty](#getproperty)<br>
-[GetTextProperty](#gettextproperty)<br>
-[SetProperty](#setproperty)<br>
-[SetTextProperty](#settextproperty)<br>
-[IsInteractionAvailable](#isinteractionavailable)<br>
-[RunInteraction](#runinteraction)<br>
-[Enabled property](#enabled)<br>
-[ID property](#id)<br>
-[Name property](#name)<br>
-[WalkToX property](#walktox)<br>
-[WalkToY property](#walktoy)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -49,6 +52,9 @@ will display a message depending on what the mouse is on.
 
 ---
 
+.. index::
+   pair: ; GetProperty
+
 ### GetProperty
 
 *(Formerly known as GetHotspotProperty, which is now obsolete)*
@@ -74,6 +80,9 @@ than 200.
 
 ---
 
+.. index::
+   pair: ; GetTextProperty
+
 ### GetTextProperty
 
 *(Formerly known as GetHotspotPropertyText, which is now obsolete)*<br>
@@ -98,6 +107,9 @@ will retrieve hotspot 2's "description" property and display it.
 *See Also:* [Hotspot.GetProperty](#getproperty)
 
 ---
+
+.. index::
+   pair: ; SetProperty
 
 ### SetProperty
 
@@ -125,6 +137,9 @@ will change Door hotspot's "LockDifficulty" custom property to 5.
 
 ---
 
+.. index::
+   pair: ; SetTextProperty
+
 ### SetTextProperty
 
     bool Hotspot.SetTextProperty(const string property, const string value)
@@ -149,6 +164,9 @@ will change Door's "description" property.
 
 ---
 
+.. index::
+   pair: ; IsInteractionAvailable
+
 ### IsInteractionAvailable
 
     Hotspot.IsInteractionAvailable(CursorMode)
@@ -169,9 +187,12 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-[Hotspot.RunInteraction](#runinteraction)
+
 
 ---
+
+.. index::
+   pair: ; RunInteraction
 
 ### RunInteraction
 
@@ -195,6 +216,9 @@ hDoor.
 [Object.RunInteraction](Object#runinteraction)
 
 ---
+
+.. index::
+   pair: ; Enabled
 
 ### Enabled
 
@@ -225,6 +249,9 @@ will disable the hBrownTree hotspot.
 
 ---
 
+.. index::
+   pair: ; ID
+
 ### ID
 
     readonly int Hotspot.ID
@@ -243,6 +270,9 @@ displays hDoor's hotspot number, and then displays hotspot 3's number
 *See Also:* [Hotspot.GetAtScreenXY](#getatscreenxy)
 
 ---
+
+.. index::
+   pair: ; Name
 
 ### Name
 
@@ -266,6 +296,9 @@ will retrieve and then display hotspot 3's name.
 
 ---
 
+.. index::
+   pair: ; WalkToX
+
 ### WalkToX
 
 *(Formerly known as GetHotspotPointX, which is now obsolete)*
@@ -285,6 +318,9 @@ will move the character to hotspot hTable's walk-to point.
 [MoveCharacterToHotspot](Game#movecharactertohotspot)
 
 ---
+
+.. index::
+   pair: ; WalkToY
 
 ### WalkToY
 

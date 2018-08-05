@@ -1,30 +1,33 @@
 Script language keywords
 ------------------------
 
-[Arrays](#arrays)<br>
-[Data types](#data-types)<br>
-[Operators](#operators)<br>
-[Constants](#constants)<br>
-[Version checking](#version-checking)<br>
-[if, else statements](#if-else-statements)<br>
-[switch, case statements](#switch-case-statements)<br>
-[while](#while)<br>
-[do..while](#dowhile)<br>
-[for](#for)<br>
-[break](#break)<br>
-[continue](#continue)<br>
-[function](#function)<br>
-[return](#return)<br>
-[struct](#struct)<br>
-[managed](#managed)<br>
-[new](#new)<br>
-[enum](#enum)<br>
-[this](#this)<br>
-[import](#import)<br>
-[export](#export)<br>
-[noloopcheck](#noloopcheck)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Arrays
 
 ### Arrays
 
@@ -63,6 +66,9 @@ corresponds to the player character's ID number to 10.
 See Also: [Dynamic arrays](DynamicArrays)
 
 ---
+
+.. index::
+   pair: ; Data types
 
 ### Data types
 
@@ -109,6 +115,9 @@ point arithmetic.
 
 ---
 
+.. index::
+   pair: ; Operators
+
 ### Operators
 
 The AGS scripting engine supports the following operators in
@@ -124,25 +133,25 @@ pane allows you to control this behaviour.
 
 Operator | Description | Example
 --- | --- | ---
-! | NOT | if (!a)
-\* | Multiply | a = b \* c;
-/ | Divide | a = b / c;
-% | Remainder | a = b % c;
-\+ | Add | a = b \+ c;
-\- | Subtract | a = b \- c;
-<< | Bitwise Left Shift | a = b << c;
-\>\> | Bitwise Right Shift | a = b \>\> c;
-& | Bitwise AND | a = b & c;
-\| | Bitwise OR | a = b \| c;
-^ | Bitwise XOR | a = b ^ c;
-== | Is equal to | if (a == b)
-!= | Is not equal to | if (a != b)
-\> | Is greater than | if (a \> b)
-< | Is less than | if (a < b)
-\>= | Is greater than or equal | if (a \>= b)
-<= | Is less than or equal | if (a <= b)
-&& | Logical AND | if (a && b)
-\|\| | Logical OR | if (a \|\| b)
+`!` | NOT | `if (!a)`
+`*` | Multiply | `a = b * c;`
+`/` | Divide | `a = b / c;`
+`%` | Remainder | `a = b % c;`
+`+` | Add | `a = b + c;`
+`-` | Subtract | `a = b - c;`
+`<<` | Bitwise Left Shift | `a = b << c;`
+`>>` | Bitwise Right Shift | `a = b >> c;`
+`&` | Bitwise AND | `a = b & c;`
+<code>&#124;</code> | Bitwise OR | <code>a = b &#124; c;</code>
+`^` | Bitwise XOR | `a = b ^ c;`
+`==` | Is equal to | `if (a == b)`
+`!=` | Is not equal to | `if (a != b)`
+`>` | Is greater than | `if (a > b)`
+`<` | Is less than | `if (a < b)`
+`>=` | Is greater than or equal | `if (a >= b)`
+`<=` | Is less than or equal | `if (a <= b)`
+`&&` | Logical AND | `if (a && b)`
+<code>&#124;&#124;</code> | Logical OR | <code>if (a &#124;&#124; b)</code>
 
 This order of precedence allows expressions such as the following to
 evaluate as expected:
@@ -159,6 +168,9 @@ this:
 `if ((!a) && (b < 4))`
 
 ---
+
+.. index::
+   pair: ; Constants
 
 ### Constants
 
@@ -214,6 +226,9 @@ limit, use the
 
 ---
 
+.. index::
+   pair: ; Version checking
+
 ### Version checking
 
 If you are writing a script module, you may need to check which version
@@ -233,6 +248,9 @@ Note that this ability was only added in 2.72, so you cannot use the
 than this.
 
 ---
+
+.. index::
+   pair: ; if, else statements
 
 ### if, else statements
 
@@ -275,6 +293,9 @@ if it is not.
     }
 
 ---
+
+.. index::
+   pair: ; switch, case statements
 
 ### switch, case statements
 
@@ -335,6 +356,9 @@ mentioned in this switch, they would go straight to default line.
 
 ---
 
+.. index::
+   pair: ; while
+
 ### while
 
 **while (** *expression* **)** `{`<br>
@@ -354,6 +378,9 @@ not zero. Once it is zero, the **while** statement will exit at the end
 of the loop.
 
 ---
+
+.. index::
+   pair: ; do..while
 
 ### do..while
 
@@ -379,6 +406,9 @@ continue run it repeatedly, as long as the right arrow key is pressed by
 player.
 
 ---
+
+.. index::
+   pair: ; for
 
 ### for
 
@@ -424,6 +454,9 @@ coordinate x = 100.
 
 ---
 
+.. index::
+   pair: ; break
+
 ### break
 
 **break**;
@@ -446,6 +479,9 @@ not zero. If player presses Escape key, the loop is terminated
 immediately.
 
 ---
+
+.. index::
+   pair: ; continue
 
 ### continue
 
@@ -472,6 +508,9 @@ will run first part of the loop statements always, and second part only
 when `i <= 50`.
 
 ---
+
+.. index::
+   pair: ; function
 
 ### function
 
@@ -518,6 +557,9 @@ cannot be specified in the actual function declaration itself.
 
 ---
 
+.. index::
+   pair: ; return
+
 ### return
 
 **return**;
@@ -550,6 +592,9 @@ naturally:
     }
 
 ---
+
+.. index::
+   pair: ; struct
 
 ### struct
 
@@ -598,6 +643,9 @@ structs are essential if you have complex data that you need to store in
 your scripts.
 
 ---
+
+.. index::
+   pair: ; managed
 
 ### managed
 
@@ -692,6 +740,9 @@ See Also: [new](#new), [Pointers in AGS](Pointers)
 
 ---
 
+.. index::
+   pair: ; new
+
 ### new
 
 *pointer_variable* = **new** *managed_type*;
@@ -720,6 +771,9 @@ Example:
 See Also: [managed](#managed), [Pointers in AGS](Pointers)
 
 ---
+
+.. index::
+   pair: ; enum
 
 ### enum
 
@@ -779,6 +833,9 @@ they're very handy.
 
 ---
 
+.. index::
+   pair: ; this
+
 ### this
 
 There are two uses for the `this` keyword.
@@ -817,6 +874,9 @@ for details.
 
 ---
 
+.. index::
+   pair: ; import
+
 ### import
 
 **import** *declaration* ;
@@ -847,6 +907,9 @@ apply to new-style `String` variables).
 
 ---
 
+.. index::
+   pair: ; export
+
 ### export
 
 **export** *variable* \[, *variable* ... \] ;
@@ -863,6 +926,9 @@ For example:
 This exports three variables - my_variable, counter and strength.
 
 ---
+
+.. index::
+   pair: ; noloopcheck
 
 ### noloopcheck
 

@@ -1,15 +1,18 @@
 ViewFrame functions and properties
 ----------------------------------
 
-[Flipped property](#flipped)<br>
-[Frame property](#frame)<br>
-[Graphic property](#graphic)<br>
-[LinkedAudio property](#linkedaudio)<br>
-[Loop property](#loop)<br>
-[Speed property](#speed)<br>
-[View property](#view)
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Flipped
 
 ### Flipped
 
@@ -30,9 +33,12 @@ Example:
     }
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-[ViewFrame.Graphic](#graphic)
+
 
 ---
+
+.. index::
+   pair: ; Frame
 
 ### Frame
 
@@ -50,9 +56,12 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Loop](#loop),
-[ViewFrame.View](#view)
+
 
 ---
+
+.. index::
+   pair: ; Graphic
 
 ### Graphic
 
@@ -70,6 +79,9 @@ Example:
 *See Also:* [Game.GetViewFrame](Game#getviewframe)
 
 ---
+
+.. index::
+   pair: ; LinkedAudio
 
 ### LinkedAudio
 
@@ -105,6 +117,9 @@ if so, plays it.
 
 ---
 
+.. index::
+   pair: ; Loop
+
 ### Loop
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -121,9 +136,12 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Frame](#frame),
-[ViewFrame.View](#view)
+
 
 ---
+
+.. index::
+   pair: ; Speed
 
 ### Speed
 
@@ -143,6 +161,9 @@ Example:
 
 ---
 
+.. index::
+   pair: ; View
+
 ### View
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -159,5 +180,5 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Loop](#loop),
-[ViewFrame.Frame](#frame)
+
 

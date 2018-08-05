@@ -1,3 +1,6 @@
+.. index::
+   single: Upgrading from a previous version
+
 ## Upgrading from a previous version
 -   [Upgrading to AGS 2.7](UpgradingTo27)
 -   [Upgrading to AGS 2.71](UpgradingTo271)

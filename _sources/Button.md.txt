@@ -16,22 +16,25 @@ GUI Button functions and properties
 [Y property](GUIControl#y)<br>
 [ZOrder property](GUIControl#zorder)
 
-[Click](#click)<br>
-[Animate](#animate)<br>
-[Animating property](#animating)<br>
-[Frame property](#frame)<br>
-[Loop property](#loop)<br>
-[View property](#view)<br>
-[ClipImage property](#clipimage)<br>
-[Font property](#font)<br>
-[Graphic property](#graphic)<br>
-[MouseOverGraphic property](#mouseovergraphic)<br>
-[NormalGraphic property](#normalgraphic)<br>
-[PushedGraphic property](#pushedgraphic)<br>
-[Text property](#text)<br>
-[TextColor property](#textcolor)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
+
+.. index::
+   pair: ; Click
 
 ### Click
 
@@ -46,6 +49,9 @@ that event it will be run, otherwise nothing happens.
 [GUI.ProcessClick](GUI#processclick)
 
 ---
+
+.. index::
+   pair: ; Animate
 
 ### Animate
 
@@ -90,6 +96,9 @@ delay of 4 cycles per frame, and repeat the animation continually.
 
 ---
 
+.. index::
+   pair: ; Animating
+
 ### Animating
 
     readonly bool Button.Animating
@@ -117,6 +126,9 @@ will animate button and wait until the animation finishes.
 
 ---
 
+.. index::
+   pair: ; Frame
+
 ### Frame
 
     readonly int Button.Frame
@@ -136,6 +148,9 @@ This property is read-only. To change button's animation, use the
 [Button.Graphic](Button#graphic)
 
 ---
+
+.. index::
+   pair: ; Loop
 
 ### Loop
 
@@ -157,6 +172,9 @@ This property is read-only. To change button's animation, use the
 
 ---
 
+.. index::
+   pair: ; View
+
 ### View
 
     readonly int Button.View
@@ -176,6 +194,9 @@ This property is read-only. To change button's animation, use the
 [Button.Graphic](Button#graphic)
 
 ---
+
+.. index::
+   pair: ; ClipImage
 
 ### ClipImage
 
@@ -204,6 +225,9 @@ button's clickable area.
 
 ---
 
+.. index::
+   pair: ; Font
+
 ### Font
 
     FontType Button.Font
@@ -223,6 +247,9 @@ will change the *btnOK* button to use Font "Main".
 [TextBox.Font](TextBox#font)
 
 ---
+
+.. index::
+   pair: ; Graphic
 
 ### Graphic
 
@@ -251,6 +278,9 @@ will display btnPlay's current sprite number.
 
 ---
 
+.. index::
+   pair: ; MouseOverGraphic
+
 ### MouseOverGraphic
 
 *(Formerly part of GetButtonPic, which is now obsolete)*<br>
@@ -272,6 +302,9 @@ will display btnPlay's mouse-over sprite number.
 [Button.PushedGraphic](Button#pushedgraphic)
 
 ---
+
+.. index::
+   pair: ; NormalGraphic
 
 ### NormalGraphic
 
@@ -300,6 +333,9 @@ will display btnPlay's normal sprite number.
 
 ---
 
+.. index::
+   pair: ; PushedGraphic
+
 ### PushedGraphic
 
 *(Formerly part of GetButtonPic, which is now obsolete)*<br>
@@ -323,6 +359,9 @@ will display btnPlay's pushed sprite number.
 
 ---
 
+.. index::
+   pair: ; Text
+
 ### Text
 
 *(Formerly known as SetButtonText, which is now obsolete)*<br>
@@ -345,6 +384,9 @@ will display the old text, then change button btnController to read
 [Label.Text](Label#text)
 
 ---
+
+.. index::
+   pair: ; TextColor
 
 ### TextColor
 

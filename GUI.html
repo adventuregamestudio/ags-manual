@@ -1,336 +1,63 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GUI functions and properties &#8212; AGSHelp 3.4.1 documentation</title>
-    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="GUI control functions and properties" href="GUIControl.html" />
-    <link rel="prev" title="Game / Global functions" href="Game.html" />
-<meta charset='utf-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="prev" title="File functions and properties" href="File.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
+  
 
-  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-          AGS Manual</a>
-        <span class="navbar-text navbar-version pull-left"><b></b></span>
-      </div>
+    <div class="document">
+    
 
-        <div class="collapse navbar-collapse nav-collapse">
-          <ul class="nav navbar-nav">
-            
-                <li><a href="http://adventuregamestudio.co.uk/forums/index.php">AGS Forums</a></li>
-            
-            
-              <li class="dropdown globaltoc-container">
-  <a role="button"
-     id="dLabelGlobalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="index.html">AGS Manual <b class="caret"></b></a>
-  <ul class="dropdown-menu globaltoc"
-      role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="SystemRequirements.html">System Requirements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FAQ.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="StartingOff.html">Starting off</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Settingupthegame.html">Setting up the game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedRoomFeatures.html">Advanced room features</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EditorRoom.html">Room Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#background">Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#show-this-room-s-control">Show this room’s control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#properties-control">Properties control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#edges">Edges</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#characters">Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#objects">Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#hotspot">Hotspot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walkable-areas">Walkable areas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#walk-behinds">Walk-behinds</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditorRoom.html#regions">Regions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorCharacter.html">Character Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditingGUIs.html">GUI Editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#gui-buttons">GUI buttons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#interface-text">Interface text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#customized-text-windows">Customized Text Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#custom-inventory">Custom inventory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#sliders">Sliders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#text-boxes">Text Boxes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EditingGUIs.html#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="EditorSprite.html">Sprite Manager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorView.html">View Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="OtherFeatures.html">Other Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="MusAndSound.html">Music and sound</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DistGame.html">Distributing your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BackingUpYourGame.html">Backing up your game</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextParser.html">The text parser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Translations.html">Translations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GlobalVariables.html">Global variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomProperties.html">Custom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Plugins.html">Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Lipsync.html">Lip sync</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Templates.html">New Game templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Debuggingfeatures.html">Debugging features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutonumberSpeechFiles.html">Auto-number speech files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="IntegrationWithWindows.html">Integration with Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SourceControl.html">Source Control integration</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RuntimeEngine.html">The run-time engine</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="TheDemoGame.html">The demo game</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Setup.html">Engine Setup Program</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ScriptingLanguage.html">Scripting Language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart1.html">Scripting tutorial part 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptingTutorialPart2.html">Scripting tutorial part 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Pointers.html">Pointers in AGS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CallingGlobalFunctions.html">Calling global functions from local scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TheScriptHeader.html">The script header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringFormats.html">String formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ScriptModules.html">Multiple Scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BlockingScripts.html">Understanding blocking scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicArrays.html">Dynamic Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ExtenderFunctions.html">Extender functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Gamevariables.html">Game variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="reference internal" href="Scripting.html">Scripting Api</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TextScriptEvents.html">Predefined global script functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RepExec.html">repeatedly</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BuiltInEnums.html">Built-in enumerated types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="managedmodifier.html">Script language keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioChannel.html">AudioChannel functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AudioClip.html">AudioClip functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Character.html">Character functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DateTime.html">DateTime functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Dialog.html">Dialog functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DrawingSurfaceFunctions.html">DrawingSurface functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="File.html">File functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Game.html">Game / Global functions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GUI functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GUIControl.html">GUI control functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Button.html">GUI Button functions and properties</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">GUI InvWindow functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Label.html">GUI Label functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ListBox.html">GUI List Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Slider.html">GUI Slider properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TextBox.html">GUI Text Box functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Hotspot.html">Hotspot functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InventoryItem.html">Inventory item functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Maths.html">Maths functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Mouse.html">Mouse functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multimedia.html">Multimedia functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Overlay.html">Overlay functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CyclePalette.html">Palette functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parser.html">Parser functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Region.html">Region functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Room.html">Room functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ShakeScreen.html">Screen functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Speech.html">Speech functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="String.html">String functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="System.html">System functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="DisplayAt.html">Text display / Speech functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ViewFrame.html">ViewFrame functions and properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SCUMM_VERBCOIN_GUI.html">SCUMM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="Reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EventTypes.html">Event Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SystemLimits.html">System limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="KeyboardShortcuts.html">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ASCIIcodes.html">ASCII code table</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo27.html">Upgrading to AGS 2.7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradingTo271.html">Upgrading to AGS 2.71</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo30.html">Upgrading to AGS 3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo31.html">Upgrading to AGS 3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo32.html">Upgrading to AGS 3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo33.html">Upgrading to AGS 3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo335.html">Upgrading to AGS 3.3.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo34.html">Upgrading to AGS 3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UpgradeTo341.html">Upgrading to AGS 3.4.1</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Copyright.html">Copyright and terms of use</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Credits.html">Credits</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
-</ul>
-</li>
-              
-                <li class="dropdown">
-  <a role="button"
-     id="dLabelLocalToc"
-     data-toggle="dropdown"
-     data-target="#"
-     href="#">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"
-      role="menu"
-      aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">GUI functions and properties</a><ul>
-<li><a class="reference internal" href="#centre">Centre</a></li>
-<li><a class="reference internal" href="#click">Click</a></li>
-<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
-<li><a class="reference internal" href="#setposition">SetPosition</a></li>
-<li><a class="reference internal" href="#setsize">SetSize</a></li>
-<li><a class="reference internal" href="#backgroundgraphic">BackgroundGraphic</a></li>
-<li><a class="reference internal" href="#clickable">Clickable</a></li>
-<li><a class="reference internal" href="#controlcount">ControlCount</a></li>
-<li><a class="reference internal" href="#controls">Controls</a></li>
-<li><a class="reference internal" href="#height">Height</a></li>
-<li><a class="reference internal" href="#id">ID</a></li>
-<li><a class="reference internal" href="#transparency">Transparency</a></li>
-<li><a class="reference internal" href="#visible">Visible</a></li>
-<li><a class="reference internal" href="#width">Width</a></li>
-<li><a class="reference internal" href="#x">X</a></li>
-<li><a class="reference internal" href="#y">Y</a></li>
-<li><a class="reference internal" href="#zorder">ZOrder</a></li>
-</ul>
-</li>
-</ul>
-</ul>
-</li>
-              
-            
-            
-              
-                
-  <li>
-    <a href="Game.html" title="Previous Chapter: Game / Global functions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Game / Global...</span>
-    </a>
-  </li>
-  <li>
-    <a href="GUIControl.html" title="Next Chapter: GUI control functions and properties"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">GUI control f... &raquo;</span>
-    </a>
-  </li>
-              
-            
-            
-            
-            
-              <li class="hidden-sm">
-<div id="sourcelink">
-  <a href="_sources/GUI.md.txt"
-     rel="nofollow">Source</a>
-</div></li>
-            
-          </ul>
-
+      <div class="documentwrapper">
+        <div class="bodywrapper">
           
-            
-<form class="navbar-form navbar-right" action="search.html" method="get">
- <div class="form-group">
-  <input type="text" name="q" class="form-control" placeholder="Search" />
- </div>
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-          
-        </div>
-    </div>
-  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 content">
-      
+          <div class="body" role="main">
+            
   <div class="section" id="gui-functions-and-properties">
-<span id="gui-functions-and-properties"></span><h1>GUI functions and properties<a class="headerlink" href="#gui-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#centre">Centre</a><br>
-<a class="reference external" href="#click">Click</a><br>
-<a class="reference external" href="#getatscreenxy">GetAtScreenXY</a><br>
-<a class="reference external" href="#processclick">ProcessClick</a><br>
-<a class="reference external" href="#setposition">SetPosition</a><br>
-<a class="reference external" href="#setsize">SetSize</a><br>
-<a class="reference external" href="#backgroundgraphic">BackgroundGraphic property</a><br>
-<a class="reference external" href="#clickable">Clickable property</a><br>
-<a class="reference external" href="#controlcount">ControlCount property</a><br>
-<a class="reference external" href="#controls">Controls property</a><br>
-<a class="reference external" href="#height">Height property</a><br>
-<a class="reference external" href="#id">ID property</a><br>
-<a class="reference external" href="#transparency">Transparency property</a><br>
-<a class="reference external" href="#visible">Visible property</a><br>
-<a class="reference external" href="#width">Width property</a><br>
-<a class="reference external" href="#x">X property</a><br>
-<a class="reference external" href="#y">Y property</a><br>
-<a class="reference external" href="#zorder">ZOrder property</a></p>
+<h1>GUI functions and properties<a class="headerlink" href="#gui-functions-and-properties" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="section" id="centre">
-<span id="centre"></span><h2>Centre<a class="headerlink" href="#centre" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>Centre<a class="headerlink" href="#centre" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">Centre</span><span class="p">()</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.Centre()
 </pre></div>
 </div>
 <p>Centres the specified GUI in the middle of the screen. Useful if you’ve
 been moving it around with SetPosition and just want to return it to the
 centre.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gControlpanel</span><span class="o">.</span><span class="n">Centre</span><span class="p">();</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gControlpanel.Centre();
 </pre></div>
 </div>
 <p>will centre the CONTROLPANEL GUI in the middle of the screen.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setposition">GUI.SetPosition</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="click">
-<span id="click"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">Click</span><span class="p">()</span>
+<span id="index-1"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.Click()
 </pre></div>
 </div>
 <p>Forces GUI’s OnClick event. If there is a script function bound to that
@@ -340,19 +67,18 @@ GUI.ProcessClick. GUI.Click is called for specific GUI and does not
 impose any other conditions, while GUI.ProcessClick is called for “any
 GUI element that happen to be at the given coordinates”.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gMainMenu</span><span class="o">.</span><span class="n">Click</span><span class="p">();</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gMainMenu.Click();
 </pre></div>
 </div>
 <p>triggers OnClick event for gMainMenu.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Button#click">Button.Click</a>,
-<a class="reference external" href="#processclick">GUI.ProcessClick</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.Click</span></a>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="getatscreenxy">
-<span id="getatscreenxy"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">GUI</span><span class="o">*</span> <span class="n">GUI</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static GUI* GUI.GetAtScreenXY(int x, int y)
 </pre></div>
 </div>
 <p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If
@@ -365,27 +91,27 @@ exist).</p>
 <p><strong>NOTE:</strong> This command will not find any GUIs that are set as
 Non-Clickable (ie. the “Clickable” checkbox not checked).</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span> <span class="o">*</span><span class="n">theGui</span> <span class="o">=</span> <span class="n">GUI</span><span class="o">.</span><span class="n">GetAtScreenXY</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">theGui</span> <span class="o">==</span> <span class="n">gInventory</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;Inventory GUI at mouse location.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">theGui</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;No GUI at mouse location&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;GUI </span><span class="si">%d</span><span class="s2"> at mouse location.&quot;</span><span class="p">,</span> <span class="n">theGui</span><span class="o">.</span><span class="n">ID</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI *theGui = GUI.GetAtScreenXY(mouse.x, mouse.y);
+if (theGui == gInventory) {
+  Display(&quot;Inventory GUI at mouse location.&quot;);
+}
+else if (theGui == null) {
+  Display(&quot;No GUI at mouse location&quot;);
+}
+else {
+  Display(&quot;GUI %d at mouse location.&quot;, theGui.ID);
+}
 </pre></div>
 </div>
 <p>will display the number of the GUI that the mouse is over.</p>
 <p><em>See Also:</em>
-<a class="reference external" href="GUIControl#getatscreenxy">GUIControl.GetAtScreenXY</a>,
-<a class="reference external" href="GUI#id">GUI.ID</a>, <a class="reference external" href="#zorder">GUI.ZOrder</a></p>
-</div>
+<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.GetAtScreenXY</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.ID</span></a>, <span class="xref std std-ref">GUI.ZOrder</span></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="processclick">
-<span id="processclick"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ProcessClick</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">CursorMode</span><span class="p">)</span>
+<span id="index-3"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static void GUI.ProcessClick(int x, int y, CursorMode)
 </pre></div>
 </div>
 <p>Simulates clicking the mouse on the location (X,Y) on the screen, in the
@@ -398,20 +124,20 @@ characters) will be <strong>ignored</strong>.</p>
 (but with eMode prepended to them). Usually these are eModeWalkto,
 eModeLookat, etc.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ProcessClick</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">eModePointer</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ProcessClick(100, 50, eModePointer);
 </pre></div>
 </div>
 <p>will simulate clicking the mouse on co-ordinates (100, 50) in the
 Pointer mode, which will ignore anything but interface.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference external" href="Mouse#click">Mouse.Click</a>,
-<a class="reference external" href="Room#processclick">Room.ProcessClick</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="Mouse.html"><span class="doc">Mouse.Click</span></a>,
+<a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="setposition">
-<span id="setposition"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUIPosition, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.SetPosition(int x, int y)
 </pre></div>
 </div>
 <p>Moves the top-left corner of GUI to the new location (X,Y) on the
@@ -419,21 +145,20 @@ screen. This allows you to dynamically move GUIs around on the screen
 while the game is running. The co-ordinates are screen co-ordinates, not
 room co-ordinates, and use the same scale as in the editor.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">mouse</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gVerbcoin.SetPosition(mouse.x, mouse.y);
 </pre></div>
 </div>
 <p>will move the VERBCOIN GUI to the position where the cursor is.</p>
-<p><em>See Also:</em> <a class="reference external" href="#centre">GUI.Centre</a>,
-<a class="reference external" href="#backgroundgraphic">GUI.BackgroundGraphic</a>,
-<a class="reference external" href="GUIControl#setposition">GUIControl.SetPosition</a>,
-<a class="reference external" href="GUI#setsize">GUI.SetSize</a>, <a class="reference external" href="#x">GUI.X</a>,
-<a class="reference external" href="#y">GUI.Y</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.Centre</span>,
+<span class="xref std std-ref">GUI.BackgroundGraphic</span>,
+<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>, <span class="xref std std-ref">GUI.X</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="setsize">
-<span id="setsize"></span><h2>SetSize<a class="headerlink" href="#setsize" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>SetSize<a class="headerlink" href="#setsize" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUISize, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUI</span><span class="o">.</span><span class="n">SetSize</span><span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="p">)</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.SetSize(int width, int height)
 </pre></div>
 </div>
 <p>Changes the GUI to have the new size WIDTH x HEIGHT</p>
@@ -442,33 +167,32 @@ options screen and such like.</p>
 <p>The size is in the normal 320x200-resolution pixels. Setting the size to
 320, 200 will cause the GUI to take up the entire screen.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gIconbar</span><span class="o">.</span><span class="n">SetSize</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gIconbar.SetSize(160, 100);
 </pre></div>
 </div>
 <p>changes the ICONBAR GUI to be the size of half the screen</p>
-<p><em>See Also:</em> <a class="reference external" href="#centre">GUI.Centre</a>,
-<a class="reference external" href="#height">GUI.Height</a>,
-<a class="reference external" href="GUIControl#setposition">GUIControl.SetPosition</a>,
-<a class="reference external" href="#setposition">GUI.SetPosition</a>,
-<a class="reference external" href="#width">GUI.Width</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.Centre</span>,
+<span class="xref std std-ref">GUI.Height</span>,
+<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
+<span class="xref std std-ref">GUI.SetPosition</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="backgroundgraphic">
-<span id="backgroundgraphic"></span><h2>BackgroundGraphic<a class="headerlink" href="#backgroundgraphic" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>BackgroundGraphic<a class="headerlink" href="#backgroundgraphic" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">BackgroundGraphic</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.BackgroundGraphic
 </pre></div>
 </div>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setposition">GUI.SetPosition</a>,
-<a class="reference external" href="Button#normalgraphic">Button.NormalGraphic</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,
+<a class="reference internal" href="Button.html"><span class="doc">Button.NormalGraphic</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="clickable">
-<span id="clickable"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUIClickable, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Clickable</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool GUI.Clickable
 </pre></div>
 </div>
 <p>Gets/sets whether the GUI is clickable or not. This allows you to modify
@@ -480,36 +204,36 @@ This might be useful for a transparent overlay GUI which displays
 information, and you want the player to be able to click on whatever is
 underneath.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gStatusline</span><span class="o">.</span><span class="n">Clickable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gStatusline.Clickable = false;
 </pre></div>
 </div>
 <p>sets the STATUSLINE GUI to no longer respond to mouse clicks.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getatscreenxy">GUI.GetAtScreenXY</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.GetAtScreenXY</span></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="controlcount">
-<span id="controlcount"></span><h2>ControlCount<a class="headerlink" href="#controlcount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ControlCount</span><span class="p">;</span>
+<span id="index-8"></span><h2>ControlCount<a class="headerlink" href="#controlcount" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int GUI.ControlCount;
 </pre></div>
 </div>
 <p>Gets the number of controls on the GUI. You won’t normally need to use
 this property, but in some circumstances you may wish to iterate through
 all the GUI’s controls, and this allows you to determine where to stop.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">ControlCount</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">gInventory</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
-  <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int i = 0;
+while (i &lt; gInventory.ControlCount) {
+  gInventory.Controls[i].Enabled = false;
+  i++;
+}
 </pre></div>
 </div>
 <p>disables all controls on the INVENTORY GUI.</p>
-<p><em>See Also:</em> <a class="reference external" href="#controls">GUI.Controls</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.Controls</span></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="controls">
-<span id="controls"></span><h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUIControl</span><span class="o">*</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span id="index-9"></span><h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUIControl* GUI.Controls[index]
 </pre></div>
 </div>
 <p>Provides an array which allows you to access controls on the GUI by
@@ -522,62 +246,60 @@ if you give an invalid control index.</p>
 <p>You can cast the GUIControl to the appropriate type using the AsButton,
 AsListBox, etc methods on it.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GUIControl</span> <span class="o">*</span><span class="n">control</span> <span class="o">=</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">Controls</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">control</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The inventory GUI doesn&#39;t have a control number 4.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">Enabled</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-  <span class="n">control</span><span class="o">.</span><span class="n">AsListBox</span><span class="o">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s2">&quot;New item!!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUIControl *control = gInventory.Controls[4];
+if (control == null) {
+  Display(&quot;The inventory GUI doesn&#39;t have a control number 4.&quot;);
+}
+else {
+  control.Enabled = true;
+  control.AsListBox.AddItem(&quot;New item!!&quot;);
+}
 </pre></div>
 </div>
 <p>gets list box number 4 from the INVENTORY GUI, and then adds an item to
 it. If control 4 isn’t a listbox, you will get a Null Reference error.</p>
-<p><em>See Also:</em> <a class="reference external" href="GUIControl#astype">GUIControl.As*</a>,
-<a class="reference external" href="#controlcount">GUI.ControlCount</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.As*</span></a>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="height">
-<span id="height"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Height</span>
+<span id="index-10"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Height
 </pre></div>
 </div>
 <p>Gets/sets the height of the GUI. This allows you to dynamically change
 the size of the GUI on the screen.</p>
 <p>The height is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span><span class="p">(</span><span class="s2">&quot;The icon bar GUI is </span><span class="si">%d</span><span class="s2"> pixels high.&quot;</span><span class="p">,</span> <span class="n">gIconbar</span><span class="o">.</span><span class="n">Height</span><span class="p">);</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The icon bar GUI is %d pixels high.&quot;, gIconbar.Height);
 </pre></div>
 </div>
 <p>displays the height of the ICONBAR GUI.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setsize">GUI.SetSize</a>,
-<a class="reference external" href="#width">GUI.Width</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetSize</span>,</p>
 <hr class="docutils" />
-<div class="section" id="id">
-<span id="id"></span><h2>ID<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">readonly</span> <span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ID</span>
+</div>
+<div class="section" id="index-11">
+<span id="id"></span><h2>ID<a class="headerlink" href="#index-11" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int GUI.ID
 </pre></div>
 </div>
 <p>Gets the GUI’s ID number. This is the GUI’s number from the editor, and
 is useful if you need to interoperate with legacy code that uses the
 GUI’s number rather than object name.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SetGUIClickable</span><span class="p">(</span><span class="n">gIconbar</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="n">gIconbar</span><span class="o">.</span><span class="n">Clickable</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetGUIClickable(gIconbar.ID, 1);
+gIconbar.Clickable = false;
 </pre></div>
 </div>
 <p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI
 clickable, and then uses the equivalent modern property to stop it being
 clickable.</p>
-<p><em>See Also:</em> <a class="reference external" href="GUIControl#id">GUIControl.ID</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.ID</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="transparency">
-<span id="transparency"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Transparency</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Transparency
 </pre></div>
 </div>
 <p>Gets/sets the GUI translucency, in percent.</p>
@@ -595,26 +317,26 @@ too quickly.</p>
 <p>In order to fade a GUI in/out, the best approach is shown in the example
 below:</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">trans</span> <span class="o">=</span> <span class="n">gInventory</span><span class="o">.</span><span class="n">Transparency</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="n">trans</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">trans</span><span class="o">++</span><span class="p">;</span>
-  <span class="n">gInventory</span><span class="o">.</span><span class="n">Transparency</span> <span class="o">=</span> <span class="n">trans</span><span class="p">;</span>
-  <span class="n">Wait</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int trans = gInventory.Transparency;
+while (trans &lt; 100) {
+  trans++;
+  gInventory.Transparency = trans;
+  Wait(1);
+}
 </pre></div>
 </div>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
-<p><em>See Also:</em> <a class="reference external" href="Object#transparency">Object.Transparency</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="Object.html"><span class="doc">Object.Transparency</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="visible">
-<span id="visible"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GUIOff, which is now obsolete)</em><br>
-<em>(Formerly known as GUIOn, which is now obsolete)</em><br>
-<em>(Formerly known as InterfaceOff, which is now obsolete)</em><br>
-<em>(Formerly known as InterfaceOn, which is now obsolete)</em><br>
+<span id="index-13"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
+<p><em>(Formerly known as GUIOff, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as GUIOn, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as InterfaceOff, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
+<em>(Formerly known as InterfaceOn, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
 <em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Visible</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool GUI.Visible
 </pre></div>
 </div>
 <p>Gets/sets whether the GUI is visible or not. This property has behaves
@@ -630,33 +352,32 @@ whether the GUI can be seen, but instead it controls whether the GUI
 to the top of the screen will not activate the GUI; if it is <em>true</em>,
 then the GUI will be allowed to be popped up.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gSettings</span><span class="o">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gSettings.Visible = true;
 </pre></div>
 </div>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a class="reference external" href="Game#isgamepaused">IsGamePaused</a></p>
-</div>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsGamePaused</span></a></p>
 <hr class="docutils" />
+</div>
 <div class="section" id="width">
-<span id="width"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Width</span>
+<span id="index-14"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Width
 </pre></div>
 </div>
 <p>Gets/sets the width of the GUI. This allows you to dynamically change
 the size of the GUI on the screen.</p>
 <p>The width is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gInventory</span><span class="o">.</span><span class="n">Width</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gInventory.Width += 5;
 </pre></div>
 </div>
 <p>makes the INVENTORY GUI 5 pixels wider.</p>
-<p><em>See Also:</em> <a class="reference external" href="#height">GUI.Height</a>,
-<a class="reference external" href="#setsize">GUI.SetSize</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.Height</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="x">
-<span id="x"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">X</span>
+<span id="index-15"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.X
 </pre></div>
 </div>
 <p>Gets/sets the X position of the GUI. This allows you to dynamically
@@ -665,17 +386,16 @@ change the position of the GUI on the screen.</p>
 and 320. The co-ordinates used are screen co-ordinates, not room
 co-ordinates, and are in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">X</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gVerbcoin.X += 5;
 </pre></div>
 </div>
 <p>moves the VERBCOIN GUI right 5 pixels.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setposition">GUI.SetPosition</a>,
-<a class="reference external" href="#y">GUI.Y</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="y">
-<span id="y"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">Y</span>
+<span id="index-16"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Y
 </pre></div>
 </div>
 <p>Gets/sets the Y position of the GUI. This allows you to dynamically
@@ -685,18 +405,17 @@ change the position of the GUI on the screen.</p>
 co-ordinates, not room co-ordinates, and are in the normal
 320x200-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gVerbcoin</span><span class="o">.</span><span class="n">Y</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gVerbcoin.Y += 5;
 </pre></div>
 </div>
 <p>moves the VERBCOIN GUI down 5 pixels.</p>
-<p><em>See Also:</em> <a class="reference external" href="#setposition">GUI.SetPosition</a>,
-<a class="reference external" href="#x">GUI.X</a></p>
-</div>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,</p>
 <hr class="docutils" />
+</div>
 <div class="section" id="zorder">
-<span id="zorder"></span><h2>ZOrder<a class="headerlink" href="#zorder" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>ZOrder<a class="headerlink" href="#zorder" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetGUIZOrder, which is now obsolete)</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">GUI</span><span class="o">.</span><span class="n">ZOrder</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.ZOrder
 </pre></div>
 </div>
 <p>Gets/sets the z-order of the GUI. This allows you to dynamically change
@@ -705,34 +424,76 @@ the ordering of GUIs on the screen.</p>
 the GUIs in order, from the lowest numbered at the back to the highest
 numbered at the front.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gStatusline</span><span class="o">.</span><span class="n">ZOrder</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gStatusline.ZOrder = 0;
 </pre></div>
 </div>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
-<p><em>See Also:</em> <a class="reference external" href="#getatscreenxy">GUI.GetAtScreenXY</a></p>
+<p><em>See Also:</em> <span class="xref std std-ref">GUI.GetAtScreenXY</span></p>
 </div>
 </div>
 
 
-    </div>
-      
-  </div>
-</div>
+          </div>
+          
+        </div>
+      </div>
     
 
-<footer class="footer">
-  <div class="container">
-    <p class="pull-right">
-      <a href="#">Back to top</a>
-      
-    </p>
-    <p>
-        &copy; Copyright 2018, AGS Team.<br/>
-      Last updated on Jul 31, 2018, 2:01:52 AM.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.5.<br/>
-    </p>
-  </div>
-</footer>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p>
+<a href="genindex.html">Index</a>
+</p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="File.html" title="previous chapter">File functions and properties</a></li>
+      <li>Next: <a href="GUIControl.html" title="next chapter">GUI control functions and properties</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GUI functions and properties</a><ul>
+<li><a class="reference internal" href="#centre">Centre</a></li>
+<li><a class="reference internal" href="#click">Click</a></li>
+<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
+<li><a class="reference internal" href="#setposition">SetPosition</a></li>
+<li><a class="reference internal" href="#setsize">SetSize</a></li>
+<li><a class="reference internal" href="#backgroundgraphic">BackgroundGraphic</a></li>
+<li><a class="reference internal" href="#clickable">Clickable</a></li>
+<li><a class="reference internal" href="#controlcount">ControlCount</a></li>
+<li><a class="reference internal" href="#controls">Controls</a></li>
+<li><a class="reference internal" href="#height">Height</a></li>
+<li><a class="reference internal" href="#index-11">ID</a></li>
+<li><a class="reference internal" href="#transparency">Transparency</a></li>
+<li><a class="reference internal" href="#visible">Visible</a></li>
+<li><a class="reference internal" href="#width">Width</a></li>
+<li><a class="reference internal" href="#x">X</a></li>
+<li><a class="reference internal" href="#y">Y</a></li>
+<li><a class="reference internal" href="#zorder">ZOrder</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 6:15:43 PM</div>
     
 
   </body>
