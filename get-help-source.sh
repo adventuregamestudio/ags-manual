@@ -8,24 +8,8 @@ echo "--> Getting wiki source"
 rm -rf "$dir"
 git clone $opts $url $dir
 
-## temporarily modify the source for testing purposes
-
-# not using the symlink any more
-rm source/index.md
-
 # remove all manually defined anchor links
 sed -E -i "s/^[ \*-]*\[[^]]*\]\(#[^)]+\)(<br>)?$//g" source/*.md
-
-# remodel the Home page
-sed -i "s/## Contents//" source/Home.md
-sed -i "s/^\*\*/## /" source/Home.md
-sed -i "s/\*\*//" source/Home.md
-sed -E -zi "s/\n\n+/\n\n/g" source/Home.md
-
-# update heading for test purposes
-sed -E -i -e "1s/^/## /;2d" source/Character.md
-
-## end of temp changes
 
 # write a new index file
 echo "--> Generating index.rst"
