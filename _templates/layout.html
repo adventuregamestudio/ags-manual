@@ -3,7 +3,8 @@
 {% block document %}
     {% if display_toc and pagename != "index" and builder == 'htmlhelp' %}
 <h1>{{ title }}</h1>
-{{ toc|replace('<li><a class="reference internal" href="#">' ~ title ~ '</a><ul>', '') }}
+        {% set localtoc = toc|replace('<li><a class="reference internal" href="#">' ~ title ~ '</a><ul>', '', 1) %}
+{{ localtoc[:-12] }}
 {{ super()|replace('<h1>' ~ title ~ '</h1>', '') }}
     {% else %}
 {{ super() }}
