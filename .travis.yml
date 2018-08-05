@@ -12,11 +12,9 @@ before_install:
 install:
 - pip install -r requirements.txt
 script:
-- "./get-help-source.sh"
-- make linkcheck  # checks for broken links
-- env SPHINXOPTS=-c\ .\ -D\ html_theme=basic make htmlhelp # create input for creating files for the ags help using Html Help Workshop
-- make html  # build online help. They can have different templates in the future
-- "./checklinks source/*.md"
+- ./get-help-source.sh
+- make linkcheck html htmlhelp
+- ./checklinks source/*.md
 - touch build/html/.nojekyll
 before_deploy:
   # run only once, the tasks executed prepares the files to be upload
