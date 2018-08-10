@@ -8,9 +8,6 @@ echo "--> Getting wiki source"
 rm -rf "$dir"
 git clone $opts $url $dir
 
-# remove all manually defined anchor links
-sed -E -i "s/^[ \*-]*\[[^]]*\]\(#[^)]+\)(<br>)?$//g" source/*.md
-
 # write a new index file
 echo "--> Generating index.rst"
 awk -v maxdepth=1 -v outfile="source/index.rst" '
@@ -53,12 +50,13 @@ END {
 
 # insert index directives
 echo "--> Inserting index directives for H2 and H3"
-sed -E -i '
+sed -E -i.bak '
 	/^### / {
 		i\
 .. index::
 		H;x
-		s/(.*)\n### +(.*)/   pair: \1; \2\n/
+		s/(.*)\n### +(.*)/   pair: \1; \2\
+/
 		p
 		s/   pair: (.*);.*/\1/
 		x
@@ -70,6 +68,7 @@ sed -E -i '
 .. index::
 		s/^/   single: /
 		p
-		s/   single: (.*)/\n## \1/
+		s/   single: (.*)/\
+## \1/
 	}
-' source/*.md
+' source/*.md && rm -f source/*.md.bak
