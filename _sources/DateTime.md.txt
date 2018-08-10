@@ -4,14 +4,6 @@
 ## DateTime functions and properties
 
 
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -47,7 +39,7 @@ will display the current date and time in 24-hour format
 [DateTime.Month](#month),
 [DateTime.RawTime](#rawtime),
 [DateTime.Second](#second),
-
+[DateTime.Year](#year)
 
 ---
 

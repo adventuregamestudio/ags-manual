@@ -71,7 +71,8 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 </div>
 <p>will display a message with Audio Channel 2’s current volume.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel</span></a>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel</span></a>,
+<span class="xref std std-ref">System.AudioChannelCount</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="capslock">
@@ -91,7 +92,8 @@ typing a password in, for example.</p>
 </div>
 <p>will display a message if Caps Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.NumLock</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.NumLock</span>,
+<span class="xref std std-ref">System.ScrollLock</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="colordepth">
@@ -109,7 +111,8 @@ sprites or backgrounds to be different.</p>
 </pre></div>
 </div>
 <p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,
+<span class="xref std std-ref">System.ScreenWidth</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="gamma">
@@ -120,7 +123,8 @@ sprites or backgrounds to be different.</p>
 <p>Gets/sets the current screen Gamma level. This is 100 by default, and
 you can set it anywhere from 0 (pitch black) to 200 (double normal
 brightness).</p>
-<p>must return <em>true</em> in order for this property to have any effect.</p>
+<p><span class="xref std std-ref">System.SupportsGammaControl</span>
+must return <em>true</em> in order for this property to have any effect.</p>
 <p>Because every player’s monitor will be different, you should normally
 use this property linked to a GUI Slider in order to allow the player to
 adjust it to suit their system.</p>
@@ -131,7 +135,8 @@ adjust it to suit their system.</p>
 </pre></div>
 </div>
 <p>will turn the screen brightness up to <code class="docutils literal notranslate"><span class="pre">50%</span></code> higher than normal</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">System.SupportsGammaControl</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hardwareacceleration">
@@ -208,7 +213,8 @@ using the numeric keypad arrow keys, for example.</p>
 </div>
 <p>will display a message if Num Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,
+<span class="xref std std-ref">System.ScrollLock</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="operatingsystem">
@@ -304,7 +310,8 @@ instead. Use the ScreenHeight property only for reporting purposes.</p>
 </div>
 <p>will display the current resolution and colour depth</p>
 <p><em>See Also:</em> <span class="xref std std-ref">System.ColorDepth</span>,
-<span class="xref std std-ref">System.ScreenWidth</span>,</p>
+<span class="xref std std-ref">System.ScreenWidth</span>,
+<span class="xref std std-ref">System.ViewportHeight</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="screenwidth">
@@ -328,7 +335,9 @@ instead. Use the ScreenWidth property only for reporting purposes.</p>
 </pre></div>
 </div>
 <p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.ColorDepth</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ColorDepth</span>,
+<span class="xref std std-ref">System.ScreenHeight</span>
+<span class="xref std std-ref">System.ViewportWidth</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scrolllock">
@@ -349,7 +358,8 @@ you use it for any other purpose in your game.</p>
 </div>
 <p>will display a message if Scroll Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.CapsLock</span>,
+<span class="xref std std-ref">System.NumLock</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="supportsgammacontrol">
@@ -408,7 +418,8 @@ out what the maximum possible Y co-ordinate is within the screen.</p>
 </pre></div>
 </div>
 <p>will display the current viewport size</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenHeight</span>,
+<span class="xref std std-ref">System.ViewportWidth</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="viewportwidth">
@@ -425,7 +436,8 @@ out what the maximum possible X co-ordinate is within the screen.</p>
 </pre></div>
 </div>
 <p>will display the current viewport size</p>
-<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenWidth</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">System.ScreenWidth</span>,
+<span class="xref std std-ref">System.ViewportHeight</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="volume">
@@ -567,7 +579,7 @@ can be set in <strong>AGS 3.4.1</strong> and later versions.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

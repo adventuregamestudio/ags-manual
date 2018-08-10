@@ -57,17 +57,16 @@ part of the manual, which also tells you how to use them.
 We want to display a message to the player, so we used the *Display*
 function. Looking this up in the manual gives us the definition:
 
----
-  Display (string message, ...)
-    Displays a message to the screen. It will be displayed in
-    the standard message box, and centred in the middle of
-    the screen. (description continues...)
----
+    Display (string message, ...)
+      Displays a message to the screen. It will be displayed in
+      the standard message box, and centred in the middle of
+      the screen. (description continues...)
 
 The key point here is the part of the first line inside the brackets.
 This is called the **parameter list** and defines what parameters you
 give to the function.  A parameter is some information that the function
-uses to decide what to do.<br>
+uses to decide what to do.
+
 Each parameter is listed, separated by commas. They can be one of the
 following:
 
@@ -289,22 +288,14 @@ which will yield some strange results.
 The `==` is called an operator, because it performs an operation on the
 two values. The following basic operators are available:
 
--   ==<br>
-    compares the two values, and proceeds if they are the same.
--   !=<br>
-    compares the two values, and proceeds if they are **not** the same.
--   &lt;<br>
-    compares the two values, and proceeds if the left hand value is less
-    than the right hand value
--   &gt;<br>
-    compares the two values, and proceeds if the left hand value is
-    bigger than the right hand value.
--   &lt;=<br>
-    proceeds if the left hand value is equal to or less than the right
-    hand value
--   &gt;=<br>
-    proceeds if the left hand value is equal to or bigger than the right
-    hand value
+operator | description
+--- | ---
+== | compares the two values, and proceeds if they are the same
+!= | compares the two values, and proceeds if they are **not** the same
+< | compares the two values, and proceeds if the left hand value is less than the right hand value
+\> | compares the two values, and proceeds if the left hand value is bigger than the right hand value
+<= | proceeds if the left hand value is equal to or less than the right hand value
+\>= | proceeds if the left hand value is equal to or bigger than the right hand value
 
 **Putting it into practice**
 
@@ -361,10 +352,8 @@ their manual descriptions for more information.
 When reading function descriptions in the manual, you will notice that
 some of them say they return a value. For example,
 
----
-  IsGamePaused ()
-    Returns 1 if the game is currently paused, or 0 otherwise.
----
+    IsGamePaused ()
+      Returns 1 if the game is currently paused, or 0 otherwise.
 
 You use these much as you would use a literal value such as "9". For
 example, you can do:

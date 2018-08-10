@@ -91,7 +91,8 @@ as 0, then just the events will be turned off.</p>
 </div>
 <p>will disable all ground-level events, but leave light levels working</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Enabled</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,</p>
+<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,
+<span class="xref std std-ref">EnableGroundLevelAreas</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="enablegroundlevelareas">
@@ -108,7 +109,8 @@ normal.</p>
 </div>
 <p>will re-enable all ground-level events.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Enabled</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,</p>
+<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,
+<span class="xref std std-ref">DisableGroundLevelAreas</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getbackgroundframe">
@@ -281,7 +283,8 @@ setting.</p>
     Display (&quot;The player is currently at normal size.&quot;);
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">GetWalkableAreaAt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetWalkableAreaAt</span>,
+<span class="xref std std-ref">SetAreaScaling</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getviewportx">
@@ -302,7 +305,8 @@ have a value between 0 and (ROOM WIDTH - 320).</p>
 </div>
 <p>will turn object 2 on if the player has scrolled the room by 100 pixels
 to the right.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetViewportY</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetViewportY</span>,
+<span class="xref std std-ref">SetViewport</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getviewporty">
@@ -322,7 +326,8 @@ have a value between 0 and (ROOM HEIGHT - 200).</p>
 </div>
 <p>will turn object 2 on if the player has scrolled the room by 20 pixels
 to the bottom.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetViewportX</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetViewportX</span>,
+<span class="xref std std-ref">SetViewport</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getwalkableareaat">
@@ -344,7 +349,8 @@ mouse cursor position variables.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.GetAtRoomXY</span></a>,</p>
+<a class="reference internal" href="Region.html"><span class="doc">Region.GetAtRoomXY</span></a>,
+<span class="xref std std-ref">GetScalingAt</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hasplayerbeeninroom">
@@ -360,7 +366,7 @@ particular location previously. If you reset the room with ResetRoom,
 then this command will return 0 until they enter the room again.</p>
 <p>This command will always return 1 if you ask it about the current room;
 and it will always return 0 if you ask it about a non-state saving room
-(ie. rooms numbered &amp;gt; 300).</p>
+(ie. rooms numbered &gt; 300).</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (HasPlayerBeenInRoom(14)) {
   Display(&quot;The player has been to room 14 before.&quot;);
@@ -504,7 +510,8 @@ area.</p>
 </div>
 <p>will set walkable area 5 to use continuous scaling from 120 to 170
 percent.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetScalingAt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetScalingAt</span>,
+<span class="xref std std-ref">GetWalkableAreaAt</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setbackgroundframe">
@@ -559,7 +566,8 @@ ReleaseViewport();
 <p>will scroll the screen down from the top 60 pixels, then release it back
 to follow the player around.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">GetViewportX</span>,
-<span class="xref std std-ref">GetViewportY</span>,</p>
+<span class="xref std std-ref">GetViewportY</span>,
+<span class="xref std std-ref">ReleaseViewport</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setwalkbehindbase">
@@ -596,7 +604,8 @@ Room Settings pane of the editor.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em> <span class="xref std std-ref">Room.LeftEdge</span>,
-<span class="xref std std-ref">Room.RightEdge</span>,</p>
+<span class="xref std std-ref">Room.RightEdge</span>,
+<span class="xref std std-ref">Room.TopEdge</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="colordepth">
@@ -642,7 +651,8 @@ Room Settings pane of the editor.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em> <span class="xref std std-ref">Room.BottomEdge</span>,
-<span class="xref std std-ref">Room.RightEdge</span>,</p>
+<span class="xref std std-ref">Room.RightEdge</span>,
+<span class="xref std std-ref">Room.TopEdge</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="messages">
@@ -707,7 +717,8 @@ Room Settings pane of the editor.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em> <span class="xref std std-ref">Room.BottomEdge</span>,
-<span class="xref std std-ref">Room.LeftEdge</span>,</p>
+<span class="xref std std-ref">Room.LeftEdge</span>,
+<span class="xref std std-ref">Room.TopEdge</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="topedge">
@@ -722,7 +733,8 @@ Room Settings pane of the editor.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em> <span class="xref std std-ref">Room.BottomEdge</span>,
-<span class="xref std std-ref">Room.LeftEdge</span>,</p>
+<span class="xref std std-ref">Room.LeftEdge</span>,
+<span class="xref std std-ref">Room.RightEdge</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="width">
@@ -818,7 +830,7 @@ the same width as is displayed as the “Relative size” in the Editor.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

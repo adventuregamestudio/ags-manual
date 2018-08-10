@@ -4,18 +4,6 @@
 ## Speech functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -43,7 +31,7 @@ will stop talking animation 40 game loops (1 second with the default
 game speed) before speech time ends.
 
 *See Also:*
-
+[Speech.DisplayPostTimeMs](#displayposttimems)
 
 ---
 
@@ -66,7 +54,7 @@ used.
 *Compatibility:* Supported by **AGS 3.3.0** and later versions.
 
 *See Also:* [Speech.PortraitXOffset](#portraitxoffset),
-
+[Speech.PortraitY](#portraity)
 
 ---
 
@@ -90,7 +78,7 @@ and is set to zero by default.
 *Compatibility:* Supported by **AGS 3.3.0** and later versions.
 
 *See Also:*
-
+[Speech.AnimationStopTimeMargin](#animationstoptimemargin)
 
 ---
 
@@ -117,7 +105,7 @@ used instead.
 
 *See Also:*
 [Character.SpeechAnimationDelay](Character#speechanimationdelay),
-
+[Speech.UseGlobalSpeechAnimationDelay](#useglobalspeechanimationdelay)
 
 ---
 
@@ -141,7 +129,7 @@ side and respected portrait's border.
 
 *See Also:*
 [Speech.CustomPortraitPlacement](#customportraitplacement),
-
+[Speech.PortraitY](#portraity)
 
 ---
 
@@ -161,7 +149,7 @@ Gets/sets the character's speech portrait **y** coordinate on screen.
 
 *See Also:*
 [Speech.CustomPortraitPlacement](#customportraitplacement),
-
+[Speech.PortraitXOffset](#portraitxoffset)
 
 ---
 
@@ -223,7 +211,7 @@ or a key.
 *See Also:*
 [Game.IgnoreUserInputAfterTextTimeoutMs](Game#ignoreuserinputaftertexttimeoutms),
 [Game.TextReadingSpeed](Game#textreadingspeed),
-
+[Game.Speech.SkipKey](#skipkey)
 
 ---
 
@@ -304,7 +292,7 @@ will make the game use global speech animation delay.
 
 *See Also:*
 [Character.SpeechAnimationDelay](Character#speechanimationdelay),
-
+[Speech.GlobalSpeechAnimationDelay](#globalspeechanimationdelay)
 
 ---
 

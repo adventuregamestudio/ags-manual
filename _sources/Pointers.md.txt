@@ -9,9 +9,6 @@ introduce you to pointers depending on your previous programming
 experience -- select one of the links below:
 
 
-
-
-
 ---
 
 .. index::

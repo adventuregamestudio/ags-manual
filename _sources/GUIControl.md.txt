@@ -8,22 +8,6 @@ GUI control. Each individual control type (Button, ListBox, etc) also
 has its own specific section.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -114,7 +98,7 @@ will move the *btnBigButton* button to be in front of all other controls
 on the GUI.
 
 *See Also:* [GUIControl.SendToBack](#sendtoback),
-
+[GUIControl.ZOrder](#zorder)
 
 ---
 
@@ -194,7 +178,7 @@ Example:
 will disable the *btnSaveGame* button.
 
 *See Also:* [GUIControl.Clickable](#clickable),
-
+[GUIControl.Visible](#visible)
 
 ---
 
@@ -219,7 +203,7 @@ Example:
 makes the *btnConfirm* button 20 pixels high.
 
 *See Also:* [GUIControl.SetSize](#setsize),
-
+[GUIControl.Width](#width)
 
 ---
 
@@ -306,7 +290,7 @@ the GUI.
 
 *See Also:*
 [GUIControl.BringToFront](#bringtofront),
-
+[GUIControl.ZOrder](#zorder)
 
 ---
 
@@ -341,7 +325,7 @@ GUI.
 [GUI.SetPosition](GUI#setposition),
 [GUIControl.SetSize](#setsize),
 [GUIControl.X](#x),
-
+[GUIControl.Y](#y)
 
 ---
 
@@ -427,7 +411,7 @@ Example:
 makes the *btnConfirm* button 110 pixels wide.
 
 *See Also:* [GUIControl.Height](#height),
-
+[GUIControl.SetSize](#setsize)
 
 ---
 
@@ -456,7 +440,7 @@ will move the *btnConfirm* button to be positioned 10 pixels from the
 left of its GUI.
 
 *See Also:* [GUIControl.SetPosition](#setposition),
-
+[GUIControl.Y](#y)
 
 ---
 
@@ -485,7 +469,7 @@ will move the *btnConfirm* button to be positioned 20 pixels from the
 top of its GUI.
 
 *See Also:* [GUIControl.SetPosition](#setposition),
-
+[GUIControl.X](#x)
 
 ---
 
@@ -522,5 +506,5 @@ Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.
 
 *See Also:*
 [GUIControl.BringToFront](#bringtofront),
-
+[GUIControl.SendToBack](#sendtoback)
 

@@ -3,30 +3,6 @@
 
 ## GUI InvWindow functions and properties
 
-[BringToFront](GUIControl#bringtofront)<br>
-[Clickable property](GUIControl#clickable)<br>
-[Enabled property](GUIControl#enabled)<br>
-[Height property](GUIControl#height)<br>
-[ID property](GUIControl#id)<br>
-[OwningGUI property](GUIControl#owninggui)<br>
-[SendToBack](GUIControl#sendtoback)<br>
-[SetPosition](GUIControl#setposition)<br>
-[SetSize](GUIControl#setsize)<br>
-[Visible property](GUIControl#visible)<br>
-[Width property](GUIControl#width)<br>
-[X property](GUIControl#x)<br>
-[Y property](GUIControl#y)<br>
-[ZOrder property](GUIControl#zorder)
-
-
-
-
-
-
-
-
-
-
 
 
 ---
@@ -52,7 +28,7 @@ Example:
 will scroll the *invMain* inv window down one row.
 
 *See Also:* [InvWindow.ScrollUp](#scrollup),
-
+[InvWindow.TopItem](#topitem)
 
 ---
 
@@ -77,7 +53,7 @@ Example:
 will scroll the *invMain* inv window up one row.
 
 *See Also:* [InvWindow.ScrollDown](#scrolldown),
-
+[InvWindow.TopItem](#topitem)
 
 ---
 
@@ -154,7 +130,7 @@ more inventory items than will fit in the inventory window.
 
 *See Also:* [InvWindow.ItemAtIndex](#itematindex),
 [InvWindow.ItemsPerRow](#itemsperrow),
-
+[InvWindow.RowCount](#rowcount)
 
 ---
 
@@ -179,7 +155,7 @@ Example:
 sets the *invMain* inventory window to use item cells 50x30 large.
 
 *See Also:* [InvWindow.ItemWidth](#itemwidth),
-
+[InvWindow.RowCount](#rowcount)
 
 ---
 
@@ -204,7 +180,7 @@ Example:
 sets the *invMain* inventory window to use item cells 50x30 large.
 
 *See Also:* [InvWindow.ItemHeight](#itemheight),
-
+[InvWindow.ItemsPerRow](#itemsperrow)
 
 ---
 
@@ -228,7 +204,7 @@ Example:
 displays how many items can be visible in the invMain window at once.
 
 *See Also:* [InvWindow.ItemWidth](#itemwidth),
-
+[InvWindow.RowCount](#rowcount)
 
 ---
 
@@ -250,7 +226,7 @@ Example:
 displays how many items can be visible in the invMain window at once.
 
 *See Also:* [InvWindow.ItemHeight](#itemheight),
-
+[InvWindow.ItemsPerRow](#itemsperrow)
 
 ---
 

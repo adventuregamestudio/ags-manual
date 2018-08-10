@@ -4,13 +4,6 @@
 ## ViewFrame functions and properties
 
 
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -35,7 +28,7 @@ Example:
     }
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
-
+[ViewFrame.Graphic](#graphic)
 
 ---
 
@@ -58,7 +51,7 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Loop](#loop),
-
+[ViewFrame.View](#view)
 
 ---
 
@@ -138,7 +131,7 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Frame](#frame),
-
+[ViewFrame.View](#view)
 
 ---
 
@@ -182,5 +175,5 @@ Example:
 
 *See Also:* [Game.GetViewFrame](Game#getviewframe),
 [ViewFrame.Loop](#loop),
-
+[ViewFrame.Frame](#frame)
 

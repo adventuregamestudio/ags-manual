@@ -4,12 +4,6 @@
 ## Text display / Speech functions
 
 
-
-
-
-
-
-
 ---
 
 .. index::
@@ -77,7 +71,7 @@ Example:
 will display the message at coordinates 50,50 in a box 100 pixels wide.
 
 *See Also:* [Display](#display),
-
+[DisplayAtY](#displayaty)
 
 ---
 
@@ -100,7 +94,7 @@ Example:
 will display the message at y coordinate 50.
 
 *See Also:* [Display](#display),
-
+[DisplayAt](#displayat)
 
 ---
 
@@ -112,9 +106,8 @@ will display the message at y coordinate 50.
     DisplayMessage (int message_number)
 
 Identical to the Display function, but this uses a message text defined
-in the AGS Editor rather than in the script. It will either use a
-message from the current room, or a global message (if message_number
-&gt;= 500).
+in the AGS Editor rather than in the script. It will either use a message
+from the current room, or a global message (if message_number >= 500).
 
 Example:
 
@@ -123,7 +116,7 @@ Example:
 will display the message 220 of the Room message editor.
 
 *See Also:* [Display](#display),
-
+[DisplayMessageAtY](#displaymessageaty)
 
 ---
 
@@ -148,7 +141,7 @@ Example:
 will display global message 527, in the lower half of the screen.
 
 *See Also:* [DisplayAtY](#displayaty),
-
+[DisplayMessage](#displaymessage)
 
 ---
 
@@ -201,4 +194,4 @@ with the caption bar reading "Evil wizard". The message box will have
 dark grey text on a light gray background.
 
 *See Also:* [Display](#display),
-
+[DisplayAt](#displayat)

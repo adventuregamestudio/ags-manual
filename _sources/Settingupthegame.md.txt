@@ -8,17 +8,6 @@ game-wide settings. These include inventory items, sprite graphics,
 palette setup and other things which do not depend on individual rooms.
 
 
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::

@@ -4,24 +4,6 @@
 ## GUI functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -71,7 +53,7 @@ triggers OnClick event for gMainMenu.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [Button.Click](Button#click),
-
+[GUI.ProcessClick](#processclick)
 
 ---
 
@@ -173,7 +155,7 @@ will move the VERBCOIN GUI to the position where the cursor is.
 [GUI.BackgroundGraphic](#backgroundgraphic),
 [GUIControl.SetPosition](GUIControl#setposition),
 [GUI.SetSize](GUI#setsize), [GUI.X](#x),
-
+[GUI.Y](#y)
 
 ---
 
@@ -204,7 +186,7 @@ changes the ICONBAR GUI to be the size of half the screen
 [GUI.Height](#height),
 [GUIControl.SetPosition](GUIControl#setposition),
 [GUI.SetPosition](#setposition),
-
+[GUI.Width](#width)
 
 ---
 
@@ -315,7 +297,7 @@ gets list box number 4 from the INVENTORY GUI, and then adds an item to
 it. If control 4 isn't a listbox, you will get a Null Reference error.
 
 *See Also:* [GUIControl.As\*](GUIControl#astype),
-
+[GUI.ControlCount](#controlcount)
 
 ---
 
@@ -338,7 +320,7 @@ Example:
 displays the height of the ICONBAR GUI.
 
 *See Also:* [GUI.SetSize](#setsize),
-
+[GUI.Width](#width)
 
 ---
 
@@ -468,7 +450,7 @@ Example:
 makes the INVENTORY GUI 5 pixels wider.
 
 *See Also:* [GUI.Height](#height),
-
+[GUI.SetSize](#setsize)
 
 ---
 
@@ -493,7 +475,7 @@ Example:
 moves the VERBCOIN GUI right 5 pixels.
 
 *See Also:* [GUI.SetPosition](#setposition),
-
+[GUI.Y](#y)
 
 ---
 
@@ -519,7 +501,7 @@ Example:
 moves the VERBCOIN GUI down 5 pixels.
 
 *See Also:* [GUI.SetPosition](#setposition),
-
+[GUI.X](#x)
 
 ---
 

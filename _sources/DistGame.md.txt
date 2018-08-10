@@ -50,14 +50,14 @@ should acknowledge the following:
 * TrueType font display uses ALFont by Javier Gonzalez and the Freetype
 project. Distributed under the terms of the FreeType project license.
 * OGG player is alogg by Javier Gonzalez, using the Ogg Vorbis decoder,
-which is available from http://www.xiph.org/ Copyright (c) 2002-2008,
+which is available from https://www.xiph.org/ Copyright (c) 2002-2008,
 Xiph.org Foundation
 * MP3 player is almp3, by Javier Gonzalez and the FreeAmp team. It uses
 the mpg123 MP3 decoder, and is distributed under the terms of the GNU
 Lesser General Public License version 2.1.
 
 You must also comply with the licence for AGS:
-[Artistic License 2.0](http://www.opensource.org/licenses/artistic-license-2.0.php)
+[Artistic License 2.0](https://opensource.org/licenses/artistic-license-2.0.php)
 
 ---
 
@@ -76,7 +76,7 @@ will be built with the standard AGS icon.
 
 *NOTE: The icon **must** be a proper Windows .ICO file, **not** just a
 renamed BMP file. Icon editors, such as AX-Icons from
-http://www.axialis.com, will convert it for you.*
+https://www.axialis.com, will convert it for you.*
 
 You can also have a custom icon for the Setup program generated. To do
 so, create your icon as above but name it **setup.ico** in the game

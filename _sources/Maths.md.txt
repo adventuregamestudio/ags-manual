@@ -4,26 +4,6 @@
 ## Maths functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -142,7 +122,7 @@ calculates the arc-tan of 0.5 and places it into variable *angle*.
 
 *See Also:* [Maths.ArcTan2](#arctan2),
 [Maths.DegreesToRadians](#degreestoradians),
-
+[Maths.Tan](#tan)
 
 ---
 
@@ -168,7 +148,7 @@ calculates the arc-tan of -862.42 / 78.5149 and places it into variable
 *angle*.
 
 *See Also:* [Maths.DegreesToRadians](#degreestoradians),
-
+[Maths.ArcTan](#arctan)
 
 ---
 
@@ -275,7 +255,7 @@ the variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Log](#log),
-
+[Maths.Log10](#log10)
 
 ---
 
@@ -300,7 +280,7 @@ variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Exp](#exp),
-
+[Maths.Log10](#log10)
 
 ---
 
@@ -325,7 +305,7 @@ the variable.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [Maths.Exp](#exp),
-
+[Maths.Log](#log)
 
 ---
 

@@ -129,7 +129,8 @@ else
 <p>will attempt to change the translation to Spanish</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.TranslationFilename</span>,</p>
+<span class="xref std std-ref">Game.TranslationFilename</span>,
+<span class="xref std std-ref">IsTranslationAvailable</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="claimevent">
@@ -216,7 +217,8 @@ you have after calling this function.</p>
 </pre></div>
 </div>
 <p>deletes save game slot 130 (which we should have saved earlier).</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,
+<span class="xref std std-ref">SaveGameSlot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="disableinterface">
@@ -238,7 +240,8 @@ disabled.</p>
 </pre></div>
 </div>
 <p>will disable the user’s interface.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">EnableInterface</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">EnableInterface</span>,
+<span class="xref std std-ref">IsInterfaceEnabled</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="doonceonly">
@@ -281,7 +284,8 @@ normal.</p>
 </pre></div>
 </div>
 <p>will enable the user’s interface.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,
+<span class="xref std std-ref">IsInterfaceEnabled</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="endcutscene">
@@ -293,7 +297,8 @@ normal.</p>
 will fast-forward to this point. This function returns 0 if the player
 watched the cutscene, or 1 if they skipped it.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">Game.InSkippableCutscene</span>,</p>
+<span class="xref std std-ref">Game.InSkippableCutscene</span>,
+<span class="xref std std-ref">Game.SkippingCutscene</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getcolorfromrgb">
@@ -338,7 +343,8 @@ view.</p>
 </div>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Game.GetLoopCountForView</span>,
-<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,</p>
+<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,
+<span class="xref std std-ref">Game.GetViewFrame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getgameoption">
@@ -369,8 +375,9 @@ the AGS Editor Game Settings pane.</p>
 <span class="xref std std-ref">Game.GetLoopCountForView</span> (was
 GP_NUMLOOPS)<span class="raw-html-m2r"><br></span>
 <span class="xref std std-ref">Game.GetFrameCountForLoop</span> (was
-GP_NUMFRAMES)<span class="raw-html-m2r"><br></span></p>
-<p>(was GP_ISRUNNEXTLOOP)<span class="raw-html-m2r"><br></span>
+GP_NUMFRAMES)<span class="raw-html-m2r"><br></span>
+<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>
+(was GP_ISRUNNEXTLOOP)<span class="raw-html-m2r"><br></span>
 <span class="xref std std-ref">Game.GetViewFrame</span> (was GP_FRAMExxx,
 GP_ISFRAMEFLIPPED)<span class="raw-html-m2r"><br></span>
 <span class="xref std std-ref">Game.GUICount</span> (was gp_numguis)<span class="raw-html-m2r"><br></span>
@@ -414,7 +421,8 @@ name the variables.</p>
 </pre></div>
 </div>
 <p>will execute the code only if Global Integer 20 is 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetGlobalInt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">SetGlobalInt</span>,
+<span class="xref std std-ref">Game.GlobalStrings</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getgraphicalvariable">
@@ -435,7 +443,8 @@ compatibility with AGS 2.x. When writing new code, use
 </div>
 <p>will execute the code only if interaction variable “climbed rock” is
 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,
+<span class="xref std std-ref">SetGraphicalVariable</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getlocationname">
@@ -513,7 +522,8 @@ eLocationObject     an object
 </div>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,</p>
+<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,
+<span class="xref std std-ref">Game.GetViewFrame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getrunnextsettingforloop">
@@ -537,7 +547,8 @@ else {
 </div>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Game.GetLoopCountForView</span>,
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,</p>
+<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,
+<span class="xref std std-ref">Game.GetViewFrame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getsaveslotdescription">
@@ -556,7 +567,8 @@ obsolete)</em></p>
 <p>will get the description of save slot 10 into the variable.</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="DynamicSprite.html"><span class="doc">DynamicSprite.CreateFromSaveGame</span></a>,
-<span class="xref std std-ref">RestoreGameSlot</span>,</p>
+<span class="xref std std-ref">RestoreGameSlot</span>,
+<span class="xref std std-ref">SaveGameSlot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="gettextheight">
@@ -786,7 +798,8 @@ other blocking action.</p>
 </pre></div>
 </div>
 <p>will disable the user interface if it’s enabled.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,
+<span class="xref std std-ref">EnableInterface</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="isinteractionavailable">
@@ -893,7 +906,8 @@ until restarted.</p>
 <p>Finds out whether the player is using a game translation or not.</p>
 <p>Returns 1 if a translation is in use, 0 if not.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">GetTranslation</span>,
-<span class="xref std std-ref">Game.ChangeTranslation</span>,</p>
+<span class="xref std std-ref">Game.ChangeTranslation</span>,
+<span class="xref std std-ref">Game.TranslationFilename</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="movecharactertohotspot">
@@ -914,7 +928,8 @@ the character has reached its destination.</p>
 <p>will move the character EGO to the hotspot’s 6 “walk to point”.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.WalkToX</span></a>,
 <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.WalkToY</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,</p>
+<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
+<span class="xref std std-ref">MoveCharacterToObject</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="movecharactertoobject">
@@ -934,7 +949,8 @@ object[0].Visible = false;
 </div>
 <p>Will move the character EGO below object number 0, then turn off object
 0.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
+<span class="xref std std-ref">MoveCharacterToHotspot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="pausegame">
@@ -1027,7 +1043,8 @@ when the script function finishes executing.</p>
 </pre></div>
 </div>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,
+<span class="xref std std-ref">SaveGameDialog</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="restoregameslot">
@@ -1053,7 +1070,8 @@ restored when the script function finishes executing.</p>
 <p>will restore game slot 30 if this slot number exists.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Game.GetSaveSlotDescription</span>,
-<span class="xref std std-ref">RestoreGameDialog</span>,</p>
+<span class="xref std std-ref">RestoreGameDialog</span>,
+<span class="xref std std-ref">SaveGameSlot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="runagsgame">
@@ -1109,7 +1127,8 @@ be shown when the script function finishes executing.</p>
 </pre></div>
 </div>
 <p>will bring up the save game dialog if the player presses the F3 key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameDialog</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameDialog</span>,
+<span class="xref std std-ref">SaveGameSlot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savegameslot">
@@ -1133,7 +1152,8 @@ saved when the script function finishes executing.</p>
 <p>will save the current game position to slot 30 with the description
 “Save game”.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DeleteSaveSlot</span>,
-<span class="xref std std-ref">RestoreGameSlot</span>,</p>
+<span class="xref std std-ref">RestoreGameSlot</span>,
+<span class="xref std std-ref">SaveGameDialog</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savescreenshot">
@@ -1328,7 +1348,8 @@ changed at run-time.</p>
 </div>
 <p>will disable pixel-perfect click detection.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">GetGameOption</span>,
-<a class="reference internal" href="Speech.html"><span class="doc">Speech.Style</span></a>,</p>
+<a class="reference internal" href="Speech.html"><span class="doc">Speech.Style</span></a>,
+<span class="xref std std-ref">SetTextWindowGUI</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setgamespeed">
@@ -1480,7 +1501,8 @@ General Settings of the editor should be sufficient.</p>
 Documents, and create the folder if it does not exist (might be useful
 to do this in game_start).</p>
 <p><em>See Also:</em>
-<a class="reference internal" href="ListBox.html"><span class="doc">ListBox.FillSaveGameList</span></a>,</p>
+<a class="reference internal" href="ListBox.html"><span class="doc">ListBox.FillSaveGameList</span></a>,
+<span class="xref std std-ref">RestoreGameDialog</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="settextwindowgui">
@@ -1575,7 +1597,8 @@ in order for the skipping to work - otherwise, when the player presses
 ESC the game could appear to hang.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">EndCutscene</span>,
 <span class="xref std std-ref">SkipUntilCharacterStops</span>,
-<span class="xref std std-ref">Game.InSkippableCutscene</span>,</p>
+<span class="xref std std-ref">Game.InSkippableCutscene</span>,
+<span class="xref std std-ref">Game.SkippingCutscene</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="updateinventory">
@@ -1628,7 +1651,8 @@ cEgo.FaceLocation(1000,100);
 </div>
 <p>will move the character EGO to 120,140, wait until he gets there then
 wait for 2 seconds (80 game cycles) and then face right.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">WaitKey</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">WaitKey</span>,
+<span class="xref std std-ref">WaitMouseKey</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="waitkey">
@@ -1648,7 +1672,8 @@ wait for 2 seconds (80 game cycles) and then face right.</p>
 </div>
 <p>will pause the script and wait until 5 seconds have passed or the player
 presses a key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Wait</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Wait</span>,
+<span class="xref std std-ref">WaitMouseKey</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="waitmousekey">
@@ -1804,7 +1829,8 @@ global strings, with <em>index</em> values from 0 to 49.</p>
 </pre></div>
 </div>
 <p>will set global string 15 to contain “Joe”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,
+<span class="xref std std-ref">SetGlobalInt</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="guicount">
@@ -1876,7 +1902,8 @@ could be useful for script modules.</p>
 <p>will display a message if we are within a cutscene</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">EndCutscene</span>,</p>
+<span class="xref std std-ref">EndCutscene</span>,
+<span class="xref std std-ref">Game.SkippingCutscene</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="inventoryitemcount">
@@ -1918,7 +1945,9 @@ General Settings are set not to allow text to be automatically removed.</p>
 for at least 2 seconds</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See Also:</em>
-<a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,</p>
+<a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,
+<span class="xref std std-ref">Game.IgnoreUserInputAfterTextTimeoutMs</span>
+<span class="xref std std-ref">Game.TextReadingSpeed</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="mousecursorcount">
@@ -2003,7 +2032,8 @@ code that don’t need to be run if the cutscene is being skipped over.</p>
 cutscene.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">EndCutscene</span>,</p>
+<span class="xref std std-ref">EndCutscene</span>,
+<span class="xref std std-ref">Game.InSkippableCutscene</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speechfont">
@@ -2104,7 +2134,8 @@ somewhere depending on which translation is being used.</p>
 }
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.ChangeTranslation</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Game.ChangeTranslation</span>,
+<span class="xref std std-ref">IsTranslationAvailable</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="usenativecoordinates">
@@ -2287,7 +2318,7 @@ views for some reason. Valid views are numbered from 1 to ViewCount.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

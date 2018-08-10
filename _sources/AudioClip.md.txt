@@ -7,13 +7,6 @@ AudioClips are created when you import files in the AGS Editor. The
 commands in this section allow to play them.
 
 
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -59,7 +52,7 @@ plays the *aExplosion* audio clip.
 
 *See Also:* [AudioClip.PlayFrom](#playfrom),
 [AudioClip.PlayQueued](#playqueued),
-
+[AudioClip.Stop](#stop)
 
 ---
 
@@ -179,7 +172,7 @@ displays a message if aExplosion is a MIDI file
 
 *See Also:* [AudioChannel.Seek](AudioChannel#seek),
 [AudioChannel.Position](AudioChannel#position),
-
+[AudioClip.PlayFrom](#playfrom)
 
 ---
 

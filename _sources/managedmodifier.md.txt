@@ -4,28 +4,6 @@
 ## Script language keywords
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::

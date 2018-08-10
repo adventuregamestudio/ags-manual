@@ -59,7 +59,8 @@ imported in the sprite’s manager slot 120.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Mouse.ChangeModeHotspot</span>,
 <span class="xref std std-ref">Mouse.ChangeModeView</span>,
-<span class="xref std std-ref">Mouse.GetModeGraphic</span>,</p>
+<span class="xref std std-ref">Mouse.GetModeGraphic</span>,
+<span class="xref std std-ref">Mouse.Mode</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="changemodehotspot">
@@ -78,7 +79,8 @@ graphic.</p>
 </div>
 <p>will change the cursor’s hotspot for walk mode to coordinates 10,10.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,</p>
+<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,
+<span class="xref std std-ref">Mouse.ChangeModeView</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="changemodeview">
@@ -96,7 +98,8 @@ animation while the game is running.</p>
 </div>
 <p>will change the Look cursor’s view to ROLLEYES.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,</p>
+<span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,
+<span class="xref std std-ref">Mouse.ChangeModeHotspot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="click">
@@ -157,7 +160,8 @@ the next enabled standard cursor.</p>
 </pre></div>
 </div>
 <p>will make the walk mode unavailable until it’s enabled again.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,
+<span class="xref std std-ref">Mouse.IsModeEnabled</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="enablemode">
@@ -173,7 +177,8 @@ interface buttons which were disabled by the DisableMode command.</p>
 </pre></div>
 </div>
 <p>will enable cursor mode walk which was disabled before.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Mouse.DisableMode</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.DisableMode</span>,
+<span class="xref std std-ref">Mouse.IsModeEnabled</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="ismodeenabled">
@@ -190,7 +195,8 @@ interface buttons which were disabled by the DisableMode command.</p>
 </div>
 <p>will change the the “WalkTo” cursor mode, but only if it’s currently
 enabled.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.EnableMode</span>,
+<span class="xref std std-ref">Mouse.DisableMode</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getmodegraphic">
@@ -358,7 +364,8 @@ so forth).</p>
 </div>
 <p>converts slider control’s position into mouse speed.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Mouse.ControlEnabled</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Mouse.ControlEnabled</span>,
+<span class="xref std std-ref">Mouse.SetPosition</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="update">
@@ -412,7 +419,8 @@ cursor temporarily.</p>
 Cursors tab.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Mouse.ChangeModeGraphic</span>,
-<span class="xref std std-ref">Mouse.Mode</span>,</p>
+<span class="xref std std-ref">Mouse.Mode</span>,
+<span class="xref std std-ref">Mouse.UseDefaultGraphic</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="mode">
@@ -438,7 +446,8 @@ Mode used if the player clicks on a hotspot.</p>
 <p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">Mouse.SaveCursorUntilItLeaves</span>,
-<span class="xref std std-ref">Mouse.UseModeGraphic</span>,</p>
+<span class="xref std std-ref">Mouse.UseModeGraphic</span>,
+<span class="xref std std-ref">Mouse.SelectNextMode</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="visible">
@@ -530,7 +539,7 @@ mouse.Visible = true;
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

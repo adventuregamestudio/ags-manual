@@ -62,13 +62,6 @@ in the same way as character names. For example, if a GUI is called
 `gIconBar.Visible = true;`
 
 
-
-
-
-
-
-
-
 ---
 
 .. index::

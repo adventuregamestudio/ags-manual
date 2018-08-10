@@ -4,27 +4,6 @@
 ## System functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -73,7 +52,7 @@ will display a message with Audio Channel 2's current volume.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 *See Also:* [AudioChannel](AudioChannel),
-
+[System.AudioChannelCount](#audiochannelcount)
 
 ---
 
@@ -101,7 +80,7 @@ will display a message if Caps Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.NumLock](#numlock),
-
+[System.ScrollLock](#scrolllock)
 
 ---
 
@@ -126,7 +105,7 @@ Example:
 will display the current resolution and colour depth
 
 *See Also:* [System.ScreenHeight](#screenheight),
-
+[System.ScreenWidth](#screenwidth)
 
 ---
 
@@ -141,7 +120,7 @@ Gets/sets the current screen Gamma level. This is 100 by default, and
 you can set it anywhere from 0 (pitch black) to 200 (double normal
 brightness).
 
-
+[System.SupportsGammaControl](#supportsgammacontrol)
 must return *true* in order for this property to have any effect.
 
 Because every player's monitor will be different, you should normally
@@ -157,7 +136,7 @@ Example:
 will turn the screen brightness up to `50%` higher than normal
 
 *See Also:*
-
+[System.SupportsGammaControl](#supportsgammacontrol)
 
 ---
 
@@ -256,7 +235,7 @@ will display a message if Num Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.CapsLock](#capslock),
-
+[System.ScrollLock](#scrolllock)
 
 ---
 
@@ -376,7 +355,7 @@ will display the current resolution and colour depth
 
 *See Also:* [System.ColorDepth](#colordepth),
 [System.ScreenWidth](#screenwidth),
-
+[System.ViewportHeight](#viewportheight)
 
 ---
 
@@ -408,8 +387,8 @@ Example:
 will display the current resolution and colour depth
 
 *See Also:* [System.ColorDepth](#colordepth),
-
-
+[System.ScreenHeight](#screenheight)
+[System.ViewportWidth](#viewportwidth)
 
 ---
 
@@ -438,7 +417,7 @@ will display a message if Scroll Lock is on.
 *Compatibility:* Supported by **AGS 3.0.1** and later versions.
 
 *See Also:* [System.CapsLock](#capslock),
-
+[System.NumLock](#numlock)
 
 ---
 
@@ -518,7 +497,7 @@ Example:
 will display the current viewport size
 
 *See Also:* [System.ScreenHeight](#screenheight),
-
+[System.ViewportWidth](#viewportwidth)
 
 ---
 
@@ -542,7 +521,7 @@ Example:
 will display the current viewport size
 
 *See Also:* [System.ScreenWidth](#screenwidth),
-
+[System.ViewportHeight](#viewportheight)
 
 ---
 

@@ -4,51 +4,6 @@
 ## Object functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -102,7 +57,7 @@ speed 3. The function won't return until the animation is finished.
 *See Also:* [Character.Animate](Character#animate),
 [Object.Animating](#animating),
 [Object.SetView](#setview),
-
+[Object.StopAnimating](#stopanimating)
 
 ---
 
@@ -344,7 +299,7 @@ object gets there.
 
 *See Also:* [Object.Moving](#moving),
 [Character.Walk](Character#walk),
-
+[Object.StopMoving](#stopmoving)
 
 ---
 
@@ -395,7 +350,7 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-
+[Object.RunInteraction](#runinteraction)
 
 ---
 
@@ -488,7 +443,7 @@ Example:
 will change object's 2 position to 50,100.
 
 *See Also:* [Object.X](#x),
-
+[Object.Y](#y)
 
 ---
 
@@ -540,7 +495,7 @@ Example:
 will stop object 2 animating if it currently is doing so.
 
 *See Also:* [Object.Animate](#animate),
-
+[Object.Animating](#animating)
 
 ---
 
@@ -702,7 +657,7 @@ will make the Rock object block 20 pixels high (10 above and 10 below
 its baseline)
 
 *See Also:* [Object.BlockingWidth](#blockingwidth),
-
+[Object.Solid](#solid)
 
 ---
 
@@ -735,7 +690,7 @@ will make the Rock object block 50 pixels wide (25 pixels to the left of
 his centre, and 25 to the right)
 
 *See Also:* [Object.BlockingHeight](#blockingheight),
-
+[Object.Solid](#solid)
 
 ---
 
@@ -764,7 +719,7 @@ Example:
 will make object 2 ignore clicks from the player.
 
 *See Also:* [Character.Clickable](Character#clickable),
-
+[Object.IgnoreWalkbehinds](#ignorewalkbehinds)
 
 ---
 
@@ -790,7 +745,7 @@ will display the oDoor object's current frame number
 
 *SeeAlso:* [Object.Graphic](#graphic),
 [Object.Loop](#loop),
-
+[Object.View](#view)
 
 ---
 
@@ -857,7 +812,7 @@ tinted by [SetAmbientTint](Game#setambienttint) or a region tint.
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
 *SeeAlso:* [Object.Tint](#tint),
-
+[Object.RemoveTint](#removetint)
 
 ---
 
@@ -903,7 +858,7 @@ Example:
 will tell the Door object not to be scaled on walkable areas.
 
 *See Also:*
-
+[Object.IgnoreWalkbehinds](#ignorewalkbehinds)
 
 ---
 
@@ -937,7 +892,7 @@ will make object 1 ignore walk behinds.
 
 *See Also:* [Object.Baseline](#baseline),
 [Object.Clickable](#clickable),
-
+[Object.IgnoreScaling](#ignorescaling)
 
 ---
 
@@ -984,7 +939,7 @@ will display the oDoor object's current loop number
 
 *SeeAlso:* [Object.Frame](#frame),
 [Object.Graphic](#graphic),
-
+[Object.View](#view)
 
 ---
 
@@ -1012,7 +967,7 @@ will move object 2 to 125,40 and return control to the player when the
 object gets there.
 
 *See Also:* [Object.Animating](#animating),
-
+[Object.StopMoving](#stopmoving)
 
 ---
 
@@ -1064,7 +1019,7 @@ Example:
 will mean that the Smallrock object blocks the path of characters.
 
 *See Also:* [Object.BlockingHeight](#blockingheight),
-
+[Object.BlockingWidth](#blockingwidth)
 
 ---
 
@@ -1090,7 +1045,7 @@ false, then this value is meaningless.
 [Object.HasExplicitTint](#hasexplicittint),
 [Object.TintGreen](#tintgreen),
 [Object.TintRed](#tintred),
-
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1116,7 +1071,7 @@ false, then this value is meaningless.
 [Object.TintBlue](#tintblue),
 [Object.TintRed](#tintred),
 [Object.TintSaturation](#tintsaturation),
-
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1142,7 +1097,7 @@ false, then this value is meaningless.
 [Object.TintBlue](#tintblue),
 [Object.TintGreen](#tintgreen),
 [Object.TintSaturation](#tintsaturation),
-
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1168,7 +1123,7 @@ false, then this value is meaningless.
 [Object.TintBlue](#tintblue),
 [Object.TintGreen](#tintgreen),
 [Object.TintRed](#tintred),
-
+[Object.TintLuminance](#tintluminance)
 
 ---
 
@@ -1194,7 +1149,7 @@ false, then this value is meaningless.
 [Object.TintBlue](#tintblue),
 [Object.TintGreen](#tintgreen),
 [Object.TintRed](#tintred),
-
+[Object.TintSaturation](#tintsaturation)
 
 ---
 
@@ -1267,7 +1222,7 @@ will display the oDoor object's current view number
 *SeeAlso:* [Object.SetView](#setview),
 [Object.Graphic](#graphic),
 [Object.Loop](#loop),
-
+[Object.Frame](#frame)
 
 ---
 
@@ -1316,7 +1271,7 @@ will display the X co-ordinate of object 1.
 *See Also:* [Object.Y](#y),
 [Object.Animating](#animating),
 [Object.Visible](#visible),
-
+[Object.SetPosition](#setposition)
 
 ---
 
@@ -1348,5 +1303,5 @@ will display the Y co-ordinate of object 1.
 *See Also:* [Object.Animating](#animating),
 [Object.Baseline](#baseline),
 [Object.X](#x),
-
+[Object.SetPosition](#setposition)
 

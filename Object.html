@@ -79,7 +79,8 @@ object 1 will animate backwards using loop 1 of its current view, at
 speed 3. The function won’t return until the animation is finished.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Animate</span></a>,
 <span class="xref std std-ref">Object.Animating</span>,
-<span class="xref std std-ref">Object.SetView</span>,</p>
+<span class="xref std std-ref">Object.SetView</span>,
+<span class="xref std std-ref">Object.StopAnimating</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getatscreenxy">
@@ -257,7 +258,8 @@ from its current location to (X,Y), ignoring the room walkable areas.</p>
 <p>will move object 2 to 125,40 and return control to the player when the
 object gets there.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Moving</span>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,</p>
+<a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
+<span class="xref std std-ref">Object.StopMoving</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="removetint">
@@ -295,7 +297,8 @@ been run.</p>
 </pre></div>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
+<span class="xref std std-ref">Object.RunInteraction</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="runinteraction">
@@ -362,7 +365,8 @@ separately, but provides a more convenient way of doing so.</p>
 </pre></div>
 </div>
 <p>will change object’s 2 position to 50,100.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.X</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.X</span>,
+<span class="xref std std-ref">Object.Y</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setview">
@@ -401,7 +405,8 @@ until you change it or start a new animation.</p>
 </pre></div>
 </div>
 <p>will stop object 2 animating if it currently is doing so.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.Animate</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animate</span>,
+<span class="xref std std-ref">Object.Animating</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="stopmoving">
@@ -522,7 +527,8 @@ removes by being there.</p>
 </div>
 <p>will make the Rock object block 20 pixels high (10 above and 10 below
 its baseline)</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingWidth</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingWidth</span>,
+<span class="xref std std-ref">Object.Solid</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="blockingwidth">
@@ -546,7 +552,8 @@ removes by being there.</p>
 </div>
 <p>will make the Rock object block 50 pixels wide (25 pixels to the left of
 his centre, and 25 to the right)</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,
+<span class="xref std std-ref">Object.Solid</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="clickable">
@@ -567,7 +574,8 @@ it to be clicked on by the player.</p>
 </pre></div>
 </div>
 <p>will make object 2 ignore clicks from the player.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Clickable</span></a>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Clickable</span></a>,
+<span class="xref std std-ref">Object.IgnoreWalkbehinds</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="frame">
@@ -586,7 +594,8 @@ functions.</p>
 </div>
 <p>will display the oDoor object’s current frame number</p>
 <p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Graphic</span>,
-<span class="xref std std-ref">Object.Loop</span>,</p>
+<span class="xref std std-ref">Object.Loop</span>,
+<span class="xref std std-ref">Object.View</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="graphic">
@@ -634,7 +643,8 @@ light.</p>
 <p>Returns <em>false</em> if the object has no explicit tint, but it may still be
 tinted by <a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a> or a region tint.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Tint</span>,</p>
+<p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Tint</span>,
+<span class="xref std std-ref">Object.RemoveTint</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="index-28">
@@ -669,7 +679,8 @@ appropriate on walkable areas.</p>
 </pre></div>
 </div>
 <p>will tell the Door object not to be scaled on walkable areas.</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">Object.IgnoreWalkbehinds</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="ignorewalkbehinds">
@@ -694,7 +705,8 @@ using the Direct3D driver.</p>
 </div>
 <p>will make object 1 ignore walk behinds.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Baseline</span>,
-<span class="xref std std-ref">Object.Clickable</span>,</p>
+<span class="xref std std-ref">Object.Clickable</span>,
+<span class="xref std std-ref">Object.IgnoreScaling</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="lightlevel">
@@ -728,7 +740,8 @@ functions.</p>
 </div>
 <p>will display the oDoor object’s current loop number</p>
 <p><em>SeeAlso:</em> <span class="xref std std-ref">Object.Frame</span>,
-<span class="xref std std-ref">Object.Graphic</span>,</p>
+<span class="xref std std-ref">Object.Graphic</span>,
+<span class="xref std std-ref">Object.View</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="moving">
@@ -748,7 +761,8 @@ while (object[2].Moving) Wait(1);
 </div>
 <p>will move object 2 to 125,40 and return control to the player when the
 object gets there.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.Animating</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.Animating</span>,
+<span class="xref std std-ref">Object.StopMoving</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="name">
@@ -785,7 +799,8 @@ objects from moving through them.</p>
 </pre></div>
 </div>
 <p>will mean that the Smallrock object blocks the path of characters.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">Object.BlockingHeight</span>,
+<span class="xref std std-ref">Object.BlockingWidth</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintblue">
@@ -803,7 +818,8 @@ false, then this value is meaningless.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
 <span class="xref std std-ref">Object.HasExplicitTint</span>,
 <span class="xref std std-ref">Object.TintGreen</span>,
-<span class="xref std std-ref">Object.TintRed</span>,</p>
+<span class="xref std std-ref">Object.TintRed</span>,
+<span class="xref std std-ref">Object.TintLuminance</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintgreen">
@@ -821,7 +837,8 @@ false, then this value is meaningless.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
 <span class="xref std std-ref">Object.TintBlue</span>,
 <span class="xref std std-ref">Object.TintRed</span>,
-<span class="xref std std-ref">Object.TintSaturation</span>,</p>
+<span class="xref std std-ref">Object.TintSaturation</span>,
+<span class="xref std std-ref">Object.TintLuminance</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintred">
@@ -839,7 +856,8 @@ false, then this value is meaningless.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
 <span class="xref std std-ref">Object.TintBlue</span>,
 <span class="xref std std-ref">Object.TintGreen</span>,
-<span class="xref std std-ref">Object.TintSaturation</span>,</p>
+<span class="xref std std-ref">Object.TintSaturation</span>,
+<span class="xref std std-ref">Object.TintLuminance</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintsaturation">
@@ -857,7 +875,8 @@ false, then this value is meaningless.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
 <span class="xref std std-ref">Object.TintBlue</span>,
 <span class="xref std std-ref">Object.TintGreen</span>,
-<span class="xref std std-ref">Object.TintRed</span>,</p>
+<span class="xref std std-ref">Object.TintRed</span>,
+<span class="xref std std-ref">Object.TintLuminance</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintluminance">
@@ -875,7 +894,8 @@ false, then this value is meaningless.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Tint</span>,
 <span class="xref std std-ref">Object.TintBlue</span>,
 <span class="xref std std-ref">Object.TintGreen</span>,
-<span class="xref std std-ref">Object.TintRed</span>,</p>
+<span class="xref std std-ref">Object.TintRed</span>,
+<span class="xref std std-ref">Object.TintSaturation</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="transparency">
@@ -930,7 +950,8 @@ function. To remove the view, set the Graphic property to a sprite slot.</p>
 <p>will display the oDoor object’s current view number</p>
 <p><em>SeeAlso:</em> <span class="xref std std-ref">Object.SetView</span>,
 <span class="xref std std-ref">Object.Graphic</span>,
-<span class="xref std std-ref">Object.Loop</span>,</p>
+<span class="xref std std-ref">Object.Loop</span>,
+<span class="xref std std-ref">Object.Frame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="visible">
@@ -966,7 +987,8 @@ object is switched on and visible in the room. If you set this to 0
 <p>will display the X co-ordinate of object 1.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Y</span>,
 <span class="xref std std-ref">Object.Animating</span>,
-<span class="xref std std-ref">Object.Visible</span>,</p>
+<span class="xref std std-ref">Object.Visible</span>,
+<span class="xref std std-ref">Object.SetPosition</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="y">
@@ -989,7 +1011,8 @@ sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
 <p>will display the Y co-ordinate of object 1.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">Object.Animating</span>,
 <span class="xref std std-ref">Object.Baseline</span>,
-<span class="xref std std-ref">Object.X</span>,</p>
+<span class="xref std std-ref">Object.X</span>,
+<span class="xref std std-ref">Object.SetPosition</span></p>
 </div>
 </div>
 
@@ -1081,7 +1104,7 @@ sprite is drawn from the Y co-ordinate at (Object.Y - Height) to
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

@@ -79,23 +79,17 @@ your script simply by starting the line with the <code class="docutils literal n
 part of the manual, which also tells you how to use them.</p>
 <p>We want to display a message to the player, so we used the <em>Display</em>
 function. Looking this up in the manual gives us the definition:</p>
-<hr class="docutils" />
-<blockquote>
-<div><dl class="docutils">
-<dt>Display (string message, …)</dt>
-<dd>Displays a message to the screen. It will be displayed in
-the standard message box, and centred in the middle of</dd>
-</dl>
-</div></blockquote>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>the screen. (description continues...)
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display (string message, ...)
+  Displays a message to the screen. It will be displayed in
+  the standard message box, and centred in the middle of
+  the screen. (description continues...)
 </pre></div>
 </div>
-<hr class="docutils" />
 <p>The key point here is the part of the first line inside the brackets.
 This is called the <strong>parameter list</strong> and defines what parameters you
 give to the function.  A parameter is some information that the function
-uses to decide what to do.<span class="raw-html-m2r"><br></span>
-Each parameter is listed, separated by commas. They can be one of the
+uses to decide what to do.</p>
+<p>Each parameter is listed, separated by commas. They can be one of the
 following:</p>
 <ul class="simple">
 <li>string <em>name:raw-html-m2r:`&lt;br&gt;`*This parameter is a string, ie. a piece of text. This means that
@@ -285,24 +279,37 @@ values. If you used a single equals it would set the value instead,
 which will yield some strange results.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">==</span></code> is called an operator, because it performs an operation on the
 two values. The following basic operators are available:</p>
-<ul class="simple">
-<li>==<span class="raw-html-m2r"><br></span>
-compares the two values, and proceeds if they are the same.</li>
-<li>!=<span class="raw-html-m2r"><br></span>
-compares the two values, and proceeds if they are <strong>not</strong> the same.</li>
-<li>&amp;lt;<span class="raw-html-m2r"><br></span>
-compares the two values, and proceeds if the left hand value is less
-than the right hand value</li>
-<li>&amp;gt;<span class="raw-html-m2r"><br></span>
-compares the two values, and proceeds if the left hand value is
-bigger than the right hand value.</li>
-<li>&amp;lt;=<span class="raw-html-m2r"><br></span>
-proceeds if the left hand value is equal to or less than the right
-hand value</li>
-<li>&amp;gt;=<span class="raw-html-m2r"><br></span>
-proceeds if the left hand value is equal to or bigger than the right
-hand value</li>
-</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">operator</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>compares the two values, and proceeds if they are the same</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>compares the two values, and proceeds if they are <strong>not</strong> the same</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>compares the two values, and proceeds if the left hand value is less than the right hand value</td>
+</tr>
+<tr class="row-odd"><td>&amp;gt;</td>
+<td>compares the two values, and proceeds if the left hand value is bigger than the right hand value</td>
+</tr>
+<tr class="row-even"><td>&lt;=</td>
+<td>proceeds if the left hand value is equal to or less than the right hand value</td>
+</tr>
+<tr class="row-odd"><td>&amp;gt;=</td>
+<td>proceeds if the left hand value is equal to or bigger than the right hand value</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Putting it into practice</strong></p>
 <p>Now let’s do something useful with our variable. Suppose that we want to
 have different messages every time the player looks at the hotspot. So,
@@ -351,13 +358,10 @@ their manual descriptions for more information.</p>
 <span id="index-7"></span><h2>Functions that return a value<a class="headerlink" href="#functions-that-return-a-value" title="Permalink to this headline">¶</a></h2>
 <p>When reading function descriptions in the manual, you will notice that
 some of them say they return a value. For example,</p>
-<hr class="docutils" />
-<blockquote>
-<div>IsGamePaused ()</div></blockquote>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Returns 1 if the game is currently paused, or 0 otherwise.
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>IsGamePaused ()
+  Returns 1 if the game is currently paused, or 0 otherwise.
 </pre></div>
 </div>
-<hr class="docutils" />
 <p>You use these much as you would use a literal value such as “9”. For
 example, you can do:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// Put the return value into our variable
@@ -473,7 +477,7 @@ which covers more advanced topics.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

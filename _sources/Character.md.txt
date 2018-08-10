@@ -4,104 +4,6 @@
 ## Character functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -172,7 +74,7 @@ normally (obeying walkable areas), then move to the bottom left corner
 and then top left corner afterwards.
 
 *See Also:* [Character.Move](#move)
-
+[Character.Walk](#walk)
 
 ---
 
@@ -272,7 +174,7 @@ coordinates 100,50. This will also mean that the game moves into room 4.
 **AGS 3.4.0** and later versions.
 
 *See Also:*
-
+[Character.ChangeRoomAutoPosition](#changeroomautoposition)
 
 ---
 
@@ -344,7 +246,7 @@ Example:
 will make the EGO character use view number 5 as his walking view.
 
 *See Also:* [Character.LockView](#lockview),
-
+[Character.NormalView](#normalview)
 
 ---
 
@@ -387,7 +289,7 @@ will make the character EGO face the character MAN
 [Character.FaceDirection](#facedirection),
 [Character.FaceLocation](#facelocation),
 [Character.FaceObject](#faceobject),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -429,7 +331,7 @@ will make the character EGO face up-right.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceLocation](#facelocation),
 [Character.FaceObject](#faceobject),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -474,7 +376,7 @@ will make the character face to the east.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceDirection](#facedirection),
 [Character.FaceObject](#faceobject),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -513,7 +415,7 @@ will make the player character face object 2.
 [Character.FaceCharacter](#facecharacter),
 [Character.FaceDirection](#facedirection),
 [Character.FaceLocation](#facelocation),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -633,7 +535,7 @@ will print the message if EGO has its "Value" property set to more than
 200.
 
 *See Also:*
-
+[Character.GetTextProperty](#gettextproperty)
 
 ---
 
@@ -692,7 +594,7 @@ will change EGO character's "XPLevel" custom property to 10.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:*
-
+[Character.SetTextProperty](#settextproperty)
 
 ---
 
@@ -770,7 +672,7 @@ will display a message if the player has the key.
 
 *See Also:* [Character.AddInventory](#addinventory),
 [Character.InventoryQuantity](#inventoryquantity),
-
+[Character.LoseInventory](#loseinventory)
 
 ---
 
@@ -898,7 +800,7 @@ only by **AGS 3.4.1** and later versions.
 [Character.ChangeView](#changeview),
 [Character.SpeechView](#speechview),
 [Character.LockViewAligned](#lockviewaligned),
-
+[Character.LockViewOffset](#lockviewoffset)
 [Character.UnlockView](#unlockview),
 
 ---
@@ -961,7 +863,7 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.LockView](#lockview),
 [Character.LockViewOffset](#lockviewoffset),
-
+[Character.UnlockView](#unlockview)
 
 ---
 
@@ -1000,7 +902,7 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.Animate](#animate),
 [Character.LockView](#lockview),
-
+[Character.UnlockView](#unlockview)
 
 ---
 
@@ -1057,7 +959,7 @@ only by **AGS 3.4.1** and later versions.
 
 *See Also:* [Character.LockView](#lockview),
 [Character.LockViewAligned](#lockviewaligned),
-
+[Character.UnlockView](#unlockview)
 
 ---
 
@@ -1121,7 +1023,7 @@ his destination.
 [Character.Walk](#walk),
 [MoveCharacterToObject](Game#movecharactertoobject),
 [Object.Move](Object#move),
-
+[Character.StopMoving](#stopmoving)
 
 ---
 
@@ -1175,7 +1077,7 @@ normal.
 
 *See Also:*
 [Character.HasExplicitTint](#hasexplicittint),
-
+[Character.Tint](#tint)
 
 ---
 
@@ -1202,7 +1104,7 @@ Example:
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 *See Also:* [IsInteractionAvailable](Game#isinteractionavailable),
-
+[Character.RunInteraction](#runinteraction)
 
 ---
 
@@ -1261,7 +1163,7 @@ games, whilst playing the character's talking animation.
 *See Also:* [Display](DisplayAt#display),
 [Character.SayAt](#sayat),
 [Character.SayBackground](#saybackground),
-
+[Character.Think](#think)
 
 ---
 
@@ -1291,7 +1193,7 @@ will display the message in the top right corner of the screen, whilst
 playing the character's talking animation.
 
 *See Also:* [Character.Say](#say),
-
+[Character.SayBackground](#saybackground)
 
 ---
 
@@ -1359,7 +1261,7 @@ also change to the room that MAN is in, if he is not in the current
 room.
 
 *See Also:* [Character.ID](#id),
-
+[Character.ChangeRoom](#changeroom)
 
 ---
 
@@ -1471,7 +1373,7 @@ will change the character EGO's speed to 10.
 [Character.StopMoving](#stopmoving),
 [Character.Walk](#walk),
 [Character.WalkSpeedX](#walkspeedx),
-
+[Character.WalkSpeedY](#walkspeedy)
 
 ---
 
@@ -1610,7 +1512,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-
+[Character.HasExplicitTint](#hasexplicittint)
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1619,7 +1521,7 @@ property is false, then this value is meaningless.
 [Character.HasExplicitTint](#hasexplicittint),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-
+[Character.TintLuminance](#tintluminance)
 
 ---
 
@@ -1636,7 +1538,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-
+[Character.HasExplicitTint](#hasexplicittint)
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1645,7 +1547,7 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintRed](#tintred),
 [Character.TintSaturation](#tintsaturation),
-
+[Character.TintLuminance](#tintluminance)
 
 ---
 
@@ -1662,7 +1564,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-
+[Character.HasExplicitTint](#hasexplicittint)
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1671,7 +1573,7 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintSaturation](#tintsaturation),
-
+[Character.TintLuminance](#tintluminance)
 
 ---
 
@@ -1688,7 +1590,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-
+[Character.HasExplicitTint](#hasexplicittint)
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1697,7 +1599,7 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-
+[Character.TintLuminance](#tintluminance)
 
 ---
 
@@ -1714,7 +1616,7 @@ This property is read-only; to change it, use the
 [Character.Tint](#tint) command.
 
 **NOTE:** If the
-
+[Character.HasExplicitTint](#hasexplicittint)
 property is false, then this value is meaningless.
 
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
@@ -1723,7 +1625,7 @@ property is false, then this value is meaningless.
 [Character.TintBlue](#tintblue),
 [Character.TintGreen](#tintgreen),
 [Character.TintRed](#tintred),
-
+[Character.TintSaturation](#tintsaturation)
 
 ---
 
@@ -1811,7 +1713,7 @@ until the character has reached his destination.
 [Character.Move](#move),
 [MoveCharacterToObject](Game#movecharactertoobject),
 [Object.Move](Object#move),
-
+[Character.StopMoving](#stopmoving)
 
 ---
 
@@ -1903,7 +1805,7 @@ you wouldn't need to do this.
 *See Also:* [Character.Animate](#animate),
 [Character.Moving](#moving),
 [Character.Speaking](#speaking),
-
+[Character.Thinking](#thinking)
 
 ---
 
@@ -1925,7 +1827,7 @@ Example:
 will change the player character's animation speed to 4.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-
+[Character.SpeechAnimationDelay](#speechanimationdelay)
 
 ---
 
@@ -1984,7 +1886,7 @@ will change the character EGO's blink view to view 10, and play the
 animation every 4 seconds.
 
 *See Also:* [Character.BlinkView](#blinkview),
-
+[Character.SpeechView](#speechview)
 
 ---
 
@@ -2013,7 +1915,7 @@ animation every 4 seconds.
 
 *See Also:*
 [Character.BlinkInterval](#blinkinterval),
-
+[Character.SpeechView](#speechview)
 
 ---
 
@@ -2036,7 +1938,7 @@ Example:
 will stop EGO from blinking while his thinking animation is playing.
 
 *See Also:* [Character.BlinkView](#blinkview),
-
+[Character.Think](#think)
 
 ---
 
@@ -2069,7 +1971,7 @@ will make EGO block 20 pixels high (10 above and 10 below his baseline)
 
 *See Also:*
 [Character.BlockingWidth](#blockingwidth),
-
+[Character.Solid](#solid)
 
 ---
 
@@ -2103,7 +2005,7 @@ co-ordinate, and 25 to the right)
 
 *See Also:*
 [Character.BlockingHeight](#blockingheight),
-
+[Character.Solid](#solid)
 
 ---
 
@@ -2134,7 +2036,7 @@ will make the game ignore clicks on the character MAN.
 *See Also:* [Object.Clickable](Object#clickable),
 [Character.Move](#move),
 [Character.Moving](#moving),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -2153,7 +2055,7 @@ character is not walking or moving it is equal to its current position.
 *See Also:* [Character.DestinationY](#destinationy),
 [Character.Move](#move),
 [Character.Moving](#moving),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -2172,7 +2074,7 @@ character is not walking or moving it is equal to its current position.
 *See Also:* [Character.DestinationX](#destinationx),
 [Character.Move](#move),
 [Character.Moving](#moving),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -2218,7 +2120,7 @@ displays EGO's current frame number within his view.
 
 *SeeAlso:* [Character.Animate](#animate),
 [Character.Loop](#loop),
-
+[Character.View](#view)
 
 ---
 
@@ -2248,7 +2150,7 @@ removes the player's tint if it currently has one.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *SeeAlso:* [Character.Tint](#tint),
-
+[Character.RemoveTint](#removetint)
 
 ---
 
@@ -2384,7 +2286,7 @@ will display how many inventory items of type iCash the player has.
 *See Also:* [UpdateInventory](Game#updateinventory),
 [Character.AddInventory](#addinventory),
 [Character.HasInventory](#hasinventory),
-
+[Character.LoseInventory](#loseinventory)
 
 ---
 
@@ -2408,7 +2310,7 @@ displays EGO's current loop number within his view.
 
 *SeeAlso:* [Character.Animate](#animate),
 [Character.Frame](#frame),
-
+[Character.View](#view)
 
 ---
 
@@ -2477,7 +2379,7 @@ him to (50,100), then turn it back on again.
 
 *See Also:* [Character.Move](#move),
 [Character.Moving](#moving),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -2509,7 +2411,7 @@ there.
 [Character.Speaking](#speaking),
 [Character.StopMoving](#stopmoving),
 [Character.Thinking](#thinking),
-
+[Character.Walk](#walk)
 
 ---
 
@@ -2562,7 +2464,7 @@ will display a message if EGO is currently displayed using his normal
 view.
 
 *See Also:* [Character.ChangeView](#changeview),
-
+[Character.View](#view)
 
 ---
 
@@ -2667,7 +2569,7 @@ will mean that EGO's footstep sounds are adjusted in line with his
 scaling
 
 *See Also:*
-
+[Character.ScaleMoveSpeed](#scalemovespeed)
 
 ---
 
@@ -2726,7 +2628,7 @@ will mean that EGO blocks the path other characters.
 
 *See Also:*
 [Character.BlockingHeight](#blockingheight),
-
+[Character.BlockingWidth](#blockingwidth)
 
 ---
 
@@ -2760,7 +2662,7 @@ useful with Sierra-style speech).
 [Character.Moving](#moving),
 [Character.Say](#say),
 [Character.SpeakingFrame](#speakingframe),
-
+[Character.Thinking](#thinking)
 
 ---
 
@@ -2796,7 +2698,7 @@ will move cMan to the right every time the talking animation loops back
 to Frame 0.
 
 *See Also:* [Character.Say](#say),
-
+[Character.Speaking](#speaking)
 
 ---
 
@@ -2885,7 +2787,7 @@ will change the character EGO's speech view to view 10.
 *See Also:* [Character.ChangeView](#changeview),
 [Character.BlinkView](#blinkview),
 [Character.SpeechAnimationDelay](#speechanimationdelay),
-
+[Character.SpeechColor](#speechcolor)
 
 ---
 
@@ -2921,7 +2823,7 @@ this will keep character semi-transparent while he is thinking.
 
 *See Also:* [Character.Animating](#animating),
 [Character.Moving](#moving),
-
+[Character.Speaking](#speaking)
 [Character.Think](#think),
 [Character.ThinkingFrame](#thinkingframe),
 
@@ -2961,7 +2863,7 @@ to Frame 0.
 *Compatibility:* Supported by **AGS 3.3.4** and later versions.
 
 *See Also:* [Character.Think](#think),
-
+[Character.Thinking](#thinking)
 
 ---
 
@@ -3080,7 +2982,7 @@ will display EGO's current view number.
 [Character.Frame](#frame),
 [Character.LockView](#lockview),
 [Character.Loop](#loop),
-
+[Character.NormalView](#normalview)
 
 ---
 
@@ -3104,7 +3006,7 @@ Example:
 will display the player's X speed.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-
+[Character.WalkSpeedY](#walkspeedy)
 
 ---
 
@@ -3128,7 +3030,7 @@ Example:
 will display the player's Y speed.
 
 *See Also:* [Character.SetWalkSpeed](#setwalkspeed),
-
+[Character.WalkSpeedX](#walkspeedx)
 
 ---
 
@@ -3154,7 +3056,7 @@ Example:
 displays the player character's current coordinates.
 
 *See Also:* [Character.y](#y),
-
+[Character.z](#z)
 
 ---
 
@@ -3180,7 +3082,7 @@ Example:
 displays the player character's current coordinates.
 
 *See Also:* [Character.x](#x),
-
+[Character.z](#z)
 
 ---
 
@@ -3208,7 +3110,7 @@ Example:
 gradually levitates the character up to 20 pixels.
 
 *See Also:* [Character.x](#x),
-
+[Character.y](#y)
 
 ---
 
@@ -3221,12 +3123,5 @@ gradually levitates the character up to 20 pixels.
 
 **This command is now obsolete. It has been replaced by the following
 properties:**
-
-
-
-
-
-
-
 
 

@@ -4,40 +4,6 @@
 ## Room functions
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -109,7 +75,7 @@ will disable all ground-level events, but leave light levels working
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-
+[EnableGroundLevelAreas](#enablegroundlevelareas)
 
 ---
 
@@ -132,7 +98,7 @@ will re-enable all ground-level events.
 
 *See Also:* [Hotspot.Enabled](Hotspot#enabled),
 [Region.Enabled](Region#enabled),
-
+[DisableGroundLevelAreas](#disablegroundlevelareas)
 
 ---
 
@@ -364,7 +330,7 @@ Example:
         Display ("The player is currently at normal size.");
 
 *See Also:* [GetWalkableAreaAt](#getwalkableareaat),
-
+[SetAreaScaling](#setareascaling)
 
 ---
 
@@ -393,7 +359,7 @@ will turn object 2 on if the player has scrolled the room by 100 pixels
 to the right.
 
 *See Also:* [GetViewportY](#getviewporty),
-
+[SetViewport](#setviewport)
 
 ---
 
@@ -420,7 +386,7 @@ will turn object 2 on if the player has scrolled the room by 20 pixels
 to the bottom.
 
 *See Also:* [GetViewportX](#getviewportx),
-
+[SetViewport](#setviewport)
 
 ---
 
@@ -448,7 +414,7 @@ Example:
 
 *See Also:* [Hotspot.GetAtScreenXY](Hotspot#getatscreenxy),
 [Region.GetAtRoomXY](Region#getatroomxy),
-
+[GetScalingAt](#getscalingat)
 
 ---
 
@@ -469,7 +435,7 @@ then this command will return 0 until they enter the room again.
 
 This command will always return 1 if you ask it about the current room;
 and it will always return 0 if you ask it about a non-state saving room
-(ie. rooms numbered &gt; 300).
+(ie. rooms numbered > 300).
 
 Example:
 
@@ -651,7 +617,7 @@ will set walkable area 5 to use continuous scaling from 120 to 170
 percent.
 
 *See Also:* [GetScalingAt](#getscalingat),
-
+[GetWalkableAreaAt](#getwalkableareaat)
 
 ---
 
@@ -722,7 +688,7 @@ to follow the player around.
 
 *See Also:* [GetViewportX](#getviewportx),
 [GetViewportY](#getviewporty),
-
+[ReleaseViewport](#releaseviewport)
 
 ---
 
@@ -771,7 +737,7 @@ Example:
 
 *See Also:* [Room.LeftEdge](#leftedge),
 [Room.RightEdge](#rightedge),
-
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -831,7 +797,7 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.RightEdge](#rightedge),
-
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -915,7 +881,7 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.LeftEdge](#leftedge),
-
+[Room.TopEdge](#topedge)
 
 ---
 
@@ -935,7 +901,7 @@ Example:
 
 *See Also:* [Room.BottomEdge](#bottomedge),
 [Room.LeftEdge](#leftedge),
-
+[Room.RightEdge](#rightedge)
 
 ---
 

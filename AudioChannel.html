@@ -105,8 +105,8 @@ of the <em>oMachine</em> room object.</p>
 </div>
 <p>Gets/sets the playing audio clip’s playback speed. The value is defined
 in clip’s milliseconds per second: 1000 is default, meaning 1000 of
-clip’s ms in 1 real second (scale 1:1). Set &amp;lt; 1000 for slower play
-and &amp;gt; 1000 for faster play. <strong>NOTE:</strong> currently works for MP3 and OGG
+clip’s ms in 1 real second (scale 1:1). Set &lt; 1000 for slower play
+and &gt; 1000 for faster play. <strong>NOTE:</strong> currently works for MP3 and OGG
 audio clips only.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AudioChannel *channel = aFunnyTalk.Play();
@@ -272,7 +272,8 @@ channel.Seek(channel.Position + 1000);
 seek it ahead one second (if it is OGG/MP3/WAV).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">AudioChannel.PositionMs</span>,</p>
+<span class="xref std std-ref">AudioChannel.PositionMs</span>,
+<span class="xref std std-ref">AudioChannel.Seek</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="positionms">
@@ -297,7 +298,8 @@ Display(&quot;After 1 second, offset is %d ms.&quot;, channel.PositionMs);
 display its position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See Also:</em> <em>See Also:</em>
-<span class="xref std std-ref">AudioChannel.LengthMs</span>,</p>
+<span class="xref std std-ref">AudioChannel.LengthMs</span>,
+<span class="xref std std-ref">AudioChannel.Position</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="volume">
@@ -390,7 +392,7 @@ reduce its volume.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

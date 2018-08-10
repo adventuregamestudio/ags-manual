@@ -4,10 +4,6 @@
 ## Parser functions
 
 
-
-
-
-
 ---
 
 .. index::
@@ -69,7 +65,7 @@ will get the players input and store it in string "command" for use with
 the said command.
 
 *See Also:* [Parser.FindWordID](#findwordid),
-
+[Parser.Said](#said)
 
 ---
 
@@ -99,7 +95,7 @@ will bring up the restore game dialogue if the player types "load" in
 the text parser.
 
 *See Also:* [Parser.ParseText](#parsetext),
-
+[Parser.SaidUnknownWord](#saidunknownword)
 
 ---
 
@@ -126,4 +122,4 @@ will display the message if the player types a word that's not in the
 vocabulary.
 
 *See Also:* [Parser.ParseText](#parsetext),
-
+[Parser.Said](#said)

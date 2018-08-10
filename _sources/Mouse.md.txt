@@ -4,27 +4,6 @@
 ## Mouse functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -55,7 +34,7 @@ imported in the sprite's manager slot 120.
 [Mouse.ChangeModeHotspot](#changemodehotspot),
 [Mouse.ChangeModeView](#changemodeview),
 [Mouse.GetModeGraphic](#getmodegraphic),
-
+[Mouse.Mode](#mode)
 
 ---
 
@@ -81,7 +60,7 @@ will change the cursor's hotspot for walk mode to coordinates 10,10.
 
 *See Also:*
 [Mouse.ChangeModeGraphic](#changemodegraphic),
-
+[Mouse.ChangeModeView](#changemodeview)
 
 ---
 
@@ -107,7 +86,7 @@ will change the Look cursor's view to ROLLEYES.
 
 *See Also:*
 [Mouse.ChangeModeGraphic](#changemodegraphic),
-
+[Mouse.ChangeModeHotspot](#changemodehotspot)
 
 ---
 
@@ -189,7 +168,7 @@ Example:
 will make the walk mode unavailable until it's enabled again.
 
 *See Also:* [Mouse.EnableMode](#enablemode),
-
+[Mouse.IsModeEnabled](#ismodeenabled)
 
 ---
 
@@ -212,7 +191,7 @@ Example:
 will enable cursor mode walk which was disabled before.
 
 *See Also:* [Mouse.DisableMode](#disablemode),
-
+[Mouse.IsModeEnabled](#ismodeenabled)
 
 ---
 
@@ -235,7 +214,7 @@ will change the the "WalkTo" cursor mode, but only if it's currently
 enabled.
 
 *See Also:* [Mouse.EnableMode](#enablemode),
-
+[Mouse.DisableMode](#disablemode)
 
 ---
 
@@ -459,7 +438,7 @@ converts slider control's position into mouse speed.
 *Compatibility:* Supported by **AGS 3.3.5** and later versions.
 
 *See Also:* [Mouse.ControlEnabled](#controlenabled),
-
+[Mouse.SetPosition](#setposition)
 
 ---
 
@@ -530,7 +509,7 @@ Cursors tab.
 *See Also:*
 [Mouse.ChangeModeGraphic](#changemodegraphic),
 [Mouse.Mode](#mode),
-
+[Mouse.UseDefaultGraphic](#usedefaultgraphic)
 
 ---
 
@@ -564,7 +543,7 @@ will execute the code only if the current cursor mode is MODE 0 (WALK).
 *See Also:*
 [Mouse.SaveCursorUntilItLeaves](#savecursoruntilitleaves),
 [Mouse.UseModeGraphic](#usemodegraphic),
-
+[Mouse.SelectNextMode](#selectnextmode)
 
 ---
 

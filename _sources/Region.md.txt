@@ -4,18 +4,6 @@
 ## Region functions and properties
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -271,7 +259,7 @@ will display a message with the region's tints.
 [Region.TintEnabled](#tintenabled),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-
+[Region.TintLuminance](#tintluminance)
 
 ---
 
@@ -305,7 +293,7 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintRed](#tintred),
 [Region.TintSaturation](#tintsaturation),
-
+[Region.TintLuminance](#tintluminance)
 
 ---
 
@@ -339,7 +327,7 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintSaturation](#tintsaturation),
-
+[Region.TintLuminance](#tintluminance)
 
 ---
 
@@ -373,7 +361,7 @@ will display a message with the region's tints.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-
+[Region.TintLuminance](#tintluminance)
 
 ---
 
@@ -397,5 +385,5 @@ property is false, then this value is meaningless.
 [Region.TintBlue](#tintblue),
 [Region.TintGreen](#tintgreen),
 [Region.TintRed](#tintred),
-
+[Region.TintSaturation](#tintsaturation)
 

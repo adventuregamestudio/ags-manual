@@ -4,25 +4,6 @@
 ## String functions
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -54,7 +35,7 @@ will display "HelloWorld".
 
 *See Also:* [String.AppendChar](#appendchar),
 [String.Substring](#substring),
-
+[String.Truncate](#truncate)
 
 ---
 
@@ -179,7 +160,7 @@ will display the "Ends with script!" message.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:* [String.IndexOf](#indexof),
-
+[String.StartsWith](#startswith)
 
 ---
 
@@ -245,7 +226,7 @@ Example:
     }
 
 *See Also:* [String.EndsWith](#endswith),
-
+[String.StartsWith](#startswith)
 
 ---
 
@@ -369,7 +350,7 @@ Example:
 will display "Old: Hello, new: Hemlo".
 
 *See Also:* [String.Chars](#chars),
-
+[String.Replace](#replace)
 
 ---
 
@@ -399,7 +380,7 @@ will display the "Starts with hello!" message.
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 *See Also:* [String.EndsWith](#endswith),
-
+[String.IndexOf](#indexof)
 
 ---
 
@@ -426,7 +407,7 @@ Example:
 will display "Original: Hello World!, Substring: lo Wo".
 
 *See Also:* [String.Append](#append),
-
+[String.Chars](#chars)
 
 ---
 
@@ -452,7 +433,7 @@ Example:
 will display "Original: Hello World!, Truncated: Hell".
 
 *See Also:* [String.Append](#append),
-
+[String.Substring](#substring)
 
 ---
 
@@ -510,7 +491,7 @@ is useful for processing strings input from the user.
 
 *See Also:* [Game.InputBox](Game#inputbox),
 [String.AsInt](#asint),
-
+[String.Format](#format)
 
 ---
 
@@ -548,7 +529,7 @@ useful for processing strings input from the user.
 
 *See Also:* [Game.InputBox](Game#inputbox),
 [String.AsFloat](#asfloat),
-
+[String.Format](#format)
 
 ---
 
@@ -581,7 +562,7 @@ Example:
 will display "The 4th character is: s".
 
 *See Also:* [String.Length](#length),
-
+[String.ReplaceCharAt](#replacecharat)
 
 ---
 

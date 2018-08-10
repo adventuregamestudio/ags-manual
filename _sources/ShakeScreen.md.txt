@@ -4,15 +4,6 @@
 ## Screen functions
 
 
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -121,7 +112,7 @@ will mean that next time the screen fades out, it fades to red instead
 of black.
 
 SeeAlso: [FadeIn](#fadein), [FadeOut](#fadeout),
-
+[SetScreenTransition](#setscreentransition)
 
 ---
 

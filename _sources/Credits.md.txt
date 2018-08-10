@@ -56,12 +56,12 @@
 -   Hi-colour fade out/in routines by Matthew Leverton.
 -   Sprite anti-aliasing code by Michael Bukin.
 -   Editor uses irrKlang .NET audio
-    player (http://www.ambiera.com/irrklang)
+    player (https://www.ambiera.com/irrklang)
 -   Graphics and sound are courtesy of the Allegro graphics library by
     Shawn Hargreaves and many others. You can get it at
-    http://alleg.sourceforge.net/
+    https://sourceforge.net/projects/alleg/
 -   Script editor component is scintilla by Neil Hodgson. You can get it
-    from http://www.scintilla.org
+    from https://www.scintilla.org
 -   Animated GIF loader by Kevin Weiner.
 -   TrueType font display uses ALFont by Javier Gonzalez and the
     Freetype project.
@@ -69,12 +69,12 @@
 -   MP3 player is almp3 by Javier Gonzalez and the FreeAmp team. It uses
     the mpg123 MP3 decoder.
 -   OGG player is alogg by Javier Gonzalez, using the Ogg Vorbis
-    decoder, which is available from http://www.xiph.org/
+    decoder, which is available from https://www.xiph.org/
 -   OGG Theora player is APEG by Chris Robinson, using the Ogg Theora
-    decoder, which is available from http://www.xiph.org/
+    decoder, which is available from https://www.xiph.org/
 -   Windows MOD/XM/S3M/IT player is DUMB, (C) 2001-2003 Ben Davis,
     Robert J Ohannessian and Julien Cugniere. You can get it from
-    http://dumb.sf.net/
+    http://dumb.sourceforge.net/
 -   DOS/Linux engine use JGMOD mod player by Guan Foo Wah. You can find
     it at http://surf.to/jgmod
 -   Executables compressed with UPX v1.22w (c) 1996-2002 by Laszlo

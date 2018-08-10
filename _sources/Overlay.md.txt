@@ -4,13 +4,6 @@
 ## Overlay functions and properties
 
 
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -45,7 +38,7 @@ at the coordinates 100,100. It will display for 1 second, then remove
 it.
 
 *See Also:* [Overlay.CreateTextual](#createtextual),
-
+[Overlay.Remove](#remove)
 
 ---
 
@@ -107,7 +100,7 @@ removed.
 *See Also:*
 [Overlay.CreateGraphical](#creategraphical),
 [Overlay.X](Overlay#x), [Overlay.Y](#y),
-
+[Overlay.Remove](#remove)
 
 ---
 
@@ -162,7 +155,7 @@ will create a text overlay , wait for 200 game cycles (about 5 seconds)
 and then replace the overlay with another one.
 
 *See Also:* [Overlay.CreateTextual](#createtextual),
-
+[Overlay.Remove](#remove)
 
 ---
 
@@ -189,7 +182,7 @@ creates an overlay, and prints out the Valid property (which will be 1).
 Then, removes the overlay and prints Valid again (which will now be 0).
 
 *See Also:* [Overlay.CreateTextual](#createtextual),
-
+[Overlay.Remove](#remove)
 
 ---
 
@@ -220,7 +213,7 @@ creates a text overlay, then gradually slides it across the screen.
 
 *See Also:* [Overlay.CreateTextual](#createtextual),
 [Overlay.Y](#y),
-
+[Overlay.Remove](#remove)
 
 ---
 
@@ -251,4 +244,4 @@ creates a text overlay, then gradually slides it down the screen.
 
 *See Also:* [Overlay.CreateTextual](#createtextual),
 [Overlay.X](#x),
-
+[Overlay.Remove](#remove)

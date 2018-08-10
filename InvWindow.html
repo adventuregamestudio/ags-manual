@@ -37,20 +37,6 @@
             
   <div class="section" id="gui-invwindow-functions-and-properties">
 <span id="index-0"></span><h1>GUI InvWindow functions and properties<a class="headerlink" href="#gui-invwindow-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="GUIControl.html"><span class="doc">BringToFront</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Clickable property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Enabled property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Height property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">ID property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">OwningGUI property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SendToBack</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SetPosition</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SetSize</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Visible property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Width property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">X property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Y property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">ZOrder property</span></a></p>
 <hr class="docutils" />
 <div class="section" id="scrolldown">
 <span id="index-1"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
@@ -67,7 +53,8 @@ arrow button on your GUI.</p>
 </pre></div>
 </div>
 <p>will scroll the <em>invMain</em> inv window down one row.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ScrollUp</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ScrollUp</span>,
+<span class="xref std std-ref">InvWindow.TopItem</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scrollup">
@@ -85,7 +72,8 @@ arrow button on your GUI.</p>
 </pre></div>
 </div>
 <p>will scroll the <em>invMain</em> inv window up one row.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ScrollDown</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ScrollDown</span>,
+<span class="xref std std-ref">InvWindow.TopItem</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="charactertouse">
@@ -145,7 +133,8 @@ setting is not checked).</p>
 <p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are
 more inventory items than will fit in the inventory window.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemAtIndex</span>,
-<span class="xref std std-ref">InvWindow.ItemsPerRow</span>,</p>
+<span class="xref std std-ref">InvWindow.ItemsPerRow</span>,
+<span class="xref std std-ref">InvWindow.RowCount</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="itemheight">
@@ -163,7 +152,8 @@ invMain.ItemHeight = 30;
 </pre></div>
 </div>
 <p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemWidth</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemWidth</span>,
+<span class="xref std std-ref">InvWindow.RowCount</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="itemwidth">
@@ -181,7 +171,8 @@ invMain.ItemHeight = 30;
 </pre></div>
 </div>
 <p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemHeight</span>,
+<span class="xref std std-ref">InvWindow.ItemsPerRow</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="itemsperrow">
@@ -198,7 +189,8 @@ window divided by the individual ItemWidth.</p>
 </pre></div>
 </div>
 <p>displays how many items can be visible in the invMain window at once.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemWidth</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemWidth</span>,
+<span class="xref std std-ref">InvWindow.RowCount</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="rowcount">
@@ -214,7 +206,8 @@ individual ItemHeight.</p>
 </pre></div>
 </div>
 <p>displays how many items can be visible in the invMain window at once.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemHeight</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">InvWindow.ItemHeight</span>,
+<span class="xref std std-ref">InvWindow.ItemsPerRow</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="topitem">
@@ -295,7 +288,7 @@ the inventory list can be scrolled up.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

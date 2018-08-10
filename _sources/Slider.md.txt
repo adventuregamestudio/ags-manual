@@ -3,26 +3,6 @@
 
 ## GUI Slider properties
 
-[BringToFront](GUIControl#bringtofront)<br>
-[Clickable property](GUIControl#clickable)<br>
-[Enabled property](GUIControl#enabled)<br>
-[Height property](GUIControl#height)<br>
-[ID property](GUIControl#id)<br>
-[OwningGUI property](GUIControl#owninggui)<br>
-[SendToBack](GUIControl#sendtoback)<br>
-[SetPosition](GUIControl#setposition)<br>
-[SetSize](GUIControl#setsize)<br>
-[Visible property](GUIControl#visible)<br>
-[Width property](GUIControl#width)<br>
-[X property](GUIControl#x)<br>
-[Y property](GUIControl#y)<br>
-[ZOrder property](GUIControl#zorder)
-
-
-
-
-
-
 
 
 ---
@@ -76,7 +56,7 @@ displays the *sldHealth* slider's handle image
 
 *See Also:*
 [Slider.BackgroundGraphic](#backgroundgraphic),
-
+[Slider.HandleOffset](#handleoffset)
 
 ---
 
@@ -124,7 +104,7 @@ Example:
 sets the maximum value of the *sldHealth* slider to 200.
 
 *See Also:* [Slider.Min](#min),
-
+[Slider.Value](#value)
 
 ---
 
@@ -150,7 +130,7 @@ Example:
 sets the minimum value of the *sldHealth* slider to 0.
 
 *See Also:* [Slider.Max](#max),
-
+[Slider.Value](#value)
 
 ---
 

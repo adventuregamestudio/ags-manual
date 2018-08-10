@@ -97,7 +97,8 @@ error message is displayed if the file could not be created. Otherwise,
 it will write the string “test string” to the file and close it.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">File.Close</span>,
 <span class="xref std std-ref">File.Exists</span>,
-<span class="xref std std-ref">File.ReadStringBack</span>,</p>
+<span class="xref std std-ref">File.ReadStringBack</span>,
+<span class="xref std std-ref">File.WriteString</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="close">
@@ -136,7 +137,8 @@ File pointer to use it. See the example below.</p>
 <p>will delete the file “temp.tmp” from the app data directory, if it
 exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.Exists</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.Exists</span>,
+<span class="xref std std-ref">File.Open</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="exists">
@@ -165,7 +167,8 @@ File pointer to use it. See the example below.</p>
 </div>
 <p>will create the file “temp.tmp” if it doesn’t exist</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.Delete</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.Delete</span>,
+<span class="xref std std-ref">File.Open</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="readint">
@@ -185,7 +188,8 @@ input.Close();
 </div>
 <p>will open the file stats.dat, read an integer into number and then close
 the file.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,
+<span class="xref std std-ref">File.WriteInt</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="readrawchar">
@@ -206,7 +210,8 @@ input.Close();
 <p>will read a raw character from file stats.txt and writes it to the
 string ‘buffer’.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,
-<span class="xref std std-ref">File.ReadRawInt</span>,</p>
+<span class="xref std std-ref">File.ReadRawInt</span>,
+<span class="xref std std-ref">File.WriteRawChar</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="readrawint">
@@ -228,7 +233,8 @@ input.Close();
 </div>
 <p>will read a raw integer from file stats.txt and put it into the integer
 number.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,
+<span class="xref std std-ref">File.ReadRawChar</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="readrawlineback">
@@ -278,7 +284,8 @@ input.Close();
 <p>will open the file test.dat (which you have previously written with
 File.WriteString) and read a string into the buffer. Then close the
 file.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.Open</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.Open</span>,
+<span class="xref std std-ref">File.WriteString</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="seek">
@@ -337,7 +344,8 @@ output.Close();
 </pre></div>
 </div>
 <p>will open the file stats.dat and write the integer number in it.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.ReadInt</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.ReadInt</span>,
+<span class="xref std std-ref">File.WriteString</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="writerawchar">
@@ -363,7 +371,8 @@ output.Close();
 </div>
 <p>will write the text “AB”, followed by a carriage return character, to
 the file.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.ReadRawChar</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.ReadRawChar</span>,
+<span class="xref std std-ref">File.WriteInt</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="writerawline">
@@ -384,7 +393,8 @@ output.Close();
 </pre></div>
 </div>
 <p>will write an error line in the file error.log.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.ReadRawLineBack</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.ReadRawLineBack</span>,
+<span class="xref std std-ref">File.WriteString</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="writestring">
@@ -409,7 +419,8 @@ else {
 it will display an error message. Otherwise, it will write the string
 “test string” and close it.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">File.ReadStringBack</span>,
-<span class="xref std std-ref">File.Open</span>,</p>
+<span class="xref std std-ref">File.Open</span>,
+<span class="xref std std-ref">File.WriteRawLine</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="eof">
@@ -433,7 +444,8 @@ output.Close();
 <p>will display every character in the file test.dat, one by one, to the
 screen.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">File.Error</span>,
-<span class="xref std std-ref">File.Open</span>,</p>
+<span class="xref std std-ref">File.Open</span>,
+<span class="xref std std-ref">File.ReadStringBack</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="error">
@@ -462,7 +474,8 @@ output.Close();
 </div>
 <p>will write a number to the file ‘test.dat’, and display a message if
 there was a problem.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">File.EOF</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">File.EOF</span>,
+<span class="xref std std-ref">File.ReadStringBack</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="position">
@@ -552,7 +565,7 @@ display amount of data that function wrote.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

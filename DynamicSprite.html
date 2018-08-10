@@ -74,7 +74,8 @@ sprite.Delete();
 <p>creates a 50x30 sprite, draws a white dot in the middle, then deletes
 the sprite.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,
-<span class="xref std std-ref">DynamicSprite.Graphic</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Graphic</span>,
+<span class="xref std std-ref">DynamicSprite.GetDrawingSurface</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="createfrombackground">
@@ -202,7 +203,8 @@ sprite.Delete();
 </div>
 <p>creates a copy of object 0’s current sprite, resizes it down to 20x20,
 and then draws the result onto the background.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,
+<span class="xref std std-ref">DynamicSprite.Resize</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="createfromfile">
@@ -242,7 +244,8 @@ if (sprite != null) {
 <p>will load the file “CustomAvatar.bmp” and if successful draw the image
 near the middle of the screen.</p>
 <p>Once the image is finished with, Delete should be called on it.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,
+<span class="xref std std-ref">DynamicSprite.CreateFromSaveGame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="createfromsavegame">
@@ -284,7 +287,8 @@ places it onto the btnScrnshot GUI button.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,
 <a class="reference internal" href="Game.html"><span class="doc">Game.GetSaveSlotDescription</span></a>,
-<span class="xref std std-ref">DynamicSprite.CreateFromFile</span>,</p>
+<span class="xref std std-ref">DynamicSprite.CreateFromFile</span>,
+<span class="xref std std-ref">DynamicSprite.CreateFromScreenShot</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="createfromscreenshot">
@@ -325,7 +329,8 @@ if (buttonSprite != null) {
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Delete</span>,
 <a class="reference internal" href="Game.html"><span class="doc">Game.GetSaveSlotDescription</span></a>,
-<span class="xref std std-ref">DynamicSprite.CreateFromFile</span>,</p>
+<span class="xref std std-ref">DynamicSprite.CreateFromFile</span>,
+<span class="xref std std-ref">DynamicSprite.CreateFromSaveGame</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="changecanvassize">
@@ -356,7 +361,8 @@ sprite.Delete();
 to the left and right, and draws a line in the new area to the left.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Crop</span>,
 <span class="xref std std-ref">DynamicSprite.Resize</span>,
-<span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="copytransparencymask">
@@ -389,7 +395,8 @@ sprite.Delete();
 </div>
 <p>creates a dynamic sprite as a copy of sprite 10, changes its
 transparency mask to use that of sprite 11, and displays it on object 0.</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">DynamicSprite.CreateFromExistingSprite</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="crop">
@@ -417,7 +424,8 @@ pixels, and then draw it onto the room background at (100,100).</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DynamicSprite.ChangeCanvasSize</span>,
 <span class="xref std std-ref">DynamicSprite.Flip</span>,
-<span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="delete">
@@ -446,7 +454,8 @@ sprite.Delete();
 graphic, wait 5 seconds, then change object 1 back to its old sprite 22
 and free the new image.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">DynamicSprite.CreateFromScreenShot</span>,</p>
+<span class="xref std std-ref">DynamicSprite.CreateFromScreenShot</span>,
+<span class="xref std std-ref">DynamicSprite.Graphic</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="flip">
@@ -470,7 +479,8 @@ sprite.Delete();
 <p>will load the CustomAvatar.bmp image, flip it upside down, and then draw
 it onto the room background at (100,100).</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Crop</span>,
-<span class="xref std std-ref">DynamicSprite.Resize</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Resize</span>,
+<span class="xref std std-ref">DynamicSprite.Rotate</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getdrawingsurface">
@@ -529,7 +539,8 @@ size, and then draw it onto the room background at (100,100).</p>
 <span class="xref std std-ref">DynamicSprite.Crop</span>,
 <span class="xref std std-ref">DynamicSprite.Flip</span>,
 <span class="xref std std-ref">DynamicSprite.Rotate</span>,
-<span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="rotate">
@@ -561,7 +572,8 @@ sprite.Delete();
 draw the result onto the screen, and then delete the image.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Flip</span>,
 <span class="xref std std-ref">DynamicSprite.Resize</span>,
-<span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savetofile">
@@ -636,7 +648,8 @@ if (sprite != null) {
 </pre></div>
 </div>
 <p>displays the colour depth of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="graphic">
@@ -658,7 +671,8 @@ ds.Delete();
 <p>takes a screen shot, and draws it onto the background scene at
 (100,100).</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">DynamicSprite.CreateFromScreenShot</span>,</p>
+<span class="xref std std-ref">DynamicSprite.CreateFromScreenShot</span>,
+<span class="xref std std-ref">DynamicSprite.Delete</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="height">
@@ -677,7 +691,8 @@ if (sprite != null) {
 </pre></div>
 </div>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Resize</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Resize</span>,
+<span class="xref std std-ref">DynamicSprite.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="width">
@@ -696,7 +711,8 @@ if (sprite != null) {
 </pre></div>
 </div>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Height</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DynamicSprite.Height</span>,
+<span class="xref std std-ref">DynamicSprite.Resize</span></p>
 </div>
 </div>
 
@@ -764,7 +780,7 @@ if (sprite != null) {
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

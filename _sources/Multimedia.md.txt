@@ -4,16 +4,6 @@
 ## Multimedia functions
 
 
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::

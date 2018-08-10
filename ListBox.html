@@ -37,20 +37,6 @@
             
   <div class="section" id="gui-list-box-functions-and-properties">
 <span id="index-0"></span><h1>GUI List Box functions and properties<a class="headerlink" href="#gui-list-box-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="GUIControl.html"><span class="doc">BringToFront</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Clickable property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Enabled property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Height property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">ID property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">OwningGUI property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SendToBack</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SetPosition</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">SetSize</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Visible property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Width property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">X property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">Y property</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="GUIControl.html"><span class="doc">ZOrder property</span></a></p>
 <hr class="docutils" />
 <div class="section" id="additem">
 <span id="index-1"></span><h2>AddItem<a class="headerlink" href="#additem" title="Permalink to this headline">¶</a></h2>
@@ -72,7 +58,8 @@ lstChoices.AddItem(input);
 <p><em>See Also:</em> <span class="xref std std-ref">ListBox.Clear</span>,
 <span class="xref std std-ref">ListBox.FillDirList</span>,
 <span class="xref std std-ref">ListBox.InsertItemAt</span>,
-<span class="xref std std-ref">ListBox.Items</span>,</p>
+<span class="xref std std-ref">ListBox.Items</span>,
+<span class="xref std std-ref">ListBox.RemoveItem</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="clear">
@@ -115,7 +102,8 @@ system which is accessible by and shared by all users.</p>
 <p>will fill the listbox with the list of the saved games. Note that
 actually for this task you would use FillSaveGameList instead.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span>,
-<span class="xref std std-ref">ListBox.Clear</span>,</p>
+<span class="xref std std-ref">ListBox.Clear</span>,
+<span class="xref std std-ref">ListBox.FillSaveGameList</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="fillsavegamelist">
@@ -144,7 +132,8 @@ new one.</p>
 <p>will fill listbox <em>lstSaveGames</em> with the list of the saved games.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">ListBox.FillDirList</span>,
 <span class="xref std std-ref">ListBox.ItemCount</span>,
-<span class="xref std std-ref">ListBox.SaveGameSlots</span>,</p>
+<span class="xref std std-ref">ListBox.SaveGameSlots</span>,
+<span class="xref std std-ref">ListBox.SelectedIndex</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getitematlocation">
@@ -192,7 +181,8 @@ lstChoices.InsertItemAt(1, &quot;Third item&quot;);
 </pre></div>
 </div>
 <p>will insert the Third Item in between the First and Second items.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.AddItem</span>,
+<span class="xref std std-ref">ListBox.RemoveItem</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="removeitem">
@@ -215,7 +205,8 @@ lstTest.RemoveItem(0);
 </pre></div>
 </div>
 <p>the list box will now just contain “Second item”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">ListBox.Clear</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">ListBox.Clear</span>,
+<span class="xref std std-ref">ListBox.FillDirList</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scrolldown">
@@ -276,7 +267,8 @@ arrows for the list box.</p>
 </pre></div>
 </div>
 <p>will hide the border around the Save Games list box.</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">ListBox.HideScrollArrows</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hidescrollarrows">
@@ -338,7 +330,8 @@ second is 1, and so on. The highest allowable index is ItemCount minus
 </div>
 <p>will get the text of the selected item in the list box.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">ListBox.SelectedIndex</span>,
-<span class="xref std std-ref">ListBox.ItemCount</span>,</p>
+<span class="xref std std-ref">ListBox.ItemCount</span>,
+<span class="xref std std-ref">ListBox.AddItem</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="rowcount">
@@ -357,7 +350,8 @@ of the list box.</p>
 </div>
 <p>will display the number of rows that the listbox can display.</p>
 <p><em>See Also:</em> <span class="xref std std-ref">ListBox.ItemCount</span>,
-<span class="xref std std-ref">ListBox.ScrollDown</span>,</p>
+<span class="xref std std-ref">ListBox.ScrollDown</span>,
+<span class="xref std std-ref">ListBox.ScrollUp</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savegameslots">
@@ -381,7 +375,8 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p>will restore the currently selected game in the list, assuming
 FillSaveGameList had been used previously.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">ListBox.FillSaveGameList</span>,</p>
+<span class="xref std std-ref">ListBox.FillSaveGameList</span>,
+<span class="xref std std-ref">ListBox.SelectedIndex</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="selectedindex">
@@ -494,7 +489,7 @@ game language at runtime.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

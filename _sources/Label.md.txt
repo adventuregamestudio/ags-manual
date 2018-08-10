@@ -3,23 +3,6 @@
 
 ## GUI Label functions and properties
 
-[BringToFront](GUIControl#bringtofront)<br>
-[Clickable property](GUIControl#clickable)<br>
-[Enabled property](GUIControl#enabled)<br>
-[Height property](GUIControl#height)<br>
-[ID property](GUIControl#id)<br>
-[OwningGUI property](GUIControl#owninggui)<br>
-[SendToBack](GUIControl#sendtoback)<br>
-[SetPosition](GUIControl#setposition)<br>
-[SetSize](GUIControl#setsize)<br>
-[Visible property](GUIControl#visible)<br>
-[Width property](GUIControl#width)<br>
-[X property](GUIControl#x)<br>
-[Y property](GUIControl#y)<br>
-[ZOrder property](GUIControl#zorder)
-
-
-
 
 
 ---
@@ -77,7 +60,7 @@ will display the name of the location the cursor is over on label
 *See Also:* [Button.NormalGraphic](Button#normalgraphic),
 [Button.Text](Button#text),
 [Label.TextColor](#textcolor),
-
+[Label.Font](#font)
 
 ---
 
@@ -99,5 +82,5 @@ Example:
 will change label 'lblStatus' to have yellow text.
 
 *See Also:* [Label.Font](#font),
-
+[Label.Text](#text)
 

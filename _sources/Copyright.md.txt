@@ -9,7 +9,7 @@ Adventure Game Studio is an open source software, its source code is available a
 https://github.com/adventuregamestudio/ags
 
 The software is provided under
-[Artistic License 2.0](http://www.opensource.org/licenses/artistic-license-2.0.php).
+[Artistic License 2.0](https://opensource.org/licenses/artistic-license-2.0.php).
 
 THE SOFTWARE IS PROVIDED 'AS-IS' AND WITHOUT WARRANTY OF ANY KIND,
 EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
@@ -45,7 +45,7 @@ TrueType font display uses ALFont by Javier Gonzalez and the Freetype
 project. Distributed under the terms of the Freetype Project license.
 
 OGG Vorbis player is alogg by Javier Gonzalez, using the Ogg Vorbis
-decoder, which is available from http://www.xiph.org/ . Copyright (c)
+decoder, which is available from https://www.xiph.org/ . Copyright (c)
 2002, Xiph.org Foundation
 
 OGG Theora player is APEG by Chris Robinson, using the Ogg Theora

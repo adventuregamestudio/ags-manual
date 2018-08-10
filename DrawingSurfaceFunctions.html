@@ -70,7 +70,8 @@ surface.Release();
 </div>
 <p>clears the room background to be fully yellow, then draws a pink circle
 in the middle of it.</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="createcopy">
@@ -102,7 +103,8 @@ surface.Release();
 </div>
 <p>will save a copy of the room background, draw a triangle onto it, wait
 for a while and then restore the original background.</p>
-<p><em>See Also:</em></p>
+<p><em>See Also:</em>
+<span class="xref std std-ref">DrawingSurface.DrawSurface</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawcircle">
@@ -122,7 +124,8 @@ surface.Release();
 </div>
 <p>will draw a circle in the centre of the screen, of 50 pixels radius.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">DrawingSurface.DrawLine</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawLine</span>,
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawimage">
@@ -190,7 +193,8 @@ the screen (160,100);</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawCircle</span>,
 <span class="xref std std-ref">DrawingSurface.DrawRectangle</span>,
-<span class="xref std std-ref">DrawingSurface.DrawTriangle</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawTriangle</span>,
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawmessagewrapped">
@@ -218,7 +222,8 @@ surface.Release();
 40.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawString</span>,
-<span class="xref std std-ref">DrawingSurface.DrawingColor</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span>,
+<span class="xref std std-ref">DrawingSurface.DrawStringWrapped</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawpixel">
@@ -227,8 +232,9 @@ surface.Release();
 </pre></div>
 </div>
 <p>Draws a single pixel onto the surface at (X,Y) in the current colour.
-The pixel thickness respects the</p>
-<p>property.</p>
+The pixel thickness respects the
+<span class="xref std std-ref">UseHighResCoordinates</span>
+property.</p>
 <p><strong>NOTE:</strong> This command is not fast enough to use repeatedly to build up
 an image. Only use it for single pixel adjustments.</p>
 <p>Example:</p>
@@ -242,7 +248,8 @@ surface.Release();
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawingColor</span>,
 <span class="xref std std-ref">DrawingSurface.DrawLine</span>,
-<span class="xref std std-ref">DrawingSurface.GetPixel</span>,</p>
+<span class="xref std std-ref">DrawingSurface.GetPixel</span>,
+<span class="xref std std-ref">DrawingSurface.UseHighResCoordinates</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawrectangle">
@@ -265,7 +272,8 @@ surface.Release();
 </div>
 <p>will draw a rectangle over the top left hand quarter of the screen.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">DrawingSurface.DrawImage</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawImage</span>,
+<span class="xref std std-ref">DrawingSurface.DrawLine</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawstring">
@@ -288,7 +296,8 @@ surface.Release();
 </div>
 <p>will write some text onto the middle-left of the room background</p>
 <p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">GetTextWidth</span></a>,
-<span class="xref std std-ref">DrawingSurface.DrawStringWrapped</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawStringWrapped</span>,
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawstringwrapped">
@@ -314,7 +323,8 @@ surface.Release();
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawString</span>,
-<span class="xref std std-ref">DrawingSurface.DrawingColor</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawingColor</span>,
+<span class="xref std std-ref">DrawingSurface.DrawMessageWrapped</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="drawsurface">
@@ -368,7 +378,8 @@ surface.Release();
 <p>will draw a triangle with corners at the points (0,0),(160,100),(0,200).</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawImage</span>,
-<span class="xref std std-ref">DrawingSurface.DrawLine</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawLine</span>,
+<span class="xref std std-ref">DrawingSurface.DrawRectangle</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="release">
@@ -451,7 +462,8 @@ surface.Release();
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawingColor</span>,
-<span class="xref std std-ref">DrawingSurface.DrawPixel</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawPixel</span>,
+<span class="xref std std-ref">DrawingSurface.UseHighResCoordinates</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="height">
@@ -468,7 +480,8 @@ surface.Release();
 </div>
 <p>displays the size of the surface to the player</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">DrawingSurface.UseHighResCoordinates</span>,</p>
+<span class="xref std std-ref">DrawingSurface.UseHighResCoordinates</span>,
+<span class="xref std std-ref">DrawingSurface.Width</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="usehighrescoordinates">
@@ -501,7 +514,8 @@ draw a line from the top left to the bottom right of the screen.</p>
 <p><em>See Also:</em>
 <span class="xref std std-ref">DrawingSurface.DrawCircle</span>,
 <span class="xref std std-ref">DrawingSurface.DrawLine</span>,
-<span class="xref std std-ref">DrawingSurface.DrawRectangle</span>,</p>
+<span class="xref std std-ref">DrawingSurface.DrawRectangle</span>,
+<span class="xref std std-ref">DrawingSurface.DrawTriangle</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="width">
@@ -517,7 +531,8 @@ surface.Release();
 </pre></div>
 </div>
 <p>displays the size of the surface to the player</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DrawingSurface.Height</span>,</p>
+<p><em>See Also:</em> <span class="xref std std-ref">DrawingSurface.Height</span>,
+<span class="xref std std-ref">DrawingSurface.UseHighResCoordinates</span></p>
 </div>
 </div>
 
@@ -582,7 +597,7 @@ surface.Release();
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 5, 2018, 10:44:31 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
     
 
   </body>

@@ -3,39 +3,6 @@
 
 ## GUI List Box functions and properties
 
-[BringToFront](GUIControl#bringtofront)<br>
-[Clickable property](GUIControl#clickable)<br>
-[Enabled property](GUIControl#enabled)<br>
-[Height property](GUIControl#height)<br>
-[ID property](GUIControl#id)<br>
-[OwningGUI property](GUIControl#owninggui)<br>
-[SendToBack](GUIControl#sendtoback)<br>
-[SetPosition](GUIControl#setposition)<br>
-[SetSize](GUIControl#setsize)<br>
-[Visible property](GUIControl#visible)<br>
-[Width property](GUIControl#width)<br>
-[X property](GUIControl#x)<br>
-[Y property](GUIControl#y)<br>
-[ZOrder property](GUIControl#zorder)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
@@ -67,7 +34,7 @@ will take the input from the user and add it to the listbox.
 [ListBox.FillDirList](#filldirlist),
 [ListBox.InsertItemAt](#insertitemat),
 [ListBox.Items](#items),
-
+[ListBox.RemoveItem](#removeitem)
 
 ---
 
@@ -125,7 +92,7 @@ actually for this task you would use FillSaveGameList instead.
 
 *See Also:* [ListBox.AddItem](#additem),
 [ListBox.Clear](#clear),
-
+[ListBox.FillSaveGameList](#fillsavegamelist)
 
 ---
 
@@ -162,7 +129,7 @@ will fill listbox *lstSaveGames* with the list of the saved games.
 *See Also:* [ListBox.FillDirList](#filldirlist),
 [ListBox.ItemCount](#itemcount),
 [ListBox.SaveGameSlots](#savegameslots),
-
+[ListBox.SelectedIndex](#selectedindex)
 
 ---
 
@@ -224,7 +191,7 @@ Example:
 will insert the Third Item in between the First and Second items.
 
 *See Also:* [ListBox.AddItem](#additem),
-
+[ListBox.RemoveItem](#removeitem)
 
 ---
 
@@ -256,7 +223,7 @@ Example:
 the list box will now just contain "Second item".
 
 *See Also:* [ListBox.Clear](#clear),
-
+[ListBox.FillDirList](#filldirlist)
 
 ---
 
@@ -339,7 +306,7 @@ Example:
 will hide the border around the Save Games list box.
 
 *See Also:*
-
+[ListBox.HideScrollArrows](#hidescrollarrows)
 
 ---
 
@@ -424,7 +391,7 @@ will get the text of the selected item in the list box.
 
 *See Also:* [ListBox.SelectedIndex](#selectedindex),
 [ListBox.ItemCount](#itemcount),
-
+[ListBox.AddItem](#additem)
 
 ---
 
@@ -450,7 +417,7 @@ will display the number of rows that the listbox can display.
 
 *See Also:* [ListBox.ItemCount](#itemcount),
 [ListBox.ScrollDown](#scrolldown),
-
+[ListBox.ScrollUp](#scrollup)
 
 ---
 
@@ -483,7 +450,7 @@ FillSaveGameList had been used previously.
 
 *See Also:*
 [ListBox.FillSaveGameList](#fillsavegamelist),
-
+[ListBox.SelectedIndex](#selectedindex)
 
 ---
 

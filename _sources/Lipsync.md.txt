@@ -17,10 +17,6 @@ Lip sync is being configured on corresponding 'Lip Sync' pane in the
 editor.
 
 
-
-
-
-
 ---
 
 .. index::

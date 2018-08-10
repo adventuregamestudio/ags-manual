@@ -8,21 +8,6 @@ Coin template. The functions in this section are only available if you
 have created your game using that template.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 .. index::
@@ -40,7 +25,7 @@ available if you used this template to create your game.
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.RunInteraction](#runinteraction),
-
+[SCUMM_VERBCOIN_GUI.Select](#select)
 
 ---
 
@@ -87,7 +72,7 @@ will set the double-click speed to 1/4 of a second. (This is a good
 default)
 
 *See Also:*
-
+[SCUMM_VERBCOIN_GUI.doubleclick](#doubleclick-variable)
 
 ---
 
@@ -130,7 +115,7 @@ item 11, 21, 31, ...
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.InvScroll_Left](#invscroll_left),
-
+[SCUMM_VERBCOIN_GUI.InvScroll_Right](#invscroll_right)
 
 ---
 
@@ -149,7 +134,7 @@ available if you used this template to create your game.
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.Item_Count](#item_count),
-
+[SCUMM_VERBCOIN_GUI.InvScroll_Right](#invscroll_right)
 
 ---
 
@@ -168,7 +153,7 @@ available if you used this template to create your game.
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.Item_Count](#item_count),
-
+[SCUMM_VERBCOIN_GUI.InvScroll_Left](#invscroll_left)
 
 ---
 
@@ -195,7 +180,7 @@ will make the game exit the inventory when moving the mouse over either
 the top or the bottom of the screen.
 
 *See Also:*
-
+[SCUMM_VERBCOIN_GUI.Inv_Border_SetPos](#inv_border_setpos)
 
 ---
 
@@ -224,7 +209,7 @@ y-coordinate 220, the left border to x-coordinate 20 and the right
 border to x-coordinate 295
 
 *See Also:*
-
+[SCUMM_VERBCOIN_GUI.Inv_Border_active](#inv_border_active)
 
 ---
 
@@ -280,7 +265,7 @@ Example:
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.Deselect](#deselect),
-
+[SCUMM_VERBCOIN_GUI.Select](#select)
 
 ---
 
@@ -299,7 +284,7 @@ available if you used this template to create your game.
 
 *See Also:*
 [SCUMM_VERBCOIN_GUI.Deselect](#deselect),
-
+[SCUMM_VERBCOIN_GUI.RunInteraction](#runinteraction)
 
 ---
 
@@ -377,4 +362,4 @@ will display "You made a single-click" when you made a single-click on
 the object/hotspot/character/...
 
 *See Also:*
-
+[SCUMM_VERBCOIN_GUI.DoubleClickSpeed](#doubleclickspeed)
