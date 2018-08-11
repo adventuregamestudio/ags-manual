@@ -139,9 +139,7 @@ character’s script name is cEgo, then his instance name will be <code class="d
 <p>To perform a command on something, you type its Script Name followed by
 a dot, followed by the command name. When you type the dot, the AGS
 Editor will automatically pop up a list of the available commands:</p>
-<a class="reference external image-reference" href="images/tut3.gif"><img alt="" src="_images/tut3.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The script editor’s auto-complete</em></p>
+<a class="reference external image-reference" href="images/tut3.gif"><img alt="The script editor's auto-complete" src="_images/tut3.gif" /></a>
 <p>You then choose the appropriate command, and place any parameters in
 brackets, like we did above with the Display command. For example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.AddInventory(iKey);
@@ -149,10 +147,10 @@ brackets, like we did above with the Display command. For example:</p>
 </div>
 <p>This will add the Key to the EGO character’s inventory. If you look up
 <em>AddInventory</em> in the manual, you’ll find it takes two parameters, an
-InventoryItem * and an <em>optional int</em>. The <em>InventoryItem*</em> means that
+<em>InventoryItem</em> and an <em>optional int</em>. The <em>InventoryItem</em> means that
 you need to supply the Script Name of the inventory item; this is
-something you can set in the script editor.<span class="raw-html-m2r"><br></span>
-The <em>optional int</em> means that there is an extra parameter which you can
+something you can set in the script editor.</p>
+<p>The <em>optional int</em> means that there is an extra parameter which you can
 supply if you want to, but you don’t have to. In this case it allows you
 to specify where in the character’s inventory list the new item should
 be added, but we’re not concerned with that right now.</p>
@@ -169,8 +167,8 @@ do so.</p>
 the hotspot, as well as displaying the message. Assuming we have an
 inventory item set up to be the poster with the Script Name of <em>iPoster</em>
 (see the main tutorial for how to do this), the script enables us to
-easily make this happen.<span class="raw-html-m2r"><br></span>
-Our final script will look like this:</p>
+easily make this happen.</p>
+<p>Our final script will look like this:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(It&#39;s quite a large, ominous looking door.&quot;);
 cEgo.AddInventory(iPoster);
 </pre></div>
@@ -477,7 +475,7 @@ which covers more advanced topics.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

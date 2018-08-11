@@ -46,9 +46,7 @@ to a flag waving in the background in one particular screen.</p>
 more <em>loops</em>. A loop is a set of frames which, when played in sequence,
 give the illusion of movement. Expand the “Views” node in the project
 tree, and double-click the view 1:</p>
-<a class="reference external image-reference" href="images/intro7_1.jpg"><img alt="" src="_images/intro7_1.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The View Editor showing view 1</em></p>
+<a class="reference external image-reference" href="images/intro7_1.jpg"><img alt="The View Editor showing view 1" src="_images/intro7_1.jpg" /></a>
 <p>This is the View Editor where you will put together all your animations.
 You’ll notice lots of frames of Roger’s walking animation in this
 window.</p>
@@ -57,16 +55,14 @@ from left to right. To change the image for a frame, double-click the
 image, and you’ll be presented with the sprite manager where you can
 select the image to use. <strong>All images for use with views are imported as
 usual via the sprite manager</strong> before they can be inserted into a
-frame.<span class="raw-html-m2r"><br></span>
-At the right hand end of each loop, you’ll see a “Create new frame”
+frame.</p>
+<p>At the right hand end of each loop, you’ll see a “Create new frame”
 button, which you can click to create a new extra frame at the end of
 the loop. You can also right-click a frame to insert a new one before or
 after it.</p>
 <p>Left-click a frame to select it. When you do so, the property grid will
 be updated with the frame’s details:</p>
-<a class="reference external image-reference" href="images/intro7_2.jpg"><img alt="" src="_images/intro7_2.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Property Grid showing frame properties</em></p>
+<a class="reference external image-reference" href="images/intro7_2.jpg"><img alt="Property Grid showing frame properties" src="_images/intro7_2.jpg" /></a>
 <ul class="simple">
 <li><strong>Delay</strong> is the frame’s <strong>relative</strong> speed. This number adds a
 delay to the amount of time which the frame is displayed for,
@@ -99,9 +95,7 @@ its own inventory and more.</p>
 you only have one character in the list, labelled “0: cEgo”. You can
 create a new character by right-clicking the “Characters” node. For now,
 double-click the “cEgo” character:</p>
-<a class="reference external image-reference" href="images/intro7_3.jpg"><img alt="" src="_images/intro7_3.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The Character Editor</em></p>
+<a class="reference external image-reference" href="images/intro7_3.jpg"><img alt="The Character Editor" src="_images/intro7_3.jpg" /></a>
 <p>The first thing you’ll notice is the text “This character is the player
 character” at the top of the window. This shows that the currently
 selected character is the initial player character when the game starts
@@ -144,8 +138,10 @@ spaces, numbers, etc.</p>
 Characters section - the “<em>Starts in room</em>” setting of the player
 character is used to determine which room the game starts off in.</p>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-TIP: This feature can be handy for testing various parts of your game. For example, when you’re working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.</p>
+<p>TIP: This feature can be handy for testing various parts of your game.
+For example, when you’re working on room 16, set the starting room to
+room 16 so that you can get to it instantly when you run the game to
+test it.</p>
 </div>
 <div class="section" id="cutscenes">
 <span id="index-4"></span><h2>Cutscenes<a class="headerlink" href="#cutscenes" title="Permalink to this headline">¶</a></h2>
@@ -153,8 +149,13 @@ TIP: This feature can be handy for testing various parts of your game. For examp
 There is no specific feature to do this - you simply use the provided
 animation and movement commands to do whatever you like.</p>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-A cutscene is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.</p>
+<p>A cutscene is simply the name given to a sequence of actions over which
+the player has no control. This usually applies to the entire
+introduction sequence, as well as far simpler in-game events. For example,
+if the player goes to pick up a rock from the ground, you may wish to use
+a bending-down animation to show him picking it up. During this bending
+down and standing back up, the player cannot control proceedings, so it
+is a cutscene.</p>
 <p>Right, firstly let’s do something very simple. When the player goes to
 pick up the key from the floor of our room, we want him to walk over to
 it first rather than it just disappearing from wherever he’s standing.</p>
@@ -163,9 +164,7 @@ this? Yes, that’s right, we need to return to the Event Script for the
 key object. Go back to the Events List for the key object (remember, you
 open the room, select the “Objects” mode, then click on the key to
 select it):</p>
-<a class="reference external image-reference" href="images/intro7_4.jpg"><img alt="" src="_images/intro7_4.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Remember this?</em></p>
+<a class="reference external image-reference" href="images/intro7_4.jpg"><img alt="Remember this?" src="_images/intro7_4.jpg" /></a>
 <p>The main difference you’ll notice now is that the “Interact object”
 event already has a name. This “oKey_Interact” is the name of the
 script function that we created earlier. So, just select it and click
@@ -176,9 +175,7 @@ existing command that makes the key invisible. We want to do an action
 on the player character (ie. move him), so type “player.” and
 auto-complete will pop up with the available commands. See if you can
 work out which one we need.</p>
-<a class="reference external image-reference" href="images/intro7_5.jpg"><img alt="" src="_images/intro7_5.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The Walk command needs X and Y co-ordinates</em></p>
+<a class="reference external image-reference" href="images/intro7_5.jpg"><img alt="The Walk command needs X and Y co-ordinates" src="_images/intro7_5.jpg" /></a>
 <p><strong>Eeek!</strong> It wants a destination X and Y location! We don’t know that,
 but we can find out! Click the “Room 1” tab on the tab bar at the top of
 the editor, and move the mouse cursor to where the key is on the
@@ -191,9 +188,7 @@ pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for
 Roger to get to those co-ordinates before continuing the script. If we
 didn’t do this, he would start to walk but the key would disappear
 before he got there! The final script should look like this:</p>
-<a class="reference external image-reference" href="images/intro7_6.jpg"><img alt="" src="_images/intro7_6.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Our new command is run before the existing ones</em></p>
+<a class="reference external image-reference" href="images/intro7_6.jpg"><img alt="Our new command is run before the existing ones" src="_images/intro7_6.jpg" /></a>
 <p>Now, hit F5 and try it out!</p>
 <p>OK, I think we’ve had enough of animations and cutscenes for now. We’ll
 return later to explore actual animations and more complex cutscenes.</p>
@@ -248,7 +243,7 @@ return later to explore actual animations and more complex cutscenes.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

@@ -41,8 +41,6 @@
 can be set up to launch save games directly from explorer when the
 player double-clicks them; and secondly, in Windows Vista and later, AGS
 can integrate with the Game Explorer feature.</p>
-<p><span class="xref std std-ref">Enhanced Save Games</span></p>
-<p><span class="xref std std-ref">Windows Game Explorer</span></p>
 <hr class="docutils" />
 <div class="section" id="enhanced-save-games">
 <span id="index-1"></span><h2>Enhanced Save Games<a class="headerlink" href="#enhanced-save-games" title="Permalink to this headline">¶</a></h2>
@@ -65,29 +63,22 @@ change, and therefore you will lose access to any existing saved games.</p>
 <p>If the player is running Windows Vista or later versions, then this
 feature will also allow them to see the save game description and
 screenshot (if enabled) in the Explorer preview window:</p>
-<a class="reference external image-reference" href="images/GameExplorer3.jpg"><img alt="" src="_images/GameExplorer3.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Save games with embedded screenshots on Vista and later versions</em></p>
+<a class="reference external image-reference" href="images/GameExplorer3.jpg"><img alt="Save games with embedded screenshots on Vista and later versions" src="_images/GameExplorer3.jpg" /></a>
 <p><strong>Enabling the integration</strong></p>
 <p>Once you’ve built the game, the integration won’t be enabled
 immediately. If you want to use this feature, you’ll need to distribute
 your game in an installer rather than a zip file, because there’s an
 extra step you need to run after installation to set up the association.</p>
 <p>In your installer, you need to run the game executable with the special
-parameter <code class="docutils literal notranslate"><span class="pre">-registergame</span></code> When you do this, AGS will create the
+parameter <code class="docutils literal notranslate"><span class="pre">-registergame</span></code>. When you do this, AGS will create the
 necessary associations in Explorer to get the feature working. If it is
 successful, it will not display any messages.</p>
 <p>You can manually test this by creating a shortcut to your game EXE file,
 and modifying it to add <code class="docutils literal notranslate"><span class="pre">-registergame</span></code> to the end of the command line.
 Then, run the shorcut and the associations should be created for you.</p>
-<p>For un-installing, run the game EXE again but with a <code class="docutils literal notranslate"><span class="pre">-unregistergame</span></code>
+<p>For un-installing, run the game EXE again but with the <code class="docutils literal notranslate"><span class="pre">-unregistergame</span></code>
 parameter. This will cause AGS to remove the associations from the
 player’s system.</p>
-<p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes</strong><span class="raw-html-m2r"><br></span>
-MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
-Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
-MacOS: <strong>No</strong></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="windows-game-explorer">
@@ -100,9 +91,7 @@ them.</p>
 so you would need to distribute your game using an installer rather than
 just in a plain zip file, since you need to tell AGS to add the game to
 the list at install-time.</p>
-<a class="reference external image-reference" href="images/GameExplorer1.jpg"><img alt="" src="_images/GameExplorer1.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The “Games” option launches the Game Explorer</em></p>
+<a class="reference external image-reference" href="images/GameExplorer1.jpg"><img alt="The &quot;Games&quot; option launches the Game Explorer" src="_images/GameExplorer1.jpg" /></a>
 <p><strong>Enabling Game Explorer support</strong></p>
 <p>Open the General Settings pane in the editor. If you scroll down to the
 bottom of the list, you’ll find a section titled “Windows Game
@@ -136,9 +125,7 @@ be classed as “Unrated” by Windows.</p>
 your game, rather than the standard game icon. To utilise this, place a
 file called <code class="docutils literal notranslate"><span class="pre">GameExplorer.png</span></code> in your game folder, and rebuild the game
 EXE. This must be a PNG image, no larger than 256 x 256 pixels:</p>
-<a class="reference external image-reference" href="images/GameExplorer2.jpg"><img alt="" src="_images/GameExplorer2.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Game “Chris Kwest” in the Game Explorer</em></p>
+<a class="reference external image-reference" href="images/GameExplorer2.jpg"><img alt="Game &quot;Chris Kwest&quot; in the Game Explorer" src="_images/GameExplorer2.jpg" /></a>
 <p><strong>Adding the game to the Game Explorer</strong></p>
 <p>In order to actually add the game to the Game Explorer’s list, you need
 to run the game executable with the special parameter <code class="docutils literal notranslate"><span class="pre">-registergame</span></code>
@@ -150,14 +137,9 @@ this parameter. It will do nothing on Windows XP and earlier versions.</p>
 <p>For un-installing, run the game EXE again but with a <code class="docutils literal notranslate"><span class="pre">-unregistergame</span></code>
 parameter. This will cause AGS to remove the game from the Game
 Explorer’s list.</p>
-<p><strong>NOTE:</strong> If you have both Enhanced Save Games and Game Explorer
+<p>NOTE: If you have both Enhanced Save Games and Game Explorer
 Integration enabled, then the <code class="docutils literal notranslate"><span class="pre">-registergame</span></code> and <code class="docutils literal notranslate"><span class="pre">-unregistergame</span></code>
 commands will register/unregister both.</p>
-<p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Vista and later</strong><span class="raw-html-m2r"><br></span>
-MS-DOS: <strong>No</strong><span class="raw-html-m2r"><br></span>
-Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
-MacOS: <strong>No</strong></p>
 </div>
 </div>
 
@@ -206,7 +188,7 @@ MacOS: <strong>No</strong></p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

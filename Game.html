@@ -37,7 +37,6 @@
             
   <div class="section" id="game-global-functions">
 <span id="index-0"></span><h1>Game / Global functions<a class="headerlink" href="#game-global-functions" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="abortgame">
 <span id="index-1"></span><h2>AbortGame<a class="headerlink" href="#abortgame" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AbortGame(string message, ...)
@@ -61,7 +60,7 @@ game.</p>
 </div>
 <p>will abort the game if MakeWider is called with a parameter less than
 10.</p>
-<p>SeeAlso: <span class="xref std std-ref">QuitGame</span></p>
+<p>SeeAlso: <a class="reference internal" href="#"><span class="doc">QuitGame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="callroomscript">
@@ -129,8 +128,8 @@ else
 <p>will attempt to change the translation to Spanish</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.TranslationFilename</span>,
-<span class="xref std std-ref">IsTranslationAvailable</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.TranslationFilename</span></a>,
+<a class="reference internal" href="#"><span class="doc">IsTranslationAvailable</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="claimevent">
@@ -217,8 +216,8 @@ you have after calling this function.</p>
 </pre></div>
 </div>
 <p>deletes save game slot 130 (which we should have saved earlier).</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,
-<span class="xref std std-ref">SaveGameSlot</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">RestoreGameSlot</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameSlot</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="disableinterface">
@@ -240,8 +239,8 @@ disabled.</p>
 </pre></div>
 </div>
 <p>will disable the user’s interface.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">EnableInterface</span>,
-<span class="xref std std-ref">IsInterfaceEnabled</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">EnableInterface</span></a>,
+<a class="reference internal" href="#"><span class="doc">IsInterfaceEnabled</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="doonceonly">
@@ -268,7 +267,7 @@ token string in two different places in your game</strong>.</p>
 </pre></div>
 </div>
 <p>will give the player 5 points the first time this script is run.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GiveScore</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GiveScore</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="enableinterface">
@@ -284,8 +283,8 @@ normal.</p>
 </pre></div>
 </div>
 <p>will enable the user’s interface.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,
-<span class="xref std std-ref">IsInterfaceEnabled</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">DisableInterface</span></a>,
+<a class="reference internal" href="#"><span class="doc">IsInterfaceEnabled</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="endcutscene">
@@ -296,9 +295,9 @@ normal.</p>
 <p>Marks the end of a cutscene. If the player skips the cutscene, the game
 will fast-forward to this point. This function returns 0 if the player
 watched the cutscene, or 1 if they skipped it.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">Game.InSkippableCutscene</span>,
-<span class="xref std std-ref">Game.SkippingCutscene</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">StartCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.InSkippableCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.SkippingCutscene</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getcolorfromrgb">
@@ -342,9 +341,9 @@ view.</p>
 </pre></div>
 </div>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.GetLoopCountForView</span>,
-<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,
-<span class="xref std std-ref">Game.GetViewFrame</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.GetLoopCountForView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetRunNextSettingForLoop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetViewFrame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getgameoption">
@@ -356,35 +355,35 @@ view.</p>
 the AGS Editor Game Settings pane.</p>
 <p>OPTION specifies which option to get, and its current value is returned.</p>
 <p>The valid values for OPTION are listed in
-<span class="xref std std-ref">SetGameOption</span>.</p>
+<a class="reference internal" href="#"><span class="doc">SetGameOption</span></a>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetGameOption(OPT_PIXELPERFECT) == 1) {
   Display(&quot;pixel-perfect click deteciton is on!&quot;);
 }
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">SetGameOption</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetGameOption</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getgameparameter">
 <span id="index-14"></span><h2>GetGameParameter<a class="headerlink" href="#getgameparameter" title="Permalink to this headline">¶</a></h2>
 <p>The <em>GetGameParameter</em> function is now obsolete.</p>
 <p>It has been replaced with the following functions and properties:</p>
-<p><span class="xref std std-ref">Game.SpriteWidth</span> (was gp_spritewidth)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.SpriteHeight</span> (was gp_spriteheight)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.GetLoopCountForView</span> (was
+<p><a class="reference internal" href="#"><span class="doc">Game.SpriteWidth</span></a> (was gp_spritewidth)<span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="#"><span class="doc">Game.SpriteHeight</span></a> (was gp_spriteheight)<span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="#"><span class="doc">Game.GetLoopCountForView</span></a> (was
 GP_NUMLOOPS)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span> (was
+<a class="reference internal" href="#"><span class="doc">Game.GetFrameCountForLoop</span></a> (was
 GP_NUMFRAMES)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>
+<a class="reference internal" href="#"><span class="doc">Game.GetRunNextSettingForLoop</span></a>
 (was GP_ISRUNNEXTLOOP)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.GetViewFrame</span> (was GP_FRAMExxx,
+<a class="reference internal" href="#"><span class="doc">Game.GetViewFrame</span></a> (was GP_FRAMExxx,
 GP_ISFRAMEFLIPPED)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.GUICount</span> (was gp_numguis)<span class="raw-html-m2r"><br></span>
+<a class="reference internal" href="#"><span class="doc">Game.GUICount</span></a> (was gp_numguis)<span class="raw-html-m2r"><br></span>
 <a class="reference internal" href="Room.html"><span class="doc">Room.ObjectCount</span></a> (was gp_numobjects)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.CharacterCount</span> (was
+<a class="reference internal" href="#"><span class="doc">Game.CharacterCount</span></a> (was
 GP_NUMCHARACTERS)<span class="raw-html-m2r"><br></span>
-<span class="xref std std-ref">Game.InventoryItemCount</span>(was
+<a class="reference internal" href="#"><span class="doc">Game.InventoryItemCount</span></a>(was
 GP_NUMINVITEMS)</p>
 <hr class="docutils" />
 </div>
@@ -402,7 +401,7 @@ GP_NUMINVITEMS)</p>
 </div>
 <p>will always keep the game speed at 40 cycles per second (in case the
 user has raised it )</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetGameSpeed</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetGameSpeed</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getglobalint">
@@ -421,8 +420,8 @@ name the variables.</p>
 </pre></div>
 </div>
 <p>will execute the code only if Global Integer 20 is 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetGlobalInt</span>,
-<span class="xref std std-ref">Game.GlobalStrings</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetGlobalInt</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GlobalStrings</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getgraphicalvariable">
@@ -443,8 +442,8 @@ compatibility with AGS 2.x. When writing new code, use
 </div>
 <p>will execute the code only if interaction variable “climbed rock” is
 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,
-<span class="xref std std-ref">SetGraphicalVariable</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGlobalInt</span></a>,
+<a class="reference internal" href="#"><span class="doc">SetGraphicalVariable</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getlocationname">
@@ -473,7 +472,7 @@ for use with the mouse cursor position variables.</p>
 variable.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Name</span></a>,
 <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.Name</span></a>,
-<span class="xref std std-ref">GetLocationType</span>,
+<a class="reference internal" href="#"><span class="doc">GetLocationType</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.Name</span></a></p>
 <hr class="docutils" />
 </div>
@@ -502,7 +501,7 @@ eLocationObject     an object
 </div>
 <p>will set the cursor mode to talk if the cursor is over a character.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>,
-<span class="xref std std-ref">Game.GetLocationName</span>,
+<a class="reference internal" href="#"><span class="doc">Game.GetLocationName</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.GetAtScreenXY</span></a></p>
 <hr class="docutils" />
 </div>
@@ -521,9 +520,9 @@ eLocationObject     an object
 </pre></div>
 </div>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,
-<span class="xref std std-ref">Game.GetViewFrame</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.GetRunNextSettingForLoop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetFrameCountForLoop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetViewFrame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getrunnextsettingforloop">
@@ -546,9 +545,9 @@ else {
 </pre></div>
 </div>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.GetLoopCountForView</span>,
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,
-<span class="xref std std-ref">Game.GetViewFrame</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.GetLoopCountForView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetFrameCountForLoop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetViewFrame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getsaveslotdescription">
@@ -567,8 +566,8 @@ obsolete)</em></p>
 <p>will get the description of save slot 10 into the variable.</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="DynamicSprite.html"><span class="doc">DynamicSprite.CreateFromSaveGame</span></a>,
-<span class="xref std std-ref">RestoreGameSlot</span>,
-<span class="xref std std-ref">SaveGameSlot</span></p>
+<a class="reference internal" href="#"><span class="doc">RestoreGameSlot</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameSlot</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="gettextheight">
@@ -591,7 +590,7 @@ gBottomLine.SetPosition(0, 200 - height);
 </div>
 <p>will move the BOTTOMLINE GUI so that it can display the text within the
 screen.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetTextWidth</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetTextWidth</span></a>,
 <a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawString</span></a></p>
 <hr class="docutils" />
 </div>
@@ -615,7 +614,7 @@ surface.Release();
 </pre></div>
 </div>
 <p>will print “Hello!” onto the middle of the background scene.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetTextHeight</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetTextHeight</span></a>,
 <a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawString</span></a></p>
 <hr class="docutils" />
 </div>
@@ -638,7 +637,7 @@ translated automatically. So, you can do this instead.</p>
 </div>
 <p>If there is no translation for the supplied string, it will be returned
 unchanged, so it is always safe to use this function.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">IsTranslationAvailable</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">IsTranslationAvailable</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getviewframe">
@@ -659,9 +658,9 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 </pre></div>
 </div>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.GetLoopCountForView</span>,
-<span class="xref std std-ref">Game.GetRunNextSettingForLoop</span>,
-<span class="xref std std-ref">Game.GetFrameCountForLoop</span>,
+<a class="reference internal" href="#"><span class="doc">Game.GetLoopCountForView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetRunNextSettingForLoop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.GetFrameCountForLoop</span></a>,
 <a class="reference internal" href="ViewFrame.html"><span class="doc">ViewFrame.Graphic</span></a>,
 <a class="reference internal" href="ViewFrame.html"><span class="doc">ViewFrame.Speed</span></a></p>
 <hr class="docutils" />
@@ -681,7 +680,7 @@ played.</p>
 </pre></div>
 </div>
 <p>will give 5 points to the player.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.DoOnceOnly</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.DoOnceOnly</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getfontheight">
@@ -697,7 +696,7 @@ example, to calculate arrangement of text and GUI elements on screen.</p>
 </div>
 <p>will store the speech font’s height in the variable.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetFontLineSpacing</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetFontLineSpacing</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getfontlinespacing">
@@ -713,7 +712,7 @@ overlapping.</p>
 <p><strong>NOTE:</strong> this is the distance between the <strong>top</strong> of the first line and
 the <strong>top</strong> of the next line, and <strong>not</strong> distance between bottom of
 first line and top of next one. If you need to calculate the <strong>gap</strong>
-between the lines, then subtract <span class="xref std std-ref">font’s height</span> from
+between the lines, then subtract <a class="reference internal" href="#"><span class="doc">font’s height</span></a> from
 the line spacing value.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int h = GetFontHeight(eFontSpeech);
@@ -724,7 +723,7 @@ int gap = spacing - h;
 <p>will calculate the gap between two lines of text, that are drawn using
 speech font.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetFontHeight</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetFontHeight</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="inputbox">
@@ -798,8 +797,8 @@ other blocking action.</p>
 </pre></div>
 </div>
 <p>will disable the user interface if it’s enabled.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DisableInterface</span>,
-<span class="xref std std-ref">EnableInterface</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">DisableInterface</span></a>,
+<a class="reference internal" href="#"><span class="doc">EnableInterface</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="isinteractionavailable">
@@ -895,7 +894,7 @@ until restarted.</p>
 </pre></div>
 </div>
 <p>will display a message when timer 1 expires.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetTimer</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetTimer</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="istranslationavailable">
@@ -905,9 +904,9 @@ until restarted.</p>
 </div>
 <p>Finds out whether the player is using a game translation or not.</p>
 <p>Returns 1 if a translation is in use, 0 if not.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetTranslation</span>,
-<span class="xref std std-ref">Game.ChangeTranslation</span>,
-<span class="xref std std-ref">Game.TranslationFilename</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetTranslation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.ChangeTranslation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.TranslationFilename</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="movecharactertohotspot">
@@ -929,7 +928,7 @@ the character has reached its destination.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.WalkToX</span></a>,
 <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.WalkToY</span></a>,
 <a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
-<span class="xref std std-ref">MoveCharacterToObject</span></p>
+<a class="reference internal" href="#"><span class="doc">MoveCharacterToObject</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="movecharactertoobject">
@@ -950,7 +949,7 @@ object[0].Visible = false;
 <p>Will move the character EGO below object number 0, then turn off object
 0.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.Walk</span></a>,
-<span class="xref std std-ref">MoveCharacterToHotspot</span></p>
+<a class="reference internal" href="#"><span class="doc">MoveCharacterToHotspot</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="pausegame">
@@ -972,7 +971,7 @@ is paused.</p>
 </pre></div>
 </div>
 <p>will pause the game if the player presses the space bar</p>
-<p><em>See Also:</em> <span class="xref std std-ref">UnPauseGame</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">UnPauseGame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="quitgame">
@@ -989,7 +988,7 @@ sure they want to quit.</p>
 </pre></div>
 </div>
 <p>will quit the game without asking the player to confirm.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">AbortGame</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">AbortGame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="random">
@@ -1026,7 +1025,7 @@ result.</p>
 </pre></div>
 </div>
 <p>will restart the game if the player presses the F7 key.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">SetRestartPoint</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">SetRestartPoint</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="restoregamedialog">
@@ -1043,8 +1042,8 @@ when the script function finishes executing.</p>
 </pre></div>
 </div>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameSlot</span>,
-<span class="xref std std-ref">SaveGameDialog</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">RestoreGameSlot</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameDialog</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="restoregameslot">
@@ -1069,9 +1068,9 @@ restored when the script function finishes executing.</p>
 </div>
 <p>will restore game slot 30 if this slot number exists.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.GetSaveSlotDescription</span>,
-<span class="xref std std-ref">RestoreGameDialog</span>,
-<span class="xref std std-ref">SaveGameSlot</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.GetSaveSlotDescription</span></a>,
+<a class="reference internal" href="#"><span class="doc">RestoreGameDialog</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameSlot</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="runagsgame">
@@ -1127,8 +1126,8 @@ be shown when the script function finishes executing.</p>
 </pre></div>
 </div>
 <p>will bring up the save game dialog if the player presses the F3 key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">RestoreGameDialog</span>,
-<span class="xref std std-ref">SaveGameSlot</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">RestoreGameDialog</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameSlot</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savegameslot">
@@ -1151,9 +1150,9 @@ saved when the script function finishes executing.</p>
 </div>
 <p>will save the current game position to slot 30 with the description
 “Save game”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">DeleteSaveSlot</span>,
-<span class="xref std std-ref">RestoreGameSlot</span>,
-<span class="xref std std-ref">SaveGameDialog</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">DeleteSaveSlot</span></a>,
+<a class="reference internal" href="#"><span class="doc">RestoreGameSlot</span></a>,
+<a class="reference internal" href="#"><span class="doc">SaveGameDialog</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="savescreenshot">
@@ -1206,7 +1205,7 @@ if there one was previously set.</p>
 <p>will apply light level 50 to every character and object on screen (which
 do not have individual light levels).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetAmbientTint</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetAmbientTint</span></a>,
 <a class="reference internal" href="Character.html"><span class="doc">Character.SetLightLevel</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.SetLightLevel</span></a>,
 <a class="reference internal" href="Region.html"><span class="doc">Region.LightLevel</span></a></p>
@@ -1241,7 +1240,7 @@ tints on the screen.</p>
 </pre></div>
 </div>
 <p>will tint everything on the screen with a hint of blue.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">SetAmbientLightLevel</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetAmbientLightLevel</span></a>,
 <a class="reference internal" href="Character.html"><span class="doc">Character.Tint</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.Tint</span></a>,
 <a class="reference internal" href="Region.html"><span class="doc">Region.Tint</span></a></p>
@@ -1347,9 +1346,9 @@ changed at run-time.</p>
 </pre></div>
 </div>
 <p>will disable pixel-perfect click detection.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGameOption</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGameOption</span></a>,
 <a class="reference internal" href="Speech.html"><span class="doc">Speech.Style</span></a>,
-<span class="xref std std-ref">SetTextWindowGUI</span></p>
+<a class="reference internal" href="#"><span class="doc">SetTextWindowGUI</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setgamespeed">
@@ -1378,7 +1377,7 @@ player’s screen refresh).</p>
 </pre></div>
 </div>
 <p>will set the game speed to 80.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGameSpeed</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGameSpeed</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setglobalint">
@@ -1397,7 +1396,7 @@ name the variables.</p>
 </pre></div>
 </div>
 <p>will set the Global Integer 10 to 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGlobalInt</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setgraphicalvariable">
@@ -1416,7 +1415,7 @@ compatibility with AGS 2.x. When writing new code, use
 </pre></div>
 </div>
 <p>will set the interaction editor “climbed rock” variable to 1.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGraphicalVariable</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGraphicalVariable</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setmultitaskingmode">
@@ -1461,7 +1460,7 @@ properly in your game - just use this function to move it.</p>
 therefore, when you call this it will actually set the restart point at
 the next game loop where there is not a blocking script running in the
 background.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">RestartGame</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">RestartGame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setsavegamedirectory">
@@ -1502,7 +1501,7 @@ Documents, and create the folder if it does not exist (might be useful
 to do this in game_start).</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="ListBox.html"><span class="doc">ListBox.FillSaveGameList</span></a>,
-<span class="xref std std-ref">RestoreGameDialog</span></p>
+<a class="reference internal" href="#"><span class="doc">RestoreGameDialog</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="settextwindowgui">
@@ -1539,7 +1538,7 @@ IsTimerExpired function.</p>
 </pre></div>
 </div>
 <p>will set the timer 1 to expire after 1000 game cycles.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">IsTimerExpired</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">IsTimerExpired</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="skipuntilcharacterstops">
@@ -1564,7 +1563,7 @@ nothing happens.</p>
 <p>This means that if the player presses ESC, the game will skip ahead
 until EGO finishes moving, or is interrupted by a Display command or a
 blocking cutscene.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">StartCutscene</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="startcutscene">
@@ -1595,10 +1594,10 @@ eSkipESCOrRightButton
 command. The script <strong>must</strong> pass through EndCutscene in its normal run
 in order for the skipping to work - otherwise, when the player presses
 ESC the game could appear to hang.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">EndCutscene</span>,
-<span class="xref std std-ref">SkipUntilCharacterStops</span>,
-<span class="xref std std-ref">Game.InSkippableCutscene</span>,
-<span class="xref std std-ref">Game.SkippingCutscene</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">EndCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">SkipUntilCharacterStops</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.InSkippableCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.SkippingCutscene</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="updateinventory">
@@ -1631,7 +1630,7 @@ the editor.</p>
 </pre></div>
 </div>
 <p>will unpause the game if it is paused.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">PauseGame</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">PauseGame</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="wait">
@@ -1651,8 +1650,8 @@ cEgo.FaceLocation(1000,100);
 </div>
 <p>will move the character EGO to 120,140, wait until he gets there then
 wait for 2 seconds (80 game cycles) and then face right.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">WaitKey</span>,
-<span class="xref std std-ref">WaitMouseKey</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">WaitKey</span></a>,
+<a class="reference internal" href="#"><span class="doc">WaitMouseKey</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="waitkey">
@@ -1672,8 +1671,8 @@ wait for 2 seconds (80 game cycles) and then face right.</p>
 </div>
 <p>will pause the script and wait until 5 seconds have passed or the player
 presses a key.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Wait</span>,
-<span class="xref std std-ref">WaitMouseKey</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Wait</span></a>,
+<a class="reference internal" href="#"><span class="doc">WaitMouseKey</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="waitmousekey">
@@ -1694,7 +1693,7 @@ presses a key.</p>
 </div>
 <p>will pause the script and wait until 5 seconds have passed or the player
 presses a key or clicks the mouse.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Wait</span>, <span class="xref std std-ref">WaitKey</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Wait</span></a>, <a class="reference internal" href="#"><span class="doc">WaitKey</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="audioclipcount">
@@ -1706,7 +1705,7 @@ presses a key or clicks the mouse.</p>
 <p>This is useful for script modules if you need to iterate through all the
 audio clips for some reason.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.AudioClips</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.AudioClips</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="audioclips">
@@ -1728,7 +1727,7 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </pre></div>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.AudioClipCount</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.AudioClipCount</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="charactercount">
@@ -1775,7 +1774,7 @@ just running the game using ACWIN.EXE.</p>
 </pre></div>
 </div>
 <p>will display the game filename.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.Name</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.Name</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="fontcount">
@@ -1829,8 +1828,8 @@ global strings, with <em>index</em> values from 0 to 49.</p>
 </pre></div>
 </div>
 <p>will set global string 15 to contain “Joe”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GetGlobalInt</span>,
-<span class="xref std std-ref">SetGlobalInt</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetGlobalInt</span></a>,
+<a class="reference internal" href="#"><span class="doc">SetGlobalInt</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="guicount">
@@ -1871,8 +1870,8 @@ to 500 by default.</p>
 text is automatically removed from the screen.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Game.MinimumTextDisplayTimeMs</span>,
-<span class="xref std std-ref">Game.TextReadingSpeed</span>,
+<a class="reference internal" href="#"><span class="doc">Game.MinimumTextDisplayTimeMs</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.TextReadingSpeed</span></a>,
 <a class="reference internal" href="Speech.html"><span class="doc">Speech.SkipStyle</span></a></p>
 <hr class="docutils" />
 </div>
@@ -1901,9 +1900,9 @@ could be useful for script modules.</p>
 </div>
 <p>will display a message if we are within a cutscene</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">EndCutscene</span>,
-<span class="xref std std-ref">Game.SkippingCutscene</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">StartCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">EndCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.SkippingCutscene</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="inventoryitemcount">
@@ -1930,7 +1929,7 @@ editor, not how many the player is currently carrying.</p>
 screen. AGS automatically adjusts the length of time that text is
 displayed for depending on the length of the text (and you can customize
 this calculation with
-<span class="xref std std-ref">Game.TextReadingSpeed</span>), but for very
+<a class="reference internal" href="#"><span class="doc">Game.TextReadingSpeed</span></a>), but for very
 short statements like “Hi!”, you might want the text to remain for
 longer.</p>
 <p>This property is specified in milliseconds (1000 = 1 second), and is set
@@ -1946,8 +1945,8 @@ for at least 2 seconds</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,
-<span class="xref std std-ref">Game.IgnoreUserInputAfterTextTimeoutMs</span>
-<span class="xref std std-ref">Game.TextReadingSpeed</span></p>
+<a class="reference internal" href="#"><span class="doc">Game.IgnoreUserInputAfterTextTimeoutMs</span></a>
+<a class="reference internal" href="#"><span class="doc">Game.TextReadingSpeed</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="mousecursorcount">
@@ -1977,7 +1976,7 @@ to change the window title of your game.</p>
 </pre></div>
 </div>
 <p>will display the game name.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.FileName</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.FileName</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="normalfont">
@@ -2002,7 +2001,7 @@ number must be a valid number from the Fonts pane of the editor.</p>
 </pre></div>
 </div>
 <p>will change the normal font to the font “Special”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.SpeechFont</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.SpeechFont</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="skippingcutscene">
@@ -2031,9 +2030,9 @@ code that don’t need to be run if the cutscene is being skipped over.</p>
 <p>will only attempt to play the music if the player is not skipping the
 cutscene.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">StartCutscene</span>,
-<span class="xref std std-ref">EndCutscene</span>,
-<span class="xref std std-ref">Game.InSkippableCutscene</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">StartCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">EndCutscene</span></a>,
+<a class="reference internal" href="#"><span class="doc">Game.InSkippableCutscene</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speechfont">
@@ -2051,7 +2050,7 @@ must be a valid number from the Fonts pane of the editor.</p>
 </pre></div>
 </div>
 <p>will change the speech font to “Standard”.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.NormalFont</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.NormalFont</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="spriteheight">
@@ -2068,7 +2067,7 @@ co-ordinates. If an invalid sprite slot is supplied, 0 will be returned.</p>
                                                Game.SpriteHeight[object[0].Graphic]);
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.SpriteWidth</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.SpriteWidth</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="spritewidth">
@@ -2085,7 +2084,7 @@ If an invalid sprite slot is supplied, 0 will be returned.</p>
                                                Game.SpriteHeight[object[0].Graphic]);
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.SpriteHeight</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.SpriteHeight</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="textreadingspeed">
@@ -2114,7 +2113,7 @@ on-screen for twice as long as usual.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,
-<span class="xref std std-ref">Game.MinimumTextDisplayTimeMs</span>,
+<a class="reference internal" href="#"><span class="doc">Game.MinimumTextDisplayTimeMs</span></a>,
 <a class="reference internal" href="Speech.html"><span class="doc">Speech.SkipStyle</span></a></p>
 <hr class="docutils" />
 </div>
@@ -2134,8 +2133,8 @@ somewhere depending on which translation is being used.</p>
 }
 </pre></div>
 </div>
-<p><em>See Also:</em> <span class="xref std std-ref">Game.ChangeTranslation</span>,
-<span class="xref std std-ref">IsTranslationAvailable</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.ChangeTranslation</span></a>,
+<a class="reference internal" href="#"><span class="doc">IsTranslationAvailable</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="usenativecoordinates">
@@ -2318,7 +2317,7 @@ views for some reason. Valid views are numbered from 1 to ViewCount.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

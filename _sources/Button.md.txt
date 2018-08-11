@@ -3,10 +3,6 @@
 
 ## GUI Button functions and properties
 
-
-
----
-
 .. index::
    pair: GUI Button functions and properties; Click
 

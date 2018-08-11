@@ -34,8 +34,8 @@ template for you.
 
 The template game takes the following files from your game folder: Core
 game files (GAME.AGF, ACSPRSET.SPR), all script and room files, all
-sound and music files, all fonts, game icons, and \*.TXT (to allow you
-to include a README.TXT or whatever).
+sound and music files, all fonts, game icons, and all .TXT files (to
+allow you to include a README.TXT or whatever).
 
 If you include a **template.ico** file in your game folder when you make
 the template, then it will be used as the icon in the Start New Game
@@ -49,7 +49,7 @@ to explain briefly about any key aspects of the template, or it could
 tell them to read your README.TXT file. This file should be quite small
 - its entire contents need to fit into a standard message box.
 
-**NOTE:** Do not simply make a template out of a half-finished game. If
+NOTE: Do not simply make a template out of a half-finished game. If
 you want to make a template, you should start a game from scratch and
 make your changes - the user probably doesn't want to already have a
 semi-completed game when they use your template.

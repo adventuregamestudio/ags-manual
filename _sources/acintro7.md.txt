@@ -17,8 +17,7 @@ more *loops*. A loop is a set of frames which, when played in sequence,
 give the illusion of movement. Expand the "Views" node in the project
 tree, and double-click the view 1:
 
-![](images/intro7_1.jpg)<br>
-*The View Editor showing view 1*
+![The View Editor showing view 1](images/intro7_1.jpg)
 
 This is the View Editor where you will put together all your animations.
 You'll notice lots of frames of Roger's walking animation in this
@@ -29,7 +28,8 @@ from left to right. To change the image for a frame, double-click the
 image, and you'll be presented with the sprite manager where you can
 select the image to use. **All images for use with views are imported as
 usual via the sprite manager** before they can be inserted into a
-frame.<br>
+frame.
+
 At the right hand end of each loop, you'll see a "Create new frame"
 button, which you can click to create a new extra frame at the end of
 the loop. You can also right-click a frame to insert a new one before or
@@ -38,8 +38,7 @@ after it.
 Left-click a frame to select it. When you do so, the property grid will
 be updated with the frame's details:
 
-![](images/intro7_2.jpg)<br>
-*Property Grid showing frame properties*
+![Property Grid showing frame properties](images/intro7_2.jpg)
 
 -   **Delay** is the frame's **relative** speed. This number adds a
     delay to the amount of time which the frame is displayed for,
@@ -78,8 +77,7 @@ you only have one character in the list, labelled "0: cEgo". You can
 create a new character by right-clicking the "Characters" node. For now,
 double-click the "cEgo" character:
 
-![](images/intro7_3.jpg)<br>
-*The Character Editor*
+![The Character Editor](images/intro7_3.jpg)
 
 The first thing you'll notice is the text "This character is the player
 character" at the top of the window. This shows that the currently
@@ -128,8 +126,12 @@ Just in case you missed it, I'll repeat what was just said in the
 Characters section - the "*Starts in room*" setting of the player
 character is used to determine which room the game starts off in.
 
-![](images/icon_info.gif)<br>
-TIP: This feature can be handy for testing various parts of your game. For example, when you're working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.
+![](images/icon_info.gif)
+
+TIP: This feature can be handy for testing various parts of your game.
+For example, when you're working on room 16, set the starting room to
+room 16 so that you can get to it instantly when you run the game to
+test it.
 
 .. index::
    pair: Getting Started with AGS - Part 7; Cutscenes
@@ -140,8 +142,15 @@ You can easily add intro, outro and cutscene sequences to your game.
 There is no specific feature to do this - you simply use the provided
 animation and movement commands to do whatever you like.
 
-![](images/icon_info.gif)<br>
-A cutscene is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.
+![](images/icon_info.gif)
+
+A cutscene is simply the name given to a sequence of actions over which
+the player has no control. This usually applies to the entire
+introduction sequence, as well as far simpler in-game events. For example,
+if the player goes to pick up a rock from the ground, you may wish to use
+a bending-down animation to show him picking it up. During this bending
+down and standing back up, the player cannot control proceedings, so it
+is a cutscene.
 
 Right, firstly let's do something very simple. When the player goes to
 pick up the key from the floor of our room, we want him to walk over to
@@ -153,8 +162,7 @@ key object. Go back to the Events List for the key object (remember, you
 open the room, select the "Objects" mode, then click on the key to
 select it):
 
-![](images/intro7_4.jpg)<br>
-*Remember this?*
+![Remember this?](images/intro7_4.jpg)
 
 The main difference you'll notice now is that the "Interact object"
 event already has a name. This "oKey_Interact" is the name of the
@@ -168,8 +176,7 @@ on the player character (ie. move him), so type "player." and
 auto-complete will pop up with the available commands. See if you can
 work out which one we need.
 
-![](images/intro7_5.jpg)<br>
-*The Walk command needs X and Y co-ordinates*
+![The Walk command needs X and Y co-ordinates](images/intro7_5.jpg)
 
 **Eeek!** It wants a destination X and Y location! We don't know that,
 but we can find out! Click the "Room 1" tab on the tab bar at the top of
@@ -185,8 +192,7 @@ Roger to get to those co-ordinates before continuing the script. If we
 didn't do this, he would start to walk but the key would disappear
 before he got there! The final script should look like this:
 
-![](images/intro7_6.jpg)<br>
-*Our new command is run before the existing ones*
+![Our new command is run before the existing ones](images/intro7_6.jpg)
 
 Now, hit F5 and try it out!
 

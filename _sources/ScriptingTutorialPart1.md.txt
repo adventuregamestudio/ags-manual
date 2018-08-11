@@ -125,8 +125,7 @@ To perform a command on something, you type its Script Name followed by
 a dot, followed by the command name. When you type the dot, the AGS
 Editor will automatically pop up a list of the available commands:
 
-![](images/tut3.gif)<br>
-*The script editor's auto-complete*
+![The script editor's auto-complete](images/tut3.gif)
 
 You then choose the appropriate command, and place any parameters in
 brackets, like we did above with the Display command. For example:
@@ -135,9 +134,10 @@ brackets, like we did above with the Display command. For example:
 
 This will add the Key to the EGO character's inventory. If you look up
 *AddInventory* in the manual, you'll find it takes two parameters, an
-InventoryItem \* and an *optional int*. The *InventoryItem\** means that
+*InventoryItem* and an *optional int*. The *InventoryItem* means that
 you need to supply the Script Name of the inventory item; this is
-something you can set in the script editor.<br>
+something you can set in the script editor.
+
 The *optional int* means that there is an extra parameter which you can
 supply if you want to, but you don't have to. In this case it allows you
 to specify where in the character's inventory list the new item should
@@ -159,7 +159,8 @@ Suppose we want the player to be given a pink poster when they look at
 the hotspot, as well as displaying the message. Assuming we have an
 inventory item set up to be the poster with the Script Name of *iPoster*
 (see the main tutorial for how to do this), the script enables us to
-easily make this happen.<br>
+easily make this happen.
+
 Our final script will look like this:
 
     Display(It's quite a large, ominous looking door.");

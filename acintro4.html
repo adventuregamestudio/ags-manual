@@ -56,9 +56,7 @@ and will appear anywhere that you haven’t selected a proper image yet.
 Notice that the property grid has changed to display the details of this
 new object – one of which is a property called Image. Select this
 property, and a “…” button appears.</p>
-<a class="reference external image-reference" href="images/intro4_1.jpg"><img alt="" src="_images/intro4_1.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Adding an object to the room</em></p>
+<a class="reference external image-reference" href="images/intro4_1.jpg"><img alt="Adding an object to the room" src="_images/intro4_1.jpg" /></a>
 <p>Click the “…” button, and you’ll be presented with the <em>Sprite
 Manager</em>. We’ll explain this in more detail later, but basically it is
 the focal point in AGS where you import and export all your graphics
@@ -74,9 +72,7 @@ it’ll need a name that we can call it by. Scroll down the property grid
 and find the “Name” property, and set it to something sensible. The
 convention in AGS is to have object names start with an “o”, for example
 <em>oKey</em>.</p>
-<a class="reference external image-reference" href="images/intro4_2.jpg"><img alt="" src="_images/intro4_2.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>I’ve placed the key cunningly in the middle of the walkway ;-)</em></p>
+<a class="reference external image-reference" href="images/intro4_2.jpg"><img alt="I've placed the key cunningly in the middle of the walkway ;-)" src="_images/intro4_2.jpg" /></a>
 <p>Before we enable the key to be taken by the player, let me quickly go
 over a couple of propertes in the property grid:</p>
 <ul class="simple">
@@ -97,8 +93,9 @@ sometimes you’ll have objects which you don’t want the player to see
 until they’ve done something else in the game.</li>
 </ul>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-The game speed is directly related to the number and size of objects on-screen. AGS imposes a limit of 20 objects per room, but even if you use all of these and have them visible at the same time, the game speed could suffer.</p>
+<p>The game speed is directly related to the number and size of objects on-screen.
+AGS imposes a limit of 20 objects per room, but even if you use all of these
+and have them visible at the same time, the game speed could suffer.</p>
 <p>Right, now back to the pressing matter at hand - letting the player pick
 up the key.</p>
 </div>
@@ -118,9 +115,7 @@ click the “…” button. The sprite manager re-appears, so find sprite
 number 5, and you should see that it’s a much larger picture of a key.
 Let’s use that as our inventory icon. Double-click the sprite to select
 it.</p>
-<a class="reference external image-reference" href="images/intro4_3.jpg"><img alt="" src="_images/intro4_3.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Yay, we’ve got a big inventory icon for the key</em></p>
+<a class="reference external image-reference" href="images/intro4_3.jpg"><img alt="Yay, we've got a big inventory icon for the key" src="_images/intro4_3.jpg" /></a>
 <p>Ok, there are a few other settings on this screen, but let’s return to
 our objective - letting the player pick up the key. Remember that the
 script name is <em>iKey</em>, as we’ll need it later.</p>
@@ -129,9 +124,7 @@ script name is <em>iKey</em>, as we’ll need it later.</p>
 <p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes
 you’ve guessed it, the <em>Events</em> button. The events here are very similar
 to the ones we had for the hotspot:</p>
-<a class="reference external image-reference" href="images/intro4_4.jpg"><img alt="" src="_images/intro4_4.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The events list for the object</em></p>
+<a class="reference external image-reference" href="images/intro4_4.jpg"><img alt="The events list for the object" src="_images/intro4_4.jpg" /></a>
 <p>Notice there are two obvious possibilities here: “Interact object” and
 “Pick up object”. We actually want to use the “Interact object” event,
 because we are using the default Sierra-style interface which doesn’t
@@ -145,9 +138,7 @@ be added to the player’s inventory.</p>
 <p>Here’s my script solution. As an added bonus, I’ve also given the player
 5 points for their trouble, but you don’t need to have that third
 command:</p>
-<a class="reference external image-reference" href="images/intro4_5.jpg"><img alt="" src="_images/intro4_5.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Script for taking the key</em></p>
+<a class="reference external image-reference" href="images/intro4_5.jpg"><img alt="Script for taking the key" src="_images/intro4_5.jpg" /></a>
 <p>Note that our solution is not perfect - the player can click the hand
 icon on the key from anywhere in the room and it will disappear. We are
 also not displaying a message informing the player of what happened.
@@ -231,7 +222,7 @@ music volume for this screen.</li>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

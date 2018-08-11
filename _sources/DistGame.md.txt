@@ -24,7 +24,7 @@ split resources files, you will also have several files named
 It is not possible to load the exe file back into the AGS Editor.
 This means two things when only the EXE file is available: (1) other
 people can't edit your game's data, and (2) you can't either. Always
-keep a backup of the other files produced (\*.CRM, GAME.AGF, etc) as
+keep a backup of the other files produced (.CRM, GAME.AGF, etc) as
 they are what the Editor needs to be able to load your game for
 editing.
 

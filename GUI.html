@@ -37,7 +37,6 @@
             
   <div class="section" id="gui-functions-and-properties">
 <span id="index-0"></span><h1>GUI functions and properties<a class="headerlink" href="#gui-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="centre">
 <span id="index-1"></span><h2>Centre<a class="headerlink" href="#centre" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
@@ -52,7 +51,7 @@ centre.</p>
 </pre></div>
 </div>
 <p>will centre the CONTROLPANEL GUI in the middle of the screen.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="click">
@@ -73,7 +72,7 @@ GUI element that happen to be at the given coordinates”.</p>
 <p>triggers OnClick event for gMainMenu.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.Click</span></a>,
-<span class="xref std std-ref">GUI.ProcessClick</span></p>
+<a class="reference internal" href="#"><span class="doc">GUI.ProcessClick</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getatscreenxy">
@@ -107,7 +106,7 @@ else {
 <p>will display the number of the GUI that the mouse is over.</p>
 <p><em>See Also:</em>
 <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.GetAtScreenXY</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.ID</span></a>, <span class="xref std std-ref">GUI.ZOrder</span></p>
+<a class="reference internal" href="#"><span class="doc">GUI.ID</span></a>, <a class="reference internal" href="#"><span class="doc">GUI.ZOrder</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="processclick">
@@ -150,11 +149,11 @@ room co-ordinates, and use the same scale as in the editor.</p>
 </pre></div>
 </div>
 <p>will move the VERBCOIN GUI to the position where the cursor is.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.Centre</span>,
-<span class="xref std std-ref">GUI.BackgroundGraphic</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Centre</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.BackgroundGraphic</span></a>,
 <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>, <span class="xref std std-ref">GUI.X</span>,
-<span class="xref std std-ref">GUI.Y</span></p>
+<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>, <a class="reference internal" href="#"><span class="doc">GUI.X</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.Y</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setsize">
@@ -173,11 +172,11 @@ options screen and such like.</p>
 </pre></div>
 </div>
 <p>changes the ICONBAR GUI to be the size of half the screen</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.Centre</span>,
-<span class="xref std std-ref">GUI.Height</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Centre</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.Height</span></a>,
 <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
-<span class="xref std std-ref">GUI.SetPosition</span>,
-<span class="xref std std-ref">GUI.Width</span></p>
+<a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.Width</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="backgroundgraphic">
@@ -188,7 +187,7 @@ options screen and such like.</p>
 </div>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
 <a class="reference internal" href="Button.html"><span class="doc">Button.NormalGraphic</span></a></p>
 <hr class="docutils" />
 </div>
@@ -211,7 +210,7 @@ underneath.</p>
 </pre></div>
 </div>
 <p>sets the STATUSLINE GUI to no longer respond to mouse clicks.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.GetAtScreenXY</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.GetAtScreenXY</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="controlcount">
@@ -231,7 +230,7 @@ while (i &lt; gInventory.ControlCount) {
 </pre></div>
 </div>
 <p>disables all controls on the INVENTORY GUI.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.Controls</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Controls</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="controls">
@@ -262,7 +261,7 @@ else {
 <p>gets list box number 4 from the INVENTORY GUI, and then adds an item to
 it. If control 4 isn’t a listbox, you will get a Null Reference error.</p>
 <p><em>See Also:</em> <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.As*</span></a>,
-<span class="xref std std-ref">GUI.ControlCount</span></p>
+<a class="reference internal" href="#"><span class="doc">GUI.ControlCount</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="height">
@@ -278,8 +277,8 @@ the size of the GUI on the screen.</p>
 </pre></div>
 </div>
 <p>displays the height of the ICONBAR GUI.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetSize</span>,
-<span class="xref std std-ref">GUI.Width</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.Width</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="index-12">
@@ -377,8 +376,8 @@ the size of the GUI on the screen.</p>
 </pre></div>
 </div>
 <p>makes the INVENTORY GUI 5 pixels wider.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.Height</span>,
-<span class="xref std std-ref">GUI.SetSize</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Height</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="x">
@@ -396,8 +395,8 @@ co-ordinates, and are in the normal 320-resolution style.</p>
 </pre></div>
 </div>
 <p>moves the VERBCOIN GUI right 5 pixels.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,
-<span class="xref std std-ref">GUI.Y</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.Y</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="y">
@@ -416,8 +415,8 @@ co-ordinates, not room co-ordinates, and are in the normal
 </pre></div>
 </div>
 <p>moves the VERBCOIN GUI down 5 pixels.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.SetPosition</span>,
-<span class="xref std std-ref">GUI.X</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
+<a class="reference internal" href="#"><span class="doc">GUI.X</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="zorder">
@@ -436,7 +435,7 @@ numbered at the front.</p>
 </pre></div>
 </div>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">GUI.GetAtScreenXY</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.GetAtScreenXY</span></a></p>
 </div>
 </div>
 
@@ -501,7 +500,7 @@ numbered at the front.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

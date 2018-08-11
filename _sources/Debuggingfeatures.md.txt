@@ -17,7 +17,10 @@ debug mode" is set in your Game Settings. So, just before you release
 your game, set that option to False and compile the game again to make
 sure the player can't cheat using these features.
 
-**1. The script debugger**
+.. index::
+   pair: Debugging features; The script debugger
+
+### The script debugger
 
 When you run the game using the Run (F5) option, the game will be
 started with the debugger. This allows you to pause your game and follow
@@ -25,14 +28,13 @@ it through one line at a time.
 
 There are two main ways to use this feature:
 
-\* Press SCROLL LOCK while playing the game. This will break out when
+* Press SCROLL LOCK while playing the game. This will break out when
 the next line of script is run.
-
-\* Place a breakpoint in your script. You do this by clicking on a line
+* Place a breakpoint in your script. You do this by clicking on a line
 of code in the script editor, then pressing F9. Then, when the game
 arrives at this line of code, it will stop running.
 
-**NOTE:** The editor will allow you to place a breakpoint on any line of
+NOTE: The editor will allow you to place a breakpoint on any line of
 script. However, in order for it to work, it must be placed on a line
 that has some code on it.
 
@@ -40,11 +42,14 @@ Once the script has stopped, you can use the "Step Into" button (F11) to
 step through the lines of code, one by one. To allow the game to
 continue running normally, use the Run (F5) button.
 
-**NOTE:** The Script Debugger is not supported on Windows 98 or Windows
+NOTE: The Script Debugger is not supported on Windows 98 or Windows
 ME systems. If you're still using Windows 98, please upgrade to Windows
 XP or higher to take advantage of this feature.
 
-**2. The Debug() command**
+.. index::
+   pair: Debugging features; The Debug() command
+
+### The Debug() command
 
 There is a scripting command, [Debug](Game#debug), which you can
 use in your script to help you find problems. The default setup enables
@@ -58,7 +63,10 @@ the game speed and spot any slow-running rooms).
 
 This command only works if Debug Mode is enabled in your Game Settings.
 
-**3. Current room information**
+.. index::
+   pair: Debugging features; Current room information
+
+### Current room information
 
 Pressing Ctrl+D displays some information about the current room. It
 tells you what room number you are in, followed by the current status of

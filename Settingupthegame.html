@@ -155,7 +155,7 @@ to import. Alternatively, you can import the entire image with the
 <p><em>NOTE (256-colour only): You may well find that the colours on your
 graphic look slightly strange in the AGS Editor. This is because the
 sprites are only allocated, by default, the first 41 of the palette
-colours (see the :ref:`palette section &lt;palette-setup&gt;`), so your graphic
+colours (see the :doc:`palette section &lt;Settingupthegame&gt;`), so your graphic
 will be remapped to this much smaller palette. If you find that many of
 your imported sprites look strange, you can increase the number of
 colours assigned to sprites, at the expense of background colours (again
@@ -178,10 +178,8 @@ Right-click on a folder in the tree to rename it or make a sub-folder.</p>
 <p>You can delete a folder by right-clicking on it and selecting the
 “Delete” option; beware though that <strong>this will also delete all the
 sprites in the folder</strong>.</p>
-<ul class="simple">
-<li><a href="#id1"><span class="problematic" id="id2">*</span></a>NOTE: A few people have experienced problems when importing from</li>
-</ul>
-<p>clipboard, in that the image colours get reversed (red becomes blue,
+<p>NOTE: A few people have experienced problems when importing from
+clipboard, in that the image colours get reversed (red becomes blue,
 blue becomes red, and so on) when they are running Windows at 24-bit or
 32-bit colour. If this happens to you, there are two solutions: (a) turn
 down your desktop colour depth to 16-bit to run the AGS Editor, or (b)
@@ -210,7 +208,7 @@ mouse cursor or GUI.</p>
 <p>Note that if you use alpha blending, any overall transparency that you
 set (such as Character.Transparency, Object.Transparency,
 GUI.Transparency) will be ignored.</p>
-<p><strong>NOTE:</strong> Currently, alpha blended sprites cannot be antialiased, so if
+<p>NOTE: Currently, alpha blended sprites cannot be antialiased, so if
 you have the Anti Alias Sprites option turned on in Setup, it will not
 be applied to alpha-blended characters.</p>
 <hr class="docutils" />
@@ -225,10 +223,10 @@ need.</p>
 room number of the player character. To change it, open up the player
 character’s Character pane, and change the StartingRoom number in the
 property grid.</p>
-<p><em>TIP: The starting room facility is also useful when testing your game -
-you can make the game start in any room, at the point where you are
+<p>TIP: The starting room facility is also useful when testing your game.
+You can make the game start in any room, at the point where you are
 testing it, rather than having to keep playing the game through to get
-there.</em></p>
+there.</p>
 <p>Cutscenes are created using the normal animation script commands, such
 as Character.Walk, Object.SetView, and so forth. I would suggest you
 leave this until you are more comfortable with AGS, and have some
@@ -312,7 +310,7 @@ the “StartX” and “StartY” properties to type in the X,Y co-ordinates you
 want him to start at. These co-ordinates define where the middle of his
 feet will be placed.</p>
 <p>The “NormalView” is where you set what the character looks like. You
-must create a view in the <span class="xref std std-ref">View Editor</span>, and this view
+must create a view in the <a class="reference internal" href="#"><span class="doc">View Editor</span></a>, and this view
 must have either 4 or 8 loops. If you use 4 loops, then when walking
 diagonally the closest straight direction is used for the graphics. Each
 loop is used for the character walking in one direction, as follows:</p>
@@ -565,7 +563,7 @@ is 32-bit, which lets you use all the range of colours contemporary
 devices support. 16-bit is rather a compatibility setting, that will
 reduce the size of your game resources at the cost of colour
 precision. 8-bit colour mode is a special feature for making
-palette-based games. See Also: <span class="xref std std-ref">Palette setup</span>,
+palette-based games. See Also: <a class="reference internal" href="#"><span class="doc">Palette setup</span></a>,
 <a class="reference internal" href="CyclePalette.html"><span class="doc">Palette functions</span></a></li>
 <li><strong>Developer name</strong> - this will add the provided string to the game’s
 executable properties, which will also be shown in
@@ -1067,7 +1065,7 @@ Game.NormalFont and Game.SpeechFont properties in your script.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

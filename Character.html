@@ -37,7 +37,6 @@
             
   <div class="section" id="character-functions-and-properties">
 <span id="index-0"></span><h1>Character functions and properties<a class="headerlink" href="#character-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="addinventory">
 <span id="index-1"></span><h2>AddInventory<a class="headerlink" href="#addinventory" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as global function AddInventory, which is now
@@ -63,8 +62,8 @@ parameter.</p>
 </pre></div>
 </div>
 <p>will give inventory item iKey to character EGO.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.HasInventory</span>,
-<span class="xref std std-ref">Character.LoseInventory</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.HasInventory</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LoseInventory</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">UpdateInventory</span></a></p>
 <hr class="docutils" />
 </div>
@@ -91,8 +90,8 @@ cSomeguy.AddWaypoint(50, 50);
 <p>tells character SOMEGUY to first of all walk to the centre of the screen
 normally (obeying walkable areas), then move to the bottom left corner
 and then top left corner afterwards.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Move</span>
-<span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Move</span></a>
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="animate">
@@ -109,7 +108,7 @@ the fastest, and increasing numbers mean slower. The delay for each
 frame is worked out as DELAY + FRAME SPD, so the individual frame speeds
 are relative to this overall speed.</p>
 <p>Before using this command, you should use
-<span class="xref std std-ref">LockView</span> in order to select the view you
+<a class="reference internal" href="#"><span class="doc">LockView</span></a> in order to select the view you
 want to animate with and prevent any automatic animations (eg. walking
 or idle animations) from playing.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously
@@ -169,7 +168,7 @@ coordinates 100,50. This will also mean that the game moves into room 4.</p>
 <p><em>Compatibility:</em> Optional <em>direction</em> parameter is supported only by
 <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.ChangeRoomAutoPosition</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.ChangeRoomAutoPosition</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="changeroomautoposition">
@@ -203,7 +202,7 @@ so on) after this command within the same function.</p>
 <p>will move the player character to room 4 and place him half way down the
 right hand side of the screen. This will also mean that the game moves
 into room 4.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.ChangeRoom</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.ChangeRoom</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="changeview">
@@ -224,8 +223,8 @@ the character’s normal walking view.</p>
 </pre></div>
 </div>
 <p>will make the EGO character use view number 5 as his walking view.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.LockView</span>,
-<span class="xref std std-ref">Character.NormalView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.NormalView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="facecharacter">
@@ -257,10 +256,10 @@ Wait(1);</p>
 </div>
 <p>will make the character EGO face the character MAN</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.FaceDirection</span>,
-<span class="xref std std-ref">Character.FaceLocation</span>,
-<span class="xref std std-ref">Character.FaceObject</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.FaceDirection</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceLocation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceObject</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="facedirection">
@@ -291,10 +290,10 @@ Wait(1);</p>
 <p>will make the character EGO face up-right.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.FaceCharacter</span>,
-<span class="xref std std-ref">Character.FaceLocation</span>,
-<span class="xref std std-ref">Character.FaceObject</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceLocation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceObject</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="facelocation">
@@ -328,10 +327,10 @@ Wait(1);</p>
 </div>
 <p>will make the character face to the east.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.FaceCharacter</span>,
-<span class="xref std std-ref">Character.FaceDirection</span>,
-<span class="xref std std-ref">Character.FaceObject</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceDirection</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceObject</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="faceobject">
@@ -360,10 +359,10 @@ Wait(1);</p>
 </div>
 <p>will make the player character face object 2.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.FaceCharacter</span>,
-<span class="xref std std-ref">Character.FaceDirection</span>,
-<span class="xref std std-ref">Character.FaceLocation</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceDirection</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceLocation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="followcharacter">
@@ -455,7 +454,7 @@ with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>will print the message if EGO has its “Value” property set to more than
 200.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.GetTextProperty</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.GetTextProperty</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="gettextproperty">
@@ -476,7 +475,7 @@ be returned from this function.</p>
 </pre></div>
 </div>
 <p>will retrieve EGO’s “description” property and display it.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.GetProperty</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.GetProperty</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setproperty">
@@ -498,7 +497,7 @@ value.</p>
 <p>will change EGO character’s “XPLevel” custom property to 10.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.SetTextProperty</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.SetTextProperty</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="settextproperty">
@@ -517,7 +516,7 @@ be changed to new value.</p>
 </div>
 <p>will change EGO’s “description” property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.SetProperty</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.SetProperty</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hasexplicitlight">
@@ -526,13 +525,13 @@ be changed to new value.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the character has a light set explicitly with the
-<span class="xref std std-ref">Character.SetLightLevel</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.SetLightLevel</span></a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit light level, but it may
 still be lighted by
 <a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a> or a region
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.SetLightLevel</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.SetLightLevel</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hasinventory">
@@ -553,9 +552,9 @@ example, <em>iPoster</em>).</p>
 </div>
 <p>will display a message if the player has the key.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.AddInventory</span>,
-<span class="xref std std-ref">Character.InventoryQuantity</span>,
-<span class="xref std std-ref">Character.LoseInventory</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.AddInventory</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.InventoryQuantity</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LoseInventory</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="iscollidingwithchar">
@@ -576,7 +575,7 @@ behind the other, it will not be marked as colliding.</p>
 <p>will execute the colliding code only if the characters EGO and MAN are
 colliding.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.IsCollidingWithObject</span>,
+<a class="reference internal" href="#"><span class="doc">Character.IsCollidingWithObject</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.IsCollidingWithObject</span></a>,
 <a class="reference internal" href="Room.html"><span class="doc">AreThingsOverlapping</span></a></p>
 <hr class="docutils" />
@@ -600,7 +599,7 @@ character is standing on the object.</p>
 <p>will execute the colliding code only if the character EGO and the object
 number 3 are colliding.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.IsCollidingWithChar</span>,
+<a class="reference internal" href="#"><span class="doc">Character.IsCollidingWithChar</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.IsCollidingWithObject</span></a>,
 <a class="reference internal" href="Room.html"><span class="doc">AreThingsOverlapping</span></a></p>
 <hr class="docutils" />
@@ -611,13 +610,13 @@ number 3 are colliding.</p>
 </pre></div>
 </div>
 <p>If the character has an individual light set explicitly with the
-<span class="xref std std-ref">Character.SetLightLevel</span> command,
+<a class="reference internal" href="#"><span class="doc">Character.SetLightLevel</span></a> command,
 this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Character.LightLevel
 returns 0 even if the character is affected by the ambient or region’s
 light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.SetLightLevel</span>,
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.SetLightLevel</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a></p>
 <hr class="docutils" />
 </div>
@@ -650,12 +649,12 @@ using loop 0, wait until the animation finishes and then return the
 character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animate</span>,
-<span class="xref std std-ref">Character.ChangeView</span>,
-<span class="xref std std-ref">Character.SpeechView</span>,
-<span class="xref std std-ref">Character.LockViewAligned</span>,
-<span class="xref std std-ref">Character.LockViewOffset</span>
-<span class="xref std std-ref">Character.UnlockView</span>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.ChangeView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockViewAligned</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockViewOffset</span></a>
+<a class="reference internal" href="#"><span class="doc">Character.UnlockView</span></a>,</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="lockviewaligned">
@@ -719,9 +718,9 @@ using loop 1, wait until the animation finishes and then return the
 character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.LockView</span>,
-<span class="xref std std-ref">Character.LockViewOffset</span>,
-<span class="xref std std-ref">Character.UnlockView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockViewOffset</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.UnlockView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="lockviewframe">
@@ -749,9 +748,9 @@ cEgo.UnlockView();
 second, then return him to normal.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animate</span>,
-<span class="xref std std-ref">Character.LockView</span>,
-<span class="xref std std-ref">Character.UnlockView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.UnlockView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="lockviewoffset">
@@ -794,9 +793,9 @@ cEgo.UnlockView();
 all frames will be shifted 1 pixel right and 1 pixel up.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.LockView</span>,
-<span class="xref std std-ref">Character.LockViewAligned</span>,
-<span class="xref std std-ref">Character.UnlockView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockViewAligned</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.UnlockView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="loseinventory">
@@ -816,7 +815,7 @@ they do not have the item, nothing happens.</p>
 </div>
 <p>will make the character EGO lose the inventory item iKey from the
 inventory tab</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.AddInventory</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.AddInventory</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="move">
@@ -828,7 +827,7 @@ inventory tab</p>
 <p>Starts the character moving from its current location to (X,Y), but does
 not play the character’s walking animation.</p>
 <p>The parameters to this command are identical to the
-<span class="xref std std-ref">Character.Walk</span> command – see that page for
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a> command – see that page for
 more details. The only difference is that <em>Walk</em> plays the walking
 animation whereas <em>Move</em> does not.</p>
 <p>In the vast majority of cases, you will use <strong>Character.Walk</strong> instead.</p>
@@ -840,12 +839,12 @@ animation whereas <em>Move</em> does not.</p>
 animation. The script will not continue until the character has reached
 his destination.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.AddWaypoint</span>,
-<span class="xref std std-ref">Character.FaceCharacter</span>,
-<span class="xref std std-ref">Character.Walk</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.AddWaypoint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">MoveCharacterToObject</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.Move</span></a>,
-<span class="xref std std-ref">Character.StopMoving</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.StopMoving</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="placeonwalkablearea">
@@ -887,8 +886,8 @@ player.RemoveTint();
 <p>will tint the player character green for a second, then turn it back to
 normal.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.HasExplicitTint</span>,
-<span class="xref std std-ref">Character.Tint</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="isinteractionavailable">
@@ -909,7 +908,7 @@ been run.</p>
 </div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
-<span class="xref std std-ref">Character.RunInteraction</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.RunInteraction</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="runinteraction">
@@ -927,7 +926,7 @@ modes, as defined in your Cursors tab in the editor.</p>
 </div>
 <p>will execute the code defined in the MAN’s “TALK TO CHARACTER” event.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a>,
-<span class="xref std std-ref">Character.IsInteractionAvailable</span>,
+<a class="reference internal" href="#"><span class="doc">Character.IsInteractionAvailable</span></a>,
 <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.RunInteraction</span></a>,
 <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.RunInteraction</span></a></p>
 <hr class="docutils" />
@@ -953,9 +952,9 @@ section.</p>
 <p>will display the message above the character’s EGO head like the LEC
 games, whilst playing the character’s talking animation.</p>
 <p><em>See Also:</em> <a class="reference internal" href="DisplayAt.html"><span class="doc">Display</span></a>,
-<span class="xref std std-ref">Character.SayAt</span>,
-<span class="xref std std-ref">Character.SayBackground</span>,
-<span class="xref std std-ref">Character.Think</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.SayAt</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SayBackground</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Think</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="sayat">
@@ -964,7 +963,7 @@ games, whilst playing the character’s talking animation.</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SayAt(int x, int y, int width, string message)
 </pre></div>
 </div>
-<p>Similar to <span class="xref std std-ref">Say</span>, except that the text is
+<p>Similar to <a class="reference internal" href="#"><span class="doc">Say</span></a>, except that the text is
 displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
 <p>You can use this function to write the character’s speech text anywhere
 you like, and AGS will still play the character’s talking animation and
@@ -976,8 +975,8 @@ so on if appropriate.</p>
 </div>
 <p>will display the message in the top right corner of the screen, whilst
 playing the character’s talking animation.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Say</span>,
-<span class="xref std std-ref">Character.SayBackground</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Say</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SayBackground</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="saybackground">
@@ -1006,7 +1005,7 @@ is used (unless you set the global variable
 </div>
 <p>will display the message above character MAN’s head without pausing the
 game.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Say</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Say</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setasplayer">
@@ -1028,8 +1027,8 @@ be updated to point to the specified character.</p>
 <p>will change the character that the player controls to character MAN and
 also change to the room that MAN is in, if he is not in the current
 room.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.ID</span>,
-<span class="xref std std-ref">Character.ChangeRoom</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.ID</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.ChangeRoom</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setlightlevel">
@@ -1043,7 +1042,7 @@ room.</p>
 effect, but you may still use negative values to produce darkening
 effect.</p>
 <p>To disable character lighting and tinting effects, call
-<span class="xref std std-ref">RemoveTint</span>.</p>
+<a class="reference internal" href="#"><span class="doc">RemoveTint</span></a>.</p>
 <p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the
 character.</p>
 <p><strong>NOTE:</strong> Character’s individual light level OVERRIDES both ambient
@@ -1054,7 +1053,7 @@ light level and local region light level.</p>
 </div>
 <p>This will give character EGO maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.SetLightLevel</span></a>,
 <a class="reference internal" href="Region.html"><span class="doc">Region.LightLevel</span></a></p>
@@ -1109,11 +1108,11 @@ so you must stop him first.</p>
 </div>
 <p>will change the character EGO’s speed to 10.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.AnimationSpeed</span>,
-<span class="xref std std-ref">Character.StopMoving</span>,
-<span class="xref std std-ref">Character.Walk</span>,
-<span class="xref std std-ref">Character.WalkSpeedX</span>,
-<span class="xref std std-ref">Character.WalkSpeedY</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.AnimationSpeed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.StopMoving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.WalkSpeedX</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.WalkSpeedY</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="stopmoving">
@@ -1132,7 +1131,7 @@ the current loop.</p>
 </pre></div>
 </div>
 <p>will stop the character when he reaches the coordinate x=300.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Walk</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Walk</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.StopMoving</span></a></p>
 <hr class="docutils" />
 </div>
@@ -1173,11 +1172,11 @@ section.</p>
 <p>will display the message above EGO’s head and play the character’s
 thinking animation.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.BlinkWhileThinking</span>,
-<span class="xref std std-ref">Character.Say</span>,
-<span class="xref std std-ref">Character.Thinking</span>,
-<span class="xref std std-ref">Character.ThinkingFrame</span>,
-<span class="xref std std-ref">Character.ThinkView</span>,
+<a class="reference internal" href="#"><span class="doc">Character.BlinkWhileThinking</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Say</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.ThinkingFrame</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.ThinkView</span></a>,
 <a class="reference internal" href="Gamevariables.html"><span class="doc">game.speech_bubble_width</span></a></p>
 <hr class="docutils" />
 </div>
@@ -1197,7 +1196,7 @@ not turn it off - rather, it ensures that no tint is applied to the
 character (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient
 tint for this character, call
-<span class="xref std std-ref">RemoveTint</span>.</p>
+<a class="reference internal" href="#"><span class="doc">RemoveTint</span></a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour
 sprites.</p>
 <p>Example:</p>
@@ -1206,8 +1205,8 @@ sprites.</p>
 </div>
 <p>will tint the EGO character green.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.HasExplicitTint</span>,
-<span class="xref std std-ref">Character.RemoveTint</span>,
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.RemoveTint</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a></p>
 <hr class="docutils" />
 </div>
@@ -1218,16 +1217,16 @@ sprites.</p>
 </div>
 <p>Gets the <em>Blue</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p><strong>NOTE:</strong> If the
-<span class="xref std std-ref">Character.HasExplicitTint</span>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.HasExplicitTint</span>,
-<span class="xref std std-ref">Character.TintGreen</span>,
-<span class="xref std std-ref">Character.TintRed</span>,
-<span class="xref std std-ref">Character.TintLuminance</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintGreen</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintRed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintLuminance</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintgreen">
@@ -1237,16 +1236,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Green</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p><strong>NOTE:</strong> If the
-<span class="xref std std-ref">Character.HasExplicitTint</span>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.TintBlue</span>,
-<span class="xref std std-ref">Character.TintRed</span>,
-<span class="xref std std-ref">Character.TintSaturation</span>,
-<span class="xref std std-ref">Character.TintLuminance</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintBlue</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintRed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintSaturation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintLuminance</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintred">
@@ -1256,16 +1255,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>Red</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p><strong>NOTE:</strong> If the
-<span class="xref std std-ref">Character.HasExplicitTint</span>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.TintBlue</span>,
-<span class="xref std std-ref">Character.TintGreen</span>,
-<span class="xref std std-ref">Character.TintSaturation</span>,
-<span class="xref std std-ref">Character.TintLuminance</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintBlue</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintGreen</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintSaturation</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintLuminance</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintsaturation">
@@ -1275,16 +1274,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>saturation</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p><strong>NOTE:</strong> If the
-<span class="xref std std-ref">Character.HasExplicitTint</span>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.TintBlue</span>,
-<span class="xref std std-ref">Character.TintGreen</span>,
-<span class="xref std std-ref">Character.TintRed</span>,
-<span class="xref std std-ref">Character.TintLuminance</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintBlue</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintGreen</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintRed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintLuminance</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="tintluminance">
@@ -1294,16 +1293,16 @@ property is false, then this value is meaningless.</p>
 </div>
 <p>Gets the <em>luminance</em> setting for the character’s current tint.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p><strong>NOTE:</strong> If the
-<span class="xref std std-ref">Character.HasExplicitTint</span>
+<a class="reference internal" href="#"><span class="doc">Character.HasExplicitTint</span></a>
 property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.TintBlue</span>,
-<span class="xref std std-ref">Character.TintGreen</span>,
-<span class="xref std std-ref">Character.TintRed</span>,
-<span class="xref std std-ref">Character.TintSaturation</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintBlue</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintGreen</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintRed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.TintSaturation</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="unlockview">
@@ -1329,7 +1328,7 @@ cEgo.UnlockView();
 character to its normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported
 only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.LockView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.LockView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="walk">
@@ -1354,23 +1353,23 @@ areas.</p>
 directly from its current location to (X,Y), ignoring the room walkable
 areas.</p>
 <p>If you don’t want the character’s walking animation to play, you can use
-the <span class="xref std std-ref">Move</span> command instead.</p>
+the <a class="reference internal" href="#"><span class="doc">Move</span></a> command instead.</p>
 <p><strong>NOTE:</strong> this function only works with characters which are on the
 current screen.</p>
 <p><strong>NOTE:</strong> if you need to find out when the character has reached its
-destination, use the <span class="xref std std-ref">Moving</span> property.</p>
+destination, use the <a class="reference internal" href="#"><span class="doc">Moving</span></a> property.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.Walk(155, 122, eBlock);
 </pre></div>
 </div>
 <p>will make the character walk to 155,122. The script will not continue
 until the character has reached his destination.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.AddWaypoint</span>,
-<span class="xref std std-ref">Character.FaceCharacter</span>,
-<span class="xref std std-ref">Character.Move</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.AddWaypoint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.FaceCharacter</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">MoveCharacterToObject</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.Move</span></a>,
-<span class="xref std std-ref">Character.StopMoving</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.StopMoving</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="walkstraight">
@@ -1395,7 +1394,7 @@ not resume until the character finishes moving.</p>
 </div>
 <p>will move the character EGO in a straight line towards co ordinates
 166,78 until he hits a non walkable area.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="activeinventory">
@@ -1428,7 +1427,7 @@ that the player has the inventory item)</p>
 <p>Returns 1 if the character is currently animating.<span class="raw-html-m2r"><br></span>
 Returns 0 if the character has finished its animation.</p>
 <p>This property is read-only. To change character animation, use the
-<span class="xref std std-ref">Animate</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Animate</span></a> command.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.Animate(5, 0);
 while (cEgo.Animating) Wait(1);
@@ -1437,10 +1436,10 @@ while (cEgo.Animating) Wait(1);
 <p>will animate EGO and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so
 you wouldn’t need to do this.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animate</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Speaking</span>,
-<span class="xref std std-ref">Character.Thinking</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Speaking</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="animationspeed">
@@ -1455,8 +1454,8 @@ you wouldn’t need to do this.</p>
 </pre></div>
 </div>
 <p>will change the player character’s animation speed to 4.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.SetWalkSpeed</span>,
-<span class="xref std std-ref">Character.SpeechAnimationDelay</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.SetWalkSpeed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechAnimationDelay</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="baseline">
@@ -1492,7 +1491,7 @@ the game waits between playing the blinking animation. This is specified
 in game loops - an interval of 80 would play the blinking animation
 about every 2 seconds.</p>
 <p>This property has no effect if no
-<span class="xref std std-ref">BlinkView</span> has been set.</p>
+<a class="reference internal" href="#"><span class="doc">BlinkView</span></a> has been set.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.BlinkView = 10;
 cEgo.BlinkInterval = 160;
@@ -1500,8 +1499,8 @@ cEgo.BlinkInterval = 160;
 </div>
 <p>will change the character EGO’s blink view to view 10, and play the
 animation every 4 seconds.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.BlinkView</span>,
-<span class="xref std std-ref">Character.SpeechView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.BlinkView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="blinkview">
@@ -1512,7 +1511,7 @@ animation every 4 seconds.</p>
 </div>
 <p>Gets/sets the character’s blinking view. To stop the character from
 blinking, set this to -1.</p>
-<p>The <span class="xref std std-ref">BlinkInterval</span> property sets how
+<p>The <a class="reference internal" href="#"><span class="doc">BlinkInterval</span></a> property sets how
 often the blinking animation is played.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.BlinkView = 10;
@@ -1522,8 +1521,8 @@ cEgo.BlinkInterval = 160;
 <p>will change the character EGO’s blink view to view 10, and play the
 animation every 4 seconds.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.BlinkInterval</span>,
-<span class="xref std std-ref">Character.SpeechView</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.BlinkInterval</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="blinkwhilethinking">
@@ -1540,8 +1539,8 @@ from blinking while Thinking by setting this to false.</p>
 </pre></div>
 </div>
 <p>will stop EGO from blinking while his thinking animation is playing.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.BlinkView</span>,
-<span class="xref std std-ref">Character.Think</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.BlinkView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Think</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="blockingheight">
@@ -1558,15 +1557,15 @@ calculated to be the character’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the character
 effectively removes by standing on it.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<span class="xref std std-ref">Solid</span> property is set to <em>true</em>.</p>
+<a class="reference internal" href="#"><span class="doc">Solid</span></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.BlockingHeight = 20;
 </pre></div>
 </div>
 <p>will make EGO block 20 pixels high (10 above and 10 below his baseline)</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.BlockingWidth</span>,
-<span class="xref std std-ref">Character.Solid</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.BlockingWidth</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Solid</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="blockingwidth">
@@ -1583,7 +1582,7 @@ calculated to be the character’s width, and 5 pixels high.</p>
 pixels, which is the size of walkable area that the character
 effectively removes by standing on it.</p>
 <p><strong>NOTE:</strong> This property has no effect unless the
-<span class="xref std std-ref">Solid</span> property is set to <em>true</em>.</p>
+<a class="reference internal" href="#"><span class="doc">Solid</span></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.BlockingWidth = 50;
 </pre></div>
@@ -1591,8 +1590,8 @@ effectively removes by standing on it.</p>
 <p>will make EGO block 50 pixels wide (25 pixels to the left of his X
 co-ordinate, and 25 to the right)</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.BlockingHeight</span>,
-<span class="xref std std-ref">Character.Solid</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.BlockingHeight</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Solid</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="clickable">
@@ -1614,9 +1613,9 @@ whatever is behind them (as with the old Lucasarts games).</p>
 </div>
 <p>will make the game ignore clicks on the character MAN.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Object.html"><span class="doc">Object.Clickable</span></a>,
-<span class="xref std std-ref">Character.Move</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="destinationx">
@@ -1627,10 +1626,10 @@ whatever is behind them (as with the old Lucasarts games).</p>
 <p>Gets the X coordinate of the character’s final moving destination. If
 character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.DestinationY</span>,
-<span class="xref std std-ref">Character.Move</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.DestinationY</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="destinationy">
@@ -1641,10 +1640,10 @@ character is not walking or moving it is equal to its current position.</p>
 <p>Gets the Y coordinate of the character’s final moving destination. If
 character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.DestinationX</span>,
-<span class="xref std std-ref">Character.Move</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.DestinationX</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="diagonalloops">
@@ -1677,9 +1676,9 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>displays EGO’s current frame number within his view.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.Animate</span>,
-<span class="xref std std-ref">Character.Loop</span>,
-<span class="xref std std-ref">Character.View</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Loop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.View</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="hasexplicittint">
@@ -1688,7 +1687,7 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>Returns <em>true</em> if the character has a tint set explicitly with the
-<span class="xref std std-ref">Character.Tint</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">Character.Tint</span></a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit tint, but it may still
 be tinted by <a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a> or a region
 tint.</p>
@@ -1701,8 +1700,8 @@ tint.</p>
 </div>
 <p>removes the player’s tint if it currently has one.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.Tint</span>,
-<span class="xref std std-ref">Character.RemoveTint</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.Tint</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.RemoveTint</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="index-65">
@@ -1728,13 +1727,13 @@ uses the character’s number rather than name.</p>
 <p>Gets the character’s current idle view. If the character doesn’t have
 one, returns -1.</p>
 <p>This property is read-only; to change the view, use the
-<span class="xref std std-ref">SetIdleView</span> function.</p>
+<a class="reference internal" href="#"><span class="doc">SetIdleView</span></a> function.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;EGO&#39;s idle view is currently view %d.&quot;, cEgo.IdleView);
 </pre></div>
 </div>
 <p>will display EGO’s current idle view number.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">SetIdleView</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">SetIdleView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="ignorelighting">
@@ -1775,7 +1774,7 @@ using the Direct3D driver.</p>
 </pre></div>
 </div>
 <p>will make the character EGO ignore walk-behinds.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Baseline</span>,
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Baseline</span></a>,
 <a class="reference internal" href="Object.html"><span class="doc">Object.IgnoreWalkbehinds</span></a></p>
 <hr class="docutils" />
 </div>
@@ -1796,7 +1795,7 @@ an easier method.</p>
 updated. In this case, you must call UpdateInventory to see any new or
 removed items.</p>
 <p>If you just want to quickly check whether the character has a particular
-item or not, use the <span class="xref std std-ref">HasInventory</span>
+item or not, use the <a class="reference internal" href="#"><span class="doc">HasInventory</span></a>
 function instead.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span>(<span class="s">&quot;The player has $%d.&quot;</span>, <span class="n">player</span>.<span class="n">InventoryQuantity</span>[<span class="n">iCash</span>.<span class="n">ID</span>]);
@@ -1804,9 +1803,9 @@ function instead.</p>
 </div>
 <p>will display how many inventory items of type iCash the player has.</p>
 <p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">UpdateInventory</span></a>,
-<span class="xref std std-ref">Character.AddInventory</span>,
-<span class="xref std std-ref">Character.HasInventory</span>,
-<span class="xref std std-ref">Character.LoseInventory</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.AddInventory</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.HasInventory</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LoseInventory</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="loop">
@@ -1822,9 +1821,9 @@ this directly, but will use the Animate command to play an animation.</p>
 </pre></div>
 </div>
 <p>displays EGO’s current loop number within his view.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.Animate</span>,
-<span class="xref std std-ref">Character.Frame</span>,
-<span class="xref std std-ref">Character.View</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.Animate</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Frame</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.View</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="manualscaling">
@@ -1839,7 +1838,7 @@ walkable area that he is walking on, or whether it is set manually by
 the script. This is equivalent to the “Ignore room area scaling”
 checkbox in the editor.</p>
 <p>If this is set to <em>true</em>, then the character’s scaling level is set
-manually by the <span class="xref std std-ref">Scaling</span> property (by
+manually by the <a class="reference internal" href="#"><span class="doc">Scaling</span></a> property (by
 default this is <code class="docutils literal notranslate"><span class="pre">100%</span></code>). If it is set to <em>false</em>, then the character
 will be stretched or shrunk automatically as appropriate on walkable
 areas.</p>
@@ -1850,7 +1849,7 @@ cEgo.Scaling = 50;
 </div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to
 <code class="docutils literal notranslate"><span class="pre">50%</span></code> zoom level.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.Scaling</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.Scaling</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="movementlinkedtoanimation">
@@ -1876,9 +1875,9 @@ player.MovementLinkedToAnimation = true;
 <p>will turn off movement-linked animation for the player character, walk
 him to (50,100), then turn it back on again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Move</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="moving">
@@ -1889,8 +1888,8 @@ him to (50,100), then turn it back on again.</p>
 </div>
 <p>Returns <em>true</em> if the character is currently moving, or <em>false</em> if not.</p>
 <p>This property is read-only; to change the character’s movement, use the
-<a class="reference internal" href="#"><span class="doc">Walk</span></a>, <span class="xref std std-ref">Move</span> and
-<span class="xref std std-ref">StopMoving</span> commands.</p>
+<a class="reference internal" href="#"><span class="doc">Walk</span></a>, <a class="reference internal" href="#"><span class="doc">Move</span></a> and
+<a class="reference internal" href="#"><span class="doc">StopMoving</span></a> commands.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cEgo.Walk(125, 40);
 while (cEgo.Moving) Wait(1);
@@ -1898,12 +1897,12 @@ while (cEgo.Moving) Wait(1);
 </div>
 <p>will move EGO to 125,40 and return control to the player when he gets
 there.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animating</span>,
-<span class="xref std std-ref">Character.Move</span>,
-<span class="xref std std-ref">Character.Speaking</span>,
-<span class="xref std std-ref">Character.StopMoving</span>,
-<span class="xref std std-ref">Character.Thinking</span>,
-<span class="xref std std-ref">Character.Walk</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animating</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Move</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Speaking</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.StopMoving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Walk</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="name">
@@ -1933,7 +1932,7 @@ the name it will be truncated to that length.</p>
 walking view, that is used when his view is not locked to something
 else.</p>
 <p>This property is read-only; to change it, use the
-<span class="xref std std-ref">ChangeView</span> command.</p>
+<a class="reference internal" href="#"><span class="doc">ChangeView</span></a> command.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (cEgo.View == cEgo.NormalView) {
   Display(&quot;EGO is not animating, not talking and not idle.&quot;);
@@ -1942,8 +1941,8 @@ else.</p>
 </div>
 <p>will display a message if EGO is currently displayed using his normal
 view.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.ChangeView</span>,
-<span class="xref std std-ref">Character.View</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.ChangeView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.View</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="previousroom">
@@ -1957,7 +1956,7 @@ character is still in the room that they started in, this will be -1.
 Otherwise, it will be the room number of the room that they were last
 in.</p>
 <p>This is a read-only property. It is set automatically by
-<span class="xref std std-ref">ChangeRoom</span>.</p>
+<a class="reference internal" href="#"><span class="doc">ChangeRoom</span></a>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;EGO&#39;s previous room was %d.&quot;, cEgo.PreviousRoom);
 </pre></div>
@@ -1973,7 +1972,7 @@ in.</p>
 </div>
 <p>Gets the room number that the character is currently in.</p>
 <p>This is a read-only property. It is set by
-<span class="xref std std-ref">ChangeRoom</span>.</p>
+<a class="reference internal" href="#"><span class="doc">ChangeRoom</span></a>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;EGO is in room %d.&quot;, cEgo.Room);
 </pre></div>
@@ -1999,7 +1998,7 @@ at his normal speed.</p>
 </pre></div>
 </div>
 <p>will mean that EGO’s speed is adjusted in line with his scaling</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.ScaleVolume</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.ScaleVolume</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scalevolume">
@@ -2023,7 +2022,7 @@ appropriate in scaled walkable areas.</p>
 <p>will mean that EGO’s footstep sounds are adjusted in line with his
 scaling</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.ScaleMoveSpeed</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.ScaleMoveSpeed</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scaling">
@@ -2036,7 +2035,7 @@ scaling</p>
 zoom level, which will be between 5 and 200 (the default being 100 if
 they are not currently scaled).</p>
 <p>You can only set the value of this property if
-<span class="xref std std-ref">ManualScaling</span> is enabled for the
+<a class="reference internal" href="#"><span class="doc">ManualScaling</span></a> is enabled for the
 character; otherwise, the scaling is determined automatically based on
 the walkable area that the character is on.</p>
 <p>Example:</p>
@@ -2046,7 +2045,7 @@ cEgo.Scaling = 50;
 </div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to
 <code class="docutils literal notranslate"><span class="pre">50%</span></code> zoom level.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.ManualScaling</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.ManualScaling</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="solid">
@@ -2067,8 +2066,8 @@ him.</p>
 </div>
 <p>will mean that EGO blocks the path other characters.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.BlockingHeight</span>,
-<span class="xref std std-ref">Character.BlockingWidth</span></p>
+<a class="reference internal" href="#"><span class="doc">Character.BlockingHeight</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.BlockingWidth</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speaking">
@@ -2082,7 +2081,8 @@ talking character; that is, it will not return true for any characters
 talking with the SayBackground command.</p>
 <p>Since this property will only be true while the character is speaking,
 and speaking is a blocking command, this property will probably only be
-useful to access from the (<a href="#id1"><span class="problematic" id="id2">late_</span></a>)repeatedly_execute_always handler.</p>
+useful to access from the repeatedly_execute_always or
+late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if ((cEgo.Speaking) &amp;&amp; (!cEgo.Animating)) {
   cEgo.Animate(3, 5, eRepeat, eNoBlock);
@@ -2091,11 +2091,11 @@ useful to access from the (<a href="#id1"><span class="problematic" id="id2">lat
 </div>
 <p>will animate the character using loop 3 while they are talking (only
 useful with Sierra-style speech).</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animating</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Say</span>,
-<span class="xref std std-ref">Character.SpeakingFrame</span>,
-<span class="xref std std-ref">Character.Thinking</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animating</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Say</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeakingFrame</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speakingframe">
@@ -2109,10 +2109,11 @@ synchronize events with the progress of the close-up face talking
 animation.</p>
 <p>This property is read-only. It is only accessible while the character is
 speaking; if you attempt to call it when
-<span class="xref std std-ref">Character.Speaking</span> is <em>false</em> then it
+<a class="reference internal" href="#"><span class="doc">Character.Speaking</span></a> is <em>false</em> then it
 will raise an error.</p>
 <p>Since speaking is a blocking command, this property will probably only
-be useful access from the (<a href="#id3"><span class="problematic" id="id4">late_</span></a>)repeatedly_execute_always handler.</p>
+be useful access from the repeatedly_execute_always or
+late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (cEgo.Speaking) {
   if (cEgo.SpeakingFrame == 0) {
@@ -2123,8 +2124,8 @@ be useful access from the (<a href="#id3"><span class="problematic" id="id4">lat
 </div>
 <p>will move cMan to the right every time the talking animation loops back
 to Frame 0.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Say</span>,
-<span class="xref std std-ref">Character.Speaking</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Say</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Speaking</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speechanimationdelay">
@@ -2146,8 +2147,8 @@ the Speech.GlobalSpeechAnimationDelay property value is used instead.</p>
 <p>will change the player character’s speech animation speed to 4.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See Also:</em>
-<span class="xref std std-ref">Character.AnimationSpeed</span>,
-<span class="xref std std-ref">Character.SpeechView</span>,
+<a class="reference internal" href="#"><span class="doc">Character.AnimationSpeed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechView</span></a>,
 <a class="reference internal" href="Game.html"><span class="doc">Game.TextReadingSpeed</span></a>,
 <a class="reference internal" href="Speech.html"><span class="doc">Speech.GlobalSpeechAnimationDelay</span></a>,
 <a class="reference internal" href="Speech.html"><span class="doc">Speech.UseGlobalSpeechAnimationDelay</span></a>,</p>
@@ -2169,7 +2170,7 @@ from the Palette Editor.</p>
 </pre></div>
 </div>
 <p>will change the character’s EGO talking color to yellow.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.SpeechView</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.SpeechView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="speechview">
@@ -2188,10 +2189,10 @@ conversations.</p>
 </pre></div>
 </div>
 <p>will change the character EGO’s speech view to view 10.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.ChangeView</span>,
-<span class="xref std std-ref">Character.BlinkView</span>,
-<span class="xref std std-ref">Character.SpeechAnimationDelay</span>,
-<span class="xref std std-ref">Character.SpeechColor</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.ChangeView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.BlinkView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechAnimationDelay</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.SpeechColor</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="thinking">
@@ -2204,7 +2205,8 @@ conversations.</p>
 thinking character.</p>
 <p>Since this property will only be true while the character is thinking,
 and thinking is a blocking command, this property will probably only be
-useful to access from the (<a href="#id5"><span class="problematic" id="id6">late_</span></a>)repeatedly_execute_always handler.</p>
+useful to access from the repeatedly_execute_always or
+late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute_always</span><span class="p">()</span>
 <span class="p">{</span>
@@ -2217,11 +2219,11 @@ useful to access from the (<a href="#id5"><span class="problematic" id="id6">lat
 </div>
 <p>this will keep character semi-transparent while he is thinking.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Animating</span>,
-<span class="xref std std-ref">Character.Moving</span>,
-<span class="xref std std-ref">Character.Speaking</span>
-<span class="xref std std-ref">Character.Think</span>,
-<span class="xref std std-ref">Character.ThinkingFrame</span>,</p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Animating</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Moving</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Speaking</span></a>
+<a class="reference internal" href="#"><span class="doc">Character.Think</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.ThinkingFrame</span></a>,</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="thinkingframe">
@@ -2235,10 +2237,11 @@ synchronize events with the progress of the close-up face talking
 animation.</p>
 <p>This property is read-only. It is only accessible while the character is
 thinking; if you attempt to call it when
-<span class="xref std std-ref">Character.Thinking</span> is <em>false</em> then it
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a> is <em>false</em> then it
 will raise an error.</p>
 <p>Since thinking is a blocking command, this property will probably only
-be useful access from the (<a href="#id7"><span class="problematic" id="id8">late_</span></a>)repeatedly_execute_always handler.</p>
+be useful access from the repeatedly_execute_always or
+late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (cEgo.Thinking) {
   if (cEgo.ThinkingFrame == 0) {
@@ -2250,8 +2253,8 @@ be useful access from the (<a href="#id7"><span class="problematic" id="id8">lat
 <p>will move cMan to the right every time the thinking animation loops back
 to Frame 0.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Think</span>,
-<span class="xref std std-ref">Character.Thinking</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Think</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Thinking</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="thinkview">
@@ -2267,7 +2270,7 @@ character when a thought is being displayed.</p>
 </pre></div>
 </div>
 <p>will change the character EGO’s thinking view to 14.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.Think</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.Think</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="transparency">
@@ -2338,11 +2341,11 @@ LockView functions.</p>
 </pre></div>
 </div>
 <p>will display EGO’s current view number.</p>
-<p><em>SeeAlso:</em> <span class="xref std std-ref">Character.ChangeView</span>,
-<span class="xref std std-ref">Character.Frame</span>,
-<span class="xref std std-ref">Character.LockView</span>,
-<span class="xref std std-ref">Character.Loop</span>,
-<span class="xref std std-ref">Character.NormalView</span></p>
+<p><em>SeeAlso:</em> <a class="reference internal" href="#"><span class="doc">Character.ChangeView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Frame</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.LockView</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.Loop</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.NormalView</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="walkspeedx">
@@ -2359,8 +2362,8 @@ SetWalkSpeed function.</p>
 </pre></div>
 </div>
 <p>will display the player’s X speed.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.SetWalkSpeed</span>,
-<span class="xref std std-ref">Character.WalkSpeedY</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.SetWalkSpeed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.WalkSpeedY</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="walkspeedy">
@@ -2377,8 +2380,8 @@ SetWalkSpeed function.</p>
 </pre></div>
 </div>
 <p>will display the player’s Y speed.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.SetWalkSpeed</span>,
-<span class="xref std std-ref">Character.WalkSpeedX</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.SetWalkSpeed</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.WalkSpeedX</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="x">
@@ -2397,8 +2400,8 @@ co-ordinates.</p>
 </pre></div>
 </div>
 <p>displays the player character’s current coordinates.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.y</span>,
-<span class="xref std std-ref">Character.z</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.y</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.z</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="y">
@@ -2417,8 +2420,8 @@ co-ordinates.</p>
 </pre></div>
 </div>
 <p>displays the player character’s current coordinates.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.x</span>,
-<span class="xref std std-ref">Character.z</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.x</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.z</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="z">
@@ -2439,8 +2442,8 @@ make the character float.</p>
 </pre></div>
 </div>
 <p>gradually levitates the character up to 20 pixels.</p>
-<p><em>See Also:</em> <span class="xref std std-ref">Character.x</span>,
-<span class="xref std std-ref">Character.y</span></p>
+<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Character.x</span></a>,
+<a class="reference internal" href="#"><span class="doc">Character.y</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="setcharacterproperty">
@@ -2594,7 +2597,7 @@ properties:</strong></p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

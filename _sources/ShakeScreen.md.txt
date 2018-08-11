@@ -3,9 +3,6 @@
 
 ## Screen functions
 
-
----
-
 .. index::
    pair: Screen functions; FadeIn
 
@@ -29,7 +26,7 @@ will fade the screen to black, wait 1 sec (40 game cycles) and then fade
 in again.
 
 *See Also:* [CyclePalette](CyclePalette#cyclepalette),
-[FadeOut](#fadeout), [SetFadeColor](#setfadecolor)
+[FadeOut](ShakeScreen#fadeout), [SetFadeColor](ShakeScreen#setfadecolor)
 
 ---
 
@@ -55,7 +52,7 @@ will fade the screen to black, wait 1 sec (40 game cycles) and then fade
 in again.
 
 *See Also:* [CyclePalette](CyclePalette#cyclepalette),
-[FadeIn](#fadein), [SetFadeColor](#setfadecolor)
+[FadeIn](ShakeScreen#fadein), [SetFadeColor](ShakeScreen#setfadecolor)
 
 ---
 
@@ -111,8 +108,8 @@ Example:
 will mean that next time the screen fades out, it fades to red instead
 of black.
 
-SeeAlso: [FadeIn](#fadein), [FadeOut](#fadeout),
-[SetScreenTransition](#setscreentransition)
+SeeAlso: [FadeIn](ShakeScreen#fadein), [FadeOut](ShakeScreen#fadeout),
+[SetScreenTransition](ShakeScreen#setscreentransition)
 
 ---
 
@@ -128,7 +125,7 @@ next room change. After that, it will revert back to the normal
 transition type specified in the editor or with SetScreenTransition.
 
 For the possible values for TransitionStyle, see
-[SetScreenTransition](#setscreentransition).
+[SetScreenTransition](ShakeScreen#setscreentransition).
 
 Example:
 
@@ -138,7 +135,7 @@ Example:
 will go to room 10 with a box-out effect, but then return to the normal
 transition type from then on.
 
-SeeAlso: [SetScreenTransition](#setscreentransition)
+SeeAlso: [SetScreenTransition](ShakeScreen#setscreentransition)
 
 ---
 
@@ -167,7 +164,7 @@ Example:
 
 will change the room transitions to Fade.
 
-SeeAlso: [SetNextScreenTransition](#setnextscreentransition)
+SeeAlso: [SetNextScreenTransition](ShakeScreen#setnextscreentransition)
 
 ---
 
@@ -187,7 +184,7 @@ Example:
 
 will shake the screen a little.
 
-*See Also:* [ShakeScreenBackground](#shakescreenbackground)
+*See Also:* [ShakeScreenBackground](ShakeScreen#shakescreenbackground)
 
 ---
 
@@ -220,7 +217,7 @@ Example:
 
 will shake the screen a little for 2 seconds.
 
-*See Also:* [ShakeScreen](#shakescreen)
+*See Also:* [ShakeScreen](ShakeScreen#shakescreen)
 
 ---
 

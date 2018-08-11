@@ -19,20 +19,17 @@ of what's here should still apply).
 Start up the AGS Editor by double-clicking the *AGSEditor.exe* file, and
 you should be greeted by the following screen:
 
-![](images/intro1.jpg)<br>
-*The "Welcome to AGS" dialog*
+![The "Welcome to AGS" dialog](images/intro1.jpg)
 
 Make sure that "Start a new game" is selected, and click Continue.
 You'll be presented with the Create New Game wizard:
 
-![](images/intro1a.jpg)<br>
-*Create New Game dialog*
+![Create New Game dialog](images/intro1a.jpg)
 
 So, without further ado, click Next, and you'll see the Select Template
 screen:
 
-![](images/intro1b.jpg)<br>
-*Select Template dialog*
+![Select Template dialog](images/intro1b.jpg)
 
 Here, you need to choose which template you're going to use for your new
 game. AGS comes with three, and you can find others for download on the
@@ -45,8 +42,7 @@ with AGS - it comes with no default graphics at all.
 
 So, select "Default Game" and click Next.
 
-![](images/intro1c.jpg)<br>
-*Game Name dialog*
+![Game Name dialog](images/intro1c.jpg)
 
 Finally, you need to decide on what to call your game. In the first box
 you can type the full name for your game. This is what will be displayed
@@ -66,8 +62,7 @@ that.
 Click the *Finish* button, and after a short wait you should be
 presented with the main AGS Editor window:
 
-![](images/intro2.jpg)<br>
-*The main editor window*
+![The main editor window](images/intro2.jpg)
 
 So, there's your new game, ready and waiting for you to create it!
 
@@ -81,8 +76,7 @@ tree** in the top-right corner, which allows you to access all the
 various parts of your game. Let's start by scrolling to the top of the
 tree, and double-clicking the "General Settings" node:
 
-![](images/intro3.jpg)<br>
-*The General Settings pane*
+![The General Settings pane](images/intro3.jpg)
 
 This screenshot demonstrates three of the main editor features. The
 **project tree**, as we've already discussed, gives you access to the
@@ -153,8 +147,7 @@ later, you would have to re-import all the graphics).*
 Double-click the "Colours" node in the project tree. You should see
 this:
 
-![](images/intro4.jpg)<br>
-*The Palette Editor*
+![The Palette Editor](images/intro4.jpg)
 
 The palette display has a grid with the 256 colour slots on it. The
 first 40 colours are **game-wide** colours, which means that those
@@ -174,8 +167,7 @@ So, let's swap some background colours for some game-wide ones. Select
 the first "X" slot, then hold shift and click on the last slot in the
 row marked "80". The screen should look as follows:
 
-![](images/intro5.jpg)<br>
-*We have selected colours 42-95*
+![We have selected colours 42-95](images/intro5.jpg)
 
 We can now see the Property Grid in action. Change the "ColourType"
 setting from "Background" to "Gamewide", and you'll see the selected
@@ -191,8 +183,10 @@ option.
 What colours you use is up to you, and depends on what sort of colour
 scheme you're going for with your graphics.
 
-![](images/icon_info.gif)<br>
-You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.
+![](images/icon_info.gif)
+
+You should set up the palette as well as you can now, because changing
+it later may require you to re-import some graphics.
 
 .. index::
    pair: Getting Started with AGS; Creating a 16-bit or 32-bit colour game

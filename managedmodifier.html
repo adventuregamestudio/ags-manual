@@ -36,7 +36,6 @@
             
   <div class="section" id="script-language-keywords">
 <span id="index-0"></span><h1>Script language keywords<a class="headerlink" href="#script-language-keywords" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
 <div class="section" id="arrays">
 <span id="index-1"></span><h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p><em>data_type</em> <em>name</em> <code class="docutils literal notranslate"><span class="pre">[</span></code> <em>size</em> <code class="docutils literal notranslate"><span class="pre">];</span></code></p>
@@ -323,7 +322,7 @@ compiling:</p>
 <span class="cp">#endif</span>
 </pre></div>
 </div>
-<p>The other constants (AGS<em>MAX</em><a href="#id1"><span class="problematic" id="id2">*</span></a>) are useful if you are writing some
+<p>The other constants <code class="docutils literal notranslate"><span class="pre">AGS_MAX_*</span></code> are useful if you are writing some
 script code that you want to be portable to different versions of AGS,
 and to pick up the limits from the user’s AGS version. For example, if
 you wanted to store some extra information on all the inventory items,
@@ -469,7 +468,7 @@ of the loop.</p>
 <p><strong>do</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><span class="raw-html-m2r"><br></span>
 <em>statements</em><span class="raw-html-m2r"><br></span>
 <code class="docutils literal notranslate"><span class="pre">}</span></code> <strong>while (</strong> <em>expression</em> <strong>);</strong></p>
-<p>Similarily to <span class="xref std std-ref">while</span> runs <em>statements</em>
+<p>Similarily to <a class="reference internal" href="#"><span class="doc">while</span></a> runs <em>statements</em>
 continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it
 checks the expression AFTER executing statements, not before. This also
 means that the statements will be executed at least once.</p>
@@ -505,7 +504,7 @@ by changing some variable value. Every part of the command header -
 <em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may
 be <strong>for</strong> command without initialization, or without iteration, or even
 without conditional expression (in which case loop should be ended with
-either <span class="xref std std-ref">break</span> or <span class="xref std std-ref">return</span>.</p>
+either <a class="reference internal" href="#"><span class="doc">break</span></a> or <a class="reference internal" href="#"><span class="doc">return</span></a>.</p>
 <p>For example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>for (int i = 0; i &lt; Game.CharacterCount; i++)
 {
@@ -529,7 +528,7 @@ coordinate x = 100.</p>
 <span id="index-11"></span><h2>break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
 <p><strong>break</strong>;</p>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> statement ends the execution of most inner loop or
-<span class="xref std std-ref">switch</span> immediately. After this script
+<a class="reference internal" href="#"><span class="doc">switch</span></a> immediately. After this script
 continues running from the next line after loop or switch.</p>
 <p>For example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>while (cEgo.Moving) {
@@ -550,7 +549,7 @@ immediately.</p>
 <p><strong>continue</strong>;</p>
 <p><code class="docutils literal notranslate"><span class="pre">continue</span></code> statement makes the loop skip remaining statements in current
 iteration and proceed to the next end-condition check, followed by the
-loop restart, if condition is still met, or loop end. If in <span class="xref std std-ref">for</span>
+loop restart, if condition is still met, or loop end. If in <a class="reference internal" href="#"><span class="doc">for</span></a>
 kind of loop, the <em>iteration</em> statement is executed right before that.</p>
 <p>For example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>for (int i = 0; i &lt; 100; i++)
@@ -589,7 +588,7 @@ time, or you could define a custom function:</p>
 </div>
 <p>to add inventory item <em>iKey</em> and play the sound.</p>
 <p>Generally, you place your functions in your global script. You then need
-to add an <span class="xref std std-ref">import</span> line to your script header to allow the
+to add an <a class="reference internal" href="#"><span class="doc">import</span></a> line to your script header to allow the
 function to be called from room scripts.</p>
 <p><strong>Optional parameters</strong></p>
 <p>You can make <em>int</em> parameters optional if there is a default value that
@@ -667,7 +666,7 @@ sword.name = &quot;Fine sword&quot;;
 </pre></div>
 </div>
 <p>Much neater and better organised. You can also combine structs with
-<span class="xref std std-ref">arrays</span>:</p>
+<a class="reference internal" href="#"><span class="doc">arrays</span></a>:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// at top of script
 Weapon weapons[10];
 // inside script function
@@ -717,7 +716,7 @@ do:</p>
 <p>However, this does <strong>not</strong> create an object itself yet, and <code class="docutils literal notranslate"><span class="pre">my_apple</span></code>
 is assigned <strong>null</strong> value now. If you try to access struct members
 using <code class="docutils literal notranslate"><span class="pre">my_apple</span></code> now, you will get errors. To create an actual object
-you need to use a <span class="xref std std-ref">new</span> keyword:</p>
+you need to use a <a class="reference internal" href="#"><span class="doc">new</span></a> keyword:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>my_apple = new Apple;
 </pre></div>
 </div>
@@ -764,7 +763,7 @@ last pointer gets destroyed itself (for example, if it was local
 function variable, and function ended), or is assigned another object,
 or simply assigned <code class="docutils literal notranslate"><span class="pre">null</span></code>, then the dynamic object is removed from your
 game forever.</p>
-<p>See Also: <span class="xref std std-ref">new</span>, <a class="reference internal" href="Pointers.html"><span class="doc">Pointers in AGS</span></a></p>
+<p>See Also: <a class="reference internal" href="#"><span class="doc">new</span></a>, <a class="reference internal" href="Pointers.html"><span class="doc">Pointers in AGS</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="new">
@@ -790,7 +789,7 @@ to <em>pointer_variable</em>.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>See Also: <span class="xref std std-ref">managed</span>, <a class="reference internal" href="Pointers.html"><span class="doc">Pointers in AGS</span></a></p>
+<p>See Also: <a class="reference internal" href="#"><span class="doc">managed</span></a>, <a class="reference internal" href="Pointers.html"><span class="doc">Pointers in AGS</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="enum">
@@ -849,7 +848,7 @@ they’re very handy.</p>
 <span id="index-19"></span><h2>this<a class="headerlink" href="#this" title="Permalink to this headline">¶</a></h2>
 <p>There are two uses for the <code class="docutils literal notranslate"><span class="pre">this</span></code> keyword.</p>
 <p><strong>1. Accessing members of the current struct</strong></p>
-<p>When you are creating custom <span class="xref std std-ref">structs</span>, you use the “this” keyword
+<p>When you are creating custom <a class="reference internal" href="#"><span class="doc">structs</span></a>, you use the “this” keyword
 inside member functions to refer to the current struct. For example:</p>
 <p>Suppose you had this in your script header:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">MyStruct</span> <span class="p">{</span>
@@ -892,7 +891,7 @@ to provide your room scripts with access to parts of your global script.</p>
 call them. You normally place import statements into the script header
 so that all rooms can benefit from them.</p>
 <p>In order to import the variable, it must have been exported from the
-global script with the <span class="xref std std-ref">export keyword</span>.</p>
+global script with the <a class="reference internal" href="#"><span class="doc">export keyword</span></a>.</p>
 <p><strong>NOTE:</strong> You <strong>MUST</strong> import external variables with the correct type.
 If <code class="docutils literal notranslate"><span class="pre">counter</span></code> was declared as a <strong>short</strong> in the global script, you MUST
 import it as a short, otherwise your game may crash.</p>
@@ -919,7 +918,7 @@ export counter, strength;
 <p>function <strong>noloopcheck</strong> <em>function_name</em> ( <em>parameters …</em> ) <code class="docutils literal notranslate"><span class="pre">{</span></code></p>
 <p>The noloopcheck keyword disables the script loop checking for the
 current function.</p>
-<p>Normally, if a <span class="xref std std-ref">while</span> loop runs for more than
+<p>Normally, if a <a class="reference internal" href="#"><span class="doc">while</span></a> loop runs for more than
 150,000 loops, AGS will assume that the script has hung and abort the
 game. This is to assist scripting since otherwise the game would lock up
 if you scripted a loop wrongly.</p>
@@ -1015,7 +1014,7 @@ mean that the game will hang rather than abort.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>

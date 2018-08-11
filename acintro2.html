@@ -46,16 +46,12 @@ own background, hotspots and objects.</p>
 called “Rooms”. Right-click it, and choose “New room”. You’ll see a “1:”
 node appear underneath. This shows us that we’ve created room number 1,
 and we can give it a name in a moment.</p>
-<a class="reference external image-reference" href="images/intro2_1.jpg"><img alt="" src="_images/intro2_1.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The Rooms list in the project tree</em></p>
+<a class="reference external image-reference" href="images/intro2_1.jpg"><img alt="The Rooms list in the project tree" src="_images/intro2_1.jpg" /></a>
 <p>Expand the “1:” node, and double-click the “Edit room” node underneath
 to open the room. You’ll see a new window open up, with a big black area
 in it. This is the room background, which is currently blank. The room
 editor looks like this:</p>
-<a class="reference external image-reference" href="images/intro2_2.jpg"><img alt="" src="_images/intro2_2.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The Rooms list in the project tree</em></p>
+<a class="reference external image-reference" href="images/intro2_2.jpg"><img alt="The Rooms list in the project tree" src="_images/intro2_2.jpg" /></a>
 <p>There are four main parts to this window:</p>
 <ul class="simple">
 <li>The <em>Background Selection</em> area allows you to import and manage the
@@ -85,9 +81,7 @@ as a BMP or PNG file. Then, return to the AGS Editor, and press the
 <p>You should see the black area in the editor replaced by your image. For
 this tutorial, I’m going to shamelessly steal a background from Space
 Quest 4. Obviously, you should draw your own!</p>
-<a class="reference external image-reference" href="images/intro2_3.jpg"><img alt="" src="_images/intro2_3.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>I’ve imported my background</em></p>
+<a class="reference external image-reference" href="images/intro2_3.jpg"><img alt="I've imported my background" src="_images/intro2_3.jpg" /></a>
 <p><strong>Edges</strong></p>
 <p>Open up the combobox that says “Nothing” in it, and select “Edges”.
 You’ll see four yellow lines drawn across your image in various places.
@@ -95,9 +89,7 @@ These are the room <em>edges,</em> and they define how far the character needs
 to walk to be considered to have left the room. Click and drag them to
 position them appropriately. Bear in mind that it’s the character’s
 <strong>feet</strong> that are compared with these lines when positioning.</p>
-<a class="reference external image-reference" href="images/intro2_4.jpg"><img alt="" src="_images/intro2_4.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>I’ve lined up the top and right edges correctly</em></p>
+<a class="reference external image-reference" href="images/intro2_4.jpg"><img alt="I've lined up the top and right edges correctly" src="_images/intro2_4.jpg" /></a>
 <p>At the moment, walking past the edge won’t actually cause anything to
 happen, but we’ll deal with that later. In my example, the character can
 only walk off the top and right edges, so they’re the only ones that
@@ -107,9 +99,7 @@ won’t be needing them.</p>
 <p>Next, we need to define the room’s <em>walkable areas</em>, which define where
 characters are allowed to walk within the room. Open up the drop-down
 list again, and select “Walkable areas”:</p>
-<a class="reference external image-reference" href="images/intro2_5.jpg"><img alt="" src="_images/intro2_5.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Walkable areas mode</em></p>
+<a class="reference external image-reference" href="images/intro2_5.jpg"><img alt="Walkable areas mode" src="_images/intro2_5.jpg" /></a>
 <p>In the toolbar you’ll notice that some new buttons have appeared. These
 are the drawing tools, and work in a similar way to most paint packages.
 AGS provides Line, Freehand, Rectangle and Fill tools. Alternatively,
@@ -128,9 +118,7 @@ Undo, then use the Line tool to make sure all the edges of the area are
 properly connected up, and try again.</p>
 <p>You can use the right mouse button with the drawing tools to erase areas
 in the same way that you use the left button to add them.</p>
-<a class="reference external image-reference" href="images/intro2_6.jpg"><img alt="" src="_images/intro2_6.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>I’ve drawn a walkable area where I want the player to be able to go.</em></p>
+<a class="reference external image-reference" href="images/intro2_6.jpg"><img alt="I've drawn a walkable area where I want the player to be able to go." src="_images/intro2_6.jpg" /></a>
 <p><strong>Walk-behind areas</strong></p>
 <p>The next job we need to do is to define the walk-behind areas. These
 areas (called “priorities” by some other adventure game tools) tell the
@@ -142,9 +130,7 @@ disappear and you’ll be back to just seeing the room background.</p>
 <p>Now, we draw on the walk-behind area in the same way as we did the
 walkable area - in fact, all the same drawing tools are available. My
 result looks like this:</p>
-<a class="reference external image-reference" href="images/intro2_7.jpg"><img alt="" src="_images/intro2_7.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>The walk-behind area painted over the pillar</em></p>
+<a class="reference external image-reference" href="images/intro2_7.jpg"><img alt="The walk-behind area painted over the pillar" src="_images/intro2_7.jpg" /></a>
 <p>Notice that I haven’t bothered to make the whole of the pillar a
 walk-behind from top to bottom - using my knowledge of the walkable
 areas and the height of the character, I can just draw a walk-behind in
@@ -167,17 +153,16 @@ baseline to apply to both. Never fear, AGS allows you to have several
 different areas on each screen. Above the property grid, there’s a
 combobox that says “Walk-behind area ID 1”. You can change this to draw
 in another colour, and each area has its own baseline.</p>
-<a class="reference external image-reference" href="images/intro2_8.jpg"><img alt="" src="_images/intro2_8.jpg" /></a>
-<p><span class="raw-html-m2r"><br></span>
-<em>Selecting a different walk-behind area</em></p>
+<a class="reference external image-reference" href="images/intro2_8.jpg"><img alt="Selecting a different walk-behind area" src="_images/intro2_8.jpg" /></a>
 <p><strong>Trying out the game</strong></p>
 <p>Ok, we’ve slogged away at making our room - now it’s about time to give
 it a go. Press F5, or click “Run” on the Build menu. This will save your
 work and launch the game! Once loaded, you should see your room with the
 character in it.</p>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-When you use the Run command, the game will always run in a window. If you want to test the game full-screen, use the Ctrl+F5 (“Run without debugger”) option.</p>
+<p>When you use the Run command, the game will always run in a window.
+If you want to test the game full-screen, use the Ctrl+F5
+(“Run without debugger”) option.</p>
 <p>Try to move the character around. If he won’t move, he probably didn’t
 start on a walkable area. If this is the case, expand the “Characters”
 node in the project tree, and double-click “cEgo”. Then, look in the
@@ -188,8 +173,10 @@ character to start, and reading the “Mouse co-ordinates” display.</p>
 <p>Once you’ve got that working, have a play walking the character around
 the screen, testing out the walkable and walk-behind areas.</p>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p><span class="raw-html-m2r"><br></span>
-The normal way of exiting the game is to press Ctrl+Q. It’s possible that during development of your game, you may create a script that causes the game to lock up - in this case, the emergency break key Alt+X will exit the game for you.</p>
+<p>The normal way of exiting the game is to press Ctrl+Q. It’s possible
+that during development of your game, you may create a script that
+causes the game to lock up - in this case, the emergency break key
+Alt+X will exit the game for you.</p>
 <p>Go to part 3: <a class="reference internal" href="acintro3.html"><span class="doc">Adding interaction</span></a></p>
 </div>
 </div>
@@ -238,7 +225,7 @@ The normal way of exiting the game is to press Ctrl+Q. It’s possible that duri
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 10, 2018, 10:03:16 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
     
 
   </body>
