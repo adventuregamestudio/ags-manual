@@ -204,7 +204,7 @@ format. AGS has built-in support for playing these videos, so everyone
 who plays your game will be able to see the video. OGG Theora videos are
 also built into the game EXE file when you compile the game (just make
 sure the file has a .OGV extension and is placed in your main game
-folder).
+folder). A good converter for theora is [ffmpeg2theora](http://v2v.cc/~j/ffmpeg2theora/).
 
 The second type of files that AGS can play is anything supported by
 Windows Media Player. This includes AVI, MPG and more. However, in order

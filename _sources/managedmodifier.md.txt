@@ -276,8 +276,8 @@ if it is not.
 
 ### switch, case statements
 
-**switch (** *expression* **)** `{`<br>
-\[ **case** *expression*:<br>
+**switch (** *control_expression* **)** `{`<br>
+\[ **case** *match_expression*:<br>
 *statements*<br>
 \[ **break**; \] \]<br>
 \[ **default:**<br>
@@ -285,51 +285,90 @@ if it is not.
 \[ **break**; \] \]<br>
 `}`
 
-Calculates first *expression* in the **switch** header, then finds a
-**case** statement which *constant expression* matches the *result* of
-the previous calculation, and begins executing statements under that
-**case**. When doing so, it ignores any other **case** statements, but
-runs all the statements under them. Stops only when reaching the
-switch's end, or **break** statement. If the result of *expression* is
-not found in any of the **case** lines, then goes to **default** line
-and runs statements from that point. If no **default** statement found
-in the switch, then the whole switch is skipped. **Switch** may have any
-number of **case** statements and only one **default** statement, but
-they may be arranged in any order.
+Compares the result of *control_expression* against the result of
+*match_expression* for each **case** label in order. If a match is found,
+statements following that label are executed. If there is no matching
+label and a **default:** label is present, statements following the
+**default:** label are executed.
 
-Unlike many programming languages, AGS allows expression result of any
-type (integer, boolean, string, pointers).
+If a **break** statement is encountered, any statements following it
+are skipped and execution continues after the **switch** block.
+
+Unlike many programming languages, AGS allows expression results of any
+type (integer, boolean, string, pointers). It also does not require
+that *match_expression*s be constant or literal values.
+
+A switch statement is useful if you need to compare one value or
+expression against a series of values. The *control_expression*
+represents the value you want to compare and each **case** label is
+one value in a series to compare it against.
 
 Example:
 
     switch (player)
     {
-    case cEgo: Display("Hello, my name is Ego, default player controlled character."); break;
-    case cJohn: Display("Greetings, I am John, the male character."); break;
-    case cMary: Display("Hi there, I am Mary, the female character."); break;
-    default:
-      Display("I am not really sure what character the player is controlling, this might be a bug");
-      break;
+        case cEgo:
+            Display("Hello, my name is Ego.");
+            break;
+        case cJohn:
+            Display("Greetings, I am John.");
+            break;
+        case cMary:
+            Display("Hi there, I am Mary.");
+            break;
+        default:
+            Display("This might be a bug!");
+            break;
     }
 
-Example with "fall-through" cases:
+In the above example, if the player is cEgo, the game will display "Hello, my
+name is Ego." If the player is cJohn, the game will display "Greetings, I am
+John." If the player is cMary, the game will display "Hi there, I am Mary." If
+the player is none of these characters, the message "This might be a bug!" will
+be displayed.
+
+One of the features of a **switch** statement is fall-through. Labels are
+ignored once a match is found and indeed execution will continue until the
+end of the **switch** block or a **break** statement is encountered.
+
+A **switch** statement that demonstrates this:
 
     switch (player)
     {
-    case cJohn:
-    case cMary:
-      player.Say("I like oranges.")
-      break;
-    case cEgo:
-      player.Say("I like apples.");
-    default:
-      player.Say("I would like some berries.");
+        case cJohn:
+        case cMary:
+            player.Say("I like oranges.")
+            break;
+        case cEgo:
+            player.Say("I like apples.");
+        default:
+            player.Say("I would like some berries.");
     }
 
-In the above example both cJohn and cMary cases lead to "I like oranges"
-line. cEgo sais "I like apples" and then also "I would like some
-berries". If there were any other player controlled character, not
-mentioned in this switch, they would go straight to default line.
+In the above example, if the player is either cJohn or cMary, s/he will
+say "I like oranges.". If the player is cEgo, he will say "I like
+apples." and then also "I would like some berries." If the player is any
+other character, only the default "I would like some berries." will be
+displayed.
+
+A *match_expression* can be any valid AGS expression, including a
+function call. The following construction can be useful when implementing
+responses to parser values:
+
+    switch (true)
+    {
+        case Parser.Said("take ball"):
+            player.AddInventory(iBall);
+            break;
+        case Parser.Said("drop ball"):
+            player.LoseInventory(iBall);
+            break;
+    }
+
+In this situation, the *match_expression*s are the results of Parser.Said(). If
+*Player.Said("take ball")* is *true*, the ball is added to the player's
+inventory. If *Player.Said("drop ball")* is *true*, the ball is removed from the
+player's inventory.
 
 ---
 

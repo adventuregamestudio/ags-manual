@@ -393,57 +393,91 @@ else {
 </div>
 <div class="section" id="switch-case-statements">
 <span id="index-7"></span><h2>switch, case statements<a class="headerlink" href="#switch-case-statements" title="Permalink to this headline">¶</a></h2>
-<p><strong>switch (</strong> <em>expression</em> <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><span class="raw-html-m2r"><br></span>
-[ <strong>case</strong> <em>expression</em>:<span class="raw-html-m2r"><br></span>
+<p><strong>switch (</strong> <em>control_expression</em> <strong>)</strong> <code class="docutils literal notranslate"><span class="pre">{</span></code><span class="raw-html-m2r"><br></span>
+[ <strong>case</strong> <em>match_expression</em>:<span class="raw-html-m2r"><br></span>
 <em>statements</em><span class="raw-html-m2r"><br></span>
 [ <strong>break</strong>; ] ]<span class="raw-html-m2r"><br></span>
 [ <strong>default:</strong><span class="raw-html-m2r"><br></span>
 <em>statements</em><span class="raw-html-m2r"><br></span>
 [ <strong>break</strong>; ] ]<span class="raw-html-m2r"><br></span>
 <code class="docutils literal notranslate"><span class="pre">}</span></code></p>
-<p>Calculates first <em>expression</em> in the <strong>switch</strong> header, then finds a
-<strong>case</strong> statement which <em>constant expression</em> matches the <em>result</em> of
-the previous calculation, and begins executing statements under that
-<strong>case</strong>. When doing so, it ignores any other <strong>case</strong> statements, but
-runs all the statements under them. Stops only when reaching the
-switch’s end, or <strong>break</strong> statement. If the result of <em>expression</em> is
-not found in any of the <strong>case</strong> lines, then goes to <strong>default</strong> line
-and runs statements from that point. If no <strong>default</strong> statement found
-in the switch, then the whole switch is skipped. <strong>Switch</strong> may have any
-number of <strong>case</strong> statements and only one <strong>default</strong> statement, but
-they may be arranged in any order.</p>
-<p>Unlike many programming languages, AGS allows expression result of any
-type (integer, boolean, string, pointers).</p>
+<p>Compares the result of <em>control_expression</em> against the result of
+<em>match_expression</em> for each <strong>case</strong> label in order. If a match is found,
+statements following that label are executed. If there is no matching
+label and a <strong>default:</strong> label is present, statements following the
+<strong>default:</strong> label are executed.</p>
+<p>If a <strong>break</strong> statement is encountered, any statements following it
+are skipped and execution continues after the <strong>switch</strong> block.</p>
+<p>Unlike many programming languages, AGS allows expression results of any
+type (integer, boolean, string, pointers). It also does not require
+that <em>match_expression</em>s be constant or literal values.</p>
+<p>A switch statement is useful if you need to compare one value or
+expression against a series of values. The <em>control_expression</em>
+represents the value you want to compare and each <strong>case</strong> label is
+one value in a series to compare it against.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">switch</span> <span class="o">(</span><span class="nt">player</span><span class="o">)</span>
-<span class="p">{</span>
-<span class="err">case</span> <span class="n">cEgo</span><span class="p">:</span> <span class="nf">Display</span><span class="p">(</span><span class="s2">&quot;Hello, my name is Ego, default player controlled character.&quot;</span><span class="p">);</span> <span class="err">break</span><span class="p">;</span>
-<span class="err">case</span> <span class="n">cJohn</span><span class="p">:</span> <span class="nf">Display</span><span class="p">(</span><span class="s2">&quot;Greetings, I am John, the male character.&quot;</span><span class="p">);</span> <span class="err">break</span><span class="p">;</span>
-<span class="err">case</span> <span class="n">cMary</span><span class="p">:</span> <span class="nf">Display</span><span class="p">(</span><span class="s2">&quot;Hi there, I am Mary, the female character.&quot;</span><span class="p">);</span> <span class="err">break</span><span class="p">;</span>
-<span class="n">default</span><span class="p">:</span>
-  <span class="nf">Display</span><span class="p">(</span><span class="s2">&quot;I am not really sure what character the player is controlling, this might be a bug&quot;</span><span class="p">);</span>
-  <span class="err">break</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Example with “fall-through” cases:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>switch (player)
 {
-case cJohn:
-case cMary:
-  player.Say(&quot;I like oranges.&quot;)
-  break;
-case cEgo:
-  player.Say(&quot;I like apples.&quot;);
-default:
-  player.Say(&quot;I would like some berries.&quot;);
+    case cEgo:
+        Display(&quot;Hello, my name is Ego.&quot;);
+        break;
+    case cJohn:
+        Display(&quot;Greetings, I am John.&quot;);
+        break;
+    case cMary:
+        Display(&quot;Hi there, I am Mary.&quot;);
+        break;
+    default:
+        Display(&quot;This might be a bug!&quot;);
+        break;
 }
 </pre></div>
 </div>
-<p>In the above example both cJohn and cMary cases lead to “I like oranges”
-line. cEgo sais “I like apples” and then also “I would like some
-berries”. If there were any other player controlled character, not
-mentioned in this switch, they would go straight to default line.</p>
+<p>In the above example, if the player is cEgo, the game will display “Hello, my
+name is Ego.” If the player is cJohn, the game will display “Greetings, I am
+John.” If the player is cMary, the game will display “Hi there, I am Mary.” If
+the player is none of these characters, the message “This might be a bug!” will
+be displayed.</p>
+<p>One of the features of a <strong>switch</strong> statement is fall-through. Labels are
+ignored once a match is found and indeed execution will continue until the
+end of the <strong>switch</strong> block or a <strong>break</strong> statement is encountered.</p>
+<p>A <strong>switch</strong> statement that demonstrates this:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>switch (player)
+{
+    case cJohn:
+    case cMary:
+        player.Say(&quot;I like oranges.&quot;)
+        break;
+    case cEgo:
+        player.Say(&quot;I like apples.&quot;);
+    default:
+        player.Say(&quot;I would like some berries.&quot;);
+}
+</pre></div>
+</div>
+<p>In the above example, if the player is either cJohn or cMary, s/he will
+say “I like oranges.”. If the player is cEgo, he will say “I like
+apples.” and then also “I would like some berries.” If the player is any
+other character, only the default “I would like some berries.” will be
+displayed.</p>
+<p>A <em>match_expression</em> can be any valid AGS expression, including a
+function call. The following construction can be useful when implementing
+responses to parser values:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>switch (true)
+{
+    case Parser.Said(&quot;take ball&quot;):
+        player.AddInventory(iBall);
+        break;
+    case Parser.Said(&quot;drop ball&quot;):
+        player.LoseInventory(iBall);
+        break;
+}
+</pre></div>
+</div>
+<p>In this situation, the <em>match_expression</em>s are the results of Parser.Said(). If
+<em>Player.Said(“take ball”)</em> is <em>true</em>, the ball is added to the player’s
+inventory. If <em>Player.Said(“drop ball”)</em> is <em>true</em>, the ball is removed from the
+player’s inventory.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="while">
@@ -1014,7 +1048,7 @@ mean that the game will hang rather than abort.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 11, 2018, 12:50:15 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 29, 2018, 9:01:59 PM</div>
     
 
   </body>
