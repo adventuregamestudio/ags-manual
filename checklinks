@@ -50,6 +50,7 @@ BEGIN {
 			}
 		}
 
+		close(ARGV[i])
 	}
 }
 
