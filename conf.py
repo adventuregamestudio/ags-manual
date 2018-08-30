@@ -26,7 +26,7 @@ author = 'AGS Team'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '3.4.1'
+release = '3.5.0'
 
 
 # -- General configuration ---------------------------------------------------
