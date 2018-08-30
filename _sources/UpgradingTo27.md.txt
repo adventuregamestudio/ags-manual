@@ -136,7 +136,7 @@ easy-to-remember word (such as *eBlock* and *eNoBlock*). Even better,
 when you call a function that uses an enum parameter, auto-complete
 automatically pops up the list of options for you to choose from.
 
-See the [enum keyword](managedmodifier) description for information on
+See the [enum keyword](ScriptKeywords) description for information on
 how to create your own.
 
 **So do I have to pass all these things like eBlock every time I call

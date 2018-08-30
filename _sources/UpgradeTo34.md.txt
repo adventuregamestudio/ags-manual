@@ -102,13 +102,13 @@ variable, define end condition and write iteration - all in its header.
 Another introduced command is `switch`. One `switch` can replace a long
 list of `if` and `else if` blocks.
 
-See: [switch](managedmodifier#switch-case-statements),
-[do..while](managedmodifier#dowhile),
-[for](managedmodifier#for),
-[break](managedmodifier#break),
-[continue](managedmodifier#continue),
-[managed](managedmodifier#managed),
-[new](managedmodifier#new)
+See: [switch](ScriptKeywords#switch-case-statements),
+[do..while](ScriptKeywords#dowhile),
+[for](ScriptKeywords#for),
+[break](ScriptKeywords#break),
+[continue](ScriptKeywords#continue),
+[managed](ScriptKeywords#managed),
+[new](ScriptKeywords#new)
 
 **Custom Dialog Options rendering extended**
 

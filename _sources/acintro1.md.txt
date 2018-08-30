@@ -120,8 +120,7 @@ change these options again later.
 
 Now, at this stage we really need to decide whether we want to create a
 palette-based (8-bit, 256-colour) game, or a hi-color (16- or 32-bit)
-game. It's highly recommended that you go with 16-bit colour, or 32-bit
-if you want to use alpha transparency.
+game.
 
 256-colour games are much more complicated to make due to having to deal
 with the palette, they are not supported by the Direct3D driver, and may
@@ -130,14 +129,11 @@ the authentic retro feel, unless you really need to use palette-cycling
 effects, it's recommended that you stay away from making new 256-colour
 games.
 
-Still, I'll cover both methods briefly below; if you're not really sure
-which to choose, go for Hi-color (16-bit) since it provides a good
-balance of performance and ease-of-use. If you want to be able to use
-alpha-channel image transparency, use 32-bit colour.
-
-*(NOTE: We need to decide now because when you import graphics, they
-will be set to the game's colour depth. Should you change your mind
-later, you would have to re-import all the graphics).*
+- It's **highly recommended** that you go with 32-bit colour since many modern
+computers don't support 8 or 16 bit screenmodes. Also 32-bit colour is required
+for the use of alpha transparency 
+- Imported graphics are set to the chosen colour depth. Should you change your mind
+later, you would have to re-import all the graphics.
 
 .. index::
    pair: Getting Started with AGS; Creating a 256-colour game

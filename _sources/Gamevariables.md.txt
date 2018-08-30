@@ -49,7 +49,7 @@ game.speech_text_align | Sets how text in Lucasarts-style speech is aligned. Sam
 game.speech_text_gui | The textwindow GUI number used for sierra-style speech.
 game.text_align | Sets how text in message boxes and Sierra-style speech is aligned:<br>eAlignLeft: text aligned to left within message box (default)<br>eAlignCentre: text is centred within the message box<br>eAlignRight: text is right-aligned within the message box<br>These options do not affect Lucasarts-style speech, which is always centred.
 game.text_shadow_color | Color used for speech text shadow (default 16).
-game.top_bar_XXXX | Customizations for [DisplayTopBar](DisplayAt#displaytopbar), see link for details
+game.top_bar_XXXX | Customizations for [DisplayTopBar](DisplayFunctions#displaytopbar), see link for details
 game.total_score | Maximum possible score, initially set in the editor.
 game.used_mode | Cursor mode used with last click (use with "any click" events to find out which mode was used)
 **mouse.x** | Mouse X co-ordinate when the last game loop was run (320-res)

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting Started with AGS &#8212; AGSHelp 3.4.1 documentation</title>
+    <title>Getting Started with AGS &#8212; AGSHelp 3.5.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -124,21 +124,20 @@ change these options again later.</p>
 <span id="index-3"></span><h2>Colour choices<a class="headerlink" href="#colour-choices" title="Permalink to this headline">¶</a></h2>
 <p>Now, at this stage we really need to decide whether we want to create a
 palette-based (8-bit, 256-colour) game, or a hi-color (16- or 32-bit)
-game. It’s highly recommended that you go with 16-bit colour, or 32-bit
-if you want to use alpha transparency.</p>
+game.</p>
 <p>256-colour games are much more complicated to make due to having to deal
 with the palette, they are not supported by the Direct3D driver, and may
 not run well on some modern graphics cards. Although they can give you
 the authentic retro feel, unless you really need to use palette-cycling
 effects, it’s recommended that you stay away from making new 256-colour
 games.</p>
-<p>Still, I’ll cover both methods briefly below; if you’re not really sure
-which to choose, go for Hi-color (16-bit) since it provides a good
-balance of performance and ease-of-use. If you want to be able to use
-alpha-channel image transparency, use 32-bit colour.</p>
-<p><em>(NOTE: We need to decide now because when you import graphics, they
-will be set to the game’s colour depth. Should you change your mind
-later, you would have to re-import all the graphics).</em></p>
+<ul class="simple">
+<li>It’s <strong>highly recommended</strong> that you go with 32-bit colour since many modern
+computers don’t support 8 or 16 bit screenmodes. Also 32-bit colour is required
+for the use of alpha transparency</li>
+<li>Imported graphics are set to the chosen colour depth. Should you change your mind
+later, you would have to re-import all the graphics.</li>
+</ul>
 </div>
 <div class="section" id="creating-a-256-colour-game">
 <span id="index-4"></span><h2>Creating a 256-colour game<a class="headerlink" href="#creating-a-256-colour-game" title="Permalink to this headline">¶</a></h2>
@@ -243,7 +242,7 @@ from the “Resolution” drop-down list.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Aug 29, 2018, 9:01:59 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Aug 30, 2018, 6:44:16 PM</div>
     
 
   </body>

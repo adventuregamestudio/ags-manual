@@ -28,8 +28,8 @@ Example:
 will cause the palette indexes from 10 to 200 cycle around one slot and
 give a color effect.
 
-*See Also:* [FadeIn](ShakeScreen#fadein), [FadeOut](ShakeScreen#fadeout),
-[SetPalRGB](CyclePalette#setpalrgb)
+*See Also:* [FadeIn](ScreenFunctions#fadein), [FadeOut](ScreenFunctions#fadeout),
+[SetPalRGB](PaletteFunctions#setpalrgb)
 
 ---
 
@@ -60,9 +60,9 @@ Example:
 
 will change palette slot number 10 from light green to yellow
 
-*See Also:* [CyclePalette](CyclePalette#cyclepalette),
-[FadeIn](ShakeScreen#fadein), [FadeOut](ShakeScreen#fadeout),
-[UpdatePalette](CyclePalette#updatepalette)
+*See Also:* [CyclePalette](PaletteFunctions#cyclepalette),
+[FadeIn](ScreenFunctions#fadein), [FadeOut](ScreenFunctions#fadeout),
+[UpdatePalette](PaletteFunctions#updatepalette)
 
 ---
 
@@ -86,4 +86,4 @@ Example:
 will make the black colour turn bright red. When you actually change the
 variable, nothing happens. Call this function to update the screen.
 
-*See Also:* [SetPalRGB](CyclePalette#setpalrgb)
+*See Also:* [SetPalRGB](PaletteFunctions#setpalrgb)
