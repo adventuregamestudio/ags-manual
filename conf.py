@@ -83,6 +83,8 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
+	'sidebar_header': '#2b72c5',
+	'logo': 'logo.png',
 	'show_related': True
 }
 
@@ -98,20 +100,24 @@ html_static_path = ['_static']
 # refs: http://alabaster.readthedocs.io/en/latest/installation.html#sidebars
 html_sidebars = {
     '**': [
-    	'indexlink.html',
+        'about.html',
     	'searchbox.html',
         'relations.html',  # needs 'show_related': True theme option to display
+        'indexlink.html',
         'localtoc.html'
     ],
     'index': [
-    	'indexlink.html',
+        'about.html',
     	'searchbox.html',
     	'relations.html',
+        'indexlink.html'
     ]
 }
 
 # Format for the variable last_updated (None if not set)
 html_last_updated_fmt = '%c'
+
+html_favicon = '_static/favicon.ico'
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
