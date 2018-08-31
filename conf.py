@@ -117,6 +117,8 @@ html_sidebars = {
 # Format for the variable last_updated (None if not set)
 html_last_updated_fmt = '%c'
 
+html_favicon = '_static/favicon.ico'
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
