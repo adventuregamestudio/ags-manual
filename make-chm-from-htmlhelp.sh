@@ -7,7 +7,7 @@ chmod +x chmcmd
 pushd build/htmlhelp/
 ../../chmcmd AGSHelpdoc.hhp 
 chmod +x AGSHelpdoc.chm
-mv AGSHelpdoc.chm ../../
+mv AGSHelpdoc.chm ../../ags-help.chm
 popd
 rm chmcmd
 rm chmcmd.md5

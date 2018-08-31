@@ -43,7 +43,7 @@ deploy:
     file: 
       - "ags-manual-wiki-md-source.zip"
       - "ags-manual-hhp-build.zip"
-      - "AGSHelpdoc.chm"
+      - "ags-help.chm"
     skip_cleanup: true
     on:
       branch: master
