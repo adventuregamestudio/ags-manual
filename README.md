@@ -14,6 +14,8 @@ The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https
 
 You can also download it from [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest) .
 
+![](ags-manual-readme.png)
+
 ## How to generate the help files from the wiki!
 
 The help file is generated using [Python 3 Sphinx](http://www.sphinx-doc.org/en/master/)!
