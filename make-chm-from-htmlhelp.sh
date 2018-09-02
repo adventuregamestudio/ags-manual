@@ -21,6 +21,8 @@ fi
 echo "Using $chmcmd:
 $(
 	cd "$htmlhelp" && \
+	rm -f "$buildname.chm" && \
 	"$chmcmd" "$buildname.hhp" && \
-	mv "$buildname.chm" ../../ags-help.chm
+	chmod a+r-w-x "$buildname.chm" && \
+	mv -fv "$buildname.chm" ../../ags-help.chm
 )"
