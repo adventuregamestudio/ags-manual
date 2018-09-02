@@ -1,3 +1,16 @@
 <p>
 <a href="genindex.html">Index</a>
+
+  {% if sourcename %}
+  </br>
+  </br>
+  <li class="source-link">
+     <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20{{ title|urlencode }}&body=source is {{ sourcename[:-4]|urlencode }}.%0A%23%23%23%0A"> Discuss this page</a>
+  </li>
+  <li class="source-link">
+     <a href="https://github.com/adventuregamestudio/ags-manual/wiki/{{sourcename[:-7]|urlencode }}"> Edit this page</a>
+  </li>
+  </br>
+  {% endif %}
+
 </p>
