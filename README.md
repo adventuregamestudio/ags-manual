@@ -1,6 +1,6 @@
 # Adventure Game Studio Help Files
 
-[![Build Status](https://travis-ci.org/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.org/adventuregamestudio/ags-manual) | [![Build status](https://ci.appveyor.com/api/projects/status/ufw6n10yg1q38yvc?svg=true)](https://ci.appveyor.com/project/ags-manual-ci/ags-manual-4hkmp)
+Travis (web): [![Build Status](https://travis-ci.org/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.org/adventuregamestudio/ags-manual) | Appveyor (chm): [![Build status](https://ci.appveyor.com/api/projects/status/ufw6n10yg1q38yvc?svg=true)](https://ci.appveyor.com/project/ags-manual-ci/ags-manual-4hkmp)
 
 [**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
 
