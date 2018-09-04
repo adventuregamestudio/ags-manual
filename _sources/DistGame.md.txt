@@ -70,10 +70,6 @@ If you wish, you can use your own custom icon when you build a Windows
 EXE file. To do this, simply place your icon in your game's folder, and
 name it USER.ICO. Then, load the editor and save the game.
 
-AGS is only able to build your custom icon if you are running the editor
-on Windows 2000 and later. If you're using Windows 98 then your game
-will be built with the standard AGS icon.
-
 *NOTE: The icon **must** be a proper Windows .ICO file, **not** just a
 renamed BMP file. Icon editors, such as AX-Icons from
 https://www.axialis.com, will convert it for you.*

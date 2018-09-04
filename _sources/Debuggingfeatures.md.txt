@@ -42,10 +42,6 @@ Once the script has stopped, you can use the "Step Into" button (F11) to
 step through the lines of code, one by one. To allow the game to
 continue running normally, use the Run (F5) button.
 
-NOTE: The Script Debugger is not supported on Windows 98 or Windows
-ME systems. If you're still using Windows 98, please upgrade to Windows
-XP or higher to take advantage of this feature.
-
 .. index::
    pair: Debugging features; The Debug() command
 
