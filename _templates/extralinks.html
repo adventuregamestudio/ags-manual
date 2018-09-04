@@ -1,0 +1,27 @@
+<p>
+  <a href="genindex.html">Index</a>
+
+  {% if sourcename %}
+  <br>
+  <br>
+  <ul>
+    {% set issue_url = "https://github.com/adventuregamestudio/ags-manual/issues" %}
+    {% set issue_title = "[Discussion] " ~ title %}
+    {% set issue_content = "source is " ~ sourcename|replace(".md.txt", ".md")|replace("index.rst.txt", "Home.md") ~ ".\n###\n" %}
+
+
+    {% set wiki_url = "https://github.com/adventuregamestudio/ags-manual/wiki/" %}
+    {% set wiki_entry = sourcename|replace('.md.txt', '')|replace('index.rst.txt', 'Home') %}
+
+    <li class="source-link">
+       <a href="{{ issue_url }}/new?title={{ issue_title|urlencode }}&body={{ issue_content|urlencode }}"> Discuss this page</a>
+    </li>
+    <li class="source-link">
+       <a href="{{ wiki_url }}{{ wiki_entry|urlencode }}"> Edit this page</a>
+    </li>
+
+  </ul>
+  <br>
+  {% endif %}
+
+</p>

@@ -103,14 +103,14 @@ html_sidebars = {
         'about.html',
     	'searchbox.html',
         'relations.html',  # needs 'show_related': True theme option to display
-        'indexlink.html',
+        'extralinks.html',
         'localtoc.html'
     ],
     'index': [
         'about.html',
     	'searchbox.html',
     	'relations.html',
-        'indexlink.html'
+        'extralinks.html'
     ]
 }
 
