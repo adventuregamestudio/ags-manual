@@ -1,0 +1,38 @@
+version: "cygwin-{build}"
+
+environment:
+  matrix:
+    - ARCH: x86
+      CYGWIN: C:\Cygwin
+      CYGSH: C:\Cygwin\bin\bash -lc
+      PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6.x" 
+      PYTHON_ARCH: "32"
+
+branches:
+  only:
+    - master
+
+install:
+  - cinst html-help-workshop
+  - pip install -r requirements.txt
+
+build_script:
+  - "%CYGWIN%\\setup-%ARCH%.exe -q -P awk,sed"
+  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; ./get-help-source.sh; make htmlhelp'"
+  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; /cygdrive/c/Program\\ Files\\ \\(x86\\)/HTML\\ Help\\ Workshop/hhc.exe build/htmlhelp/AGSHelpdoc.hhp; mv build/htmlhelp/AGSHelpdoc.chm ags-help-HHW.chm'"
+
+artifacts:
+- path: ags-help-HHW.chm
+  name: ags-help-HHW.chm
+
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: RE/XSZF5WYBi1os9XeUernSQ7znWyIeCUu5m8rzCR/Ocyhmcjoa4N2101UXxtRPr
+  artifact: ags-help-HHW.chm
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
