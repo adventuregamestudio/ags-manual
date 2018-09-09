@@ -47,28 +47,3 @@ END {
 	printf("\n.. toctree::\n   :glob:\n   :hidden:\n\n   *\n") >> outfile
 }
 ' < source/Home.md && rm -f source/Home.md
-
-# insert index directives
-echo "--> Inserting index directives for H2 and H3"
-sed -E -i.bak '
-	/^### / {
-		i\
-.. index::
-		H;x
-		s/(.*)\n### +(.*)/   pair: \1; \2\
-/
-		p
-		s/   pair: (.*);.*/\1/
-		x
-	}
-	/^## / {
-		s/^## +//
-		h
-		i\
-.. index::
-		s/^/   single: /
-		p
-		s/   single: (.*)/\
-## \1/
-	}
-' source/*.md && rm -f source/*.md.bak
