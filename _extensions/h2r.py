@@ -2,7 +2,17 @@
 """
     sphinx.ext.h2r
     ~~~~~~~~~~~~~~
-    info goes here
+    (markdown)headers-2-reStructuredText
+
+    For when you need indicies and you have none, this extension
+    generates some based on H2 and H3 markdown headers
+
+    h2r_script_object_from_header is a regular expression that matches
+    a script object in match group 1, from the H2 header
+
+    h2r_script_object_force_global is a dictionary which maps script
+    objects matched in H2 headers against a list of H3 headers which
+    should not be be treated as functions or properties
 """
 
 import sphinx
