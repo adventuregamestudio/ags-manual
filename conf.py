@@ -12,9 +12,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('_extensions'))
 
 
 # -- Project information -----------------------------------------------------
@@ -38,10 +38,81 @@ release = '3.5.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['m2r']
+extensions = ['m2r', 'h2r']
 
 # Settings for m2r
 m2r_parse_relative_links = True
+
+# Settings for h2r
+h2r_script_object_from_header = r'^(\w+) ([Pp]roperties|[Ff]unctions)'
+h2r_script_object_force_global = {
+    'Display': [
+        'Display',
+        'DisplayAt',
+        'DisplayAtY',
+        'DisplayMessage',
+        'DisplayMessageAtY',
+        'DisplayTopBar'
+    ],
+    'Game': [
+        'AbortGame',
+        'CallRoomScript',
+        'ClaimEvent',
+        'Debug',
+        'DeleteSaveSlot',
+        'DisableInterface',
+        'EnableInterface',
+        'EndCutscene',
+        'GetGameOption',
+        'GetGameParameter',
+        'GetGameSpeed',
+        'GetGlobalInt',
+        'GetGraphicalVariable',
+        'GetLocationType',
+        'GetTextHeight',
+        'GetTextWidth',
+        'GetTranslation',
+        'GiveScore',
+        'GetFontHeight',
+        'GetFontLineSpacing',
+        'InventoryScreen',
+        'IsGamePaused',
+        'IsInterfaceEnabled',
+        'IsInteractionAvailable',
+        'IsKeyPressed',
+        'IsTimerExpired',
+        'IsTranslationAvailable',
+        'MoveCharacterToHotspot',
+        'MoveCharacterToObject',
+        'PauseGame',
+        'QuitGame',
+        'Random',
+        'RestartGame',
+        'RestoreGameDialog',
+        'RestoreGameSlot',
+        'RunAGSGame',
+        'SaveGameDialog',
+        'SaveGameSlot',
+        'SaveScreenShot',
+        'SetAmbientLightLevel',
+        'SetAmbientTint',
+        'SetGameOption',
+        'SetGameSpeed',
+        'SetGlobalInt',
+        'SetGraphicalVariable',
+        'SetMultitaskingMode',
+        'SetRestartPoint',
+        'SetTextWindowGUI',
+        'SetTimer',
+        'SkipUntilCharacterStops',
+        'StartCutscene',
+        'UpdateInventory',
+        'UnPauseGame',
+        'Wait',
+        'WaitKey',
+        'WaitMouseKey'
+    ]
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
