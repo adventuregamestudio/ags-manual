@@ -20,6 +20,7 @@ install:
 build_script:
   - "%CYGWIN%\\setup-%ARCH%.exe -q -P awk,sed"
   - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; ./get-help-source.sh; make htmlhelp'"
+  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; sed -E -i -n \"/^Binary (TOC|Index)=No$/!p\" build/htmlhelp/AGSHelpdoc.hhp'"
   - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; /cygdrive/c/Program\\ Files\\ \\(x86\\)/HTML\\ Help\\ Workshop/hhc.exe build/htmlhelp/AGSHelpdoc.hhp; mv build/htmlhelp/AGSHelpdoc.chm ags-help-HHW.chm'"
 
 artifacts:
