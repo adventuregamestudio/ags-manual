@@ -1,6 +1,3 @@
-.. index::
-   single: AudioClip functions and properties
-
 ## AudioClip functions and properties
 
 AudioClips are created when you import files in the AGS Editor. The
@@ -8,9 +5,6 @@ commands in this section allow to play them.
 
 
 ---
-
-.. index::
-   pair: AudioClip functions and properties; Play
 
 ### Play
 
@@ -56,9 +50,6 @@ plays the *aExplosion* audio clip.
 
 ---
 
-.. index::
-   pair: AudioClip functions and properties; PlayFrom
-
 ### PlayFrom
 
     AudioChannel* AudioClip.PlayFrom(int position, optional AudioPriority,
@@ -84,9 +75,6 @@ it is OGG/MP3).
 *See Also:* [AudioClip.Play](AudioClip#play)
 
 ---
-
-.. index::
-   pair: AudioClip functions and properties; PlayQueued
 
 ### PlayQueued
 
@@ -124,9 +112,6 @@ be played afterwards.
 
 ---
 
-.. index::
-   pair: AudioClip functions and properties; Stop
-
 ### Stop
 
     AudioClip.Stop()
@@ -147,9 +132,6 @@ again.
 *See Also:* [AudioClip.Play](AudioClip#play)
 
 ---
-
-.. index::
-   pair: AudioClip functions and properties; FileType
 
 ### FileType
 
@@ -175,9 +157,6 @@ displays a message if aExplosion is a MIDI file
 [AudioClip.PlayFrom](AudioClip#playfrom)
 
 ---
-
-.. index::
-   pair: AudioClip functions and properties; IsAvailable
 
 ### IsAvailable
 
@@ -208,9 +187,6 @@ checks if the aExplosion audio clip is available, and if so plays it.
 *See Also:* [AudioClip.Play](AudioClip#play)
 
 ---
-
-.. index::
-   pair: AudioClip functions and properties; Type
 
 ### Type
 

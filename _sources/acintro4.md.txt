@@ -1,10 +1,4 @@
-.. index::
-   single: Getting Started with AGS - Part 4
-
 ## Getting Started with AGS - Part 4
-
-.. index::
-   pair: Getting Started with AGS - Part 4; Objects
 
 ### Objects
 
@@ -79,9 +73,6 @@ and have them visible at the same time, the game speed could suffer.
 Right, now back to the pressing matter at hand - letting the player pick
 up the key.
 
-.. index::
-   pair: Getting Started with AGS - Part 4; Inventory
-
 ### Inventory
 
 Now wait, there's one more step we need to do first. At the moment we
@@ -141,9 +132,6 @@ But, the functionality is there, and this will do fine for now.
 Okey, so we now have a fully-working first room. Test the game as
 before, and try it out. Once the player has taken the key, call up his
 inventory and you should see the large key picture there.
-
-.. index::
-   pair: Getting Started with AGS - Part 4; Room Settings
 
 ### Room Settings
 

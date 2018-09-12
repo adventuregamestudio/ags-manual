@@ -1,6 +1,3 @@
-.. index::
-   single: Distributing your game
-
 ## Distributing your game
 
 When you choose the "Build EXE" option in the Editor, a "Compiled"
@@ -39,9 +36,6 @@ as "InSeperateVOX" in the editor. This allows you to have an optional
 audio download, if your game uses lots of sound files but you don't want
 the player to have to download them.
 
-.. index::
-   pair: Distributing your game; Licensing
-
 ### Licensing
 
 Due to the licenses of code used by AGS, your documentation
@@ -61,9 +55,6 @@ You must also comply with the licence for AGS:
 
 ---
 
-.. index::
-   pair: Distributing your game; Custom icon
-
 ### Custom icon
 
 If you wish, you can use your own custom icon when you build a Windows
@@ -79,9 +70,6 @@ so, create your icon as above but name it **setup.ico** in the game
 folder.
 
 ---
-
-.. index::
-   pair: Distributing your game; Splitting resource files
 
 ### Splitting resource files
 

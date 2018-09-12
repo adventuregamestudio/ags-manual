@@ -1,6 +1,3 @@
-.. index::
-   single: DialogOptionsRenderingInfo functions and properties
-
 ## DialogOptionsRenderingInfo functions and properties
 
 The DialogOptionsRenderingInfo instance is used by the [custom dialog
@@ -9,9 +6,6 @@ yourself, it will be passed in to the dialog option functions as
 described in the linked page.
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; RunActiveOption
 
 ### RunActiveOption
 
@@ -41,9 +35,6 @@ runs selected dialog option when player presses Enter/Return key.
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; Update
-
 ### Update
 
     void DialogOptionsRenderingInfo.Update();
@@ -66,9 +57,6 @@ current script ends.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; ActiveOptionID
 
 ### ActiveOptionID
 
@@ -104,9 +92,6 @@ always selects the first option
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; DialogToRender
-
 ### DialogToRender
 
     Dialog* DialogOptionsRenderingInfo.DialogToRender;
@@ -123,9 +108,6 @@ Example: For an example please see the
 [DialogOptionsRenderingInfo.Surface](DialogOptionsRenderingInfo#surface)
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; HasAlphaChannel
 
 ### HasAlphaChannel
 
@@ -158,9 +140,6 @@ options in.
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; Height
-
 ### Height
 
     int DialogOptionsRenderingInfo.Height;
@@ -187,9 +166,6 @@ creates a 300x150 size area to draw the dialog options in
 [DialogOptionsRenderingInfo.Width](DialogOptionsRenderingInfo#width)
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxWidth
 
 ### ParserTextBoxWidth
 
@@ -225,9 +201,6 @@ options area
 [DialogOptionsRenderingInfo.ParserTextBoxY](DialogOptionsRenderingInfo#parsertextboxy)
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxX
 
 ### ParserTextBoxX
 
@@ -267,9 +240,6 @@ options area
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; ParserTextBoxY
-
 ### ParserTextBoxY
 
     int DialogOptionsRenderingInfo.ParserTextBoxY;
@@ -307,9 +277,6 @@ options area
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; Surface
-
 ### Surface
 
     DrawingSurface* DialogOptionsRenderingInfo.Surface;
@@ -341,9 +308,6 @@ clears the dialog options area to yellow.
 
 ---
 
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; Width
-
 ### Width
 
     int DialogOptionsRenderingInfo.Width;
@@ -370,9 +334,6 @@ creates a 300x150 size area to draw the dialog options in
 [DialogOptionsRenderingInfo.Height](DialogOptionsRenderingInfo#height)
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; X
 
 ### X
 
@@ -403,9 +364,6 @@ creates a 200x150 size area at (50, 20) to draw the dialog options in
 [DialogOptionsRenderingInfo.Y](DialogOptionsRenderingInfo#y)
 
 ---
-
-.. index::
-   pair: DialogOptionsRenderingInfo functions and properties; Y
 
 ### Y
 

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GUI InvWindow functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
+    <title>InvWindow functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Inventory item functions and properties" href="InventoryItem.html" />
+    <link rel="next" title="InventoryItem functions and properties" href="InventoryItem.html" />
     <link rel="prev" title="Integration with Windows" href="IntegrationWithWindows.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -36,10 +36,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="gui-invwindow-functions-and-properties">
-<span id="index-0"></span><h1>GUI InvWindow functions and properties<a class="headerlink" href="#gui-invwindow-functions-and-properties" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="invwindow-functions-and-properties">
+<h1>InvWindow functions and properties<a class="headerlink" href="#invwindow-functions-and-properties" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="scrolldown">
-<span id="index-1"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>ScrollDown<a class="headerlink" href="#scrolldown" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InvWindow.ScrollDown()
 </pre></div>
 </div>
@@ -58,7 +58,7 @@ arrow button on your GUI.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="scrollup">
-<span id="index-2"></span><h2>ScrollUp<a class="headerlink" href="#scrollup" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>ScrollUp<a class="headerlink" href="#scrollup" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InvWindow.ScrollUp()
 </pre></div>
 </div>
@@ -75,7 +75,7 @@ arrow button on your GUI.</p>
 <p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">InvWindow.ScrollDown</span></a>,
 <a class="reference internal" href="#"><span class="doc">InvWindow.TopItem</span></a></p>
 <hr class="docutils" />
-</div>
+<span class="target" id="index-2"></span></div>
 <div class="section" id="charactertouse">
 <span id="index-3"></span><h2>CharacterToUse<a class="headerlink" href="#charactertouse" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Character* InvWindow.CharacterToUse;
@@ -92,9 +92,9 @@ current player character (this is the default).</p>
 <p>will change the <em>invMain</em> inventory window to display character JACK’s
 inventory.</p>
 <hr class="docutils" />
-</div>
+<span class="target" id="index-4"></span></div>
 <div class="section" id="itematindex">
-<span id="index-4"></span><h2>ItemAtIndex<a class="headerlink" href="#itematindex" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>ItemAtIndex<a class="headerlink" href="#itematindex" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly InventoryItem* InvWindow.ItemAtIndex[];
 </pre></div>
 </div>
@@ -114,7 +114,7 @@ inventory window.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="itemcount">
-<span id="index-5"></span><h2>ItemCount<a class="headerlink" href="#itemcount" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>ItemCount<a class="headerlink" href="#itemcount" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as game.num_inv_items, which is now obsolete)</em></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int InvWindow.ItemCount;
 </pre></div>
@@ -136,9 +136,9 @@ more inventory items than will fit in the inventory window.</p>
 <a class="reference internal" href="#"><span class="doc">InvWindow.ItemsPerRow</span></a>,
 <a class="reference internal" href="#"><span class="doc">InvWindow.RowCount</span></a></p>
 <hr class="docutils" />
-</div>
+<span class="target" id="index-7"></span></div>
 <div class="section" id="itemheight">
-<span id="index-6"></span><h2>ItemHeight<a class="headerlink" href="#itemheight" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>ItemHeight<a class="headerlink" href="#itemheight" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int InvWindow.ItemHeight;
 </pre></div>
@@ -155,9 +155,9 @@ invMain.ItemHeight = 30;
 <p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">InvWindow.ItemWidth</span></a>,
 <a class="reference internal" href="#"><span class="doc">InvWindow.RowCount</span></a></p>
 <hr class="docutils" />
-</div>
+<span class="target" id="index-9"></span></div>
 <div class="section" id="itemwidth">
-<span id="index-7"></span><h2>ItemWidth<a class="headerlink" href="#itemwidth" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>ItemWidth<a class="headerlink" href="#itemwidth" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int InvWindow.ItemWidth;
 </pre></div>
@@ -174,9 +174,9 @@ invMain.ItemHeight = 30;
 <p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">InvWindow.ItemHeight</span></a>,
 <a class="reference internal" href="#"><span class="doc">InvWindow.ItemsPerRow</span></a></p>
 <hr class="docutils" />
-</div>
+<span class="target" id="index-11"></span></div>
 <div class="section" id="itemsperrow">
-<span id="index-8"></span><h2>ItemsPerRow<a class="headerlink" href="#itemsperrow" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>ItemsPerRow<a class="headerlink" href="#itemsperrow" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as game.items_per_line, which is now obsolete)</em></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int InvWindow.ItemsPerRow;
 </pre></div>
@@ -194,7 +194,7 @@ window divided by the individual ItemWidth.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="rowcount">
-<span id="index-9"></span><h2>RowCount<a class="headerlink" href="#rowcount" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>RowCount<a class="headerlink" href="#rowcount" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int InvWindow.RowCount;
 </pre></div>
 </div>
@@ -211,7 +211,7 @@ individual ItemHeight.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="topitem">
-<span id="index-10"></span><h2>TopItem<a class="headerlink" href="#topitem" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>TopItem<a class="headerlink" href="#topitem" title="Permalink to this headline">¶</a></h2>
 <p><em>(Formerly known as game.top_inv_item, which is now obsolete)</em></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int InvWindow.TopItem;
 </pre></div>
@@ -275,7 +275,7 @@ the inventory list can be scrolled up.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="IntegrationWithWindows.html" title="previous chapter">Integration with Windows</a></li>
-      <li>Next: <a href="InventoryItem.html" title="next chapter">Inventory item functions and properties</a></li>
+      <li>Next: <a href="InventoryItem.html" title="next chapter">InventoryItem functions and properties</a></li>
   </ul></li>
 </ul>
 </div><p>
@@ -294,7 +294,7 @@ the inventory list can be scrolled up.</p>
     
 
     <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20GUI%20InvWindow%20functions%20and%20properties&body=source%20is%20InvWindow.md.%0A%23%23%23%0A"> Discuss this page</a>
+       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20InvWindow%20functions%20and%20properties&body=source%20is%20InvWindow.md.%0A%23%23%23%0A"> Discuss this page</a>
     </li>
     <li class="source-link">
        <a href="https://github.com/adventuregamestudio/ags-manual/wiki/InvWindow"> Edit this page</a>
@@ -307,7 +307,7 @@ the inventory list can be scrolled up.</p>
 </p>
 <h3>Table of Contents</h3>
   <ul>
-<li><a class="reference internal" href="#">GUI InvWindow functions and properties</a><ul>
+<li><a class="reference internal" href="#">InvWindow functions and properties</a><ul>
 <li><a class="reference internal" href="#scrolldown">ScrollDown</a></li>
 <li><a class="reference internal" href="#scrollup">ScrollUp</a></li>
 <li><a class="reference internal" href="#charactertouse">CharacterToUse</a></li>
@@ -328,7 +328,7 @@ the inventory list can be scrolled up.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Sep 4, 2018, 9:38:01 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Sep 12, 2018, 10:45:06 AM</div>
     
 
   </body>

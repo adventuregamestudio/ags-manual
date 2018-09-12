@@ -1,6 +1,3 @@
-.. index::
-   single: Getting Started with AGS
-
 ## Getting Started with AGS
 
 So, you've downloaded AGS. You want to make an adventure game. But where
@@ -10,9 +7,6 @@ do you start?
 If you have a newer version, there may be minor inconsistencies in the
 screenshots where extra options have been added and so forth, but most
 of what's here should still apply).
-
-.. index::
-   pair: Getting Started with AGS; Creating the game
 
 ### Creating the game
 
@@ -66,9 +60,6 @@ presented with the main AGS Editor window:
 
 So, there's your new game, ready and waiting for you to create it!
 
-.. index::
-   pair: Getting Started with AGS; Starting off
-
 ### Starting off
 
 The main way that you navigate around the editor is using the **project
@@ -113,9 +104,6 @@ Personally, I would always enable these four options when starting a new
 game. As you get a feel for AGS, you can decide what suits you best, and
 change these options again later.
 
-.. index::
-   pair: Getting Started with AGS; Colour choices
-
 ### Colour choices
 
 Now, at this stage we really need to decide whether we want to create a
@@ -134,9 +122,6 @@ computers don't support 8 or 16 bit screenmodes. Also 32-bit colour is required
 for the use of alpha transparency 
 - Imported graphics are set to the chosen colour depth. Should you change your mind
 later, you would have to re-import all the graphics.
-
-.. index::
-   pair: Getting Started with AGS; Creating a 256-colour game
 
 ### Creating a 256-colour game
 
@@ -184,18 +169,12 @@ scheme you're going for with your graphics.
 You should set up the palette as well as you can now, because changing
 it later may require you to re-import some graphics.
 
-.. index::
-   pair: Getting Started with AGS; Creating a 16-bit or 32-bit colour game
-
 ### Creating a 16-bit or 32-bit colour game
 
 Back on the Game Settings pane, check out the very top option in the
 list. It's called "Colour depth", and all you have to do is change it to
 your desired colour depth. A warning message will prompt you to make
 sure. Confirm it, and you're done.
-
-.. index::
-   pair: Getting Started with AGS; Game Resolution
 
 ### Game Resolution
 

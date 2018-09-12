@@ -1,10 +1,4 @@
-.. index::
-   single: Hotspot functions and properties
-
 ## Hotspot functions and properties
-
-.. index::
-   pair: Hotspot functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -39,9 +33,6 @@ will display a message depending on what the mouse is on.
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; GetProperty
-
 ### GetProperty
 
 *(Formerly known as GetHotspotProperty, which is now obsolete)*
@@ -67,9 +58,6 @@ than 200.
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; GetTextProperty
-
 ### GetTextProperty
 
 *(Formerly known as GetHotspotPropertyText, which is now obsolete)*<br>
@@ -94,9 +82,6 @@ will retrieve hotspot 2's "description" property and display it.
 *See Also:* [Hotspot.GetProperty](Hotspot#getproperty)
 
 ---
-
-.. index::
-   pair: Hotspot functions and properties; SetProperty
 
 ### SetProperty
 
@@ -124,9 +109,6 @@ will change Door hotspot's "LockDifficulty" custom property to 5.
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; SetTextProperty
-
 ### SetTextProperty
 
     bool Hotspot.SetTextProperty(const string property, const string value)
@@ -150,9 +132,6 @@ will change Door's "description" property.
 *See Also:* [Hotspot.SetProperty](Hotspot#setproperty)
 
 ---
-
-.. index::
-   pair: Hotspot functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -178,9 +157,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; RunInteraction
-
 ### RunInteraction
 
 *(Formerly known as RunHotspotInteraction, which is now obsolete)*
@@ -203,9 +179,6 @@ hDoor.
 [Object.RunInteraction](Object#runinteraction)
 
 ---
-
-.. index::
-   pair: Hotspot functions and properties; Enabled
 
 ### Enabled
 
@@ -236,9 +209,6 @@ will disable the hBrownTree hotspot.
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; ID
-
 ### ID
 
     readonly int Hotspot.ID
@@ -257,9 +227,6 @@ displays hDoor's hotspot number, and then displays hotspot 3's number
 *See Also:* [Hotspot.GetAtScreenXY](Hotspot#getatscreenxy)
 
 ---
-
-.. index::
-   pair: Hotspot functions and properties; Name
 
 ### Name
 
@@ -283,9 +250,6 @@ will retrieve and then display hotspot 3's name.
 
 ---
 
-.. index::
-   pair: Hotspot functions and properties; WalkToX
-
 ### WalkToX
 
 *(Formerly known as GetHotspotPointX, which is now obsolete)*
@@ -305,9 +269,6 @@ will move the character to hotspot hTable's walk-to point.
 [MoveCharacterToHotspot](Game#movecharactertohotspot)
 
 ---
-
-.. index::
-   pair: Hotspot functions and properties; WalkToY
 
 ### WalkToY
 

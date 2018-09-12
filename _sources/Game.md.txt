@@ -1,10 +1,4 @@
-.. index::
-   single: Game / Global functions
-
-## Game / Global functions
-
-.. index::
-   pair: Game / Global functions; AbortGame
+## Game functions
 
 ### AbortGame
 
@@ -36,9 +30,6 @@ will abort the game if MakeWider is called with a parameter less than
 SeeAlso: [QuitGame](Game#quitgame)
 
 ---
-
-.. index::
-   pair: Game / Global functions; CallRoomScript
 
 ### CallRoomScript
 
@@ -82,9 +73,6 @@ SeeAlso: [The text parser documentation](TextParser)
 
 ---
 
-.. index::
-   pair: Game / Global functions; ChangeTranslation
-
 ### ChangeTranslation
 
     static bool Game.ChangeTranslation(string newTranslationName)
@@ -121,9 +109,6 @@ will attempt to change the translation to Spanish
 [IsTranslationAvailable](Game#istranslationavailable)
 
 ---
-
-.. index::
-   pair: Game / Global functions; ClaimEvent
 
 ### ClaimEvent
 
@@ -164,9 +149,6 @@ SeeAlso: [Script events](TextScriptEvents)
 
 ---
 
-.. index::
-   pair: Game / Global functions; Debug
-
 ### Debug
 
     Debug (int command, int data)
@@ -203,9 +185,6 @@ with what they do:
 
 ---
 
-.. index::
-   pair: Game / Global functions; DeleteSaveSlot
-
 ### DeleteSaveSlot
 
     DeleteSaveSlot (int slot)
@@ -227,9 +206,6 @@ deletes save game slot 130 (which we should have saved earlier).
 [SaveGameSlot](Game#savegameslot)
 
 ---
-
-.. index::
-   pair: Game / Global functions; DisableInterface
 
 ### DisableInterface
 
@@ -256,9 +232,6 @@ will disable the user's interface.
 [IsInterfaceEnabled](Game#isinterfaceenabled)
 
 ---
-
-.. index::
-   pair: Game / Global functions; DoOnceOnly
 
 ### DoOnceOnly
 
@@ -292,9 +265,6 @@ will give the player 5 points the first time this script is run.
 
 ---
 
-.. index::
-   pair: Game / Global functions; EnableInterface
-
 ### EnableInterface
 
     EnableInterface ()
@@ -314,9 +284,6 @@ will enable the user's interface.
 
 ---
 
-.. index::
-   pair: Game / Global functions; EndCutscene
-
 ### EndCutscene
 
     EndCutscene()
@@ -330,9 +297,6 @@ watched the cutscene, or 1 if they skipped it.
 [Game.SkippingCutscene](Game#skippingcutscene)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetColorFromRGB
 
 ### GetColorFromRGB
 
@@ -364,9 +328,6 @@ will draw a bright green line onto the room background
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetFrameCountForLoop
-
 ### GetFrameCountForLoop
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -391,9 +352,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetGameOption
-
 ### GetGameOption
 
     GetGameOption (option)
@@ -415,9 +373,6 @@ Example:
 *See Also:* [SetGameOption](Game#setgameoption)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetGameParameter
 
 ### GetGameParameter
 
@@ -444,9 +399,6 @@ GP_NUMINVITEMS)
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetGameSpeed
-
 ### GetGameSpeed
 
     GetGameSpeed ()
@@ -465,9 +417,6 @@ user has raised it )
 *See Also:* [SetGameSpeed](Game#setgamespeed)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetGlobalInt
 
 ### GetGlobalInt
 
@@ -491,9 +440,6 @@ will execute the code only if Global Integer 20 is 1.
 [Game.GlobalStrings](Game#globalstrings)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetGraphicalVariable
 
 ### GetGraphicalVariable
 
@@ -519,9 +465,6 @@ will execute the code only if interaction variable \"climbed rock\" is
 [SetGraphicalVariable](Game#setgraphicalvariable)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetLocationName
 
 ### GetLocationName
 
@@ -558,9 +501,6 @@ variable.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetLocationType
-
 ### GetLocationType
 
     GetLocationType(int x, int y)
@@ -593,9 +533,6 @@ will set the cursor mode to talk if the cursor is over a character.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetLoopCountForView
-
 ### GetLoopCountForView
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -618,9 +555,6 @@ Example:
 [Game.GetViewFrame](Game#getviewframe)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetRunNextSettingForLoop
 
 ### GetRunNextSettingForLoop
 
@@ -650,9 +584,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetSaveSlotDescription
-
 ### GetSaveSlotDescription
 
 *(Formerly known as global function GetSaveSlotDescription, which is now
@@ -676,9 +607,6 @@ will get the description of save slot 10 into the variable.
 [SaveGameSlot](Game#savegameslot)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetTextHeight
 
 ### GetTextHeight
 
@@ -708,9 +636,6 @@ screen.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetTextWidth
-
 ### GetTextWidth
 
     GetTextWidth(string text, FontType font)
@@ -739,9 +664,6 @@ will print \"Hello!\" onto the middle of the background scene.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetTranslation
-
 ### GetTranslation
 
     String GetTranslation(string original)
@@ -765,9 +687,6 @@ unchanged, so it is always safe to use this function.
 *See Also:* [IsTranslationAvailable](Game#istranslationavailable)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetViewFrame
 
 ### GetViewFrame
 
@@ -798,9 +717,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; GiveScore
-
 ### GiveScore
 
     GiveScore (int score)
@@ -822,9 +738,6 @@ will give 5 points to the player.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GetFontHeight
-
 ### GetFontHeight
 
     int GetFontHeight (int font)
@@ -843,9 +756,6 @@ will store the speech font's height in the variable.
 *See Also:* [GetFontLineSpacing](Game#getfontlinespacing)
 
 ---
-
-.. index::
-   pair: Game / Global functions; GetFontLineSpacing
 
 ### GetFontLineSpacing
 
@@ -877,9 +787,6 @@ speech font.
 *See Also:* [GetFontHeight](Game#getfontheight)
 
 ---
-
-.. index::
-   pair: Game / Global functions; InputBox
 
 ### InputBox
 
@@ -914,9 +821,6 @@ the user presses Cancel, the NAME string will be blank.
 
 ---
 
-.. index::
-   pair: Game / Global functions; InventoryScreen
-
 ### InventoryScreen
 
     InventoryScreen ()
@@ -929,9 +833,6 @@ previous versions of AGS, but is no longer supported.**
 Instead of using this command, you should create your own Inventory GUI.
 
 ---
-
-.. index::
-   pair: Game / Global functions; IsGamePaused
 
 ### IsGamePaused
 
@@ -953,9 +854,6 @@ will unpause the game if it's paused.
 
 ---
 
-.. index::
-   pair: Game / Global functions; IsInterfaceEnabled
-
 ### IsInterfaceEnabled
 
     IsInterfaceEnabled()
@@ -976,9 +874,6 @@ will disable the user interface if it's enabled.
 [EnableInterface](Game#enableinterface)
 
 ---
-
-.. index::
-   pair: Game / Global functions; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -1008,9 +903,6 @@ Example:
 [Room.ProcessClick](Room#processclick)
 
 ---
-
-.. index::
-   pair: Game / Global functions; IsKeyPressed
 
 ### IsKeyPressed
 
@@ -1046,9 +938,6 @@ pressed.
 
 ---
 
-.. index::
-   pair: Game / Global functions; IsPluginLoaded
-
 ### IsPluginLoaded
 
     static bool Game.IsPluginLoaded(const string name)
@@ -1071,9 +960,6 @@ Example:
 will display a message if plugin is present.
 
 ---
-
-.. index::
-   pair: Game / Global functions; IsTimerExpired
 
 ### IsTimerExpired
 
@@ -1098,9 +984,6 @@ will display a message when timer 1 expires.
 
 ---
 
-.. index::
-   pair: Game / Global functions; IsTranslationAvailable
-
 ### IsTranslationAvailable
 
     IsTranslationAvailable ()
@@ -1114,9 +997,6 @@ Returns 1 if a translation is in use, 0 if not.
 [Game.TranslationFilename](Game#translationfilename)
 
 ---
-
-.. index::
-   pair: Game / Global functions; MoveCharacterToHotspot
 
 ### MoveCharacterToHotspot
 
@@ -1144,9 +1024,6 @@ will move the character EGO to the hotspot's 6 \"walk to point\".
 
 ---
 
-.. index::
-   pair: Game / Global functions; MoveCharacterToObject
-
 ### MoveCharacterToObject
 
 **This function is now obsolete. Use Character.Walk instead**
@@ -1170,9 +1047,6 @@ Will move the character EGO below object number 0, then turn off object
 [MoveCharacterToHotspot](Game#movecharactertohotspot)
 
 ---
-
-.. index::
-   pair: Game / Global functions; PauseGame
 
 ### PauseGame
 
@@ -1200,9 +1074,6 @@ will pause the game if the player presses the space bar
 
 ---
 
-.. index::
-   pair: Game / Global functions; QuitGame
-
 ### QuitGame
 
     QuitGame(int ask_first)
@@ -1222,9 +1093,6 @@ will quit the game without asking the player to confirm.
 *See Also:* [AbortGame](Game#abortgame)
 
 ---
-
-.. index::
-   pair: Game / Global functions; Random
 
 ### Random
 
@@ -1252,9 +1120,6 @@ result.
 
 ---
 
-.. index::
-   pair: Game / Global functions; RestartGame
-
 ### RestartGame
 
     RestartGame ()
@@ -1270,9 +1135,6 @@ will restart the game if the player presses the F7 key.
 *SeeAlso:* [SetRestartPoint](Game#setrestartpoint)
 
 ---
-
-.. index::
-   pair: Game / Global functions; RestoreGameDialog
 
 ### RestoreGameDialog
 
@@ -1294,9 +1156,6 @@ will bring up the restore game dialog if the player presses the F5 key.
 [SaveGameDialog](Game#savegamedialog)
 
 ---
-
-.. index::
-   pair: Game / Global functions; RestoreGameSlot
 
 ### RestoreGameSlot
 
@@ -1325,9 +1184,6 @@ will restore game slot 30 if this slot number exists.
 [SaveGameSlot](Game#savegameslot)
 
 ---
-
-.. index::
-   pair: Game / Global functions; RunAGSGame
 
 ### RunAGSGame
 
@@ -1374,9 +1230,6 @@ will run the MyGame game, passing it the value 51.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SaveGameDialog
-
 ### SaveGameDialog
 
     SaveGameDialog ()
@@ -1398,9 +1251,6 @@ will bring up the save game dialog if the player presses the F3 key.
 [SaveGameSlot](Game#savegameslot)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SaveGameSlot
 
 ### SaveGameSlot
 
@@ -1431,9 +1281,6 @@ will save the current game position to slot 30 with the description
 
 ---
 
-.. index::
-   pair: Game / Global functions; SaveScreenShot
-
 ### SaveScreenShot
 
     SaveScreenShot (string filename)
@@ -1461,9 +1308,6 @@ the filename the player typed.
 [DynamicSprite.SaveToFile](DynamicSprite#savetofile)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetAmbientLightLevel
 
 ### SetAmbientLightLevel
 
@@ -1504,9 +1348,6 @@ do not have individual light levels).
 [Region.LightLevel](Region#lightlevel)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetAmbientTint
 
 ### SetAmbientTint
 
@@ -1550,9 +1391,6 @@ will tint everything on the screen with a hint of blue.
 [Region.Tint](Region#tint)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetGameOption
 
 ### SetGameOption
 
@@ -1608,9 +1446,6 @@ will disable pixel-perfect click detection.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SetGameSpeed
-
 ### SetGameSpeed
 
     SetGameSpeed (int new_speed)
@@ -1645,9 +1480,6 @@ will set the game speed to 80.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SetGlobalInt
-
 ### SetGlobalInt
 
     SetGlobalInt (int index, int value)
@@ -1671,9 +1503,6 @@ will set the Global Integer 10 to 1.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SetGraphicalVariable
-
 ### SetGraphicalVariable
 
     SetGraphicalVariable(string variable_name, int value);
@@ -1695,9 +1524,6 @@ will set the interaction editor \"climbed rock\" variable to 1.
 *See Also:* [GetGraphicalVariable](Game#getgraphicalvariable)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetMultitaskingMode
 
 ### SetMultitaskingMode
 
@@ -1733,9 +1559,6 @@ will mean that the game continues to run in the background.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SetRestartPoint
-
 ### SetRestartPoint
 
     SetRestartPoint ()
@@ -1755,9 +1578,6 @@ background.
 *SeeAlso:* [RestartGame](Game#restartgame)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetSaveGameDirectory
 
 ### SetSaveGameDirectory
 
@@ -1805,9 +1625,6 @@ to do this in game_start).
 
 ---
 
-.. index::
-   pair: Game / Global functions; SetTextWindowGUI
-
 ### SetTextWindowGUI
 
     SetTextWindowGUI (int gui)
@@ -1826,9 +1643,6 @@ will change Textwindow GUI 4 to be used for displaying text windows in
 future.
 
 ---
-
-.. index::
-   pair: Game / Global functions; SetTimer
 
 ### SetTimer
 
@@ -1854,9 +1668,6 @@ will set the timer 1 to expire after 1000 game cycles.
 *See Also:* [IsTimerExpired](Game#istimerexpired)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SkipUntilCharacterStops
 
 ### SkipUntilCharacterStops
 
@@ -1886,9 +1697,6 @@ blocking cutscene.
 *See Also:* [StartCutscene](Game#startcutscene)
 
 ---
-
-.. index::
-   pair: Game / Global functions; StartCutscene
 
 ### StartCutscene
 
@@ -1927,9 +1735,6 @@ ESC the game could appear to hang.
 
 ---
 
-.. index::
-   pair: Game / Global functions; UpdateInventory
-
 ### UpdateInventory
 
     UpdateInventory ()
@@ -1950,9 +1755,6 @@ the editor.
 
 ---
 
-.. index::
-   pair: Game / Global functions; UnPauseGame
-
 ### UnPauseGame
 
     UnPauseGame ()
@@ -1969,9 +1771,6 @@ will unpause the game if it is paused.
 *See Also:* [PauseGame](Game#pausegame)
 
 ---
-
-.. index::
-   pair: Game / Global functions; Wait
 
 ### Wait
 
@@ -1996,9 +1795,6 @@ wait for 2 seconds (80 game cycles) and then face right.
 
 ---
 
-.. index::
-   pair: Game / Global functions; WaitKey
-
 ### WaitKey
 
     WaitKey (int time)
@@ -2022,9 +1818,6 @@ presses a key.
 [WaitMouseKey](Game#waitmousekey)
 
 ---
-
-.. index::
-   pair: Game / Global functions; WaitMouseKey
 
 ### WaitMouseKey
 
@@ -2051,9 +1844,6 @@ presses a key or clicks the mouse.
 
 ---
 
-.. index::
-   pair: Game / Global functions; AudioClipCount
-
 ### AudioClipCount
 
     readonly static int Game.AudioClipCount
@@ -2068,9 +1858,6 @@ audio clips for some reason.
 *See Also:* [Game.AudioClips](Game#audioclips)
 
 ---
-
-.. index::
-   pair: Game / Global functions; AudioClips
 
 ### AudioClips
 
@@ -2096,9 +1883,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; CharacterCount
-
 ### CharacterCount
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -2115,9 +1899,6 @@ Example:
     Display("The game has %d characters.", Game.CharacterCount);
 
 ---
-
-.. index::
-   pair: Game / Global functions; DialogCount
 
 ### DialogCount
 
@@ -2137,9 +1918,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; FileName
-
 ### FileName
 
     readonly static String Game.FileName
@@ -2158,9 +1936,6 @@ will display the game filename.
 
 ---
 
-.. index::
-   pair: Game / Global functions; FontCount
-
 ### FontCount
 
     readonly static int Game.FontCount
@@ -2175,9 +1950,6 @@ Example:
     Display("The game has %d fonts.", Game.FontCount);
 
 ---
-
-.. index::
-   pair: Game / Global functions; GlobalMessages
 
 ### GlobalMessages
 
@@ -2204,9 +1976,6 @@ will display global message 997.
 
 ---
 
-.. index::
-   pair: Game / Global functions; GlobalStrings
-
 ### GlobalStrings
 
 *(Formerly known as GetGlobalString, which is now obsolete)*<br>
@@ -2230,9 +1999,6 @@ will set global string 15 to contain \"Joe\".
 
 ---
 
-.. index::
-   pair: Game / Global functions; GUICount
-
 ### GUICount
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -2250,9 +2016,6 @@ Example:
     Display("The game has %d GUIs.", Game.GUICount);
 
 ---
-
-.. index::
-   pair: Game / Global functions; IgnoreUserInputAfterTextTimeoutMs
 
 ### IgnoreUserInputAfterTextTimeoutMs
 
@@ -2285,9 +2048,6 @@ text is automatically removed from the screen.
 [Speech.SkipStyle](Speech#skipstyle)
 
 ---
-
-.. index::
-   pair: Game / Global functions; InSkippableCutscene
 
 ### InSkippableCutscene
 
@@ -2325,9 +2085,6 @@ will display a message if we are within a cutscene
 
 ---
 
-.. index::
-   pair: Game / Global functions; InventoryItemCount
-
 ### InventoryItemCount
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -2343,9 +2100,6 @@ Example:
     Display("The game has %d inventory items.", Game.InventoryItemCount);
 
 ---
-
-.. index::
-   pair: Game / Global functions; MinimumTextDisplayTimeMs
 
 ### MinimumTextDisplayTimeMs
 
@@ -2381,9 +2135,6 @@ for at least 2 seconds
 
 ---
 
-.. index::
-   pair: Game / Global functions; MouseCursorCount
-
 ### MouseCursorCount
 
     readonly static int Game.MouseCursorCount
@@ -2398,9 +2149,6 @@ Example:
     Display("The game has %d cursors.", Game.MouseCursorCount);
 
 ---
-
-.. index::
-   pair: Game / Global functions; Name
 
 ### Name
 
@@ -2419,9 +2167,6 @@ will display the game name.
 *See Also:* [Game.FileName](Game#filename)
 
 ---
-
-.. index::
-   pair: Game / Global functions; NormalFont
 
 ### NormalFont
 
@@ -2451,9 +2196,6 @@ will change the normal font to the font \"Special\".
 *See Also:* [Game.SpeechFont](Game#speechfont)
 
 ---
-
-.. index::
-   pair: Game / Global functions; SkippingCutscene
 
 ### SkippingCutscene
 
@@ -2492,9 +2234,6 @@ cutscene.
 
 ---
 
-.. index::
-   pair: Game / Global functions; SpeechFont
-
 ### SpeechFont
 
 *(Formerly known as global function SetSpeechFont, which is now
@@ -2517,9 +2256,6 @@ will change the speech font to \"Standard\".
 
 ---
 
-.. index::
-   pair: Game / Global functions; SpriteHeight
-
 ### SpriteHeight
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -2540,9 +2276,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Game / Global functions; SpriteWidth
-
 ### SpriteWidth
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -2562,9 +2295,6 @@ Example:
 *See Also:* [Game.SpriteHeight](Game#spriteheight)
 
 ---
-
-.. index::
-   pair: Game / Global functions; TextReadingSpeed
 
 ### TextReadingSpeed
 
@@ -2603,9 +2333,6 @@ on-screen for twice as long as usual.
 
 ---
 
-.. index::
-   pair: Game / Global functions; TranslationFilename
-
 ### TranslationFilename
 
 *(Formerly known as GetTranslationName, which is now obsolete)*
@@ -2628,9 +2355,6 @@ Example:
 [IsTranslationAvailable](Game#istranslationavailable)
 
 ---
-
-.. index::
-   pair: Game / Global functions; UseNativeCoordinates
 
 ### UseNativeCoordinates
 
@@ -2664,9 +2388,6 @@ Example:
 *Compatibility:* Supported by **AGS 3.1.0** and later versions.
 
 ---
-
-.. index::
-   pair: Game / Global functions; ViewCount
 
 ### ViewCount
 

@@ -1,6 +1,3 @@
-.. index::
-   single: Editing the GUIs
-
 ## Editing the GUIs
 
 The game interface is split up into GUIs. Each GUI is a rectangular
@@ -64,9 +61,6 @@ in the same way as character names. For example, if a GUI is called
 
 ---
 
-.. index::
-   pair: Editing the GUIs; GUI buttons
-
 ### GUI buttons
 
 To provide interactivity with the interface, you use buttons.
@@ -87,9 +81,6 @@ in the "New mode number" property.
 To delete a GUI button, right-click it and choose Delete.
 
 ---
-
-.. index::
-   pair: Editing the GUIs; Interface text
 
 ### Interface text
 
@@ -120,9 +111,6 @@ The Properties window also allows you to align the text to left, right
 or centre, as well as change its font and colour.
 
 ---
-
-.. index::
-   pair: Editing the GUIs; Customized Text Windows
 
 ### Customized Text Windows
 
@@ -155,9 +143,6 @@ window's border and text inside of it.
 
 ---
 
-.. index::
-   pair: Editing the GUIs; Custom inventory
-
 ### Custom inventory
 
 Another option you may have noticed in the GUI editor is the Add
@@ -174,9 +159,6 @@ To see a full list of commands available for inventory windows, see the
 section.
 
 ---
-
-.. index::
-   pair: Editing the GUIs; Sliders
 
 ### Sliders
 
@@ -206,9 +188,6 @@ script property.
 
 ---
 
-.. index::
-   pair: Editing the GUIs; Text Boxes
-
 ### Text Boxes
 
 A text box is a simple device that allows the player to type information
@@ -222,9 +201,6 @@ presses Return in the text box, the OnActivate event is called. You can
 then use the TextBox.Text property to retrieve what they typed in.
 
 ---
-
-.. index::
-   pair: Editing the GUIs; List Boxes
 
 ### List Boxes
 

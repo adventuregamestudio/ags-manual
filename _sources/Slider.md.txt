@@ -1,10 +1,4 @@
-.. index::
-   single: GUI Slider properties
-
-## GUI Slider properties
-
-.. index::
-   pair: GUI Slider properties; BackgroundGraphic
+## Slider properties
 
 ### BackgroundGraphic
 
@@ -27,9 +21,6 @@ displays the *sldHealth* slider's background image
 *See Also:* [Slider.HandleGraphic](Slider#handlegraphic)
 
 ---
-
-.. index::
-   pair: GUI Slider properties; HandleGraphic
 
 ### HandleGraphic
 
@@ -56,9 +47,6 @@ displays the *sldHealth* slider's handle image
 
 ---
 
-.. index::
-   pair: GUI Slider properties; HandleOffset
-
 ### HandleOffset
 
     int Slider.HandleOffset;
@@ -78,9 +66,6 @@ the right.
 *See Also:* [Slider.HandleGraphic](Slider#handlegraphic)
 
 ---
-
-.. index::
-   pair: GUI Slider properties; Max
 
 ### Max
 
@@ -104,9 +89,6 @@ sets the maximum value of the *sldHealth* slider to 200.
 
 ---
 
-.. index::
-   pair: GUI Slider properties; Min
-
 ### Min
 
     int Slider.Min;
@@ -129,9 +111,6 @@ sets the minimum value of the *sldHealth* slider to 0.
 [Slider.Value](Slider#value)
 
 ---
-
-.. index::
-   pair: GUI Slider properties; Value
 
 ### Value
 

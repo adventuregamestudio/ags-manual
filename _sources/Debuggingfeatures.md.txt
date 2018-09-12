@@ -1,6 +1,3 @@
-.. index::
-   single: Debugging features
-
 ## Debugging features
 
 It happens to the best of us - you're merrily ploughing along making
@@ -16,9 +13,6 @@ run your game; but the Debug() commands are only available when "Enable
 debug mode" is set in your Game Settings. So, just before you release
 your game, set that option to False and compile the game again to make
 sure the player can't cheat using these features.
-
-.. index::
-   pair: Debugging features; The script debugger
 
 ### The script debugger
 
@@ -42,9 +36,6 @@ Once the script has stopped, you can use the "Step Into" button (F11) to
 step through the lines of code, one by one. To allow the game to
 continue running normally, use the Run (F5) button.
 
-.. index::
-   pair: Debugging features; The Debug() command
-
 ### The Debug() command
 
 There is a scripting command, [Debug](Game#debug), which you can
@@ -58,9 +49,6 @@ display on and off. (FPS is Frames Per Second, which allows you to see
 the game speed and spot any slow-running rooms).
 
 This command only works if Debug Mode is enabled in your Game Settings.
-
-.. index::
-   pair: Debugging features; Current room information
 
 ### Current room information
 

@@ -1,7 +1,4 @@
-.. index::
-   single: GUI control functions and properties
-
-## GUI control functions and properties
+## GUIControl functions and properties
 
 This section lists the functions and properties common to all types of
 GUI control. Each individual control type (Button, ListBox, etc) also
@@ -9,9 +6,6 @@ has its own specific section.
 
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -43,9 +37,6 @@ will display what control the mouse is over.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; AsType
-
 ### AsType
 
     Button*  GUIControl.AsButton;
@@ -76,9 +67,6 @@ that control is not a button, prints a message.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; BringToFront
-
 ### BringToFront
 
     GUIControl.BringToFront()
@@ -101,9 +89,6 @@ on the GUI.
 [GUIControl.ZOrder](GUIControl#zorder)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; Clickable
 
 ### Clickable
 
@@ -139,9 +124,6 @@ will make the *btnSaveGame* button non-clickable.
 *See Also:* [GUIControl.Enabled](GUIControl#enabled)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; Enabled
 
 ### Enabled
 
@@ -182,9 +164,6 @@ will disable the *btnSaveGame* button.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; Height
-
 ### Height
 
     int GUIControl.Height;
@@ -206,9 +185,6 @@ makes the *btnConfirm* button 20 pixels high.
 [GUIControl.Width](GUIControl#width)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; ID
 
 ### ID
 
@@ -234,9 +210,6 @@ list box, and then uses the equivalent modern property to disable it.
 [GUI.ID](GUI#id)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; OwningGUI
 
 ### OwningGUI
 
@@ -267,9 +240,6 @@ again using the niftier full pathing approach.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; SendToBack
-
 ### SendToBack
 
     GUIControl.SendToBack()
@@ -293,9 +263,6 @@ the GUI.
 [GUIControl.ZOrder](GUIControl#zorder)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; SetPosition
 
 ### SetPosition
 
@@ -329,9 +296,6 @@ GUI.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; SetSize
-
 ### SetSize
 
 *(Formerly known as SetGUIObjectSize, which is now obsolete)*
@@ -362,9 +326,6 @@ will resize the *invMain* control to have a size of 160 x 100.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; Visible
-
 ### Visible
 
     bool GUIControl.Visible
@@ -390,9 +351,6 @@ will make the *btnSaveGame* button invisible.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; Width
-
 ### Width
 
     int GUIControl.Width;
@@ -414,9 +372,6 @@ makes the *btnConfirm* button 110 pixels wide.
 [GUIControl.SetSize](GUIControl#setsize)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; X
 
 ### X
 
@@ -444,9 +399,6 @@ left of its GUI.
 
 ---
 
-.. index::
-   pair: GUI control functions and properties; Y
-
 ### Y
 
     int GUIControl.Y;
@@ -472,9 +424,6 @@ top of its GUI.
 [GUIControl.X](GUIControl#x)
 
 ---
-
-.. index::
-   pair: GUI control functions and properties; ZOrder
 
 ### ZOrder
 

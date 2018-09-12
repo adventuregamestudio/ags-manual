@@ -1,6 +1,3 @@
-.. index::
-   single: The demo game
-
 ## The demo game
 
 The first thing you'll probably want to do is to run the demo game. This
@@ -14,4 +11,3 @@ versions).
 
 **NOTE:** The demo game is currently under development. It has various
 unfinished or unimplemented areas.
-

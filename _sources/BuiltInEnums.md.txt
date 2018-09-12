@@ -1,6 +1,3 @@
-.. index::
-   single: Built-in enumerated types
-
 ## Built-in enumerated types
 
 AGS has several [enumerated types](ScriptKeywords#enum) built in. These are

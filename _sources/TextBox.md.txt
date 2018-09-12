@@ -1,10 +1,4 @@
-.. index::
-   single: GUI Text Box functions and properties
-
-## GUI Text Box functions and properties
-
-.. index::
-   pair: GUI Text Box functions and properties; Font
+## TextBox functions and properties
 
 ### Font
 
@@ -26,9 +20,6 @@ will change the *txtUserInput* text box to use Font "Normal".
 [TextBox.Text](TextBox#text)
 
 ---
-
-.. index::
-   pair: GUI Text Box functions and properties; Text
 
 ### Text
 
@@ -54,9 +45,6 @@ will clear the txtUserInput text box.
 [Label.Text](Label#text)
 
 ---
-
-.. index::
-   pair: GUI Text Box functions and properties; TextColor
 
 ### TextColor
 

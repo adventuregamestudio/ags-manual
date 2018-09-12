@@ -1,10 +1,4 @@
-.. index::
-   single: Region functions and properties
-
 ## Region functions and properties
-
-.. index::
-   pair: Region functions and properties; GetAtRoomXY
 
 ### GetAtRoomXY
 
@@ -29,9 +23,6 @@ Example:
 *See Also:* [GetWalkableAreaAt](Room#getwalkableareaat)
 
 ---
-
-.. index::
-   pair: Region functions and properties; RunInteraction
 
 ### RunInteraction
 
@@ -61,9 +52,6 @@ walks onto region" for region 4.
 [Hotspot.RunInteraction](Hotspot#runinteraction)
 
 ---
-
-.. index::
-   pair: Region functions and properties; Tint
 
 ### Tint
 
@@ -101,9 +89,6 @@ will set region 2's RGB tint to (180, 20, 20) with 50`%` opacity.
 
 ---
 
-.. index::
-   pair: Region functions and properties; Enabled
-
 ### Enabled
 
 *(Formerly known as DisableRegion, which is now obsolete)*<br>
@@ -132,9 +117,6 @@ will disable region number 3.
 
 ---
 
-.. index::
-   pair: Region functions and properties; ID
-
 ### ID
 
     readonly int Region.ID
@@ -151,9 +133,6 @@ displays region 3's number (which will be 3).
 *See Also:* [Region.GetAtRoomXY](Region#getatroomxy)
 
 ---
-
-.. index::
-   pair: Region functions and properties; LightLevel
 
 ### LightLevel
 
@@ -200,9 +179,6 @@ will set region 2's level light to 100 if the Global Integer 10 is 1.
 
 ---
 
-.. index::
-   pair: Region functions and properties; TintEnabled
-
 ### TintEnabled
 
     readonly bool Region.TintEnabled
@@ -226,9 +202,6 @@ will display a message if region 4 is tinted
 *See Also:* [Region.Tint](Region#tint)
 
 ---
-
-.. index::
-   pair: Region functions and properties; TintBlue
 
 ### TintBlue
 
@@ -259,9 +232,6 @@ will display a message with the region's tints.
 [Region.TintLuminance](Region#tintluminance)
 
 ---
-
-.. index::
-   pair: Region functions and properties; TintGreen
 
 ### TintGreen
 
@@ -294,9 +264,6 @@ will display a message with the region's tints.
 
 ---
 
-.. index::
-   pair: Region functions and properties; TintRed
-
 ### TintRed
 
     readonly int Region.TintRed
@@ -328,9 +295,6 @@ will display a message with the region's tints.
 
 ---
 
-.. index::
-   pair: Region functions and properties; TintSaturation
-
 ### TintSaturation
 
     readonly int Region.TintSaturation
@@ -361,9 +325,6 @@ will display a message with the region's tints.
 [Region.TintLuminance](Region#tintluminance)
 
 ---
-
-.. index::
-   pair: Region functions and properties; TintLuminance
 
 ### TintLuminance
 

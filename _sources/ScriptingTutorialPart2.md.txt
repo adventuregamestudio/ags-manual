@@ -1,10 +1,4 @@
-.. index::
-   single: Text Scripting Tutorial - Part 2
-
 ## Text Scripting Tutorial - Part 2
-
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Recap
 
 ### Recap
 
@@ -12,9 +6,6 @@ In the first tutorial, we covered the basics of scripting - how to write
 a simple script, use variables and conditional statements. You now know
 how to call all the built-in functions and write a fairly decent script.
 So, what's next?
-
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Loops
 
 ### Loops
 
@@ -44,9 +35,6 @@ Here, *counter* starts off as 1, so the loop will run. Then, it will
 increase to 2. Since it is still greater than 0, the loop will run
 again. This particular loop will run forever, since *counter* can never
 become less than 1, and your game will grind to a halt.
-
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Multiple conditions
 
 ### Multiple conditions
 
@@ -105,9 +93,6 @@ The operator here is the double-vertical-bar `||` operator. It works
 similarly to the `&&` operator, but it will process the commands inside it
 if either one expression, or the other, or both, are true.
 
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Doing one thing or another
-
 ### Doing one thing or another
 
 Sometimes, you want the script to take one course of action if a
@@ -146,9 +131,6 @@ a complete piece of code could look like this:
     else {
      // do this if it's not 5 or 6
     }
-
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Your Own Functions
 
 ### Your Own Functions
 
@@ -261,9 +243,6 @@ You may notice that when you add your own function to your global
 script, you can call it fine from other places in the global script but
 attempting to use it in a room script gives a parse error. The manual
 explains how to solve this using the script header.
-
-.. index::
-   pair: Text Scripting Tutorial - Part 2; Conclusions
 
 ### Conclusions
 

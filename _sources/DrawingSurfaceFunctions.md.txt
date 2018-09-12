@@ -1,6 +1,3 @@
-.. index::
-   single: DrawingSurface functions and properties
-
 ## DrawingSurface functions and properties
 
 The DrawingSurface family of functions allow you to directly draw onto
@@ -18,9 +15,6 @@ copies of the image and upload it to video memory if appropriate.
 
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; Clear
 
 ### Clear
 
@@ -50,9 +44,6 @@ in the middle of it.
 [DrawingSurface.DrawingColor](DrawingSurfaceFunctions#drawingcolor)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; CreateCopy
 
 ### CreateCopy
 
@@ -91,9 +82,6 @@ for a while and then restore the original background.
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawCircle
-
 ### DrawCircle
 
 *(Formerly known as RawDrawCircle, which is now obsolete)*
@@ -117,9 +105,6 @@ will draw a circle in the centre of the screen, of 50 pixels radius.
 [DrawingSurface.DrawingColor](DrawingSurfaceFunctions#drawingcolor)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; DrawImage
 
 ### DrawImage
 
@@ -168,9 +153,6 @@ will draw the *oDoor* object's graphic onto the room background at (100,
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawLine
-
 ### DrawLine
 
 *(Formerly known as RawDrawLine, which is now obsolete)*
@@ -206,9 +188,6 @@ the screen (160,100);
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawMessageWrapped
-
 ### DrawMessageWrapped
 
 *(Formerly known as RawPrintMessageWrapped, which is now obsolete)*
@@ -243,9 +222,6 @@ will display message 10 in the centre of the screen, starting from Y =
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawPixel
-
 ### DrawPixel
 
     DrawingSurface.DrawPixel(int x, int y)
@@ -275,9 +251,6 @@ draws a yellow pixel in the top left of the room background
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawRectangle
-
 ### DrawRectangle
 
 *(Formerly known as RawDrawRectangle, which is now obsolete)*
@@ -306,9 +279,6 @@ will draw a rectangle over the top left hand quarter of the screen.
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawString
-
 ### DrawString
 
 *(Formerly known as RawPrint, which is now obsolete)*
@@ -336,9 +306,6 @@ will write some text onto the middle-left of the room background
 [DrawingSurface.DrawingColor](DrawingSurfaceFunctions#drawingcolor)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; DrawStringWrapped
 
 ### DrawStringWrapped
 
@@ -371,9 +338,6 @@ will display the text in the centre of the screen, starting from Y = 40.
 [DrawingSurface.DrawMessageWrapped](DrawingSurfaceFunctions#drawmessagewrapped)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; DrawSurface
 
 ### DrawSurface
 
@@ -414,9 +378,6 @@ this will draw background frame 1 onto frame 0 at 50`%` opacity.
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; DrawTriangle
-
 ### DrawTriangle
 
 *(Formerly known as RawDrawTriangle, which is now obsolete)*
@@ -444,9 +405,6 @@ will draw a triangle with corners at the points (0,0),(160,100),(0,200).
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; Release
-
 ### Release
 
     DrawingSurface.Release()
@@ -472,9 +430,6 @@ background, then releases the image.
 [Room.GetDrawingSurfaceForBackground](Room#getdrawingsurfaceforbackground)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; DrawingColor
 
 ### DrawingColor
 
@@ -512,9 +467,6 @@ the middle.
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; GetPixel
-
 ### GetPixel
 
     int DrawingSurface.GetPixel(int x, int y)
@@ -549,9 +501,6 @@ displays the pixel colour of the centre pixel on the screen.
 
 ---
 
-.. index::
-   pair: DrawingSurface functions and properties; Height
-
 ### Height
 
     readonly int DrawingSurface.Height
@@ -571,9 +520,6 @@ displays the size of the surface to the player
 [DrawingSurface.Width](DrawingSurfaceFunctions#width)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; UseHighResCoordinates
 
 ### UseHighResCoordinates
 
@@ -612,9 +558,6 @@ draw a line from the top left to the bottom right of the screen.
 [DrawingSurface.DrawTriangle](DrawingSurfaceFunctions#drawtriangle)
 
 ---
-
-.. index::
-   pair: DrawingSurface functions and properties; Width
 
 ### Width
 

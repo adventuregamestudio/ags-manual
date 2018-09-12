@@ -1,10 +1,4 @@
-.. index::
-   single: Screen functions
-
 ## Screen functions
-
-.. index::
-   pair: Screen functions; FadeIn
 
 ### FadeIn
 
@@ -30,9 +24,6 @@ in again.
 
 ---
 
-.. index::
-   pair: Screen functions; FadeOut
-
 ### FadeOut
 
     FadeOut (int speed)
@@ -55,9 +46,6 @@ in again.
 [FadeIn](ScreenFunctions#fadein), [SetFadeColor](ScreenFunctions#setfadecolor)
 
 ---
-
-.. index::
-   pair: Screen functions; FlipScreen
 
 ### FlipScreen
 
@@ -86,9 +74,6 @@ will flip the screen upside down.
 
 ---
 
-.. index::
-   pair: Screen functions; SetFadeColor
-
 ### SetFadeColor
 
     SetFadeColor(int red, int green, int blue)
@@ -113,9 +98,6 @@ SeeAlso: [FadeIn](ScreenFunctions#fadein), [FadeOut](ScreenFunctions#fadeout),
 
 ---
 
-.. index::
-   pair: Screen functions; SetNextScreenTransition
-
 ### SetNextScreenTransition
 
     SetNextScreenTransition(TransitionStyle)
@@ -138,9 +120,6 @@ transition type from then on.
 SeeAlso: [SetScreenTransition](ScreenFunctions#setscreentransition)
 
 ---
-
-.. index::
-   pair: Screen functions; SetScreenTransition
 
 ### SetScreenTransition
 
@@ -168,9 +147,6 @@ SeeAlso: [SetNextScreenTransition](ScreenFunctions#setnextscreentransition)
 
 ---
 
-.. index::
-   pair: Screen functions; ShakeScreen
-
 ### ShakeScreen
 
     ShakeScreen (int amount)
@@ -187,9 +163,6 @@ will shake the screen a little.
 *See Also:* [ShakeScreenBackground](ScreenFunctions#shakescreenbackground)
 
 ---
-
-.. index::
-   pair: Screen functions; ShakeScreenBackground
 
 ### ShakeScreenBackground
 
@@ -220,9 +193,6 @@ will shake the screen a little for 2 seconds.
 *See Also:* [ShakeScreen](ScreenFunctions#shakescreen)
 
 ---
-
-.. index::
-   pair: Screen functions; TintScreen
 
 ### TintScreen
 

@@ -1,10 +1,4 @@
-.. index::
-   single: System functions and properties
-
 ## System functions and properties
-
-.. index::
-   pair: System functions and properties; AudioChannelCount
 
 ### AudioChannelCount
 
@@ -28,9 +22,6 @@ will display a message with the number of audio channels.
 
 ---
 
-.. index::
-   pair: System functions and properties; AudioChannels
-
 ### AudioChannels
 
     readonly static AudioChannel* System.AudioChannels[];
@@ -52,9 +43,6 @@ will display a message with Audio Channel 2's current volume.
 [System.AudioChannelCount](System#audiochannelcount)
 
 ---
-
-.. index::
-   pair: System functions and properties; CapsLock
 
 ### CapsLock
 
@@ -81,9 +69,6 @@ will display a message if Caps Lock is on.
 
 ---
 
-.. index::
-   pair: System functions and properties; ColorDepth
-
 ### ColorDepth
 
 *(Formerly known as system.color_depth, which is now obsolete)*
@@ -105,9 +90,6 @@ will display the current resolution and colour depth
 [System.ScreenWidth](System#screenwidth)
 
 ---
-
-.. index::
-   pair: System functions and properties; Gamma
 
 ### Gamma
 
@@ -137,9 +119,6 @@ will turn the screen brightness up to `50%` higher than normal
 
 ---
 
-.. index::
-   pair: System functions and properties; HardwareAcceleration
-
 ### HardwareAcceleration
 
     readonly static bool System.HardwareAcceleration;
@@ -168,9 +147,6 @@ acceleration
 See Also: [AGS Graphics Drivers](GraphicsDriver)
 
 ---
-
-.. index::
-   pair: System functions and properties; HasInputFocus
 
 ### HasInputFocus
 
@@ -208,9 +184,6 @@ switches back to game.
 
 ---
 
-.. index::
-   pair: System functions and properties; NumLock
-
 ### NumLock
 
     readonly static bool System.NumLock;
@@ -235,9 +208,6 @@ will display a message if Num Lock is on.
 [System.ScrollLock](System#scrolllock)
 
 ---
-
-.. index::
-   pair: System functions and properties; OperatingSystem
 
 ### OperatingSystem
 
@@ -267,9 +237,6 @@ Example:
 
 ---
 
-.. index::
-   pair: System functions and properties; RenderAtScreenResolution
-
 ### RenderAtScreenResolution
 
     static bool System.RenderAtScreenResolution;
@@ -292,9 +259,6 @@ menu option for toggling it at runtime.
 *Compatibility:* Supported by **AGS 3.4.1** and later versions.
 
 ---
-
-.. index::
-   pair: System functions and properties; RuntimeInfo
 
 ### RuntimeInfo
 
@@ -322,9 +286,6 @@ Example:
 *See Also:* [Debug](Game#debug)
 
 ---
-
-.. index::
-   pair: System functions and properties; ScreenHeight
 
 ### ScreenHeight
 
@@ -356,9 +317,6 @@ will display the current resolution and colour depth
 
 ---
 
-.. index::
-   pair: System functions and properties; ScreenWidth
-
 ### ScreenWidth
 
 *(Formerly known as system.screen_width, which is now obsolete)*
@@ -389,9 +347,6 @@ will display the current resolution and colour depth
 
 ---
 
-.. index::
-   pair: System functions and properties; ScrollLock
-
 ### ScrollLock
 
     readonly static bool System.ScrollLock;
@@ -417,9 +372,6 @@ will display a message if Scroll Lock is on.
 [System.NumLock](System#numlock)
 
 ---
-
-.. index::
-   pair: System functions and properties; SupportsGammaControl
 
 ### SupportsGammaControl
 
@@ -451,9 +403,6 @@ will display a message if the system supports changing the gamma
 
 ---
 
-.. index::
-   pair: System functions and properties; Version
-
 ### Version
 
 *(Formerly known as system.version, which is now obsolete)*
@@ -473,9 +422,6 @@ Example:
 will display the AGS version number
 
 ---
-
-.. index::
-   pair: System functions and properties; ViewportHeight
 
 ### ViewportHeight
 
@@ -498,9 +444,6 @@ will display the current viewport size
 
 ---
 
-.. index::
-   pair: System functions and properties; ViewportWidth
-
 ### ViewportWidth
 
 *(Formerly known as system.viewport_width, which is now obsolete)*
@@ -521,9 +464,6 @@ will display the current viewport size
 [System.ViewportHeight](System#viewportheight)
 
 ---
-
-.. index::
-   pair: System functions and properties; Volume
 
 ### Volume
 
@@ -550,9 +490,6 @@ will set the overall output volume to 80.
 
 ---
 
-.. index::
-   pair: System functions and properties; VSync
-
 ### VSync
 
 *(Formerly known as system.vsync, which is now obsolete)*
@@ -578,9 +515,6 @@ Example:
 will display a message if vsync is on
 
 ---
-
-.. index::
-   pair: System functions and properties; Windowed
 
 ### Windowed
 

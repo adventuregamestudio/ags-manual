@@ -1,10 +1,4 @@
-.. index::
-   single: Parser functions
-
 ## Parser functions
-
-.. index::
-   pair: Parser functions; FindWordID
 
 ### FindWordID
 
@@ -41,9 +35,6 @@ will display a message if the game dictionary includes "machine"
 
 ---
 
-.. index::
-   pair: Parser functions; ParseText
-
 ### ParseText
 
     static Parser.ParseText(string text)
@@ -65,9 +56,6 @@ the said command.
 [Parser.Said](Parser#said)
 
 ---
-
-.. index::
-   pair: Parser functions; Said
 
 ### Said
 
@@ -95,9 +83,6 @@ the text parser.
 [Parser.SaidUnknownWord](Parser#saidunknownword)
 
 ---
-
-.. index::
-   pair: Parser functions; SaidUnknownWord
 
 ### SaidUnknownWord
 

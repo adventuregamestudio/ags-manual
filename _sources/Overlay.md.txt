@@ -1,10 +1,4 @@
-.. index::
-   single: Overlay functions and properties
-
 ## Overlay functions and properties
-
-.. index::
-   pair: Overlay functions and properties; CreateGraphical
 
 ### CreateGraphical
 
@@ -38,9 +32,6 @@ it.
 [Overlay.Remove](Overlay#remove)
 
 ---
-
-.. index::
-   pair: Overlay functions and properties; CreateTextual
 
 ### CreateTextual
 
@@ -101,9 +92,6 @@ removed.
 
 ---
 
-.. index::
-   pair: Overlay functions and properties; Remove
-
 ### Remove
 
 *(Formerly known as RemoveOverlay, which is now obsolete)*
@@ -125,9 +113,6 @@ and then remove the overlay from the screen.
 *See Also:* [Overlay.CreateTextual](Overlay#createtextual)
 
 ---
-
-.. index::
-   pair: Overlay functions and properties; SetText
 
 ### SetText
 
@@ -156,9 +141,6 @@ and then replace the overlay with another one.
 
 ---
 
-.. index::
-   pair: Overlay functions and properties; Valid
-
 ### Valid
 
 *(Formerly known as IsOverlayValid, which is now obsolete)*
@@ -182,9 +164,6 @@ Then, removes the overlay and prints Valid again (which will now be 0).
 [Overlay.Remove](Overlay#remove)
 
 ---
-
-.. index::
-   pair: Overlay functions and properties; X
 
 ### X
 
@@ -213,9 +192,6 @@ creates a text overlay, then gradually slides it across the screen.
 [Overlay.Remove](Overlay#remove)
 
 ---
-
-.. index::
-   pair: Overlay functions and properties; Y
 
 ### Y
 

@@ -1,10 +1,4 @@
-.. index::
-   single: Room functions
-
-## Room functions
-
-.. index::
-   pair: Room functions; AreThingsOverlapping
+## Room functions and properties
 
 ### AreThingsOverlapping
 
@@ -41,9 +35,6 @@ if object 2 was a bullet, for instance.
 
 ---
 
-.. index::
-   pair: Room functions; DisableGroundLevelAreas
-
 ### DisableGroundLevelAreas
 
     DisableGroundLevelAreas(int disableTints)
@@ -76,9 +67,6 @@ will disable all ground-level events, but leave light levels working
 
 ---
 
-.. index::
-   pair: Room functions; EnableGroundLevelAreas
-
 ### EnableGroundLevelAreas
 
     EnableGroundLevelAreas()
@@ -99,9 +87,6 @@ will re-enable all ground-level events.
 
 ---
 
-.. index::
-   pair: Room functions; GetBackgroundFrame
-
 ### GetBackgroundFrame
 
     GetBackgroundFrame()
@@ -120,9 +105,6 @@ will turn on object 2 if the background frame of the room is frame 4.
 *See Also:* [SetBackgroundFrame](Room#setbackgroundframe)
 
 ---
-
-.. index::
-   pair: Room functions; GetDrawingSurfaceForBackground
 
 ### GetDrawingSurfaceForBackground
 
@@ -163,9 +145,6 @@ background, then releases the image.
 
 ---
 
-.. index::
-   pair: Room functions; GetPlayerCharacter
-
 ### GetPlayerCharacter
 
     GetPlayerCharacter ()
@@ -181,9 +160,6 @@ Example:
 *See Also:* [Character.ID](Character#id)
 
 ---
-
-.. index::
-   pair: Room functions; GetProperty
 
 ### GetProperty
 
@@ -215,9 +191,6 @@ box ticked.
 
 ---
 
-.. index::
-   pair: Room functions; GetTextProperty
-
 ### GetTextProperty
 
 *(Formerly known as global function GetRoomPropertyText, which is now
@@ -246,9 +219,6 @@ will retrieve the room's "description" property then display it.
 *See Also:* [Room.GetProperty](Room#getproperty)
 
 ---
-
-.. index::
-   pair: Room functions; SetProperty
 
 ### SetProperty
 
@@ -279,9 +249,6 @@ will change room's "Darkness" custom property to 10.
 
 ---
 
-.. index::
-   pair: Room functions; SetTextProperty
-
 ### SetTextProperty
 
     bool Room.SetTextProperty(const string property, const string value)
@@ -309,9 +276,6 @@ will change room's "description" property.
 
 ---
 
-.. index::
-   pair: Room functions; GetScalingAt
-
 ### GetScalingAt
 
     GetScalingAt (int x, int y)
@@ -330,9 +294,6 @@ Example:
 [SetAreaScaling](Room#setareascaling)
 
 ---
-
-.. index::
-   pair: Room functions; GetViewportX
 
 ### GetViewportX
 
@@ -360,9 +321,6 @@ to the right.
 
 ---
 
-.. index::
-   pair: Room functions; GetViewportY
-
 ### GetViewportY
 
     GetViewportY ()
@@ -386,9 +344,6 @@ to the bottom.
 [SetViewport](Room#setviewport)
 
 ---
-
-.. index::
-   pair: Room functions; GetWalkableAreaAt
 
 ### GetWalkableAreaAt
 
@@ -414,9 +369,6 @@ Example:
 [GetScalingAt](Room#getscalingat)
 
 ---
-
-.. index::
-   pair: Room functions; HasPlayerBeenInRoom
 
 ### HasPlayerBeenInRoom
 
@@ -445,9 +397,6 @@ will display a message if the player has been to room 14.
 *See Also:* [ResetRoom](Room#resetroom)
 
 ---
-
-.. index::
-   pair: Room functions; ProcessClick
 
 ### ProcessClick
 
@@ -482,9 +431,6 @@ will simulate a click in the Look mode on co-ordinates (100, 50).
 
 ---
 
-.. index::
-   pair: Room functions; ReleaseViewport
-
 ### ReleaseViewport
 
     ReleaseViewport ()
@@ -509,9 +455,6 @@ to its original position and unlock the screen viewport.
 
 ---
 
-.. index::
-   pair: Room functions; RemoveWalkableArea
-
 ### RemoveWalkableArea
 
     RemoveWalkableArea (int areanum)
@@ -533,9 +476,6 @@ will make the walking area 5 unwalkable.
 *See Also:* [RestoreWalkableArea](Room#restorewalkablearea)
 
 ---
-
-.. index::
-   pair: Room functions; ResetRoom
 
 ### ResetRoom
 
@@ -566,9 +506,6 @@ to.
 
 ---
 
-.. index::
-   pair: Room functions; RestoreWalkableArea
-
 ### RestoreWalkableArea
 
     RestoreWalkableArea (int areanum)
@@ -584,9 +521,6 @@ will make the walking area 4 walkable again.
 *See Also:* [RemoveWalkableArea](Room#removewalkablearea)
 
 ---
-
-.. index::
-   pair: Room functions; SetAreaScaling
 
 ### SetAreaScaling
 
@@ -618,9 +552,6 @@ percent.
 
 ---
 
-.. index::
-   pair: Room functions; SetBackgroundFrame
-
 ### SetBackgroundFrame
 
     SetBackgroundFrame (int frame)
@@ -649,9 +580,6 @@ integer 20 is 1.
 *See Also:* [GetBackgroundFrame](Room#getbackgroundframe)
 
 ---
-
-.. index::
-   pair: Room functions; SetViewport
 
 ### SetViewport
 
@@ -689,9 +617,6 @@ to follow the player around.
 
 ---
 
-.. index::
-   pair: Room functions; SetWalkBehindBase
-
 ### SetWalkBehindBase
 
     SetWalkBehindBase (int area, int baseline)
@@ -718,9 +643,6 @@ will disable the walkbehind area number 3.
 
 ---
 
-.. index::
-   pair: Room functions; BottomEdge
-
 ### BottomEdge
 
     readonly static int Room.BottomEdge
@@ -737,9 +659,6 @@ Example:
 [Room.TopEdge](Room#topedge)
 
 ---
-
-.. index::
-   pair: Room functions; ColorDepth
 
 ### ColorDepth
 
@@ -758,9 +677,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Room functions; Height
-
 ### Height
 
 *(Formerly known as game.room_height, which is now obsolete)*
@@ -778,9 +694,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Room functions; LeftEdge
-
 ### LeftEdge
 
     readonly static int Room.LeftEdge
@@ -797,9 +710,6 @@ Example:
 [Room.TopEdge](Room#topedge)
 
 ---
-
-.. index::
-   pair: Room functions; Messages
 
 ### Messages
 
@@ -825,9 +735,6 @@ will print the contents of room message 1.
 
 ---
 
-.. index::
-   pair: Room functions; MusicOnLoad
-
 ### MusicOnLoad
 
     readonly static int Room.MusicOnLoad
@@ -845,9 +752,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Room functions; ObjectCount
-
 ### ObjectCount
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -861,9 +765,6 @@ Example:
     Display("The current room contains %d objects.", Room.ObjectCount);
 
 ---
-
-.. index::
-   pair: Room functions; RightEdge
 
 ### RightEdge
 
@@ -882,9 +783,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Room functions; TopEdge
-
 ### TopEdge
 
     readonly static int Room.TopEdge
@@ -901,9 +799,6 @@ Example:
 [Room.RightEdge](Room#rightedge)
 
 ---
-
-.. index::
-   pair: Room functions; Width
 
 ### Width
 

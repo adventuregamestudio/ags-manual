@@ -1,10 +1,4 @@
-.. index::
-   single: DynamicSprite functions and properties
-
 ## DynamicSprite functions and properties
-
-.. index::
-   pair: DynamicSprite functions and properties; Create
 
 ### Create
 
@@ -51,9 +45,6 @@ the sprite.
 [DynamicSprite.GetDrawingSurface](DynamicSprite#getdrawingsurface)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromBackground
 
 ### CreateFromBackground
 
@@ -107,9 +98,6 @@ onto the top left corner of the background image.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromDrawingSurface
-
 ### CreateFromDrawingSurface
 
     static DynamicSprite* DynamicSprite.CreateFromDrawingSurface(
@@ -158,9 +146,6 @@ previously was.
 *See Also:* [DynamicSprite.Delete](DynamicSprite#delete)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromExistingSprite
 
 ### CreateFromExistingSprite
 
@@ -211,9 +196,6 @@ and then draws the result onto the background.
 [DynamicSprite.Resize](DynamicSprite#resize)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromFile
 
 ### CreateFromFile
 
@@ -266,9 +248,6 @@ Once the image is finished with, Delete should be called on it.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromSaveGame
-
 ### CreateFromSaveGame
 
 *(Formerly known as LoadSaveSlotScreenshot, which is now obsolete)*
@@ -320,9 +299,6 @@ Once the GUI is disposed of, Delete should be called on the sprite.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; CreateFromScreenShot
-
 ### CreateFromScreenShot
 
     static DynamicSprite* DynamicSprite.CreateFromScreenShot
@@ -372,9 +348,6 @@ Once the GUI is disposed of, Delete should be called on the sprite.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; ChangeCanvasSize
-
 ### ChangeCanvasSize
 
     DynamicSprite.ChangeCanvasSize(int width, int height, int x, int y);
@@ -410,9 +383,6 @@ to the left and right, and draws a line in the new area to the left.
 [DynamicSprite.Width](DynamicSprite#width)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; CopyTransparencyMask
 
 ### CopyTransparencyMask
 
@@ -454,9 +424,6 @@ transparency mask to use that of sprite 11, and displays it on object 0.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; Crop
-
 ### Crop
 
     DynamicSprite.Crop(int x, int y, int width, int height);
@@ -488,9 +455,6 @@ pixels, and then draw it onto the room background at (100,100).
 [DynamicSprite.Width](DynamicSprite#width)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; Delete
 
 ### Delete
 
@@ -527,9 +491,6 @@ and free the new image.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; Flip
-
 ### Flip
 
     DynamicSprite.Flip(eFlipDirection);
@@ -557,9 +518,6 @@ it onto the room background at (100,100).
 [DynamicSprite.Rotate](DynamicSprite#rotate)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; GetDrawingSurface
 
 ### GetDrawingSurface
 
@@ -594,9 +552,6 @@ object for 1 second and then removes it.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; Resize
-
 ### Resize
 
     DynamicSprite.Resize(int width, int height);
@@ -630,9 +585,6 @@ size, and then draw it onto the room background at (100,100).
 [DynamicSprite.Width](DynamicSprite#width)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; Rotate
 
 ### Rotate
 
@@ -672,9 +624,6 @@ draw the result onto the screen, and then delete the image.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; SaveToFile
-
 ### SaveToFile
 
     DynamicSprite.SaveToFile(string filename)
@@ -704,9 +653,6 @@ then save the result back to the disk.
 [SaveScreenShot](Game#savescreenshot)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; Tint
 
 ### Tint
 
@@ -742,9 +688,6 @@ room background.
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; ColorDepth
-
 ### ColorDepth
 
     readonly int DynamicSprite.ColorDepth;
@@ -767,9 +710,6 @@ displays the colour depth of the CustomAvatar.bmp image.
 [DynamicSprite.Width](DynamicSprite#width)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; Graphic
 
 ### Graphic
 
@@ -796,9 +736,6 @@ takes a screen shot, and draws it onto the background scene at
 
 ---
 
-.. index::
-   pair: DynamicSprite functions and properties; Height
-
 ### Height
 
     readonly int DynamicSprite.Height;
@@ -820,9 +757,6 @@ displays the size of the CustomAvatar.bmp image.
 [DynamicSprite.Width](DynamicSprite#width)
 
 ---
-
-.. index::
-   pair: DynamicSprite functions and properties; Width
 
 ### Width
 

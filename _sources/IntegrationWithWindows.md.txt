@@ -1,6 +1,3 @@
-.. index::
-   single: Integration with Windows
-
 ## Integration with Windows
 
 AGS has the ability to integrate with Windows in two ways. Firstly, it
@@ -9,9 +6,6 @@ player double-clicks them; and secondly, in Windows Vista and later, AGS
 can integrate with the Game Explorer feature.
 
 ---
-
-.. index::
-   pair: Integration with Windows; Enhanced Save Games
 
 ### Enhanced Save Games
 
@@ -64,9 +58,6 @@ parameter. This will cause AGS to remove the associations from the
 player's system.
 
 ---
-
-.. index::
-   pair: Integration with Windows; Windows Game Explorer
 
 ### Windows Game Explorer
 

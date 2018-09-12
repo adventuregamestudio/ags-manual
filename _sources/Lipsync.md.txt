@@ -1,6 +1,3 @@
-.. index::
-   single: Lip sync
-
 ## Lip sync
 
 Lip sync is a way to animate character talking in connection with
@@ -18,9 +15,6 @@ editor.
 
 
 ---
-
-.. index::
-   pair: Lip sync; Text-based lip syncing
 
 ### Text-based lip syncing
 
@@ -44,9 +38,6 @@ encountered.
 
 ---
 
-.. index::
-   pair: Lip sync; Voice-based lip sync
-
 ### Voice-based lip sync
 
 AGS supports lip syncing voice speech to the talking animation. If you
@@ -63,9 +54,6 @@ applications that produce lip sync data based on voice clips. AGS
 supports two such data formats: **PAMELA** and **Papagayo**.
 
 ---
-
-.. index::
-   pair: Lip sync; PAMELA
 
 ### PAMELA
 
@@ -99,9 +87,6 @@ game.
 strongly recommended that you use OGG or WAV for speech.
 
 ---
-
-.. index::
-   pair: Lip sync; Papagayo
 
 ### Papagayo
 

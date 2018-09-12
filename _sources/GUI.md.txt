@@ -1,10 +1,4 @@
-.. index::
-   single: GUI functions and properties
-
 ## GUI functions and properties
-
-.. index::
-   pair: GUI functions and properties; Centre
 
 ### Centre
 
@@ -25,9 +19,6 @@ will centre the CONTROLPANEL GUI in the middle of the screen.
 *See Also:* [GUI.SetPosition](GUI#setposition)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; Click
 
 ### Click
 
@@ -53,9 +44,6 @@ triggers OnClick event for gMainMenu.
 [GUI.ProcessClick](GUI#processclick)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; GetAtScreenXY
 
 ### GetAtScreenXY
 
@@ -96,9 +84,6 @@ will display the number of the GUI that the mouse is over.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; ProcessClick
-
 ### ProcessClick
 
     static void GUI.ProcessClick(int x, int y, CursorMode)
@@ -128,9 +113,6 @@ Pointer mode, which will ignore anything but interface.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; SetPosition
-
 ### SetPosition
 
 *(Formerly known as SetGUIPosition, which is now obsolete)*
@@ -155,9 +137,6 @@ will move the VERBCOIN GUI to the position where the cursor is.
 [GUI.Y](GUI#y)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; SetSize
 
 ### SetSize
 
@@ -187,9 +166,6 @@ changes the ICONBAR GUI to be the size of half the screen
 
 ---
 
-.. index::
-   pair: GUI functions and properties; BackgroundGraphic
-
 ### BackgroundGraphic
 
 *(Formerly known as SetGUIBackgroundPic, which is now obsolete)*
@@ -204,9 +180,6 @@ You can set this to 0 to remove the background image from the GUI.
 [Button.NormalGraphic](Button#normalgraphic)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; Clickable
 
 ### Clickable
 
@@ -235,9 +208,6 @@ sets the STATUSLINE GUI to no longer respond to mouse clicks.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; ControlCount
-
 ### ControlCount
 
     readonly int GUI.ControlCount;
@@ -259,9 +229,6 @@ disables all controls on the INVENTORY GUI.
 *See Also:* [GUI.Controls](GUI#controls)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; Controls
 
 ### Controls
 
@@ -298,9 +265,6 @@ it. If control 4 isn't a listbox, you will get a Null Reference error.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; Height
-
 ### Height
 
     int GUI.Height
@@ -320,9 +284,6 @@ displays the height of the ICONBAR GUI.
 [GUI.Width](GUI#width)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; ID
 
 ### ID
 
@@ -344,9 +305,6 @@ clickable.
 *See Also:* [GUIControl.ID](GUIControl#id)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; Transparency
 
 ### Transparency
 
@@ -389,9 +347,6 @@ will gradually fade the INVENTORY GUI out until it is invisible.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; Visible
-
 ### Visible
 
 *(Formerly known as GUIOff, which is now obsolete)*<br>
@@ -428,9 +383,6 @@ will turn on the SETTINGS GUI.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; Width
-
 ### Width
 
     int GUI.Width
@@ -450,9 +402,6 @@ makes the INVENTORY GUI 5 pixels wider.
 [GUI.SetSize](GUI#setsize)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; X
 
 ### X
 
@@ -476,9 +425,6 @@ moves the VERBCOIN GUI right 5 pixels.
 
 ---
 
-.. index::
-   pair: GUI functions and properties; Y
-
 ### Y
 
     int GUI.Y
@@ -501,9 +447,6 @@ moves the VERBCOIN GUI down 5 pixels.
 [GUI.X](GUI#x)
 
 ---
-
-.. index::
-   pair: GUI functions and properties; ZOrder
 
 ### ZOrder
 

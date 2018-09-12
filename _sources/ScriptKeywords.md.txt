@@ -1,10 +1,4 @@
-.. index::
-   single: Script language keywords
-
 ## Script language keywords
-
-.. index::
-   pair: Script language keywords; Arrays
 
 ### Arrays
 
@@ -43,9 +37,6 @@ corresponds to the player character's ID number to 10.
 See Also: [Dynamic arrays](DynamicArrays)
 
 ---
-
-.. index::
-   pair: Script language keywords; Data types
 
 ### Data types
 
@@ -91,9 +82,6 @@ programming languages so just be aware of it if you use any floating
 point arithmetic.
 
 ---
-
-.. index::
-   pair: Script language keywords; Operators
 
 ### Operators
 
@@ -145,9 +133,6 @@ this:
 `if ((!a) && (b < 4))`
 
 ---
-
-.. index::
-   pair: Script language keywords; Constants
 
 ### Constants
 
@@ -203,9 +188,6 @@ limit, use the
 
 ---
 
-.. index::
-   pair: Script language keywords; Version checking
-
 ### Version checking
 
 If you are writing a script module, you may need to check which version
@@ -225,9 +207,6 @@ Note that this ability was only added in 2.72, so you cannot use the
 than this.
 
 ---
-
-.. index::
-   pair: Script language keywords; if, else statements
 
 ### if, else statements
 
@@ -270,9 +249,6 @@ if it is not.
     }
 
 ---
-
-.. index::
-   pair: Script language keywords; switch, case statements
 
 ### switch, case statements
 
@@ -372,9 +348,6 @@ player's inventory.
 
 ---
 
-.. index::
-   pair: Script language keywords; while
-
 ### while
 
 **while (** *expression* **)** `{`<br>
@@ -394,9 +367,6 @@ not zero. Once it is zero, the **while** statement will exit at the end
 of the loop.
 
 ---
-
-.. index::
-   pair: Script language keywords; do..while
 
 ### do..while
 
@@ -422,9 +392,6 @@ continue run it repeatedly, as long as the right arrow key is pressed by
 player.
 
 ---
-
-.. index::
-   pair: Script language keywords; for
 
 ### for
 
@@ -470,9 +437,6 @@ coordinate x = 100.
 
 ---
 
-.. index::
-   pair: Script language keywords; break
-
 ### break
 
 **break**;
@@ -495,9 +459,6 @@ not zero. If player presses Escape key, the loop is terminated
 immediately.
 
 ---
-
-.. index::
-   pair: Script language keywords; continue
 
 ### continue
 
@@ -524,9 +485,6 @@ will run first part of the loop statements always, and second part only
 when `i <= 50`.
 
 ---
-
-.. index::
-   pair: Script language keywords; function
 
 ### function
 
@@ -573,9 +531,6 @@ cannot be specified in the actual function declaration itself.
 
 ---
 
-.. index::
-   pair: Script language keywords; return
-
 ### return
 
 **return**;
@@ -608,9 +563,6 @@ naturally:
     }
 
 ---
-
-.. index::
-   pair: Script language keywords; struct
 
 ### struct
 
@@ -659,9 +611,6 @@ structs are essential if you have complex data that you need to store in
 your scripts.
 
 ---
-
-.. index::
-   pair: Script language keywords; managed
 
 ### managed
 
@@ -756,9 +705,6 @@ See Also: [new](ScriptKeywords#new), [Pointers in AGS](Pointers)
 
 ---
 
-.. index::
-   pair: Script language keywords; new
-
 ### new
 
 *pointer_variable* = **new** *managed_type*;
@@ -787,9 +733,6 @@ Example:
 See Also: [managed](ScriptKeywords#managed), [Pointers in AGS](Pointers)
 
 ---
-
-.. index::
-   pair: Script language keywords; enum
 
 ### enum
 
@@ -849,9 +792,6 @@ they're very handy.
 
 ---
 
-.. index::
-   pair: Script language keywords; this
-
 ### this
 
 There are two uses for the `this` keyword.
@@ -890,9 +830,6 @@ for details.
 
 ---
 
-.. index::
-   pair: Script language keywords; import
-
 ### import
 
 **import** *declaration* ;
@@ -923,9 +860,6 @@ apply to new-style `String` variables).
 
 ---
 
-.. index::
-   pair: Script language keywords; export
-
 ### export
 
 **export** *variable* \[, *variable* ... \] ;
@@ -942,9 +876,6 @@ For example:
 This exports three variables - my_variable, counter and strength.
 
 ---
-
-.. index::
-   pair: Script language keywords; noloopcheck
 
 ### noloopcheck
 

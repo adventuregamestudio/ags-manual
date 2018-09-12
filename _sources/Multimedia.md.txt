@@ -1,10 +1,4 @@
-.. index::
-   single: Multimedia functions
-
 ## Multimedia functions
-
-.. index::
-   pair: Multimedia functions; CDAudio
 
 ### CDAudio
 
@@ -64,9 +58,6 @@ will play track 3 of the CD that's in the CD ROM drive.
 
 ---
 
-.. index::
-   pair: Multimedia functions; IsAudioPlaying
-
 ### IsAudioPlaying
 
 *(Formerly known as IsMusicPlaying, which is now obsolete)*<br>
@@ -96,9 +87,6 @@ waits for any currently playing music to finish.
 
 ---
 
-.. index::
-   pair: Multimedia functions; IsSpeechVoxAvailable
-
 ### IsSpeechVoxAvailable
 
     IsSpeechVoxAvailable()
@@ -122,9 +110,6 @@ been renamed to avoid confusion.
 *See Also:* [AudioClip.IsAvailable](AudioClip#isavailable)
 
 ---
-
-.. index::
-   pair: Multimedia functions; PlayFlic
 
 ### PlayFlic
 
@@ -154,9 +139,6 @@ the ESC key.
 
 ---
 
-.. index::
-   pair: Multimedia functions; PlaySilentMIDI
-
 ### PlaySilentMIDI
 
     PlaySilentMIDI (int music_number)
@@ -170,9 +152,6 @@ simulate this effect.
 [AudioChannel.Volume](AudioChannel#volume)
 
 ---
-
-.. index::
-   pair: Multimedia functions; PlayVideo
 
 ### PlayVideo
 
@@ -239,9 +218,6 @@ versions.
 
 ---
 
-.. index::
-   pair: Multimedia functions; SetAudioTypeSpeechVolumeDrop
-
 ### SetAudioTypeSpeechVolumeDrop
 
 *(Formerly known as game.speech_music_drop, which is now obsolete)*
@@ -268,9 +244,6 @@ while speech is playing.
 *See Also:* [Game.SetAudioTypeVolume](Multimedia#setaudiotypevolume)
 
 ---
-
-.. index::
-   pair: Multimedia functions; SetAudioTypeVolume
 
 ### SetAudioTypeVolume
 
@@ -313,9 +286,6 @@ will change the volume of all currently playing and future music to
 
 ---
 
-.. index::
-   pair: Multimedia functions; SetSpeechVolume
-
 ### SetSpeechVolume
 
     SetSpeechVolume (int volume)
@@ -333,9 +303,6 @@ will set the speech volume to 200.
 *See Also:* [Game.SetAudioTypeVolume](Multimedia#setaudiotypevolume)
 
 ---
-
-.. index::
-   pair: Multimedia functions; StopAudio
 
 ### StopAudio
 

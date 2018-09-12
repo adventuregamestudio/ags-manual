@@ -1,10 +1,4 @@
-.. index::
-   single: Inventory item functions and properties
-
-## Inventory item functions and properties
-
-.. index::
-   pair: Inventory item functions and properties; GetAtScreenXY
+## InventoryItem functions and properties
 
 ### GetAtScreenXY
 
@@ -43,9 +37,6 @@ will display the number of the inv item that the mouse is over
 
 ---
 
-.. index::
-   pair: Inventory item functions and properties; GetProperty
-
 ### GetProperty
 
 *(Formerly known as GetInvProperty, which is now obsolete)*
@@ -71,9 +62,6 @@ to more than 200.
 [InventoryItem.GetTextProperty](InventoryItem#gettextproperty)
 
 ---
-
-.. index::
-   pair: Inventory item functions and properties; GetTextProperty
 
 ### GetTextProperty
 
@@ -101,9 +89,6 @@ will retrieve inv item 2's "description" property and display it.
 [InventoryItem.GetProperty](InventoryItem#getproperty)
 
 ---
-
-.. index::
-   pair: Inventory item functions and properties; SetProperty
 
 ### SetProperty
 
@@ -133,9 +118,6 @@ will change Stone's "weight" custom property to 120.
 
 ---
 
-.. index::
-   pair: Inventory item functions and properties; SetTextProperty
-
 ### SetTextProperty
 
     bool InventoryItem.SetTextProperty(const string property, const string value)
@@ -161,9 +143,6 @@ will change key's "description" property.
 [InventoryItem.SetProperty](InventoryItem#setproperty)
 
 ---
-
-.. index::
-   pair: Inventory item functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -193,9 +172,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Inventory item functions and properties; RunInteraction
-
 ### RunInteraction
 
 *(Formerly known as RunInventoryInteraction, which is now obsolete)*
@@ -221,9 +197,6 @@ this to work)
 
 ---
 
-.. index::
-   pair: Inventory item functions and properties; CursorGraphic
-
 ### CursorGraphic
 
     int InventoryItem.CursorGraphic
@@ -246,9 +219,6 @@ will display inventory item *iKey*'s cursor graphic.
 *See Also:* [InventoryItem.Graphic](InventoryItem#graphic)
 
 ---
-
-.. index::
-   pair: Inventory item functions and properties; Graphic
 
 ### Graphic
 
@@ -280,9 +250,6 @@ slot.
 
 ---
 
-.. index::
-   pair: Inventory item functions and properties; ID
-
 ### ID
 
     readonly int InventoryItem.ID
@@ -302,9 +269,6 @@ inventory
 [Character.LoseInventory](Character#loseinventory)
 
 ---
-
-.. index::
-   pair: Inventory item functions and properties; Name
 
 ### Name
 

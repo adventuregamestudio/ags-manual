@@ -1,6 +1,3 @@
-.. index::
-   single: AudioChannel functions and properties
-
 ## AudioChannel functions and properties
 
 The AudioChannel instance represents a currently playing audio file. You
@@ -9,9 +6,6 @@ them.
 
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; Seek
 
 ### Seek
 
@@ -47,9 +41,6 @@ seek it back to the start.
 
 ---
 
-.. index::
-   pair: AudioChannel functions and properties; SetRoomLocation
-
 ### SetRoomLocation
 
 *(Formerly part of PlayAmbientSound, which is now obsolete)*
@@ -84,9 +75,6 @@ of the *oMachine* room object.
 
 ---
 
-.. index::
-   pair: AudioChannel functions and properties; Speed
-
 ### Speed
 
     int AudioChannel.Speed
@@ -107,9 +95,6 @@ plays *aFunnyTalk* clip at the double speed.
 *Compatibility:* Supported by **AGS 3.4.0** and later versions.
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; Stop
 
 ### Stop
 
@@ -135,9 +120,6 @@ stop it.
 
 ---
 
-.. index::
-   pair: AudioChannel functions and properties; ID
-
 ### ID
 
     readonly int AudioChannel.ID
@@ -157,9 +139,6 @@ channel it is playing on.
 *Compatibility:* Supported by **AGS 3.2.0** and later versions.
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; IsPlaying
 
 ### IsPlaying
 
@@ -185,9 +164,6 @@ finishes.
 
 ---
 
-.. index::
-   pair: AudioChannel functions and properties; LengthMs
-
 ### LengthMs
 
     readonly int AudioChannel.LengthMs
@@ -211,9 +187,6 @@ will start playing the *aExplosion* audio clip, then display its length.
 *See Also:* [AudioChannel.PositionMs](AudioChannel#positionms)
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; Panning
 
 ### Panning
 
@@ -240,9 +213,6 @@ will start playing the *aExplosion* audio clip on the left speaker only.
 *See Also:* [AudioClip.Play](AudioClip#play)
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; PlayingClip
 
 ### PlayingClip
 
@@ -275,9 +245,6 @@ will display what is currently playing on audio channel 2.
 [System.AudioChannels](System#audiochannels)
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; Position
 
 ### Position
 
@@ -318,9 +285,6 @@ seek it ahead one second (if it is OGG/MP3/WAV).
 
 ---
 
-.. index::
-   pair: AudioChannel functions and properties; PositionMs
-
 ### PositionMs
 
     readonly int AudioChannel.PositionMs
@@ -351,9 +315,6 @@ display its position.
 [AudioChannel.Position](AudioChannel#position)
 
 ---
-
-.. index::
-   pair: AudioChannel functions and properties; Volume
 
 ### Volume
 

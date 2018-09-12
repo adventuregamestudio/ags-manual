@@ -1,6 +1,3 @@
-.. index::
-   single: Upgrading to AGS 2.7
-
 ## Upgrading to AGS 2.7
 
 The script language in AGS 2.7 has changed quite significantly from

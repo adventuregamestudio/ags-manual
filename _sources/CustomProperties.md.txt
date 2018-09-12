@@ -1,6 +1,3 @@
-.. index::
-   single: Custom Properties
-
 ## Custom Properties
 
 **What are custom properties?**
@@ -59,25 +56,25 @@ appear in the properties window for characters, objects, and so on.
 To access the properties from the script, there are various script
 functions. See their descriptions for how they work:
 
-[Character.GetProperty](Character#getproperty),
+[Character.GetProperty](Character#getproperty)<br>
 [Character.GetTextProperty](Character#gettextproperty)<br>
-[Character.SetProperty](Character#setproperty),
+[Character.SetProperty](Character#setproperty)<br>
 [Character.SetTextProperty](Character#settextproperty)<br>
-[Hotspot.GetProperty](Hotspot#getproperty),
+[Hotspot.GetProperty](Hotspot#getproperty)<br>
 [Hotspot.GetTextProperty](Hotspot#gettextproperty)<br>
-[Hotspot.SetProperty](Hotspot#setproperty),
+[Hotspot.SetProperty](Hotspot#setproperty)<br>
 [Hotspot.SetTextProperty](Hotspot#settextproperty)<br>
-[InventoryItem.GetProperty](InventoryItem#getproperty),
+[InventoryItem.GetProperty](InventoryItem#getproperty)<br>
 [InventoryItem.GetTextProperty](InventoryItem#gettextproperty)<br>
-[InventoryItem.SetProperty](InventoryItem#setproperty),
+[InventoryItem.SetProperty](InventoryItem#setproperty)<br>
 [InventoryItem.SetTextProperty](InventoryItem#settextproperty)<br>
-[Object.GetProperty](Object#getproperty),
+[Object.GetProperty](Object#getproperty)<br>
 [Object.GetTextProperty](Object#gettextproperty)<br>
-[Object.SetProperty](Object#setproperty),
+[Object.SetProperty](Object#setproperty)<br>
 [Object.SetTextProperty](Object#settextproperty)<br>
-[Room.GetProperty](Room#getproperty),
+[Room.GetProperty](Room#getproperty)<br>
 [Room.GetTextProperty](Room#gettextproperty)<br>
-[Room.SetProperty](Room#setproperty),
+[Room.SetProperty](Room#setproperty)<br>
 [Room.SetTextProperty](Room#settextproperty)
 
 **NOTE:** Calling [ResetRoom](Room#resetroom) will reset that

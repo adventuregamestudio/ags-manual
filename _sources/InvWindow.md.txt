@@ -1,10 +1,4 @@
-.. index::
-   single: GUI InvWindow functions and properties
-
-## GUI InvWindow functions and properties
-
-.. index::
-   pair: GUI InvWindow functions and properties; ScrollDown
+## InvWindow functions and properties
 
 ### ScrollDown
 
@@ -28,9 +22,6 @@ will scroll the *invMain* inv window down one row.
 
 ---
 
-.. index::
-   pair: GUI InvWindow functions and properties; ScrollUp
-
 ### ScrollUp
 
     InvWindow.ScrollUp()
@@ -53,9 +44,6 @@ will scroll the *invMain* inv window up one row.
 
 ---
 
-.. index::
-   pair: GUI InvWindow functions and properties; CharacterToUse
-
 ### CharacterToUse
 
     Character* InvWindow.CharacterToUse;
@@ -73,9 +61,6 @@ will change the *invMain* inventory window to display character JACK's
 inventory.
 
 ---
-
-.. index::
-   pair: GUI InvWindow functions and properties; ItemAtIndex
 
 ### ItemAtIndex
 
@@ -99,9 +84,6 @@ inventory window.
 *See Also:* [InvWindow.ItemCount](InvWindow#itemcount)
 
 ---
-
-.. index::
-   pair: GUI InvWindow functions and properties; ItemCount
 
 ### ItemCount
 
@@ -130,9 +112,6 @@ more inventory items than will fit in the inventory window.
 
 ---
 
-.. index::
-   pair: GUI InvWindow functions and properties; ItemHeight
-
 ### ItemHeight
 
 *(Formerly known as SetInvDimensions, which is now obsolete)*
@@ -154,9 +133,6 @@ sets the *invMain* inventory window to use item cells 50x30 large.
 [InvWindow.RowCount](InvWindow#rowcount)
 
 ---
-
-.. index::
-   pair: GUI InvWindow functions and properties; ItemWidth
 
 ### ItemWidth
 
@@ -180,9 +156,6 @@ sets the *invMain* inventory window to use item cells 50x30 large.
 
 ---
 
-.. index::
-   pair: GUI InvWindow functions and properties; ItemsPerRow
-
 ### ItemsPerRow
 
 *(Formerly known as game.items_per_line, which is now obsolete)*
@@ -204,9 +177,6 @@ displays how many items can be visible in the invMain window at once.
 
 ---
 
-.. index::
-   pair: GUI InvWindow functions and properties; RowCount
-
 ### RowCount
 
     readonly int InvWindow.RowCount;
@@ -225,9 +195,6 @@ displays how many items can be visible in the invMain window at once.
 [InvWindow.ItemsPerRow](InvWindow#itemsperrow)
 
 ---
-
-.. index::
-   pair: GUI InvWindow functions and properties; TopItem
 
 ### TopItem
 

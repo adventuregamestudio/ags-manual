@@ -1,10 +1,4 @@
-.. index::
-   single: String functions
-
 ## String functions
-
-.. index::
-   pair: String functions; Append
 
 ### Append
 
@@ -36,9 +30,6 @@ will display "HelloWorld".
 
 ---
 
-.. index::
-   pair: String functions; AppendChar
-
 ### AppendChar
 
     String.AppendChar(char extraChar)
@@ -64,9 +55,6 @@ will display "Hello".
 *See Also:* [String.Append](String#append)
 
 ---
-
-.. index::
-   pair: String functions; CompareTo
 
 ### CompareTo
 
@@ -109,9 +97,6 @@ will display "Strings match with case sensitivity off!", and then
 
 ---
 
-.. index::
-   pair: String functions; Copy
-
 ### Copy
 
 *(Formerly known as global function StrCopy, which is now obsolete)*
@@ -130,9 +115,6 @@ Example:
 will display "This is a test string".
 
 ---
-
-.. index::
-   pair: String functions; EndsWith
 
 ### EndsWith
 
@@ -161,9 +143,6 @@ will display the "Ends with script!" message.
 
 ---
 
-.. index::
-   pair: String functions; Format
-
 ### Format
 
 *(Formerly known as global function StrFormat, which is now obsolete)*
@@ -191,9 +170,6 @@ will create a text string containing "10".
 *See Also:* [Display](DisplayFunctions#display)
 
 ---
-
-.. index::
-   pair: String functions; IndexOf
 
 ### IndexOf
 
@@ -227,9 +203,6 @@ Example:
 
 ---
 
-.. index::
-   pair: String functions; IsNullOrEmpty
-
 ### IsNullOrEmpty
 
     static bool String.IsNullOrEmpty(String stringToCheck)
@@ -261,9 +234,6 @@ will set the myString variable to "Some text" if it is null or empty
 
 ---
 
-.. index::
-   pair: String functions; LowerCase
-
 ### LowerCase
 
 *(Formerly known as global function StrToLowerCase, which is now
@@ -287,9 +257,6 @@ will display "Old: THIS is a test string, new: this is a test string".
 *See Also:* [String.UpperCase](String#uppercase)
 
 ---
-
-.. index::
-   pair: String functions; Replace
 
 ### Replace
 
@@ -320,9 +287,6 @@ script!".
 
 ---
 
-.. index::
-   pair: String functions; ReplaceCharAt
-
 ### ReplaceCharAt
 
 *(Formerly known as global function StrSetCharAt, which is now
@@ -351,9 +315,6 @@ will display "Old: Hello, new: Hemlo".
 
 ---
 
-.. index::
-   pair: String functions; StartsWith
-
 ### StartsWith
 
     bool String.StartsWith(string lookForText, optional bool caseSensitive)
@@ -381,9 +342,6 @@ will display the "Starts with hello!" message.
 
 ---
 
-.. index::
-   pair: String functions; Substring
-
 ### Substring
 
     String.Substring(int index, int length)
@@ -408,9 +366,6 @@ will display "Original: Hello World!, Substring: lo Wo".
 
 ---
 
-.. index::
-   pair: String functions; Truncate
-
 ### Truncate
 
     String.Truncate(int length)
@@ -433,9 +388,6 @@ will display "Original: Hello World!, Truncated: Hell".
 [String.Substring](String#substring)
 
 ---
-
-.. index::
-   pair: String functions; UpperCase
 
 ### UpperCase
 
@@ -460,9 +412,6 @@ will display "Old: THIS is a test string, new: THIS IS A TEST STRING".
 *See Also:* [String.LowerCase](String#lowercase)
 
 ---
-
-.. index::
-   pair: String functions; AsFloat
 
 ### AsFloat
 
@@ -491,9 +440,6 @@ is useful for processing strings input from the user.
 [String.Format](String#format)
 
 ---
-
-.. index::
-   pair: String functions; AsInt
 
 ### AsInt
 
@@ -530,9 +476,6 @@ useful for processing strings input from the user.
 
 ---
 
-.. index::
-   pair: String functions; Chars
-
 ### Chars
 
 *(Formerly known as global function StrGetCharAt, which is now
@@ -562,9 +505,6 @@ will display "The 4th character is: s".
 [String.ReplaceCharAt](String#replacecharat)
 
 ---
-
-.. index::
-   pair: String functions; Length
 
 ### Length
 

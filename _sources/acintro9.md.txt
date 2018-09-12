@@ -1,10 +1,4 @@
-.. index::
-   single: Getting Started with AGS - Part 9
-
 ## Getting Started with AGS - Part 9
-
-.. index::
-   pair: Getting Started with AGS - Part 9; Cursors
 
 ### Cursors
 
@@ -74,9 +68,6 @@ create additional cursors to the standard 10. If you do so however,
 any extra cursors you create will not have events created for them,
 so you will have to handle their clicks using the "Any Click" events.
 
-.. index::
-   pair: Getting Started with AGS - Part 9; Fonts
-
 ### Fonts
 
 The default blank game comes with a couple of basic fonts, but you don't have
@@ -139,9 +130,6 @@ from there.
 By default, font 0 is used as the normal text font, and font 1 is used as the
 speech font. To use any additional fonts, the script properties
 *Game.NormalFont* and *Game.SpeechFont* can be used to change the active fonts.
-
-.. index::
-   pair: Getting Started with AGS - Part 9; Conclusion
 
 ### Conclusion
 

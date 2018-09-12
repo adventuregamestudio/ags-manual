@@ -1,10 +1,4 @@
-.. index::
-   single: Object functions and properties
-
 ## Object functions and properties
-
-.. index::
-   pair: Object functions and properties; Animate
 
 ### Animate
 
@@ -58,9 +52,6 @@ speed 3. The function won't return until the animation is finished.
 
 ---
 
-.. index::
-   pair: Object functions and properties; GetAtScreenXY
-
 ### GetAtScreenXY
 
 *(Formerly known as global function GetObjectAt, which is now obsolete)*
@@ -85,9 +76,6 @@ will execute the code only if object oRock is on the screen coordinates
 [Game.GetLocationName](Game#getlocationname)
 
 ---
-
-.. index::
-   pair: Object functions and properties; GetProperty
 
 ### GetProperty
 
@@ -115,9 +103,6 @@ than 200.
 
 ---
 
-.. index::
-   pair: Object functions and properties; GetTextProperty
-
 ### GetTextProperty
 
 *(Formerly known as GetObjectPropertyText, which is now obsolete)*<br>
@@ -143,9 +128,6 @@ will retrieve Object 0's "description" property then display it.
 *See Also:* [Object.GetProperty](Object#getproperty)
 
 ---
-
-.. index::
-   pair: Object functions and properties; SetProperty
 
 ### SetProperty
 
@@ -173,9 +155,6 @@ will change Table's "ItemCapacity" custom property to 5.
 
 ---
 
-.. index::
-   pair: Object functions and properties; SetTextProperty
-
 ### SetTextProperty
 
     void Object.SetTextProperty(const string property, const string value)
@@ -199,9 +178,6 @@ will change table's "description" property.
 *See Also:* [Object.SetProperty](Object#setproperty)
 
 ---
-
-.. index::
-   pair: Object functions and properties; IsCollidingWithObject
 
 ### IsCollidingWithObject
 
@@ -227,9 +203,6 @@ will display the message if the objects 2 and 3 are colliding.
 *See Also:* [AreThingsOverlapping](Room#arethingsoverlapping)
 
 ---
-
-.. index::
-   pair: Object functions and properties; MergeIntoBackground
 
 ### MergeIntoBackground
 
@@ -258,9 +231,6 @@ will merge the object's image into the room's background image and make
 the object unusable.
 
 ---
-
-.. index::
-   pair: Object functions and properties; Move
 
 ### Move
 
@@ -300,9 +270,6 @@ object gets there.
 
 ---
 
-.. index::
-   pair: Object functions and properties; RemoveTint
-
 ### RemoveTint
 
 *(Formerly known as RemoveObjectTint, which is now obsolete)*
@@ -323,9 +290,6 @@ will tint object 1 green for a second, then turn it back to normal.
 *See Also:* [Object.Tint](Object#tint)
 
 ---
-
-.. index::
-   pair: Object functions and properties; IsInteractionAvailable
 
 ### IsInteractionAvailable
 
@@ -351,9 +315,6 @@ Example:
 
 ---
 
-.. index::
-   pair: Object functions and properties; RunInteraction
-
 ### RunInteraction
 
 *(Formerly known as RunObjectInteraction, which is now obsolete)*
@@ -376,9 +337,6 @@ handler.
 [Hotspot.RunInteraction](Hotspot#runinteraction)
 
 ---
-
-.. index::
-   pair: Object functions and properties; SetLightLevel
 
 ### SetLightLevel
 
@@ -416,9 +374,6 @@ This will give the lamp maximal individual brightness.
 
 ---
 
-.. index::
-   pair: Object functions and properties; SetPosition
-
 ### SetPosition
 
 *(Formerly known as SetObjectPosition, which is now obsolete)*
@@ -443,9 +398,6 @@ will change object's 2 position to 50,100.
 [Object.Y](Object#y)
 
 ---
-
-.. index::
-   pair: Object functions and properties; SetView
 
 ### SetView
 
@@ -473,9 +425,6 @@ view 5, loop 2, frame 0.
 
 ---
 
-.. index::
-   pair: Object functions and properties; StopAnimating
-
 ### StopAnimating
 
     Object.StopAnimating()
@@ -495,9 +444,6 @@ will stop object 2 animating if it currently is doing so.
 [Object.Animating](Object#animating)
 
 ---
-
-.. index::
-   pair: Object functions and properties; StopMoving
 
 ### StopMoving
 
@@ -521,9 +467,6 @@ will stop object 2 moving if it currently is doing so.
 [Character.StopMoving](Character#stopmoving)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Tint
 
 ### Tint
 
@@ -560,9 +503,6 @@ will tint object 1 green.
 
 ---
 
-.. index::
-   pair: Object functions and properties; Animating
-
 ### Animating
 
 *(Formerly known as IsObjectAnimating, which is now obsolete)*
@@ -591,9 +531,6 @@ you wouldn't need to do this.
 [Object.X](Object#x), [Object.Y](Object#y)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Baseline
 
 ### Baseline
 
@@ -625,9 +562,6 @@ will change object's 4 baseline to a line positioned at y coordinate
 
 ---
 
-.. index::
-   pair: Object functions and properties; BlockingHeight
-
 ### BlockingHeight
 
     int Object.BlockingHeight
@@ -657,9 +591,6 @@ its baseline)
 [Object.Solid](Object#solid)
 
 ---
-
-.. index::
-   pair: Object functions and properties; BlockingWidth
 
 ### BlockingWidth
 
@@ -691,9 +622,6 @@ his centre, and 25 to the right)
 
 ---
 
-.. index::
-   pair: Object functions and properties; Clickable
-
 ### Clickable
 
 *(Formerly known as SetObjectClickable, which is now obsolete)*
@@ -720,9 +648,6 @@ will make object 2 ignore clicks from the player.
 
 ---
 
-.. index::
-   pair: Object functions and properties; Frame
-
 ### Frame
 
     readonly int Object.Frame
@@ -745,9 +670,6 @@ will display the oDoor object's current frame number
 [Object.View](Object#view)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Graphic
 
 ### Graphic
 
@@ -772,9 +694,6 @@ manager's slot 100.
 
 ---
 
-.. index::
-   pair: Object functions and properties; HasExplicitLight
-
 ### HasExplicitLight
 
     readonly bool Object.HasExplicitTint
@@ -793,9 +712,6 @@ light.
 
 ---
 
-.. index::
-   pair: Object functions and properties; HasExplicitTint
-
 ### HasExplicitTint
 
     readonly bool Object.HasExplicitTint
@@ -813,9 +729,6 @@ tinted by [SetAmbientTint](Game#setambienttint) or a region tint.
 
 ---
 
-.. index::
-   pair: Object functions and properties; ID
-
 ### ID
 
     readonly int Object.ID
@@ -832,9 +745,6 @@ uses the obsolete MoveObject function to move the Rock object to (100,
 50) at speed 5.
 
 ---
-
-.. index::
-   pair: Object functions and properties; IgnoreScaling
 
 ### IgnoreScaling
 
@@ -858,9 +768,6 @@ will tell the Door object not to be scaled on walkable areas.
 [Object.IgnoreWalkbehinds](Object#ignorewalkbehinds)
 
 ---
-
-.. index::
-   pair: Object functions and properties; IgnoreWalkbehinds
 
 ### IgnoreWalkbehinds
 
@@ -893,9 +800,6 @@ will make object 1 ignore walk behinds.
 
 ---
 
-.. index::
-   pair: Object functions and properties; LightLevel
-
 ### LightLevel
 
     readonly int Object.LightLevel
@@ -913,9 +817,6 @@ property returns the light level value. Otherwise it returns 0.
 [SetAmbientLightLevel](Game#setambientlightlevel),
 
 ---
-
-.. index::
-   pair: Object functions and properties; Loop
 
 ### Loop
 
@@ -939,9 +840,6 @@ will display the oDoor object's current loop number
 [Object.View](Object#view)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Moving
 
 ### Moving
 
@@ -968,9 +866,6 @@ object gets there.
 
 ---
 
-.. index::
-   pair: Object functions and properties; Name
-
 ### Name
 
 *(Formerly known as GetObjectName, which is now obsolete)*<br>
@@ -992,9 +887,6 @@ will retrieve and then display object 0's name.
 *See Also:* [Game.GetLocationName](Game#getlocationname)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Solid
 
 ### Solid
 
@@ -1020,9 +912,6 @@ will mean that the Smallrock object blocks the path of characters.
 
 ---
 
-.. index::
-   pair: Object functions and properties; TintBlue
-
 ### TintBlue
 
     readonly int Object.TintBlue
@@ -1045,9 +934,6 @@ false, then this value is meaningless.
 [Object.TintLuminance](Object#tintluminance)
 
 ---
-
-.. index::
-   pair: Object functions and properties; TintGreen
 
 ### TintGreen
 
@@ -1072,9 +958,6 @@ false, then this value is meaningless.
 
 ---
 
-.. index::
-   pair: Object functions and properties; TintRed
-
 ### TintRed
 
     readonly int Object.TintRed
@@ -1097,9 +980,6 @@ false, then this value is meaningless.
 [Object.TintLuminance](Object#tintluminance)
 
 ---
-
-.. index::
-   pair: Object functions and properties; TintSaturation
 
 ### TintSaturation
 
@@ -1124,9 +1004,6 @@ false, then this value is meaningless.
 
 ---
 
-.. index::
-   pair: Object functions and properties; TintLuminance
-
 ### TintLuminance
 
     readonly int Object.TintLuminance
@@ -1149,9 +1026,6 @@ false, then this value is meaningless.
 [Object.TintSaturation](Object#tintsaturation)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Transparency
 
 ### Transparency
 
@@ -1196,9 +1070,6 @@ to being fully invisible.
 
 ---
 
-.. index::
-   pair: Object functions and properties; View
-
 ### View
 
     readonly int Object.View
@@ -1223,9 +1094,6 @@ will display the oDoor object's current view number
 
 ---
 
-.. index::
-   pair: Object functions and properties; Visible
-
 ### Visible
 
 *(Formerly known as IsObjectOn, which is now obsolete)*<br>
@@ -1245,9 +1113,6 @@ Example:
 will make object number 5 in the current room disappear.
 
 ---
-
-.. index::
-   pair: Object functions and properties; X
 
 ### X
 
@@ -1271,9 +1136,6 @@ will display the X co-ordinate of object 1.
 [Object.SetPosition](Object#setposition)
 
 ---
-
-.. index::
-   pair: Object functions and properties; Y
 
 ### Y
 

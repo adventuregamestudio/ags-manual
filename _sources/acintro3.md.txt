@@ -1,10 +1,4 @@
-.. index::
-   single: Getting Started with AGS - Part 3
-
 ## Getting Started with AGS - Part 3
-
-.. index::
-   pair: Getting Started with AGS - Part 3; Adding some interaction
 
 ### Adding some interaction
 

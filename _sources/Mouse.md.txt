@@ -1,10 +1,4 @@
-.. index::
-   single: Mouse functions and properties
-
 ## Mouse functions and properties
-
-.. index::
-   pair: Mouse functions and properties; ChangeModeGraphic
 
 ### ChangeModeGraphic
 
@@ -35,9 +29,6 @@ imported in the sprite's manager slot 120.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; ChangeModeHotspot
-
 ### ChangeModeHotspot
 
 *(Formerly known as ChangeCursorHotspot, which is now obsolete)*
@@ -61,9 +52,6 @@ will change the cursor's hotspot for walk mode to coordinates 10,10.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; ChangeModeView
-
 ### ChangeModeView
 
     Mouse.ChangeModeView(CursorMode, int view)
@@ -86,9 +74,6 @@ will change the Look cursor's view to ROLLEYES.
 [Mouse.ChangeModeHotspot](Mouse#changemodehotspot)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; Click
 
 ### Click
 
@@ -114,9 +99,6 @@ This will simulate user click at (100,100).
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; ControlEnabled
-
 ### ControlEnabled
 
     readonly static bool Mouse.ControlEnabled;
@@ -140,9 +122,6 @@ game.
 *See Also:* [Mouse.Speed](Mouse#speed)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; DisableMode
 
 ### DisableMode
 
@@ -169,9 +148,6 @@ will make the walk mode unavailable until it's enabled again.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; EnableMode
-
 ### EnableMode
 
 *(Formerly known as EnableCursorMode, which is now obsolete)*
@@ -191,9 +167,6 @@ will enable cursor mode walk which was disabled before.
 [Mouse.IsModeEnabled](Mouse#ismodeenabled)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; IsModeEnabled
 
 ### IsModeEnabled
 
@@ -215,9 +188,6 @@ enabled.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; GetModeGraphic
-
 ### GetModeGraphic
 
     static int Mouse.GetModeGraphic(CursorMode)
@@ -236,9 +206,6 @@ will display the sprite slot number of the current mouse cursor.
 *See Also:* [Mouse.ChangeModeGraphic](Mouse#changemodegraphic)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; IsButtonDown
 
 ### IsButtonDown
 
@@ -277,9 +244,6 @@ versions.<br>
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; SaveCursorUntilItLeaves
-
 ### SaveCursorUntilItLeaves
 
 *(Formerly known as SaveCursorForLocationChange, which is now obsolete)*
@@ -308,9 +272,6 @@ current object
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; SelectNextMode
-
 ### SelectNextMode
 
 *(Formerly known as SetNextCursorMode, which is now obsolete)*
@@ -326,9 +287,6 @@ Use Inventory mode if the player has an active inventory item.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; SelectPreviousMode
-
 ### SelectPreviousMode
 
     Mouse.SelectPreviousMode()
@@ -341,9 +299,6 @@ the Use Inventory mode if the player has an active inventory item.
 *See Also:* [Mouse.Mode](Mouse#mode)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; SetBounds
 
 ### SetBounds
 
@@ -372,9 +327,6 @@ screen.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; SetPosition
-
 ### SetPosition
 
 *(Formerly known as SetMousePosition, which is now obsolete)*
@@ -398,9 +350,6 @@ will place the mouse cursor in the centre of the screen.
 *See Also:* [Mouse.SetBounds](Mouse#setbounds)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; Speed
 
 ### Speed
 
@@ -439,9 +388,6 @@ converts slider control's position into mouse speed.
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; Update
-
 ### Update
 
 *(Formerly known as RefreshMouse, which is now obsolete)*
@@ -465,9 +411,6 @@ will display the mouse position just before each dialog box is displayed
 
 ---
 
-.. index::
-   pair: Mouse functions and properties; UseDefaultGraphic
-
 ### UseDefaultGraphic
 
 *(Formerly known as SetDefaultCursor, which is now obsolete)*
@@ -481,9 +424,6 @@ changed it with the UseModeGraphic function.
 *See Also:* [Mouse.UseModeGraphic](Mouse#usemodegraphic)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; UseModeGraphic
 
 ### UseModeGraphic
 
@@ -509,9 +449,6 @@ Cursors tab.
 [Mouse.UseDefaultGraphic](Mouse#usedefaultgraphic)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; Mode
 
 ### Mode
 
@@ -543,9 +480,6 @@ will execute the code only if the current cursor mode is MODE 0 (WALK).
 [Mouse.SelectNextMode](Mouse#selectnextmode)
 
 ---
-
-.. index::
-   pair: Mouse functions and properties; Visible
 
 ### Visible
 

@@ -1,6 +1,3 @@
-.. index::
-   single: Editor Tutorial
-
 ## Editor Tutorial
 
 **Stop press!**

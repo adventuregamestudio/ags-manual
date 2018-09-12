@@ -1,10 +1,4 @@
-.. index::
-   single: DateTime functions and properties
-
 ## DateTime functions and properties
-
-.. index::
-   pair: DateTime functions and properties; Now
 
 ### Now
 
@@ -40,9 +34,6 @@ will display the current date and time in 24-hour format
 
 ---
 
-.. index::
-   pair: DateTime functions and properties; DayOfMonth
-
 ### DayOfMonth
 
     readonly int DateTime.DayOfMonth;
@@ -55,9 +46,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 *See Also:* [DateTime.Now](DateTime#now)
 
 ---
-
-.. index::
-   pair: DateTime functions and properties; Hour
 
 ### Hour
 
@@ -72,9 +60,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 
 ---
 
-.. index::
-   pair: DateTime functions and properties; Minute
-
 ### Minute
 
     readonly int DateTime.Minute;
@@ -88,9 +73,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 
 ---
 
-.. index::
-   pair: DateTime functions and properties; Month
-
 ### Month
 
     readonly int DateTime.Month;
@@ -103,9 +85,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 *See Also:* [DateTime.Now](DateTime#now)
 
 ---
-
-.. index::
-   pair: DateTime functions and properties; RawTime
 
 ### RawTime
 
@@ -140,9 +119,6 @@ should display that 3 seconds have elapsed.
 
 ---
 
-.. index::
-   pair: DateTime functions and properties; Second
-
 ### Second
 
     readonly int DateTime.Second;
@@ -155,9 +131,6 @@ Example: For an example, see [DateTime.Now](DateTime#now).
 *See Also:* [DateTime.Now](DateTime#now)
 
 ---
-
-.. index::
-   pair: DateTime functions and properties; Year
 
 ### Year
 

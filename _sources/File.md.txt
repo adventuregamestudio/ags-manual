@@ -1,10 +1,4 @@
-.. index::
-   single: File functions and properties
-
 ## File functions and properties
-
-.. index::
-   pair: File functions and properties; Open
 
 ### Open
 
@@ -79,9 +73,6 @@ it will write the string "test string" to the file and close it.
 
 ---
 
-.. index::
-   pair: File functions and properties; Close
-
 ### Close
 
 *(Formerly known as FileClose, which is now obsolete)*
@@ -103,9 +94,6 @@ it.
 *See Also:* [File.Open](File#open)
 
 ---
-
-.. index::
-   pair: File functions and properties; Delete
 
 ### Delete
 
@@ -132,9 +120,6 @@ exists.
 [File.Open](File#open)
 
 ---
-
-.. index::
-   pair: File functions and properties; Exists
 
 ### Exists
 
@@ -171,9 +156,6 @@ will create the file "temp.tmp" if it doesn't exist
 
 ---
 
-.. index::
-   pair: File functions and properties; ReadInt
-
 ### ReadInt
 
 *(Formerly known as FileReadInt, which is now obsolete)*
@@ -197,9 +179,6 @@ the file.
 [File.WriteInt](File#writeint)
 
 ---
-
-.. index::
-   pair: File functions and properties; ReadRawChar
 
 ### ReadRawChar
 
@@ -226,9 +205,6 @@ string 'buffer'.
 
 ---
 
-.. index::
-   pair: File functions and properties; ReadRawInt
-
 ### ReadRawInt
 
 *(Formerly known as FileReadRawInt, which is now obsolete)*
@@ -254,9 +230,6 @@ number.
 [File.ReadRawChar](File#readrawchar)
 
 ---
-
-.. index::
-   pair: File functions and properties; ReadRawLineBack
 
 ### ReadRawLineBack
 
@@ -289,9 +262,6 @@ will display the contents of the 'error.log' file, if it exists
 
 ---
 
-.. index::
-   pair: File functions and properties; ReadStringBack
-
 ### ReadStringBack
 
 *(Formerly known as FileRead, which is now obsolete)*<br>
@@ -318,9 +288,6 @@ file.
 [File.WriteString](File#writestring)
 
 ---
-
-.. index::
-   pair: File functions and properties; Seek
 
 ### Seek
 
@@ -367,9 +334,6 @@ will open the file test.dat, read `first_value`, skip 256 bytes, read
 
 ---
 
-.. index::
-   pair: File functions and properties; WriteInt
-
 ### WriteInt
 
 *(Formerly known as FileWriteInt, which is now obsolete)*
@@ -393,9 +357,6 @@ will open the file stats.dat and write the integer number in it.
 [File.WriteString](File#writestring)
 
 ---
-
-.. index::
-   pair: File functions and properties; WriteRawChar
 
 ### WriteRawChar
 
@@ -428,9 +389,6 @@ the file.
 
 ---
 
-.. index::
-   pair: File functions and properties; WriteRawLine
-
 ### WriteRawLine
 
 *(Formerly known as FileWriteRawLine, which is now obsolete)*
@@ -456,9 +414,6 @@ will write an error line in the file error.log.
 [File.WriteString](File#writestring)
 
 ---
-
-.. index::
-   pair: File functions and properties; WriteString
 
 ### WriteString
 
@@ -489,9 +444,6 @@ it will display an error message. Otherwise, it will write the string
 
 ---
 
-.. index::
-   pair: File functions and properties; EOF
-
 ### EOF
 
 *(Formerly known as FileIsEOF, which is now obsolete)*
@@ -519,9 +471,6 @@ screen.
 [File.ReadStringBack](File#readstringback)
 
 ---
-
-.. index::
-   pair: File functions and properties; Error
 
 ### Error
 
@@ -558,9 +507,6 @@ there was a problem.
 [File.ReadStringBack](File#readstringback)
 
 ---
-
-.. index::
-   pair: File functions and properties; Position
 
 ### Position
 

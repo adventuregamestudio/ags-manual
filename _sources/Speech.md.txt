@@ -1,10 +1,4 @@
-.. index::
-   single: Speech functions and properties
-
 ## Speech functions and properties
-
-.. index::
-   pair: Speech functions and properties; AnimationStopTimeMargin
 
 ### AnimationStopTimeMargin
 
@@ -32,9 +26,6 @@ game speed) before speech time ends.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; CustomPortraitPlacement
-
 ### CustomPortraitPlacement
 
     static bool Speech.CustomPortraitPlacement
@@ -54,9 +45,6 @@ used.
 [Speech.PortraitY](Speech#portraity)
 
 ---
-
-.. index::
-   pair: Speech functions and properties; DisplayPostTimeMs
 
 ### DisplayPostTimeMs
 
@@ -78,9 +66,6 @@ and is set to zero by default.
 [Speech.AnimationStopTimeMargin](Speech#animationstoptimemargin)
 
 ---
-
-.. index::
-   pair: Speech functions and properties; GlobalSpeechAnimationDelay
 
 ### GlobalSpeechAnimationDelay
 
@@ -106,9 +91,6 @@ used instead.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; PortraitXOffset
-
 ### PortraitXOffset
 
     static int Speech.PortraitXOffset
@@ -130,9 +112,6 @@ side and respected portrait's border.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; PortraitY
-
 ### PortraitY
 
     static int Speech.PortraitY
@@ -149,9 +128,6 @@ Gets/sets the character's speech portrait **y** coordinate on screen.
 [Speech.PortraitXOffset](Speech#portraitxoffset)
 
 ---
-
-.. index::
-   pair: Speech functions and properties; SkipKey
 
 ### SkipKey
 
@@ -176,9 +152,6 @@ will assign the "space" key to skip the speech.
 *See Also:* [Speech.SkipStyle](Speech#skipstyle)
 
 ---
-
-.. index::
-   pair: Speech functions and properties; SkipStyle
 
 ### SkipStyle
 
@@ -212,9 +185,6 @@ or a key.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; Style
-
 ### Style
 
 *(Formerly known as SetSpeechStyle, which is now obsolete)*
@@ -241,9 +211,6 @@ will change the speech style to a close up portrait of the character.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; TextAlignment
-
 ### TextAlignment
 
 *(Formerly known as game.speech_text_align, which is now obsolete)*
@@ -268,9 +235,6 @@ will align the speech text at the right side.
 
 ---
 
-.. index::
-   pair: Speech functions and properties; UseGlobalSpeechAnimationDelay
-
 ### UseGlobalSpeechAnimationDelay
 
     static bool Speech.UseGlobalSpeechAnimationDelay
@@ -292,9 +256,6 @@ will make the game use global speech animation delay.
 [Speech.GlobalSpeechAnimationDelay](Speech#globalspeechanimationdelay)
 
 ---
-
-.. index::
-   pair: Speech functions and properties; VoiceMode
 
 ### VoiceMode
 

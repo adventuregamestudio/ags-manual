@@ -1,10 +1,4 @@
-.. index::
-   single: ViewFrame functions and properties
-
 ## ViewFrame functions and properties
-
-.. index::
-   pair: ViewFrame functions and properties; Flipped
 
 ### Flipped
 
@@ -29,9 +23,6 @@ Example:
 
 ---
 
-.. index::
-   pair: ViewFrame functions and properties; Frame
-
 ### Frame
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -52,9 +43,6 @@ Example:
 
 ---
 
-.. index::
-   pair: ViewFrame functions and properties; Graphic
-
 ### Graphic
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -71,9 +59,6 @@ Example:
 *See Also:* [Game.GetViewFrame](Game#getviewframe)
 
 ---
-
-.. index::
-   pair: ViewFrame functions and properties; LinkedAudio
 
 ### LinkedAudio
 
@@ -109,9 +94,6 @@ if so, plays it.
 
 ---
 
-.. index::
-   pair: ViewFrame functions and properties; Loop
-
 ### Loop
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -132,9 +114,6 @@ Example:
 
 ---
 
-.. index::
-   pair: ViewFrame functions and properties; Speed
-
 ### Speed
 
 *(Formerly part of GetGameParameter, which is now obsolete)*
@@ -152,9 +131,6 @@ Example:
 *See Also:* [Game.GetViewFrame](Game#getviewframe)
 
 ---
-
-.. index::
-   pair: ViewFrame functions and properties; View
 
 ### View
 

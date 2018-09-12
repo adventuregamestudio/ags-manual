@@ -1,10 +1,4 @@
-.. index::
-   single: GUI List Box functions and properties
-
-## GUI List Box functions and properties
-
-.. index::
-   pair: GUI List Box functions and properties; AddItem
+## ListBox functions and properties
 
 ### AddItem
 
@@ -34,9 +28,6 @@ will take the input from the user and add it to the listbox.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; Clear
-
 ### Clear
 
 *(Formerly known as ListBoxClear, which is now obsolete)*
@@ -54,9 +45,6 @@ will remove all the items from listbox *lstNoteBook*.
 *See Also:* [ListBox.AddItem](ListBox#additem)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; FillDirList
 
 ### FillDirList
 
@@ -92,9 +80,6 @@ actually for this task you would use FillSaveGameList instead.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; FillSaveGameList
-
 ### FillSaveGameList
 
 *(Formerly known as ListBoxSaveGameList, which is now obsolete)*
@@ -129,9 +114,6 @@ will fill listbox *lstSaveGames* with the list of the saved games.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; GetItemAtLocation
-
 ### GetItemAtLocation
 
     ListBox.GetItemAtLocation(int x, int y)
@@ -161,9 +143,6 @@ will display the item text that the mouse is currently hovering over.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; InsertItemAt
-
 ### InsertItemAt
 
     ListBox.InsertItemAt(int index, string newitem)
@@ -190,9 +169,6 @@ will insert the Third Item in between the First and Second items.
 [ListBox.RemoveItem](ListBox#removeitem)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; RemoveItem
 
 ### RemoveItem
 
@@ -223,9 +199,6 @@ the list box will now just contain "Second item".
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; ScrollDown
-
 ### ScrollDown
 
     ListBox.ScrollDown()
@@ -242,9 +215,6 @@ will scroll the *lstTest* list box down one row.
 *See Also:* [ListBox.ScrollUp](ListBox#scrollup)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; ScrollUp
 
 ### ScrollUp
 
@@ -263,9 +233,6 @@ will scroll the *lstTest* list box up one row.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; Font
-
 ### Font
 
     FontType ListBox.Font
@@ -282,9 +249,6 @@ will change the *lstSaveGames* list box to use Font "Speech".
 [TextBox.Text](TextBox#text)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; HideBorder
 
 ### HideBorder
 
@@ -305,9 +269,6 @@ will hide the border around the Save Games list box.
 [ListBox.HideScrollArrows](ListBox#hidescrollarrows)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; HideScrollArrows
 
 ### HideScrollArrows
 
@@ -334,9 +295,6 @@ will hide the built-in scroll arrows on the list box.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; ItemCount
-
 ### ItemCount
 
 *(Formerly known as ListBoxGetNumItems, which is now obsolete)*
@@ -358,9 +316,6 @@ will pass the number of saved games to the int saves.
 *See Also:* [ListBox.Items](ListBox#items)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; Items
 
 ### Items
 
@@ -391,9 +346,6 @@ will get the text of the selected item in the list box.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; RowCount
-
 ### RowCount
 
     readonly int ListBox.RowCount
@@ -416,9 +368,6 @@ will display the number of rows that the listbox can display.
 [ListBox.ScrollUp](ListBox#scrollup)
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; SaveGameSlots
 
 ### SaveGameSlots
 
@@ -450,9 +399,6 @@ FillSaveGameList had been used previously.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; SelectedIndex
-
 ### SelectedIndex
 
 *(Formerly known as ListBoxGetSelected, which is now obsolete)*<br>
@@ -475,9 +421,6 @@ will get the text of the selected item in the listbox.
 
 ---
 
-.. index::
-   pair: GUI List Box functions and properties; TopItem
-
 ### TopItem
 
 *(Formerly known as ListBoxSetTopItem, which is now obsolete)*
@@ -498,9 +441,6 @@ will automatically scroll listbox *lstSaveGames* back to the top of the
 list.
 
 ---
-
-.. index::
-   pair: GUI List Box functions and properties; Translated
 
 ### Translated
 

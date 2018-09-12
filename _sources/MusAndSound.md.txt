@@ -1,6 +1,3 @@
-.. index::
-   single: Music and sound
-
 ## Music and sound
 
 Sound and music are an essential part of any gameplay experience, and
@@ -162,9 +159,6 @@ supported commands:
 
 ---
 
-.. index::
-   pair: Music and sound; Voice speech
-
 ### Voice speech
 
 With AGS you can link a line of dialog to a speech file, to enable
@@ -214,9 +208,6 @@ not present.
 *SeeAlso:* [Speech.VoiceMode](Speech#voicemode)
 
 ---
-
-.. index::
-   pair: Music and sound; The AudioCache folder
 
 ### The AudioCache folder
 

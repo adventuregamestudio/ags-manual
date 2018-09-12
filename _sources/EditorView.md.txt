@@ -1,5 +1,2 @@
-.. index::
-   single: View Editor
-
 ## View Editor
 

@@ -1,10 +1,4 @@
-.. index::
-   single: GUI Label functions and properties
-
-## GUI Label functions and properties
-
-.. index::
-   pair: GUI Label functions and properties; Font
+## Label functions and properties
 
 ### Font
 
@@ -31,9 +25,6 @@ translation is in use.
 
 ---
 
-.. index::
-   pair: GUI Label functions and properties; Text
-
 ### Text
 
 *(Formerly known as SetLabelText, which is now obsolete)*<br>
@@ -59,9 +50,6 @@ will display the name of the location the cursor is over on label
 [Label.Font](Label#font)
 
 ---
-
-.. index::
-   pair: GUI Label functions and properties; TextColor
 
 ### TextColor
 

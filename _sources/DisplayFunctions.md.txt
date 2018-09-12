@@ -1,10 +1,4 @@
-.. index::
-   single: Text display / Speech functions
-
-## Text display / Speech functions
-
-.. index::
-   pair: Text display / Speech functions; Display
+## Display functions
 
 ### Display
 
@@ -38,9 +32,6 @@ usually used for responses to the player LOOKing at things.
 
 ---
 
-.. index::
-   pair: Text display / Speech functions; DisplayAt
-
 ### DisplayAt
 
     DisplayAt(int x, int y, int width, string message, ...)
@@ -72,9 +63,6 @@ will display the message at coordinates 50,50 in a box 100 pixels wide.
 
 ---
 
-.. index::
-   pair: Text display / Speech functions; DisplayAtY
-
 ### DisplayAtY
 
     DisplayAtY (int y, string message)
@@ -95,9 +83,6 @@ will display the message at y coordinate 50.
 
 ---
 
-.. index::
-   pair: Text display / Speech functions; DisplayMessage
-
 ### DisplayMessage
 
     DisplayMessage (int message_number)
@@ -116,9 +101,6 @@ will display the message 220 of the Room message editor.
 [DisplayMessageAtY](DisplayFunctions#displaymessageaty)
 
 ---
-
-.. index::
-   pair: Text display / Speech functions; DisplayMessageAtY
 
 ### DisplayMessageAtY
 
@@ -141,9 +123,6 @@ will display global message 527, in the lower half of the screen.
 [DisplayMessage](DisplayFunctions#displaymessage)
 
 ---
-
-.. index::
-   pair: Text display / Speech functions; DisplayTopBar
 
 ### DisplayTopBar
 

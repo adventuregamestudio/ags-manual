@@ -1,10 +1,4 @@
-.. index::
-   single: Getting Started with AGS - Part 7
-
 ## Getting Started with AGS - Part 7
-
-.. index::
-   pair: Getting Started with AGS - Part 7; Animations
 
 ### Animations
 
@@ -57,9 +51,6 @@ be updated with the frame's details:
 Views aren't only used for character walking animations -- they're used
 for all types of animations in the game. How you actually run an
 animation in the game will be explained later on.
-
-.. index::
-   pair: Getting Started with AGS - Part 7; Characters
 
 ### Characters
 
@@ -117,9 +108,6 @@ having this as well as the RealName is that the script name can only
 contain the letters A-Z, whereas the *RealName* field can contain any
 spaces, numbers, etc.
 
-.. index::
-   pair: Getting Started with AGS - Part 7; Game starting point
-
 ### Game starting point
 
 Just in case you missed it, I'll repeat what was just said in the
@@ -132,9 +120,6 @@ TIP: This feature can be handy for testing various parts of your game.
 For example, when you're working on room 16, set the starting room to
 room 16 so that you can get to it instantly when you run the game to
 test it.
-
-.. index::
-   pair: Getting Started with AGS - Part 7; Cutscenes
 
 ### Cutscenes
 

@@ -1,10 +1,4 @@
-.. index::
-   single: GUI Button functions and properties
-
-## GUI Button functions and properties
-
-.. index::
-   pair: GUI Button functions and properties; Click
+## Button functions and properties
 
 ### Click
 
@@ -19,9 +13,6 @@ that event it will be run, otherwise nothing happens.
 [GUI.ProcessClick](GUI#processclick)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; Animate
 
 ### Animate
 
@@ -66,9 +57,6 @@ delay of 4 cycles per frame, and repeat the animation continually.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; Animating
-
 ### Animating
 
     readonly bool Button.Animating
@@ -96,9 +84,6 @@ will animate button and wait until the animation finishes.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; Frame
-
 ### Frame
 
     readonly int Button.Frame
@@ -118,9 +103,6 @@ This property is read-only. To change button's animation, use the
 [Button.Graphic](Button#graphic)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; Loop
 
 ### Loop
 
@@ -142,9 +124,6 @@ This property is read-only. To change button's animation, use the
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; View
-
 ### View
 
     readonly int Button.View
@@ -164,9 +143,6 @@ This property is read-only. To change button's animation, use the
 [Button.Graphic](Button#graphic)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; ClipImage
 
 ### ClipImage
 
@@ -195,9 +171,6 @@ button's clickable area.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; Font
-
 ### Font
 
     FontType Button.Font
@@ -217,9 +190,6 @@ will change the *btnOK* button to use Font "Main".
 [TextBox.Font](TextBox#font)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; Graphic
 
 ### Graphic
 
@@ -248,9 +218,6 @@ will display btnPlay's current sprite number.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; MouseOverGraphic
-
 ### MouseOverGraphic
 
 *(Formerly part of GetButtonPic, which is now obsolete)*<br>
@@ -272,9 +239,6 @@ will display btnPlay's mouse-over sprite number.
 [Button.PushedGraphic](Button#pushedgraphic)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; NormalGraphic
 
 ### NormalGraphic
 
@@ -303,9 +267,6 @@ will display btnPlay's normal sprite number.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; PushedGraphic
-
 ### PushedGraphic
 
 *(Formerly part of GetButtonPic, which is now obsolete)*<br>
@@ -329,9 +290,6 @@ will display btnPlay's pushed sprite number.
 
 ---
 
-.. index::
-   pair: GUI Button functions and properties; Text
-
 ### Text
 
 *(Formerly known as SetButtonText, which is now obsolete)*<br>
@@ -354,9 +312,6 @@ will display the old text, then change button btnController to read
 [Label.Text](Label#text)
 
 ---
-
-.. index::
-   pair: GUI Button functions and properties; TextColor
 
 ### TextColor
 

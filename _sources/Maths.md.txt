@@ -1,10 +1,4 @@
-.. index::
-   single: Maths functions and properties
-
 ## Maths functions and properties
-
-.. index::
-   pair: Maths functions and properties; FloatToInt
 
 ### FloatToInt
 
@@ -31,9 +25,6 @@ displays the integer value of 10.7, rounded in the three different ways.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; IntToFloat
-
 ### IntToFloat
 
     float IntToFloat(int value)
@@ -52,9 +43,6 @@ loads 10.0 into the variable *number*.
 *See Also:* [FloatToInt](Maths#floattoint)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; ArcCos
 
 ### ArcCos
 
@@ -76,9 +64,6 @@ calculates the arc-cosine of 1.0 and places it into variable *angle*.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; ArcSin
-
 ### ArcSin
 
     float Maths.ArcSin(float value)
@@ -98,9 +83,6 @@ calculates the arc-sine of 0.5 and places it into variable *angle*.
 [Maths.DegreesToRadians](Maths#degreestoradians),
 
 ---
-
-.. index::
-   pair: Maths functions and properties; ArcTan
 
 ### ArcTan
 
@@ -122,9 +104,6 @@ calculates the arc-tan of 0.5 and places it into variable *angle*.
 [Maths.Tan](Maths#tan)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; ArcTan2
 
 ### ArcTan2
 
@@ -149,9 +128,6 @@ calculates the arc-tan of -862.42 / 78.5149 and places it into variable
 
 ---
 
-.. index::
-   pair: Maths functions and properties; Cos
-
 ### Cos
 
     float Maths.Cos(float radians)
@@ -174,9 +150,6 @@ variable *cosine*.
 [Maths.Sin](Maths#sin), [Maths.Tan](Maths#tan)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Cosh
 
 ### Cosh
 
@@ -202,9 +175,6 @@ variable *hcos*.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; DegreesToRadians
-
 ### DegreesToRadians
 
     float Maths.DegreesToRadians(float degrees)
@@ -228,9 +198,6 @@ variable *cosine*.
 [Maths.Sin](Maths#sin), [Maths.Tan](Maths#tan)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Exp
 
 ### Exp
 
@@ -256,9 +223,6 @@ the variable.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; Log
-
 ### Log
 
     float Maths.Log(float x)
@@ -281,9 +245,6 @@ variable.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; Log10
-
 ### Log10
 
     float Maths.Log10(float x)
@@ -305,9 +266,6 @@ the variable.
 [Maths.Log](Maths#log)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; RadiansToDegrees
 
 ### RadiansToDegrees
 
@@ -332,9 +290,6 @@ converts *PI* radians into degrees (which is 180).
 
 ---
 
-.. index::
-   pair: Maths functions and properties; RaiseToPower
-
 ### RaiseToPower
 
     float Maths.RaiseToPower(float base, float exponent)
@@ -352,9 +307,6 @@ calculates 4 to the power 3 (which is 64).
 *See Also:* [Maths.Sqrt](Maths#sqrt)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Sin
 
 ### Sin
 
@@ -378,9 +330,6 @@ variable *sine*.
 [Maths.Cos](Maths#cos), [Maths.Tan](Maths#tan)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Sinh
 
 ### Sinh
 
@@ -407,9 +356,6 @@ variable *hsine*.
 
 ---
 
-.. index::
-   pair: Maths functions and properties; Sqrt
-
 ### Sqrt
 
     float Maths.Sqrt(float value)
@@ -430,9 +376,6 @@ displays the square root of 4 (rounded down to the nearest integer).
 [Maths.Sin](Maths#sin), [Maths.Tan](Maths#tan)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Tan
 
 ### Tan
 
@@ -456,9 +399,6 @@ variable *tan*.
 [Maths.Cos](Maths#cos), [Maths.Sin](Maths#sin)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Tanh
 
 ### Tanh
 
@@ -484,9 +424,6 @@ calculates the hyperbolic tan of 45 degrees and places it into variable
 [Maths.Cos](Maths#cos), [Maths.Sin](Maths#sin)
 
 ---
-
-.. index::
-   pair: Maths functions and properties; Pi
 
 ### Pi
 
