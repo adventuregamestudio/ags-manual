@@ -41,7 +41,7 @@ def map_page(app, env, docnames):
     script_object = None
 
     for docname in env.found_docs:
-        with open(env.doc2path(docname)) as f:
+        with open(env.doc2path(docname), encoding='utf-8') as f:
             changes[docname] = []
             offset = 0
 
