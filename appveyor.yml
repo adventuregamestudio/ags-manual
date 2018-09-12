@@ -10,8 +10,8 @@ environment:
       PYTHON_ARCH: "32"
 
 branches:
-  only:
-    - master
+  except:
+    - gh-pages
 
 install:
   - cinst html-help-workshop
