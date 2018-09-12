@@ -15,6 +15,7 @@
     should not be be treated as functions or properties
 """
 
+import io
 import sphinx
 import re
 from sphinx.util import logging
@@ -41,7 +42,7 @@ def map_page(app, env, docnames):
     script_object = None
 
     for docname in env.found_docs:
-        with open(env.doc2path(docname), encoding='utf-8') as f:
+        with io.open(env.doc2path(docname), encoding='utf-8') as f:
             changes[docname] = []
             offset = 0
 
