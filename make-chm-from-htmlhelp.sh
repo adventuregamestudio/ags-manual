@@ -4,7 +4,7 @@ htmlhelp="build/htmlhelp"
 buildname="AGSHelpdoc"
 
 echo "Enabling binary TOC and index..."
-sed -E -i.bak "s/^(Binary )(TOC|Index)=No$/\1\2=Yes/g" "$htmlhelp/$buildname.hhp" && \
+sed -E -i.bak -n "/^Binary (TOC|Index)=No$/!p" "$htmlhelp/$buildname.hhp" && \
 rm "$htmlhelp/$buildname.hhp.bak"
 
 echo "Checking or getting chmcmd..."
