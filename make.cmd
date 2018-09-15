@@ -5,8 +5,15 @@ if not defined SOURCEDIR set SOURCEDIR=source
 if not defined BUILDDIR set BUILDDIR=build
 if not defined SPHINXPROJ set SPHINXPROJ=AGSHelp
 if not defined SPHINXOPTS set SPHINXOPTS=-c .
+
 if not defined GITURL set GITURL=https://github.com/adventuregamestudio/ags-manual.wiki.git
 if not defined GITOPTS set GITOPTS=--depth=1 --branch=master
+
+if not defined PROGRAMFILES(X86) (
+    set HHC="%PROGRAMFILES%\HTML Help Workshop\hhc.exe"
+) else (
+    set HHC="%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe"
+)
 
 if "%*" == "" (
     echo No targets were specified!
@@ -25,6 +32,7 @@ goto end
 :clone
 if exist "%SOURCEDIR%" rd /s /q "%SOURCEDIR%"
 git clone %GITOPTS% %GITURL% %SOURCEDIR%
+copy /b NUL "%SOURCEDIR%\index.rst"
 exit /b
 
 :html
@@ -35,14 +43,6 @@ exit /b
 :chm
 move "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp" %TEMP% &&^
 findstr /v /c:"Binary TOC=No" /c:"Binary Index=No" %TEMP%\AGSHelpdoc.hhp > "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp"
-
-reg query HKLM\Hardware\Description\System\CentralProcessor\0 /c /f "x86" > nul:
-if %ERRORLEVEL% == 0 (
-    set HHC="%PROGRAMFILES%\HTML Help Workshop\hhc.exe"
-) else (
-    set HHC="%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe"
-)
-
 %HHC% "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp"
 move "%BUILDDIR%\htmlhelp\AGSHelpdoc.chm" ags-help.chm
 exit /b
