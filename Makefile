@@ -26,7 +26,7 @@ chm:
 
 	@chmcmd=`which chmcmd` ;\
 	if [ $$? != 0 ]; then \
-			if [ "`uname`" == "Linux" ]; then \
+			if [ "`uname`" = "Linux" ]; then \
 				rm -f chmcmd && wget –quiet https://github.com/ericoporto/freepascal/releases/download/3.0.4/chmcmd ;\
 				echo "af4eea94c843adb20f8ae10884badbc5 chmcmd" > chmcmd.md5 ;\
 				md5sum -c chmcmd.md5 || exit 1 ;\
