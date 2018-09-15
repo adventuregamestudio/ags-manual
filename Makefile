@@ -9,11 +9,8 @@ GITOPTS ?= --depth=1 --branch=master
 .PHONY: help clone html htmlhelp chm clean
 
 help:
-	@awk '/^[^ ][a-z ]+:/ { \
-		sub(":", ""); \
-		gsub(" ", "\n"); \
-		print $$0 \
-	}' Makefile
+	@awk -F '[: ]' \
+	'/^[^ ][a-z ]+:/ { for (i = 1; i < NF; i ++ ) { if ($$i != "help") print $$i } }' Makefile
 
 clone:
 	@rm -rf "$(SOURCEDIR)"
