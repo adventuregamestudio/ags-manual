@@ -4,36 +4,57 @@ Travis (web): [![Build Status](https://travis-ci.org/adventuregamestudio/ags-man
 
 [**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
 
-The help files can be edited on the wiki or cloned locally and pushed. Create issues if something is wrong.
+The help files can be edited on the wiki or cloned locally and pushed. Please open an issue if something is wrong.
 
     git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
 
-## Read the help files
+## Reading the help files
 
-The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual) .
+The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual).
 
-You can also download it from [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest) .
+You can also download the [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
 
 ![](ags-manual-readme.png)
 
-## How to generate the help files from the wiki!
+## Building the help files
 
-The help file is generated using [Python 3 Sphinx](http://www.sphinx-doc.org/en/master/)!
+The help files are generated using [Python 3 Sphinx](http://www.sphinx-doc.org/en/master/)!
 
-This documentation assumes you have Sphinx already installed and configured and you have access to a Unix-style *bash* compatible shell.
+**Note that the use of a virtualenv is recommended if your Python installation is system-wide**
 
-To build the help files, clone this repository first!
+Install the requisite pip packages
 
-    git clone git@github.com:adventuregamestudio/ags-manual.git
-    cd agshelp
+    pip install -r requirements.txt
 
-Then you need to get the wiki files
+Install an HTML help compiler
 
-    ./get-help-source.sh
+For Windows, install [HTML Help Workshop](http://go.microsoft.com/fwlink/?LinkId=14188). For macOS, Unix, Linux, etc. install chmcmd from your regular package repository or install [Free Pascal](https://www.freepascal.org/download.var).
 
-Now just use make to create any help version you want! **Example for html files**:
+### Make targets
 
-    make html
+name | function
+--- | ---
+clone | git clone the wiki source
+html | run sphinx-build with the html builder
+htmlhelp | run sphinx-build with the htmlhelp builder
+chm | run the HTML compiler
+clean | delete everything listed in .gitignore
+
+build just the html site
+
+    make clone html
+    
+build just the CHM (Windows help) file
+
+    make clone htmlhelp chm
+
+build everything
+
+    make clone html htmlhelp chm
+    
+rebuild everything
+
+    make clean clone html htmlhelp chm
 
 ## Indexing
 
@@ -44,12 +65,12 @@ Markdown | Indexed as
 \#\# Heading | Single entry: 'Heading'
 \#\#\# Sub-heading | Paired entry: 'Heading' <-> 'Sub-heading'
 
-Using \#\#\# without a preceeding \#\# on the page will generate a warning and be ignored by Sphinx, so it won't appear in the index. To create an H2 style heading without an index entry, use the alternate H2 markup:
+To create an H2 style heading without an index entry, use the alternate H2 markup:
 
     Heading
     -------
     
-H1 headings are not checked, effectively reserving their use for primary document titles.
+H1 headings are not checked, effectively reserving their use for the primary title on the contents page.
 
 ## Checking wiki links
 
@@ -57,8 +78,4 @@ If making a lot of changes, the included AWK script can validate links within a 
 
     ./checklinks path/to/wiki/source/*.md
 
-A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. [Read the logs here to find the missing link](https://travis-ci.org/adventuregamestudio/ags-manual).
-
-Additionally, *sphinx linkchecker* can check if external links are broken.
-
-    make linkcheck
+A checklinks task is run on every Travis-CI build, and the build will fail for any missing link. Read the logs [here](https://travis-ci.org/adventuregamestudio/ags-manual) to find the missing link.
