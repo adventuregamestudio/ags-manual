@@ -16,12 +16,10 @@ if not defined PROGRAMFILES(X86) (
 )
 
 if "%*" == "" (
-    echo No targets were specified!
-    echo.
     for /f "tokens=*" %%t in ('findstr /r "^:" "%~nx0"') do (
         set TARGET=%%t
         set TARGET=!TARGET:~1!
-        if not "!TARGET!" == "end" echo    !TARGET!
+        if not "!TARGET!" == "end" echo !TARGET!
     )
 ) else (
     for %%t in (%*) do call :%%~t %%~t
