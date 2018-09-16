@@ -18,7 +18,7 @@ clone:
 	touch "$(SOURCEDIR)/index.rst"
 
 html htmlhelp:
-	@sphinx-build -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@python -m sphinx -b $@ "$(SOURCEDIR)" "$(BUILDDIR)/$@" $(SPHINXOPTS)
 
 chm:
 	@sed -E -i.bak -n "/^Binary (TOC|Index)=No$$/!p" "$(BUILDDIR)/htmlhelp/AGSHelpdoc.hhp" && \
