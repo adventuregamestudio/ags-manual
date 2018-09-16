@@ -1,13 +1,10 @@
-version: "cygwin-{build}"
+version: "chm-{build}"
 
 environment:
   matrix:
-    - ARCH: x86
-#      CYGWIN: C:\Cygwin
-#      CYGSH: C:\Cygwin\bin\bash -lc
-      PYTHON: "C:\\Python36"
-      PYTHON_VERSION: "3.6.x" 
-      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: 3.6
+      PYTHON_ARCH: 32
 
 branches:
   except:
@@ -15,7 +12,9 @@ branches:
 
 install:
   - cinst html-help-workshop
-  - pip install -r requirements.txt
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - python -c "import sys; print(sys.version)"
+  - python -m pip install -r requirements.txt
 
 build_script:
   - make clone htmlhelp chm

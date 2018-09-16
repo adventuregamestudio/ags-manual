@@ -35,12 +35,12 @@ exit /b
 
 :html
 :htmlhelp
-sphinx-build -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
+python -m sphinx -b %1 %SOURCEDIR% %BUILDDIR%\%1 %SPHINXOPTS%
 exit /b
 
 :chm
-move "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp" %TEMP% &&^
-findstr /v /c:"Binary TOC=No" /c:"Binary Index=No" %TEMP%\AGSHelpdoc.hhp > "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp"
+move "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp" "%TEMP%" &&^
+findstr /v /c:"Binary TOC=No" /c:"Binary Index=No" "%TEMP%\AGSHelpdoc.hhp" > "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp"
 %HHC% "%BUILDDIR%\htmlhelp\AGSHelpdoc.hhp"
 move "%BUILDDIR%\htmlhelp\AGSHelpdoc.chm" ags-help.chm
 exit /b
