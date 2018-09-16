@@ -44,6 +44,7 @@ extensions = ['m2r', 'h2r']
 m2r_parse_relative_links = True
 
 # Settings for h2r
+h2r_toc_from_doc = 'source/Home.md'
 h2r_script_object_from_header = r'^(\w+) ([Pp]roperties|[Ff]unctions)'
 h2r_script_object_force_global = {
     'Display': [

@@ -1,13 +1,10 @@
-version: "cygwin-{build}"
+version: "chm-{build}"
 
 environment:
   matrix:
-    - ARCH: x86
-      CYGWIN: C:\Cygwin
-      CYGSH: C:\Cygwin\bin\bash -lc
-      PYTHON: "C:\\Python36"
-      PYTHON_VERSION: "3.6.x" 
-      PYTHON_ARCH: "32"
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: 3.6
+      PYTHON_ARCH: 32
 
 branches:
   except:
@@ -15,23 +12,22 @@ branches:
 
 install:
   - cinst html-help-workshop
-  - pip install -r requirements.txt
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
+  - python -c "import sys; print(sys.version)"
+  - python -m pip install -r requirements.txt
 
 build_script:
-  - "%CYGWIN%\\setup-%ARCH%.exe -q -P awk,sed"
-  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; ./get-help-source.sh; make htmlhelp'"
-  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; sed -E -i -n \"/^Binary (TOC|Index)=No$/!p\" build/htmlhelp/AGSHelpdoc.hhp'"
-  - "%CYGSH% 'cd /cygdrive/c/projects/%APPVEYOR_PROJECT_SLUG%; /cygdrive/c/Program\\ Files\\ \\(x86\\)/HTML\\ Help\\ Workshop/hhc.exe build/htmlhelp/AGSHelpdoc.hhp; mv build/htmlhelp/AGSHelpdoc.chm ags-help-HHW.chm'"
+  - make clone htmlhelp chm
 
 artifacts:
-- path: ags-help-HHW.chm
-  name: ags-help-HHW.chm
+- path: ags-help.chm
+  name: ags-help.chm
 
 deploy:
 - provider: GitHub
   auth_token:
     secure: RE/XSZF5WYBi1os9XeUernSQ7znWyIeCUu5m8rzCR/Ocyhmcjoa4N2101UXxtRPr
-  artifact: ags-help-HHW.chm
+  artifact: ags-help.chm
   draft: false
   prerelease: false
   on:
