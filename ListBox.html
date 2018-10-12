@@ -13,6 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -89,11 +90,11 @@ and the player can choose which one to load.</p>
 <p>FILEMASK is a standard DOS/Windows search expression such as “<em>.dat” or
 “data</em>.*”</p>
 <p>When specifying file path you may use special location tags:<span class="raw-html-m2r"><br></span>
-, which allows you to explicitly access files in the game
+<code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>, which allows you to explicitly access files in the game
 installation directory.<span class="raw-html-m2r"><br></span>
-, which allows you to access files in the save game
+<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code>, which allows you to access files in the save game
 directory.<span class="raw-html-m2r"><br></span>
-, which allows you to access files to a folder on the
+<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>, which allows you to access files to a folder on the
 system which is accessible by and shared by all users.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lstSaveGames.FillDirList(&quot;agssave.*&quot;);
@@ -529,7 +530,7 @@ game language at runtime.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Sep 16, 2018, 3:38:29 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Oct 12, 2018, 9:57:19 PM</div>
     
 
   </body>

@@ -13,6 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,7 +54,11 @@ down.</p>
 <p>If you want to use 8-bit, you need to set up the palette. This is
 because all sprite and background scene imports rely on the palette
 setup to be the same. You <strong>CANNOT</strong> use hi-colour nor true-colour
-sprites or backgrounds in a 256-colour game.</p>
+sprites or backgrounds in a 256-colour game.
+All this means, use 8-bit color only when you know what you are doing or when you intentionally want to punish yourself with lots of nerdy fumbling around on settings for colormodes that were not artist’s decisions but actual hardware limitations of the time and every artist is glad these restrictions are no longer in place.
+But you can do really cool color cycling effects only in 8-bit games,
+other than that this is really outdated technology, but it still works
+of course, and how it works is explained in the next paragraphs.</p>
 <p>You set your chosen colour depth by opening the General Settings pane
 and adjusting the Colour Depth setting near the top of the list.</p>
 <p>Now, choose the “Colours” pane. Here you will see the 256-colour palette
@@ -892,7 +897,7 @@ program window.</li>
 <ul class="simple">
 <li><strong>Custom game saves path</strong> - defines where game will store its saves
 and individual user’s files (e.g. achievements). This path will be
-used to substitute default value of  token
+used to substitute default value of <code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code> token
 in scripts. Note that when being set up in the Editor, this option
 only accepts relative paths (when used they will be relative to the
 game’s location). This has to be done this way to prevent setting
@@ -903,7 +908,7 @@ this path in setup program (where they are actually allowed to put
 absolute paths too).</li>
 <li><strong>Custom shared data path</strong> - defines where game will store its
 shared data files (e.g. hiscore tables). This path will be used to
-substitute default value of  token in scripts. Note
+substitute default value of <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> token in scripts. Note
 that this option only accepts relative paths, so typically you have
 to set this if you want to have data files created locally within
 the game’s folder. Players <strong>won’t</strong> normally be able to change it
@@ -1106,7 +1111,7 @@ Game.NormalFont and Game.SpeechFont properties in your script.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Sep 16, 2018, 3:38:29 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Oct 12, 2018, 9:57:19 PM</div>
     
 
   </body>

@@ -90,8 +90,6 @@ begin with:
     yourself all the inventory items, and so forth. You would un-check
     this before compiling the final version of the game when
     it's complete.
--   **Enable 'anti-glide' mode** - without it, the character movement
-    can look somewhat silly.
 -   **Pixel-perfect click detection** - improves the game playability by
     making sure that clicking transparent regions of objects won't
     trigger them.

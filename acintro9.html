@@ -13,6 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -49,34 +50,30 @@ cursor provides a different <em>mode</em> of interaction to the player.</p>
 AGS has special coded behaviour for some of the cursors. This means that
 you are unable to customize what some of the cursor modes do - let’s
 list these ones briefly:</p>
-<ul>
-<li><p class="first"><strong>Mode 0 (Walk to)</strong> - this will always move the player
-.. code-block:: guess</p>
-<blockquote>
-<div><p>character to the co-ordinates at which the mouse was clicked</p>
-</div></blockquote>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Mode 0 (Walk to)</strong> - this will always move the player</dt>
+<dd>character to the co-ordinates at which the mouse was clicked</dd>
+</dl>
 </li>
-<li><p class="first"><strong>Mode 4 (Use inventory)</strong> - AGS will only allow this mode to
-.. code-block:: guess</p>
-<blockquote>
-<div><p>be selected if the player character has an active inventory item,
-and it will always invoke the “Use inventory” event.</p>
-</div></blockquote>
+<li><dl class="first docutils">
+<dt><strong>Mode 4 (Use inventory)</strong> - AGS will only allow this mode to</dt>
+<dd>be selected if the player character has an active inventory item,
+and it will always invoke the “Use inventory” event.</dd>
+</dl>
 </li>
-<li><p class="first"><strong>Mode 6 (Pointer)</strong> - this is used whenever a normal
-.. code-block:: guess</p>
-<blockquote>
-<div><p>Windows-style mouse pointer is required. For example, when the user
+<li><dl class="first docutils">
+<dt><strong>Mode 6 (Pointer)</strong> - this is used whenever a normal</dt>
+<dd>Windows-style mouse pointer is required. For example, when the user
 is prompted to select a dialog option; when a popup GUI is
-displayed, and so forth.</p>
-</div></blockquote>
+displayed, and so forth.</dd>
+</dl>
 </li>
-<li><p class="first"><strong>Mode 7 (Wait)</strong> - this cursor is shown whenever the player
-.. code-block:: guess</p>
-<blockquote>
-<div><p>cannot interact with the game world (ie. during a cutscene). It is
-automatically shown during blocking script functions.</p>
-</div></blockquote>
+<li><dl class="first docutils">
+<dt><strong>Mode 7 (Wait)</strong> - this cursor is shown whenever the player</dt>
+<dd>cannot interact with the game world (ie. during a cutscene). It is
+automatically shown during blocking script functions.</dd>
+</dl>
 </li>
 </ul>
 <p>All the other cursors are ‘normal’ cursors, in that you can use them
@@ -92,28 +89,26 @@ graphic to set the cursor’s hotspot, as we did for inventory items.
 when you click with it).</p>
 <p>There are a couple of other options you can set for cursors, let’s
 cover them briefly:</p>
-<ul>
-<li><p class="first"><strong>Standard Mode</strong> tells AGS that this is a normal
-.. code-block:: guess</p>
-<blockquote>
-<div><p>user-selectable cursor. It is used when cycling through mouse
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Standard Mode</strong> tells AGS that this is a normal</dt>
+<dd>user-selectable cursor. It is used when cycling through mouse
 cursors, to determine whether to use the cursor or skip over it. For
 example, if during the game you disable the current cursor, AGS will
-change to the next available Standard Mode.</p>
-</div></blockquote>
+change to the next available Standard Mode.</dd>
+</dl>
 </li>
-<li><p class="first"><strong>Animate</strong> allows you to make an animated mouse cursor. If
-.. code-block:: guess</p>
-<blockquote>
-<div><p>you check the box, then you need to set the View property to the
+<li><dl class="first docutils">
+<dt><strong>Animate</strong> allows you to make an animated mouse cursor. If</dt>
+<dd>you check the box, then you need to set the View property to the
 view that you want to use for the animation (loop 0 of the view will be
 cycled continuously).
 You can also select “AnimateOnlyOnHotspot” to make the
 cursor only animate while it is over something that the player can
 interact with; and “AnimateOnlyWhenMoving” to do a
 QFG4-style cursor which only animates while the player is moving it
-around.</p>
-</div></blockquote>
+around.</dd>
+</dl>
 </li>
 </ul>
 <a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
@@ -281,7 +276,7 @@ Technical Forum, so that the tutorials can be improved to explain it better.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Sep 16, 2018, 3:38:29 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Oct 12, 2018, 9:57:19 PM</div>
     
 
   </body>

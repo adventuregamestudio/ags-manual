@@ -13,6 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -39,22 +40,22 @@
   <div class="section" id="upgrading-to-ags-3-3-5">
 <h1>Upgrading to AGS 3.3.5<a class="headerlink" href="#upgrading-to-ags-3-3-5" title="Permalink to this headline">¶</a></h1>
 <p>Since 3.3.5 AGS does not allow to <strong>write</strong> any files into other path
-rather than “” (personal user saves directory) or
-“” (all-users game data directory). If you attempt to open
+rather than “<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code>” (personal user saves directory) or
+“<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>” (all-users game data directory). If you attempt to open
 file for <strong>writing</strong> using relative path without location tag, the
-filepath will be automatically remapped to  location.</p>
+filepath will be automatically remapped to <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> location.</p>
 <p>Because of that, for backwards compatibility reasons, when you try to
 open file for reading using relative path without location tag, AGS will
-first look for that file in , and only if no matching file
+first look for that file in <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>, and only if no matching file
 is found there, then the game installation directory will be checked.</p>
 <p>To force opening file in the game installation directory (for reading) a
-new location tag was introduced: “”. When using this tag
+new location tag was introduced: “<code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>”. When using this tag
 you will explicitly tell AGS to look in and only in the game’s
 installation directory. However, if you try opening file for writing at
 such location, that will result in failure.</p>
 <p>Players are now allowed to set up their own custom path in game setup,
 where the game saves&amp;data will be written. This is done in the game
-setup program. This works as if  and <cite>$APPDATADIR</cite> were
+setup program. This works as if <code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code> and <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> were
 redirected to custom location. Redirection is done internally by the
 engine, you do not need to add anything to your game scripts to make it
 work.</p>
@@ -144,7 +145,7 @@ Files, without having administrative rights.</p>
       <div class="clearer"></div>
     </div>
     
-<div class="footer">&copy;2018, AGS Team<br>build date: Sep 16, 2018, 3:38:29 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Oct 12, 2018, 9:57:19 PM</div>
     
 
   </body>
