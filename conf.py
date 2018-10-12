@@ -42,6 +42,7 @@ extensions = ['m2r', 'h2r']
 
 # Settings for m2r
 m2r_parse_relative_links = True
+m2r_disable_inline_math = True
 
 # Settings for h2r
 h2r_toc_from_doc = 'source/Home.md'
