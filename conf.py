@@ -158,7 +158,10 @@ html_theme = 'alabaster'
 html_theme_options = {
 	'sidebar_header': '#2b72c5',
 	'logo': 'logo.png',
-	'show_related': True
+	'show_related': True,
+	'font_size': '14px',
+	'caption_font_size': '14px',
+	'code_font_size': '14px'
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
