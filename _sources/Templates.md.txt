@@ -4,17 +4,22 @@ When you choose "Start a new game" in the initial "Welcome to AGS"
 dialog box, a window appears with various templates that you can base
 your game off.
 
-AGS comes with a few standard templates, but you can create your own
-too.
+AGS comes with a few standard templates:
 
-**Using downloaded templates**
+- [Sierra-style](TemplateSierraStyle)
+- [BASS (two click handler)](TemplateBASS)
+- [Verbcoin](TemplateVerbcoin)
+
+...but you can create your own too.
+
+### Using downloaded templates
 
 If you've downloaded a game template from the internet, you should find
 a file with a .AGT extension. This is the AGS Template File, and you
 just need to copy it into the "Templates" folder within the AGS Editor
 directory.
 
-**Creating your own template**
+### Creating your own template
 
 A game template is basically just an archive containing all of the game
 source files, which are then extracted into the new folder when the user

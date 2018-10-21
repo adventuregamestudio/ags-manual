@@ -1,0 +1,172 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BASS template &#8212; AGSHelp 3.5.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sierra-style template" href="TemplateSierraStyle.html" />
+    <link rel="prev" title="System Requirements" href="SystemRequirements.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bass-template">
+<h1>BASS template<a class="headerlink" href="#bass-template" title="Permalink to this headline">¶</a></h1>
+<p>This template is a modified version of what was previously known as the
+‘Lightweight BASS stub’, although the script module within retains its
+previous name of TwoClickHandler. The behaviour of the script module aims to
+simplify and mask the cursor modes, removing the need for the player
+to manually set them. It also implements default behaviours where none are
+explicitly implemented, through the use of <a class="reference internal" href="TextScriptEvents.html"><span class="doc">unhandled_event</span></a>
+in the global script.</p>
+<p>Without making any direct comparisons which might result in a lawsuit,
+left clicking will do things, right clicking will look at things.</p>
+<p><strong>NOTE: Currently the pop-up threshold for the inventory bar is defined
+in the script header</strong></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>#define INVENTORY_POPUP_POSITION 15
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// register a GUI to use for the inventory bar
+TwoClickHandler.RegisterInventoryGui(gInventoryBar);
+// register a Label to use for action text
+TwoClickHandler.RegisterActionLabel(lblAction);
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="twoclickhandler-registerinventorygui">
+<span id="index-0"></span><h2>TwoClickHandler.RegisterInventoryGui<a class="headerlink" href="#twoclickhandler-registerinventorygui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.RegisterInventoryGui(GUI* inventory_gui);
+</pre></div>
+</div>
+<p>Assigns the <a class="reference internal" href="GUI.html"><span class="doc">GUI</span></a> which will be used for the inventory.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="twoclickhandler-registeractionlabel">
+<span id="index-1"></span><h2>TwoClickHandler.RegisterActionLabel<a class="headerlink" href="#twoclickhandler-registeractionlabel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.RegisterActionLabel(Label* label);
+</pre></div>
+</div>
+<p>Assigns the <a class="reference internal" href="Label.html"><span class="doc">Label</span></a> which will be used to display text descriptions.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="SystemRequirements.html" title="previous chapter">System Requirements</a></li>
+      <li>Next: <a href="TemplateSierraStyle.html" title="next chapter">Sierra-style template</a></li>
+  </ul></li>
+</ul>
+</div><p>
+  <a href="genindex.html">Index</a>
+
+  
+  <br>
+  <br>
+  <ul>
+    
+    
+    
+
+
+    
+    
+
+    <li class="source-link">
+       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20BASS%20template&body=source%20is%20TemplateBASS.md.%0A%23%23%23%0A"> Discuss this page</a>
+    </li>
+    <li class="source-link">
+       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/TemplateBASS"> Edit this page</a>
+    </li>
+
+  </ul>
+  <br>
+  
+
+</p>
+<h3>Table of Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">BASS template</a><ul>
+<li><a class="reference internal" href="#twoclickhandler-registerinventorygui">TwoClickHandler.RegisterInventoryGui</a></li>
+<li><a class="reference internal" href="#twoclickhandler-registeractionlabel">TwoClickHandler.RegisterActionLabel</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+        
+<div class="footer">&copy;2018, AGS Team<br>build date: Oct 21, 2018, 5:38:11 PM</div>
+        
+    
+
+  </body>
+</html>
