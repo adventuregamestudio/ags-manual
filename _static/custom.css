@@ -1,3 +1,7 @@
+div.document {
+    margin: 0 auto 0 auto;
+}
+
 div.sphinxsidebarwrapper p.logo {
     text-align: center;
     margin: -10px 40px 0 0px;

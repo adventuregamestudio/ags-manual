@@ -12,9 +12,11 @@
 {% endblock %}
 
 {% block footer %}
-    {% if style == 'alabaster.css' %}
+    {% if builder != 'htmlhelp' %}
+        {% if style == 'alabaster.css' %}
 <div class="footer">&copy;{{ copyright }}<br>build date: {{ last_updated }}</div>
-    {% else %}
+        {% else %}
 {{ super() }}
+        {% endif %}
     {% endif %}
 {% endblock %}
