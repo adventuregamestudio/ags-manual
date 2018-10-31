@@ -4,7 +4,7 @@ Travis (web): [![Build Status](https://travis-ci.com/adventuregamestudio/ags-man
 
 [**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
 
-The help files can be edited on the wiki or cloned locally and pushed. Please open an issue if something is wrong.
+The help files can be edited on the wiki or cloned locally and pushed. Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if something is wrong.
 
     git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
 
