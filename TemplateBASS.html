@@ -46,8 +46,10 @@ simplify and mask the cursor modes, removing the need for the player
 to manually set them. It also implements default behaviours where none are
 explicitly implemented, through the use of <a class="reference internal" href="TextScriptEvents.html"><span class="doc">unhandled_event</span></a>
 in the global script.</p>
-<p>Without making any direct comparisons which might result in a lawsuit,
-left clicking will do things, right clicking will look at things.</p>
+<p>Without making any direct comparisons which might result in a lawsuit, in the
+<strong>default</strong> mode left-clicking will do things, right-clicking will look at
+things. In the <strong>classic</strong> mode the mouse buttons are reversed, left-clicking
+will look at things, right-clicking will do things.</p>
 <p><strong>NOTE: Currently the pop-up threshold for the inventory bar is defined
 in the script header</strong></p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>#define INVENTORY_POPUP_POSITION 15
@@ -58,6 +60,8 @@ in the script header</strong></p>
 TwoClickHandler.RegisterInventoryGui(gInventoryBar);
 // register a Label to use for action text
 TwoClickHandler.RegisterActionLabel(lblAction);
+// select the classic button mode (left-click to look, right-click to use)
+TwoClickHandler.SetMouseMode(eTwoClickMouseModeClassic);
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -75,6 +79,16 @@ TwoClickHandler.RegisterActionLabel(lblAction);
 </pre></div>
 </div>
 <p>Assigns the <a class="reference internal" href="Label.html"><span class="doc">Label</span></a> which will be used to display text descriptions.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="twoclickhandler-setmousemode">
+<span id="index-2"></span><h2>TwoClickHandler.SetMouseMode<a class="headerlink" href="#twoclickhandler-setmousemode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.SetMouseMode(TwoClickMouseMode mode);
+</pre></div>
+</div>
+<p>Sets how left and right clicks are processed. Possible values are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">eTwoClickMouseModeNormal</span></code> (left-click to use, right-click to look)<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">eTwoClickMouseModeClassic</span></code> (left-click to look, right-click to use)</p>
 </div>
 </div>
 
@@ -153,6 +167,7 @@ TwoClickHandler.RegisterActionLabel(lblAction);
 <li><a class="reference internal" href="#">BASS template</a><ul>
 <li><a class="reference internal" href="#twoclickhandler-registerinventorygui">TwoClickHandler.RegisterInventoryGui</a></li>
 <li><a class="reference internal" href="#twoclickhandler-registeractionlabel">TwoClickHandler.RegisterActionLabel</a></li>
+<li><a class="reference internal" href="#twoclickhandler-setmousemode">TwoClickHandler.SetMouseMode</a></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +179,7 @@ TwoClickHandler.RegisterActionLabel(lblAction);
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Oct 31, 2018, 1:32:56 AM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
         
     
 

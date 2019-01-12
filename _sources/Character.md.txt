@@ -430,12 +430,19 @@ If you use FOLLOW_EXACTLY, then EAGERNESS has another meaning. If you
 pass 0, CHARID will be drawn in front of CHARTOFOLLOW; if you pass 1, it
 will be drawn behind.
 
+When the character being followed changes room, the character following 
+will change to the same room and position after a number of frames defined
+on `game.following_room_timer`.
+
 Example:
 
     cMan.FollowCharacter(cEgo, 5, 80);
 
 will make character MAN follow character EGO standing about 5 pixels
 near him and waiting for a while before he makes his move.
+
+*See Also:* 
+[game.following_room_timer](Gamevariables)
 
 ---
 

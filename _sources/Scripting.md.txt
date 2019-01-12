@@ -17,6 +17,7 @@ great control over your game.
 - [DynamicSprite functions and properties](DynamicSprite)
 - [File functions and properties](File)
 - [Game / Global functions](Game)
+- [Game variables](Gamevariables)
 - [GUI functions and properties](GUI)
 - [GUI control functions and properties](GUIControl)
 - [GUI Button functions and properties](Button)

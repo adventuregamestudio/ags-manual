@@ -405,12 +405,17 @@ effects such as a temporary halo over the character and so forth.</p>
 <p>If you use FOLLOW_EXACTLY, then EAGERNESS has another meaning. If you
 pass 0, CHARID will be drawn in front of CHARTOFOLLOW; if you pass 1, it
 will be drawn behind.</p>
+<p>When the character being followed changes room, the character following
+will change to the same room and position after a number of frames defined
+on <code class="docutils literal notranslate"><span class="pre">game.following_room_timer</span></code>.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>cMan.FollowCharacter(cEgo, 5, 80);
 </pre></div>
 </div>
 <p>will make character MAN follow character EGO standing about 5 pixels
 near him and waiting for a while before he makes his move.</p>
+<p><em>See Also:</em>
+<a class="reference internal" href="Gamevariables.html"><span class="doc">game.following_room_timer</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="getatscreenxy">
@@ -2640,7 +2645,7 @@ properties:</strong></p>
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Oct 31, 2018, 1:32:56 AM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
         
     
 
