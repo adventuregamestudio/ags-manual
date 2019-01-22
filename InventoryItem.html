@@ -45,21 +45,21 @@
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static InventoryItem* InventoryItem.GetAtScreenXY(int x, int y)
 </pre></div>
 </div>
-<p>Returns the inventory item at SCREEN co-ordinates (X,Y). Note that this
+<p>Returns the inventory item at SCREEN coordinates (X,Y). Note that this
 only detects inventory items on custom Inventory windows (that are
 switched on when this function is called), and is intended to allow you
 to do Verb Coin style GUIs and so on.</p>
-<p>If there is no inventory item there, or if invalid co-ordinates are
-specified, returns null.</p>
-<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM
-co-ordinates. This means that with a scrolling room, the co-ordinates
+<p>If there is no inventory item there, or if invalid coordinates are
+specified, the function returns null.</p>
+<p><strong>NOTE:</strong> The coordinates are SCREEN coordinates, NOT ROOM
+coordinates. This means that with a scrolling room, the coordinates
 you pass are relative to the screen’s current position, and NOT absolute
-room co-ordinates. This means that this function is suitable for use
+room coordinates. This means that this function is suitable for use
 with the mouse cursor position variables.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InventoryItem *item = InventoryItem.GetAtScreenXY(mouse.x, mouse.y);
 if (item == null) {
-  Display(&quot;No inventory item at the mouse co-ordinates&quot;);
+  Display(&quot;No inventory item at the mouse coordinates&quot;);
 }
 else {
   Display(&quot;Inventory item number %d at the mouse.&quot;, item.ID);
@@ -391,7 +391,7 @@ truncated.</p>
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 22, 2019, 10:04:24 AM</div>
         
     
 

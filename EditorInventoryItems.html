@@ -39,7 +39,18 @@
             
   <div class="section" id="inventory-items-editor">
 <h1>Inventory Items Editor<a class="headerlink" href="#inventory-items-editor" title="Permalink to this headline">¶</a></h1>
-<p>A place to edit Items that can be placed on the inventory by the player.</p>
+<p>A place to edit Items that can be placed on the <a class="reference internal" href="Settingupthegame.html"><span class="doc">inventory</span></a> by the player.</p>
+<a class="reference external image-reference" href="images/EditorInventoryItems_img1.png"><img alt="Screenshot Inventory Item Editor" src="_images/EditorInventoryItems_img1.png" /></a>
+<p><em>Cursor Image</em>: The image number from the <a class="reference internal" href="EditorSprite.html"><span class="doc">Sprite Manager</span></a> that is displayed as active cursor image when selecting this inventory item from the Inventory to use it on other Inventory Items or somewhere inside your scene. You set the active hotspot, there where the click from that mouse cursor is detected, by clicking on the right image in the inventory item settings. Or you set the hotspot value by hand with the HotspotX and HotspotY Value explained below.
+This image is usually a bit smaller than the normal image of the inventory item inside the inventory covered later.</p>
+<p><em>Description:</em> The name of the item that is displayed for example on [&#64;OVERHOTSPOT&#64;] when the mouse is over the inventory item still in the inventory.</p>
+<p><em>Image:</em> The image displayed for the inventory item within the normal AGS inventory. Usually a bit bigger than the mouse cursor image of the inventory item.</p>
+<p><em>HotspotX:</em> Select the X Value of the active cursor image by hand. It’s the distance from the left border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
+<p><em>HotspotY:</em> Select the Y Value of the active cursor image by hand. It’s the distance from the top border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
+<p><em>ID:</em> The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.ID</span></a>.</p>
+<p><em>Name:</em> The script name of the inventory item. Usually the convention is to start inventory item names with an i, like <em>iKey</em>.</p>
+<p><em>PlayerStartsWithItem:</em> Is a boolean value that means what it says, if the player character starts with this inventory item in his inventory.</p>
+<p>Within the game the player can pick up and inventory items to his inventory by interacting with the scene or other characters. You add it to his inventory with the <a class="reference internal" href="Character.html"><span class="doc">cChar.AddInventory(iInvItem)</span></a> function. When the player uses or gives away the item you remove it from the character’s inventory with the <a class="reference internal" href="Character.html"><span class="doc">cChar.LoseInventory(iInvItem)</span></a> function. Make sure you should check the [mousemode] afterwards, especially when the active cursor is the inventory item the player just lost.</p>
 <p>See Also: <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem</span></a></p>
 </div>
 
@@ -119,7 +130,7 @@
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 22, 2019, 10:04:24 AM</div>
         
     
 

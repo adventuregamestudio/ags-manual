@@ -55,6 +55,7 @@ similar, chances are this section will answer it.</p>
 <li>8 audio channels</li>
 <li>100 local messages per room (excluding script)</li>
 <li>30 fonts</li>
+<li>150 lines of text in a listbox</li>
 <li>unlimited words in the text parser dictionary</li>
 <li>unlimited characters</li>
 <li>unlimited dialog topics</li>
@@ -64,6 +65,14 @@ similar, chances are this section will answer it.</p>
 <li>unlimited loops per view</li>
 <li>unlimited frames per loop</li>
 <li>unlimited custom properties</li>
+</ul>
+<p>Some additional limits</p>
+<ul class="simple">
+<li>You should be able to have up to 15 parameters to a function.</li>
+<li>To ensure the pathfinder always works, your walkable areas should always be at least 3 pixels wide.</li>
+<li>You’ll get an error if you define over 4 KB’s worth of variables inside a function.</li>
+<li>AGS currently allows the call stack to be 50 levels deep, so if you have a recursive function that calls itself more often you’ll get the “call stack overflow” error. Additionally, the stack size is set at 4 KB so if the recursive function declares a lot of local variables you could reach the limit that way, too.</li>
+<li>There is a total overall limit on the number of functions that can be exported by all plugins added together, which in theory it would be possible for a single plugin to exceed. It’s in the region of a couple of hundred though, so it shouldn’t be an issue. It wouldn’t be too difficult to increase, if the need arose.</li>
 </ul>
 <p>We are working on removing existing limitations in the AGS, so some of
 the remaining restrictions might be loosened or eliminated in the
@@ -146,7 +155,7 @@ following updates.</p>
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 22, 2019, 10:04:24 AM</div>
         
     
 

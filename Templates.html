@@ -44,15 +44,18 @@ dialog box, a window appears with various templates that you can base
 your game off.</p>
 <p>AGS comes with a few standard templates:</p>
 <ul class="simple">
+<li>9-Verb Monkey Island Style</li>
+<li>[Default Game]</li>
+<li>[Empty Game] (…which is what it says and actually no template per se)</li>
 <li><a class="reference internal" href="TemplateSierraStyle.html"><span class="doc">Sierra-style</span></a></li>
-<li><a class="reference internal" href="TemplateBASS.html"><span class="doc">BASS (two click handler)</span></a></li>
+<li><a class="reference internal" href="TemplateBASS.html"><span class="doc">LW_BASS_v2.0 (two click handler)</span></a> (like <strong>B</strong>eneath <strong>a</strong> <strong>S</strong>teel <strong>S</strong>ky)</li>
 <li><a class="reference internal" href="TemplateVerbcoin.html"><span class="doc">Verbcoin</span></a></li>
 </ul>
 <p>…but you can create your own too.</p>
 <div class="section" id="using-downloaded-templates">
 <span id="index-0"></span><h2>Using downloaded templates<a class="headerlink" href="#using-downloaded-templates" title="Permalink to this headline">¶</a></h2>
 <p>If you’ve downloaded a game template from the internet, you should find
-a file with a .AGT extension. This is the AGS Template File, and you
+a file with a <code class="docutils literal notranslate"><span class="pre">.AGT</span></code> extension. This is the AGS Template File, and you
 just need to copy it into the “Templates” folder within the AGS Editor
 directory.</p>
 </div>
@@ -64,31 +67,31 @@ creates a new game. It is similar to you just zipping up your game
 folder and sending it to a friend - except that this way looks far more
 professional.</p>
 <p>To create a template, first of all you create a game as normal in the
-editor. Once you have everything set up how you want it, select “Make
-template from this game” on the File menu. This will prompt you for a
+editor. Once you have everything set up how you want it, select “<em>Make</em>
+<em>template from this game</em>” on the File menu. This will prompt you for a
 name for the template (this is what will appear under its icon in the
-“Start New Game” dialog box), and then it will go away and compile the
+“<em>Start New Game</em>” dialog box), and then it will go away and compile the
 template for you.</p>
 <p>The template game takes the following files from your game folder: Core
-game files (GAME.AGF, ACSPRSET.SPR), all script and room files, all
-sound and music files, all fonts, game icons, and all .TXT files (to
-allow you to include a README.TXT or whatever).</p>
+game files (<code class="docutils literal notranslate"><span class="pre">GAME.AGF</span></code>, <code class="docutils literal notranslate"><span class="pre">ACSPRSET.SPR</span></code>), all script and room files, all
+sound and music files, all fonts, game icons, and all <code class="docutils literal notranslate"><span class="pre">.TXT</span></code> files (to
+allow you to include a <code class="docutils literal notranslate"><span class="pre">README.TXT</span></code> or whatever).</p>
 <p>If you include a <strong>template.ico</strong> file in your game folder when you make
 the template, then it will be used as the icon in the Start New Game
-dialog box. Otherwise, the icon will be taken from user.ico (if
+dialog box. Otherwise, the icon will be taken from <code class="docutils literal notranslate"><span class="pre">user.ico</span></code> (if
 present), or if not it will get the default AGS icon.</p>
-<p>You can also include a “template.txt” file in your game folder. If you
+<p>You can also include a <code class="docutils literal notranslate"><span class="pre">template.txt</span></code> file in your game folder. If you
 do, then its contents will be displayed to the user in a messagebox
 after they create a new game based on the template. You could use this
 to explain briefly about any key aspects of the template, or it could
-tell them to read your README.TXT file. This file should be quite small</p>
-<ul class="simple">
-<li>its entire contents need to fit into a standard message box.</li>
-</ul>
+tell them to read your README file. This file should be quite small,
+its entire contents need to fit into a standard message box, so keep
+it below 255 characters.</p>
 <p>NOTE: Do not simply make a template out of a half-finished game. If
 you want to make a template, you should start a game from scratch and
 make your changes - the user probably doesn’t want to already have a
-semi-completed game when they use your template.</p>
+semi-completed game when they use your template. Gametemplates are rather about
+different types of game controls, gameplay mechanics you want to share.</p>
 </div>
 </div>
 
@@ -178,7 +181,7 @@ semi-completed game when they use your template.</p>
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Jan 12, 2019, 9:20:30 PM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Jan 22, 2019, 10:04:24 AM</div>
         
     
 
