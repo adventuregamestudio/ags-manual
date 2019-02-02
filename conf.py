@@ -18,9 +18,9 @@ sys.path.insert(0, os.path.abspath('_extensions'))
 
 
 # -- Project information -----------------------------------------------------
-
+import datetime
 project = 'AGSHelp'
-copyright = '2018, AGS Team'
+copyright = '%s, AGS Team' % datetime.datetime.now().year
 author = 'AGS Team'
 
 # The short X.Y version
