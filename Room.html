@@ -13,7 +13,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -295,8 +295,7 @@ setting.</p>
 </div>
 <p>Returns the X-offset of the current viewport in a scrolling room. This
 allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the left edge of the screen, and so it can
-have a value between 0 and (ROOM WIDTH - 320).</p>
+The co-ordinate returned is the left edge of the screen.</p>
 <p>If the room is a non-scrolling room, returns 0.</p>
 <p>See the SetViewport function description for more information.</p>
 <p>Example:</p>
@@ -317,8 +316,7 @@ to the right.</p>
 </div>
 <p>Returns the Y-offset of the current viewport in a scrolling room. This
 allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the top edge of the screen, and so it can
-have a value between 0 and (ROOM HEIGHT - 200).</p>
+The co-ordinate returned is the top edge of the screen.</p>
 <p>If the room is a non-scrolling room, returns 0.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetViewportY()&gt;20)
@@ -550,8 +548,6 @@ a scrolling room. This allows you to manually pan across a scrolling
 room or to have the screen follow a non-player character.</p>
 <p>The lock is released when you either call ReleaseViewport or the player
 changes rooms.</p>
-<p><strong>NOTE:</strong> The co-ordinates supplied are 320x200-scale co-ordinates, and
-will be automatically multiplied up by the engine.</p>
 <p><strong>NOTE:</strong> This function has no effect if the current room isn’t a
 scrolling room.</p>
 <p>Example:</p>
@@ -631,8 +627,7 @@ must be the same colour depth as the room itself.</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.Height
 </pre></div>
 </div>
-<p>Returns the height of the room, in 320x200-style co-ordinates. This is
-the same height as is displayed as the “Relative size” in the Editor.</p>
+<p>Returns the height of the room.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
 </pre></div>
@@ -744,8 +739,7 @@ Room Settings pane of the editor.</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.Width
 </pre></div>
 </div>
-<p>Returns the width of the room, in 320x200-style co-ordinates. This is
-the same width as is displayed as the “Relative size” in the Editor.</p>
+<p>Returns the width of the room.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
 </pre></div>
@@ -872,7 +866,7 @@ the same width as is displayed as the “Relative size” in the Editor.</p>
     </div>
     
         
-<div class="footer">&copy;2018, AGS Team<br>build date: Jan 22, 2019, 10:04:24 AM</div>
+<div class="footer">&copy;2018, AGS Team<br>build date: Feb 2, 2019, 7:13:18 PM</div>
         
     
 

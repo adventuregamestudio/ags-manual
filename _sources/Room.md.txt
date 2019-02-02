@@ -301,8 +301,7 @@ Example:
 
 Returns the X-offset of the current viewport in a scrolling room. This
 allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the left edge of the screen, and so it can
-have a value between 0 and (ROOM WIDTH - 320).
+The co-ordinate returned is the left edge of the screen.
 
 If the room is a non-scrolling room, returns 0.
 
@@ -327,8 +326,7 @@ to the right.
 
 Returns the Y-offset of the current viewport in a scrolling room. This
 allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the top edge of the screen, and so it can
-have a value between 0 and (ROOM HEIGHT - 200).
+The co-ordinate returned is the top edge of the screen.
 
 If the room is a non-scrolling room, returns 0.
 
@@ -592,9 +590,6 @@ room or to have the screen follow a non-player character.
 The lock is released when you either call ReleaseViewport or the player
 changes rooms.
 
-**NOTE:** The co-ordinates supplied are 320x200-scale co-ordinates, and
-will be automatically multiplied up by the engine.
-
 **NOTE:** This function has no effect if the current room isn't a
 scrolling room.
 
@@ -683,8 +678,7 @@ Example:
 
     readonly static int Room.Height
 
-Returns the height of the room, in 320x200-style co-ordinates. This is
-the same height as is displayed as the "Relative size" in the Editor.
+Returns the height of the room.
 
 Example:
 
@@ -806,8 +800,7 @@ Example:
 
     readonly static int Room.Width
 
-Returns the width of the room, in 320x200-style co-ordinates. This is
-the same width as is displayed as the "Relative size" in the Editor.
+Returns the width of the room.
 
 Example:
 

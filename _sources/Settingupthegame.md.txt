@@ -68,7 +68,7 @@ he can then use to solve puzzles. Adventure Game Studio makes this
 inventory easy for you to manage.
 
 Every inventory item which the player may carry during the game at one
-time or another is listed under the "Inventory items" node. Here, each
+time or another is listed under the "[Inventory items](EditorInventoryItems)" node. Here, each
 item has a number and a script name which you use in scripts to identify
 the object. To create a new item, right-click on the "Inventory items"
 node.
