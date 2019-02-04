@@ -832,7 +832,7 @@ for details.
 
 ### import
 
-**import** *declaration* ;
+**import** [attribute] *declaration* ;
 
 Declares *declaration* as a variable or function which is external to
 the current script, but that the script needs access to it. You use this
@@ -858,6 +858,21 @@ import it as a short, otherwise your game may crash.
 **NOTE:** You cannot import old-style `string` variables (this does not
 apply to new-style `String` variables).
 
+As a special case, specifying the optional keyword `attribute` within a struct
+definition will define a virtual property, which will also require matching
+getter and setter functions.
+
+For example:
+
+    struct Weapon
+    {
+        protected int damage;
+        import attribute int Damage;
+    };
+
+Please see the [Object Oriented programming](OOProgramming) page for more
+details.
+
 ---
 
 ### export
@@ -874,6 +889,57 @@ For example:
     export counter, strength;
 
 This exports three variables - my_variable, counter and strength.
+
+---
+
+### readonly
+
+**readonly** *data_type* *variable* [ = *value* ];
+
+The *readonly* keyword is used when declaring a variable, to indicate that
+its value cannot be changed.
+
+For example:
+
+    readonly int zero;
+    readonly int months = 12;
+
+---
+
+### writeprotected
+
+**writeprotected** *data_type* *struct_member*;
+
+The *writeprotected* keyword is used to define a property within a struct,
+which can only be modified by struct members (including extender functions)
+using the [this](ScriptKeywords#this) keyword. Reading the value is not
+restricted.
+
+For example:
+
+    struct Weapon
+    {
+        writeprotected int Damage;
+        import bool SetDamage(int damage);
+    };
+
+---
+
+### protected
+
+**protected** *data_type* *struct_member*;
+
+The *protected* keyword is used to define a property within a struct, which
+can only be accessed or modified by struct members (including extender
+functions) using the [this](ScriptKeywords#this) keyword.
+
+For example:
+
+    struct Weapon
+    {
+        protected int Damage;
+        import bool SetDamage(int damage);
+    };
 
 ---
 

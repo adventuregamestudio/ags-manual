@@ -1,0 +1,357 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Object Oriented Programming &#8212; AGSHelp 3.5.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Object functions and properties" href="Object.html" />
+    <link rel="prev" title="Music and sound" href="MusAndSound.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+    
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="object-oriented-programming">
+<h1>Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h1>
+<p>The basic idea of encapsulation is that you are going to protect your data
+structure (struct) by using methods (functions) to get and/or set the
+properties instead of making them directly readable/writable.</p>
+<p>For example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Weapon</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="nb">int</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">int</span> <span class="nn">GetDamage</span><span class="p">();</span>
+    <span class="kn">import</span> <span class="nn">void</span> <span class="nn">SetDamage</span><span class="p">(</span><span class="nb">int</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">Weapon</span><span class="p">::</span><span class="n">GetDamage</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">Weapon</span><span class="p">::</span><span class="n">SetDamage</span><span class="p">(</span><span class="nb">int</span> <span class="n">damage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Why would you want to do this you ask? Let’s say for example that you want to
+make sure that the damage property of your Weapons is always a positive (or 0)
+value. If the user could directly set <code class="docutils literal notranslate"><span class="pre">sword.damage</span> <span class="pre">=</span> <span class="pre">-15;</span></code> then you would have
+no way to prevent the property being changed. To further extrapolate this
+problem if the user of this code is defining dynamic instances of this struct
+you wouldn’t even be able to authenticate the data using repeatedly_execute
+(short of forcing them to call an Update method every loop).</p>
+<p>By encapsulating the property you can make sure that the user is supplying a
+valid value before storing it into the instance:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>void Weapon::SetDamage(int damage)
+{
+    if (damage &lt; 0) damage = 0;
+    this.damage = damage;
+}
+</pre></div>
+</div>
+<p>Now if the user supplies an invalid value for the damage it will be replaced
+with 0. This makes sure that the damage does not get set to a negative value.</p>
+<div class="section" id="protection">
+<span id="index-0"></span><h2>Protection<a class="headerlink" href="#protection" title="Permalink to this headline">¶</a></h2>
+<p>Access modifiers can be applied to struct members to set the access and
+modifiction scope of struct members.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Keyword</th>
+<th class="head">Get</th>
+<th class="head">Set</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">readonly</span></code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">writeprotected</span></code></td>
+<td>Yes</td>
+<td>Using <code class="docutils literal notranslate"><span class="pre">this</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">protected</span></code></td>
+<td>Using <code class="docutils literal notranslate"><span class="pre">this</span></code></td>
+<td>Using <code class="docutils literal notranslate"><span class="pre">this</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="defing-attributes">
+<span id="index-1"></span><h2>Defing attributes<a class="headerlink" href="#defing-attributes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> You cannot use an attribute in the same script where the getter
+and setter methods are defined. If you try, you’ll get an error like this:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="o">:</span> <span class="n">is_script_import</span><span class="o">:</span> <span class="n">NULL</span> <span class="n">pointer</span> <span class="n">passed</span>
+</pre></div>
+</div>
+<p>The keyword attribute is actually comparable to the C# idea of properties,
+though the actual implementation is of course different. An attribute gives us
+the ability to encapsulate our properties so we can protect our data without
+losing the ease of access that just using properties grants.</p>
+<p>An attribute is declared more like a method than a property. You must also
+supply two functions for each attribute, a getter and a setter, named get_XXX
+and set_XXX respectively where XXX is the name of the attribute. The named
+attributes themselves are considered virtual, so there also needs to be a
+struct member used to store the data.</p>
+<p>An attribute is declared more like a method than a property. You must also
+supply two functions for each attribute, a getter and a setter, named get_XXX
+and set_XXX respectively where XXX is the name of the attribute.</p>
+<p>For example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Weapon</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="nb">int</span> <span class="n">damage</span><span class="p">;</span> <span class="o">//</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">our</span> <span class="n">actual</span> <span class="nb">property</span> <span class="n">to</span> <span class="n">store</span> <span class="n">the</span> <span class="n">damage</span>
+    <span class="kn">import</span> <span class="nn">attribute</span> <span class="nn">int</span> <span class="nn">Damage</span><span class="p">;</span> <span class="o">//</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">our</span> <span class="n">attribute</span>
+    <span class="kn">import</span> <span class="nn">int</span> <span class="nn">get_Damage</span><span class="p">();</span>
+    <span class="kn">import</span> <span class="nn">void</span> <span class="nn">set_Damage</span><span class="p">(</span><span class="nb">int</span> <span class="n">damage</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nb">int</span> <span class="n">Weapon</span><span class="p">::</span><span class="n">get_Damage</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">Weapon</span><span class="p">::</span><span class="n">set_Damage</span><span class="p">(</span><span class="nb">int</span> <span class="n">damage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">damage</span> <span class="o">=</span> <span class="n">damage</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It is also possible to use the attribute keyword to encapsulate array access,
+this time by using a getter named geti_XXX and and setter named seti_XXX. Since
+dynamic arrays are not supported as struct members you would typically have to
+declare the actual property with a static size.</p>
+<p>For example:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="c1">#define MAX_PEOPLE_COUNT 20 // max 20 people</span>
+
+<span class="n">struct</span> <span class="n">People</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="n">String</span> <span class="n">names</span><span class="p">[</span><span class="n">MAX_PEOPLE_COUNT</span><span class="p">];</span>
+    <span class="kn">import</span> <span class="nn">attribute</span> <span class="nn">String</span> <span class="nn">Names</span><span class="p">[];</span>
+    <span class="kn">import</span> <span class="nn">String</span> <span class="nn">geti_Names</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">);</span>
+    <span class="kn">import</span> <span class="nn">void</span> <span class="nn">seti_Names</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">);</span>
+    <span class="n">readonly</span> <span class="kn">import</span> <span class="nn">attribute</span> <span class="nn">int</span> <span class="nn">Count</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">int</span> <span class="nn">get_Count</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="n">String</span> <span class="n">People</span><span class="p">::</span><span class="n">geti_Names</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">MAX_PEOPLE_COUNT</span><span class="p">))</span> <span class="k">return</span> <span class="n">null</span><span class="p">;</span> <span class="o">//</span> <span class="n">invalid</span> <span class="n">index</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">People</span><span class="p">::</span><span class="n">seti_Names</span><span class="p">(</span><span class="nb">int</span> <span class="n">index</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">MAX_PEOPLE_COUNT</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">;</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">People</span><span class="p">::</span><span class="n">get_Count</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">PEOPLE_COUNT</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-with-extender-functions">
+<span id="index-2"></span><h2>Access with extender functions<a class="headerlink" href="#access-with-extender-functions" title="Permalink to this headline">¶</a></h2>
+<p>By default getter and setter methods will show in autocomplete data within the
+script editor, unless explicity disabled per definition:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Weapon</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="nb">int</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">attribute</span> <span class="nn">int</span> <span class="nn">Damage</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">int</span> <span class="nn">get_Damage</span><span class="p">();</span> <span class="o">//</span> <span class="err">$</span><span class="n">AUTOCOMPLETEIGNORE</span><span class="err">$</span>
+    <span class="kn">import</span> <span class="nn">void</span> <span class="nn">set_Damage</span><span class="p">(</span><span class="nb">int</span> <span class="n">damage</span><span class="p">);</span> <span class="o">//</span> <span class="err">$</span><span class="n">AUTOCOMPLETEIGNORE</span><span class="err">$</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>This hides them within the script editor but it still means that the functions
+are globally accessible and we have to reference them in the script header. By
+using <a class="reference internal" href="ExtenderFunctions.html"><span class="doc">extender functions</span></a> instead, we no longer need to
+define them in the script header and no longer need to add the special tokens
+to have the functions ignored for autocomplete purposes.</p>
+<p>Example script header:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Script</span><span class="o">.</span><span class="n">ash</span>
+
+<span class="n">struct</span> <span class="n">Weapon</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="nb">int</span> <span class="n">damage</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">attribute</span> <span class="nn">int</span> <span class="nn">Damage</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Example script:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// Script.asc
+
+int get_Damage(this Weapon*)
+{
+    return this.damage;
+}
+
+void set_Damage(this Weapon*, int damage)
+{
+    if (damage &lt; 0) damage = 0;
+    this.damage = damage;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="static-attributes">
+<span id="index-3"></span><h2>Static attributes<a class="headerlink" href="#static-attributes" title="Permalink to this headline">¶</a></h2>
+<p>Using an attribute will actually allow you to simulate define static properties
+within a struct.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Some</span>
+<span class="p">{</span>
+    <span class="kn">import</span> <span class="nn">static</span> <span class="nn">attribute</span> <span class="nn">int</span> <span class="nn">Thing</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="o">//</span> <span class="n">since</span> <span class="n">the</span> <span class="n">attribute</span> <span class="ow">is</span> <span class="n">static</span><span class="p">,</span> <span class="n">adding</span> <span class="n">a</span> <span class="nb">property</span> <span class="n">to</span> <span class="n">the</span> <span class="n">struct</span> <span class="n">doesn</span><span class="s1">&#39;t make sense</span>
+<span class="nb">int</span> <span class="n">Some_Thing</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">even</span> <span class="n">though</span> <span class="n">it</span><span class="s1">&#39;s static we can still use extenders to define the accessors</span>
+<span class="nb">int</span> <span class="n">get_Thing</span><span class="p">(</span><span class="n">this</span> <span class="n">Some</span><span class="o">*</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">Some_Thing</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">set_Thing</span><span class="p">(</span><span class="n">this</span> <span class="n">Some</span><span class="o">*</span><span class="p">,</span> <span class="nb">int</span> <span class="n">thing</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Some_Thing</span> <span class="o">=</span> <span class="n">thing</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Meanwhile</span><span class="p">,</span> <span class="ow">in</span> <span class="n">some</span> <span class="n">other</span> <span class="n">script</span><span class="o">...</span>
+<span class="n">Some</span><span class="o">.</span><span class="n">Thing</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="MusAndSound.html" title="previous chapter">Music and sound</a></li>
+      <li>Next: <a href="Object.html" title="next chapter">Object functions and properties</a></li>
+  </ul></li>
+</ul>
+</div><p>
+  <a href="genindex.html">Index</a>
+
+  
+  <br>
+  <br>
+  <ul>
+    
+    
+    
+
+
+    
+    
+
+    <li class="source-link">
+       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Object%20Oriented%20Programming&body=source%20is%20OOProgramming.md.%0A%23%23%23%0A"> Discuss this page</a>
+    </li>
+    <li class="source-link">
+       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/OOProgramming"> Edit this page</a>
+    </li>
+
+  </ul>
+  <br>
+  
+
+</p>
+<h3>Table of Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">Object Oriented Programming</a><ul>
+<li><a class="reference internal" href="#protection">Protection</a></li>
+<li><a class="reference internal" href="#defing-attributes">Defing attributes</a></li>
+<li><a class="reference internal" href="#access-with-extender-functions">Access with extender functions</a></li>
+<li><a class="reference internal" href="#static-attributes">Static attributes</a></li>
+</ul>
+</li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    
+        
+<div class="footer">&copy;2019, AGS Team<br>build date: Feb 4, 2019, 12:22:37 AM</div>
+        
+    
+
+  </body>
+</html>
