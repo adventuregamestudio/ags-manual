@@ -1,52 +1,117 @@
-SOURCEDIR ?= source
-BUILDDIR ?= build
-SPHINXPROJ ?= AGSHelp
-SPHINXOPTS ?= -c .
+PANDOC ?= pandoc
+IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
+BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
+HTMLFILES = $(addsuffix .html, $(BASENAMES))
+TSVFILES = $(addsuffix .tsv, $(BASENAMES))
 
-GITURL ?= https://github.com/adventuregamestudio/ags-manual.wiki.git
-GITOPTS ?= --depth=1 --branch=master
+ifdef ComSpec
+  CP = copy
+  MV = move
+  SEP = $(strip \)
+  RM = del /f
+  RD = rd /s /q
+  DEVNULL = %TEMP%\devnull
+  SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
+  UPDATESOURCE = robocopy "$(CHECKOUTDIR)" $@ /E /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
+  CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
+else
+  CP = cp
+  MV = mv
+  SEP = /
+  RM = rm -f
+  RD = rm -rf
+  DEVNULL = /dev/null
+  SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' Makefile
+  UPDATESOURCE = mkdir -p source && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
+  CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
+endif
 
-.PHONY: help clone html htmlhelp chm clean
+.PHONY: help html htmlhelp clean
+.SECONDARY: $(addprefix html/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(HTMLFILES))
 
 help:
-	@awk -F '[: ]' \
-	'/^[^ ][a-z ]+:/ { for (i = 1; i < NF; i ++ ) { if ($$i != "help") print $$i } }' Makefile
+	@$(SHOWHELP)
 
-clone:
-	@rm -rf "$(SOURCEDIR)"
-	@git clone $(GITOPTS) $(GITURL) $(SOURCEDIR)
-	touch "$(SOURCEDIR)/index.rst"
+source:
+	@mkdir $@ && \
+		$(UPDATESOURCE) && \
+		$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
+		$(RM) $@${SEP}_Sidebar.md
 
-html htmlhelp:
-	@python -m sphinx -b $@ "$(SOURCEDIR)" "$(BUILDDIR)/$@" $(SPHINXOPTS)
+html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) html/build/images $(addprefix html/build/, $(IMAGEFILES))
 
-chm:
-	@sed -E -i.bak -n "/^Binary (TOC|Index)=No$$/!p" "$(BUILDDIR)/htmlhelp/AGSHelpdoc.hhp" && \
-	rm "$(BUILDDIR)/htmlhelp/AGSHelpdoc.hhp.bak"
+htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) \
+	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
+	htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp $(addprefix htmlhelp/build/, $(HTMLFILES)) \
+	htmlhelp/build/images $(addprefix htmlhelp/build/, $(IMAGEFILES))
 
-	@chmcmd=`which chmcmd` ;\
-	if [ $$? != 0 ]; then \
-			if [ "`uname`" = "Linux" ]; then \
-				rm -f chmcmd && wget –quiet https://github.com/ericoporto/freepascal/releases/download/3.0.4/chmcmd ;\
-				echo "af4eea94c843adb20f8ae10884badbc5 chmcmd" > chmcmd.md5 ;\
-				md5sum -c chmcmd.md5 || exit 1 ;\
-				chmod +x chmcmd ;\
-				chmcmd=`pwd`"/chmcmd" ;\
-			else \
-				echo "chmcmd is not present" ;\
-				exit 1;\
-			fi ;\
-	fi ;\
-	echo "Using '$$chmcmd' \
-	$$( \
-		cd "$(BUILDDIR)/htmlhelp" && \
-		rm -f "AGSHelpdoc.chm" && \
-		"$$chmcmd" "AGSHelpdoc.hhp" && \
-		chmod a+r-w-x "AGSHelpdoc.chm" && \
-		mv -fv "AGSHelpdoc.chm" ../../ags-help.chm \
-	)"
+html/work htmlhelp/work html/build html/build/images htmlhelp/build htmlhelp/build/images:
+	@mkdir $(subst /,$(SEP),$@)
+
+html/work/%.html: source/%.md
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to html5 \
+		--standalone \
+		--metadata title=$* \
+		--lua-filter "lua/rewrite_links.lua" \
+		--output $@ \
+		$<
+
+htmlhelp/work/%.html: source/%.md
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to html4 \
+		--standalone \
+		--metadata title=$* \
+		--lua-filter "lua/rewrite_links.lua" \
+		--lua-filter "lua/get_indices.lua" \
+		--output $@ \
+		$<
+
+htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(HTMLFILES))
+	@echo Building $@
+	@echo "" | "$(PANDOC)" \
+		--to native \
+		--lua-filter "lua/write_hhk.lua" \
+		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(TSVFILES))" \
+		--metadata output=$@ \
+		--output $(DEVNULL)
+
+htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
+	@echo Building $@
+	@echo "" | "$(PANDOC)" \
+		--to native \
+		--lua-filter "lua/write_hhc.lua" \
+		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(TSVFILES))" \
+		--metadata output=$@ \
+		--output $(DEVNULL)
+
+htmlhelp/build/ags-help.hhp:
+	@echo Building $@
+	@echo "" | "$(PANDOC)" \
+		--to native \
+		--lua-filter "lua/write_hhp.lua" \
+		--metadata incfiles="$(HTMLFILES) $(IMAGEFILES)" \
+		--metadata projectname=ags-help \
+		--metadata output=$@ \
+		--output $(DEVNULL)
+
+htmlhelp/build/ags-help.stp:
+	@echo Building $@
+	@$(CP) htmlhelp$(SEP)stp $(subst /,$(SEP),$@)
+
+html/build/%.html: html/work/%.html
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+
+html/build/images/%: source/images/%
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+
+htmlhelp/build/%.html: htmlhelp/work/%.html
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+
+htmlhelp/build/images/%: source/images/%
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 clean:
-	@while read -r line; do \
-		rm -rf "$$line"; \
-	done < .gitignore
+	@$(CLEANDIRS)
