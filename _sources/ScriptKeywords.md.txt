@@ -879,16 +879,16 @@ details.
 
 **export** *variable* \[, *variable* ... \] ;
 
-Declares that *variable* can be exported and accessed by other scripts.
-You must place this at the **end** of your global script. You can export
-many variables with one export line.
+Declares that *variable* is exported and is available to access in other scripts,
+if declared using the [import](ScriptKeywords#import) keyword in those scripts.
 
 For example:
 
     export my_variable;
     export counter, strength;
 
-This exports three variables - my_variable, counter and strength.
+This exports three variables (*my_variable*, *counter*, and *strength*) to be
+available for import.
 
 ---
 

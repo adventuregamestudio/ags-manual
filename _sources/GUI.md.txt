@@ -126,9 +126,9 @@ room co-ordinates, and use the same scale as in the editor.
 
 Example:
 
-    gVerbcoin.SetPosition(mouse.x, mouse.y);
+    gMyGui.SetPosition(mouse.x, mouse.y);
 
-will move the VERBCOIN GUI to the position where the cursor is.
+will move the GUI to the position where the cursor is.
 
 *See Also:* [GUI.Centre](GUI#centre),
 [GUI.BackgroundGraphic](GUI#backgroundgraphic),
@@ -416,9 +416,9 @@ co-ordinates, and are in the normal 320-resolution style.
 
 Example:
 
-    gVerbcoin.X += 5;
+    gMyGui.X += 5;
 
-moves the VERBCOIN GUI right 5 pixels.
+moves the GUI right 5 pixels.
 
 *See Also:* [GUI.SetPosition](GUI#setposition),
 [GUI.Y](GUI#y)
@@ -439,9 +439,9 @@ co-ordinates, not room co-ordinates, and are in the normal
 
 Example:
 
-    gVerbcoin.Y += 5;
+    gMyGui.Y += 5;
 
-moves the VERBCOIN GUI down 5 pixels.
+moves the GUI down 5 pixels.
 
 *See Also:* [GUI.SetPosition](GUI#setposition),
 [GUI.X](GUI#x)

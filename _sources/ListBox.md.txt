@@ -56,8 +56,8 @@ Fills the list box with a list of filenames matching FILEMASK in the
 current directory. This could be useful if you have various data files
 and the player can choose which one to load.
 
-FILEMASK is a standard DOS/Windows search expression such as "\*.dat" or
-"data\*.\*"
+FILEMASK is a standard Windows search expression such as `"*.dat"` or
+`"data*.*"`
 
 When specifying file path you may use special location tags:<br>
 `$INSTALLDIR$`, which allows you to explicitly access files in the game

@@ -54,17 +54,17 @@ settings, but can be reconfigured or switched off entirely by using the defined
 functions.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// configure the player for arcade action
-KeyboardMovement.SetMode(eKeyboardMovementModePressing);
-KeyboardMovement.SetKeyUp(eKeyW);
-KeyboardMovement.SetKeyDown(eKeyS);
-KeyboardMovement.SetKeyLeft(eKeyA);
-KeyboardMovement.SetKeyRight(eKeyD);
+KeyboardMovement.Mode = eKeyboardMovementModePressing;
+KeyboardMovement.KeyUp = eKeyW;
+KeyboardMovement.KeyDown = eKeyS;
+KeyboardMovement.KeyLeft = eKeyA;
+KeyboardMovement.KeyRight = eKeyD;
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="keyboardmovement-setmode">
-<span id="index-0"></span><h2>KeyboardMovement.SetMode<a class="headerlink" href="#keyboardmovement-setmode" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovement.SetMode(KeyboardMovementMode newmode);
+<div class="section" id="keyboardmovement-mode">
+<span id="index-0"></span><h2>KeyboardMovement.Mode<a class="headerlink" href="#keyboardmovement-mode" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovementMode KeyboardMovement.Mode
 </pre></div>
 </div>
 <p>Sets the keyboard movement mode. Possible values are:</p>
@@ -73,33 +73,33 @@ KeyboardMovement.SetKeyRight(eKeyD);
 <code class="docutils literal notranslate"><span class="pre">eKeyboardMovementModePressing</span></code> (hold down a direction to move)</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="keyboardmovement-setkeyup">
-<span id="index-1"></span><h2>KeyboardMovement.SetKeyUp<a class="headerlink" href="#keyboardmovement-setkeyup" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovement.SetKeyUp(eKeyCode up);
+<div class="section" id="keyboardmovement-keyup">
+<span id="index-1"></span><h2>KeyboardMovement.KeyUp<a class="headerlink" href="#keyboardmovement-keyup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eKeyCode KeyboardMovement.KeyUp
 </pre></div>
 </div>
 <p>Assigns the key used to move the player upwards.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="keyboardmovement-setkeydown">
-<span id="index-2"></span><h2>KeyboardMovement.SetKeyDown<a class="headerlink" href="#keyboardmovement-setkeydown" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovement.SetKeyDown(eKeyCode down);
+<div class="section" id="keyboardmovement-keydown">
+<span id="index-2"></span><h2>KeyboardMovement.KeyDown<a class="headerlink" href="#keyboardmovement-keydown" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eKeyCode KeyboardMovement.KeyDown
 </pre></div>
 </div>
 <p>Assigns the key used to move the player downwards.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="keyboardmovement-setkeyleft">
-<span id="index-3"></span><h2>KeyboardMovement.SetKeyLeft<a class="headerlink" href="#keyboardmovement-setkeyleft" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovement.SetKeyLeft(eKeyCode left);
+<div class="section" id="keyboardmovement-keyleft">
+<span id="index-3"></span><h2>KeyboardMovement.KeyLeft<a class="headerlink" href="#keyboardmovement-keyleft" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eKeyCode KeyboardMovement.KeyLeft
 </pre></div>
 </div>
 <p>Assigns the key used to move the player to the left.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="keyboardmovement-setkeyright">
-<span id="index-4"></span><h2>KeyboardMovement.SetKeyRight<a class="headerlink" href="#keyboardmovement-setkeyright" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>KeyboardMovement.SetKeyRight(eKeyCode right);
+<div class="section" id="keyboardmovement-keyright">
+<span id="index-4"></span><h2>KeyboardMovement.KeyRight<a class="headerlink" href="#keyboardmovement-keyright" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eKeyCode KeyboardMovement.KeyRight
 </pre></div>
 </div>
 <p>Assigns the key used to move the player to the right.</p>
@@ -179,11 +179,11 @@ KeyboardMovement.SetKeyRight(eKeyD);
 <h3>Table of Contents</h3>
   <ul>
 <li><a class="reference internal" href="#">Sierra-style template</a><ul>
-<li><a class="reference internal" href="#keyboardmovement-setmode">KeyboardMovement.SetMode</a></li>
-<li><a class="reference internal" href="#keyboardmovement-setkeyup">KeyboardMovement.SetKeyUp</a></li>
-<li><a class="reference internal" href="#keyboardmovement-setkeydown">KeyboardMovement.SetKeyDown</a></li>
-<li><a class="reference internal" href="#keyboardmovement-setkeyleft">KeyboardMovement.SetKeyLeft</a></li>
-<li><a class="reference internal" href="#keyboardmovement-setkeyright">KeyboardMovement.SetKeyRight</a></li>
+<li><a class="reference internal" href="#keyboardmovement-mode">KeyboardMovement.Mode</a></li>
+<li><a class="reference internal" href="#keyboardmovement-keyup">KeyboardMovement.KeyUp</a></li>
+<li><a class="reference internal" href="#keyboardmovement-keydown">KeyboardMovement.KeyDown</a></li>
+<li><a class="reference internal" href="#keyboardmovement-keyleft">KeyboardMovement.KeyLeft</a></li>
+<li><a class="reference internal" href="#keyboardmovement-keyright">KeyboardMovement.KeyRight</a></li>
 </ul>
 </li>
 </ul>
@@ -195,7 +195,7 @@ KeyboardMovement.SetKeyRight(eKeyD);
     </div>
     
         
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 4, 2019, 10:10:44 AM</div>
+<div class="footer">&copy;2019, AGS Team<br>build date: Feb 21, 2019, 11:30:53 PM</div>
         
     
 

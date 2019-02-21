@@ -7,13 +7,28 @@ your game off.
 AGS comes with a few standard templates:
 
 - 9-Verb Monkey Island Style
-- [Default Game]
 - [Empty Game] (...which is what it says and actually no template per se)
 - [Sierra-style](TemplateSierraStyle)
 - [LW_BASS_v2.0 (two click handler)](TemplateBASS) (like **B**eneath **a** **S**teel **S**ky)
 - [Verbcoin](TemplateVerbcoin)
 
 ...but you can create your own too.
+
+**NOTE:** the previously available "Default" template is now known as
+"Sierra-style", which also contains updated graphics.
+
+### If the list of templates is empty
+
+The templates are normally located in "Templates" folder withing AGS Editor
+directory. If the folder is empty, that could happen if AGS Editor installation
+went wrong, or you have run from an incomplete package. What you may try:
+
+- Reinstall AGS (preferrebly downloading an official release),
+- Download templates (see below).
+- Copy "Templates" folder from any other versions of AGS if you have them on
+  your computer, but make sure these versions are not newer than the one you're
+  going to use. Also in this case you have to be ready to possibly update the
+  game scripts as templates may be using deprecated script commands.
 
 ### Using downloaded templates
 

@@ -35,8 +35,8 @@ game.read_dialog_option_color | By default, -1. You can set this to a colour num
 game.roomscript_finished | The on_call function has completed executing. (See [CallRoomScript](Game#callroomscript))
 **game.score** | The player's score. To modify the score, use the GiveScore script function.
 game.score_sound | Sound effect to play when the player gets points, originally set in the editor.
-game.screenshot_height | The height of screenshot images when saved into save games. The largest you can have is the full screen size (320x200), which gives the highest quality but the largest size save game files. The default is 160x100.
-game.screenshot_width | The width of screenshot images when saved into save games.
+game.screenshot_height | The height of screenshot images when saved into save games. The largest you can have is the full screen size (game's native resolution), which gives the highest quality but the largest size for save game files. The default size for Screenshots is 160x100, so the default value for game.screenshot_height is 100. The minimal supported value for screenshot size is 16x16.
+game.screenshot_width | The width of screenshot images when saved into save games. As mentioned above, the default size for Screenshots is 160x100, so the default value for game.screenshot_width is 160.
 game.show_single_dialog_option | If only a single dialog option is available, show it anyway (default=0)
 game.sierra_inv_color | The background color of the sierra-style inventory.
 game.skip_display | Setting for how Display() messages are skipped; valid values are same as for Speech.SkipStyle (default 3).

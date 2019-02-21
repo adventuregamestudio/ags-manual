@@ -11,7 +11,7 @@ variable's value. These special codes begin with a percent sign, and
 then specify the variable type. The actual variables that you want to
 display are then listed afterwards.
 
-The special codes you can use are as follows:
+Some examples of the special codes you can use are as follows:
 
 Code | Description
 --- | ---

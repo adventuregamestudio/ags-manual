@@ -10,45 +10,73 @@ in the global script.
 
 Without making any direct comparisons which might result in a lawsuit, in the
 **default** mode left-clicking will do things, right-clicking will look at
-things. In the **classic** mode the mouse buttons are reversed, left-clicking
-will look at things, right-clicking will do things.
+things. In the **reversed** mode, left-clicking will look at things,
+right-clicking will do things.
 
-**NOTE: Currently the pop-up threshold for the inventory bar is defined
-in the script header**
-
-    #define INVENTORY_POPUP_POSITION 15
+The popup threshold for the GUI is managed by two properties (PopupProportional
+and PopupDistance), both of which are considered at the same time. Setting both
+to 0 means that the GUI will never appear.
 
 Example:
 
     // register a GUI to use for the inventory bar
-    TwoClickHandler.RegisterInventoryGui(gInventoryBar);
+    TwoClickHandler.InventoryGui = gInventoryBar;
     // register a Label to use for action text
-    TwoClickHandler.RegisterActionLabel(lblAction);
-    // select the classic button mode (left-click to look, right-click to use)
-    TwoClickHandler.SetMouseMode(eTwoClickMouseModeClassic);
+    TwoClickHandler.ActionLabel = lblAction;
+    // select the reversed button mode (left-click to look, right-click to use)
+    TwoClickHandler.ReversedClicks = true;
+    // Set the popup threshold for the inventory bar
+    TwoClickHandler.PopupProportional = 0.5;        // 50% of the GUI height or
+    TwoClickHandler.PopupDistance = 50;             // 50 pixels
 ---
 
-### TwoClickHandler.RegisterInventoryGui
+### TwoClickHandler.InventoryGui
 
-    TwoClickHandler.RegisterInventoryGui(GUI* inventory_gui);
+    GUI* TwoClickHandler.InventoryGui
 
 Assigns the [GUI](GUI) which will be used for the inventory.
 
 ---
 
-### TwoClickHandler.RegisterActionLabel
+### TwoClickHandler.ActionLabel
 
-    TwoClickHandler.RegisterActionLabel(Label* label);
+    Label* TwoClickHandler.ActionLabel
 
 Assigns the [Label](Label) which will be used to display text descriptions.
 
 ---
 
-### TwoClickHandler.SetMouseMode
+### TwoClickHandler.ReversedClicks
 
-    TwoClickHandler.SetMouseMode(TwoClickMouseMode mode);
+    bool TwoClickHandler.ReversedClicks
 
-Sets how left and right clicks are processed. Possible values are:
+Sets how left and right clicks are processed.
 
-`eTwoClickMouseModeNormal` (left-click to use, right-click to look)<br>
-`eTwoClickMouseModeClassic` (left-click to look, right-click to use)
+When `true`: left-click to look, right-click to use<br>
+When `false`: left-click to use, right-click to look
+
+The default value is `false`.
+
+---
+
+### TwoClickHandler.PopupProportional
+
+    float TwoClickHandler.PopupProportional
+
+Show and hide the inventory GUI when the mouse cursor y value is less than this
+proportion of the GUI height. For example, if the inventory GUI has a height of
+100 pixels, a value of 0.9 will show the GUI when the mouse cursor distance to
+the top of the screen is less than 90 pixels.
+
+The default value is `0.75`.
+
+---
+
+### TwoClickHandler.PopupDistance
+
+    int TwoClickHandler.PopupDistance
+
+Show and hide the inventory when the mouse cursor y value is less than this
+value.
+
+The default value is `0` (effectively disabled in favour of PopupProportional).

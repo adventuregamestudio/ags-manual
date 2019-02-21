@@ -952,15 +952,15 @@ details.</p>
 <div class="section" id="export">
 <span id="index-20"></span><h2>export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
 <p><strong>export</strong> <em>variable</em> [, <em>variable</em> … ] ;</p>
-<p>Declares that <em>variable</em> can be exported and accessed by other scripts.
-You must place this at the <strong>end</strong> of your global script. You can export
-many variables with one export line.</p>
+<p>Declares that <em>variable</em> is exported and is available to access in other scripts,
+if declared using the <a class="reference internal" href="#"><span class="doc">import</span></a> keyword in those scripts.</p>
 <p>For example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>export my_variable;
 export counter, strength;
 </pre></div>
 </div>
-<p>This exports three variables - my_variable, counter and strength.</p>
+<p>This exports three variables (<em>my_variable</em>, <em>counter</em>, and <em>strength</em>) to be
+available for import.</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="readonly">
@@ -1154,7 +1154,7 @@ mean that the game will hang rather than abort.</p>
     </div>
     
         
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 4, 2019, 10:10:44 AM</div>
+<div class="footer">&copy;2019, AGS Team<br>build date: Feb 21, 2019, 11:30:53 PM</div>
         
     
 

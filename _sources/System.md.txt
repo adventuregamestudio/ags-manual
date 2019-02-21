@@ -131,7 +131,6 @@ the non-accelerated driver is used.
 **Cross-Platform Support**
 
 Windows: **Direct3D driver**<br>
-MS-DOS: **No**<br>
 Linux: **No**<br>
 MacOS: **No**
 
@@ -387,7 +386,6 @@ this will be supported are listed below.
 **Cross-Platform Support**
 
 Windows: **Full-screen only**<br>
-MS-DOS: **No**<br>
 Linux: **No**<br>
 MacOS: **No**
 

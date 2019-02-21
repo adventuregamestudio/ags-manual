@@ -59,56 +59,56 @@ to open the inventory window.</p>
 used for displaying the VerbCoin and managing the inventory window.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// setup VerbCoin GUI and buttons
-VerbCoin.RegisterInterfaceGui(gVerbCoin);
+VerbCoin.InterfaceGui = gVerbCoin;
 VerbCoin.RegisterButton(btnLook, eVerbCoinPositionNorth, eModeLookat, &quot;Look at&quot;);
 VerbCoin.RegisterButton(btnTalk, eVerbCoinPositionEast, eModeTalkto, &quot;Talk to&quot;);
 VerbCoin.RegisterButton(btnInteract, eVerbCoinPositionSouth, eModeInteract, &quot;Use&quot;);
 VerbCoin.RegisterButton(btnPickup, eVerbCoinPositionWest, eModePickup, &quot;Pick up&quot;);
 
 // select the inventory GUI and action label
-VerbCoin.RegisterInventoryGui(gInventory);
-VerbCoin.RegisterActionLabel(lblAction);
+VerbCoin.InventoryGui = gInventory;
+VerbCoin.ActionLabel = lblAction;
 
 // disable buttons where click events would be unhandled
-VerbCoin.ButtonAutoDisable(true);
+VerbCoin.ButtonAutoDisable = true;
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="verbcoin-setradius">
-<span id="index-0"></span><h2>VerbCoin.SetRadius<a class="headerlink" href="#verbcoin-setradius" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.SetRadius(int newradius);
+<div class="section" id="verbcoin-radius">
+<span id="index-0"></span><h2>VerbCoin.Radius<a class="headerlink" href="#verbcoin-radius" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int VerbCoin.Radius
 </pre></div>
 </div>
 <p>Sets the radius used when drawing the circle that renders the VerbCoin.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="verbcoin-setbackgroundtransparency">
-<span id="index-1"></span><h2>VerbCoin.SetBackgroundTransparency<a class="headerlink" href="#verbcoin-setbackgroundtransparency" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.SetBackgroundTransparency(int transparency);
+<div class="section" id="verbcoin-backgroundtransparency">
+<span id="index-1"></span><h2>VerbCoin.BackgroundTransparency<a class="headerlink" href="#verbcoin-backgroundtransparency" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int VerbCoin.BackgroundTransparency
 </pre></div>
 </div>
 <p>Sets the background transparency level (from 0 to 100) for the VerbCoin</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="verbcoin-setbackgroundcolor">
-<span id="index-2"></span><h2>VerbCoin.SetBackgroundColor<a class="headerlink" href="#verbcoin-setbackgroundcolor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.SetBackgroundColor(int color);
+<div class="section" id="verbcoin-backgroundcolor">
+<span id="index-2"></span><h2>VerbCoin.BackgroundColor<a class="headerlink" href="#verbcoin-backgroundcolor" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int VerbCoin.BackgroundColor
 </pre></div>
 </div>
 <p>Sets the background color (0 to 65535) for the VerbCoin.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="verbcoin-setbordercolor">
-<span id="index-3"></span><h2>VerbCoin.SetBorderColor<a class="headerlink" href="#verbcoin-setbordercolor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.SetBorderColor(int color);
+<div class="section" id="verbcoin-bordercolor">
+<span id="index-3"></span><h2>VerbCoin.BorderColor<a class="headerlink" href="#verbcoin-bordercolor" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int VerbCoin.BorderColor
 </pre></div>
 </div>
 <p>Sets the border color (0 to 65535) for the VerbCoin</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="verbcoin-setborderwidth">
-<span id="index-4"></span><h2>VerbCoin.SetBorderWidth<a class="headerlink" href="#verbcoin-setborderwidth" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.SetBorderWidth(int width);
+<div class="section" id="verbcoin-borderwidth">
+<span id="index-4"></span><h2>VerbCoin.BorderWidth<a class="headerlink" href="#verbcoin-borderwidth" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int VerbCoin.BorderWidth;
 </pre></div>
 </div>
 <p>Sets the border width for the VerbCoin.</p>
@@ -141,23 +141,23 @@ of the action, so if the mode being used is eModeInteract, a suitable descriptio
 could be ‘use’.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="verbcoin-registerinterfacegui">
-<span id="index-7"></span><h2>VerbCoin.RegisterInterfaceGui<a class="headerlink" href="#verbcoin-registerinterfacegui" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.RegisterInterfaceGui(GUI* interface_gui);
+<div class="section" id="verbcoin-interfacegui">
+<span id="index-7"></span><h2>VerbCoin.InterfaceGui<a class="headerlink" href="#verbcoin-interfacegui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI* VerbCoin.InterfaceGui
 </pre></div>
 </div>
 <p>Registers the <a class="reference internal" href="GUI.html"><span class="doc">GUI</span></a> used for the VerbCoin.</p>
 </div>
-<div class="section" id="verbcoin-registerinventorygui">
-<span id="index-8"></span><h2>VerbCoin.RegisterInventoryGui<a class="headerlink" href="#verbcoin-registerinventorygui" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.RegisterInventoryGui(GUI* inventory_gui);
+<div class="section" id="verbcoin-inventorygui">
+<span id="index-8"></span><h2>VerbCoin.InventoryGui<a class="headerlink" href="#verbcoin-inventorygui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI* VerbCoin.InventoryGui
 </pre></div>
 </div>
 <p>Registers the <a class="reference internal" href="GUI.html"><span class="doc">GUI</span></a> used for the inventory window.</p>
 </div>
-<div class="section" id="verbcoin-registeractionlabel">
-<span id="index-9"></span><h2>VerbCoin.RegisterActionLabel<a class="headerlink" href="#verbcoin-registeractionlabel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.RegisterActionLabel(Label* label);
+<div class="section" id="verbcoin-actionlabel">
+<span id="index-9"></span><h2>VerbCoin.ActionLabel<a class="headerlink" href="#verbcoin-actionlabel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Label* VerbCoin.ActionLabel
 </pre></div>
 </div>
 <p>Registers the <a class="reference internal" href="Label.html"><span class="doc">Label</span></a> used to display text descriptions.</p>
@@ -208,7 +208,7 @@ returns false.</p>
 </div>
 <div class="section" id="verbcoin-buttonautodisable">
 <span id="index-16"></span><h2>VerbCoin.ButtonAutoDisable<a class="headerlink" href="#verbcoin-buttonautodisable" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>VerbCoin.ButtonAutoDisable(bool autodisable);
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool VerbCoin.ButtonAutoDisable
 </pre></div>
 </div>
 <p>Sets whether VerbCoin buttons should be disabled, if clicking them
@@ -289,16 +289,16 @@ would result in an unhandled event.</p>
 <h3>Table of Contents</h3>
   <ul>
 <li><a class="reference internal" href="#">VerbCoin template</a><ul>
-<li><a class="reference internal" href="#verbcoin-setradius">VerbCoin.SetRadius</a></li>
-<li><a class="reference internal" href="#verbcoin-setbackgroundtransparency">VerbCoin.SetBackgroundTransparency</a></li>
-<li><a class="reference internal" href="#verbcoin-setbackgroundcolor">VerbCoin.SetBackgroundColor</a></li>
-<li><a class="reference internal" href="#verbcoin-setbordercolor">VerbCoin.SetBorderColor</a></li>
-<li><a class="reference internal" href="#verbcoin-setborderwidth">VerbCoin.SetBorderWidth</a></li>
+<li><a class="reference internal" href="#verbcoin-radius">VerbCoin.Radius</a></li>
+<li><a class="reference internal" href="#verbcoin-backgroundtransparency">VerbCoin.BackgroundTransparency</a></li>
+<li><a class="reference internal" href="#verbcoin-backgroundcolor">VerbCoin.BackgroundColor</a></li>
+<li><a class="reference internal" href="#verbcoin-bordercolor">VerbCoin.BorderColor</a></li>
+<li><a class="reference internal" href="#verbcoin-borderwidth">VerbCoin.BorderWidth</a></li>
 <li><a class="reference internal" href="#verbcoin-onclick">VerbCoin.OnClick</a></li>
 <li><a class="reference internal" href="#verbcoin-registerbutton">VerbCoin.RegisterButton</a></li>
-<li><a class="reference internal" href="#verbcoin-registerinterfacegui">VerbCoin.RegisterInterfaceGui</a></li>
-<li><a class="reference internal" href="#verbcoin-registerinventorygui">VerbCoin.RegisterInventoryGui</a></li>
-<li><a class="reference internal" href="#verbcoin-registeractionlabel">VerbCoin.RegisterActionLabel</a></li>
+<li><a class="reference internal" href="#verbcoin-interfacegui">VerbCoin.InterfaceGui</a></li>
+<li><a class="reference internal" href="#verbcoin-inventorygui">VerbCoin.InventoryGui</a></li>
+<li><a class="reference internal" href="#verbcoin-actionlabel">VerbCoin.ActionLabel</a></li>
 <li><a class="reference internal" href="#verbcoin-enable">VerbCoin.Enable</a></li>
 <li><a class="reference internal" href="#verbcoin-disable">VerbCoin.Disable</a></li>
 <li><a class="reference internal" href="#verbcoin-isenabled">VerbCoin.IsEnabled</a></li>
@@ -317,7 +317,7 @@ would result in an unhandled event.</p>
     </div>
     
         
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 4, 2019, 10:10:44 AM</div>
+<div class="footer">&copy;2019, AGS Team<br>build date: Feb 21, 2019, 11:30:53 PM</div>
         
     
 

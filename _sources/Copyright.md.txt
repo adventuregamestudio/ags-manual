@@ -1,6 +1,6 @@
 ## Copyright and terms of use
 
-Copyright (c) 1999-2011 Chris Jones and 2011-2018 various contributors.
+Copyright (c) 1999-2011 Chris Jones and 2011-2019 various contributors.
 
 Adventure Game Studio is an open source software, its source code is available at:<br>
 https://github.com/adventuregamestudio/ags

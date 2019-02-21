@@ -1,6 +1,6 @@
 ## ASCII code table
 
-This section lists the key codes which can be passed to on_key_press
+This section lists the key codes which can be passed to [on_key_press](TextScriptEvents)
 and which keys they represent:
 
 AGS KeyCode | Key | ASCII code
@@ -123,7 +123,7 @@ eKeyEnd | End | 379
 eKeyDownArrow | DownArrow | 380
 eKeyPageDown | PageDown | 381
 
-Use these key codes in your on_key_press function to process player
+Use these key codes in your [on_key_press](TextScriptEvents) function to process player
 input. For example:
 
     if (keycode == eKeyA) Display("You pressed A");
@@ -139,3 +139,4 @@ Right shift | 404
 Left ctrl | 405
 Right ctrl | 406
 Alt | 407
+

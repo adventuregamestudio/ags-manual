@@ -48,47 +48,71 @@ explicitly implemented, through the use of <a class="reference internal" href="T
 in the global script.</p>
 <p>Without making any direct comparisons which might result in a lawsuit, in the
 <strong>default</strong> mode left-clicking will do things, right-clicking will look at
-things. In the <strong>classic</strong> mode the mouse buttons are reversed, left-clicking
-will look at things, right-clicking will do things.</p>
-<p><strong>NOTE: Currently the pop-up threshold for the inventory bar is defined
-in the script header</strong></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>#define INVENTORY_POPUP_POSITION 15
-</pre></div>
-</div>
+things. In the <strong>reversed</strong> mode, left-clicking will look at things,
+right-clicking will do things.</p>
+<p>The popup threshold for the GUI is managed by two properties (PopupProportional
+and PopupDistance), both of which are considered at the same time. Setting both
+to 0 means that the GUI will never appear.</p>
 <p>Example:</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// register a GUI to use for the inventory bar
-TwoClickHandler.RegisterInventoryGui(gInventoryBar);
+TwoClickHandler.InventoryGui = gInventoryBar;
 // register a Label to use for action text
-TwoClickHandler.RegisterActionLabel(lblAction);
-// select the classic button mode (left-click to look, right-click to use)
-TwoClickHandler.SetMouseMode(eTwoClickMouseModeClassic);
+TwoClickHandler.ActionLabel = lblAction;
+// select the reversed button mode (left-click to look, right-click to use)
+TwoClickHandler.ReversedClicks = true;
+// Set the popup threshold for the inventory bar
+TwoClickHandler.PopupProportional = 0.5;        // 50% of the GUI height or
+TwoClickHandler.PopupDistance = 50;             // 50 pixels
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="section" id="twoclickhandler-registerinventorygui">
-<span id="index-0"></span><h2>TwoClickHandler.RegisterInventoryGui<a class="headerlink" href="#twoclickhandler-registerinventorygui" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.RegisterInventoryGui(GUI* inventory_gui);
+<div class="section" id="twoclickhandler-inventorygui">
+<span id="index-0"></span><h2>TwoClickHandler.InventoryGui<a class="headerlink" href="#twoclickhandler-inventorygui" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI* TwoClickHandler.InventoryGui
 </pre></div>
 </div>
 <p>Assigns the <a class="reference internal" href="GUI.html"><span class="doc">GUI</span></a> which will be used for the inventory.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="twoclickhandler-registeractionlabel">
-<span id="index-1"></span><h2>TwoClickHandler.RegisterActionLabel<a class="headerlink" href="#twoclickhandler-registeractionlabel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.RegisterActionLabel(Label* label);
+<div class="section" id="twoclickhandler-actionlabel">
+<span id="index-1"></span><h2>TwoClickHandler.ActionLabel<a class="headerlink" href="#twoclickhandler-actionlabel" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Label* TwoClickHandler.ActionLabel
 </pre></div>
 </div>
 <p>Assigns the <a class="reference internal" href="Label.html"><span class="doc">Label</span></a> which will be used to display text descriptions.</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="twoclickhandler-setmousemode">
-<span id="index-2"></span><h2>TwoClickHandler.SetMouseMode<a class="headerlink" href="#twoclickhandler-setmousemode" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TwoClickHandler.SetMouseMode(TwoClickMouseMode mode);
+<div class="section" id="twoclickhandler-reversedclicks">
+<span id="index-2"></span><h2>TwoClickHandler.ReversedClicks<a class="headerlink" href="#twoclickhandler-reversedclicks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool TwoClickHandler.ReversedClicks
 </pre></div>
 </div>
-<p>Sets how left and right clicks are processed. Possible values are:</p>
-<p><code class="docutils literal notranslate"><span class="pre">eTwoClickMouseModeNormal</span></code> (left-click to use, right-click to look)<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">eTwoClickMouseModeClassic</span></code> (left-click to look, right-click to use)</p>
+<p>Sets how left and right clicks are processed.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">true</span></code>: left-click to look, right-click to use<span class="raw-html-m2r"><br></span>
+When <code class="docutils literal notranslate"><span class="pre">false</span></code>: left-click to use, right-click to look</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="twoclickhandler-popupproportional">
+<span id="index-3"></span><h2>TwoClickHandler.PopupProportional<a class="headerlink" href="#twoclickhandler-popupproportional" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>float TwoClickHandler.PopupProportional
+</pre></div>
+</div>
+<p>Show and hide the inventory GUI when the mouse cursor y value is less than this
+proportion of the GUI height. For example, if the inventory GUI has a height of
+100 pixels, a value of 0.9 will show the GUI when the mouse cursor distance to
+the top of the screen is less than 90 pixels.</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">0.75</span></code>.</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="twoclickhandler-popupdistance">
+<span id="index-4"></span><h2>TwoClickHandler.PopupDistance<a class="headerlink" href="#twoclickhandler-popupdistance" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int TwoClickHandler.PopupDistance
+</pre></div>
+</div>
+<p>Show and hide the inventory when the mouse cursor y value is less than this
+value.</p>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">0</span></code> (effectively disabled in favour of PopupProportional).</p>
 </div>
 </div>
 
@@ -165,9 +189,11 @@ TwoClickHandler.SetMouseMode(eTwoClickMouseModeClassic);
 <h3>Table of Contents</h3>
   <ul>
 <li><a class="reference internal" href="#">BASS template</a><ul>
-<li><a class="reference internal" href="#twoclickhandler-registerinventorygui">TwoClickHandler.RegisterInventoryGui</a></li>
-<li><a class="reference internal" href="#twoclickhandler-registeractionlabel">TwoClickHandler.RegisterActionLabel</a></li>
-<li><a class="reference internal" href="#twoclickhandler-setmousemode">TwoClickHandler.SetMouseMode</a></li>
+<li><a class="reference internal" href="#twoclickhandler-inventorygui">TwoClickHandler.InventoryGui</a></li>
+<li><a class="reference internal" href="#twoclickhandler-actionlabel">TwoClickHandler.ActionLabel</a></li>
+<li><a class="reference internal" href="#twoclickhandler-reversedclicks">TwoClickHandler.ReversedClicks</a></li>
+<li><a class="reference internal" href="#twoclickhandler-popupproportional">TwoClickHandler.PopupProportional</a></li>
+<li><a class="reference internal" href="#twoclickhandler-popupdistance">TwoClickHandler.PopupDistance</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +205,7 @@ TwoClickHandler.SetMouseMode(eTwoClickMouseModeClassic);
     </div>
     
         
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 4, 2019, 10:10:44 AM</div>
+<div class="footer">&copy;2019, AGS Team<br>build date: Feb 21, 2019, 11:30:53 PM</div>
         
     
 

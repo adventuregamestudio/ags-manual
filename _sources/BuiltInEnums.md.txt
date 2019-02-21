@@ -114,7 +114,7 @@ job, having a manual reference is invaluable:
 
     enum EventType {
       eEventLeaveRoom,
-      eEventEnterRoom,
+      eEventEnterRoomBeforeFadein,
       eEventGotScore,
       eEventGUIMouseDown,
       eEventGUIMouseUp,

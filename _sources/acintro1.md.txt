@@ -26,15 +26,15 @@ screen:
 ![Select Template dialog](images/intro1b.jpg)
 
 Here, you need to choose which template you're going to use for your new
-game. AGS comes with three, and you can find others for download on the
+game. AGS comes with several, and you can find others for download on the
 AGS Forums.
 
-The "Default Game" template is what we'll be using, as it comes with
-some default graphics to get you started quickly. The "Empty Game"
-template is something you may want to use later on when you're familiar
-with AGS - it comes with no default graphics at all.
+The "Sierra-style" template is what we'll be using, as it has classic Sierra
+adventure game UI and comes with some default graphics to get you started
+quickly. The "Empty Game" template is something you may want to use later on
+when you're familiar with AGS - it comes with no default graphics at all.
 
-So, select "Default Game" and click Next.
+So, select "Sierra-style" and click Next.
 
 ![Game Name dialog](images/intro1c.jpg)
 

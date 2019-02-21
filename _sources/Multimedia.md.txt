@@ -46,7 +46,6 @@ noticeably slow down the game.
 **Cross-Platform Support**
 
 Windows: **Yes, but supports 1 CD-ROM drive only**<br>
-MS-DOS: **Yes, if CD-ROM device driver loaded**<br>
 Linux: **Yes, but supports 1 CD-ROM drive only**<br>
 MacOS: **No**
 
@@ -200,7 +199,6 @@ FLC/FLI video with the [PlayFlic](Multimedia#playflic) command instead.
 **Cross-Platform Support**
 
 Windows: **Yes**<br>
-MS-DOS: **No**<br>
 Linux: **No**<br>
 MacOS: **Yes**
 

@@ -11,6 +11,7 @@ There are maximum...
 - 300 inventory items
 - 30000 imported sprites
 - 30 options per dialog topic
+- 20 timers
 - 20 screen overlays at a time
 - 5 background frames per room
 - 20 mouse cursors

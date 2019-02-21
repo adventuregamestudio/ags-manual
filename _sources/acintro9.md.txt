@@ -70,7 +70,7 @@ so you will have to handle their clicks using the "Any Click" events.
 
 ### Fonts
 
-The default blank game comes with a couple of basic fonts, but you don't have
+The empty game template comes with a couple of basic fonts, but you don't have
 to use them - you can import your own.
 
 ![](images/intro9_2.jpg)

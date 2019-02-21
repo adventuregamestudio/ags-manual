@@ -177,13 +177,6 @@ You can delete a folder by right-clicking on it and selecting the
 "Delete" option; beware though that **this will also delete all the
 sprites in the folder**.
 
-NOTE: A few people have experienced problems when importing from
-clipboard, in that the image colours get reversed (red becomes blue,
-blue becomes red, and so on) when they are running Windows at 24-bit or
-32-bit colour. If this happens to you, there are two solutions: (a) turn
-down your desktop colour depth to 16-bit to run the AGS Editor, or (b)
-import your sprites from files rather than the clipboard.*
-
 **Tiled sprite import**
 
 You may have noticed a checkbox called "Tiled sprite import". Some
@@ -459,9 +452,7 @@ Conversations are made up of Topics. A "topic" is a list of choices from
 which the player can choose. You may have up to 30 choices in a topic.
 However, not all of them need to be available to the player at the start
 of the game - you can enable various options for conversation once the
-player has said or done other things. For example, when you talk to the
-man in the demo game, the first option is just "Hi". Once he has said
-this, however, a new option becomes available.
+player has said or done other things.
 
 The Dialog Editor is quite self-explanatory. Double-click a dialog topic
 to open up its window. You'll see the list of options for the topic on
@@ -554,9 +545,6 @@ The dialog commands available are:
     Stops the script and returns to the list of choices.
 -   **stop**<br>
     Stops the conversation and returns the player to the game.
-
-For an example of a dialog script, load the demo game into the editor
-and look at the script for its topic 0.
 
 **Using scripting commands in dialogs**
 
