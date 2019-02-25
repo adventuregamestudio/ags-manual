@@ -9,6 +9,7 @@ great control over your game.
 - [Pointers in AGS](Pointers)
 - [Calling global functions from local scripts](CallingGlobalFunctions)
 - [The script header](TheScriptHeader)
+- [Preprocessor](Preprocessor)
 - [String formatting](StringFormats)
 - [Multiple Scripts](ScriptModules)
 - [Understanding blocking scripts](BlockingScripts)

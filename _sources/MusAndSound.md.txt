@@ -64,6 +64,11 @@ Double-click an audio file in the project tree to open a window where
 you can preview it, as well as change its properties in the Property
 Grid.
 
+**Using folders to organise sounds**
+
+Rightclick on the main music node, on one of the subordinate type folders or any usercreated subfolder to these to create a subfolder to that node. It is good practise to add some new subfolders when you start a new project or you will have to drag and drop a lot of files later (as you can not drag and drop them in droves but only one at a time). You could split your music into Chapter 1 music, Chapter 2 music, etc or split it to "music calm" and "music battle" or whatever you need.  
+The same applies to the folder for sounds and sound effects, add subfolders to it to split your sound library into "Menu sounds" for button presses and "game sounds" for ingame sounds. Sort them by chapter or by room, this will make finding, navigating and addressing the sounds so much easier.
+
 **Playing audio in the game**
 
 The script to play an audio clip in the game is very simple. For

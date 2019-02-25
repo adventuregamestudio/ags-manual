@@ -61,25 +61,28 @@ uses to decide what to do.
 Each parameter is listed, separated by commas. They can be one of the
 following:
 
--   string *name<br>
-    *This parameter is a string, ie. a piece of text. This means that
-    for this parameter you supply text, surrounded by double-quotes. For
-    example, `"My text"` .<br>
-    *name* is the name by which the parameter is referred to in the
-    function description, it is not relevant for writing your script.
--   int *name*<br>
-    This parameter is an integer, ie. a numerical value. This means that
-    for this parameter you supply a number, for example `65`.
--   CHARID<br>
-    This parameter is a character script name. You need to supply the
-    script name of one of the game characters.
--   InventoryItem\*<br>
-    This parameter is an inventory item. You need to supply the
-    inventory item you want to use.
--   ...<br>
-    This parameter is optional, and can be of any type. You do not have
-    to supply it at all, but if you do the function description will
-    tell you what type of value to use.
+- string *name*
+<br>This parameter is a string, ie. a piece of text. This means that for this
+parameter you supply text, surrounded by double-quotes. For example,
+`"My text"`. *name* is the name by which the parameter is referred to in the
+function description, it is not relevant for writing your script.
+
+- int *name*
+<br>This parameter is an integer, ie. a numerical value. This means that for
+this parameter you supply a number, for example `65`.
+
+- CHARID
+<br>This parameter is a character script name. You need to supply the script
+name of one of the game characters.
+
+- InventoryItem\*
+<br>This parameter is an inventory item. You need to supply the inventory item
+you want to use.
+
+- ...
+<br>This parameter is optional, and can be of any type. You do not have to
+supply it at all, but if you do the function description will tell you what
+type of value to use.
 
 So, we know that our Display function needs a string and an optional
 parameter. The description goes on to explain that the optional
