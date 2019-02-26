@@ -3,7 +3,7 @@
 This section describes AGS features that were not covered in the
 tutorial.
 
-- [Music and sound](MusAndSound)
+- [Music and sound](MusicAndSound)
 - [Distributing your game](DistGame)
 - [Backing up your game](BackingUpYourGame)
 - [The text parser](TextParser)

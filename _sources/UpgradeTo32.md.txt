@@ -69,7 +69,7 @@ SetDigitalMasterVolume, etc, there is now simply one overall system
 volume ([System.Volume](System#volume)), and then each sound
 that is playing has its own volume control as well. This is controlled
 by the [Volume property](AudioChannel#volume) on the audio
-channel (see the [Audio page](MusAndSound) for details on
+channel (see the [Audio page](MusicAndSound) for details on
 this).
 
 Finally, you can update the volume of one particular type of audio (eg.
@@ -83,7 +83,7 @@ sound file), and Audio Channels (which represent a currently playing
 piece of audio). The reason for this distinction is that you might have
 the same sound effect playing two or more times simultaneously, and
 having Audio Channels allows you to control each one individually. The
-[Audio page](MusAndSound) describes this further.
+[Audio page](MusicAndSound) describes this further.
 
 **PlayAmbientSound is obsolete! How do I do ambient sounds?**
 
@@ -113,4 +113,4 @@ done.
 
 **Where should I look for more info?**
 
-See the [Audio help](MusAndSound) for more information.
+See the [Audio help](MusicAndSound) for more information.
