@@ -62,10 +62,10 @@ htmlhelp/work/%.html: source/%.md
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html4 \
-		--standalone \
 		--metadata title=$* \
 		--lua-filter "lua/rewrite_links.lua" \
 		--lua-filter "lua/get_indices.lua" \
+		--template "htmlhelp/template.html4" \
 		--output $@ \
 		$<
 
