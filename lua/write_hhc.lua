@@ -38,17 +38,13 @@ function format_line(line)
 end
 
 function Meta(meta)
-  local tsvfiles = meta.tsvfiles
+  local mapfile = meta.mapfile
+  assert(file_exists(mapfile))
   local f = assert(io.open(meta.output, 'w'))
   f:write(header)
 
-  for tsv in tsvfiles:gmatch('%S+') do
-    if tsv == 'htmlhelp/work/index.tsv' then
-      assert(file_exists(tsv))
-      for line in io.lines(tsv) do
-        f:write(format_line(line))
-      end
-    end
+  for line in io.lines(mapfile) do
+    f:write(format_line(line))
   end
 
   f:write(footer)

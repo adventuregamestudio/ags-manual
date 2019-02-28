@@ -22,12 +22,12 @@ function format_line(line)
 end
 
 function Meta(meta)
-  local tsvfiles = meta.tsvfiles
+  local mapfiles = meta.mapfiles
   local f = assert(io.open(meta.output, 'w'))
 
-  for tsv in tsvfiles:gmatch('%S+') do
-    assert(file_exists(tsv))
-    for line in io.lines(tsv) do
+  for map in mapfiles:gmatch('%S+') do
+    assert(file_exists(map))
+    for line in io.lines(map) do
       f:write(format_line(line))
     end
   end

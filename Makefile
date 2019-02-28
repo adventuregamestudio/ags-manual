@@ -2,7 +2,7 @@ PANDOC ?= pandoc
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
-TSVFILES = $(addsuffix .tsv, $(BASENAMES))
+MAPFILES = $(addsuffix .map, $(BASENAMES))
 
 ifdef ComSpec
   CP = copy
@@ -54,6 +54,7 @@ html/work/%.html: source/%.md
 		--to html5 \
 		--standalone \
 		--metadata title=$* \
+		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--output $@ \
 		$<
@@ -63,6 +64,7 @@ htmlhelp/work/%.html: source/%.md
 	@"$(PANDOC)" --from gfm \
 		--to html4 \
 		--metadata title=$* \
+		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--lua-filter "lua/get_indices.lua" \
 		--template "htmlhelp/template.html4" \
@@ -74,7 +76,7 @@ htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhk.lua" \
-		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(filter-out index.tsv,$(TSVFILES)))" \
+		--metadata mapfiles="$(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))" \
 		--metadata output=$@ \
 		--output $(DEVNULL)
 
@@ -83,7 +85,7 @@ htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhc.lua" \
-		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(TSVFILES))" \
+		--metadata mapfile=htmlhelp/work/index.map \
 		--metadata output=$@ \
 		--output $(DEVNULL)
 

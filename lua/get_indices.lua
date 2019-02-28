@@ -69,7 +69,6 @@ local force_global = {
 
 local indices = {}
 local script_object
-local title
 
 function get_script_object(heading)
   local capture
@@ -104,11 +103,6 @@ function Header(elem)
     heading = pandoc.utils.stringify(elem)
     script_object = get_script_object(heading)
 
-    -- save first heading to use as the page title
-    if not title then
-      title = heading
-    end
-
     if script_object then
       indices[id] = script_object
     else
@@ -130,24 +124,15 @@ function Header(elem)
   end
 end
 
-function get_dir(path, sep)
-  sep = sep or '/'
-  return path:match('(.*' .. sep .. ')')
-end
-
 function Meta(meta)
-  local docname = meta.title
-  local tsv =  get_dir(PANDOC_STATE.output_file) .. docname .. '.tsv'
-  local f = assert(io.open(tsv, 'w'))
-
-  if title then
-    meta.title = title
-  end
+  local docname = PANDOC_STATE.output_file:gsub('.*/(%w+).%w+$', '%1')
+  assert(string.len(docname) > 0)
+  local filename = PANDOC_STATE.output_file:gsub('.%w+$', '.map')
+  local f = assert(io.open(filename, 'w'))
 
   for anchor, name in pairs(indices) do
     f:write(string.format("%s.html#%s\t%s\n", docname, anchor, name))
   end
 
   f:close()
-  return meta
 end
