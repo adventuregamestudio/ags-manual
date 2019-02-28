@@ -74,7 +74,7 @@ htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhk.lua" \
-		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(TSVFILES))" \
+		--metadata tsvfiles="$(addprefix htmlhelp/work/, $(filter-out index.tsv,$(TSVFILES)))" \
 		--metadata output=$@ \
 		--output $(DEVNULL)
 

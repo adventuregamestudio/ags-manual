@@ -26,11 +26,9 @@ function Meta(meta)
   local f = assert(io.open(meta.output, 'w'))
 
   for tsv in tsvfiles:gmatch('%S+') do
-    if tsv ~= 'htmlhelp/work/index.tsv' then
-      assert(file_exists(tsv))
-      for line in io.lines(tsv) do
-        f:write(format_line(line))
-      end
+    assert(file_exists(tsv))
+    for line in io.lines(tsv) do
+      f:write(format_line(line))
     end
   end
 
