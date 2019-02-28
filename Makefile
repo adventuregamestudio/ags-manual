@@ -34,8 +34,8 @@ help:
 
 source:
 	@mkdir $@ && \
-		$(UPDATESOURCE) && \
-		$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
+		$(UPDATESOURCE)
+	@$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
 		$(RM) $@${SEP}_Sidebar.md
 
 html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) html/build/images $(addprefix html/build/, $(IMAGEFILES))
