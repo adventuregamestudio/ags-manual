@@ -95,7 +95,7 @@ htmlhelp/build/ags-help.hhp:
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhp.lua" \
-		--metadata incfiles="$(HTMLFILES) $(IMAGEFILES)" \
+		--metadata incfiles="$(HTMLFILES) $(subst /,$(SEP),$(IMAGEFILES))" \
 		--metadata projectname=ags-help \
 		--metadata output=$@ \
 		> $(DEVNULL)

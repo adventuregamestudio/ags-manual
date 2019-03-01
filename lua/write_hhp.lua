@@ -25,7 +25,7 @@ function Meta(meta)
     meta.projectname, meta.projectname, meta.projectname, meta.projectname, meta.projectname))
 
   for inc in incfiles:gmatch('%S+') do
-    f:write(inc:gsub('/', '\\') .. '\n')
+    f:write(inc .. '\n')
   end
 
   f:close()
