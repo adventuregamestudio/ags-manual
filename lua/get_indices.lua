@@ -125,9 +125,9 @@ function Header(elem)
 end
 
 function Meta(meta)
-  local docname = PANDOC_STATE.output_file:gsub('.*/(%w+).%w+$', '%1')
+  local docname = PANDOC_STATE.output_file:gsub('.*/(%w+)%.%w+$', '%1')
   assert(string.len(docname) > 0)
-  local filename = PANDOC_STATE.output_file:gsub('.%w+$', '.map')
+  local filename = PANDOC_STATE.output_file:gsub('%.%w+$', '.map')
   local format = '%s.html#%s\t%s\n'
   local f = assert(io.open(filename, 'w'))
 

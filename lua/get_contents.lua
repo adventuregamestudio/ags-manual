@@ -31,7 +31,7 @@ function Pandoc(elem, meta)
   pandoc.walk_block(pandoc.Div(elem.blocks), get_contents)
 
   if #links > 0 and #links == #headers then
-    local filename = PANDOC_STATE.output_file:gsub('.%w+$', '.contents')
+    local filename = PANDOC_STATE.output_file:gsub('%.%w+$', '.contents')
     local format = '%s\t%s\n'
     local f = assert(io.open(filename, 'w'))
 

@@ -40,7 +40,7 @@ end
 function Meta(meta)
   local contents = meta.contents
   assert(file_exists(contents))
-  local pagename = contents:gsub('.*/(%w+).%w+$', '%1.html')
+  local pagename = contents:gsub('.*/(%w+)%.%w+$', '%1.html')
   local f = assert(io.open(meta.output, 'w'))
   f:write(header)
 
