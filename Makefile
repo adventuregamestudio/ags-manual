@@ -10,7 +10,7 @@ ifdef ComSpec
   SEP = $(strip \)
   RM = del /f
   RD = rd /s /q
-  DEVNULL = %TEMP%\devnull
+  DEVNULL = NUL
   SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
   UPDATESOURCE = robocopy "$(CHECKOUTDIR)" $@ /E /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
   CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
@@ -79,7 +79,7 @@ htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(HTMLFILES))
 		--lua-filter "lua/write_hhk.lua" \
 		--metadata mapfiles="$(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))" \
 		--metadata output=$@ \
-		--output $(DEVNULL)
+		> $(DEVNULL)
 
 htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo Building $@
@@ -88,7 +88,7 @@ htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
 		--lua-filter "lua/write_hhc.lua" \
 		--metadata contents=htmlhelp/work/index.contents \
 		--metadata output=$@ \
-		--output $(DEVNULL)
+		> $(DEVNULL)
 
 htmlhelp/build/ags-help.hhp:
 	@echo Building $@
@@ -98,7 +98,7 @@ htmlhelp/build/ags-help.hhp:
 		--metadata incfiles="$(HTMLFILES) $(IMAGEFILES)" \
 		--metadata projectname=ags-help \
 		--metadata output=$@ \
-		--output $(DEVNULL)
+		> $(DEVNULL)
 
 htmlhelp/build/ags-help.stp:
 	@echo Building $@
