@@ -67,6 +67,7 @@ htmlhelp/work/%.html: source/%.md
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--lua-filter "lua/get_indices.lua" \
+		--lua-filter "lua/get_contents.lua" \
 		--template "htmlhelp/template.html4" \
 		--output $@ \
 		$<
