@@ -86,7 +86,7 @@ htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhc.lua" \
-		--metadata mapfile=htmlhelp/work/index.map \
+		--metadata contents=htmlhelp/work/index.contents \
 		--metadata output=$@ \
 		--output $(DEVNULL)
 

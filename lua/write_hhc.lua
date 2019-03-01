@@ -38,13 +38,38 @@ function format_line(line)
 end
 
 function Meta(meta)
-  local mapfile = meta.mapfile
-  assert(file_exists(mapfile))
+  local contents = meta.contents
+  assert(file_exists(contents))
+  local pagename = contents:gsub('.*/(%w+).%w+$', '%1.html')
   local f = assert(io.open(meta.output, 'w'))
   f:write(header)
 
-  for line in io.lines(mapfile) do
-    f:write(format_line(line))
+  local first = true
+  local is_header
+
+  for line in io.lines(contents) do
+    is_header = line:sub(1, 1) == '#'
+
+    if is_header then
+      line = pagename .. line
+    end
+
+    local formatted = format_line(line)
+
+    if is_header then
+      if not first then
+        f:write('</UL>\n')
+      end
+
+      formatted = formatted .. '<UL>\n'
+      first = false
+    end
+
+    f:write(formatted)
+  end
+
+  if not is_header then
+    f:write('</UL>\n')
   end
 
   f:write(footer)
