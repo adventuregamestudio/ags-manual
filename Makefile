@@ -3,6 +3,7 @@ IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 MAPFILES = $(addsuffix .map, $(BASENAMES))
+CONTENTSFILES = $(addsuffix .contents, $(BASENAMES))
 
 ifeq ($(strip $(CHECKOUTDIR)),)
 $(and $(filter source,$(MAKECMDGOALS)),$(error target 'source' requires CHECKOUTDIR to be set))
@@ -90,7 +91,7 @@ htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
 	@echo "" | "$(PANDOC)" \
 		--to native \
 		--lua-filter "lua/write_hhc.lua" \
-		--metadata contents=htmlhelp/work/index.contents \
+		--metadata contents="$(addprefix htmlhelp/work/, $(filter index.contents,$(CONTENTSFILES)))" \
 		--metadata output=$@ \
 		> $(DEVNULL)
 
