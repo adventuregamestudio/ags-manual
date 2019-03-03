@@ -4,6 +4,10 @@ BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 MAPFILES = $(addsuffix .map, $(BASENAMES))
 
+ifeq ($(strip $(CHECKOUTDIR)),)
+$(and $(filter source,$(MAKECMDGOALS)),$(error target 'source' requires CHECKOUTDIR to be set))
+endif
+
 ifdef ComSpec
   CP = copy
   MV = move
