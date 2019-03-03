@@ -5,12 +5,17 @@ HTMLFILES = $(addsuffix .html, $(BASENAMES))
 MAPFILES = $(addsuffix .map, $(BASENAMES))
 CONTENTSFILES = $(addsuffix .contents, $(BASENAMES))
 
+ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
-$(and $(filter source,$(MAKECMDGOALS)),$(error target 'source' requires CHECKOUTDIR to be set))
+ifneq ($(filter-out source,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+$(error target 'source' requires CHECKOUTDIR to be set))
 endif
-
+endif
 ifeq ($(strip $(BASENAMES)),)
-$(and $(filter-out source help clean,$(MAKECMDGOALS)),$(error no source files were found))
+ifneq ($(filter-out html htmlhelp,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+$(error no source files were found)
+endif
+endif
 endif
 
 ifdef ComSpec
