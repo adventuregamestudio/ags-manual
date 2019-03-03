@@ -9,6 +9,10 @@ ifeq ($(strip $(CHECKOUTDIR)),)
 $(and $(filter source,$(MAKECMDGOALS)),$(error target 'source' requires CHECKOUTDIR to be set))
 endif
 
+ifeq ($(strip $(BASENAMES)),)
+$(and $(filter-out source help clean,$(MAKECMDGOALS)),$(error no source files were found))
+endif
+
 ifdef ComSpec
   CP = copy
   MV = move
