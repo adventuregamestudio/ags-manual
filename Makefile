@@ -61,10 +61,10 @@ html/work/%.html: source/%.md
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html5 \
-		--standalone \
 		--metadata title=$* \
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
+		--template "html/template.html5" \
 		--output $@ \
 		$<
 
