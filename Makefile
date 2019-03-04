@@ -57,7 +57,7 @@ html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix htm
 htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) \
 	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
 	htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp $(addprefix htmlhelp/build/, $(HTMLFILES)) \
-	htmlhelp/build/images $(addprefix htmlhelp/build/, $(IMAGEFILES))
+	htmlhelp/build/images $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
 
 html/work htmlhelp/work html/build html/build/images htmlhelp/build htmlhelp/build/images:
 	@mkdir $(subst /,$(SEP),$@)
@@ -129,6 +129,12 @@ htmlhelp/build/%.html: htmlhelp/work/%.html
 
 htmlhelp/build/images/%: source/images/%
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+
+ifdef HHC
+htmlhelp/build/ags-help.chm: htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc \
+	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhp
+	@"$(HHC)" htmlhelp/build/ags-help.hhp || exit /b 0 & exit /b 1
+endif
 
 clean:
 	@$(CLEANDIRS)
