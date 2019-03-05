@@ -1,26 +1,26 @@
-version: "chm-{build}"
+version: chm-{build}
 
 environment:
   matrix:
-    - PYTHON: "C:\\Python36"
-      PYTHON_VERSION: 3.6
-      PYTHON_ARCH: 32
+    - CHECKOUTDIR: '%TEMP%\ags-manual.wiki'
+      HHC: '%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe'
 
 branches:
   except:
     - gh-pages
 
 install:
-  - cinst html-help-workshop
-  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%
-  - python -c "import sys; print(sys.version)"
-  - python -m pip install -r requirements.txt
+  - cinst html-help-workshop make pandoc
+
+before_build:
+  - '%COMSPEC% /c "cd %TEMP% && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git"'
 
 build_script:
-  - make clone htmlhelp chm
+  - make SHELL=%COMSPEC% source
+  - make SHELL=%COMSPEC% htmlhelp
 
 artifacts:
-- path: ags-help.chm
+- path: htmlhelp\build\ags-help.chm
   name: ags-help.chm
 
 deploy:
