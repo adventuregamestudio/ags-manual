@@ -1,3 +1,6 @@
+package.path = package.path .. ';lua/agsman.lua'
+local agsman = require('agsman')
+
 local force_global = {
   Display = {
     'Display',
@@ -81,20 +84,6 @@ function get_script_object(heading)
   return capture
 end
 
-function get_force_global(key, value)
-  if not force_global[key] then
-    return false
-  end
-
-  for k, v in pairs(force_global[key]) do
-    if v == value then
-      return true
-    end
-  end
-
-  return false
-end
-
 function Header(elem)
   local heading, id
 
@@ -113,7 +102,7 @@ function Header(elem)
     heading = pandoc.utils.stringify(elem)
 
     if script_object then
-      if get_force_global(script_object, heading) then
+      if agsman.table_has_value(force_global, heading, script_object) then
         indices[id] = heading
       else
         indices[id] = script_object .. '.' .. heading
