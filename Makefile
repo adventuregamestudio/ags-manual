@@ -3,7 +3,6 @@ IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 MAPFILES = $(addsuffix .map, $(BASENAMES))
-CONTENTSFILES = $(addsuffix .contents, $(BASENAMES))
 
 ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
@@ -24,7 +23,6 @@ ifdef ComSpec
   SEP = $(strip \)
   RM = del /f
   RD = rd /s /q
-  DEVNULL = NUL
   SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
   UPDATESOURCE = robocopy "$(CHECKOUTDIR)" $@ /E /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
   CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
@@ -34,7 +32,6 @@ else
   SEP = /
   RM = rm -f
   RD = rm -rf
-  DEVNULL = /dev/null
   SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' Makefile
   UPDATESOURCE = mkdir -p source && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
@@ -54,7 +51,7 @@ source:
 
 html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) html/build/images $(addprefix html/build/, $(IMAGEFILES))
 
-htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) \
+htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(MAPFILES)) \
 	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
 	htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp $(addprefix htmlhelp/build/, $(HTMLFILES)) \
 	htmlhelp/build/images $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
@@ -80,39 +77,44 @@ htmlhelp/work/%.html: source/%.md
 		--metadata title=$* \
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
-		--lua-filter "lua/get_indices.lua" \
-		--lua-filter "lua/get_contents.lua" \
 		--template "htmlhelp/template.html4" \
 		--output $@ \
 		$<
 
-htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(HTMLFILES))
+htmlhelp/work/%.map: source/%.md
 	@echo Building $@
-	@echo "" | "$(PANDOC)" \
-		--to native \
-		--lua-filter "lua/write_hhk.lua" \
-		--metadata mapfiles="$(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))" \
-		--metadata output=$@ \
-		> $(DEVNULL)
+	@"$(PANDOC)" --from gfm \
+		--to markdown \
+		--lua-filter "lua/rewrite_links.lua" \
+		--lua-filter "lua/get_indices.lua" \
+		--output $@ \
+		$<
 
-htmlhelp/build/ags-help.hhc: $(addprefix htmlhelp/work/, $(HTMLFILES))
+htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))
 	@echo Building $@
-	@echo "" | "$(PANDOC)" \
-		--to native \
-		--lua-filter "lua/write_hhc.lua" \
-		--metadata contents="$(addprefix htmlhelp/work/, $(filter index.contents,$(CONTENTSFILES)))" \
-		--metadata output=$@ \
-		> $(DEVNULL)
+	@"$(PANDOC)" --from markdown \
+		--to "lua/write_hhk.lua" \
+		--output=$@ \
+		--file-scope \
+		$(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))
+
+htmlhelp/build/ags-help.hhc:
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to "lua/write_hhc.lua" \
+		--lua-filter "lua/rewrite_links.lua" \
+		--template "htmlhelp/template.hhc" \
+		--output $@ \
+		source/index.md
 
 htmlhelp/build/ags-help.hhp:
 	@echo Building $@
 	@echo "" | "$(PANDOC)" \
-		--to native \
-		--lua-filter "lua/write_hhp.lua" \
-		--metadata incfiles="$(HTMLFILES) $(subst /,$(SEP),$(IMAGEFILES))" \
-		--metadata projectname=ags-help \
-		--metadata output=$@ \
-		> $(DEVNULL)
+		--to "lua/write_hhp.lua" \
+		--metadata incfiles="$(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES))" \
+		--variable projectname=ags-help \
+		--template "htmlhelp/template.hhp" \
+		--output $@
 
 htmlhelp/build/ags-help.stp:
 	@echo Building $@

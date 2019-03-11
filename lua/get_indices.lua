@@ -1,5 +1,6 @@
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
+local List = require 'pandoc.List'
 
 local force_global = {
   Display = {
@@ -70,7 +71,7 @@ local force_global = {
   }
 }
 
-local indices = {}
+local indices = List:new{}
 local script_object
 
 function get_script_object(heading)
@@ -85,44 +86,37 @@ function get_script_object(heading)
 end
 
 function Header(elem)
-  local heading, id
+  local heading, pagename, target, link
+  heading = pandoc.utils.stringify(elem)
+  local pagename = PANDOC_STATE.output_file:gsub('.*/(%w+)%.%w+$', '%1.html')
+  target = (pagename or '') .. '#' .. (elem.attr.identifier or '')
 
   if elem.level == 2 then
-    id = elem.attr.identifier
-    heading = pandoc.utils.stringify(elem)
     script_object = get_script_object(heading)
 
     if script_object then
-      indices[id] = script_object
+      link = pandoc.Link(pandoc.Str(script_object), target)
     else
-      indices[id] = heading
+      link = pandoc.Link(pandoc.Str(heading), target)
     end
   elseif elem.level == 3 then
-    id = elem.attr.identifier
-    heading = pandoc.utils.stringify(elem)
-
     if script_object then
       if agsman.table_has_value(force_global, heading, script_object) then
-        indices[id] = heading
+        link = pandoc.Link(pandoc.Str(heading), target)
       else
-        indices[id] = script_object .. '.' .. heading
+        link = pandoc.Link(pandoc.Str(script_object .. '.' .. heading), target)
       end
     else
-      indices[id] =  heading
+      link = pandoc.Link(pandoc.Str(heading), target)
     end
+  end
+
+  if link then
+    table.insert(indices, link)
   end
 end
 
-function Meta(meta)
-  local docname = PANDOC_STATE.output_file:gsub('.*/(%w+)%.%w+$', '%1')
-  assert(string.len(docname) > 0)
-  local filename = PANDOC_STATE.output_file:gsub('%.%w+$', '.map')
-  local format = '%s.html#%s\t%s\n'
-  local f = assert(io.open(filename, 'w'))
-
-  for anchor, name in pairs(indices) do
-    f:write(string.format(format, docname, anchor, name))
-  end
-
-  f:close()
+function Pandoc(doc)
+  local blocks = List:new{ pandoc.Plain(indices) }
+  return pandoc.Pandoc(blocks, doc.meta)
 end

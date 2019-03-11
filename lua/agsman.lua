@@ -14,16 +14,6 @@ function agsman.table_has_value(table, value, key)
   return false
 end
 
-function agsman.file_exists(file)
-  local f = io.open(file, 'rb')
-
-  if f then
-    f:close()
-  end
-
-  return f ~= nil
-end
-
 -- https://www.lua.org/pil/19.3.html
 function agsman.pairs_by_keys(t, f)
   local a = {}
@@ -39,15 +29,23 @@ function agsman.pairs_by_keys(t, f)
   return iter
 end
 
-function agsman.split_tsv(line)
-  local read = {}
-
-  for l in line:gmatch('[^\t]+') do
-    read[#read+1] = l
-  end
-
-  assert(#read == 2)
-  return read[1], read[2]
+function agsman.escape(s)
+  return s:gsub("[<>&\"']",
+    function(x)
+      if x == '<' then
+        return '&lt;'
+      elseif x == '>' then
+        return '&gt;'
+      elseif x == '&' then
+        return '&amp;'
+      elseif x == '"' then
+        return '&quot;'
+      elseif x == "'" then
+        return '&#39;'
+      else
+        return x
+      end
+    end)
 end
 
 return agsman

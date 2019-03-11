@@ -1,32 +1,18 @@
-local format = [[[OPTIONS]
-Binary TOC=No
-Binary Index=No
-Compiled file=%s.chm
-Contents file=%s.hhc
-Default Window=%s
-Default topic=index.html
-Display compile progress=No
-Full text search stop list file=%s.stp
-Full-text search=Yes
-Index file=%s.hhk
-Language=0x409
-Title=AGS Documentation
+--invoke as custom writer
 
-[WINDOWS]
-%s="AGS Documentation","%s.hhc","%s.hhk","index.html","index.html",,,,,0x63520,220,0x10384e,[0,0,1024,768],,,,,,,0
+function Doc(body, metadata, variables)
+  local buffer = {}
 
-[FILES]
-]]
-
-function Meta(meta)
-  local incfiles = meta.incfiles
-  local f = assert(io.open(meta.output, 'w'))
-  f:write(string.format(format, meta.projectname, meta.projectname, meta.projectname,
-    meta.projectname, meta.projectname, meta.projectname, meta.projectname, meta.projectname))
-
-  for inc in incfiles:gmatch('%S+') do
-    f:write(inc .. '\n')
+  for inc in metadata.incfiles:gmatch('%S+') do
+    table.insert(buffer, inc)
   end
 
-  f:close()
+  return table.concat(buffer, '\n')
 end
+
+local meta = {}
+meta.__index =
+  function(_, key)
+    return function() return '' end
+  end
+setmetatable(_G, meta)
