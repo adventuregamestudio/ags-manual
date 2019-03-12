@@ -49,7 +49,9 @@ source:
 	@$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
 		$(RM) $@${SEP}_Sidebar.md
 
-html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) html/build/images $(addprefix html/build/, $(IMAGEFILES))
+html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) \
+	html/build/images $(addprefix html/build/, $(IMAGEFILES)) $(addprefix html/work/, $(MAPFILES)) \
+	html/build/genindex.html
 
 htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(MAPFILES)) \
 	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
@@ -90,6 +92,15 @@ htmlhelp/work/%.map: source/%.md
 		--output $@ \
 		$<
 
+html/work/%.map: source/%.md
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to markdown \
+		--lua-filter "lua/rewrite_links.lua" \
+		--lua-filter "lua/get_indices.lua" \
+		--output $@ \
+		$<
+
 htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
@@ -115,6 +126,15 @@ htmlhelp/build/ags-help.hhp:
 		--variable projectname=ags-help \
 		--template "htmlhelp/template.hhp" \
 		--output $@
+
+html/build/genindex.html: $(addprefix html/work/, $(filter-out index.map,$(MAPFILES)))
+	@echo Building $@
+	@"$(PANDOC)" --from markdown \
+		--to "lua/write_genindex.lua" \
+		--template "html/template.html5" \
+		--output=$@ \
+		--file-scope \
+		$(addprefix html/work/, $(filter-out index.map,$(MAPFILES)))
 
 htmlhelp/build/ags-help.stp:
 	@echo Building $@
