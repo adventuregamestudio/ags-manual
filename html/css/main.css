@@ -1,0 +1,47 @@
+.navigation {
+    background: #f4f5f6;
+    border-bottom: .1rem solid #d1d1d1;
+    overflow: hidden;
+    left: 0;
+    max-width: 100%;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 0.6em
+}
+
+.navigation img {
+    display: inline;
+    vertical-align: middle
+}
+
+.navigation h1 {
+    display: inline;
+    font-size: 2rem;
+    vertical-align: middle
+}
+
+.navigation ul {
+    list-style: none
+}
+
+.navigation-list {
+    margin: 0;
+    padding: 0
+}
+
+.navigation-item {
+    margin: 0;
+    padding: 0
+}
+
+.navigation-item form {
+    margin: 0;
+    padding: 0
+}
+
+.navigation-item form input{
+    margin: 0;
+    padding: 0
+}

@@ -2,7 +2,7 @@ PANDOC ?= pandoc
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
-MAPFILES = $(addsuffix .map, $(BASENAMES))
+METAFILES = $(addsuffix .yaml, $(BASENAMES))
 
 ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
@@ -50,15 +50,17 @@ source:
 		$(RM) $@${SEP}_Sidebar.md
 
 html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) \
-	html/build/images $(addprefix html/build/, $(IMAGEFILES)) $(addprefix html/work/, $(MAPFILES)) \
-	html/build/genindex.html
+	html/build/images $(addprefix html/build/, $(IMAGEFILES)) $(addprefix html/work/, $(METAFILES)) \
+	html/build/genindex.html html/build/js html/build/js/search.js html/build/css html/build/css/main.css \
+	html/build/static html/build/static/logo.png
 
-htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(MAPFILES)) \
+htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(METAFILES)) \
 	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
 	htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp $(addprefix htmlhelp/build/, $(HTMLFILES)) \
 	htmlhelp/build/images $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
 
-html/work htmlhelp/work html/build html/build/images htmlhelp/build htmlhelp/build/images:
+html/work htmlhelp/work html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build \
+	htmlhelp/build/images:
 	@mkdir $(subst /,$(SEP),$@)
 
 html/work/%.html: source/%.md
@@ -69,6 +71,11 @@ html/work/%.html: source/%.md
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--template "html/template.html5" \
+		--table-of-contents \
+		--section-divs \
+		--css "https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" \
+		--css "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" \
+		--css "css/main.css" \
 		--output $@ \
 		$<
 
@@ -83,31 +90,31 @@ htmlhelp/work/%.html: source/%.md
 		--output $@ \
 		$<
 
-htmlhelp/work/%.map: source/%.md
+htmlhelp/work/%.yaml: source/%.md
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
-		--to markdown \
+		--to "lua/write_metablock.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
-		--lua-filter "lua/get_indices.lua" \
+		--metadata docname=$* \
 		--output $@ \
 		$<
 
-html/work/%.map: source/%.md
+html/work/%.yaml: source/%.md
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
-		--to markdown \
+		--to "lua/write_metablock.lua" \
+		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
-		--lua-filter "lua/get_indices.lua" \
+		--metadata docname=$* \
 		--output $@ \
 		$<
 
-htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))
+htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES)))
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_hhk.lua" \
 		--output=$@ \
-		--file-scope \
-		$(addprefix htmlhelp/work/, $(filter-out index.map,$(MAPFILES)))
+		$(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES)))
 
 htmlhelp/build/ags-help.hhc:
 	@echo Building $@
@@ -127,14 +134,30 @@ htmlhelp/build/ags-help.hhp:
 		--template "htmlhelp/template.hhp" \
 		--output $@
 
-html/build/genindex.html: $(addprefix html/work/, $(filter-out index.map,$(MAPFILES)))
+html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_genindex.lua" \
 		--template "html/template.html5" \
+		--css "https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" \
+		--css "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" \
+		--css "css/main.css" \
 		--output=$@ \
-		--file-scope \
-		$(addprefix html/work/, $(filter-out index.map,$(MAPFILES)))
+		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+
+html/build/js/search.js: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+	@echo Building $@
+	@"$(PANDOC)" --from markdown \
+		--to "lua/write_metajs.lua" \
+		--template "html/template.js" \
+		--output=$@ \
+		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+
+html/build/css/main.css:
+	$(CP) html$(SEP)css$(SEP)main.css $(subst /,$(SEP),$@)
+
+html/build/static/logo.png:
+	$(CP) html$(SEP)static$(SEP)logo.png $(subst /,$(SEP),$@)
 
 htmlhelp/build/ags-help.stp:
 	@echo Building $@

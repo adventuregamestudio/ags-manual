@@ -2,6 +2,8 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
+local meta = PANDOC_DOCUMENT.meta
+local stringify = (require 'pandoc.utils').stringify
 local indices = {}
 
 function Doc(body, metadata, variables)
@@ -11,10 +13,20 @@ function Doc(body, metadata, variables)
 <param name="Local" value="%s">
 </OBJECT>]]
 
+  -- get all of the heading info into a table
+  for k, v in pairs(meta) do
+    if v.headings then
+      for name, id in pairs(v.headings) do
+        indices[name] = k .. '.html#' .. stringify(id)
+      end
+    end
+  end
+
   order = function(a, b)
     return b:lower() > a:lower()
   end
 
+  -- sort the table and write it
   for name, id in agsman.pairs_by_keys(indices, order) do
     table.insert(buffer, string.format(format, name, id))
   end
@@ -22,25 +34,9 @@ function Doc(body, metadata, variables)
   return table.concat(buffer, '\n')
 end
 
-function Blocksep()
-  return ''
-end
-
-function Para(s)
-  return s
-end
-
-function Space()
-  return ' '
-end
-
-function Str(s)
-  return agsman.escape(s)
-end
-
-function Link(s, src, tit, attr)
-  -- sanity check, header links will always use an anchor
-  assert(string.find(src, '#', 1, true))
-  indices[s] = agsman.escape(src)
-  return ''
-end
+local meta = {}
+meta.__index =
+  function(_, key)
+    return function() return '' end
+  end
+setmetatable(_G, meta)
