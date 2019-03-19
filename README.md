@@ -40,6 +40,18 @@ For Windows, the easiest installation method is using the [Chocolatey](https://c
 
 ...or if manual installation is preferred, the same binary can also be downloaded from [ezwinports](https://sourceforge.net/projects/ezwinports/).
 
+### Getting curl
+
+If using macOS or Linux it is likely that you already have a version of curl installed, or it will be packaged under the name ['curl'](http://pkgsrc.se/www/curl).
+
+For Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
+
+    choco install curl
+
+...or if manual installation is preferred, the same binary can also be downloaded from [curl.haxx.se](https://curl.haxx.se/windows/).
+
+**Note: curl is only required for the html target**
+
 ### Getting the HTML help compiler
 
 As far as we know, the compiler that comes with [HTML Help Workshop](http://go.microsoft.com/fwlink/?LinkId=14188) is the only way to create a CHM file with working and complete indices. Unfortunately this makes the final compilation stage only possible on Windows.
@@ -48,24 +60,27 @@ The easiest installation method is using the [Chocolatey](https://chocolatey.org
 
     choco install html-help-workshop
 
+**Note: HTML Help Workshop is only required for the htmlhelp target**
+
 ### Make variables and targets
 
 variable | function
 --- | ---
 CHECKOUTDIR | path to checked out wiki source
 HHC | path to the HTML Help Compiler
+CURL | path to the curl binary (defaults to 'curl')
 PANDOC | path to the Pandoc binary (defaults to 'pandoc')
 
 target | function
 --- | ---
 source | update the source directory from CHECKOUTDIR
-html | build the website into 'html/build'
-htmlhelp | build an HTML Help Project into 'htmlhelp/build' and call HHC if set
+html | build the website into 'html/build' (requires curl)
+htmlhelp | build an HTML Help Project into 'htmlhelp/build' and call HHC if set (requires HTML Help Workshop)
 clean | delete everything listed in .gitignore
 
 ### Build example (Windows and Chocolatey)
 
-    choco install html-help-workshop pandoc make
+    choco install curl html-help-workshop pandoc make
     refreshenv
     git clone https://github.com/adventuregamestudio/ags-manual.wiki
     git clone https://github.com/adventuregamestudio/ags-manual

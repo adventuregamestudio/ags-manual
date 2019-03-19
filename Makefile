@@ -1,4 +1,7 @@
 PANDOC ?= pandoc
+CURL ?= curl
+NORMALIZE = https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css
+MILLIGRAM = https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
@@ -52,7 +55,7 @@ source:
 html: html/work $(addprefix html/work/, $(HTMLFILES)) html/build $(addprefix html/build/, $(HTMLFILES)) \
 	html/build/images $(addprefix html/build/, $(IMAGEFILES)) $(addprefix html/work/, $(METAFILES)) \
 	html/build/genindex.html html/build/js html/build/js/search.js html/build/css html/build/css/main.css \
-	html/build/static html/build/static/logo.png
+	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static html/build/static/logo.png
 
 htmlhelp: htmlhelp/work $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(METAFILES)) \
 	htmlhelp/build htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk \
@@ -73,8 +76,8 @@ html/work/%.html: source/%.md
 		--template "html/template.html5" \
 		--table-of-contents \
 		--section-divs \
-		--css "https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" \
-		--css "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" \
+		--css "css/normalize.css" \
+		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output $@ \
 		$<
@@ -139,8 +142,8 @@ html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(META
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_genindex.lua" \
 		--template "html/template.html5" \
-		--css "https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" \
-		--css "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" \
+		--css "css/normalize.css" \
+		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output=$@ \
 		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
@@ -155,6 +158,12 @@ html/build/js/search.js: $(addprefix html/work/, $(filter-out index.yaml,$(METAF
 
 html/build/css/main.css:
 	$(CP) html$(SEP)css$(SEP)main.css $(subst /,$(SEP),$@)
+
+html/build/css/normalize.css:
+	$(CURL) -fLo $(subst /,$(SEP),$@) $(NORMALIZE)
+
+html/build/css/milligram.min.css:
+	$(CURL) -fLo $(subst /,$(SEP),$@) $(MILLIGRAM)
 
 html/build/static/logo.png:
 	$(CP) html$(SEP)static$(SEP)logo.png $(subst /,$(SEP),$@)
