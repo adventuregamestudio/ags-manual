@@ -67,18 +67,20 @@ $endfor$
     </header>
 
     <section>
+$if(toc)$
       <div class="row">
         <div class="column">
-$if(toc)$
           <nav id="$idprefix$TOC">
 $table-of-contents$
           </nav>
-$endif$
         </div>
         <div class="column column-75">
 $body$
         </div>
       </div>
+$else$
+$body$
+$endif$
     </section>
   </div>
 
