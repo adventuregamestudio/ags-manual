@@ -45,3 +45,49 @@
     margin: 0;
     padding: 0
 }
+
+a {
+    color: #0074D9
+}
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    background-color: #0074D9;
+    border: .1rem solid #0074D9
+}
+
+.button.button-outline,
+button.button-outline,
+input[type='button'].button-outline,
+input[type='reset'].button-outline,
+input[type='submit'].button-outline {
+    color: #0074D9
+}
+
+.button.button-clear,
+button.button-clear,
+input[type='button'].button-clear,
+input[type='reset'].button-clear,
+input[type='submit'].button-clear {
+    color: #0074D9
+}
+
+pre {
+    background: #f4f5f6;
+    border-left: .3rem solid #0074D9
+}
+
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
+textarea:focus,
+select:focus {
+    border: .1rem solid #0074D9
+}
