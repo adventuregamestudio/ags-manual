@@ -71,6 +71,9 @@ $if(toc)$
       <div class="row">
         <div class="column">
           <nav id="$idprefix$TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 $table-of-contents$
           </nav>
         </div>
