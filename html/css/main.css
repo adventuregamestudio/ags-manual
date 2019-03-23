@@ -46,6 +46,16 @@
     padding: 0
 }
 
+header ul {
+    list-style: none;
+    text-align: right
+}
+
+header li {
+    background: #def9db;
+    margin-bottom: 0
+}
+
 a {
     color: #0074D9
 }
