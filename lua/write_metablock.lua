@@ -70,6 +70,26 @@ local force_global = {
     'Wait',
     'WaitKey',
     'WaitMouseKey'
+  },
+  Room = {
+    'AreThingsOverlapping',
+    'DisableGroundLevelAreas',
+    'EnableGroundLevelAreas',
+    'GetBackgroundFrame',
+    'GetPlayerCharacter',
+    'GetScalingAt',
+    'GetViewportX',
+    'GetViewportY',
+    'GetWalkableAreaAt',
+    'HasPlayerBeenInRoom',
+    'ReleaseViewport',
+    'RemoveWalkableArea',
+    'ResetRoom',
+    'RestoreWalkableArea',
+    'SetAreaScaling',
+    'SetBackgroundFrame',
+    'SetViewport',
+    'SetWalkBehindBase'
   }
 }
 
