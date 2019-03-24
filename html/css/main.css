@@ -47,8 +47,15 @@ header ul {
 }
 
 header li {
-    background: #def9db;
     margin-bottom: 0
+}
+
+.search-match {
+    background: #def9db
+}
+
+.search-nomatch {
+    background: #f9dbdb
 }
 
 a {

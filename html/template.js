@@ -54,6 +54,14 @@ function update_results(words) {
         }
     });
 
+    if (Object.keys(track.total).length === 0 && words[0] !== '') {
+        var li = document.createElement('li');
+        li.innerHTML = 'No match';
+        li.className = 'search-nomatch';
+        search_results.appendChild(li);
+        return;
+    }
+
     Object.keys(track.total).sort(function(a, b) {return track.total[b] - track.total[a]}).forEach(docname => {
         var found_by = Object.keys(track.which[docname])
         var title = meta.titles[docname] + ' ' + JSON.stringify(track.which[docname])
@@ -65,6 +73,7 @@ function update_results(words) {
 
         var li = document.createElement('li');
         li.appendChild(a);
+        li.className = 'search-match';
         search_results.appendChild(li);
     });
 }
