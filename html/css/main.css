@@ -36,12 +36,7 @@
     padding: 0
 }
 
-.navigation-item form {
-    margin: 0;
-    padding: 0
-}
-
-.navigation-item form input{
+.navigation-item input{
     margin: 0;
     padding: 0
 }

@@ -52,9 +52,7 @@ $endfor$
         <div class="float-right">
           <ul class="navigation-list float-right">
             <li class="navigation-item">
-              <form name="search_form">
-                <input type="search" id="search_input">
-              </form>
+              <input type="search" id="search_input">
             </li>
           </ul>
         </div>
