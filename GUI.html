@@ -1,99 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GUI functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GUI functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GUIControl functions and properties" href="GUIControl.html" />
-    <link rel="prev" title="File functions and properties" href="File.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="gui-functions-and-properties">
-<h1>GUI functions and properties<a class="headerlink" href="#gui-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="centre">
-<span id="index-1"></span><h2>Centre<a class="headerlink" href="#centre" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#gui-functions-and-properties">GUI functions and properties</a><ul>
+<li><a href="#centre">Centre</a></li>
+<li><a href="#click">Click</a></li>
+<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a href="#processclick">ProcessClick</a></li>
+<li><a href="#setposition">SetPosition</a></li>
+<li><a href="#setsize">SetSize</a></li>
+<li><a href="#backgroundgraphic">BackgroundGraphic</a></li>
+<li><a href="#clickable">Clickable</a></li>
+<li><a href="#controlcount">ControlCount</a></li>
+<li><a href="#controls">Controls</a></li>
+<li><a href="#height">Height</a></li>
+<li><a href="#id">ID</a></li>
+<li><a href="#transparency">Transparency</a></li>
+<li><a href="#visible">Visible</a></li>
+<li><a href="#width">Width</a></li>
+<li><a href="#x">X</a></li>
+<li><a href="#y">Y</a></li>
+<li><a href="#zorder">ZOrder</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="gui-functions-and-properties" class="level2">
+<h2>GUI functions and properties</h2>
+<section id="centre" class="level3">
+<h3>Centre</h3>
 <p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.Centre()
-</pre></div>
-</div>
-<p>Centres the specified GUI in the middle of the screen. Useful if you’ve
-been moving it around with SetPosition and just want to return it to the
-centre.</p>
+<pre><code>GUI.Centre()
+</code></pre>
+<p>Centres the specified GUI in the middle of the screen. Useful if you've been moving it around with SetPosition and just want to return it to the centre.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gControlpanel.Centre();
-</pre></div>
-</div>
+<pre><code>gControlpanel.Centre();
+</code></pre>
 <p>will centre the CONTROLPANEL GUI in the middle of the screen.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="click">
-<span id="index-2"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.Click()
-</pre></div>
-</div>
-<p>Forces GUI’s OnClick event. If there is a script function bound to that
-event it will be run, otherwise nothing happens.</p>
-<p><strong>NOTE:</strong> GUI.Click should not to be confused with <strong>static</strong> function
-GUI.ProcessClick. GUI.Click is called for specific GUI and does not
-impose any other conditions, while GUI.ProcessClick is called for “any
-GUI element that happen to be at the given coordinates”.</p>
+<p><em>See Also:</em> <a href="GUI.html#setposition">GUI.SetPosition</a></p>
+<hr />
+</section>
+<section id="click" class="level3">
+<h3>Click</h3>
+<pre><code>GUI.Click()
+</code></pre>
+<p>Forces GUI's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
+<p><strong>NOTE:</strong> GUI.Click should not to be confused with <strong>static</strong> function GUI.ProcessClick. GUI.Click is called for specific GUI and does not impose any other conditions, while GUI.ProcessClick is called for "any GUI element that happen to be at the given coordinates".</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gMainMenu.Click();
-</pre></div>
-</div>
+<pre><code>gMainMenu.Click();
+</code></pre>
 <p>triggers OnClick event for gMainMenu.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.Click</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.ProcessClick</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="getatscreenxy">
-<span id="index-3"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Button.html#click">Button.Click</a>, <a href="GUI.html#processclick">GUI.ProcessClick</a></p>
+<hr />
+</section>
+<section id="getatscreenxy" class="level3">
+<h3>GetAtScreenXY</h3>
 <p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static GUI* GUI.GetAtScreenXY(int x, int y)
-</pre></div>
-</div>
-<p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If
-there is, returns its GUI. If two GUIs overlap, the frontmost one will
-be returned - this can be changed with the GUI.ZOrder property.</p>
-<p>If there is not currently a displayed, clickable GUI at the location
-then <em>null</em> is returned. If null is returned, do NOT attempt to call any
-methods or use any properties of the GUI (since it does not actually
-exist).</p>
-<p><strong>NOTE:</strong> This command will not find any GUIs that are set as
-Non-Clickable (ie. the “Clickable” checkbox not checked).</p>
+<pre><code>static GUI* GUI.GetAtScreenXY(int x, int y)
+</code></pre>
+<p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If there is, returns its GUI. If two GUIs overlap, the frontmost one will be returned - this can be changed with the GUI.ZOrder property.</p>
+<p>If there is not currently a displayed, clickable GUI at the location then <em>null</em> is returned. If null is returned, do NOT attempt to call any methods or use any properties of the GUI (since it does not actually exist).</p>
+<p><strong>NOTE:</strong> This command will not find any GUIs that are set as Non-Clickable (ie. the "Clickable" checkbox not checked).</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI *theGui = GUI.GetAtScreenXY(mouse.x, mouse.y);
+<pre><code>GUI *theGui = GUI.GetAtScreenXY(mouse.x, mouse.y);
 if (theGui == gInventory) {
   Display(&quot;Inventory GUI at mouse location.&quot;);
 }
@@ -103,154 +116,103 @@ else if (theGui == null) {
 else {
   Display(&quot;GUI %d at mouse location.&quot;, theGui.ID);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will display the number of the GUI that the mouse is over.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.GetAtScreenXY</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.ID</span></a>, <a class="reference internal" href="#"><span class="doc">GUI.ZOrder</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="processclick">
-<span id="index-4"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static void GUI.ProcessClick(int x, int y, CursorMode)
-</pre></div>
-</div>
-<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the
-specified cursor mode. This “click” has special behavior in that it
-<strong>only affects GUI and GUI controls</strong> under given coordinates. Any
-conditions attached to the first interface elements on given coordinates
-will be executed. Other game elements (room objects, hotspots,
-characters) will be <strong>ignored</strong>.</p>
-<p>The available cursor modes are the ones you define on your Cursors tab
-(but with eMode prepended to them). Usually these are eModeWalkto,
-eModeLookat, etc.</p>
+<p><em>See Also:</em> <a href="GUIControl.html#getatscreenxy">GUIControl.GetAtScreenXY</a>, <a href="GUI.html#id">GUI.ID</a>, <a href="GUI.html#zorder">GUI.ZOrder</a></p>
+<hr />
+</section>
+<section id="processclick" class="level3">
+<h3>ProcessClick</h3>
+<pre><code>static void GUI.ProcessClick(int x, int y, CursorMode)
+</code></pre>
+<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the specified cursor mode. This "click" has special behavior in that it <strong>only affects GUI and GUI controls</strong> under given coordinates. Any conditions attached to the first interface elements on given coordinates will be executed. Other game elements (room objects, hotspots, characters) will be <strong>ignored</strong>.</p>
+<p>The available cursor modes are the ones you define on your Cursors tab (but with eMode prepended to them). Usually these are eModeWalkto, eModeLookat, etc.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ProcessClick(100, 50, eModePointer);
-</pre></div>
-</div>
-<p>will simulate clicking the mouse on co-ordinates (100, 50) in the
-Pointer mode, which will ignore anything but interface.</p>
+<pre><code>ProcessClick(100, 50, eModePointer);
+</code></pre>
+<p>will simulate clicking the mouse on co-ordinates (100, 50) in the Pointer mode, which will ignore anything but interface.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Mouse.html"><span class="doc">Mouse.Click</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="setposition">
-<span id="index-5"></span><h2>SetPosition<a class="headerlink" href="#setposition" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Mouse.html#click">Mouse.Click</a>, <a href="Room.html#processclick">Room.ProcessClick</a></p>
+<hr />
+</section>
+<section id="setposition" class="level3">
+<h3>SetPosition</h3>
 <p><em>(Formerly known as SetGUIPosition, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.SetPosition(int x, int y)
-</pre></div>
-</div>
-<p>Moves the top-left corner of GUI to the new location (X,Y) on the
-screen. This allows you to dynamically move GUIs around on the screen
-while the game is running. The co-ordinates are screen co-ordinates, not
-room co-ordinates, and use the same scale as in the editor.</p>
+<pre><code>GUI.SetPosition(int x, int y)
+</code></pre>
+<p>Moves the top-left corner of GUI to the new location (X,Y) on the screen. This allows you to dynamically move GUIs around on the screen while the game is running. The co-ordinates are screen co-ordinates, not room co-ordinates, and use the same scale as in the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gMyGui.SetPosition(mouse.x, mouse.y);
-</pre></div>
-</div>
+<pre><code>gMyGui.SetPosition(mouse.x, mouse.y);
+</code></pre>
 <p>will move the GUI to the position where the cursor is.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Centre</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.BackgroundGraphic</span></a>,
-<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>, <a class="reference internal" href="#"><span class="doc">GUI.X</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.Y</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="setsize">
-<span id="index-6"></span><h2>SetSize<a class="headerlink" href="#setsize" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="GUI.html#centre">GUI.Centre</a>, <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUIControl.html#setposition">GUIControl.SetPosition</a>, <a href="GUI.html#setsize">GUI.SetSize</a>, <a href="GUI.html#x">GUI.X</a>, <a href="GUI.html#y">GUI.Y</a></p>
+<hr />
+</section>
+<section id="setsize" class="level3">
+<h3>SetSize</h3>
 <p><em>(Formerly known as SetGUISize, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUI.SetSize(int width, int height)
-</pre></div>
-</div>
+<pre><code>GUI.SetSize(int width, int height)
+</code></pre>
 <p>Changes the GUI to have the new size WIDTH x HEIGHT</p>
-<p>This could be useful for initially hiding an ‘Advanced’ part of an
-options screen and such like.</p>
-<p>The size is in the normal 320x200-resolution pixels. Setting the size to
-320, 200 will cause the GUI to take up the entire screen.</p>
+<p>This could be useful for initially hiding an 'Advanced' part of an options screen and such like.</p>
+<p>The size is in the normal 320x200-resolution pixels. Setting the size to 320, 200 will cause the GUI to take up the entire screen.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gIconbar.SetSize(160, 100);
-</pre></div>
-</div>
+<pre><code>gIconbar.SetSize(160, 100);
+</code></pre>
 <p>changes the ICONBAR GUI to be the size of half the screen</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Centre</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.Height</span></a>,
-<a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.Width</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="backgroundgraphic">
-<span id="index-7"></span><h2>BackgroundGraphic<a class="headerlink" href="#backgroundgraphic" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="GUI.html#centre">GUI.Centre</a>, <a href="GUI.html#height">GUI.Height</a>, <a href="GUIControl.html#setposition">GUIControl.SetPosition</a>, <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="GUI.html#width">GUI.Width</a></p>
+<hr />
+</section>
+<section id="backgroundgraphic" class="level3">
+<h3>BackgroundGraphic</h3>
 <p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.BackgroundGraphic
-</pre></div>
-</div>
+<pre><code>int GUI.BackgroundGraphic
+</code></pre>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
-<a class="reference internal" href="Button.html"><span class="doc">Button.NormalGraphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="clickable">
-<span id="index-8"></span><h2>Clickable<a class="headerlink" href="#clickable" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<hr />
+</section>
+<section id="clickable" class="level3">
+<h3>Clickable</h3>
 <p><em>(Formerly known as SetGUIClickable, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool GUI.Clickable
-</pre></div>
-</div>
-<p>Gets/sets whether the GUI is clickable or not. This allows you to modify
-the “Clickable” checkbox from the GUI Editor.</p>
-<p>If this is set to 1, then the GUI will respond to mouse clicks as
-normal.</p>
-<p>If this is set to 0, then this GUI cannot be clicked on by the mouse.
-This might be useful for a transparent overlay GUI which displays
-information, and you want the player to be able to click on whatever is
-underneath.</p>
+<pre><code>bool GUI.Clickable
+</code></pre>
+<p>Gets/sets whether the GUI is clickable or not. This allows you to modify the "Clickable" checkbox from the GUI Editor.</p>
+<p>If this is set to 1, then the GUI will respond to mouse clicks as normal.</p>
+<p>If this is set to 0, then this GUI cannot be clicked on by the mouse. This might be useful for a transparent overlay GUI which displays information, and you want the player to be able to click on whatever is underneath.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gStatusline.Clickable = false;
-</pre></div>
-</div>
+<pre><code>gStatusline.Clickable = false;
+</code></pre>
 <p>sets the STATUSLINE GUI to no longer respond to mouse clicks.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.GetAtScreenXY</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-9"></span></div>
-<div class="section" id="controlcount">
-<span id="index-10"></span><h2>ControlCount<a class="headerlink" href="#controlcount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int GUI.ControlCount;
-</pre></div>
-</div>
-<p>Gets the number of controls on the GUI. You won’t normally need to use
-this property, but in some circumstances you may wish to iterate through
-all the GUI’s controls, and this allows you to determine where to stop.</p>
+<p><em>See Also:</em> <a href="GUI.html#getatscreenxy">GUI.GetAtScreenXY</a></p>
+<hr />
+</section>
+<section id="controlcount" class="level3">
+<h3>ControlCount</h3>
+<pre><code>readonly int GUI.ControlCount;
+</code></pre>
+<p>Gets the number of controls on the GUI. You won't normally need to use this property, but in some circumstances you may wish to iterate through all the GUI's controls, and this allows you to determine where to stop.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int i = 0;
+<pre><code>int i = 0;
 while (i &lt; gInventory.ControlCount) {
   gInventory.Controls[i].Enabled = false;
   i++;
 }
-</pre></div>
-</div>
+</code></pre>
 <p>disables all controls on the INVENTORY GUI.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Controls</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-11"></span></div>
-<div class="section" id="controls">
-<span id="index-12"></span><h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUIControl* GUI.Controls[index]
-</pre></div>
-</div>
-<p>Provides an array which allows you to access controls on the GUI by
-their index. You should not normally need to do this, since accessing
-the controls by their name is far easier; however, if you need to
-interoperate with legacy code that uses the control number, this can
-come in useful.</p>
-<p>Returns the GUIControl object for the specified control index, or <em>null</em>
-if you give an invalid control index.</p>
-<p>You can cast the GUIControl to the appropriate type using the AsButton,
-AsListBox, etc methods on it.</p>
+<p><em>See Also:</em> <a href="GUI.html#controls">GUI.Controls</a></p>
+<hr />
+</section>
+<section id="controls" class="level3">
+<h3>Controls</h3>
+<pre><code>GUIControl* GUI.Controls[index]
+</code></pre>
+<p>Provides an array which allows you to access controls on the GUI by their index. You should not normally need to do this, since accessing the controls by their name is far easier; however, if you need to interoperate with legacy code that uses the control number, this can come in useful.</p>
+<p>Returns the GUIControl object for the specified control index, or <em>null</em> if you give an invalid control index.</p>
+<p>You can cast the GUIControl to the appropriate type using the AsButton, AsListBox, etc methods on it.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GUIControl *control = gInventory.Controls[4];
+<pre><code>GUIControl *control = gInventory.Controls[4];
 if (control == null) {
   Display(&quot;The inventory GUI doesn&#39;t have a control number 4.&quot;);
 }
@@ -258,294 +220,135 @@ else {
   control.Enabled = true;
   control.AsListBox.AddItem(&quot;New item!!&quot;);
 }
-</pre></div>
-</div>
-<p>gets list box number 4 from the INVENTORY GUI, and then adds an item to
-it. If control 4 isn’t a listbox, you will get a Null Reference error.</p>
-<p><em>See Also:</em> <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.As*</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.ControlCount</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="height">
-<span id="index-13"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Height
-</pre></div>
-</div>
-<p>Gets/sets the height of the GUI. This allows you to dynamically change
-the size of the GUI on the screen.</p>
+</code></pre>
+<p>gets list box number 4 from the INVENTORY GUI, and then adds an item to it. If control 4 isn't a listbox, you will get a Null Reference error.</p>
+<p><em>See Also:</em> <a href="GUIControl.html#astype">GUIControl.As*</a>, <a href="GUI.html#controlcount">GUI.ControlCount</a></p>
+<hr />
+</section>
+<section id="height" class="level3">
+<h3>Height</h3>
+<pre><code>int GUI.Height
+</code></pre>
+<p>Gets/sets the height of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
 <p>The height is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The icon bar GUI is %d pixels high.&quot;, gIconbar.Height);
-</pre></div>
-</div>
+<pre><code>Display(&quot;The icon bar GUI is %d pixels high.&quot;, gIconbar.Height);
+</code></pre>
 <p>displays the height of the ICONBAR GUI.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.Width</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="index-14">
-<span id="id"></span><h2>ID<a class="headerlink" href="#index-14" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int GUI.ID
-</pre></div>
-</div>
-<p>Gets the GUI’s ID number. This is the GUI’s number from the editor, and
-is useful if you need to interoperate with legacy code that uses the
-GUI’s number rather than object name.</p>
+<p><em>See Also:</em> <a href="GUI.html#setsize">GUI.SetSize</a>, <a href="GUI.html#width">GUI.Width</a></p>
+<hr />
+</section>
+<section id="id" class="level3">
+<h3>ID</h3>
+<pre><code>readonly int GUI.ID
+</code></pre>
+<p>Gets the GUI's ID number. This is the GUI's number from the editor, and is useful if you need to interoperate with legacy code that uses the GUI's number rather than object name.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetGUIClickable(gIconbar.ID, 1);
+<pre><code>SetGUIClickable(gIconbar.ID, 1);
 gIconbar.Clickable = false;
-</pre></div>
-</div>
-<p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI
-clickable, and then uses the equivalent modern property to stop it being
-clickable.</p>
-<p><em>See Also:</em> <a class="reference internal" href="GUIControl.html"><span class="doc">GUIControl.ID</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="transparency">
-<span id="index-15"></span><h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI clickable, and then uses the equivalent modern property to stop it being clickable.</p>
+<p><em>See Also:</em> <a href="GUIControl.html#id">GUIControl.ID</a></p>
+<hr />
+</section>
+<section id="transparency" class="level3">
+<h3>Transparency</h3>
 <p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Transparency
-</pre></div>
-</div>
+<pre><code>int GUI.Transparency
+</code></pre>
 <p>Gets/sets the GUI translucency, in percent.</p>
-<p>Setting this to 100 means the GUI is totally invisible, and lower values
-represent varying levels of translucency. Set it to 0 to stop the GUI
-being translucent.</p>
+<p>Setting this to 100 means the GUI is totally invisible, and lower values represent varying levels of translucency. Set it to 0 to stop the GUI being translucent.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
-<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent GUI can
-significantly slow down AGS.</p>
-<p>Some rounding is done internally when the transparency is stored –
-therefore, if you get the transparency after setting it, the value you
-get back might be one out. Therefore, using a loop with
-<code class="docutils literal notranslate"><span class="pre">gInventory.Transparency++;</span></code> is not recommended as it will probably end
-too quickly.</p>
-<p>In order to fade a GUI in/out, the best approach is shown in the example
-below:</p>
+<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent GUI can significantly slow down AGS.</p>
+<p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>gInventory.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
+<p>In order to fade a GUI in/out, the best approach is shown in the example below:</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int trans = gInventory.Transparency;
+<pre><code>int trans = gInventory.Transparency;
 while (trans &lt; 100) {
   trans++;
   gInventory.Transparency = trans;
   Wait(1);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Object.html"><span class="doc">Object.Transparency</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="visible">
-<span id="index-16"></span><h2>Visible<a class="headerlink" href="#visible" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GUIOff, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as GUIOn, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as InterfaceOff, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as InterfaceOn, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool GUI.Visible
-</pre></div>
-</div>
-<p>Gets/sets whether the GUI is visible or not. This property has behaves
-differently depending on the GUI popup style.</p>
-<p>For “Normal” and “Persistent” GUIs, this property simply switches the
-GUI on and off, and has no further effects.</p>
-<p>For “Popup modal” GUIs, setting Visible to true causes the game to
-become paused until the GUI is removed by setting Visible back to false
-(eg. when the user presses an OK button or something similar).</p>
-<p>For “Mouse Ypos” GUIs, the Visible property does not actually determine
-whether the GUI can be seen, but instead it controls whether the GUI
-<strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse
-to the top of the screen will not activate the GUI; if it is <em>true</em>,
-then the GUI will be allowed to be popped up.</p>
+<p><em>See Also:</em> <a href="Object.html#transparency">Object.Transparency</a></p>
+<hr />
+</section>
+<section id="visible" class="level3">
+<h3>Visible</h3>
+<p><em>(Formerly known as GUIOff, which is now obsolete)</em><br> <em>(Formerly known as GUIOn, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOff, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOn, which is now obsolete)</em><br> <em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
+<pre><code>bool GUI.Visible
+</code></pre>
+<p>Gets/sets whether the GUI is visible or not. This property has behaves differently depending on the GUI popup style.</p>
+<p>For "Normal" and "Persistent" GUIs, this property simply switches the GUI on and off, and has no further effects.</p>
+<p>For "Popup modal" GUIs, setting Visible to true causes the game to become paused until the GUI is removed by setting Visible back to false (eg. when the user presses an OK button or something similar).</p>
+<p>For "Mouse Ypos" GUIs, the Visible property does not actually determine whether the GUI can be seen, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse to the top of the screen will not activate the GUI; if it is <em>true</em>, then the GUI will be allowed to be popped up.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gSettings.Visible = true;
-</pre></div>
-</div>
+<pre><code>gSettings.Visible = true;
+</code></pre>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsGamePaused</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="width">
-<span id="index-17"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Width
-</pre></div>
-</div>
-<p>Gets/sets the width of the GUI. This allows you to dynamically change
-the size of the GUI on the screen.</p>
+<p><em>See Also:</em> <a href="Game.html#isgamepaused">IsGamePaused</a></p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3>Width</h3>
+<pre><code>int GUI.Width
+</code></pre>
+<p>Gets/sets the width of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
 <p>The width is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gInventory.Width += 5;
-</pre></div>
-</div>
+<pre><code>gInventory.Width += 5;
+</code></pre>
 <p>makes the INVENTORY GUI 5 pixels wider.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.Height</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.SetSize</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="x">
-<span id="index-18"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.X
-</pre></div>
-</div>
-<p>Gets/sets the X position of the GUI. This allows you to dynamically
-change the position of the GUI on the screen.</p>
-<p>The X position is the left-hand side of the GUI, and can be between 0
-and 320. The co-ordinates used are screen co-ordinates, not room
-co-ordinates, and are in the normal 320-resolution style.</p>
+<p><em>See Also:</em> <a href="GUI.html#height">GUI.Height</a>, <a href="GUI.html#setsize">GUI.SetSize</a></p>
+<hr />
+</section>
+<section id="x" class="level3">
+<h3>X</h3>
+<pre><code>int GUI.X
+</code></pre>
+<p>Gets/sets the X position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
+<p>The X position is the left-hand side of the GUI, and can be between 0 and 320. The co-ordinates used are screen co-ordinates, not room co-ordinates, and are in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gMyGui.X += 5;
-</pre></div>
-</div>
+<pre><code>gMyGui.X += 5;
+</code></pre>
 <p>moves the GUI right 5 pixels.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.Y</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="y">
-<span id="index-19"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.Y
-</pre></div>
-</div>
-<p>Gets/sets the Y position of the GUI. This allows you to dynamically
-change the position of the GUI on the screen.</p>
-<p>The Y position is the top edge of the GUI, and can be between 0 and 200
-(or 240, depending on room height). The co-ordinates used are screen
-co-ordinates, not room co-ordinates, and are in the normal
-320x200-resolution style.</p>
+<p><em>See Also:</em> <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="GUI.html#y">GUI.Y</a></p>
+<hr />
+</section>
+<section id="y" class="level3">
+<h3>Y</h3>
+<pre><code>int GUI.Y
+</code></pre>
+<p>Gets/sets the Y position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
+<p>The Y position is the top edge of the GUI, and can be between 0 and 200 (or 240, depending on room height). The co-ordinates used are screen co-ordinates, not room co-ordinates, and are in the normal 320x200-resolution style.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gMyGui.Y += 5;
-</pre></div>
-</div>
+<pre><code>gMyGui.Y += 5;
+</code></pre>
 <p>moves the GUI down 5 pixels.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.SetPosition</span></a>,
-<a class="reference internal" href="#"><span class="doc">GUI.X</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="zorder">
-<span id="index-20"></span><h2>ZOrder<a class="headerlink" href="#zorder" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="GUI.html#x">GUI.X</a></p>
+<hr />
+</section>
+<section id="zorder" class="level3">
+<h3>ZOrder</h3>
 <p><em>(Formerly known as SetGUIZOrder, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int GUI.ZOrder
-</pre></div>
-</div>
-<p>Gets/sets the z-order of the GUI. This allows you to dynamically change
-the ordering of GUIs on the screen.</p>
-<p>The Z-order setting is an arbitrary number between 0 and 1000. AGS draws
-the GUIs in order, from the lowest numbered at the back to the highest
-numbered at the front.</p>
+<pre><code>int GUI.ZOrder
+</code></pre>
+<p>Gets/sets the z-order of the GUI. This allows you to dynamically change the ordering of GUIs on the screen.</p>
+<p>The Z-order setting is an arbitrary number between 0 and 1000. AGS draws the GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>gStatusline.ZOrder = 0;
-</pre></div>
-</div>
+<pre><code>gStatusline.ZOrder = 0;
+</code></pre>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GUI.GetAtScreenXY</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<p><em>See Also:</em> <a href="GUI.html#getatscreenxy">GUI.GetAtScreenXY</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="File.html" title="previous chapter">File functions and properties</a></li>
-      <li>Next: <a href="GUIControl.html" title="next chapter">GUIControl functions and properties</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20GUI%20functions%20and%20properties&body=source%20is%20GUI.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/GUI"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">GUI functions and properties</a><ul>
-<li><a class="reference internal" href="#centre">Centre</a></li>
-<li><a class="reference internal" href="#click">Click</a></li>
-<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
-<li><a class="reference internal" href="#setposition">SetPosition</a></li>
-<li><a class="reference internal" href="#setsize">SetSize</a></li>
-<li><a class="reference internal" href="#backgroundgraphic">BackgroundGraphic</a></li>
-<li><a class="reference internal" href="#clickable">Clickable</a></li>
-<li><a class="reference internal" href="#controlcount">ControlCount</a></li>
-<li><a class="reference internal" href="#controls">Controls</a></li>
-<li><a class="reference internal" href="#height">Height</a></li>
-<li><a class="reference internal" href="#index-14">ID</a></li>
-<li><a class="reference internal" href="#transparency">Transparency</a></li>
-<li><a class="reference internal" href="#visible">Visible</a></li>
-<li><a class="reference internal" href="#width">Width</a></li>
-<li><a class="reference internal" href="#x">X</a></li>
-<li><a class="reference internal" href="#y">Y</a></li>
-<li><a class="reference internal" href="#zorder">ZOrder</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

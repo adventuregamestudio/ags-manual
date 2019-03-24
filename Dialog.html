@@ -1,71 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dialog functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Dialog functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DialogOptionsRenderingInfo functions and properties" href="DialogOptionsRenderingInfo.html" />
-    <link rel="prev" title="Debugging features" href="Debuggingfeatures.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="dialog-functions-and-properties">
-<h1>Dialog functions and properties<a class="headerlink" href="#dialog-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="displayoptions">
-<span id="index-1"></span><h2>DisplayOptions<a class="headerlink" href="#displayoptions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Dialog.DisplayOptions(optional DialogOptionSayStyle)
-</pre></div>
-</div>
-<p>Presents the options for this dialog to the user and waits until they
-select one of them. The selected option number is returned.</p>
-<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply
-displays the options and waits for the player to choose one. To run the
-dialog normally, use the <a class="reference internal" href="#"><span class="doc">Dialog.Start</span></a> command
-instead.</p>
-<p>This command is useful if you want to implement your own dialog system,
-but still use the standard AGS dialog option selection screens.</p>
-<p>The optional <em>DialogOptionSayStyle</em> parameter determines whether the
-chosen option is automatically spoken by the player character. The
-default is <em>eSayUseOptionSetting</em>, which will use the option’s “Say”
-setting from the dialog editor. You can alternatively use <em>eSayAlways</em>,
-which will speak the chosen option regardless of its setting in the
-editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
-<p>If the text parser is enabled for this dialog and the player types
-something into it rather than selecting an option, the special value
-<code class="docutils literal notranslate"><span class="pre">DIALOG_PARSER_SELECTED</span></code> will be returned, and AGS will have
-automatically called <a class="reference internal" href="Parser.html"><span class="doc">Parser.ParseText</span></a> with
-the player’s text. Therefore, you can call
-<a class="reference internal" href="Parser.html"><span class="doc">Parser.Said</span></a> to process it.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#dialog-functions-and-properties">Dialog functions and properties</a><ul>
+<li><a href="#displayoptions">DisplayOptions</a></li>
+<li><a href="#getoptionstate">GetOptionState</a></li>
+<li><a href="#getoptiontext">GetOptionText</a></li>
+<li><a href="#hasoptionbeenchosen">HasOptionBeenChosen</a></li>
+<li><a href="#id">ID</a></li>
+<li><a href="#optioncount">OptionCount</a></li>
+<li><a href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></li>
+<li><a href="#setoptionstate">SetOptionState</a></li>
+<li><a href="#showtextparser">ShowTextParser</a></li>
+<li><a href="#start">Start</a></li>
+<li><a href="#stopdialog">StopDialog</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="dialog-functions-and-properties" class="level2">
+<h2>Dialog functions and properties</h2>
+<section id="displayoptions" class="level3">
+<h3>DisplayOptions</h3>
+<pre><code>int Dialog.DisplayOptions(optional DialogOptionSayStyle)
+</code></pre>
+<p>Presents the options for this dialog to the user and waits until they select one of them. The selected option number is returned.</p>
+<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply displays the options and waits for the player to choose one. To run the dialog normally, use the <a href="Dialog.html#start">Dialog.Start</a> command instead.</p>
+<p>This command is useful if you want to implement your own dialog system, but still use the standard AGS dialog option selection screens.</p>
+<p>The optional <em>DialogOptionSayStyle</em> parameter determines whether the chosen option is automatically spoken by the player character. The default is <em>eSayUseOptionSetting</em>, which will use the option's "Say" setting from the dialog editor. You can alternatively use <em>eSayAlways</em>, which will speak the chosen option regardless of its setting in the editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
+<p>If the text parser is enabled for this dialog and the player types something into it rather than selecting an option, the special value <code>DIALOG_PARSER_SELECTED</code> will be returned, and AGS will have automatically called <a href="Parser.html#parsetext">Parser.ParseText</a> with the player's text. Therefore, you can call <a href="Parser.html#said">Parser.Said</a> to process it.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int result = dOldMan.DisplayOptions();
+<pre><code>int result = dOldMan.DisplayOptions();
 if (result == DIALOG_PARSER_SELECTED)
 {
   Display(&quot;They typed something into the parser!!&quot;);
@@ -74,346 +82,188 @@ else
 {
   Display(&quot;They chose dialog option %d.&quot;, result);
 }
-</pre></div>
-</div>
-<p>will show the options for dialog <em>dOldMan</em> and display a message
-depending on what the player selected.</p>
+</code></pre>
+<p>will show the options for dialog <em>dOldMan</em> and display a message depending on what the player selected.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.Start</span></a>,
-<a class="reference internal" href="Parser.html"><span class="doc">Parser.ParseText</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="getoptionstate">
-<span id="index-3"></span><h2>GetOptionState<a class="headerlink" href="#getoptionstate" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetDialogOption, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.GetOptionState(int option)
-</pre></div>
-</div>
-<p>Finds out whether an option in a conversation is available to the player
-or not.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the
-highest option is for that topic.</p>
+<p><em>See Also:</em> <a href="Dialog.html#start">Dialog.Start</a>, <a href="Parser.html#parsetext">Parser.ParseText</a></p>
+<hr />
+</section>
+<section id="getoptionstate" class="level3">
+<h3>GetOptionState</h3>
+<p><em>(Formerly known as global function GetDialogOption, which is now obsolete)</em></p>
+<pre><code>Dialog.GetOptionState(int option)
+</code></pre>
+<p>Finds out whether an option in a conversation is available to the player or not.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
 <p>The return value can have the following values:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eOptionOff
+<pre><code>eOptionOff
   The option is disabled - the player will not see it
 eOptionOn
   The option is enabled - the player can now see and use it
 eOptionOffForever
   The option is permanently disabled - no other command can ever turn
   it back on again.
-</pre></div>
-</div>
+</code></pre>
 <p>These are the same as the options passed to Dialog.SetOptionState.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dJoeExcited.GetOptionState(2) != eOptionOn)
+<pre><code>if (dJoeExcited.GetOptionState(2) != eOptionOn)
   Display(&quot;It&#39;s turned off&quot;);
-</pre></div>
-</div>
-<p>Will display a message if option 2 of dialog dJoeExcited is not
-currently switched on.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">Dialog.HasOptionBeenChosen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.SetHasOptionBeenChosen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.SetOptionState</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="getoptiontext">
-<span id="index-5"></span><h2>GetOptionText<a class="headerlink" href="#getoptiontext" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Dialog.GetOptionText(int option)
-</pre></div>
-</div>
+</code></pre>
+<p>Will display a message if option 2 of dialog dJoeExcited is not currently switched on.</p>
+<p><em>See Also:</em> <a href="Dialog.html#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a>, <a href="Dialog.html#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>, <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+<hr />
+</section>
+<section id="getoptiontext" class="level3">
+<h3>GetOptionText</h3>
+<pre><code>String Dialog.GetOptionText(int option)
+</code></pre>
 <p>Returns the text for the specified dialog option.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the
-highest option is for that topic.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String optionText = dJoeBloggs.GetOptionText(3);
+<pre><code>String optionText = dJoeBloggs.GetOptionText(3);
 Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
-</pre></div>
-</div>
+</code></pre>
 <p>will display the text for the third option of the dJoeBloggs dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.OptionCount</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.GetOptionState</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="hasoptionbeenchosen">
-<span id="index-7"></span><h2>HasOptionBeenChosen<a class="headerlink" href="#hasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Dialog.HasOptionBeenChosen(int option)
-</pre></div>
-</div>
-<p>Finds out whether the player has already chosen the specified option in
-this dialog. This is mainly useful when drawing your own custom dialog
-options display, since it allows you to differentiate options that have
-already been chosen.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the
-highest option is for that topic.</p>
+<p><em>See Also:</em> <a href="Dialog.html#optioncount">Dialog.OptionCount</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<hr />
+</section>
+<section id="hasoptionbeenchosen" class="level3">
+<h3>HasOptionBeenChosen</h3>
+<pre><code>bool Dialog.HasOptionBeenChosen(int option)
+</code></pre>
+<p>Finds out whether the player has already chosen the specified option in this dialog. This is mainly useful when drawing your own custom dialog options display, since it allows you to differentiate options that have already been chosen.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dJoeExcited.HasOptionBeenChosen(2))
+<pre><code>if (dJoeExcited.HasOptionBeenChosen(2))
   Display(&quot;The player has chosen option 2 in dialog dJoeExcited!&quot;);
-</pre></div>
-</div>
-<p>will display a message if the player has used option 2 of the dialog
-before.</p>
+</code></pre>
+<p>will display a message if the player has used option 2 of the dialog before.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.GetOptionState</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.SetHasOptionBeenChosen</span></a>,</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="index-8">
-<span id="id"></span><h2>ID<a class="headerlink" href="#index-8" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Dialog.ID;
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>,</p>
+<hr />
+</section>
+<section id="id" class="level3">
+<h3>ID</h3>
+<pre><code>readonly int Dialog.ID;
+</code></pre>
 <p>Gets the dialog ID number from the editor.</p>
-<p>This might be useful if you need to interoperate with legacy scripts
-that work with dialog ID numbers.</p>
+<p>This might be useful if you need to interoperate with legacy scripts that work with dialog ID numbers.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;dFisherman is Dialog %d!&quot;, dFisherman.ID);
-</pre></div>
-</div>
+<pre><code>Display(&quot;dFisherman is Dialog %d!&quot;, dFisherman.ID);
+</code></pre>
 <p>will display the ID number of the dFisherman dialog</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<hr class="docutils" />
-<span class="target" id="index-9"></span></div>
-<div class="section" id="optioncount">
-<span id="index-10"></span><h2>OptionCount<a class="headerlink" href="#optioncount" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Dialog.OptionCount;
-</pre></div>
-</div>
+<hr />
+</section>
+<section id="optioncount" class="level3">
+<h3>OptionCount</h3>
+<pre><code>readonly int Dialog.OptionCount;
+</code></pre>
 <p>Gets the number of options that this dialog has.</p>
-<p>This might be useful in a script module if you want to iterate through
-all the possible choices in the dialog.</p>
+<p>This might be useful in a script module if you want to iterate through all the possible choices in the dialog.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">Display</span>(<span class="s">&quot;dFisherman has %d options!&quot;</span>, <span class="n">dFisherman</span>.<span class="n">OptionCount</span>);
-</pre></div>
-</div>
+<pre><code>Display(&quot;dFisherman has %d options!&quot;, dFisherman.OptionCount);
+</code></pre>
 <p>will display the number of options in the dFisherman dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.GetOptionText</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.GetOptionState</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-11"></span></div>
-<div class="section" id="sethasoptionbeenchosen">
-<span id="index-12"></span><h2>SetHasOptionBeenChosen<a class="headerlink" href="#sethasoptionbeenchosen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.SetHasOptionBeenChosen(int option, bool chosen)
-</pre></div>
-</div>
-<p>Changes whether an option in a conversation is marked as previously
-chosen by the player. The option is marked as chosen whenever player
-selects it during the conversation, and is usually highlighted with
-different text colour. This function lets you to reset the option state,
-or force it change at any random moment.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the
-highest option is for that topic.</p>
+<p><em>See Also:</em> <a href="Dialog.html#getoptiontext">Dialog.GetOptionText</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<hr />
+</section>
+<section id="sethasoptionbeenchosen" class="level3">
+<h3>SetHasOptionBeenChosen</h3>
+<pre><code>Dialog.SetHasOptionBeenChosen(int option, bool chosen)
+</code></pre>
+<p>Changes whether an option in a conversation is marked as previously chosen by the player. The option is marked as chosen whenever player selects it during the conversation, and is usually highlighted with different text colour. This function lets you to reset the option state, or force it change at any random moment.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dDialog1.HasOptionBeenChosen(1))
+<pre><code>if (dDialog1.HasOptionBeenChosen(1))
     dDialog1.SetHasOptionBeenChosen(1, false); // reset the option state
-</pre></div>
-</div>
-<p>will mark option 1 of dialog dDialog1 as “not chosen yet”.</p>
+</code></pre>
+<p>will mark option 1 of dialog dDialog1 as "not chosen yet".</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.GetOptionState</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.HasOptionBeenChosen</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-13"></span></div>
-<div class="section" id="setoptionstate">
-<span id="index-14"></span><h2>SetOptionState<a class="headerlink" href="#setoptionstate" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function SetDialogOption, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.SetOptionState(int option, DialogOptionState)
-</pre></div>
-</div>
-<p>Changes whether an option in a conversation is available to the player
-or not. This allows you to add extra options to a conversation once the
-player has done certain things.</p>
-<p>OPTION is the option number within the topic, from 1 to whatever the
-highest option is for that topic.</p>
-<p>The DialogOptionState controls what happens to this option. It can have
-the following values:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eOptionOff
+<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a></p>
+<hr />
+</section>
+<section id="setoptionstate" class="level3">
+<h3>SetOptionState</h3>
+<p><em>(Formerly known as global function SetDialogOption, which is now obsolete)</em></p>
+<pre><code>Dialog.SetOptionState(int option, DialogOptionState)
+</code></pre>
+<p>Changes whether an option in a conversation is available to the player or not. This allows you to add extra options to a conversation once the player has done certain things.</p>
+<p>OPTION is the option number within the topic, from 1 to whatever the highest option is for that topic.</p>
+<p>The DialogOptionState controls what happens to this option. It can have the following values:</p>
+<pre><code>eOptionOff
   The option is disabled - the player will not see it
 eOptionOn
   The option is enabled - the player can now see and use it
 eOptionOffForever
   The option is permanently disabled - no other command can ever turn
   it back on again.
-</pre></div>
-</div>
-<p>These are equivalent to the option-off, option-on, and
-option-off-forever dialog commands.</p>
+</code></pre>
+<p>These are equivalent to the option-off, option-on, and option-off-forever dialog commands.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetGlobalInt(10)==1)
+<pre><code>if (GetGlobalInt(10)==1)
     dialog[4].SetOptionState(2, eOptionOn);
-</pre></div>
-</div>
+</code></pre>
 <p>will enable option 2 of topic number 4 if the Global Integer 10 is 1.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.GetOptionState</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.Start</span></a>,
-<a class="reference internal" href="#"><span class="doc">StopDialog</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-15"></span></div>
-<div class="section" id="showtextparser">
-<span id="index-16"></span><h2>ShowTextParser<a class="headerlink" href="#showtextparser" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Dialog.ShowTextParser;
-</pre></div>
-</div>
-<p>Gets whether this dialog shows a text box allowing the player to type in
-text.</p>
+<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#start">Dialog.Start</a>, <a href="Dialog.html#stopdialog">StopDialog</a></p>
+<hr />
+</section>
+<section id="showtextparser" class="level3">
+<h3>ShowTextParser</h3>
+<pre><code>readonly bool Dialog.ShowTextParser;
+</code></pre>
+<p>Gets whether this dialog shows a text box allowing the player to type in text.</p>
 <p>This property is initially set in the Dialog Editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (dFisherman.ShowTextParser)
+<pre><code>if (dFisherman.ShowTextParser)
 {
   Display(&quot;dFisherman has a text box!&quot;);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will display a message if dFisherman has the option enabled</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.1</strong> and later versions.</p>
-<hr class="docutils" />
-<span class="target" id="index-17"></span></div>
-<div class="section" id="start">
-<span id="index-18"></span><h2>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<hr />
+</section>
+<section id="start" class="level3">
+<h3>Start</h3>
 <p><em>(Formerly known as global function RunDialog, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog.Start()
-</pre></div>
-</div>
+<pre><code>Dialog.Start()
+</code></pre>
 <p>Starts a conversation from the specified topic.</p>
-<p>NOTE: The conversation will not start immediately; instead, it will be
-run when the current script function finishes executing.</p>
-<p>If you use this command from within the dialog_request function, it
-will specify that the game should return to this new topic when the
-script finishes.</p>
+<p>NOTE: The conversation will not start immediately; instead, it will be run when the current script function finishes executing.</p>
+<p>If you use this command from within the dialog_request function, it will specify that the game should return to this new topic when the script finishes.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>dMerchant.Start();
-</pre></div>
-</div>
+<pre><code>dMerchant.Start();
+</code></pre>
 <p>will start the conversation topic named dMerchant.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.DisplayOptions</span></a>,
-<a class="reference internal" href="#"><span class="doc">Dialog.SetOptionState</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-19"></span></div>
-<div class="section" id="stopdialog">
-<span id="index-20"></span><h2>StopDialog<a class="headerlink" href="#stopdialog" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>StopDialog ()
-</pre></div>
-</div>
-<p>This command can only be used from within the dialog_request function.
-It tells AGS that when dialog_request finishes, the whole conversation
-should stop rather than continuing with the dialog script.</p>
-<p>You can use this function to end the conversation depending on whether
-the player has/does a certain thing.</p>
+<p><em>See Also:</em> <a href="Dialog.html#displayoptions">Dialog.DisplayOptions</a>, <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+<hr />
+</section>
+<section id="stopdialog" class="level3">
+<h3>StopDialog</h3>
+<pre><code>StopDialog ()
+</code></pre>
+<p>This command can only be used from within the dialog_request function. It tells AGS that when dialog_request finishes, the whole conversation should stop rather than continuing with the dialog script.</p>
+<p>You can use this function to end the conversation depending on whether the player has/does a certain thing.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_request</span> <span class="p">(</span><span class="kr">int</span> <span class="nx">dr</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">dr</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">cEgo</span><span class="p">.</span><span class="nx">AddInventory</span><span class="p">(</span><span class="nx">iPoster</span><span class="p">);</span>
-  <span class="nx">StopDialog</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code> function dialog_request (int dr) {
+ if (dr==1) {
+   cEgo.AddInventory(iPoster);
+   StopDialog();
+ }
+</code></pre>
 <p>will give the player the inventory item 3 and then end the conversation.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Dialog.SetOptionState</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<p><em>See Also:</em> <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Debuggingfeatures.html" title="previous chapter">Debugging features</a></li>
-      <li>Next: <a href="DialogOptionsRenderingInfo.html" title="next chapter">DialogOptionsRenderingInfo functions and properties</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Dialog%20functions%20and%20properties&body=source%20is%20Dialog.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Dialog"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Dialog functions and properties</a><ul>
-<li><a class="reference internal" href="#displayoptions">DisplayOptions</a></li>
-<li><a class="reference internal" href="#getoptionstate">GetOptionState</a></li>
-<li><a class="reference internal" href="#getoptiontext">GetOptionText</a></li>
-<li><a class="reference internal" href="#hasoptionbeenchosen">HasOptionBeenChosen</a></li>
-<li><a class="reference internal" href="#index-8">ID</a></li>
-<li><a class="reference internal" href="#optioncount">OptionCount</a></li>
-<li><a class="reference internal" href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></li>
-<li><a class="reference internal" href="#setoptionstate">SetOptionState</a></li>
-<li><a class="reference internal" href="#showtextparser">ShowTextParser</a></li>
-<li><a class="reference internal" href="#start">Start</a></li>
-<li><a class="reference internal" href="#stopdialog">StopDialog</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

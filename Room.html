@@ -1,874 +1,573 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Room functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Room functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Screen functions" href="ScreenFunctions.html" />
-    <link rel="prev" title="repeatedly_execute (_always)" href="RepExec.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="room-functions-and-properties">
-<h1>Room functions and properties<a class="headerlink" href="#room-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="arethingsoverlapping">
-<span id="index-1"></span><h2>AreThingsOverlapping<a class="headerlink" href="#arethingsoverlapping" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AreThingsOverlapping(int thing1, int thing2)
-</pre></div>
-</div>
-<p>Checks whether two characters or objects are overlapping each other on
-screen. This simply carries out a quick rectangular check on the two
-things to decide - so if they have large transparent regions around the
-edges, it may seem to be overlapping too soon.</p>
-<p>THING1 and THING2 can either be a CHARID, or can be an object number
-PLUS 1000. So for example, passing EGO as THING1, and 1004 as THING2,
-will compare the character EGO with Object 4 in the current room.</p>
-<p>Returns 0 if they are not overlapping, or the overlapping amount if they
-are. This amount is an arbitrary scale, but 1 means they are just about
-touching, all the way up to higher numbers for more overlappingness.</p>
-<p>Calling this function with both the parameters as objects is the same as
-calling Object.IsCollidingWithObject.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#room-functions-and-properties">Room functions and properties</a><ul>
+<li><a href="#arethingsoverlapping">AreThingsOverlapping</a></li>
+<li><a href="#disablegroundlevelareas">DisableGroundLevelAreas</a></li>
+<li><a href="#enablegroundlevelareas">EnableGroundLevelAreas</a></li>
+<li><a href="#getbackgroundframe">GetBackgroundFrame</a></li>
+<li><a href="#getdrawingsurfaceforbackground">GetDrawingSurfaceForBackground</a></li>
+<li><a href="#getplayercharacter">GetPlayerCharacter</a></li>
+<li><a href="#getproperty">GetProperty</a></li>
+<li><a href="#gettextproperty">GetTextProperty</a></li>
+<li><a href="#setproperty">SetProperty</a></li>
+<li><a href="#settextproperty">SetTextProperty</a></li>
+<li><a href="#getscalingat">GetScalingAt</a></li>
+<li><a href="#getviewportx">GetViewportX</a></li>
+<li><a href="#getviewporty">GetViewportY</a></li>
+<li><a href="#getwalkableareaat">GetWalkableAreaAt</a></li>
+<li><a href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a></li>
+<li><a href="#processclick">ProcessClick</a></li>
+<li><a href="#releaseviewport">ReleaseViewport</a></li>
+<li><a href="#removewalkablearea">RemoveWalkableArea</a></li>
+<li><a href="#resetroom">ResetRoom</a></li>
+<li><a href="#restorewalkablearea">RestoreWalkableArea</a></li>
+<li><a href="#setareascaling">SetAreaScaling</a></li>
+<li><a href="#setbackgroundframe">SetBackgroundFrame</a></li>
+<li><a href="#setviewport">SetViewport</a></li>
+<li><a href="#setwalkbehindbase">SetWalkBehindBase</a></li>
+<li><a href="#bottomedge">BottomEdge</a></li>
+<li><a href="#colordepth">ColorDepth</a></li>
+<li><a href="#height">Height</a></li>
+<li><a href="#leftedge">LeftEdge</a></li>
+<li><a href="#messages">Messages</a></li>
+<li><a href="#musiconload">MusicOnLoad</a></li>
+<li><a href="#objectcount">ObjectCount</a></li>
+<li><a href="#rightedge">RightEdge</a></li>
+<li><a href="#topedge">TopEdge</a></li>
+<li><a href="#width">Width</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="room-functions-and-properties" class="level2">
+<h2>Room functions and properties</h2>
+<section id="arethingsoverlapping" class="level3">
+<h3>AreThingsOverlapping</h3>
+<pre><code>AreThingsOverlapping(int thing1, int thing2)
+</code></pre>
+<p>Checks whether two characters or objects are overlapping each other on screen. This simply carries out a quick rectangular check on the two things to decide - so if they have large transparent regions around the edges, it may seem to be overlapping too soon.</p>
+<p>THING1 and THING2 can either be a CHARID, or can be an object number PLUS 1000. So for example, passing EGO as THING1, and 1004 as THING2, will compare the character EGO with Object 4 in the current room.</p>
+<p>Returns 0 if they are not overlapping, or the overlapping amount if they are. This amount is an arbitrary scale, but 1 means they are just about touching, all the way up to higher numbers for more overlappingness.</p>
+<p>Calling this function with both the parameters as objects is the same as calling Object.IsCollidingWithObject.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (AreThingsOverlapping(1002, EGO)) {
+<pre><code>if (AreThingsOverlapping(1002, EGO)) {
   // code here
 }
-</pre></div>
-</div>
-<p>will run the code if object 2 is overlapping EGO. This could be useful
-if object 2 was a bullet, for instance.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="Character.html"><span class="doc">Character.IsCollidingWithChar</span></a>,
-<a class="reference internal" href="Object.html"><span class="doc">Object.IsCollidingWithObject</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="disablegroundlevelareas">
-<span id="index-3"></span><h2>DisableGroundLevelAreas<a class="headerlink" href="#disablegroundlevelareas" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>DisableGroundLevelAreas(int disableTints)
-</pre></div>
-</div>
-<p>Disables all ground-level events. This means that all Region events, the
-Player Stands On Hotspot event, and the room edges become disabled.</p>
-<p>This command is useful in conjunction with the character[].z variable,
-if you want the player to be able to temporarily fly or levitate, for
-example. It allows you to stop the character from triggering Player
-Stands On events while they are in the air.</p>
-<p>This command is also useful during some cutscenes, if you don’t want the
-player to trigger events as they walk around the room while in the
-cutscene.</p>
-<p>The DISABLETINTS parameter specifies whether the visual effects of the
-regions (ie. light levels and tints) are also disabled. If you pass this
-as 0, then just the events will be turned off.</p>
+</code></pre>
+<p>will run the code if object 2 is overlapping EGO. This could be useful if object 2 was a bullet, for instance.</p>
+<p><em>See Also:</em> <a href="Character.html#iscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a></p>
+<hr />
+</section>
+<section id="disablegroundlevelareas" class="level3">
+<h3>DisableGroundLevelAreas</h3>
+<pre><code>DisableGroundLevelAreas(int disableTints)
+</code></pre>
+<p>Disables all ground-level events. This means that all Region events, the Player Stands On Hotspot event, and the room edges become disabled.</p>
+<p>This command is useful in conjunction with the character[].z variable, if you want the player to be able to temporarily fly or levitate, for example. It allows you to stop the character from triggering Player Stands On events while they are in the air.</p>
+<p>This command is also useful during some cutscenes, if you don't want the player to trigger events as they walk around the room while in the cutscene.</p>
+<p>The DISABLETINTS parameter specifies whether the visual effects of the regions (ie. light levels and tints) are also disabled. If you pass this as 0, then just the events will be turned off.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>DisableGroundLevelAreas(0);
-</pre></div>
-</div>
+<pre><code>DisableGroundLevelAreas(0);
+</code></pre>
 <p>will disable all ground-level events, but leave light levels working</p>
-<p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Enabled</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">EnableGroundLevelAreas</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="enablegroundlevelareas">
-<span id="index-5"></span><h2>EnableGroundLevelAreas<a class="headerlink" href="#enablegroundlevelareas" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>EnableGroundLevelAreas()
-</pre></div>
-</div>
-<p>Re-enables all ground-level events. This is used to reverse the effects
-of using the DisableGroundLevelAreas command, and will return things to
-normal.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Region.html#enabled">Region.Enabled</a>, <a href="Room.html#enablegroundlevelareas">EnableGroundLevelAreas</a></p>
+<hr />
+</section>
+<section id="enablegroundlevelareas" class="level3">
+<h3>EnableGroundLevelAreas</h3>
+<pre><code>EnableGroundLevelAreas()
+</code></pre>
+<p>Re-enables all ground-level events. This is used to reverse the effects of using the DisableGroundLevelAreas command, and will return things to normal.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>EnableGroundLevelAreas();
-</pre></div>
-</div>
+<pre><code>EnableGroundLevelAreas();
+</code></pre>
 <p>will re-enable all ground-level events.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Enabled</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">DisableGroundLevelAreas</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="getbackgroundframe">
-<span id="index-7"></span><h2>GetBackgroundFrame<a class="headerlink" href="#getbackgroundframe" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetBackgroundFrame()
-</pre></div>
-</div>
-<p>Returns the number of the current background being displayed. In a room
-without animating backgrounds, this will always return 0. Otherwise, the
-current frame number is returned from 0 to 4.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Region.html#enabled">Region.Enabled</a>, <a href="Room.html#disablegroundlevelareas">DisableGroundLevelAreas</a></p>
+<hr />
+</section>
+<section id="getbackgroundframe" class="level3">
+<h3>GetBackgroundFrame</h3>
+<pre><code>GetBackgroundFrame()
+</code></pre>
+<p>Returns the number of the current background being displayed. In a room without animating backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to 4.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetBackgroundFrame()==4)
+<pre><code>if (GetBackgroundFrame()==4)
   object[2].Visible = true;
-</pre></div>
-</div>
+</code></pre>
 <p>will turn on object 2 if the background frame of the room is frame 4.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetBackgroundFrame</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-8"></span></div>
-<div class="section" id="getdrawingsurfaceforbackground">
-<span id="index-9"></span><h2>GetDrawingSurfaceForBackground<a class="headerlink" href="#getdrawingsurfaceforbackground" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static DrawingSurface* Room.GetDrawingSurfaceForBackground(optional int backgroundNumber)
-</pre></div>
-</div>
-<p>Gets a drawing surface for a room background, which allows you to
-directly draw onto the room’s background image. You can provide a
-background frame number if you want to modify a specific frame;
-otherwise, the current background’s surface will be returned.</p>
-<p>After calling this method, use the various
-<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface functions</span></a> to modify the background,
-then call Release on the surface when you are finished.</p>
-<p>Any changes you make will only last until the player leaves the room, at
-which point they will be lost. If you need to make long-lasting changes,
-you can either use this method in the Player Enters Room event, or
-consider using an alternate background frame for the changed image.</p>
-<p><strong>NOTE:</strong> Drawing onto the room background can be slow, especially when
-using the Direct3D driver. Do not use this command in
-repeatedly_execute; make sure you only use this command when absolutely
-necessary.</p>
+<p><em>See Also:</em> <a href="Room.html#setbackgroundframe">SetBackgroundFrame</a></p>
+<hr />
+</section>
+<section id="getdrawingsurfaceforbackground" class="level3">
+<h3>GetDrawingSurfaceForBackground</h3>
+<pre><code>static DrawingSurface* Room.GetDrawingSurfaceForBackground(optional int backgroundNumber)
+</code></pre>
+<p>Gets a drawing surface for a room background, which allows you to directly draw onto the room's background image. You can provide a background frame number if you want to modify a specific frame; otherwise, the current background's surface will be returned.</p>
+<p>After calling this method, use the various <a href="DrawingSurfaceFunctions.html">DrawingSurface functions</a> to modify the background, then call Release on the surface when you are finished.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can either use this method in the Player Enters Room event, or consider using an alternate background frame for the changed image.</p>
+<p><strong>NOTE:</strong> Drawing onto the room background can be slow, especially when using the Direct3D driver. Do not use this command in repeatedly_execute; make sure you only use this command when absolutely necessary.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
+<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
 surface.DrawLine(0, 0, 50, 50);
 surface.Release();
-</pre></div>
-</div>
-<p>draws a yellow diagonal line across the top-left of the current room
-background, then releases the image.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawLine</span></a>,
-<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.Release</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="getplayercharacter">
-<span id="index-11"></span><h2>GetPlayerCharacter<a class="headerlink" href="#getplayercharacter" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetPlayerCharacter ()
-</pre></div>
-</div>
-<p><strong>THIS COMMAND IS NOW OBSOLETE.</strong><span class="raw-html-m2r"><br></span>
-The recommended replacement is to use the player character’s ID
-property, as follows:</p>
+</code></pre>
+<p>draws a yellow diagonal line across the top-left of the current room background, then releases the image.</p>
+<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html#drawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurfaceFunctions.html#release">DrawingSurface.Release</a></p>
+<hr />
+</section>
+<section id="getplayercharacter" class="level3">
+<h3>GetPlayerCharacter</h3>
+<pre><code>GetPlayerCharacter ()
+</code></pre>
+<p><strong>THIS COMMAND IS NOW OBSOLETE.</strong><br> The recommended replacement is to use the player character's ID property, as follows:</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The player character number is %d&quot;, player.ID);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.ID</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="getproperty">
-<span id="index-12"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetRoomProperty, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Room.GetProperty(string property)
-</pre></div>
-</div>
-<p>Returns the custom property setting of the PROPERTY for the current
-room.</p>
-<p>This command works with Number properties (it returns the number), and
-with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
+<pre><code>Display(&quot;The player character number is %d&quot;, player.ID);
+</code></pre>
+<p><em>See Also:</em> <a href="Character.html#id">Character.ID</a></p>
+<hr />
+</section>
+<section id="getproperty" class="level3">
+<h3>GetProperty</h3>
+<p><em>(Formerly known as global function GetRoomProperty, which is now obsolete)</em></p>
+<pre><code>Room.GetProperty(string property)
+</code></pre>
+<p>Returns the custom property setting of the PROPERTY for the current room.</p>
+<p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent Room.GetTextProperty function to get a text property.</p>
-<p>Note that you cannot retrieve room properties of other rooms - only the
-current room can be checked.</p>
+<p>Note that you cannot retrieve room properties of other rooms - only the current room can be checked.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Room.GetProperty(&quot;CanBeAttackedHere&quot;))
+<pre><code>if (Room.GetProperty(&quot;CanBeAttackedHere&quot;))
   Display(&quot;An evil monster lunges at you!&quot;);
-</pre></div>
-</div>
-<p>will print the message if the current room has its “CanBeAttackedHere”
-box ticked.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.GetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="gettextproperty">
-<span id="index-13"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetRoomPropertyText, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static String Room.GetTextProperty(string property)
-</pre></div>
-</div>
-<p>Returns the custom property setting of the PROPERTY for the current
-room.</p>
-<p>This command works with Text properties only. The property’s text will
-be returned from this function.</p>
+</code></pre>
+<p>will print the message if the current room has its "CanBeAttackedHere" box ticked.</p>
+<p><em>See Also:</em> <a href="Room.html#gettextproperty">Room.GetTextProperty</a></p>
+<hr />
+</section>
+<section id="gettextproperty" class="level3">
+<h3>GetTextProperty</h3>
+<p><em>(Formerly known as global function GetRoomPropertyText, which is now obsolete)</em></p>
+<pre><code>static String Room.GetTextProperty(string property)
+</code></pre>
+<p>Returns the custom property setting of the PROPERTY for the current room.</p>
+<p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent Room.GetProperty function to get a non-text property.</p>
-<p>Note that you cannot retrieve room properties of other rooms - only the
-current room can be checked.</p>
+<p>Note that you cannot retrieve room properties of other rooms - only the current room can be checked.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">description</span> <span class="o">=</span> <span class="nt">Room</span><span class="p">.</span><span class="nc">GetTextProperty</span><span class="o">(</span><span class="s2">&quot;Description&quot;</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The room&#39;s description: %s&quot;</span><span class="o">,</span> <span class="nt">description</span><span class="o">);</span>
-</pre></div>
-</div>
-<p>will retrieve the room’s “description” property then display it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.GetProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="setproperty">
-<span id="index-14"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool Room.SetProperty(const string property, int value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room.
-Returns TRUE if such property exists and FALSE on failure.</p>
-<p>This command works with Number properties (it sets the numeric value),
-and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
-otherwise).</p>
-<p>Use the equivalent SetTextProperty function to set new text property
-value.</p>
-<p>Note that you cannot set room properties of other rooms - only the
-current room.</p>
+<pre><code>String description = Room.GetTextProperty(&quot;Description&quot;);
+Display(&quot;The room&#39;s description: %s&quot;, description);
+</code></pre>
+<p>will retrieve the room's "description" property then display it.</p>
+<p><em>See Also:</em> <a href="Room.html#getproperty">Room.GetProperty</a></p>
+<hr />
+</section>
+<section id="setproperty" class="level3">
+<h3>SetProperty</h3>
+<pre><code>static bool Room.SetProperty(const string property, int value)
+</code></pre>
+<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Number properties (it sets the numeric value), and with Boolean properties (sets FALSE is value is equal to 0, or TRUE otherwise).</p>
+<p>Use the equivalent SetTextProperty function to set new text property value.</p>
+<p>Note that you cannot set room properties of other rooms - only the current room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Room.SetProperty(&quot;Darkness&quot;, 10);
-</pre></div>
-</div>
-<p>will change room’s “Darkness” custom property to 10.</p>
+<pre><code>Room.SetProperty(&quot;Darkness&quot;, 10);
+</code></pre>
+<p>will change room's "Darkness" custom property to 10.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.SetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="settextproperty">
-<span id="index-15"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Room.SetTextProperty(const string property, const string value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
-room. Returns TRUE if such property exists and FALSE on failure.</p>
-<p>This command works with Text properties only. The property’s text will
-be changed to new value.</p>
+<p><em>See Also:</em> <a href="Room.html#settextproperty">Room.SetTextProperty</a></p>
+<hr />
+</section>
+<section id="settextproperty" class="level3">
+<h3>SetTextProperty</h3>
+<pre><code>bool Room.SetTextProperty(const string property, const string value)
+</code></pre>
+<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified room. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Text properties only. The property's text will be changed to new value.</p>
 <p>Use the equivalent SetProperty function to set a non-text property.</p>
-<p>Note that you cannot set room properties of other rooms - only the
-current room.</p>
+<p>Note that you cannot set room properties of other rooms - only the current room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Room.SetTextProperty(&quot;Description&quot;, &quot;The Throne Room&quot;);
-</pre></div>
-</div>
-<p>will change room’s “description” property.</p>
+<pre><code>Room.SetTextProperty(&quot;Description&quot;, &quot;The Throne Room&quot;);
+</code></pre>
+<p>will change room's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.SetProperty</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-16"></span></div>
-<div class="section" id="getscalingat">
-<span id="index-17"></span><h2>GetScalingAt<a class="headerlink" href="#getscalingat" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetScalingAt (int x, int y)
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="Room.html#setproperty">Room.SetProperty</a></p>
+<hr />
+</section>
+<section id="getscalingat" class="level3">
+<h3>GetScalingAt</h3>
+<pre><code>GetScalingAt (int x, int y)
+</code></pre>
 <p>Returns the room area scaling at room co-ordinates (X,Y).</p>
-<p>The value returned is from 1 to 200, with 100 being the normal un-scaled
-setting.</p>
+<p>The value returned is from 1 to 200, with 100 being the normal un-scaled setting.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetScalingAt(player.x, player.y) == 100)
+<pre><code>if (GetScalingAt(player.x, player.y) == 100)
     Display (&quot;The player is currently at normal size.&quot;);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetWalkableAreaAt</span></a>,
-<a class="reference internal" href="#"><span class="doc">SetAreaScaling</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-18"></span></div>
-<div class="section" id="getviewportx">
-<span id="index-19"></span><h2>GetViewportX<a class="headerlink" href="#getviewportx" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetViewportX ()
-</pre></div>
-</div>
-<p>Returns the X-offset of the current viewport in a scrolling room. This
-allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the left edge of the screen.</p>
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#getwalkableareaat">GetWalkableAreaAt</a>, <a href="Room.html#setareascaling">SetAreaScaling</a></p>
+<hr />
+</section>
+<section id="getviewportx" class="level3">
+<h3>GetViewportX</h3>
+<pre><code>GetViewportX ()
+</code></pre>
+<p>Returns the X-offset of the current viewport in a scrolling room. This allows you to find out what part of the room the player is looking at. The co-ordinate returned is the left edge of the screen.</p>
 <p>If the room is a non-scrolling room, returns 0.</p>
 <p>See the SetViewport function description for more information.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetViewportX()&gt;100)
+<pre><code>if (GetViewportX()&gt;100)
     object[2].Visible = true;
-</pre></div>
-</div>
-<p>will turn object 2 on if the player has scrolled the room by 100 pixels
-to the right.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetViewportY</span></a>,
-<a class="reference internal" href="#"><span class="doc">SetViewport</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-20"></span></div>
-<div class="section" id="getviewporty">
-<span id="index-21"></span><h2>GetViewportY<a class="headerlink" href="#getviewporty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetViewportY ()
-</pre></div>
-</div>
-<p>Returns the Y-offset of the current viewport in a scrolling room. This
-allows you to find out what part of the room the player is looking at.
-The co-ordinate returned is the top edge of the screen.</p>
+</code></pre>
+<p>will turn object 2 on if the player has scrolled the room by 100 pixels to the right.</p>
+<p><em>See Also:</em> <a href="Room.html#getviewporty">GetViewportY</a>, <a href="Room.html#setviewport">SetViewport</a></p>
+<hr />
+</section>
+<section id="getviewporty" class="level3">
+<h3>GetViewportY</h3>
+<pre><code>GetViewportY ()
+</code></pre>
+<p>Returns the Y-offset of the current viewport in a scrolling room. This allows you to find out what part of the room the player is looking at. The co-ordinate returned is the top edge of the screen.</p>
 <p>If the room is a non-scrolling room, returns 0.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetViewportY()&gt;20)
+<pre><code>if (GetViewportY()&gt;20)
     object[2].Visible = true;
-</pre></div>
-</div>
-<p>will turn object 2 on if the player has scrolled the room by 20 pixels
-to the bottom.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetViewportX</span></a>,
-<a class="reference internal" href="#"><span class="doc">SetViewport</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-22"></span></div>
-<div class="section" id="getwalkableareaat">
-<span id="index-23"></span><h2>GetWalkableAreaAt<a class="headerlink" href="#getwalkableareaat" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>GetWalkableAreaAt (int x, int y)
-</pre></div>
-</div>
-<p>Returns the number of the walkable area at SCREEN co-ordinates (X,Y). If
-there is no walkable area there, or if invalid co-ordinates are
-specified, returns 0.</p>
-<p>NOTE: The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates.
-This means that with a scrolling room, the co-ordinates you pass are
-relative to the screen’s current position, and NOT absolute room
-co-ordinates. This means that this function is suitable for use with the
-mouse cursor position variables.</p>
+</code></pre>
+<p>will turn object 2 on if the player has scrolled the room by 20 pixels to the bottom.</p>
+<p><em>See Also:</em> <a href="Room.html#getviewportx">GetViewportX</a>, <a href="Room.html#setviewport">SetViewport</a></p>
+<hr />
+</section>
+<section id="getwalkableareaat" class="level3">
+<h3>GetWalkableAreaAt</h3>
+<pre><code>GetWalkableAreaAt (int x, int y)
+</code></pre>
+<p>Returns the number of the walkable area at SCREEN co-ordinates (X,Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
+<p>NOTE: The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that with a scrolling room, the co-ordinates you pass are relative to the screen's current position, and NOT absolute room co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetWalkableAreaAt(mouse.x,mouse.y) == 0)
+<pre><code>if (GetWalkableAreaAt(mouse.x,mouse.y) == 0)
     Display (&quot;You can&#39;t walk there.&quot;);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>,
-<a class="reference internal" href="Region.html"><span class="doc">Region.GetAtRoomXY</span></a>,
-<a class="reference internal" href="#"><span class="doc">GetScalingAt</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-24"></span></div>
-<div class="section" id="hasplayerbeeninroom">
-<span id="index-25"></span><h2>HasPlayerBeenInRoom<a class="headerlink" href="#hasplayerbeeninroom" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>HasPlayerBeenInRoom(int room_number)
-</pre></div>
-</div>
-<p>Checks whether the player has ever been in ROOM_NUMBER (ie. has the
-‘First Time Player Enters Room’ event there ever been run). Returns 1 if
-they have, and 0 if they haven’t.</p>
-<p>You can use this function to determine whether the player has been to a
-particular location previously. If you reset the room with ResetRoom,
-then this command will return 0 until they enter the room again.</p>
-<p>This command will always return 1 if you ask it about the current room;
-and it will always return 0 if you ask it about a non-state saving room
-(ie. rooms numbered &gt; 300).</p>
+</code></pre>
+<p><em>See Also:</em> <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a>, <a href="Room.html#getscalingat">GetScalingAt</a></p>
+<hr />
+</section>
+<section id="hasplayerbeeninroom" class="level3">
+<h3>HasPlayerBeenInRoom</h3>
+<pre><code>HasPlayerBeenInRoom(int room_number)
+</code></pre>
+<p>Checks whether the player has ever been in ROOM_NUMBER (ie. has the 'First Time Player Enters Room' event there ever been run). Returns 1 if they have, and 0 if they haven't.</p>
+<p>You can use this function to determine whether the player has been to a particular location previously. If you reset the room with ResetRoom, then this command will return 0 until they enter the room again.</p>
+<p>This command will always return 1 if you ask it about the current room; and it will always return 0 if you ask it about a non-state saving room (ie. rooms numbered &gt; 300).</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (HasPlayerBeenInRoom(14)) {
+<pre><code>if (HasPlayerBeenInRoom(14)) {
   Display(&quot;The player has been to room 14 before.&quot;);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will display a message if the player has been to room 14.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">ResetRoom</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="processclick">
-<span id="index-26"></span><h2>ProcessClick<a class="headerlink" href="#processclick" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function ProcessClick, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static void Room.ProcessClick(int x, int y, CursorMode)
-</pre></div>
-</div>
-<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the
-specified cursor mode. This “click” has special behavior in that it
-<strong>only affects Room elements and characters</strong> under given coordinates.
-Any conditions attached to the first object found on given coordinates
-will be executed. Game interface (buttons, sliders, and so on) will be
-<strong>ignored</strong>. Even if the coordinates happen to lie on a button, the
-simulated click will “pass through” that button as if it was not
-present.</p>
-<p>The available cursor modes are the ones you define on your Cursors tab
-(but with eMode prepended to them). Usually these are eModeWalkto,
-eModeLookat, etc.</p>
+<p><em>See Also:</em> <a href="Room.html#resetroom">ResetRoom</a></p>
+<hr />
+</section>
+<section id="processclick" class="level3">
+<h3>ProcessClick</h3>
+<p><em>(Formerly known as global function ProcessClick, which is now obsolete)</em></p>
+<pre><code>static void Room.ProcessClick(int x, int y, CursorMode)
+</code></pre>
+<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the specified cursor mode. This "click" has special behavior in that it <strong>only affects Room elements and characters</strong> under given coordinates. Any conditions attached to the first object found on given coordinates will be executed. Game interface (buttons, sliders, and so on) will be <strong>ignored</strong>. Even if the coordinates happen to lie on a button, the simulated click will "pass through" that button as if it was not present.</p>
+<p>The available cursor modes are the ones you define on your Cursors tab (but with eMode prepended to them). Usually these are eModeWalkto, eModeLookat, etc.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Room.ProcessClick(100, 50, eModeLookat);
-</pre></div>
-</div>
+<pre><code>Room.ProcessClick(100, 50, eModeLookat);
+</code></pre>
 <p>will simulate a click in the Look mode on co-ordinates (100, 50).</p>
-<p><em>See Also:</em> <a class="reference internal" href="GUI.html"><span class="doc">GUI.ProcessClick</span></a>,
-<a class="reference internal" href="Mouse.html"><span class="doc">Mouse.Click</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.RunInteraction</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-27"></span></div>
-<div class="section" id="releaseviewport">
-<span id="index-28"></span><h2>ReleaseViewport<a class="headerlink" href="#releaseviewport" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ReleaseViewport ()
-</pre></div>
-</div>
-<p>Releases the lock on the screen viewport, allowing it to automatically
-scroll around following the player character as normal.</p>
+<p><em>See Also:</em> <a href="GUI.html#processclick">GUI.ProcessClick</a>, <a href="Mouse.html#click">Mouse.Click</a>, <a href="Game.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a></p>
+<hr />
+</section>
+<section id="releaseviewport" class="level3">
+<h3>ReleaseViewport</h3>
+<pre><code>ReleaseViewport ()
+</code></pre>
+<p>Releases the lock on the screen viewport, allowing it to automatically scroll around following the player character as normal.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int x;
+<pre><code>int x;
 while (x&lt;100) {
    SetViewport(x,0);
    x++;
    Wait(1);
 }
 ReleaseViewport();
-</pre></div>
-</div>
-<p>will scroll the room 100 pixels to the right and then return the screen
-to its original position and unlock the screen viewport.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetViewport</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-29"></span></div>
-<div class="section" id="removewalkablearea">
-<span id="index-30"></span><h2>RemoveWalkableArea<a class="headerlink" href="#removewalkablearea" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>RemoveWalkableArea (int areanum)
-</pre></div>
-</div>
-<p>Removes the walkable areas in colour AREANUM from the current room. You
-can put the area back with RestoreWalkableArea.</p>
-<p>NOTE: When the player leaves the screen, all the walkable areas are
-reset. Therefore, if you want an area to remain off when they leave the
-screen, you will need to set a flag, then run the RemoveWalkableArea
-command in the “Player enters room” event when they return.</p>
+</code></pre>
+<p>will scroll the room 100 pixels to the right and then return the screen to its original position and unlock the screen viewport.</p>
+<p><em>See Also:</em> <a href="Room.html#setviewport">SetViewport</a></p>
+<hr />
+</section>
+<section id="removewalkablearea" class="level3">
+<h3>RemoveWalkableArea</h3>
+<pre><code>RemoveWalkableArea (int areanum)
+</code></pre>
+<p>Removes the walkable areas in colour AREANUM from the current room. You can put the area back with RestoreWalkableArea.</p>
+<p>NOTE: When the player leaves the screen, all the walkable areas are reset. Therefore, if you want an area to remain off when they leave the screen, you will need to set a flag, then run the RemoveWalkableArea command in the "Player enters room" event when they return.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>RemoveWalkableArea(5);
-</pre></div>
-</div>
+<pre><code>RemoveWalkableArea(5);
+</code></pre>
 <p>will make the walking area 5 unwalkable.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">RestoreWalkableArea</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-31"></span></div>
-<div class="section" id="resetroom">
-<span id="index-32"></span><h2>ResetRoom<a class="headerlink" href="#resetroom" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ResetRoom (int room_number)
-</pre></div>
-</div>
-<p>Discards all the data that the engine has in memory about when the
-player last visited ROOM_NUMBER, and resets it as if they’d never been
-there. The next time the player goes to that room, all the objects and
-scripts will be in their initial state (as set up in the editor), and
-not how they were when the player left the room. The “First time enters
-room” event will be run when they enter this room again.</p>
-<p>This function is useful if you want to have a “View intro” option to
-allow the player to watch an intro again - this function can reset all
-the objects in the intro rooms to their starting positions.</p>
-<p>NOTE: You cannot reset the current room (ie. the room that the player is
-in).</p>
+<p><em>See Also:</em> <a href="Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<hr />
+</section>
+<section id="resetroom" class="level3">
+<h3>ResetRoom</h3>
+<pre><code>ResetRoom (int room_number)
+</code></pre>
+<p>Discards all the data that the engine has in memory about when the player last visited ROOM_NUMBER, and resets it as if they'd never been there. The next time the player goes to that room, all the objects and scripts will be in their initial state (as set up in the editor), and not how they were when the player left the room. The "First time enters room" event will be run when they enter this room again.</p>
+<p>This function is useful if you want to have a "View intro" option to allow the player to watch an intro again - this function can reset all the objects in the intro rooms to their starting positions.</p>
+<p>NOTE: You cannot reset the current room (ie. the room that the player is in).</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ResetRoom(0);
-</pre></div>
-</div>
-<p>will reset the intro room so it can be played again if the player wants
-to.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">HasPlayerBeenInRoom</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-33"></span></div>
-<div class="section" id="restorewalkablearea">
-<span id="index-34"></span><h2>RestoreWalkableArea<a class="headerlink" href="#restorewalkablearea" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>RestoreWalkableArea (int areanum)
-</pre></div>
-</div>
+<pre><code>ResetRoom(0);
+</code></pre>
+<p>will reset the intro room so it can be played again if the player wants to.</p>
+<p><em>See Also:</em> <a href="Room.html#hasplayerbeeninroom">HasPlayerBeenInRoom</a></p>
+<hr />
+</section>
+<section id="restorewalkablearea" class="level3">
+<h3>RestoreWalkableArea</h3>
+<pre><code>RestoreWalkableArea (int areanum)
+</code></pre>
 <p>Makes the area AREANUM walkable again.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>RestoreWalkableArea(4);
-</pre></div>
-</div>
+<pre><code>RestoreWalkableArea(4);
+</code></pre>
 <p>will make the walking area 4 walkable again.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">RemoveWalkableArea</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-35"></span></div>
-<div class="section" id="setareascaling">
-<span id="index-36"></span><h2>SetAreaScaling<a class="headerlink" href="#setareascaling" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetAreaScaling(int area, int min, int max)
-</pre></div>
-</div>
-<p>Changes walkable area number AREA’s scaling.</p>
-<p>There are two ways to use this command:<span class="raw-html-m2r"><br></span></p>
-<ol class="arabic simple">
-<li>Pass the same value for MIN and MAX. This will give the walkable area
-fixed scaling (same as setting it in the editor with “Use continuous
-scaling” un-ticked).<span class="raw-html-m2r"><br></span></li>
-<li>Pass different values for MIN and MAX. In this case, continuous
-scaling is enabled for the walkable area, and will go from MIN at the
-top to MAX at the bottom.</li>
+<p><em>See Also:</em> <a href="Room.html#removewalkablearea">RemoveWalkableArea</a></p>
+<hr />
+</section>
+<section id="setareascaling" class="level3">
+<h3>SetAreaScaling</h3>
+<pre><code>SetAreaScaling(int area, int min, int max)
+</code></pre>
+<p>Changes walkable area number AREA's scaling.</p>
+<p>There are two ways to use this command:<br></p>
+<ol>
+<li>Pass the same value for MIN and MAX. This will give the walkable area fixed scaling (same as setting it in the editor with "Use continuous scaling" un-ticked).<br></li>
+<li>Pass different values for MIN and MAX. In this case, continuous scaling is enabled for the walkable area, and will go from MIN at the top to MAX at the bottom.</li>
 </ol>
-<p>MIN and MAX have ranges from 5 to 200, the same as in the editor. Pass
-100 for both values to revert to the normal zoom level (100<code class="docutils literal notranslate"><span class="pre">%</span></code>) for that
-area.</p>
+<p>MIN and MAX have ranges from 5 to 200, the same as in the editor. Pass 100 for both values to revert to the normal zoom level (100<code>%</code>) for that area.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetAreaScaling(5, 120, 170);
-</pre></div>
-</div>
-<p>will set walkable area 5 to use continuous scaling from 120 to 170
-percent.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetScalingAt</span></a>,
-<a class="reference internal" href="#"><span class="doc">GetWalkableAreaAt</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-37"></span></div>
-<div class="section" id="setbackgroundframe">
-<span id="index-38"></span><h2>SetBackgroundFrame<a class="headerlink" href="#setbackgroundframe" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetBackgroundFrame (int frame)
-</pre></div>
-</div>
-<p>Locks the background to frame number FRAME of an animating-background
-screen. (Values for FRAME are from 0 to 4). This allows you to use the
-animating backgrounds feature for another purpose - you can have two
-frames of the background, one for example with a spaceship crashed on
-it. Then, once the right event has happened, call SetBackgroundFrame in
-the Player Enters Room event to set the background before the screen
-fades in.</p>
-<p>Pass the <em>frame</em> as -1 to return to the default behaviour of
-automatically cycling through all the background frames.</p>
+<pre><code>SetAreaScaling(5, 120, 170);
+</code></pre>
+<p>will set walkable area 5 to use continuous scaling from 120 to 170 percent.</p>
+<p><em>See Also:</em> <a href="Room.html#getscalingat">GetScalingAt</a>, <a href="Room.html#getwalkableareaat">GetWalkableAreaAt</a></p>
+<hr />
+</section>
+<section id="setbackgroundframe" class="level3">
+<h3>SetBackgroundFrame</h3>
+<pre><code>SetBackgroundFrame (int frame)
+</code></pre>
+<p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to 4). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
+<p>Pass the <em>frame</em> as -1 to return to the default behaviour of automatically cycling through all the background frames.</p>
 <p>The frame lock is released when the game changes rooms.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetGlobalInt(20)==1)
+<pre><code>if (GetGlobalInt(20)==1)
     SetBackgroundFrame(4);
-</pre></div>
-</div>
-<p>will change the current room’s background frame to 4 if the global
-integer 20 is 1.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetBackgroundFrame</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-39"></span></div>
-<div class="section" id="setviewport">
-<span id="index-40"></span><h2>SetViewport<a class="headerlink" href="#setviewport" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetViewport (int x, int y)
-</pre></div>
-</div>
-<p>Locks the screen viewport to having the top-left hand corner at (X,Y) in
-a scrolling room. This allows you to manually pan across a scrolling
-room or to have the screen follow a non-player character.</p>
-<p>The lock is released when you either call ReleaseViewport or the player
-changes rooms.</p>
-<p><strong>NOTE:</strong> This function has no effect if the current room isn’t a
-scrolling room.</p>
+</code></pre>
+<p>will change the current room's background frame to 4 if the global integer 20 is 1.</p>
+<p><em>See Also:</em> <a href="Room.html#getbackgroundframe">GetBackgroundFrame</a></p>
+<hr />
+</section>
+<section id="setviewport" class="level3">
+<h3>SetViewport</h3>
+<pre><code>SetViewport (int x, int y)
+</code></pre>
+<p>Locks the screen viewport to having the top-left hand corner at (X,Y) in a scrolling room. This allows you to manually pan across a scrolling room or to have the screen follow a non-player character.</p>
+<p>The lock is released when you either call ReleaseViewport or the player changes rooms.</p>
+<p><strong>NOTE:</strong> This function has no effect if the current room isn't a scrolling room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int ypos = 0;
+<pre><code>int ypos = 0;
 while (ypos &lt; 60) {
   SetViewport(0, ypos);
   Wait(1);
   ypos++;
 }
 ReleaseViewport();
-</pre></div>
-</div>
-<p>will scroll the screen down from the top 60 pixels, then release it back
-to follow the player around.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">GetViewportX</span></a>,
-<a class="reference internal" href="#"><span class="doc">GetViewportY</span></a>,
-<a class="reference internal" href="#"><span class="doc">ReleaseViewport</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-41"></span></div>
-<div class="section" id="setwalkbehindbase">
-<span id="index-42"></span><h2>SetWalkBehindBase<a class="headerlink" href="#setwalkbehindbase" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetWalkBehindBase (int area, int baseline)
-</pre></div>
-</div>
-<p>Changes the walk-behind AREA to have new BASELINE. This effectively
-allows you to turn walk-behinds on and off, although you can do other
-tricks with it as well. BASELINE is from 1 to the height of the room
-(normally 200) and moves the line which you set originally in the
-editor.</p>
-<p>Passing BASELINE as 0 disables the walk-behind area, so that the player
-will always walk in front of it.</p>
-<p>Basically, if the character’s feet are below BASELINE, he will be drawn
-in front of it, otherwise he will be drawn behind it.</p>
+</code></pre>
+<p>will scroll the screen down from the top 60 pixels, then release it back to follow the player around.</p>
+<p><em>See Also:</em> <a href="Room.html#getviewportx">GetViewportX</a>, <a href="Room.html#getviewporty">GetViewportY</a>, <a href="Room.html#releaseviewport">ReleaseViewport</a></p>
+<hr />
+</section>
+<section id="setwalkbehindbase" class="level3">
+<h3>SetWalkBehindBase</h3>
+<pre><code>SetWalkBehindBase (int area, int baseline)
+</code></pre>
+<p>Changes the walk-behind AREA to have new BASELINE. This effectively allows you to turn walk-behinds on and off, although you can do other tricks with it as well. BASELINE is from 1 to the height of the room (normally 200) and moves the line which you set originally in the editor.</p>
+<p>Passing BASELINE as 0 disables the walk-behind area, so that the player will always walk in front of it.</p>
+<p>Basically, if the character's feet are below BASELINE, he will be drawn in front of it, otherwise he will be drawn behind it.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetWalkBehindBase (3,0);
-</pre></div>
-</div>
+<pre><code>SetWalkBehindBase (3,0);
+</code></pre>
 <p>will disable the walkbehind area number 3.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Object.html"><span class="doc">Object.Baseline</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-43"></span></div>
-<div class="section" id="bottomedge">
-<span id="index-44"></span><h2>BottomEdge<a class="headerlink" href="#bottomedge" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.BottomEdge
-</pre></div>
-</div>
-<p>Returns the Y co-ordinate of the bottom edge of the room, as set in the
-Room Settings pane of the editor.</p>
+<p><em>See Also:</em> <a href="Object.html#baseline">Object.Baseline</a></p>
+<hr />
+</section>
+<section id="bottomedge" class="level3">
+<h3>BottomEdge</h3>
+<pre><code>readonly static int Room.BottomEdge
+</code></pre>
+<p>Returns the Y co-ordinate of the bottom edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room&#39;s bottom edge is at %d.&quot;, Room.BottomEdge);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.LeftEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.RightEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.TopEdge</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="colordepth">
-<span id="index-45"></span><h2>ColorDepth<a class="headerlink" href="#colordepth" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.ColorDepth
-</pre></div>
-</div>
-<p>Returns the colour depth of the room’s background scene. This is
-important if you want to use DrawImage, since any sprites that you draw
-must be the same colour depth as the room itself.</p>
+<pre><code>Display(&quot;The current room&#39;s bottom edge is at %d.&quot;, Room.BottomEdge);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<hr />
+</section>
+<section id="colordepth" class="level3">
+<h3>ColorDepth</h3>
+<pre><code>readonly static int Room.ColorDepth
+</code></pre>
+<p>Returns the colour depth of the room's background scene. This is important if you want to use DrawImage, since any sprites that you draw must be the same colour depth as the room itself.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room background is %d-bit colour.&quot;, Room.ColorDepth);
-</pre></div>
-</div>
-<p><em>See Also:</em>
-<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface.DrawImage</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="height">
-<span id="index-46"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
+<pre><code>Display(&quot;The current room background is %d-bit colour.&quot;, Room.ColorDepth);
+</code></pre>
+<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html#drawimage">DrawingSurface.DrawImage</a></p>
+<hr />
+</section>
+<section id="height" class="level3">
+<h3>Height</h3>
 <p><em>(Formerly known as game.room_height, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.Height
-</pre></div>
-</div>
+<pre><code>readonly static int Room.Height
+</code></pre>
 <p>Returns the height of the room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.Width</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-47"></span></div>
-<div class="section" id="leftedge">
-<span id="index-48"></span><h2>LeftEdge<a class="headerlink" href="#leftedge" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.LeftEdge
-</pre></div>
-</div>
-<p>Returns the X co-ordinate of the left edge of the room, as set in the
-Room Settings pane of the editor.</p>
+<pre><code>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#width">Room.Width</a></p>
+<hr />
+</section>
+<section id="leftedge" class="level3">
+<h3>LeftEdge</h3>
+<pre><code>readonly static int Room.LeftEdge
+</code></pre>
+<p>Returns the X co-ordinate of the left edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room&#39;s left edge is at %d.&quot;, Room.LeftEdge);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.BottomEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.RightEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.TopEdge</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-49"></span></div>
-<div class="section" id="messages">
-<span id="index-50"></span><h2>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetMessageText, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="k">readonly</span> <span class="k">static</span> <span class="n">String</span> <span class="n">Room</span><span class="p">.</span><span class="n">Messages</span><span class="p">[</span><span class="kt">int</span> <span class="n">message</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Gets the text of the specified room message. This is useful if you want
-to store, for example, a room description in Message 1 in each room –
-this property allows you to retrieve the text for that message from the
-current room.</p>
-<p>If an invalid message number is supplied, <em>null</em> will be returned.
-Otherwise, the message contents will be returned.</p>
+<pre><code>Display(&quot;The current room&#39;s left edge is at %d.&quot;, Room.LeftEdge);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<hr />
+</section>
+<section id="messages" class="level3">
+<h3>Messages</h3>
+<p><em>(Formerly known as global function GetMessageText, which is now obsolete)</em></p>
+<pre><code>readonly static String Room.Messages[int message]
+</code></pre>
+<p>Gets the text of the specified room message. This is useful if you want to store, for example, a room description in Message 1 in each room -- this property allows you to retrieve the text for that message from the current room.</p>
+<p>If an invalid message number is supplied, <em>null</em> will be returned. Otherwise, the message contents will be returned.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">message1</span> <span class="o">=</span> <span class="nt">Room</span><span class="p">.</span><span class="nc">Messages</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="o">;</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Message 1 says: %s&quot;</span><span class="o">,</span> <span class="nt">message1</span><span class="o">);</span>
-</pre></div>
-</div>
+<pre><code>String message1 = Room.Messages[1];
+Display(&quot;Message 1 says: %s&quot;, message1);
+</code></pre>
 <p>will print the contents of room message 1.</p>
-<hr class="docutils" />
-<span class="target" id="index-51"></span></div>
-<div class="section" id="musiconload">
-<span id="index-52"></span><h2>MusicOnLoad<a class="headerlink" href="#musiconload" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.MusicOnLoad
-</pre></div>
-</div>
-<p><strong>This property is now obsolete.</strong> It is still accessible for backwards
-compatibility with old games.</p>
-<p>Returns the music number that is set to play when the player enters this
-room, as set in the “Room Settings” pane in the editor. If no music is
-set for this room, returns 0.</p>
+<hr />
+</section>
+<section id="musiconload" class="level3">
+<h3>MusicOnLoad</h3>
+<pre><code>readonly static int Room.MusicOnLoad
+</code></pre>
+<p><strong>This property is now obsolete.</strong> It is still accessible for backwards compatibility with old games.</p>
+<p>Returns the music number that is set to play when the player enters this room, as set in the "Room Settings" pane in the editor. If no music is set for this room, returns 0.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room plays music %d when the player enters.&quot;, Room.MusicOnLoad);
-</pre></div>
-</div>
-<hr class="docutils" />
-<span class="target" id="index-53"></span></div>
-<div class="section" id="objectcount">
-<span id="index-54"></span><h2>ObjectCount<a class="headerlink" href="#objectcount" title="Permalink to this headline">¶</a></h2>
+<pre><code>Display(&quot;The current room plays music %d when the player enters.&quot;, Room.MusicOnLoad);
+</code></pre>
+<hr />
+</section>
+<section id="objectcount" class="level3">
+<h3>ObjectCount</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.ObjectCount
-</pre></div>
-</div>
+<pre><code>readonly static int Room.ObjectCount
+</code></pre>
 <p>Returns the number of objects in the room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room contains %d objects.&quot;, Room.ObjectCount);
-</pre></div>
-</div>
-<hr class="docutils" />
-<span class="target" id="index-55"></span></div>
-<div class="section" id="rightedge">
-<span id="index-56"></span><h2>RightEdge<a class="headerlink" href="#rightedge" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.RightEdge
-</pre></div>
-</div>
-<p>Returns the X co-ordinate of the right edge of the room, as set in the
-Room Settings pane of the editor.</p>
+<pre><code>Display(&quot;The current room contains %d objects.&quot;, Room.ObjectCount);
+</code></pre>
+<hr />
+</section>
+<section id="rightedge" class="level3">
+<h3>RightEdge</h3>
+<pre><code>readonly static int Room.RightEdge
+</code></pre>
+<p>Returns the X co-ordinate of the right edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room&#39;s right edge is at %d.&quot;, Room.RightEdge);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.BottomEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.LeftEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.TopEdge</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-57"></span></div>
-<div class="section" id="topedge">
-<span id="index-58"></span><h2>TopEdge<a class="headerlink" href="#topedge" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.TopEdge
-</pre></div>
-</div>
-<p>Returns the Y co-ordinate of the top edge of the room, as set in the
-Room Settings pane of the editor.</p>
+<pre><code>Display(&quot;The current room&#39;s right edge is at %d.&quot;, Room.RightEdge);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<hr />
+</section>
+<section id="topedge" class="level3">
+<h3>TopEdge</h3>
+<pre><code>readonly static int Room.TopEdge
+</code></pre>
+<p>Returns the Y co-ordinate of the top edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room&#39;s top edge is at %d.&quot;, Room.TopEdge);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.BottomEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.LeftEdge</span></a>,
-<a class="reference internal" href="#"><span class="doc">Room.RightEdge</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="width">
-<span id="index-59"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
+<pre><code>Display(&quot;The current room&#39;s top edge is at %d.&quot;, Room.TopEdge);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a></p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3>Width</h3>
 <p><em>(Formerly known as game.room_width, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly static int Room.Width
-</pre></div>
-</div>
+<pre><code>readonly static int Room.Width
+</code></pre>
 <p>Returns the width of the room.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Room.Height</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#height">Room.Height</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="RepExec.html" title="previous chapter">repeatedly_execute (_always)</a></li>
-      <li>Next: <a href="ScreenFunctions.html" title="next chapter">Screen functions</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Room%20functions%20and%20properties&body=source%20is%20Room.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Room"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Room functions and properties</a><ul>
-<li><a class="reference internal" href="#arethingsoverlapping">AreThingsOverlapping</a></li>
-<li><a class="reference internal" href="#disablegroundlevelareas">DisableGroundLevelAreas</a></li>
-<li><a class="reference internal" href="#enablegroundlevelareas">EnableGroundLevelAreas</a></li>
-<li><a class="reference internal" href="#getbackgroundframe">GetBackgroundFrame</a></li>
-<li><a class="reference internal" href="#getdrawingsurfaceforbackground">GetDrawingSurfaceForBackground</a></li>
-<li><a class="reference internal" href="#getplayercharacter">GetPlayerCharacter</a></li>
-<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
-<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
-<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
-<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
-<li><a class="reference internal" href="#getscalingat">GetScalingAt</a></li>
-<li><a class="reference internal" href="#getviewportx">GetViewportX</a></li>
-<li><a class="reference internal" href="#getviewporty">GetViewportY</a></li>
-<li><a class="reference internal" href="#getwalkableareaat">GetWalkableAreaAt</a></li>
-<li><a class="reference internal" href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a></li>
-<li><a class="reference internal" href="#processclick">ProcessClick</a></li>
-<li><a class="reference internal" href="#releaseviewport">ReleaseViewport</a></li>
-<li><a class="reference internal" href="#removewalkablearea">RemoveWalkableArea</a></li>
-<li><a class="reference internal" href="#resetroom">ResetRoom</a></li>
-<li><a class="reference internal" href="#restorewalkablearea">RestoreWalkableArea</a></li>
-<li><a class="reference internal" href="#setareascaling">SetAreaScaling</a></li>
-<li><a class="reference internal" href="#setbackgroundframe">SetBackgroundFrame</a></li>
-<li><a class="reference internal" href="#setviewport">SetViewport</a></li>
-<li><a class="reference internal" href="#setwalkbehindbase">SetWalkBehindBase</a></li>
-<li><a class="reference internal" href="#bottomedge">BottomEdge</a></li>
-<li><a class="reference internal" href="#colordepth">ColorDepth</a></li>
-<li><a class="reference internal" href="#height">Height</a></li>
-<li><a class="reference internal" href="#leftedge">LeftEdge</a></li>
-<li><a class="reference internal" href="#messages">Messages</a></li>
-<li><a class="reference internal" href="#musiconload">MusicOnLoad</a></li>
-<li><a class="reference internal" href="#objectcount">ObjectCount</a></li>
-<li><a class="reference internal" href="#rightedge">RightEdge</a></li>
-<li><a class="reference internal" href="#topedge">TopEdge</a></li>
-<li><a class="reference internal" href="#width">Width</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

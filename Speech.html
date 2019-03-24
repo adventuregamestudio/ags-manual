@@ -1,212 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Speech functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Speech functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Starting off" href="StartingOff.html" />
-    <link rel="prev" title="Source Control integration" href="SourceControl.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="speech-functions-and-properties">
-<h1>Speech functions and properties<a class="headerlink" href="#speech-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="animationstoptimemargin">
-<span id="index-1"></span><h2>AnimationStopTimeMargin<a class="headerlink" href="#animationstoptimemargin" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as game.close_mouth_end_speech_time, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Speech.AnimationStopTimeMargin
-</pre></div>
-</div>
-<p>Gets/sets the time margin at which the character talking animation
-should stop before before speech time ends. This property is specified
-in <strong>game loops</strong> and is set to 10 by default.</p>
-<p><strong>NOTE:</strong> This property only affects the animation if voice mode is
-disabled.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#speech-functions-and-properties">Speech functions and properties</a><ul>
+<li><a href="#animationstoptimemargin">AnimationStopTimeMargin</a></li>
+<li><a href="#customportraitplacement">CustomPortraitPlacement</a></li>
+<li><a href="#displayposttimems">DisplayPostTimeMs</a></li>
+<li><a href="#globalspeechanimationdelay">GlobalSpeechAnimationDelay</a></li>
+<li><a href="#portraitxoffset">PortraitXOffset</a></li>
+<li><a href="#portraity">PortraitY</a></li>
+<li><a href="#skipkey">SkipKey</a></li>
+<li><a href="#skipstyle">SkipStyle</a></li>
+<li><a href="#style">Style</a></li>
+<li><a href="#textalignment">TextAlignment</a></li>
+<li><a href="#useglobalspeechanimationdelay">UseGlobalSpeechAnimationDelay</a></li>
+<li><a href="#voicemode">VoiceMode</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="speech-functions-and-properties" class="level2">
+<h2>Speech functions and properties</h2>
+<section id="animationstoptimemargin" class="level3">
+<h3>AnimationStopTimeMargin</h3>
+<p><em>(Formerly known as game.close_mouth_end_speech_time, which is now obsolete)</em></p>
+<pre><code>static int Speech.AnimationStopTimeMargin
+</code></pre>
+<p>Gets/sets the time margin at which the character talking animation should stop before before speech time ends. This property is specified in <strong>game loops</strong> and is set to 10 by default.</p>
+<p><strong>NOTE:</strong> This property only affects the animation if voice mode is disabled.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.AnimationStopTimeMargin = 40;
-</pre></div>
-</div>
-<p>will stop talking animation 40 game loops (1 second with the default
-game speed) before speech time ends.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">Speech.DisplayPostTimeMs</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="customportraitplacement">
-<span id="index-3"></span><h2>CustomPortraitPlacement<a class="headerlink" href="#customportraitplacement" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool Speech.CustomPortraitPlacement
-</pre></div>
-</div>
-<p>Enables/disables the custom speech portrait placement. When set to
-<strong>true</strong> the character portraits are positioned at screen coordinates
-defined by <a class="reference internal" href="#"><span class="doc">Speech.PortraitXOffset</span></a>
-and <a class="reference internal" href="#"><span class="doc">Speech.PortraitY</span></a>. When set to
-<strong>false</strong> the portraits will be automatically aligned again.</p>
-<p><strong>NOTE:</strong> This property has no effect if the Lucas-Arts speech style is
-used.</p>
+<pre><code>Speech.AnimationStopTimeMargin = 40;
+</code></pre>
+<p>will stop talking animation 40 game loops (1 second with the default game speed) before speech time ends.</p>
+<p><em>See Also:</em> <a href="Speech.html#displayposttimems">Speech.DisplayPostTimeMs</a></p>
+<hr />
+</section>
+<section id="customportraitplacement" class="level3">
+<h3>CustomPortraitPlacement</h3>
+<pre><code>static bool Speech.CustomPortraitPlacement
+</code></pre>
+<p>Enables/disables the custom speech portrait placement. When set to <strong>true</strong> the character portraits are positioned at screen coordinates defined by <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a> and <a href="Speech.html#portraity">Speech.PortraitY</a>. When set to <strong>false</strong> the portraits will be automatically aligned again.</p>
+<p><strong>NOTE:</strong> This property has no effect if the Lucas-Arts speech style is used.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Speech.PortraitXOffset</span></a>,
-<a class="reference internal" href="#"><span class="doc">Speech.PortraitY</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="displayposttimems">
-<span id="index-5"></span><h2>DisplayPostTimeMs<a class="headerlink" href="#displayposttimems" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Speech.DisplayPostTimeMs
-</pre></div>
-</div>
-<p>Gets/sets the extra time the speech will stay on screen after its base
-time runs out. Commonly the time the speech lines and portrait stay on
-screen is calculated based on the text length - if the text mode is on,
-or voice clip length - if the voice mode is on. This property prolongs
-the time the speech text and/or portrait is displayed. This property
-does not interfere with speech skipping by key or mouse click: players
-will still be able to skip speech any time they want (if appropriate
-skip mode is enabled). This property is specified in <strong>milliseconds</strong>
-and is set to zero by default.</p>
+<p><em>See Also:</em> <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a>, <a href="Speech.html#portraity">Speech.PortraitY</a></p>
+<hr />
+</section>
+<section id="displayposttimems" class="level3">
+<h3>DisplayPostTimeMs</h3>
+<pre><code>static int Speech.DisplayPostTimeMs
+</code></pre>
+<p>Gets/sets the extra time the speech will stay on screen after its base time runs out. Commonly the time the speech lines and portrait stay on screen is calculated based on the text length - if the text mode is on, or voice clip length - if the voice mode is on. This property prolongs the time the speech text and/or portrait is displayed. This property does not interfere with speech skipping by key or mouse click: players will still be able to skip speech any time they want (if appropriate skip mode is enabled). This property is specified in <strong>milliseconds</strong> and is set to zero by default.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">Speech.AnimationStopTimeMargin</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="globalspeechanimationdelay">
-<span id="index-7"></span><h2>GlobalSpeechAnimationDelay<a class="headerlink" href="#globalspeechanimationdelay" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Speech.html#animationstoptimemargin">Speech.AnimationStopTimeMargin</a></p>
+<hr />
+</section>
+<section id="globalspeechanimationdelay" class="level3">
+<h3>GlobalSpeechAnimationDelay</h3>
 <p><em>(Formerly known as game.talkanim_speed, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Speech.GlobalSpeechAnimationDelay
-</pre></div>
-</div>
-<p>Gets/sets global speech animation delay which affects every character in
-game. This property is specified in <strong>game loops</strong> and is set to 5 by
-default.</p>
+<pre><code>static int Speech.GlobalSpeechAnimationDelay
+</code></pre>
+<p>Gets/sets global speech animation delay which affects every character in game. This property is specified in <strong>game loops</strong> and is set to 5 by default.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip sync is enabled.</p>
-<p><strong>NOTE:</strong> The property is only used when the
-<strong>Speech.UseGlobalSpeechAnimationDelay</strong> is set to <strong>true</strong>. This
-property <strong>cannot</strong> be used if the global speech animation delay is
-disabled. In that case, the individual character’s animation delay is
-used instead.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,
-<a class="reference internal" href="#"><span class="doc">Speech.UseGlobalSpeechAnimationDelay</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-8"></span></div>
-<div class="section" id="portraitxoffset">
-<span id="index-9"></span><h2>PortraitXOffset<a class="headerlink" href="#portraitxoffset" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Speech.PortraitXOffset
-</pre></div>
-</div>
-<p>Gets/sets the character’s speech portrait <strong>horizontal</strong> offset relative
-to screen side. The actual x coordinate of the portrait is calculated
-based on whether portrait is to be displayed at the left or right side
-of the screen. This property specifies the distance between the screen
-side and respected portrait’s border.</p>
-<p><strong>NOTE:</strong>The property is only used when the
-<strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
+<p><strong>NOTE:</strong> The property is only used when the <strong>Speech.UseGlobalSpeechAnimationDelay</strong> is set to <strong>true</strong>. This property <strong>cannot</strong> be used if the global speech animation delay is disabled. In that case, the individual character's animation delay is used instead.</p>
+<p><em>See Also:</em> <a href="Character.html#speechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#useglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a></p>
+<hr />
+</section>
+<section id="portraitxoffset" class="level3">
+<h3>PortraitXOffset</h3>
+<pre><code>static int Speech.PortraitXOffset
+</code></pre>
+<p>Gets/sets the character's speech portrait <strong>horizontal</strong> offset relative to screen side. The actual x coordinate of the portrait is calculated based on whether portrait is to be displayed at the left or right side of the screen. This property specifies the distance between the screen side and respected portrait's border.</p>
+<p>**NOTE:**The property is only used when the <strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">Speech.CustomPortraitPlacement</span></a>,
-<a class="reference internal" href="#"><span class="doc">Speech.PortraitY</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="portraity">
-<span id="index-11"></span><h2>PortraitY<a class="headerlink" href="#portraity" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static int Speech.PortraitY
-</pre></div>
-</div>
-<p>Gets/sets the character’s speech portrait <strong>y</strong> coordinate on screen.</p>
-<p><strong>NOTE:</strong>The property is only used when the
-<strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
+<p><em>See Also:</em> <a href="Speech.html#customportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#portraity">Speech.PortraitY</a></p>
+<hr />
+</section>
+<section id="portraity" class="level3">
+<h3>PortraitY</h3>
+<pre><code>static int Speech.PortraitY
+</code></pre>
+<p>Gets/sets the character's speech portrait <strong>y</strong> coordinate on screen.</p>
+<p>**NOTE:**The property is only used when the <strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">Speech.CustomPortraitPlacement</span></a>,
-<a class="reference internal" href="#"><span class="doc">Speech.PortraitXOffset</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="skipkey">
-<span id="index-13"></span><h2>SkipKey<a class="headerlink" href="#skipkey" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as game.skip_speech_specific_key, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static eKeyCode Speech.SkipKey
-</pre></div>
-</div>
-<p>Gets/sets special key which can skip speech text. This makes all other
-keys ignored when speech is displayed on screen, unless eKeyNone is
-assigned, in which case any key can be used again.</p>
-<p><strong>NOTE:</strong>The specified key will only skip speech if the appropriate
-speech skip style is enabled.</p>
+<p><em>See Also:</em> <a href="Speech.html#customportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a></p>
+<hr />
+</section>
+<section id="skipkey" class="level3">
+<h3>SkipKey</h3>
+<p><em>(Formerly known as game.skip_speech_specific_key, which is now obsolete)</em></p>
+<pre><code>static eKeyCode Speech.SkipKey
+</code></pre>
+<p>Gets/sets special key which can skip speech text. This makes all other keys ignored when speech is displayed on screen, unless eKeyNone is assigned, in which case any key can be used again.</p>
+<p>**NOTE:**The specified key will only skip speech if the appropriate speech skip style is enabled.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.SkipKey = eKeySpace;
-</pre></div>
-</div>
-<p>will assign the “space” key to skip the speech.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Speech.SkipStyle</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-14"></span></div>
-<div class="section" id="skipstyle">
-<span id="index-15"></span><h2>SkipStyle<a class="headerlink" href="#skipstyle" title="Permalink to this headline">¶</a></h2>
+<pre><code>Speech.SkipKey = eKeySpace;
+</code></pre>
+<p>will assign the "space" key to skip the speech.</p>
+<p><em>See Also:</em> <a href="Speech.html#skipstyle">Speech.SkipStyle</a></p>
+<hr />
+</section>
+<section id="skipstyle" class="level3">
+<h3>SkipStyle</h3>
 <p><em>(Formerly known as SetSkipSpeech, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static SkipSpeechStyle Speech.SkipStyle
-</pre></div>
-</div>
+<pre><code>static SkipSpeechStyle Speech.SkipStyle
+</code></pre>
 <p>Gets/sets how the player can skip speech lines.</p>
 <p>The accepted values are</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eSkipKeyMouseTime  player can skip text by clicking mouse or pressing key
+<pre><code>eSkipKeyMouseTime  player can skip text by clicking mouse or pressing key
 eSkipKeyTime       player can skip text by pressing key only, not by clicking mouse
 eSkipTime          player cannot skip text with mouse or keyboard
 eSkipKeyMouse      text does not time-out; player must click mouse or press key each time
 eSkipMouseTime     player can skip text by clicking mouse only, not by pressing key
 eSkipKey           text does not time-out; player can skip text by pressing key only
 eSkipMouse         text does not time-out; player can skip text by clicking mouse only
-</pre></div>
-</div>
+</code></pre>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.SkipStyle = eSkipTime;
-</pre></div>
-</div>
-<p>will make the player unable to skip the text by pressing a mouse button
-or a key.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="Game.html"><span class="doc">Game.IgnoreUserInputAfterTextTimeoutMs</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">Game.TextReadingSpeed</span></a>,
-<a class="reference internal" href="#"><span class="doc">Game.Speech.SkipKey</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-16"></span></div>
-<div class="section" id="style">
-<span id="index-17"></span><h2>Style<a class="headerlink" href="#style" title="Permalink to this headline">¶</a></h2>
+<pre><code>Speech.SkipStyle = eSkipTime;
+</code></pre>
+<p>will make the player unable to skip the text by pressing a mouse button or a key.</p>
+<p><em>See Also:</em> <a href="Game.html#ignoreuserinputaftertexttimeoutms">Game.IgnoreUserInputAfterTextTimeoutMs</a>, <a href="Game.html#textreadingspeed">Game.TextReadingSpeed</a>, <a href="Speech.html#skipkey">Game.Speech.SkipKey</a></p>
+<hr />
+</section>
+<section id="style" class="level3">
+<h3>Style</h3>
 <p><em>(Formerly known as SetSpeechStyle, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static eSpeechStyle Speech.Style
-</pre></div>
-</div>
-<p>Gets/sets theway in which speech text is displayed. This modifies the
-setting originally set in the editor. SpeechStyle can be:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eSpeechLucasarts
+<pre><code>static eSpeechStyle Speech.Style
+</code></pre>
+<p>Gets/sets theway in which speech text is displayed. This modifies the setting originally set in the editor. SpeechStyle can be:</p>
+<pre><code>eSpeechLucasarts
   speech text over character&#39;s head
 eSpeechSierra
   close-up portrait of character
@@ -214,185 +178,70 @@ eSpeechSierraWithBackground
   close-up portrait + background window for text
 eSpeechFullScreen
   QFG4-style full screen dialog pictures
-</pre></div>
-</div>
+</code></pre>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.Style = eSpeechSierra;
-</pre></div>
-</div>
+<pre><code>Speech.Style = eSpeechSierra;
+</code></pre>
 <p>will change the speech style to a close up portrait of the character.</p>
-<hr class="docutils" />
-<span class="target" id="index-18"></span></div>
-<div class="section" id="textalignment">
-<span id="index-19"></span><h2>TextAlignment<a class="headerlink" href="#textalignment" title="Permalink to this headline">¶</a></h2>
+<hr />
+</section>
+<section id="textalignment" class="level3">
+<h3>TextAlignment</h3>
 <p><em>(Formerly known as game.speech_text_align, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Alignment Speech.TextAlignment
-</pre></div>
-</div>
+<pre><code>static Alignment Speech.TextAlignment
+</code></pre>
 <p>Sets how text in Lucasarts-style speech is aligned.</p>
 <p>The accepted values are</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eAlignLeft
+<pre><code>eAlignLeft
 eAlignCentre
 eAlignRight
-</pre></div>
-</div>
+</code></pre>
 <p>The default is eAlignCentre.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.TextAlignment = eAlignRight;
-</pre></div>
-</div>
+<pre><code>Speech.TextAlignment = eAlignRight;
+</code></pre>
 <p>will align the speech text at the right side.</p>
-<hr class="docutils" />
-<span class="target" id="index-20"></span></div>
-<div class="section" id="useglobalspeechanimationdelay">
-<span id="index-21"></span><h2>UseGlobalSpeechAnimationDelay<a class="headerlink" href="#useglobalspeechanimationdelay" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool Speech.UseGlobalSpeechAnimationDelay
-</pre></div>
-</div>
-<p>Gets/sets whether speech animation delay should use global setting, as
-opposed to individual character’s setting. The actual global delay value
-is specified with <strong>Speech.GlobalSpeechAnimationDelay</strong>.</p>
+<hr />
+</section>
+<section id="useglobalspeechanimationdelay" class="level3">
+<h3>UseGlobalSpeechAnimationDelay</h3>
+<pre><code>static bool Speech.UseGlobalSpeechAnimationDelay
+</code></pre>
+<p>Gets/sets whether speech animation delay should use global setting, as opposed to individual character's setting. The actual global delay value is specified with <strong>Speech.GlobalSpeechAnimationDelay</strong>.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Speech.UseGlobalSpeechAnimationDelay = true;
-</pre></div>
-</div>
+<pre><code>Speech.UseGlobalSpeechAnimationDelay = true;
+</code></pre>
 <p>will make the game use global speech animation delay.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="Character.html"><span class="doc">Character.SpeechAnimationDelay</span></a>,
-<a class="reference internal" href="#"><span class="doc">Speech.GlobalSpeechAnimationDelay</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-22"></span></div>
-<div class="section" id="voicemode">
-<span id="index-23"></span><h2>VoiceMode<a class="headerlink" href="#voicemode" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Character.html#speechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#globalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a></p>
+<hr />
+</section>
+<section id="voicemode" class="level3">
+<h3>VoiceMode</h3>
 <p><em>(Formerly known as SetVoiceMode, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static eVoiceMode Speech.VoiceMode
-</pre></div>
-</div>
+<pre><code>static eVoiceMode Speech.VoiceMode
+</code></pre>
 <p>Gets/sets whether voice and/or text captions are used in the game.</p>
 <p>Valid values for VoiceMode are:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eSpeechTextOnly      no voice, text only
+<pre><code>eSpeechTextOnly      no voice, text only
 eSpeechVoiceAndText  both voice and text
 eSpeechVoiceOnly     voice only, no text
-</pre></div>
-</div>
-<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and
-<em>eSpeechTextOnly</em> if it is not. Changing this setting changes the
-behaviour of all <a class="reference internal" href="Character.html"><span class="doc">Say</span></a> and
-<a class="reference internal" href="DisplayFunctions.html"><span class="doc">Display</span></a> commands which have a speech file assigned
-to them.</p>
-<p><strong>WARNING:</strong> you should only ever use <em>eSpeechVoiceOnly</em> at the player’s
-request to do so, because there is no guarantee that they even have a
-sound card and so may not understand what is going on.</p>
+</code></pre>
+<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behaviour of all <a href="Character.html#say">Say</a> and <a href="DisplayFunctions.html#display">Display</a> commands which have a speech file assigned to them.</p>
+<p><strong>WARNING:</strong> you should only ever use <em>eSpeechVoiceOnly</em> at the player's request to do so, because there is no guarantee that they even have a sound card and so may not understand what is going on.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (IsSpeechVoxAvailable()==1)
+<pre><code>if (IsSpeechVoxAvailable()==1)
     Speech.VoiceMode = eSpeechVoiceAndText;
-</pre></div>
-</div>
-<p>will set the voice mode to voice and text if the voice pack is
-available.</p>
-</div>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p>will set the voice mode to voice and text if the voice pack is available.</p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="SourceControl.html" title="previous chapter">Source Control integration</a></li>
-      <li>Next: <a href="StartingOff.html" title="next chapter">Starting off</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Speech%20functions%20and%20properties&body=source%20is%20Speech.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Speech"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Speech functions and properties</a><ul>
-<li><a class="reference internal" href="#animationstoptimemargin">AnimationStopTimeMargin</a></li>
-<li><a class="reference internal" href="#customportraitplacement">CustomPortraitPlacement</a></li>
-<li><a class="reference internal" href="#displayposttimems">DisplayPostTimeMs</a></li>
-<li><a class="reference internal" href="#globalspeechanimationdelay">GlobalSpeechAnimationDelay</a></li>
-<li><a class="reference internal" href="#portraitxoffset">PortraitXOffset</a></li>
-<li><a class="reference internal" href="#portraity">PortraitY</a></li>
-<li><a class="reference internal" href="#skipkey">SkipKey</a></li>
-<li><a class="reference internal" href="#skipstyle">SkipStyle</a></li>
-<li><a class="reference internal" href="#style">Style</a></li>
-<li><a class="reference internal" href="#textalignment">TextAlignment</a></li>
-<li><a class="reference internal" href="#useglobalspeechanimationdelay">UseGlobalSpeechAnimationDelay</a></li>
-<li><a class="reference internal" href="#voicemode">VoiceMode</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

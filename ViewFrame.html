@@ -1,111 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ViewFrame functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ViewFrame functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Editor Tutorial" href="acintro.html" />
-    <link rel="prev" title="Upgrading to AGS 2.71" href="UpgradingTo271.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="viewframe-functions-and-properties">
-<h1>ViewFrame functions and properties<a class="headerlink" href="#viewframe-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="flipped">
-<span id="index-1"></span><h2>Flipped<a class="headerlink" href="#flipped" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#viewframe-functions-and-properties">ViewFrame functions and properties</a><ul>
+<li><a href="#flipped">Flipped</a></li>
+<li><a href="#frame">Frame</a></li>
+<li><a href="#graphic">Graphic</a></li>
+<li><a href="#linkedaudio">LinkedAudio</a></li>
+<li><a href="#loop">Loop</a></li>
+<li><a href="#speed">Speed</a></li>
+<li><a href="#view">View</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="viewframe-functions-and-properties" class="level2">
+<h2>ViewFrame functions and properties</h2>
+<section id="flipped" class="level3">
+<h3>Flipped</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool ViewFrame.Flipped
-</pre></div>
-</div>
+<pre><code>readonly bool ViewFrame.Flipped
+</code></pre>
 <p>Gets whether the frame was set to Flipped in the editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 if (frame.Flipped) {
   Display(&quot;This frame is flipped&quot;);
 }
 else {
   Display(&quot;This frame is not flipped&quot;);
 }
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="frame">
-<span id="index-2"></span><h2>Frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a>, <a href="ViewFrame.html#graphic">ViewFrame.Graphic</a></p>
+<hr />
+</section>
+<section id="frame" class="level3">
+<h3>Frame</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ViewFrame.Frame
-</pre></div>
-</div>
+<pre><code>readonly int ViewFrame.Frame
+</code></pre>
 <p>Returns the frame number represented by this ViewFrame.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 Display(&quot;This ViewFrame is view %d, loop %d, frame %d&quot;,
   frame.View, frame.Loop, frame.Frame);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.View</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="graphic">
-<span id="index-3"></span><h2>Graphic<a class="headerlink" href="#graphic" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a>, <a href="ViewFrame.html#loop">ViewFrame.Loop</a>, <a href="ViewFrame.html#view">ViewFrame.View</a></p>
+<hr />
+</section>
+<section id="graphic" class="level3">
+<h3>Graphic</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int ViewFrame.Graphic
-</pre></div>
-</div>
+<pre><code>int ViewFrame.Graphic
+</code></pre>
 <p>Gets/sets the sprite slot number that this view frame displays.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 Display(&quot;This frame uses sprite %d&quot;, frame.Graphic);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="linkedaudio">
-<span id="index-5"></span><h2>LinkedAudio<a class="headerlink" href="#linkedaudio" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as ViewFrame.Sound, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as SetFrameSound, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AudioClip* ViewFrame.LinkedAudio
-</pre></div>
-</div>
-<p>Gets/sets the audio clip that plays when this frame comes around in
-animations.</p>
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a></p>
+<hr />
+</section>
+<section id="linkedaudio" class="level3">
+<h3>LinkedAudio</h3>
+<p><em>(Formerly known as ViewFrame.Sound, which is now obsolete)</em><br> <em>(Formerly known as SetFrameSound, which is now obsolete)</em><br> <em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<pre><code>AudioClip* ViewFrame.LinkedAudio
+</code></pre>
+<p>Gets/sets the audio clip that plays when this frame comes around in animations.</p>
 <p>If there is no linked sound, this should be <em>null</em>.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 if (frame.LinkedAudio == null)
 {
   Display(&quot;This frame has no frame-linked audio.&quot;);
@@ -114,161 +121,59 @@ else
 {
   frame.LinkedAudio.Play();
 }
-</pre></div>
-</div>
-<p>checks view WALKING to see if frame 4 in loop 2 has a linked audio clip;
-if so, plays it.</p>
+</code></pre>
+<p>checks view WALKING to see if frame 4 in loop 2 has a linked audio clip; if so, plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="loop">
-<span id="index-6"></span><h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a></p>
+<hr />
+</section>
+<section id="loop" class="level3">
+<h3>Loop</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ViewFrame.Loop
-</pre></div>
-</div>
+<pre><code>readonly int ViewFrame.Loop
+</code></pre>
 <p>Returns the loop number represented by this ViewFrame.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 Display(&quot;This ViewFrame is view %d, loop %d, frame %d&quot;,
   frame.View, frame.Loop, frame.Frame);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.Frame</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.View</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="speed">
-<span id="index-7"></span><h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a>, <a href="ViewFrame.html#frame">ViewFrame.Frame</a>, <a href="ViewFrame.html#view">ViewFrame.View</a></p>
+<hr />
+</section>
+<section id="speed" class="level3">
+<h3>Speed</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ViewFrame.Speed
-</pre></div>
-</div>
-<p>Gets the speed setting of the view frame. This is 0 by default but may
-have been changed in the AGS Editor.</p>
+<pre><code>readonly int ViewFrame.Speed
+</code></pre>
+<p>Gets the speed setting of the view frame. This is 0 by default but may have been changed in the AGS Editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">ViewFrame</span> *<span class="n">frame</span> = <span class="n">Game</span>.<span class="n">GetViewFrame</span>(<span class="n">WALKING</span>, <span class="mi">2</span>, <span class="mi">4</span>);
-<span class="n">Display</span>(<span class="s">&quot;This frame has speed %d.&quot;</span>, <span class="n">frame</span>.<span class="n">Speed</span>);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="view">
-<span id="index-8"></span><h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+Display(&quot;This frame has speed %d.&quot;, frame.Speed);
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a></p>
+<hr />
+</section>
+<section id="view" class="level3">
+<h3>View</h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int ViewFrame.View
-</pre></div>
-</div>
+<pre><code>readonly int ViewFrame.View
+</code></pre>
 <p>Returns the view number represented by this ViewFrame.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
+<pre><code>ViewFrame *frame = Game.GetViewFrame(WALKING, 2, 4);
 Display(&quot;This ViewFrame is view %d, loop %d, frame %d&quot;,
   frame.View, frame.Loop, frame.Frame);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetViewFrame</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">ViewFrame.Frame</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#getviewframe">Game.GetViewFrame</a>, <a href="ViewFrame.html#loop">ViewFrame.Loop</a>, <a href="ViewFrame.html#frame">ViewFrame.Frame</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="UpgradingTo271.html" title="previous chapter">Upgrading to AGS 2.71</a></li>
-      <li>Next: <a href="acintro.html" title="next chapter">Editor Tutorial</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20ViewFrame%20functions%20and%20properties&body=source%20is%20ViewFrame.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/ViewFrame"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">ViewFrame functions and properties</a><ul>
-<li><a class="reference internal" href="#flipped">Flipped</a></li>
-<li><a class="reference internal" href="#frame">Frame</a></li>
-<li><a class="reference internal" href="#graphic">Graphic</a></li>
-<li><a class="reference internal" href="#linkedaudio">LinkedAudio</a></li>
-<li><a class="reference internal" href="#loop">Loop</a></li>
-<li><a class="reference internal" href="#speed">Speed</a></li>
-<li><a class="reference internal" href="#view">View</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

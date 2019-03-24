@@ -1,273 +1,118 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting Started with AGS - Part 4 &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started with AGS - Part 5" href="acintro5.html" />
-    <link rel="prev" title="Getting Started with AGS - Part 3" href="acintro3.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="getting-started-with-ags-part-4">
-<h1>Getting Started with AGS - Part 4<a class="headerlink" href="#getting-started-with-ags-part-4" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="objects">
-<span id="index-0"></span><h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
-<p>Objects are items on the screen which, unlike hotspots, can move, change
-and disappear. You use objects for things in the room that the player
-can take (since they can disappear), and for things which need to
-animate.</p>
-<p>So, let’s revisit the age-old “key” inventory item. Let’s say we’ve got
-a locked door, and the player can pick up a key from another room to
-open it with. Please don’t use this puzzle when you’re making a proper
-game, it’s been done far too many times ;-)</p>
-<p>From the same list as we chose “Walkable areas” and “Hotspots” earlier,
-let’s return there and select “Objects”. Now, to add an object to the
-room, simply right-click on the background where you want to add it, and
-choose “New object here” from the menu which appears.</p>
-<p>As if by magic, a blue cup appears! This is the default sprite in AGS,
-and will appear anywhere that you haven’t selected a proper image yet.
-Notice that the property grid has changed to display the details of this
-new object – one of which is a property called Image. Select this
-property, and a “…” button appears.</p>
-<a class="reference external image-reference" href="images/intro4_1.jpg"><img alt="Adding an object to the room" src="_images/intro4_1.jpg" /></a>
-<p>Click the “…” button, and you’ll be presented with the <em>Sprite
-Manager</em>. We’ll explain this in more detail later, but basically it is
-the focal point in AGS where you import and export all your graphics
-except for room backgrounds. You should see a small key picture as
-sprite number 2. Double-click that for now, we’ll import our own
-graphics later.</p>
-<p>You should now see that the blue cup has changed into a key. You can
-move it around by left-clicking and dragging the sprite within the
-background image. Place it somewhere sensible on your screen.</p>
-<p>The next thing we should do is give the object a name. Similar to what
-we did with hotspots, since the object will be referred to in the script
-it’ll need a name that we can call it by. Scroll down the property grid
-and find the “Name” property, and set it to something sensible. The
-convention in AGS is to have object names start with an “o”, for example
-<em>oKey</em>.</p>
-<a class="reference external image-reference" href="images/intro4_2.jpg"><img alt="I've placed the key cunningly in the middle of the walkway ;-)" src="_images/intro4_2.jpg" /></a>
-<p>Before we enable the key to be taken by the player, let me quickly go
-over a couple of propertes in the property grid:</p>
-<ul class="simple">
-<li><strong>Baseline</strong> - normally, the baseline for an object is set to the
-bottom of the object graphic (baselines are used to calculate which
-items on the screen are drawn in front and which are drawn at
-the back). However, in some cases you might want to override this.<span class="raw-html-m2r"><br></span>
-What you’ll notice with our key is that if the player walks just
-behind it, the key will appear in front of his feet. This is not
-what we want, since the key is supposed to be lying flat on
-the ground. To correct this, change the Baseline property to 5 (this
-means that it will be drawn behind everything that has a baseline
-lower down the screen than Y=5). This will make sure that the player
-is always drawn in front of the key.</li>
-<li><strong>Visible</strong> - this toggles whether the object is switched on at the
-beginning of the game or not. For our key we want it to be True, but
-sometimes you’ll have objects which you don’t want the player to see
-until they’ve done something else in the game.</li>
-</ul>
-<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p>The game speed is directly related to the number and size of objects on-screen.
-AGS imposes a limit of 20 objects per room, but even if you use all of these
-and have them visible at the same time, the game speed could suffer.</p>
-<p>Right, now back to the pressing matter at hand - letting the player pick
-up the key.</p>
-</div>
-<div class="section" id="inventory">
-<span id="index-1"></span><h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
-<p>Now wait, there’s one more step we need to do first. At the moment we
-could let the player pick up the key, but then what would happen to it?
-Where would it go? We need to define the player’s <em>inventory</em>.</p>
-<p>Select the <em>“Inventory Items”</em> node in the project tree. You’ll see that
-there are already two items defined - “Key” and “Pink poster”. These are
-just defaults to help you get started. Double click “1: iKey”, and you
-should see a window open with the key image in it. But that picture’s a
-bit small for an inventory item, I’m sure I saw something better in the
-sprite list earlier.</p>
-<p>Find the “Image” property in the property grid, select it, and then
-click the “…” button. The sprite manager re-appears, so find sprite
-number 5, and you should see that it’s a much larger picture of a key.
-Let’s use that as our inventory icon. Double-click the sprite to select
-it.</p>
-<a class="reference external image-reference" href="images/intro4_3.jpg"><img alt="Yay, we've got a big inventory icon for the key" src="_images/intro4_3.jpg" /></a>
-<p>Ok, there are a few other settings on this screen, but let’s return to
-our objective - letting the player pick up the key. Remember that the
-script name is <em>iKey</em>, as we’ll need it later.</p>
-<div class="section" id="back-to-the-events">
-<h3>Back to the events<a class="headerlink" href="#back-to-the-events" title="Permalink to this headline">¶</a></h3>
-<p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes
-you’ve guessed it, the <em>Events</em> button. The events here are very similar
-to the ones we had for the hotspot:</p>
-<a class="reference external image-reference" href="images/intro4_4.jpg"><img alt="The events list for the object" src="_images/intro4_4.jpg" /></a>
-<p>Notice there are two obvious possibilities here: “Interact object” and
-“Pick up object”. We actually want to use the “Interact object” event,
-because we are using the default Sierra-style interface which doesn’t
-have a specific Pick Up mode. The “Pick up”, “Usermode1” and “Usermode2”
-events are useful if you go for a lucasarts-style interface which has
-more verb types available to the player.</p>
-<p>So, select “Interact object” and click the “…” button. When the player
-picks up the key we want two things to happen - firstly, the object
-on-screen needs to disappear, and secondly, the inventory item needs to
-be added to the player’s inventory.</p>
-<p>Here’s my script solution. As an added bonus, I’ve also given the player
-5 points for their trouble, but you don’t need to have that third
-command:</p>
-<a class="reference external image-reference" href="images/intro4_5.jpg"><img alt="Script for taking the key" src="_images/intro4_5.jpg" /></a>
-<p>Note that our solution is not perfect - the player can click the hand
-icon on the key from anywhere in the room and it will disappear. We are
-also not displaying a message informing the player of what happened.
-But, the functionality is there, and this will do fine for now.</p>
-<p>Okey, so we now have a fully-working first room. Test the game as
-before, and try it out. Once the player has taken the key, call up his
-inventory and you should see the large key picture there.</p>
-</div>
-</div>
-<div class="section" id="room-settings">
-<span id="index-2"></span><h2>Room Settings<a class="headerlink" href="#room-settings" title="Permalink to this headline">¶</a></h2>
-<p>Finally, let’s just quickly go over the available properties for the
-room itself (available when in Nothing mode):</p>
-<ul class="simple">
-<li><strong>PlayMusicOnRoomLoad</strong> - you can type a music number in the box and
-that background music will start playing when the player enters
-the room. For more about music and sound, see later in the manual.</li>
-<li><strong>SaveLoadEnabled</strong> - if disabled, then if the player tries to save
-or load the game while in this room, a message (“Sorry, not now”) is
-displayed instead. .</li>
-<li><strong>ShowPlayerCharacter</strong> - if checked, the player character will not
-be visible in this room, and the Walk mode will be disabled. Useful
-for close-up displays of control panels and so forth.</li>
-<li><strong>PlayerCharacterView</strong> - you can type a number in here to override
-the player character’s graphic for this room. For example, if you
-have an overhead map screen, you will probably want a different
-image of the character from an overhead perspective.</li>
-<li><strong>MusicVolumeAdjustment</strong> - this allows you to modify the background
-music volume for this screen.</li>
-</ul>
-<p>Go to part 5: <a class="reference internal" href="acintro5.html"><span class="doc">Managing Inventory</span></a></p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 4</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="acintro3.html" title="previous chapter">Getting Started with AGS - Part 3</a></li>
-      <li>Next: <a href="acintro5.html" title="next chapter">Getting Started with AGS - Part 5</a></li>
-  </ul></li>
+<li><a href="#getting-started-with-ags---part-4">Getting Started with AGS - Part 4</a><ul>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#inventory">Inventory</a></li>
+<li><a href="#room-settings">Room Settings</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Getting%20Started%20with%20AGS%20-%20Part%204&body=source%20is%20acintro4.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/acintro4"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Getting Started with AGS - Part 4</a><ul>
-<li><a class="reference internal" href="#objects">Objects</a></li>
-<li><a class="reference internal" href="#inventory">Inventory</a><ul>
-<li><a class="reference internal" href="#back-to-the-events">Back to the events</a></li>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="getting-started-with-ags---part-4" class="level2">
+<h2>Getting Started with AGS - Part 4</h2>
+<section id="objects" class="level3">
+<h3>Objects</h3>
+<p>Objects are items on the screen which, unlike hotspots, can move, change and disappear. You use objects for things in the room that the player can take (since they can disappear), and for things which need to animate.</p>
+<p>So, let's revisit the age-old "key" inventory item. Let's say we've got a locked door, and the player can pick up a key from another room to open it with. Please don't use this puzzle when you're making a proper game, it's been done far too many times ;-)</p>
+<p>From the same list as we chose "Walkable areas" and "Hotspots" earlier, let's return there and select "Objects". Now, to add an object to the room, simply right-click on the background where you want to add it, and choose "New object here" from the menu which appears.</p>
+<p>As if by magic, a blue cup appears! This is the default sprite in AGS, and will appear anywhere that you haven't selected a proper image yet. Notice that the property grid has changed to display the details of this new object -- one of which is a property called Image. Select this property, and a "..." button appears.</p>
+<p><img src="images/intro4_1.jpg" alt="Adding an object to the room" /></p>
+<p>Click the "..." button, and you'll be presented with the <em>Sprite Manager</em>. We'll explain this in more detail later, but basically it is the focal point in AGS where you import and export all your graphics except for room backgrounds. You should see a small key picture as sprite number 2. Double-click that for now, we'll import our own graphics later.</p>
+<p>You should now see that the blue cup has changed into a key. You can move it around by left-clicking and dragging the sprite within the background image. Place it somewhere sensible on your screen.</p>
+<p>The next thing we should do is give the object a name. Similar to what we did with hotspots, since the object will be referred to in the script it'll need a name that we can call it by. Scroll down the property grid and find the "Name" property, and set it to something sensible. The convention in AGS is to have object names start with an "o", for example <em>oKey</em>.</p>
+<p><img src="images/intro4_2.jpg" alt="I&#39;ve placed the key cunningly in the middle of the walkway ;-)" /></p>
+<p>Before we enable the key to be taken by the player, let me quickly go over a couple of propertes in the property grid:</p>
+<ul>
+<li><strong>Baseline</strong> - normally, the baseline for an object is set to the bottom of the object graphic (baselines are used to calculate which items on the screen are drawn in front and which are drawn at the back). However, in some cases you might want to override this.<br> What you'll notice with our key is that if the player walks just behind it, the key will appear in front of his feet. This is not what we want, since the key is supposed to be lying flat on the ground. To correct this, change the Baseline property to 5 (this means that it will be drawn behind everything that has a baseline lower down the screen than Y=5). This will make sure that the player is always drawn in front of the key.</li>
+<li><strong>Visible</strong> - this toggles whether the object is switched on at the beginning of the game or not. For our key we want it to be True, but sometimes you'll have objects which you don't want the player to see until they've done something else in the game.</li>
 </ul>
-</li>
-<li><a class="reference internal" href="#room-settings">Room Settings</a></li>
+<p><img src="images/icon_info.gif" /></p>
+<p>The game speed is directly related to the number and size of objects on-screen. AGS imposes a limit of 20 objects per room, but even if you use all of these and have them visible at the same time, the game speed could suffer.</p>
+<p>Right, now back to the pressing matter at hand - letting the player pick up the key.</p>
+</section>
+<section id="inventory" class="level3">
+<h3>Inventory</h3>
+<p>Now wait, there's one more step we need to do first. At the moment we could let the player pick up the key, but then what would happen to it? Where would it go? We need to define the player's <em>inventory</em>.</p>
+<p>Select the <em>"Inventory Items"</em> node in the project tree. You'll see that there are already two items defined - "Key" and "Pink poster". These are just defaults to help you get started. Double click "1: iKey", and you should see a window open with the key image in it. But that picture's a bit small for an inventory item, I'm sure I saw something better in the sprite list earlier.</p>
+<p>Find the "Image" property in the property grid, select it, and then click the "..." button. The sprite manager re-appears, so find sprite number 5, and you should see that it's a much larger picture of a key. Let's use that as our inventory icon. Double-click the sprite to select it.</p>
+<p><img src="images/intro4_3.jpg" alt="Yay, we&#39;ve got a big inventory icon for the key" /></p>
+<p>Ok, there are a few other settings on this screen, but let's return to our objective - letting the player pick up the key. Remember that the script name is <em>iKey</em>, as we'll need it later.</p>
+<section id="back-to-the-events" class="level4">
+<h4>Back to the events</h4>
+<p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes you've guessed it, the <em>Events</em> button. The events here are very similar to the ones we had for the hotspot:</p>
+<p><img src="images/intro4_4.jpg" alt="The events list for the object" /></p>
+<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a lucasarts-style interface which has more verb types available to the player.</p>
+<p>So, select "Interact object" and click the "..." button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
+<p>Here's my script solution. As an added bonus, I've also given the player 5 points for their trouble, but you don't need to have that third command:</p>
+<p><img src="images/intro4_5.jpg" alt="Script for taking the key" /></p>
+<p>Note that our solution is not perfect - the player can click the hand icon on the key from anywhere in the room and it will disappear. We are also not displaying a message informing the player of what happened. But, the functionality is there, and this will do fine for now.</p>
+<p>Okey, so we now have a fully-working first room. Test the game as before, and try it out. Once the player has taken the key, call up his inventory and you should see the large key picture there.</p>
+</section>
+</section>
+<section id="room-settings" class="level3">
+<h3>Room Settings</h3>
+<p>Finally, let's just quickly go over the available properties for the room itself (available when in Nothing mode):</p>
+<ul>
+<li><strong>PlayMusicOnRoomLoad</strong> - you can type a music number in the box and that background music will start playing when the player enters the room. For more about music and sound, see later in the manual.</li>
+<li><strong>SaveLoadEnabled</strong> - if disabled, then if the player tries to save or load the game while in this room, a message ("Sorry, not now") is displayed instead. .</li>
+<li><strong>ShowPlayerCharacter</strong> - if checked, the player character will not be visible in this room, and the Walk mode will be disabled. Useful for close-up displays of control panels and so forth.</li>
+<li><strong>PlayerCharacterView</strong> - you can type a number in here to override the player character's graphic for this room. For example, if you have an overhead map screen, you will probably want a different image of the character from an overhead perspective.</li>
+<li><strong>MusicVolumeAdjustment</strong> - this allows you to modify the background music volume for this screen.</li>
 </ul>
-</li>
-</ul>
-
-
+<p>Go to part 5: <a href="acintro5.html">Managing Inventory</a></p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

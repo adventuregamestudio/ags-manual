@@ -1,353 +1,229 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Screen functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Screen functions &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Script language keywords" href="ScriptKeywords.html" />
-    <link rel="prev" title="Room functions and properties" href="Room.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="screen-functions">
-<h1>Screen functions<a class="headerlink" href="#screen-functions" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="fadein">
-<span id="index-1"></span><h2>FadeIn<a class="headerlink" href="#fadein" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FadeIn (int speed)
-</pre></div>
-</div>
-<p>Fades in from a black screen to the current palette. This is used to
-restore the screen after a FadeOut call. SPEED is from 1 (slowest) to 64
-(fastest).</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#screen-functions">Screen functions</a><ul>
+<li><a href="#fadein">FadeIn</a></li>
+<li><a href="#fadeout">FadeOut</a></li>
+<li><a href="#flipscreen">FlipScreen</a></li>
+<li><a href="#setfadecolor">SetFadeColor</a></li>
+<li><a href="#setnextscreentransition">SetNextScreenTransition</a></li>
+<li><a href="#setscreentransition">SetScreenTransition</a></li>
+<li><a href="#shakescreen">ShakeScreen</a></li>
+<li><a href="#shakescreenbackground">ShakeScreenBackground</a></li>
+<li><a href="#tintscreen">TintScreen</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="screen-functions" class="level2">
+<h2>Screen functions</h2>
+<section id="fadein" class="level3">
+<h3>FadeIn</h3>
+<pre><code>FadeIn (int speed)
+</code></pre>
+<p>Fades in from a black screen to the current palette. This is used to restore the screen after a FadeOut call. SPEED is from 1 (slowest) to 64 (fastest).</p>
 <p><em>NOTE: This is a blocking function.</em></p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FadeOut(30);
+<pre><code>FadeOut(30);
 Wait(40);
 FadeIn(10);
-</pre></div>
-</div>
-<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade
-in again.</p>
-<p><em>See Also:</em> <a class="reference internal" href="PaletteFunctions.html"><span class="doc">CyclePalette</span></a>,
-<a class="reference internal" href="#"><span class="doc">FadeOut</span></a>, <a class="reference internal" href="#"><span class="doc">SetFadeColor</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="fadeout">
-<span id="index-3"></span><h2>FadeOut<a class="headerlink" href="#fadeout" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FadeOut (int speed)
-</pre></div>
-</div>
-<p>Fades the screen out to black. SPEED is the speed of the fade, from 1
-(slowest) to 64 (instant). You can restore the screen with FadeIn.</p>
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="ScreenFunctions.html#setfadecolor">SetFadeColor</a></p>
+<hr />
+</section>
+<section id="fadeout" class="level3">
+<h3>FadeOut</h3>
+<pre><code>FadeOut (int speed)
+</code></pre>
+<p>Fades the screen out to black. SPEED is the speed of the fade, from 1 (slowest) to 64 (instant). You can restore the screen with FadeIn.</p>
 <p><em>NOTE: This is a blocking function.</em></p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FadeOut(30);
+<pre><code>FadeOut(30);
 Wait(40);
 FadeIn(10);
-</pre></div>
-</div>
-<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade
-in again.</p>
-<p><em>See Also:</em> <a class="reference internal" href="PaletteFunctions.html"><span class="doc">CyclePalette</span></a>,
-<a class="reference internal" href="#"><span class="doc">FadeIn</span></a>, <a class="reference internal" href="#"><span class="doc">SetFadeColor</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="flipscreen">
-<span id="index-5"></span><h2>FlipScreen<a class="headerlink" href="#flipscreen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FlipScreen (int way)
-</pre></div>
-</div>
-<p>Flips the screen round either the horizontal or vertical axis, or both.
-This function is for special effects only - all co-ordinates remain the
-same and it doesn’t effect any other script functions.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">way value</th>
-<th class="head">flip direction</th>
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#setfadecolor">SetFadeColor</a></p>
+<hr />
+</section>
+<section id="flipscreen" class="level3">
+<h3>FlipScreen</h3>
+<pre><code>FlipScreen (int way)
+</code></pre>
+<p>Flips the screen round either the horizontal or vertical axis, or both. This function is for special effects only - all co-ordinates remain the same and it doesn't effect any other script functions.</p>
+<table>
+<thead>
+<tr class="header">
+<th>way value</th>
+<th>flip direction</th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>0</td>
+<tbody>
+<tr class="odd">
+<td>0</td>
 <td>normal</td>
 </tr>
-<tr class="row-odd"><td>1</td>
+<tr class="even">
+<td>1</td>
 <td>horizontal-flip (upside-down)</td>
 </tr>
-<tr class="row-even"><td>2</td>
+<tr class="odd">
+<td>2</td>
 <td>vertical-flip (left-to-right)</td>
 </tr>
-<tr class="row-odd"><td>3</td>
+<tr class="even">
+<td>3</td>
 <td>both (upside-down and backwards)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>NOTE</strong>: This function is still a bit buggy - black parts of the screen
-may show up wrong, and and pop-up messages will flip the screen back to
-normal.</p>
+<p><strong>NOTE</strong>: This function is still a bit buggy - black parts of the screen may show up wrong, and and pop-up messages will flip the screen back to normal.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FlipScreen(1);
-</pre></div>
-</div>
+<pre><code>FlipScreen(1);
+</code></pre>
 <p>will flip the screen upside down.</p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="setfadecolor">
-<span id="index-7"></span><h2>SetFadeColor<a class="headerlink" href="#setfadecolor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetFadeColor(int red, int green, int blue)
-</pre></div>
-</div>
-<p>Changes the colour which the screen fades out to, to have the specified
-RGB value. Each of the parameters can range from 0-255. The default is
-black, ie. (0, 0, 0)</p>
-<p>The colour that you set here will be used in all future calls to
-FadeIn/FadeOut, and also for the screen transition if it is set to Fade
-In/Out.</p>
+<hr />
+</section>
+<section id="setfadecolor" class="level3">
+<h3>SetFadeColor</h3>
+<pre><code>SetFadeColor(int red, int green, int blue)
+</code></pre>
+<p>Changes the colour which the screen fades out to, to have the specified RGB value. Each of the parameters can range from 0-255. The default is black, ie. (0, 0, 0)</p>
+<p>The colour that you set here will be used in all future calls to FadeIn/FadeOut, and also for the screen transition if it is set to Fade In/Out.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetFadeColor(200, 0, 0);
-</pre></div>
-</div>
-<p>will mean that next time the screen fades out, it fades to red instead
-of black.</p>
-<p>SeeAlso: <a class="reference internal" href="#"><span class="doc">FadeIn</span></a>, <a class="reference internal" href="#"><span class="doc">FadeOut</span></a>,
-<a class="reference internal" href="#"><span class="doc">SetScreenTransition</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-8"></span></div>
-<div class="section" id="setnextscreentransition">
-<span id="index-9"></span><h2>SetNextScreenTransition<a class="headerlink" href="#setnextscreentransition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetNextScreenTransition(TransitionStyle)
-</pre></div>
-</div>
-<p>Sets the room transition type to <em>TransitionStyle</em>, but ONLY for the
-next room change. After that, it will revert back to the normal
-transition type specified in the editor or with SetScreenTransition.</p>
-<p>For the possible values for TransitionStyle, see
-<a class="reference internal" href="#"><span class="doc">SetScreenTransition</span></a>.</p>
+<pre><code>SetFadeColor(200, 0, 0);
+</code></pre>
+<p>will mean that next time the screen fades out, it fades to red instead of black.</p>
+<p>SeeAlso: <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a></p>
+<hr />
+</section>
+<section id="setnextscreentransition" class="level3">
+<h3>SetNextScreenTransition</h3>
+<pre><code>SetNextScreenTransition(TransitionStyle)
+</code></pre>
+<p>Sets the room transition type to <em>TransitionStyle</em>, but ONLY for the next room change. After that, it will revert back to the normal transition type specified in the editor or with SetScreenTransition.</p>
+<p>For the possible values for TransitionStyle, see <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a>.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetNextScreenTransition(eTransitionBoxout);
+<pre><code>SetNextScreenTransition(eTransitionBoxout);
 cEgo.ChangeRoom(10);
-</pre></div>
-</div>
-<p>will go to room 10 with a box-out effect, but then return to the normal
-transition type from then on.</p>
-<p>SeeAlso: <a class="reference internal" href="#"><span class="doc">SetScreenTransition</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="setscreentransition">
-<span id="index-11"></span><h2>SetScreenTransition<a class="headerlink" href="#setscreentransition" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetScreenTransition(TransitionStyle)
-</pre></div>
-</div>
-<p>Changes the default screen transition. TransitionStyle can be one of the
-following:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eTransitionFade
+</code></pre>
+<p>will go to room 10 with a box-out effect, but then return to the normal transition type from then on.</p>
+<p>SeeAlso: <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a></p>
+<hr />
+</section>
+<section id="setscreentransition" class="level3">
+<h3>SetScreenTransition</h3>
+<pre><code>SetScreenTransition(TransitionStyle)
+</code></pre>
+<p>Changes the default screen transition. TransitionStyle can be one of the following:</p>
+<pre><code>eTransitionFade
 eTransitionInstant
 eTransitionDissolve
 eTransitionBoxout
 eTransitionCrossfade
-</pre></div>
-</div>
-<p>All future transitions will be done as specified until you call this
-function again.</p>
+</code></pre>
+<p>All future transitions will be done as specified until you call this function again.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetScreenTransition(eTransitionFade);
-</pre></div>
-</div>
+<pre><code>SetScreenTransition(eTransitionFade);
+</code></pre>
 <p>will change the room transitions to Fade.</p>
-<p>SeeAlso: <a class="reference internal" href="#"><span class="doc">SetNextScreenTransition</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="shakescreen">
-<span id="index-13"></span><h2>ShakeScreen<a class="headerlink" href="#shakescreen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ShakeScreen (int amount)
-</pre></div>
-</div>
-<p>Shakes the screen to simulate, for example, an earthquake. AMOUNT is how
-much the screen shakes: 1 is hardly anything, and 25 is a lot.</p>
+<p>SeeAlso: <a href="ScreenFunctions.html#setnextscreentransition">SetNextScreenTransition</a></p>
+<hr />
+</section>
+<section id="shakescreen" class="level3">
+<h3>ShakeScreen</h3>
+<pre><code>ShakeScreen (int amount)
+</code></pre>
+<p>Shakes the screen to simulate, for example, an earthquake. AMOUNT is how much the screen shakes: 1 is hardly anything, and 25 is a lot.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ShakeScreen(5);
-</pre></div>
-</div>
+<pre><code>ShakeScreen(5);
+</code></pre>
 <p>will shake the screen a little.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">ShakeScreenBackground</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-14"></span></div>
-<div class="section" id="shakescreenbackground">
-<span id="index-15"></span><h2>ShakeScreenBackground<a class="headerlink" href="#shakescreenbackground" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ShakeScreenBackground (int delay, int amount, int length)
-</pre></div>
-</div>
-<p>Shakes the screen to simulate, for example, an earthquake. The game is
-not paused while the screen shakes - it will continue in the background.</p>
-<p>DELAY specifies the ‘shakiness’ of the shake - 2 is the lowest you can
-pass for this, and will create the most shaky screen.</p>
-<p>AMOUNT specifies the ferociousness of the shake - ie. how much the
-screen moves by when it does shake. Here, 1 is a very tiny shake, up to
-about 30 for a ferocious shake.</p>
-<p>LENGTH specifies how long the shake lasts for, in game loops. For
-example, 80 would be equivalent to 2 seconds at the default game speed.</p>
-<p>You can abort any current background shake that is in progress by
-calling this command with the LENGTH parameter as zero.</p>
+<p><em>See Also:</em> <a href="ScreenFunctions.html#shakescreenbackground">ShakeScreenBackground</a></p>
+<hr />
+</section>
+<section id="shakescreenbackground" class="level3">
+<h3>ShakeScreenBackground</h3>
+<pre><code>ShakeScreenBackground (int delay, int amount, int length)
+</code></pre>
+<p>Shakes the screen to simulate, for example, an earthquake. The game is not paused while the screen shakes - it will continue in the background.</p>
+<p>DELAY specifies the 'shakiness' of the shake - 2 is the lowest you can pass for this, and will create the most shaky screen.</p>
+<p>AMOUNT specifies the ferociousness of the shake - ie. how much the screen moves by when it does shake. Here, 1 is a very tiny shake, up to about 30 for a ferocious shake.</p>
+<p>LENGTH specifies how long the shake lasts for, in game loops. For example, 80 would be equivalent to 2 seconds at the default game speed.</p>
+<p>You can abort any current background shake that is in progress by calling this command with the LENGTH parameter as zero.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>ShakeScreenBackground (4, 10, 80);
-</pre></div>
-</div>
+<pre><code>ShakeScreenBackground (4, 10, 80);
+</code></pre>
 <p>will shake the screen a little for 2 seconds.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">ShakeScreen</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-16"></span></div>
-<div class="section" id="tintscreen">
-<span id="index-17"></span><h2>TintScreen<a class="headerlink" href="#tintscreen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TintScreen (int red, int green, int blue)
-</pre></div>
-</div>
-<p>Tints the screen with the specified RGB values. RED, GREEN and BLUE
-range from 1 to 100.</p>
-<p>Pass (0, 0, 0) to turn off the tinting and go back to how the screen
-normally looks.</p>
-<p>For historical reasons, the tint works by applying a 50<code class="docutils literal notranslate"><span class="pre">%</span></code>-transparent
-layer of the specified colour to the screen after everything else has
-been drawn. Therefore, it may not lead to the sort of results you might
-expect.</p>
-<p><strong>NOTE:</strong> This command is currently experimental, since it causes a
-massive slowdown in the engine, especially at high resolutions. If you
-use it, you should provide an option for the player to turn it off.</p>
+<p><em>See Also:</em> <a href="ScreenFunctions.html#shakescreen">ShakeScreen</a></p>
+<hr />
+</section>
+<section id="tintscreen" class="level3">
+<h3>TintScreen</h3>
+<pre><code>TintScreen (int red, int green, int blue)
+</code></pre>
+<p>Tints the screen with the specified RGB values. RED, GREEN and BLUE range from 1 to 100.</p>
+<p>Pass (0, 0, 0) to turn off the tinting and go back to how the screen normally looks.</p>
+<p>For historical reasons, the tint works by applying a 50<code>%</code>-transparent layer of the specified colour to the screen after everything else has been drawn. Therefore, it may not lead to the sort of results you might expect.</p>
+<p><strong>NOTE:</strong> This command is currently experimental, since it causes a massive slowdown in the engine, especially at high resolutions. If you use it, you should provide an option for the player to turn it off.</p>
 <p><strong>NOTE:</strong> This feature does not work in 256-colour games.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>TintScreen (100, 50, 50);
-</pre></div>
-</div>
+<pre><code>TintScreen (100, 50, 50);
+</code></pre>
 <p>will tint a heavy dose of red.</p>
-</div>
-</div>
-
-
-          </div>
-          
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Room.html" title="previous chapter">Room functions and properties</a></li>
-      <li>Next: <a href="ScriptKeywords.html" title="next chapter">Script language keywords</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Screen%20functions&body=source%20is%20ScreenFunctions.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/ScreenFunctions"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Screen functions</a><ul>
-<li><a class="reference internal" href="#fadein">FadeIn</a></li>
-<li><a class="reference internal" href="#fadeout">FadeOut</a></li>
-<li><a class="reference internal" href="#flipscreen">FlipScreen</a></li>
-<li><a class="reference internal" href="#setfadecolor">SetFadeColor</a></li>
-<li><a class="reference internal" href="#setnextscreentransition">SetNextScreenTransition</a></li>
-<li><a class="reference internal" href="#setscreentransition">SetScreenTransition</a></li>
-<li><a class="reference internal" href="#shakescreen">ShakeScreen</a></li>
-<li><a class="reference internal" href="#shakescreenbackground">ShakeScreenBackground</a></li>
-<li><a class="reference internal" href="#tintscreen">TintScreen</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

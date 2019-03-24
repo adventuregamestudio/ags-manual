@@ -1,248 +1,115 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Lip sync &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ListBox functions and properties" href="ListBox.html" />
-    <link rel="prev" title="Label functions and properties" href="Label.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="lip-sync">
-<h1>Lip sync<a class="headerlink" href="#lip-sync" title="Permalink to this headline">¶</a></h1>
-<p>Lip sync is a way to animate character talking in connection with
-particular letters and their combinations (phonemes).</p>
-<p>Normally when a character is talking, AGS simply cycles through the
-speech animation from start to finish, and then loops back round.
-However, lip syncing allows you to be cleverer by specifying a
-particular frame to go with various letters and sounds. Then, as the
-character talks, AGS plays appropriate frames to simulate the character
-actually saying those words.</p>
-<p>Lip sync is being configured on corresponding ‘Lip Sync’ pane in the
-editor.</p>
-<hr class="docutils" />
-<div class="section" id="text-based-lip-syncing">
-<span id="index-0"></span><h2>Text-based lip syncing<a class="headerlink" href="#text-based-lip-syncing" title="Permalink to this headline">¶</a></h2>
-<p>In the Lip Sync Editor, you have 20 text boxes, one for each possible
-frame of the talking loop. In each box, you can enter all the letters
-which will cause that frame of the loop to be played. Letter
-combinations such as ‘th’ and ‘ch’ can be used too - AGS will match each
-part of the spoken text to the longest possible phrase in the lip sync
-editor.</p>
-<p>separate the letters by forward slashes. For example,</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>3  R/S/Th/G
-</pre></div>
-</div>
-<p>will mean that frame 3 of the character’s talking animation is shown
-whenever the letter R, S, Th or G is spoken.</p>
-<p>The “Default frame for unlisted characters” box allows you to set which
-frame is used when a character not listed in any of the text boxes is
-encountered.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="voice-based-lip-sync">
-<span id="index-1"></span><h2>Voice-based lip sync<a class="headerlink" href="#voice-based-lip-sync" title="Permalink to this headline">¶</a></h2>
-<p>AGS supports lip syncing voice speech to the talking animation. If you
-enable this feature, you cannot use the standard lip-sync for non-voice
-lines.</p>
-<p><strong>NOTE: This is an unofficial feature and is not currently supported.
-Use at your own risk</strong></p>
-<p><strong>NOTE:</strong> The voice sync feature only supports Sierra-style speech.</p>
-<p>In order to do this, you need to download one of the third-party
-applications that produce lip sync data based on voice clips. AGS
-supports two such data formats: <strong>PAMELA</strong> and <strong>Papagayo</strong>.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="pamela">
-<span id="index-2"></span><h2>PAMELA<a class="headerlink" href="#pamela" title="Permalink to this headline">¶</a></h2>
-<p>Download PAMELA application by the following link:
-<code class="docutils literal notranslate"><span class="pre">http://www-personal.monash.edu.au/~myless/catnap/pamela/</span></code></p>
-<p>Set up the phenomes in Pamela so that there are only 10 (or as many
-talking frames as you have) available choices. Then, in the Lip Sync
-pane of AGS, change the Type property to “Voice”. Enter the Pamela
-phenomes into the text boxes to create the association between the
-pamela phenome code and the AGS frame number.</p>
-<p>For example, enter “AY0” into frame 0’s box, “E” into frame 1, and so
-forth - corresponding to how it is set up in Pamela. For multiple
-phenomes to share the same frame, seperate them with forward slashes –
-for example, “AY0/AY1” allows both of those phenomes to correspond to
-the specified frame.</p>
-<p>Use the Pamela application on each of your speech lines, and save a
-Pamela project file (.pam file) for each speech file, naming it the same
-as the speech.</p>
-<p>For example, the pamela project for EGO46.OGG would be called EGO46.PAM,
-placed in your game’s Speech folder.</p>
-<p>When you build the game, this pam file is compiled into the speech.vox
-and will be used to sync the animation of the talking frames during the
-game.</p>
-<p><strong>NOTE:</strong> Voice lip sync does not work well with MP3 files. It is
-strongly recommended that you use OGG or WAV for speech.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="papagayo">
-<span id="index-3"></span><h2>Papagayo<a class="headerlink" href="#papagayo" title="Permalink to this headline">¶</a></h2>
-<p>Download Papagayo application by the following link:
-<code class="docutils literal notranslate"><span class="pre">http://www.lostmarble.com/papagayo/</span></code></p>
-<p>First you would need to set up your 10 or so phonemes associations (as
-described above for PAMELA).</p>
-<p>Then start up the Papagayo program and open a speech file in .WAV
-format. The waveform will appear on-screen, represented by a blue,
-horizontal bar. You can press the triangular ‘Play’ button at the top of
-the screen to listen to the speech audio.</p>
-<p>In the “Spoken Text” field at the bottom of the screen, type in the
-exact text words heard in the speech file. As you type, you will notice
-that each word appears as a horizontal orange bar above the blue
-waveform. At the same time, individual pink phonemes start appearing
-below the blue waveform bar. (These pink phonemes at the bottom should
-correspond to the fields in AGS editor’s “Lip Sync” tab).</p>
-<p>If you play the speech audio at this point, you’ll see that the mouth
-image at the upper right corner of the screen changes as each pink
-phoneme is reached during playback. However, the result will not be
-perfect. To remedy this, you need to drag the orange words at the top of
-the screen so that their length matches up with the timing of each
-spoken word in the audio. Double-clicking an orange word will make that
-portion of the audio play, so you can test if it’s accurate.</p>
-<p>Sometimes an orange word will contain too many, too few, or inaccurate
-phonemes. You can edit these by right-clicking an orange word and
-adding, editing, or deleting the desired phonemes. Each one should be
-separated by a space.</p>
-<p>For even further accuracy, individual pink phonemes can be dragged left
-or right to position them more precisely.</p>
-<p>When you’re happy with the results, you can save the project as a .pgo
-file, which will allow you to open and re-edit this line later. But to
-use it in AGS, click the “Export” button at the bottom right side of the
-screen, and save it as a .dat file.</p>
-<p>Use the Papagayo application on each of your speech lines, and export a
-Papagayo file (.dat file) for each speech file, naming it the same as
-the speech.</p>
-<p>For example, the Papagayo project for EGO46.OGG would be called
-EGO46.DAT, placed in your game’s Speech folder.</p>
-<p>When you build the game, this dat file is compiled into the speech.vox
-and will be used to sync the animation of the talking frames during the
-game.</p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Lip sync</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Label.html" title="previous chapter">Label functions and properties</a></li>
-      <li>Next: <a href="ListBox.html" title="next chapter">ListBox functions and properties</a></li>
-  </ul></li>
+<li><a href="#lip-sync">Lip sync</a><ul>
+<li><a href="#text-based-lip-syncing">Text-based lip syncing</a></li>
+<li><a href="#voice-based-lip-sync">Voice-based lip sync</a></li>
+<li><a href="#pamela">PAMELA</a></li>
+<li><a href="#papagayo">Papagayo</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Lip%20sync&body=source%20is%20Lipsync.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Lipsync"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Lip sync</a><ul>
-<li><a class="reference internal" href="#text-based-lip-syncing">Text-based lip syncing</a></li>
-<li><a class="reference internal" href="#voice-based-lip-sync">Voice-based lip sync</a></li>
-<li><a class="reference internal" href="#pamela">PAMELA</a></li>
-<li><a class="reference internal" href="#papagayo">Papagayo</a></li>
-</ul>
-</li>
-</ul>
-
-
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="lip-sync" class="level2">
+<h2>Lip sync</h2>
+<p>Lip sync is a way to animate character talking in connection with particular letters and their combinations (phonemes).</p>
+<p>Normally when a character is talking, AGS simply cycles through the speech animation from start to finish, and then loops back round. However, lip syncing allows you to be cleverer by specifying a particular frame to go with various letters and sounds. Then, as the character talks, AGS plays appropriate frames to simulate the character actually saying those words.</p>
+<p>Lip sync is being configured on corresponding 'Lip Sync' pane in the editor.</p>
+<hr />
+<section id="text-based-lip-syncing" class="level3">
+<h3>Text-based lip syncing</h3>
+<p>In the Lip Sync Editor, you have 20 text boxes, one for each possible frame of the talking loop. In each box, you can enter all the letters which will cause that frame of the loop to be played. Letter combinations such as 'th' and 'ch' can be used too - AGS will match each part of the spoken text to the longest possible phrase in the lip sync editor.</p>
+<p>separate the letters by forward slashes. For example,</p>
+<pre><code>3  R/S/Th/G
+</code></pre>
+<p>will mean that frame 3 of the character's talking animation is shown whenever the letter R, S, Th or G is spoken.</p>
+<p>The "Default frame for unlisted characters" box allows you to set which frame is used when a character not listed in any of the text boxes is encountered.</p>
+<hr />
+</section>
+<section id="voice-based-lip-sync" class="level3">
+<h3>Voice-based lip sync</h3>
+<p>AGS supports lip syncing voice speech to the talking animation. If you enable this feature, you cannot use the standard lip-sync for non-voice lines.</p>
+<p><strong>NOTE: This is an unofficial feature and is not currently supported. Use at your own risk</strong></p>
+<p><strong>NOTE:</strong> The voice sync feature only supports Sierra-style speech.</p>
+<p>In order to do this, you need to download one of the third-party applications that produce lip sync data based on voice clips. AGS supports two such data formats: <strong>PAMELA</strong> and <strong>Papagayo</strong>.</p>
+<hr />
+</section>
+<section id="pamela" class="level3">
+<h3>PAMELA</h3>
+<p>Download PAMELA application by the following link: <code>http://www-personal.monash.edu.au/~myless/catnap/pamela/</code></p>
+<p>Set up the phenomes in Pamela so that there are only 10 (or as many talking frames as you have) available choices. Then, in the Lip Sync pane of AGS, change the Type property to "Voice". Enter the Pamela phenomes into the text boxes to create the association between the pamela phenome code and the AGS frame number.</p>
+<p>For example, enter "AY0" into frame 0's box, "E" into frame 1, and so forth - corresponding to how it is set up in Pamela. For multiple phenomes to share the same frame, seperate them with forward slashes -- for example, "AY0/AY1" allows both of those phenomes to correspond to the specified frame.</p>
+<p>Use the Pamela application on each of your speech lines, and save a Pamela project file (.pam file) for each speech file, naming it the same as the speech.</p>
+<p>For example, the pamela project for EGO46.OGG would be called EGO46.PAM, placed in your game's Speech folder.</p>
+<p>When you build the game, this pam file is compiled into the speech.vox and will be used to sync the animation of the talking frames during the game.</p>
+<p><strong>NOTE:</strong> Voice lip sync does not work well with MP3 files. It is strongly recommended that you use OGG or WAV for speech.</p>
+<hr />
+</section>
+<section id="papagayo" class="level3">
+<h3>Papagayo</h3>
+<p>Download Papagayo application by the following link: <code>http://www.lostmarble.com/papagayo/</code></p>
+<p>First you would need to set up your 10 or so phonemes associations (as described above for PAMELA).</p>
+<p>Then start up the Papagayo program and open a speech file in .WAV format. The waveform will appear on-screen, represented by a blue, horizontal bar. You can press the triangular 'Play' button at the top of the screen to listen to the speech audio.</p>
+<p>In the "Spoken Text" field at the bottom of the screen, type in the exact text words heard in the speech file. As you type, you will notice that each word appears as a horizontal orange bar above the blue waveform. At the same time, individual pink phonemes start appearing below the blue waveform bar. (These pink phonemes at the bottom should correspond to the fields in AGS editor's "Lip Sync" tab).</p>
+<p>If you play the speech audio at this point, you'll see that the mouth image at the upper right corner of the screen changes as each pink phoneme is reached during playback. However, the result will not be perfect. To remedy this, you need to drag the orange words at the top of the screen so that their length matches up with the timing of each spoken word in the audio. Double-clicking an orange word will make that portion of the audio play, so you can test if it's accurate.</p>
+<p>Sometimes an orange word will contain too many, too few, or inaccurate phonemes. You can edit these by right-clicking an orange word and adding, editing, or deleting the desired phonemes. Each one should be separated by a space.</p>
+<p>For even further accuracy, individual pink phonemes can be dragged left or right to position them more precisely.</p>
+<p>When you're happy with the results, you can save the project as a .pgo file, which will allow you to open and re-edit this line later. But to use it in AGS, click the "Export" button at the bottom right side of the screen, and save it as a .dat file.</p>
+<p>Use the Papagayo application on each of your speech lines, and export a Papagayo file (.dat file) for each speech file, naming it the same as the speech.</p>
+<p>For example, the Papagayo project for EGO46.OGG would be called EGO46.DAT, placed in your game's Speech folder.</p>
+<p>When you build the game, this dat file is compiled into the speech.vox and will be used to sync the animation of the talking frames during the game.</p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

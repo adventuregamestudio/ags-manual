@@ -1,427 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Button functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Button functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Calling global functions from local scripts" href="CallingGlobalFunctions.html" />
-    <link rel="prev" title="Built-in enumerated types" href="BuiltInEnums.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="button-functions-and-properties">
-<h1>Button functions and properties<a class="headerlink" href="#button-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="click">
-<span id="index-0"></span><h2>Click<a class="headerlink" href="#click" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Button.Click()
-</pre></div>
-</div>
-<p>Forces Button’s OnClick event. If there is a script function bound to
-that event it will be run, otherwise nothing happens.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#button-functions-and-properties">Button functions and properties</a><ul>
+<li><a href="#click">Click</a></li>
+<li><a href="#animate">Animate</a></li>
+<li><a href="#animating">Animating</a></li>
+<li><a href="#frame">Frame</a></li>
+<li><a href="#loop">Loop</a></li>
+<li><a href="#view">View</a></li>
+<li><a href="#clipimage">ClipImage</a></li>
+<li><a href="#font">Font</a></li>
+<li><a href="#graphic">Graphic</a></li>
+<li><a href="#mouseovergraphic">MouseOverGraphic</a></li>
+<li><a href="#normalgraphic">NormalGraphic</a></li>
+<li><a href="#pushedgraphic">PushedGraphic</a></li>
+<li><a href="#text">Text</a></li>
+<li><a href="#textcolor">TextColor</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="button-functions-and-properties" class="level2">
+<h2>Button functions and properties</h2>
+<section id="click" class="level3">
+<h3>Click</h3>
+<pre><code>Button.Click()
+</code></pre>
+<p>Forces Button's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="GUI.html"><span class="doc">GUI.Click</span></a>,
-<a class="reference internal" href="GUI.html"><span class="doc">GUI.ProcessClick</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="animate">
-<span id="index-1"></span><h2>Animate<a class="headerlink" href="#animate" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="GUI.html#click">GUI.Click</a>, <a href="GUI.html#processclick">GUI.ProcessClick</a></p>
+<hr />
+</section>
+<section id="animate" class="level3">
+<h3>Animate</h3>
 <p><em>(Formerly known as AnimateButton, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Button.Animate(int view, int loop, int delay, RepeatStyle)
-</pre></div>
-</div>
-<p>Animates a GUI button by playing the specified view loop on it. This
-could be useful for Sierra-style death animations and other effects.</p>
-<p>LOOP from VIEW will be played on the button. The DELAY specifies the
-speed of the animation - larger numbers are slower. This has the same
-values you use with the Character.Animate and Object.Animate commands.</p>
-<p>REPEAT determines whether the animation will loop repeatedly, or just
-play once and stop with the last frame showing (eOnce or eRepeat are the
-possible values).</p>
-<p>You can abort an animation at any time by setting the button’s
-NormalGraphic property, or starting a new animation on the same button.</p>
-<p><strong>NOTE:</strong> This command destroys the button’s normal, pushed and
-mouseover images. If you want to return the button to normal usage after
-playing an animation, you will have to set the Graphic properties to
-restore the images.</p>
-<p><strong>NOTE:</strong> This command does not support flipped view frames. Any frames
-marked as “Flipped” will in fact be drawn normally when on a button.</p>
+<pre><code>Button.Animate(int view, int loop, int delay, RepeatStyle)
+</code></pre>
+<p>Animates a GUI button by playing the specified view loop on it. This could be useful for Sierra-style death animations and other effects.</p>
+<p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the Character.Animate and Object.Animate commands.</p>
+<p>REPEAT determines whether the animation will loop repeatedly, or just play once and stop with the last frame showing (eOnce or eRepeat are the possible values).</p>
+<p>You can abort an animation at any time by setting the button's NormalGraphic property, or starting a new animation on the same button.</p>
+<p><strong>NOTE:</strong> This command destroys the button's normal, pushed and mouseover images. If you want to return the button to normal usage after playing an animation, you will have to set the Graphic properties to restore the images.</p>
+<p><strong>NOTE:</strong> This command does not support flipped view frames. Any frames marked as "Flipped" will in fact be drawn normally when on a button.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>btnDeathAnim.Animate(6, 2, 4, eRepeat);
-</pre></div>
-</div>
-<p>will animate the ‘btnDeathAnim’ button using loop 2 of view 6, with a
-delay of 4 cycles per frame, and repeat the animation continually.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Animating</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Frame</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.View</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="animating">
-<span id="index-2"></span><h2>Animating<a class="headerlink" href="#animating" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Button.Animating
-</pre></div>
-</div>
-<p>Returns true if the specified button is currently animating, or false
-otherwise.</p>
-<p>This property is read-only. To change button’s animation, use the
-<a class="reference internal" href="#"><span class="doc">Animate</span></a> command.</p>
+<pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
+</code></pre>
+<p>will animate the 'btnDeathAnim' button using loop 2 of view 6, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
+<p><em>See Also:</em> <a href="Button.html#animating">Button.Animating</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<hr />
+</section>
+<section id="animating" class="level3">
+<h3>Animating</h3>
+<pre><code>readonly bool Button.Animating
+</code></pre>
+<p>Returns true if the specified button is currently animating, or false otherwise.</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#animate">Animate</a> command.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>btnDeathAnim.Animate(6, 2, 4, eRepeat);
+<pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
 while (btnDeathAnim.Animating) Wait(1);
-</pre></div>
-</div>
+</code></pre>
 <p>will animate button and wait until the animation finishes.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Animate</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Frame</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.View</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="frame">
-<span id="index-3"></span><h2>Frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Button.Frame
-</pre></div>
-</div>
-<p>Gets the frame number that the animated button is currently set to. If
-the button is not currently animated, this will be 0 (in which case the
-Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button’s animation, use the
-<a class="reference internal" href="#"><span class="doc">Animate</span></a> command.</p>
+<p><em>See Also:</em> <a href="Button.html#animate">Button.Animate</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#graphic">Button.Graphic</a></p>
+<hr />
+</section>
+<section id="frame" class="level3">
+<h3>Frame</h3>
+<pre><code>readonly int Button.Frame
+</code></pre>
+<p>Gets the frame number that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#animate">Animate</a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Animating</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.View</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="loop">
-<span id="index-4"></span><h2>Loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Button.Loop
-</pre></div>
-</div>
-<p>Gets the loop that the animated button is currently set to. If the
-button is not currently animated, this will be 0 (in which case the
-Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button’s animation, use the
-<a class="reference internal" href="#"><span class="doc">Animate</span></a> command.</p>
+<p><em>See Also:</em> <a href="Button.html#animating">Button.Animating</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#graphic">Button.Graphic</a></p>
+<hr />
+</section>
+<section id="loop" class="level3">
+<h3>Loop</h3>
+<pre><code>readonly int Button.Loop
+</code></pre>
+<p>Gets the loop that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#animate">Animate</a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Animate</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Frame</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.View</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="view">
-<span id="index-5"></span><h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Button.View
-</pre></div>
-</div>
-<p>Gets the view that the animated button is currently set to. If the
-button is not currently animated, this will be 0 (in which case the
-Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button’s animation, use the
-<a class="reference internal" href="#"><span class="doc">Animate</span></a> command.</p>
+<p><em>See Also:</em> <a href="Button.html#animate">Button.Animate</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#graphic">Button.Graphic</a></p>
+<hr />
+</section>
+<section id="view" class="level3">
+<h3>View</h3>
+<pre><code>readonly int Button.View
+</code></pre>
+<p>Gets the view that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#animate">Animate</a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Animate</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Frame</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Loop</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="clipimage">
-<span id="index-7"></span><h2>ClipImage<a class="headerlink" href="#clipimage" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Button.ClipImage;
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="Button.html#animate">Button.Animate</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#graphic">Button.Graphic</a></p>
+<hr />
+</section>
+<section id="clipimage" class="level3">
+<h3>ClipImage</h3>
+<pre><code>bool Button.ClipImage;
+</code></pre>
 <p>Gets/sets whether the button clips its image to the button boundaries.</p>
-<p>For example, if the button is sized 30x30, but its Graphic is a 50x50
-image, then this property controls whether the image is allowed to spill
-over the edge of the button.</p>
+<p>For example, if the button is sized 30x30, but its Graphic is a 50x50 image, then this property controls whether the image is allowed to spill over the edge of the button.</p>
 <p>The default is false, ie. the image is not clipped.</p>
-<p>Setting this to true can be useful in that it ensures that the button’s
-image is not larger than the button’s clickable area, which can cause
-confusion when it happens.</p>
+<p>Setting this to true can be useful in that it ensures that the button's image is not larger than the button's clickable area, which can cause confusion when it happens.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>btnOK.ClipImage = true;
-</pre></div>
-</div>
-<p>sets the <em>btnOK</em> button so that its image will be restrained to the
-button’s clickable area.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="font">
-<span id="index-8"></span><h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FontType Button.Font
-</pre></div>
-</div>
+<pre><code>btnOK.ClipImage = true;
+</code></pre>
+<p>sets the <em>btnOK</em> button so that its image will be restrained to the button's clickable area.</p>
+<p><em>See Also:</em> <a href="Button.html#graphic">Button.Graphic</a></p>
+<hr />
+</section>
+<section id="font" class="level3">
+<h3>Font</h3>
+<pre><code>FontType Button.Font
+</code></pre>
 <p>Gets/sets the font used by the button to display text.</p>
-<p>The font number must correspond to one of the fonts from the Fonts pane
-in the AGS Editor.</p>
+<p>The font number must correspond to one of the fonts from the Fonts pane in the AGS Editor.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>btnOK.Font = eFontMain;
-</pre></div>
-</div>
-<p>will change the <em>btnOK</em> button to use Font “Main”.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Label.html"><span class="doc">Label.Font</span></a>,
-<a class="reference internal" href="TextBox.html"><span class="doc">TextBox.Font</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="graphic">
-<span id="index-9"></span><h2>Graphic<a class="headerlink" href="#graphic" title="Permalink to this headline">¶</a></h2>
+<pre><code>btnOK.Font = eFontMain;
+</code></pre>
+<p>will change the <em>btnOK</em> button to use Font "Main".</p>
+<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="TextBox.html#font">TextBox.Font</a></p>
+<hr />
+</section>
+<section id="graphic" class="level3">
+<h3>Graphic</h3>
 <p><em>(Formerly part of GetButtonPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Button.Graphic;
-</pre></div>
-</div>
-<p>Gets the current image on a GUI button. If a value less than 1 is
-returned, then no image is currently displayed on the button.</p>
-<p>This property is read-only; in order to set the image, you must use one
-of the <a class="reference internal" href="#"><span class="doc">NormalGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">MouseOverGraphic</span></a> or
-<a class="reference internal" href="#"><span class="doc">PushedGraphic</span></a> properties.</p>
+<pre><code>readonly int Button.Graphic;
+</code></pre>
+<p>Gets the current image on a GUI button. If a value less than 1 is returned, then no image is currently displayed on the button.</p>
+<p>This property is read-only; in order to set the image, you must use one of the <a href="Button.html#normalgraphic">NormalGraphic</a>, <a href="Button.html#mouseovergraphic">MouseOverGraphic</a> or <a href="Button.html#pushedgraphic">PushedGraphic</a> properties.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The button is currently using sprite %d.&quot;, btnPlay.Graphic);
-</pre></div>
-</div>
-<p>will display btnPlay’s current sprite number.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.ClipImage</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.MouseOverGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.PushedGraphic</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="mouseovergraphic">
-<span id="index-11"></span><h2>MouseOverGraphic<a class="headerlink" href="#mouseovergraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Button.MouseOverGraphic;
-</pre></div>
-</div>
-<p>Gets/sets the button’s mouse-over sprite. This can be -1, which
-indicates that the button does not have a mouse-over graphic.</p>
+<pre><code>Display(&quot;The button is currently using sprite %d.&quot;, btnPlay.Graphic);
+</code></pre>
+<p>will display btnPlay's current sprite number.</p>
+<p><em>See Also:</em> <a href="Button.html#clipimage">Button.ClipImage</a>, <a href="Button.html#mouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Button.html#pushedgraphic">Button.PushedGraphic</a></p>
+<hr />
+</section>
+<section id="mouseovergraphic" class="level3">
+<h3>MouseOverGraphic</h3>
+<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<pre><code>int Button.MouseOverGraphic;
+</code></pre>
+<p>Gets/sets the button's mouse-over sprite. This can be -1, which indicates that the button does not have a mouse-over graphic.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The button&#39;s mouse-over image is sprite %d.&quot;, btnPlay.MouseOverGraphic);
-</pre></div>
-</div>
-<p>will display btnPlay’s mouse-over sprite number.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.PushedGraphic</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="normalgraphic">
-<span id="index-13"></span><h2>NormalGraphic<a class="headerlink" href="#normalgraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Button.NormalGraphic;
-</pre></div>
-</div>
-<p>Gets/sets the button’s normal sprite (ie. the graphic used when the
-button is not pushed and the mouse is not over it).</p>
-<p>Note that setting this to a different sprite will change the button’s
-size to match the size of the new sprite.</p>
+<pre><code>Display(&quot;The button&#39;s mouse-over image is sprite %d.&quot;, btnPlay.MouseOverGraphic);
+</code></pre>
+<p>will display btnPlay's mouse-over sprite number.</p>
+<p><em>See Also:</em> <a href="Button.html#graphic">Button.Graphic</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Button.html#pushedgraphic">Button.PushedGraphic</a></p>
+<hr />
+</section>
+<section id="normalgraphic" class="level3">
+<h3>NormalGraphic</h3>
+<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<pre><code>int Button.NormalGraphic;
+</code></pre>
+<p>Gets/sets the button's normal sprite (ie. the graphic used when the button is not pushed and the mouse is not over it).</p>
+<p>Note that setting this to a different sprite will change the button's size to match the size of the new sprite.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The button&#39;s normal image is sprite %d.&quot;, btnPlay.NormalGraphic);
-</pre></div>
-</div>
-<p>will display btnPlay’s normal sprite number.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.ClipImage</span></a>
-<a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.MouseOverGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.PushedGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.TextColor</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-14"></span></div>
-<div class="section" id="pushedgraphic">
-<span id="index-15"></span><h2>PushedGraphic<a class="headerlink" href="#pushedgraphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Button.PushedGraphic;
-</pre></div>
-</div>
-<p>Gets/sets the button’s pushed sprite (ie. the graphic used when the
-button is pushed in by the user). This can be -1, which indicates that
-the button does not have a pushed image.</p>
+<pre><code>Display(&quot;The button&#39;s normal image is sprite %d.&quot;, btnPlay.NormalGraphic);
+</code></pre>
+<p>will display btnPlay's normal sprite number.</p>
+<p><em>See Also:</em> <a href="Button.html#clipimage">Button.ClipImage</a> <a href="Button.html#graphic">Button.Graphic</a>, <a href="Button.html#mouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#pushedgraphic">Button.PushedGraphic</a>, <a href="Button.html#textcolor">Button.TextColor</a></p>
+<hr />
+</section>
+<section id="pushedgraphic" class="level3">
+<h3>PushedGraphic</h3>
+<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<pre><code>int Button.PushedGraphic;
+</code></pre>
+<p>Gets/sets the button's pushed sprite (ie. the graphic used when the button is pushed in by the user). This can be -1, which indicates that the button does not have a pushed image.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The button&#39;s pushed image is sprite %d.&quot;, btnPlay.PushedGraphic);
-</pre></div>
-</div>
-<p>will display btnPlay’s pushed sprite number.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.Graphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.MouseOverGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="text">
-<span id="index-16"></span><h2>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetButtonText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Button.GetText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Button.SetText, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Button.Text;
-</pre></div>
-</div>
+<pre><code>Display(&quot;The button&#39;s pushed image is sprite %d.&quot;, btnPlay.PushedGraphic);
+</code></pre>
+<p>will display btnPlay's pushed sprite number.</p>
+<p><em>See Also:</em> <a href="Button.html#graphic">Button.Graphic</a>, <a href="Button.html#mouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<hr />
+</section>
+<section id="text" class="level3">
+<h3>Text</h3>
+<p><em>(Formerly known as SetButtonText, which is now obsolete)</em><br> <em>(Formerly known as Button.GetText, which is now obsolete)</em><br> <em>(Formerly known as Button.SetText, which is now obsolete)</em></p>
+<pre><code>String Button.Text;
+</code></pre>
 <p>Gets/sets the text displayed on the button.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Button displayed: %s&quot;</span><span class="o">,</span> <span class="nt">btnController</span><span class="p">.</span><span class="nc">Text</span><span class="o">);</span>
-<span class="nt">btnController</span><span class="p">.</span><span class="nc">Text</span> <span class="o">=</span> <span class="s2">&quot;Enable jibble&quot;</span><span class="o">;</span>
-</pre></div>
-</div>
-<p>will display the old text, then change button btnController to read
-‘Enable jibble’.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a>,
-<a class="reference internal" href="Label.html"><span class="doc">Label.Text</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="textcolor">
-<span id="index-17"></span><h2>TextColor<a class="headerlink" href="#textcolor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Button.TextColor;
-</pre></div>
-</div>
-<p>Gets/sets the text colour used to display the button’s text.</p>
-<p>If the button is displaying an image rather than text, then this
-property has no effect.</p>
+<pre><code>Display(&quot;Button displayed: %s&quot;, btnController.Text);
+btnController.Text = &quot;Enable jibble&quot;;
+</code></pre>
+<p>will display the old text, then change button btnController to read 'Enable jibble'.</p>
+<p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Label.html#text">Label.Text</a></p>
+<hr />
+</section>
+<section id="textcolor" class="level3">
+<h3>TextColor</h3>
+<pre><code>int Button.TextColor;
+</code></pre>
+<p>Gets/sets the text colour used to display the button's text.</p>
+<p>If the button is displaying an image rather than text, then this property has no effect.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>btnRestart.TextColor = 15;
-</pre></div>
-</div>
-<p>will change button ‘btnRestart’ to have white text.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Button.NormalGraphic</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>btnRestart.TextColor = 15;
+</code></pre>
+<p>will change button 'btnRestart' to have white text.</p>
+<p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="BuiltInEnums.html" title="previous chapter">Built-in enumerated types</a></li>
-      <li>Next: <a href="CallingGlobalFunctions.html" title="next chapter">Calling global functions from local scripts</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Button%20functions%20and%20properties&body=source%20is%20Button.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Button"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Button functions and properties</a><ul>
-<li><a class="reference internal" href="#click">Click</a></li>
-<li><a class="reference internal" href="#animate">Animate</a></li>
-<li><a class="reference internal" href="#animating">Animating</a></li>
-<li><a class="reference internal" href="#frame">Frame</a></li>
-<li><a class="reference internal" href="#loop">Loop</a></li>
-<li><a class="reference internal" href="#view">View</a></li>
-<li><a class="reference internal" href="#clipimage">ClipImage</a></li>
-<li><a class="reference internal" href="#font">Font</a></li>
-<li><a class="reference internal" href="#graphic">Graphic</a></li>
-<li><a class="reference internal" href="#mouseovergraphic">MouseOverGraphic</a></li>
-<li><a class="reference internal" href="#normalgraphic">NormalGraphic</a></li>
-<li><a class="reference internal" href="#pushedgraphic">PushedGraphic</a></li>
-<li><a class="reference internal" href="#text">Text</a></li>
-<li><a class="reference internal" href="#textcolor">TextColor</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

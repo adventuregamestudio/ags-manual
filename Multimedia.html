@@ -1,58 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Multimedia functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Multimedia functions &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Music and sound" href="MusicAndSound.html" />
-    <link rel="prev" title="Mouse functions and properties" href="Mouse.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="multimedia-functions">
-<h1>Multimedia functions<a class="headerlink" href="#multimedia-functions" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="cdaudio">
-<span id="index-1"></span><h2>CDAudio<a class="headerlink" href="#cdaudio" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>CDAudio (eCDAudioFunction, int param)
-</pre></div>
-</div>
-<p>This function allows you to play and control an audio CD in your game.
-Different tasks are performed, depending on the value of the
-AudioFunction parameter. If there is no CD-ROM drive on the system, the
-function does nothing.</p>
-<p>The PARAM parameter is used by some of the functions for various
-reasons; if it is not needed for the particular function you are
-calling, pass zero instead.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#multimedia-functions">Multimedia functions</a><ul>
+<li><a href="#cdaudio">CDAudio</a></li>
+<li><a href="#isaudioplaying">IsAudioPlaying</a></li>
+<li><a href="#isspeechvoxavailable">IsSpeechVoxAvailable</a></li>
+<li><a href="#playflic">PlayFlic</a></li>
+<li><a href="#playsilentmidi">PlaySilentMIDI</a></li>
+<li><a href="#playvideo">PlayVideo</a></li>
+<li><a href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a></li>
+<li><a href="#setaudiotypevolume">SetAudioTypeVolume</a></li>
+<li><a href="#setspeechvolume">SetSpeechVolume</a></li>
+<li><a href="#stopaudio">StopAudio</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="multimedia-functions" class="level2">
+<h2>Multimedia functions</h2>
+<section id="cdaudio" class="level3">
+<h3>CDAudio</h3>
+<pre><code>CDAudio (eCDAudioFunction, int param)
+</code></pre>
+<p>This function allows you to play and control an audio CD in your game. Different tasks are performed, depending on the value of the AudioFunction parameter. If there is no CD-ROM drive on the system, the function does nothing.</p>
+<p>The PARAM parameter is used by some of the functions for various reasons; if it is not needed for the particular function you are calling, pass zero instead.</p>
 <p>The tasks performed are as follows depending on the COMMAND parameter:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eCDIsDriverPresent - checks if there is a CD-ROM driver available on
+<pre><code>eCDIsDriverPresent - checks if there is a CD-ROM driver available on
    the system. Returns 1 if there is, and 0 if there is not.
 eCDGetPlayingStatus - checks whether the CD drive is currently playing
    an audio track. Returns 1 if it is, and 0 if it is not.
@@ -74,353 +91,179 @@ eCDGetCDDriveCount - returns the number of CD drives in the
 eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
    where PARAM ranges from 1 to (number of CD drives). All the other
    CD Audio functions operate on the current CD drive.
-</pre></div>
-</div>
-<p>NOTE: These CD Audio functions are slow compared to all the other script
-functions. This will not be noticeable if you call them from most
-scripts, but using CDAudio in a repeatedly_execute script will
-noticeably slow down the game.</p>
+</code></pre>
+<p>NOTE: These CD Audio functions are slow compared to all the other script functions. This will not be noticeable if you call them from most scripts, but using CDAudio in a repeatedly_execute script will noticeably slow down the game.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><span class="raw-html-m2r"><br></span>
-Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><span class="raw-html-m2r"><br></span>
-MacOS: <strong>No</strong></p>
+<p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>CDAudio(eCDPlayTrack, 3);
-</pre></div>
-</div>
-<p>will play track 3 of the CD that’s in the CD ROM drive.</p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="isaudioplaying">
-<span id="index-3"></span><h2>IsAudioPlaying<a class="headerlink" href="#isaudioplaying" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool Game.IsAudioPlaying(optional AudioType)
-</pre></div>
-</div>
-<p>Returns <em>true</em> if there is currently audio playing of the specified
-type. If you don’t supply an audio type, then <em>true</em> will be returned
-if there is any audio at all playing in the game.</p>
-<p>If no audio of the specified type is playing, returns <em>false</em>. You can
-use this to wait for some music to finish playing, for example.</p>
+<pre><code>CDAudio(eCDPlayTrack, 3);
+</code></pre>
+<p>will play track 3 of the CD that's in the CD ROM drive.</p>
+<hr />
+</section>
+<section id="isaudioplaying" class="level3">
+<h3>IsAudioPlaying</h3>
+<p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><br> <em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
+<pre><code>static bool Game.IsAudioPlaying(optional AudioType)
+</code></pre>
+<p>Returns <em>true</em> if there is currently audio playing of the specified type. If you don't supply an audio type, then <em>true</em> will be returned if there is any audio at all playing in the game.</p>
+<p>If no audio of the specified type is playing, returns <em>false</em>. You can use this to wait for some music to finish playing, for example.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>while (Game.IsAudioPlaying(eAudioTypeMusic))
+<pre><code>while (Game.IsAudioPlaying(eAudioTypeMusic))
 {
   Wait(1);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>waits for any currently playing music to finish.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.StopAudio</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="isspeechvoxavailable">
-<span id="index-5"></span><h2>IsSpeechVoxAvailable<a class="headerlink" href="#isspeechvoxavailable" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>IsSpeechVoxAvailable()
-</pre></div>
-</div>
-<p>Returns whether the SPEECH.VOX file is being used by the game. This
-could be useful if you have an optional speech download pack, and you
-want to know whether the player has it or not.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#stopaudio">Game.StopAudio</a></p>
+<hr />
+</section>
+<section id="isspeechvoxavailable" class="level3">
+<h3>IsSpeechVoxAvailable</h3>
+<pre><code>IsSpeechVoxAvailable()
+</code></pre>
+<p>Returns whether the SPEECH.VOX file is being used by the game. This could be useful if you have an optional speech download pack, and you want to know whether the player has it or not.</p>
 <p>Returns 1 if the speech files are available, 0 if not.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (IsSpeechVoxAvailable()==0)
+<pre><code>if (IsSpeechVoxAvailable()==0)
     Display (&quot;You don&#39;t have the voice pack&quot;);
-</pre></div>
-</div>
+</code></pre>
 <p>will display a message if the voice pack is not available.</p>
-<p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now
-been renamed to avoid confusion.</p>
-<p><em>See Also:</em> <a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.IsAvailable</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-6"></span></div>
-<div class="section" id="playflic">
-<span id="index-7"></span><h2>PlayFlic<a class="headerlink" href="#playflic" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>PlayFlic (int flic_number, int options)
-</pre></div>
-</div>
-<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and
-FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
+<p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now been renamed to avoid confusion.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#isavailable">AudioClip.IsAvailable</a></p>
+<hr />
+</section>
+<section id="playflic" class="level3">
+<h3>PlayFlic</h3>
+<pre><code>PlayFlic (int flic_number, int options)
+</code></pre>
+<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
 <p>OPTIONS has these meanings:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>0  player can&#39;t skip animation
+<pre><code>0  player can&#39;t skip animation
 1  player can press ESC to skip animation
 2  player can press any key or click mouse to skip animation
 +10 (ie.10,11,12) do not stretch to full-screen, just play at flc size
 +100 do not clear the screen before starting playback
-</pre></div>
-</div>
+</code></pre>
 <p>The game is paused while the animation plays.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>PlayFlic(2, 1);
-</pre></div>
-</div>
-<p>will play flic2 and the player will be able to skip the flic by pressing
-the ESC key.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">PlayVideo</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-8"></span></div>
-<div class="section" id="playsilentmidi">
-<span id="index-9"></span><h2>PlaySilentMIDI<a class="headerlink" href="#playsilentmidi" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>PlaySilentMIDI (int music_number)
-</pre></div>
-</div>
+<pre><code>PlayFlic(2, 1);
+</code></pre>
+<p>will play flic2 and the player will be able to skip the flic by pressing the ESC key.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#playvideo">PlayVideo</a></p>
+<hr />
+</section>
+<section id="playsilentmidi" class="level3">
+<h3>PlaySilentMIDI</h3>
+<pre><code>PlaySilentMIDI (int music_number)
+</code></pre>
 <p>This command is obsolete.</p>
-<p>Use the AudioClip.Play command and set its Volume property to 0 to
-simulate this effect.</p>
-<p><em>See Also:</em> <a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.Play</span></a>,
-<a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel.Volume</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="playvideo">
-<span id="index-11"></span><h2>PlayVideo<a class="headerlink" href="#playvideo" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>PlayVideo (string filename, VideoSkipStyle, int flags)
-</pre></div>
-</div>
-<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported
-by Media Player. The game is paused while the video plays.</p>
+<p>Use the AudioClip.Play command and set its Volume property to 0 to simulate this effect.</p>
+<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioChannel.html#volume">AudioChannel.Volume</a></p>
+<hr />
+</section>
+<section id="playvideo" class="level3">
+<h3>PlayVideo</h3>
+<pre><code>PlayVideo (string filename, VideoSkipStyle, int flags)
+</code></pre>
+<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported by Media Player. The game is paused while the video plays.</p>
 <p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eVideoSkipNotAllowed     player can&#39;t skip video
+<pre><code>eVideoSkipNotAllowed     player can&#39;t skip video
 eVideoSkipEscKey         player can press ESC to skip video
 eVideoSkipAnyKey         player can press any key to skip video
 eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
-</pre></div>
-</div>
+</code></pre>
 <p>FLAGS can be one of the following:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="o">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">played</span> <span class="n">at</span> <span class="n">original</span> <span class="n">size</span><span class="o">,</span> <span class="k">with</span> <span class="n">AVI</span> <span class="n">audio</span>
-<span class="mi">1</span><span class="o">:</span> <span class="n">the</span> <span class="n">video</span> <span class="n">will</span> <span class="n">be</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="o">,</span> <span class="k">with</span> <span class="n">appropriate</span>
-   <span class="n">black</span> <span class="n">borders</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">its</span> <span class="n">aspect</span> <span class="n">ratio</span> <span class="n">and</span> <span class="n">AVI</span> <span class="n">audio</span><span class="o">.</span>
-<span class="mi">10</span><span class="o">:</span> <span class="n">original</span> <span class="n">size</span><span class="o">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="o">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="o">)</span>
-<span class="mi">11</span><span class="o">:</span> <span class="n">stretched</span> <span class="n">to</span> <span class="n">full</span> <span class="n">screen</span><span class="o">,</span> <span class="k">with</span> <span class="n">game</span> <span class="n">audio</span> <span class="n">continuing</span> <span class="o">(</span><span class="n">AVI</span> <span class="n">audio</span> <span class="n">muted</span><span class="o">)</span>
-</pre></div>
-</div>
-<p>There are two distinct type of videos that the PlayVideo function can
-play.</p>
-<p>The first is OGG Theora, which is a recently introduced video file
-format. AGS has built-in support for playing these videos, so everyone
-who plays your game will be able to see the video. OGG Theora videos are
-also built into the game EXE file when you compile the game (just make
-sure the file has a .OGV extension and is placed in your main game
-folder). A good converter for theora is <a class="reference external" href="http://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
-<p>The second type of files that AGS can play is anything supported by
-Windows Media Player. This includes AVI, MPG and more. However, in order
-for these to work on the player’s system, they will need to have the
-correct codecs installed. For example, if you create your video with the
-XVid codec, the player will need to have XVid installed to be able to
-view it. These types of video cannot be included into the game EXE, so
-you will have to place them separately in the Compiled folder for them
-to work.</p>
-<p><strong>NOTE:</strong> In 256-colour games, PlayVideo is not supported. Please use a
-FLC/FLI video with the <a class="reference internal" href="#"><span class="doc">PlayFlic</span></a> command instead.</p>
+<pre><code>0: the video will be played at original size, with AVI audio
+1: the video will be stretched to full screen, with appropriate
+   black borders to maintain its aspect ratio and AVI audio.
+10: original size, with game audio continuing (AVI audio muted)
+11: stretched to full screen, with game audio continuing (AVI audio muted)
+</code></pre>
+<p>There are two distinct type of videos that the PlayVideo function can play.</p>
+<p>The first is OGG Theora, which is a recently introduced video file format. AGS has built-in support for playing these videos, so everyone who plays your game will be able to see the video. OGG Theora videos are also built into the game EXE file when you compile the game (just make sure the file has a .OGV extension and is placed in your main game folder). A good converter for theora is <a href="http://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
+<p>The second type of files that AGS can play is anything supported by Windows Media Player. This includes AVI, MPG and more. However, in order for these to work on the player's system, they will need to have the correct codecs installed. For example, if you create your video with the XVid codec, the player will need to have XVid installed to be able to view it. These types of video cannot be included into the game EXE, so you will have to place them separately in the Compiled folder for them to work.</p>
+<p><strong>NOTE:</strong> In 256-colour games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic">PlayFlic</a> command instead.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes</strong><span class="raw-html-m2r"><br></span>
-Linux: <strong>No</strong><span class="raw-html-m2r"><br></span>
-MacOS: <strong>Yes</strong></p>
+<p>Windows: <strong>Yes</strong><br> Linux: <strong>No</strong><br> MacOS: <strong>Yes</strong></p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>PlayVideo(&quot;intro.mpg&quot;, eVideoSkipEscKey, 1);
-</pre></div>
-</div>
-<p>will play the video Intro.mpg, allowing the player to skip with ESC if
-they’ve seen it before.</p>
-<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later
-versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">PlayFlic</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="setaudiotypespeechvolumedrop">
-<span id="index-13"></span><h2>SetAudioTypeSpeechVolumeDrop<a class="headerlink" href="#setaudiotypespeechvolumedrop" title="Permalink to this headline">¶</a></h2>
+<pre><code>PlayVideo(&quot;intro.mpg&quot;, eVideoSkipEscKey, 1);
+</code></pre>
+<p>will play the video Intro.mpg, allowing the player to skip with ESC if they've seen it before.</p>
+<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#playflic">PlayFlic</a></p>
+<hr />
+</section>
+<section id="setaudiotypespeechvolumedrop" class="level3">
+<h3>SetAudioTypeSpeechVolumeDrop</h3>
 <p><em>(Formerly known as game.speech_music_drop, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Game.SetAudioTypeSpeechVolumeDrop(AudioType, int volumeReduction)
-</pre></div>
-</div>
-<p>Changes the VolumeReductionWhileSpeechPlaying of the specified
-<em>AudioType</em>. This changes the setting, initially set in the Audio Types
-part of the editor. It specifies how much the volume of clips of this
-type will be reduced by while speech is playing.</p>
-<p>Specify 0 for no volume adjustment, up to 100 which will completely
-silence these audio clips while speech is playing.</p>
+<pre><code>static Game.SetAudioTypeSpeechVolumeDrop(AudioType, int volumeReduction)
+</code></pre>
+<p>Changes the VolumeReductionWhileSpeechPlaying of the specified <em>AudioType</em>. This changes the setting, initially set in the Audio Types part of the editor. It specifies how much the volume of clips of this type will be reduced by while speech is playing.</p>
+<p>Specify 0 for no volume adjustment, up to 100 which will completely silence these audio clips while speech is playing.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Game.SetAudioTypeSpeechVolumeDrop(eAudioTypeMusic, 25);
-</pre></div>
-</div>
-<p>will reduce the volume of Music audio clips by 25 percentage points
-while speech is playing.</p>
+<pre><code>Game.SetAudioTypeSpeechVolumeDrop(eAudioTypeMusic, 25);
+</code></pre>
+<p>will reduce the volume of Music audio clips by 25 percentage points while speech is playing.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.SetAudioTypeVolume</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-14"></span></div>
-<div class="section" id="setaudiotypevolume">
-<span id="index-15"></span><h2>SetAudioTypeVolume<a class="headerlink" href="#setaudiotypevolume" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Multimedia.html#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<hr />
+</section>
+<section id="setaudiotypevolume" class="level3">
+<h3>SetAudioTypeVolume</h3>
 <p><em>(Formerly known as SetSoundVolume, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Game.SetAudioTypeVolume(AudioType, int volume, ChangeVolumeType)
-</pre></div>
-</div>
-<p>Changes the default volume of the specified <em>AudioType</em>. This allows you
-to change the volume of all audio clips of a particular type, so that
-you can easily control sound and music volume separately, for example.</p>
-<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute
-sound of that type completely.</p>
+<pre><code>static Game.SetAudioTypeVolume(AudioType, int volume, ChangeVolumeType)
+</code></pre>
+<p>Changes the default volume of the specified <em>AudioType</em>. This allows you to change the volume of all audio clips of a particular type, so that you can easily control sound and music volume separately, for example.</p>
+<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute sound of that type completely.</p>
 <p>Possible values for <em>ChangeVolumeType</em> are:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>eVolChangeExisting      change the volume of currently playing audio clips
+<pre><code>eVolChangeExisting      change the volume of currently playing audio clips
 eVolSetFutureDefault    change the default volume for clips of this type
 eVolExistingAndFuture   change both currently playing and future audio
-</pre></div>
-</div>
-<p>Initially general AudioType volume is not set, meaning that all future
-audio will be playing using their own custom volumes. If you use the
-<em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the
-DefaultVolume property for all audio clips of this type will be
-overridden. This means that any DefaultVolume set up in the editor will
-be lost.</p>
+</code></pre>
+<p>Initially general AudioType volume is not set, meaning that all future audio will be playing using their own custom volumes. If you use the <em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the DefaultVolume property for all audio clips of this type will be overridden. This means that any DefaultVolume set up in the editor will be lost.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Game.SetAudioTypeVolume(eAudioTypeMusic, 20, eVolExistingAndFuture);
-</pre></div>
-</div>
-<p>will change the volume of all currently playing and future music to
-<code class="docutils literal notranslate"><span class="pre">20%</span></code>.</p>
+<pre><code>Game.SetAudioTypeVolume(eAudioTypeMusic, 20, eVolExistingAndFuture);
+</code></pre>
+<p>will change the volume of all currently playing and future music to <code>20%</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetSpeechVolume</span></a>,
-<a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.Play</span></a>,
-<a class="reference internal" href="System.html"><span class="doc">System.Volume</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-16"></span></div>
-<div class="section" id="setspeechvolume">
-<span id="index-17"></span><h2>SetSpeechVolume<a class="headerlink" href="#setspeechvolume" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetSpeechVolume (int volume)
-</pre></div>
-</div>
-<p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255
-is the loudest. The default speech volume is 255 so this function can
-only be used to reduce the volume.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#setspeechvolume">SetSpeechVolume</a>, <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="System.html#volume">System.Volume</a></p>
+<hr />
+</section>
+<section id="setspeechvolume" class="level3">
+<h3>SetSpeechVolume</h3>
+<pre><code>SetSpeechVolume (int volume)
+</code></pre>
+<p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255 is the loudest. The default speech volume is 255 so this function can only be used to reduce the volume.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetSpeechVolume(200);
-</pre></div>
-</div>
+<pre><code>SetSpeechVolume(200);
+</code></pre>
 <p>will set the speech volume to 200.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.SetAudioTypeVolume</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-18"></span></div>
-<div class="section" id="stopaudio">
-<span id="index-19"></span><h2>StopAudio<a class="headerlink" href="#stopaudio" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as StopMusic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Game.StopAudio(optional AudioType)
-</pre></div>
-</div>
-<p>Stops all currently playing audio. If you pass no parameters, then all
-audio will be stopped. Alternatively, you can pass one of the AudioTypes
-which will only stop audio clips of that type.</p>
-<p>If there are any audio clips queued up with PlayQueued, they will also
-be cancelled.</p>
+<p><em>See Also:</em> <a href="Multimedia.html#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<hr />
+</section>
+<section id="stopaudio" class="level3">
+<h3>StopAudio</h3>
+<p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><br> <em>(Formerly known as StopMusic, which is now obsolete)</em></p>
+<pre><code>static Game.StopAudio(optional AudioType)
+</code></pre>
+<p>Stops all currently playing audio. If you pass no parameters, then all audio will be stopped. Alternatively, you can pass one of the AudioTypes which will only stop audio clips of that type.</p>
+<p>If there are any audio clips queued up with PlayQueued, they will also be cancelled.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Game.StopAudio();
-</pre></div>
-</div>
+<pre><code>Game.StopAudio();
+</code></pre>
 <p>will stop all currently playing audio.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Game.IsAudioPlaying</span></a>,
-<a class="reference internal" href="AudioClip.html"><span class="doc">AudioClip.Play</span></a>,
-<a class="reference internal" href="AudioChannel.html"><span class="doc">AudioChannel.Stop</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<p><em>See Also:</em> <a href="Multimedia.html#isaudioplaying">Game.IsAudioPlaying</a>, <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioChannel.html#stop">AudioChannel.Stop</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Mouse.html" title="previous chapter">Mouse functions and properties</a></li>
-      <li>Next: <a href="MusicAndSound.html" title="next chapter">Music and sound</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Multimedia%20functions&body=source%20is%20Multimedia.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Multimedia"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Multimedia functions</a><ul>
-<li><a class="reference internal" href="#cdaudio">CDAudio</a></li>
-<li><a class="reference internal" href="#isaudioplaying">IsAudioPlaying</a></li>
-<li><a class="reference internal" href="#isspeechvoxavailable">IsSpeechVoxAvailable</a></li>
-<li><a class="reference internal" href="#playflic">PlayFlic</a></li>
-<li><a class="reference internal" href="#playsilentmidi">PlaySilentMIDI</a></li>
-<li><a class="reference internal" href="#playvideo">PlayVideo</a></li>
-<li><a class="reference internal" href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a></li>
-<li><a class="reference internal" href="#setaudiotypevolume">SetAudioTypeVolume</a></li>
-<li><a class="reference internal" href="#setspeechvolume">SetSpeechVolume</a></li>
-<li><a class="reference internal" href="#stopaudio">StopAudio</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

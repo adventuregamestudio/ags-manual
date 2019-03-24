@@ -1,151 +1,74 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Source Control integration &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Speech functions and properties" href="Speech.html" />
-    <link rel="prev" title="Slider properties" href="Slider.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="source-control-integration">
-<h1>Source Control integration<a class="headerlink" href="#source-control-integration" title="Permalink to this headline">¶</a></h1>
-<p>The AGS Editor supports integration with source control systems like
-SourceSafe and Perforce.</p>
-<p><strong>What is source control?</strong></p>
-<p>Source Control allows you to easily keep copies of old versions of your
-files, so that if you break something you can easily look back and see
-what your script was like in previous versions.</p>
-<p>AGS does not provide this functionality itself, but it is able to
-integrate with Source Control applications such as SourceSafe and
-Perforce in order to allow you to easily check things in and out.</p>
-<p><strong>Which providers are supported?</strong></p>
-<p>AGS supports any source control system that can integrate with Visual
-Studio (this is called the MSCCI interface). Most source control systems
-are quite heavyweight and designed for use by large teams, but there are
-smaller systems like SourceSafe available which work well on a
-standalone PC.</p>
-<p><strong>How do I use it?</strong></p>
-<p>If AGS detects an installed source control system, an extra option “Add
-to source control” will appear on the File menu. Use this to add your
-game to source control, and from then on whenever AGS attempts to edit a
-file it will prompt you to check it out if necessary.</p>
-<p>You can check in files by using the “Show Pending Checkins” option that
-appears on the File menu once you’ve added your game to source control.</p>
-<p><strong>Which files does AGS put under source control?</strong></p>
-<p>AGS currently puts the main game file and your scripts, rooms, fonts and
-translations under source control. Optionally, you can also add sound,
-music and sprites by changing the setting in the General Settings pane.</p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Source Control integration</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Slider.html" title="previous chapter">Slider properties</a></li>
-      <li>Next: <a href="Speech.html" title="next chapter">Speech functions and properties</a></li>
-  </ul></li>
+<li><a href="#source-control-integration">Source Control integration</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Source%20Control%20integration&body=source%20is%20SourceControl.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/SourceControl"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="source-control-integration" class="level2">
+<h2>Source Control integration</h2>
+<p>The AGS Editor supports integration with source control systems like SourceSafe and Perforce.</p>
+<p><strong>What is source control?</strong></p>
+<p>Source Control allows you to easily keep copies of old versions of your files, so that if you break something you can easily look back and see what your script was like in previous versions.</p>
+<p>AGS does not provide this functionality itself, but it is able to integrate with Source Control applications such as SourceSafe and Perforce in order to allow you to easily check things in and out.</p>
+<p><strong>Which providers are supported?</strong></p>
+<p>AGS supports any source control system that can integrate with Visual Studio (this is called the MSCCI interface). Most source control systems are quite heavyweight and designed for use by large teams, but there are smaller systems like SourceSafe available which work well on a standalone PC.</p>
+<p><strong>How do I use it?</strong></p>
+<p>If AGS detects an installed source control system, an extra option "Add to source control" will appear on the File menu. Use this to add your game to source control, and from then on whenever AGS attempts to edit a file it will prompt you to check it out if necessary.</p>
+<p>You can check in files by using the "Show Pending Checkins" option that appears on the File menu once you've added your game to source control.</p>
+<p><strong>Which files does AGS put under source control?</strong></p>
+<p>AGS currently puts the main game file and your scripts, rooms, fonts and translations under source control. Optionally, you can also add sound, music and sprites by changing the setting in the General Settings pane.</p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

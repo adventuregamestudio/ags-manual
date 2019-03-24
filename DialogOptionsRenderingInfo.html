@@ -1,483 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DialogOptionsRenderingInfo functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>DialogOptionsRenderingInfo functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Display functions" href="DisplayFunctions.html" />
-    <link rel="prev" title="Dialog functions and properties" href="Dialog.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="dialogoptionsrenderinginfo-functions-and-properties">
-<h1>DialogOptionsRenderingInfo functions and properties<a class="headerlink" href="#dialogoptionsrenderinginfo-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<p>The DialogOptionsRenderingInfo instance is used by the <a class="reference internal" href="CustomDialogOptions.html"><span class="doc">custom dialog
-options</span></a> system. You can never create one
-yourself, it will be passed in to the dialog option functions as
-described in the linked page.</p>
-<hr class="docutils" />
-<span class="target" id="index-0"></span><div class="section" id="runactiveoption">
-<span id="index-1"></span><h2>RunActiveOption<a class="headerlink" href="#runactiveoption" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool DialogOptionsRenderingInfo.RunActiveOption();
-</pre></div>
-</div>
-<p>Runs the currently selected dialog option, the one set in
-ActiveOptionID, and returns <strong>true</strong> on success.</p>
-<p>As of AGS 3.4.0 you must call this function for conversation to
-continue, most common places for such call are
-<code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> and <code class="docutils literal notranslate"><span class="pre">dialog_options_key_press</span></code> functions.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#dialogoptionsrenderinginfo-functions-and-properties">DialogOptionsRenderingInfo functions and properties</a><ul>
+<li><a href="#runactiveoption">RunActiveOption</a></li>
+<li><a href="#update">Update</a></li>
+<li><a href="#activeoptionid">ActiveOptionID</a></li>
+<li><a href="#dialogtorender">DialogToRender</a></li>
+<li><a href="#hasalphachannel">HasAlphaChannel</a></li>
+<li><a href="#height">Height</a></li>
+<li><a href="#parsertextboxwidth">ParserTextBoxWidth</a></li>
+<li><a href="#parsertextboxx">ParserTextBoxX</a></li>
+<li><a href="#parsertextboxy">ParserTextBoxY</a></li>
+<li><a href="#surface">Surface</a></li>
+<li><a href="#width">Width</a></li>
+<li><a href="#x">X</a></li>
+<li><a href="#y">Y</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="dialogoptionsrenderinginfo-functions-and-properties" class="level2">
+<h2>DialogOptionsRenderingInfo functions and properties</h2>
+<p>The DialogOptionsRenderingInfo instance is used by the <a href="CustomDialogOptions.html">custom dialog options</a> system. You can never create one yourself, it will be passed in to the dialog option functions as described in the linked page.</p>
+<hr />
+<section id="runactiveoption" class="level3">
+<h3>RunActiveOption</h3>
+<pre><code>bool DialogOptionsRenderingInfo.RunActiveOption();
+</code></pre>
+<p>Runs the currently selected dialog option, the one set in ActiveOptionID, and returns <strong>true</strong> on success.</p>
+<p>As of AGS 3.4.0 you must call this function for conversation to continue, most common places for such call are <code>dialog_options_mouse_click</code> and <code>dialog_options_key_press</code> functions.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_key_press</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">,</span> <span class="nx">eKeyCode</span> <span class="nx">key</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyReturn</span><span class="p">)</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">RunActiveOption</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode key)
+{
+  if (keycode == eKeyReturn)
+    info.RunActiveOption();
+}
+</code></pre>
 <p>runs selected dialog option when player presses Enter/Return key.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ActiveOptionID</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="update">
-<span id="index-2"></span><h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>void DialogOptionsRenderingInfo.Update();
-</pre></div>
-</div>
-<p>Forces dialog options to redraw, eventually leading to be
-<code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code> function run.</p>
-<p>Like other elements of interface, dialog options GUI does not redraw
-itself every game loop; in attempt to optimize perfomance it aims to do
-so only when there are changes to its look. But sometimes you may want
-to change GUI looks based on your own decision, and not automatic
-behavior. For example, you want to script animated text, or other
-element belonging to dialog options. This is when you call
-DialogOptionsRenderingInfo.Update().</p>
-<p><strong>IMPORTANT:</strong> Keep in mind that calling <strong>Update</strong> does not immediately
-run <code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code>, render function will be run at least after
-current script ends.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#activeoptionid">DialogOptionsRenderingInfo.ActiveOptionID</a></p>
+<hr />
+</section>
+<section id="update" class="level3">
+<h3>Update</h3>
+<pre><code>void DialogOptionsRenderingInfo.Update();
+</code></pre>
+<p>Forces dialog options to redraw, eventually leading to be <code>dialog_options_render</code> function run.</p>
+<p>Like other elements of interface, dialog options GUI does not redraw itself every game loop; in attempt to optimize perfomance it aims to do so only when there are changes to its look. But sometimes you may want to change GUI looks based on your own decision, and not automatic behavior. For example, you want to script animated text, or other element belonging to dialog options. This is when you call DialogOptionsRenderingInfo.Update().</p>
+<p><strong>IMPORTANT:</strong> Keep in mind that calling <strong>Update</strong> does not immediately run <code>dialog_options_render</code>, render function will be run at least after current script ends.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<hr class="docutils" />
-<span class="target" id="index-3"></span></div>
-<div class="section" id="activeoptionid">
-<span id="index-4"></span><h2>ActiveOptionID<a class="headerlink" href="#activeoptionid" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.ActiveOptionID;
-</pre></div>
-</div>
-<p>Gets/sets the currently active option on the dialog options screen. You
-set this in the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> function to tell AGS which
-option the mouse is hovering over. This ensures that the correct option
-is activated when the player clicks the mouse button.</p>
-<p>You can read this property in the <code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code> function in
-order to highlight the selected option in a different manner to the
-others.</p>
-<p>This property can be set to <strong>0</strong> which indicates that no option is
-selected; otherwise it will be the option number from 1 to the number of
-options in the dialog.</p>
+<hr />
+</section>
+<section id="activeoptionid" class="level3">
+<h3>ActiveOptionID</h3>
+<pre><code>int DialogOptionsRenderingInfo.ActiveOptionID;
+</code></pre>
+<p>Gets/sets the currently active option on the dialog options screen. You set this in the <code>dialog_options_get_active</code> function to tell AGS which option the mouse is hovering over. This ensures that the correct option is activated when the player clicks the mouse button.</p>
+<p>You can read this property in the <code>dialog_options_render</code> function in order to highlight the selected option in a different manner to the others.</p>
+<p>This property can be set to <strong>0</strong> which indicates that no option is selected; otherwise it will be the option number from 1 to the number of options in the dialog.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_active</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_get_active(DialogOptionsRenderingInfo *info)
+{
+  info.ActiveOptionID = 1;
+}
+</code></pre>
 <p>always selects the first option</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.RunActiveOption</span></a>,
-<a class="reference internal" href="Dialog.html"><span class="doc">Dialog.GetOptionState</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-5"></span></div>
-<div class="section" id="dialogtorender">
-<span id="index-6"></span><h2>DialogToRender<a class="headerlink" href="#dialogtorender" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Dialog* DialogOptionsRenderingInfo.DialogToRender;
-</pre></div>
-</div>
-<p>Gets the dialog that needs to be rendered. You can loop through all the
-options in the dialog in order to decide what to display on the screen.</p>
-<p>Example: For an example please see the
-<a class="reference internal" href="CustomDialogOptions.html"><span class="doc">custom dialog options</span></a> page.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#runactiveoption">DialogOptionsRenderingInfo.RunActiveOption</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<hr />
+</section>
+<section id="dialogtorender" class="level3">
+<h3>DialogToRender</h3>
+<pre><code>Dialog* DialogOptionsRenderingInfo.DialogToRender;
+</code></pre>
+<p>Gets the dialog that needs to be rendered. You can loop through all the options in the dialog in order to decide what to display on the screen.</p>
+<p>Example: For an example please see the <a href="CustomDialogOptions.html">custom dialog options</a> page.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Dialog.html"><span class="doc">Dialog.GetOptionState</span></a>,
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Surface</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-7"></span></div>
-<div class="section" id="hasalphachannel">
-<span id="index-8"></span><h2>HasAlphaChannel<a class="headerlink" href="#hasalphachannel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.HasAlphaChannel;
-</pre></div>
-</div>
-<p>Gets/sets whether the dialog options’s drawing surface will have alpha
-channel.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function, but can be read in other functions in order to render the
-options.</p>
+<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="DialogOptionsRenderingInfo.html#surface">DialogOptionsRenderingInfo.Surface</a></p>
+<hr />
+</section>
+<section id="hasalphachannel" class="level3">
+<h3>HasAlphaChannel</h3>
+<pre><code>int DialogOptionsRenderingInfo.HasAlphaChannel;
+</code></pre>
+<p>Gets/sets whether the dialog options's drawing surface will have alpha channel.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function, but can be read in other functions in order to render the options.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">HasAlphaChannel</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>creates a 300x150 size area with alpha channel to draw the dialog
-options in.</p>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+  info.HasAlphaChannel = true;
+}
+</code></pre>
+<p>creates a 300x150 size area with alpha channel to draw the dialog options in.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Height</span></a>,
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Width</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="height">
-<span id="index-9"></span><h2>Height<a class="headerlink" href="#height" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.Height;
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#height">DialogOptionsRenderingInfo.Height</a>, <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a></p>
+<hr />
+</section>
+<section id="height" class="level3">
+<h3>Height</h3>
+<pre><code>int DialogOptionsRenderingInfo.Height;
+</code></pre>
 <p>Gets/sets the height of the area needed to draw the dialog options.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function, but can be read in other functions in order to render the
-options.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function, but can be read in other functions in order to render the options.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+}
+</code></pre>
 <p>creates a 300x150 size area to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Width</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="parsertextboxwidth">
-<span id="index-11"></span><h2>ParserTextBoxWidth<a class="headerlink" href="#parsertextboxwidth" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.ParserTextBoxWidth;
-</pre></div>
-</div>
-<p>Gets/sets the width of the text parser textbox on the dialog options. If
-the text parser is not enabled for this dialog, this setting will be
-ignored.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a></p>
+<hr />
+</section>
+<section id="parsertextboxwidth" class="level3">
+<h3>ParserTextBoxWidth</h3>
+<pre><code>int DialogOptionsRenderingInfo.ParserTextBoxWidth;
+</code></pre>
+<p>Gets/sets the width of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-  <span class="c1">// Put the text parser at the bottom (if enabled)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxY</span> <span class="o">=</span> <span class="mi">130</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxWidth</span> <span class="o">=</span> <span class="mi">180</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>positions the parser text box at (10,130) inside the 300x150 dialog
-options area</p>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+  // Put the text parser at the bottom (if enabled)
+  info.ParserTextBoxX = 10;
+  info.ParserTextBoxY = 130;
+  info.ParserTextBoxWidth = 180;
+}
+</code></pre>
+<p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Width</span></a>,
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ParserTextBoxX</span></a>,
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ParserTextBoxY</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="parsertextboxx">
-<span id="index-13"></span><h2>ParserTextBoxX<a class="headerlink" href="#parsertextboxx" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.ParserTextBoxX;
-</pre></div>
-</div>
-<p>Gets/sets the X-position of the text parser textbox on the dialog
-options. If the text parser is not enabled for this dialog, this setting
-will be ignored.</p>
-<p>This X-position is relative to the dialog options surface. That is, an X
-of 10 will position it 10 pixels within the dialog options area, not 10
-pixels from the edge of the screen.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
+<hr />
+</section>
+<section id="parsertextboxx" class="level3">
+<h3>ParserTextBoxX</h3>
+<pre><code>int DialogOptionsRenderingInfo.ParserTextBoxX;
+</code></pre>
+<p>Gets/sets the X-position of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
+<p>This X-position is relative to the dialog options surface. That is, an X of 10 will position it 10 pixels within the dialog options area, not 10 pixels from the edge of the screen.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-  <span class="c1">// Put the text parser at the bottom (if enabled)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxY</span> <span class="o">=</span> <span class="mi">130</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxWidth</span> <span class="o">=</span> <span class="mi">180</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>positions the parser text box at (10,130) inside the 300x150 dialog
-options area</p>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+  // Put the text parser at the bottom (if enabled)
+  info.ParserTextBoxX = 10;
+  info.ParserTextBoxY = 130;
+  info.ParserTextBoxWidth = 180;
+}
+</code></pre>
+<p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ParserTextBoxWidth</span></a>,
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ParserTextBoxY</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-14"></span></div>
-<div class="section" id="parsertextboxy">
-<span id="index-15"></span><h2>ParserTextBoxY<a class="headerlink" href="#parsertextboxy" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.ParserTextBoxY;
-</pre></div>
-</div>
-<p>Gets/sets the Y-position of the text parser textbox on the dialog
-options. If the text parser is not enabled for this dialog, this setting
-will be ignored.</p>
-<p>This Y-position is relative to the dialog options surface. That is, a Y
-of 10 will position it 10 pixels within the dialog options area, not 10
-pixels from the edge of the screen.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#parsertextboxwidth">DialogOptionsRenderingInfo.ParserTextBoxWidth</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
+<hr />
+</section>
+<section id="parsertextboxy" class="level3">
+<h3>ParserTextBoxY</h3>
+<pre><code>int DialogOptionsRenderingInfo.ParserTextBoxY;
+</code></pre>
+<p>Gets/sets the Y-position of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
+<p>This Y-position is relative to the dialog options surface. That is, a Y of 10 will position it 10 pixels within the dialog options area, not 10 pixels from the edge of the screen.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-  <span class="c1">// Put the text parser at the bottom (if enabled)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxY</span> <span class="o">=</span> <span class="mi">130</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxWidth</span> <span class="o">=</span> <span class="mi">180</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>positions the parser text box at (10,130) inside the 300x150 dialog
-options area</p>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+  // Put the text parser at the bottom (if enabled)
+  info.ParserTextBoxX = 10;
+  info.ParserTextBoxY = 130;
+  info.ParserTextBoxWidth = 180;
+}
+</code></pre>
+<p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.ParserTextBoxX</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-16"></span></div>
-<div class="section" id="surface">
-<span id="index-17"></span><h2>Surface<a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>DrawingSurface* DialogOptionsRenderingInfo.Surface;
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#parsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a></p>
+<hr />
+</section>
+<section id="surface" class="level3">
+<h3>Surface</h3>
+<pre><code>DrawingSurface* DialogOptionsRenderingInfo.Surface;
+</code></pre>
 <p>Gets the drawing surface that can be used to draw the dialog options.</p>
-<p>This can only be used within the <code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code> function; in
-all other functions it will return <em>null</em>.</p>
-<p>Unlike most other uses of the DrawingSurface, you do <strong>NOT</strong> have to
-release this one. AGS will automatically do that for you after the
-<code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code> function has completed.</p>
-<p>The size of the surface should correspond to the Width and Height
-requested in the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code> function.</p>
+<p>This can only be used within the <code>dialog_options_render</code> function; in all other functions it will return <em>null</em>.</p>
+<p>Unlike most other uses of the DrawingSurface, you do <strong>NOT</strong> have to release this one. AGS will automatically do that for you after the <code>dialog_options_render</code> function has completed.</p>
+<p>The size of the surface should correspond to the Width and Height requested in the <code>dialog_options_get_dimensions</code> function.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_render</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">Clear</span><span class="p">(</span><span class="mi">14</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_render(DialogOptionsRenderingInfo *info)
+{
+  info.Surface.Clear(14);
+}
+</code></pre>
 <p>clears the dialog options area to yellow.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface functions</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="width">
-<span id="index-18"></span><h2>Width<a class="headerlink" href="#width" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.Width;
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html">DrawingSurface functions</a></p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3>Width</h3>
+<pre><code>int DialogOptionsRenderingInfo.Width;
+</code></pre>
 <p>Gets/sets the width of the area needed to draw the dialog options.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function, but can be read in other functions in order to render the
-options.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function, but can be read in other functions in order to render the options.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.Width = 300;
+  info.Height = 150;
+}
+</code></pre>
 <p>creates a 300x150 size area to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Height</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="x">
-<span id="index-19"></span><h2>X<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.X;
-</pre></div>
-</div>
-<p>Gets/sets the horizontal co-ordinate of the top-left corner of the
-dialog options area.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function, but can be read in other functions in order to render the
-options.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#height">DialogOptionsRenderingInfo.Height</a></p>
+<hr />
+</section>
+<section id="x" class="level3">
+<h3>X</h3>
+<pre><code>int DialogOptionsRenderingInfo.X;
+</code></pre>
+<p>Gets/sets the horizontal co-ordinate of the top-left corner of the dialog options area.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function, but can be read in other functions in order to render the options.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.X = 50;
+  info.Y = 20;
+  info.Width = 200;
+  info.Height = 150;
+}
+</code></pre>
 <p>creates a 200x150 size area at (50, 20) to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.Y</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="y">
-<span id="index-20"></span><h2>Y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int DialogOptionsRenderingInfo.Y;
-</pre></div>
-</div>
-<p>Gets/sets the vertical co-ordinate of the top-left corner of the dialog
-options area.</p>
-<p>This can only be set within the <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code>
-function, but can be read in other functions in order to render the
-options.</p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#y">DialogOptionsRenderingInfo.Y</a></p>
+<hr />
+</section>
+<section id="y" class="level3">
+<h3>Y</h3>
+<pre><code>int DialogOptionsRenderingInfo.Y;
+</code></pre>
+<p>Gets/sets the vertical co-ordinate of the top-left corner of the dialog options area.</p>
+<p>This can only be set within the <code>dialog_options_get_dimensions</code> function, but can be read in other functions in order to render the options.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<pre><code>function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  info.X = 50;
+  info.Y = 20;
+  info.Width = 200;
+  info.Height = 150;
+}
+</code></pre>
 <p>creates a 200x150 size area at (50, 20) to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">DialogOptionsRenderingInfo.X</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#x">DialogOptionsRenderingInfo.X</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Dialog.html" title="previous chapter">Dialog functions and properties</a></li>
-      <li>Next: <a href="DisplayFunctions.html" title="next chapter">Display functions</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20DialogOptionsRenderingInfo%20functions%20and%20properties&body=source%20is%20DialogOptionsRenderingInfo.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/DialogOptionsRenderingInfo"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">DialogOptionsRenderingInfo functions and properties</a><ul>
-<li><a class="reference internal" href="#runactiveoption">RunActiveOption</a></li>
-<li><a class="reference internal" href="#update">Update</a></li>
-<li><a class="reference internal" href="#activeoptionid">ActiveOptionID</a></li>
-<li><a class="reference internal" href="#dialogtorender">DialogToRender</a></li>
-<li><a class="reference internal" href="#hasalphachannel">HasAlphaChannel</a></li>
-<li><a class="reference internal" href="#height">Height</a></li>
-<li><a class="reference internal" href="#parsertextboxwidth">ParserTextBoxWidth</a></li>
-<li><a class="reference internal" href="#parsertextboxx">ParserTextBoxX</a></li>
-<li><a class="reference internal" href="#parsertextboxy">ParserTextBoxY</a></li>
-<li><a class="reference internal" href="#surface">Surface</a></li>
-<li><a class="reference internal" href="#width">Width</a></li>
-<li><a class="reference internal" href="#x">X</a></li>
-<li><a class="reference internal" href="#y">Y</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

@@ -1,340 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Editing the GUIs</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Editing the GUIs &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sprite Manager" href="EditorSprite.html" />
-    <link rel="prev" title="Character Editor" href="EditorCharacter.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="editing-the-guis">
-<h1>Editing the GUIs<a class="headerlink" href="#editing-the-guis" title="Permalink to this headline">¶</a></h1>
-<p>The game interface is split up into GUIs. Each GUI is a rectangular
-region on the screen which is drawn on top of the background scene. Each
-can be set to either:</p>
-<ul class="simple">
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#editing-the-guis">Editing the GUIs</a><ul>
+<li><a href="#gui-buttons">GUI buttons</a></li>
+<li><a href="#interface-text">Interface text</a></li>
+<li><a href="#customized-text-windows">Customized Text Windows</a></li>
+<li><a href="#custom-inventory">Custom inventory</a></li>
+<li><a href="#sliders">Sliders</a></li>
+<li><a href="#text-boxes">Text Boxes</a></li>
+<li><a href="#list-boxes">List Boxes</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="editing-the-guis" class="level2">
+<h2>Editing the GUIs</h2>
+<p>The game interface is split up into GUIs. Each GUI is a rectangular region on the screen which is drawn on top of the background scene. Each can be set to either:</p>
+<ul>
 <li>be always displayed (for example the Sierra status-line)</li>
-<li>pop-up when the mouse moves to a certain position (eg.
-Sierra icon-bar)</li>
+<li>pop-up when the mouse moves to a certain position (eg. Sierra icon-bar)</li>
 <li>pop-up on script command only</li>
 </ul>
-<p>The default interface is made up of two GUIs - the status line, and the
-icon bar.</p>
-<p>Go to the “GUIs” node in the main tree. Under this all the GUIs in the
-game are listed – double-click one to edit it. To create a new one,
-right-click on the main “GUIs” node and choose “New GUI”.</p>
-<p>Once you’ve opened up a GUI, you’ll notice the GUI itself in the main
-window, and its settings can be edited in the Properties grid. This
-allows you to change the background colour of the GUI, set a background
-picture, and set the location and width/height amongst other things.</p>
-<p>The “Visibility” property allows you to set when the GUI is displayed.
-The default is “Normal”, which means that the GUI will initially be
-visible, though you can turn it off with a GUI.Visible=false command in
-game_start if you need to.</p>
-<p>The “Popup modal” option means that the GUI will be initially off and
-must be turned on by a script command. With this option, the game will
-be paused while the GUI is displayed, during which time the
-on_mouse_click and on_key_press functions will not get run.</p>
-<p>The “Mouse YPos” option means that the GUI only appears when the mouse
-vertical position moves above the y-coordinate set with the “Popup-YP”
-option.</p>
-<p>“Persistent” is like “Normal”, except that this GUI will not be removed
-during a cutscene when the setting “GUIs turn off when disabled” is set
-in the general settings. Useful if you want most of your GUIs to turn
-off, except a status line or whatever.</p>
-<p>The “Z-Order” setting allows you to set which order the GUIs are drawn
-in - ie. when there are two GUIs that overlap, which is drawn in front.
-The Z-order setting is an arbitrary number between 0 and 1000. AGS draws
-the GUIs in order, from the lowest numbered at the back to the highest
-numbered at the front.</p>
-<p>The “Clickable” setting allows you to set whether the GUI and buttons on
-it respond to mouse clicks. This is on by default, but if you turn it
-off and the player clicks on the GUI, the game will actually process the
-click as if they clicked behind the GUI onto the actual screen. Useful
-for transparent GUIs which are only used to display information.</p>
-<p>You’ll notice that the GUIs have names. These can be used in the script
-in the same way as character names. For example, if a GUI is called
-“gIconBar”, you can use scripts such as:</p>
-<p><code class="docutils literal notranslate"><span class="pre">gIconBar.Visible</span> <span class="pre">=</span> <span class="pre">true;</span></code></p>
-<hr class="docutils" />
-<div class="section" id="gui-buttons">
-<span id="index-0"></span><h2>GUI buttons<a class="headerlink" href="#gui-buttons" title="Permalink to this headline">¶</a></h2>
+<p>The default interface is made up of two GUIs - the status line, and the icon bar.</p>
+<p>Go to the "GUIs" node in the main tree. Under this all the GUIs in the game are listed -- double-click one to edit it. To create a new one, right-click on the main "GUIs" node and choose "New GUI".</p>
+<p>Once you've opened up a GUI, you'll notice the GUI itself in the main window, and its settings can be edited in the Properties grid. This allows you to change the background colour of the GUI, set a background picture, and set the location and width/height amongst other things.</p>
+<p>The "Visibility" property allows you to set when the GUI is displayed. The default is "Normal", which means that the GUI will initially be visible, though you can turn it off with a GUI.Visible=false command in game_start if you need to.</p>
+<p>The "Popup modal" option means that the GUI will be initially off and must be turned on by a script command. With this option, the game will be paused while the GUI is displayed, during which time the on_mouse_click and on_key_press functions will not get run.</p>
+<p>The "Mouse YPos" option means that the GUI only appears when the mouse vertical position moves above the y-coordinate set with the "Popup-YP" option.</p>
+<p>"Persistent" is like "Normal", except that this GUI will not be removed during a cutscene when the setting "GUIs turn off when disabled" is set in the general settings. Useful if you want most of your GUIs to turn off, except a status line or whatever.</p>
+<p>The "Z-Order" setting allows you to set which order the GUIs are drawn in - ie. when there are two GUIs that overlap, which is drawn in front. The Z-order setting is an arbitrary number between 0 and 1000. AGS draws the GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
+<p>The "Clickable" setting allows you to set whether the GUI and buttons on it respond to mouse clicks. This is on by default, but if you turn it off and the player clicks on the GUI, the game will actually process the click as if they clicked behind the GUI onto the actual screen. Useful for transparent GUIs which are only used to display information.</p>
+<p>You'll notice that the GUIs have names. These can be used in the script in the same way as character names. For example, if a GUI is called "gIconBar", you can use scripts such as:</p>
+<p><code>gIconBar.Visible = true;</code></p>
+<hr />
+<section id="gui-buttons" class="level3">
+<h3>GUI buttons</h3>
 <p>To provide interactivity with the interface, you use buttons.</p>
-<p>To add a button, click the “Add button” button in the toolbar, and then
-drag a rectangle with the mouse onto the GUI. You will see it displayed
-as a text button, with the text “New button” on. Notice that the
-Properties window is now displaying properties for your new button
-rather than the GUI.</p>
-<p>Using the Properties window, you can set a picture for the button
-instead, and you can also set various other self-explanitory attributes.
-You set what happens when the player clicks on the button by using the
-“Click Action” attribute. This can be set to “Run Script” (the default),
-and also “Set mode”, which changes the cursor mode to the mode specified
-in the “New mode number” property.</p>
+<p>To add a button, click the "Add button" button in the toolbar, and then drag a rectangle with the mouse onto the GUI. You will see it displayed as a text button, with the text "New button" on. Notice that the Properties window is now displaying properties for your new button rather than the GUI.</p>
+<p>Using the Properties window, you can set a picture for the button instead, and you can also set various other self-explanitory attributes. You set what happens when the player clicks on the button by using the "Click Action" attribute. This can be set to "Run Script" (the default), and also "Set mode", which changes the cursor mode to the mode specified in the "New mode number" property.</p>
 <p>To delete a GUI button, right-click it and choose Delete.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="interface-text">
-<span id="index-1"></span><h2>Interface text<a class="headerlink" href="#interface-text" title="Permalink to this headline">¶</a></h2>
-<p>You can easily display static text on interfaces. For example, the
-Sierra-style interface displays the score in the status bar.</p>
-<p>To show text to a GUI, you need a label. Click the “Add label” button in
-the toolbar, then drag out a rectangle like you did when adding a
-button. You can change the text displayed in the label by editing the
-“Text” property. Notice that the text automatically wraps round to fit
-inside the rectangle you drew.</p>
-<p>As well as typing normal text into the label, you can add some special
-markers which allow the text to change during the game. The following
-tokens will be replaced with the relevant values in the game:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Token</th>
-<th class="head">Description</th>
+<hr />
+</section>
+<section id="interface-text" class="level3">
+<h3>Interface text</h3>
+<p>You can easily display static text on interfaces. For example, the Sierra-style interface displays the score in the status bar.</p>
+<p>To show text to a GUI, you need a label. Click the "Add label" button in the toolbar, then drag out a rectangle like you did when adding a button. You can change the text displayed in the label by editing the "Text" property. Notice that the text automatically wraps round to fit inside the rectangle you drew.</p>
+<p>As well as typing normal text into the label, you can add some special markers which allow the text to change during the game. The following tokens will be replaced with the relevant values in the game:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Token</th>
+<th>Description</th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>&#64;GAMENAME&#64;</td>
-<td>The game’s name, specified on the Game Settings pane</td>
+<tbody>
+<tr class="odd">
+<td>@GAMENAME@</td>
+<td>The game's name, specified on the Game Settings pane</td>
 </tr>
-<tr class="row-odd"><td>&#64;OVERHOTSPOT&#64;</td>
+<tr class="even">
+<td>@OVERHOTSPOT@</td>
 <td>Name of the hotspot which the cursor is over</td>
 </tr>
-<tr class="row-even"><td>&#64;SCORE&#64;</td>
-<td>The player’s current score</td>
+<tr class="odd">
+<td>@SCORE@</td>
+<td>The player's current score</td>
 </tr>
-<tr class="row-odd"><td>&#64;SCORETEXT&#64;</td>
-<td>The text “Score: X of XX” with the relevant numbers filled in</td>
+<tr class="even">
+<td>@SCORETEXT@</td>
+<td>The text "Score: X of XX" with the relevant numbers filled in</td>
 </tr>
-<tr class="row-even"><td>&#64;TOTALSCORE&#64;</td>
+<tr class="odd">
+<td>@TOTALSCORE@</td>
 <td>The maximum possible score, specified on the Game Settings pane</td>
 </tr>
 </tbody>
 </table>
-<p>Example: You have &#64;SCORE&#64; out of &#64;TOTALSCORE&#64; points.</p>
-<p>The Properties window also allows you to align the text to left, right
-or centre, as well as change its font and colour.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="customized-text-windows">
-<span id="index-2"></span><h2>Customized Text Windows<a class="headerlink" href="#customized-text-windows" title="Permalink to this headline">¶</a></h2>
-<p>If you want to add a personal touch to the standard white text-boxes
-which display all the messages during the game, you can create a border
-using the GUI Editor. Right-click the “GUIs” node, and choose “New Text
-Window GUI”.</p>
-<p>The element will be resized to about 1/4 of the screen, and you will see
-8 pictures - one in each corner and one on each side. These are the
-border graphics. You change the graphic for a corner in the normal way.</p>
-<p>In the game, the corner graphics will be placed in the respective
-corners of the text window, and the side graphics will be repeated along
-the edge of the window. To tell the game to use your custom text window
-style, go to the General Settings pane, and check the “Text windows use
-GUI” box. Then, enter the number of the GUI which you used.</p>
-<p>You can also set a background picture for the text window. In the GUI
-editor, simply set a background picture for the GUI element. The graphic
-you specify will not be tiled or stretched in the game; however, it will
-be clipped to fit the window. You should use a graphic of at least about
-250x80 pixels to make sure that it fills up the whole window.</p>
-<p>To set the text colour in the window, simply set the Foreground Colour
-of the GUI and that will be used to print the message text in.</p>
-<p>Additionally, you may configure padding - the distance kept between text
-window’s border and text inside of it.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="custom-inventory">
-<span id="index-3"></span><h2>Custom inventory<a class="headerlink" href="#custom-inventory" title="Permalink to this headline">¶</a></h2>
-<p>Another option you may have noticed in the GUI editor is the Add
-Inventory button. This allows you to drag out a rectangle which will
-display the player’s current inventory, in the same way as the Lucasarts
-games did. To make the inventory window scrollable, you will need to add
-Up and Down arrow buttons, and attach script code to those buttons to
-use the available functions such as
-<a class="reference internal" href="InvWindow.html"><span class="doc">InvWindow.ScrollUp</span></a> and
-<a class="reference internal" href="InvWindow.html"><span class="doc">InvWindow.ScrollDown</span></a>.</p>
-<p>To see a full list of commands available for inventory windows, see the
-<a class="reference internal" href="GUI.html"><span class="doc">GUI Inv Window Functions and Properties</span></a>
-section.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="sliders">
-<span id="index-4"></span><h2>Sliders<a class="headerlink" href="#sliders" title="Permalink to this headline">¶</a></h2>
-<p>You can now add sliders to your GUIs. This allows you to have a nice
-interface for the player to change settings such as volume and game
-speed. To add a slider, click the “Add slider” button and drag out its
-rectangle just like you would for a button. You can also resize it by
-dragging the bottom- right hand corner out in the same way as a button.</p>
-<p>Sliders can be either vertical or horizontal. The direction that it is
-drawn in is automatic depending on the size that you stretch the slider
-box to - if it is wider than it is tall you will get a horizontal
-slider, otherwise you’ll get a vertical slider.</p>
-<p>For the properties of a slider you can set the minimum, maximum and
-current values that the slider can have. In the game, the user will be
-able to drag the handle from MIN to MAX, and the slider will start off
-set to VALUE. For horizontal sliders, MIN is on the left and MAX on the
-right, for vertical sliders MAX is at the top and MIN is at the bottom.</p>
-<p>Whenever the user moves the handle’s position on the slider, the
-OnChange event is called. This means that if they continually drag the
-handle up and down, the event will get called repeatedly.</p>
-<p>Your script can find out the value of the slider using the Slider.Value
-script property.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="text-boxes">
-<span id="index-5"></span><h2>Text Boxes<a class="headerlink" href="#text-boxes" title="Permalink to this headline">¶</a></h2>
-<p>A text box is a simple device that allows the player to type information
-into your game. Adding a text box works like adding the other types of
-control.</p>
-<p>If a text box is on a currently displayed GUI, all standard keypresses
-(ie. letter keys, return and backspace) are diverted to the textbox
-instead of being passed to the on_key_press function. When the player
-presses Return in the text box, the OnActivate event is called. You can
-then use the TextBox.Text property to retrieve what they typed in.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="list-boxes">
-<span id="index-6"></span><h2>List Boxes<a class="headerlink" href="#list-boxes" title="Permalink to this headline">¶</a></h2>
-<p>List box controls allow you to add a list of items to your GUI. This
-could be useful for doing a custom save/load dialog box, allowing the
-user to choose between various options, and so forth.</p>
-<p>You use the ListBox script functions to manipulate the list box - for
-example, ListBox.AddItem to add an item, or ListBox.SelectedIndex to get
-the current selection.</p>
-<p>The ListBox.Translated property defines whether the translation will be
-applied to list items or not. It is recommended to disable translation
-for lists containing saved games.</p>
-<p>The OnSelectionChanged event is fired when the player clicks on an item
-in the list. You may wish to ignore this or to do something useful with
-it.</p>
-</div>
-</div>
-
-
-          </div>
-          
+<p>Example: You have @SCORE@ out of @TOTALSCORE@ points.</p>
+<p>The Properties window also allows you to align the text to left, right or centre, as well as change its font and colour.</p>
+<hr />
+</section>
+<section id="customized-text-windows" class="level3">
+<h3>Customized Text Windows</h3>
+<p>If you want to add a personal touch to the standard white text-boxes which display all the messages during the game, you can create a border using the GUI Editor. Right-click the "GUIs" node, and choose "New Text Window GUI".</p>
+<p>The element will be resized to about 1/4 of the screen, and you will see 8 pictures - one in each corner and one on each side. These are the border graphics. You change the graphic for a corner in the normal way.</p>
+<p>In the game, the corner graphics will be placed in the respective corners of the text window, and the side graphics will be repeated along the edge of the window. To tell the game to use your custom text window style, go to the General Settings pane, and check the "Text windows use GUI" box. Then, enter the number of the GUI which you used.</p>
+<p>You can also set a background picture for the text window. In the GUI editor, simply set a background picture for the GUI element. The graphic you specify will not be tiled or stretched in the game; however, it will be clipped to fit the window. You should use a graphic of at least about 250x80 pixels to make sure that it fills up the whole window.</p>
+<p>To set the text colour in the window, simply set the Foreground Colour of the GUI and that will be used to print the message text in.</p>
+<p>Additionally, you may configure padding - the distance kept between text window's border and text inside of it.</p>
+<hr />
+</section>
+<section id="custom-inventory" class="level3">
+<h3>Custom inventory</h3>
+<p>Another option you may have noticed in the GUI editor is the Add Inventory button. This allows you to drag out a rectangle which will display the player's current inventory, in the same way as the Lucasarts games did. To make the inventory window scrollable, you will need to add Up and Down arrow buttons, and attach script code to those buttons to use the available functions such as <a href="InvWindow.html#scrollup">InvWindow.ScrollUp</a> and <a href="InvWindow.html#scrolldown">InvWindow.ScrollDown</a>.</p>
+<p>To see a full list of commands available for inventory windows, see the <a href="GUI.html">GUI Inv Window Functions and Properties</a> section.</p>
+<hr />
+</section>
+<section id="sliders" class="level3">
+<h3>Sliders</h3>
+<p>You can now add sliders to your GUIs. This allows you to have a nice interface for the player to change settings such as volume and game speed. To add a slider, click the "Add slider" button and drag out its rectangle just like you would for a button. You can also resize it by dragging the bottom- right hand corner out in the same way as a button.</p>
+<p>Sliders can be either vertical or horizontal. The direction that it is drawn in is automatic depending on the size that you stretch the slider box to - if it is wider than it is tall you will get a horizontal slider, otherwise you'll get a vertical slider.</p>
+<p>For the properties of a slider you can set the minimum, maximum and current values that the slider can have. In the game, the user will be able to drag the handle from MIN to MAX, and the slider will start off set to VALUE. For horizontal sliders, MIN is on the left and MAX on the right, for vertical sliders MAX is at the top and MIN is at the bottom.</p>
+<p>Whenever the user moves the handle's position on the slider, the OnChange event is called. This means that if they continually drag the handle up and down, the event will get called repeatedly.</p>
+<p>Your script can find out the value of the slider using the Slider.Value script property.</p>
+<hr />
+</section>
+<section id="text-boxes" class="level3">
+<h3>Text Boxes</h3>
+<p>A text box is a simple device that allows the player to type information into your game. Adding a text box works like adding the other types of control.</p>
+<p>If a text box is on a currently displayed GUI, all standard keypresses (ie. letter keys, return and backspace) are diverted to the textbox instead of being passed to the on_key_press function. When the player presses Return in the text box, the OnActivate event is called. You can then use the TextBox.Text property to retrieve what they typed in.</p>
+<hr />
+</section>
+<section id="list-boxes" class="level3">
+<h3>List Boxes</h3>
+<p>List box controls allow you to add a list of items to your GUI. This could be useful for doing a custom save/load dialog box, allowing the user to choose between various options, and so forth.</p>
+<p>You use the ListBox script functions to manipulate the list box - for example, ListBox.AddItem to add an item, or ListBox.SelectedIndex to get the current selection.</p>
+<p>The ListBox.Translated property defines whether the translation will be applied to list items or not. It is recommended to disable translation for lists containing saved games.</p>
+<p>The OnSelectionChanged event is fired when the player clicks on an item in the list. You may wish to ignore this or to do something useful with it.</p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="EditorCharacter.html" title="previous chapter">Character Editor</a></li>
-      <li>Next: <a href="EditorSprite.html" title="next chapter">Sprite Manager</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Editing%20the%20GUIs&body=source%20is%20EditingGUIs.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/EditingGUIs"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Editing the GUIs</a><ul>
-<li><a class="reference internal" href="#gui-buttons">GUI buttons</a></li>
-<li><a class="reference internal" href="#interface-text">Interface text</a></li>
-<li><a class="reference internal" href="#customized-text-windows">Customized Text Windows</a></li>
-<li><a class="reference internal" href="#custom-inventory">Custom inventory</a></li>
-<li><a class="reference internal" href="#sliders">Sliders</a></li>
-<li><a class="reference internal" href="#text-boxes">Text Boxes</a></li>
-<li><a class="reference internal" href="#list-boxes">List Boxes</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

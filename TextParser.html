@@ -1,226 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The text parser</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The text parser &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Predefined global script functions" href="TextScriptEvents.html" />
-    <link rel="prev" title="TextBox functions and properties" href="TextBox.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="the-text-parser">
-<h1>The text parser<a class="headerlink" href="#the-text-parser" title="Permalink to this headline">¶</a></h1>
-<p>You can now use a text parser in your games if you wish to, much as the
-older Sierra games did. Go to the “Text parser” pane in the editor.
-There, you will see a short list of words which are provided for you.
-Each word has a number beside it.</p>
-<p>Basically, you add words you want to use by right-clicking the list, and
-selecting “Add word”. However, the real beauty of the parser is its
-ability to recognise synonyms - that is, two words that mean the same
-thing. So, for example, if you wanted the player to type “look at
-fence”, they might well type “look at wall” instead, if that’s how they
-see the drawing. Or, a British person might type “colour” whereas an
-American might type “color”, both of which should have the same effect.</p>
-<p>To add a synonym for an existing word, highlight the current word,
-right-click it and choose “Add synonym”. You’ll notice that the new word
-is given the same number as the old one. All words with the same number
-are considered identical by the parser.</p>
-<p>You will notice that the provided list has a lot of words with number 0.
-This is a special number, that indicates that the parser should ignore
-the word completely. In our previous example, the player might type
-“look at the fence”, “look at fence”, or just “look fence”. By adding
-words like “at” and “the” to the ignore list, they get stripped out of
-the user’s input automatically. To add new ignore words, just select an
-existing one and add a synonym.</p>
-<p>So, how do you use the text parser? Well, you’ll need a text box GUI
-control somewhere in order for the user to type in their input, or you
-could just use the InputBox command (but it has quite a short line
-length).</p>
-<p>When the user has typed in their text (you’ll probably know this by the
-text box’s event being activated), you call the Parser.ParseText script
-function which tells AGS what input string to use in subsequent
-commands. You then simply use the Said command to test what the player
-typed in.</p>
-<p>You type the whole sentence (but NOT including any ignore words), and
-AGS will compare it to the user’s string, considering all synonyms
-identical. For example (assuming our text box is called “txtUserInput”):</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String input = txtUserInput.Text;
-Parser.ParseText(input);
-if (Parser.Said(&quot;look fence&quot;)) {
-  Display(&quot;It&#39;s an old wooden fence.&quot;);
-}
-if (Parser.Said(&quot;eat apple&quot;)) {
-  Display(&quot;You&#39;d love to, but you don&#39;t have one.&quot;);
-}
-</pre></div>
-</div>
-<p>There are a couple of special words you can use with the Said command.
-“anyword” will match any word that the user types in. For example,
-Said(“throw anyword away”) will match if they type “throw dagger away”,
-or “throw trash away”. “rol” (short for Rest-of-Line) will match the
-rest of the user’s input. So, you might want to do:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Parser.Said(&quot;kill rol&quot;)) {
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#the-text-parser">The text parser</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="the-text-parser" class="level2">
+<h2>The text parser</h2>
+<p>You can now use a text parser in your games if you wish to, much as the older Sierra games did. Go to the "Text parser" pane in the editor. There, you will see a short list of words which are provided for you. Each word has a number beside it.</p>
+<p>Basically, you add words you want to use by right-clicking the list, and selecting "Add word". However, the real beauty of the parser is its ability to recognise synonyms - that is, two words that mean the same thing. So, for example, if you wanted the player to type "look at fence", they might well type "look at wall" instead, if that's how they see the drawing. Or, a British person might type "colour" whereas an American might type "color", both of which should have the same effect.</p>
+<p>To add a synonym for an existing word, highlight the current word, right-click it and choose "Add synonym". You'll notice that the new word is given the same number as the old one. All words with the same number are considered identical by the parser.</p>
+<p>You will notice that the provided list has a lot of words with number 0. This is a special number, that indicates that the parser should ignore the word completely. In our previous example, the player might type "look at the fence", "look at fence", or just "look fence". By adding words like "at" and "the" to the ignore list, they get stripped out of the user's input automatically. To add new ignore words, just select an existing one and add a synonym.</p>
+<p>So, how do you use the text parser? Well, you'll need a text box GUI control somewhere in order for the user to type in their input, or you could just use the InputBox command (but it has quite a short line length).</p>
+<p>When the user has typed in their text (you'll probably know this by the text box's event being activated), you call the Parser.ParseText script function which tells AGS what input string to use in subsequent commands. You then simply use the Said command to test what the player typed in.</p>
+<p>You type the whole sentence (but NOT including any ignore words), and AGS will compare it to the user's string, considering all synonyms identical. For example (assuming our text box is called "txtUserInput"):</p>
+<pre><code>  String input = txtUserInput.Text;
+  Parser.ParseText(input);
+  if (Parser.Said(&quot;look fence&quot;)) {
+    Display(&quot;It&#39;s an old wooden fence.&quot;);
+  }
+  if (Parser.Said(&quot;eat apple&quot;)) {
+    Display(&quot;You&#39;d love to, but you don&#39;t have one.&quot;);
+  }
+</code></pre>
+<p>There are a couple of special words you can use with the Said command. "anyword" will match any word that the user types in. For example, Said("throw anyword away") will match if they type "throw dagger away", or "throw trash away". "rol" (short for Rest-of-Line) will match the rest of the user's input. So, you might want to do:</p>
+<pre><code>if (Parser.Said(&quot;kill rol&quot;)) {
   Display(&quot;You&#39;re not a violent person.&quot;);
 }
-</pre></div>
-</div>
-<p>This way if they try to kill anything they will get the generic
-response.</p>
-<p>Sometimes, you want to accept two different words that are not synonyms
-as the same thing. For example, the words “take” and “eat” normally have
-totally different meanings, so you wouldn’t make them synonyms of each
-other. However, if the player has a headache tablet, for instance, then
-“take tablet” and “eat tablet” would both be valid. This is where the
-comma “,” comes in - if you include a comma in your input, all synonyms
-of all words separated by the comma will match. So:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Parser.Said(&quot;eat,take tablet&quot;))
-</pre></div>
-</div>
-<p>will match eat or take and all their synonyms, then tablet and its
-synonyms.</p>
+</code></pre>
+<p>This way if they try to kill anything they will get the generic response.</p>
+<p>Sometimes, you want to accept two different words that are not synonyms as the same thing. For example, the words "take" and "eat" normally have totally different meanings, so you wouldn't make them synonyms of each other. However, if the player has a headache tablet, for instance, then "take tablet" and "eat tablet" would both be valid. This is where the comma "," comes in - if you include a comma in your input, all synonyms of all words separated by the comma will match. So:</p>
+<pre><code>if (Parser.Said(&quot;eat,take tablet&quot;))
+</code></pre>
+<p>will match eat or take and all their synonyms, then tablet and its synonyms.</p>
 <p>Another fairly common task with a parser is to check for optional words</p>
 <ul>
-<li><p class="first">for example, if there is a brick wall on the screen, you want the
-player to be able to type “look wall” and “look brick wall”. Although
-this can be done with two OR’ed Said commands, AGS makes it easier. You
-can use [brackets] to signify an optional word. So:</p>
-<blockquote>
-<div><p>if (Parser.Said(“look [brick] wall”))</p>
-</div></blockquote>
-</li>
+<li><p>for example, if there is a brick wall on the screen, you want the player to be able to type "look wall" and "look brick wall". Although this can be done with two OR'ed Said commands, AGS makes it easier. You can use [brackets] to signify an optional word. So:</p>
+<p>if (Parser.Said("look [brick] wall"))</p></li>
 </ul>
-<p>will match “look wall” and “look brick wall”.</p>
-<p>Now this is all very well, but in different rooms you have different
-items to interact with - for example, in one room there might be a tree
-that the player should be able to type “look at tree” to look at, and so
-on. Putting all this in your global script would make a big mess. So,
-enter the <a class="reference internal" href="Game.html"><span class="doc">CallRoomScript</span></a> function. Using
-this, you can do:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Parser.ParseText(input);
-String badWord = Parser.SaidUnknownWord();
-if (badWord != null)
-  Display(&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;, badWord);
-else if (Parser.Said(&quot;eat apple&quot;)) {
-  Display(&quot;You&#39;d love to, but you don&#39;t have one.&quot;);
-}
-... // other game-wide commands
-else
-  CallRoomScript (1);
-</pre></div>
-</div>
-<p>Then, the room script can check for things that the player can do in the
-current room. See the <a class="reference internal" href="Game.html"><span class="doc">CallRoomScript</span></a>
-description for more information.</p>
-</div>
-
-
-          </div>
-          
+<p>will match "look wall" and "look brick wall".</p>
+<p>Now this is all very well, but in different rooms you have different items to interact with - for example, in one room there might be a tree that the player should be able to type "look at tree" to look at, and so on. Putting all this in your global script would make a big mess. So, enter the <a href="Game.html#callroomscript">CallRoomScript</a> function. Using this, you can do:</p>
+<pre><code>  Parser.ParseText(input);
+  String badWord = Parser.SaidUnknownWord();
+  if (badWord != null)
+    Display(&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;, badWord);
+  else if (Parser.Said(&quot;eat apple&quot;)) {
+    Display(&quot;You&#39;d love to, but you don&#39;t have one.&quot;);
+  }
+  ... // other game-wide commands
+  else
+    CallRoomScript (1);
+</code></pre>
+<p>Then, the room script can check for things that the player can do in the current room. See the <a href="Game.html#callroomscript">CallRoomScript</a> description for more information.</p>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="TextBox.html" title="previous chapter">TextBox functions and properties</a></li>
-      <li>Next: <a href="TextScriptEvents.html" title="next chapter">Predefined global script functions</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20The%20text%20parser&body=source%20is%20TextParser.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/TextParser"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

@@ -1,174 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Upgrading to AGS 3.4.1</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Upgrading to AGS 3.4.1 &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Upgrading to AGS 2.7" href="UpgradingTo27.html" />
-    <link rel="prev" title="Upgrading to AGS 3.4" href="UpgradeTo34.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="upgrading-to-ags-3-4-1">
-<h1>Upgrading to AGS 3.4.1<a class="headerlink" href="#upgrading-to-ags-3-4-1" title="Permalink to this headline">¶</a></h1>
-<p>There were no breaking changes in this update, but several notes should
-be made.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#upgrading-to-ags-341">Upgrading to AGS 3.4.1</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="upgrading-to-ags-341" class="level2">
+<h2>Upgrading to AGS 3.4.1</h2>
+<p>There were no breaking changes in this update, but several notes should be made.</p>
 <p><strong>Compiled folder structure</strong></p>
-<p>Since previous big update, AGS 3.4.0, you can compile your game for more
-than one platform at a time, and resulting files will be placed in the
-corresponding subfolders of the “Compiled” folder, such as
-“Compiled/Windows” and “Compiled/Linux”. The raw compiled game files
-(without executable) were still placed just in “Compiled”.</p>
-<p>In AGS 3.4.1 the raw compiled game files will be placed in
-“Compiled/Data” instead. This change was made to improve the compiled
-folder structure and make its contents cleaner.</p>
-<p>For that reason, if you upgrade your game from one of the previous AGS
-3.* versions, it is recommended to either delete “Compiled” folder and
-fully rebuild the game, or at least remove any files located in the
-“Compiled” folder itself to clean things up.</p>
-<p><strong>“Lazy” voice file compilation</strong></p>
-<p>Speech voice-over file <strong>speech.vox</strong> is now compiled only when you
-explicitly order game rebuild. When just launching the game from the
-editor it won’t be recompiled, and the game will load voice clips from
-the Speech folder instead. This way it works similar to how sound and
-music clips are loaded from AudioCache folder when game is tested, and
-saves some time on game compilation, especially when working with large
-projects.</p>
+<p>Since previous big update, AGS 3.4.0, you can compile your game for more than one platform at a time, and resulting files will be placed in the corresponding subfolders of the "Compiled" folder, such as "Compiled/Windows" and "Compiled/Linux". The raw compiled game files (without executable) were still placed just in "Compiled".</p>
+<p>In AGS 3.4.1 the raw compiled game files will be placed in "Compiled/Data" instead. This change was made to improve the compiled folder structure and make its contents cleaner.</p>
+<p>For that reason, if you upgrade your game from one of the previous AGS 3.* versions, it is recommended to either delete "Compiled" folder and fully rebuild the game, or at least remove any files located in the "Compiled" folder itself to clean things up.</p>
+<p><strong>"Lazy" voice file compilation</strong></p>
+<p>Speech voice-over file <strong>speech.vox</strong> is now compiled only when you explicitly order game rebuild. When just launching the game from the editor it won't be recompiled, and the game will load voice clips from the Speech folder instead. This way it works similar to how sound and music clips are loaded from AudioCache folder when game is tested, and saves some time on game compilation, especially when working with large projects.</p>
 <p><strong>Default Setup pane</strong></p>
-<p>A new node was added to the project tree, called “Default Setup”.
-Clicking on it will open a page with table of options, similar to
-“General Settings”. This is where you can choose the default
-configuration of your game, that will be written to config file created
-when your game is compiled (acsetup.cfg). One of the reasons for
-introducing this pane is that since AGS 3.3.5 game setup program no
-longer writes config to the file in game’s folder, but to the file in
-the user documents instead; therefore it is no longer possible to
-directly create default config for your game using winsetup.exe.</p>
-<p>“Graphics driver” option has migrated from “General Settings” to
-“Default Setup”.</p>
-<p>For detailed information about Default Setup page refer to:
-<a class="reference internal" href="Settingupthegame.html"><span class="doc">Default setup</span></a>.</p>
+<p>A new node was added to the project tree, called "Default Setup". Clicking on it will open a page with table of options, similar to "General Settings". This is where you can choose the default configuration of your game, that will be written to config file created when your game is compiled (acsetup.cfg). One of the reasons for introducing this pane is that since AGS 3.3.5 game setup program no longer writes config to the file in game's folder, but to the file in the user documents instead; therefore it is no longer possible to directly create default config for your game using winsetup.exe.</p>
+<p>"Graphics driver" option has migrated from "General Settings" to "Default Setup".</p>
+<p>For detailed information about Default Setup page refer to: <a href="Settingupthegame.html#default-setup">Default setup</a>.</p>
 <p><strong>Script API selector</strong></p>
-<p>The “Script API version” and “Script Compatibility Level” switches in
-General Settings (they were added in 3.4.0) now have “Highest”
-selection. Choosing that will ensure that whenever you upgrade your game
-to future versions of AGS, your game will automatically enable newest
-script commands. Otherwise you would have to update these two switches
-by hand every time.</p>
-<p>Naturally, if you prefer to lock script API at particular level even
-when moving to next versions of the editor, you would need to set API
-levels to corresponding values.</p>
+<p>The "Script API version" and "Script Compatibility Level" switches in General Settings (they were added in 3.4.0) now have "Highest" selection. Choosing that will ensure that whenever you upgrade your game to future versions of AGS, your game will automatically enable newest script commands. Otherwise you would have to update these two switches by hand every time.</p>
+<p>Naturally, if you prefer to lock script API at particular level even when moving to next versions of the editor, you would need to set API levels to corresponding values.</p>
 <p><strong>System limits update</strong></p>
 <p>The maximal number of Dialogs is no longer limited.</p>
-</div>
-
-
-          </div>
-          
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="UpgradeTo34.html" title="previous chapter">Upgrading to AGS 3.4</a></li>
-      <li>Next: <a href="UpgradingTo27.html" title="next chapter">Upgrading to AGS 2.7</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Upgrading%20to%20AGS%203.4.1&body=source%20is%20UpgradeTo341.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/UpgradeTo341"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

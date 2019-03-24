@@ -1,186 +1,117 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Room Editor &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Character Editor" href="EditorCharacter.html" />
-    <link rel="prev" title="Tutorial" href="Tutorial.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="room-editor">
-<h1>Room Editor<a class="headerlink" href="#room-editor" title="Permalink to this headline">¶</a></h1>
-<p>The Room Editor is where the user can define the Room name, set a background, create objects, add hotspots, define the walkable areas for the characters, mark areas as walkbehinds, change lighting using regions, and more, for a Room. Only one room can be edited at the same time.</p>
-<a class="reference external image-reference" href="images/EditorRoom_1.png"><img alt="Editor Room" src="_images/EditorRoom_1.png" /></a>
-<div class="section" id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>By selecting a background on the <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Background</span></code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code class="docutils literal notranslate"><span class="pre">Change...</span></code> button to change the background. If a background of different size than the previous background is selected, all masks (hotspot, walkbehind, region and walkable) are erased. If a room has more than one background, by default, they are animated.</p>
-</div>
-<div class="section" id="show-this-room-s-control">
-<h2>Show this room’s control<a class="headerlink" href="#show-this-room-s-control" title="Permalink to this headline">¶</a></h2>
-<p>Select one between Nothing, Edges, Characters, Objects, Hotspots, Walkable areas, Walk-behinds, and Regions to be shown on the room area.</p>
-</div>
-<div class="section" id="properties-control">
-<h2>Properties control<a class="headerlink" href="#properties-control" title="Permalink to this headline">¶</a></h2>
-<p>The list button shows properties and the lighting bolt are for events.</p>
-</div>
-<div class="section" id="edges">
-<h2>Edges<a class="headerlink" href="#edges" title="Permalink to this headline">¶</a></h2>
-<p>You can draw edges.</p>
-</div>
-<div class="section" id="characters">
-<h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
-<p>You need to place the characters on the room first by using the Character Editor.</p>
-</div>
-<div class="section" id="objects">
-<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
-<p>Right click on the room and click <code class="docutils literal notranslate"><span class="pre">Place</span> <span class="pre">New</span> <span class="pre">Object</span> <span class="pre">Here</span></code> to create a new object.</p>
-</div>
-<div class="section" id="hotspot">
-<h2>Hotspot<a class="headerlink" href="#hotspot" title="Permalink to this headline">¶</a></h2>
-<p>Use to mark interactive areas on the background.</p>
-</div>
-<div class="section" id="walkable-areas">
-<h2>Walkable areas<a class="headerlink" href="#walkable-areas" title="Permalink to this headline">¶</a></h2>
-<p>TBD.</p>
-</div>
-<div class="section" id="walk-behinds">
-<h2>Walk-behinds<a class="headerlink" href="#walk-behinds" title="Permalink to this headline">¶</a></h2>
-<p>TBD.</p>
-</div>
-<div class="section" id="regions">
-<h2>Regions<a class="headerlink" href="#regions" title="Permalink to this headline">¶</a></h2>
-<p>TBD.</p>
-<p>See Also: <a class="reference internal" href="Room.html"><span class="doc">Room</span></a></p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Room Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Tutorial.html" title="previous chapter">Tutorial</a></li>
-      <li>Next: <a href="EditorCharacter.html" title="next chapter">Character Editor</a></li>
-  </ul></li>
+<li><a href="#room-editor">Room Editor</a><ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#show-this-rooms-control">Show this room's control</a></li>
+<li><a href="#properties-control">Properties control</a></li>
+<li><a href="#edges">Edges</a></li>
+<li><a href="#characters">Characters</a></li>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#hotspot">Hotspot</a></li>
+<li><a href="#walkable-areas">Walkable areas</a></li>
+<li><a href="#walk-behinds">Walk-behinds</a></li>
+<li><a href="#regions">Regions</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Room%20Editor&body=source%20is%20EditorRoom.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/EditorRoom"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Room Editor</a><ul>
-<li><a class="reference internal" href="#background">Background</a></li>
-<li><a class="reference internal" href="#show-this-room-s-control">Show this room’s control</a></li>
-<li><a class="reference internal" href="#properties-control">Properties control</a></li>
-<li><a class="reference internal" href="#edges">Edges</a></li>
-<li><a class="reference internal" href="#characters">Characters</a></li>
-<li><a class="reference internal" href="#objects">Objects</a></li>
-<li><a class="reference internal" href="#hotspot">Hotspot</a></li>
-<li><a class="reference internal" href="#walkable-areas">Walkable areas</a></li>
-<li><a class="reference internal" href="#walk-behinds">Walk-behinds</a></li>
-<li><a class="reference internal" href="#regions">Regions</a></li>
-</ul>
-</li>
-</ul>
-
-
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="room-editor" class="level2">
+<h2>Room Editor</h2>
+<p>The Room Editor is where the user can define the Room name, set a background, create objects, add hotspots, define the walkable areas for the characters, mark areas as walkbehinds, change lighting using regions, and more, for a Room. Only one room can be edited at the same time.</p>
+<p><img src="images/EditorRoom_1.png" alt="Editor Room" /></p>
+<section id="background" class="level3">
+<h3>Background</h3>
+<p>By selecting a background on the <code>Display Background</code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code>Change...</code> button to change the background. If a background of different size than the previous background is selected, all masks (hotspot, walkbehind, region and walkable) are erased. If a room has more than one background, by default, they are animated.</p>
+</section>
+<section id="show-this-rooms-control" class="level3">
+<h3>Show this room's control</h3>
+<p>Select one between Nothing, Edges, Characters, Objects, Hotspots, Walkable areas, Walk-behinds, and Regions to be shown on the room area.</p>
+</section>
+<section id="properties-control" class="level3">
+<h3>Properties control</h3>
+<p>The list button shows properties and the lighting bolt are for events.</p>
+</section>
+<section id="edges" class="level3">
+<h3>Edges</h3>
+<p>You can draw edges.</p>
+</section>
+<section id="characters" class="level3">
+<h3>Characters</h3>
+<p>You need to place the characters on the room first by using the Character Editor.</p>
+</section>
+<section id="objects" class="level3">
+<h3>Objects</h3>
+<p>Right click on the room and click <code>Place New Object Here</code> to create a new object.</p>
+</section>
+<section id="hotspot" class="level3">
+<h3>Hotspot</h3>
+<p>Use to mark interactive areas on the background.</p>
+</section>
+<section id="walkable-areas" class="level3">
+<h3>Walkable areas</h3>
+<p>TBD.</p>
+</section>
+<section id="walk-behinds" class="level3">
+<h3>Walk-behinds</h3>
+<p>TBD.</p>
+</section>
+<section id="regions" class="level3">
+<h3>Regions</h3>
+<p>TBD.</p>
+<p>See Also: <a href="Room.html">Room</a></p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

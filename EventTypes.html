@@ -1,279 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Event Types</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Event Types &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Extender functions" href="ExtenderFunctions.html" />
-    <link rel="prev" title="DynamicSprite functions and properties" href="DynamicSprite.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="event-types">
-<h1>Event Types<a class="headerlink" href="#event-types" title="Permalink to this headline">¶</a></h1>
-<p>The following events are available in the “Events” section of the
-Properties Window (when clicking the lightning bolt icon).</p>
-<hr class="docutils" />
-<div class="section" id="hotspot-events">
-<span id="index-0"></span><h2>Hotspot events<a class="headerlink" href="#hotspot-events" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#event-types">Event Types</a><ul>
+<li><a href="#hotspot-events">Hotspot events</a></li>
+<li><a href="#object-events">Object events</a></li>
+<li><a href="#room-events">Room events</a></li>
+<li><a href="#inventory-item-events">Inventory item events</a></li>
+<li><a href="#character-events">Character events</a></li>
+<li><a href="#region-events">Region events</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="event-types" class="level2">
+<h2>Event Types</h2>
+<p>The following events are available in the "Events" section of the Properties Window (when clicking the lightning bolt icon).</p>
+<hr />
+<section id="hotspot-events" class="level3">
+<h3>Hotspot events</h3>
 <p>Player stands on hotspot</p>
 <p>occurs repeatedly while the player character is standing on the hotspot.</p>
 <p>Look at hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the “Look” mode
-(cursor mode 1).</p>
+<p>occurs when the player clicks on the hotspot while in the "Look" mode (cursor mode 1).</p>
 <p>Interact with hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the “Interact”
-mode (cursor mode 2).</p>
+<p>occurs when the player clicks on the hotspot while in the "Interact" mode (cursor mode 2).</p>
 <p>Use inventory on hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the “Use
-inventory” mode (cursor mode 4). You can use the
-<a class="reference internal" href="Character.html"><span class="doc">player.ActiveInventory</span></a> property
-to distinguish which item they used.</p>
+<p>occurs when the player clicks on the hotspot while in the "Use inventory" mode (cursor mode 4). You can use the <a href="Character.html#activeinventory">player.ActiveInventory</a> property to distinguish which item they used.</p>
 <p>Speak to hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the “Talk” mode
-(cursor mode 3).</p>
+<p>occurs when the player clicks on the hotspot while in the "Talk" mode (cursor mode 3).</p>
 <p>Any click on hotspot</p>
-<p>occurs when the player clicks on the hotspot in any cursor mode (except
-Walk). This allows you to add extra modes like smell, taste, push, pull,
-and so on. This event also occurs as well as the other event for the
-Look, Interact and Talk modes.</p>
+<p>occurs when the player clicks on the hotspot in any cursor mode (except Walk). This allows you to add extra modes like smell, taste, push, pull, and so on. This event also occurs as well as the other event for the Look, Interact and Talk modes.</p>
 <p>Mouse moves over hotspot</p>
-<p>occurs repeatedly while the mouse cursor is over the hotspot. You can
-use this to highlight the cursor, and for other various effects.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="object-events">
-<span id="index-1"></span><h2>Object events<a class="headerlink" href="#object-events" title="Permalink to this headline">¶</a></h2>
+<p>occurs repeatedly while the mouse cursor is over the hotspot. You can use this to highlight the cursor, and for other various effects.</p>
+<hr />
+</section>
+<section id="object-events" class="level3">
+<h3>Object events</h3>
 <p>Look at object</p>
-<p>occurs when the player clicks on the object while in the “Look” mode
-(cursor mode 1).</p>
+<p>occurs when the player clicks on the object while in the "Look" mode (cursor mode 1).</p>
 <p>Interact with object</p>
-<p>occurs when the player clicks on the object in the “Interact” mode
-(cursor mode 2).</p>
+<p>occurs when the player clicks on the object in the "Interact" mode (cursor mode 2).</p>
 <p>Speak to object</p>
-<p>occurs when the player clicks on the object in the “Talk” mode (cursor
-mode 3).</p>
+<p>occurs when the player clicks on the object in the "Talk" mode (cursor mode 3).</p>
 <p>Use inventory on object</p>
-<p>works like “Use inventory on hotspot” - see that description (above) for
-more information.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="room-events">
-<span id="index-2"></span><h2>Room events<a class="headerlink" href="#room-events" title="Permalink to this headline">¶</a></h2>
+<p>works like "Use inventory on hotspot" - see that description (above) for more information.</p>
+<hr />
+</section>
+<section id="room-events" class="level3">
+<h3>Room events</h3>
 <p>Walk off left</p>
 <p>occurs when the player character walks off the left edge of the screen.</p>
 <p>Walk off right</p>
 <p>occurs when the player walks off the right edge of the screen.</p>
 <p>Walk off bottom</p>
-<p>occurs when the player character walks off the bottom edge of the
-screen.</p>
+<p>occurs when the player character walks off the bottom edge of the screen.</p>
 <p>Walk off top</p>
 <p>occurs when the player character walks off the top edge of the screen.</p>
 <p>First time enters room</p>
-<p>occurs the first time the player enters the room. This event occurs
-AFTER the screen has faded in, so it allows you to display a message
-describing the scene.</p>
+<p>occurs the first time the player enters the room. This event occurs AFTER the screen has faded in, so it allows you to display a message describing the scene.</p>
 <p>Player enters room (before fadein)</p>
-<p>occurs just after the room is loaded into memory. This event occurs
-every time the player enters the screen, and it happens BEFORE the
-screen has faded in, which allows you to change object graphics and do
-other things to the screen which the player won’t notice.</p>
-<p><em>NOTE: This event is ONLY meant for adjusting things such as object and
-character placement. Do NOT use this event for any sort of automated
-intro to the room - use the “Enters Room After Fade In” event for that
-instead.</em></p>
+<p>occurs just after the room is loaded into memory. This event occurs every time the player enters the screen, and it happens BEFORE the screen has faded in, which allows you to change object graphics and do other things to the screen which the player won't notice.</p>
+<p><em>NOTE: This event is ONLY meant for adjusting things such as object and character placement. Do NOT use this event for any sort of automated intro to the room - use the "Enters Room After Fade In" event for that instead.</em></p>
 <p>Repeatedly execute</p>
-<p>occurs repeatedly on every interpreter cycle. The normal game speed is
-40 cycles per second, so this event occurs about every 25 milliseconds.</p>
+<p>occurs repeatedly on every interpreter cycle. The normal game speed is 40 cycles per second, so this event occurs about every 25 milliseconds.</p>
 <p>Player enters room (after fadein)</p>
-<p>occurs every time the player enters the room, AFTER the screen has
-faded-in. Suitable for displaying text descriptions and so on, that you
-want the player to see.</p>
+<p>occurs every time the player enters the room, AFTER the screen has faded-in. Suitable for displaying text descriptions and so on, that you want the player to see.</p>
 <p>Player leaves room</p>
-<p>occurs when the player leaves the screen, just before the screen fades
-out.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="inventory-item-events">
-<span id="index-3"></span><h2>Inventory item events<a class="headerlink" href="#inventory-item-events" title="Permalink to this headline">¶</a></h2>
+<p>occurs when the player leaves the screen, just before the screen fades out.</p>
+<hr />
+</section>
+<section id="inventory-item-events" class="level3">
+<h3>Inventory item events</h3>
 <p>Look at inventory</p>
-<p>occurs when the player clicks on the inventory item while in the “look”
-mode.</p>
+<p>occurs when the player clicks on the inventory item while in the "look" mode.</p>
 <p>Interact with inventory</p>
-<p>currently, because the Interact mode selects the inventory item, this
-event can only be triggered by manually calling the
-InventoryItem.RunInteraction script function (ie. you have to use the
-Handle Inv Clicks in Script option).</p>
+<p>currently, because the Interact mode selects the inventory item, this event can only be triggered by manually calling the InventoryItem.RunInteraction script function (ie. you have to use the Handle Inv Clicks in Script option).</p>
 <p>Speak to inventory</p>
-<p>only applies to the Lucasarts-style inventory, occurs when the player
-clicks the Talk icon on the inventory item.</p>
+<p>only applies to the Lucasarts-style inventory, occurs when the player clicks the Talk icon on the inventory item.</p>
 <p>Use inventory on inv</p>
-<p>occurs when the player uses another inventory object on this one. You
-can use the
-<a class="reference internal" href="Character.html"><span class="doc">player.ActiveInventory</span></a> property
-to distinguish which item they used.<span class="raw-html-m2r"><br></span>
-This event allows the player to combine items, and so on. For example,
-if they had picked up a laptop computer and a battery separately, then
-you could use this to allow them to insert the battery into the
-computer.</p>
+<p>occurs when the player uses another inventory object on this one. You can use the <a href="Character.html#activeinventory">player.ActiveInventory</a> property to distinguish which item they used.<br> This event allows the player to combine items, and so on. For example, if they had picked up a laptop computer and a battery separately, then you could use this to allow them to insert the battery into the computer.</p>
 <p>Other click on inventory</p>
-<p>only applies to the Lucasarts-style inventory, occurs when the player
-clicks any other cursor mode (apart from look, talk and use_inv) on the
-item.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="character-events">
-<span id="index-4"></span><h2>Character events<a class="headerlink" href="#character-events" title="Permalink to this headline">¶</a></h2>
+<p>only applies to the Lucasarts-style inventory, occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the item.</p>
+<hr />
+</section>
+<section id="character-events" class="level3">
+<h3>Character events</h3>
 <p>Look at character</p>
-<p>occurs when the player clicks on a character while in the “look” mode.</p>
+<p>occurs when the player clicks on a character while in the "look" mode.</p>
 <p>Interact with character</p>
-<p>occurs when the player clicks on a character while in the “interact”
-mode.</p>
+<p>occurs when the player clicks on a character while in the "interact" mode.</p>
 <p>Speak to character</p>
-<p>occurs when the player clicks on a character while in the “talk” mode.</p>
+<p>occurs when the player clicks on a character while in the "talk" mode.</p>
 <p>Use inventory on character</p>
-<p>occurs when the player uses an inventory object on a character. This
-event could be used to allow the player to give items to characters.</p>
+<p>occurs when the player uses an inventory object on a character. This event could be used to allow the player to give items to characters.</p>
 <p>Any click on character</p>
-<p>occurs when the player clicks any other cursor mode (apart from look,
-talk and use_inv) on the character.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="region-events">
-<span id="index-5"></span><h2>Region events<a class="headerlink" href="#region-events" title="Permalink to this headline">¶</a></h2>
+<p>occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the character.</p>
+<hr />
+</section>
+<section id="region-events" class="level3">
+<h3>Region events</h3>
 <p>While player stands on region</p>
 <p>occurs repeatedly while the player character stands on this region</p>
 <p>Player walks onto region</p>
-<p>occurs when the player moves from another region onto this one. Will
-also activate on whichever region they start on when they enter the
-screen.</p>
+<p>occurs when the player moves from another region onto this one. Will also activate on whichever region they start on when they enter the screen.</p>
 <p>Player walks off region</p>
-<p>occurs when the player leaves the current region. Does not occur if they
-go to a different room.</p>
-</div>
-</div>
-
-
-          </div>
-          
+<p>occurs when the player leaves the current region. Does not occur if they go to a different room.</p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="DynamicSprite.html" title="previous chapter">DynamicSprite functions and properties</a></li>
-      <li>Next: <a href="ExtenderFunctions.html" title="next chapter">Extender functions</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Event%20Types&body=source%20is%20EventTypes.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/EventTypes"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Event Types</a><ul>
-<li><a class="reference internal" href="#hotspot-events">Hotspot events</a></li>
-<li><a class="reference internal" href="#object-events">Object events</a></li>
-<li><a class="reference internal" href="#room-events">Room events</a></li>
-<li><a class="reference internal" href="#inventory-item-events">Inventory item events</a></li>
-<li><a class="reference internal" href="#character-events">Character events</a></li>
-<li><a class="reference internal" href="#region-events">Region events</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

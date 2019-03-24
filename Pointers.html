@@ -1,293 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pointers in AGS</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Pointers in AGS &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preprocessor" href="Preprocessor.html" />
-    <link rel="prev" title="Plugins" href="Plugins.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="pointers-in-ags">
-<h1>Pointers in AGS<a class="headerlink" href="#pointers-in-ags" title="Permalink to this headline">¶</a></h1>
-<p>Various commands in the new scripting language will require you to use
-pointers. This section has been split into three separate topics to
-introduce you to pointers depending on your previous programming
-experience – select one of the links below:</p>
-<hr class="docutils" />
-<div class="section" id="pointers-for-programming-newbies">
-<span id="index-0"></span><h2>Pointers for programming newbies<a class="headerlink" href="#pointers-for-programming-newbies" title="Permalink to this headline">¶</a></h2>
-<p>Pointers can be quite a daunting prospect, and in languages like C and
-C++ they certainly are; but AGS tries to make things as simple as
-possible.</p>
-<p>Basically, a pointer is a variable that <em>points</em> to something of a
-particular type. For example, a <em>Character</em> pointer would point to
-characters. What’s the point of all this, I hear you ask?</p>
-<p>Well, let’s look back at AGS 2.62. If you wanted to reference a
-particular hotspot, you’d need to remember its number. If you wanted to
-switch on an object, you’d need to remember what number it was too. And
-because you could accidentally use an object number where you wanted a
-hotspot number, mistakes could easily happen and it all got rather
-messy.</p>
-<p>That’s where pointers step in – basically, they allow you to do away
-with identifying things by number, and in the process provide <em>type
-checking</em>, so you can’t accidentally use a hotspot where you meant to
-use an object.</p>
-<p>Let’s look at an example. If you wanted to write a string to a file in
-2.62, you’d do this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int handle = FileOpen(&quot;temp.txt&quot;, FILE_WRITE);
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#pointers-in-ags">Pointers in AGS</a><ul>
+<li><a href="#pointers-for-programming-newbies">Pointers for programming newbies</a></li>
+<li><a href="#pointers-for-people-who-know-java-or-c">Pointers for people who know Java or C#</a></li>
+<li><a href="#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="pointers-in-ags" class="level2">
+<h2>Pointers in AGS</h2>
+<p>Various commands in the new scripting language will require you to use pointers. This section has been split into three separate topics to introduce you to pointers depending on your previous programming experience -- select one of the links below:</p>
+<hr />
+<section id="pointers-for-programming-newbies" class="level3">
+<h3>Pointers for programming newbies</h3>
+<p>Pointers can be quite a daunting prospect, and in languages like C and C++ they certainly are; but AGS tries to make things as simple as possible.</p>
+<p>Basically, a pointer is a variable that <em>points</em> to something of a particular type. For example, a <em>Character</em> pointer would point to characters. What's the point of all this, I hear you ask?</p>
+<p>Well, let's look back at AGS 2.62. If you wanted to reference a particular hotspot, you'd need to remember its number. If you wanted to switch on an object, you'd need to remember what number it was too. And because you could accidentally use an object number where you wanted a hotspot number, mistakes could easily happen and it all got rather messy.</p>
+<p>That's where pointers step in -- basically, they allow you to do away with identifying things by number, and in the process provide <em>type checking</em>, so you can't accidentally use a hotspot where you meant to use an object.</p>
+<p>Let's look at an example. If you wanted to write a string to a file in 2.62, you'd do this:</p>
+<pre><code>int handle = FileOpen(&quot;temp.txt&quot;, FILE_WRITE);
 FileWrite(handle, &quot;Test!&quot;);
 FileClose(handle);
-</pre></div>
-</div>
-<p>That’s simple enough; but what if you wanted to open the file in one
-place, and write to it somewhere else? You’d have to make <em>handle</em> a
-global variable, and then make sure you remembered that it was a file
-handle and not a hotspot number or anything else. Now, with 2.7 the same
-code would be:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *file = File.Open(&quot;temp.txt&quot;, eFileWrite);
+</code></pre>
+<p>That's simple enough; but what if you wanted to open the file in one place, and write to it somewhere else? You'd have to make <em>handle</em> a global variable, and then make sure you remembered that it was a file handle and not a hotspot number or anything else. Now, with 2.7 the same code would be:</p>
+<pre><code>File *file = File.Open(&quot;temp.txt&quot;, eFileWrite);
 file.WriteString(&quot;Test!&quot;);
 file.Close();
-</pre></div>
-</div>
-<p>Looks fairly simple, doesn’t it. The only slightly confusing part is
-getting used to declaring the variable as <code class="docutils literal notranslate"><span class="pre">File*</span></code> rather than <code class="docutils literal notranslate"><span class="pre">int</span></code>; but
-that’s something you’ll get used to quite quickly, and all the examples
-in the manual should point you in the right direction.</p>
-<p>Let’s look at another example. Suppose you want a variable that contains
-the current hotspot that the mouse is over. In 2.62, you might have
-something like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// top of global script
+</code></pre>
+<p>Looks fairly simple, doesn't it. The only slightly confusing part is getting used to declaring the variable as <code>File*</code> rather than <code>int</code>; but that's something you'll get used to quite quickly, and all the examples in the manual should point you in the right direction.</p>
+<p>Let's look at another example. Suppose you want a variable that contains the current hotspot that the mouse is over. In 2.62, you might have something like this:</p>
+<pre><code>// top of global script
 int mouseOverHotspot;
 
 // repeatedly_execute
 mouseOverHotspot = GetHotspotAt(mouse.x, mouse.y);
-</pre></div>
-</div>
+</code></pre>
 <p>How would you do this in 2.7? Well, quite simply:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>// top of global script
+<pre><code>// top of global script
 Hotspot *mouseOverHotspot;
 
 // repeatedly_execute
 mouseOverHotspot = Hotspot.GetAtScreenXY(mouse.x, mouse.y);
-</pre></div>
-</div>
-<p>But hold on, what if you want to know whether the mouse is over your
-Door hotspot (say it’s hotspot 2). In 2.62, you’d have done:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (mouseOverHotspot == 2) {
+</code></pre>
+<p>But hold on, what if you want to know whether the mouse is over your Door hotspot (say it's hotspot 2). In 2.62, you'd have done:</p>
+<pre><code>if (mouseOverHotspot == 2) {
   Display(&quot;Mouse over the door&quot;);
 }
-</pre></div>
-</div>
-<p>but that’s rather messy, because what if you change the door’s hotspot
-number? You’d have to remember to go back and change all the 2’s to 3,
-or whatever. In 2.7, you now just do this (assuming you gave the hotspot
-a script name of hDoor):</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (mouseOverHotspot == hDoor) {
+</code></pre>
+<p>but that's rather messy, because what if you change the door's hotspot number? You'd have to remember to go back and change all the 2's to 3, or whatever. In 2.7, you now just do this (assuming you gave the hotspot a script name of hDoor):</p>
+<pre><code>if (mouseOverHotspot == hDoor) {
   Display(&quot;Mouse over the door&quot;);
 }
-</pre></div>
-</div>
-<p>If you’re a fan of numbers for some strange reason, you can still use
-them like this:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (mouseOverHotspot == hotspot[2]) {
+</code></pre>
+<p>If you're a fan of numbers for some strange reason, you can still use them like this:</p>
+<pre><code>if (mouseOverHotspot == hotspot[2]) {
   Display(&quot;Mouse over the door&quot;);
 }
-</pre></div>
-</div>
-<p>So, that concludes our introduction to pointers. Hopefully you’ve got an
-understanding of what they are and what they do; if there’s anything you
-can’t work out, feel free to ask on the Technical forums.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="pointers-for-people-who-know-java-or-c">
-<span id="index-1"></span><h2>Pointers for people who know Java or C<a class="headerlink" href="#pointers-for-people-who-know-java-or-c" title="Permalink to this headline">¶</a></h2>
-<p>AGS pointers work in a very similar way to object variables in Java and
-C#. The main difference is that AGS pointers are declared in the
-C-style manner with an asterisk t represent the pointer. So:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Hotspot *hs;
-</pre></div>
-</div>
-<p>would declare a variable <em>hs</em> which points to a Hotspot. This would be
-equivalent to the following in Java or C#:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Hotspot hs;
-</pre></div>
-</div>
-<p>In AGS, pointers are used to point to various built-in types, such as
-Hotspots, Inventory Items, Characters and so on. Because AGS does not
-have a <em>new</em> keyword, you cannot create pointers to custom struct types.</p>
-<p>You use pointers in the same way as you would in Java and C#. Various
-built-in AGS static methods return a pointer to an instance (for
-example, <a class="reference internal" href="File.html"><span class="doc">File.Open</span></a>,
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>, and so on).
-You can save this pointer into a pointer variable, and then call its
-methods as you would in Java or C#. The following examples are all
-valid:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *theFile = File.Open(&quot;test.dat&quot;, eFileWrite);
+</code></pre>
+<p>So, that concludes our introduction to pointers. Hopefully you've got an understanding of what they are and what they do; if there's anything you can't work out, feel free to ask on the Technical forums.</p>
+<hr />
+</section>
+<section id="pointers-for-people-who-know-java-or-c" class="level3">
+<h3>Pointers for people who know Java or C#</h3>
+<p>AGS pointers work in a very similar way to object variables in Java and C#. The main difference is that AGS pointers are declared in the C-style manner with an asterisk t represent the pointer. So:</p>
+<pre><code>Hotspot *hs;
+</code></pre>
+<p>would declare a variable <em>hs</em> which points to a Hotspot. This would be equivalent to the following in Java or C#:</p>
+<pre><code>Hotspot hs;
+</code></pre>
+<p>In AGS, pointers are used to point to various built-in types, such as Hotspots, Inventory Items, Characters and so on. Because AGS does not have a <em>new</em> keyword, you cannot create pointers to custom struct types.</p>
+<p>You use pointers in the same way as you would in Java and C#. Various built-in AGS static methods return a pointer to an instance (for example, <a href="File.html#open">File.Open</a>, <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, and so on). You can save this pointer into a pointer variable, and then call its methods as you would in Java or C#. The following examples are all valid:</p>
+<pre><code>File *theFile = File.Open(&quot;test.dat&quot;, eFileWrite);
 if (theFile == null) Display(&quot;It&#39;s null!&quot;);
 File *file2 = theFile;
 if (theFile == file2) Display(&quot;They&#39;re the same file!&quot;);
 theFile = null;
 file2.WriteInt(10);
 file2.Close();
-</pre></div>
-</div>
-<p>If you attempt to call a method on a null pointer, an error will occur
-(just like you’d get an exception in Java or C#).</p>
-<p>Pointer memory management in AGS is all automatic – the memory is freed
-when there are no longer any variables pointing to the instance. Thus,
-if you have global pointer variables in your global script, it’s a good
-idea to set them to <em>null</em> when you’re no longer using them, to allow
-the memory to be freed.</p>
-<hr class="docutils" />
-</div>
-<div class="section" id="pointers-for-people-who-know-c-or-c">
-<span id="index-2"></span><h2>Pointers for people who know C or C++<a class="headerlink" href="#pointers-for-people-who-know-c-or-c" title="Permalink to this headline">¶</a></h2>
-<p>Pointers in AGS are based on the C/C++ syntax, so they are declared with
-an asterisk. However, in AGS you can only create pointers to built-in
-AGS types, and not to any custom structs declared in your script.</p>
-<p>Pointer members are accessed with the dot operator, and not the <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>
-C-style operator. Because AGS doesn’t support features such as
-pointers-to-pointers and so forth, there is no need for a separate
-operator.</p>
-<p>In AGS, pointer memory management is done automatically based on
-reference counting (similar to the way COM works), so there is no <em>new</em>
-or <em>delete</em> keyword. When an object is no longer referenced by any
-pointer variables, it will be freed. For this reason, if you have any
-global pointer variables it’s advisable to set them to <em>null</em> if you are
-done with them.</p>
-<p>AGS pointers are strongly typed, and you cannot cast between types at
-will like you can in C and C++. AGS will only allow you to compare and
-assign pointers of the same type, or of the same base type. There is a
-special keyword <em>null</em> which all pointers can be set to and compared
-with, which indicates that they are unassigned.</p>
-<p>Because there is no <em>new</em> keyword, you cannot create object instances;
-rather, they are returned by static member functions in AGS, such as
-<a class="reference internal" href="File.html"><span class="doc">File.Open</span></a> and
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetAtScreenXY</span></a>. See the
-examples for the functions to get an idea of how to use them.</p>
-</div>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p>If you attempt to call a method on a null pointer, an error will occur (just like you'd get an exception in Java or C#).</p>
+<p>Pointer memory management in AGS is all automatic -- the memory is freed when there are no longer any variables pointing to the instance. Thus, if you have global pointer variables in your global script, it's a good idea to set them to <em>null</em> when you're no longer using them, to allow the memory to be freed.</p>
+<hr />
+</section>
+<section id="pointers-for-people-who-know-c-or-c" class="level3">
+<h3>Pointers for people who know C or C++</h3>
+<p>Pointers in AGS are based on the C/C++ syntax, so they are declared with an asterisk. However, in AGS you can only create pointers to built-in AGS types, and not to any custom structs declared in your script.</p>
+<p>Pointer members are accessed with the dot operator, and not the <code>-&gt;</code> C-style operator. Because AGS doesn't support features such as pointers-to-pointers and so forth, there is no need for a separate operator.</p>
+<p>In AGS, pointer memory management is done automatically based on reference counting (similar to the way COM works), so there is no <em>new</em> or <em>delete</em> keyword. When an object is no longer referenced by any pointer variables, it will be freed. For this reason, if you have any global pointer variables it's advisable to set them to <em>null</em> if you are done with them.</p>
+<p>AGS pointers are strongly typed, and you cannot cast between types at will like you can in C and C++. AGS will only allow you to compare and assign pointers of the same type, or of the same base type. There is a special keyword <em>null</em> which all pointers can be set to and compared with, which indicates that they are unassigned.</p>
+<p>Because there is no <em>new</em> keyword, you cannot create object instances; rather, they are returned by static member functions in AGS, such as <a href="File.html#open">File.Open</a> and <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>. See the examples for the functions to get an idea of how to use them.</p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Plugins.html" title="previous chapter">Plugins</a></li>
-      <li>Next: <a href="Preprocessor.html" title="next chapter">Preprocessor</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Pointers%20in%20AGS&body=source%20is%20Pointers.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Pointers"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Pointers in AGS</a><ul>
-<li><a class="reference internal" href="#pointers-for-programming-newbies">Pointers for programming newbies</a></li>
-<li><a class="reference internal" href="#pointers-for-people-who-know-java-or-c">Pointers for people who know Java or C</a></li>
-<li><a class="reference internal" href="#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

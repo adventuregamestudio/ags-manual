@@ -1,399 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>InventoryItem functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>InventoryItem functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Keyboard Shortcuts" href="KeyboardShortcuts.html" />
-    <link rel="prev" title="InvWindow functions and properties" href="InvWindow.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="inventoryitem-functions-and-properties">
-<h1>InventoryItem functions and properties<a class="headerlink" href="#inventoryitem-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="getatscreenxy">
-<span id="index-0"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#inventoryitem-functions-and-properties">InventoryItem functions and properties</a><ul>
+<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a href="#getproperty">GetProperty</a></li>
+<li><a href="#gettextproperty">GetTextProperty</a></li>
+<li><a href="#setproperty">SetProperty</a></li>
+<li><a href="#settextproperty">SetTextProperty</a></li>
+<li><a href="#isinteractionavailable">IsInteractionAvailable</a></li>
+<li><a href="#runinteraction">RunInteraction</a></li>
+<li><a href="#cursorgraphic">CursorGraphic</a></li>
+<li><a href="#graphic">Graphic</a></li>
+<li><a href="#id">ID</a></li>
+<li><a href="#name">Name</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="inventoryitem-functions-and-properties" class="level2">
+<h2>InventoryItem functions and properties</h2>
+<section id="getatscreenxy" class="level3">
+<h3>GetAtScreenXY</h3>
 <p><em>(Formerly known as global function GetInvAt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static InventoryItem* InventoryItem.GetAtScreenXY(int x, int y)
-</pre></div>
-</div>
-<p>Returns the inventory item at SCREEN coordinates (X,Y). Note that this
-only detects inventory items on custom Inventory windows (that are
-switched on when this function is called), and is intended to allow you
-to do Verb Coin style GUIs and so on.</p>
-<p>If there is no inventory item there, or if invalid coordinates are
-specified, the function returns null.</p>
-<p><strong>NOTE:</strong> The coordinates are SCREEN coordinates, NOT ROOM
-coordinates. This means that with a scrolling room, the coordinates
-you pass are relative to the screen’s current position, and NOT absolute
-room coordinates. This means that this function is suitable for use
-with the mouse cursor position variables.</p>
+<pre><code>static InventoryItem* InventoryItem.GetAtScreenXY(int x, int y)
+</code></pre>
+<p>Returns the inventory item at SCREEN coordinates (X,Y). Note that this only detects inventory items on custom Inventory windows (that are switched on when this function is called), and is intended to allow you to do Verb Coin style GUIs and so on.</p>
+<p>If there is no inventory item there, or if invalid coordinates are specified, the function returns null.</p>
+<p><strong>NOTE:</strong> The coordinates are SCREEN coordinates, NOT ROOM coordinates. This means that with a scrolling room, the coordinates you pass are relative to the screen's current position, and NOT absolute room coordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InventoryItem *item = InventoryItem.GetAtScreenXY(mouse.x, mouse.y);
+<pre><code>InventoryItem *item = InventoryItem.GetAtScreenXY(mouse.x, mouse.y);
 if (item == null) {
   Display(&quot;No inventory item at the mouse coordinates&quot;);
 }
 else {
   Display(&quot;Inventory item number %d at the mouse.&quot;, item.ID);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will display the number of the inv item that the mouse is over</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">InventoryItem.Name</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="getproperty">
-<span id="index-1"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="InventoryItem.html#name">InventoryItem.Name</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
+<hr />
+</section>
+<section id="getproperty" class="level3">
+<h3>GetProperty</h3>
 <p><em>(Formerly known as GetInvProperty, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InventoryItem.GetProperty(string property)
-</pre></div>
-</div>
+<pre><code>InventoryItem.GetProperty(string property)
+</code></pre>
 <p>Returns the custom property setting PROPERTY for the inventory item.</p>
-<p>This command works with Number properties (it returns the number), and
-with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
+<p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent GetTextProperty function to get a text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (inventory[1].GetProperty(&quot;Value&quot;) &gt; 200)
+<pre><code>if (inventory[1].GetProperty(&quot;Value&quot;) &gt; 200)
   Display(&quot;Inventory item 1&#39;s value is over 200!&quot;);
-</pre></div>
-</div>
-<p>will print the message if inventory item 1 has its “Value” property set
-to more than 200.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.GetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="gettextproperty">
-<span id="index-2"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetInvPropertyText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as InventoryItem.GetPropertyText, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String InventoryItem.GetTextProperty(string property)
-</pre></div>
-</div>
+</code></pre>
+<p>will print the message if inventory item 1 has its "Value" property set to more than 200.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#gettextproperty">InventoryItem.GetTextProperty</a></p>
+<hr />
+</section>
+<section id="gettextproperty" class="level3">
+<h3>GetTextProperty</h3>
+<p><em>(Formerly known as GetInvPropertyText, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.GetPropertyText, which is now obsolete)</em></p>
+<pre><code>String InventoryItem.GetTextProperty(string property)
+</code></pre>
 <p>Returns the custom property setting PROPERTY for the inventory item.</p>
-<p>This command works with Text properties only. The property’s text will
-be returned from this function.</p>
+<p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent GetProperty function to get a non-text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">description</span> <span class="o">=</span> <span class="nt">inventory</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="p">.</span><span class="nc">GetTextProperty</span><span class="o">(</span><span class="s2">&quot;Description&quot;</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Inv item 2&#39;s description: %s&quot;</span><span class="o">,</span> <span class="nt">description</span><span class="o">);</span>
-</pre></div>
-</div>
-<p>will retrieve inv item 2’s “description” property and display it.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.GetProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="setproperty">
-<span id="index-3"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool InventoryItem.SetProperty(const string property, int value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified
-inventory item. Returns TRUE if such property exists and FALSE on
-failure.</p>
-<p>This command works with Number properties (it sets the numeric value),
-and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
-otherwise).</p>
-<p>Use the equivalent SetTextProperty function to set new text property
-value.</p>
+<pre><code>String description = inventory[2].GetTextProperty(&quot;Description&quot;);
+Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
+</code></pre>
+<p>will retrieve inv item 2's "description" property and display it.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#getproperty">InventoryItem.GetProperty</a></p>
+<hr />
+</section>
+<section id="setproperty" class="level3">
+<h3>SetProperty</h3>
+<pre><code>bool InventoryItem.SetProperty(const string property, int value)
+</code></pre>
+<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified inventory item. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Number properties (it sets the numeric value), and with Boolean properties (sets FALSE is value is equal to 0, or TRUE otherwise).</p>
+<p>Use the equivalent SetTextProperty function to set new text property value.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>iStone.SetProperty(&quot;Weight&quot;, 120);
-</pre></div>
-</div>
-<p>will change Stone’s “weight” custom property to 120.</p>
+<pre><code>iStone.SetProperty(&quot;Weight&quot;, 120);
+</code></pre>
+<p>will change Stone's "weight" custom property to 120.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.SetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="settextproperty">
-<span id="index-4"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool InventoryItem.SetTextProperty(const string property, const string value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
-inventory item. Returns TRUE if such property exists and FALSE on
-failure.</p>
-<p>This command works with Text properties only. The property’s text will
-be changed to new value.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#settextproperty">InventoryItem.SetTextProperty</a></p>
+<hr />
+</section>
+<section id="settextproperty" class="level3">
+<h3>SetTextProperty</h3>
+<pre><code>bool InventoryItem.SetTextProperty(const string property, const string value)
+</code></pre>
+<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified inventory item. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Text properties only. The property's text will be changed to new value.</p>
 <p>Use the equivalent SetProperty function to set a non-text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>iKey.SetTextProperty(&quot;Description&quot;, &quot;A rusty key&quot;);
-</pre></div>
-</div>
-<p>will change key’s “description” property.</p>
+<pre><code>iKey.SetTextProperty(&quot;Description&quot;, &quot;A rusty key&quot;);
+</code></pre>
+<p>will change key's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.SetProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="isinteractionavailable">
-<span id="index-5"></span><h2>IsInteractionAvailable<a class="headerlink" href="#isinteractionavailable" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as IsInventoryInteractionAvailable, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InventoryItem.IsInteractionAvailable(CursorMode)
-</pre></div>
-</div>
-<p>Checks whether there is an event handler defined for activating the
-inventory item in cursor mode MODE.</p>
-<p>This function is very similar to RunInteraction, except that rather than
-run the event handler script function, it simply returns <em>true</em> if
-something would have happened, or <em>false</em> if unhandled_event would have
-been run.</p>
-<p>This is useful for enabling options on a verb-coin style GUI, for
-example.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#setproperty">InventoryItem.SetProperty</a></p>
+<hr />
+</section>
+<section id="isinteractionavailable" class="level3">
+<h3>IsInteractionAvailable</h3>
+<p><em>(Formerly known as IsInventoryInteractionAvailable, which is now obsolete)</em></p>
+<pre><code>InventoryItem.IsInteractionAvailable(CursorMode)
+</code></pre>
+<p>Checks whether there is an event handler defined for activating the inventory item in cursor mode MODE.</p>
+<p>This function is very similar to RunInteraction, except that rather than run the event handler script function, it simply returns <em>true</em> if something would have happened, or <em>false</em> if unhandled_event would have been run.</p>
+<p>This is useful for enabling options on a verb-coin style GUI, for example.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (iKeyring.IsInteractionAvailable(eModeLookat) == 0)
+<pre><code>if (iKeyring.IsInteractionAvailable(eModeLookat) == 0)
   Display(&quot;looking at this item would not do anything.&quot;);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
-<a class="reference internal" href="#"><span class="doc">InventoryItem.RunInteraction</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="runinteraction">
-<span id="index-6"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p><em>See Also:</em> <a href="Game.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="InventoryItem.html#runinteraction">InventoryItem.RunInteraction</a></p>
+<hr />
+</section>
+<section id="runinteraction" class="level3">
+<h3>RunInteraction</h3>
 <p><em>(Formerly known as RunInventoryInteraction, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>InventoryItem.RunInteraction(CursorMode)
-</pre></div>
-</div>
-<p>Runs the event handler as if the player had clicked the mouse on the
-inventory item, using the specified cursor mode.</p>
+<pre><code>InventoryItem.RunInteraction(CursorMode)
+</code></pre>
+<p>Runs the event handler as if the player had clicked the mouse on the inventory item, using the specified cursor mode.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (button == eMouseLeftInv)
+<pre><code>if (button == eMouseLeftInv)
   inventory[game.inv_activated].RunInteraction(mouse.Mode);
-</pre></div>
-</div>
-<p>will run the inventory event handler for the current cursor mode when
-the player clicks on the item (Handle Inv Clicks needs to be enabled for
-this to work)</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.IsInteractionAvailable</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.RunInteraction</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-7"></span></div>
-<div class="section" id="cursorgraphic">
-<span id="index-8"></span><h2>CursorGraphic<a class="headerlink" href="#cursorgraphic" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int InventoryItem.CursorGraphic
-</pre></div>
-</div>
-<p>Gets/sets the sprite slot number of the inventory item’s mouse cursor.
-This is the sprite used as the mouse cursor when this inventory item is
-selected.</p>
-<p><strong>NOTE:</strong> This property is only used if the “Use selected inventory
-graphic for cursor” setting in General Settings is turned on.</p>
+</code></pre>
+<p>will run the inventory event handler for the current cursor mode when the player clicks on the item (Handle Inv Clicks needs to be enabled for this to work)</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="Room.html#processclick">Room.ProcessClick</a>, <a href="Character.html#runinteraction">Character.RunInteraction</a></p>
+<hr />
+</section>
+<section id="cursorgraphic" class="level3">
+<h3>CursorGraphic</h3>
+<pre><code>int InventoryItem.CursorGraphic
+</code></pre>
+<p>Gets/sets the sprite slot number of the inventory item's mouse cursor. This is the sprite used as the mouse cursor when this inventory item is selected.</p>
+<p><strong>NOTE:</strong> This property is only used if the "Use selected inventory graphic for cursor" setting in General Settings is turned on.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;The key&#39;s cursor graphic is %d&quot;, iKey.CursorGraphic);
-</pre></div>
-</div>
-<p>will display inventory item <em>iKey</em>’s cursor graphic.</p>
+<pre><code>Display(&quot;The key&#39;s cursor graphic is %d&quot;, iKey.CursorGraphic);
+</code></pre>
+<p>will display inventory item <em>iKey</em>'s cursor graphic.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">InventoryItem.Graphic</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="graphic">
-<span id="index-9"></span><h2>Graphic<a class="headerlink" href="#graphic" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetInvGraphic, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as SetInvItemPic, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int InventoryItem.Graphic
-</pre></div>
-</div>
-<p>Gets/sets the sprite slot number of the inventory item. You could use
-this with the Object.Graphic property as a means of the player
-‘dropping’ an inventory item, or it may be useful if you want to do a
-Raw Drawn inventory window.</p>
-<p><strong>NOTE:</strong> For backwards compatibility, if you change this property and
-the CursorGraphic currently has the same sprite as the main Graphic,
-then the CursorGraphic will be changed too.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#graphic">InventoryItem.Graphic</a></p>
+<hr />
+</section>
+<section id="graphic" class="level3">
+<h3>Graphic</h3>
+<p><em>(Formerly known as GetInvGraphic, which is now obsolete)</em><br> <em>(Formerly known as SetInvItemPic, which is now obsolete)</em></p>
+<pre><code>int InventoryItem.Graphic
+</code></pre>
+<p>Gets/sets the sprite slot number of the inventory item. You could use this with the Object.Graphic property as a means of the player 'dropping' an inventory item, or it may be useful if you want to do a Raw Drawn inventory window.</p>
+<p><strong>NOTE:</strong> For backwards compatibility, if you change this property and the CursorGraphic currently has the same sprite as the main Graphic, then the CursorGraphic will be changed too.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int slot = player.ActiveInventory.Graphic;
-</pre></div>
-</div>
-<p>will place the sprite number of the player’s current inventory item into
-slot.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.CursorGraphic</span></a>,
-<a class="reference internal" href="#"><span class="doc">InventoryItem.GetAtScreenXY</span></a>,
-<a class="reference internal" href="#"><span class="doc">InventoryItem.Name</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="index-10">
-<span id="id"></span><h2>ID<a class="headerlink" href="#index-10" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int InventoryItem.ID
-</pre></div>
-</div>
-<p>Gets the inventory item’s ID number. This is the item’s number from the
-editor, and is useful with commands such as Character.AddInventory which
-require an inventory number to add.</p>
+<pre><code>int slot = player.ActiveInventory.Graphic;
+</code></pre>
+<p>will place the sprite number of the player's current inventory item into slot.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#cursorgraphic">InventoryItem.CursorGraphic</a>, <a href="InventoryItem.html#getatscreenxy">InventoryItem.GetAtScreenXY</a>, <a href="InventoryItem.html#name">InventoryItem.Name</a></p>
+<hr />
+</section>
+<section id="id" class="level3">
+<h3>ID</h3>
+<pre><code>readonly int InventoryItem.ID
+</code></pre>
+<p>Gets the inventory item's ID number. This is the item's number from the editor, and is useful with commands such as Character.AddInventory which require an inventory number to add.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>AddInventory(EGO, iShovel.ID);
-</pre></div>
-</div>
-<p>uses the obsolete AddInventory command to add the shovel to EGO’s
-inventory</p>
-<p><em>See Also:</em> <a class="reference internal" href="Character.html"><span class="doc">Character.AddInventory</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.LoseInventory</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="name">
-<span id="index-11"></span><h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetInvName, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as SetInvItemName, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as InventoryItem.GetName, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as InventoryItem.SetName, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String InventoryItem.Name;
-</pre></div>
-</div>
-<p>Gets/sets the name of the inventory item. This is the name which is
-initially set under the Game tab, Inventory mode of the AGS Editor.</p>
-<p>You can change this property if for example you want to change a ‘bowl’
-to a ‘bowl with water in’ but want to use the same inventory item for
-it.</p>
-<p>Note that the maximum length for the name of an inventory item is 24
-characters - if the name you set is longer than this, it will be
-truncated.</p>
+<pre><code>AddInventory(EGO, iShovel.ID);
+</code></pre>
+<p>uses the obsolete AddInventory command to add the shovel to EGO's inventory</p>
+<p><em>See Also:</em> <a href="Character.html#addinventory">Character.AddInventory</a>, <a href="Character.html#loseinventory">Character.LoseInventory</a></p>
+<hr />
+</section>
+<section id="name" class="level3">
+<h3>Name</h3>
+<p><em>(Formerly known as GetInvName, which is now obsolete)</em><br> <em>(Formerly known as SetInvItemName, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.GetName, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.SetName, which is now obsolete)</em></p>
+<pre><code>String InventoryItem.Name;
+</code></pre>
+<p>Gets/sets the name of the inventory item. This is the name which is initially set under the Game tab, Inventory mode of the AGS Editor.</p>
+<p>You can change this property if for example you want to change a 'bowl' to a 'bowl with water in' but want to use the same inventory item for it.</p>
+<p>Note that the maximum length for the name of an inventory item is 24 characters - if the name you set is longer than this, it will be truncated.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Active inventory: %s&quot;</span><span class="o">,</span> <span class="nt">player</span><span class="p">.</span><span class="nc">ActiveInventory</span><span class="p">.</span><span class="nc">Name</span><span class="o">);</span>
-</pre></div>
-</div>
-<p>will display the name of the player’s current inventory item.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="#"><span class="doc">InventoryItem.GetAtScreenXY</span></a>,
-<a class="reference internal" href="#"><span class="doc">InventoryItem.Graphic</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>Display(&quot;Active inventory: %s&quot;, player.ActiveInventory.Name);
+</code></pre>
+<p>will display the name of the player's current inventory item.</p>
+<p><em>See Also:</em> <a href="InventoryItem.html#getatscreenxy">InventoryItem.GetAtScreenXY</a>, <a href="InventoryItem.html#graphic">InventoryItem.Graphic</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="InvWindow.html" title="previous chapter">InvWindow functions and properties</a></li>
-      <li>Next: <a href="KeyboardShortcuts.html" title="next chapter">Keyboard Shortcuts</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20InventoryItem%20functions%20and%20properties&body=source%20is%20InventoryItem.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/InventoryItem"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">InventoryItem functions and properties</a><ul>
-<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
-<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
-<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
-<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
-<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
-<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
-<li><a class="reference internal" href="#cursorgraphic">CursorGraphic</a></li>
-<li><a class="reference internal" href="#graphic">Graphic</a></li>
-<li><a class="reference internal" href="#index-10">ID</a></li>
-<li><a class="reference internal" href="#name">Name</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

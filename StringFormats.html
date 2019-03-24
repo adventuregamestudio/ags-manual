@@ -1,202 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>String formatting</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>String formatting &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="System functions and properties" href="System.html" />
-    <link rel="prev" title="String functions" href="String.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="string-formatting">
-<h1>String formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">¶</a></h1>
-<p>You will find many times in your game when you need to create a string
-based on the values of variables, and functions like
-<a class="reference internal" href="DisplayFunctions.html"><span class="doc">Display</span></a> and
-<a class="reference internal" href="String.html"><span class="doc">String.Format</span></a> allow you to do so.</p>
-<p>AGS uses printf-style argument formatting (used by the C language). This
-means that you intersperse your text with special codes to insert a
-variable’s value. These special codes begin with a percent sign, and
-then specify the variable type. The actual variables that you want to
-display are then listed afterwards.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#string-formatting">String formatting</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="string-formatting" class="level2">
+<h2>String formatting</h2>
+<p>You will find many times in your game when you need to create a string based on the values of variables, and functions like <a href="DisplayFunctions.html#display">Display</a> and <a href="String.html#format">String.Format</a> allow you to do so.</p>
+<p>AGS uses printf-style argument formatting (used by the C language). This means that you intersperse your text with special codes to insert a variable's value. These special codes begin with a percent sign, and then specify the variable type. The actual variables that you want to display are then listed afterwards.</p>
 <p>Some examples of the special codes you can use are as follows:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Code</th>
-<th class="head">Description</th>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Description</th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>%d</td>
+<tbody>
+<tr class="odd">
+<td>%d</td>
 <td>Integer (use to display value of int and short variables)</td>
 </tr>
-<tr class="row-odd"><td>%0Xd</td>
+<tr class="even">
+<td>%0Xd</td>
 <td>Integer left-padded with up to X zeros</td>
 </tr>
-<tr class="row-even"><td>%s</td>
+<tr class="odd">
+<td>%s</td>
 <td>String (use to display string variables)</td>
 </tr>
-<tr class="row-odd"><td>%c</td>
+<tr class="even">
+<td>%c</td>
 <td>Character (displays the ASCII character of the supplied value)</td>
 </tr>
-<tr class="row-even"><td>%f</td>
+<tr class="odd">
+<td>%f</td>
 <td>Float (displays a float variable)</td>
 </tr>
-<tr class="row-odd"><td>%.Xf</td>
+<tr class="even">
+<td>%.Xf</td>
 <td>Float to X decimal places</td>
 </tr>
-<tr class="row-even"><td>%%</td>
+<tr class="odd">
+<td>%%</td>
 <td>Display the percent character (ie. no variable)</td>
 </tr>
-<tr class="row-odd"><td>[</td>
+<tr class="even">
+<td>[</td>
 <td>Inserts a new line into the message</td>
 </tr>
 </tbody>
 </table>
 <p>Some examples:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">int</span> <span class="nt">life</span> <span class="o">=</span> <span class="nt">42</span><span class="o">;</span>
-<span class="nt">float</span> <span class="nt">twoPi</span> <span class="o">=</span> <span class="nt">Maths</span><span class="p">.</span><span class="nc">Pi</span> <span class="o">*</span> <span class="nt">2</span><span class="p">.</span><span class="nc">0</span><span class="o">;</span>
-<span class="nt">String</span> <span class="nt">message</span> <span class="o">=</span> <span class="s2">&quot;A string variable&quot;</span><span class="o">;</span>
+<pre><code>int life = 42;
+float twoPi = Maths.Pi * 2.0;
+String message = &quot;A string variable&quot;;
 
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;A normal string with no variables.&quot;</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The meaning of life is %d.&quot;</span><span class="o">,</span> <span class="nt">life</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The meaning of life in 3 digits is %03d.&quot;</span><span class="o">,</span> <span class="nt">life</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;2 times Pi is %f.&quot;</span><span class="o">,</span> <span class="nt">twoPi</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;The message says: %s.&quot;</span><span class="o">,</span> <span class="nt">message</span><span class="o">);</span>
-</pre></div>
-</div>
+Display(&quot;A normal string with no variables.&quot;);
+Display(&quot;The meaning of life is %d.&quot;, life);
+Display(&quot;The meaning of life in 3 digits is %03d.&quot;, life);
+Display(&quot;2 times Pi is %f.&quot;, twoPi);
+Display(&quot;The message says: %s.&quot;, message);
+</code></pre>
 <p>would display:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>A normal string with no variables.
+<pre><code>A normal string with no variables.
 The meaning of life is 42.
 The meaning of life in 3 digits is 042.
 2 times Pi is 6.283186.
 The message says: A string variable.
-</pre></div>
-</div>
+</code></pre>
 <p>You can display as many variables as you like in one line:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int life = 42;
+<pre><code>int life = 42;
 float twoPi = Maths.Pi * 2.0;
 
 Display(&quot;Life is %d, 2 x Pi = %f, and my dinner is %s.&quot;, life, twoPi, &quot;awful&quot;);
-</pre></div>
-</div>
-<p>but, <strong>be very careful</strong> that you supply the right number of variables
-to correspond with the tags you use in the text. If you don’t supply
-enough variables, your game could crash.</p>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p>but, <strong>be very careful</strong> that you supply the right number of variables to correspond with the tags you use in the text. If you don't supply enough variables, your game could crash.</p>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="String.html" title="previous chapter">String functions</a></li>
-      <li>Next: <a href="System.html" title="next chapter">System functions and properties</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20String%20formatting&body=source%20is%20StringFormats.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/StringFormats"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

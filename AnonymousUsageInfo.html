@@ -1,163 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Anonymous usage information</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Anonymous usage information &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Credits" href="Credits.html" />
-    <link rel="prev" title="Copyright and terms of use" href="Copyright.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="anonymous-usage-information">
-<h1>Anonymous usage information<a class="headerlink" href="#anonymous-usage-information" title="Permalink to this headline">¶</a></h1>
-<p>AGS contains an option to send anonymous usage information to the AGS
-website. But what is it all about and why would you want to do so?</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#anonymous-usage-information">Anonymous usage information</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="anonymous-usage-information" class="level2">
+<h2>Anonymous usage information</h2>
+<p>AGS contains an option to send anonymous usage information to the AGS website. But what is it all about and why would you want to do so?</p>
 <p><strong>What information does it send?</strong></p>
 <p>The following is the information that AGS currently sends to the server.</p>
-<ul class="simple">
+<ul>
 <li>AGS version</li>
 <li>Windows version</li>
 <li>.NET Framework version</li>
 <li>Screen resolution</li>
 </ul>
-<p>That’s it. Nothing else is sent, no personal details or scripts from
-your games or anything like that.</p>
+<p>That's it. Nothing else is sent, no personal details or scripts from your games or anything like that.</p>
 <p><strong>Why should I enable this?</strong></p>
-<p>By having a clearer picture of what types of system people are running,
-it allows us to make better decisions about future versions of AGS. Here
-are some examples of where it will be useful:</p>
-<ul class="simple">
-<li>A serious bug is found that affects an older version of AGS. By
-knowing how many people are still using that version, we can decide
-whether to fix it or not.</li>
-<li>We want to add a feature to the AGS Editor that would only work on
-newer versions of Windows. By knowing how many people are running
-these, it gives us a clear idea of how many people would stand to
-benefit and therefore whether it’s worth doing.</li>
-<li>The AGS Editor GUIs can be designed to work with the screen
-resolutions that most people are using. By knowing what the minimum
-resolution is that people still use, that guides how the editor
-is designed.</li>
+<p>By having a clearer picture of what types of system people are running, it allows us to make better decisions about future versions of AGS. Here are some examples of where it will be useful:</p>
+<ul>
+<li>A serious bug is found that affects an older version of AGS. By knowing how many people are still using that version, we can decide whether to fix it or not.</li>
+<li>We want to add a feature to the AGS Editor that would only work on newer versions of Windows. By knowing how many people are running these, it gives us a clear idea of how many people would stand to benefit and therefore whether it's worth doing.</li>
+<li>The AGS Editor GUIs can be designed to work with the screen resolutions that most people are using. By knowing what the minimum resolution is that people still use, that guides how the editor is designed.</li>
 </ul>
-<p>If you object to this very basic information being submitted to AGS, you
-can turn it off in the Preferences window. However, by doing so you may
-lose out in the long run if AGS features are developed that will not
-work on your system.</p>
+<p>If you object to this very basic information being submitted to AGS, you can turn it off in the Preferences window. However, by doing so you may lose out in the long run if AGS features are developed that will not work on your system.</p>
 <p><strong>When does it send this information?</strong></p>
-<p>The editor contacts the AGS website once a month and sends it these
-details.</p>
+<p>The editor contacts the AGS website once a month and sends it these details.</p>
 <p><strong>Will games that I make contact the AGS website?</strong></p>
 <p>No, only the editor does this.</p>
-</div>
-
-
-          </div>
-          
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Copyright.html" title="previous chapter">Copyright and terms of use</a></li>
-      <li>Next: <a href="Credits.html" title="next chapter">Credits</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Anonymous%20usage%20information&body=source%20is%20AnonymousUsageInfo.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/AnonymousUsageInfo"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

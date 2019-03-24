@@ -1,167 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Extender functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Extender functions &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="File functions and properties" href="File.html" />
-    <link rel="prev" title="Event Types" href="EventTypes.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="extender-functions">
-<h1>Extender functions<a class="headerlink" href="#extender-functions" title="Permalink to this headline">¶</a></h1>
-<p>Suppose that you wanted to add a new function, “Scream”, to characters
-which would make them cry out “AARRRGGGHHH”. Because the Character type
-is defined within AGS, it’s not possible for you to just add a method to
-it.</p>
-<p>That’s where Extender Functions come in. Here’s an example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">Scream</span><span class="p">(</span><span class="k">this</span> <span class="nx">Character</span><span class="o">*</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">Say</span><span class="p">(</span><span class="s2">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>This adds a new “Scream” function to the Character type, so that in your
-script code elsewhere you can do things like:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>player.Scream();
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#extender-functions">Extender functions</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="extender-functions" class="level2">
+<h2>Extender functions</h2>
+<p>Suppose that you wanted to add a new function, "Scream", to characters which would make them cry out "AARRRGGGHHH". Because the Character type is defined within AGS, it's not possible for you to just add a method to it.</p>
+<p>That's where Extender Functions come in. Here's an example:</p>
+<pre><code>function Scream(this Character*)
+{
+  this.Say(&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;);
+}
+</code></pre>
+<p>This adds a new "Scream" function to the Character type, so that in your script code elsewhere you can do things like:</p>
+<pre><code>player.Scream();
 character[EGO].Scream();
 cJohn.Scream();
-</pre></div>
-</div>
+</code></pre>
 <p>and so on.</p>
 <p><strong>Where do I put this code?</strong></p>
-<p>In the script header, you’d put:</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">function</span> <span class="pre">Scream(this</span> <span class="pre">Character*);</span></code></p>
-<p>and then put the main function in the script file. This will then allow
-it to be used by other scripts.</p>
+<p>In the script header, you'd put:</p>
+<p><code>import function Scream(this Character*);</code></p>
+<p>and then put the main function in the script file. This will then allow it to be used by other scripts.</p>
 <p><strong>Static extenders</strong></p>
-<p>Since AGS 3.4.0 you may also create static extender functions, that is
-functions that are called from type, rather than an actual object.
-Static extender declaration is a bit different, for example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int AbsInt(static Maths, int value)
+<p>Since AGS 3.4.0 you may also create static extender functions, that is functions that are called from type, rather than an actual object. Static extender declaration is a bit different, for example:</p>
+<pre><code>int AbsInt(static Maths, int value)
 {
   if (value &lt; 0)
     return -value;
   return value;
 }
-</pre></div>
-</div>
-<p>You declare the function’s import in the script header:</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">int</span> <span class="pre">AbsInt(static</span> <span class="pre">Maths,</span> <span class="pre">int</span> <span class="pre">value);</span></code></p>
+</code></pre>
+<p>You declare the function's import in the script header:</p>
+<p><code>import int AbsInt(static Maths, int value);</code></p>
 <p>and you use such function as:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int x = Maths.AbsInt(-10);
-</pre></div>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>int x = Maths.AbsInt(-10);
+</code></pre>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="EventTypes.html" title="previous chapter">Event Types</a></li>
-      <li>Next: <a href="File.html" title="next chapter">File functions and properties</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Extender%20functions&body=source%20is%20ExtenderFunctions.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/ExtenderFunctions"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

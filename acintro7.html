@@ -1,294 +1,125 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Getting Started with AGS - Part 7 &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started with AGS - Part 8" href="acintro8.html" />
-    <link rel="prev" title="Getting Started with AGS - Part 6" href="acintro6.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="getting-started-with-ags-part-7">
-<h1>Getting Started with AGS - Part 7<a class="headerlink" href="#getting-started-with-ags-part-7" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="animations">
-<span id="index-0"></span><h2>Animations<a class="headerlink" href="#animations" title="Permalink to this headline">¶</a></h2>
-<p>A graphical adventure game would be no good without animations. These
-range from commonly-used animations such as the main character walking,
-to a flag waving in the background in one particular screen.</p>
-<p>Animations in AGS are managed using <em>Views</em>. A view is a set of one or
-more <em>loops</em>. A loop is a set of frames which, when played in sequence,
-give the illusion of movement. Expand the “Views” node in the project
-tree, and double-click the view 1:</p>
-<a class="reference external image-reference" href="images/intro7_1.jpg"><img alt="The View Editor showing view 1" src="_images/intro7_1.jpg" /></a>
-<p>This is the View Editor where you will put together all your animations.
-You’ll notice lots of frames of Roger’s walking animation in this
-window.</p>
-<p>Each loop is displayed as a row of images (one for each frame), going
-from left to right. To change the image for a frame, double-click the
-image, and you’ll be presented with the sprite manager where you can
-select the image to use. <strong>All images for use with views are imported as
-usual via the sprite manager</strong> before they can be inserted into a
-frame.</p>
-<p>At the right hand end of each loop, you’ll see a “Create new frame”
-button, which you can click to create a new extra frame at the end of
-the loop. You can also right-click a frame to insert a new one before or
-after it.</p>
-<p>Left-click a frame to select it. When you do so, the property grid will
-be updated with the frame’s details:</p>
-<a class="reference external image-reference" href="images/intro7_2.jpg"><img alt="Property Grid showing frame properties" src="_images/intro7_2.jpg" /></a>
-<ul class="simple">
-<li><strong>Delay</strong> is the frame’s <strong>relative</strong> speed. This number adds a
-delay to the amount of time which the frame is displayed for,
-therefore a larger number makes it stay longer. You can use negative
-numbers to specifically shorten the frame’s display time.</li>
-<li><strong>Sound</strong> allows you to assign a sound number that will get played
-when this frame comes around in the animation. This feature is
-designed for footstep sounds, but has many other uses as well. Using
-sound will be covered later in the tutorial.</li>
-<li><strong>Flipped</strong> toggles whether the frame is displayed normally or
-mirrored left-right. This feature allows you to just create
-animations for your character walking right, and then use the same
-images for the walking left loop and AGS will automatically
-flip them.</li>
-</ul>
-<p>Views aren’t only used for character walking animations – they’re used
-for all types of animations in the game. How you actually run an
-animation in the game will be explained later on.</p>
-</div>
-<div class="section" id="characters">
-<span id="index-1"></span><h2>Characters<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
-<p>If you remember back to part 3 of this tutorial, we talked about three
-types of thing that the player can interact with - hotspots, objects and
-characters. We’ve covered the first two, so now it’s time to take a look
-at characters.</p>
-<p>Put simply, a character is similar to an object, except that it can move
-between different rooms in the game, take part in conversations, carry
-its own inventory and more.</p>
-<p>Expand the “Characters” node in the project tree. You’ll see that so far
-you only have one character in the list, labelled “0: cEgo”. You can
-create a new character by right-clicking the “Characters” node. For now,
-double-click the “cEgo” character:</p>
-<a class="reference external image-reference" href="images/intro7_3.jpg"><img alt="The Character Editor" src="_images/intro7_3.jpg" /></a>
-<p>The first thing you’ll notice is the text “This character is the player
-character” at the top of the window. This shows that the currently
-selected character is the initial player character when the game starts
-up. The game will start off in whatever room number the <em>Starts in room</em>
-option is set to for the player character. To change it, simply open up
-the character that you want to use instead and click the “Make this the
-player character” button.</p>
-<p>There are quite a few properties available in the property grid. Rather
-than explain them all here, we’ll just cover the most important ones -
-you can find a full description of all the options in the manual.</p>
-<ul class="simple">
-<li><strong>StartingRoom</strong> - this sets which room number the character starts
-off in at the beginning of the game.</li>
-<li><strong>NormalView</strong> - sets which view is used for the normal walking
-animation of the character. The view specified here must have 4 or 8
-loops, and the first frame of each loop is the standing still
-frame.<span class="raw-html-m2r"><br></span>
-For a 4-loop character, when walking diagonally the closest straight
-direction is chosen for display. With an 8-loop character, all 8
-directions are displayed depending on the character’s direction.<span class="raw-html-m2r"><br></span>
-Which loop represents which direction is shown in the Views editor
-(eg. “Loop 0 (down)”).</li>
-<li><strong>Clickable</strong> - if this is not checked, then this character will be
-see-through to mouse clicks. This is similar to the way the player
-character worked in Lucasarts games - you cannot actually click on
-Guybrush, it will always activate whatever is behind him.</li>
-</ul>
-<p>The character’s “<em>RealName</em>” field simply gives you an easy way to
-identify the character in the editor, and can also be accessed from the
-game script if desired.</p>
-<p>The “<em>ScriptName</em>” field is very important, as it sets the name by which
-the character will be referred to in the game scripts. The reason for
-having this as well as the RealName is that the script name can only
-contain the letters A-Z, whereas the <em>RealName</em> field can contain any
-spaces, numbers, etc.</p>
-</div>
-<div class="section" id="game-starting-point">
-<span id="index-2"></span><h2>Game starting point<a class="headerlink" href="#game-starting-point" title="Permalink to this headline">¶</a></h2>
-<p>Just in case you missed it, I’ll repeat what was just said in the
-Characters section - the “<em>Starts in room</em>” setting of the player
-character is used to determine which room the game starts off in.</p>
-<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p>TIP: This feature can be handy for testing various parts of your game.
-For example, when you’re working on room 16, set the starting room to
-room 16 so that you can get to it instantly when you run the game to
-test it.</p>
-</div>
-<div class="section" id="cutscenes">
-<span id="index-3"></span><h2>Cutscenes<a class="headerlink" href="#cutscenes" title="Permalink to this headline">¶</a></h2>
-<p>You can easily add intro, outro and cutscene sequences to your game.
-There is no specific feature to do this - you simply use the provided
-animation and movement commands to do whatever you like.</p>
-<a class="reference external image-reference" href="images/icon_info.gif"><img alt="" src="_images/icon_info.gif" /></a>
-<p>A cutscene is simply the name given to a sequence of actions over which
-the player has no control. This usually applies to the entire
-introduction sequence, as well as far simpler in-game events. For example,
-if the player goes to pick up a rock from the ground, you may wish to use
-a bending-down animation to show him picking it up. During this bending
-down and standing back up, the player cannot control proceedings, so it
-is a cutscene.</p>
-<p>Right, firstly let’s do something very simple. When the player goes to
-pick up the key from the floor of our room, we want him to walk over to
-it first rather than it just disappearing from wherever he’s standing.</p>
-<p>So, we want to add something extra to picking up the key. How do we do
-this? Yes, that’s right, we need to return to the Event Script for the
-key object. Go back to the Events List for the key object (remember, you
-open the room, select the “Objects” mode, then click on the key to
-select it):</p>
-<a class="reference external image-reference" href="images/intro7_4.jpg"><img alt="Remember this?" src="_images/intro7_4.jpg" /></a>
-<p>The main difference you’ll notice now is that the “Interact object”
-event already has a name. This “oKey_Interact” is the name of the
-script function that we created earlier. So, just select it and click
-the “…” button to return to the script editor.</p>
-<p>Now, we want the player to walk across to the key <strong>before</strong> it
-disappears, so we need to add a new line of script <strong>before</strong> the
-existing command that makes the key invisible. We want to do an action
-on the player character (ie. move him), so type “player.” and
-auto-complete will pop up with the available commands. See if you can
-work out which one we need.</p>
-<a class="reference external image-reference" href="images/intro7_5.jpg"><img alt="The Walk command needs X and Y co-ordinates" src="_images/intro7_5.jpg" /></a>
-<p><strong>Eeek!</strong> It wants a destination X and Y location! We don’t know that,
-but we can find out! Click the “Room 1” tab on the tab bar at the top of
-the editor, and move the mouse cursor to where the key is on the
-background. Look just above the background image, and you should see
-“Mouse Position: 158, 108” or something similar. These are the X and Y
-co-ordinates, respectively, of the key’s location. So, note them down,
-and click the “room1.asc” tab to return to the script.</p>
-<p>Now, we can type in those co-ordinates to our script. We also need to
-pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for
-Roger to get to those co-ordinates before continuing the script. If we
-didn’t do this, he would start to walk but the key would disappear
-before he got there! The final script should look like this:</p>
-<a class="reference external image-reference" href="images/intro7_6.jpg"><img alt="Our new command is run before the existing ones" src="_images/intro7_6.jpg" /></a>
-<p>Now, hit F5 and try it out!</p>
-<p>OK, I think we’ve had enough of animations and cutscenes for now. We’ll
-return later to explore actual animations and more complex cutscenes.</p>
-<p>Go to part 8: <a class="reference internal" href="acintro8.html"><span class="doc">Conversations</span></a></p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 7</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="acintro6.html" title="previous chapter">Getting Started with AGS - Part 6</a></li>
-      <li>Next: <a href="acintro8.html" title="next chapter">Getting Started with AGS - Part 8</a></li>
-  </ul></li>
+<li><a href="#getting-started-with-ags---part-7">Getting Started with AGS - Part 7</a><ul>
+<li><a href="#animations">Animations</a></li>
+<li><a href="#characters">Characters</a></li>
+<li><a href="#game-starting-point">Game starting point</a></li>
+<li><a href="#cutscenes">Cutscenes</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Getting%20Started%20with%20AGS%20-%20Part%207&body=source%20is%20acintro7.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/acintro7"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Getting Started with AGS - Part 7</a><ul>
-<li><a class="reference internal" href="#animations">Animations</a></li>
-<li><a class="reference internal" href="#characters">Characters</a></li>
-<li><a class="reference internal" href="#game-starting-point">Game starting point</a></li>
-<li><a class="reference internal" href="#cutscenes">Cutscenes</a></li>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="getting-started-with-ags---part-7" class="level2">
+<h2>Getting Started with AGS - Part 7</h2>
+<section id="animations" class="level3">
+<h3>Animations</h3>
+<p>A graphical adventure game would be no good without animations. These range from commonly-used animations such as the main character walking, to a flag waving in the background in one particular screen.</p>
+<p>Animations in AGS are managed using <em>Views</em>. A view is a set of one or more <em>loops</em>. A loop is a set of frames which, when played in sequence, give the illusion of movement. Expand the "Views" node in the project tree, and double-click the view 1:</p>
+<p><img src="images/intro7_1.jpg" alt="The View Editor showing view 1" /></p>
+<p>This is the View Editor where you will put together all your animations. You'll notice lots of frames of Roger's walking animation in this window.</p>
+<p>Each loop is displayed as a row of images (one for each frame), going from left to right. To change the image for a frame, double-click the image, and you'll be presented with the sprite manager where you can select the image to use. <strong>All images for use with views are imported as usual via the sprite manager</strong> before they can be inserted into a frame.</p>
+<p>At the right hand end of each loop, you'll see a "Create new frame" button, which you can click to create a new extra frame at the end of the loop. You can also right-click a frame to insert a new one before or after it.</p>
+<p>Left-click a frame to select it. When you do so, the property grid will be updated with the frame's details:</p>
+<p><img src="images/intro7_2.jpg" alt="Property Grid showing frame properties" /></p>
+<ul>
+<li><strong>Delay</strong> is the frame's <strong>relative</strong> speed. This number adds a delay to the amount of time which the frame is displayed for, therefore a larger number makes it stay longer. You can use negative numbers to specifically shorten the frame's display time.</li>
+<li><strong>Sound</strong> allows you to assign a sound number that will get played when this frame comes around in the animation. This feature is designed for footstep sounds, but has many other uses as well. Using sound will be covered later in the tutorial.</li>
+<li><strong>Flipped</strong> toggles whether the frame is displayed normally or mirrored left-right. This feature allows you to just create animations for your character walking right, and then use the same images for the walking left loop and AGS will automatically flip them.</li>
 </ul>
-</li>
+<p>Views aren't only used for character walking animations -- they're used for all types of animations in the game. How you actually run an animation in the game will be explained later on.</p>
+</section>
+<section id="characters" class="level3">
+<h3>Characters</h3>
+<p>If you remember back to part 3 of this tutorial, we talked about three types of thing that the player can interact with - hotspots, objects and characters. We've covered the first two, so now it's time to take a look at characters.</p>
+<p>Put simply, a character is similar to an object, except that it can move between different rooms in the game, take part in conversations, carry its own inventory and more.</p>
+<p>Expand the "Characters" node in the project tree. You'll see that so far you only have one character in the list, labelled "0: cEgo". You can create a new character by right-clicking the "Characters" node. For now, double-click the "cEgo" character:</p>
+<p><img src="images/intro7_3.jpg" alt="The Character Editor" /></p>
+<p>The first thing you'll notice is the text "This character is the player character" at the top of the window. This shows that the currently selected character is the initial player character when the game starts up. The game will start off in whatever room number the <em>Starts in room</em> option is set to for the player character. To change it, simply open up the character that you want to use instead and click the "Make this the player character" button.</p>
+<p>There are quite a few properties available in the property grid. Rather than explain them all here, we'll just cover the most important ones - you can find a full description of all the options in the manual.</p>
+<ul>
+<li><strong>StartingRoom</strong> - this sets which room number the character starts off in at the beginning of the game.</li>
+<li><strong>NormalView</strong> - sets which view is used for the normal walking animation of the character. The view specified here must have 4 or 8 loops, and the first frame of each loop is the standing still frame.<br> For a 4-loop character, when walking diagonally the closest straight direction is chosen for display. With an 8-loop character, all 8 directions are displayed depending on the character's direction.<br> Which loop represents which direction is shown in the Views editor (eg. "Loop 0 (down)").</li>
+<li><strong>Clickable</strong> - if this is not checked, then this character will be see-through to mouse clicks. This is similar to the way the player character worked in Lucasarts games - you cannot actually click on Guybrush, it will always activate whatever is behind him.</li>
 </ul>
-
-
+<p>The character's "<em>RealName</em>" field simply gives you an easy way to identify the character in the editor, and can also be accessed from the game script if desired.</p>
+<p>The "<em>ScriptName</em>" field is very important, as it sets the name by which the character will be referred to in the game scripts. The reason for having this as well as the RealName is that the script name can only contain the letters A-Z, whereas the <em>RealName</em> field can contain any spaces, numbers, etc.</p>
+</section>
+<section id="game-starting-point" class="level3">
+<h3>Game starting point</h3>
+<p>Just in case you missed it, I'll repeat what was just said in the Characters section - the "<em>Starts in room</em>" setting of the player character is used to determine which room the game starts off in.</p>
+<p><img src="images/icon_info.gif" /></p>
+<p>TIP: This feature can be handy for testing various parts of your game. For example, when you're working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.</p>
+</section>
+<section id="cutscenes" class="level3">
+<h3>Cutscenes</h3>
+<p>You can easily add intro, outro and cutscene sequences to your game. There is no specific feature to do this - you simply use the provided animation and movement commands to do whatever you like.</p>
+<p><img src="images/icon_info.gif" /></p>
+<p>A cutscene is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.</p>
+<p>Right, firstly let's do something very simple. When the player goes to pick up the key from the floor of our room, we want him to walk over to it first rather than it just disappearing from wherever he's standing.</p>
+<p>So, we want to add something extra to picking up the key. How do we do this? Yes, that's right, we need to return to the Event Script for the key object. Go back to the Events List for the key object (remember, you open the room, select the "Objects" mode, then click on the key to select it):</p>
+<p><img src="images/intro7_4.jpg" alt="Remember this?" /></p>
+<p>The main difference you'll notice now is that the "Interact object" event already has a name. This "oKey_Interact" is the name of the script function that we created earlier. So, just select it and click the "..." button to return to the script editor.</p>
+<p>Now, we want the player to walk across to the key <strong>before</strong> it disappears, so we need to add a new line of script <strong>before</strong> the existing command that makes the key invisible. We want to do an action on the player character (ie. move him), so type "player." and auto-complete will pop up with the available commands. See if you can work out which one we need.</p>
+<p><img src="images/intro7_5.jpg" alt="The Walk command needs X and Y co-ordinates" /></p>
+<p><strong>Eeek!</strong> It wants a destination X and Y location! We don't know that, but we can find out! Click the "Room 1" tab on the tab bar at the top of the editor, and move the mouse cursor to where the key is on the background. Look just above the background image, and you should see "Mouse Position: 158, 108" or something similar. These are the X and Y co-ordinates, respectively, of the key's location. So, note them down, and click the "room1.asc" tab to return to the script.</p>
+<p>Now, we can type in those co-ordinates to our script. We also need to pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for Roger to get to those co-ordinates before continuing the script. If we didn't do this, he would start to walk but the key would disappear before he got there! The final script should look like this:</p>
+<p><img src="images/intro7_6.jpg" alt="Our new command is run before the existing ones" /></p>
+<p>Now, hit F5 and try it out!</p>
+<p>OK, I think we've had enough of animations and cutscenes for now. We'll return later to explore actual animations and more complex cutscenes.</p>
+<p>Go to part 8: <a href="acintro8.html">Conversations</a></p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

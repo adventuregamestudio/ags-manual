@@ -1,191 +1,105 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>TextBox functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The text parser" href="TextParser.html" />
-    <link rel="prev" title="New Game templates" href="Templates.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="textbox-functions-and-properties">
-<h1>TextBox functions and properties<a class="headerlink" href="#textbox-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="font">
-<span id="index-0"></span><h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetTextBoxFont, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FontType TextBox.Font
-</pre></div>
-</div>
-<p>Gets/sets the font used by the specified text box. This might be useful
-if you need a player input text box to use a different font with foreign
-language translations, for example.</p>
-<p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>txtUserInput.Font = eFontNormal;
-</pre></div>
-</div>
-<p>will change the <em>txtUserInput</em> text box to use Font “Normal”.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Label.html"><span class="doc">Label.Font</span></a>,
-<a class="reference internal" href="#"><span class="doc">TextBox.Text</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="text">
-<span id="index-1"></span><h2>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetTextBoxText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as SetTextBoxText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as TextBox.GetText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as TextBox.SetText, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String TextBox.Text;
-</pre></div>
-</div>
-<p>Gets/sets the text box contents. This might be useful to reset the text
-box to blank after the user has typed something in, or to fill in a
-default value.</p>
-<p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>txtUserInput.Text = &quot;&quot;;
-</pre></div>
-</div>
-<p>will clear the txtUserInput text box.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">TextBox.Font</span></a>,
-<a class="reference internal" href="String.html"><span class="doc">String.CompareTo</span></a>,
-<a class="reference internal" href="Label.html"><span class="doc">Label.Text</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="textcolor">
-<span id="index-2"></span><h2>TextColor<a class="headerlink" href="#textcolor" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int TextBox.TextColor;
-</pre></div>
-</div>
-<p>Gets/sets the text colour used to draw the text box. This affects both
-the text in the text box, and also the text box’s border.</p>
-<p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>txtInput.TextColor = 14;
-</pre></div>
-</div>
-<p>will change text box ‘txtInput’ to have yellow text.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">TextBox.Text</span></a></p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>TextBox functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Templates.html" title="previous chapter">New Game templates</a></li>
-      <li>Next: <a href="TextParser.html" title="next chapter">The text parser</a></li>
-  </ul></li>
+<li><a href="#textbox-functions-and-properties">TextBox functions and properties</a><ul>
+<li><a href="#font">Font</a></li>
+<li><a href="#text">Text</a></li>
+<li><a href="#textcolor">TextColor</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20TextBox%20functions%20and%20properties&body=source%20is%20TextBox.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/TextBox"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">TextBox functions and properties</a><ul>
-<li><a class="reference internal" href="#font">Font</a></li>
-<li><a class="reference internal" href="#text">Text</a></li>
-<li><a class="reference internal" href="#textcolor">TextColor</a></li>
-</ul>
-</li>
-</ul>
-
-
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="textbox-functions-and-properties" class="level2">
+<h2>TextBox functions and properties</h2>
+<section id="font" class="level3">
+<h3>Font</h3>
+<p><em>(Formerly known as SetTextBoxFont, which is now obsolete)</em></p>
+<pre><code>FontType TextBox.Font
+</code></pre>
+<p>Gets/sets the font used by the specified text box. This might be useful if you need a player input text box to use a different font with foreign language translations, for example.</p>
+<p>Example:</p>
+<pre><code>txtUserInput.Font = eFontNormal;
+</code></pre>
+<p>will change the <em>txtUserInput</em> text box to use Font "Normal".</p>
+<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
+<hr />
+</section>
+<section id="text" class="level3">
+<h3>Text</h3>
+<p><em>(Formerly known as GetTextBoxText, which is now obsolete)</em><br> <em>(Formerly known as SetTextBoxText, which is now obsolete)</em><br> <em>(Formerly known as TextBox.GetText, which is now obsolete)</em><br> <em>(Formerly known as TextBox.SetText, which is now obsolete)</em></p>
+<pre><code>String TextBox.Text;
+</code></pre>
+<p>Gets/sets the text box contents. This might be useful to reset the text box to blank after the user has typed something in, or to fill in a default value.</p>
+<p>Example:</p>
+<pre><code>txtUserInput.Text = &quot;&quot;;
+</code></pre>
+<p>will clear the txtUserInput text box.</p>
+<p><em>See Also:</em> <a href="TextBox.html#font">TextBox.Font</a>, <a href="String.html#compareto">String.CompareTo</a>, <a href="Label.html#text">Label.Text</a></p>
+<hr />
+</section>
+<section id="textcolor" class="level3">
+<h3>TextColor</h3>
+<pre><code>int TextBox.TextColor;
+</code></pre>
+<p>Gets/sets the text colour used to draw the text box. This affects both the text in the text box, and also the text box's border.</p>
+<p>Example:</p>
+<pre><code>txtInput.TextColor = 14;
+</code></pre>
+<p>will change text box 'txtInput' to have yellow text.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="TextBox.html#text">TextBox.Text</a></p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

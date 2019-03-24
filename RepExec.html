@@ -1,248 +1,128 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>repeatedly_execute (_always) &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Room functions and properties" href="Room.html" />
-    <link rel="prev" title="Region functions and properties" href="Region.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="repeatedly-execute-always">
-<h1>repeatedly_execute (_always)<a class="headerlink" href="#repeatedly-execute-always" title="Permalink to this headline">¶</a></h1>
-<p>One of the most common things you’ll need to do when scripting is to
-check if something has happened in the game – and if so, then make the
-game do something in response.</p>
-<p>For example, suppose that you want a bird to fly backwards and forwards
-across the screen in the background. You need a way of telling the bird
-to move in one direction, recognise when it has finished, and tell it to
-move back again.</p>
-<p>This is where <em>repeatedly_execute</em>, <em>repeatedly_execute_always</em> and
-<em>late_repeatedly_execute_always</em> come in.</p>
-<p><strong>What’s the difference between them?</strong></p>
-<p>The <em>repeatedly_execute</em> event is run on every game loop (by default
-this is 40 times per second), but only when the game is not blocked.
-That means that it will run as long as there are no current blocking
-animations or moves going on (ie. a Walk or Animate command where
-<em>eBlock</em> has been specified as a parameter).</p>
-<p>On the other hand, <em>repeatedly_execute_always</em> and
-<em>late_repeatedly_execute_always</em> are always run on every game loop,
-no matter whether the game is blocked or not. This comes at a price
-though, which is that you cannot run any blocking code within it. So if
-you try to script a <em>player.Walk()</em> command that passes the <em>eBlock</em>
-parameter – or even just try to use a <code class="docutils literal notranslate"><span class="pre">Wait(1);</span></code> command, these will
-fail within <em>(late_)repeatedly_execute_always</em>.</p>
-<p>The difference between <em>repeatedly_execute_always</em> and
-<em>late_repeatedly_execute_always</em> is that first is run <strong>before</strong> game
-updates itself, changing animation frames, moving objects into new
-position etc, while the second, “late” version, is run <strong>after</strong> the
-game was updated, but before it redrew its new state on screen.</p>
-<p><strong>What would I use each one for?</strong></p>
-<p>You would usually use <em>repeatedly_execute</em> for doing things that affect
-the player character, and <em>repeatedly_execute_always</em> for doing
-background tasks that don’t directly affect the player.</p>
-<p>For example, if your game kept track of the player’s hunger, you might
-want to check in <em>repeatedly_execute</em> how long it has been since he
-last ate – and if it has been more than 20 minutes, make the player
-character stop walking and rub his stomach. Because you want to perform
-a blocking animation, and you wouldn’t want this to interrupt any
-specific cutscenes that were going on, repeatedly_execute would be the
-ideal place for it.</p>
-<p>On the other hand, in the case of our bird flying across the screen,
-because we don’t want to block the game while the bird flies, and we
-just want it to happen in the background, <em>repeatedly_execute_always</em>
-would be the place to put it.</p>
-<p>The <em>late_repeatedly_execute_always</em> is used in similar way to its
-“earlier” counterpart, but it may be essential if you need to precisely
-keep track of a game object movement. When
-<em>late_repeatedly_execute_always</em> is called all the objects are
-already updated to their new states, therefore you will have accurate
-information about them. On contrary, the <em>repeatedly_execute_always</em>
-will always be “one step behind” of the game state.</p>
-<p>In a nutshell, if you need to do something right before game state
-changes, use <em>repeatedly_execute_always</em>, if you need to do something
-right after game state has changed, use
-<em>late_repeatedly_execute_always</em>.</p>
-<p><strong>How do I create them?</strong></p>
-<p>In main game scripts, you create your <em>repeatedly_execute</em> script
-function by just pasting it into the script as follows. In the
-GlobalScript.asc it is already created for you:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// Put your script code here</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>In rooms, it is slightly different. If you want to run some script that
-is specific to a particular room, open that room’s Events Pane and
-you’ll see a “Repeatedly execute” event. Click the “…” button and a
-function called something like <em>Room_RepExec</em> will be created for you.</p>
-<p>This is important to remember – in a room script, <strong>you cannot simply
-paste in a repeatedly_execute function</strong>; you need to use the Events
-Pane to create it instead.</p>
-<p>To create <em>repeatedly_execute_always</em>, you can simply paste it into
-the script as above – but you can also paste it into room scripts.
-Therefore the following will work in any script, whether it be a room or
-a global script.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute_always</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// Put your script code here</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Remember, of course, that RepExec or <em>repeatedly_execute_always</em>
-functions in a room script will only be run while the player is actually
-in that room!</p>
-<p><strong>Can you show me an example?</strong></p>
-<p>Let’s implement the two things we just talked about. Here’s our hunger
-checking code:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// increment our timer variable (we would have created this</span>
-  <span class="c1">// in the Global Variables editor)</span>
-  <span class="nx">hungerTimer</span><span class="o">++</span><span class="p">;</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">hungerTimer</span> <span class="o">==</span> <span class="mi">800</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="nx">Display</span><span class="p">(</span><span class="s2">&quot;You are getting very hungry.&quot;</span><span class="p">);</span>
-    <span class="nx">player</span><span class="p">.</span><span class="nx">LockView</span><span class="p">(</span><span class="nx">RUBSTOMACH</span><span class="p">);</span>
-    <span class="nx">player</span><span class="p">.</span><span class="nx">Animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">eOnce</span><span class="p">,</span> <span class="nx">eBlock</span><span class="p">,</span> <span class="nx">eForwards</span><span class="p">);</span>
-    <span class="nx">player</span><span class="p">.</span><span class="nx">UnlockView</span><span class="p">();</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>and let’s put the bird flying code in the room script, because we only
-want it to happen in that one room:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">repeatedly_execute_always</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">cBird</span><span class="p">.</span><span class="nx">Moving</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">cBird</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="c1">// if the bird is on the left hand side of the screen,</span>
-      <span class="c1">// start it moving towards the right</span>
-      <span class="nx">cBird</span><span class="p">.</span><span class="nx">Walk</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="nx">cBird</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">eNoBlock</span><span class="p">,</span> <span class="nx">eAnywhere</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-      <span class="c1">// otherwise, move it towards the left</span>
-      <span class="nx">cBird</span><span class="p">.</span><span class="nx">Walk</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">cBird</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="nx">eNoBlock</span><span class="p">,</span> <span class="nx">eAnywhere</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>repeatedly_execute (_always)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Region.html" title="previous chapter">Region functions and properties</a></li>
-      <li>Next: <a href="Room.html" title="next chapter">Room functions and properties</a></li>
-  </ul></li>
+<li><a href="#repeatedly_execute-_always">repeatedly_execute (_always)</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="repeatedly_execute-_always" class="level2">
+<h2>repeatedly_execute (_always)</h2>
+<p>One of the most common things you'll need to do when scripting is to check if something has happened in the game -- and if so, then make the game do something in response.</p>
+<p>For example, suppose that you want a bird to fly backwards and forwards across the screen in the background. You need a way of telling the bird to move in one direction, recognise when it has finished, and tell it to move back again.</p>
+<p>This is where <em>repeatedly_execute</em>, <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> come in.</p>
+<p><strong>What's the difference between them?</strong></p>
+<p>The <em>repeatedly_execute</em> event is run on every game loop (by default this is 40 times per second), but only when the game is not blocked. That means that it will run as long as there are no current blocking animations or moves going on (ie. a Walk or Animate command where <em>eBlock</em> has been specified as a parameter).</p>
+<p>On the other hand, <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> are always run on every game loop, no matter whether the game is blocked or not. This comes at a price though, which is that you cannot run any blocking code within it. So if you try to script a <em>player.Walk()</em> command that passes the <em>eBlock</em> parameter -- or even just try to use a <code>Wait(1);</code> command, these will fail within <em>(late_)repeatedly_execute_always</em>.</p>
+<p>The difference between <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> is that first is run <strong>before</strong> game updates itself, changing animation frames, moving objects into new position etc, while the second, "late" version, is run <strong>after</strong> the game was updated, but before it redrew its new state on screen.</p>
+<p><strong>What would I use each one for?</strong></p>
+<p>You would usually use <em>repeatedly_execute</em> for doing things that affect the player character, and <em>repeatedly_execute_always</em> for doing background tasks that don't directly affect the player.</p>
+<p>For example, if your game kept track of the player's hunger, you might want to check in <em>repeatedly_execute</em> how long it has been since he last ate -- and if it has been more than 20 minutes, make the player character stop walking and rub his stomach. Because you want to perform a blocking animation, and you wouldn't want this to interrupt any specific cutscenes that were going on, repeatedly_execute would be the ideal place for it.</p>
+<p>On the other hand, in the case of our bird flying across the screen, because we don't want to block the game while the bird flies, and we just want it to happen in the background, <em>repeatedly_execute_always</em> would be the place to put it.</p>
+<p>The <em>late_repeatedly_execute_always</em> is used in similar way to its "earlier" counterpart, but it may be essential if you need to precisely keep track of a game object movement. When <em>late_repeatedly_execute_always</em> is called all the objects are already updated to their new states, therefore you will have accurate information about them. On contrary, the <em>repeatedly_execute_always</em> will always be "one step behind" of the game state.</p>
+<p>In a nutshell, if you need to do something right before game state changes, use <em>repeatedly_execute_always</em>, if you need to do something right after game state has changed, use <em>late_repeatedly_execute_always</em>.</p>
+<p><strong>How do I create them?</strong></p>
+<p>In main game scripts, you create your <em>repeatedly_execute</em> script function by just pasting it into the script as follows. In the GlobalScript.asc it is already created for you:</p>
+<pre><code>function repeatedly_execute()
+{
+  // Put your script code here
+}
+</code></pre>
+<p>In rooms, it is slightly different. If you want to run some script that is specific to a particular room, open that room's Events Pane and you'll see a "Repeatedly execute" event. Click the "..." button and a function called something like <em>Room_RepExec</em> will be created for you.</p>
+<p>This is important to remember -- in a room script, <strong>you cannot simply paste in a repeatedly_execute function</strong>; you need to use the Events Pane to create it instead.</p>
+<p>To create <em>repeatedly_execute_always</em>, you can simply paste it into the script as above -- but you can also paste it into room scripts. Therefore the following will work in any script, whether it be a room or a global script.</p>
+<pre><code>function repeatedly_execute_always()
+{
+  // Put your script code here
+}
+</code></pre>
+<p>Remember, of course, that RepExec or <em>repeatedly_execute_always</em> functions in a room script will only be run while the player is actually in that room!</p>
+<p><strong>Can you show me an example?</strong></p>
+<p>Let's implement the two things we just talked about. Here's our hunger checking code:</p>
+<pre><code>function repeatedly_execute()
+{
+  // increment our timer variable (we would have created this
+  // in the Global Variables editor)
+  hungerTimer++;
 
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20repeatedly_execute%20%28_always%29&body=source%20is%20RepExec.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/RepExec"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+  if (hungerTimer == 800)
+  {
+    Display(&quot;You are getting very hungry.&quot;);
+    player.LockView(RUBSTOMACH);
+    player.Animate(0, 5, eOnce, eBlock, eForwards);
+    player.UnlockView();
+  }
+}
+</code></pre>
+<p>and let's put the bird flying code in the room script, because we only want it to happen in that one room:</p>
+<pre><code>function repeatedly_execute_always()
+{
+  if (!cBird.Moving)
+  {
+    if (cBird.x &lt; 100)
+    {
+      // if the bird is on the left hand side of the screen,
+      // start it moving towards the right
+      cBird.Walk(400, cBird.y, eNoBlock, eAnywhere);
+    }
+    else
+    {
+      // otherwise, move it towards the left
+      cBird.Walk(0, cBird.y, eNoBlock, eAnywhere);
+    }
+  }
+}
+</code></pre>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

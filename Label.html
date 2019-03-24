@@ -1,196 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Label functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Label functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lip sync" href="Lipsync.html" />
-    <link rel="prev" title="Keyboard Shortcuts" href="KeyboardShortcuts.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="label-functions-and-properties">
-<h1>Label functions and properties<a class="headerlink" href="#label-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="font">
-<span id="index-0"></span><h2>Font<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#label-functions-and-properties">Label functions and properties</a><ul>
+<li><a href="#font">Font</a></li>
+<li><a href="#text">Text</a></li>
+<li><a href="#textcolor">TextColor</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="label-functions-and-properties" class="level2">
+<h2>Label functions and properties</h2>
+<section id="font" class="level3">
+<h3>Font</h3>
 <p><em>(Formerly known as SetLabelFont, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>FontType Label.Font;
-</pre></div>
-</div>
-<p>Gets/sets the font used to display the label’s text. This is useful if
-you have a standard SCI font for your English version, but want to
-change to a TTF font for foreign language versions.</p>
+<pre><code>FontType Label.Font;
+</code></pre>
+<p>Gets/sets the font used to display the label's text. This is useful if you have a standard SCI font for your English version, but want to change to a TTF font for foreign language versions.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (IsTranslationAvailable()) {
+<pre><code>if (IsTranslationAvailable()) {
   lblStatus.Font = eFontForeign;
 }
-</pre></div>
-</div>
-<p>will change label ‘lblStatus’ to use font “Foreign” if a game
-translation is in use.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsTranslationAvailable</span></a>,
-<a class="reference internal" href="#"><span class="doc">Label.Text</span></a>,
-<a class="reference internal" href="TextBox.html"><span class="doc">TextBox.Font</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="text">
-<span id="index-1"></span><h2>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as SetLabelText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Label.GetText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Label.SetText, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Label.Text;
-</pre></div>
-</div>
-<p>Gets/sets the text displayed in the specified label. This allows you to
-change the text during the game, for example to create a Lucasarts-style
-status line.</p>
+</code></pre>
+<p>will change label 'lblStatus' to use font "Foreign" if a game translation is in use.</p>
+<p><em>See Also:</em> <a href="Game.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Label.html#text">Label.Text</a>, <a href="TextBox.html#font">TextBox.Font</a></p>
+<hr />
+</section>
+<section id="text" class="level3">
+<h3>Text</h3>
+<p><em>(Formerly known as SetLabelText, which is now obsolete)</em><br> <em>(Formerly known as Label.GetText, which is now obsolete)</em><br> <em>(Formerly known as Label.SetText, which is now obsolete)</em></p>
+<pre><code>String Label.Text;
+</code></pre>
+<p>Gets/sets the text displayed in the specified label. This allows you to change the text during the game, for example to create a Lucasarts-style status line.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lblStatus.Text = Game.GetLocationName(mouse.x, mouse.y);
-</pre></div>
-</div>
-<p>will display the name of the location the cursor is over on label
-‘lblStatus’</p>
-<p><em>See Also:</em> <a class="reference internal" href="Button.html"><span class="doc">Button.NormalGraphic</span></a>,
-<a class="reference internal" href="Button.html"><span class="doc">Button.Text</span></a>,
-<a class="reference internal" href="#"><span class="doc">Label.TextColor</span></a>,
-<a class="reference internal" href="#"><span class="doc">Label.Font</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="textcolor">
-<span id="index-2"></span><h2>TextColor<a class="headerlink" href="#textcolor" title="Permalink to this headline">¶</a></h2>
+<pre><code>lblStatus.Text = Game.GetLocationName(mouse.x, mouse.y);
+</code></pre>
+<p>will display the name of the location the cursor is over on label 'lblStatus'</p>
+<p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Button.html#text">Button.Text</a>, <a href="Label.html#textcolor">Label.TextColor</a>, <a href="Label.html#font">Label.Font</a></p>
+<hr />
+</section>
+<section id="textcolor" class="level3">
+<h3>TextColor</h3>
 <p><em>(Formerly known as SetLabelColor, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Label.TextColor;
-</pre></div>
-</div>
-<p>Gets/sets the text colour used to display the label’s text.</p>
+<pre><code>int Label.TextColor;
+</code></pre>
+<p>Gets/sets the text colour used to display the label's text.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>lblStatus.TextColor = 14;
-</pre></div>
-</div>
-<p>will change label ‘lblStatus’ to have yellow text.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Label.Font</span></a>,
-<a class="reference internal" href="#"><span class="doc">Label.Text</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>lblStatus.TextColor = 14;
+</code></pre>
+<p>will change label 'lblStatus' to have yellow text.</p>
+<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="Label.html#text">Label.Text</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="KeyboardShortcuts.html" title="previous chapter">Keyboard Shortcuts</a></li>
-      <li>Next: <a href="Lipsync.html" title="next chapter">Lip sync</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Label%20functions%20and%20properties&body=source%20is%20Label.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Label"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Label functions and properties</a><ul>
-<li><a class="reference internal" href="#font">Font</a></li>
-<li><a class="reference internal" href="#text">Text</a></li>
-<li><a class="reference internal" href="#textcolor">TextColor</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

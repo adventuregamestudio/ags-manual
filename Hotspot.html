@@ -1,387 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Hotspot functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Hotspot functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Integration with Windows" href="IntegrationWithWindows.html" />
-    <link rel="prev" title="Global variables" href="GlobalVariables.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="hotspot-functions-and-properties">
-<h1>Hotspot functions and properties<a class="headerlink" href="#hotspot-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="getatscreenxy">
-<span id="index-0"></span><h2>GetAtScreenXY<a class="headerlink" href="#getatscreenxy" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as global function GetHotspotAt, which is now
-obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Hotspot* Hotspot.GetAtScreenXY(int x, int y)
-</pre></div>
-</div>
-<p>Returns the hotspot at SCREEN co-ordinates (X,Y). If there is no hotspot
-there, or if invalid co-ordinates are specified, the Hotspot*
-representing hotspot 0 will be returned.</p>
-<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM
-co-ordinates. This means that with a scrolling room, the co-ordinates
-you pass are relative to the screen’s current position, and NOT absolute
-room co-ordinates. This means that this function is suitable for use
-with the mouse cursor position variables.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#hotspot-functions-and-properties">Hotspot functions and properties</a><ul>
+<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a href="#getproperty">GetProperty</a></li>
+<li><a href="#gettextproperty">GetTextProperty</a></li>
+<li><a href="#setproperty">SetProperty</a></li>
+<li><a href="#settextproperty">SetTextProperty</a></li>
+<li><a href="#isinteractionavailable">IsInteractionAvailable</a></li>
+<li><a href="#runinteraction">RunInteraction</a></li>
+<li><a href="#enabled">Enabled</a></li>
+<li><a href="#id">ID</a></li>
+<li><a href="#name">Name</a></li>
+<li><a href="#walktox">WalkToX</a></li>
+<li><a href="#walktoy">WalkToY</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="hotspot-functions-and-properties" class="level2">
+<h2>Hotspot functions and properties</h2>
+<section id="getatscreenxy" class="level3">
+<h3>GetAtScreenXY</h3>
+<p><em>(Formerly known as global function GetHotspotAt, which is now obsolete)</em></p>
+<pre><code>static Hotspot* Hotspot.GetAtScreenXY(int x, int y)
+</code></pre>
+<p>Returns the hotspot at SCREEN co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
+<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that with a scrolling room, the co-ordinates you pass are relative to the screen's current position, and NOT absolute room co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) == hDoor)
+<pre><code>if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) == hDoor)
   Display(&quot;Mouse on the door&quot;);
 else if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) != hotspot[0])
   Display(&quot;Mouse is on something (but not the door)!&quot;);
 else
   Display(&quot;Mouse not on a hotspot&quot;);
-</pre></div>
-</div>
+</code></pre>
 <p>will display a message depending on what the mouse is on.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">GetLocationType</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="getproperty">
-<span id="index-1"></span><h2>GetProperty<a class="headerlink" href="#getproperty" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Game.html#getlocationtype">GetLocationType</a></p>
+<hr />
+</section>
+<section id="getproperty" class="level3">
+<h3>GetProperty</h3>
 <p><em>(Formerly known as GetHotspotProperty, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Hotspot.GetProperty(string property)
-</pre></div>
-</div>
+<pre><code>Hotspot.GetProperty(string property)
+</code></pre>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
-<p>This command works with Number properties (it returns the number), and
-with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
+<p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent GetTextProperty function to get a text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (hotspot[1].GetProperty(&quot;Value&quot;) &gt; 200)
+<pre><code>if (hotspot[1].GetProperty(&quot;Value&quot;) &gt; 200)
   Display(&quot;Hotspot 1&#39;s value is over 200!&quot;);
-</pre></div>
-</div>
-<p>will print the message if hotspot 1 has its “Value” property set to more
-than 200.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.GetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="gettextproperty">
-<span id="index-2"></span><h2>GetTextProperty<a class="headerlink" href="#gettextproperty" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetHotspotPropertyText, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Hotspot.GetPropertyText, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String Hotspot.GetTextProperty(string property)
-</pre></div>
-</div>
+</code></pre>
+<p>will print the message if hotspot 1 has its "Value" property set to more than 200.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#gettextproperty">Hotspot.GetTextProperty</a></p>
+<hr />
+</section>
+<section id="gettextproperty" class="level3">
+<h3>GetTextProperty</h3>
+<p><em>(Formerly known as GetHotspotPropertyText, which is now obsolete)</em><br> <em>(Formerly known as Hotspot.GetPropertyText, which is now obsolete)</em></p>
+<pre><code>String Hotspot.GetTextProperty(string property)
+</code></pre>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
-<p>This command works with Text properties only. The property’s text will
-be returned from this function.</p>
+<p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent GetProperty function to get a non-text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="nt">String</span> <span class="nt">description</span> <span class="o">=</span> <span class="nt">hotspot</span><span class="cp">[</span><span class="mi">2</span><span class="cp">]</span><span class="p">.</span><span class="nc">GetTextProperty</span><span class="o">(</span><span class="s2">&quot;Description&quot;</span><span class="o">);</span>
-<span class="nt">Display</span><span class="o">(</span><span class="s2">&quot;Hotspot 2&#39;s description: %s&quot;</span><span class="o">,</span> <span class="nt">description</span><span class="o">);</span>
-</pre></div>
-</div>
-<p>will retrieve hotspot 2’s “description” property and display it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.GetProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="setproperty">
-<span id="index-3"></span><h2>SetProperty<a class="headerlink" href="#setproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Hotspot.SetProperty(const string property, int value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified
-hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
-<p>This command works with Number properties (it sets the numeric value),
-and with Boolean properties (sets FALSE is value is equal to 0, or TRUE
-otherwise).</p>
-<p>Use the equivalent SetTextProperty function to set new text property
-value.</p>
+<pre><code>String description = hotspot[2].GetTextProperty(&quot;Description&quot;);
+Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
+</code></pre>
+<p>will retrieve hotspot 2's "description" property and display it.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#getproperty">Hotspot.GetProperty</a></p>
+<hr />
+</section>
+<section id="setproperty" class="level3">
+<h3>SetProperty</h3>
+<pre><code>bool Hotspot.SetProperty(const string property, int value)
+</code></pre>
+<p>Sets the new <em>value</em> for the custom <em>property</em> for the specified hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Number properties (it sets the numeric value), and with Boolean properties (sets FALSE is value is equal to 0, or TRUE otherwise).</p>
+<p>Use the equivalent SetTextProperty function to set new text property value.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>hDoor.SetProperty(&quot;LockDifficulty&quot;, 5);
-</pre></div>
-</div>
-<p>will change Door hotspot’s “LockDifficulty” custom property to 5.</p>
+<pre><code>hDoor.SetProperty(&quot;LockDifficulty&quot;, 5);
+</code></pre>
+<p>will change Door hotspot's "LockDifficulty" custom property to 5.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.SetTextProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="settextproperty">
-<span id="index-4"></span><h2>SetTextProperty<a class="headerlink" href="#settextproperty" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Hotspot.SetTextProperty(const string property, const string value)
-</pre></div>
-</div>
-<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified
-hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
-<p>This command works with Text properties only. The property’s text will
-be changed to new value.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#settextproperty">Hotspot.SetTextProperty</a></p>
+<hr />
+</section>
+<section id="settextproperty" class="level3">
+<h3>SetTextProperty</h3>
+<pre><code>bool Hotspot.SetTextProperty(const string property, const string value)
+</code></pre>
+<p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
+<p>This command works with Text properties only. The property's text will be changed to new value.</p>
 <p>Use the equivalent SetProperty function to set a non-text property.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>hDoor.SetTextProperty(&quot;Description&quot;, &quot;The sturdy door&quot;);
-</pre></div>
-</div>
-<p>will change Door’s “description” property.</p>
+<pre><code>hDoor.SetTextProperty(&quot;Description&quot;, &quot;The sturdy door&quot;);
+</code></pre>
+<p>will change Door's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.SetProperty</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="isinteractionavailable">
-<span id="index-5"></span><h2>IsInteractionAvailable<a class="headerlink" href="#isinteractionavailable" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Hotspot.IsInteractionAvailable(CursorMode)
-</pre></div>
-</div>
-<p>Checks whether there is an event handler defined for activating the
-hotspot in cursor mode MODE.</p>
-<p>This function is very similar to RunInteraction, except that rather than
-run the event handler script function, it simply returns <em>true</em> if
-something would have happened, or <em>false</em> if unhandled_event would have
-been run.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#setproperty">Hotspot.SetProperty</a></p>
+<hr />
+</section>
+<section id="isinteractionavailable" class="level3">
+<h3>IsInteractionAvailable</h3>
+<pre><code>Hotspot.IsInteractionAvailable(CursorMode)
+</code></pre>
+<p>Checks whether there is an event handler defined for activating the hotspot in cursor mode MODE.</p>
+<p>This function is very similar to RunInteraction, except that rather than run the event handler script function, it simply returns <em>true</em> if something would have happened, or <em>false</em> if unhandled_event would have been run.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (hTable.IsInteractionAvailable(eModeLookat) == 0)
+<pre><code>if (hTable.IsInteractionAvailable(eModeLookat) == 0)
   Display(&quot;looking on this table would not do anything.&quot;);
-</pre></div>
-</div>
+</code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">IsInteractionAvailable</span></a>,
-<a class="reference internal" href="#"><span class="doc">Hotspot.RunInteraction</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="runinteraction">
-<span id="index-6"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="Game.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a></p>
+<hr />
+</section>
+<section id="runinteraction" class="level3">
+<h3>RunInteraction</h3>
 <p><em>(Formerly known as RunHotspotInteraction, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Hotspot.RunInteraction(CursorMode)
-</pre></div>
-</div>
-<p>Processes the event handler as if the player had clicked the mouse on
-the hotspot using the specified cursor mode.</p>
+<pre><code>Hotspot.RunInteraction(CursorMode)
+</code></pre>
+<p>Processes the event handler as if the player had clicked the mouse on the hotspot using the specified cursor mode.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>hDoor.RunInteraction(eModeLookat);
-</pre></div>
-</div>
-<p>will run the code defined in the “LOOK AT HOTSPOT” event for hotspot
-hDoor.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a>,
-<a class="reference internal" href="#"><span class="doc">Hotspot.IsInteractionAvailable</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.RunInteraction</span></a>,
-<a class="reference internal" href="Object.html"><span class="doc">Object.RunInteraction</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="enabled">
-<span id="index-7"></span><h2>Enabled<a class="headerlink" href="#enabled" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as DisableHotspot, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as EnableHotspot, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Hotspot.Enabled
-</pre></div>
-</div>
-<p>Enables/disables the specified hotspot. If you set this to false, then
-all areas of the screen that were previously made up of the hotspot now
-act as type 0 (no hotspot). You can turn the hotspot back on later by
-setting this back to true.</p>
-<p>This setting is persisted in-game; that is, it will not be reset when
-the player re-enters the room.</p>
+<pre><code>hDoor.RunInteraction(eModeLookat);
+</code></pre>
+<p>will run the code defined in the "LOOK AT HOTSPOT" event for hotspot hDoor.</p>
+<p><em>See Also:</em> <a href="Room.html#processclick">Room.ProcessClick</a>, <a href="Hotspot.html#isinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Character.html#runinteraction">Character.RunInteraction</a>, <a href="Object.html#runinteraction">Object.RunInteraction</a></p>
+<hr />
+</section>
+<section id="enabled" class="level3">
+<h3>Enabled</h3>
+<p><em>(Formerly known as DisableHotspot, which is now obsolete)</em><br> <em>(Formerly known as EnableHotspot, which is now obsolete)</em></p>
+<pre><code>bool Hotspot.Enabled
+</code></pre>
+<p>Enables/disables the specified hotspot. If you set this to false, then all areas of the screen that were previously made up of the hotspot now act as type 0 (no hotspot). You can turn the hotspot back on later by setting this back to true.</p>
+<p>This setting is persisted in-game; that is, it will not be reset when the player re-enters the room.</p>
 <p>The default value of this property is always <em>true</em>.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>hBrownTree.Enabled = false;
-</pre></div>
-</div>
+<pre><code>hBrownTree.Enabled = false;
+</code></pre>
 <p>will disable the hBrownTree hotspot.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Region.html"><span class="doc">Region.Enabled</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">RemoveWalkableArea</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">RestoreWalkableArea</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="index-8">
-<span id="id"></span><h2>ID<a class="headerlink" href="#index-8" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Hotspot.ID
-</pre></div>
-</div>
-<p>Gets the hotspot number of this hotspot. This allows you to interoperate
-with old script using the number-based hotspot functions.</p>
+<p><em>See Also:</em> <a href="Region.html#enabled">Region.Enabled</a>, <a href="Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<hr />
+</section>
+<section id="id" class="level3">
+<h3>ID</h3>
+<pre><code>readonly int Hotspot.ID
+</code></pre>
+<p>Gets the hotspot number of this hotspot. This allows you to interoperate with old script using the number-based hotspot functions.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Hotspot hDoor is hotspot number %d.&quot;, hDoor.ID);
+<pre><code>Display(&quot;Hotspot hDoor is hotspot number %d.&quot;, hDoor.ID);
 Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
-</pre></div>
-</div>
-<p>displays hDoor’s hotspot number, and then displays hotspot 3’s number
-(which will be 3).</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.GetAtScreenXY</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="name">
-<span id="index-9"></span><h2>Name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as GetHotspotName, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as Hotspot.GetName, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly String Hotspot.Name;
-</pre></div>
-</div>
+</code></pre>
+<p>displays hDoor's hotspot number, and then displays hotspot 3's number (which will be 3).</p>
+<p><em>See Also:</em> <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a></p>
+<hr />
+</section>
+<section id="name" class="level3">
+<h3>Name</h3>
+<p><em>(Formerly known as GetHotspotName, which is now obsolete)</em><br> <em>(Formerly known as Hotspot.GetName, which is now obsolete)</em></p>
+<pre><code>readonly String Hotspot.Name;
+</code></pre>
 <p>Gets the name of the hotspot.</p>
-<p>This property is read-only; it is currently not possible to change
-hotspot names at run-time.</p>
+<p>This property is read-only; it is currently not possible to change hotspot names at run-time.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Hotspot 3&#39;s name is %s.&quot;, hotspot[3].Name);
-</pre></div>
-</div>
-<p>will retrieve and then display hotspot 3’s name.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Game.html"><span class="doc">Game.GetLocationName</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-10"></span></div>
-<div class="section" id="walktox">
-<span id="index-11"></span><h2>WalkToX<a class="headerlink" href="#walktox" title="Permalink to this headline">¶</a></h2>
+<pre><code>Display(&quot;Hotspot 3&#39;s name is %s.&quot;, hotspot[3].Name);
+</code></pre>
+<p>will retrieve and then display hotspot 3's name.</p>
+<p><em>See Also:</em> <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
+<hr />
+</section>
+<section id="walktox" class="level3">
+<h3>WalkToX</h3>
 <p><em>(Formerly known as GetHotspotPointX, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Hotspot.WalkToX
-</pre></div>
-</div>
-<p>Gets the X room co-ordinate of the hotspot’s walk-to point. If the
-hotspot does not have a walk-to point, returns -1.</p>
+<pre><code>readonly int Hotspot.WalkToX
+</code></pre>
+<p>Gets the X room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
-</pre></div>
-</div>
-<p>will move the character to hotspot hTable’s walk-to point.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.WalkToY</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">MoveCharacterToHotspot</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-12"></span></div>
-<div class="section" id="walktoy">
-<span id="index-13"></span><h2>WalkToY<a class="headerlink" href="#walktoy" title="Permalink to this headline">¶</a></h2>
+<pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
+</code></pre>
+<p>will move the character to hotspot hTable's walk-to point.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#walktoy">Hotspot.WalkToY</a>, <a href="Game.html#movecharactertohotspot">MoveCharacterToHotspot</a></p>
+<hr />
+</section>
+<section id="walktoy" class="level3">
+<h3>WalkToY</h3>
 <p><em>(Formerly known as GetHotspotPointY, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Hotspot.WalkToY
-</pre></div>
-</div>
-<p>Gets the Y room co-ordinate of the hotspot’s walk-to point. If the
-hotspot does not have a walk-to point, returns -1.</p>
+<pre><code>readonly int Hotspot.WalkToY
+</code></pre>
+<p>Gets the Y room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
-</pre></div>
-</div>
-<p>will move the character to hotspot hTable’s walk-to point.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Hotspot.WalkToX</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">MoveCharacterToHotspot</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
+</code></pre>
+<p>will move the character to hotspot hTable's walk-to point.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#walktox">Hotspot.WalkToX</a>, <a href="Game.html#movecharactertohotspot">MoveCharacterToHotspot</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="GlobalVariables.html" title="previous chapter">Global variables</a></li>
-      <li>Next: <a href="IntegrationWithWindows.html" title="next chapter">Integration with Windows</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Hotspot%20functions%20and%20properties&body=source%20is%20Hotspot.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Hotspot"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Hotspot functions and properties</a><ul>
-<li><a class="reference internal" href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a class="reference internal" href="#getproperty">GetProperty</a></li>
-<li><a class="reference internal" href="#gettextproperty">GetTextProperty</a></li>
-<li><a class="reference internal" href="#setproperty">SetProperty</a></li>
-<li><a class="reference internal" href="#settextproperty">SetTextProperty</a></li>
-<li><a class="reference internal" href="#isinteractionavailable">IsInteractionAvailable</a></li>
-<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
-<li><a class="reference internal" href="#enabled">Enabled</a></li>
-<li><a class="reference internal" href="#index-8">ID</a></li>
-<li><a class="reference internal" href="#name">Name</a></li>
-<li><a class="reference internal" href="#walktox">WalkToX</a></li>
-<li><a class="reference internal" href="#walktoy">WalkToY</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

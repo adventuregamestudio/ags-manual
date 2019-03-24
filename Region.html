@@ -1,436 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Region functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Region functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="repeatedly_execute (_always)" href="RepExec.html" />
-    <link rel="prev" title="Preprocessor" href="Preprocessor.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="region-functions-and-properties">
-<h1>Region functions and properties<a class="headerlink" href="#region-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="getatroomxy">
-<span id="index-1"></span><h2>GetAtRoomXY<a class="headerlink" href="#getatroomxy" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#region-functions-and-properties">Region functions and properties</a><ul>
+<li><a href="#getatroomxy">GetAtRoomXY</a></li>
+<li><a href="#runinteraction">RunInteraction</a></li>
+<li><a href="#tint">Tint</a></li>
+<li><a href="#enabled">Enabled</a></li>
+<li><a href="#id">ID</a></li>
+<li><a href="#lightlevel">LightLevel</a></li>
+<li><a href="#tintenabled">TintEnabled</a></li>
+<li><a href="#tintblue">TintBlue</a></li>
+<li><a href="#tintgreen">TintGreen</a></li>
+<li><a href="#tintred">TintRed</a></li>
+<li><a href="#tintsaturation">TintSaturation</a></li>
+<li><a href="#tintluminance">TintLuminance</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="region-functions-and-properties" class="level2">
+<h2>Region functions and properties</h2>
+<section id="getatroomxy" class="level3">
+<h3>GetAtRoomXY</h3>
 <p><em>(Formerly known as global function GetRegionAt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static Region* Region.GetAtRoomXY(int x, int y)
-</pre></div>
-</div>
-<p>Returns the region at ROOM co-ordinates (X,Y). If there is no region
-there, or if invalid co-ordinates are specified, the Region*
-representing region 0 will be returned.</p>
-<p><strong>NOTE:</strong> Unlike GetHotspotAtLocation, the co-ordinates specified are
-ROOM co-ordinates. This means that if you want to use the mouse cursor
-location, you have to add the screen offset to make it work in scrolling
-rooms.</p>
+<pre><code>static Region* Region.GetAtRoomXY(int x, int y)
+</code></pre>
+<p>Returns the region at ROOM co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<p><strong>NOTE:</strong> Unlike GetHotspotAtLocation, the co-ordinates specified are ROOM co-ordinates. This means that if you want to use the mouse cursor location, you have to add the screen offset to make it work in scrolling rooms.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (Region.GetAtRoomXY(player.x, player.y) == region[0])
+<pre><code>if (Region.GetAtRoomXY(player.x, player.y) == region[0])
   Display(&quot;The player is not currently standing on a region.&quot;);
-</pre></div>
-</div>
-<p><em>See Also:</em> <a class="reference internal" href="Room.html"><span class="doc">GetWalkableAreaAt</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="runinteraction">
-<span id="index-2"></span><h2>RunInteraction<a class="headerlink" href="#runinteraction" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p><em>See Also:</em> <a href="Room.html#getwalkableareaat">GetWalkableAreaAt</a></p>
+<hr />
+</section>
+<section id="runinteraction" class="level3">
+<h3>RunInteraction</h3>
 <p><em>(Formerly known as RunRegionInteraction, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Region.RunInteraction(int event)
-</pre></div>
-</div>
-<p>Runs the event handler as if the EVENT for the region had been
-activated.</p>
-<p><strong>NOTE:</strong> Unlike the other RunInteraction commands, this one does not
-take a cursor mode. Instead, it uses an event type as follows:</p>
-<p>0 While player stands on region<span class="raw-html-m2r"><br></span>
-1 Player walks onto region<span class="raw-html-m2r"><br></span>
-2 Player walks off region</p>
+<pre><code>Region.RunInteraction(int event)
+</code></pre>
+<p>Runs the event handler as if the EVENT for the region had been activated.</p>
+<p><strong>NOTE:</strong> Unlike the other RunInteraction commands, this one does not take a cursor mode. Instead, it uses an event type as follows:</p>
+<p>0 While player stands on region<br> 1 Player walks onto region<br> 2 Player walks off region</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>region[4].RunInteraction(1);
-</pre></div>
-</div>
-<p>will run the actions defined in the event handler script for “Player
-walks onto region” for region 4.</p>
-<p><em>See Also:</em>
-<a class="reference internal" href="Character.html"><span class="doc">Character.RunInteraction</span></a>,
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.RunInteraction</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tint">
-<span id="index-3"></span><h2>Tint<a class="headerlink" href="#tint" title="Permalink to this headline">¶</a></h2>
+<pre><code>region[4].RunInteraction(1);
+</code></pre>
+<p>will run the actions defined in the event handler script for "Player walks onto region" for region 4.</p>
+<p><em>See Also:</em> <a href="Character.html#runinteraction">Character.RunInteraction</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a></p>
+<hr />
+</section>
+<section id="tint" class="level3">
+<h3>Tint</h3>
 <p><em>(Formerly known as SetRegionTint, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Region.Tint(int red, int green, int blue, int amount, optional int luminance)
-</pre></div>
-</div>
-<p>Changes the region to have RGB tint (RED, GREEN, BLUE) with AMOUNT
-percent saturation.</p>
-<p>The red, green and blue values are between 0 and 255, and you supply the
-same values that you would use in the editor.</p>
-<p>For the meaning of all the parameters, see
-<a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a>.</p>
-<p><strong>NOTE</strong>: The tint will be reset when the player leaves the room, so you
-need to use it in Player Enters Room if you want a permanent change.</p>
+<pre><code>Region.Tint(int red, int green, int blue, int amount, optional int luminance)
+</code></pre>
+<p>Changes the region to have RGB tint (RED, GREEN, BLUE) with AMOUNT percent saturation.</p>
+<p>The red, green and blue values are between 0 and 255, and you supply the same values that you would use in the editor.</p>
+<p>For the meaning of all the parameters, see <a href="Game.html#setambienttint">SetAmbientTint</a>.</p>
+<p><strong>NOTE</strong>: The tint will be reset when the player leaves the room, so you need to use it in Player Enters Room if you want a permanent change.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games.</p>
 <p><strong>NOTE</strong>: To remove the region tint, set the LightLevel property to 0.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>region[2].Tint(180, 20, 20, 50);
-</pre></div>
-</div>
-<p>will set region 2’s RGB tint to (180, 20, 20) with 50<code class="docutils literal notranslate"><span class="pre">%</span></code> opacity.</p>
-<p><em>Compatibility:</em> Optional <em>luminance</em> parameter is supported only by
-<strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.LightLevel</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">SetAmbientTint</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="enabled">
-<span id="index-4"></span><h2>Enabled<a class="headerlink" href="#enabled" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as DisableRegion, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as EnableRegion, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>bool Region.Enabled
-</pre></div>
-</div>
-<p>Enables/disables the specified region. If you set this to false, then
-all areas of the screen that were previously part of the region now act
-as type 0 (no region). You can turn the region back on later by setting
-this to true.</p>
-<p>While a region is disabled, it will not be returned by
-Region.GetAtRoomXY, and if the character walks onto the region then its
-events will not get run.</p>
+<pre><code>region[2].Tint(180, 20, 20, 50);
+</code></pre>
+<p>will set region 2's RGB tint to (180, 20, 20) with 50<code>%</code> opacity.</p>
+<p><em>Compatibility:</em> Optional <em>luminance</em> parameter is supported only by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Region.html#lightlevel">Region.LightLevel</a>, <a href="Game.html#setambienttint">SetAmbientTint</a></p>
+<hr />
+</section>
+<section id="enabled" class="level3">
+<h3>Enabled</h3>
+<p><em>(Formerly known as DisableRegion, which is now obsolete)</em><br> <em>(Formerly known as EnableRegion, which is now obsolete)</em></p>
+<pre><code>bool Region.Enabled
+</code></pre>
+<p>Enables/disables the specified region. If you set this to false, then all areas of the screen that were previously part of the region now act as type 0 (no region). You can turn the region back on later by setting this to true.</p>
+<p>While a region is disabled, it will not be returned by Region.GetAtRoomXY, and if the character walks onto the region then its events will not get run.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>region[3].Enabled = false;
-</pre></div>
-</div>
+<pre><code>region[3].Enabled = false;
+</code></pre>
 <p>will disable region number 3.</p>
-<p><em>See Also:</em> <a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.Enabled</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">RemoveWalkableArea</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">RestoreWalkableArea</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="index-5">
-<span id="id"></span><h2>ID<a class="headerlink" href="#index-5" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.ID
-</pre></div>
-</div>
-<p>Gets the region number of this region. This allows you to interoperate
-with old script using the number-based region functions.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<hr />
+</section>
+<section id="id" class="level3">
+<h3>ID</h3>
+<pre><code>readonly int Region.ID
+</code></pre>
+<p>Gets the region number of this region. This allows you to interoperate with old script using the number-based region functions.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>Display(&quot;Region 3 is number %d.&quot;, region[3].ID);
-</pre></div>
-</div>
-<p>displays region 3’s number (which will be 3).</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.GetAtRoomXY</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="lightlevel">
-<span id="index-6"></span><h2>LightLevel<a class="headerlink" href="#lightlevel" title="Permalink to this headline">¶</a></h2>
+<pre><code>Display(&quot;Region 3 is number %d.&quot;, region[3].ID);
+</code></pre>
+<p>displays region 3's number (which will be 3).</p>
+<p><em>See Also:</em> <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a></p>
+<hr />
+</section>
+<section id="lightlevel" class="level3">
+<h3>LightLevel</h3>
 <p><em>(Formerly known as SetAreaLightLevel, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Region.LightLevel
-</pre></div>
-</div>
-<p>Gets/sets the region’s light level. This does the same thing as the
-Light Level textbox in the editor, but allows you to change it at
-run-time.</p>
-<p>The light level is from <strong>-100 to 100</strong>. This is different from the
-editor, which takes values from 0 to 200. Subtract 100 from the value
-you would use in the editor when calling this function. The reason for
-this discrepancy is legacy reasons from the DOS editor days.</p>
-<p>In 8-bit games you cannot use positive light level for brightening
-effect, but you may still use negative values to produce darkening
-effect.</p>
+<pre><code>int Region.LightLevel
+</code></pre>
+<p>Gets/sets the region's light level. This does the same thing as the Light Level textbox in the editor, but allows you to change it at run-time.</p>
+<p>The light level is from <strong>-100 to 100</strong>. This is different from the editor, which takes values from 0 to 200. Subtract 100 from the value you would use in the editor when calling this function. The reason for this discrepancy is legacy reasons from the DOS editor days.</p>
+<p>In 8-bit games you cannot use positive light level for brightening effect, but you may still use negative values to produce darkening effect.</p>
 <p>To disable region lighting and tinting effects, set LightLevel to 0.</p>
-<p><strong>NOTE</strong>: The light level will be reset to the editor settings when the
-player leaves the room, so you need to use it in Player Enters Room if
-you want a permanent change.</p>
-<p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the
-region.</p>
-<p><strong>NOTE:</strong> Region’s light level does NOT override individual character
-and object light levels.</p>
+<p><strong>NOTE</strong>: The light level will be reset to the editor settings when the player leaves the room, so you need to use it in Player Enters Room if you want a permanent change.</p>
+<p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the region.</p>
+<p><strong>NOTE:</strong> Region's light level does NOT override individual character and object light levels.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (GetGlobalInt(10)==1)
+<pre><code>if (GetGlobalInt(10)==1)
     region[2].LightLevel = 100;
-</pre></div>
-</div>
-<p>will set region 2’s level light to 100 if the Global Integer 10 is 1.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="Game.html"><span class="doc">SetAmbientLightLevel</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.SetLightLevel</span></a>,
-<a class="reference internal" href="Object.html"><span class="doc">Object.SetLightLevel</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-7"></span></div>
-<div class="section" id="tintenabled">
-<span id="index-8"></span><h2>TintEnabled<a class="headerlink" href="#tintenabled" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool Region.TintEnabled
-</pre></div>
-</div>
+</code></pre>
+<p>will set region 2's level light to 100 if the Global Integer 10 is 1.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Game.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Character.html#setlightlevel">Character.SetLightLevel</a>, <a href="Object.html#setlightlevel">Object.SetLightLevel</a></p>
+<hr />
+</section>
+<section id="tintenabled" class="level3">
+<h3>TintEnabled</h3>
+<pre><code>readonly bool Region.TintEnabled
+</code></pre>
 <p>Gets whether the region currently has an RGB tint enabled for it.</p>
-<p>Returns <em>true</em> if it does, and <em>false</em> if it does not. If it does not,
-then the LightLevel property reflects the region lighting.</p>
-<p>If this property is <em>false</em>, then the TintRed, TintGreen, TintBlue,
-TintSaturation and TintLuminance properties are invalid.</p>
+<p>Returns <em>true</em> if it does, and <em>false</em> if it does not. If it does not, then the LightLevel property reflects the region lighting.</p>
+<p>If this property is <em>false</em>, then the TintRed, TintGreen, TintBlue, TintSaturation and TintLuminance properties are invalid.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (region[4].TintEnabled) {
+<pre><code>if (region[4].TintEnabled) {
   Display(&quot;Region 4 is tinted!!&quot;);
 }
-</pre></div>
-</div>
+</code></pre>
 <p>will display a message if region 4 is tinted</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tintblue">
-<span id="index-9"></span><h2>TintBlue<a class="headerlink" href="#tintblue" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.TintBlue
-</pre></div>
-</div>
-<p>Gets the <em>Blue</em> setting for the region’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference internal" href="#"><span class="doc">Region.Tint</span></a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>
-property is false, then this value is meaningless.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a></p>
+<hr />
+</section>
+<section id="tintblue" class="level3">
+<h3>TintBlue</h3>
+<pre><code>readonly int Region.TintBlue
+</code></pre>
+<p>Gets the <em>Blue</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#tintenabled">Region.TintEnabled</a> property is false, then this value is meaningless.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (region[4].TintEnabled) {
+<pre><code>if (region[4].TintEnabled) {
   Display(&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;,
           region[4].TintRed, region[4].TintGreen,
           region[4].TintBlue, region[4].TintSaturation);
 }
-</pre></div>
-</div>
-<p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintGreen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintRed</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintLuminance</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tintgreen">
-<span id="index-10"></span><h2>TintGreen<a class="headerlink" href="#tintgreen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.TintGreen
-</pre></div>
-</div>
-<p>Gets the <em>Green</em> setting for the region’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference internal" href="#"><span class="doc">Region.Tint</span></a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>
-property is false, then this value is meaningless.</p>
+</code></pre>
+<p>will display a message with the region's tints.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Region.html#tintenabled">Region.TintEnabled</a>, <a href="Region.html#tintgreen">Region.TintGreen</a>, <a href="Region.html#tintred">Region.TintRed</a>, <a href="Region.html#tintluminance">Region.TintLuminance</a></p>
+<hr />
+</section>
+<section id="tintgreen" class="level3">
+<h3>TintGreen</h3>
+<pre><code>readonly int Region.TintGreen
+</code></pre>
+<p>Gets the <em>Green</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#tintenabled">Region.TintEnabled</a> property is false, then this value is meaningless.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (region[4].TintEnabled) {
+<pre><code>if (region[4].TintEnabled) {
   Display(&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;,
           region[4].TintRed, region[4].TintGreen,
           region[4].TintBlue, region[4].TintSaturation);
 }
-</pre></div>
-</div>
-<p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintBlue</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintRed</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintSaturation</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintLuminance</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tintred">
-<span id="index-11"></span><h2>TintRed<a class="headerlink" href="#tintred" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.TintRed
-</pre></div>
-</div>
-<p>Gets the <em>Red</em> setting for the region’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference internal" href="#"><span class="doc">Region.Tint</span></a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>
-property is false, then this value is meaningless.</p>
+</code></pre>
+<p>will display a message with the region's tints.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Region.html#tintenabled">Region.TintEnabled</a>, <a href="Region.html#tintblue">Region.TintBlue</a>, <a href="Region.html#tintred">Region.TintRed</a>, <a href="Region.html#tintsaturation">Region.TintSaturation</a>, <a href="Region.html#tintluminance">Region.TintLuminance</a></p>
+<hr />
+</section>
+<section id="tintred" class="level3">
+<h3>TintRed</h3>
+<pre><code>readonly int Region.TintRed
+</code></pre>
+<p>Gets the <em>Red</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#tintenabled">Region.TintEnabled</a> property is false, then this value is meaningless.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (region[4].TintEnabled) {
+<pre><code>if (region[4].TintEnabled) {
   Display(&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;,
           region[4].TintRed, region[4].TintGreen,
           region[4].TintBlue, region[4].TintSaturation);
 }
-</pre></div>
-</div>
-<p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintBlue</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintGreen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintSaturation</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintLuminance</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tintsaturation">
-<span id="index-12"></span><h2>TintSaturation<a class="headerlink" href="#tintsaturation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.TintSaturation
-</pre></div>
-</div>
-<p>Gets the <em>saturation</em> setting for the region’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference internal" href="#"><span class="doc">Region.Tint</span></a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>
-property is false, then this value is meaningless.</p>
+</code></pre>
+<p>will display a message with the region's tints.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Region.html#tintenabled">Region.TintEnabled</a>, <a href="Region.html#tintblue">Region.TintBlue</a>, <a href="Region.html#tintgreen">Region.TintGreen</a>, <a href="Region.html#tintsaturation">Region.TintSaturation</a>, <a href="Region.html#tintluminance">Region.TintLuminance</a></p>
+<hr />
+</section>
+<section id="tintsaturation" class="level3">
+<h3>TintSaturation</h3>
+<pre><code>readonly int Region.TintSaturation
+</code></pre>
+<p>Gets the <em>saturation</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#tintenabled">Region.TintEnabled</a> property is false, then this value is meaningless.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (region[4].TintEnabled) {
+<pre><code>if (region[4].TintEnabled) {
   Display(&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;,
           region[4].TintRed, region[4].TintGreen,
           region[4].TintBlue, region[4].TintSaturation);
 }
-</pre></div>
-</div>
-<p>will display a message with the region’s tints.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintBlue</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintGreen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintRed</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintLuminance</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="tintluminance">
-<span id="index-13"></span><h2>TintLuminance<a class="headerlink" href="#tintluminance" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int Region.TintLuminance
-</pre></div>
-</div>
-<p>Gets the <em>luminance</em> setting for the region’s current tint.</p>
-<p>This property is read-only; to change it, use the
-<a class="reference internal" href="#"><span class="doc">Region.Tint</span></a> command.</p>
-<p><strong>NOTE:</strong> If the <a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>
-property is false, then this value is meaningless.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">Region.Tint</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintEnabled</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintBlue</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintGreen</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintRed</span></a>,
-<a class="reference internal" href="#"><span class="doc">Region.TintSaturation</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p>will display a message with the region's tints.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Region.html#tintenabled">Region.TintEnabled</a>, <a href="Region.html#tintblue">Region.TintBlue</a>, <a href="Region.html#tintgreen">Region.TintGreen</a>, <a href="Region.html#tintred">Region.TintRed</a>, <a href="Region.html#tintluminance">Region.TintLuminance</a></p>
+<hr />
+</section>
+<section id="tintluminance" class="level3">
+<h3>TintLuminance</h3>
+<pre><code>readonly int Region.TintLuminance
+</code></pre>
+<p>Gets the <em>luminance</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#tint">Region.Tint</a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#tintenabled">Region.TintEnabled</a> property is false, then this value is meaningless.</p>
+<p><em>See Also:</em> <a href="Region.html#tint">Region.Tint</a>, <a href="Region.html#tintenabled">Region.TintEnabled</a>, <a href="Region.html#tintblue">Region.TintBlue</a>, <a href="Region.html#tintgreen">Region.TintGreen</a>, <a href="Region.html#tintred">Region.TintRed</a>, <a href="Region.html#tintsaturation">Region.TintSaturation</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Preprocessor.html" title="previous chapter">Preprocessor</a></li>
-      <li>Next: <a href="RepExec.html" title="next chapter">repeatedly_execute (_always)</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Region%20functions%20and%20properties&body=source%20is%20Region.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Region"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Region functions and properties</a><ul>
-<li><a class="reference internal" href="#getatroomxy">GetAtRoomXY</a></li>
-<li><a class="reference internal" href="#runinteraction">RunInteraction</a></li>
-<li><a class="reference internal" href="#tint">Tint</a></li>
-<li><a class="reference internal" href="#enabled">Enabled</a></li>
-<li><a class="reference internal" href="#index-5">ID</a></li>
-<li><a class="reference internal" href="#lightlevel">LightLevel</a></li>
-<li><a class="reference internal" href="#tintenabled">TintEnabled</a></li>
-<li><a class="reference internal" href="#tintblue">TintBlue</a></li>
-<li><a class="reference internal" href="#tintgreen">TintGreen</a></li>
-<li><a class="reference internal" href="#tintred">TintRed</a></li>
-<li><a class="reference internal" href="#tintsaturation">TintSaturation</a></li>
-<li><a class="reference internal" href="#tintluminance">TintLuminance</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

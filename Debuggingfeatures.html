@@ -1,188 +1,92 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Debugging features &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Dialog functions and properties" href="Dialog.html" />
-    <link rel="prev" title="DateTime functions and properties" href="DateTime.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="debugging-features">
-<h1>Debugging features<a class="headerlink" href="#debugging-features" title="Permalink to this headline">¶</a></h1>
-<p>It happens to the best of us - you’re merrily ploughing along making
-your game, when suddenly something just isn’t working right. It’s not
-always obvious where the problem is.</p>
-<p>AGS now has some advanced debugging features that can help you out. If
-all else fails, you can of course ask for help on the AGS forums.</p>
-<p>There are two different types of debugging, that are enabled in
-different ways. The script debugger is only enabled when you use F5 to
-run your game; but the Debug() commands are only available when “Enable
-debug mode” is set in your Game Settings. So, just before you release
-your game, set that option to False and compile the game again to make
-sure the player can’t cheat using these features.</p>
-<div class="section" id="the-script-debugger">
-<span id="index-0"></span><h2>The script debugger<a class="headerlink" href="#the-script-debugger" title="Permalink to this headline">¶</a></h2>
-<p>When you run the game using the Run (F5) option, the game will be
-started with the debugger. This allows you to pause your game and follow
-it through one line at a time.</p>
-<p>There are two main ways to use this feature:</p>
-<ul class="simple">
-<li>Press SCROLL LOCK while playing the game. This will break out when
-the next line of script is run.</li>
-<li>Place a breakpoint in your script. You do this by clicking on a line
-of code in the script editor, then pressing F9. Then, when the game
-arrives at this line of code, it will stop running.</li>
-</ul>
-<p>NOTE: The editor will allow you to place a breakpoint on any line of
-script. However, in order for it to work, it must be placed on a line
-that has some code on it.</p>
-<p>Once the script has stopped, you can use the “Step Into” button (F11) to
-step through the lines of code, one by one. To allow the game to
-continue running normally, use the Run (F5) button.</p>
-</div>
-<div class="section" id="the-debug-command">
-<span id="index-1"></span><h2>The Debug() command<a class="headerlink" href="#the-debug-command" title="Permalink to this headline">¶</a></h2>
-<p>There is a scripting command, <a class="reference internal" href="Game.html"><span class="doc">Debug</span></a>, which you can
-use in your script to help you find problems. The default setup enables
-some hotkeys for the various features - in particular, Ctrl+X allows you
-to teleport to another room, Ctrl+A shows the walkable areas on the
-screen and Ctrl+S gives you all the inventory items.</p>
-<p>You can also use the Debug command to assign a hotkey to toggle FPS
-display on and off. (FPS is Frames Per Second, which allows you to see
-the game speed and spot any slow-running rooms).</p>
-<p>This command only works if Debug Mode is enabled in your Game Settings.</p>
-</div>
-<div class="section" id="current-room-information">
-<span id="index-2"></span><h2>Current room information<a class="headerlink" href="#current-room-information" title="Permalink to this headline">¶</a></h2>
-<p>Pressing Ctrl+D displays some information about the current room. It
-tells you what room number you are in, followed by the current status of
-all objects in the room. After that, another messagebox tells you all
-the characters that are in the current room and various information
-about them.</p>
-<p>This command only works if Debug Mode is enabled in your Game Settings.</p>
-</div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Debugging features</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="DateTime.html" title="previous chapter">DateTime functions and properties</a></li>
-      <li>Next: <a href="Dialog.html" title="next chapter">Dialog functions and properties</a></li>
-  </ul></li>
+<li><a href="#debugging-features">Debugging features</a><ul>
+<li><a href="#the-script-debugger">The script debugger</a></li>
+<li><a href="#the-debug-command">The Debug() command</a></li>
+<li><a href="#current-room-information">Current room information</a></li>
+</ul></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Debugging%20features&body=source%20is%20Debuggingfeatures.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Debuggingfeatures"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Debugging features</a><ul>
-<li><a class="reference internal" href="#the-script-debugger">The script debugger</a></li>
-<li><a class="reference internal" href="#the-debug-command">The Debug() command</a></li>
-<li><a class="reference internal" href="#current-room-information">Current room information</a></li>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="debugging-features" class="level2">
+<h2>Debugging features</h2>
+<p>It happens to the best of us - you're merrily ploughing along making your game, when suddenly something just isn't working right. It's not always obvious where the problem is.</p>
+<p>AGS now has some advanced debugging features that can help you out. If all else fails, you can of course ask for help on the AGS forums.</p>
+<p>There are two different types of debugging, that are enabled in different ways. The script debugger is only enabled when you use F5 to run your game; but the Debug() commands are only available when "Enable debug mode" is set in your Game Settings. So, just before you release your game, set that option to False and compile the game again to make sure the player can't cheat using these features.</p>
+<section id="the-script-debugger" class="level3">
+<h3>The script debugger</h3>
+<p>When you run the game using the Run (F5) option, the game will be started with the debugger. This allows you to pause your game and follow it through one line at a time.</p>
+<p>There are two main ways to use this feature:</p>
+<ul>
+<li>Press SCROLL LOCK while playing the game. This will break out when the next line of script is run.</li>
+<li>Place a breakpoint in your script. You do this by clicking on a line of code in the script editor, then pressing F9. Then, when the game arrives at this line of code, it will stop running.</li>
 </ul>
-</li>
-</ul>
-
-
+<p>NOTE: The editor will allow you to place a breakpoint on any line of script. However, in order for it to work, it must be placed on a line that has some code on it.</p>
+<p>Once the script has stopped, you can use the "Step Into" button (F11) to step through the lines of code, one by one. To allow the game to continue running normally, use the Run (F5) button.</p>
+</section>
+<section id="the-debug-command" class="level3">
+<h3>The Debug() command</h3>
+<p>There is a scripting command, <a href="Game.html#debug">Debug</a>, which you can use in your script to help you find problems. The default setup enables some hotkeys for the various features - in particular, Ctrl+X allows you to teleport to another room, Ctrl+A shows the walkable areas on the screen and Ctrl+S gives you all the inventory items.</p>
+<p>You can also use the Debug command to assign a hotkey to toggle FPS display on and off. (FPS is Frames Per Second, which allows you to see the game speed and spot any slow-running rooms).</p>
+<p>This command only works if Debug Mode is enabled in your Game Settings.</p>
+</section>
+<section id="current-room-information" class="level3">
+<h3>Current room information</h3>
+<p>Pressing Ctrl+D displays some information about the current room. It tells you what room number you are in, followed by the current status of all objects in the room. After that, another messagebox tells you all the characters that are in the current room and various information about them.</p>
+<p>This command only works if Debug Mode is enabled in your Game Settings.</p>
+</section>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

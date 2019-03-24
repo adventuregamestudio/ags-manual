@@ -1,310 +1,202 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Custom dialog options rendering &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Custom Properties" href="CustomProperties.html" />
-    <link rel="prev" title="Character functions and properties" href="Character.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="custom-dialog-options-rendering">
-<h1>Custom dialog options rendering<a class="headerlink" href="#custom-dialog-options-rendering" title="Permalink to this headline">¶</a></h1>
-<p>By default, AGS comes with two types of dialog options – displaying
-them using the size and position of an existing GUI, or creating a text
-window to display the options in.</p>
-<p>As of AGS 3.1, if neither of these methods suit you (for example,
-because you want to use picture-based dialog options, or you want to add
-scroll arrows), you can now implement the dialog options display
-yourself in the script.</p>
-<p><strong>NOTE:</strong> This topic involves some advanced scripting. If you’re just
-starting out with AGS, please just use one of the built-in dialog option
-styles for now, and come back to this later when you’re comfortable with
-scripting.</p>
-<p>To write your custom dialog options code, you need to do the following:</p>
-<ul class="simple">
-<li>Add a <code class="docutils literal notranslate"><span class="pre">dialog_options_get_dimensions</span></code> function to your script (an
-example follows). This function is called by AGS to find out which
-part of the screen you will be drawing onto. By setting the width
-and height to values greater than 0, the custom dialog system
-is activated.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">dialog_options_render</span></code> function, which is called by AGS when
-it needs to draw the dialog options. A standard script
-<a class="reference internal" href="DrawingSurfaceFunctions.html"><span class="doc">DrawingSurface</span></a> is supplied,
-which you can use to draw onto.</li>
-<li>Optionally, add a <code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> function. This is
-called by AGS if the player clicks the mouse anywhere on dialog
-options GUI. You might want to use this to process clicks on dialog
-options, and also on some custom scroll arrows, for example.</li>
-<li>Optionally, add a <code class="docutils literal notranslate"><span class="pre">dialog_options_key_press</span></code> function. This is
-called by AGS if the player presses any key while custom dialog
-options are shown on screen. You can use this to implement
-key-controlled selection of dialog option, for example.</li>
-<li>Optionally, add a <code class="docutils literal notranslate"><span class="pre">dialog_options_repexec</span></code> function. This works
-similarily to general <code class="docutils literal notranslate"><span class="pre">repeatedly_execute</span></code> function, but is called
-only if custom dialog options are shown on screen. You may use this
-to handle any other situations, such as determining which option the
-mouse is currently hovering over, or scripting time-related actions.</li>
-</ul>
-<p>These functions don’t have to go in the global script; you can put them
-in any script you like. However, beware that if the functions are
-present in more than one script they could interfere with each other and
-cause problems.</p>
-<p><strong>COMPATIBILITY NOTE:</strong> The older versions of AGS (pre-3.4.0) supported
-slightly different set of functions. Thus, there was no
-<code class="docutils literal notranslate"><span class="pre">dialog_options_repexec</span></code>, but you had to add <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code>
-function instead, in which you set active option property. Clicks on the
-options were processed by AGS automatically, so doing this was
-essential. If you have imported older project and want to keep old
-dialog option scripts, then you should go to General Settings and enable
-“Use old-style dialog options rendering API”.</p>
-<p><strong>IMPORTANT:</strong> When adding the functions to the script, they all take in
-a parameter of type <a class="reference internal" href="DialogOptionsRenderingInfo.html"><span class="doc">DialogOptionsRenderingInfo</span></a>.
-The dialog_options_mouse_click function has an extra parameter for
-the mouse button, and dialog_options_key_press has an extra parameter
-for the key code. See the example below.</p>
-<p><strong>IMPORTANT:</strong> All of the Custom Dialog functions run on the
-non-blocking thread. That means that you should not make any blocking
-calls, such as Character.Say, Wait or Display within them, as they may
-not behave correctly.</p>
-<p><strong>Example A. Classic mouse controls</strong></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="nx">dlg_opt_color</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
-<span class="kr">int</span> <span class="nx">dlg_opt_acolor</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
-<span class="kr">int</span> <span class="nx">dlg_opt_ncolor</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// Create a 200x200 dialog options area at (50,100)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="c1">// Enable alpha channel for the drawing surface</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">HasAlphaChannel</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="c1">// Put the text parser at the bottom (if enabled)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxY</span> <span class="o">=</span> <span class="mi">160</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ParserTextBoxWidth</span> <span class="o">=</span> <span class="mi">180</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_render</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">Clear</span><span class="p">(</span><span class="nx">dlg_opt_color</span><span class="p">);</span>
-  <span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="nx">ypos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="c1">// Render all the options that are enabled</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">OptionCount</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionState</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">==</span> <span class="nx">eOptionOn</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span>
-        <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawingColor</span> <span class="o">=</span> <span class="nx">dlg_opt_acolor</span><span class="p">;</span>
-      <span class="k">else</span>
-        <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawingColor</span> <span class="o">=</span> <span class="nx">dlg_opt_ncolor</span><span class="p">;</span>
-
-      <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawStringWrapped</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">ypos</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
-              <span class="nx">eFontFont0</span><span class="p">,</span> <span class="nx">eAlignLeft</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionText</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
-      <span class="nx">ypos</span> <span class="o">+=</span> <span class="nx">GetTextHeight</span><span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionText</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">eFontFont0</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_repexec</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">||</span> <span class="nx">mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">||</span>
-      <span class="nx">mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">||</span> <span class="nx">mouse</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">+</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">return</span><span class="p">;</span> <span class="c1">// return if the mouse is outside UI bounds</span>
-  <span class="p">}</span>
-
-  <span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">ypos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="c1">// Find the option that corresponds to where the mouse cursor is</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">OptionCount</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionState</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">==</span> <span class="nx">eOptionOn</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="nx">ypos</span> <span class="o">+=</span> <span class="nx">GetTextHeight</span><span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionText</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">eFontFont0</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">((</span><span class="nx">mouse</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nx">ypos</span><span class="p">)</span>
-      <span class="p">{</span>
-        <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>
-        <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_mouse_click</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">,</span> <span class="nx">MouseButton</span> <span class="nx">button</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">RunActiveOption</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The examples above are slightly naive; in reality you would probably
-want to track the Y position of each option in a variable to save having
-to continually scan through all the options.</p>
-<p><strong>Example B. Keyboard controls</strong></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="nx">dlg_opt_color</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
-<span class="kr">int</span> <span class="nx">dlg_opt_acolor</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
-<span class="kr">int</span> <span class="nx">dlg_opt_ncolor</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_get_dimensions</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="c1">// Create a 200x200 dialog options area at (50,100)</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">X</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Height</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// set to first option</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_render</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">Clear</span><span class="p">(</span><span class="nx">dlg_opt_color</span><span class="p">);</span>
-  <span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="nx">ypos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="c1">// Render all the options that are enabled</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">OptionCount</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionState</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">==</span> <span class="nx">eOptionOn</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span>
-        <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawingColor</span> <span class="o">=</span> <span class="nx">dlg_opt_acolor</span><span class="p">;</span>
-      <span class="k">else</span>
-        <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawingColor</span> <span class="o">=</span> <span class="nx">dlg_opt_ncolor</span><span class="p">;</span>
-
-      <span class="nx">info</span><span class="p">.</span><span class="nx">Surface</span><span class="p">.</span><span class="nx">DrawStringWrapped</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nx">ypos</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
-          <span class="nx">eFontFont0</span><span class="p">,</span> <span class="nx">eAlignLeft</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionText</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
-      <span class="nx">ypos</span> <span class="o">+=</span> <span class="nx">GetTextHeight</span><span class="p">(</span><span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">GetOptionText</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span> <span class="nx">eFontFont0</span><span class="p">,</span> <span class="nx">info</span><span class="p">.</span><span class="nx">Width</span> <span class="o">-</span> <span class="mi">10</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">dialog_options_key_press</span><span class="p">(</span><span class="nx">DialogOptionsRenderingInfo</span> <span class="o">*</span><span class="nx">info</span><span class="p">,</span> <span class="nx">eKeyCode</span> <span class="nx">keycode</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyUpArrow</span> <span class="o">&amp;&amp;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyDownArrow</span> <span class="o">&amp;&amp;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">&lt;</span> <span class="nx">info</span><span class="p">.</span><span class="nx">DialogToRender</span><span class="p">.</span><span class="nx">OptionCount</span><span class="p">)</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">=</span> <span class="nx">info</span><span class="p">.</span><span class="nx">ActiveOptionID</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeyReturn</span> <span class="o">||</span> <span class="nx">keycode</span> <span class="o">==</span> <span class="nx">eKeySpace</span><span class="p">)</span>
-    <span class="nx">info</span><span class="p">.</span><span class="nx">RunActiveOption</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>For more detail on the commands used here, see the <a class="reference internal" href="DialogOptionsRenderingInfo.html"><span class="doc">DialogOptionsRenderingInfo</span></a> page.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Custom dialog options rendering</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Character.html" title="previous chapter">Character functions and properties</a></li>
-      <li>Next: <a href="CustomProperties.html" title="next chapter">Custom Properties</a></li>
-  </ul></li>
+<li><a href="#custom-dialog-options-rendering">Custom dialog options rendering</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="custom-dialog-options-rendering" class="level2">
+<h2>Custom dialog options rendering</h2>
+<p>By default, AGS comes with two types of dialog options -- displaying them using the size and position of an existing GUI, or creating a text window to display the options in.</p>
+<p>As of AGS 3.1, if neither of these methods suit you (for example, because you want to use picture-based dialog options, or you want to add scroll arrows), you can now implement the dialog options display yourself in the script.</p>
+<p><strong>NOTE:</strong> This topic involves some advanced scripting. If you're just starting out with AGS, please just use one of the built-in dialog option styles for now, and come back to this later when you're comfortable with scripting.</p>
+<p>To write your custom dialog options code, you need to do the following:</p>
+<ul>
+<li>Add a <code>dialog_options_get_dimensions</code> function to your script (an example follows). This function is called by AGS to find out which part of the screen you will be drawing onto. By setting the width and height to values greater than 0, the custom dialog system is activated.</li>
+<li>Add a <code>dialog_options_render</code> function, which is called by AGS when it needs to draw the dialog options. A standard script <a href="DrawingSurfaceFunctions.html">DrawingSurface</a> is supplied, which you can use to draw onto.</li>
+<li>Optionally, add a <code>dialog_options_mouse_click</code> function. This is called by AGS if the player clicks the mouse anywhere on dialog options GUI. You might want to use this to process clicks on dialog options, and also on some custom scroll arrows, for example.</li>
+<li>Optionally, add a <code>dialog_options_key_press</code> function. This is called by AGS if the player presses any key while custom dialog options are shown on screen. You can use this to implement key-controlled selection of dialog option, for example.</li>
+<li>Optionally, add a <code>dialog_options_repexec</code> function. This works similarily to general <code>repeatedly_execute</code> function, but is called only if custom dialog options are shown on screen. You may use this to handle any other situations, such as determining which option the mouse is currently hovering over, or scripting time-related actions.</li>
+</ul>
+<p>These functions don't have to go in the global script; you can put them in any script you like. However, beware that if the functions are present in more than one script they could interfere with each other and cause problems.</p>
+<p><strong>COMPATIBILITY NOTE:</strong> The older versions of AGS (pre-3.4.0) supported slightly different set of functions. Thus, there was no <code>dialog_options_repexec</code>, but you had to add <code>dialog_options_get_active</code> function instead, in which you set active option property. Clicks on the options were processed by AGS automatically, so doing this was essential. If you have imported older project and want to keep old dialog option scripts, then you should go to General Settings and enable "Use old-style dialog options rendering API".</p>
+<p><strong>IMPORTANT:</strong> When adding the functions to the script, they all take in a parameter of type <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a>. The dialog_options_mouse_click function has an extra parameter for the mouse button, and dialog_options_key_press has an extra parameter for the key code. See the example below.</p>
+<p><strong>IMPORTANT:</strong> All of the Custom Dialog functions run on the non-blocking thread. That means that you should not make any blocking calls, such as Character.Say, Wait or Display within them, as they may not behave correctly.</p>
+<p><strong>Example A. Classic mouse controls</strong></p>
+<pre><code>int dlg_opt_color = 14;
+int dlg_opt_acolor = 13;
+int dlg_opt_ncolor = 4;
 
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
+function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  // Create a 200x200 dialog options area at (50,100)
+  info.X = 50;
+  info.Y = 100;
+  info.Width = 200;
+  info.Height = 200;
+  // Enable alpha channel for the drawing surface
+  info.HasAlphaChannel = true;
+  // Put the text parser at the bottom (if enabled)
+  info.ParserTextBoxX = 10;
+  info.ParserTextBoxY = 160;
+  info.ParserTextBoxWidth = 180;
+}
 
+function dialog_options_render(DialogOptionsRenderingInfo *info)
+{
+  info.Surface.Clear(dlg_opt_color);
+  int i = 1,  ypos = 0;
+  // Render all the options that are enabled
+  while (i &lt;= info.DialogToRender.OptionCount)
+  {
+    if (info.DialogToRender.GetOptionState(i) == eOptionOn)
+    {
+      if (info.ActiveOptionID == i)
+        info.Surface.DrawingColor = dlg_opt_acolor;
+      else
+        info.Surface.DrawingColor = dlg_opt_ncolor;
 
-    
-    
+      info.Surface.DrawStringWrapped(5, ypos, info.Width - 10,
+              eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+    }
+    i++;
+  }
+}
 
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Custom%20dialog%20options%20rendering&body=source%20is%20CustomDialogOptions.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/CustomDialogOptions"> Edit this page</a>
-    </li>
+function dialog_options_repexec(DialogOptionsRenderingInfo *info)
+{
+  info.ActiveOptionID = 0;
+  if (mouse.y &lt; info.Y || mouse.y &gt;= info.Y + info.Height ||
+      mouse.x &lt; info.X || mouse.x &gt;= info.X + info.Width)
+  {
+    return; // return if the mouse is outside UI bounds
+  }
 
-  </ul>
-  <br>
-  
+  int i = 1, ypos = 0;
+  // Find the option that corresponds to where the mouse cursor is
+  while (i &lt;= info.DialogToRender.OptionCount)
+  {
+    if (info.DialogToRender.GetOptionState(i) == eOptionOn)
+    {
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+      if ((mouse.y - info.Y) &lt; ypos)
+      {
+        info.ActiveOptionID = i;
+        return;
+      }
+    }
+    i++;
+  }
+}
 
-</p>
+function dialog_options_mouse_click(DialogOptionsRenderingInfo *info, MouseButton button)
+{
+  if (info.ActiveOptionID &gt; 0)
+    info.RunActiveOption();
+}
+</code></pre>
+<p>The examples above are slightly naive; in reality you would probably want to track the Y position of each option in a variable to save having to continually scan through all the options.</p>
+<p><strong>Example B. Keyboard controls</strong></p>
+<pre><code>int dlg_opt_color = 14;
+int dlg_opt_acolor = 13;
+int dlg_opt_ncolor = 4;
+
+function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
+{
+  // Create a 200x200 dialog options area at (50,100)
+  info.X = 50;
+  info.Y = 100;
+  info.Width = 200;
+  info.Height = 200;
+  info.ActiveOptionID = 1; // set to first option
+}
+
+function dialog_options_render(DialogOptionsRenderingInfo *info)
+{
+  info.Surface.Clear(dlg_opt_color);
+  int i = 1,  ypos = 0;
+  // Render all the options that are enabled
+  while (i &lt;= info.DialogToRender.OptionCount)
+  {
+    if (info.DialogToRender.GetOptionState(i) == eOptionOn)
+    {
+      if (info.ActiveOptionID == i)
+        info.Surface.DrawingColor = dlg_opt_acolor;
+      else
+        info.Surface.DrawingColor = dlg_opt_ncolor;
+
+      info.Surface.DrawStringWrapped(5, ypos, info.Width - 10,
+          eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+    }
+    i++;
+  }
+}
+
+function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode keycode)
+{
+  if (keycode == eKeyUpArrow &amp;&amp; info.ActiveOptionID &gt; 1)
+    info.ActiveOptionID = info.ActiveOptionID - 1;
+  if (keycode == eKeyDownArrow &amp;&amp; info.ActiveOptionID &lt; info.DialogToRender.OptionCount)
+    info.ActiveOptionID = info.ActiveOptionID + 1;
+  if (keycode == eKeyReturn || keycode == eKeySpace)
+    info.RunActiveOption();
+}
+</code></pre>
+<p>For more detail on the commands used here, see the <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> page.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

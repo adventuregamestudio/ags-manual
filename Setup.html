@@ -1,235 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Run-time engine setup</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Run-time engine setup &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Scripting Language" href="ScriptingLanguage.html" />
-    <link rel="prev" title="Graphics driver selection" href="GraphicsDriver.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="run-time-engine-setup">
-<h1>Run-time engine setup<a class="headerlink" href="#run-time-engine-setup" title="Permalink to this headline">¶</a></h1>
-<p>The engine Setup program allows the player to customize certain game
-settings.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#run-time-engine-setup">Run-time engine setup</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="run-time-engine-setup" class="level2">
+<h2>Run-time engine setup</h2>
+<p>The engine Setup program allows the player to customize certain game settings.</p>
 <p><strong>NOTE:</strong> currently setup program is featured only for Windows.</p>
-<p>The options in setup are divided into two parts: common and advanced.
-Advanced options could be accessed by pressing “Advanced” button.</p>
+<p>The options in setup are divided into two parts: common and advanced. Advanced options could be accessed by pressing "Advanced" button.</p>
 <p><strong>Graphics settings</strong></p>
 <p>Driver</p>
-<p>Lets player choose a graphics driver. Currently supported are Software
-renderer (old and slower one, but only driver that fully supports 8-bit
-games), Direct3D 9 and OpenGL (newer and faster drivers with hardware
-acceleration).</p>
+<p>Lets player choose a graphics driver. Currently supported are Software renderer (old and slower one, but only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration).</p>
 <p>Run in the window instead of fullscreen</p>
-<p>If checked, the game will be run in windowed mode, as opposed to
-fullscreen.</p>
+<p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
 <p>Mode</p>
-<p>Lets choose a fullscreen display mode (otherwise shows the approximate
-size of window the game will be running in). The list of modes depends
-on graphic card and system capabilities.</p>
+<p>Lets choose a fullscreen display mode (otherwise shows the approximate size of window the game will be running in). The list of modes depends on graphic card and system capabilities.</p>
 <p>Fullscreen scale</p>
 <p>Windowed scale</p>
-<p>These two options determine the way game will be scaled (when required)
-in fullscreen and windowed modes respectively:</p>
-<p><strong>None</strong>. The game will be shown in its native resolution. Note that
-low-resolution games will be running in a tiniest window on modern
-monitors, so this choice is more suitable for high-resolution games.</p>
-<p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal
-round integer (2, 3, 4, etc) multiplier with which it still fits inside
-the screen.</p>
-<p><strong>Stretch to fit screen</strong>. The game will be stretched to fill whole
-screen. Note that if the game’s native aspect ratio is different from
-screen one’s, the game image will appear deformed.</p>
-<p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be
-stretched to screen borders while respecting game’s native aspect ratio
-(width/height proportions). This ensures that game image will always
-look correct, but may cause black borders appear at the left&amp;right or
-top&amp;bottom sides of the screen.</p>
+<p>These two options determine the way game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
+<p><strong>None</strong>. The game will be shown in its native resolution. Note that low-resolution games will be running in a tiniest window on modern monitors, so this choice is more suitable for high-resolution games.</p>
+<p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p>
+<p><strong>Stretch to fit screen</strong>. The game will be stretched to fill whole screen. Note that if the game's native aspect ratio is different from screen one's, the game image will appear deformed.</p>
+<p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be stretched to screen borders while respecting game's native aspect ratio (width/height proportions). This ensures that game image will always look correct, but may cause black borders appear at the left&amp;right or top&amp;bottom sides of the screen.</p>
 <p>Scaling method</p>
-<p>Here player may choose a game scaling algorithm (nearest-neighbour is
-the simpliest one). Some of the methods (notably Hqx) are restricted to
-which scaling multiplier they may use; if it is not enough to resize the
-game on its own, the nearest-neighbour method will be applied
-additionally. The list of available filters depend on graphics driver
-selection.</p>
+<p>Here player may choose a game scaling algorithm (nearest-neighbour is the simpliest one). Some of the methods (notably Hqx) are restricted to which scaling multiplier they may use; if it is not enough to resize the game on its own, the nearest-neighbour method will be applied additionally. The list of available filters depend on graphics driver selection.</p>
 <p><strong>Gameplay settings</strong></p>
 <p>Game language</p>
 <p>Here player may choose one of the available game translations.</p>
 <p><strong>Advanced graphics options</strong></p>
 <p>Vertical sync</p>
-<p>This option enables vertical synchronisation mode, which reduces
-“tearing” effect on game image, but may decrease the game running speed.</p>
+<p>This option enables vertical synchronisation mode, which reduces "tearing" effect on game image, but may decrease the game running speed.</p>
 <p>Use 85 Hz display</p>
-<p>This option sets the monitor refresh rate to 85 Hz to run the game,
-which eliminates flicker. However, this does not work on all monitors,
-and not at all on flat panel displays, which is why it is disabled by
-default.</p>
+<p>This option sets the monitor refresh rate to 85 Hz to run the game, which eliminates flicker. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
 <p>Smooth scaled sprites</p>
-<p>This option will apply anti-aliasing to scaled characters, in order to
-give a smoother look to the resizing. This can slow down the game
-though, so it is off by default.</p>
+<p>This option will apply anti-aliasing to scaled characters, in order to give a smoother look to the resizing. This can slow down the game though, so it is off by default.</p>
 <p>Downgrade 32-bit graphics to 16-bit</p>
-<p>This option is only available for 32-bit games. It allows people with
-slower PCs to choose to play the game at 16-bit instead, in order to
-boost performance. If they use this, the graphical quality will reduce,
-but it should at least allow them to play the game at a decent speed.</p>
+<p>This option is only available for 32-bit games. It allows people with slower PCs to choose to play the game at 16-bit instead, in order to boost performance. If they use this, the graphical quality will reduce, but it should at least allow them to play the game at a decent speed.</p>
 <p>Render sprites at screen resolution</p>
-<p>When enabled, characters and objects are scaled in screen pixels rather
-than game pixels. What this means is that when low-resolution game is
-run in larger window, sprites will take advantage of this higher
-resolution and look less pixelated when scaled down. This option may be
-locked to certain state by the game itself (according to author’s
-choice), in which case players will not be able to change it.</p>
+<p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to certain state by the game itself (according to author's choice), in which case players will not be able to change it.</p>
 <p><strong>Sound options</strong></p>
 <p>Digital sound</p>
-<p>Here player may choose the digital audio driver, or disable digital
-sound completely.</p>
+<p>Here player may choose the digital audio driver, or disable digital sound completely.</p>
 <p>MIDI music</p>
-<p>Here player may choose the MIDI music playback method, or disable MIDI
-music completely.</p>
+<p>Here player may choose the MIDI music playback method, or disable MIDI music completely.</p>
 <p>Use voice pack is available</p>
-<p>When checked, this option enables voice speech in game (where
-available).</p>
+<p>When checked, this option enables voice speech in game (where available).</p>
 <p><strong>Mouse options</strong></p>
 <p>Auto lock to window</p>
-<p>If this option is enabled, the mouse will be locked inside game window
-whenever player clicks on it or switches into game. The locked mouse
-cannot leave game window, making it impossible to switch out from the
-game by mistake (by clicking on desktop, for example). Naturally, this
-option only has importance if game is run in windowed mode; when in
-fullscreen the mouse is always locked.</p>
+<p>If this option is enabled, the mouse will be locked inside game window whenever player clicks on it or switches into game. The locked mouse cannot leave game window, making it impossible to switch out from the game by mistake (by clicking on desktop, for example). Naturally, this option only has importance if game is run in windowed mode; when in fullscreen the mouse is always locked.</p>
 <p>Mouse speed</p>
-<p>This slider allows player to set up mouse cursor speed in game. It
-should be noted that this parameter is only applied if the game is run
-in fullscreen mode.</p>
+<p>This slider allows player to set up mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
 <p><strong>Other advanced settings</strong></p>
 <p>Sprite cache max size</p>
-<p>This option limits the maximum amount of memory that the game will use
-for its sprite cache. Sprite cache is used to keep a partition of all
-the game sprites loaded to the memory, thus reducing loading times
-between rooms and preventing slowdowns during game play. Of course,
-higher values make the game use more memory. Usually only
-high-resolution games with long animations need to have this value
-increased.</p>
+<p>This option limits the maximum amount of memory that the game will use for its sprite cache. Sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
 <p>Custom game saves path</p>
-<p>When unchecked, the game will store its files - saved games, and custom
-runtime data - in the default Windows folders:
-“C:/Users/<span class="raw-html-m2r"><Username></span>/Saved Games/<span class="raw-html-m2r"><Game Title></span>” and
-“C:/Program Data/Adventure Game Studio/<span class="raw-html-m2r"><Game Title></span>” respectively.
-Players may enable this option and define their own location to store
-game files.</p>
-<p>See Also: <a class="reference internal" href="Settingupthegame.html"><span class="doc">Default setup</span></a></p>
-</div>
-
-
-          </div>
-          
+<p>When unchecked, the game will store its files - saved games, and custom runtime data - in the default Windows folders: "C:/Users/<Username>/Saved Games/<Game Title>" and "C:/Program Data/Adventure Game Studio/<Game Title>" respectively. Players may enable this option and define their own location to store game files.</p>
+<p>See Also: <a href="Settingupthegame.html#default-setup">Default setup</a></p>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="GraphicsDriver.html" title="previous chapter">Graphics driver selection</a></li>
-      <li>Next: <a href="ScriptingLanguage.html" title="next chapter">Scripting Language</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Run-time%20engine%20setup&body=source%20is%20Setup.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/Setup"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

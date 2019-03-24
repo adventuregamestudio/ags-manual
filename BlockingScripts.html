@@ -1,191 +1,87 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Understanding blocking scripts &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Built-in enumerated types" href="BuiltInEnums.html" />
-    <link rel="prev" title="Backing up your game" href="BackingUpYourGame.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="understanding-blocking-scripts">
-<h1>Understanding blocking scripts<a class="headerlink" href="#understanding-blocking-scripts" title="Permalink to this headline">¶</a></h1>
-<p>You will see some commands listed as “blocking”, where control does not
-return to the script until the command finishes. But what does this
-mean, exactly?</p>
-<p>In order to better understand this, we need to explore a little about
-the way that the AGS script engine works. In an AGS game, there are
-three script <strong>threads</strong> that can be running at once. Think of a thread
-as a mini-CPU that executes your scripts.</p>
-<p>At the start of the game, the threads are all idle (not running any
-scripts):</p>
-<a class="reference external image-reference" href="images/threads1.gif"><img alt="" src="_images/threads1.gif" /></a>
-<p>Now, as and when your scripts need to be run, AGS will try to run them
-on the appropriate thread (the Room thread for local scripts, and the
-Global thread for global scripts).</p>
-<p>So, on the first game loop, your global scripts’ repeatedly_execute
-will be run:</p>
-<a class="reference external image-reference" href="images/threads2.gif"><img alt="" src="_images/threads2.gif" /></a>
-<p>That’s fine, and when it finishes running the thread becomes idle again.</p>
-<p>But, suppose that within repeatedly_execute, you make a call to the
-Character.Say command. Say (or <em>DisplaySpeech</em> in old-style scripting)
-is a blocking command and does not return until the character finishes
-talking:</p>
-<a class="reference external image-reference" href="images/threads3.gif"><img alt="" src="_images/threads3.gif" /></a>
-<p>The global thread is now <strong>blocked</strong>, waiting for the character to
-finish talking. This means that none of your global script functions
-such as repeatedly_execute, on_event and on_key_press will be run
-while the character is talking, since the thread is busy.</p>
-<p>Now, AGS does queue up to 5 script functions to be run on the thread as
-soon as it is free; but if you have a lot of things happening within
-your script, it’s possible that you will lose some events such as
-on_events and keypresses if you script is blocked for a long time.</p>
-<p>Let’s explore the most common situation in which this causes confusion.
-Suppose you have a <em>Player looks at inventory</em> event on a Key inventory
-item, which runs a script to display a message.</p>
-<p>Let’s also suppose that you have some code at the end of your
-on_mouse_click function to make the character stand still after
-running mouse click events.</p>
-<p>What you’ll find is that the code at the end of on_mouse_click
-actually gets called <em>before</em> the inventory item’s event. Let’s look at
-why:</p>
-<a class="reference external image-reference" href="images/threads4.gif"><img alt="" src="_images/threads4.gif" /></a>
-<p>Remember that AGS does not run events automatically; rather, the
-on_mouse_click script function handles the mouse click and calls
-ProcessClick to run the appropriate event. When it does so, it finds
-that the key’s Look At Item event has a script function associated with
-it.</p>
-<p>But oh no! Inventory item scripts are in the global script, and the
-global thread is already blocked because of the mouse click. Therefore,
-the inventory event script gets added to the thread’s queue, and
-on_mouse_click then finishes running. The inventory event script will
-follow on afterwards.</p>
-<p>Now you might think that this means that object and hotspot events can
-run within on_mouse_click, since they use the room thread, like this:</p>
-<a class="reference external image-reference" href="images/threads5.gif"><img alt="" src="_images/threads5.gif" /></a>
-<p>However, this is not the case. It is still the global thread that is
-calling ProcessClick, so the room script will actually be run on the
-global thread once it is free.</p>
-<p>Finally, we come onto the No-Block thread. This thread is only used to
-run the <em>repeatedly_execute_always</em> and
-<em>late_repeatedly_execute_always</em> functions. Because these two are not
-allowed to run any blocking functions, this ensures that the thread
-never gets blocked and so it will always run, even when the other
-threads are busy:</p>
-<a class="reference external image-reference" href="images/threads6.gif"><img alt="" src="_images/threads6.gif" /></a>
-<p>I hope that helps explain blocking in terms of AGS scripting. If there’s
-anything that you don’t think is clear, please suggest amendments on the
-Technical forum.</p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Understanding blocking scripts</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="BackingUpYourGame.html" title="previous chapter">Backing up your game</a></li>
-      <li>Next: <a href="BuiltInEnums.html" title="next chapter">Built-in enumerated types</a></li>
-  </ul></li>
+<li><a href="#understanding-blocking-scripts">Understanding blocking scripts</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Understanding%20blocking%20scripts&body=source%20is%20BlockingScripts.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/BlockingScripts"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="understanding-blocking-scripts" class="level2">
+<h2>Understanding blocking scripts</h2>
+<p>You will see some commands listed as "blocking", where control does not return to the script until the command finishes. But what does this mean, exactly?</p>
+<p>In order to better understand this, we need to explore a little about the way that the AGS script engine works. In an AGS game, there are three script <strong>threads</strong> that can be running at once. Think of a thread as a mini-CPU that executes your scripts.</p>
+<p>At the start of the game, the threads are all idle (not running any scripts):</p>
+<p><img src="images/threads1.gif" /></p>
+<p>Now, as and when your scripts need to be run, AGS will try to run them on the appropriate thread (the Room thread for local scripts, and the Global thread for global scripts).</p>
+<p>So, on the first game loop, your global scripts' repeatedly_execute will be run:</p>
+<p><img src="images/threads2.gif" /></p>
+<p>That's fine, and when it finishes running the thread becomes idle again.</p>
+<p>But, suppose that within repeatedly_execute, you make a call to the Character.Say command. Say (or <em>DisplaySpeech</em> in old-style scripting) is a blocking command and does not return until the character finishes talking:</p>
+<p><img src="images/threads3.gif" /></p>
+<p>The global thread is now <strong>blocked</strong>, waiting for the character to finish talking. This means that none of your global script functions such as repeatedly_execute, on_event and on_key_press will be run while the character is talking, since the thread is busy.</p>
+<p>Now, AGS does queue up to 5 script functions to be run on the thread as soon as it is free; but if you have a lot of things happening within your script, it's possible that you will lose some events such as on_events and keypresses if you script is blocked for a long time.</p>
+<p>Let's explore the most common situation in which this causes confusion. Suppose you have a <em>Player looks at inventory</em> event on a Key inventory item, which runs a script to display a message.</p>
+<p>Let's also suppose that you have some code at the end of your on_mouse_click function to make the character stand still after running mouse click events.</p>
+<p>What you'll find is that the code at the end of on_mouse_click actually gets called <em>before</em> the inventory item's event. Let's look at why:</p>
+<p><img src="images/threads4.gif" /></p>
+<p>Remember that AGS does not run events automatically; rather, the on_mouse_click script function handles the mouse click and calls ProcessClick to run the appropriate event. When it does so, it finds that the key's Look At Item event has a script function associated with it.</p>
+<p>But oh no! Inventory item scripts are in the global script, and the global thread is already blocked because of the mouse click. Therefore, the inventory event script gets added to the thread's queue, and on_mouse_click then finishes running. The inventory event script will follow on afterwards.</p>
+<p>Now you might think that this means that object and hotspot events can run within on_mouse_click, since they use the room thread, like this:</p>
+<p><img src="images/threads5.gif" /></p>
+<p>However, this is not the case. It is still the global thread that is calling ProcessClick, so the room script will actually be run on the global thread once it is free.</p>
+<p>Finally, we come onto the No-Block thread. This thread is only used to run the <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> functions. Because these two are not allowed to run any blocking functions, this ensures that the thread never gets blocked and so it will always run, even when the other threads are busy:</p>
+<p><img src="images/threads6.gif" /></p>
+<p>I hope that helps explain blocking in terms of AGS scripting. If there's anything that you don't think is clear, please suggest amendments on the Technical forum.</p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

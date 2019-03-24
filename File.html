@@ -1,257 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>File functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>File functions and properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GUI functions and properties" href="GUI.html" />
-    <link rel="prev" title="Extender functions" href="ExtenderFunctions.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="file-functions-and-properties">
-<h1>File functions and properties<a class="headerlink" href="#file-functions-and-properties" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="open">
-<span id="index-1"></span><h2>Open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#file-functions-and-properties">File functions and properties</a><ul>
+<li><a href="#open">Open</a></li>
+<li><a href="#close">Close</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#exists">Exists</a></li>
+<li><a href="#readint">ReadInt</a></li>
+<li><a href="#readrawchar">ReadRawChar</a></li>
+<li><a href="#readrawint">ReadRawInt</a></li>
+<li><a href="#readrawlineback">ReadRawLineBack</a></li>
+<li><a href="#readstringback">ReadStringBack</a></li>
+<li><a href="#seek">Seek</a></li>
+<li><a href="#writeint">WriteInt</a></li>
+<li><a href="#writerawchar">WriteRawChar</a></li>
+<li><a href="#writerawline">WriteRawLine</a></li>
+<li><a href="#writestring">WriteString</a></li>
+<li><a href="#eof">EOF</a></li>
+<li><a href="#error">Error</a></li>
+<li><a href="#position">Position</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="file-functions-and-properties" class="level2">
+<h2>File functions and properties</h2>
+<section id="open" class="level3">
+<h3>Open</h3>
 <p><em>(Formerly known as FileOpen, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static File* File.Open(string filename, FileMode)
-</pre></div>
-</div>
-<p>Opens a disk file for reading or writing. These disk I/O functions are
-only intended for simple tasks like the way the QFG series export the
-character when you complete it.</p>
-<p>MODE is either eFileRead, eFileWrite or eFileAppend, depending on
-whether you want to write to or read from the file. If you pass
-eFileWrite and a file called FILENAME already exists, it will be
-overwritten.</p>
-<p>eFileAppend opens an existing file for writing and starts adding
-information at the end (ie. the existing contents are not deleted).</p>
-<p>This function returns a File object, which you use to perform operations
-on the file. <em>null</em> is returned if there was a problem (eg. file not
-existing when MODE is eFileRead).</p>
-<p>When specifying file path you may use special location tags:<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>, which allows you to explicitly read files in the game
-installation directory.<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code>, which allows you to write/read files in the save game
-directory.<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>, which allows you to write/read files to a folder on the
-system which is accessible by and shared by all users. The example of
-their use is below.</p>
-<p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing,
-then you can ONLY work with files in either <code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code> or
-<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> locations. An attempt to write file in <code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>
-will result in failure, and <em>null</em> is returned. An attempt to write file
-into relative path without specifying any location tag will make AGS to
-automatically remap such path into <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>. This is done for
-backwards-compatibility. On other hand, if you open file for writing
-using an absolute path, or relative path that points to location outside
-of game directory, it will automatically be rejected, and <em>null</em> is
-returned.</p>
-<p><strong>NOTE:</strong> You <strong>MUST</strong> close the file with the Close function when you
-have finished using it. There are only a limited number of file handles,
-and forgetting to close the file can lead to problems later on.</p>
-<p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That
-is, if you open a file, then save the game; then when you restore the
-game, the File will not be usable and you’ll have to open it again to
-continue any I/O. The safest practice is not to declare any global File
-variables.</p>
+<pre><code>static File* File.Open(string filename, FileMode)
+</code></pre>
+<p>Opens a disk file for reading or writing. These disk I/O functions are only intended for simple tasks like the way the QFG series export the character when you complete it.</p>
+<p>MODE is either eFileRead, eFileWrite or eFileAppend, depending on whether you want to write to or read from the file. If you pass eFileWrite and a file called FILENAME already exists, it will be overwritten.</p>
+<p>eFileAppend opens an existing file for writing and starts adding information at the end (ie. the existing contents are not deleted).</p>
+<p>This function returns a File object, which you use to perform operations on the file. <em>null</em> is returned if there was a problem (eg. file not existing when MODE is eFileRead).</p>
+<p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
+<p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. An attempt to write file into relative path without specifying any location tag will make AGS to automatically remap such path into <code>$APPDATADIR$</code>. This is done for backwards-compatibility. On other hand, if you open file for writing using an absolute path, or relative path that points to location outside of game directory, it will automatically be rejected, and <em>null</em> is returned.</p>
+<p><strong>NOTE:</strong> You <strong>MUST</strong> close the file with the Close function when you have finished using it. There are only a limited number of file handles, and forgetting to close the file can lead to problems later on.</p>
+<p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;$SAVEGAMEDIR$/temp.tmp&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/temp.tmp&quot;, eFileWrite);
 if (output == null)
   Display(&quot;Error opening file.&quot;);
 else {
   output.WriteString(&quot;test string&quot;);
   output.Close();
 }
-</pre></div>
-</div>
-<p>will open the file temp.tmp in the save game folder for writing. An
-error message is displayed if the file could not be created. Otherwise,
-it will write the string “test string” to the file and close it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Close</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.Exists</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteString</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="close">
-<span id="index-3"></span><h2>Close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
+<p><em>See Also:</em> <a href="File.html#close">File.Close</a>, <a href="File.html#exists">File.Exists</a>, <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<hr />
+</section>
+<section id="close" class="level3">
+<h3>Close</h3>
 <p><em>(Formerly known as FileClose, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.Close()
-</pre></div>
-</div>
-<p>Closes the file, and commits all changes to disk. You <strong>must</strong> call this
-function when you have finished reading/writing the file.</p>
+<pre><code>File.Close()
+</code></pre>
+<p>Closes the file, and commits all changes to disk. You <strong>must</strong> call this function when you have finished reading/writing the file.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
 output.WriteString(&quot;test string&quot;);
 output.Close();
-</pre></div>
-</div>
-<p>will open the file test.dat, write the string “test string”, and close
-it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Open</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="delete">
-<span id="index-4"></span><h2>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static File.Delete(string filename)
-</pre></div>
-</div>
+</code></pre>
+<p>will open the file test.dat, write the string "test string", and close it.</p>
+<p><em>See Also:</em> <a href="File.html#open">File.Open</a></p>
+<hr />
+</section>
+<section id="delete" class="level3">
+<h3>Delete</h3>
+<pre><code>static File.Delete(string filename)
+</code></pre>
 <p>Deletes the specified file from the disk.</p>
-<p>For security reasons this command only works with files in the
-<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code> and <code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code> directories.</p>
-<p><strong>NOTE:</strong> This is a static function, therefore you don’t need an open
-File pointer to use it. See the example below.</p>
+<p>For security reasons this command only works with files in the <code>$SAVEGAMEDIR$</code> and <code>$APPDATADIR$</code> directories.</p>
+<p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.Delete(&quot;$APPDATADIR$/temp.tmp&quot;);
-</pre></div>
-</div>
-<p>will delete the file “temp.tmp” from the app data directory, if it
-exists.</p>
+<pre><code>File.Delete(&quot;$APPDATADIR$/temp.tmp&quot;);
+</code></pre>
+<p>will delete the file "temp.tmp" from the app data directory, if it exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Exists</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.Open</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-5"></span></div>
-<div class="section" id="exists">
-<span id="index-6"></span><h2>Exists<a class="headerlink" href="#exists" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>static bool File.Exists(string filename)
-</pre></div>
-</div>
+<p><em>See Also:</em> <a href="File.html#exists">File.Exists</a>, <a href="File.html#open">File.Open</a></p>
+<hr />
+</section>
+<section id="exists" class="level3">
+<h3>Exists</h3>
+<pre><code>static bool File.Exists(string filename)
+</code></pre>
 <p>Checks if the specified file exists on the file system.</p>
-<p>When specifying file path you may use special location tags:<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$INSTALLDIR$</span></code>, which allows you to explicitly read files in the game
-installation directory.<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$SAVEGAMEDIR$</span></code>, which allows you to access files in the save game
-directory.<span class="raw-html-m2r"><br></span>
-<code class="docutils literal notranslate"><span class="pre">$APPDATADIR$</span></code>, which allows you to write/read files to a folder on the
-system which is accessible by and shared by all users.</p>
-<p><strong>NOTE:</strong> This is a static function, therefore you don’t need an open
-File pointer to use it. See the example below.</p>
+<p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to access files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users.</p>
+<p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>if (!File.Exists(&quot;temp.tmp&quot;))
+<pre><code>if (!File.Exists(&quot;temp.tmp&quot;))
 {
   File *output = File.Open(&quot;temp.tmp&quot;, eFileWrite);
   output.WriteString(&quot;some text&quot;);
   output.Close();
 }
-</pre></div>
-</div>
-<p>will create the file “temp.tmp” if it doesn’t exist</p>
+</code></pre>
+<p>will create the file "temp.tmp" if it doesn't exist</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Delete</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.Open</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-7"></span></div>
-<div class="section" id="readint">
-<span id="index-8"></span><h2>ReadInt<a class="headerlink" href="#readint" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="File.html#delete">File.Delete</a>, <a href="File.html#open">File.Open</a></p>
+<hr />
+</section>
+<section id="readint" class="level3">
+<h3>ReadInt</h3>
 <p><em>(Formerly known as FileReadInt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.ReadInt()
-</pre></div>
-</div>
-<p>Reads an integer from the file, and returns it to the script. Only
-integers written with File.WriteInt can be read back.</p>
+<pre><code>File.ReadInt()
+</code></pre>
+<p>Reads an integer from the file, and returns it to the script. Only integers written with File.WriteInt can be read back.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int number;
+<pre><code>int number;
 File *input = File.Open(&quot;stats.dat&quot;, eFileRead);
 number = input.ReadInt();
 input.Close();
-</pre></div>
-</div>
-<p>will open the file stats.dat, read an integer into number and then close
-the file.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteInt</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-9"></span></div>
-<div class="section" id="readrawchar">
-<span id="index-10"></span><h2>ReadRawChar<a class="headerlink" href="#readrawchar" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will open the file stats.dat, read an integer into number and then close the file.</p>
+<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#writeint">File.WriteInt</a></p>
+<hr />
+</section>
+<section id="readrawchar" class="level3">
+<h3>ReadRawChar</h3>
 <p><em>(Formerly known as FileReadRawChar, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.ReadRawChar()
-</pre></div>
-</div>
-<p>Reads a raw character from the input file and returns it. This function
-allows you to read from files that weren’t created by your game, however
-it is recommended for expert users only.</p>
+<pre><code>File.ReadRawChar()
+</code></pre>
+<p>Reads a raw character from the input file and returns it. This function allows you to read from files that weren't created by your game, however it is recommended for expert users only.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *input = File.Open(&quot;stats.txt&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;stats.txt&quot;, eFileRead);
 String buffer = String.Format(&quot;%c&quot;, input.ReadRawChar());
 input.Close();
-</pre></div>
-</div>
-<p>will read a raw character from file stats.txt and writes it to the
-string ‘buffer’.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.ReadRawInt</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteRawChar</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-11"></span></div>
-<div class="section" id="readrawint">
-<span id="index-12"></span><h2>ReadRawInt<a class="headerlink" href="#readrawint" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will read a raw character from file stats.txt and writes it to the string 'buffer'.</p>
+<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#readrawint">File.ReadRawInt</a>, <a href="File.html#writerawchar">File.WriteRawChar</a></p>
+<hr />
+</section>
+<section id="readrawint" class="level3">
+<h3>ReadRawInt</h3>
 <p><em>(Formerly known as FileReadRawInt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.ReadRawInt()
-</pre></div>
-</div>
-<p>Reads a raw 32-bit integer from the input file and returns it to the
-script. This allows you to read from files created by other programs -
-however, it should only be used by experts as no error-checking is
-performed.</p>
+<pre><code>File.ReadRawInt()
+</code></pre>
+<p>Reads a raw 32-bit integer from the input file and returns it to the script. This allows you to read from files created by other programs - however, it should only be used by experts as no error-checking is performed.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int number;
+<pre><code>int number;
 File *input = File.Open(&quot;stats.txt&quot;, eFileRead);
 number = input.ReadRawInt();
 input.Close();
-</pre></div>
-</div>
-<p>will read a raw integer from file stats.txt and put it into the integer
-number.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.ReadRawChar</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-13"></span></div>
-<div class="section" id="readrawlineback">
-<span id="index-14"></span><h2>ReadRawLineBack<a class="headerlink" href="#readrawlineback" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will read a raw integer from file stats.txt and put it into the integer number.</p>
+<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#readrawchar">File.ReadRawChar</a></p>
+<hr />
+</section>
+<section id="readrawlineback" class="level3">
+<h3>ReadRawLineBack</h3>
 <p><em>(Formerly known as File.ReadRawLine, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String File.ReadRawLineBack()
-</pre></div>
-</div>
-<p>Reads a line of text back in from the file and returns it. This enables
-you to read in lines from text files and use them in your game.</p>
-<p><strong>NOTE:</strong> this command can only read back plain text lines from text
-files. If you attempt to use it with binary files or files written with
-commands like WriteString, WriteInt, etc then the results are
-unpredictable.</p>
+<pre><code>String File.ReadRawLineBack()
+</code></pre>
+<p>Reads a line of text back in from the file and returns it. This enables you to read in lines from text files and use them in your game.</p>
+<p><strong>NOTE:</strong> this command can only read back plain text lines from text files. If you attempt to use it with binary files or files written with commands like WriteString, WriteInt, etc then the results are unpredictable.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *input = File.Open(&quot;error.log&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;error.log&quot;, eFileRead);
 if (input != null) {
   while (!input.EOF) {
     String line = input.ReadRawLineBack();
@@ -259,357 +208,178 @@ if (input != null) {
   }
   input.Close();
 }
-</pre></div>
-</div>
-<p>will display the contents of the ‘error.log’ file, if it exists</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.WriteRawLine</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-15"></span></div>
-<div class="section" id="readstringback">
-<span id="index-16"></span><h2>ReadStringBack<a class="headerlink" href="#readstringback" title="Permalink to this headline">¶</a></h2>
-<p><em>(Formerly known as FileRead, which is now obsolete)</em><span class="raw-html-m2r"><br></span>
-<em>(Formerly known as File.ReadString, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>String File.ReadStringBack()
-</pre></div>
-</div>
-<p>Reads a string back in from a file previously opened with File.Open, and
-returns it. You should only use this with files which you previously
-wrote out with File.WriteString. Do NOT use this function with any other
-files, even text files.</p>
+</code></pre>
+<p>will display the contents of the 'error.log' file, if it exists</p>
+<p><em>See Also:</em> <a href="File.html#writerawline">File.WriteRawLine</a></p>
+<hr />
+</section>
+<section id="readstringback" class="level3">
+<h3>ReadStringBack</h3>
+<p><em>(Formerly known as FileRead, which is now obsolete)</em><br> <em>(Formerly known as File.ReadString, which is now obsolete)</em></p>
+<pre><code>String File.ReadStringBack()
+</code></pre>
+<p>Reads a string back in from a file previously opened with File.Open, and returns it. You should only use this with files which you previously wrote out with File.WriteString. Do NOT use this function with any other files, even text files.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
 String buffer = input.ReadStringBack();
 input.Close();
-</pre></div>
-</div>
-<p>will open the file test.dat (which you have previously written with
-File.WriteString) and read a string into the buffer. Then close the
-file.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Open</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteString</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="seek">
-<span id="index-17"></span><h2>Seek<a class="headerlink" href="#seek" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int Seek(int offset, optional FileSeek origin);
-</pre></div>
-</div>
-<p>Moves read/write position by <em>offset</em> bytes related to <em>origin</em>. Returns
-new read/write position. This is usually used when you are reading file
-and want to skip over some data, or writing a file and want to move back
-and overwrite a piece of data in the previous section for some reason.</p>
-<p>The <em>origin</em> is determined by one of the FileSeek types: eSeekBegin -
-counts <em>offset</em> bytes starting from the file’s beginning; <em>offset</em> must
-be positive.<span class="raw-html-m2r"><br></span>
-eSeekCurrent - counts <em>offset</em> bytes starting from the current position;
-<em>offset</em> may be either positive or negative.<span class="raw-html-m2r"><br></span>
-eSeekEnd - counts <em>offset</em> bytes starting from the file’s end, going
-backwards; <em>offset</em> must be positive.</p>
-<p>If optional <em>origin</em> parameter is not specified, eSeekCurrent type is
-used by default.</p>
-<p><strong>IMPORTANT:</strong> Do not use Seek on files which you have written with safe
-data writing functions, such as WriteInt and WriteString. These
-functions add additional data for the purpose of protection against
-incorrect reading, and Seek ignores that protection. If you use Seek and
-then try to ReadIntBack, for example, most probably you will receive a
-reading error. Only use it on files that contain “raw” data, or when you
-know written format precisely.</p>
+</code></pre>
+<p>will open the file test.dat (which you have previously written with File.WriteString) and read a string into the buffer. Then close the file.</p>
+<p><em>See Also:</em> <a href="File.html#open">File.Open</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<hr />
+</section>
+<section id="seek" class="level3">
+<h3>Seek</h3>
+<pre><code>int Seek(int offset, optional FileSeek origin);
+</code></pre>
+<p>Moves read/write position by <em>offset</em> bytes related to <em>origin</em>. Returns new read/write position. This is usually used when you are reading file and want to skip over some data, or writing a file and want to move back and overwrite a piece of data in the previous section for some reason.</p>
+<p>The <em>origin</em> is determined by one of the FileSeek types: eSeekBegin - counts <em>offset</em> bytes starting from the file's beginning; <em>offset</em> must be positive.<br> eSeekCurrent - counts <em>offset</em> bytes starting from the current position; <em>offset</em> may be either positive or negative.<br> eSeekEnd - counts <em>offset</em> bytes starting from the file's end, going backwards; <em>offset</em> must be positive.</p>
+<p>If optional <em>origin</em> parameter is not specified, eSeekCurrent type is used by default.</p>
+<p><strong>IMPORTANT:</strong> Do not use Seek on files which you have written with safe data writing functions, such as WriteInt and WriteString. These functions add additional data for the purpose of protection against incorrect reading, and Seek ignores that protection. If you use Seek and then try to ReadIntBack, for example, most probably you will receive a reading error. Only use it on files that contain "raw" data, or when you know written format precisely.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
 int first_value = input.ReadRawInt();
 input.Seek(256);
 int second_value = input.ReadRawInt();
 input.Close();
-</pre></div>
-</div>
-<p>will open the file test.dat, read <code class="docutils literal notranslate"><span class="pre">first_value</span></code>, skip 256 bytes, read
-<code class="docutils literal notranslate"><span class="pre">second_value</span></code>, and close the file.</p>
+</code></pre>
+<p>will open the file test.dat, read <code>first_value</code>, skip 256 bytes, read <code>second_value</code>, and close the file.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Position</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-18"></span></div>
-<div class="section" id="writeint">
-<span id="index-19"></span><h2>WriteInt<a class="headerlink" href="#writeint" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="File.html#position">File.Position</a></p>
+<hr />
+</section>
+<section id="writeint" class="level3">
+<h3>WriteInt</h3>
 <p><em>(Formerly known as FileWriteInt, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.WriteInt(int value)
-</pre></div>
-</div>
-<p>Writes VALUE to the file. This allows you to save the contents of
-variables to disk. The file must have been previously opened with
-File.Open, and you can read the value back later with File.ReadInt.</p>
+<pre><code>File.WriteInt(int value)
+</code></pre>
+<p>Writes VALUE to the file. This allows you to save the contents of variables to disk. The file must have been previously opened with File.Open, and you can read the value back later with File.ReadInt.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>int number = 6;
+<pre><code>int number = 6;
 File *output = File.Open(&quot;stats.dat&quot;, eFileWrite);
 output.WriteInt(number);
 output.Close();
-</pre></div>
-</div>
+</code></pre>
 <p>will open the file stats.dat and write the integer number in it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadInt</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteString</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-20"></span></div>
-<div class="section" id="writerawchar">
-<span id="index-21"></span><h2>WriteRawChar<a class="headerlink" href="#writerawchar" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="File.html#readint">File.ReadInt</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<hr />
+</section>
+<section id="writerawchar" class="level3">
+<h3>WriteRawChar</h3>
 <p><em>(Formerly known as FileWriteRawChar, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.WriteRawChar(int value)
-</pre></div>
-</div>
-<p>Writes a single character to the specified file, in raw mode so that
-other applications can read it back. If you are just creating a file for
-your game to read back in, use File.WriteInt instead because it offers
-additional protection. Only use this function if you need other
-applications to be able to read the file in.</p>
-<p>This command writes a single byte to the output file - therefore, VALUE
-can contain any value from 0 to 255.</p>
+<pre><code>File.WriteRawChar(int value)
+</code></pre>
+<p>Writes a single character to the specified file, in raw mode so that other applications can read it back. If you are just creating a file for your game to read back in, use File.WriteInt instead because it offers additional protection. Only use this function if you need other applications to be able to read the file in.</p>
+<p>This command writes a single byte to the output file - therefore, VALUE can contain any value from 0 to 255.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;output.txt&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;output.txt&quot;, eFileWrite);
 output.WriteRawChar(&#39;A&#39;);
 output.WriteRawChar(&#39;B&#39;);
 output.WriteRawChar(13);
 output.Close();
-</pre></div>
-</div>
-<p>will write the text “AB”, followed by a carriage return character, to
-the file.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadRawChar</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteInt</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-22"></span></div>
-<div class="section" id="writerawline">
-<span id="index-23"></span><h2>WriteRawLine<a class="headerlink" href="#writerawline" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will write the text "AB", followed by a carriage return character, to the file.</p>
+<p><em>See Also:</em> <a href="File.html#readrawchar">File.ReadRawChar</a>, <a href="File.html#writeint">File.WriteInt</a></p>
+<hr />
+</section>
+<section id="writerawline" class="level3">
+<h3>WriteRawLine</h3>
 <p><em>(Formerly known as FileWriteRawLine, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.WriteRawLine(string text)
-</pre></div>
-</div>
-<p>Writes a string of text to the file in plain text format. This enables
-you to read it back in Notepad or any text editor. This is useful for
-generating logs and such like.</p>
-<p>The TEXT will be printed to the file, followed by the standard newline
-characters.</p>
+<pre><code>File.WriteRawLine(string text)
+</code></pre>
+<p>Writes a string of text to the file in plain text format. This enables you to read it back in Notepad or any text editor. This is useful for generating logs and such like.</p>
+<p>The TEXT will be printed to the file, followed by the standard newline characters.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;error.log&quot;, eFileAppend);
+<pre><code>File *output = File.Open(&quot;error.log&quot;, eFileAppend);
 output.WriteRawLine(&quot;There was an error playing sound1.wav&quot;);
 output.Close();
-</pre></div>
-</div>
+</code></pre>
 <p>will write an error line in the file error.log.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadRawLineBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteString</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-24"></span></div>
-<div class="section" id="writestring">
-<span id="index-25"></span><h2>WriteString<a class="headerlink" href="#writestring" title="Permalink to this headline">¶</a></h2>
+<p><em>See Also:</em> <a href="File.html#readrawlineback">File.ReadRawLineBack</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<hr />
+</section>
+<section id="writestring" class="level3">
+<h3>WriteString</h3>
 <p><em>(Formerly known as FileWrite, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File.WriteString(string text)
-</pre></div>
-</div>
-<p>Writes TEXT to the file, which must have been previously opened with
-File.Open for writing. The string is written using a custom format to
-the file, which can only be read back by using File.ReadStringBack.</p>
+<pre><code>File.WriteString(string text)
+</code></pre>
+<p>Writes TEXT to the file, which must have been previously opened with File.Open for writing. The string is written using a custom format to the file, which can only be read back by using File.ReadStringBack.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;temp.tmp&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;temp.tmp&quot;, eFileWrite);
 if (output == null) Display(&quot;Error opening file.&quot;);
 else {
   output.WriteString(&quot;test string&quot;);
   output.Close();
 }
-</pre></div>
-</div>
-<p>will open the file temp.tmp for writing. If it cannot create the file,
-it will display an error message. Otherwise, it will write the string
-“test string” and close it.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.Open</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.WriteRawLine</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-26"></span></div>
-<div class="section" id="eof">
-<span id="index-27"></span><h2>EOF<a class="headerlink" href="#eof" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will open the file temp.tmp for writing. If it cannot create the file, it will display an error message. Otherwise, it will write the string "test string" and close it.</p>
+<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#open">File.Open</a>, <a href="File.html#writerawline">File.WriteRawLine</a></p>
+<hr />
+</section>
+<section id="eof" class="level3">
+<h3>EOF</h3>
 <p><em>(Formerly known as FileIsEOF, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool File.EOF
-</pre></div>
-</div>
-<p>Checks whether the specified file has had all its data read. This is
-only useful with files opened for <strong>reading</strong>. It returns 1 if the
-entire contents of the file has now been read, or 0 if not.</p>
+<pre><code>readonly bool File.EOF
+</code></pre>
+<p>Checks whether the specified file has had all its data read. This is only useful with files opened for <strong>reading</strong>. It returns 1 if the entire contents of the file has now been read, or 0 if not.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileRead);
 while (!output.EOF) {
   int temp = output.ReadRawChar();
   Display(&quot;%c&quot;, temp);
 }
 output.Close();
-</pre></div>
-</div>
-<p>will display every character in the file test.dat, one by one, to the
-screen.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Error</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.Open</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-28"></span></div>
-<div class="section" id="error">
-<span id="index-29"></span><h2>Error<a class="headerlink" href="#error" title="Permalink to this headline">¶</a></h2>
+</code></pre>
+<p>will display every character in the file test.dat, one by one, to the screen.</p>
+<p><em>See Also:</em> <a href="File.html#error">File.Error</a>, <a href="File.html#open">File.Open</a>, <a href="File.html#readstringback">File.ReadStringBack</a></p>
+<hr />
+</section>
+<section id="error" class="level3">
+<h3>Error</h3>
 <p><em>(Formerly known as FileIsError, which is now obsolete)</em></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly bool File.Error
-</pre></div>
-</div>
-<p>Checks whether an error has occurred reading from or writing to the
-specified file.</p>
-<p>An error can occur if, for example, you run out of disk space or the
-user removes the disk that is being read from.</p>
-<p>This function only checks for errors while actually reading/writing
-data. The File.Open function will return null if there was an error
-actually opening or creating the file.</p>
-<p>To find out whether all data has been read from a file, use
-<a class="reference internal" href="#"><span class="doc">EOF</span></a> instead.</p>
+<pre><code>readonly bool File.Error
+</code></pre>
+<p>Checks whether an error has occurred reading from or writing to the specified file.</p>
+<p>An error can occur if, for example, you run out of disk space or the user removes the disk that is being read from.</p>
+<p>This function only checks for errors while actually reading/writing data. The File.Open function will return null if there was an error actually opening or creating the file.</p>
+<p>To find out whether all data has been read from a file, use <a href="File.html#eof">EOF</a> instead.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
 output.WriteInt(51);
 if (output.Error) {
   Display(&quot;Error writing the data!&quot;);
 }
 output.Close();
-</pre></div>
-</div>
-<p>will write a number to the file ‘test.dat’, and display a message if
-there was a problem.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.EOF</span></a>,
-<a class="reference internal" href="#"><span class="doc">File.ReadStringBack</span></a></p>
-<hr class="docutils" />
-</div>
-<div class="section" id="position">
-<span id="index-30"></span><h2>Position<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>readonly int File.Position
-</pre></div>
-</div>
-<p>Gets current File’s reading or writing position. This value means number
-of bytes between file’s beginning and current place you are reading from
-or writing to.</p>
-<p>This may be useful, for example, if you are passing the file pointer to
-another script module function and want to know how much data that
-function has read or written.</p>
+</code></pre>
+<p>will write a number to the file 'test.dat', and display a message if there was a problem.</p>
+<p><em>See Also:</em> <a href="File.html#eof">File.EOF</a>, <a href="File.html#readstringback">File.ReadStringBack</a></p>
+<hr />
+</section>
+<section id="position" class="level3">
+<h3>Position</h3>
+<pre><code>readonly int File.Position
+</code></pre>
+<p>Gets current File's reading or writing position. This value means number of bytes between file's beginning and current place you are reading from or writing to.</p>
+<p>This may be useful, for example, if you are passing the file pointer to another script module function and want to know how much data that function has read or written.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">File</span> *<span class="n">output</span> = <span class="n">File</span>.<span class="n">Open</span>(<span class="s">&quot;test.dat&quot;</span>, <span class="n">eFileWrite</span>);
-<span class="nb">int</span> <span class="n">old_pos</span> = <span class="n">output</span>.<span class="n">Position</span>;
-<span class="n">WriteCustomModuleData</span>(<span class="n">output</span>);
-<span class="nb">int</span> <span class="n">new_pos</span> = <span class="n">output</span>.<span class="n">Position</span>;
-<span class="n">Display</span>(<span class="s">&quot;Custom module has written %d bytes&quot;</span>, <span class="n">new_pos</span> - <span class="n">old_pos</span>);
-<span class="n">output</span>.<span class="n">Close</span>();
-</pre></div>
-</div>
-<p>will open file, pass the file pointer to some custom function, then
-display amount of data that function wrote.</p>
+<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+int old_pos = output.Position;
+WriteCustomModuleData(output);
+int new_pos = output.Position;
+Display(&quot;Custom module has written %d bytes&quot;, new_pos - old_pos);
+output.Close();
+</code></pre>
+<p>will open file, pass the file pointer to some custom function, then display amount of data that function wrote.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">File.Seek</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+<p><em>See Also:</em> <a href="File.html#seek">File.Seek</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="ExtenderFunctions.html" title="previous chapter">Extender functions</a></li>
-      <li>Next: <a href="GUI.html" title="next chapter">GUI functions and properties</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20File%20functions%20and%20properties&body=source%20is%20File.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/File"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">File functions and properties</a><ul>
-<li><a class="reference internal" href="#open">Open</a></li>
-<li><a class="reference internal" href="#close">Close</a></li>
-<li><a class="reference internal" href="#delete">Delete</a></li>
-<li><a class="reference internal" href="#exists">Exists</a></li>
-<li><a class="reference internal" href="#readint">ReadInt</a></li>
-<li><a class="reference internal" href="#readrawchar">ReadRawChar</a></li>
-<li><a class="reference internal" href="#readrawint">ReadRawInt</a></li>
-<li><a class="reference internal" href="#readrawlineback">ReadRawLineBack</a></li>
-<li><a class="reference internal" href="#readstringback">ReadStringBack</a></li>
-<li><a class="reference internal" href="#seek">Seek</a></li>
-<li><a class="reference internal" href="#writeint">WriteInt</a></li>
-<li><a class="reference internal" href="#writerawchar">WriteRawChar</a></li>
-<li><a class="reference internal" href="#writerawline">WriteRawLine</a></li>
-<li><a class="reference internal" href="#writestring">WriteString</a></li>
-<li><a class="reference internal" href="#eof">EOF</a></li>
-<li><a class="reference internal" href="#error">Error</a></li>
-<li><a class="reference internal" href="#position">Position</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

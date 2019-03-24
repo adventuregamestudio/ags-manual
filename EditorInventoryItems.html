@@ -1,153 +1,83 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Inventory Items Editor &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Other Features" href="OtherFeatures.html" />
-    <link rel="prev" title="View Editor" href="EditorView.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="inventory-items-editor">
-<h1>Inventory Items Editor<a class="headerlink" href="#inventory-items-editor" title="Permalink to this headline">¶</a></h1>
-<p>A place to edit Items that can be placed on the <a class="reference internal" href="Settingupthegame.html"><span class="doc">inventory</span></a> by the player.</p>
-<a class="reference external image-reference" href="images/EditorInventoryItems_img1.png"><img alt="Screenshot Inventory Item Editor" src="_images/EditorInventoryItems_img1.png" /></a>
-<p><em>Cursor Image</em>:<span class="raw-html-m2r"><br></span>
-The image number from the <a class="reference internal" href="EditorSprite.html"><span class="doc">Sprite Manager</span></a> that is displayed as active cursor image when selecting this inventory item from the inventory to use it on other inventory items or somewhere inside your scene. You set the active hotspot of the mousecursor, there where the click from that mouse cursor is detected, by left-clicking on the right image in the inventory item settings. Alternatively you can set the hotspot position by hand with the HotspotX and HotspotY Value, this is explained 3 paragraphs below.<span class="raw-html-m2r"><br></span>
-This Cursor Image is usually a bit smaller than the normal image of the inventory item inside the inventory, this is covered 2 paragraphs below.<span class="raw-html-m2r"><br></span>
-It is good practise to add a kind of crosshair or a single pixel in any color standing out from the rest of the image (maybe pure red?) and put the click hotspot there so the player knows where he is pointing exactly. Figuring out bad controls is no puzzle!</p>
-<p><em>Description:</em><span class="raw-html-m2r"><br></span>
-The name of the item that is displayed for example on [&#64;OVERHOTSPOT&#64;] when the mouse is over the inventory item still in the inventory.</p>
-<p><em>Image:</em><span class="raw-html-m2r"><br></span>
-The image displayed for the inventory item within the normal AGS inventory. Usually a bit bigger than the mouse cursor image of the inventory item.</p>
-<p><em>HotspotX:</em><span class="raw-html-m2r"><br></span>
-Select the X value of the active cursor image by hand. It’s the distance from the left border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
-<p><em>HotspotY:</em><span class="raw-html-m2r"><br></span>
-Select the Y value of the active cursor image by hand. It’s the distance from the top border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
-<p><em>ID:</em><span class="raw-html-m2r"><br></span>
-The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.ID</span></a>.</p>
-<p><em>Name:</em><span class="raw-html-m2r"><br></span>
-The script name of the inventory item. Usually the convention is to start inventory item names with an i, like <em>iKey</em>. This convention sure gets tricky when you give your game characters apple products…</p>
-<p><em>PlayerStartsWithItem:</em><span class="raw-html-m2r"><br></span>
-Is a boolean value that means what it says, it sets whether the player character starts with this inventory item in his inventory or not. Mostly the default setting of no is used.
-<span class="raw-html-m2r"><br/></span>
-<span class="raw-html-m2r"><br/></span>
-<span class="raw-html-m2r"><br/></span>
-Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a class="reference internal" href="Character.html"><span class="doc">cChar.AddInventory(iInvItem)</span></a> function. When the player uses or gives away the item you remove it from the character’s inventory with the <a class="reference internal" href="Character.html"><span class="doc">cChar.LoseInventory(iInvItem)</span></a> function. Make sure you check the <a class="reference internal" href="Mouse.html"><span class="doc">Mouse.Mode</span></a> afterwards, especially when the active cursor is the inventory item the player just lost.
-<span class="raw-html-m2r"><br/></span>
-<span class="raw-html-m2r"><br/></span>
-<span class="raw-html-m2r"><br/></span>
-See Also: <a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem</span></a></p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inventory Items Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="EditorView.html" title="previous chapter">View Editor</a></li>
-      <li>Next: <a href="OtherFeatures.html" title="next chapter">Other Features</a></li>
-  </ul></li>
+<li><a href="#inventory-items-editor">Inventory Items Editor</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Inventory%20Items%20Editor&body=source%20is%20EditorInventoryItems.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/EditorInventoryItems"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="inventory-items-editor" class="level2">
+<h2>Inventory Items Editor</h2>
+<p>A place to edit Items that can be placed on the <a href="Settingupthegame.html#inventory">inventory</a> by the player.</p>
+<p><img src="images/EditorInventoryItems_img1.png" alt="Screenshot Inventory Item Editor" /></p>
+<p><em>Cursor Image</em>:<br />
+The image number from the <a href="EditorSprite.html">Sprite Manager</a> that is displayed as active cursor image when selecting this inventory item from the inventory to use it on other inventory items or somewhere inside your scene. You set the active hotspot of the mousecursor, there where the click from that mouse cursor is detected, by left-clicking on the right image in the inventory item settings. Alternatively you can set the hotspot position by hand with the HotspotX and HotspotY Value, this is explained 3 paragraphs below.<br />
+This Cursor Image is usually a bit smaller than the normal image of the inventory item inside the inventory, this is covered 2 paragraphs below.<br />
+It is good practise to add a kind of crosshair or a single pixel in any color standing out from the rest of the image (maybe pure red?) and put the click hotspot there so the player knows where he is pointing exactly. Figuring out bad controls is no puzzle!</p>
+<p><em>Description:</em><br />
+The name of the item that is displayed for example on [@OVERHOTSPOT@] when the mouse is over the inventory item still in the inventory.</p>
+<p><em>Image:</em><br />
+The image displayed for the inventory item within the normal AGS inventory. Usually a bit bigger than the mouse cursor image of the inventory item.</p>
+<p><em>HotspotX:</em><br />
+Select the X value of the active cursor image by hand. It's the distance from the left border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
+<p><em>HotspotY:</em><br />
+Select the Y value of the active cursor image by hand. It's the distance from the top border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
+<p><em>ID:</em><br />
+The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a href="InventoryItem.html#id">InventoryItem.ID</a>.</p>
+<p><em>Name:</em><br />
+The script name of the inventory item. Usually the convention is to start inventory item names with an i, like <em>iKey</em>. This convention sure gets tricky when you give your game characters apple products...</p>
+<p><em>PlayerStartsWithItem:</em><br />
+Is a boolean value that means what it says, it sets whether the player character starts with this inventory item in his inventory or not. Mostly the default setting of no is used. <br/> <br/> <br/> Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#addinventory">cChar.AddInventory(iInvItem)</a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#loseinventory">cChar.LoseInventory(iInvItem)</a> function. Make sure you check the <a href="Mouse.html#mode">Mouse.Mode</a> afterwards, especially when the active cursor is the inventory item the player just lost. <br/> <br/> <br/> See Also: <a href="InventoryItem.html">InventoryItem</a></p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

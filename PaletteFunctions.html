@@ -1,203 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Palette functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Palette functions &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Parser functions" href="Parser.html" />
-    <link rel="prev" title="Overlay functions and properties" href="Overlay.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="palette-functions">
-<h1>Palette functions<a class="headerlink" href="#palette-functions" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="index-0"></span><div class="section" id="cyclepalette">
-<span id="index-1"></span><h2>CyclePalette<a class="headerlink" href="#cyclepalette" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>CyclePalette (int start, int end)
-</pre></div>
-</div>
-<p>This is used for special effects, like the flowing colours on the Space
-Quest 4 title screen, and the Sierra logo of the later Sierra games. The
-palette indexes from START to END are cycled around one slot. Using this
-call in a repeatedly_execute function gives the effect of animation.</p>
-<p>By default, the colours rotate leftwards through the palette. If you
-pass the arguments the other way round (ie. START being larger than END)
-then the colours will rotate in the opposite direction.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#palette-functions">Palette functions</a><ul>
+<li><a href="#cyclepalette">CyclePalette</a></li>
+<li><a href="#setpalrgb">SetPalRGB</a></li>
+<li><a href="#updatepalette">UpdatePalette</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="palette-functions" class="level2">
+<h2>Palette functions</h2>
+<section id="cyclepalette" class="level3">
+<h3>CyclePalette</h3>
+<pre><code>CyclePalette (int start, int end)
+</code></pre>
+<p>This is used for special effects, like the flowing colours on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
+<p>By default, the colours rotate leftwards through the palette. If you pass the arguments the other way round (ie. START being larger than END) then the colours will rotate in the opposite direction.</p>
 <p><strong>NOTE:</strong> This command only works in 256-colour games.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>CyclePalette(10,200);
-</pre></div>
-</div>
-<p>will cause the palette indexes from 10 to 200 cycle around one slot and
-give a color effect.</p>
-<p><em>See Also:</em> <a class="reference internal" href="ScreenFunctions.html"><span class="doc">FadeIn</span></a>, <a class="reference internal" href="ScreenFunctions.html"><span class="doc">FadeOut</span></a>,
-<a class="reference internal" href="#"><span class="doc">SetPalRGB</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-2"></span></div>
-<div class="section" id="setpalrgb">
-<span id="index-3"></span><h2>SetPalRGB<a class="headerlink" href="#setpalrgb" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetPalRGB (int slot, int red, int green, int blue)
-</pre></div>
-</div>
-<p>Changes the RGB components of one of the palette slots. The palette is
-initially set up in the Palette Editor, but you can override it during
-the game using this function for special effects. The RED, GREEN and
-BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
-<p>If SLOT is a background slot, then this function’s effect will last
-until the player changes screen, when the palette is changed to the new
-room’s palette. If SLOT is not a background slot, the effect of this
-function is permanent.</p>
-<p>NOTE: This function will allow you to change the colours which are
-“locked” in the AGS Editor. However, you should not normally do this as
-it can cause strange colours in the game.</p>
+<pre><code>CyclePalette(10,200);
+</code></pre>
+<p>will cause the palette indexes from 10 to 200 cycle around one slot and give a color effect.</p>
+<p><em>See Also:</em> <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="PaletteFunctions.html#setpalrgb">SetPalRGB</a></p>
+<hr />
+</section>
+<section id="setpalrgb" class="level3">
+<h3>SetPalRGB</h3>
+<pre><code>SetPalRGB (int slot, int red, int green, int blue)
+</code></pre>
+<p>Changes the RGB components of one of the palette slots. The palette is initially set up in the Palette Editor, but you can override it during the game using this function for special effects. The RED, GREEN and BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
+<p>If SLOT is a background slot, then this function's effect will last until the player changes screen, when the palette is changed to the new room's palette. If SLOT is not a background slot, the effect of this function is permanent.</p>
+<p>NOTE: This function will allow you to change the colours which are "locked" in the AGS Editor. However, you should not normally do this as it can cause strange colours in the game.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>SetPalRGB(10,63,63,21);
-</pre></div>
-</div>
+<pre><code>SetPalRGB(10,63,63,21);
+</code></pre>
 <p>will change palette slot number 10 from light green to yellow</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">CyclePalette</span></a>,
-<a class="reference internal" href="ScreenFunctions.html"><span class="doc">FadeIn</span></a>, <a class="reference internal" href="ScreenFunctions.html"><span class="doc">FadeOut</span></a>,
-<a class="reference internal" href="#"><span class="doc">UpdatePalette</span></a></p>
-<hr class="docutils" />
-<span class="target" id="index-4"></span></div>
-<div class="section" id="updatepalette">
-<span id="index-5"></span><h2>UpdatePalette<a class="headerlink" href="#updatepalette" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>UpdatePalette()
-</pre></div>
-</div>
-<p>Commits the changes you made to the game palette. The script global
-variable palette[] stores the state of all the colours of the palette.
-You can access the red, green and blue components with .r, .g and .b.
-The values range from 0 to 63.</p>
+<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="PaletteFunctions.html#updatepalette">UpdatePalette</a></p>
+<hr />
+</section>
+<section id="updatepalette" class="level3">
+<h3>UpdatePalette</h3>
+<pre><code>UpdatePalette()
+</code></pre>
+<p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colours of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
 <p>Example:</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>palette[16].r = 60;
+<pre><code>palette[16].r = 60;
 UpdatePalette();
-</pre></div>
-</div>
-<p>will make the black colour turn bright red. When you actually change the
-variable, nothing happens. Call this function to update the screen.</p>
-<p><em>See Also:</em> <a class="reference internal" href="#"><span class="doc">SetPalRGB</span></a></p>
-</div>
-</div>
-
-
-          </div>
-          
+</code></pre>
+<p>will make the black colour turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
+<p><em>See Also:</em> <a href="PaletteFunctions.html#setpalrgb">SetPalRGB</a></p>
+</section>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Overlay.html" title="previous chapter">Overlay functions and properties</a></li>
-      <li>Next: <a href="Parser.html" title="next chapter">Parser functions</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Palette%20functions&body=source%20is%20PaletteFunctions.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/PaletteFunctions"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-<h3>Table of Contents</h3>
-  <ul>
-<li><a class="reference internal" href="#">Palette functions</a><ul>
-<li><a class="reference internal" href="#cyclepalette">CyclePalette</a></li>
-<li><a class="reference internal" href="#setpalrgb">SetPalRGB</a></li>
-<li><a class="reference internal" href="#updatepalette">UpdatePalette</a></li>
-</ul>
-</li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

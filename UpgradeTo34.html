@@ -1,264 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Upgrading to AGS 3.4</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Upgrading to AGS 3.4 &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Upgrading to AGS 3.4.1" href="UpgradeTo341.html" />
-    <link rel="prev" title="Upgrading to AGS 3.3.5" href="UpgradeTo335.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-  </head><body>
-  
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="upgrading-to-ags-3-4">
-<h1>Upgrading to AGS 3.4<a class="headerlink" href="#upgrading-to-ags-3-4" title="Permalink to this headline">¶</a></h1>
-<p>AGS 3.4 introduces a number of significant enhancements to game creation
-process.</p>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#upgrading-to-ags-34">Upgrading to AGS 3.4</a></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="upgrading-to-ags-34" class="level2">
+<h2>Upgrading to AGS 3.4</h2>
+<p>AGS 3.4 introduces a number of significant enhancements to game creation process.</p>
 <p><strong>Building game for multiple platforms</strong></p>
-<p>AGS can now compile and deploy your game for more than one target
-platform. Currently Windows and Linux are officially supported, but
-other may be added in following updates. Check the “Built target
-platforms” option in the “Compiler” section of the General Settings.</p>
-<p><strong>NOTE:</strong> for deploying your game for Linux you need to have a
-Linux-related utilities to be placed in the “Linux” folder at your AGS
-Editor installation. Those files are distributed along with the official
-AGS release.</p>
+<p>AGS can now compile and deploy your game for more than one target platform. Currently Windows and Linux are officially supported, but other may be added in following updates. Check the "Built target platforms" option in the "Compiler" section of the General Settings.</p>
+<p><strong>NOTE:</strong> for deploying your game for Linux you need to have a Linux-related utilities to be placed in the "Linux" folder at your AGS Editor installation. Those files are distributed along with the official AGS release.</p>
 <p><strong>Custom game resolution</strong></p>
-<p>Your native game resolution can now be anything, not limited to
-predefined variants anymore.</p>
-<p>Similarily, the engine is now capable of running any game in any display
-mode your system supports. To achieve this it uses scaling filter of
-player’s choice, and additional simple image stretching when required.
-The setup program has been altered to reflect this feature.</p>
+<p>Your native game resolution can now be anything, not limited to predefined variants anymore.</p>
+<p>Similarily, the engine is now capable of running any game in any display mode your system supports. To achieve this it uses scaling filter of player's choice, and additional simple image stretching when required. The setup program has been altered to reflect this feature.</p>
 <p><strong>Script API selector</strong></p>
-<p>You can now choose the variant of Script API (built-in functions and
-properties available for use) with two switches in the “Backwards
-Compatibility” section of the General Settings.</p>
-<p>One switch is called “Script API version” and defines the topmost level
-of built-in script content that you want to enable for your project. It
-is suggested to set this to the highest possible value. However, there
-may be cases when you load an older project in the newer version of AGS,
-and new built-in function names conflict with names in some of the
-scripts you used in your project. In such cases you may decide between
-fixing your script or lowering AGS API version. The latter will let you
-compile game scripts without any changes, at the price of not being able
-to use newer built-in functions.</p>
-<p>Second switch is called “Script Compatibility Level” and defines the
-lowest level of built-in content. It is useful if you wish to keep using
-some of the old functions that were declared obsolete by newer version
-of AGS. You do so by setting this switch to version that still had those
-functions.</p>
-<p><strong>NOTE:</strong> You may change those two settings anytime if you’d like to
-experiment, or your plans has changed. It is recommended to do full game
-rebuild after you do so though.</p>
+<p>You can now choose the variant of Script API (built-in functions and properties available for use) with two switches in the "Backwards Compatibility" section of the General Settings.</p>
+<p>One switch is called "Script API version" and defines the topmost level of built-in script content that you want to enable for your project. It is suggested to set this to the highest possible value. However, there may be cases when you load an older project in the newer version of AGS, and new built-in function names conflict with names in some of the scripts you used in your project. In such cases you may decide between fixing your script or lowering AGS API version. The latter will let you compile game scripts without any changes, at the price of not being able to use newer built-in functions.</p>
+<p>Second switch is called "Script Compatibility Level" and defines the lowest level of built-in content. It is useful if you wish to keep using some of the old functions that were declared obsolete by newer version of AGS. You do so by setting this switch to version that still had those functions.</p>
+<p><strong>NOTE:</strong> You may change those two settings anytime if you'd like to experiment, or your plans has changed. It is recommended to do full game rebuild after you do so though.</p>
 <p><strong>Mutable custom properties</strong></p>
-<p>Since introduction Custom Properties could not be changed at runtime,
-they had to keep their default values set in the Editor throughout the
-course of the game. Now this restriction was eliminated and you can
-change any existing custom property in game script, using appropriate
-SetProperty and SetTextProperty functions:</p>
-<p><a class="reference internal" href="Character.html"><span class="doc">Character.SetProperty</span></a>,
-<a class="reference internal" href="Character.html"><span class="doc">Character.SetTextProperty</span></a>,
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.SetProperty</span></a>,
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.SetTextProperty</span></a>,
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.SetProperty</span></a>,
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.SetTextProperty</span></a>,
-<a class="reference internal" href="Object.html"><span class="doc">Object.SetProperty</span></a>,
-<a class="reference internal" href="Object.html"><span class="doc">Object.SetTextProperty</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">Room.SetProperty</span></a>,
-<a class="reference internal" href="Room.html"><span class="doc">Room.SetTextProperty</span></a></p>
-<p>Besides, the number of properties is no longer limited by 30, you may
-make as much of them as you need for your game.</p>
+<p>Since introduction Custom Properties could not be changed at runtime, they had to keep their default values set in the Editor throughout the course of the game. Now this restriction was eliminated and you can change any existing custom property in game script, using appropriate SetProperty and SetTextProperty functions:</p>
+<p><a href="Character.html#setproperty">Character.SetProperty</a>, <a href="Character.html#settextproperty">Character.SetTextProperty</a>, <a href="Hotspot.html#setproperty">Hotspot.SetProperty</a>, <a href="Hotspot.html#settextproperty">Hotspot.SetTextProperty</a>, <a href="InventoryItem.html#setproperty">InventoryItem.SetProperty</a>, <a href="InventoryItem.html#settextproperty">InventoryItem.SetTextProperty</a>, <a href="Object.html#setproperty">Object.SetProperty</a>, <a href="Object.html#settextproperty">Object.SetTextProperty</a>, <a href="Room.html#setproperty">Room.SetProperty</a>, <a href="Room.html#settextproperty">Room.SetTextProperty</a></p>
+<p>Besides, the number of properties is no longer limited by 30, you may make as much of them as you need for your game.</p>
 <p><strong>Extended WFN fonts</strong></p>
-<p>WFN (bitmap fonts) can now have up to 256 characters (as opposed to
-previously supported 128). You may need a specialized editor to create
-such fonts (for example, there is a good Editor plugin around meant for
-this task), and AGS will properly draw any of the 256 characters.</p>
+<p>WFN (bitmap fonts) can now have up to 256 characters (as opposed to previously supported 128). You may need a specialized editor to create such fonts (for example, there is a good Editor plugin around meant for this task), and AGS will properly draw any of the 256 characters.</p>
 <p><strong>New script features</strong></p>
-<p>First of all, you can now create your own managed structs and objects of
-their type in script. The difference from common structs is that you use
-pointers to work with these objects, and can pass them around as
-function parameters and function return values as well. <strong>IMPORTANT:</strong>
-there is a big limitation for user-defined managed structs now, it is
-that they themselves cannot have members of pointer types (or dynamic
-arrays). We suppose that this restriction is only temporary and hope to
-remove it in future updates.</p>
-<p>You can now have some new forms of loop in your script, in addition to
-previously existing <code class="docutils literal notranslate"><span class="pre">while</span></code>. First is <code class="docutils literal notranslate"><span class="pre">do..while</span></code> kind of loop that
-always performs its commands at least once before checking end
-condition, second is <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that lets you initialize internal
-variable, define end condition and write iteration - all in its header.
-Another introduced command is <code class="docutils literal notranslate"><span class="pre">switch</span></code>. One <code class="docutils literal notranslate"><span class="pre">switch</span></code> can replace a long
-list of <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> blocks.</p>
-<p>See: <a class="reference internal" href="ScriptKeywords.html"><span class="doc">switch</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">do..while</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">for</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">break</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">continue</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">managed</span></a>,
-<a class="reference internal" href="ScriptKeywords.html"><span class="doc">new</span></a></p>
+<p>First of all, you can now create your own managed structs and objects of their type in script. The difference from common structs is that you use pointers to work with these objects, and can pass them around as function parameters and function return values as well. <strong>IMPORTANT:</strong> there is a big limitation for user-defined managed structs now, it is that they themselves cannot have members of pointer types (or dynamic arrays). We suppose that this restriction is only temporary and hope to remove it in future updates.</p>
+<p>You can now have some new forms of loop in your script, in addition to previously existing <code>while</code>. First is <code>do..while</code> kind of loop that always performs its commands at least once before checking end condition, second is <code>for</code> loop that lets you initialize internal variable, define end condition and write iteration - all in its header. Another introduced command is <code>switch</code>. One <code>switch</code> can replace a long list of <code>if</code> and <code>else if</code> blocks.</p>
+<p>See: <a href="ScriptKeywords.html#switch-case-statements">switch</a>, <a href="ScriptKeywords.html#dowhile">do..while</a>, <a href="ScriptKeywords.html#for">for</a>, <a href="ScriptKeywords.html#break">break</a>, <a href="ScriptKeywords.html#continue">continue</a>, <a href="ScriptKeywords.html#managed">managed</a>, <a href="ScriptKeywords.html#new">new</a></p>
 <p><strong>Custom Dialog Options rendering extended</strong></p>
-<p>In the past the custom dialog rendering was strictly tied to mouse
-movement and clicks. Now it is extended to give you more freedom in
-setting it up.</p>
-<p>Two more related callbacks are added: <code class="docutils literal notranslate"><span class="pre">dialog_options_repexec</span></code> - that is
-an analogue of <code class="docutils literal notranslate"><span class="pre">repeatedly_execute</span></code> function, but is called only while
-dialog options are displayed, and <code class="docutils literal notranslate"><span class="pre">dialog_options_key_press</span></code> function,
-which is called whenever player presses a key when dialog options are on
-screen.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> will now be called always, even if user
-clicks on the option, but on other hand option won’t be run without
-explicit command:
-<a class="reference internal" href="DialogOptionsRenderingInfo.html"><span class="doc">RunActiveOption</span></a>.</p>
-<p>Along with RunActiveOption,
-<a class="reference internal" href="DialogOptionsRenderingInfo.html"><span class="doc">DialogOptionsRenderingInfo</span></a>
-struct received another member function:
-<a class="reference internal" href="DialogOptionsRenderingInfo.html"><span class="doc">Update</span></a>. It forces options
-GUI to redraw itself, hence may be used to implement custom animation,
-or similar behavior.</p>
-<p><strong>IMPORTANT:</strong> The <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> callback was deprecated
-and won’t be called, at all. You will need to slightly change the logic
-of your script. In most cases it may be enough to simply rename
-<code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> to <code class="docutils literal notranslate"><span class="pre">dialog_options_repexec</span></code>.</p>
-<p><strong>NOTE:</strong> For backwards compatibility you may use an option in General
-Settings called “Use old-style custom dialog options API”. This will
-disable all the new stuff, but return <code class="docutils literal notranslate"><span class="pre">dialog_options_get_active</span></code> and
-make <code class="docutils literal notranslate"><span class="pre">dialog_options_mouse_click</span></code> behave as it did before.</p>
-<p>For detailed information see:
-<a class="reference internal" href="CustomDialogOptions.html"><span class="doc">Custom dialog options rendering</span></a></p>
+<p>In the past the custom dialog rendering was strictly tied to mouse movement and clicks. Now it is extended to give you more freedom in setting it up.</p>
+<p>Two more related callbacks are added: <code>dialog_options_repexec</code> - that is an analogue of <code>repeatedly_execute</code> function, but is called only while dialog options are displayed, and <code>dialog_options_key_press</code> function, which is called whenever player presses a key when dialog options are on screen.</p>
+<p>The <code>dialog_options_mouse_click</code> will now be called always, even if user clicks on the option, but on other hand option won't be run without explicit command: <a href="DialogOptionsRenderingInfo.html#runactiveoption">RunActiveOption</a>.</p>
+<p>Along with RunActiveOption, <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> struct received another member function: <a href="DialogOptionsRenderingInfo.html#update">Update</a>. It forces options GUI to redraw itself, hence may be used to implement custom animation, or similar behavior.</p>
+<p><strong>IMPORTANT:</strong> The <code>dialog_options_get_active</code> callback was deprecated and won't be called, at all. You will need to slightly change the logic of your script. In most cases it may be enough to simply rename <code>dialog_options_get_active</code> to <code>dialog_options_repexec</code>.</p>
+<p><strong>NOTE:</strong> For backwards compatibility you may use an option in General Settings called "Use old-style custom dialog options API". This will disable all the new stuff, but return <code>dialog_options_get_active</code> and make <code>dialog_options_mouse_click</code> behave as it did before.</p>
+<p>For detailed information see: <a href="CustomDialogOptions.html">Custom dialog options rendering</a></p>
 <p><strong>Some functions object-ised</strong></p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">obsolete function/variable</th>
-<th class="head">replace with</th>
+<table>
+<thead>
+<tr class="header">
+<th>obsolete function/variable</th>
+<th>replace with</th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>GetRoomProperty</td>
-<td><a class="reference internal" href="Room.html"><span class="doc">Room.GetProperty</span></a></td>
+<tbody>
+<tr class="odd">
+<td>GetRoomProperty</td>
+<td><a href="Room.html#getproperty">Room.GetProperty</a></td>
 </tr>
-<tr class="row-odd"><td>ProcessClick</td>
-<td><a class="reference internal" href="Room.html"><span class="doc">Room.ProcessClick</span></a></td>
+<tr class="even">
+<td>ProcessClick</td>
+<td><a href="Room.html#processclick">Room.ProcessClick</a></td>
 </tr>
 </tbody>
 </table>
-<p><strong>REMINDER:</strong> you can also use “Script Compatibility Level” switch to
-enable old functions.</p>
+<p><strong>REMINDER:</strong> you can also use "Script Compatibility Level" switch to enable old functions.</p>
 <p><strong>System limits update</strong></p>
-<p>The maximal number of GUI Controls per GUI is no longer limited. The
-maximal number of script modules is no longer limited.</p>
-</div>
-
-
-          </div>
-          
+<p>The maximal number of GUI Controls per GUI is no longer limited. The maximal number of script modules is no longer limited.</p>
+</section>
         </div>
       </div>
-    
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    </section>
+  </div>
 
 
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="UpgradeTo335.html" title="previous chapter">Upgrading to AGS 3.3.5</a></li>
-      <li>Next: <a href="UpgradeTo341.html" title="next chapter">Upgrading to AGS 3.4.1</a></li>
-  </ul></li>
-</ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Upgrading%20to%20AGS%203.4&body=source%20is%20UpgradeTo34.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/UpgradeTo34"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
-
-  </body>
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

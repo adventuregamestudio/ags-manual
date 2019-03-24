@@ -1,155 +1,75 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Frequently Asked Questions &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tutorial" href="Tutorial.html" />
-    <link rel="prev" title="Introduction" href="Introduction.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="frequently-asked-questions">
-<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
-<p>This section of the manual is very rarely updated. Please consult the
-AGS Forums on the website – in particular, the Beginners Technical
-Forum has an excellent Beginners FAQ (the “BFAQ”) which is much more
-extensive and is updated regularly with all sorts of Q&amp;A’s.</p>
-<p><strong>Q. What’s the deal with the license?</strong></p>
-<ol class="upperalpha simple">
-<li>The software is provided under <a class="reference external" href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a>.</li>
-</ol>
-<p><strong>Q. On my screen, I can’t move the main character. Wherever I click to
-move him, he just stands there.</strong></p>
-<p>A. If the main character isn’t on a walkable area, he will not be able
-to move. Load the room in the editor, and check that the location where
-the character starts is on a walkable area.</p>
-<p><strong>Q. When I enter a certain room, I just get a black screen.</strong></p>
-<p>A. Make sure that you haven’t used a Display Message command in the
-“Enters room before fade-in” event for that room. Remember that this
-event happens BEFORE the screen fades in.</p>
-<p>To make sure, when you get the black screen, try pressing enter, or
-clicking the left mouse button. If nothing happens then something more
-serious may have happened. If this is the case, press Alt+X, which
-should exit the program and allow you to trace which line of script it
-has stopped on.</p>
-<p><strong>Q. The character isn’t drawn behind my walk-behind areas!</strong></p>
-<p>A. You need to define the base line for the area, or he will always be
-drawn in front. See the tutorial for more information.</p>
-<p><strong>Q. My game EXE file seems to have disappeared.</strong></p>
-<p>A. Because this file is your entire game, including the room files, when
-you save a room in the Room Editor it will delete the exe file (because
-the room contained in the exe is out of date). To get it back, simply
-build the game again by using the “Build EXE” command on the Build menu.</p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Frequently Asked Questions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Introduction.html" title="previous chapter">Introduction</a></li>
-      <li>Next: <a href="Tutorial.html" title="next chapter">Tutorial</a></li>
-  </ul></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Frequently%20Asked%20Questions&body=source%20is%20FAQ.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/FAQ"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="frequently-asked-questions" class="level2">
+<h2>Frequently Asked Questions</h2>
+<p>This section of the manual is very rarely updated. Please consult the AGS Forums on the website -- in particular, the Beginners Technical Forum has an excellent Beginners FAQ (the "BFAQ") which is much more extensive and is updated regularly with all sorts of Q&amp;A's.</p>
+<p><strong>Q. What's the deal with the license?</strong></p>
+<p>A. The software is provided under <a href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a>.</p>
+<p><strong>Q. On my screen, I can't move the main character. Wherever I click to move him, he just stands there.</strong></p>
+<p>A. If the main character isn't on a walkable area, he will not be able to move. Load the room in the editor, and check that the location where the character starts is on a walkable area.</p>
+<p><strong>Q. When I enter a certain room, I just get a black screen.</strong></p>
+<p>A. Make sure that you haven't used a Display Message command in the "Enters room before fade-in" event for that room. Remember that this event happens BEFORE the screen fades in.</p>
+<p>To make sure, when you get the black screen, try pressing enter, or clicking the left mouse button. If nothing happens then something more serious may have happened. If this is the case, press Alt+X, which should exit the program and allow you to trace which line of script it has stopped on.</p>
+<p><strong>Q. The character isn't drawn behind my walk-behind areas!</strong></p>
+<p>A. You need to define the base line for the area, or he will always be drawn in front. See the tutorial for more information.</p>
+<p><strong>Q. My game EXE file seems to have disappeared.</strong></p>
+<p>A. Because this file is your entire game, including the room files, when you save a room in the Room Editor it will delete the exe file (because the room contained in the exe is out of date). To get it back, simply build the game again by using the "Build EXE" command on the Build menu.</p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>

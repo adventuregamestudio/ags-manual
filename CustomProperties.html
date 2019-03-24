@@ -1,193 +1,83 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Custom Properties &#8212; AGSHelp 3.5.0 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DateTime functions and properties" href="DateTime.html" />
-    <link rel="prev" title="Custom dialog options rendering" href="CustomDialogOptions.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-    
-
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="custom-properties">
-<h1>Custom Properties<a class="headerlink" href="#custom-properties" title="Permalink to this headline">¶</a></h1>
-<p><strong>What are custom properties?</strong></p>
-<p>Suppose you’re making a Lucasarts-style game, and you want all your
-hotspots to have a default event (so if the player right-clicks a
-window, for example, “Open” will be the default, but if they click on a
-pen, “Pick up” will be the default).</p>
-<p>To do that, surely you would have to script in lots of code to change
-the default mode over each different object?</p>
-<p>This is where Custom Properties come to the rescue. You can create a
-custom property for “Default event”, for example, and then have some
-simple code in the global script to use the setting accordingly.</p>
-<p><strong>How do I use them?</strong></p>
-<p>You’ll notice that characters, objects, hotspots, rooms and inventory
-items all have a “Properties” option in their property grids. Select it
-and click the “…” button.</p>
-<p>Since you don’t yet have any custom properties, you’ll get a blank
-window, so click the “Edit Schema” button. This takes you to the Schema
-Editor, where you can create the various properties you want in your
-game. To begin with you are presented with an empty list box, so
-right-click in it and choose “Add property”.</p>
-<p>In the “Add Property” window you can set various options about the new
-property:</p>
-<ul class="simple">
-<li><strong>Name</strong> - this is the name by which you will access the property
-from the script. This cannot be changed after the property has
-been created.</li>
-<li><strong>Description</strong> - this is the user-friendly description which will
-be displayed in the custom property editor when you are setting
-the property.</li>
-<li><strong>Type</strong> - this specifies what type of property you want. “Boolean”
-gives you a checkbox (which will return 0 or 1 to the script),
-“Number” gives you a text box which you can type numbers into, and
-“Text” gives you a larger text box which can store a string.</li>
-<li><strong>Default value</strong> - this specifies what the default value of the
-property will be for objects where you have not set it specifically.</li>
-</ul>
-<p>For example, add a new “Boolean” property. Close the schema editor, and
-then click the “Properties” button again. You’ll now have a window with
-a checkbox with the description text you typed in. You can click the
-“Edit schema” button there to return to the schema editor if you like.</p>
-<p>All types of game item share the same schema. That is, if you create a
-“Jibble” property in the schema editor for a hotspot, it will also
-appear in the properties window for characters, objects, and so on.</p>
-<p><strong>Getting and setting values in the script</strong></p>
-<p>To access the properties from the script, there are various script
-functions. See their descriptions for how they work:</p>
-<p><a class="reference internal" href="Character.html"><span class="doc">Character.GetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Character.html"><span class="doc">Character.GetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Character.html"><span class="doc">Character.SetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Character.html"><span class="doc">Character.SetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.GetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.SetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Hotspot.html"><span class="doc">Hotspot.SetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.GetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.GetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.SetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="InventoryItem.html"><span class="doc">InventoryItem.SetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Object.html"><span class="doc">Object.GetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Object.html"><span class="doc">Object.GetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Object.html"><span class="doc">Object.SetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Object.html"><span class="doc">Object.SetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Room.html"><span class="doc">Room.GetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Room.html"><span class="doc">Room.GetTextProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Room.html"><span class="doc">Room.SetProperty</span></a><span class="raw-html-m2r"><br></span>
-<a class="reference internal" href="Room.html"><span class="doc">Room.SetTextProperty</span></a></p>
-<p><strong>NOTE:</strong> Calling <a class="reference internal" href="Room.html"><span class="doc">ResetRoom</span></a> will reset that
-room’s properties to default values, as well as that room’s hotspot and
-object properties.</p>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Custom Properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
 
 
-          </div>
-          
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
         </div>
-      </div>
-    
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/logo.png" alt="Logo"/>
-    
-  </a>
-</p>
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
 
-
-
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script><div class="relations">
-<h3>Related Topics</h3>
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
 <ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="CustomDialogOptions.html" title="previous chapter">Custom dialog options rendering</a></li>
-      <li>Next: <a href="DateTime.html" title="next chapter">DateTime functions and properties</a></li>
-  </ul></li>
+<li><a href="#custom-properties">Custom Properties</a></li>
 </ul>
-</div><p>
-  <a href="genindex.html">Index</a>
-
-  
-  <br>
-  <br>
-  <ul>
-    
-    
-    
-
-
-    
-    
-
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/issues/new?title=%5BDiscussion%5D%20Custom%20Properties&body=source%20is%20CustomProperties.md.%0A%23%23%23%0A"> Discuss this page</a>
-    </li>
-    <li class="source-link">
-       <a href="https://github.com/adventuregamestudio/ags-manual/wiki/CustomProperties"> Edit this page</a>
-    </li>
-
-  </ul>
-  <br>
-  
-
-</p>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="custom-properties" class="level2">
+<h2>Custom Properties</h2>
+<p><strong>What are custom properties?</strong></p>
+<p>Suppose you're making a Lucasarts-style game, and you want all your hotspots to have a default event (so if the player right-clicks a window, for example, "Open" will be the default, but if they click on a pen, "Pick up" will be the default).</p>
+<p>To do that, surely you would have to script in lots of code to change the default mode over each different object?</p>
+<p>This is where Custom Properties come to the rescue. You can create a custom property for "Default event", for example, and then have some simple code in the global script to use the setting accordingly.</p>
+<p><strong>How do I use them?</strong></p>
+<p>You'll notice that characters, objects, hotspots, rooms and inventory items all have a "Properties" option in their property grids. Select it and click the "..." button.</p>
+<p>Since you don't yet have any custom properties, you'll get a blank window, so click the "Edit Schema" button. This takes you to the Schema Editor, where you can create the various properties you want in your game. To begin with you are presented with an empty list box, so right-click in it and choose "Add property".</p>
+<p>In the "Add Property" window you can set various options about the new property:</p>
+<ul>
+<li><strong>Name</strong> - this is the name by which you will access the property from the script. This cannot be changed after the property has been created.</li>
+<li><strong>Description</strong> - this is the user-friendly description which will be displayed in the custom property editor when you are setting the property.</li>
+<li><strong>Type</strong> - this specifies what type of property you want. "Boolean" gives you a checkbox (which will return 0 or 1 to the script), "Number" gives you a text box which you can type numbers into, and "Text" gives you a larger text box which can store a string.</li>
+<li><strong>Default value</strong> - this specifies what the default value of the property will be for objects where you have not set it specifically.</li>
+</ul>
+<p>For example, add a new "Boolean" property. Close the schema editor, and then click the "Properties" button again. You'll now have a window with a checkbox with the description text you typed in. You can click the "Edit schema" button there to return to the schema editor if you like.</p>
+<p>All types of game item share the same schema. That is, if you create a "Jibble" property in the schema editor for a hotspot, it will also appear in the properties window for characters, objects, and so on.</p>
+<p><strong>Getting and setting values in the script</strong></p>
+<p>To access the properties from the script, there are various script functions. See their descriptions for how they work:</p>
+<p><a href="Character.html#getproperty">Character.GetProperty</a><br> <a href="Character.html#gettextproperty">Character.GetTextProperty</a><br> <a href="Character.html#setproperty">Character.SetProperty</a><br> <a href="Character.html#settextproperty">Character.SetTextProperty</a><br> <a href="Hotspot.html#getproperty">Hotspot.GetProperty</a><br> <a href="Hotspot.html#gettextproperty">Hotspot.GetTextProperty</a><br> <a href="Hotspot.html#setproperty">Hotspot.SetProperty</a><br> <a href="Hotspot.html#settextproperty">Hotspot.SetTextProperty</a><br> <a href="InventoryItem.html#getproperty">InventoryItem.GetProperty</a><br> <a href="InventoryItem.html#gettextproperty">InventoryItem.GetTextProperty</a><br> <a href="InventoryItem.html#setproperty">InventoryItem.SetProperty</a><br> <a href="InventoryItem.html#settextproperty">InventoryItem.SetTextProperty</a><br> <a href="Object.html#getproperty">Object.GetProperty</a><br> <a href="Object.html#gettextproperty">Object.GetTextProperty</a><br> <a href="Object.html#setproperty">Object.SetProperty</a><br> <a href="Object.html#settextproperty">Object.SetTextProperty</a><br> <a href="Room.html#getproperty">Room.GetProperty</a><br> <a href="Room.html#gettextproperty">Room.GetTextProperty</a><br> <a href="Room.html#setproperty">Room.SetProperty</a><br> <a href="Room.html#settextproperty">Room.SetTextProperty</a></p>
+<p><strong>NOTE:</strong> Calling <a href="Room.html#resetroom">ResetRoom</a> will reset that room's properties to default values, as well as that room's hotspot and object properties.</p>
+</section>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    
-        
-<div class="footer">&copy;2019, AGS Team<br>build date: Feb 26, 2019, 12:00:06 PM</div>
-        
-    
+    </section>
+  </div>
 
-  </body>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
 </html>
