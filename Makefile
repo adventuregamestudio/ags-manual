@@ -161,10 +161,10 @@ html/build/css/main.css: | html/build/css
 	$(CP) html$(SEP)css$(SEP)main.css $(subst /,$(SEP),$@)
 
 html/build/css/normalize.css: | html/build/css
-	$(CURL) -fLo $(subst /,$(SEP),$@) $(NORMALIZE)
+	$(CURL) -fLso $(subst /,$(SEP),$@) $(NORMALIZE)
 
 html/build/css/milligram.min.css: | html/build/css
-	$(CURL) -fLo $(subst /,$(SEP),$@) $(MILLIGRAM)
+	$(CURL) -fLso $(subst /,$(SEP),$@) $(MILLIGRAM)
 
 html/build/static/logo.png: | html/build/static
 	$(CP) html$(SEP)static$(SEP)logo.png $(subst /,$(SEP),$@)
