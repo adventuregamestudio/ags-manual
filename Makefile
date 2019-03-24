@@ -28,7 +28,7 @@ ifdef ComSpec
   RD = rd /s /q
   MKDIR = md
   SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
-  UPDATESOURCE = robocopy "$(CHECKOUTDIR)" $@ /E /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
+  UPDATESOURCE ?= robocopy "$(CHECKOUTDIR)" $@ /MIR /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
   CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
 else
   CP = cp
@@ -38,11 +38,11 @@ else
   RD = rm -rf
   MKDIR = mkdir -p
   SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' Makefile
-  UPDATESOURCE = mkdir -p source && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
+  UPDATESOURCE ?= rm -rf $@ && mkdir $@ && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
 endif
 
-.PHONY: help html htmlhelp clean
+.PHONY: help html htmlhelp clean source
 .SECONDARY: $(addprefix html/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(HTMLFILES)) \
 	$(addprefix html/work/, $(METAFILES)) $(addprefix htmlhelp/work/, $(METAFILES))
 
@@ -50,8 +50,7 @@ help:
 	@$(SHOWHELP)
 
 source:
-	@$(MKDIR) $@ && \
-		$(UPDATESOURCE)
+	@$(UPDATESOURCE)
 	@$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
 		$(RM) $@${SEP}_Sidebar.md
 
