@@ -17,7 +17,7 @@ before_build:
 
 build_script:
   - make SHELL=%COMSPEC% source
-  - make SHELL=%COMSPEC% htmlhelp
+  - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
 
 artifacts:
 - path: htmlhelp\build\ags-help.chm
