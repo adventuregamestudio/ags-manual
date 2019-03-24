@@ -19,7 +19,7 @@ before_script:
 
 script:
   - make source
-  - make html
+  - make -j $(getconf _NPROCESSORS_ONLN) html
   - touch html/build/.nojekyll
 
 before_deploy:
