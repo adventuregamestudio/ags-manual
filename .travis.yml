@@ -29,7 +29,7 @@ before_deploy:
   - |
     if ! [ "$BEFORE_DEPLOY_RUN" ]; then
       export BEFORE_DEPLOY_RUN=1;  
-      zip ags-manual-wiki-md-source.zip $CHECKOUTDIR/source/*.md $CHECKOUTDIR/source/images/*
+      zip ags-manual-wiki-md-source.zip $CHECKOUTDIR/*.md $CHECKOUTDIR/images/*
     fi
 
 deploy:
