@@ -1,19 +1,27 @@
-language: python
-sudo: false
-python:
-- '3.6'
-before_install:
-- |
-  if [[ $LOCALE == C ]]; then
-      export LC_CTYPE=C
-      export LC_ALL=C
-      export LANG=C
-  fi
+language: minimal
+
+addons:
+  apt:
+    packages:
+      - jq
+
+env:
+  - CHECKOUTDIR=/tmp/ags-manual.wiki
+
 install:
-- pip install -r requirements.txt
+  - >
+    curl -fLo /tmp/pandoc.deb $(curl -fLs https://api.github.com/repos/jgm/pandoc/releases/latest |
+    jq -r '.assets[].browser_download_url | select(endswith("amd64.deb"))') &&
+    sudo dpkg -i /tmp/pandoc.deb
+
+before_script:
+  - (cd /tmp && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git)
+
 script:
-- make clone html htmlhelp chm
-- touch build/html/.nojekyll
+  - make source
+  - make -j $(getconf _NPROCESSORS_ONLN) html
+  - touch html/build/.nojekyll
+
 before_deploy:
   # run only once, the tasks executed prepares the files to be upload
   # once a github tag is created, ideally using the release button
@@ -21,11 +29,7 @@ before_deploy:
   - |
     if ! [ "$BEFORE_DEPLOY_RUN" ]; then
       export BEFORE_DEPLOY_RUN=1;  
-      zip ags-manual-wiki-md-source.zip  source/*.md source/images/*
-      pushd build/htmlhelp/
-      zip -r ../../ags-manual-hhp-build.zip *
-      popd
-      mv ags-help.chm ags-help-FP.chm
+      zip ags-manual-wiki-md-source.zip $CHECKOUTDIR/source/*.md $CHECKOUTDIR/source/images/*
     fi
 
 deploy:
@@ -35,14 +39,12 @@ deploy:
     keep-history: true
     on:
       branch: master
-    local_dir: build/html/
+    local_dir: html/build/
   - provider: releases
     api_key:
       secure: BiTaFctE9DMu2Oss/37KjHfwGS/V43zA92/6pf2P+BPT3cVSCoHqqPeL3jEXaT9TnxQt3J/Oh5P9PyKZiZ2qUCDLDOiF0U9dmgAEOzZwX2aGHvyBY6MxKmu0GJzn8jW5hMh9z28cbFjAWI+DGxaFSutCWnjtvW0LFzUcXCMIkUFyP4P5iBP5j8J4eZOCjCZTWeOY+lQvA/57x/q2HP4kLl/GByhyPRshYkuIjC3zooZQd8gjsVhOVccvLLwVk/BwK4KVS2g4iC+6Wdaf2OPRCFZ+FwhJ2XNdmVhS34yAQ0YVwAI2Cx8LbqIh0/Ul19WXz30iWdMxdEILsBm2y2ZUlaixrwiSEbLH4yhS0W3kSgKpMaX/nLbwU+/02lmOMDj5Z34vQ+x79Cqxl+ytA3yNXW3CEVhd2Lcoc0FQqG/cASgwGMnNBX/4VBbO/UR9u00vkffF+U9xxAIEDFqSA4pyPk1twQ9zlvGY3JeG4W0reZd1ORxIi+z1FOMra0QrUfk5BKfvNhWhr05ZJfokQZ//7h6YQr4skm/GhzVCwQXFcOlX7HvYyvtFaaDMIeuioSREqPLVEtdYRH1/vJds9aiIbBrSVlTIFuJ+Zhi52Wun1IOhiKwiUTsbH4+c3jt6nWEY8gDsLafmCImlsrpvno4Qstq0/eBItGYu2GfR5yycWIY=
     file: 
       - "ags-manual-wiki-md-source.zip"
-      - "ags-manual-hhp-build.zip"
-      - "ags-help-FP.chm"
     skip_cleanup: true
     on:
       branch: master

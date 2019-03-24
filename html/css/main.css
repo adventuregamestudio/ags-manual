@@ -1,0 +1,105 @@
+.navigation {
+    background: #f4f5f6;
+    border-bottom: .1rem solid #d1d1d1;
+    overflow: hidden;
+    left: 0;
+    max-width: 100%;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 0.6em
+}
+
+.navigation img {
+    display: inline;
+    vertical-align: middle
+}
+
+.navigation h1 {
+    display: inline;
+    font-size: 2rem;
+    vertical-align: middle
+}
+
+.navigation ul {
+    list-style: none
+}
+
+.navigation-list {
+    margin: 0;
+    padding: 0
+}
+
+.navigation-item {
+    margin: 0;
+    padding: 0
+}
+
+.navigation-item input{
+    margin: 0;
+    padding: 0
+}
+
+header ul {
+    list-style: none;
+    text-align: right
+}
+
+header li {
+    margin-bottom: 0
+}
+
+.search-match {
+    background: #def9db
+}
+
+.search-nomatch {
+    background: #f9dbdb
+}
+
+a {
+    color: #0074D9
+}
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    background-color: #0074D9;
+    border: .1rem solid #0074D9
+}
+
+.button.button-outline,
+button.button-outline,
+input[type='button'].button-outline,
+input[type='reset'].button-outline,
+input[type='submit'].button-outline {
+    color: #0074D9
+}
+
+.button.button-clear,
+button.button-clear,
+input[type='button'].button-clear,
+input[type='reset'].button-clear,
+input[type='submit'].button-clear {
+    color: #0074D9
+}
+
+pre {
+    background: #f4f5f6;
+    border-left: .3rem solid #0074D9
+}
+
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
+textarea:focus,
+select:focus {
+    border: .1rem solid #0074D9
+}
