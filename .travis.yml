@@ -10,7 +10,7 @@ env:
 
 install:
   - >
-    curl -fLo /tmp/pandoc.deb $(curl -fLs https://api.github.com/repos/jgm/pandoc/releases/latest |
+    curl -fLo /tmp/pandoc.deb $(curl -fLs $PANDOC_API_RELEASES_URL |
     jq -r '.assets[].browser_download_url | select(endswith("amd64.deb"))') &&
     sudo dpkg -i /tmp/pandoc.deb
 
