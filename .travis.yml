@@ -7,16 +7,12 @@ addons:
 
 env:
   - CHECKOUTDIR=/tmp/ags-manual.wiki
-    LATEST=https://api.github.com/repos/jgm/pandoc/releases/latest
 
 install:
-  - |
-    url=$(curl -u ags-manual-ci:$GITHUB_TOKEN -fLs $LATEST | jq -r '.assets[].browser_download_url | select(endswith("linux.tar.gz"))')
-    if [ -n "$url" ]; then
-      curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && export PANDOC=/tmp/pandoc-*/bin/pandoc
-    else
-      exit 1
-    fi
+  - >
+    curl -fLo /tmp/pandoc.deb $(curl -u ags-manual-ci:$GITHUB_TOKEN -fLs https://api.github.com/repos/jgm/pandoc/releases/latest |
+    jq -r '.assets[].browser_download_url | select(endswith("amd64.deb"))') &&
+    sudo dpkg -i /tmp/pandoc.deb
 
 before_script:
   - (cd /tmp && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git)
