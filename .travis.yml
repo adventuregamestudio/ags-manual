@@ -13,7 +13,7 @@ install:
   - |
     url=$(curl -u ags-manual-ci:$GITHUB_TOKEN -fLs $LATEST | jq -r '.assets[].browser_download_url | select(endswith("linux.tar.gz"))')
     if [ -n "$url" ]; then
-      curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && pushd /tmp/pandoc-*/bin/ && export PANDOC=`pwd`/pandoc && popd
+      curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && export PANDOC=$(echo /tmp/pandoc-*/bin/pandoc)
     else
       exit 1
     fi
