@@ -29,7 +29,7 @@ ifdef ComSpec
   MKDIR = md
   SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
   UPDATESOURCE ?= robocopy "$(CHECKOUTDIR)" $@ /MIR /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
-  CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
+  CLEANDIRS = for /f "tokens=*" %%l in (.gitignore) do if exist "%%l" rd /s /q "%%l"
 else
   CP = cp
   MV = mv
