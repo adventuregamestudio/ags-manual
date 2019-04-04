@@ -186,6 +186,9 @@ htmlhelp/build/images/%: source/images/% | htmlhelp/build/images
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 ifdef HHC
+ifndef ComSpec
+$(warning HHC is not supported on this platform)
+endif
 htmlhelp/build/ags-help.chm: htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhp | htmlhelp/build
 	@"$(HHC)" htmlhelp/build/ags-help.hhp || exit /b 0 & exit /b 1
