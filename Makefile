@@ -6,6 +6,7 @@ IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 METAFILES = $(addsuffix .yaml, $(BASENAMES))
+MAKEFILE = $(lastword $(MAKEFILE_LIST))
 
 ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
@@ -27,9 +28,9 @@ ifdef ComSpec
   RM = del /f
   RD = rd /s /q
   MKDIR = md
-  SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" Makefile') do if "%%t" neq "help:" echo %%t
+  SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" $(MAKEFILE)') do if "%%t" neq "help:" echo %%t
   UPDATESOURCE ?= robocopy "$(CHECKOUTDIR)" $@ /MIR /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
-  CLEANDIRS = for /r %%d in (*.gitignore) do for /f "tokens=*" %%c in (%%d) do 2>nul rd /s /q "%%c"
+  CLEANDIRS = for /f "tokens=*" %%l in (.gitignore) do if exist "%%l" rd /s /q "%%l"
 else
   CP = cp
   MV = mv
@@ -37,7 +38,7 @@ else
   RM = rm -f
   RD = rm -rf
   MKDIR = mkdir -p
-  SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' Makefile
+  SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' $(MAKEFILE)
   UPDATESOURCE ?= rm -rf $@ && mkdir $@ && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
 endif
@@ -185,6 +186,9 @@ htmlhelp/build/images/%: source/images/% | htmlhelp/build/images
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 ifdef HHC
+ifndef ComSpec
+$(warning HHC is not supported on this platform)
+endif
 htmlhelp/build/ags-help.chm: htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhp | htmlhelp/build
 	@"$(HHC)" htmlhelp/build/ags-help.hhp || exit /b 0 & exit /b 1
