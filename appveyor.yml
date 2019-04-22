@@ -4,13 +4,15 @@ environment:
   matrix:
     - CHECKOUTDIR: '%TEMP%\ags-manual.wiki'
       HHC: '%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe'
+      PANDOCVERSION: 2.7.2
 
 branches:
   except:
     - gh-pages
 
 install:
-  - cinst html-help-workshop make pandoc
+  - cinst pandoc --version %PANDOCVERSION%
+  - cinst html-help-workshop make
 
 before_build:
   - '%COMSPEC% /c "cd %TEMP% && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git"'

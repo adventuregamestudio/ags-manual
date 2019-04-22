@@ -1,17 +1,12 @@
 language: minimal
 
-addons:
-  apt:
-    packages:
-      - jq
-
 env:
   - CHECKOUTDIR=/tmp/ags-manual.wiki
-    LATEST=https://api.github.com/repos/jgm/pandoc/releases/latest
+    PANDOCVERSION=2.7.2
 
 install:
   - |
-    url=$(curl -u ags-manual-ci:$GITHUB_TOKEN -fLs $LATEST | jq -r '.assets[].browser_download_url | select(endswith("linux.tar.gz"))')
+    url=https://github.com/jgm/pandoc/releases/download/$PANDOCVERSION/pandoc-$PANDOCVERSION-linux.tar.gz
     if [ -n "$url" ]; then
       curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && export PANDOC=$(echo /tmp/pandoc-*/bin/pandoc)
     else
