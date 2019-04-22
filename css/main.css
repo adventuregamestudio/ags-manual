@@ -51,11 +51,18 @@ header li {
 }
 
 .search-match {
-    background: #def9db
+    background: #d7e9fb;
+    padding: 5px
 }
 
 .search-nomatch {
-    background: #f9dbdb
+    background: #e24a4a;
+    padding: 5px;
+    color: #fff5f5
+}
+
+#search_input {
+    padding: 5px
 }
 
 a {

@@ -127,11 +127,15 @@
 <section id="customized-text-windows" class="level3">
 <h3>Customized Text Windows</h3>
 <p>If you want to add a personal touch to the standard white text-boxes which display all the messages during the game, you can create a border using the GUI Editor. Right-click the "GUIs" node, and choose "New Text Window GUI".</p>
-<p>The element will be resized to about 1/4 of the screen, and you will see 8 pictures - one in each corner and one on each side. These are the border graphics. You change the graphic for a corner in the normal way.</p>
+<p>The element will be resized to about 1/4 of the screen, and you will see 8 pictures - one in each corner and one on each side. These are the border graphics. You change the graphic for a corner in the normal way by browsing through the 8 possible and needed graphics slots under the properties panel and setting the image number according to the image number in the <a href="EditorSprite.html">Sprite Manager</a>. You can give every corner and side a name to know what is what but it is not neccessary as the selected corner or side is indicated by bright red squares.</p>
 <p>In the game, the corner graphics will be placed in the respective corners of the text window, and the side graphics will be repeated along the edge of the window. To tell the game to use your custom text window style, go to the General Settings pane, and check the "Text windows use GUI" box. Then, enter the number of the GUI which you used.</p>
 <p>You can also set a background picture for the text window. In the GUI editor, simply set a background picture for the GUI element. The graphic you specify will not be tiled or stretched in the game; however, it will be clipped to fit the window. You should use a graphic of at least about 250x80 pixels to make sure that it fills up the whole window.</p>
 <p>To set the text colour in the window, simply set the Foreground Colour of the GUI and that will be used to print the message text in.</p>
 <p>Additionally, you may configure padding - the distance kept between text window's border and text inside of it.</p>
+<p>For example editing the GUI Borders of the [Display] Command in the [New Sierra Style Template] looks like this:</p>
+<p><img src="https://i.imgur.com/BGB1OQd.png" alt="Editing the GUI Borders" /></p>
+<p>After compiling it looks like this in game (with x2 Scaling):</p>
+<p><img src="https://i.imgur.com/LdJkWPj.png" alt="Ingame GUI Borders" /></p>
 <hr />
 </section>
 <section id="custom-inventory" class="level3">
@@ -147,6 +151,7 @@
 <p>For the properties of a slider you can set the minimum, maximum and current values that the slider can have. In the game, the user will be able to drag the handle from MIN to MAX, and the slider will start off set to VALUE. For horizontal sliders, MIN is on the left and MAX on the right, for vertical sliders MAX is at the top and MIN is at the bottom.</p>
 <p>Whenever the user moves the handle's position on the slider, the OnChange event is called. This means that if they continually drag the handle up and down, the event will get called repeatedly.</p>
 <p>Your script can find out the value of the slider using the Slider.Value script property.</p>
+<p><em>See also:</em> <a href="Slider.html">Sliders Functions and Properties</a></p>
 <hr />
 </section>
 <section id="text-boxes" class="level3">
