@@ -5,6 +5,9 @@ local agsman = require('agsman')
 local meta = PANDOC_DOCUMENT.meta
 
 local force_global = {
+  Dialog = {
+    'StopDialog'
+  },
   Display = {
     'Display',
     'DisplayAt',
@@ -71,6 +74,23 @@ local force_global = {
     'WaitKey',
     'WaitMouseKey'
   },
+  Maths = {
+    'FloatToInt',
+    'IntToFloat'
+  },
+  Multimedia = {
+    'CDAudio',
+    'IsSpeechVoxAvailable',
+    'PlayFlic',
+    'PlaySilentMIDI',
+    'PlayVideo',
+    'SetSpeechVolume'
+  },
+  Palette = {
+    'CyclePalette',
+    'SetPalRGB',
+    'UpdatePalette'
+  },
   Room = {
     'AreThingsOverlapping',
     'DisableGroundLevelAreas',
@@ -90,6 +110,17 @@ local force_global = {
     'SetBackgroundFrame',
     'SetViewport',
     'SetWalkBehindBase'
+  },
+  Screen = {
+    'FadeIn',
+    'FadeOut',
+    'FlipScreen',
+    'SetFadeColor',
+    'SetNextScreenTransition',
+    'SetScreenTransition',
+    'ShakeScreen',
+    'ShakeScreenBackground',
+    'TintScreen'
   }
 }
 
