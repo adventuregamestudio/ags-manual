@@ -1,4 +1,5 @@
---invoke as custom writer
+-- invoke as Pandoc writer
+-- write a project file for the CHM compiler
 
 function Doc(body, metadata, variables)
   local buffer = {}

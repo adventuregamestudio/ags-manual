@@ -1,3 +1,5 @@
+-- common functions
+
 local agsman = {}
 
 function agsman.table_has_value(table, value, key)

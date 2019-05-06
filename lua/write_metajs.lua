@@ -1,4 +1,5 @@
---invoke as custom writer
+-- invoke as Pandoc writer
+-- write Javascript file for website search functions and data
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')

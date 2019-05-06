@@ -1,4 +1,5 @@
---invoke as custom writer
+-- invoke as Pandoc writer
+-- write an a-z index as an HTML document
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')

@@ -1,4 +1,5 @@
---invoke as custom writer
+-- invoke as Pandoc writer
+-- write YAML metadata file for later processing
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
