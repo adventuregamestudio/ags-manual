@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Camera</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#camera">Camera</a><ul>
+<li><a href="#create">Create</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#setat">SetAt</a></li>
+<li><a href="#setsize">SetSize</a></li>
+<li><a href="#autotracking">AutoTracking</a></li>
+<li><a href="#width">Width</a></li>
+<li><a href="#height">Height</a></li>
+<li><a href="#x">X</a></li>
+<li><a href="#y">Y</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="camera" class="level2">
+<h2>Camera</h2>
+<section id="create" class="level3">
+<h3>Create</h3>
+<pre><code>static Camera *Create();
+</code></pre>
+<p>Creates a new Camera.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#delete">Camera.Delete</a></p>
+</section>
+<section id="delete" class="level3">
+<h3>Delete</h3>
+<pre><code>void Delete();
+</code></pre>
+<p>Removes an existing camera; note that primary camera will never be removed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a></p>
+</section>
+<section id="setat" class="level3">
+<h3>SetAt</h3>
+<pre><code>void SetAt(int x, int y);
+</code></pre>
+<p>Changes camera position in the room and disables automatic tracking of the player character.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#setsize">Camera.SetSize</a></p>
+</section>
+<section id="setsize" class="level3">
+<h3>SetSize</h3>
+<pre><code>void SetSize(int width, int height);
+</code></pre>
+<p>Changes camera's capture dimensions in room coordinates.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a></p>
+</section>
+<section id="autotracking" class="level3">
+<h3>AutoTracking</h3>
+<pre><code>attribute bool AutoTracking;
+</code></pre>
+<p>Gets/sets whether this camera will follow the player character automatically.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+</section>
+<section id="width" class="level3">
+<h3>Width</h3>
+<pre><code>attribute int Camera.Width;
+</code></pre>
+<p>Gets/sets the camera's capture width in room coordinates.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#height">Camera.Height</a></p>
+</section>
+<section id="height" class="level3">
+<h3>Height</h3>
+<pre><code>attribute int Camera.Height;
+</code></pre>
+<p>Gets/sets the camera's capture height in room coordinates.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#width">Camera.Width</a></p>
+</section>
+<section id="x" class="level3">
+<h3>X</h3>
+<pre><code>static int Camera.X;
+</code></pre>
+<p>Gets/sets the X position of this camera in the room.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#y">Camera.Y</a></p>
+</section>
+<section id="y" class="level3">
+<h3>Y</h3>
+<pre><code>static int Camera.Y;
+</code></pre>
+<p>Gets/sets the Y position of this camera in the room.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#x">Camera.X</a></p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

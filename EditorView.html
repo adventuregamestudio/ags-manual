@@ -59,7 +59,7 @@
 <section id="views" class="level3">
 <h3>Views</h3>
 <p>In the view editor you add sprites from the <a href="EditorSprite.html">Sprite Manager</a> to animation strips called <em>Loops</em>. This way you create the walkcycles for your <a href="EditorCharacter.html">Character</a> as well as all other character animations. Also you define the animation for object on screen you want to animate with <em>Loops</em> inside a <em>View</em>.</p>
-<p><img src="https://user-images.githubusercontent.com/22618469/56129422-4b95b380-5f82-11e9-9abc-bf84c391049f.png" /></p>
+<p><img src="images/EditorView_1.png" /></p>
 <p>You can have 4 or 8 Loops for different directions for walking views. This means your character can either walk left, right, up and down with 4 Loops or you add 4 additional directional walkcycles for diagonal movement. Usually 4 directions are more than enough to animate but noone is stopping you from going all the way. You set the 4/8 directions walking animation per character in the <a href="EditorCharacter.html">Character Editor</a>. Animation flipping is also possible but for that see the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a> entry.</p>
 <p>It is good practise to use a new loop for every character and also for special character animations.<br />
 You can add a lot of object animations to one single view, but you could for example sort them by game chapters (one view for every chapter) to make it easier for you to find them again. You can <strong>name the View</strong> with a rightclick on the View in the game explorer.</p>
@@ -67,7 +67,7 @@ You can add a lot of object animations to one single view, but you could for exa
 </section>
 <section id="right-click-context-menu" class="level3">
 <h3>Right Click Context Menu</h3>
-<p><img src="https://user-images.githubusercontent.com/22618469/56131071-cc56ae80-5f86-11e9-9416-beda664b028f.png" /></p>
+<p><img src="images/EditorView_2.png" /></p>
 <p>When you rightclick on a single frame in a loop you get the following options I wish someon told me about before like Flip All Frames...</p>
 <p><em>Flip frame</em></p>
 <p><em>Delete frame</em></p>
@@ -85,14 +85,14 @@ You can add a lot of object animations to one single view, but you could for exa
 <p>When you tick the checkbox above the Loops called <strong>Show Preview</strong> you get to see a preview of the animation of course. It is located to the left of the list of Loops and you can either manually browse through all the frames of the Loop or you check the <strong>animate</strong> checkbox to see it in motion.</p>
 <p>The <strong>Skip Frame 0 (standing Frame)</strong> Checkbox does exactly that, it skips Frame 0 for the preview animation. This is only important for previews for views that are used as walking views for a character.<br />
 When you animate a <a href="Object.html#animate">game object</a> or you want the <a href="Character.html#animate">character to animate</a> different from walking (like picking up an <a href="EditorInventoryItems.html">Inventory Item</a>) Frame 0 is always included in the animation. When the view is used as a walking view Frame 0 is skipped for the animation until the character reaches the endpoint of the walk and stops there. Then Frame 0 is displayed all the time in the direction the character is facing when he stopped walking.</p>
-<p><img src="https://user-images.githubusercontent.com/22618469/56129420-4afd1d00-5f82-11e9-8607-d9ad1ed5051d.png" /></p>
+<p><img src="images/EditorView_3.png" /></p>
 </section>
 <section id="properties" class="level3">
 <h3>Properties</h3>
-<p><img src="https://user-images.githubusercontent.com/22618469/56129421-4afd1d00-5f82-11e9-8e7a-e3254ff3062c.png" /></p>
+<p><img src="images/EditorView_4.png" /></p>
 <p><em>Delay</em><br />
-With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the gamespeed for easy debugging with <a href="Game.html#GetGameSpeed">Game.GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Game.html#SetGameSpeed">Game.SetGameSpeed</a>. By default AGS games run at 40 FPS.<br />
-This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#Animate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
+With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the gamespeed for easy debugging with <a href="Game.html#getgamespeed">Game.GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Game.html#setgamespeed">Game.SetGameSpeed</a>. By default AGS games run at 40 FPS.<br />
+This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#animate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
 <p><em>Flipped</em><br />
 You flip that one frame with that property. Very useful for mirrored animations like in walkcycles for left and right walk. Don't have a character with a cane then. Please note you can also flip the whole loop and not only a single frame within the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a>.</p>
 <p><em>Image</em><br />

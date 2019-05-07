@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Viewport</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <img src="static/logo.png" alt="AGS Manual">
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#viewport">Viewport</a><ul>
+<li><a href="#create">Create</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
+<li><a href="#setposition">SetPosition</a></li>
+<li><a href="#screentoroompoint">ScreenToRoomPoint</a></li>
+<li><a href="#roomtoscreenpoint">RoomToScreenPoint</a></li>
+<li><a href="#zorder">ZOrder</a></li>
+<li><a href="#visible">Visible</a></li>
+<li><a href="#camera">Camera</a></li>
+<li><a href="#width">Width</a></li>
+<li><a href="#height">Height</a></li>
+<li><a href="#x">X</a></li>
+<li><a href="#y">Y</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="viewport" class="level2">
+<h2>Viewport</h2>
+<section id="create" class="level3">
+<h3>Create</h3>
+<pre><code>static Viewport *Create();
+</code></pre>
+<p>Creates a new Viewport.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#delete">Viewport.Delete</a></p>
+</section>
+<section id="delete" class="level3">
+<h3>Delete</h3>
+<pre><code>void Delete();
+</code></pre>
+<p>Removes an existing viewport; note that primary viewport will never be removed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a></p>
+</section>
+<section id="getatscreenxy" class="level3">
+<h3>GetAtScreenXY</h3>
+<pre><code>static Viewport *GetAtScreenXY(int x, int y);
+</code></pre>
+<p>Returns the viewport at the specified screen location.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#delete">Viewport.Delete</a>, <a href="Viewport.html#create">Viewport.Create</a></p>
+</section>
+<section id="setposition" class="level3">
+<h3>SetPosition</h3>
+<pre><code>void SetPosition(int x, int y, int width, int height);
+</code></pre>
+<p>Changes viewport's position on the screen.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+</section>
+<section id="screentoroompoint" class="level3">
+<h3>ScreenToRoomPoint</h3>
+<pre><code>Point *ScreenToRoomPoint(int scrx, int scry, bool clipViewport = true);
+</code></pre>
+<p>Returns the point in room corresponding to the given screen coordinates if seen through this viewport.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a></p>
+</section>
+<section id="roomtoscreenpoint" class="level3">
+<h3>RoomToScreenPoint</h3>
+<pre><code>Point *RoomToScreenPoint(int roomx, int roomy, bool clipViewport = true);
+</code></pre>
+<p>Returns the point on screen corresponding to the given room coordinates if seen through this viewport.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a></p>
+</section>
+<section id="zorder" class="level3">
+<h3>ZOrder</h3>
+<pre><code>attribute int ZOrder;
+</code></pre>
+<p>Gets/sets the Viewport's z-order relative to other viewports.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+</section>
+<section id="visible" class="level3">
+<h3>Visible</h3>
+<pre><code>attribute bool Visible;
+</code></pre>
+<p>Gets/sets whether the viewport is drawn on screen.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+</section>
+<section id="camera" class="level3">
+<h3>Camera</h3>
+<pre><code>attribute Camera *Camera;
+</code></pre>
+<p>Gets/sets the room camera displayed in this viewport.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a></p>
+</section>
+<section id="width" class="level3">
+<h3>Width</h3>
+<pre><code>attribute int Viewport.Width;
+</code></pre>
+<p>Gets/sets the viewport's width in screen coordinates.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#height">Viewport.Height</a></p>
+</section>
+<section id="height" class="level3">
+<h3>Height</h3>
+<pre><code>attribute int Viewport.Height;
+</code></pre>
+<p>Gets/sets the viewport's height in screen coordinates.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#width">Viewport.Width</a></p>
+</section>
+<section id="x" class="level3">
+<h3>X</h3>
+<pre><code>static int Viewport.X;
+</code></pre>
+<p>Gets/sets the X position on the screen where this viewport is located.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#y">Viewport.Y</a></p>
+</section>
+<section id="y" class="level3">
+<h3>Y</h3>
+<pre><code>static int Viewport.Y;
+</code></pre>
+<p>Gets/sets the Y position on the screen where this viewport is located.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html#x">Viewport.X</a></p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>
