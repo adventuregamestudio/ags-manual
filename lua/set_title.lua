@@ -1,3 +1,6 @@
+-- invoke as Pandoc filter
+-- set the metadata value 'title' based on the first level 2 header
+
 local title
 
 function Header(elem)

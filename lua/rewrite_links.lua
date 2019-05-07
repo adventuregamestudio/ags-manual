@@ -1,3 +1,6 @@
+-- invoke as Pandoc filter
+-- append '.html' to link targets
+
 function Link(elem)
   -- fast check for internal links
   if not string.find(elem.target, '.', 1, true) then

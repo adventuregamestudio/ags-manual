@@ -1,4 +1,5 @@
---invoke as custom writer
+-- invoke as Pandoc writer
+-- write an index file for the CHM compiler
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
