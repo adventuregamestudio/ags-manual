@@ -2,20 +2,6 @@
 
 local agsman = {}
 
-function agsman.table_has_value(table, value, key)
-  if not table[key] then
-    return false
-  end
-
-  for k, v in pairs(table[key]) do
-    if v == value then
-      return true
-    end
-  end
-
-  return false
-end
-
 -- https://www.lua.org/pil/19.3.html
 function agsman.pairs_by_keys(t, f)
   local a = {}

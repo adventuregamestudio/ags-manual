@@ -5,7 +5,10 @@ package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
 local meta = PANDOC_DOCUMENT.meta
 
-local force_global = {
+local namespace_map = {
+  Dialog = {
+    'StopDialog'
+  },
   Display = {
     'Display',
     'DisplayAt',
@@ -72,6 +75,27 @@ local force_global = {
     'WaitKey',
     'WaitMouseKey'
   },
+  Maths = {
+    'FloatToInt',
+    'IntToFloat'
+  },
+  Multimedia = {
+    'CDAudio',
+    ['IsAudioPlaying'] = 'Game',
+    'IsSpeechVoxAvailable',
+    'PlayFlic',
+    'PlaySilentMIDI',
+    'PlayVideo',
+    ['SetAudioTypeSpeechVolumeDrop'] = 'Game',
+    ['SetAudioTypeVolume'] = 'Game',
+    'SetSpeechVolume',
+    ['StopAudio'] = 'Game'
+  },
+  Palette = {
+    'CyclePalette',
+    'SetPalRGB',
+    'UpdatePalette'
+  },
   Room = {
     'AreThingsOverlapping',
     'DisableGroundLevelAreas',
@@ -91,6 +115,17 @@ local force_global = {
     'SetBackgroundFrame',
     'SetViewport',
     'SetWalkBehindBase'
+  },
+  Screen = {
+    'FadeIn',
+    'FadeOut',
+    'FlipScreen',
+    'SetFadeColor',
+    'SetNextScreenTransition',
+    'SetScreenTransition',
+    'ShakeScreen',
+    'ShakeScreenBackground',
+    'TintScreen'
   }
 }
 
@@ -133,6 +168,20 @@ local keywords = {
 local indices = {}
 local script_object
 
+function force_namespace(value, key)
+  if not namespace_map[key] then
+    return false
+  end
+
+  for k, v in ipairs(namespace_map[key]) do
+    if v == value then
+      return true
+    end
+  end
+
+  return namespace_map[key][value] or false
+end
+
 function get_script_object(heading)
   local capture
   capture = string.match(heading, '^(%a+) [Pp]roperties')
@@ -157,10 +206,18 @@ function Header(lev, s, attr)
       indices[id] = name
     end
   elseif lev == 3 then
-    if not script_object or agsman.table_has_value(force_global, name, script_object) then
+    if not script_object then
       indices[id] = name
     else
-      indices[id] = script_object .. '.' .. name
+      local namespace = force_namespace(name, script_object)
+
+      if namespace == true then
+        indices[id] = name
+      elseif type(namespace) == 'string' then
+        indices[id] = namespace .. '.' .. name
+      else
+        indices[id] = script_object .. '.' .. name
+      end
     end
   end
 
