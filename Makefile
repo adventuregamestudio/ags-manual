@@ -57,7 +57,7 @@ source:
 
 html: $(addprefix html/work/, $(HTMLFILES)) $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) \
 	$(addprefix html/work/, $(METAFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
-	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static/logo.png
+	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static/favicon.ico
 
 htmlhelp: $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
@@ -166,8 +166,8 @@ html/build/css/normalize.css: | html/build/css
 html/build/css/milligram.min.css: | html/build/css
 	$(CURL) -fLso $(subst /,$(SEP),$@) $(MILLIGRAM)
 
-html/build/static/logo.png: | html/build/static
-	$(CP) html$(SEP)static$(SEP)logo.png $(subst /,$(SEP),$@)
+html/build/static/favicon.ico: | html/build/static
+	$(CP) html$(SEP)static$(SEP)favicon.ico $(subst /,$(SEP),$@)
 
 htmlhelp/build/ags-help.stp: | htmlhelp/build
 	@echo Building $@
