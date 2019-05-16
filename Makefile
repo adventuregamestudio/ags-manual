@@ -157,8 +157,8 @@ html/build/js/search.js: $(addprefix html/work/, $(filter-out index.yaml,$(METAF
 		--output=$@ \
 		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
 
-html/build/css/main.css: | html/build/css
-	$(CP) html$(SEP)css$(SEP)main.css $(subst /,$(SEP),$@)
+html/build/css/%.css: html/css/%.css | html/build/css
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 html/build/css/normalize.css: | html/build/css
 	$(CURL) -fLso $(subst /,$(SEP),$@) $(NORMALIZE)
@@ -166,12 +166,12 @@ html/build/css/normalize.css: | html/build/css
 html/build/css/milligram.min.css: | html/build/css
 	$(CURL) -fLso $(subst /,$(SEP),$@) $(MILLIGRAM)
 
-html/build/static/favicon.ico: | html/build/static
-	$(CP) html$(SEP)static$(SEP)favicon.ico $(subst /,$(SEP),$@)
+html/build/static/%: html/static/% | html/build/static
+	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
-htmlhelp/build/ags-help.stp: | htmlhelp/build
+htmlhelp/build/ags-help.stp: htmlhelp/stp | htmlhelp/build
 	@echo Building $@
-	@$(CP) htmlhelp$(SEP)stp $(subst /,$(SEP),$@)
+	@$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 html/build/%.html: html/work/%.html | html/build
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
