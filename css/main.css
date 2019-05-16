@@ -1,6 +1,5 @@
 .navigation {
-    background: #f4f5f6;
-    border-bottom: .1rem solid #d1d1d1;
+    background: linear-gradient(to left top, #2008b3, #1fa0fb);
     overflow: hidden;
     left: 0;
     max-width: 100%;
@@ -8,18 +7,22 @@
     top: 0;
     width: 100%;
     z-index: 1;
-    padding: 0.6em
+    padding: 0.6em;
+    vertical-align: middle;
+    line-height: 3em
 }
 
-.navigation img {
+.navigation svg {
     display: inline;
     vertical-align: middle
 }
 
 .navigation h1 {
+    color: #ffffff;
     display: inline;
     font-size: 2rem;
-    vertical-align: middle
+    vertical-align: middle;
+    margin-left: 1em
 }
 
 .navigation ul {
@@ -36,9 +39,11 @@
     padding: 0
 }
 
-.navigation-item input{
+.navigation-item input {
+    background: #ffffff;
     margin: 0;
-    padding: 0
+    padding: 5px;
+    vertical-align: middle
 }
 
 header ul {
@@ -59,10 +64,6 @@ header li {
     background: #e24a4a;
     padding: 5px;
     color: #fff5f5
-}
-
-#search_input {
-    padding: 5px
 }
 
 a {
