@@ -9,14 +9,6 @@ local namespace_map = {
   Dialog = {
     'StopDialog'
   },
-  Display = {
-    'Display',
-    'DisplayAt',
-    'DisplayAtY',
-    'DisplayMessage',
-    'DisplayMessageAtY',
-    'DisplayTopBar'
-  },
   Game = {
     'AbortGame',
     'CallRoomScript',
@@ -78,6 +70,14 @@ local namespace_map = {
   Maths = {
     'FloatToInt',
     'IntToFloat'
+  },
+  Message = {
+    'Display',
+    'DisplayAt',
+    'DisplayAtY',
+    'DisplayMessage',
+    'DisplayMessageAtY',
+    'DisplayTopBar'
   },
   Multimedia = {
     'CDAudio',
