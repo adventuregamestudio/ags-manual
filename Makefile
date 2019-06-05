@@ -15,7 +15,7 @@ $(error target 'source' requires CHECKOUTDIR to be set))
 endif
 endif
 ifeq ($(strip $(BASENAMES)),)
-ifneq ($(filter-out html htmlhelp,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+ifneq ($(filter-out html htmlhelp metacheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(error no source files were found)
 endif
 endif
@@ -43,7 +43,7 @@ else
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
 endif
 
-.PHONY: help html htmlhelp clean source
+.PHONY: help html htmlhelp metacheck clean source
 .SECONDARY: $(addprefix html/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(HTMLFILES)) \
 	$(addprefix html/work/, $(METAFILES)) $(addprefix htmlhelp/work/, $(METAFILES))
 
@@ -55,6 +55,12 @@ source:
 	@$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
 		$(RM) $@${SEP}_Sidebar.md
 
+metacheck: $(addprefix meta/build/, $(METAFILES))
+	@echo Checking $(words $+) files for $@
+	@"$(PANDOC)" --from markdown \
+		--to "lua/write_metacheck.lua" \
+		$+
+
 html: $(addprefix html/work/, $(HTMLFILES)) $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) \
 	$(addprefix html/work/, $(METAFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
 	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static/favicon.ico
@@ -64,7 +70,7 @@ htmlhelp: $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, 
 	$(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
 
 html/work htmlhelp/work html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build \
-	htmlhelp/build/images:
+	htmlhelp/build/images meta/build:
 	@$(MKDIR) $(subst /,$(SEP),$@) || echo $@ exists
 
 html/work/%.html: source/%.md | html/work
@@ -94,11 +100,18 @@ htmlhelp/work/%.html: source/%.md | htmlhelp/work
 		--output $@ \
 		$<
 
+meta/build/%.yaml: source/%.md | meta/build
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to "lua/write_metablock.lua" \
+		--metadata docname=$* \
+		--output $@ \
+		$<
+
 htmlhelp/work/%.yaml: source/%.md | htmlhelp/work
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to "lua/write_metablock.lua" \
-		--lua-filter "lua/rewrite_links.lua" \
 		--metadata docname=$* \
 		--output $@ \
 		$<
@@ -108,7 +121,6 @@ html/work/%.yaml: source/%.md | html/work
 	@"$(PANDOC)" --from gfm \
 		--to "lua/write_metablock.lua" \
 		--lua-filter "lua/set_title.lua" \
-		--lua-filter "lua/rewrite_links.lua" \
 		--metadata docname=$* \
 		--output $@ \
 		$<
