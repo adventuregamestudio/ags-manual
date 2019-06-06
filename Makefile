@@ -44,8 +44,7 @@ else
 endif
 
 .PHONY: help html htmlhelp metacheck clean source
-.SECONDARY: $(addprefix html/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(HTMLFILES)) \
-	$(addprefix html/work/, $(METAFILES)) $(addprefix htmlhelp/work/, $(METAFILES))
+.SECONDARY: $(addprefix meta/build/, $(METAFILES))
 
 help:
 	@$(SHOWHELP)
@@ -61,19 +60,18 @@ metacheck: $(addprefix meta/build/, $(METAFILES))
 		--to "lua/write_metacheck.lua" \
 		$+
 
-html: $(addprefix html/work/, $(HTMLFILES)) $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) \
-	$(addprefix html/work/, $(METAFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
-	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static/favicon.ico
+html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
+	html/build/genindex.html html/build/js/search.js html/build/css/main.css html/build/css/normalize.css \
+	html/build/css/milligram.min.css html/build/static/favicon.ico
 
-htmlhelp: $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(METAFILES)) \
+htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
-	$(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
+	$(if $(HHC),htmlhelp/build/ags-help.chm)
 
-html/work htmlhelp/work html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build \
-	htmlhelp/build/images meta/build:
+html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build:
 	@$(MKDIR) $(subst /,$(SEP),$@) || echo $@ exists
 
-html/work/%.html: source/%.md | html/work
+html/build/%.html: source/%.md | html/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html5 \
@@ -89,7 +87,7 @@ html/work/%.html: source/%.md | html/work
 		--output $@ \
 		$<
 
-htmlhelp/work/%.html: source/%.md | htmlhelp/work
+htmlhelp/build/%.html: source/%.md | htmlhelp/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html4 \
@@ -104,33 +102,17 @@ meta/build/%.yaml: source/%.md | meta/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to "lua/write_metablock.lua" \
-		--metadata docname=$* \
-		--output $@ \
-		$<
-
-htmlhelp/work/%.yaml: source/%.md | htmlhelp/work
-	@echo Building $@
-	@"$(PANDOC)" --from gfm \
-		--to "lua/write_metablock.lua" \
-		--metadata docname=$* \
-		--output $@ \
-		$<
-
-html/work/%.yaml: source/%.md | html/work
-	@echo Building $@
-	@"$(PANDOC)" --from gfm \
-		--to "lua/write_metablock.lua" \
 		--lua-filter "lua/set_title.lua" \
 		--metadata docname=$* \
 		--output $@ \
 		$<
 
-htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES))) | htmlhelp/build
+htmlhelp/build/ags-help.hhk: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | htmlhelp/build
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_hhk.lua" \
 		--output=$@ \
-		$(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
 htmlhelp/build/ags-help.hhc: | htmlhelp/build
 	@echo Building $@
@@ -150,7 +132,7 @@ htmlhelp/build/ags-help.hhp: | htmlhelp/build
 		--template "htmlhelp/template.hhp" \
 		--output $@
 
-html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES))) | html/build 
+html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build 
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_genindex.lua" \
@@ -159,15 +141,15 @@ html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(META
 		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output=$@ \
-		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
-html/build/js/search.js: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES))) | html/build/js
+html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build/js
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_metajs.lua" \
 		--template "html/template.js" \
 		--output=$@ \
-		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
 html/build/css/%.css: html/css/%.css | html/build/css
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
@@ -185,13 +167,7 @@ htmlhelp/build/ags-help.stp: htmlhelp/stp | htmlhelp/build
 	@echo Building $@
 	@$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
-html/build/%.html: html/work/%.html | html/build
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
 html/build/images/%: source/images/% | html/build/images
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/%.html: htmlhelp/work/%.html | htmlhelp/build
 	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
 
 htmlhelp/build/images/%: source/images/% | htmlhelp/build/images
