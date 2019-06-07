@@ -151,27 +151,26 @@ html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.yaml,$(META
 		--output=$@ \
 		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
-html/build/css/%.css: html/css/%.css | html/build/css
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+# copy source to destination
+define CP_template
+$2: $1 | $(patsubst %/,%,$(dir $2))
+	$(CP) $$(subst /,$(SEP),$$<) $$(subst /,$(SEP),$$@)
+endef
 
-html/build/css/normalize.css: | html/build/css
-	$(CURL) -fLso $(subst /,$(SEP),$@) $(NORMALIZE)
+$(eval $(call CP_template,html/css/%.css,html/build/css/%.css))
+$(eval $(call CP_template,html/static/%,html/build/static/%))
+$(eval $(call CP_template,source/images/%,html/build/images/%))
+$(eval $(call CP_template,source/images/%,htmlhelp/build/images/%))
+$(eval $(call CP_template,htmlhelp/stp,htmlhelp/build/ags-help.stp))
 
-html/build/css/milligram.min.css: | html/build/css
-	$(CURL) -fLso $(subst /,$(SEP),$@) $(MILLIGRAM)
+# download from URL to destination
+define CURL_template
+$2: | $(patsubst %/,%,$(dir $2))
+	$(CURL) -fLso $$(subst /,$(SEP),$$@) $1
+endef
 
-html/build/static/%: html/static/% | html/build/static
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/ags-help.stp: htmlhelp/stp | htmlhelp/build
-	@echo Building $@
-	@$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-html/build/images/%: source/images/% | html/build/images
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/images/%: source/images/% | htmlhelp/build/images
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+$(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
+$(eval $(call CURL_template,$(MILLIGRAM),html/build/css/milligram.min.css))
 
 ifdef HHC
 ifndef ComSpec
