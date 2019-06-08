@@ -58,6 +58,7 @@ metacheck: $(addprefix meta/build/, $(METAFILES))
 	@echo Checking $(words $+) files for $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_metacheck.lua" \
+		--metadata=_approved_links:meta/approved_links.txt \
 		$+
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \

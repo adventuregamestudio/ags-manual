@@ -20,6 +20,15 @@ function Doc(body, metadata, variables)
   local valid = {}
   local total = 0
 
+  -- read explicitly approved links
+  if meta._approved_links ~= nil then
+    for line in io.lines(meta._approved_links) do
+      if line:len() > 0 then
+        valid[line] = true
+      end
+    end
+  end
+
   -- get all valid link targets
   for k, v in pairs(meta) do
     if v.headings then
