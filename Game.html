@@ -28,7 +28,10 @@
                   <rect width="8" height="8" fill="#ffffff" />
                 </svg>
                 <svg x="1" y="1">
-                  <rect width="8" height="6" fill="#2a7fff" />
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
                 </svg>
                 <svg x="9" y="2">
                   <rect width="2" height="3" fill="#2a7fff" />
@@ -44,12 +47,6 @@
                 </svg>
                 <svg x="2" y="1">
                   <rect width="6" height="1" fill="#ffffff" />
-                </svg>
-                <svg x="1" y="6">
-                  <rect width="1" height="1" fill="#ffffff" />
-                </svg>
-                <svg x="8" y="6">
-                  <rect width="1" height="1" fill="#ffffff" />
                 </svg>
               </g>
             </svg>
@@ -1197,7 +1194,7 @@ SaveScreenShot(input);
 </code></pre>
 <p>will set the timer 1 to expire after 1000 game cycles.</p>
 <p>Example 2:</p>
-<p>When you have a hard time keeping track of the timers only by number you can use <a href="Preprocessor.html#define-macros">Macros</a> to replace the descriptive name with the time number everywhere the descriptive name is use. To better keep track of these macros you could put them on top of the global script.</p>
+<p>When you have a hard time keeping track of the timers only by number you can use <a href="Preprocessor.html#define-macro">Macros</a> to replace the descriptive name with the time number everywhere the descriptive name is use. To better keep track of these macros you could put them on top of the global script.</p>
 <pre><code>#define Delay_CustomAnimation 1
 
 SetTimer(Delay_CustomAnimation, 2000); 
