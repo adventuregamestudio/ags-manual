@@ -4,7 +4,7 @@ environment:
   matrix:
     - CHECKOUTDIR: '%TEMP%\ags-manual.wiki'
       HHC: '%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe'
-      PANDOCVERSION: 2.7.2
+      PANDOCVERSION: 2.7.3
 
 branches:
   except:
