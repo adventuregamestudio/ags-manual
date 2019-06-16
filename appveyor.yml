@@ -2,9 +2,7 @@ version: chm-{build}
 
 environment:
   matrix:
-    - CHECKOUTDIR: '%TEMP%\ags-manual.wiki'
-      HHC: '%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe'
-      PANDOCVERSION: 2.7.3
+    - PANDOCVERSION: 2.7.3
 
 branches:
   except:
@@ -18,6 +16,8 @@ before_build:
   - '%COMSPEC% /c "cd %TEMP% && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git"'
 
 build_script:
+  - set CHECKOUTDIR=%TEMP%\ags-manual.wiki
+  - set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
   - make SHELL=%COMSPEC% source
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
 

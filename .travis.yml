@@ -1,8 +1,7 @@
 language: minimal
 
 env:
-  - CHECKOUTDIR=/tmp/ags-manual.wiki
-    PANDOCVERSION=2.7.3
+  - PANDOCVERSION=2.7.3
 
 install:
   - |
@@ -17,6 +16,7 @@ before_script:
   - (cd /tmp && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git)
 
 script:
+  - export CHECKOUTDIR=/tmp/ags-manual.wiki
   - make source
   - make -j $(getconf _NPROCESSORS_ONLN) html
   - touch html/build/.nojekyll
