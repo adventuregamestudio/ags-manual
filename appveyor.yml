@@ -2,14 +2,14 @@ version: chm-{build}
 
 environment:
   matrix:
-    - PANDOCVERSION: 2.7.3
+    - PANDOC_VERSION: 2.7.3
 
 branches:
   except:
     - gh-pages
 
 install:
-  - cinst pandoc --version %PANDOCVERSION%
+  - cinst pandoc --version %PANDOC_VERSION%
   - cinst html-help-workshop make
 
 before_build:

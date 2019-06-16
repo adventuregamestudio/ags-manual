@@ -1,11 +1,11 @@
 language: minimal
 
 env:
-  - PANDOCVERSION=2.7.3
+  - PANDOC_VERSION=2.7.3
 
 install:
   - |
-    url=https://github.com/jgm/pandoc/releases/download/$PANDOCVERSION/pandoc-$PANDOCVERSION-linux.tar.gz
+    url=https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-linux.tar.gz
     if [ -n "$url" ]; then
       curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && export PANDOC=$(echo /tmp/pandoc-*/bin/pandoc)
     else
