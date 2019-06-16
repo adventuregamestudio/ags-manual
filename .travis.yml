@@ -2,7 +2,7 @@ language: minimal
 
 env:
   - CHECKOUTDIR=/tmp/ags-manual.wiki
-    PANDOCVERSION=2.7.2
+    PANDOCVERSION=2.7.3
 
 install:
   - |
