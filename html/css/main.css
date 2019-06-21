@@ -55,6 +55,10 @@ header li {
     margin-bottom: 0
 }
 
+footer p {
+    text-align: right
+}
+
 .search-match {
     background: #d7e9fb;
     padding: 5px

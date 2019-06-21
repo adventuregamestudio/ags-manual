@@ -31,6 +31,7 @@ ifdef ComSpec
   SHOWHELP = for /f "tokens=1" %%t in ('findstr /r "^[a-z][a-z]*:" $(MAKEFILE)') do if "%%t" neq "help:" echo %%t
   UPDATESOURCE ?= robocopy "$(CHECKOUTDIR)" $@ /MIR /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
   CLEANDIRS = for /f "tokens=*" %%l in (.gitignore) do if exist "%%l" rd /s /q "%%l"
+  DATETIME = $(shell echo %DATE% %TIME:~,-3%)
 else
   CP = cp
   MV = mv
@@ -41,6 +42,7 @@ else
   SHOWHELP = awk -F ':' '/^[a-z]+:/ { if ($$1 != "help") print $$1 FS }' $(MAKEFILE)
   UPDATESOURCE ?= rm -rf $@ && mkdir $@ && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
+  DATETIME = $(shell date "+%x %X")
 endif
 
 .PHONY: help html htmlhelp clean source
@@ -75,6 +77,7 @@ html/work/%.html: source/%.md | html/work
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--template "html/template.html5" \
+		--variable=datetime:"$(DATETIME)" \
 		--table-of-contents \
 		--section-divs \
 		--css "css/normalize.css" \
