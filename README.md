@@ -42,11 +42,11 @@ For Windows, the easiest installation method is using the [Chocolatey](https://c
 
 ### Getting curl
 
-If using macOS or Linux it is likely that you already have a version of curl installed, or it will be packaged under the name ['curl'](http://pkgsrc.se/www/curl).
+If using macOS or Linux it is likely that you already have a version of curl installed, or it will be packaged under the name ['curl'](http://pkgsrc.se/www/curl). It is also included with recent versions of Windows.
 
-For Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
+For older versions of Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
 
-    choco install curl
+    where curl || choco install curl
 
 ...or if manual installation is preferred, the same binary can also be downloaded from [curl.haxx.se](https://curl.haxx.se/windows/).
 
