@@ -1,22 +1,32 @@
+os:
+  - linux
+  - osx
+
 language: minimal
 
 env:
-  - CHECKOUTDIR=/tmp/ags-manual.wiki
-    PANDOCVERSION=2.7.3
+  - PANDOC_VERSION=2.7.3
 
 install:
   - |
-    url=https://github.com/jgm/pandoc/releases/download/$PANDOCVERSION/pandoc-$PANDOCVERSION-linux.tar.gz
-    if [ -n "$url" ]; then
-      curl -fL "$url" | tar -xz -C /tmp --wildcards "pandoc-*/bin/pandoc" && export PANDOC=$(echo /tmp/pandoc-*/bin/pandoc)
+    if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+      suffix=macOS.zip
+      tar=bsdtar
+    elif [ "$TRAVIS_OS_NAME" = "linux" ]; then
+      suffix=linux.tar.gz
+      tar=tar
     else
       exit 1
     fi
+    url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-$suffix"
+    pandoc="pandoc-$PANDOC_VERSION/bin/pandoc"
+    curl -fL "$url" | $tar -xzC /tmp "$pandoc" && export PANDOC="/tmp/$pandoc"
 
 before_script:
   - (cd /tmp && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git)
 
 script:
+  - export CHECKOUTDIR=/tmp/ags-manual.wiki
   - make source
   - (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep .) || travis_terminate 1
   - make -j $(getconf _NPROCESSORS_ONLN) html
@@ -39,6 +49,7 @@ deploy:
     keep-history: true
     on:
       branch: master
+      condition: $TRAVIS_OS_NAME = linux
     local_dir: html/build/
   - provider: releases
     api_key:
@@ -48,4 +59,5 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
+      condition: $TRAVIS_OS_NAME = linux
       tags: true

@@ -2,22 +2,22 @@ version: chm-{build}
 
 environment:
   matrix:
-    - CHECKOUTDIR: '%TEMP%\ags-manual.wiki'
-      HHC: '%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe'
-      PANDOCVERSION: 2.7.3
+    - PANDOC_VERSION: 2.7.3
 
 branches:
   except:
     - gh-pages
 
 install:
-  - cinst pandoc --version %PANDOCVERSION%
+  - cinst pandoc --version %PANDOC_VERSION%
   - cinst html-help-workshop make
 
 before_build:
   - '%COMSPEC% /c "cd %TEMP% && git clone https://github.com/adventuregamestudio/ags-manual.wiki.git"'
 
 build_script:
+  - set CHECKOUTDIR=%TEMP%\ags-manual.wiki
+  - set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
   - make SHELL=%COMSPEC% source
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /r . && exit 1 & exit 0
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
