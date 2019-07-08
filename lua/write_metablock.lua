@@ -165,6 +165,7 @@ local keywords = {
   ['with'] = false
 }
 
+local links = {}
 local indices = {}
 local script_object
 
@@ -191,6 +192,12 @@ function get_script_object(heading)
   end
 
   return capture
+end
+
+function Link(s, src, title)
+  -- track all link targets
+  links[src] = (links[src] or 0) + 1
+  return ''
 end
 
 function Header(lev, s, attr)
@@ -275,20 +282,26 @@ end
 function Doc(body, metadata, variables)
   local buffer = {}
 
+  -- order ignoring case
+  order = function(a, b)
+    return b:lower() > a:lower()
+  end
+
   table.insert(buffer, '  title: >')
-  table.insert(buffer, '    ' .. (meta.title or meta.docname) .. '\n')
-  table.insert(buffer, '  headings:')
+  table.insert(buffer, '    ' .. (meta.title or meta.docname))
+  table.insert(buffer, '\n  headings:')
 
   for id, name in pairs(indices) do
     table.insert(buffer, string.format("    %s: %s", name, id))
   end
 
-  table.insert(buffer, '\n  keywords:')
+  table.insert(buffer, '\n  links:')
 
-  -- order the keyword list ignoring case
-  order = function(a, b)
-    return b:lower() > a:lower()
+  for link, count in agsman.pairs_by_keys(links, order) do
+    table.insert(buffer, string.format("    %s: %d", link, count))
   end
+
+  table.insert(buffer, '\n  keywords:')
 
   for word, count in agsman.pairs_by_keys(keywords, order) do
     if count ~= false then

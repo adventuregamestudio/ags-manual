@@ -15,7 +15,7 @@ $(error target 'source' requires CHECKOUTDIR to be set))
 endif
 endif
 ifeq ($(strip $(BASENAMES)),)
-ifneq ($(filter-out html htmlhelp,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+ifneq ($(filter-out html htmlhelp metacheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(error no source files were found)
 endif
 endif
@@ -43,9 +43,8 @@ else
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
 endif
 
-.PHONY: help html htmlhelp clean source
-.SECONDARY: $(addprefix html/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(HTMLFILES)) \
-	$(addprefix html/work/, $(METAFILES)) $(addprefix htmlhelp/work/, $(METAFILES))
+.PHONY: help html htmlhelp metacheck clean source
+.SECONDARY: $(addprefix meta/build/, $(METAFILES))
 
 help:
 	@$(SHOWHELP)
@@ -55,19 +54,25 @@ source:
 	@$(MV) $@$(SEP)Home.md $@$(SEP)index.md && \
 		$(RM) $@${SEP}_Sidebar.md
 
-html: $(addprefix html/work/, $(HTMLFILES)) $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) \
-	$(addprefix html/work/, $(METAFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
-	html/build/css/normalize.css html/build/css/milligram.min.css html/build/static/favicon.ico
+metacheck: $(addprefix meta/build/, $(METAFILES))
+	@echo Checking $(words $+) files for $@
+	@"$(PANDOC)" --from markdown \
+		--to "lua/write_metacheck.lua" \
+		--metadata=_approved_links:meta/approved_links.txt \
+		$+
 
-htmlhelp: $(addprefix htmlhelp/work/, $(HTMLFILES)) $(addprefix htmlhelp/work/, $(METAFILES)) \
+html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
+	html/build/genindex.html html/build/js/search.js html/build/css/main.css html/build/css/normalize.css \
+	html/build/css/milligram.min.css html/build/static/favicon.ico
+
+htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
-	$(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(if $(HHC),htmlhelp/build/ags-help.chm)
+	$(if $(HHC),htmlhelp/build/ags-help.chm)
 
-html/work htmlhelp/work html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build \
-	htmlhelp/build/images:
+html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build:
 	@$(MKDIR) $(subst /,$(SEP),$@) || echo $@ exists
 
-html/work/%.html: source/%.md | html/work
+html/build/%.html: source/%.md | html/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html5 \
@@ -83,7 +88,7 @@ html/work/%.html: source/%.md | html/work
 		--output $@ \
 		$<
 
-htmlhelp/work/%.html: source/%.md | htmlhelp/work
+htmlhelp/build/%.html: source/%.md | htmlhelp/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html4 \
@@ -94,31 +99,21 @@ htmlhelp/work/%.html: source/%.md | htmlhelp/work
 		--output $@ \
 		$<
 
-htmlhelp/work/%.yaml: source/%.md | htmlhelp/work
-	@echo Building $@
-	@"$(PANDOC)" --from gfm \
-		--to "lua/write_metablock.lua" \
-		--lua-filter "lua/rewrite_links.lua" \
-		--metadata docname=$* \
-		--output $@ \
-		$<
-
-html/work/%.yaml: source/%.md | html/work
+meta/build/%.yaml: source/%.md | meta/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to "lua/write_metablock.lua" \
 		--lua-filter "lua/set_title.lua" \
-		--lua-filter "lua/rewrite_links.lua" \
 		--metadata docname=$* \
 		--output $@ \
 		$<
 
-htmlhelp/build/ags-help.hhk: $(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES))) | htmlhelp/build
+htmlhelp/build/ags-help.hhk: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | htmlhelp/build
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_hhk.lua" \
 		--output=$@ \
-		$(addprefix htmlhelp/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
 htmlhelp/build/ags-help.hhc: | htmlhelp/build
 	@echo Building $@
@@ -138,7 +133,7 @@ htmlhelp/build/ags-help.hhp: | htmlhelp/build
 		--template "htmlhelp/template.hhp" \
 		--output $@
 
-html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES))) | html/build 
+html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build 
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_genindex.lua" \
@@ -147,43 +142,36 @@ html/build/genindex.html: $(addprefix html/work/, $(filter-out index.yaml,$(META
 		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output=$@ \
-		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
-html/build/js/search.js: $(addprefix html/work/, $(filter-out index.yaml,$(METAFILES))) | html/build/js
+html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build/js
 	@echo Building $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_metajs.lua" \
 		--template "html/template.js" \
 		--output=$@ \
-		$(addprefix html/work/, $(filter-out index.yaml,$(METAFILES)))
+		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
-html/build/css/%.css: html/css/%.css | html/build/css
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+# copy source to destination
+define CP_template
+$2: $1 | $(patsubst %/,%,$(dir $2))
+	$(CP) $$(subst /,$(SEP),$$<) $$(subst /,$(SEP),$$@)
+endef
 
-html/build/css/normalize.css: | html/build/css
-	$(CURL) -fLso $(subst /,$(SEP),$@) $(NORMALIZE)
+$(eval $(call CP_template,html/css/%.css,html/build/css/%.css))
+$(eval $(call CP_template,html/static/%,html/build/static/%))
+$(eval $(call CP_template,source/images/%,html/build/images/%))
+$(eval $(call CP_template,source/images/%,htmlhelp/build/images/%))
+$(eval $(call CP_template,htmlhelp/stp,htmlhelp/build/ags-help.stp))
 
-html/build/css/milligram.min.css: | html/build/css
-	$(CURL) -fLso $(subst /,$(SEP),$@) $(MILLIGRAM)
+# download from URL to destination
+define CURL_template
+$2: | $(patsubst %/,%,$(dir $2))
+	$(CURL) -fLso $$(subst /,$(SEP),$$@) $1
+endef
 
-html/build/static/%: html/static/% | html/build/static
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/ags-help.stp: htmlhelp/stp | htmlhelp/build
-	@echo Building $@
-	@$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-html/build/%.html: html/work/%.html | html/build
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-html/build/images/%: source/images/% | html/build/images
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/%.html: htmlhelp/work/%.html | htmlhelp/build
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
-
-htmlhelp/build/images/%: source/images/% | htmlhelp/build/images
-	$(CP) $(subst /,$(SEP),$<) $(subst /,$(SEP),$@)
+$(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
+$(eval $(call CURL_template,$(MILLIGRAM),html/build/css/milligram.min.css))
 
 ifdef HHC
 ifndef ComSpec

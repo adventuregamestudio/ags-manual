@@ -76,6 +76,7 @@ target | function
 source | update the source directory from CHECKOUTDIR
 html | build the website into 'html/build' (requires curl)
 htmlhelp | build an HTML Help Project into 'htmlhelp/build' and call HHC if set (requires HTML Help Workshop)
+metacheck | validate generated page metadata (currently just checks page links)
 clean | delete everything listed in .gitignore
 
 ### Build example (Windows and Chocolatey)
@@ -88,6 +89,7 @@ clean | delete everything listed in .gitignore
     set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
     cd ags-manual
     make SHELL=%COMSPEC% source
+    make SHELL=%COMSPEC% -j metacheck
     make SHELL=%COMSPEC% -j html htmlhelp
 
 ### Build example (macOS/Linux/... and downloaded pandoc binary)
@@ -98,4 +100,5 @@ clean | delete everything listed in .gitignore
     export PANDOC=~/bin/pandoc
     cd ags-manual
     make source
+    make -j metacheck
     make -j html htmlhelp
