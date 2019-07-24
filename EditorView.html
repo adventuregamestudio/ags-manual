@@ -92,25 +92,37 @@
 <h3>Views</h3>
 <p>In the view editor you add sprites from the <a href="EditorSprite.html">Sprite Manager</a> to animation strips called <em>Loops</em>. This way you create the walkcycles for your <a href="EditorCharacter.html">Character</a> as well as all other character animations. Also you define the animation for object on screen you want to animate with <em>Loops</em> inside a <em>View</em>.</p>
 <p><img src="images/EditorView_1.png" /></p>
-<p>You can have 4 or 8 Loops for different directions for walking views. This means your character can either walk left, right, up and down with 4 Loops or you add 4 additional directional walkcycles for diagonal movement. Usually 4 directions are more than enough to animate but noone is stopping you from going all the way. You set the 4/8 directions walking animation per character in the <a href="EditorCharacter.html">Character Editor</a>. Animation flipping is also possible but for that see the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a> entry.</p>
-<p>It is good practise to use a new loop for every character and also for special character animations.<br />
-You can add a lot of object animations to one single view, but you could for example sort them by game chapters (one view for every chapter) to make it easier for you to find them again. You can <strong>name the View</strong> with a rightclick on the View in the game explorer.</p>
+<p>You can have 4 or 8 Loops for different directions for walking views. This means your character can either walk left, right, up and down with 4 Loops or you add 4 additional directional walkcycles for diagonal movement. Usually 4 directions are more than enough to animate but no one is stopping you from going all the way. You set the 4/8 directions walking animation per character in the <a href="EditorCharacter.html">Character Editor</a>. Animation flipping is also possible but for that see the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a> entry.</p>
+<p>It is good practice to use a new loop for every character and also for special character animations.<br />
+You can add a lot of object animations to one single view, but you could for example sort them by game chapters (one view for every chapter) to make it easier for you to find them again. You can <strong>name the View</strong> with a right-click on the View in the game explorer.</p>
 <p>Don't worry about overloading AGS, with the newer versions you can have unlimited views, unlimited loops per view and unlimited frames per loop.</p>
 </section>
 <section id="right-click-context-menu" class="level3">
 <h3>Right Click Context Menu</h3>
 <p><img src="images/EditorView_2.png" /></p>
-<p>When you rightclick on a single frame in a loop you get the following options I wish someon told me about before like Flip All Frames...</p>
-<p><em>Flip frame</em></p>
-<p><em>Delete frame</em></p>
-<p><em>Insert frame before this</em></p>
-<p><em>Insert frame after this</em></p>
-<p><em>Cut loop</em></p>
-<p><em>Copy loop</em></p>
-<p><em>Paste over this loop</em></p>
-<p><em>Paste over this loop flipped</em></p>
-<p><em>Flip all frames in loop</em></p>
-<p><em>Add all sprites from folder</em></p>
+<p>When you right-click on a single frame in a loop you get the following options:</p>
+<ul>
+<li><p><em>Flip frame</em></p>
+<p>Flips a single frame.</p></li>
+<li><p><em>Delete frame</em></p>
+<p>Remove that single frame</p></li>
+<li><p><em>Insert frame before this</em></p>
+<p>Useful when you added your animation and forgot first frame was the idle frame.</p></li>
+<li><p><em>Insert frame after this</em></p>
+<p>Inserts a frame after the one you right clicked.</p></li>
+<li><p><em>Cut loop</em></p>
+<p>Good for moving things around when you did everything right in the wrong loop.</p></li>
+<li><p><em>Copy loop</em></p>
+<p>Copies an entire loop!</p></li>
+<li><p><em>Paste over this loop</em></p>
+<p>You need this to place the loop after you copied it.</p></li>
+<li><p><em>Paste over this loop flipped</em></p>
+<p>If you have copied the loop with the character going right, make him go to left!</p></li>
+<li><p><em>Flip all frames in loop</em></p>
+<p>You already did the character going right and pasted on this loop, then use this option!</p></li>
+<li><p><em>Add all sprites from folder</em></p>
+<p>On the sprite manager, if you have all the sprites to be used in a loop, ordered, in a folder, you can use this option to quickly added them. This is useful when you have many frames.</p></li>
+</ul>
 </section>
 <section id="show-preview" class="level3">
 <h3>Show Preview</h3>
@@ -123,14 +135,13 @@ When you animate a <a href="Object.html#animate">game object</a> or you want the
 <h3>Properties</h3>
 <p><img src="images/EditorView_4.png" /></p>
 <p><em>Delay</em><br />
-With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the gamespeed for easy debugging with <a href="Game.html#getgamespeed">Game.GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Game.html#setgamespeed">Game.SetGameSpeed</a>. By default AGS games run at 40 FPS.<br />
-This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#animate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
+With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the gamespeed for easy debugging with <a href="Game.html#getgamespeed">Game.GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Game.html#setgamespeed">Game.SetGameSpeed</a>. By default AGS games run at 40 FPS. This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#animate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
 <p><em>Flipped</em><br />
 You flip that one frame with that property. Very useful for mirrored animations like in walkcycles for left and right walk. Don't have a character with a cane then. Please note you can also flip the whole loop and not only a single frame within the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a>.</p>
 <p><em>Image</em><br />
 The image number AGS gives your image imported into the <a href="EditorSprite.html">Sprite Manager</a>. This selected frame has exactly this image number.</p>
 <p><em>ID</em><br />
-Greyed out. Nobody cares.</p>
+Greyed out. Should be the frame number for the selected frame.</p>
 <p><em>Sound</em><br />
 Play the sound set here every time the animation loop plays and reaches this frame.<br />
 Useful for footsteps and all other sounds needed for object animations.</p>
@@ -144,7 +155,7 @@ Useful for footsteps and all other sounds needed for object animations.</p>
 
   <footer>
     <section class="container">
-      <p>Build: 07/18/2019 04:54:15 PM</p>
+      <p>Build: 07/24/2019 03:15:28 AM</p>
     </section>
   </footer>
 

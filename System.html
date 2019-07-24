@@ -184,9 +184,9 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <h3>HardwareAcceleration</h3>
 <pre><code>readonly static bool System.HardwareAcceleration;
 </code></pre>
-<p>Returns whether the game is running with hardware acceleration (eg. Direct3D). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
+<p>Returns whether the game is running with hardware acceleration (eg. Direct3D or OpenGL). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Direct3D driver</strong><br> Linux: <strong>No</strong><br> MacOS: <strong>No</strong></p>
+<p>Windows: <strong>Direct3D, OpenGL driver</strong><br> Linux: <strong>OpenGL driver</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
 <pre><code>if (System.HardwareAcceleration) {
   Display(&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;);
@@ -454,7 +454,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 07/18/2019 04:54:21 PM</p>
+      <p>Build: 07/24/2019 03:15:33 AM</p>
     </section>
   </footer>
 
