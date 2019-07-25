@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dictionary functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#dictionary-functions">Dictionary functions</a><ul>
+<li><a href="#create">Create</a></li>
+<li><a href="#clear">Clear</a></li>
+<li><a href="#set">Set</a></li>
+<li><a href="#contains">Contains</a></li>
+<li><a href="#get">Get</a></li>
+<li><a href="#remove">Remove</a></li>
+<li><a href="#comparestyle">CompareStyle</a></li>
+<li><a href="#sortstyle">SortStyle</a></li>
+<li><a href="#itemcount">ItemCount</a></li>
+<li><a href="#getkeysasarray">GetKeysAsArray</a></li>
+<li><a href="#getvaluesasarray">GetValuesAsArray</a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="dictionary-functions" class="level2">
+<h2>Dictionary functions</h2>
+<section id="create" class="level3">
+<h3>Create</h3>
+<pre><code>Dictionary* Create(SortStyle sortStyle, StringCompareStyle compareStyle)
+</code></pre>
+<p>Creates a new empty Dictionary of the given properties. If you don't pass any options, the Dirctionary is non sorted and case insensitive.</p>
+<p>Example:</p>
+<pre><code>Dictionary* myDictionary = Dictionary.Create();
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="Set.html#create">Set</a></p>
+<hr />
+</section>
+<section id="clear" class="level3">
+<h3>Clear</h3>
+<pre><code>Clear()
+</code></pre>
+<p>Removes all items from the dictionary.</p>
+<hr />
+</section>
+<section id="set" class="level3">
+<h3>Set</h3>
+<pre><code>bool Set(String key)
+</code></pre>
+<p>Assigns a value to the given key, adds this key if it did not exist yet.</p>
+<hr />
+</section>
+<section id="contains" class="level3">
+<h3>Contains</h3>
+<pre><code>bool Contains(String key)
+</code></pre>
+<p>Returns true if the key is in the dictionary.</p>
+<p>Example:</p>
+<pre><code>Dictionary* myDictionary = Dictionary.Create();
+myDictionary.Set(&quot;my-key&quot;,&quot;my-value&quot;);
+if(myDictionary.Contains(&quot;my-key&quot;)){
+  Display(&quot;has my key!&quot;);
+}
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#remove">Remove</a></p>
+<hr />
+</section>
+<section id="get" class="level3">
+<h3>Get</h3>
+<pre><code>String Get(String key)
+</code></pre>
+<p>Gets value by the key. Returns null if such key does not exist.</p>
+<p>Example:</p>
+<pre><code>Dictionary* myDictionary = Dictionary.Create();
+myDictionary.Set(&quot;a-key&quot;,&quot;a-value&quot;);
+String myValue = myDictionary.Get(&quot;a-key&quot;);
+</code></pre>
+<hr />
+</section>
+<section id="remove" class="level3">
+<h3>Remove</h3>
+<pre><code>bool Remove(String key)
+</code></pre>
+<p>Removes key/value pair from the dictionary, returns false if there was no such item.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#set">Set</a></p>
+<hr />
+</section>
+<section id="comparestyle" class="level3">
+<h3>CompareStyle</h3>
+<pre><code>StringCompareStyle CompareStyle
+</code></pre>
+<p>Gets if this dictionary keys are case-sensitive.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#sortstyle">SortStyle</a></p>
+<hr />
+</section>
+<section id="sortstyle" class="level3">
+<h3>SortStyle</h3>
+<pre><code>SortStyle SortStyle
+</code></pre>
+<p>Gets the method keys are arranged in this dictionary.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#comparestyle">CompareStyle</a></p>
+<hr />
+</section>
+<section id="itemcount" class="level3">
+<h3>ItemCount</h3>
+<pre><code>int ItemCount
+</code></pre>
+<p>Gets the number of key/value pairs currently in the dictionary.</p>
+<hr />
+</section>
+<section id="getkeysasarray" class="level3">
+<h3>GetKeysAsArray</h3>
+<pre><code>String[] GetKeysAsArray()
+</code></pre>
+<p>Creates a dynamic array filled with keys in same order as they are stored in the Dictionary.</p>
+<p>Example:</p>
+<pre><code>Dictionary* myDictionary = Dictionary.Create();
+myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
+myDictionary.Set(&quot;my-key2&quot;,&quot;my-value2&quot;);
+String* myDictionaryKeysAsArray = myDictionary.GetKeysAsArray();
+</code></pre>
+<hr />
+</section>
+<section id="getvaluesasarray" class="level3">
+<h3>GetValuesAsArray</h3>
+<pre><code>String[] GetValuesAsArray()
+</code></pre>
+<p>Creates a dynamic array filled with values in same order as they are stored in the Dictionary.</p>
+<p>Example:</p>
+<pre><code>Dictionary* myDictionary = Dictionary.Create();
+myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
+myDictionary.Set(&quot;my-key2&quot;,&quot;my-value2&quot;);
+String* myDictionaryValuesAsArray = myDictionary.GetValuesAsArray();
+</code></pre>
+<hr />
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 07/25/2019 03:07:35 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

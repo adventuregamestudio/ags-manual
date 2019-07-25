@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Camera</title>
+  <title>Set functions</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,93 +76,112 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#camera">Camera</a><ul>
+<li><a href="#set-functions">Set functions</a><ul>
 <li><a href="#create">Create</a></li>
-<li><a href="#delete">Delete</a></li>
-<li><a href="#setat">SetAt</a></li>
-<li><a href="#setsize">SetSize</a></li>
-<li><a href="#autotracking">AutoTracking</a></li>
-<li><a href="#width">Width</a></li>
-<li><a href="#height">Height</a></li>
-<li><a href="#x">X</a></li>
-<li><a href="#y">Y</a></li>
+<li><a href="#add">Add</a></li>
+<li><a href="#clear">Clear</a></li>
+<li><a href="#contains">Contains</a></li>
+<li><a href="#remove">Remove</a></li>
+<li><a href="#comparestyle">CompareStyle</a></li>
+<li><a href="#sortstyle">SortStyle</a></li>
+<li><a href="#itemcount">ItemCount</a></li>
+<li><a href="#getitemsasarray">GetItemsAsArray</a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
-<section id="camera" class="level2">
-<h2>Camera</h2>
+<section id="set-functions" class="level2">
+<h2>Set functions</h2>
 <section id="create" class="level3">
 <h3>Create</h3>
-<pre><code>static Camera *Create();
+<pre><code>Set* Create(SortStyle sortStyle, StringCompareStyle compareStyle)
 </code></pre>
-<p>Creates a new Camera.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#delete">Camera.Delete</a></p>
+<p>Creates a new empty Set of the given properties. If you don't pass any options, the Set is non sorted and case insensitive.</p>
+<p>Example:</p>
+<pre><code>Set* mySet = Set.Create();
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#create">Dictionary</a></p>
+<hr />
 </section>
-<section id="delete" class="level3">
-<h3>Delete</h3>
-<pre><code>void Delete();
+<section id="add" class="level3">
+<h3>Add</h3>
+<pre><code>bool Add(String item)
 </code></pre>
-<p>Removes an existing camera; note that primary camera will never be removed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a></p>
+<p>Adds item to the set, fails if such item was already existing, returning false.</p>
+<p>Example:</p>
+<pre><code>mySet.Add(&quot;item1&quot;);
+bool wasAdded = mySet.Add(&quot;item1&quot;); //wasAdded is false
+</code></pre>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See Also:</em> <a href="Set.html#remove">Remove</a></p>
+<hr />
 </section>
-<section id="setat" class="level3">
-<h3>SetAt</h3>
-<pre><code>void SetAt(int x, int y);
+<section id="clear" class="level3">
+<h3>Clear</h3>
+<pre><code>Clear()
 </code></pre>
-<p>Changes camera position in the room and disables automatic tracking of the player character.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#setsize">Camera.SetSize</a></p>
+<p>Removes all items from the set.</p>
+<hr />
 </section>
-<section id="setsize" class="level3">
-<h3>SetSize</h3>
-<pre><code>void SetSize(int width, int height);
+<section id="contains" class="level3">
+<h3>Contains</h3>
+<pre><code>bool Contains(String item)
 </code></pre>
-<p>Changes camera's capture dimensions in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a></p>
+<p>Returns true if given item is in the set.</p>
+<p>Example:</p>
+<pre><code>Set* mySet = Set.Create();
+mySet.Add(&quot;test&quot;);
+if(mySet.Contains(&quot;test&quot;)){
+  Display(&quot;This was a triumph&quot;)
+}
+</code></pre>
+<hr />
 </section>
-<section id="autotracking" class="level3">
-<h3>AutoTracking</h3>
-<pre><code>attribute bool AutoTracking;
+<section id="remove" class="level3">
+<h3>Remove</h3>
+<pre><code>bool Remove(String item)
 </code></pre>
-<p>Gets/sets whether this camera will follow the player character automatically.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p>Removes item from the set, returns false if there was no such item.</p>
+<p><em>See Also:</em> <a href="Set.html#add">Add</a></p>
+<hr />
 </section>
-<section id="width" class="level3">
-<h3>Width</h3>
-<pre><code>attribute int Camera.Width;
+<section id="comparestyle" class="level3">
+<h3>CompareStyle</h3>
+<pre><code>StringCompareStyle CompareStyle
 </code></pre>
-<p>Gets/sets the camera's capture width in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#height">Camera.Height</a></p>
+<p>Gets if this set is case-sensitive.</p>
+<p><em>See Also:</em> <a href="Set.html#sortstyle">SortStyle</a></p>
+<hr />
 </section>
-<section id="height" class="level3">
-<h3>Height</h3>
-<pre><code>attribute int Camera.Height;
+<section id="sortstyle" class="level3">
+<h3>SortStyle</h3>
+<pre><code>SortStyle SortStyle
 </code></pre>
-<p>Gets/sets the camera's capture height in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#width">Camera.Width</a></p>
+<p>Gets the method items are arranged in this set.</p>
+<p><em>See Also:</em> <a href="Set.html#comparestyle">CompareStyle</a></p>
+<hr />
 </section>
-<section id="x" class="level3">
-<h3>X</h3>
-<pre><code>static int Camera.X;
+<section id="itemcount" class="level3">
+<h3>ItemCount</h3>
+<pre><code>int ItemCount
 </code></pre>
-<p>Gets/sets the X position of this camera in the room.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#y">Camera.Y</a></p>
+<p>Gets the number of items currently in the set.</p>
+<hr />
 </section>
-<section id="y" class="level3">
-<h3>Y</h3>
-<pre><code>static int Camera.Y;
+<section id="getitemsasarray" class="level3">
+<h3>GetItemsAsArray</h3>
+<pre><code>String[] GetItemsAsArray()
 </code></pre>
-<p>Gets/sets the Y position of this camera in the room.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#x">Camera.X</a></p>
+<p>Creates a dynamic array filled with items in same order as they are stored in the Set.</p>
+<p>Example:</p>
+<pre><code>Set* mySet = Set.Create();
+mySet.Add(&quot;test&quot;);
+mySet.Add(&quot;test2&quot;);
+String* mySetAsArray = mySet.GetItemsAsArray();
+</code></pre>
+<hr />
 </section>
 </section>
         </div>
@@ -173,7 +192,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 03:07:34 AM</p>
+      <p>Build: 07/25/2019 03:07:40 AM</p>
     </section>
   </footer>
 

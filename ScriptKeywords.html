@@ -117,7 +117,7 @@
 int badGuyHealth;
 int swordsmanHealth;
 </code></pre>
-<p>but that quickly gets messy and difficult to keep up to date, since you need to use different script code to update each one. So instead, you can do this:</p>
+<p>but that quickly gets messy and difficult to keep up to date, since you need to use different script code to update each one. So instead, you can do this at the top of your script:</p>
 <pre><code>int health[50];
 </code></pre>
 <p>This example declares 50 int variables, all called <em>health</em>.<br> You access each seperate variable via its <strong>index</strong> (the number in the brackets). Indexes start from 0, so in this case the <em>health</em> array can be accessed by indexes 0 to 49. If you attempt to access an invalid index, your game will exit with an error.</p>
@@ -126,8 +126,9 @@ int swordsmanHealth;
 health[4] = 100;
 health[player.ID] = 10;
 </code></pre>
-<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.</p>
-<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a></p>
+<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.<br />
+You need to do this inside a function.</p>
+<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
 <hr />
 </section>
 <section id="data-types" class="level3">
@@ -883,7 +884,7 @@ readonly int months = 12;
 
   <footer>
     <section class="container">
-      <p>Build: 07/24/2019 03:15:32 AM</p>
+      <p>Build: 07/25/2019 03:07:40 AM</p>
     </section>
   </footer>
 
