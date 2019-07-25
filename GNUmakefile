@@ -141,6 +141,7 @@ html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.yaml,$(MET
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_genindex.lua" \
 		--template "html/template.html5" \
+		--variable=datetime:"$(DATETIME)" \
 		--css "css/normalize.css" \
 		--css "css/milligram.min.css" \
 		--css "css/main.css" \
