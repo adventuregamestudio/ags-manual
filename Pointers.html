@@ -76,21 +76,21 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#pointers-in-ags">Pointers in AGS</a><ul>
-<li><a href="#pointers-for-programming-newbies">Pointers for programming newbies</a></li>
-<li><a href="#pointers-for-people-who-know-java-or-c">Pointers for people who know Java or C#</a></li>
-<li><a href="#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></li>
+<li><a href="#pointers-in-ags"><span>Pointers in AGS</span></a><ul>
+<li><a href="#pointers-for-programming-newbies"><span>Pointers for programming newbies</span></a></li>
+<li><a href="#pointers-for-people-who-know-java-or-c"><span>Pointers for people who know Java or C#</span></a></li>
+<li><a href="#pointers-for-people-who-know-c-or-c"><span>Pointers for people who know C or C++</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="pointers-in-ags" class="level2">
-<h2>Pointers in AGS</h2>
+<h2><a href="#pointers-in-ags">Pointers in AGS</a></h2>
 <p>Various commands in the new scripting language will require you to use pointers. This section has been split into three separate topics to introduce you to pointers depending on your previous programming experience -- select one of the links below:</p>
 <hr />
 <section id="pointers-for-programming-newbies" class="level3">
-<h3>Pointers for programming newbies</h3>
+<h3><a href="#pointers-for-programming-newbies">Pointers for programming newbies</a></h3>
 <p>Pointers can be quite a daunting prospect, and in languages like C and C++ they certainly are; but AGS tries to make things as simple as possible.</p>
 <p>Basically, a pointer is a variable that <em>points</em> to something of a particular type. For example, a <em>Character</em> pointer would point to characters. What's the point of all this, I hear you ask?</p>
 <p>Well, let's look back at AGS 2.62. If you wanted to reference a particular hotspot, you'd need to remember its number. If you wanted to switch on an object, you'd need to remember what number it was too. And because you could accidentally use an object number where you wanted a hotspot number, mistakes could easily happen and it all got rather messy.</p>
@@ -139,7 +139,7 @@ mouseOverHotspot = Hotspot.GetAtScreenXY(mouse.x, mouse.y);
 <hr />
 </section>
 <section id="pointers-for-people-who-know-java-or-c" class="level3">
-<h3>Pointers for people who know Java or C#</h3>
+<h3><a href="#pointers-for-people-who-know-java-or-c">Pointers for people who know Java or C#</a></h3>
 <p>AGS pointers work in a very similar way to object variables in Java and C#. The main difference is that AGS pointers are declared in the C-style manner with an asterisk t represent the pointer. So:</p>
 <pre><code>Hotspot *hs;
 </code></pre>
@@ -161,7 +161,7 @@ file2.Close();
 <hr />
 </section>
 <section id="pointers-for-people-who-know-c-or-c" class="level3">
-<h3>Pointers for people who know C or C++</h3>
+<h3><a href="#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></h3>
 <p>Pointers in AGS are based on the C/C++ syntax, so they are declared with an asterisk. However, in AGS you can only create pointers to built-in AGS types, and not to any custom structs declared in your script.</p>
 <p>Pointer members are accessed with the dot operator, and not the <code>-&gt;</code> C-style operator. Because AGS doesn't support features such as pointers-to-pointers and so forth, there is no need for a separate operator.</p>
 <p>In AGS, pointer memory management is done automatically based on reference counting (similar to the way COM works), so there is no <em>new</em> or <em>delete</em> keyword. When an object is no longer referenced by any pointer variables, it will be freed. For this reason, if you have any global pointer variables it's advisable to set them to <em>null</em> if you are done with them.</p>
@@ -177,7 +177,7 @@ file2.Close();
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:54 PM</p>
+      <p>Build: 07/26/2019 01:41:05 AM</p>
     </section>
   </footer>
 

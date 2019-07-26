@@ -76,19 +76,19 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#palette-functions">Palette functions</a><ul>
-<li><a href="#cyclepalette">CyclePalette</a></li>
-<li><a href="#setpalrgb">SetPalRGB</a></li>
-<li><a href="#updatepalette">UpdatePalette</a></li>
+<li><a href="#palette-functions"><span>Palette functions</span></a><ul>
+<li><a href="#cyclepalette"><span>CyclePalette</span></a></li>
+<li><a href="#setpalrgb"><span>SetPalRGB</span></a></li>
+<li><a href="#updatepalette"><span>UpdatePalette</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="palette-functions" class="level2">
-<h2>Palette functions</h2>
+<h2><a href="#palette-functions">Palette functions</a></h2>
 <section id="cyclepalette" class="level3">
-<h3>CyclePalette</h3>
+<h3><a href="#cyclepalette">CyclePalette</a></h3>
 <pre><code>CyclePalette (int start, int end)
 </code></pre>
 <p>This is used for special effects, like the flowing colours on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
@@ -102,7 +102,7 @@
 <hr />
 </section>
 <section id="setpalrgb" class="level3">
-<h3>SetPalRGB</h3>
+<h3><a href="#setpalrgb">SetPalRGB</a></h3>
 <pre><code>SetPalRGB (int slot, int red, int green, int blue)
 </code></pre>
 <p>Changes the RGB components of one of the palette slots. The palette is initially set up in the Palette Editor, but you can override it during the game using this function for special effects. The RED, GREEN and BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
@@ -116,7 +116,7 @@
 <hr />
 </section>
 <section id="updatepalette" class="level3">
-<h3>UpdatePalette</h3>
+<h3><a href="#updatepalette">UpdatePalette</a></h3>
 <pre><code>UpdatePalette()
 </code></pre>
 <p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colours of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
@@ -136,7 +136,7 @@ UpdatePalette();
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:46 PM</p>
+      <p>Build: 07/26/2019 01:40:56 AM</p>
     </section>
   </footer>
 

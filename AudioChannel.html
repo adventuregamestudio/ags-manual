@@ -76,30 +76,30 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#audiochannel-functions-and-properties">AudioChannel functions and properties</a><ul>
-<li><a href="#seek">Seek</a></li>
-<li><a href="#setroomlocation">SetRoomLocation</a></li>
-<li><a href="#speed">Speed</a></li>
-<li><a href="#stop">Stop</a></li>
-<li><a href="#id">ID</a></li>
-<li><a href="#isplaying">IsPlaying</a></li>
-<li><a href="#lengthms">LengthMs</a></li>
-<li><a href="#panning">Panning</a></li>
-<li><a href="#playingclip">PlayingClip</a></li>
-<li><a href="#position">Position</a></li>
-<li><a href="#positionms">PositionMs</a></li>
-<li><a href="#volume">Volume</a></li>
+<li><a href="#audiochannel-functions-and-properties"><span>AudioChannel functions and properties</span></a><ul>
+<li><a href="#seek"><span>Seek</span></a></li>
+<li><a href="#setroomlocation"><span>SetRoomLocation</span></a></li>
+<li><a href="#speed"><span>Speed</span></a></li>
+<li><a href="#stop"><span>Stop</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
+<li><a href="#isplaying"><span>IsPlaying</span></a></li>
+<li><a href="#lengthms"><span>LengthMs</span></a></li>
+<li><a href="#panning"><span>Panning</span></a></li>
+<li><a href="#playingclip"><span>PlayingClip</span></a></li>
+<li><a href="#position"><span>Position</span></a></li>
+<li><a href="#positionms"><span>PositionMs</span></a></li>
+<li><a href="#volume"><span>Volume</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="audiochannel-functions-and-properties" class="level2">
-<h2>AudioChannel functions and properties</h2>
+<h2><a href="#audiochannel-functions-and-properties">AudioChannel functions and properties</a></h2>
 <p>The AudioChannel instance represents a currently playing audio file. You can use this instance to check the status of playing sounds, and adjust them.</p>
 <hr />
 <section id="seek" class="level3">
-<h3>Seek</h3>
+<h3><a href="#seek">Seek</a></h3>
 <p><em>(Formerly known as SeekMIDIPosition, which is now obsolete)</em><br> <em>(Formerly known as SeekMODPattern, which is now obsolete)</em><br> <em>(Formerly known as SeekMP3PosMillis, which is now obsolete)</em></p>
 <pre><code>AudioChannel.Seek(int position)
 </code></pre>
@@ -122,7 +122,7 @@ channel.Seek(0);
 <hr />
 </section>
 <section id="setroomlocation" class="level3">
-<h3>SetRoomLocation</h3>
+<h3><a href="#setroomlocation">SetRoomLocation</a></h3>
 <p><em>(Formerly part of PlayAmbientSound, which is now obsolete)</em></p>
 <pre><code>AudioChannel.SetRoomLocation(int x, int y)
 </code></pre>
@@ -140,7 +140,7 @@ channel.SetRoomLocation(oMachine.X, oMachine.Y);
 <hr />
 </section>
 <section id="speed" class="level3">
-<h3>Speed</h3>
+<h3><a href="#speed">Speed</a></h3>
 <pre><code>int AudioChannel.Speed
 </code></pre>
 <p>Gets/sets the playing audio clip's playback speed. The value is defined in clip's milliseconds per second: 1000 is default, meaning 1000 of clip's ms in 1 real second (scale 1:1). Set &lt; 1000 for slower play and &gt; 1000 for faster play. <strong>NOTE:</strong> currently works for MP3 and OGG audio clips only.</p>
@@ -153,7 +153,7 @@ channel.Speed = 2000;
 <hr />
 </section>
 <section id="stop" class="level3">
-<h3>Stop</h3>
+<h3><a href="#stop">Stop</a></h3>
 <p><em>(Formerly known as StopAmbientSound, which is now obsolete)</em><br> <em>(Formerly known as StopChannel, which is now obsolete)</em></p>
 <pre><code>AudioChannel.Stop()
 </code></pre>
@@ -169,7 +169,7 @@ channel.Stop();
 <hr />
 </section>
 <section id="id" class="level3">
-<h3>ID</h3>
+<h3><a href="#id">ID</a></h3>
 <pre><code>readonly int AudioChannel.ID
 </code></pre>
 <p>Gets the Channel ID of this audio channel. You will not normally need to use this, but it can be used for inter-operating with legacy commands such as StopChannel.</p>
@@ -182,7 +182,7 @@ Display(&quot;Explosion playing on channel %d&quot;, channel.ID);
 <hr />
 </section>
 <section id="isplaying" class="level3">
-<h3>IsPlaying</h3>
+<h3><a href="#isplaying">IsPlaying</a></h3>
 <p><em>(Formerly known as IsChannelPlaying, which is now obsolete)</em></p>
 <pre><code>readonly bool AudioChannel.IsPlaying
 </code></pre>
@@ -198,7 +198,7 @@ Display(&quot;Finished playing the explosion&quot;);
 <hr />
 </section>
 <section id="lengthms" class="level3">
-<h3>LengthMs</h3>
+<h3><a href="#lengthms">LengthMs</a></h3>
 <pre><code>readonly int AudioChannel.LengthMs
 </code></pre>
 <p>Gets the length of the audio playing on this channel, in milliseconds.</p>
@@ -214,7 +214,7 @@ Display(&quot;The Explosion sound is %d ms long.&quot;, channel.LengthMs);
 <hr />
 </section>
 <section id="panning" class="level3">
-<h3>Panning</h3>
+<h3><a href="#panning">Panning</a></h3>
 <pre><code>int AudioChannel.Panning
 </code></pre>
 <p>Gets/sets the panning of this audio channel.</p>
@@ -230,7 +230,7 @@ channel.Panning = -100;
 <hr />
 </section>
 <section id="playingclip" class="level3">
-<h3>PlayingClip</h3>
+<h3><a href="#playingclip">PlayingClip</a></h3>
 <p><em>(Formerly known as GetCurrentMusic, which is now obsolete)</em></p>
 <pre><code>readonly AudioClip* AudioChannel.PlayingClip
 </code></pre>
@@ -253,7 +253,7 @@ else
 <hr />
 </section>
 <section id="position" class="level3">
-<h3>Position</h3>
+<h3><a href="#position">Position</a></h3>
 <p><em>(Formerly known as GetMIDIPosition, which is now obsolete)</em><br> <em>(Formerly known as GetMODPattern, which is now obsolete)</em><br> <em>(Formerly known as GetMP3PosMillis, which is now obsolete)</em></p>
 <pre><code>readonly int AudioChannel.Position
 </code></pre>
@@ -277,7 +277,7 @@ channel.Seek(channel.Position + 1000);
 <hr />
 </section>
 <section id="positionms" class="level3">
-<h3>PositionMs</h3>
+<h3><a href="#positionms">PositionMs</a></h3>
 <pre><code>readonly int AudioChannel.PositionMs
 </code></pre>
 <p>Gets the current position of the audio playing on this channel, in milliseconds.</p>
@@ -294,7 +294,7 @@ Display(&quot;After 1 second, offset is %d ms.&quot;, channel.PositionMs);
 <hr />
 </section>
 <section id="volume" class="level3">
-<h3>Volume</h3>
+<h3><a href="#volume">Volume</a></h3>
 <p><em>(Formerly known as SetChannelVolume, which is now obsolete)</em><br> <em>(Formerly known as SetMusicVolume, which is now obsolete)</em></p>
 <pre><code>int AudioChannel.Volume
 </code></pre>
@@ -320,7 +320,7 @@ channel.Volume = 20;
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:53 PM</p>
+      <p>Build: 07/26/2019 01:41:05 AM</p>
     </section>
   </footer>
 

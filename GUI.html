@@ -76,34 +76,34 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#gui-functions-and-properties">GUI functions and properties</a><ul>
-<li><a href="#centre">Centre</a></li>
-<li><a href="#click">Click</a></li>
-<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a href="#processclick">ProcessClick</a></li>
-<li><a href="#setposition">SetPosition</a></li>
-<li><a href="#setsize">SetSize</a></li>
-<li><a href="#backgroundgraphic">BackgroundGraphic</a></li>
-<li><a href="#clickable">Clickable</a></li>
-<li><a href="#controlcount">ControlCount</a></li>
-<li><a href="#controls">Controls</a></li>
-<li><a href="#height">Height</a></li>
-<li><a href="#id">ID</a></li>
-<li><a href="#transparency">Transparency</a></li>
-<li><a href="#visible">Visible</a></li>
-<li><a href="#width">Width</a></li>
-<li><a href="#x">X</a></li>
-<li><a href="#y">Y</a></li>
-<li><a href="#zorder">ZOrder</a></li>
+<li><a href="#gui-functions-and-properties"><span>GUI functions and properties</span></a><ul>
+<li><a href="#centre"><span>Centre</span></a></li>
+<li><a href="#click"><span>Click</span></a></li>
+<li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
+<li><a href="#processclick"><span>ProcessClick</span></a></li>
+<li><a href="#setposition"><span>SetPosition</span></a></li>
+<li><a href="#setsize"><span>SetSize</span></a></li>
+<li><a href="#backgroundgraphic"><span>BackgroundGraphic</span></a></li>
+<li><a href="#clickable"><span>Clickable</span></a></li>
+<li><a href="#controlcount"><span>ControlCount</span></a></li>
+<li><a href="#controls"><span>Controls</span></a></li>
+<li><a href="#height"><span>Height</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
+<li><a href="#transparency"><span>Transparency</span></a></li>
+<li><a href="#visible"><span>Visible</span></a></li>
+<li><a href="#width"><span>Width</span></a></li>
+<li><a href="#x"><span>X</span></a></li>
+<li><a href="#y"><span>Y</span></a></li>
+<li><a href="#zorder"><span>ZOrder</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="gui-functions-and-properties" class="level2">
-<h2>GUI functions and properties</h2>
+<h2><a href="#gui-functions-and-properties">GUI functions and properties</a></h2>
 <section id="centre" class="level3">
-<h3>Centre</h3>
+<h3><a href="#centre">Centre</a></h3>
 <p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
 <pre><code>GUI.Centre()
 </code></pre>
@@ -116,7 +116,7 @@
 <hr />
 </section>
 <section id="click" class="level3">
-<h3>Click</h3>
+<h3><a href="#click">Click</a></h3>
 <pre><code>GUI.Click()
 </code></pre>
 <p>Forces GUI's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
@@ -130,7 +130,7 @@
 <hr />
 </section>
 <section id="getatscreenxy" class="level3">
-<h3>GetAtScreenXY</h3>
+<h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
 <p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
 <pre><code>static GUI* GUI.GetAtScreenXY(int x, int y)
 </code></pre>
@@ -154,7 +154,7 @@ else {
 <hr />
 </section>
 <section id="processclick" class="level3">
-<h3>ProcessClick</h3>
+<h3><a href="#processclick">ProcessClick</a></h3>
 <pre><code>static void GUI.ProcessClick(int x, int y, CursorMode)
 </code></pre>
 <p>Simulates clicking the mouse on the location (X,Y) on the screen, in the specified cursor mode. This "click" has special behavior in that it <strong>only affects GUI and GUI controls</strong> under given coordinates. Any conditions attached to the first interface elements on given coordinates will be executed. Other game elements (room objects, hotspots, characters) will be <strong>ignored</strong>.</p>
@@ -168,7 +168,7 @@ else {
 <hr />
 </section>
 <section id="setposition" class="level3">
-<h3>SetPosition</h3>
+<h3><a href="#setposition">SetPosition</a></h3>
 <p><em>(Formerly known as SetGUIPosition, which is now obsolete)</em></p>
 <pre><code>GUI.SetPosition(int x, int y)
 </code></pre>
@@ -181,7 +181,7 @@ else {
 <hr />
 </section>
 <section id="setsize" class="level3">
-<h3>SetSize</h3>
+<h3><a href="#setsize">SetSize</a></h3>
 <p><em>(Formerly known as SetGUISize, which is now obsolete)</em></p>
 <pre><code>GUI.SetSize(int width, int height)
 </code></pre>
@@ -196,7 +196,7 @@ else {
 <hr />
 </section>
 <section id="backgroundgraphic" class="level3">
-<h3>BackgroundGraphic</h3>
+<h3><a href="#backgroundgraphic">BackgroundGraphic</a></h3>
 <p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
 <pre><code>int GUI.BackgroundGraphic
 </code></pre>
@@ -206,7 +206,7 @@ else {
 <hr />
 </section>
 <section id="clickable" class="level3">
-<h3>Clickable</h3>
+<h3><a href="#clickable">Clickable</a></h3>
 <p><em>(Formerly known as SetGUIClickable, which is now obsolete)</em></p>
 <pre><code>bool GUI.Clickable
 </code></pre>
@@ -221,7 +221,7 @@ else {
 <hr />
 </section>
 <section id="controlcount" class="level3">
-<h3>ControlCount</h3>
+<h3><a href="#controlcount">ControlCount</a></h3>
 <pre><code>readonly int GUI.ControlCount;
 </code></pre>
 <p>Gets the number of controls on the GUI. You won't normally need to use this property, but in some circumstances you may wish to iterate through all the GUI's controls, and this allows you to determine where to stop.</p>
@@ -237,7 +237,7 @@ while (i &lt; gInventory.ControlCount) {
 <hr />
 </section>
 <section id="controls" class="level3">
-<h3>Controls</h3>
+<h3><a href="#controls">Controls</a></h3>
 <pre><code>GUIControl* GUI.Controls[index]
 </code></pre>
 <p>Provides an array which allows you to access controls on the GUI by their index. You should not normally need to do this, since accessing the controls by their name is far easier; however, if you need to interoperate with legacy code that uses the control number, this can come in useful.</p>
@@ -258,7 +258,7 @@ else {
 <hr />
 </section>
 <section id="height" class="level3">
-<h3>Height</h3>
+<h3><a href="#height">Height</a></h3>
 <pre><code>int GUI.Height
 </code></pre>
 <p>Gets/sets the height of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
@@ -271,7 +271,7 @@ else {
 <hr />
 </section>
 <section id="id" class="level3">
-<h3>ID</h3>
+<h3><a href="#id">ID</a></h3>
 <pre><code>readonly int GUI.ID
 </code></pre>
 <p>Gets the GUI's ID number. This is the GUI's number from the editor, and is useful if you need to interoperate with legacy code that uses the GUI's number rather than object name.</p>
@@ -284,7 +284,7 @@ gIconbar.Clickable = false;
 <hr />
 </section>
 <section id="transparency" class="level3">
-<h3>Transparency</h3>
+<h3><a href="#transparency">Transparency</a></h3>
 <p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
 <pre><code>int GUI.Transparency
 </code></pre>
@@ -307,7 +307,7 @@ while (trans &lt; 100) {
 <hr />
 </section>
 <section id="visible" class="level3">
-<h3>Visible</h3>
+<h3><a href="#visible">Visible</a></h3>
 <p><em>(Formerly known as GUIOff, which is now obsolete)</em><br> <em>(Formerly known as GUIOn, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOff, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOn, which is now obsolete)</em><br> <em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
 <pre><code>bool GUI.Visible
 </code></pre>
@@ -323,7 +323,7 @@ while (trans &lt; 100) {
 <hr />
 </section>
 <section id="width" class="level3">
-<h3>Width</h3>
+<h3><a href="#width">Width</a></h3>
 <pre><code>int GUI.Width
 </code></pre>
 <p>Gets/sets the width of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
@@ -336,7 +336,7 @@ while (trans &lt; 100) {
 <hr />
 </section>
 <section id="x" class="level3">
-<h3>X</h3>
+<h3><a href="#x">X</a></h3>
 <pre><code>int GUI.X
 </code></pre>
 <p>Gets/sets the X position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
@@ -349,7 +349,7 @@ while (trans &lt; 100) {
 <hr />
 </section>
 <section id="y" class="level3">
-<h3>Y</h3>
+<h3><a href="#y">Y</a></h3>
 <pre><code>int GUI.Y
 </code></pre>
 <p>Gets/sets the Y position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
@@ -362,7 +362,7 @@ while (trans &lt; 100) {
 <hr />
 </section>
 <section id="zorder" class="level3">
-<h3>ZOrder</h3>
+<h3><a href="#zorder">ZOrder</a></h3>
 <p><em>(Formerly known as SetGUIZOrder, which is now obsolete)</em></p>
 <pre><code>int GUI.ZOrder
 </code></pre>
@@ -383,7 +383,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:49 PM</p>
+      <p>Build: 07/26/2019 01:41:01 AM</p>
     </section>
   </footer>
 

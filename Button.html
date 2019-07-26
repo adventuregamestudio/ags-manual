@@ -76,30 +76,30 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#button-functions-and-properties">Button functions and properties</a><ul>
-<li><a href="#click">Click</a></li>
-<li><a href="#animate">Animate</a></li>
-<li><a href="#animating">Animating</a></li>
-<li><a href="#frame">Frame</a></li>
-<li><a href="#loop">Loop</a></li>
-<li><a href="#view">View</a></li>
-<li><a href="#clipimage">ClipImage</a></li>
-<li><a href="#font">Font</a></li>
-<li><a href="#graphic">Graphic</a></li>
-<li><a href="#mouseovergraphic">MouseOverGraphic</a></li>
-<li><a href="#normalgraphic">NormalGraphic</a></li>
-<li><a href="#pushedgraphic">PushedGraphic</a></li>
-<li><a href="#text">Text</a></li>
-<li><a href="#textcolor">TextColor</a></li>
+<li><a href="#button-functions-and-properties"><span>Button functions and properties</span></a><ul>
+<li><a href="#click"><span>Click</span></a></li>
+<li><a href="#animate"><span>Animate</span></a></li>
+<li><a href="#animating"><span>Animating</span></a></li>
+<li><a href="#frame"><span>Frame</span></a></li>
+<li><a href="#loop"><span>Loop</span></a></li>
+<li><a href="#view"><span>View</span></a></li>
+<li><a href="#clipimage"><span>ClipImage</span></a></li>
+<li><a href="#font"><span>Font</span></a></li>
+<li><a href="#graphic"><span>Graphic</span></a></li>
+<li><a href="#mouseovergraphic"><span>MouseOverGraphic</span></a></li>
+<li><a href="#normalgraphic"><span>NormalGraphic</span></a></li>
+<li><a href="#pushedgraphic"><span>PushedGraphic</span></a></li>
+<li><a href="#text"><span>Text</span></a></li>
+<li><a href="#textcolor"><span>TextColor</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="button-functions-and-properties" class="level2">
-<h2>Button functions and properties</h2>
+<h2><a href="#button-functions-and-properties">Button functions and properties</a></h2>
 <section id="click" class="level3">
-<h3>Click</h3>
+<h3><a href="#click">Click</a></h3>
 <pre><code>Button.Click()
 </code></pre>
 <p>Forces Button's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
@@ -108,7 +108,7 @@
 <hr />
 </section>
 <section id="animate" class="level3">
-<h3>Animate</h3>
+<h3><a href="#animate">Animate</a></h3>
 <p><em>(Formerly known as AnimateButton, which is now obsolete)</em></p>
 <pre><code>Button.Animate(int view, int loop, int delay, RepeatStyle)
 </code></pre>
@@ -126,7 +126,7 @@
 <hr />
 </section>
 <section id="animating" class="level3">
-<h3>Animating</h3>
+<h3><a href="#animating">Animating</a></h3>
 <pre><code>readonly bool Button.Animating
 </code></pre>
 <p>Returns true if the specified button is currently animating, or false otherwise.</p>
@@ -141,7 +141,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="frame" class="level3">
-<h3>Frame</h3>
+<h3><a href="#frame">Frame</a></h3>
 <pre><code>readonly int Button.Frame
 </code></pre>
 <p>Gets the frame number that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
@@ -151,7 +151,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="loop" class="level3">
-<h3>Loop</h3>
+<h3><a href="#loop">Loop</a></h3>
 <pre><code>readonly int Button.Loop
 </code></pre>
 <p>Gets the loop that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
@@ -161,7 +161,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="view" class="level3">
-<h3>View</h3>
+<h3><a href="#view">View</a></h3>
 <pre><code>readonly int Button.View
 </code></pre>
 <p>Gets the view that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
@@ -171,7 +171,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="clipimage" class="level3">
-<h3>ClipImage</h3>
+<h3><a href="#clipimage">ClipImage</a></h3>
 <pre><code>bool Button.ClipImage;
 </code></pre>
 <p>Gets/sets whether the button clips its image to the button boundaries.</p>
@@ -186,7 +186,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="font" class="level3">
-<h3>Font</h3>
+<h3><a href="#font">Font</a></h3>
 <pre><code>FontType Button.Font
 </code></pre>
 <p>Gets/sets the font used by the button to display text.</p>
@@ -199,7 +199,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="graphic" class="level3">
-<h3>Graphic</h3>
+<h3><a href="#graphic">Graphic</a></h3>
 <p><em>(Formerly part of GetButtonPic, which is now obsolete)</em></p>
 <pre><code>readonly int Button.Graphic;
 </code></pre>
@@ -213,7 +213,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="mouseovergraphic" class="level3">
-<h3>MouseOverGraphic</h3>
+<h3><a href="#mouseovergraphic">MouseOverGraphic</a></h3>
 <p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
 <pre><code>int Button.MouseOverGraphic;
 </code></pre>
@@ -226,7 +226,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="normalgraphic" class="level3">
-<h3>NormalGraphic</h3>
+<h3><a href="#normalgraphic">NormalGraphic</a></h3>
 <p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
 <pre><code>int Button.NormalGraphic;
 </code></pre>
@@ -240,7 +240,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="pushedgraphic" class="level3">
-<h3>PushedGraphic</h3>
+<h3><a href="#pushedgraphic">PushedGraphic</a></h3>
 <p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
 <pre><code>int Button.PushedGraphic;
 </code></pre>
@@ -253,7 +253,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <hr />
 </section>
 <section id="text" class="level3">
-<h3>Text</h3>
+<h3><a href="#text">Text</a></h3>
 <p><em>(Formerly known as SetButtonText, which is now obsolete)</em><br> <em>(Formerly known as Button.GetText, which is now obsolete)</em><br> <em>(Formerly known as Button.SetText, which is now obsolete)</em></p>
 <pre><code>String Button.Text;
 </code></pre>
@@ -267,7 +267,7 @@ btnController.Text = &quot;Enable jibble&quot;;
 <hr />
 </section>
 <section id="textcolor" class="level3">
-<h3>TextColor</h3>
+<h3><a href="#textcolor">TextColor</a></h3>
 <pre><code>int Button.TextColor;
 </code></pre>
 <p>Gets/sets the text colour used to display the button's text.</p>
@@ -287,7 +287,7 @@ btnController.Text = &quot;Enable jibble&quot;;
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:50 PM</p>
+      <p>Build: 07/26/2019 01:41:02 AM</p>
     </section>
   </footer>
 

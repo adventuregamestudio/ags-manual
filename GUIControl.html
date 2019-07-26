@@ -76,34 +76,34 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#guicontrol-functions-and-properties">GUIControl functions and properties</a><ul>
-<li><a href="#getatscreenxy">GetAtScreenXY</a></li>
-<li><a href="#astype">AsType</a></li>
-<li><a href="#bringtofront">BringToFront</a></li>
-<li><a href="#clickable">Clickable</a></li>
-<li><a href="#enabled">Enabled</a></li>
-<li><a href="#height">Height</a></li>
-<li><a href="#id">ID</a></li>
-<li><a href="#owninggui">OwningGUI</a></li>
-<li><a href="#sendtoback">SendToBack</a></li>
-<li><a href="#setposition">SetPosition</a></li>
-<li><a href="#setsize">SetSize</a></li>
-<li><a href="#visible">Visible</a></li>
-<li><a href="#width">Width</a></li>
-<li><a href="#x">X</a></li>
-<li><a href="#y">Y</a></li>
-<li><a href="#zorder">ZOrder</a></li>
+<li><a href="#guicontrol-functions-and-properties"><span>GUIControl functions and properties</span></a><ul>
+<li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
+<li><a href="#astype"><span>AsType</span></a></li>
+<li><a href="#bringtofront"><span>BringToFront</span></a></li>
+<li><a href="#clickable"><span>Clickable</span></a></li>
+<li><a href="#enabled"><span>Enabled</span></a></li>
+<li><a href="#height"><span>Height</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
+<li><a href="#owninggui"><span>OwningGUI</span></a></li>
+<li><a href="#sendtoback"><span>SendToBack</span></a></li>
+<li><a href="#setposition"><span>SetPosition</span></a></li>
+<li><a href="#setsize"><span>SetSize</span></a></li>
+<li><a href="#visible"><span>Visible</span></a></li>
+<li><a href="#width"><span>Width</span></a></li>
+<li><a href="#x"><span>X</span></a></li>
+<li><a href="#y"><span>Y</span></a></li>
+<li><a href="#zorder"><span>ZOrder</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="guicontrol-functions-and-properties" class="level2">
-<h2>GUIControl functions and properties</h2>
+<h2><a href="#guicontrol-functions-and-properties">GUIControl functions and properties</a></h2>
 <p>This section lists the functions and properties common to all types of GUI control. Each individual control type (Button, ListBox, etc) also has its own specific section.</p>
 <hr />
 <section id="getatscreenxy" class="level3">
-<h3>GetAtScreenXY</h3>
+<h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
 <p><em>(Formerly known as GetGUIObjectAt, which is now obsolete)</em></p>
 <pre><code>static GUIControl* GUIControl.GetAtScreenXY(int x, int y)
 </code></pre>
@@ -126,7 +126,7 @@ else {
 <hr />
 </section>
 <section id="astype" class="level3">
-<h3>AsType</h3>
+<h3><a href="#astype">AsType</a></h3>
 <pre><code>Button*  GUIControl.AsButton;
 InvWindow* GUIControl.AsInvWindow;
 Label*   GUIControl.AsLabel;
@@ -149,7 +149,7 @@ else {
 <hr />
 </section>
 <section id="bringtofront" class="level3">
-<h3>BringToFront</h3>
+<h3><a href="#bringtofront">BringToFront</a></h3>
 <pre><code>GUIControl.BringToFront()
 </code></pre>
 <p>Brings this control to the front of the Z-order. This allows you to rearrange the display order of controls within the GUI.</p>
@@ -163,7 +163,7 @@ else {
 <hr />
 </section>
 <section id="clickable" class="level3">
-<h3>Clickable</h3>
+<h3><a href="#clickable">Clickable</a></h3>
 <pre><code>bool GUIControl.Clickable
 </code></pre>
 <p>Gets/sets whether the GUI control is clickable.</p>
@@ -180,7 +180,7 @@ else {
 <hr />
 </section>
 <section id="enabled" class="level3">
-<h3>Enabled</h3>
+<h3><a href="#enabled">Enabled</a></h3>
 <p><em>(Formerly known as SetGUIObjectEnabled, which is now obsolete)</em></p>
 <pre><code>bool GUIControl.Enabled
 </code></pre>
@@ -199,7 +199,7 @@ else {
 <hr />
 </section>
 <section id="height" class="level3">
-<h3>Height</h3>
+<h3><a href="#height">Height</a></h3>
 <pre><code>int GUIControl.Height;
 </code></pre>
 <p>Gets/sets the height of the GUI control. This allows you to dynamically resize GUI controls while the game is running.</p>
@@ -213,7 +213,7 @@ else {
 <hr />
 </section>
 <section id="id" class="level3">
-<h3>ID</h3>
+<h3><a href="#id">ID</a></h3>
 <pre><code>readonly int GUIControl.ID
 </code></pre>
 <p>Gets the GUI control's ID number. This is the control's object number from the GUI editor, and is useful if you need to interoperate with legacy code that uses the control's number rather than object name.</p>
@@ -228,7 +228,7 @@ lstSaves.Enabled = false;
 <hr />
 </section>
 <section id="owninggui" class="level3">
-<h3>OwningGUI</h3>
+<h3><a href="#owninggui">OwningGUI</a></h3>
 <pre><code>readonly GUI* GUIControl.OwningGUI
 </code></pre>
 <p>Gets the GUI control's owning GUI, which is the GUI that contains the control.</p>
@@ -246,7 +246,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="sendtoback" class="level3">
-<h3>SendToBack</h3>
+<h3><a href="#sendtoback">SendToBack</a></h3>
 <pre><code>GUIControl.SendToBack()
 </code></pre>
 <p>Sends this control to the back of the Z-order. This allows you to rearrange the display order of controls within the GUI.</p>
@@ -260,7 +260,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="setposition" class="level3">
-<h3>SetPosition</h3>
+<h3><a href="#setposition">SetPosition</a></h3>
 <p><em>(Formerly known as SetGUIObjectPosition, which is now obsolete)</em></p>
 <pre><code>GUIControl.SetPosition(int x, int y)
 </code></pre>
@@ -276,7 +276,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="setsize" class="level3">
-<h3>SetSize</h3>
+<h3><a href="#setsize">SetSize</a></h3>
 <p><em>(Formerly known as SetGUIObjectSize, which is now obsolete)</em></p>
 <pre><code>GUIControl.SetSize(int width, int height)
 </code></pre>
@@ -292,7 +292,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="visible" class="level3">
-<h3>Visible</h3>
+<h3><a href="#visible">Visible</a></h3>
 <pre><code>bool GUIControl.Visible
 </code></pre>
 <p>Gets/sets whether the GUI control is visible. This is <em>true</em> by default, but you can set it to <em>false</em> in order to temporarily remove the GUI control from the GUI.</p>
@@ -307,7 +307,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="width" class="level3">
-<h3>Width</h3>
+<h3><a href="#width">Width</a></h3>
 <pre><code>int GUIControl.Width;
 </code></pre>
 <p>Gets/sets the width of the GUI control. This allows you to dynamically resize GUI controls while the game is running.</p>
@@ -321,7 +321,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="x" class="level3">
-<h3>X</h3>
+<h3><a href="#x">X</a></h3>
 <pre><code>int GUIControl.X;
 </code></pre>
 <p>Gets/sets the X position of the GUI control. This specifies its left edge, and is relative to the GUI which contains the control.</p>
@@ -336,7 +336,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="y" class="level3">
-<h3>Y</h3>
+<h3><a href="#y">Y</a></h3>
 <pre><code>int GUIControl.Y;
 </code></pre>
 <p>Gets/sets the Y position of the GUI control. This specifies its top edge, and is relative to the GUI which contains the control.</p>
@@ -351,7 +351,7 @@ lstSaves.OwningGUI.Visible = true;
 <hr />
 </section>
 <section id="zorder" class="level3">
-<h3>ZOrder</h3>
+<h3><a href="#zorder">ZOrder</a></h3>
 <pre><code>int GUIControl.ZOrder;
 </code></pre>
 <p>Gets/sets the control's Z-order relative to other controls within the same owning GUI. This allows you to precisely arrange the display order of controls at runtime and to know which position the control had at certain moment in time.</p>
@@ -372,7 +372,7 @@ lstSaves.OwningGUI.Visible = true;
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:54 PM</p>
+      <p>Build: 07/26/2019 01:41:06 AM</p>
     </section>
   </footer>
 

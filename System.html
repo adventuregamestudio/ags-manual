@@ -76,37 +76,37 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#system-functions-and-properties">System functions and properties</a><ul>
-<li><a href="#audiochannelcount">AudioChannelCount</a></li>
-<li><a href="#audiochannels">AudioChannels</a></li>
-<li><a href="#capslock">CapsLock</a></li>
-<li><a href="#colordepth">ColorDepth</a></li>
-<li><a href="#gamma">Gamma</a></li>
-<li><a href="#hardwareacceleration">HardwareAcceleration</a></li>
-<li><a href="#hasinputfocus">HasInputFocus</a></li>
-<li><a href="#numlock">NumLock</a></li>
-<li><a href="#operatingsystem">OperatingSystem</a></li>
-<li><a href="#renderatscreenresolution">RenderAtScreenResolution</a></li>
-<li><a href="#runtimeinfo">RuntimeInfo</a></li>
-<li><a href="#screenheight">ScreenHeight</a></li>
-<li><a href="#screenwidth">ScreenWidth</a></li>
-<li><a href="#scrolllock">ScrollLock</a></li>
-<li><a href="#supportsgammacontrol">SupportsGammaControl</a></li>
-<li><a href="#version">Version</a></li>
-<li><a href="#viewportheight">ViewportHeight</a></li>
-<li><a href="#viewportwidth">ViewportWidth</a></li>
-<li><a href="#volume">Volume</a></li>
-<li><a href="#vsync">VSync</a></li>
-<li><a href="#windowed">Windowed</a></li>
+<li><a href="#system-functions-and-properties"><span>System functions and properties</span></a><ul>
+<li><a href="#audiochannelcount"><span>AudioChannelCount</span></a></li>
+<li><a href="#audiochannels"><span>AudioChannels</span></a></li>
+<li><a href="#capslock"><span>CapsLock</span></a></li>
+<li><a href="#colordepth"><span>ColorDepth</span></a></li>
+<li><a href="#gamma"><span>Gamma</span></a></li>
+<li><a href="#hardwareacceleration"><span>HardwareAcceleration</span></a></li>
+<li><a href="#hasinputfocus"><span>HasInputFocus</span></a></li>
+<li><a href="#numlock"><span>NumLock</span></a></li>
+<li><a href="#operatingsystem"><span>OperatingSystem</span></a></li>
+<li><a href="#renderatscreenresolution"><span>RenderAtScreenResolution</span></a></li>
+<li><a href="#runtimeinfo"><span>RuntimeInfo</span></a></li>
+<li><a href="#screenheight"><span>ScreenHeight</span></a></li>
+<li><a href="#screenwidth"><span>ScreenWidth</span></a></li>
+<li><a href="#scrolllock"><span>ScrollLock</span></a></li>
+<li><a href="#supportsgammacontrol"><span>SupportsGammaControl</span></a></li>
+<li><a href="#version"><span>Version</span></a></li>
+<li><a href="#viewportheight"><span>ViewportHeight</span></a></li>
+<li><a href="#viewportwidth"><span>ViewportWidth</span></a></li>
+<li><a href="#volume"><span>Volume</span></a></li>
+<li><a href="#vsync"><span>VSync</span></a></li>
+<li><a href="#windowed"><span>Windowed</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="system-functions-and-properties" class="level2">
-<h2>System functions and properties</h2>
+<h2><a href="#system-functions-and-properties">System functions and properties</a></h2>
 <section id="audiochannelcount" class="level3">
-<h3>AudioChannelCount</h3>
+<h3><a href="#audiochannelcount">AudioChannelCount</a></h3>
 <pre><code>readonly static int System.AudioChannelCount;
 </code></pre>
 <p>Gets the number of Audio Channels available to the game (in the current version of AGS this is 8).</p>
@@ -120,7 +120,7 @@
 <hr />
 </section>
 <section id="audiochannels" class="level3">
-<h3>AudioChannels</h3>
+<h3><a href="#audiochannels">AudioChannels</a></h3>
 <pre><code>readonly static AudioChannel* System.AudioChannels[];
 </code></pre>
 <p>Gets the AudioChannel instance for the specified channel number. This allows you to query the audio channel and find out what is playing on it.</p>
@@ -134,7 +134,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="capslock" class="level3">
-<h3>CapsLock</h3>
+<h3><a href="#capslock">CapsLock</a></h3>
 <pre><code>readonly static bool System.CapsLock;
 </code></pre>
 <p>Gets whether Caps Lock is active on the player's system.</p>
@@ -151,7 +151,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="colordepth" class="level3">
-<h3>ColorDepth</h3>
+<h3><a href="#colordepth">ColorDepth</a></h3>
 <p><em>(Formerly known as system.color_depth, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ColorDepth;
 </code></pre>
@@ -165,7 +165,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="gamma" class="level3">
-<h3>Gamma</h3>
+<h3><a href="#gamma">Gamma</a></h3>
 <pre><code>static int System.Gamma;
 </code></pre>
 <p>Gets/sets the current screen Gamma level. This is 100 by default, and you can set it anywhere from 0 (pitch black) to 200 (double normal brightness).</p>
@@ -181,7 +181,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="hardwareacceleration" class="level3">
-<h3>HardwareAcceleration</h3>
+<h3><a href="#hardwareacceleration">HardwareAcceleration</a></h3>
 <pre><code>readonly static bool System.HardwareAcceleration;
 </code></pre>
 <p>Returns whether the game is running with hardware acceleration (eg. Direct3D or OpenGL). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
@@ -197,7 +197,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="hasinputfocus" class="level3">
-<h3>HasInputFocus</h3>
+<h3><a href="#hasinputfocus">HasInputFocus</a></h3>
 <pre><code>readonly static bool System.HasInputFocus;
 </code></pre>
 <p>Tells whether the game window currently has input focus, meaning it is active and player can control the game.</p>
@@ -222,7 +222,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="numlock" class="level3">
-<h3>NumLock</h3>
+<h3><a href="#numlock">NumLock</a></h3>
 <pre><code>readonly static bool System.NumLock;
 </code></pre>
 <p>Gets whether Num Lock is active on the player's system.</p>
@@ -239,7 +239,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <hr />
 </section>
 <section id="operatingsystem" class="level3">
-<h3>OperatingSystem</h3>
+<h3><a href="#operatingsystem">OperatingSystem</a></h3>
 <p><em>(Formerly known as system.os, which is now obsolete)</em></p>
 <pre><code>readonly static eOperatingSystem System.OperatingSystem;
 </code></pre>
@@ -263,7 +263,7 @@ else {
 <hr />
 </section>
 <section id="renderatscreenresolution" class="level3">
-<h3>RenderAtScreenResolution</h3>
+<h3><a href="#renderatscreenresolution">RenderAtScreenResolution</a></h3>
 <pre><code>static bool System.RenderAtScreenResolution;
 </code></pre>
 <p>Gets/sets whether sprites are rendered at screen resolution (if it's <strong>true</strong>) or native game resolution (if it's <strong>false</strong>).</p>
@@ -273,7 +273,7 @@ else {
 <hr />
 </section>
 <section id="runtimeinfo" class="level3">
-<h3>RuntimeInfo</h3>
+<h3><a href="#runtimeinfo">RuntimeInfo</a></h3>
 <pre><code>readonly static String System.RuntimeInfo;
 </code></pre>
 <p>Returns the string containing short description of the enviroment the game is currently running in, such as engine version, graphics mode, and available game resources.</p>
@@ -290,7 +290,7 @@ else {
 <hr />
 </section>
 <section id="screenheight" class="level3">
-<h3>ScreenHeight</h3>
+<h3><a href="#screenheight">ScreenHeight</a></h3>
 <p><em>(Formerly known as system.screen_height, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenHeight;
 </code></pre>
@@ -305,7 +305,7 @@ else {
 <hr />
 </section>
 <section id="screenwidth" class="level3">
-<h3>ScreenWidth</h3>
+<h3><a href="#screenwidth">ScreenWidth</a></h3>
 <p><em>(Formerly known as system.screen_width, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenWidth;
 </code></pre>
@@ -320,7 +320,7 @@ else {
 <hr />
 </section>
 <section id="scrolllock" class="level3">
-<h3>ScrollLock</h3>
+<h3><a href="#scrolllock">ScrollLock</a></h3>
 <pre><code>readonly static bool System.ScrollLock;
 </code></pre>
 <p>Gets whether Scroll Lock is active on the player's system.</p>
@@ -337,7 +337,7 @@ else {
 <hr />
 </section>
 <section id="supportsgammacontrol" class="level3">
-<h3>SupportsGammaControl</h3>
+<h3><a href="#supportsgammacontrol">SupportsGammaControl</a></h3>
 <pre><code>readonly static bool System.SupportsGammaControl;
 </code></pre>
 <p>Gets whether the player's PC supports changing the screen's gamma control settings.</p>
@@ -354,7 +354,7 @@ else {
 <hr />
 </section>
 <section id="version" class="level3">
-<h3>Version</h3>
+<h3><a href="#version">Version</a></h3>
 <p><em>(Formerly known as system.version, which is now obsolete)</em></p>
 <pre><code>readonly static String System.Version;
 </code></pre>
@@ -367,7 +367,7 @@ else {
 <hr />
 </section>
 <section id="viewportheight" class="level3">
-<h3>ViewportHeight</h3>
+<h3><a href="#viewportheight">ViewportHeight</a></h3>
 <p><em>(Formerly known as system.viewport_height, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportHeight;
 </code></pre>
@@ -380,7 +380,7 @@ else {
 <hr />
 </section>
 <section id="viewportwidth" class="level3">
-<h3>ViewportWidth</h3>
+<h3><a href="#viewportwidth">ViewportWidth</a></h3>
 <p><em>(Formerly known as system.viewport_width, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportWidth;
 </code></pre>
@@ -393,7 +393,7 @@ else {
 <hr />
 </section>
 <section id="volume" class="level3">
-<h3>Volume</h3>
+<h3><a href="#volume">Volume</a></h3>
 <p><em>(Formerly known as SetDigitalMasterVolume, which is now obsolete)</em><br> <em>(Formerly known as SetMusicMasterVolume, which is now obsolete)</em></p>
 <pre><code>static int System.Volume;
 </code></pre>
@@ -407,7 +407,7 @@ else {
 <hr />
 </section>
 <section id="vsync" class="level3">
-<h3>VSync</h3>
+<h3><a href="#vsync">VSync</a></h3>
 <p><em>(Formerly known as system.vsync, which is now obsolete)</em></p>
 <pre><code>static bool System.VSync;
 </code></pre>
@@ -423,7 +423,7 @@ else {
 <hr />
 </section>
 <section id="windowed" class="level3">
-<h3>Windowed</h3>
+<h3><a href="#windowed">Windowed</a></h3>
 <p><em>(Formerly known as system.windowed, which is now obsolete)</em></p>
 <pre><code>static bool System.Windowed;
 </code></pre>
@@ -454,7 +454,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:54 PM</p>
+      <p>Build: 07/26/2019 01:41:06 AM</p>
     </section>
   </footer>
 

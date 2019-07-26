@@ -76,37 +76,37 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#drawingsurface-functions-and-properties">DrawingSurface functions and properties</a><ul>
-<li><a href="#clear">Clear</a></li>
-<li><a href="#createcopy">CreateCopy</a></li>
-<li><a href="#drawcircle">DrawCircle</a></li>
-<li><a href="#drawimage">DrawImage</a></li>
-<li><a href="#drawline">DrawLine</a></li>
-<li><a href="#drawmessagewrapped">DrawMessageWrapped</a></li>
-<li><a href="#drawpixel">DrawPixel</a></li>
-<li><a href="#drawrectangle">DrawRectangle</a></li>
-<li><a href="#drawstring">DrawString</a></li>
-<li><a href="#drawstringwrapped">DrawStringWrapped</a></li>
-<li><a href="#drawsurface">DrawSurface</a></li>
-<li><a href="#drawtriangle">DrawTriangle</a></li>
-<li><a href="#release">Release</a></li>
-<li><a href="#drawingcolor">DrawingColor</a></li>
-<li><a href="#getpixel">GetPixel</a></li>
-<li><a href="#height">Height</a></li>
-<li><a href="#usehighrescoordinates">UseHighResCoordinates</a></li>
-<li><a href="#width">Width</a></li>
+<li><a href="#drawingsurface-functions-and-properties"><span>DrawingSurface functions and properties</span></a><ul>
+<li><a href="#clear"><span>Clear</span></a></li>
+<li><a href="#createcopy"><span>CreateCopy</span></a></li>
+<li><a href="#drawcircle"><span>DrawCircle</span></a></li>
+<li><a href="#drawimage"><span>DrawImage</span></a></li>
+<li><a href="#drawline"><span>DrawLine</span></a></li>
+<li><a href="#drawmessagewrapped"><span>DrawMessageWrapped</span></a></li>
+<li><a href="#drawpixel"><span>DrawPixel</span></a></li>
+<li><a href="#drawrectangle"><span>DrawRectangle</span></a></li>
+<li><a href="#drawstring"><span>DrawString</span></a></li>
+<li><a href="#drawstringwrapped"><span>DrawStringWrapped</span></a></li>
+<li><a href="#drawsurface"><span>DrawSurface</span></a></li>
+<li><a href="#drawtriangle"><span>DrawTriangle</span></a></li>
+<li><a href="#release"><span>Release</span></a></li>
+<li><a href="#drawingcolor"><span>DrawingColor</span></a></li>
+<li><a href="#getpixel"><span>GetPixel</span></a></li>
+<li><a href="#height"><span>Height</span></a></li>
+<li><a href="#usehighrescoordinates"><span>UseHighResCoordinates</span></a></li>
+<li><a href="#width"><span>Width</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="drawingsurface-functions-and-properties" class="level2">
-<h2>DrawingSurface functions and properties</h2>
+<h2><a href="#drawingsurface-functions-and-properties">DrawingSurface functions and properties</a></h2>
 <p>The DrawingSurface family of functions allow you to directly draw onto dynamic sprites and room backgrounds in the game. You get a drawing surface by calling <a href="DynamicSprite.html#getdrawingsurface">DynamicSprite.GetDrawingSurface</a> or <a href="Room.html#getdrawingsurfaceforbackground">Room.GetDrawingSurfaceForBackground</a>, and you can then use the following methods to draw onto the surface.</p>
 <p><strong>IMPORTANT:</strong> You <strong>MUST</strong> call the <a href="DrawingSurfaceFunctions.html#release">Release</a> method when you have finished drawing onto the surface. This allows AGS to update its cached copies of the image and upload it to video memory if appropriate.</p>
 <hr />
 <section id="clear" class="level3">
-<h3>Clear</h3>
+<h3><a href="#clear">Clear</a></h3>
 <p><em>(Formerly known as RawClearScreen, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.Clear(optional int colour)
 </code></pre>
@@ -124,7 +124,7 @@ surface.Release();
 <hr />
 </section>
 <section id="createcopy" class="level3">
-<h3>CreateCopy</h3>
+<h3><a href="#createcopy">CreateCopy</a></h3>
 <p><em>(Formerly known as RawSaveScreen, which is now obsolete)</em></p>
 <pre><code>DrawingSurface* DrawingSurface.CreateCopy()
 </code></pre>
@@ -144,7 +144,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawcircle" class="level3">
-<h3>DrawCircle</h3>
+<h3><a href="#drawcircle">DrawCircle</a></h3>
 <p><em>(Formerly known as RawDrawCircle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawCircle(int x, int y, int radius)
 </code></pre>
@@ -160,7 +160,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawimage" class="level3">
-<h3>DrawImage</h3>
+<h3><a href="#drawimage">DrawImage</a></h3>
 <p><em>(Formerly known as RawDrawImage, which is now obsolete)</em><br> <em>(Formerly known as RawDrawImageResized, which is now obsolete)</em><br> <em>(Formerly known as RawDrawImageTransparent, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawImage(int x, int y, int slot, optional int transparency,
                          optional int width, optional int height)
@@ -181,7 +181,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawline" class="level3">
-<h3>DrawLine</h3>
+<h3><a href="#drawline">DrawLine</a></h3>
 <p><em>(Formerly known as RawDrawLine, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawLine(int from_x, int from_y, int to_x, int to_y,
                         optional int thickness)
@@ -200,7 +200,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawmessagewrapped" class="level3">
-<h3>DrawMessageWrapped</h3>
+<h3><a href="#drawmessagewrapped">DrawMessageWrapped</a></h3>
 <p><em>(Formerly known as RawPrintMessageWrapped, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawMessageWrapped(int x, int y, int width,
                                   FontType font, int message_number)
@@ -219,7 +219,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawpixel" class="level3">
-<h3>DrawPixel</h3>
+<h3><a href="#drawpixel">DrawPixel</a></h3>
 <pre><code>DrawingSurface.DrawPixel(int x, int y)
 </code></pre>
 <p>Draws a single pixel onto the surface at (X,Y) in the current colour. The pixel thickness respects the <a href="DrawingSurfaceFunctions.html#usehighrescoordinates">UseHighResCoordinates</a> property.</p>
@@ -235,7 +235,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawrectangle" class="level3">
-<h3>DrawRectangle</h3>
+<h3><a href="#drawrectangle">DrawRectangle</a></h3>
 <p><em>(Formerly known as RawDrawRectangle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawRectangle(int x1, int y1, int x2, int y2)
 </code></pre>
@@ -252,7 +252,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawstring" class="level3">
-<h3>DrawString</h3>
+<h3><a href="#drawstring">DrawString</a></h3>
 <p><em>(Formerly known as RawPrint, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawString(int x, int y, FontType font, string text, ...)
 </code></pre>
@@ -269,7 +269,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawstringwrapped" class="level3">
-<h3>DrawStringWrapped</h3>
+<h3><a href="#drawstringwrapped">DrawStringWrapped</a></h3>
 <pre><code>DrawingSurface.DrawStringWrapped(int x, int y, int width,
                                  FontType font, Alignment,
                                  const string text)
@@ -289,7 +289,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawsurface" class="level3">
-<h3>DrawSurface</h3>
+<h3><a href="#drawsurface">DrawSurface</a></h3>
 <p><em>(Formerly known as RawDrawFrameTransparent, which is now obsolete)</em><br> <em>(Formerly known as RawRestoreScreen, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawSurface(DrawingSurface *source, optional int transparency)
 </code></pre>
@@ -310,7 +310,7 @@ nightBackground.Release();
 <hr />
 </section>
 <section id="drawtriangle" class="level3">
-<h3>DrawTriangle</h3>
+<h3><a href="#drawtriangle">DrawTriangle</a></h3>
 <p><em>(Formerly known as RawDrawTriangle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
 </code></pre>
@@ -327,7 +327,7 @@ surface.Release();
 <hr />
 </section>
 <section id="release" class="level3">
-<h3>Release</h3>
+<h3><a href="#release">Release</a></h3>
 <pre><code>DrawingSurface.Release()
 </code></pre>
 <p>Tells AGS that you have finished drawing onto this surface, and that AGS can now upload the changed image into video memory.</p>
@@ -343,7 +343,7 @@ surface.Release();
 <hr />
 </section>
 <section id="drawingcolor" class="level3">
-<h3>DrawingColor</h3>
+<h3><a href="#drawingcolor">DrawingColor</a></h3>
 <p><em>(Formerly known as RawSetColor, which is now obsolete)</em></p>
 <pre><code>int DrawingSurface.DrawingColor
 </code></pre>
@@ -362,7 +362,7 @@ surface.Release();
 <hr />
 </section>
 <section id="getpixel" class="level3">
-<h3>GetPixel</h3>
+<h3><a href="#getpixel">GetPixel</a></h3>
 <pre><code>int DrawingSurface.GetPixel(int x, int y)
 </code></pre>
 <p>Returns the AGS Colour Number of the pixel at (X,Y) on the surface.</p>
@@ -379,7 +379,7 @@ surface.Release();
 <hr />
 </section>
 <section id="height" class="level3">
-<h3>Height</h3>
+<h3><a href="#height">Height</a></h3>
 <pre><code>readonly int DrawingSurface.Height
 </code></pre>
 <p>Gets the height of the surface.</p>
@@ -393,7 +393,7 @@ surface.Release();
 <hr />
 </section>
 <section id="usehighrescoordinates" class="level3">
-<h3>UseHighResCoordinates</h3>
+<h3><a href="#usehighrescoordinates">UseHighResCoordinates</a></h3>
 <pre><code>bool DrawingSurface.UseHighResCoordinates
 </code></pre>
 <p>Gets/sets whether you want to use high-resolution co-ordinates with this surface.</p>
@@ -411,7 +411,7 @@ surface.Release();
 <hr />
 </section>
 <section id="width" class="level3">
-<h3>Width</h3>
+<h3><a href="#width">Width</a></h3>
 <pre><code>readonly int DrawingSurface.Width
 </code></pre>
 <p>Gets the width of the surface.</p>
@@ -432,7 +432,7 @@ surface.Release();
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:52 PM</p>
+      <p>Build: 07/26/2019 01:41:04 AM</p>
     </section>
   </footer>
 

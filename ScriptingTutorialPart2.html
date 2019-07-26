@@ -76,26 +76,26 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#text-scripting-tutorial---part-2">Text Scripting Tutorial - Part 2</a><ul>
-<li><a href="#recap">Recap</a></li>
-<li><a href="#loops">Loops</a></li>
-<li><a href="#multiple-conditions">Multiple conditions</a></li>
-<li><a href="#doing-one-thing-or-another">Doing one thing or another</a></li>
-<li><a href="#your-own-functions">Your Own Functions</a></li>
-<li><a href="#conclusions">Conclusions</a></li>
+<li><a href="#text-scripting-tutorial---part-2"><span>Text Scripting Tutorial - Part 2</span></a><ul>
+<li><a href="#recap"><span>Recap</span></a></li>
+<li><a href="#loops"><span>Loops</span></a></li>
+<li><a href="#multiple-conditions"><span>Multiple conditions</span></a></li>
+<li><a href="#doing-one-thing-or-another"><span>Doing one thing or another</span></a></li>
+<li><a href="#your-own-functions"><span>Your Own Functions</span></a></li>
+<li><a href="#conclusions"><span>Conclusions</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="text-scripting-tutorial---part-2" class="level2">
-<h2>Text Scripting Tutorial - Part 2</h2>
+<h2><a href="#text-scripting-tutorial---part-2">Text Scripting Tutorial - Part 2</a></h2>
 <section id="recap" class="level3">
-<h3>Recap</h3>
+<h3><a href="#recap">Recap</a></h3>
 <p>In the first tutorial, we covered the basics of scripting - how to write a simple script, use variables and conditional statements. You now know how to call all the built-in functions and write a fairly decent script. So, what's next?</p>
 </section>
 <section id="loops" class="level3">
-<h3>Loops</h3>
+<h3><a href="#loops">Loops</a></h3>
 <p>You may find it useful to have a sequence of commands that are executed more than once. AGS supports this, using the <code>while</code> keyword. Its format is virtually identical to <code>if</code>:</p>
 <pre><code>int counter = 1;
 while (counter &lt; 10) {
@@ -112,7 +112,7 @@ while (counter &gt; 0) {
 <p>Here, <em>counter</em> starts off as 1, so the loop will run. Then, it will increase to 2. Since it is still greater than 0, the loop will run again. This particular loop will run forever, since <em>counter</em> can never become less than 1, and your game will grind to a halt.</p>
 </section>
 <section id="multiple-conditions" class="level3">
-<h3>Multiple conditions</h3>
+<h3><a href="#multiple-conditions">Multiple conditions</a></h3>
 <p>On several occasions, you don't just want to decide what to do based on one variable - there may be a combination of things you want to consider.</p>
 <p>For example, suppose that you want to display a message if the player has <strong>two</strong> specific inventory items. You could do this, and put <strong>two</strong> <em>if</em> statements inside each other:</p>
 <pre><code>if (player.HasInventory(iFirstItem))
@@ -148,7 +148,7 @@ while (counter &gt; 0) {
 <p>The operator here is the double-vertical-bar <code>||</code> operator. It works similarly to the <code>&amp;&amp;</code> operator, but it will process the commands inside it if either one expression, or the other, or both, are true.</p>
 </section>
 <section id="doing-one-thing-or-another" class="level3">
-<h3>Doing one thing or another</h3>
+<h3><a href="#doing-one-thing-or-another">Doing one thing or another</a></h3>
 <p>Sometimes, you want the script to take one course of action if a variable is set, and another course of action if it isn't. Initially, you might think you would do this:</p>
 <pre><code>if (timer == 5) {
  // do something
@@ -179,7 +179,7 @@ else {
 </code></pre>
 </section>
 <section id="your-own-functions" class="level3">
-<h3>Your Own Functions</h3>
+<h3><a href="#your-own-functions">Your Own Functions</a></h3>
 <p>You've probably noticed in the manual, it mentioning functions such as <code>repeatedly_execute</code>, and <code>on_event</code>, and how you can add them to your global script to do cool stuff. But you may be wondering, how exactly to go about it.</p>
 <p>Remember in tutorial 1, we learnt about function <strong>parameters</strong> and how they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions like this:</p>
 <pre><code>function dialog_request(int param)
@@ -237,7 +237,7 @@ else {
 <p>You may notice that when you add your own function to your global script, you can call it fine from other places in the global script but attempting to use it in a room script gives a parse error. The manual explains how to solve this using the script header.</p>
 </section>
 <section id="conclusions" class="level3">
-<h3>Conclusions</h3>
+<h3><a href="#conclusions">Conclusions</a></h3>
 <p>We've covered some of the more advanced topics of scripting. I'm sure there's a lot of stuff I've forgotten to mention, so feel free to comment on it on the forums.</p>
 </section>
 </section>
@@ -249,7 +249,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:50 PM</p>
+      <p>Build: 07/26/2019 01:41:01 AM</p>
     </section>
   </footer>
 

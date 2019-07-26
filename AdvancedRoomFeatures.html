@@ -76,23 +76,23 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#advanced-room-features">Advanced room features</a><ul>
-<li><a href="#character-scaling">Character scaling</a></li>
-<li><a href="#scrolling">Scrolling</a></li>
-<li><a href="#importing-a-file-as-the-walkable-area-mask">Importing a file as the walkable area mask</a></li>
-<li><a href="#animating-background-scenes">Animating background scenes</a></li>
-<li><a href="#lighting-effects">Lighting effects</a></li>
+<li><a href="#advanced-room-features"><span>Advanced room features</span></a><ul>
+<li><a href="#character-scaling"><span>Character scaling</span></a></li>
+<li><a href="#scrolling"><span>Scrolling</span></a></li>
+<li><a href="#importing-a-file-as-the-walkable-area-mask"><span>Importing a file as the walkable area mask</span></a></li>
+<li><a href="#animating-background-scenes"><span>Animating background scenes</span></a></li>
+<li><a href="#lighting-effects"><span>Lighting effects</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="advanced-room-features" class="level2">
-<h2>Advanced room features</h2>
+<h2><a href="#advanced-room-features">Advanced room features</a></h2>
 <p>This section describes slightly more advanced things you can do with the rooms.</p>
 <hr />
 <section id="character-scaling" class="level3">
-<h3>Character scaling</h3>
+<h3><a href="#character-scaling">Character scaling</a></h3>
 <p>AGS supports scaling of characters, where the character can appear to get smaller as he walks away from the screen. Character scaling is supported as part of the walkable areas in a room.</p>
 <p>The reason why you have multiple colours available for the walkable areas is because you can set a zoom level for each colour, which defines how large the character will be while he is in that area. The default for all walkable areas is <code>100%</code>, ie. full size. However, you can adjust it using the "Walkable Areas" mode to anywhere from <code>10%</code> (one-tenth size) to <code>200%</code> (double size).</p>
 <p>The scaling settings can effect all characters and objects in the game. For characters, it is on by default but you can disable the scaling for an individual character by setting the "UseRoomAreaScaling" option in that character's properties.</p>
@@ -101,7 +101,7 @@
 <hr />
 </section>
 <section id="scrolling" class="level3">
-<h3>Scrolling</h3>
+<h3><a href="#scrolling">Scrolling</a></h3>
 <p>It's easy to create scrolling rooms like the ones used in Lucasarts games like Monkey Island (tm) and Day of the Tentacle.</p>
 <p>To do this, just import a background scene that is larger than your game resolution. For example, in a 320x200 game, 500x200 is a good size for Lucasarts-type rooms.</p>
 <p>That's all you have to do. Draw on the walkable areas, hotspots and so on, as normal, and then save the room. The screen will scroll to follow the main character around.</p>
@@ -109,14 +109,14 @@
 <hr />
 </section>
 <section id="importing-a-file-as-the-walkable-area-mask" class="level3">
-<h3>Importing a file as the walkable area mask</h3>
+<h3><a href="#importing-a-file-as-the-walkable-area-mask">Importing a file as the walkable area mask</a></h3>
 <p>AGS has the ability to import an external BMP or PNG file to use as the walkable-area, hotspot or walk-behind area mask. If you don't like the way you have to draw these in the editor itself, you can draw them in another program and then import them. This is also useful if you are converting a game you were making with another game-creation system into AGS.</p>
 <p>To use the feature, click the "Import Mask" button (in the toolbar) in the relevant mode of the Areas editor. There are some restrictions to how this file must be drawn: it must be the exact same size as the background scene, and it must be in 16-colour (4-bit) or 256-colour (8-bit). Then, colour 0 on the bitmap signifies transparency and colours 1-15 are used as the respective hotspot/walk-behind/walkable area numbers.</p>
 <p><strong>IMPORTANT:</strong> Do NOT use any colour numbers above 15 on the mask bitmap. Use only palette indexes 0 to 15.</p>
 <hr />
 </section>
 <section id="animating-background-scenes" class="level3">
-<h3>Animating background scenes</h3>
+<h3><a href="#animating-background-scenes">Animating background scenes</a></h3>
 <p>If you want to have a lot of animation on the screen, you will come across two problems if you try to do it using objects:</p>
 <ul>
 <li>There is a limit on the number of objects per screen, so you may not be able to animate everything that you want to that way.</li>
@@ -133,7 +133,7 @@
 <hr />
 </section>
 <section id="lighting-effects" class="level3">
-<h3>Lighting effects</h3>
+<h3><a href="#lighting-effects">Lighting effects</a></h3>
 <p>You can control the brightness of your characters, courtesy of the "LightLevel" setting for room Regions.</p>
 <p>By default this is <code>100%</code>, but you can change it from <code>0% to 200%</code>. This number is the light level in the current walkable area. Smaller numbers are darker, so that <code>0%</code> is pitch black and <code>200%</code> is very bright.</p>
 <p>This feature could be useful if, for example, you have a street lamp on your scene so when the character walks under it they get brighter, or if a wall is shading the character from the light they can get darker.</p>
@@ -151,7 +151,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:45 PM</p>
+      <p>Build: 07/26/2019 01:40:56 AM</p>
     </section>
   </footer>
 

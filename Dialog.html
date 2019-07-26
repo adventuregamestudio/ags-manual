@@ -76,27 +76,27 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#dialog-functions-and-properties">Dialog functions and properties</a><ul>
-<li><a href="#displayoptions">DisplayOptions</a></li>
-<li><a href="#getoptionstate">GetOptionState</a></li>
-<li><a href="#getoptiontext">GetOptionText</a></li>
-<li><a href="#hasoptionbeenchosen">HasOptionBeenChosen</a></li>
-<li><a href="#id">ID</a></li>
-<li><a href="#optioncount">OptionCount</a></li>
-<li><a href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></li>
-<li><a href="#setoptionstate">SetOptionState</a></li>
-<li><a href="#showtextparser">ShowTextParser</a></li>
-<li><a href="#start">Start</a></li>
-<li><a href="#stopdialog">StopDialog</a></li>
+<li><a href="#dialog-functions-and-properties"><span>Dialog functions and properties</span></a><ul>
+<li><a href="#displayoptions"><span>DisplayOptions</span></a></li>
+<li><a href="#getoptionstate"><span>GetOptionState</span></a></li>
+<li><a href="#getoptiontext"><span>GetOptionText</span></a></li>
+<li><a href="#hasoptionbeenchosen"><span>HasOptionBeenChosen</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
+<li><a href="#optioncount"><span>OptionCount</span></a></li>
+<li><a href="#sethasoptionbeenchosen"><span>SetHasOptionBeenChosen</span></a></li>
+<li><a href="#setoptionstate"><span>SetOptionState</span></a></li>
+<li><a href="#showtextparser"><span>ShowTextParser</span></a></li>
+<li><a href="#start"><span>Start</span></a></li>
+<li><a href="#stopdialog"><span>StopDialog</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="dialog-functions-and-properties" class="level2">
-<h2>Dialog functions and properties</h2>
+<h2><a href="#dialog-functions-and-properties">Dialog functions and properties</a></h2>
 <section id="displayoptions" class="level3">
-<h3>DisplayOptions</h3>
+<h3><a href="#displayoptions">DisplayOptions</a></h3>
 <pre><code>int Dialog.DisplayOptions(optional DialogOptionSayStyle)
 </code></pre>
 <p>Presents the options for this dialog to the user and waits until they select one of them. The selected option number is returned.</p>
@@ -121,7 +121,7 @@ else
 <hr />
 </section>
 <section id="getoptionstate" class="level3">
-<h3>GetOptionState</h3>
+<h3><a href="#getoptionstate">GetOptionState</a></h3>
 <p><em>(Formerly known as global function GetDialogOption, which is now obsolete)</em></p>
 <pre><code>Dialog.GetOptionState(int option)
 </code></pre>
@@ -146,7 +146,7 @@ eOptionOffForever
 <hr />
 </section>
 <section id="getoptiontext" class="level3">
-<h3>GetOptionText</h3>
+<h3><a href="#getoptiontext">GetOptionText</a></h3>
 <pre><code>String Dialog.GetOptionText(int option)
 </code></pre>
 <p>Returns the text for the specified dialog option.</p>
@@ -161,7 +161,7 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <hr />
 </section>
 <section id="hasoptionbeenchosen" class="level3">
-<h3>HasOptionBeenChosen</h3>
+<h3><a href="#hasoptionbeenchosen">HasOptionBeenChosen</a></h3>
 <pre><code>bool Dialog.HasOptionBeenChosen(int option)
 </code></pre>
 <p>Finds out whether the player has already chosen the specified option in this dialog. This is mainly useful when drawing your own custom dialog options display, since it allows you to differentiate options that have already been chosen.</p>
@@ -176,7 +176,7 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <hr />
 </section>
 <section id="id" class="level3">
-<h3>ID</h3>
+<h3><a href="#id">ID</a></h3>
 <pre><code>readonly int Dialog.ID;
 </code></pre>
 <p>Gets the dialog ID number from the editor.</p>
@@ -189,7 +189,7 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <hr />
 </section>
 <section id="optioncount" class="level3">
-<h3>OptionCount</h3>
+<h3><a href="#optioncount">OptionCount</a></h3>
 <pre><code>readonly int Dialog.OptionCount;
 </code></pre>
 <p>Gets the number of options that this dialog has.</p>
@@ -203,7 +203,7 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <hr />
 </section>
 <section id="sethasoptionbeenchosen" class="level3">
-<h3>SetHasOptionBeenChosen</h3>
+<h3><a href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></h3>
 <pre><code>Dialog.SetHasOptionBeenChosen(int option, bool chosen)
 </code></pre>
 <p>Changes whether an option in a conversation is marked as previously chosen by the player. The option is marked as chosen whenever player selects it during the conversation, and is usually highlighted with different text colour. This function lets you to reset the option state, or force it change at any random moment.</p>
@@ -218,7 +218,7 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <hr />
 </section>
 <section id="setoptionstate" class="level3">
-<h3>SetOptionState</h3>
+<h3><a href="#setoptionstate">SetOptionState</a></h3>
 <p><em>(Formerly known as global function SetDialogOption, which is now obsolete)</em></p>
 <pre><code>Dialog.SetOptionState(int option, DialogOptionState)
 </code></pre>
@@ -243,7 +243,7 @@ eOptionOffForever
 <hr />
 </section>
 <section id="showtextparser" class="level3">
-<h3>ShowTextParser</h3>
+<h3><a href="#showtextparser">ShowTextParser</a></h3>
 <pre><code>readonly bool Dialog.ShowTextParser;
 </code></pre>
 <p>Gets whether this dialog shows a text box allowing the player to type in text.</p>
@@ -259,7 +259,7 @@ eOptionOffForever
 <hr />
 </section>
 <section id="start" class="level3">
-<h3>Start</h3>
+<h3><a href="#start">Start</a></h3>
 <p><em>(Formerly known as global function RunDialog, which is now obsolete)</em></p>
 <pre><code>Dialog.Start()
 </code></pre>
@@ -274,7 +274,7 @@ eOptionOffForever
 <hr />
 </section>
 <section id="stopdialog" class="level3">
-<h3>StopDialog</h3>
+<h3><a href="#stopdialog">StopDialog</a></h3>
 <pre><code>StopDialog ()
 </code></pre>
 <p>This command can only be used from within the dialog_request function. It tells AGS that when dialog_request finishes, the whole conversation should stop rather than continuing with the dialog script.</p>
@@ -298,7 +298,7 @@ eOptionOffForever
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:45 PM</p>
+      <p>Build: 07/26/2019 01:40:55 AM</p>
     </section>
   </footer>
 

@@ -76,28 +76,28 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#preprocessor">Preprocessor</a><ul>
-<li><a href="#define-macro"><code>define</code> Macro</a></li>
-<li><a href="#ifdef-macro-test"><code>ifdef</code> Macro test</a></li>
-<li><a href="#ifver-version-checking"><code>ifver</code> Version Checking</a></li>
-<li><a href="#region-code-folding"><code>region</code> code folding</a></li>
-<li><a href="#error-throw-compile-error"><code>error</code> throw compile error</a></li>
-<li><a href="#legacy-commands">legacy commands</a></li>
+<li><a href="#preprocessor"><span>Preprocessor</span></a><ul>
+<li><a href="#define-macro"><span><code>define</code> Macro</span></a></li>
+<li><a href="#ifdef-macro-test"><span><code>ifdef</code> Macro test</span></a></li>
+<li><a href="#ifver-version-checking"><span><code>ifver</code> Version Checking</span></a></li>
+<li><a href="#region-code-folding"><span><code>region</code> code folding</span></a></li>
+<li><a href="#error-throw-compile-error"><span><code>error</code> throw compile error</span></a></li>
+<li><a href="#legacy-commands"><span>legacy commands</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="preprocessor" class="level2">
-<h2>Preprocessor</h2>
+<h2><a href="#preprocessor">Preprocessor</a></h2>
 <p>Before the AGS Script compiler is ran, an AGS Preprocessor runs, which will modify the script file before it's passed on for the compiler.</p>
 <section id="define-macro" class="level3">
-<h3><code>define</code> Macro</h3>
+<h3><a href="#define-macro"><code>define</code> Macro</a></h3>
 <p><code>#define &lt;macro&gt; &lt;value&gt;</code></p>
 <p>Define is a Macro, you can think of a way to tell the processor that, whenever the defined name is encountered, it should be replaced by the value or content that follows. It's similar to a variable with a set initial value, but this variable has no type and accepts anything. You can check if a Macro is defined using <code>#ifdef</code> preprocessor keyword.</p>
 </section>
 <section id="ifdef-macro-test" class="level3">
-<h3><code>ifdef</code> Macro test</h3>
+<h3><a href="#ifdef-macro-test"><code>ifdef</code> Macro test</a></h3>
 <pre><code>#ifdef &lt;macro&gt;
   //content
 #endif
@@ -109,7 +109,7 @@
 <p>Test if macro is defined or undefined and only pass the content for the compiler if the test is true.</p>
 </section>
 <section id="ifver-version-checking" class="level3">
-<h3><code>ifver</code> Version Checking</h3>
+<h3><a href="#ifver-version-checking"><code>ifver</code> Version Checking</a></h3>
 <p>If you are writing a script module, you may need to check which version of AGS the user of your module is using. For this purpose there are two directives:</p>
 <pre><code>#ifver &lt;version&gt;
   // this code will be passed if user&#39;s AGS version is above or equal to &lt;version&gt;
@@ -130,7 +130,7 @@
 <p><em>See also:</em> <a href="ScriptKeywords.html#version-checking">Version Checking Keyword</a></p>
 </section>
 <section id="region-code-folding" class="level3">
-<h3><code>region</code> code folding</h3>
+<h3><a href="#region-code-folding"><code>region</code> code folding</a></h3>
 <pre><code>#region
   // some code
 #endregion
@@ -138,12 +138,12 @@
 <p>You can wrap a code between lines containing <code>#region</code> and <code>#endregion</code> to create a section used for code folding. In the AGS Editor you can use this to hide sections of your code you don't need to see by using the <code>+</code> button at the left side of the script editor.</p>
 </section>
 <section id="error-throw-compile-error" class="level3">
-<h3><code>error</code> throw compile error</h3>
+<h3><a href="#error-throw-compile-error"><code>error</code> throw compile error</a></h3>
 <p><code>#error</code></p>
 <p>User defined compile-time error (with message).</p>
 </section>
 <section id="legacy-commands" class="level3">
-<h3>legacy commands</h3>
+<h3><a href="#legacy-commands">legacy commands</a></h3>
 <pre><code>#sectionstart
 </code></pre>
 <pre><code>#sectionend
@@ -160,7 +160,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:49 PM</p>
+      <p>Build: 07/26/2019 01:41:00 AM</p>
     </section>
   </footer>
 

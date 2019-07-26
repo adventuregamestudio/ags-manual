@@ -76,29 +76,29 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#setting-up-the-game">Setting up the game</a><ul>
-<li><a href="#palette-setup">Palette setup</a></li>
-<li><a href="#inventory">Inventory</a></li>
-<li><a href="#importing-your-own-sprite-graphics">Importing your own sprite graphics</a></li>
-<li><a href="#introduction-sequences">Introduction sequences</a></li>
-<li><a href="#animations">Animations</a></li>
-<li><a href="#characters">Characters</a></li>
-<li><a href="#conversations">Conversations</a></li>
-<li><a href="#general-settings">General settings</a></li>
-<li><a href="#default-setup">Default setup</a></li>
-<li><a href="#cursors">Cursors</a></li>
-<li><a href="#fonts">Fonts</a></li>
+<li><a href="#setting-up-the-game"><span>Setting up the game</span></a><ul>
+<li><a href="#palette-setup"><span>Palette setup</span></a></li>
+<li><a href="#inventory"><span>Inventory</span></a></li>
+<li><a href="#importing-your-own-sprite-graphics"><span>Importing your own sprite graphics</span></a></li>
+<li><a href="#introduction-sequences"><span>Introduction sequences</span></a></li>
+<li><a href="#animations"><span>Animations</span></a></li>
+<li><a href="#characters"><span>Characters</span></a></li>
+<li><a href="#conversations"><span>Conversations</span></a></li>
+<li><a href="#general-settings"><span>General settings</span></a></li>
+<li><a href="#default-setup"><span>Default setup</span></a></li>
+<li><a href="#cursors"><span>Cursors</span></a></li>
+<li><a href="#fonts"><span>Fonts</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="setting-up-the-game" class="level2">
-<h2>Setting up the game</h2>
+<h2><a href="#setting-up-the-game">Setting up the game</a></h2>
 <p>Now that you know how to create a room, it's time to set up the game-wide settings. These include inventory items, sprite graphics, palette setup and other things which do not depend on individual rooms.</p>
 <hr />
 <section id="palette-setup" class="level3">
-<h3>Palette setup</h3>
+<h3><a href="#palette-setup">Palette setup</a></h3>
 <p>The first thing you need to do when you create a new game is to decide whether you want to use 8-bit (palette-based) colour or 32/16-bit (true-colour / hi-colour). If you want to use 32/16-bit colour, you can still use 256-colour backgrounds and sprites if you want to, but the engine will only run in a 32-bit colour resolution, thus slowing it down.</p>
 <p>If you want to use 8-bit, you need to set up the palette. This is because all sprite and background scene imports rely on the palette setup to be the same. You <strong>CANNOT</strong> use hi-colour nor true-colour sprites or backgrounds in a 256-colour game. All this means, use 8-bit color only when you know what you are doing or when you intentionally want to punish yourself with lots of nerdy fumbling around on settings for colormodes that were not artist's decisions but actual hardware limitations of the time and every artist is glad these restrictions are no longer in place. But you can do really cool color cycling effects only in 8-bit games, other than that this is really outdated technology, but it still works of course, and how it works is explained in the next paragraphs.</p>
 <p>You set your chosen colour depth by opening the General Settings pane and adjusting the Colour Depth setting near the top of the list.</p>
@@ -111,7 +111,7 @@
 <hr />
 </section>
 <section id="inventory" class="level3">
-<h3>Inventory</h3>
+<h3><a href="#inventory">Inventory</a></h3>
 <p>Most adventure games allow the player to carry a set of objects, which he can then use to solve puzzles. Adventure Game Studio makes this inventory easy for you to manage.</p>
 <p>Every inventory item which the player may carry during the game at one time or another is listed under the "<a href="EditorInventoryItems.html">Inventory items</a>" node. Here, each item has a number and a script name which you use in scripts to identify the object. To create a new item, right-click on the "Inventory items" node.</p>
 <p>Double-click on an inventory item to open it up. On the left you'll see the graphic used for the object in the inventory window. To change this, select the "Image" entry in the property grid on the right, and click the "..." button.</p>
@@ -124,7 +124,7 @@
 <hr />
 </section>
 <section id="importing-your-own-sprite-graphics" class="level3">
-<h3>Importing your own sprite graphics</h3>
+<h3><a href="#importing-your-own-sprite-graphics">Importing your own sprite graphics</a></h3>
 <p>When you were choosing the graphics for the object earlier in this tutorial, you probably noticed that most of the graphics available didn't look up to much. This is no problem, because you can import your own graphics using the Sprite Manager.</p>
 <p>Go to the <strong>Sprites</strong> pane in the editor. Here, you will see the complete sprite set for the game. There are two ways to import your graphics - either overwrite an existing slot with your graphic, or create a new slot for it.</p>
 <p>To overwrite an existing sprite, right-click the sprite and select "Replace sprite from file". To import a new slot, right-click on the background to the window and choose "Import new sprite".</p>
@@ -147,7 +147,7 @@
 <hr />
 </section>
 <section id="introduction-sequences" class="level3">
-<h3>Introduction sequences</h3>
+<h3><a href="#introduction-sequences">Introduction sequences</a></h3>
 <p>You can easily add intro, outro and cutscene sequences to your game. There is no specific function to do these, but using the provided animation and script commands you can create almost anything you might need.</p>
 <p>Normally, the game will start in room 1. This is defined by the starting room number of the player character. To change it, open up the player character's Character pane, and change the StartingRoom number in the property grid.</p>
 <p>TIP: The starting room facility is also useful when testing your game. You can make the game start in any room, at the point where you are testing it, rather than having to keep playing the game through to get there.</p>
@@ -155,7 +155,7 @@
 <hr />
 </section>
 <section id="animations" class="level3">
-<h3>Animations</h3>
+<h3><a href="#animations">Animations</a></h3>
 <p>In most games you will use some sort of animation during the game, whether it be a flag waving in the breeze or the player bending over to pick something up. The term "animation" refers to the ability to change the look of, and move, objects.</p>
 <p>Animations in AGS are managed using Views. A "view" is a set of one or more "loops". A loop is a set of frames which, when put together, give the effect of movement. Each frame in the view can be set a graphic and a speed.</p>
 <p>Go to the editor's "Views" node, right-click it and select the "New view" option to create us a new, empty view. Double-click the new view to open it. Each loop is displayed horizontally with its number at the left hand side, frames going out to the right. To add a frame, click the grey "New frame" button. To delete a frame, right-click it.</p>
@@ -167,7 +167,7 @@
 <hr />
 </section>
 <section id="characters" class="level3">
-<h3>Characters</h3>
+<h3><a href="#characters">Characters</a></h3>
 <p>A character is similar to an object, except that it can change rooms, maintain its own inventory, and take part in conversations (more on these later). It can also have its own custom animation speed and movement speed.</p>
 <p>Go to the "Characters" node in the main tree. You will see under it a list of all the characters in the game. To create a new character, right-click the "Characters" node and choose the "New character" option.</p>
 <p>You will see that there are a lot of options which you can set for each character. The most immediately obvious one is the "Make this the player character" button, which allows you to change which character the player will control at the start of the game. When the game starts, the first room loaded will be this character's starting room.</p>
@@ -205,7 +205,7 @@
 <hr />
 </section>
 <section id="conversations" class="level3">
-<h3>Conversations</h3>
+<h3><a href="#conversations">Conversations</a></h3>
 <p>While the old Sierra games were mainly based on action and not talking, the Lucasarts games took the opposite approach.</p>
 <p>If you want to create a game with conversations where the player can choose from a list of optional topics to talk about, you can now with the new Dialog Editor. Go to the "Dialogs" node.</p>
 <p>Conversations are made up of Topics. A "topic" is a list of choices from which the player can choose. You may have up to 30 choices in a topic. However, not all of them need to be available to the player at the start of the game - you can enable various options for conversation once the player has said or done other things.</p>
@@ -275,7 +275,7 @@ return
 <hr />
 </section>
 <section id="general-settings" class="level3">
-<h3>General settings</h3>
+<h3><a href="#general-settings">General settings</a></h3>
 <p>The General Settings pane contains a list of all the various overall options that you can set for your game.</p>
 <p>Note that some things listed here are explained later in the documentation, so if you don't understand one of the items in this list, come back to it later.</p>
 <p>Many of these options can be changed at runtime with the script command SetGameOption. <strong>Basic properties</strong></p>
@@ -371,7 +371,7 @@ return
 <hr />
 </section>
 <section id="default-setup" class="level3">
-<h3>Default setup</h3>
+<h3><a href="#default-setup">Default setup</a></h3>
 <p>The Default setup pane lets you create the default runtime configuration for your game. Since AGS 3.3.5 you cannot directly do that using game's setup utility (winsetup.exe) anymore, because it modifies config file in the user's personal documents folder instead of game folder. For that reason you should be doing it from this Editor's page now.</p>
 <p>Most of the options here correspond to the ones you may find in the setup utility. For their meaning please refer to <a href="Setup.html">related topic</a>.</p>
 <p>Additionally, following settings are available:</p>
@@ -389,7 +389,7 @@ return
 <hr />
 </section>
 <section id="cursors" class="level3">
-<h3>Cursors</h3>
+<h3><a href="#cursors">Cursors</a></h3>
 <p>The Cursors node of the editor shows you the current mouse cursor modes available in the game. Each cursor mode performs a different action within the game. Double-click one to open it up.</p>
 <p>The "StandardMode" option in the property grid tells AGS that this is a 'normal' cursor mode - ie. using this cursor will fire an event on whatever is clicked on as usual. This mode applies to the standard Walk, Look, Interact and Talk modes, but you can create others too. Do not tick it for the Use Inventory mode, since this is a special mode.</p>
 <p>The "Animate" option allows you to specify that the mouse cursor will animate while it is on the screen. Choose a view number, and the cursor will animate using the first loop of that view. You can make it animate only when over something (hotspot, object or character) by enabling the "AnimateOnlyOnHotspots" option.</p>
@@ -408,7 +408,7 @@ return
 <hr />
 </section>
 <section id="fonts" class="level3">
-<h3>Fonts</h3>
+<h3><a href="#fonts">Fonts</a></h3>
 <p>AGS comes with a couple of default fonts, but you can replace the and add your own. You can use both TrueType (TTF) and SCI fonts (Sierra's font format).</p>
 <p>SCI fonts can be created in two ways:</p>
 <ul>
@@ -441,7 +441,7 @@ return
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:46 PM</p>
+      <p>Build: 07/26/2019 01:40:57 AM</p>
     </section>
   </footer>
 

@@ -76,27 +76,27 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#dictionary-functions">Dictionary functions</a><ul>
-<li><a href="#create">Create</a></li>
-<li><a href="#clear">Clear</a></li>
-<li><a href="#set">Set</a></li>
-<li><a href="#contains">Contains</a></li>
-<li><a href="#get">Get</a></li>
-<li><a href="#remove">Remove</a></li>
-<li><a href="#comparestyle">CompareStyle</a></li>
-<li><a href="#sortstyle">SortStyle</a></li>
-<li><a href="#itemcount">ItemCount</a></li>
-<li><a href="#getkeysasarray">GetKeysAsArray</a></li>
-<li><a href="#getvaluesasarray">GetValuesAsArray</a></li>
+<li><a href="#dictionary-functions"><span>Dictionary functions</span></a><ul>
+<li><a href="#create"><span>Create</span></a></li>
+<li><a href="#clear"><span>Clear</span></a></li>
+<li><a href="#set"><span>Set</span></a></li>
+<li><a href="#contains"><span>Contains</span></a></li>
+<li><a href="#get"><span>Get</span></a></li>
+<li><a href="#remove"><span>Remove</span></a></li>
+<li><a href="#comparestyle"><span>CompareStyle</span></a></li>
+<li><a href="#sortstyle"><span>SortStyle</span></a></li>
+<li><a href="#itemcount"><span>ItemCount</span></a></li>
+<li><a href="#getkeysasarray"><span>GetKeysAsArray</span></a></li>
+<li><a href="#getvaluesasarray"><span>GetValuesAsArray</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="dictionary-functions" class="level2">
-<h2>Dictionary functions</h2>
+<h2><a href="#dictionary-functions">Dictionary functions</a></h2>
 <section id="create" class="level3">
-<h3>Create</h3>
+<h3><a href="#create">Create</a></h3>
 <pre><code>Dictionary* Create(SortStyle sortStyle, StringCompareStyle compareStyle)
 </code></pre>
 <p>Creates a new empty Dictionary of the given properties. If you don't pass any options, the Dirctionary is non sorted and case insensitive.</p>
@@ -108,21 +108,21 @@
 <hr />
 </section>
 <section id="clear" class="level3">
-<h3>Clear</h3>
+<h3><a href="#clear">Clear</a></h3>
 <pre><code>Clear()
 </code></pre>
 <p>Removes all items from the dictionary.</p>
 <hr />
 </section>
 <section id="set" class="level3">
-<h3>Set</h3>
+<h3><a href="#set">Set</a></h3>
 <pre><code>bool Set(String key)
 </code></pre>
 <p>Assigns a value to the given key, adds this key if it did not exist yet.</p>
 <hr />
 </section>
 <section id="contains" class="level3">
-<h3>Contains</h3>
+<h3><a href="#contains">Contains</a></h3>
 <pre><code>bool Contains(String key)
 </code></pre>
 <p>Returns true if the key is in the dictionary.</p>
@@ -138,7 +138,7 @@ if(myDictionary.Contains(&quot;my-key&quot;)){
 <hr />
 </section>
 <section id="get" class="level3">
-<h3>Get</h3>
+<h3><a href="#get">Get</a></h3>
 <pre><code>String Get(String key)
 </code></pre>
 <p>Gets value by the key. Returns null if such key does not exist.</p>
@@ -150,7 +150,7 @@ String myValue = myDictionary.Get(&quot;a-key&quot;);
 <hr />
 </section>
 <section id="remove" class="level3">
-<h3>Remove</h3>
+<h3><a href="#remove">Remove</a></h3>
 <pre><code>bool Remove(String key)
 </code></pre>
 <p>Removes key/value pair from the dictionary, returns false if there was no such item.</p>
@@ -158,7 +158,7 @@ String myValue = myDictionary.Get(&quot;a-key&quot;);
 <hr />
 </section>
 <section id="comparestyle" class="level3">
-<h3>CompareStyle</h3>
+<h3><a href="#comparestyle">CompareStyle</a></h3>
 <pre><code>StringCompareStyle CompareStyle
 </code></pre>
 <p>Gets if this dictionary keys are case-sensitive.</p>
@@ -166,7 +166,7 @@ String myValue = myDictionary.Get(&quot;a-key&quot;);
 <hr />
 </section>
 <section id="sortstyle" class="level3">
-<h3>SortStyle</h3>
+<h3><a href="#sortstyle">SortStyle</a></h3>
 <pre><code>SortStyle SortStyle
 </code></pre>
 <p>Gets the method keys are arranged in this dictionary.</p>
@@ -174,14 +174,14 @@ String myValue = myDictionary.Get(&quot;a-key&quot;);
 <hr />
 </section>
 <section id="itemcount" class="level3">
-<h3>ItemCount</h3>
+<h3><a href="#itemcount">ItemCount</a></h3>
 <pre><code>int ItemCount
 </code></pre>
 <p>Gets the number of key/value pairs currently in the dictionary.</p>
 <hr />
 </section>
 <section id="getkeysasarray" class="level3">
-<h3>GetKeysAsArray</h3>
+<h3><a href="#getkeysasarray">GetKeysAsArray</a></h3>
 <pre><code>String[] GetKeysAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with keys in same order as they are stored in the Dictionary.</p>
@@ -194,7 +194,7 @@ String* myDictionaryKeysAsArray = myDictionary.GetKeysAsArray();
 <hr />
 </section>
 <section id="getvaluesasarray" class="level3">
-<h3>GetValuesAsArray</h3>
+<h3><a href="#getvaluesasarray">GetValuesAsArray</a></h3>
 <pre><code>String[] GetValuesAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with values in same order as they are stored in the Dictionary.</p>
@@ -215,7 +215,7 @@ String* myDictionaryValuesAsArray = myDictionary.GetValuesAsArray();
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:50 PM</p>
+      <p>Build: 07/26/2019 01:41:01 AM</p>
     </section>
   </footer>
 

@@ -76,13 +76,13 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#upgrading-to-ags-335">Upgrading to AGS 3.3.5</a></li>
+<li><a href="#upgrading-to-ags-335"><span>Upgrading to AGS 3.3.5</span></a></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="upgrading-to-ags-335" class="level2">
-<h2>Upgrading to AGS 3.3.5</h2>
+<h2><a href="#upgrading-to-ags-335">Upgrading to AGS 3.3.5</a></h2>
 <p>Since 3.3.5 AGS does not allow to <strong>write</strong> any files into other path rather than "<code>$SAVEGAMEDIR$</code>" (personal user saves directory) or "<code>$APPDATADIR$</code>" (all-users game data directory). If you attempt to open file for <strong>writing</strong> using relative path without location tag, the filepath will be automatically remapped to <code>$APPDATADIR$</code> location.</p>
 <p>Because of that, for backwards compatibility reasons, when you try to open file for reading using relative path without location tag, AGS will first look for that file in <code>$APPDATADIR$</code>, and only if no matching file is found there, then the game installation directory will be checked.</p>
 <p>To force opening file in the game installation directory (for reading) a new location tag was introduced: "<code>$INSTALLDIR$</code>". When using this tag you will explicitly tell AGS to look in and only in the game's installation directory. However, if you try opening file for writing at such location, that will result in failure.</p>
@@ -98,7 +98,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:47 PM</p>
+      <p>Build: 07/26/2019 01:40:58 AM</p>
     </section>
   </footer>
 

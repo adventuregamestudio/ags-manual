@@ -76,26 +76,26 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#scripting-tutorial">Scripting Tutorial</a><ul>
-<li><a href="#the-basics">The Basics</a></li>
-<li><a href="#commands-explained">Commands Explained</a></li>
-<li><a href="#instances">Instances</a></li>
-<li><a href="#command-sequences">Command Sequences</a></li>
-<li><a href="#recap">Recap</a></li>
-<li><a href="#variables">Variables</a></li>
-<li><a href="#functions-that-return-a-value">Functions that return a value</a></li>
-<li><a href="#common-shortcuts">Common Shortcuts</a></li>
-<li><a href="#summary">Summary</a></li>
+<li><a href="#scripting-tutorial"><span>Scripting Tutorial</span></a><ul>
+<li><a href="#the-basics"><span>The Basics</span></a></li>
+<li><a href="#commands-explained"><span>Commands Explained</span></a></li>
+<li><a href="#instances"><span>Instances</span></a></li>
+<li><a href="#command-sequences"><span>Command Sequences</span></a></li>
+<li><a href="#recap"><span>Recap</span></a></li>
+<li><a href="#variables"><span>Variables</span></a></li>
+<li><a href="#functions-that-return-a-value"><span>Functions that return a value</span></a></li>
+<li><a href="#common-shortcuts"><span>Common Shortcuts</span></a></li>
+<li><a href="#summary"><span>Summary</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="scripting-tutorial" class="level2">
-<h2>Scripting Tutorial</h2>
+<h2><a href="#scripting-tutorial">Scripting Tutorial</a></h2>
 <p>In AGS, all the interactivity in the game is handled using scripts. They're an essential part of game-making, so it's important that we go through how to use them.</p>
 <section id="the-basics" class="level3">
-<h3>The Basics</h3>
+<h3><a href="#the-basics">The Basics</a></h3>
 <p>Right, we'll start off by doing something very simple - displaying a message to the player when they click the Look icon on a hotspot. Assuming that you've done the main AGS Tutorial, you should already have created a script that looks like this:</p>
 <pre><code>function hDoor_Look()
 {
@@ -108,7 +108,7 @@
 <p>It's important to mention here that lines beginning with a double-slash <code>//</code> are <strong>comments</strong> - AGS will ignore them, they are just there to help you remember what your script is doing. You can add comments to your script simply by starting the line with the <code>//</code> symbol.</p>
 </section>
 <section id="commands-explained" class="level3">
-<h3>Commands Explained</h3>
+<h3><a href="#commands-explained">Commands Explained</a></h3>
 <p>Each different command you can use in the script is also called a <strong>function</strong>. All the available commands are listed in the Scripting part of the manual, which also tells you how to use them.</p>
 <p>We want to display a message to the player, so we used the <em>Display</em> function. Looking this up in the manual gives us the definition:</p>
 <pre><code>Display (string message, ...)
@@ -132,7 +132,7 @@
 <p>This is what we already did in the main tutorial, but having examined it in more detail it should now make more sense why we've done it this way.</p>
 </section>
 <section id="instances" class="level3">
-<h3>Instances</h3>
+<h3><a href="#instances">Instances</a></h3>
 <p>The AGS script language is object-based. What this means is that many commands are operated <strong>on</strong> something in the game. You should not confuse <em>object-based</em> with room <em>objects</em>, they are entirely different things. There is a script <strong>instance</strong> for each character in the game, each object in the room, each hotspot, and so on.</p>
 <p>The name by which you access an instance in the script is given in the editor as the item's <em>Script Name</em>. For example, assuming our main character's script name is cEgo, then his instance name will be <code>cEgo</code>.</p>
 <p>To perform a command on something, you type its Script Name followed by a dot, followed by the command name. When you type the dot, the AGS Editor will automatically pop up a list of the available commands:</p>
@@ -145,7 +145,7 @@
 <p>As well as all the individual character instances such as <em>cEgo</em>, there is a special instance called <em>player</em>. This always corresponds to the current player character, so if you just want to perform a command on the player character (especially useful in games where the player can control different characters) then you can use the <em>player</em> instance to do so.</p>
 </section>
 <section id="command-sequences" class="level3">
-<h3>Command Sequences</h3>
+<h3><a href="#command-sequences">Command Sequences</a></h3>
 <p>Suppose we want the player to be given a pink poster when they look at the hotspot, as well as displaying the message. Assuming we have an inventory item set up to be the poster with the Script Name of <em>iPoster</em> (see the main tutorial for how to do this), the script enables us to easily make this happen.</p>
 <p>Our final script will look like this:</p>
 <pre><code>Display(It&#39;s quite a large, ominous looking door.&quot;);
@@ -159,7 +159,7 @@ Display(&quot;Because he was bored.&quot;);
 <p>will mean that the player gets the two messages in the order you specified.</p>
 </section>
 <section id="recap" class="level3">
-<h3>Recap</h3>
+<h3><a href="#recap">Recap</a></h3>
 <p>So, did you remember these vital points:</p>
 <ul>
 <li>Strings are surrounded by double-quote marks.</li>
@@ -170,7 +170,7 @@ Display(&quot;Because he was bored.&quot;);
 </ul>
 </section>
 <section id="variables" class="level3">
-<h3>Variables</h3>
+<h3><a href="#variables">Variables</a></h3>
 <p>Scripts in AGS can use variables. A variable is an area of memory storage that contains a value, which you can check and change with your script.</p>
 <p>To declare a variable, you write the variable type, followed by the variable name, then a semicolon. The type is either "int", "String" (note the capital S) or "float", and the name can be anything you like - it is what you will use to refer to it later. For example:</p>
 <pre><code>int myCounter;
@@ -277,7 +277,7 @@ if (myCounter &lt; 3)
 <p>Sometimes, you may want to set a variable value that can be shared between a room script and your global script. There are two ways to do this -- you can export the variable from the global script and then import it in the script header, but that's a bit advanced for this tutorial. A simpler way is to use one of the 300 GlobalInts, which use the script functions SetGlobalInt and GetGlobalInt to access them. See their manual descriptions for more information.</p>
 </section>
 <section id="functions-that-return-a-value" class="level3">
-<h3>Functions that return a value</h3>
+<h3><a href="#functions-that-return-a-value">Functions that return a value</a></h3>
 <p>When reading function descriptions in the manual, you will notice that some of them say they return a value. For example,</p>
 <pre><code>IsGamePaused ()
   Returns 1 if the game is currently paused, or 0 otherwise.
@@ -296,7 +296,7 @@ if (IsGamePaused() == 0)
 <p>Be sure to remember the parenthesis ().</p>
 </section>
 <section id="common-shortcuts" class="level3">
-<h3>Common Shortcuts</h3>
+<h3><a href="#common-shortcuts">Common Shortcuts</a></h3>
 <p>The script system has a few nice shortcuts for common tasks which you will find yourself using regularly.</p>
 <p>Firstly, the ++ and -- operators increase and decrease the variable by 1, respectively. So, the last part of our previous script could have been written:</p>
 <pre><code>if (myCounter &lt; 3)
@@ -319,7 +319,7 @@ if (IsGamePaused() == 0)
 </code></pre>
 </section>
 <section id="summary" class="level3">
-<h3>Summary</h3>
+<h3><a href="#summary">Summary</a></h3>
 <p>We've covered the basics, so that hopefully you can now write a script of your own. There are many more advanced features that the system can do, but this should be enough to get you started.</p>
 <p>When you're ready, feel free to proceed to the <a href="ScriptingTutorialPart2.html">Tutorial Chapter 2 - The Patronising Text Returns</a> which covers more advanced topics.</p>
 <p>Enjoy AGS!</p>
@@ -333,7 +333,7 @@ if (IsGamePaused() == 0)
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:49 PM</p>
+      <p>Build: 07/26/2019 01:41:00 AM</p>
     </section>
   </footer>
 

@@ -76,18 +76,18 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#object-oriented-programming">Object Oriented Programming</a><ul>
-<li><a href="#protection">Protection</a></li>
-<li><a href="#defining-attributes">Defining attributes</a></li>
-<li><a href="#access-with-extender-functions">Access with extender functions</a></li>
-<li><a href="#static-attributes">Static attributes</a></li>
+<li><a href="#object-oriented-programming"><span>Object Oriented Programming</span></a><ul>
+<li><a href="#protection"><span>Protection</span></a></li>
+<li><a href="#defining-attributes"><span>Defining attributes</span></a></li>
+<li><a href="#access-with-extender-functions"><span>Access with extender functions</span></a></li>
+<li><a href="#static-attributes"><span>Static attributes</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="object-oriented-programming" class="level2">
-<h2>Object Oriented Programming</h2>
+<h2><a href="#object-oriented-programming">Object Oriented Programming</a></h2>
 <p>The basic idea of encapsulation is that you are going to protect your data structure (struct) by using methods (functions) to get and/or set the properties instead of making them directly readable/writable.</p>
 <p>For example:</p>
 <pre><code>struct Weapon
@@ -117,7 +117,7 @@ void Weapon::SetDamage(int damage)
 </code></pre>
 <p>Now if the user supplies an invalid value for the damage it will be replaced with 0. This makes sure that the damage does not get set to a negative value.</p>
 <section id="protection" class="level3">
-<h3>Protection</h3>
+<h3><a href="#protection">Protection</a></h3>
 <p>Access modifiers can be applied to struct members to set the access and modifiction scope of struct members.</p>
 <table>
 <thead>
@@ -150,7 +150,7 @@ void Weapon::SetDamage(int damage)
 </code></pre>
 </section>
 <section id="defining-attributes" class="level3">
-<h3>Defining attributes</h3>
+<h3><a href="#defining-attributes">Defining attributes</a></h3>
 <p><strong>Note:</strong> You cannot use an attribute in the same script where the getter and setter methods are defined. If you try, you'll get an error like this:</p>
 <pre><code>Error: is_script_import: NULL pointer passed
 </code></pre>
@@ -209,7 +209,7 @@ int People::get_Count()
 </code></pre>
 </section>
 <section id="access-with-extender-functions" class="level3">
-<h3>Access with extender functions</h3>
+<h3><a href="#access-with-extender-functions">Access with extender functions</a></h3>
 <p>By default getter and setter methods will show in autocomplete data within the script editor, unless explicity disabled per definition:</p>
 <pre><code>struct Weapon
 {
@@ -245,7 +245,7 @@ void set_Damage(this Weapon*, int damage)
 </code></pre>
 </section>
 <section id="static-attributes" class="level3">
-<h3>Static attributes</h3>
+<h3><a href="#static-attributes">Static attributes</a></h3>
 <p>Using an attribute will actually allow you to simulate define static properties within a struct.</p>
 <pre><code>struct Some
 {
@@ -279,7 +279,7 @@ Some.Thing = 42;
 
   <footer>
     <section class="container">
-      <p>Build: 07/25/2019 07:24:53 PM</p>
+      <p>Build: 07/26/2019 01:41:05 AM</p>
     </section>
   </footer>
 
