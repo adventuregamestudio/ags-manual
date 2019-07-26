@@ -51,6 +51,10 @@ header ul {
     text-align: right
 }
 
+h2 > a, h3 > a {
+    color: inherit
+}
+
 header li {
     margin-bottom: 0
 }

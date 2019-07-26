@@ -81,6 +81,7 @@ html/build/%.html: source/%.md | html/build
 		--metadata title=$* \
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
+		--lua-filter "lua/insert_anchors.lua" \
 		--template "html/template.html5" \
 		--variable=datetime:"$(DATETIME)" \
 		--table-of-contents \
