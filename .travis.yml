@@ -31,7 +31,7 @@ script:
   - (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep .) || travis_terminate 1
   - make -j $(getconf _NPROCESSORS_ONLN) html
   - touch html/build/.nojekyll
-  - [ -n "$TRAVIS_TAG" ] && echo $TRAVIS_TAG > html/build/tag.txt
+  - '[ -n "$TRAVIS_TAG" ] && echo $TRAVIS_TAG > html/build/tag.txt'
 
 before_deploy:
   # run only once, the tasks executed prepares the files to be upload
