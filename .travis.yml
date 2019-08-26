@@ -32,8 +32,9 @@ script:
   - make -j $(getconf _NPROCESSORS_ONLN) html
   - touch html/build/.nojekyll
   - |
-    if [ -n "$TRAVIS_TAG" ]; then
-      echo $TRAVIS_TAG > html/build/tag.txt
+    tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+    if [ -n "$tag" ]; then
+      echo $tag > html/build/tag.txt
     fi
 
 before_deploy:
