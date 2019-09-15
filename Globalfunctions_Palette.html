@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Palette functions</title>
+  <title>Gloabal functions: Palette Operations</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,7 +76,7 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#palette-functions"><span>Palette functions</span></a><ul>
+<li><a href="#gloabal-functions-palette-operations"><span>Gloabal functions: Palette Operations</span></a><ul>
 <li><a href="#cyclepalette"><span>CyclePalette</span></a></li>
 <li><a href="#setpalrgb"><span>SetPalRGB</span></a></li>
 <li><a href="#updatepalette"><span>UpdatePalette</span></a></li>
@@ -85,8 +85,8 @@
           </nav>
         </div>
         <div class="column column-75">
-<section id="palette-functions" class="level2">
-<h2><a href="#palette-functions">Palette functions</a></h2>
+<section id="gloabal-functions-palette-operations" class="level2">
+<h2><a href="#gloabal-functions-palette-operations">Gloabal functions: Palette Operations</a></h2>
 <section id="cyclepalette" class="level3">
 <h3><a href="#cyclepalette">CyclePalette</a></h3>
 <pre><code>CyclePalette (int start, int end)
@@ -98,7 +98,7 @@
 <pre><code>CyclePalette(10,200);
 </code></pre>
 <p>will cause the palette indexes from 10 to 200 cycle around one slot and give a color effect.</p>
-<p><em>See Also:</em> <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="PaletteFunctions.html#setpalrgb">SetPalRGB</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
 <hr />
 </section>
 <section id="setpalrgb" class="level3">
@@ -112,7 +112,7 @@
 <pre><code>SetPalRGB(10,63,63,21);
 </code></pre>
 <p>will change palette slot number 10 from light green to yellow</p>
-<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="PaletteFunctions.html#updatepalette">UpdatePalette</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#cyclepalette">CyclePalette</a>, <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#updatepalette">UpdatePalette</a></p>
 <hr />
 </section>
 <section id="updatepalette" class="level3">
@@ -125,7 +125,7 @@
 UpdatePalette();
 </code></pre>
 <p>will make the black colour turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
-<p><em>See Also:</em> <a href="PaletteFunctions.html#setpalrgb">SetPalRGB</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
 </section>
 </section>
         </div>
@@ -136,7 +136,7 @@ UpdatePalette();
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:26 PM</p>
+      <p>Build: 09/15/2019 11:56:59 PM</p>
     </section>
   </footer>
 

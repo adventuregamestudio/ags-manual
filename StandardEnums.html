@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Built-in enumerated types</title>
+  <title>Standard Enumerated Types</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,14 +76,14 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#built-in-enumerated-types"><span>Built-in enumerated types</span></a></li>
+<li><a href="#standard-enumerated-types"><span>Standard Enumerated Types</span></a></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
-<section id="built-in-enumerated-types" class="level2">
-<h2><a href="#built-in-enumerated-types">Built-in enumerated types</a></h2>
-<p>AGS has several <a href="ScriptKeywords.html#enum">enumerated types</a> built in. These are used in calls to various commands, and will usually pop up automatically in autocomplete. However, for times where autocomplete doesn't do the job, having a manual reference is invaluable:</p>
+<section id="standard-enumerated-types" class="level2">
+<h2><a href="#standard-enumerated-types">Standard Enumerated Types</a></h2>
+<p>AGS has several <a href="ScriptKeywords.html#enum">enumerated types</a> in it's standard header. These are used in calls to various commands, and will usually pop up automatically in autocomplete. However, for times where autocomplete doesn't do the job, having a manual reference is invaluable:</p>
 <pre><code>enum BlockingStyle {
   eBlock,
   eNoBlock
@@ -150,7 +150,7 @@
   eTransitionCrossfade
 };
 </code></pre>
-<p><em>Used by:</em> <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a>, <a href="ScreenFunctions.html#setnextscreentransition">SetNextScreenTransition</a></p>
+<p><em>Used by:</em> <a href="Globalfunctions_Screen.html#setscreentransition">SetScreenTransition</a>, <a href="Globalfunctions_Screen.html#setnextscreentransition">SetNextScreenTransition</a></p>
 <pre><code>enum MouseButton {
   eMouseLeft,
   eMouseRight,
@@ -223,7 +223,7 @@
   eSkipESCOrRightButton
 };
 </code></pre>
-<p><em>Used by:</em> <a href="Game.html#startcutscene">StartCutscene</a></p>
+<p><em>Used by:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a></p>
 <pre><code>enum eOperatingSystem {
   eOSDOS,
   eOSWindows,
@@ -255,14 +255,14 @@
   ...
 };
 </code></pre>
-<p>The CursorMode enumeration is generated automatically based on your mouse cursors. The cursor mode name is taken, all its spaces are removed, and <em>eMode</em> is added to the front.<br> <em>Used by:</em> <a href="Game.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Room.html#processclick">Room.ProcessClick</a>, <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#changemodehotspot">Mouse.ChangeModeHotspot</a>, <a href="Mouse.html#disablemode">Mouse.DisableMode</a>, <a href="Mouse.html#enablemode">Mouse.EnableMode</a>, <a href="Mouse.html#ismodeenabled">Mouse.IsModeEnabled</a>, <a href="Mouse.html#usemodegraphic">Mouse.UseModeGraphic</a>, <a href="Mouse.html#mode">Mouse.Mode</a>, <a href="InventoryItem.html#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="InventoryItem.html#runinteraction">InventoryItem.RunInteraction</a>, <a href="Hotspot.html#isinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a>, <a href="Object.html#isinteractionavailable">Object.IsInteractionAvailable</a>, <a href="Object.html#runinteraction">Object.RunInteraction</a>, <a href="Character.html#isinteractionavailable">Character.IsInteractionAvailable</a>, <a href="Character.html#runinteraction">Character.RunInteraction</a></p>
+<p>The CursorMode enumeration is generated automatically based on your mouse cursors. The cursor mode name is taken, all its spaces are removed, and <em>eMode</em> is added to the front.<br> <em>Used by:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Room.html#processclick">Room.ProcessClick</a>, <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#changemodehotspot">Mouse.ChangeModeHotspot</a>, <a href="Mouse.html#disablemode">Mouse.DisableMode</a>, <a href="Mouse.html#enablemode">Mouse.EnableMode</a>, <a href="Mouse.html#ismodeenabled">Mouse.IsModeEnabled</a>, <a href="Mouse.html#usemodegraphic">Mouse.UseModeGraphic</a>, <a href="Mouse.html#mode">Mouse.Mode</a>, <a href="InventoryItem.html#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="InventoryItem.html#runinteraction">InventoryItem.RunInteraction</a>, <a href="Hotspot.html#isinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a>, <a href="Object.html#isinteractionavailable">Object.IsInteractionAvailable</a>, <a href="Object.html#runinteraction">Object.RunInteraction</a>, <a href="Character.html#isinteractionavailable">Character.IsInteractionAvailable</a>, <a href="Character.html#runinteraction">Character.RunInteraction</a></p>
 <pre><code>enum FontType {
   eFontXXXX,
   eFontXXXX,
   ...
 };
 </code></pre>
-<p>The FontType enumeration is generated automatically based on your fonts. The font name is taken, all its spaces are removed, and <em>eFont</em> is added to the front.<br> <em>Used by:</em> <a href="Button.html#font">Button.Font</a>, <a href="DrawingSurfaceFunctions.html#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a>, <a href="DrawingSurfaceFunctions.html#drawstring">DrawingSurface.DrawString</a>, <a href="DrawingSurfaceFunctions.html#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>, <a href="Game.html#normalfont">Game.NormalFont</a>, <a href="Game.html#speechfont">Game.SpeechFont</a>, <a href="Game.html#gettextheight">GetTextHeight</a>, <a href="Game.html#gettextwidth">GetTextWidth</a>, <a href="Label.html#font">Label.Font</a>, <a href="ListBox.html#font">ListBox.Font</a>, <a href="TextBox.html#font">TextBox.Font</a>, <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#settext">Overlay.SetText</a></p>
+<p>The FontType enumeration is generated automatically based on your fonts. The font name is taken, all its spaces are removed, and <em>eFont</em> is added to the front.<br> <em>Used by:</em> <a href="Button.html#font">Button.Font</a>, <a href="DrawingSurfaceFunctions.html#drawmessagewrapped">DrawingSurface.DrawMessageWrapped</a>, <a href="DrawingSurfaceFunctions.html#drawstring">DrawingSurface.DrawString</a>, <a href="DrawingSurfaceFunctions.html#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>, <a href="Game.html#normalfont">Game.NormalFont</a>, <a href="Game.html#speechfont">Game.SpeechFont</a>, <a href="Globalfunctions_General.html#gettextheight">GetTextHeight</a>, <a href="Globalfunctions_General.html#gettextwidth">GetTextWidth</a>, <a href="Label.html#font">Label.Font</a>, <a href="ListBox.html#font">ListBox.Font</a>, <a href="TextBox.html#font">TextBox.Font</a>, <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#settext">Overlay.SetText</a></p>
 <pre><code>enum LocationType {
   eLocationNothing,
   eLocationHotspot,
@@ -270,7 +270,7 @@
   eLocationObject
 };
 </code></pre>
-<p><em>Returned by:</em> <a href="Game.html#getlocationtype">GetLocationType</a></p>
+<p><em>Returned by:</em> <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
 <pre><code>enum FileMode {
   eFileRead,
   eFileWrite,
@@ -319,6 +319,20 @@
 };
 </code></pre>
 <p><em>Used by:</em> <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioClip.html#playfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#playqueued">AudioClip.PlayQueued</a></p>
+<pre><code>enum StringCompareStyle {
+  eCaseInsensitive = 0,
+  eCaseSensitive = 1
+};
+</code></pre>
+<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
+<p><em>Used by:</em> <a href="Dictionary.html#create">Dictionary.Create</a>, <a href="Set.html#create">Set.Create</a>, <a href="String.html#compareto">String.CompareTo</a>, <a href="String.html#endswith">String.EndsWith</a>, <a href="String.html#replace">String.Replace</a>, <a href="String.html#startswith">String.StartsWith</a></p>
+<pre><code>enum SortStyle {
+  eNonSorted = 0,
+  eSorted = 1
+};
+</code></pre>
+<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
+<p><em>Used by:</em> <a href="Dictionary.html#create">Dictionary.Create</a>, <a href="Set.html#create">Set.Create</a></p>
 </section>
         </div>
       </div>
@@ -328,7 +342,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:30 PM</p>
+      <p>Build: 09/15/2019 11:56:57 PM</p>
     </section>
   </footer>
 

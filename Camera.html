@@ -82,8 +82,8 @@
 <li><a href="#setat"><span>SetAt</span></a></li>
 <li><a href="#setsize"><span>SetSize</span></a></li>
 <li><a href="#autotracking"><span>AutoTracking</span></a></li>
-<li><a href="#width"><span>Width</span></a></li>
 <li><a href="#height"><span>Height</span></a></li>
+<li><a href="#width"><span>Width</span></a></li>
 <li><a href="#x"><span>X</span></a></li>
 <li><a href="#y"><span>Y</span></a></li>
 </ul></li>
@@ -93,76 +93,87 @@
         <div class="column column-75">
 <section id="camera-functions-and-properties" class="level2">
 <h2><a href="#camera-functions-and-properties">Camera functions and properties</a></h2>
+<p>Camera struct lets you manage room cameras. Camera is like a rectangular "eye" that floats above the room and captures what it sees. Captured camera's image may then be translated somewhere else. Right now AGS only supports drawing camera's contents over viewport on screen, but its uses may be extended in future.</p>
+<p>Camera is defined by its size and position inside the room. The larger camera's rectangle is - the more room space will be seen at once. Camera cannot be larger than the current room's background though. Also it is forbidden to move camera outside of the room background, even by a pixel.</p>
+<p>There's always at least one camera called "primary camera", and you may create more. Note that, although cameras display the room, in their current implementation they are considered global persistent objects and automatically change rooms with player's character.</p>
+<p>Cameras are linked to the viewports using <a href="Viewport.html#camera">Viewport.Camera</a> property. A camera may be thus linked to any number of different viewports, in which case they all will display same place in the room.</p>
+<p>By default camera's size is set equal to room background or game screen size, whatever is <em>smaller</em>, but you may change that anytime. When camera is linked to a viewport the camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling). If the camera is larger than the viewport that would work as a zoom-out (scale down). If the camera is smaller than the viewport that would work as a zoom-in (scale up).</p>
+<p>By default camera follows player character, this is called "auto-tracking". You may override this by disabling <a href="Camera.html#autotracking">Camera.AutoTracking</a> property.</p>
+<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport to whole screen and adjusts the camera to the same size (or at least the size of room background) each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize cameras yourself standard behavior may be disabled using <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
+<p><em>Compatibility:</em> Camera struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<hr />
 <section id="create" class="level3">
 <h3><a href="#create">Create</a></h3>
-<pre><code>static Camera *Create();
+<pre><code>static Camera* Camera.Create();
 </code></pre>
-<p>Creates a new Camera.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#delete">Camera.Delete</a></p>
+<p>Creates a new camera and returns a pointer which you may use to operate it. Any camera created like this may be also accessed by <a href="Game.html#cameras">Game.Cameras</a> by index. The new camera will by default be located at the room's (0, 0) and assigned a size of game screen or room background, whatever is <em>smaller</em>. It will also be autotracking. You may change any of its properties later.</p>
+<p><em>See Also:</em> <a href="Camera.html#delete">Camera.Delete</a>, <a href="Game.html#camera">Game.Camera</a>, <a href="Game.html#cameras">Game.Cameras</a>, <a href="Viewport.html#camera">Viewport.Camera</a></p>
+<hr />
 </section>
 <section id="delete" class="level3">
 <h3><a href="#delete">Delete</a></h3>
-<pre><code>void Delete();
+<pre><code>void Camera.Delete();
 </code></pre>
-<p>Removes an existing camera; note that primary camera will never be removed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a></p>
+<p>Removes an existing camera. Primary camera can be never removed and this command issued for the primary camera will be ignored.</p>
+<p><strong>IMPORTANT:</strong> in <strong>Game.Cameras</strong> array cameras are arranged in the order they were created. When you delete one in the middle all the following cameras will be shifted towards beginning of array.</p>
+<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a>, <a href="Game.html#camera">Game.Camera</a>, <a href="Game.html#cameras">Game.Cameras</a></p>
+<hr />
 </section>
 <section id="setat" class="level3">
 <h3><a href="#setat">SetAt</a></h3>
-<pre><code>void SetAt(int x, int y);
+<pre><code>void Camera.SetAt(int x, int y);
 </code></pre>
 <p>Changes camera position in the room and disables automatic tracking of the player character.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#setsize">Camera.SetSize</a></p>
+<p><em>See Also:</em> <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#autotracking">Camera.AutoTracking</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<hr />
 </section>
 <section id="setsize" class="level3">
 <h3><a href="#setsize">SetSize</a></h3>
-<pre><code>void SetSize(int width, int height);
+<pre><code>void Camera.SetSize(int width, int height);
 </code></pre>
 <p>Changes camera's capture dimensions in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a></p>
+<p>If the camera's size is larger than the viewport it is drawn in then the room will be scaled down (zoom-out effect), if camera is smaller than the viewport then the room will be scaled up (zoom-in effect).</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<hr />
 </section>
 <section id="autotracking" class="level3">
 <h3><a href="#autotracking">AutoTracking</a></h3>
-<pre><code>attribute bool AutoTracking;
+<pre><code>bool Camera.AutoTracking;
 </code></pre>
-<p>Gets/sets whether this camera will follow the player character automatically.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-</section>
-<section id="width" class="level3">
-<h3><a href="#width">Width</a></h3>
-<pre><code>attribute int Camera.Width;
-</code></pre>
-<p>Gets/sets the camera's capture width in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#height">Camera.Height</a></p>
+<p>Gets/sets whether this camera will follow the player character automatically. Otherwise camera retains its position until you change it in script or turn tracking back on.</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a></p>
+<hr />
 </section>
 <section id="height" class="level3">
 <h3><a href="#height">Height</a></h3>
-<pre><code>attribute int Camera.Height;
+<pre><code>int Camera.Height;
 </code></pre>
 <p>Gets/sets the camera's capture height in room coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#width">Camera.Width</a></p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a></p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3><a href="#width">Width</a></h3>
+<pre><code>int Camera.Width;
+</code></pre>
+<p>Gets/sets the camera's capture width in room coordinates.</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<hr />
 </section>
 <section id="x" class="level3">
 <h3><a href="#x">X</a></h3>
-<pre><code>static int Camera.X;
+<pre><code>int Camera.X;
 </code></pre>
-<p>Gets/sets the X position of this camera in the room.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#y">Camera.Y</a></p>
+<p>Gets/sets the X position of this camera in the room. If you assign new value that will disable automatic tracking.</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#autotracking">Camera.AutoTracking</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<hr />
 </section>
 <section id="y" class="level3">
 <h3><a href="#y">Y</a></h3>
-<pre><code>static int Camera.Y;
+<pre><code>int Camera.Y;
 </code></pre>
-<p>Gets/sets the Y position of this camera in the room.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#x">Camera.X</a></p>
+<p>Gets/sets the Y position of this camera in the room. If you assign new value that will disable automatic tracking.</p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#autotracking">Camera.AutoTracking</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a></p>
 </section>
 </section>
         </div>
@@ -173,7 +184,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:34 PM</p>
+      <p>Build: 09/15/2019 11:57:02 PM</p>
     </section>
   </footer>
 

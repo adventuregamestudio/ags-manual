@@ -444,14 +444,14 @@ sprite.SaveToFile(&quot;RotatedAvatar.bmp&quot;);
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise, then save the result back to the disk.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#createfromfile">DynamicSprite.CreateFromFile</a>, <a href="Game.html#savescreenshot">SaveScreenShot</a></p>
+<p><em>See Also:</em> <a href="DynamicSprite.html#createfromfile">DynamicSprite.CreateFromFile</a>, <a href="Globalfunctions_General.html#savescreenshot">SaveScreenShot</a></p>
 <hr />
 </section>
 <section id="tint" class="level3">
 <h3><a href="#tint">Tint</a></h3>
 <pre><code>DynamicSprite.Tint(int red, int green, int blue, int saturation, int luminance)
 </code></pre>
-<p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent saturation. For the meaning of all the parameters, see <a href="Game.html#setambienttint">SetAmbientTint</a>.</p>
+<p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent saturation. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function is permanent for the dynamic sprite -- after the tint has been set, it is not possible to remove it. If you call Tint again with different parameters, it will apply the new tint to the already tinted sprite from the first call.</p>
 <p><strong>NOTE:</strong> This function only works with hi-colour sprites.</p>
 <p>Example:</p>
@@ -463,7 +463,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a copy of object 0's sprite, tints it red, and draws it onto the room background.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#flip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#height">DynamicSprite.Height</a>, <a href="DynamicSprite.html#width">DynamicSprite.Width</a>, <a href="Game.html#setambienttint">SetAmbientTint</a></p>
+<p><em>See Also:</em> <a href="DynamicSprite.html#flip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#height">DynamicSprite.Height</a>, <a href="DynamicSprite.html#width">DynamicSprite.Width</a>, <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a></p>
 <hr />
 </section>
 <section id="colordepth" class="level3">
@@ -538,7 +538,7 @@ if (sprite != null) {
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:36 PM</p>
+      <p>Build: 09/15/2019 11:57:04 PM</p>
     </section>
   </footer>
 

@@ -301,7 +301,7 @@ object[1].RemoveTint();
   Display(&quot;interacting with this door would not do anything.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Object.html#runinteraction">Object.RunInteraction</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Object.html#runinteraction">Object.RunInteraction</a></p>
 <hr />
 </section>
 <section id="runinteraction" class="level3">
@@ -332,7 +332,7 @@ object[1].RemoveTint();
 </code></pre>
 <p>This will give the lamp maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#tint">Object.Tint</a>, <a href="Game.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Character.html#setlightlevel">Character.SetLightLevel</a>, <a href="Region.html#lightlevel">Region.LightLevel</a></p>
+<p><em>See Also:</em> <a href="Object.html#tint">Object.Tint</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Character.html#setlightlevel">Character.SetLightLevel</a>, <a href="Region.html#lightlevel">Region.LightLevel</a></p>
 <hr />
 </section>
 <section id="setposition" class="level3">
@@ -401,7 +401,7 @@ object[1].SetView(5, 2, 0);
             int saturation, int luminance)
 </code></pre>
 <p>Tints the object on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
-<p>This function applies a tint to a specific object. For the meaning of all the parameters, see <a href="Game.html#setambienttint">SetAmbientTint</a>.</p>
+<p>This function applies a tint to a specific object. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the object (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient tint for this object, call <a href="Object.html#removetint">RemoveTint</a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour sprites.</p>
@@ -409,7 +409,7 @@ object[1].SetView(5, 2, 0);
 <pre><code>object[1].Tint(0, 250, 0, 30, 100);
 </code></pre>
 <p>will tint object 1 green.</p>
-<p><em>See Also:</em> <a href="Object.html#removetint">Object.RemoveTint</a>, <a href="Game.html#setambienttint">SetAmbientTint</a></p>
+<p><em>See Also:</em> <a href="Object.html#removetint">Object.RemoveTint</a>, <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a></p>
 <hr />
 </section>
 <section id="animating" class="level3">
@@ -518,7 +518,7 @@ while (object[2].Animating) Wait(1);
 <pre><code>readonly bool Object.HasExplicitTint
 </code></pre>
 <p>Returns <em>true</em> if the object has a light set explicitly with the <a href="Object.html#setlightlevel">Object.SetLightLevel</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit light level, but it may still be lighted by <a href="Game.html#setambientlightlevel">SetAmbientLightLevel</a> or a region light.</p>
+<p>Returns <em>false</em> if the object has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a> or a region light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
 <p><em>SeeAlso:</em> <a href="Object.html#setlightlevel">Object.SetLightLevel</a></p>
 <hr />
@@ -528,7 +528,7 @@ while (object[2].Animating) Wait(1);
 <pre><code>readonly bool Object.HasExplicitTint
 </code></pre>
 <p>Returns <em>true</em> if the object has a tint set explicitly with the <a href="Object.html#tint">Object.Tint</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit tint, but it may still be tinted by <a href="Game.html#setambienttint">SetAmbientTint</a> or a region tint.</p>
+<p>Returns <em>false</em> if the object has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a> or a region tint.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
 <p><em>SeeAlso:</em> <a href="Object.html#tint">Object.Tint</a>, <a href="Object.html#removetint">Object.RemoveTint</a></p>
 <hr />
@@ -579,7 +579,7 @@ while (object[2].Animating) Wait(1);
 <p>If the object has an individual light set explicitly with the <a href="Object.html#setlightlevel">Object.SetLightLevel</a> command, this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns 0 even if the object is affected by the ambient or region's light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Object.html#setlightlevel">Object.SetLightLevel</a>, <a href="Game.html#setambientlightlevel">SetAmbientLightLevel</a>,</p>
+<p><em>SeeAlso:</em> <a href="Object.html#setlightlevel">Object.SetLightLevel</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>,</p>
 <hr />
 </section>
 <section id="loop" class="level3">
@@ -778,7 +778,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:31 PM</p>
+      <p>Build: 09/15/2019 11:56:59 PM</p>
     </section>
   </footer>
 

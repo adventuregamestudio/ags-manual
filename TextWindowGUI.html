@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Getting Started in AGS</title>
+  <title>TextWindowGUI functions and properties</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,77 +76,47 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#adventure-game-studio">Adventure Game Studio</a><ul>
-<li><a href="#getting-started-in-ags"><span>Getting Started in AGS</span></a></li>
-<li><a href="#editor-reference"><span>Editor Reference</span></a></li>
-<li><a href="#engine"><span>Engine</span></a></li>
-<li><a href="#scripting"><span>Scripting</span></a></li>
-<li><a href="#working-on-legacy-games"><span>Working on Legacy games</span></a></li>
-<li><a href="#legal-notice"><span>Legal Notice</span></a></li>
-<li><a href="#getting-in-touch"><span>Getting in touch</span></a></li>
+<li><a href="#textwindowgui-functions-and-properties"><span>TextWindowGUI functions and properties</span></a><ul>
+<li><a href="#textcolor"><span>TextColor</span></a></li>
+<li><a href="#textpadding"><span>TextPadding</span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
-<section id="adventure-game-studio" class="level1">
-<h1>Adventure Game Studio</h1>
-<p><em>by Chris Jones et al.</em></p>
-<section id="getting-started-in-ags" class="level2">
-<h2><a href="#getting-started-in-ags">Getting Started in AGS</a></h2>
-<ul>
-<li><a href="Introduction.html">Introduction</a></li>
-<li><a href="FAQ.html">Frequently Asked Questions</a></li>
-<li><a href="Tutorial.html">Tutorial</a></li>
-</ul>
+<section id="textwindowgui-functions-and-properties" class="level2">
+<h2><a href="#textwindowgui-functions-and-properties">TextWindowGUI functions and properties</a></h2>
+<p>This struct extends the GUI struct, so it has all functions and properties from <a href="GUI.html">GUI</a>, in addition to the properties below.</p>
+<hr />
+<section id="textcolor" class="level3">
+<h3><a href="#textcolor">TextColor</a></h3>
+<pre><code>attribute int TextWindowGUI.TextColor
+</code></pre>
+<p>Gets/sets the text color to be used when rendering text on this TextWindowGUI.</p>
+<p>Example:</p>
+<pre><code>// a say function with character text color
+function MySay(this Character*, const string message,  ...) {
+  gTextGui.AsTextWindow.TextColor = this.SpeechColor;
+  this.Say(message,  ...);
+}
+
+// later on, supposed gTextGui is our default TextGUI
+cEgo.MySay(&quot;My text has my colors!&quot;);
+</code></pre>
+<p><em>See Also:</em> <a href="TextWindowGUI.html#textpadding">TextWindowGUI.TextPadding</a></p>
+<hr />
 </section>
-<section id="editor-reference" class="level2">
-<h2><a href="#editor-reference">Editor Reference</a></h2>
-<ul>
-<li><a href="EditorRoom.html">Room Editor</a></li>
-<li><a href="EditorCharacter.html">Character Editor</a></li>
-<li><a href="EditingGUIs.html">GUI Editor</a></li>
-<li><a href="EditorSprite.html">Sprite Manager</a></li>
-<li><a href="EditorView.html">View Editor</a></li>
-<li><a href="EditorInventoryItems.html">Inventory Items Editor</a></li>
-<li><a href="OtherFeatures.html">Other Features</a></li>
-</ul>
-</section>
-<section id="engine" class="level2">
-<h2><a href="#engine">Engine</a></h2>
-<ul>
-<li><a href="RuntimeEngine.html">The run-time engine</a></li>
-<li><a href="GraphicsDriver.html">Graphics driver selection</a></li>
-<li><a href="Setup.html">Engine Setup Program</a></li>
-</ul>
-</section>
-<section id="scripting" class="level2">
-<h2><a href="#scripting">Scripting</a></h2>
-<ul>
-<li><a href="ScriptingLanguage.html">Scripting Language</a></li>
-<li><a href="Scripting.html">Scripting Api</a></li>
-<li><a href="Reference.html">Reference</a></li>
-</ul>
-</section>
-<section id="working-on-legacy-games" class="level2">
-<h2><a href="#working-on-legacy-games">Working on Legacy games</a></h2>
-<ul>
-<li><a href="UpgradingFromPreviousVersion.html">Upgrading from a previous version</a></li>
-</ul>
-</section>
-<section id="legal-notice" class="level2">
-<h2><a href="#legal-notice">Legal Notice</a></h2>
-<ul>
-<li><a href="Copyright.html">Copyright and terms of use</a></li>
-<li><a href="AnonymousUsageInfo.html">Anonymous usage information</a></li>
-<li><a href="Credits.html">Credits</a></li>
-</ul>
-</section>
-<section id="getting-in-touch" class="level2">
-<h2><a href="#getting-in-touch">Getting in touch</a></h2>
-<ul>
-<li><a href="ContactingTheDevelopers.html">Contacting the developers</a></li>
-</ul>
+<section id="textpadding" class="level3">
+<h3><a href="#textpadding">TextPadding</a></h3>
+<pre><code>attribute int TextWindowGUI.TextPadding
+</code></pre>
+<p>Gets/sets the amount of padding, in pixels, surrounding the text in the TextWindow.</p>
+<p>Example:</p>
+<pre><code>// gDisplayTextGui.ID is set in the Editor as the Display GUI in General Settings
+gDisplayTextGui.AsTextWindow.TextPadding = 8;
+Display(&quot;This text has more padding&quot;);
+</code></pre>
+<p><em>See Also:</em> <a href="TextWindowGUI.html#textcolor">TextWindowGUI.TextColor</a></p>
 </section>
 </section>
         </div>
@@ -157,7 +127,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/15/2019 11:57:04 PM</p>
+      <p>Build: 09/15/2019 11:57:01 PM</p>
     </section>
   </footer>
 

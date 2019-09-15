@@ -101,7 +101,7 @@
 <p><img src="images/intro3_1.jpg" alt="I&#39;ve drawn four types of hotspot onto my screen" /></p>
 <p>Once you've drawn a hotspot, there are two other fields to set:</p>
 <ul>
-<li><p><em>The hotspot's description</em>. This sets a player-friendly name for the hotspot, which is vital if you are going to use a Lucasarts-style interface where the player can move the mouse over the screen to see what's where. If you're using a Sierra-style interface then this name will never be displayed to the player, but it's useful to fill it in anyway for your own benefit. By default this is "Hotspot 1", "Hotspot 2", etc.</p></li>
+<li><p><em>The hotspot's description</em>. This sets a player-friendly name for the hotspot, which is vital if you are going to use a LucasArts-style interface where the player can move the mouse over the screen to see what's where. If you're using a Sierra-style interface then this name will never be displayed to the player, but it's useful to fill it in anyway for your own benefit. By default this is "Hotspot 1", "Hotspot 2", etc.</p></li>
 <li><p><em>The hotspot's Name:</em> This is a name by which the hotspot can be referred to in the room script. This name cannot have any spaces or special characters -- just the letters <em>a</em> to <em>z</em>. The convention in AGS is to start the script names for hotspots with an <em>h</em>, for example <em>hDoor</em>. The name must be unique within the room.</p></li>
 </ul>
 <p><img src="images/icon_info.gif" /></p>
@@ -118,13 +118,13 @@
 <p>So, you're now in the script editor. It all looks a bit bare and intimidating, but you should have something like this:</p>
 <p><img src="images/intro3_4.jpg" alt="Script editor after adding a hotspot event" /></p>
 <p>The "<em>function hDoor_Look</em>" line defines that the script underneath will be run when this event occurs. In AGS, the curly brackets { and } are used to mark the start and end of a block of script. Anything that you type in between them will be run as part of this event.</p>
-<p>There's a seperate tutorial giving you an introduction to the scripting language, so I won't attempt to explain it here. But we can start with something very simple, using the <em>Display</em> command, which displays a message to the player. Type in something like this:</p>
+<p>There's a separate tutorial giving you an introduction to the scripting language, so I won't attempt to explain it here. But we can start with something very simple, using the <em>Display</em> command, which displays a message to the player. Type in something like this:</p>
 <p><img src="images/intro3_5.jpg" alt="A simple script" /></p>
 <p>Once you're done, click on the "Room 1" tab to return to the main room editor</p>
 </section>
 <section id="walk-to-points" class="level4">
 <h4>Walk-to points</h4>
-<p>Ok, since we're back editing hotspots, let me quickly explain the "Walk-to point" option in the property grid. This allows you to set a position for each hotspot that the character will walk to whenever the player interacts with the hotspot - just like the way the Lucasarts games like Monkey Island worked.</p>
+<p>Ok, since we're back editing hotspots, let me quickly explain the "Walk-to point" option in the property grid. This allows you to set a position for each hotspot that the character will walk to whenever the player interacts with the hotspot - just like the way the LucasArts games like Monkey Island worked.</p>
 <p>If you set a walk-to point, then whenever the player clicks interact or talk on the hotspot, the main character will first walk to the walk-to point before the relevant event is triggered. If you want, the character can also walk there when the LOOK mode is used - this option is configurable in the game General Settings pane.</p>
 <p>To remove a walk-to point, simply set it to 0,0.</p>
 </section>
@@ -147,7 +147,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:27 PM</p>
+      <p>Build: 09/15/2019 11:56:54 PM</p>
     </section>
   </footer>
 

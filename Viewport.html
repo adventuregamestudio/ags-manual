@@ -80,14 +80,14 @@
 <li><a href="#create"><span>Create</span></a></li>
 <li><a href="#delete"><span>Delete</span></a></li>
 <li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
+<li><a href="#roomtoscreenpoint"><span>RoomToScreenPoint</span></a></li>
 <li><a href="#setposition"><span>SetPosition</span></a></li>
 <li><a href="#screentoroompoint"><span>ScreenToRoomPoint</span></a></li>
-<li><a href="#roomtoscreenpoint"><span>RoomToScreenPoint</span></a></li>
+<li><a href="#camera"><span>Camera</span></a></li>
+<li><a href="#height"><span>Height</span></a></li>
 <li><a href="#zorder"><span>ZOrder</span></a></li>
 <li><a href="#visible"><span>Visible</span></a></li>
-<li><a href="#camera"><span>Camera</span></a></li>
 <li><a href="#width"><span>Width</span></a></li>
-<li><a href="#height"><span>Height</span></a></li>
 <li><a href="#x"><span>X</span></a></li>
 <li><a href="#y"><span>Y</span></a></li>
 </ul></li>
@@ -97,106 +97,134 @@
         <div class="column column-75">
 <section id="viewport-functions-and-properties" class="level2">
 <h2><a href="#viewport-functions-and-properties">Viewport functions and properties</a></h2>
+<p>Viewport struct lets you manage screen viewports. You may think of them as of "windows" through which player sees the current room. Viewport is defined by its position on the game screen, in screen coordinates, and has linked Camera which contents it displays.</p>
+<p>There's always at least one viewport called "primary viewport", and you may create more. Viewport has a link to camera, and same camera may be linked to multiple viewports at once. If no camera is linked then viewport is not displayed at all. Viewports are allowed to go partially or fully offscreen, which may be useful to create transition effects, for instance. Viewports may overlap, in which case their order of display is defined by <a href="Viewport.html#zorder">ZOrder</a> property.</p>
+<p>By default viewport covers whole game screen, but you may change that anytime. Camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling). If the camera is larger than the viewport that would work as a zoom-out (scale down). If the camera is smaller than the viewport that would work as a zoom-in (scale up).</p>
+<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport to whole screen and adjusts the camera to the same size (or at least the size of room background) each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize viewports yourself standard behavior may be disabled using <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
+<p><em>Compatibility:</em> Viewport struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Camera.html">Camera</a>, <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a>, <a href="Screen.html#viewport">Screen.Viewport</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
+<hr />
 <section id="create" class="level3">
 <h3><a href="#create">Create</a></h3>
-<pre><code>static Viewport *Create();
+<pre><code>static Viewport* Viewport.Create()
 </code></pre>
-<p>Creates a new Viewport.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#delete">Viewport.Delete</a></p>
+<p>Creates a new viewport and returns a pointer which you may use to operate it. Any viewport created like this may be also accessed by <a href="Screen.html#viewports">Screen.Viewports</a> by index. The new viewport will cover whole game screen by default and does not have any camera linked initially (this is something that you will have to do).</p>
+<p><em>See Also:</em> <a href="Viewport.html#camera">Viewport.Camera</a>, <a href="Viewport.html#delete">Viewport.Delete</a>, <a href="Screen.html#viewport">Screen.Viewport</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
+<hr />
 </section>
 <section id="delete" class="level3">
 <h3><a href="#delete">Delete</a></h3>
-<pre><code>void Delete();
+<pre><code>void Viewport.Delete();
 </code></pre>
-<p>Removes an existing viewport; note that primary viewport will never be removed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a></p>
+<p>Removes an existing viewport. Primary viewport can be never removed and this command issued for the primary viewport will be ignored.</p>
+<p><strong>IMPORTANT:</strong> in <strong>Screen.Viewports</strong> array viewports are arranged in the order they were created. When you delete one in the middle all the following viewports will be shifted towards beginning of array.</p>
+<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a>, <a href="Screen.html#viewport">Screen.Viewport</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
+<hr />
 </section>
 <section id="getatscreenxy" class="level3">
 <h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
-<pre><code>static Viewport *GetAtScreenXY(int x, int y);
+<pre><code>static Viewport* Viewport.GetAtScreenXY(int x, int y)
 </code></pre>
-<p>Returns the viewport at the specified screen location.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#delete">Viewport.Delete</a>, <a href="Viewport.html#create">Viewport.Create</a></p>
-</section>
-<section id="setposition" class="level3">
-<h3><a href="#setposition">SetPosition</a></h3>
-<pre><code>void SetPosition(int x, int y, int width, int height);
-</code></pre>
-<p>Changes viewport's position on the screen.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-</section>
-<section id="screentoroompoint" class="level3">
-<h3><a href="#screentoroompoint">ScreenToRoomPoint</a></h3>
-<pre><code>Point *ScreenToRoomPoint(int scrx, int scry, bool clipViewport = true);
-</code></pre>
-<p>Returns the point in room corresponding to the given screen coordinates if seen through this viewport.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a></p>
+<p>Finds if there's any viewport at the specified screen coordinates and returns the topmost one. Hidden viewports will not be tested, but those without camera will still be. If no viewport found returns null.</p>
+<hr />
 </section>
 <section id="roomtoscreenpoint" class="level3">
 <h3><a href="#roomtoscreenpoint">RoomToScreenPoint</a></h3>
-<pre><code>Point *RoomToScreenPoint(int roomx, int roomy, bool clipViewport = true);
+<pre><code>Point* Viewport.RoomToScreenPoint(int roomx, int roomy, bool clipViewport = true);
 </code></pre>
-<p>Returns the point on screen corresponding to the given room coordinates if seen through this viewport.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a></p>
+<p>Returns the point on screen corresponding to the given room coordinates if seen through this viewport. Resulting Point struct will contain screen x and y coordinates.</p>
+<p>Function does the conversion from room to screen's coordinate system, correctly taking into account viewport's position on screen, camera's position in the room and its transformation (scaling etc).</p>
+<p>If <strong>clipViewport</strong> is true then this function will only return a point if given room coordinates are currently seen inside viewport and return null otherwise. If <strong>clipViewport</strong> is false then viewport's bounds will be ignored.</p>
+<p>Example:</p>
+<pre><code>Point* pt = myViewport.RoomToScreenPoint(player.x, player.y);
+if (pt != null) {
+  Display(&quot;Player character is displayed at (%d, %d) on screen.&quot;, pt.x, pt.y);
+} else {
+  Display(&quot;Player character is currently offscreen.&quot;);
+}
+</code></pre>
+<p><em>See Also:</em> <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Screen.html#roomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Screen.html#screentoroompoint">Screen.ScreenToRoomPoint</a></p>
+<hr />
 </section>
-<section id="zorder" class="level3">
-<h3><a href="#zorder">ZOrder</a></h3>
-<pre><code>attribute int ZOrder;
+<section id="setposition" class="level3">
+<h3><a href="#setposition">SetPosition</a></h3>
+<pre><code>void Viewport.SetPosition(int x, int y, int width, int height);
 </code></pre>
-<p>Gets/sets the Viewport's z-order relative to other viewports.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p>Changes viewport's position on the screen.</p>
+<p><em>See Also:</em> <a href="Viewport.html#x">Viewport.X</a>, <a href="Viewport.html#y">Viewport.Y</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a>, <a href="Viewport.html#zorder">Viewport.ZOrder</a></p>
+<hr />
 </section>
-<section id="visible" class="level3">
-<h3><a href="#visible">Visible</a></h3>
-<pre><code>attribute bool Visible;
+<section id="screentoroompoint" class="level3">
+<h3><a href="#screentoroompoint">ScreenToRoomPoint</a></h3>
+<pre><code>Point* Viewport.ScreenToRoomPoint(int scrx, int scry, bool clipViewport = true);
 </code></pre>
-<p>Gets/sets whether the viewport is drawn on screen.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p>Returns the point in room corresponding to the given screen coordinates if seen through this viewport. Resulting Point struct will contain room x and y coordinates.</p>
+<p>Function does the conversion from screen to room's coordinate system, correctly taking into account viewport's location on screen, camera's position in the room and its transformation (scaling etc).</p>
+<p>If <strong>clipViewport</strong> is true then this function will only return a point if given screen coordinates are over viewport and return null otherwise. If <strong>clipViewport</strong> is false then viewport's bounds will be ignored.</p>
+<p>Example:</p>
+<pre><code>Point* pt = myViewport.ScreenToRoomPoint(mouse.x, mouse.y);
+if (pt != null) {
+  Display(&quot;Mouse cursor is over room location: (%d, %d).&quot;, pt.x, pt.y);
+} else {
+  Display(&quot;Mouse cursor is currently outside the viewport.&quot;);
+}
+</code></pre>
+<p><em>See Also:</em> <a href="Viewport.html#screentoroompoint">Viewport.RoomToScreenPoint</a>, <a href="Screen.html#roomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Screen.html#screentoroompoint">Screen.ScreenToRoomPoint</a></p>
+<hr />
 </section>
 <section id="camera" class="level3">
 <h3><a href="#camera">Camera</a></h3>
-<pre><code>attribute Camera *Camera;
+<pre><code>Camera *Viewport.Camera;
 </code></pre>
-<p>Gets/sets the room camera displayed in this viewport.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a></p>
-</section>
-<section id="width" class="level3">
-<h3><a href="#width">Width</a></h3>
-<pre><code>attribute int Viewport.Width;
-</code></pre>
-<p>Gets/sets the viewport's width in screen coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#height">Viewport.Height</a></p>
+<p>Gets/sets the camera to be displayed in this viewport. Changing cameras is safe anytime, and the looks inside viewport will be changed during next drawing frame.</p>
+<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a>, <a href="Game.html#camera">Game.Camera</a>, <a href="Game.html#cameras">Game.Cameras</a></p>
+<hr />
 </section>
 <section id="height" class="level3">
 <h3><a href="#height">Height</a></h3>
-<pre><code>attribute int Viewport.Height;
+<pre><code>int Viewport.Height;
 </code></pre>
 <p>Gets/sets the viewport's height in screen coordinates.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#width">Viewport.Width</a></p>
+<p><em>See Also:</em> <a href="Viewport.html#setposition">Viewport.SetPosition</a>, <a href="Viewport.html#x">Viewport.X</a>, <a href="Viewport.html#y">Viewport.Y</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#zorder">Viewport.ZOrder</a></p>
+<hr />
+</section>
+<section id="zorder" class="level3">
+<h3><a href="#zorder">ZOrder</a></h3>
+<pre><code>int Viewport.ZOrder;
+</code></pre>
+<p>Gets/sets the viewport's z-order relative to other viewports. This will be taken into account if multiple viewports overlap.</p>
+<p><em>See Also:</em> <a href="Viewport.html#setposition">Viewport.SetPosition</a>, <a href="Viewport.html#x">Viewport.X</a>, <a href="Viewport.html#y">Viewport.Y</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a></p>
+<hr />
+</section>
+<section id="visible" class="level3">
+<h3><a href="#visible">Visible</a></h3>
+<pre><code>bool Viewport.Visible;
+</code></pre>
+<p>Gets/sets whether the viewport is enabled and drawn on screen.</p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3><a href="#width">Width</a></h3>
+<pre><code>int Viewport.Width;
+</code></pre>
+<p>Gets/sets the viewport's width in screen coordinates.</p>
+<p><em>See Also:</em> <a href="Viewport.html#setposition">Viewport.SetPosition</a>, <a href="Viewport.html#x">Viewport.X</a>, <a href="Viewport.html#y">Viewport.Y</a>, <a href="Viewport.html#height">Viewport.Height</a>, <a href="Viewport.html#zorder">Viewport.ZOrder</a></p>
+<hr />
 </section>
 <section id="x" class="level3">
 <h3><a href="#x">X</a></h3>
-<pre><code>static int Viewport.X;
+<pre><code>int Viewport.X;
 </code></pre>
 <p>Gets/sets the X position on the screen where this viewport is located.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#y">Viewport.Y</a></p>
+<p><em>See Also:</em> <a href="Viewport.html#setposition">Viewport.SetPosition</a>, <a href="Viewport.html#y">Viewport.Y</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a>, <a href="Viewport.html#zorder">Viewport.ZOrder</a></p>
+<hr />
 </section>
 <section id="y" class="level3">
 <h3><a href="#y">Y</a></h3>
-<pre><code>static int Viewport.Y;
+<pre><code>int Viewport.Y;
 </code></pre>
 <p>Gets/sets the Y position on the screen where this viewport is located.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Viewport.html#x">Viewport.X</a></p>
+<p><em>See Also:</em> <a href="Viewport.html#setposition">Viewport.SetPosition</a>, <a href="Viewport.html#x">Viewport.X</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a>, <a href="Viewport.html#zorder">Viewport.ZOrder</a></p>
 </section>
 </section>
         </div>
@@ -207,7 +235,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:28 PM</p>
+      <p>Build: 09/15/2019 11:56:56 PM</p>
     </section>
   </footer>
 

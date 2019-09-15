@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Message functions</title>
+  <title>Global functions: Message Display</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,7 +76,7 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#message-functions"><span>Message functions</span></a><ul>
+<li><a href="#global-functions-message-display"><span>Global functions: Message Display</span></a><ul>
 <li><a href="#display"><span>Display</span></a></li>
 <li><a href="#displayat"><span>DisplayAt</span></a></li>
 <li><a href="#displayaty"><span>DisplayAtY</span></a></li>
@@ -88,8 +88,8 @@
           </nav>
         </div>
         <div class="column column-75">
-<section id="message-functions" class="level2">
-<h2><a href="#message-functions">Message functions</a></h2>
+<section id="global-functions-message-display" class="level2">
+<h2><a href="#global-functions-message-display">Global functions: Message Display</a></h2>
 <section id="display" class="level3">
 <h3><a href="#display">Display</a></h3>
 <pre><code>Display (string message, ...)
@@ -102,7 +102,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 </code></pre>
 <p>will replace the '<code>%d</code>' with the value of the variable "my_counter".</p>
 <p>NOTE: Display is a blocking function - that is, control will not return to the script until the player has removed the text window (by pressing a key or clicking the mouse). While the window is displayed, all other processing, like animations and interface display, are disabled. This is usually used for responses to the player LOOKing at things.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#displayat">DisplayAt</a>, <a href="MessageFunctions.html#displaymessage">DisplayMessage</a>, <a href="Character.html#say">Character.Say</a>, <a href="MessageFunctions.html#displaytopbar">DisplayTopBar</a>, <a href="String.html#format">String.Format</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#displayat">DisplayAt</a>, <a href="Globalfunctions_Message.html#displaymessage">DisplayMessage</a>, <a href="Character.html#say">Character.Say</a>, <a href="Globalfunctions_Message.html#displaytopbar">DisplayTopBar</a>, <a href="String.html#format">String.Format</a></p>
 <hr />
 </section>
 <section id="displayat" class="level3">
@@ -117,7 +117,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 <pre><code>DisplayAt (50,50,100, &quot;This is a message&quot;);
 </code></pre>
 <p>will display the message at coordinates 50,50 in a box 100 pixels wide.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#display">Display</a>, <a href="MessageFunctions.html#displayaty">DisplayAtY</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayaty">DisplayAtY</a></p>
 <hr />
 </section>
 <section id="displayaty" class="level3">
@@ -129,7 +129,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 <pre><code>DisplayAt (50, &quot;This is a message&quot;);
 </code></pre>
 <p>will display the message at y coordinate 50.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#display">Display</a>, <a href="MessageFunctions.html#displayat">DisplayAt</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayat">DisplayAt</a></p>
 <hr />
 </section>
 <section id="displaymessage" class="level3">
@@ -141,7 +141,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 <pre><code>DisplayMessage(220);
 </code></pre>
 <p>will display the message 220 of the Room message editor.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#display">Display</a>, <a href="MessageFunctions.html#displaymessageaty">DisplayMessageAtY</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displaymessageaty">DisplayMessageAtY</a></p>
 <hr />
 </section>
 <section id="displaymessageaty" class="level3">
@@ -154,7 +154,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 <pre><code>DisplayMessageAtY(527, 200);
 </code></pre>
 <p>will display global message 527, in the lower half of the screen.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#displayaty">DisplayAtY</a>, <a href="MessageFunctions.html#displaymessage">DisplayMessage</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#displayaty">DisplayAtY</a>, <a href="Globalfunctions_Message.html#displaymessage">DisplayMessage</a></p>
 <hr />
 </section>
 <section id="displaytopbar" class="level3">
@@ -172,8 +172,8 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 <p>Example:</p>
 <pre><code>DisplayTopBar(25, 8, 7, &quot;Evil wizard&quot;, &quot;Get out of my house and never return!&quot;);
 </code></pre>
-<p>will display "Get out of my house and never return!" in the message box, with the caption bar reading "Evil wizard". The message box will have dark grey text on a light gray background.</p>
-<p><em>See Also:</em> <a href="MessageFunctions.html#display">Display</a>, <a href="MessageFunctions.html#displayat">DisplayAt</a></p>
+<p>will display "Get out of my house and never return!" in the message box, with the caption bar reading "Evil wizard". The message box will have dark grey text on a light grey background.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Globalfunctions_Message.html#displayat">DisplayAt</a></p>
 </section>
 </section>
         </div>
@@ -184,7 +184,7 @@ Display (&quot;The counter is currently set to %d.&quot;, my_counter);
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:33 PM</p>
+      <p>Build: 09/15/2019 11:56:58 PM</p>
     </section>
   </footer>
 

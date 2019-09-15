@@ -83,12 +83,17 @@
 <li><a href="#processclick"><span>ProcessClick</span></a></li>
 <li><a href="#setposition"><span>SetPosition</span></a></li>
 <li><a href="#setsize"><span>SetSize</span></a></li>
+<li><a href="#astextwindow"><span>AsTextWindow</span></a></li>
+<li><a href="#backgroundcolor"><span>BackgroundColor</span></a></li>
+<li><a href="#bordercolor"><span>BorderColor</span></a></li>
 <li><a href="#backgroundgraphic"><span>BackgroundGraphic</span></a></li>
 <li><a href="#clickable"><span>Clickable</span></a></li>
 <li><a href="#controlcount"><span>ControlCount</span></a></li>
 <li><a href="#controls"><span>Controls</span></a></li>
 <li><a href="#height"><span>Height</span></a></li>
 <li><a href="#id"><span>ID</span></a></li>
+<li><a href="#popupstyle"><span>PopupStyle</span></a></li>
+<li><a href="#popupypos"><span>PopupYPos</span></a></li>
 <li><a href="#transparency"><span>Transparency</span></a></li>
 <li><a href="#visible"><span>Visible</span></a></li>
 <li><a href="#width"><span>Width</span></a></li>
@@ -195,6 +200,31 @@ else {
 <p><em>See Also:</em> <a href="GUI.html#centre">GUI.Centre</a>, <a href="GUI.html#height">GUI.Height</a>, <a href="GUIControl.html#setposition">GUIControl.SetPosition</a>, <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="GUI.html#width">GUI.Width</a></p>
 <hr />
 </section>
+<section id="astextwindow" class="level3">
+<h3><a href="#astextwindow">AsTextWindow</a></h3>
+<pre><code>readonly TextWindowGUI* AsTextWindow
+</code></pre>
+<p>If this GUI is a TextWindow, returns the TextWindowGUI interface; otherwise null.</p>
+<hr />
+</section>
+<section id="backgroundcolor" class="level3">
+<h3><a href="#backgroundcolor">BackgroundColor</a></h3>
+<pre><code>int  BackgroundColor
+</code></pre>
+<p>Gets/sets the background color. This property is ignored if the GUI has <code>BackgroundGraphic</code> different than 0.</p>
+<p>You can set <code>BackgroundColor</code> to 0 to remove it from the GUI.</p>
+<p><em>See Also:</em> <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUI.html#bordercolor">GUI.BorderColor</a></p>
+<hr />
+</section>
+<section id="bordercolor" class="level3">
+<h3><a href="#bordercolor">BorderColor</a></h3>
+<pre><code>int  BorderColor
+</code></pre>
+<p>Gets/sets the border color. Not applicable to TextWindow GUIs. This property is ignored if the GUI has <code>BackgroundGraphic</code> different than 0.</p>
+<p>You can set <code>BorderColor</code> to 0 to remove it from the GUI.</p>
+<p><em>See Also:</em> <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUI.html#backgroundcolor">GUI.BackgroundColor</a></p>
+<hr />
+</section>
 <section id="backgroundgraphic" class="level3">
 <h3><a href="#backgroundgraphic">BackgroundGraphic</a></h3>
 <p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
@@ -283,6 +313,22 @@ gIconbar.Clickable = false;
 <p><em>See Also:</em> <a href="GUIControl.html#id">GUIControl.ID</a></p>
 <hr />
 </section>
+<section id="popupstyle" class="level3">
+<h3><a href="#popupstyle">PopupStyle</a></h3>
+<pre><code>readonly GUIPopupStyle PopupStyle
+</code></pre>
+<p>Gets the style of GUI behavior on screen.</p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enums</a>, <a href="GUI.html#popupypos">GUI.PopupYPos</a></p>
+<hr />
+</section>
+<section id="popupypos" class="level3">
+<h3><a href="#popupypos">PopupYPos</a></h3>
+<pre><code>int  PopupYPos
+</code></pre>
+<p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style.</p>
+<p><em>See Also:</em> <a href="GUI.html#popupstyle">GUI.PopupStyle</a></p>
+<hr />
+</section>
 <section id="transparency" class="level3">
 <h3><a href="#transparency">Transparency</a></h3>
 <p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
@@ -319,7 +365,7 @@ while (trans &lt; 100) {
 <pre><code>gSettings.Visible = true;
 </code></pre>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a href="Game.html#isgamepaused">IsGamePaused</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#isgamepaused">IsGamePaused</a></p>
 <hr />
 </section>
 <section id="width" class="level3">
@@ -383,7 +429,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:30 PM</p>
+      <p>Build: 09/15/2019 11:56:58 PM</p>
     </section>
   </footer>
 

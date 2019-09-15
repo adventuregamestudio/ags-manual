@@ -79,15 +79,15 @@
 <li><a href="#dictionary-functions-and-properties"><span>Dictionary Functions and Properties</span></a><ul>
 <li><a href="#create"><span>Create</span></a></li>
 <li><a href="#clear"><span>Clear</span></a></li>
-<li><a href="#set"><span>Set</span></a></li>
 <li><a href="#contains"><span>Contains</span></a></li>
 <li><a href="#get"><span>Get</span></a></li>
-<li><a href="#remove"><span>Remove</span></a></li>
-<li><a href="#comparestyle"><span>CompareStyle</span></a></li>
-<li><a href="#sortstyle"><span>SortStyle</span></a></li>
-<li><a href="#itemcount"><span>ItemCount</span></a></li>
 <li><a href="#getkeysasarray"><span>GetKeysAsArray</span></a></li>
 <li><a href="#getvaluesasarray"><span>GetValuesAsArray</span></a></li>
+<li><a href="#remove"><span>Remove</span></a></li>
+<li><a href="#set"><span>Set</span></a></li>
+<li><a href="#comparestyle"><span>CompareStyle</span></a></li>
+<li><a href="#itemcount"><span>ItemCount</span></a></li>
+<li><a href="#sortstyle"><span>SortStyle</span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -95,37 +95,37 @@
         <div class="column column-75">
 <section id="dictionary-functions-and-properties" class="level2">
 <h2><a href="#dictionary-functions-and-properties">Dictionary Functions and Properties</a></h2>
+<p>Dictionary allows you to store key/value string pairs and look values up by a string key. In the dictionary key must be unique, but value does not have to be. This means that you may have same value assigned for multiple keys, but not same key with multiple values.</p>
+<p>Because of how dictionaries work internally, searching for a key in dictionary is faster than you'd search for it in a plain array. Its advantage increases with the number of items. They are also fast in adding and removing items dynamically.</p>
+<p>Dictionary has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
+<p><strong>Sort style</strong> defines whether items are stored sorted or unsorted. The unsorted containers are commonly somewhat faster to search in, but the items will be stored in an undefined order.</p>
+<p><strong>Compare style</strong> determines whether string keys are compared as case sensitive or case insensitive. For example, in case-sensitive dictionary strings "Parameter" and "parameter" will be seen as two different keys, but in case-insensitive they will be seen as identical. Compare style defines both key uniqueness and sorting.</p>
+<p>At the moment a dictionary itself does not let you see access all of its internal data at once directly, but has <a href="Dictionary.html#getkeysasarray">GetKeysAsArray</a> and <a href="Dictionary.html#getvaluesasarray">GetValuesAsArray</a> functions that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in these arrays will be matching one inside the dictionary, hence if the dictionary was sorted the array will be sorted as well.</p>
+<p>To summarize, dictionaries make convenient storage for key/value pairs. If you do not need pairs but rather a sequence of unique values - then look for <a href="Set.html">Set</a>.</p>
+<p><em>Compatibility:</em> Dictionary struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<hr />
 <section id="create" class="level3">
 <h3><a href="#create">Create</a></h3>
-<pre><code>Dictionary* Create(SortStyle sortStyle, StringCompareStyle compareStyle)
+<pre><code>static Dictionary* Dictionary.Create(SortStyle sortStyle, StringCompareStyle compareStyle)
 </code></pre>
-<p>Creates a new empty Dictionary of the given properties. If you don't pass any options, the Dirctionary is non sorted and case insensitive.</p>
+<p>Creates a new empty Dictionary of the given properties. If you don't pass any options the Dictionary is unsorted and case -insensitive. Note that you cannot change sorting style and case sensitivity later, you would have to create another Dictionary and move values there.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 </code></pre>
-<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
-<p><em>See Also:</em> <a href="Set.html#create">Set</a></p>
 <hr />
 </section>
 <section id="clear" class="level3">
 <h3><a href="#clear">Clear</a></h3>
-<pre><code>Clear()
+<pre><code>void Dictionary.Clear()
 </code></pre>
 <p>Removes all items from the dictionary.</p>
 <hr />
 </section>
-<section id="set" class="level3">
-<h3><a href="#set">Set</a></h3>
-<pre><code>bool Set(String key)
-</code></pre>
-<p>Assigns a value to the given key, adds this key if it did not exist yet.</p>
-<hr />
-</section>
 <section id="contains" class="level3">
 <h3><a href="#contains">Contains</a></h3>
-<pre><code>bool Contains(String key)
+<pre><code>bool Dictionary.Contains(String key)
 </code></pre>
-<p>Returns true if the key is in the dictionary.</p>
+<p>Returns true if the key is in the dictionary, otherwise - false.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 myDictionary.Set(&quot;my-key&quot;,&quot;my-value&quot;);
@@ -133,13 +133,13 @@ if(myDictionary.Contains(&quot;my-key&quot;)){
   Display(&quot;has my key!&quot;);
 }
 </code></pre>
-<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
-<p><em>See Also:</em> <a href="Dictionary.html#remove">Remove</a></p>
+<p>This will add "my-key" key, assign "my-value" to that key and then test whether that key was added successfully.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#get">Dictionary.Get</a>, <a href="Dictionary.html#set">Dictionary.Set</a></p>
 <hr />
 </section>
 <section id="get" class="level3">
 <h3><a href="#get">Get</a></h3>
-<pre><code>String Get(String key)
+<pre><code>String Dictionary.Get(String key)
 </code></pre>
 <p>Gets value by the key. Returns null if such key does not exist.</p>
 <p>Example:</p>
@@ -147,64 +147,81 @@ if(myDictionary.Contains(&quot;my-key&quot;)){
 myDictionary.Set(&quot;a-key&quot;,&quot;a-value&quot;);
 String myValue = myDictionary.Get(&quot;a-key&quot;);
 </code></pre>
-<hr />
-</section>
-<section id="remove" class="level3">
-<h3><a href="#remove">Remove</a></h3>
-<pre><code>bool Remove(String key)
-</code></pre>
-<p>Removes key/value pair from the dictionary, returns false if there was no such item.</p>
-<p><em>See Also:</em> <a href="Dictionary.html#set">Set</a></p>
-<hr />
-</section>
-<section id="comparestyle" class="level3">
-<h3><a href="#comparestyle">CompareStyle</a></h3>
-<pre><code>StringCompareStyle CompareStyle
-</code></pre>
-<p>Gets if this dictionary keys are case-sensitive.</p>
-<p><em>See Also:</em> <a href="Dictionary.html#sortstyle">SortStyle</a></p>
-<hr />
-</section>
-<section id="sortstyle" class="level3">
-<h3><a href="#sortstyle">SortStyle</a></h3>
-<pre><code>SortStyle SortStyle
-</code></pre>
-<p>Gets the method keys are arranged in this dictionary.</p>
-<p><em>See Also:</em> <a href="Dictionary.html#comparestyle">CompareStyle</a></p>
-<hr />
-</section>
-<section id="itemcount" class="level3">
-<h3><a href="#itemcount">ItemCount</a></h3>
-<pre><code>int ItemCount
-</code></pre>
-<p>Gets the number of key/value pairs currently in the dictionary.</p>
+<p>Here <em>myValue</em> variable will be assigned "a-value" from the dictionary.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#set">Dictionary.Set</a></p>
 <hr />
 </section>
 <section id="getkeysasarray" class="level3">
 <h3><a href="#getkeysasarray">GetKeysAsArray</a></h3>
-<pre><code>String[] GetKeysAsArray()
+<pre><code>String[] Dictionary.GetKeysAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with keys in same order as they are stored in the Dictionary.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
 myDictionary.Set(&quot;my-key2&quot;,&quot;my-value2&quot;);
-String* myDictionaryKeysAsArray = myDictionary.GetKeysAsArray();
+String keys[] = myDictionary.GetKeysAsArray();
+for (int i = 0; i &lt; myDictionary.ItemCount; i++)
+  Display(&quot;#%d: %s&quot;, i, keys[i]);
 </code></pre>
+<p>In the above example the keys will be displayed on screen one by one, preceded by their index.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#itemcount">Dictionary.ItemCount</a></p>
 <hr />
 </section>
 <section id="getvaluesasarray" class="level3">
 <h3><a href="#getvaluesasarray">GetValuesAsArray</a></h3>
-<pre><code>String[] GetValuesAsArray()
+<pre><code>String[] Dictionary.GetValuesAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with values in same order as they are stored in the Dictionary.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
 myDictionary.Set(&quot;my-key2&quot;,&quot;my-value2&quot;);
-String* myDictionaryValuesAsArray = myDictionary.GetValuesAsArray();
+String values[] = myDictionary.GetValuesAsArray();
+for (int i = 0; i &lt; myDictionary.ItemCount; i++)
+  Display(&quot;#%d: %s&quot;, i, values[i]);
 </code></pre>
+<p>In the above example the values will be displayed on screen one by one, preceded by their index.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#itemcount">Dictionary.ItemCount</a></p>
 <hr />
+</section>
+<section id="remove" class="level3">
+<h3><a href="#remove">Remove</a></h3>
+<pre><code>bool Dictionary.Remove(String key)
+</code></pre>
+<p>Removes key/value pair from the dictionary, returns true on success and false if there was no such key.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#set">Dictionary.Set</a></p>
+<hr />
+</section>
+<section id="set" class="level3">
+<h3><a href="#set">Set</a></h3>
+<pre><code>bool Dictionary.Set(String key, String value)
+</code></pre>
+<p>Assigns a value to the given key. If the key did not exist then it will be created, if there was such key already then old assigned value will be overwritten with a new one.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#get">Dictionary.Get</a>, <a href="Dictionary.html#remove">Dictionary.Remove</a></p>
+<hr />
+</section>
+<section id="comparestyle" class="level3">
+<h3><a href="#comparestyle">CompareStyle</a></h3>
+<pre><code>StringCompareStyle Dictionary.CompareStyle
+</code></pre>
+<p>Gets if this dictionary keys are case-sensitive.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#sortstyle">Dictionary.SortStyle</a></p>
+<hr />
+</section>
+<section id="itemcount" class="level3">
+<h3><a href="#itemcount">ItemCount</a></h3>
+<pre><code>int Dictionary.ItemCount
+</code></pre>
+<p>Gets the number of key/value pairs currently in the dictionary.</p>
+<hr />
+</section>
+<section id="sortstyle" class="level3">
+<h3><a href="#sortstyle">SortStyle</a></h3>
+<pre><code>SortStyle Dictionary.SortStyle
+</code></pre>
+<p>Gets the method keys are arranged in this dictionary.</p>
+<p><em>See Also:</em> <a href="Dictionary.html#comparestyle">Dictionary.CompareStyle</a></p>
 </section>
 </section>
         </div>
@@ -215,7 +232,7 @@ String* myDictionaryValuesAsArray = myDictionary.GetValuesAsArray();
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:31 PM</p>
+      <p>Build: 09/15/2019 11:56:59 PM</p>
     </section>
   </footer>
 

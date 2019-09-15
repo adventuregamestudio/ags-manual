@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Screen Functions and Properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#screen-functions-and-properties"><span>Screen Functions and Properties</span></a><ul>
+<li><a href="#screentoroompoint"><span>ScreenToRoomPoint</span></a></li>
+<li><a href="#roomtoscreenpoint"><span>RoomToScreenPoint</span></a></li>
+<li><a href="#width"><span>Width</span></a></li>
+<li><a href="#height"><span>Height</span></a></li>
+<li><a href="#autosizeviewportonroomload"><span>AutoSizeViewportOnRoomLoad</span></a></li>
+<li><a href="#viewport"><span>Viewport</span></a></li>
+<li><a href="#viewports"><span>Viewports</span></a></li>
+<li><a href="#viewportcount"><span>ViewportCount</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="screen-functions-and-properties" class="level2">
+<h2><a href="#screen-functions-and-properties">Screen Functions and Properties</a></h2>
+<p>Screen struct has properties where you can retrieve the current game resolution width and height, and also references to existing viewports. Additionally, screen provides convenience functions to help with point conversion between room and screen coordinates.</p>
+<hr />
+<section id="screentoroompoint" class="level3">
+<h3><a href="#screentoroompoint">ScreenToRoomPoint</a></h3>
+<pre><code>static Point * Screen.ScreenToRoomPoint(int sx, int sy)
+</code></pre>
+<p>Converts a point displayed in the screen to the corresponding room coordinates. This function returns null if there is no Viewport on screen under these coordinates. This is because if there will be multiple viewports supported in the future then engine simply won't know which to choose having none under these coords.</p>
+<p><em>See Also:</em> <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a>, <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Screen.html#roomtoscreenpoint">Screen.RoomToScreenPoint</a></p>
+<hr />
+</section>
+<section id="roomtoscreenpoint" class="level3">
+<h3><a href="#roomtoscreenpoint">RoomToScreenPoint</a></h3>
+<pre><code>static Point *RoomToScreenPoint(int rx, int ry)
+</code></pre>
+<p>Returns an object of Point type containing on screen (x,y) coordinates, corresponding to the given room coordinates relative to the main viewport.</p>
+<p><em>See Also:</em> <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a>, <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Screen.html#screentoroompoint">Screen.ScreenToRoomPoint</a></p>
+<hr />
+</section>
+<section id="width" class="level3">
+<h3><a href="#width">Width</a></h3>
+<pre><code>static readonly attribute int Width
+</code></pre>
+<p>Gets the width of the game resolution.</p>
+<hr />
+</section>
+<section id="height" class="level3">
+<h3><a href="#height">Height</a></h3>
+<pre><code>static readonly attribute int Heigh
+</code></pre>
+<p>Gets the height of the game resolution.</p>
+<hr />
+</section>
+<section id="autosizeviewportonroomload" class="level3">
+<h3><a href="#autosizeviewportonroomload">AutoSizeViewportOnRoomLoad</a></h3>
+<pre><code>static attribute bool AutoSizeViewportOnRoomLoad
+</code></pre>
+<p>Gets/sets whether the viewport should automatically adjust itself and camera to the new room's background size.</p>
+<hr />
+</section>
+<section id="viewport" class="level3">
+<h3><a href="#viewport">Viewport</a></h3>
+<pre><code>static readonly attribute Viewport *Viewport
+</code></pre>
+<p>Gets the primary room viewport.</p>
+<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a>, <a href="Viewport.html#delete">Viewport.Delete</a></p>
+<hr />
+</section>
+<section id="viewports" class="level3">
+<h3><a href="#viewports">Viewports</a></h3>
+<pre><code>static readonly attribute Viewport *Viewports[]
+</code></pre>
+<p>Gets a Viewport by index.</p>
+<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a>, <a href="Viewport.html#delete">Viewport.Delete</a></p>
+<hr />
+</section>
+<section id="viewportcount" class="level3">
+<h3><a href="#viewportcount">ViewportCount</a></h3>
+<pre><code>static readonly attribute int ViewportCount
+</code></pre>
+<p>Gets the number of viewports.</p>
+<p><em>See Also:</em> <a href="Viewport.html#create">Viewport.Create</a>, <a href="Viewport.html#delete">Viewport.Delete</a></p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/15/2019 11:56:57 PM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

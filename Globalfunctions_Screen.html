@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Screen functions</title>
+  <title>Global functions: Screen Effects</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,7 +76,7 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#screen-functions"><span>Screen functions</span></a><ul>
+<li><a href="#global-functions-screen-effects"><span>Global functions: Screen Effects</span></a><ul>
 <li><a href="#fadein"><span>FadeIn</span></a></li>
 <li><a href="#fadeout"><span>FadeOut</span></a></li>
 <li><a href="#flipscreen"><span>FlipScreen</span></a></li>
@@ -91,8 +91,8 @@
           </nav>
         </div>
         <div class="column column-75">
-<section id="screen-functions" class="level2">
-<h2><a href="#screen-functions">Screen functions</a></h2>
+<section id="global-functions-screen-effects" class="level2">
+<h2><a href="#global-functions-screen-effects">Global functions: Screen Effects</a></h2>
 <section id="fadein" class="level3">
 <h3><a href="#fadein">FadeIn</a></h3>
 <pre><code>FadeIn (int speed)
@@ -105,7 +105,7 @@ Wait(40);
 FadeIn(10);
 </code></pre>
 <p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
-<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="ScreenFunctions.html#setfadecolor">SetFadeColor</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#cyclepalette">CyclePalette</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Screen.html#setfadecolor">SetFadeColor</a></p>
 <hr />
 </section>
 <section id="fadeout" class="level3">
@@ -120,7 +120,7 @@ Wait(40);
 FadeIn(10);
 </code></pre>
 <p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
-<p><em>See Also:</em> <a href="PaletteFunctions.html#cyclepalette">CyclePalette</a>, <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#setfadecolor">SetFadeColor</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#cyclepalette">CyclePalette</a>, <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#setfadecolor">SetFadeColor</a></p>
 <hr />
 </section>
 <section id="flipscreen" class="level3">
@@ -171,7 +171,7 @@ FadeIn(10);
 <pre><code>SetFadeColor(200, 0, 0);
 </code></pre>
 <p>will mean that next time the screen fades out, it fades to red instead of black.</p>
-<p>SeeAlso: <a href="ScreenFunctions.html#fadein">FadeIn</a>, <a href="ScreenFunctions.html#fadeout">FadeOut</a>, <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a></p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Screen.html#setscreentransition">SetScreenTransition</a></p>
 <hr />
 </section>
 <section id="setnextscreentransition" class="level3">
@@ -179,13 +179,13 @@ FadeIn(10);
 <pre><code>SetNextScreenTransition(TransitionStyle)
 </code></pre>
 <p>Sets the room transition type to <em>TransitionStyle</em>, but ONLY for the next room change. After that, it will revert back to the normal transition type specified in the editor or with SetScreenTransition.</p>
-<p>For the possible values for TransitionStyle, see <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a>.</p>
+<p>For the possible values for TransitionStyle, see <a href="Globalfunctions_Screen.html#setscreentransition">SetScreenTransition</a>.</p>
 <p>Example:</p>
 <pre><code>SetNextScreenTransition(eTransitionBoxout);
 cEgo.ChangeRoom(10);
 </code></pre>
 <p>will go to room 10 with a box-out effect, but then return to the normal transition type from then on.</p>
-<p>SeeAlso: <a href="ScreenFunctions.html#setscreentransition">SetScreenTransition</a></p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#setscreentransition">SetScreenTransition</a></p>
 <hr />
 </section>
 <section id="setscreentransition" class="level3">
@@ -204,7 +204,7 @@ eTransitionCrossfade
 <pre><code>SetScreenTransition(eTransitionFade);
 </code></pre>
 <p>will change the room transitions to Fade.</p>
-<p>SeeAlso: <a href="ScreenFunctions.html#setnextscreentransition">SetNextScreenTransition</a></p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#setnextscreentransition">SetNextScreenTransition</a></p>
 <hr />
 </section>
 <section id="shakescreen" class="level3">
@@ -216,7 +216,7 @@ eTransitionCrossfade
 <pre><code>ShakeScreen(5);
 </code></pre>
 <p>will shake the screen a little.</p>
-<p><em>See Also:</em> <a href="ScreenFunctions.html#shakescreenbackground">ShakeScreenBackground</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Screen.html#shakescreenbackground">ShakeScreenBackground</a></p>
 <hr />
 </section>
 <section id="shakescreenbackground" class="level3">
@@ -232,7 +232,7 @@ eTransitionCrossfade
 <pre><code>ShakeScreenBackground (4, 10, 80);
 </code></pre>
 <p>will shake the screen a little for 2 seconds.</p>
-<p><em>See Also:</em> <a href="ScreenFunctions.html#shakescreen">ShakeScreen</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Screen.html#shakescreen">ShakeScreen</a></p>
 <hr />
 </section>
 <section id="tintscreen" class="level3">
@@ -258,7 +258,7 @@ eTransitionCrossfade
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:36 PM</p>
+      <p>Build: 09/15/2019 11:57:05 PM</p>
     </section>
   </footer>
 

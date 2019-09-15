@@ -89,7 +89,7 @@
 <p>Sound and music are an essential part of any gameplay experience, and AGS 3.2 and higher provides a re-written audio system giving you full control over your game audio.</p>
 <p><strong>File formats</strong></p>
 <p>AGS is able to play the following types of audio file: OGG, MP3, MIDI, WAV (uncompressed), MOD, XM, IT, S3M and VOC.</p>
-<p>The only limitation to this is that AGS is only able to play one MIDI file at a time. If you attempt to play two simulataneous MIDI music files, the first one will be cut off when the second one starts playing.</p>
+<p>The only limitation to this is that AGS is only able to play one MIDI file at a time. If you attempt to play two simultaneous MIDI music files, the first one will be cut off when the second one starts playing.</p>
 <p>If you haven't heard of OGG before, it's a digital music format, similar to MP3, but achieving better compression and higher quality. More importantly, it is a totally free format so no royalty payments or licenses are required to use it. For more information and programs to encode your music to OGG, see <a href="https://www.vorbis.org/">https://www.vorbis.org/</a></p>
 <p><strong>Audio in the Editor</strong></p>
 <p>Look under the "Audio" branch in the project tree. Here you'll find sub-nodes called "Speech", "Types" and two default folders called "Music" and "Sounds".</p>
@@ -115,7 +115,7 @@ The same applies to the folder for sounds and sound effects, add subfolders to i
 <p>AGS currently has an 8-channel audio system, which means that up to 8 sounds can be playing at the same time. With the default Audio Types settings, one channel is reserved for speech, one for music and one for ambient sounds; thus leaving 5 available for sound effects.</p>
 <p>If you try to play an audio clip and there are no channels available, then an existing one will be stopped and the new one will take its place. However, this will only happen if the new audio clip has an <strong>equal or higher</strong> priority than one of the currently playing sounds.</p>
 <p>Thus, the priority allows you to decide which audio clips are more important than others. For example, you might set a footstep sound as low priority, and a door opening as high priority. This can be configured at the folder level in the editor, and also by changing the properties of an individual audio clip (by default they will inherit from their containing folder).</p>
-<p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicity specify the priority when you play it, for example:</p>
+<p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicitly specify the priority when you play it, for example:</p>
 <pre><code>aExplosion.Play(eAudioPriorityLow);
 </code></pre>
 <p><strong>Seeking and changing volume</strong></p>
@@ -181,7 +181,7 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:29 PM</p>
+      <p>Build: 09/15/2019 11:56:57 PM</p>
     </section>
   </footer>
 

@@ -98,7 +98,7 @@
 <p>You should now see that the blue cup has changed into a key. You can move it around by left-clicking and dragging the sprite within the background image. Place it somewhere sensible on your screen.</p>
 <p>The next thing we should do is give the object a name. Similar to what we did with hotspots, since the object will be referred to in the script it'll need a name that we can call it by. Scroll down the property grid and find the "Name" property, and set it to something sensible. The convention in AGS is to have object names start with an "o", for example <em>oKey</em>.</p>
 <p><img src="images/intro4_2.jpg" alt="I&#39;ve placed the key cunningly in the middle of the walkway ;-)" /></p>
-<p>Before we enable the key to be taken by the player, let me quickly go over a couple of propertes in the property grid:</p>
+<p>Before we enable the key to be taken by the player, let me quickly go over a couple of properties in the property grid:</p>
 <ul>
 <li><strong>Baseline</strong> - normally, the baseline for an object is set to the bottom of the object graphic (baselines are used to calculate which items on the screen are drawn in front and which are drawn at the back). However, in some cases you might want to override this.<br> What you'll notice with our key is that if the player walks just behind it, the key will appear in front of his feet. This is not what we want, since the key is supposed to be lying flat on the ground. To correct this, change the Baseline property to 5 (this means that it will be drawn behind everything that has a baseline lower down the screen than Y=5). This will make sure that the player is always drawn in front of the key.</li>
 <li><strong>Visible</strong> - this toggles whether the object is switched on at the beginning of the game or not. For our key we want it to be True, but sometimes you'll have objects which you don't want the player to see until they've done something else in the game.</li>
@@ -118,7 +118,7 @@
 <h4>Back to the events</h4>
 <p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes you've guessed it, the <em>Events</em> button. The events here are very similar to the ones we had for the hotspot:</p>
 <p><img src="images/intro4_4.jpg" alt="The events list for the object" /></p>
-<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a lucasarts-style interface which has more verb types available to the player.</p>
+<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a lucasArts-style interface which has more verb types available to the player.</p>
 <p>So, select "Interact object" and click the "..." button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
 <p>Here's my script solution. As an added bonus, I've also given the player 5 points for their trouble, but you don't need to have that third command:</p>
 <p><img src="images/intro4_5.jpg" alt="Script for taking the key" /></p>
@@ -147,7 +147,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:25 PM</p>
+      <p>Build: 09/15/2019 11:57:05 PM</p>
     </section>
   </footer>
 

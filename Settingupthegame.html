@@ -162,7 +162,7 @@
 <p>To change a frame's graphic, double-left-click it. The sprite list screen will be displayed (you may remember this from the Object graphic selection) where you can choose the graphic you want to use for this frame.</p>
 <p>Note that for walking animations, the first frame in each loop is reserved for the standing frame, and when walking it will only cycle through from the second frame onwards.</p>
 <p>You select a frame by left-clicking it -- when you do so, the property grid will update with information about the frame. One of these settings is called "Delay", which is the frame's <strong>relative</strong> speed. The larger the number, the longer the frame stays (ie. the slower it is). When the animation is run, an overall animation speed will be set, so the actual speed of the frame will be: overall_speed + frame_speed . Note that you can use negative numbers for the frame delay to make it particularly fast, for example setting it to -3 means that the frame will stay for hardly any time at all.<br> Animation speed is specified in Game Loops (ie. animation speed 4 will show the frame for 4 game loops - at 40fps, that would be 0.1 seconds).</p>
-<p>The "Sound" propery allows you to enter a sound number that will be played when this frame becomes visible on the screen. This is especially useful for footstep sounds.</p>
+<p>The "Sound" property allows you to enter a sound number that will be played when this frame becomes visible on the screen. This is especially useful for footstep sounds.</p>
 <p>You run an animation by using the script animation commands, which will be explained in detail later. Briefly, to animate an object, you first of all need to set the object's view to the correct view number (use the Object.SetView script command), and then use the Object.Animate script command to actually start the animation.</p>
 <hr />
 </section>
@@ -280,14 +280,14 @@ return
 <p>Note that some things listed here are explained later in the documentation, so if you don't understand one of the items in this list, come back to it later.</p>
 <p>Many of these options can be changed at runtime with the script command SetGameOption. <strong>Basic properties</strong></p>
 <ul>
-<li><strong>Colour Depth</strong> - the number of colours your game will use. Default is 32-bit, which lets you use all the range of colours contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of colour precision. 8-bit colour mode is a special feature for making palette-based games. See Also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="PaletteFunctions.html">Palette functions</a></li>
+<li><strong>Colour Depth</strong> - the number of colours your game will use. Default is 32-bit, which lets you use all the range of colours contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of colour precision. 8-bit colour mode is a special feature for making palette-based games. See Also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></li>
 <li><strong>Developer name</strong> - this will add the provided string to the game's executable properties, which will also be shown in <a href="IntegrationWithWindows.html#windows-game-explorer">Windows Game Explorer</a>, if you configure integration with one.</li>
 <li><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</li>
 <li><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</li>
-<li><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Game.html#givescore">GiveScore</a> script function.</li>
+<li><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Globalfunctions_General.html#givescore">GiveScore</a> script function.</li>
 <li><strong>Put sound and sprite files in source control</strong> - whether game resources, such as sprites and audio, are put under source control. For more information see <a href="SourceControl.html">Source Control integration</a>.</li>
 <li><strong>Render sprites at screen resolution</strong> - whether characters and objects should be scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. If you prefer to keep your game looks in particular style, this option may be locked to always "Enabled" or "Disabled"; otherwise setting it to "User defined" will let your players toggle it in game setup program to their own liking.</li>
-<li><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Colour Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrinked accordingly.</li>
+<li><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Colour Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrunk accordingly.</li>
 </ul>
 <p><strong>Backwards compatibility</strong></p>
 <ul>
@@ -311,7 +311,7 @@ return
 <p><strong>Compiler</strong></p>
 <ul>
 <li><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</li>
-<li><strong>Compress the sprite file</strong> - when enabled the sprites will be compressed to reduce game size, at expense of perfomance.</li>
+<li><strong>Compress the sprite file</strong> - when enabled the sprites will be compressed to reduce game size, at expense of performance.</li>
 <li><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</li>
 <li><strong>Split resource files into X MB-sized chunks</strong> - see <a href="DistGame.html#splitting-resource-files">here</a> for information.</li>
 </ul>
@@ -324,7 +324,7 @@ return
 <pre><code>1. Hello there!
 2. Goodbye
 </code></pre>
-<p>This allows you to visually show the player which option the shortcut keys will choose, as well as seperating the options if you don't use a bullet point.</p></li>
+<p>This allows you to visually show the player which option the shortcut keys will choose, as well as separating the options if you don't use a bullet point.</p></li>
 <li><p><strong>Print dialog options upwards</strong> - Normally, if you select a non-textwindow GUI for the dialog options, they will be printed from the top down. However, if you select this option they will go from the bottom of the GUI upwards.</p></li>
 <li><p><strong>Run game loops while dialog options are displayed</strong> - whether to allow game animations to continue in the background while waiting for the player to select a dialog option.</p></li>
 <li><p><strong>Sierra-style portrait location</strong> - if you're using Sierra-style speech, then this determines whether the portrait appears on the left or the right of the screen. The "alternate" setting means it swaps sides whenever a different person talks, and the "Based on X position" setting means that the side of the screen is chosen depending on where the characters are standing.</p></li>
@@ -379,7 +379,7 @@ return
 <ul>
 <li><strong>Title text</strong> - the text that will appear on the title of the setup program window.</li>
 </ul>
-<p><strong>Enviroment</strong></p>
+<p><strong>Environment</strong></p>
 <ul>
 <li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
 <li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hiscore tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players <strong>won't</strong> normally be able to change it in setup program.</li>
@@ -441,7 +441,7 @@ return
 
   <footer>
     <section class="container">
-      <p>Build: 08/26/2019 03:07:26 PM</p>
+      <p>Build: 09/15/2019 11:56:54 PM</p>
     </section>
   </footer>
 
