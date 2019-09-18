@@ -1,0 +1,16 @@
+SET UTF-8
+
+# ordinal numbers
+COMPOUNDMIN 1
+
+# multiplier or component x[0-9]+
+# multiplier [0-9]+x
+# component y[0-9]+
+# size [0-9]+x[0-9]+
+COMPOUNDRULE 4
+COMPOUNDRULE xA*B
+COMPOUNDRULE A*Bx
+COMPOUNDRULE yA*B
+COMPOUNDRULE A*BxA*B
+
+WORDCHARS 0123456789

@@ -1,12 +1,16 @@
 PANDOC ?= pandoc
 CURL ?= curl
+HUNSPELL ?= hunspell
 NORMALIZE = https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css
 MILLIGRAM = https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 METAFILES = $(addsuffix .yaml, $(BASENAMES))
+DICTFILES = $(wildcard spell/dict/*.dic)
 MAKEFILE = $(lastword $(MAKEFILE_LIST))
+COMMA = ,
+SPACE = $(subst ,, )
 
 ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
@@ -15,7 +19,7 @@ $(error target 'source' requires CHECKOUTDIR to be set))
 endif
 endif
 ifeq ($(strip $(BASENAMES)),)
-ifneq ($(filter-out html htmlhelp metacheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+ifneq ($(filter-out html htmlhelp metacheck spellcheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(error no source files were found)
 endif
 endif
@@ -45,7 +49,7 @@ else
   DATETIME = $(shell date "+%x %X")
 endif
 
-.PHONY: help html htmlhelp metacheck clean source
+.PHONY: help html htmlhelp metacheck spellcheck clean source
 .SECONDARY: $(addprefix meta/build/, $(METAFILES))
 
 help:
@@ -57,10 +61,16 @@ source:
 		$(RM) $@${SEP}_Sidebar.md
 
 metacheck: $(addprefix meta/build/, $(METAFILES))
-	@echo Checking $(words $+) files for $@
 	@"$(PANDOC)" --from markdown \
 		--to "lua/write_metacheck.lua" \
 		--metadata=_approved_links:meta/approved_links.txt \
+		$+
+
+spellcheck: $(addprefix spell/work/, $(HTMLFILES))
+	@"$(HUNSPELL)" -i utf-8 \
+		-d $(subst $(SPACE),$(COMMA),$(basename $(DICTFILES))) \
+		-l \
+		-H \
 		$+
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
@@ -71,7 +81,7 @@ htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
 	$(if $(HHC),htmlhelp/build/ags-help.chm)
 
-html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build:
+html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build spell/work:
 	@$(MKDIR) $(subst /,$(SEP),$@) || echo $@ exists
 
 html/build/%.html: source/%.md | html/build
@@ -109,6 +119,20 @@ meta/build/%.yaml: source/%.md | meta/build
 		--to "lua/write_metablock.lua" \
 		--lua-filter "lua/set_title.lua" \
 		--metadata docname=$* \
+		--output $@ \
+		$<
+
+spell/work/%.html: source/%.md | spell/work
+	@echo Building $@
+	@"$(PANDOC)" --from gfm \
+		--to html4 \
+		--metadata title=$* \
+		--lua-filter "lua/set_title.lua" \
+		--lua-filter "lua/rewrite_links.lua" \
+		--lua-filter "lua/strip_blockquote.lua" \
+		--lua-filter "lua/strip_code.lua" \
+		--lua-filter "lua/strip_codeblock.lua" \
+		--template "htmlhelp/template.html4" \
 		--output $@ \
 		$<
 
