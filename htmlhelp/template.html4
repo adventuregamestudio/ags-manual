@@ -15,6 +15,9 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
   <style type="text/css">
+      body{font-family: Verdana; font-size: 10pt;}
+      td{font-family: Verdana; font-size: 10pt;}
+      a{font-weight: bold;}
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
@@ -38,7 +41,7 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 </head>
-<body>
+<body BGCOLOR=#FFFFE1 TEXT=#000000>
 $for(include-before)$
 $include-before$
 $endfor$
