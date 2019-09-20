@@ -4,10 +4,12 @@ http://www-personal.monash.edu.au/~myless/catnap/pamela/
 https://github.com/adventuregamestudio/ags
 https://opensource.org/licenses/artistic-license-2.0.php
 https://sourceforge.net/projects/alleg/
+https://technet.microsoft.com/en-us/sysinternals/bb897440
 https://v2v.cc/~j/ffmpeg2theora/
 https://www.adventuregamestudio.co.uk/
 https://www.adventuregamestudio.co.uk/forums/
 https://www.adventuregamestudio.co.uk/forums/index.php?action=search2
+https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0
 https://www.adventuregamestudio.co.uk/forums/index.php?topic=23521.0
 https://www.adventuregamestudio.co.uk/site/ags/sci_fonts/
 https://www.ambiera.com/irrklang/
