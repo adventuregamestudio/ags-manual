@@ -129,12 +129,41 @@
 </code></pre>
 <p><em>Used by:</em> <a href="Button.html#animate">Button.Animate</a>, <a href="Character.html#animate">Character.Animate</a>, <a href="Object.html#animate">Object.Animate</a></p>
 <pre><code>enum Alignment {
-  eAlignLeft,
-  eAlignCentre,
-  eAlignRight
+  eAlignNone          = 0,
+  eAlignTopLeft       = 1,
+  eAlignTopCenter     = 2,
+  eAlignTopRight      = 4,
+  eAlignMiddleLeft    = 8,
+  eAlignMiddleCenter  = 16,
+  eAlignMiddleRight   = 32,
+  eAlignBottomLeft    = 64,
+  eAlignBottomCenter  = 128,
+  eAlignBottomRight   = 256,
+
+  eAlignHasLeft       = 73,
+  eAlignHasRight      = 292,
+  eAlignHasTop        = 7,
+  eAlignHasBottom     = 448,
+  eAlignHasHorCenter  = 146,
+  eAlignHasVerCenter  = 56
 };
 </code></pre>
-<p><em>Used by:</em> <a href="Character.html#lockviewaligned">Character.LockViewAligned</a></p>
+<p>The Alignment enumeration consists of values that could be sumed up in one integer variable to form a more complex combination of alignments. Although that ability is not used anywhere in practice yet, but may be in future. Additionally, it provides a set of masks that could be applied bitwise to check if alignment variable contains one of the distinct directions, for example:</p>
+<pre><code>if (align &amp; eAlignHasLeft)
+  // some code here
+</code></pre>
+<p>will execute some code if <em>align</em> variable contains "Left" in any combination (eAlignTopLeft, eAlignMiddleLeft or eAlignBottomLeft).</p>
+<p><em>Compatibility:</em> new version of Alignment enum was introduced in AGS 3.5.0. Previous Alignment was renamed into HorizontalAlignment.</p>
+<p><em>Used by:</em> <a href="Button.html#textalignment">Button.TextAlignment</a></p>
+<pre><code>enum HorizontalAlignment {
+  eAlignLeft          = 1,
+  eAlignCenter        = 2,
+  eAlignRight         = 4
+};
+</code></pre>
+<p>Note that HorizontalAlignment's values match first values of Alignment enumeration (eAlignTopLeft, eAlignTopCenter, eAlignTopRight).</p>
+<p><em>Compatibility:</em> replaced old Alignment enumeration in AGS 3.5.0.</p>
+<p><em>Used by:</em> <a href="Character.html#lockviewaligned">Character.LockViewAligned</a>, <a href="DrawingSurfaceFunctions.html#drawstringwrapped">DrawingSurface.DrawStringWrapped</a>, <a href="Label.html#textalignment">Label.TextAlignment</a>, <a href="ListBox.html#textalignment">ListBox.TextAlignment</a>, <a href="Speech.html#textalignment">Speech.TextAlignment</a></p>
 <pre><code>enum eFlipDirection {
   eFlipLeftToRight,
   eFlipUpsideDown,
@@ -220,7 +249,8 @@
   eSkipAnyKey,
   eSkipMouseClick,
   eSkipAnyKeyOrMouseClick,
-  eSkipESCOrRightButton
+  eSkipESCOrRightButton,
+  eSkipScriptOnly
 };
 </code></pre>
 <p><em>Used by:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a></p>
@@ -319,6 +349,15 @@
 };
 </code></pre>
 <p><em>Used by:</em> <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioClip.html#playfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#playqueued">AudioClip.PlayQueued</a></p>
+<pre><code>enum GUIPopupStyle {
+  eGUIPopupNormal = 0,
+  eGUIPopupMouseYPos = 1,
+  eGUIPopupModal = 2,
+  eGUIPopupPersistent = 3
+};
+</code></pre>
+<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
+<p><em>Used by:</em> <a href="GUI.html#popupstyle">GUI.PopupStyle</a></p>
 <pre><code>enum StringCompareStyle {
   eCaseInsensitive = 0,
   eCaseSensitive = 1
@@ -342,7 +381,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:51 AM</p>
+      <p>Build: 09/22/2019 02:29:25 AM</p>
     </section>
   </footer>
 

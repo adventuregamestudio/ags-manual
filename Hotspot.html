@@ -77,6 +77,7 @@
             </ul>
 <ul>
 <li><a href="#hotspot-functions-and-properties"><span>Hotspot functions and properties</span></a><ul>
+<li><a href="#getatroomxy"><span>GetAtRoomXY</span></a></li>
 <li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
 <li><a href="#getproperty"><span>GetProperty</span></a></li>
 <li><a href="#gettextproperty"><span>GetTextProperty</span></a></li>
@@ -96,13 +97,27 @@
         <div class="column column-75">
 <section id="hotspot-functions-and-properties" class="level2">
 <h2><a href="#hotspot-functions-and-properties">Hotspot functions and properties</a></h2>
+<section id="getatroomxy" class="level3">
+<h3><a href="#getatroomxy">GetAtRoomXY</a></h3>
+<pre><code>static Hotspot* Hotspot.GetAtRoomXY(int x, int y)
+</code></pre>
+<p>Returns the hotspot at ROOM co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
+<p>Example:</p>
+<pre><code>if (Hotspot.GetAtRoomXY(player.x, player.y) == hPressurePlate) {
+  Display(&quot;As soon as adventurer stands on the pressure plate the door opens.&quot;);
+}
+</code></pre>
+<p>will display the message if the player character is over the hPressurePlate hotspot.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Character.html#getatroomxy">Character.GetAtRoomXY</a>, <a href="Object.html#getatroomxy">Object.GetAtRoomXY</a>, <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<hr />
+</section>
 <section id="getatscreenxy" class="level3">
 <h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
 <p><em>(Formerly known as global function GetHotspotAt, which is now obsolete)</em></p>
 <pre><code>static Hotspot* Hotspot.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Returns the hotspot at SCREEN co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
-<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that with a scrolling room, the co-ordinates you pass are relative to the screen's current position, and NOT absolute room co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>Example:</p>
 <pre><code>if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) == hDoor)
   Display(&quot;Mouse on the door&quot;);
@@ -112,7 +127,7 @@ else
   Display(&quot;Mouse not on a hotspot&quot;);
 </code></pre>
 <p>will display a message depending on what the mouse is on.</p>
-<p><em>See Also:</em> <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<p><em>See Also:</em> <a href="Hotspot.html#getatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Character.html#getatscreenxy">Character.GetAtScreenXY</a>, <a href="Object.html#getatscreenxy">Object.GetAtScreenXY</a>, <a href="Region.html#getatscreenxy">Region.GetAtScreenXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
 <hr />
 </section>
 <section id="getproperty" class="level3">
@@ -216,7 +231,7 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 <pre><code>hBrownTree.Enabled = false;
 </code></pre>
 <p>will disable the hBrownTree hotspot.</p>
-<p><em>See Also:</em> <a href="Region.html#enabled">Region.Enabled</a>, <a href="Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<p><em>See Also:</em> <a href="Region.html#enabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
 <hr />
 </section>
 <section id="id" class="level3">
@@ -280,7 +295,7 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:52 AM</p>
+      <p>Build: 09/22/2019 02:29:26 AM</p>
     </section>
   </footer>
 

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tumbleweed</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#tumbleweed"><span>Tumbleweed</span></a><ul>
+<li><a href="#introduction"><span>Introduction</span></a></li>
+<li><a href="#using-inventory-items"><span>Using Inventory Items</span></a></li>
+<li><a href="#exit-extensions"><span>Exit Extensions</span></a></li>
+<li><a href="#language--translation"><span>Language &amp; Translation</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="tumbleweed" class="level2">
+<h2><a href="#tumbleweed">Tumbleweed</a></h2>
+<p>Tumbleweed template and this manual page is created by Abstauber, and released with MIT License.</p>
+<hr />
+<ul>
+<li><a href="Tumbleweed_helper.html">Math and Helper Functions</a></li>
+<li><a href="Tumbleweed_unhandled.html">Unhandled Events</a></li>
+<li><a href="Tumbleweed_actions.html">Action Functions</a></li>
+<li><a href="Tumbleweed_player.html">Player functions</a></li>
+<li><a href="Tumbleweed_movement.html">Semi-blocking movement functions</a></li>
+<li><a href="Tumbleweed_door.html">Door functions</a></li>
+<li><a href="Tumbleweed_translation.html">Translation</a></li>
+<li><a href="Tumbleweed_extensions.html">Extensions</a></li>
+</ul>
+<hr />
+<section id="introduction" class="level3">
+<h3><a href="#introduction">Introduction</a></h3>
+<p><em>Tumbleweed Verbs</em> is a template that allows you to recreate those classic SCUMM games, as well as the modern iteration Thimbleweed Park(tm) by Terrible Toybox, Inc.</p>
+<p>Setting up the template with all your custom graphics and colors has been simplified a lot. All settings are grouped in the submodule TemplateSettings.asc. There is no need anymore for digging around in the single modules. The messages for unhandled events are defined in the TemplateSettings modules as well.</p>
+<p>If you like to create a game with this template, you have to re-think some concepts you use when creating a game with AGS.</p>
+<p>The two new concepts are: event handling and default actions, using extensions.</p>
+<p>Let's take a look at the event handling, or in other words: stuff that happens after you have clicked on something. Normally you create a function for each event of an object, a hotspot etc. Functions like cup_Interact() or cup_Look(). Using this template you only need one the any click event. Inside these functions you distinguish between the different interactions. So a typical any_click function looks like this:</p>
+<pre><code>function cup_AnyClick()
+{
+        // LOOK AT
+        if(Verbs.UsedAction(eGA_LookAt)) {
+                player.Say(&quot;It&#39;s a blue cup.&quot;);
+        }
+        // USE
+        else if(Verbs.UsedAction(eGA_Use)) {
+                player.Say(&quot;I&#39;d rather pick it up.&quot;);
+        }
+        // PICKUP
+        else if(Verbs.UsedAction(eGA_PickUp)) {
+                player.Say(&quot;Okay.&quot;);
+                Verbs.AnyClickWalkLookPick(108, 100, eDir_Up, &quot;You are now mine.&quot;,oCup.ID, iCup);
+        }
+        //USE INV
+        else if(Verbs.UsedAction(eGA_UseInv)) {
+                Verbs.Unhandled();
+        }
+        // don&#39;t forget this
+        else Verbs.Unhandled();
+}
+</code></pre>
+<p>The function "AnyClickWalkLookPick" is explained in the scripting reference. AnyClickWalkLookPick</p>
+<p>So you see, everything is inside a single function, instead 4 separate functions. Also instead of checking the cursor modes, the function <code>Verbs.UsedAction</code> is called to determine the event/action. The current defined actions are:</p>
+<pre><code>eGA_LookAt, eGA_TalkTo, eGA_GiveTo, eGA_PickUp, eGA_Use, eGA_Open, eGA_Close, eGA_Push, eGA_Pull,eGA_UseInv, eGA_Default and eMG_WalkTo
+</code></pre>
+<p>For inventory items, it's a little bit different, because there is no any_click event in the room editor. So you first start with "other click on inventory item", which creates the function <code>iCup_OtherClick</code> (in case you have an item, called <code>iCup</code>). Now copy this function name and paste it at other events, like interact, look, talk and so on. In the end, you only have one function name in all five events. You can also take a look at the sample items.</p>
+<p>The second main aspect of the GUI are the extensions. You add an extension to a location (Hotspots, Objects etc.) by editing its description.</p>
+<p>For example, let's take an object. In the sample room, the object is called <code>oCup</code> and the description is simply "Cup". When move the cursor over this cup and no extension is defined, the default action will be "look at". Also the corresponding verb button in the gui starts to highlight. Now we can change this behaviour with adding an angled bracket, followed by one of the following letters:</p>
+<ul>
+<li><code>n</code>: nothing / default</li>
+<li><code>g</code>: give to</li>
+<li><code>p</code>: pick up</li>
+<li><code>u</code>: use</li>
+<li><code>o</code>: open</li>
+<li><code>l</code>: look at</li>
+<li><code>s</code>: push</li>
+<li><code>c</code>: close</li>
+<li><code>t</code>: talk to</li>
+<li><code>y</code>: pull</li>
+<li><code>v</code>: variable extension</li>
+<li><code>e</code>: exit</li>
+</ul>
+<p>Let's give <code>oCup</code> the description "<code>Cup&gt;p</code>". Now the right-click action has changed. If you now move the mouse on the cup, the verb button "Pick Up" is highlighted. If you right-click the object, the any_click function from above is called. It checks for the used action and will perform the chosen action. Extensions are also explained in the function reference.</p>
+<p>The last thing you should know about, is the global variable "ItemGiven". If you like to give an item to a character, use this variable to check, which item has been given. For example:</p>
+<pre><code>if (Verbs.UsedAction(eGA_GiveTo))
+{
+        if (ItemGiven == iCup)
+        {
+                player.Say(&quot;Do you want this Cup?&quot;);
+                cBman.Say(&quot;No, thank you.&quot;);
+        }
+        else if (ItemGiven == iKey)
+        {
+                player.Say(&quot;Is that your key?&quot;);
+                cBman.Say(&quot;Of course. You have it from me.&quot;);
+        }
+        else Verbs.Unhandled();
+}
+else Verbs.Unhandled();
+</code></pre>
+<p>If you need to use "ItemGiven" in other scripts than the global one, you need to import it manually. It's not defined via global variable pane inside the AGS editor.</p>
+<hr />
+</section>
+<section id="using-inventory-items" class="level3">
+<h3><a href="#using-inventory-items">Using Inventory Items</a></h3>
+<p>There are currently three ways of using an inventory item, you can choose from.</p>
+<ol>
+<li><p>"Use" only</p>
+<p>For this, you need to add the use-extention "&gt;u" to the description of the item and an event function for "Interact inventory item". If you have followed the instructions in this manual you probably already have it there. This option might come handy for a watch. Clicking on it always gives you the current time. You can not give it away or use it with different items.</p></li>
+<li><p>"Use" and "Use with"</p>
+<p>Here you need to remove the use-extension from the description, but still keep the event function. This allows the player to directly use the item by clicking on the "use"-verb first. Directly clicking the items results in "use-with". Sticking to the watch-example: using the watch with the verb-button sets an alarm. Clicking directly on it in the inventory results in "use with", so you can use the watch with a shelf to hide it there. But please note that it might be hard for the player to understand, that using the verb button and using the inventory directly are two different things.</p></li>
+<li><p>"Use with" only</p>
+<p>For the last option, you need to remove the use-extension and remove the event function. Yep, that's right: on the right side of "Interact inventory item" is no function at all. If you then use the item, whether it's via the verb-button or a direct click, the action always stays "use with".</p></li>
+</ol>
+<hr />
+</section>
+<section id="exit-extensions" class="level3">
+<h3><a href="#exit-extensions">Exit Extensions</a></h3>
+<p>You can add an exit extension to hotspots and objects. Clicking on such a hotspot will make the player walk to it and change the room afterwards. There are several advantages compared to the usual methods like 'screen edges' or stand-on hotspot functions:</p>
+<ul>
+<li>works with objects and vertical hotspots (like cave entrances)</li>
+<li>supports double click to skip the walking</li>
+<li>optional walking off the screen: if you set the exit hotspot towards a screen edge, you can make the player leave the screen and change the room after that.</li>
+</ul>
+<p>This is how it works:</p>
+<p>First of all create your hotspot and let it have the "<code>&gt;e</code>" extension. Now switch over to the events (that little flash) and add the <code>Usermode_1</code> hotspot event. Eventually you'll end in the room script with a function called <code>hExit_Mode8</code>. In that function, all you have to do is to script the room change. e.g.</p>
+<pre><code>player.EnterRoom(1, 76, 111, eDir_Right, true);
+</code></pre>
+<p>This function is almost similar to the AGS function player.ChangeRoom, you can look it up in the function reference below. If you want the player to leave the screen, you have to change the extension of the hotspot. These ones are possible:</p>
+<ul>
+<li><code>el</code>: left</li>
+<li><code>er</code>: right</li>
+<li><code>eu</code>: up</li>
+<li><code>ed</code>: down</li>
+</ul>
+<p>If you have an exit on the right side of your screen and want the player to leave the screen on that side, your hotspot description should be called:</p>
+<pre><code>Exit&gt;er
+</code></pre>
+<p>Now the character will walk to the clicked location and keeps on walking for another 30 extra pixels. That offset can be changed in the script header. If you simply call your hotspot:</p>
+<pre><code>Exit&gt;e
+</code></pre>
+<p>No additional walking will occur. This is useful for exits not being at the screen border. There's also an example in the second room of the demo template.</p>
+<hr />
+</section>
+<section id="language--translation" class="level3">
+<h3><a href="#language--translation">Language &amp; Translation</a></h3>
+<p>Currently the GUI supports German, French, Spanish, Italian, Portuguese and Dutch. If you like to help translating this template, please drop me a PM at the AGS Forums.</p>
+<p>If you like to create your game in a different language than English, you need to setup a different default language. In the TemplateSettings.asc module you'll find the line:</p>
+<pre><code>Verbs.VerbGuiOptions[eVerbGuiTemplateLanguage] = eLangEN;
+</code></pre>
+<p>At the time of writing, valid values are: <code>eLangEN</code>, <code>eLangDE</code>, <code>eLangES</code>, <code>eLangFR</code>, <code>eLangIT</code>, <code>eLangPT</code>, <code>eLangNL</code>. Setting this variable to one of these values will translate all your GUIs, including all provided dialogs, unhandled events and verb actions.</p>
+<p>If you are providing a multilanguage game, which default language is English instead, you will probably create one or more AGS translation files. Sadly AGS won't automatically change GUI graphics by the language preference set by running the game setup, but we got you covered with this: after generating a new language, tell your translators to look out for the line.</p>
+<pre><code>GUI_LANGUAGE
+</code></pre>
+<p>Now simply put a translation for that line choosing between <em><code>EN</code>, <code>DE</code>, <code>ES</code>, <code>FR</code>, <code>IT</code>, <code>PT</code> or <code>NL</code></em>. For example:</p>
+<pre><code>GUI_LANGUAGE
+DE
+</code></pre>
+<p>Now the GUI will be set to the corresponding language when the user selects a different language by running game setup.</p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/22/2019 02:29:29 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

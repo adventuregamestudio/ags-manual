@@ -394,20 +394,13 @@ surface.Release();
 </section>
 <section id="usehighrescoordinates" class="level3">
 <h3><a href="#usehighrescoordinates">UseHighResCoordinates</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
 <pre><code>bool DrawingSurface.UseHighResCoordinates
 </code></pre>
 <p>Gets/sets whether you want to use high-resolution co-ordinates with this surface.</p>
 <p>By default, this property will be set such that drawing surface co-ordinates use the same co-ordinate system as the rest of the game, as per the "Use low-res co-ordinates in script" game setting. However, if your game is 640x400 or higher you can customize whether this drawing surface uses native co-ordinates or the low-res 320x200 co-ordinates by changing this property.</p>
 <p>Setting this property affects <strong>ALL</strong> other commands performed on this drawing surface, including the <a href="DrawingSurfaceFunctions.html#width">Width</a> and <a href="DrawingSurfaceFunctions.html#height">Height</a> properties.</p>
-<p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.UseHighResCoordinates = true;
-surface.DrawingColor = 14;
-surface.DrawLine(0, 0, 320, 200);
-surface.Release();
-</code></pre>
-<p>draws a yellow line from the top left of the screen to the middle of the screen. If we hadn't set <em>UseHighResCoordinates</em> to true, this would draw a line from the top left to the bottom right of the screen.</p>
-<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html#drawcircle">DrawingSurface.DrawCircle</a>, <a href="DrawingSurfaceFunctions.html#drawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurfaceFunctions.html#drawrectangle">DrawingSurface.DrawRectangle</a>, <a href="DrawingSurfaceFunctions.html#drawtriangle">DrawingSurface.DrawTriangle</a></p>
+<p><strong>IMPORTANT:</strong> This property is a remnant of the old and since deprecated feature in AGS which allowed to treat all coordinates in high-resolution games as if they were for low-resolution. For example: have 640x400 game but use 320x200 measurements in script, which would make each drawing operation to be performed x2 thicker on screen.<br> Since AGS 3.5.0 this property is ignored unless you have backwards-compatible "Allow relative asset resolutions" option enabled in General Settings.</p>
 <hr />
 </section>
 <section id="width" class="level3">
@@ -432,7 +425,7 @@ surface.Release();
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:56 AM</p>
+      <p>Build: 09/22/2019 02:29:31 AM</p>
     </section>
   </footer>
 

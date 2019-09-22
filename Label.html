@@ -79,6 +79,7 @@
 <li><a href="#label-functions-and-properties"><span>Label functions and properties</span></a><ul>
 <li><a href="#font"><span>Font</span></a></li>
 <li><a href="#text"><span>Text</span></a></li>
+<li><a href="#textalignment"><span>TextAlignment</span></a></li>
 <li><a href="#textcolor"><span>TextColor</span></a></li>
 </ul></li>
 </ul>
@@ -87,6 +88,8 @@
         <div class="column column-75">
 <section id="label-functions-and-properties" class="level2">
 <h2><a href="#label-functions-and-properties">Label functions and properties</a></h2>
+<p>Label is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<hr />
 <section id="font" class="level3">
 <h3><a href="#font">Font</a></h3>
 <p><em>(Formerly known as SetLabelFont, which is now obsolete)</em></p>
@@ -115,6 +118,15 @@
 <p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Button.html#text">Button.Text</a>, <a href="Label.html#textcolor">Label.TextColor</a>, <a href="Label.html#font">Label.Font</a></p>
 <hr />
 </section>
+<section id="textalignment" class="level3">
+<h3><a href="#textalignment">TextAlignment</a></h3>
+<pre><code>HorizontalAlignment Label.TextAlignment;
+</code></pre>
+<p>Gets/sets how the text is aligned relative to the label's rectangle. Note that currently label supports only horizontal alignment which could be eAlignLeft, eAlignRight and eAlignCenter.</p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#font">Label.Font</a>, <a href="Label.html#text">Label.Text</a></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<hr />
+</section>
 <section id="textcolor" class="level3">
 <h3><a href="#textcolor">TextColor</a></h3>
 <p><em>(Formerly known as SetLabelColor, which is now obsolete)</em></p>
@@ -136,7 +148,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:58 AM</p>
+      <p>Build: 09/22/2019 02:29:34 AM</p>
     </section>
   </footer>
 

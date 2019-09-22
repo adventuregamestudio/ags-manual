@@ -88,6 +88,7 @@
 <li><a href="#facelocation"><span>FaceLocation</span></a></li>
 <li><a href="#faceobject"><span>FaceObject</span></a></li>
 <li><a href="#followcharacter"><span>FollowCharacter</span></a></li>
+<li><a href="#getatroomxy"><span>GetAtRoomXY</span></a></li>
 <li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
 <li><a href="#getproperty"><span>GetProperty</span></a></li>
 <li><a href="#gettextproperty"><span>GetTextProperty</span></a></li>
@@ -364,6 +365,23 @@ cEgo.UnlockView();
 <p><em>See Also:</em> <a href="Gamevariables.html">game.following_room_timer</a></p>
 <hr />
 </section>
+<section id="getatroomxy" class="level3">
+<h3><a href="#getatroomxy">GetAtRoomXY</a></h3>
+<pre><code>static Character* Character.GetAtRoomXY(int x, int y)
+</code></pre>
+<p>Checks if there is a character at ROOM co-ordinates (X,Y). Returns the character if there is, or null if there is not.</p>
+<p>NOTE: Any characters with the "Clickable" property set to false will not be seen by this function.</p>
+<p>Example:</p>
+<pre><code>Character* target = Character.GetAtRoomXY(oBullet.x, oBullet.y);
+if (target != null) {
+  Display(&quot;Character %s is hit by a bullet&quot;, target.Name);
+}
+</code></pre>
+<p>will display the message if the room object oBullet is over any character.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Character.html#getatscreenxy">Character.GetAtScreenXY</a>, <a href="Hotspot.html#getatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Object.html#getatroomxy">Object.GetAtRoomXY</a>, <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
+<hr />
+</section>
 <section id="getatscreenxy" class="level3">
 <h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
 <p><em>(Formerly known as global function GetCharacterAt, which is now obsolete)</em></p>
@@ -377,7 +395,7 @@ cEgo.UnlockView();
 }
 </code></pre>
 <p>will display the message if the mouse cursor is over the EGO character</p>
-<p><em>See Also:</em> <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Object.html#getatscreenxy">Object.GetAtScreenXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
+<p><em>See Also:</em> <a href="Character.html#getatroomxy">Character.GetAtRoomXY</a>, <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Object.html#getatscreenxy">Object.GetAtScreenXY</a>, <a href="Region.html#getatscreenxy">Region.GetAtScreenXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a></p>
 <hr />
 </section>
 <section id="getproperty" class="level3">
@@ -481,7 +499,7 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
    { colliding code here }
 </code></pre>
 <p>will execute the colliding code only if the characters EGO and MAN are colliding.</p>
-<p><em>See Also:</em> <a href="Character.html#iscollidingwithobject">Character.IsCollidingWithObject</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
+<p><em>See Also:</em> <a href="Character.html#iscollidingwithobject">Character.IsCollidingWithObject</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
 <hr />
 </section>
 <section id="iscollidingwithobject" class="level3">
@@ -497,7 +515,7 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 }
 </code></pre>
 <p>will execute the colliding code only if the character EGO and the object number 3 are colliding.</p>
-<p><em>See Also:</em> <a href="Character.html#iscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
+<p><em>See Also:</em> <a href="Character.html#iscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
 <hr />
 </section>
 <section id="lightlevel" class="level3">
@@ -1017,7 +1035,7 @@ while (cEgo.Animating) Wait(1);
 <pre><code>cEgo.Baseline = 120;
 </code></pre>
 <p>will move the character's baseline (which can be used for testing collisions, or for walk-behinds) to a line positioned at y coordinate = 120.</p>
-<p><em>See Also:</em> <a href="Object.html#baseline">Object.Baseline</a>, <a href="Room.html#setwalkbehindbase">SetWalkBehindBase</a></p>
+<p><em>See Also:</em> <a href="Object.html#baseline">Object.Baseline</a>, <a href="Globalfunctions_Room.html#setwalkbehindbase">SetWalkBehindBase</a></p>
 <hr />
 </section>
 <section id="blinkinterval" class="level3">
@@ -1204,17 +1222,13 @@ cEgo.BlinkInterval = 160;
 </section>
 <section id="ignorewalkbehinds" class="level3">
 <h3><a href="#ignorewalkbehinds">IgnoreWalkbehinds</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
 <p><em>(Formerly known as SetCharacterIgnoreWalkbehinds, which is now obsolete)</em></p>
 <pre><code>bool Character.IgnoreWalkbehinds
 </code></pre>
 <p>Gets/sets whether the character is affected by walkbehind areas. Passing <em>false</em> (the default setting) means that the character will be placed behind walk- behind areas according to the relevant baselines.</p>
 <p>Passing <em>true</em> means that the character will never be placed behind a walk-behind area. This is useful if for example you want to use the character as an overlay to display rain or snow onto a scene.</p>
-<p><strong>NOTE:</strong> enabling this property does not currently work properly when using the Direct3D driver.</p>
-<p>Example:</p>
-<pre><code>cEgo.IgnoreWalkbehinds = true;
-</code></pre>
-<p>will make the character EGO ignore walk-behinds.</p>
-<p><em>See Also:</em> <a href="Character.html#baseline">Character.Baseline</a>, <a href="Object.html#ignorewalkbehinds">Object.IgnoreWalkbehinds</a></p>
+<p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Character.html#baseline">Baseline</a> property instead.</p>
 <hr />
 </section>
 <section id="inventoryquantity" class="level3">
@@ -1658,7 +1672,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:54 AM</p>
+      <p>Build: 09/22/2019 02:29:29 AM</p>
     </section>
   </footer>
 

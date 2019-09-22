@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Player functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#player-functions"><span>Player functions</span></a><ul>
+<li><a href="#verbsfreezeplayer"><span>Verbs.FreezePlayer</span></a></li>
+<li><a href="#verbsunfreezeplayer"><span>Verbs.UnfreezePlayer</span></a></li>
+<li><a href="#verbssetplayer"><span>Verbs.SetPlayer</span></a></li>
+<li><a href="#verbsenterroom"><span>Verbs.EnterRoom</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="player-functions" class="level2">
+<h2><a href="#player-functions">Player functions</a></h2>
+<ul>
+<li><a href="Tumbleweed_player.html#verbsfreezeplayer">Verbs.FreezePlayer</a></li>
+<li><a href="Tumbleweed_player.html#verbsunfreezeplayer">Verbs.UnfreezePlayer</a></li>
+<li><a href="Tumbleweed_player.html#verbssetplayer">Verbs.SetPlayer</a></li>
+<li><a href="Tumbleweed_player.html#verbsenterroom">Verbs.EnterRoom</a></li>
+</ul>
+<hr />
+<section id="verbsfreezeplayer" class="level3">
+<h3><a href="#verbsfreezeplayer">Verbs.FreezePlayer</a></h3>
+<pre><code>vpod Verbs.FreezePlayer();
+</code></pre>
+<p>Use this function to prevent the player from moving by the following movement functions of the template.</p>
+<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsunfreezeplayer">Verbs.UnfreezePlayer</a></p>
+<hr />
+</section>
+<section id="verbsunfreezeplayer" class="level3">
+<h3><a href="#verbsunfreezeplayer">Verbs.UnfreezePlayer</a></h3>
+<pre><code>void Verbs.UnfreezePlayer();
+</code></pre>
+<p>Use this function to undo the FreezePlayer function and let the characters move again.</p>
+<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsfreezeplayer">Verbs.FreezePlayer</a></p>
+<hr />
+</section>
+<section id="verbssetplayer" class="level3">
+<h3><a href="#verbssetplayer">Verbs.SetPlayer</a></h3>
+<pre><code>void SetPlayer(Character*ch);
+</code></pre>
+<p>Usage:</p>
+<pre><code>cEgo.SetPlayer();
+</code></pre>
+<p>Similar to the AGS function Character.SetAsPlayer(). The difference is, that make the previous character clickable again, whereas the new character gets unclickable.</p>
+<hr />
+</section>
+<section id="verbsenterroom" class="level3">
+<h3><a href="#verbsenterroom">Verbs.EnterRoom</a></h3>
+<pre><code>void EnterRoom(this Character*, int newRoom, int x, int y, eDirection dir, bool onWalkable);
+</code></pre>
+<p>Usage:</p>
+<pre><code>cEgo.EnterRoom(1,15,15,eDir_Left,true);
+</code></pre>
+<p>Similar to the AGS function Character.ChangeRoom. The difference is, that you can also define, it which direction the character should look. Using this function makes the character turn to the direction, mentioned above.</p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/22/2019 02:29:26 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

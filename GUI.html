@@ -85,8 +85,8 @@
 <li><a href="#setsize"><span>SetSize</span></a></li>
 <li><a href="#astextwindow"><span>AsTextWindow</span></a></li>
 <li><a href="#backgroundcolor"><span>BackgroundColor</span></a></li>
-<li><a href="#bordercolor"><span>BorderColor</span></a></li>
 <li><a href="#backgroundgraphic"><span>BackgroundGraphic</span></a></li>
+<li><a href="#bordercolor"><span>BorderColor</span></a></li>
 <li><a href="#clickable"><span>Clickable</span></a></li>
 <li><a href="#controlcount"><span>ControlCount</span></a></li>
 <li><a href="#controls"><span>Controls</span></a></li>
@@ -202,27 +202,26 @@ else {
 </section>
 <section id="astextwindow" class="level3">
 <h3><a href="#astextwindow">AsTextWindow</a></h3>
-<pre><code>readonly TextWindowGUI* AsTextWindow
+<pre><code>readonly TextWindowGUI* GUI.AsTextWindow
 </code></pre>
-<p>If this GUI is a TextWindow, returns the TextWindowGUI interface; otherwise null.</p>
+<p>If this GUI is of TextWindow type then returns the TextWindowGUI interface which could be used to access specific properties; otherwise returns null.</p>
+<p>Example:</p>
+<pre><code>TextWindowGUI *tw = gMyTextGui.AsTextWindow;
+tw.TextColor = Game.GetColorFromRGB(255, 0, 0);
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="TextWindowGUI.html">TextWindowGUI</a></p>
 <hr />
 </section>
 <section id="backgroundcolor" class="level3">
 <h3><a href="#backgroundcolor">BackgroundColor</a></h3>
-<pre><code>int  BackgroundColor
+<pre><code>int GUI.BackgroundColor
 </code></pre>
-<p>Gets/sets the background color. This property is ignored if the GUI has <code>BackgroundGraphic</code> different than 0.</p>
-<p>You can set <code>BackgroundColor</code> to 0 to remove it from the GUI.</p>
+<p>Gets/sets the background color.</p>
+<p>Setting BackgroundColor to 0 will make GUI background fully transparent.</p>
+<p>This property is ignored if the GUI.BackgroundGraphic is assigned a sprite number (other than 0).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUI.html#bordercolor">GUI.BorderColor</a></p>
-<hr />
-</section>
-<section id="bordercolor" class="level3">
-<h3><a href="#bordercolor">BorderColor</a></h3>
-<pre><code>int  BorderColor
-</code></pre>
-<p>Gets/sets the border color. Not applicable to TextWindow GUIs. This property is ignored if the GUI has <code>BackgroundGraphic</code> different than 0.</p>
-<p>You can set <code>BorderColor</code> to 0 to remove it from the GUI.</p>
-<p><em>See Also:</em> <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUI.html#backgroundcolor">GUI.BackgroundColor</a></p>
 <hr />
 </section>
 <section id="backgroundgraphic" class="level3">
@@ -232,7 +231,19 @@ else {
 </code></pre>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
+<p>When this property is assigned a sprite number other than 0 GUI.BackgroundColor and GUI.BorderColor are ignored.</p>
 <p><em>See Also:</em> <a href="GUI.html#setposition">GUI.SetPosition</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<hr />
+</section>
+<section id="bordercolor" class="level3">
+<h3><a href="#bordercolor">BorderColor</a></h3>
+<pre><code>int GUI.BorderColor
+</code></pre>
+<p>Gets/sets the border color.</p>
+<p>Setting BorderColor to 0 will make GUI border fully transparent.</p>
+<p>Not applicable to TextWindow GUIs. This property is ignored if the GUI.BackgroundGraphic is assigned a sprite number (other than 0).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="GUI.html#backgroundcolor">GUI.BackgroundColor</a>, <a href="GUI.html#backgroundgraphic">GUI.BackgroundGraphic</a></p>
 <hr />
 </section>
 <section id="clickable" class="level3">
@@ -315,18 +326,31 @@ gIconbar.Clickable = false;
 </section>
 <section id="popupstyle" class="level3">
 <h3><a href="#popupstyle">PopupStyle</a></h3>
-<pre><code>readonly GUIPopupStyle PopupStyle
+<pre><code>readonly GUIPopupStyle GUI.PopupStyle
 </code></pre>
-<p>Gets the style of GUI behavior on screen.</p>
-<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enums</a>, <a href="GUI.html#popupypos">GUI.PopupYPos</a></p>
+<p>Gets the style of GUI behavior on screen. Possible values are:</p>
+<pre><code>eGUIPopupNormal       no special behavior
+eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen, past GUI.PopupYPos, and hidden all other time.
+eGUIPopupModal        like normal, but pauses game when shown
+eGUIPopupPersistent   like normal, but not removed when all interface is disabled
+</code></pre>
+<p><strong>NOTE:</strong> for MouseYPos style GUI.Visible property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
+<ul>
+<li>GUI.Visible property set to TRUE;</li>
+<li>mouse cursor is closer to the screen top than GUI.PopupYPos value.</li>
+</ul>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="GUI.html#popupypos">GUI.PopupYPos</a>, <a href="GUI.html#visible">GUI.Visible</a></p>
 <hr />
 </section>
 <section id="popupypos" class="level3">
 <h3><a href="#popupypos">PopupYPos</a></h3>
-<pre><code>int  PopupYPos
+<pre><code>int GUI.PopupYPos
 </code></pre>
-<p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style.</p>
-<p><em>See Also:</em> <a href="GUI.html#popupstyle">GUI.PopupStyle</a></p>
+<p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style. The GUI will be automatically shown when the mouse cursor's Y coordinate is <em>equal or lower</em> than GUI.PopupYPos (closer to the screen top) and hidden when it is <em>greater</em>.</p>
+<p>This property is ignored if GUI has a different style.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="GUI.html#popupstyle">GUI.PopupStyle</a>, <a href="GUI.html#visible">GUI.Visible</a></p>
 <hr />
 </section>
 <section id="transparency" class="level3">
@@ -429,7 +453,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:53 AM</p>
+      <p>Build: 09/22/2019 02:29:27 AM</p>
     </section>
   </footer>
 

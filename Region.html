@@ -78,6 +78,7 @@
 <ul>
 <li><a href="#region-functions-and-properties"><span>Region functions and properties</span></a><ul>
 <li><a href="#getatroomxy"><span>GetAtRoomXY</span></a></li>
+<li><a href="#getatscreenxy"><span>GetAtScreenXY</span></a></li>
 <li><a href="#runinteraction"><span>RunInteraction</span></a></li>
 <li><a href="#tint"><span>Tint</span></a></li>
 <li><a href="#enabled"><span>Enabled</span></a></li>
@@ -102,12 +103,28 @@
 <pre><code>static Region* Region.GetAtRoomXY(int x, int y)
 </code></pre>
 <p>Returns the region at ROOM co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
-<p><strong>NOTE:</strong> Unlike GetHotspotAtLocation, the co-ordinates specified are ROOM co-ordinates. This means that if you want to use the mouse cursor location, you have to add the screen offset to make it work in scrolling rooms.</p>
 <p>Example:</p>
-<pre><code>if (Region.GetAtRoomXY(player.x, player.y) == region[0])
+<pre><code>if (Region.GetAtRoomXY(player.x, player.y) == region[0]) {
   Display(&quot;The player is not currently standing on a region.&quot;);
+}
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#getwalkableareaat">GetWalkableAreaAt</a></p>
+<p><em>See Also:</em> <a href="Region.html#getatscreenxy">Region.GetAtScreenXY</a>, <a href="Character.html#getatroomxy">Character.GetAtRoomXY</a>, <a href="Hotspot.html#getatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Object.html#getatroomxy">Object.GetAtRoomXY</a>, <a href="Globalfunctions_Room.html#getwalkableareaatroom">GetWalkableAreaAtRoom</a></p>
+<hr />
+</section>
+<section id="getatscreenxy" class="level3">
+<h3><a href="#getatscreenxy">GetAtScreenXY</a></h3>
+<pre><code>static Region* Region.GetAtScreenXY(int x, int y)
+</code></pre>
+<p>Returns the region at SCREEN co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<p>Example:</p>
+<pre><code>Region* r = Region.GetAtScreenXY(mouse.x, mouse.y);
+if (r != region[0]) {
+  Display(&quot;The mouse is over region %d&quot;, r.ID);
+}
+</code></pre>
+<p>will display the message if there is any region under the mouse cursor.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a>, <a href="Character.html#getatscreenxy">Character.GetAtScreenXY</a>, <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Object.html#getatscreenxy">Object.GetAtScreenXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
 <hr />
 </section>
 <section id="runinteraction" class="level3">
@@ -155,7 +172,7 @@
 <pre><code>region[3].Enabled = false;
 </code></pre>
 <p>will disable region number 3.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Globalfunctions_Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
 <hr />
 </section>
 <section id="id" class="level3">
@@ -296,7 +313,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:54 AM</p>
+      <p>Build: 09/22/2019 02:29:29 AM</p>
     </section>
   </footer>
 

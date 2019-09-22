@@ -93,7 +93,13 @@
 <li><a href="#items"><span>Items</span></a></li>
 <li><a href="#rowcount"><span>RowCount</span></a></li>
 <li><a href="#savegameslots"><span>SaveGameSlots</span></a></li>
+<li><a href="#selectedbackcolor"><span>SelectedBackColor</span></a></li>
 <li><a href="#selectedindex"><span>SelectedIndex</span></a></li>
+<li><a href="#selectedtextcolor"><span>SelectedTextColor</span></a></li>
+<li><a href="#showborder"><span>ShowBorder</span></a></li>
+<li><a href="#showscrollarrows"><span>ShowScrollArrows</span></a></li>
+<li><a href="#textalignment"><span>TextAlignment</span></a></li>
+<li><a href="#textcolor"><span>TextColor</span></a></li>
 <li><a href="#topitem"><span>TopItem</span></a></li>
 <li><a href="#translated"><span>Translated</span></a></li>
 </ul></li>
@@ -103,6 +109,8 @@
         <div class="column column-75">
 <section id="listbox-functions-and-properties" class="level2">
 <h2><a href="#listbox-functions-and-properties">ListBox functions and properties</a></h2>
+<p>ListBox is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<hr />
 <section id="additem" class="level3">
 <h3><a href="#additem">AddItem</a></h3>
 <p><em>(Formerly known as ListBoxAdd, which is now obsolete)</em></p>
@@ -255,29 +263,18 @@ lstTest.RemoveItem(0);
 </section>
 <section id="hideborder" class="level3">
 <h3><a href="#hideborder">HideBorder</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#showborder">ListBox.ShowBorder</a> instead.</strong></p>
 <pre><code>bool ListBox.HideBorder
 </code></pre>
-<p>Gets/sets whether the list box's border is hidden.</p>
-<p>Note that hiding the border will also implicitly hide the up/down scroll arrows for the list box.</p>
-<p>Example:</p>
-<pre><code>lstSaveGames.HideBorder = true;
-</code></pre>
-<p>will hide the border around the Save Games list box.</p>
-<p><em>See Also:</em> <a href="ListBox.html#hidescrollarrows">ListBox.HideScrollArrows</a></p>
+<p>Gets/sets whether the list box's border is <em>hidden</em>.</p>
 <hr />
 </section>
 <section id="hidescrollarrows" class="level3">
 <h3><a href="#hidescrollarrows">HideScrollArrows</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a> instead.</strong></p>
 <pre><code>bool ListBox.HideScrollArrows
 </code></pre>
-<p>Gets/sets whether the built-in up/down scroll arrows are hidden.</p>
-<p>Because the appearance of the scroll arrows is not customizable, you may wish to use this to hide them and provide your own arrows using GUI Button controls.</p>
-<p><strong>NOTE:</strong> If the list box's "Hide Border" setting is enabled, then the scroll arrows will also be hidden, since "Hide Border" supersedes "Hide Scroll Arrows". You only need to use this HideScrollArrows property if you want the border to be shown but the arrows hidden.</p>
-<p>Example:</p>
-<pre><code>lstSaveGames.HideScrollArrows = true;
-</code></pre>
-<p>will hide the built-in scroll arrows on the list box.</p>
-<p><em>See Also:</em> <a href="ListBox.html#hideborder">ListBox.HideBorder</a></p>
+<p>Gets/sets whether the built-in up/down scroll arrows are <em>hidden</em>.</p>
 <hr />
 </section>
 <section id="itemcount" class="level3">
@@ -338,6 +335,18 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p><em>See Also:</em> <a href="ListBox.html#fillsavegamelist">ListBox.FillSaveGameList</a>, <a href="ListBox.html#selectedindex">ListBox.SelectedIndex</a></p>
 <hr />
 </section>
+<section id="selectedbackcolor" class="level3">
+<h3><a href="#selectedbackcolor">SelectedBackColor</a></h3>
+<pre><code>int ListBox.SelectedBackColor
+</code></pre>
+<p>Gets/sets the fill color of the selection rectangle drawn around the selected item.</p>
+<p>Example:</p>
+<pre><code>lstSaveGames.SelectedBackColor = Game.GetColorFromRGB(0, 148, 255);
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<hr />
+</section>
 <section id="selectedindex" class="level3">
 <h3><a href="#selectedindex">SelectedIndex</a></h3>
 <p><em>(Formerly known as ListBoxGetSelected, which is now obsolete)</em><br> <em>(Formerly known as ListBoxSetSelected, which is now obsolete)</em></p>
@@ -349,6 +358,64 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <pre><code>String selectedText = lstOptions.Items[lstOptions.SelectedIndex];
 </code></pre>
 <p>will get the text of the selected item in the listbox.</p>
+<hr />
+</section>
+<section id="selectedtextcolor" class="level3">
+<h3><a href="#selectedtextcolor">SelectedTextColor</a></h3>
+<pre><code>int ListBox.SelectedTextColor
+</code></pre>
+<p>Gets/sets the text color used for the selected item.</p>
+<p>Example:</p>
+<pre><code>lstSaveGames.SelectedTextColor = Game.GetColorFromRGB(255, 255, 80);
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<hr />
+</section>
+<section id="showborder" class="level3">
+<h3><a href="#showborder">ShowBorder</a></h3>
+<p><em>(Formerly known as ListBox.HideBorder, which is now obsolete)</em></p>
+<pre><code>bool ListBox.ShowBorder
+</code></pre>
+<p>Gets/sets whether the list box's border is shown.</p>
+<p>Border is drawn using color from TextColor property.</p>
+<p>Note that hiding the border will also implicitly hide the up/down scroll arrows for the list box.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<hr />
+</section>
+<section id="showscrollarrows" class="level3">
+<h3><a href="#showscrollarrows">ShowScrollArrows</a></h3>
+<p><em>(Formerly known as ListBox.HideScrollArrows, which is now obsolete)</em></p>
+<pre><code>bool ListBox.ShowScrollArrows
+</code></pre>
+<p>Gets/sets whether the built-in up/down scroll arrows are shown.</p>
+<p>Arrows are drawn using color from TextColor property.</p>
+<p>Because the overall appearance of the scroll arrows is not customizable, you may wish to use this to hide them and provide your own arrows using GUI Button controls.</p>
+<p><strong>NOTE:</strong> If the list box's "Show Border" setting is disabled, then the scroll arrows will also be hidden, since "Show Border" supersedes "Show Scroll Arrows". You only need to use this ShowScrollArrows property if you want the border to be shown but the arrows hidden.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="ListBox.html#showborder">ListBox.ShowBorder</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<hr />
+</section>
+<section id="textalignment" class="level3">
+<h3><a href="#textalignment">TextAlignment</a></h3>
+<pre><code>HorizontalAlignment ListBox.TextAlignment
+</code></pre>
+<p>Gets/sets the way a text is aligned inside an item's rectangle. Currently only horizontal alignment is supported, that is: eAlignLeft, eAlignCenter and eAlignRight.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a></p>
+<hr />
+</section>
+<section id="textcolor" class="level3">
+<h3><a href="#textcolor">TextColor</a></h3>
+<pre><code>int ListBox.TextColor
+</code></pre>
+<p>Gets/sets the text color used by default, that is - for the non-selected items. Note that the same color is also used for the listbox's border and and scroll arrows.</p>
+<p>Example:</p>
+<pre><code>lstSaveGames.TextColor = Game.GetColorFromRGB(80, 80, 200);
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#showborder">ListBox.ShowBorder</a>, <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a></p>
 <hr />
 </section>
 <section id="topitem" class="level3">
@@ -380,7 +447,7 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:59 AM</p>
+      <p>Build: 09/22/2019 02:29:35 AM</p>
     </section>
   </footer>
 

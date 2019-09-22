@@ -91,6 +91,7 @@
 <li><a href="#getglobalint"><span>GetGlobalInt</span></a></li>
 <li><a href="#getgraphicalvariable"><span>GetGraphicalVariable</span></a></li>
 <li><a href="#getlocationtype"><span>GetLocationType</span></a></li>
+<li><a href="#getplayercharacter"><span>GetPlayerCharacter</span></a></li>
 <li><a href="#gettextheight"><span>GetTextHeight</span></a></li>
 <li><a href="#gettextwidth"><span>GetTextWidth</span></a></li>
 <li><a href="#gettranslation"><span>GetTranslation</span></a></li>
@@ -126,6 +127,7 @@
 <li><a href="#setrestartpoint"><span>SetRestartPoint</span></a></li>
 <li><a href="#settextwindowgui"><span>SetTextWindowGUI</span></a></li>
 <li><a href="#settimer"><span>SetTimer</span></a></li>
+<li><a href="#skipcutscene"><span>SkipCutscene</span></a></li>
 <li><a href="#skipuntilcharacterstops"><span>SkipUntilCharacterStops</span></a></li>
 <li><a href="#startcutscene"><span>StartCutscene</span></a></li>
 <li><a href="#updateinventory"><span>UpdateInventory</span></a></li>
@@ -272,7 +274,7 @@
 <pre><code>EndCutscene()
 </code></pre>
 <p>Marks the end of a cutscene. If the player skips the cutscene, the game will fast-forward to this point. This function returns 0 if the player watched the cutscene, or 1 if they skipped it.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Game.html#inskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#skippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#skipcutscene">SkipCutscene</a>, <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Game.html#inskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#skippingcutscene">Game.SkippingCutscene</a></p>
 <hr />
 </section>
 <section id="getgameoption" class="level3">
@@ -342,10 +344,12 @@
 </section>
 <section id="getlocationtype" class="level3">
 <h3><a href="#getlocationtype">GetLocationType</a></h3>
-<pre><code>GetLocationType(int x, int y)
+<pre><code>LocationType GetLocationType(int x, int y)
 </code></pre>
-<p>Returns what type of thing is at location (X,Y); whether it is a character, object, hotspot or nothing at all. This may be useful if you want to process a mouse click differently depending on what the player clicks on.</p>
-<p><strong>NOTE:</strong> The co-ordinates are screen co-ordinates, NOT room co-ordinates. See description of GetLocationName for more info.</p>
+<p>Returns what type of room thing is seen under the given screen coordinates (x, y): whether it is a character, object, hotspot or nothing at all. This may be useful, for example, if you want to process a mouse click differently depending on what the player clicks on.</p>
+<p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return "nothing".</p>
+<p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return "nothing" as well if one is found under these screen coordinates.</p>
+<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>The value returned is one of the following:</p>
 <pre><code>eLocationNothing    nothing, GUI or inventory
 eLocationHotspot    a hotspot
@@ -358,6 +362,17 @@ eLocationObject     an object
 </code></pre>
 <p>will set the cursor mode to talk if the cursor is over a character.</p>
 <p><em>See Also:</em> <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Game.html#getlocationname">Game.GetLocationName</a>, <a href="Object.html#getatscreenxy">Object.GetAtScreenXY</a></p>
+<hr />
+</section>
+<section id="getplayercharacter" class="level3">
+<h3><a href="#getplayercharacter">GetPlayerCharacter</a></h3>
+<pre><code>GetPlayerCharacter ()
+</code></pre>
+<p><strong>THIS COMMAND IS NOW OBSOLETE.</strong><br> The recommended replacement is to use the player character's ID property, as follows:</p>
+<p>Example:</p>
+<pre><code>Display(&quot;The player character number is %d&quot;, player.ID);
+</code></pre>
+<p><em>See Also:</em> <a href="Character.html#id">Character.ID</a></p>
 <hr />
 </section>
 <section id="gettextheight" class="level3">
@@ -486,13 +501,14 @@ int gap = spacing - h;
 </section>
 <section id="isinteractionavailable" class="level3">
 <h3><a href="#isinteractionavailable">IsInteractionAvailable</a></h3>
-<pre><code>IsInteractionAvailable (int x, int y, int mode)
+<pre><code>int IsInteractionAvailable(int x, int y, int mode)
 </code></pre>
-<p>Checks whether there is an interaction defined for clicking on the screen at (X,Y) in cursor mode MODE.</p>
+<p>Checks whether there is an interaction defined inside a room for clicking on the screen at (X, Y) in cursor mode MODE. Please note that x and y are <em>screen</em> coordinates, not room coordinates.</p>
 <p>This function is very similar to Room.ProcessClick, except that rather than carry out any interactions it encounters, it simply returns 1 if something would have happened, or 0 if unhandled_event would have been run.</p>
-<p>This is useful for enabling options on a verb-coin style GUI, for example.</p>
+<p>Function will fail and return 0 if there's no room viewport on screen at the given coordinates. On the other hand it ignores any non-room objects such as GUI, and "click throughs" any GUI that covers room at this location.</p>
+<p>This function is useful for enabling options on a verb-coin style GUI, for example.</p>
 <p>Example:</p>
-<pre><code>if (IsInteractionAvailable(mouse.x,mouse.y, eModeLookat) == 0)
+<pre><code>if (IsInteractionAvailable(mouse.x, mouse.y, eModeLookat) == 0)
   Display(&quot;looking here would not do anything.&quot;);
 </code></pre>
 <p><em>See Also:</em> <a href="InventoryItem.html#isinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="Hotspot.html#isinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Object.html#isinteractionavailable">Object.IsInteractionAvailable</a>, <a href="Character.html#isinteractionavailable">Character.IsInteractionAvailable</a>, <a href="Room.html#processclick">Room.ProcessClick</a></p>
@@ -969,6 +985,22 @@ SetTimer(Delay_CustomAnimation, 2000);
 <p><em>See Also:</em> <a href="Globalfunctions_General.html#istimerexpired">IsTimerExpired</a></p>
 <hr />
 </section>
+<section id="skipcutscene" class="level3">
+<h3><a href="#skipcutscene">SkipCutscene</a></h3>
+<pre><code>SkipCutscene()
+</code></pre>
+<p>Explicitly commences skipping current cutscene. If game is not in a cutscene sequence or cutscene is already being skipped this function will do nothing.</p>
+<p>SkipCutscene will work regardless of the StartCutscene parameters, but is most useful when you do not want to rely on built-in skipping controls and are coding your own. In the latter case make sure to start cutscene in <strong>eSkipScriptOnly</strong> mode to prevent any standard input interference.</p>
+<p>Example:</p>
+<pre><code>if (Game.InSkippableCutscene &amp;&amp; IsKeyPressed(eKeySpace)) {
+  SkipCutscene();
+}
+</code></pre>
+<p>will check if game is inside a cutscene, and if player has pressed a space bar then commands to skip it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops">SkipUntilCharacterStops</a>, <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Game.html#inskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#skippingcutscene">Game.SkippingCutscene</a></p>
+<hr />
+</section>
 <section id="skipuntilcharacterstops" class="level3">
 <h3><a href="#skipuntilcharacterstops">SkipUntilCharacterStops</a></h3>
 <pre><code>SkipUntilCharacterStops(CHARID)
@@ -999,10 +1031,14 @@ eSkipAnyKeyOrMouseClick
   by pressing any key or clicking a mouse button
 eSkipESCOrRightButton
   by pressing ESC or clicking the right mouse button
+eSkipScriptOnly
+  only by calling SkipCutscene script function
 </code></pre>
+<p><strong>NOTE:</strong> eSkipScriptOnly may be useful if you are coding your own cutscene skipping method in script and would like to disable built-in ones.</p>
 <p>You need to mark the end of the cutscene with the EndCutscene command.</p>
 <p>Be <strong>very careful</strong> with where you place the corresponding EndCutscene command. The script <strong>must</strong> pass through EndCutscene in its normal run in order for the skipping to work - otherwise, when the player presses ESC the game could appear to hang.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops">SkipUntilCharacterStops</a>, <a href="Game.html#inskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#skippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>Compatibility:</em> eSkipScriptOnly cutscene mode is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Globalfunctions_General.html#skipcutscene">SkipCutscene</a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops">SkipUntilCharacterStops</a>, <a href="Game.html#inskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#skippingcutscene">Game.SkippingCutscene</a></p>
 <hr />
 </section>
 <section id="updateinventory" class="level3">
@@ -1083,7 +1119,7 @@ cEgo.FaceLocation(1000,100);
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:50 AM</p>
+      <p>Build: 09/22/2019 02:29:24 AM</p>
     </section>
   </footer>
 

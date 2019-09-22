@@ -99,8 +99,9 @@
 <p>Cameras are linked to the viewports using <a href="Viewport.html#camera">Viewport.Camera</a> property. A camera may be thus linked to any number of different viewports, in which case they all will display same place in the room.</p>
 <p>By default camera's size is set equal to room background or game screen size, whatever is <em>smaller</em>, but you may change that anytime. When camera is linked to a viewport the camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling). If the camera is larger than the viewport that would work as a zoom-out (scale down). If the camera is smaller than the viewport that would work as a zoom-in (scale up).</p>
 <p>By default camera follows player character, this is called "auto-tracking". You may override this by disabling <a href="Camera.html#autotracking">Camera.AutoTracking</a> property.</p>
-<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport to whole screen and adjusts the camera to the same size (or at least the size of room background) each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize cameras yourself standard behavior may be disabled using <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
+<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport and camera to the size of the game screen or size of a room background, whatever is <em>smaller</em>, each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize cameras yourself standard behavior may be disabled using <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
 <p><em>Compatibility:</em> Camera struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Viewport.html">Viewport</a>, <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a>, <a href="Game.html#camera">Game.Camera</a>, <a href="Game.html#cameras">Game.Cameras</a></p>
 <hr />
 <section id="create" class="level3">
 <h3><a href="#create">Create</a></h3>
@@ -133,7 +134,7 @@
 </code></pre>
 <p>Changes camera's capture dimensions in room coordinates.</p>
 <p>If the camera's size is larger than the viewport it is drawn in then the room will be scaled down (zoom-out effect), if camera is smaller than the viewport then the room will be scaled up (zoom-in effect).</p>
-<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Camera.html#height">Camera.Height</a>, <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
 <hr />
 </section>
 <section id="autotracking" class="level3">
@@ -149,7 +150,7 @@
 <pre><code>int Camera.Height;
 </code></pre>
 <p>Gets/sets the camera's capture height in room coordinates.</p>
-<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a></p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#width">Camera.Width</a>, <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
 <hr />
 </section>
 <section id="width" class="level3">
@@ -157,7 +158,7 @@
 <pre><code>int Camera.Width;
 </code></pre>
 <p>Gets/sets the camera's capture width in room coordinates.</p>
-<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#height">Camera.Height</a></p>
+<p><em>See Also:</em> <a href="Camera.html#setat">Camera.SetAt</a>, <a href="Camera.html#setsize">Camera.SetSize</a>, <a href="Camera.html#x">Camera.X</a>, <a href="Camera.html#y">Camera.Y</a>, <a href="Camera.html#height">Camera.Height</a>, <a href="Screen.html#autosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
 <hr />
 </section>
 <section id="x" class="level3">
@@ -184,7 +185,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:56 AM</p>
+      <p>Build: 09/22/2019 02:29:31 AM</p>
     </section>
   </footer>
 

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Semi-blocking movement functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#semi-blocking-movement-functions"><span>Semi-blocking movement functions</span></a><ul>
+<li><a href="#verbsmoveplayer"><span>Verbs.MovePlayer</span></a></li>
+<li><a href="#verbsmoveplayerex"><span>Verbs.MovePlayerEx</span></a></li>
+<li><a href="#verbsgotocharacter"><span>Verbs.GoToCharacter</span></a></li>
+<li><a href="#verbsgotocharacterex"><span>Verbs.GoToCharacterEx</span></a></li>
+<li><a href="#verbsnpcgotocharacter"><span>Verbs.NPCGoToCharacter</span></a></li>
+<li><a href="#verbsanyclickmove"><span>Verbs.AnyClickMove</span></a></li>
+<li><a href="#verbsanyclickwalk"><span>Verbs.AnyClickWalk</span></a></li>
+<li><a href="#verbsanyclickwalklook"><span>Verbs.AnyClickWalkLook</span></a></li>
+<li><a href="#verbsanyclickwalklookpick"><span>Verbs.AnyClickWalkLookPick</span></a></li>
+<li><a href="#verbsanyclickuseinv"><span>Verbs.AnyClickUseInv</span></a></li>
+<li><a href="#verbsgoto"><span>Verbs.GoTo</span></a></li>
+<li><a href="#verbswalkoffscreen"><span>Verbs.WalkOffScreen</span></a></li>
+<li><a href="#verbssetapproachingchar"><span>Verbs.SetApproachingChar</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="semi-blocking-movement-functions" class="level2">
+<h2><a href="#semi-blocking-movement-functions">Semi-blocking movement functions</a></h2>
+<p>Semi-blocking means, that you can cancel the movement, but certain code is only executed, after the character has actually reached it's goal. To archive this, these functions are called inside an if-clause.</p>
+<p>Example:</p>
+<pre><code>if(Verbs.MovePlayer(20,20)) Display(&quot;The player has reached the destination.&quot;);
+</code></pre>
+<p>If the player's character reaches the coordinates 20,20, the message "I'm there" is being displayed. If the movement is being cancelled by a mouseclick, the message doesn't appear.</p>
+<ul>
+<li><a href="Tumbleweed_movement.html#verbsmoveplayer">Verbs.MovePlayer</a></li>
+<li><a href="Tumbleweed_movement.html#verbsmoveplayerex">Verbs.MovePlayerEx</a></li>
+<li><a href="Tumbleweed_movement.html#verbsgotocharacter">Verbs.GoToCharacter</a></li>
+<li><a href="Tumbleweed_movement.html#verbsgotocharacterex">Verbs.GoToCharacterEx</a></li>
+<li><a href="Tumbleweed_movement.html#verbsnpcgotocharacter">Verbs.NPCGoToCharacter</a></li>
+<li><a href="Tumbleweed_movement.html#verbsanyclickmove">Verbs.AnyClickMove</a></li>
+<li><a href="Tumbleweed_movement.html#verbsanyclickwalk">Verbs.AnyClickWalk</a></li>
+<li><a href="Tumbleweed_movement.html#verbsanyclickwalklook">Verbs.AnyClickWalkLook</a></li>
+<li><a href="Tumbleweed_movement.html#verbsanyclickwalklookpick">Verbs.AnyClickWalkLookPick</a></li>
+<li><a href="Tumbleweed_movement.html#verbsanyclickuseinv">Verbs.AnyClickUseInv</a></li>
+<li><a href="Tumbleweed_movement.html#verbsgoto">Verbs.GoTo</a></li>
+<li><a href="Tumbleweed_movement.html#verbswalkoffscreen">Verbs.WalkOffScreen</a></li>
+<li><a href="Tumbleweed_movement.html#verbssetapproachingchar">Verbs.SetApproachingChar</a></li>
+</ul>
+<hr />
+<section id="verbsmoveplayer" class="level3">
+<h3><a href="#verbsmoveplayer">Verbs.MovePlayer</a></h3>
+<pre><code>int Verbs.MovePlayer(int x, int y);
+</code></pre>
+<p>Moves the player character around on walkable areas, a wrapper for MovePlayerEx. Returns 1, if the character has reached it's goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsmoveplayerex">Verbs.MovePlayerEx</a></p>
+</section>
+<section id="verbsmoveplayerex" class="level3">
+<h3><a href="#verbsmoveplayerex">Verbs.MovePlayerEx</a></h3>
+<pre><code>int Verbs.MovePlayerEx(int x, int y, WalkWhere direct);
+</code></pre>
+<p>Move the player character to x,y coords, waiting until he/she gets there, but allowing to cancel the action by pressing a mouse button. Returns 1, if the character hasn't cancelled the movement and 0 if the movement has been cancelled before. 2 is returned, if the characters has actually reached it's goal: eg. if a walkable area is being removed while the player is still moving.</p>
+<hr />
+</section>
+<section id="verbsgotocharacter" class="level3">
+<h3><a href="#verbsgotocharacter">Verbs.GoToCharacter</a></h3>
+<pre><code>int Verbs.GoToCharacter(Character*charid, eDirection dir, bool NPCfacesplayer, int blocking);
+</code></pre>
+<p>The same as GoToCharacterEx, just with the one character being the player and a default offset of x=35px and y=20px. Returns 1, if the character has reached it's goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsgotocharacterex">Verbs.GoToCharacterEx</a></p>
+<hr />
+</section>
+<section id="verbsgotocharacterex" class="level3">
+<h3><a href="#verbsgotocharacterex">Verbs.GoToCharacterEx</a></h3>
+<pre><code>int Verbs.GoToCharacterEx(Character*chwhogoes, Character*ch, eDirection dir, int xoffset, int yoffset, bool NPCfacesplayer, int blocking);
+</code></pre>
+<p>Goes to a character staying at the side defined by 'direction': 1 up, 2 right, 3 down, 4 left and it stays at xoffset or yofsset from the character. blocking: 0=non-blocking; 1=blocking; 2=semi-blocking Returns 1, if the character has reached it's goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsgotocharacter">Verbs.GoToCharacter</a>, <a href="Tumbleweed_movement.html#verbsnpcgotocharacter">Verbs.NPCGoToCharacter</a></p>
+<hr />
+</section>
+<section id="verbsnpcgotocharacter" class="level3">
+<h3><a href="#verbsnpcgotocharacter">Verbs.NPCGoToCharacter</a></h3>
+<pre><code>int Verbs.NPCGoToCharacter(Character*charidwhogoes, Character*charidtogoto, eDirection dir, bool NPCfacesplayer, int blocking);
+</code></pre>
+<p>The same as GoToCharacterEx, just with an default offset of x=35 and y=20 Returns 1, if the character has reached it's goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsgotocharacterex">Verbs.GoToCharacterEx</a></p>
+<hr />
+</section>
+<section id="verbsanyclickmove" class="level3">
+<h3><a href="#verbsanyclickmove">Verbs.AnyClickMove</a></h3>
+<pre><code>int Verbs.AnyClickMove(int x, int y, eDirection dir);
+</code></pre>
+<p>Moves the player character to the coordinates given in the parameters. If the player reaches the destination, it's turns to the given direction. Returns 1, if the character has reached it's goal and 0 if the movement has been cancelled before. You can use this kind of functions (including the movePlayer function which is called by this function), to check if the player actually reached it's destination. For example:</p>
+<pre><code>if (Verbs.AnyClickMove(130,110,eDir_Left) == 1 ) player.Say(&quot;I&#39;ve reached the place.&quot;);
+</code></pre>
+<p>So the Message is only displayed, if the movement hasn't been cancelled.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsmoveplayer">Verbs.MovePlayer</a>, <a href="Tumbleweed_movement.html#verbsmoveplayerex">Verbs.MovePlayerEx</a></p>
+<hr />
+</section>
+<section id="verbsanyclickwalk" class="level3">
+<h3><a href="#verbsanyclickwalk">Verbs.AnyClickWalk</a></h3>
+<pre><code>int Verbs.AnyClickWalk(int x, int y, eDirection dir);
+</code></pre>
+<p>This function is almost similar to AnyClickMove. But it's only called, if the current action is eGA_WalkTo.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsmoveplayer">Verbs.MovePlayer</a>, <a href="Tumbleweed_movement.html#verbsmoveplayerex">Verbs.MovePlayerEx</a>, <a href="Tumbleweed_movement.html#verbsanyclickmove">Verbs.AnyClickMove</a></p>
+<hr />
+</section>
+<section id="verbsanyclickwalklook" class="level3">
+<h3><a href="#verbsanyclickwalklook">Verbs.AnyClickWalkLook</a></h3>
+<pre><code>int Verbs.AnyClickWalkLook(int x, int y, eDirection dir, String lookat);
+</code></pre>
+<p>This function moves the player character to the given location, turns it to the given direction and lets it say the message, given in the string.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsanyclickwalk">Verbs.AnyClickWalk</a></p>
+<hr />
+</section>
+<section id="verbsanyclickwalklookpick" class="level3">
+<h3><a href="#verbsanyclickwalklookpick">Verbs.AnyClickWalkLookPick</a></h3>
+<pre><code>int Verbs.AnyClickWalkLookPick(int x, int y, eDirection dir, String lookat, int objectID, InventoryItem*item, AudioClip *sound);
+</code></pre>
+<p>This function starts the same as any_click_walk_look. If an object ID &gt; 0 has been given, this object is set invisible. Afterwards the inventory item is going to be added to the player's inventory and if there's an audioclip in the parameters, that one is played too.</p>
+<p>The function return 0 if the action has been cancelled, before the player has reached the coordinates. 1 is returned if the player has reached the given destination, but has not picked up the item. 2 is returned, if the item has been picked up.</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsanyclickwalklook">Verbs.AnyClickWalkLook</a>, <a href="Tumbleweed_movement.html#verbsanyclickwalk">Verbs.AnyClickWalk</a></p>
+<hr />
+</section>
+<section id="verbsanyclickuseinv" class="level3">
+<h3><a href="#verbsanyclickuseinv">Verbs.AnyClickUseInv</a></h3>
+<pre><code>int Verbs.AnyClickUseInv (InventoryItem*item, int x, int y, eDirection dir);
+</code></pre>
+<p>This function moves the player to the given destination. It returns 0, if the action is unhandled, 1 is returned, if the action is handled, but has been cancelled. 2 is returned, if everything went fine. A possible usage is:</p>
+<pre><code>if (Verbs.AnyClickUseInv(iWrench,100,130,eDir_Left) == 2 ) player.Say(&quot;I will now repair this pipe.&quot;);
+</code></pre>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsanyclickwalklook">Verbs.AnyClickWalkLook</a>, <a href="Tumbleweed_movement.html#verbsanyclickwalk">Verbs.AnyClickWalk</a></p>
+<hr />
+</section>
+<section id="verbsgoto" class="level3">
+<h3><a href="#verbsgoto">Verbs.GoTo</a></h3>
+<pre><code>int Verbs.GoTo(int blocking);
+</code></pre>
+<p>Go to whatever the player clicked on. This function is used to intercept a walk-to event and check if the player has reached it's goal. E.g. this is used in the exit extension processing. blocking: 0=non-blocking; 1=blocking; 2=semi-blocking (default)</p>
+<p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsmoveplayer">Verbs.MovePlayer</a>, <a href="Tumbleweed_movement.html#verbswalkoffscreen">Verbs.WalkOffScreen</a></p>
+<hr />
+</section>
+<section id="verbswalkoffscreen" class="level3">
+<h3><a href="#verbswalkoffscreen">Verbs.WalkOffScreen</a></h3>
+<pre><code>void Verbs.WalkOffScreen();
+</code></pre>
+<p>Handles the action of hotspots or objects with the exit extension ('&gt;e'). Take a look at chapter about extensions to see what this function does.</p>
+<p><em>See also:</em> <a href="Tumbleweed_extensions.html#extensions">Extensions</a></p>
+<hr />
+</section>
+<section id="verbssetapproachingchar" class="level3">
+<h3><a href="#verbssetapproachingchar">Verbs.SetApproachingChar</a></h3>
+<pre><code>void Verbs.SetApproachingChar(bool enable);
+</code></pre>
+<p>If set to true, the player walks to other chars before talking or giving items. This behaviour is initially defined in the guiscript, this function is used to change it during runtime.</p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/22/2019 02:29:26 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

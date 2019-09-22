@@ -78,6 +78,7 @@
 <ul>
 <li><a href="#textbox-functions-and-properties"><span>TextBox functions and properties</span></a><ul>
 <li><a href="#font"><span>Font</span></a></li>
+<li><a href="#showborder"><span>ShowBorder</span></a></li>
 <li><a href="#text"><span>Text</span></a></li>
 <li><a href="#textcolor"><span>TextColor</span></a></li>
 </ul></li>
@@ -87,6 +88,8 @@
         <div class="column column-75">
 <section id="textbox-functions-and-properties" class="level2">
 <h2><a href="#textbox-functions-and-properties">TextBox functions and properties</a></h2>
+<p>TextBox is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<hr />
 <section id="font" class="level3">
 <h3><a href="#font">Font</a></h3>
 <p><em>(Formerly known as SetTextBoxFont, which is now obsolete)</em></p>
@@ -98,6 +101,15 @@
 </code></pre>
 <p>will change the <em>txtUserInput</em> text box to use Font "Normal".</p>
 <p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
+<hr />
+</section>
+<section id="showborder" class="level3">
+<h3><a href="#showborder">ShowBorder</a></h3>
+<pre><code>bool TextBox.ShowBorder
+</code></pre>
+<p>Gets/sets whether the text box's border is shown.</p>
+<p>Border is drawn using color from TextColor property.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="text" class="level3">
@@ -123,7 +135,7 @@
 </code></pre>
 <p>will change text box 'txtInput' to have yellow text.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="TextBox.html#text">TextBox.Text</a></p>
+<p><em>See Also:</em> <a href="TextBox.html#showborder">TextBox.ShowBorder</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
 </section>
 </section>
         </div>
@@ -134,7 +146,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:54 AM</p>
+      <p>Build: 09/22/2019 02:29:28 AM</p>
     </section>
   </footer>
 

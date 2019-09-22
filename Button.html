@@ -90,6 +90,7 @@
 <li><a href="#normalgraphic"><span>NormalGraphic</span></a></li>
 <li><a href="#pushedgraphic"><span>PushedGraphic</span></a></li>
 <li><a href="#text"><span>Text</span></a></li>
+<li><a href="#textalignment"><span>TextAlignment</span></a></li>
 <li><a href="#textcolor"><span>TextColor</span></a></li>
 </ul></li>
 </ul>
@@ -98,6 +99,8 @@
         <div class="column column-75">
 <section id="button-functions-and-properties" class="level2">
 <h2><a href="#button-functions-and-properties">Button functions and properties</a></h2>
+<p>Button is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<hr />
 <section id="click" class="level3">
 <h3><a href="#click">Click</a></h3>
 <pre><code>Button.Click()
@@ -266,6 +269,16 @@ btnController.Text = &quot;Enable jibble&quot;;
 <p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Label.html#text">Label.Text</a></p>
 <hr />
 </section>
+<section id="textalignment" class="level3">
+<h3><a href="#textalignment">TextAlignment</a></h3>
+<pre><code>Alignment Button.TextAlignment;
+</code></pre>
+<p>Gets/sets how the text is aligned relative to the button's rectangle.</p>
+<p>If the button is displaying an image rather than text, then this property has no effect.</p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<hr />
+</section>
 <section id="textcolor" class="level3">
 <h3><a href="#textcolor">TextColor</a></h3>
 <pre><code>int Button.TextColor;
@@ -287,7 +300,7 @@ btnController.Text = &quot;Enable jibble&quot;;
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:53 AM</p>
+      <p>Build: 09/22/2019 02:29:27 AM</p>
     </section>
   </footer>
 

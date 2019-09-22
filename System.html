@@ -291,32 +291,22 @@ else {
 </section>
 <section id="screenheight" class="level3">
 <h3><a href="#screenheight">ScreenHeight</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#height">Screen.Height</a> instead.</strong></p>
 <p><em>(Formerly known as system.screen_height, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenHeight;
 </code></pre>
-<p>Returns the actual screen height that the game is running at. If a graphic filter is in use, the resolution returned will be that before any stretching by the filter has been applied. If letterbox borders are enabled, the screen size reported will include the size of these borders.</p>
-<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when working with co-ordinates. Co-ordinates are relative to the viewport, so you should use <a href="System.html#viewportheight">System.ViewportHeight</a> instead. Use the ScreenHeight property only for reporting purposes.</p>
-<p>Example:</p>
-<pre><code>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
-                                  System.ScreenHeight, System.ColorDepth);
-</code></pre>
-<p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <a href="System.html#colordepth">System.ColorDepth</a>, <a href="System.html#screenwidth">System.ScreenWidth</a>, <a href="System.html#viewportheight">System.ViewportHeight</a></p>
+<p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black letterbox borders, making it a confusing parameter.</p>
+<p><em>See Also:</em> <a href="System.html#colordepth">System.ColorDepth</a>, <a href="Screen.html#width">Screen.Width</a>, <a href="Screen.html#height">Screen.Height</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a></p>
 <hr />
 </section>
 <section id="screenwidth" class="level3">
 <h3><a href="#screenwidth">ScreenWidth</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#width">Screen.Width</a> instead.</strong></p>
 <p><em>(Formerly known as system.screen_width, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenWidth;
 </code></pre>
-<p>Returns the actual screen width that the game is running at. If a graphic filter is in use, the resolution returned will be that before any stretching by the filter has been applied. If widescreen side borders are enabled, the screen width reported will include the size of these borders.</p>
-<p><strong>NOTE:</strong> Do <strong>NOT</strong> use this to calculate the centre of the screen when working with co-ordinates. Co-ordinates are relative to the viewport, so you should use <a href="System.html#viewportwidth">System.ViewportWidth</a> instead. Use the ScreenWidth property only for reporting purposes.</p>
-<p>Example:</p>
-<pre><code>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
-                                  System.ScreenHeight, System.ColorDepth);
-</code></pre>
-<p>will display the current resolution and colour depth</p>
-<p><em>See Also:</em> <a href="System.html#colordepth">System.ColorDepth</a>, <a href="System.html#screenheight">System.ScreenHeight</a> <a href="System.html#viewportwidth">System.ViewportWidth</a></p>
+<p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black widescreen side borders, making it a confusing parameter.</p>
+<p><em>See Also:</em> <a href="System.html#colordepth">System.ColorDepth</a>, <a href="Screen.html#width">Screen.Width</a>, <a href="Screen.html#height">Screen.Height</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a></p>
 <hr />
 </section>
 <section id="scrolllock" class="level3">
@@ -368,28 +358,22 @@ else {
 </section>
 <section id="viewportheight" class="level3">
 <h3><a href="#viewportheight">ViewportHeight</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#height">Screen.Height</a> instead.</strong></p>
 <p><em>(Formerly known as system.viewport_height, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportHeight;
 </code></pre>
-<p>Returns the height of the current viewport. This is reported in the same co-ordinate system that the game is using, so you can use this to find out what the maximum possible Y co-ordinate is within the screen.</p>
-<p>Example:</p>
-<pre><code>Display(&quot;Game viewport: %d x %d&quot;, System.ViewportWidth, System.ViewportHeight);
-</code></pre>
-<p>will display the current viewport size</p>
-<p><em>See Also:</em> <a href="System.html#screenheight">System.ScreenHeight</a>, <a href="System.html#viewportwidth">System.ViewportWidth</a></p>
+<p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#height">Viewport.Height</a> is <strong>not</strong> a direct equivalent.</p>
+<p><em>See Also:</em> <a href="Screen.html#width">Screen.Width</a>, <a href="Screen.html#height">Screen.Height</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a></p>
 <hr />
 </section>
 <section id="viewportwidth" class="level3">
 <h3><a href="#viewportwidth">ViewportWidth</a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#width">Screen.Width</a> instead.</strong></p>
 <p><em>(Formerly known as system.viewport_width, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportWidth;
 </code></pre>
-<p>Returns the width of the current viewport. This is reported in the same co-ordinate system that the game is using, so you can use this to find out what the maximum possible X co-ordinate is within the screen.</p>
-<p>Example:</p>
-<pre><code>Display(&quot;Game viewport: %d x %d&quot;, System.ViewportWidth, System.ViewportHeight);
-</code></pre>
-<p>will display the current viewport size</p>
-<p><em>See Also:</em> <a href="System.html#screenwidth">System.ScreenWidth</a>, <a href="System.html#viewportheight">System.ViewportHeight</a></p>
+<p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#width">Viewport.Width</a> is <strong>not</strong> a direct equivalent.</p>
+<p><em>See Also:</em> <a href="Screen.html#width">Screen.Width</a>, <a href="Screen.html#height">Screen.Height</a>, <a href="Viewport.html#width">Viewport.Width</a>, <a href="Viewport.html#height">Viewport.Height</a></p>
 <hr />
 </section>
 <section id="volume" class="level3">
@@ -454,7 +438,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:58 AM</p>
+      <p>Build: 09/22/2019 02:29:33 AM</p>
     </section>
   </footer>
 

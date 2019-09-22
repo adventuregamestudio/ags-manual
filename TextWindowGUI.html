@@ -87,36 +87,31 @@
 <section id="textwindowgui-functions-and-properties" class="level2">
 <h2><a href="#textwindowgui-functions-and-properties">TextWindowGUI functions and properties</a></h2>
 <p>This struct extends the GUI struct, so it has all functions and properties from <a href="GUI.html">GUI</a>, in addition to the properties below.</p>
+<p><em>Compatibility:</em> TextWindowGUI is supported by AGS 3.5.0 and later versions.</p>
 <hr />
 <section id="textcolor" class="level3">
 <h3><a href="#textcolor">TextColor</a></h3>
-<pre><code>attribute int TextWindowGUI.TextColor
+<pre><code>int TextWindowGUI.TextColor
 </code></pre>
 <p>Gets/sets the text color to be used when rendering text on this TextWindowGUI.</p>
 <p>Example:</p>
-<pre><code>// a say function with character text color
-function MySay(this Character*, const string message,  ...) {
+<pre><code>// a custom MySay function with character-specific text color;
+// (assuming that gTextGui is assigned as a speech GUI)
+function MySay(this Character*, const string message) {
   gTextGui.AsTextWindow.TextColor = this.SpeechColor;
-  this.Say(message,  ...);
+  this.Say(message);
 }
-
-// later on, supposed gTextGui is our default TextGUI
-cEgo.MySay(&quot;My text has my colors!&quot;);
 </code></pre>
-<p><em>See Also:</em> <a href="TextWindowGUI.html#textpadding">TextWindowGUI.TextPadding</a></p>
+<p>above function adjusts gTextGui's text color before calling a standard <a href="Character.html#say">Character.Say</a> function. It assumes that gTextGui was assigned as a default textwindow for the character speech. Such custom function may then be used as:</p>
+<pre><code>cEgo.MySay(&quot;My text has my colors!&quot;);
+</code></pre>
 <hr />
 </section>
 <section id="textpadding" class="level3">
 <h3><a href="#textpadding">TextPadding</a></h3>
-<pre><code>attribute int TextWindowGUI.TextPadding
+<pre><code>int TextWindowGUI.TextPadding
 </code></pre>
 <p>Gets/sets the amount of padding, in pixels, surrounding the text in the TextWindow.</p>
-<p>Example:</p>
-<pre><code>// gDisplayTextGui.ID is set in the Editor as the Display GUI in General Settings
-gDisplayTextGui.AsTextWindow.TextPadding = 8;
-Display(&quot;This text has more padding&quot;);
-</code></pre>
-<p><em>See Also:</em> <a href="TextWindowGUI.html#textcolor">TextWindowGUI.TextColor</a></p>
 </section>
 </section>
         </div>
@@ -127,7 +122,7 @@ Display(&quot;This text has more padding&quot;);
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:55 AM</p>
+      <p>Build: 09/22/2019 02:29:31 AM</p>
     </section>
   </footer>
 

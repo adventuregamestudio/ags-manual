@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Extensions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#extensions"><span>Extensions</span></a><ul>
+<li><a href="#verbsremoveextension"><span>Verbs.RemoveExtension</span></a></li>
+<li><a href="#verbsaddextension"><span>Verbs.AddExtension</span></a></li>
+<li><a href="#verbsextension"><span>Verbs.Extension</span></a></li>
+<li><a href="#verbsextensionex"><span>Verbs.ExtensionEx</span></a></li>
+<li><a href="#verbsopencloseextension"><span>Verbs.OpenCloseExtension</span></a></li>
+<li><a href="#verbsvariableextensions"><span>Verbs.VariableExtensions</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="extensions" class="level2">
+<h2><a href="#extensions">Extensions</a></h2>
+<ul>
+<li><a href="Tumbleweed_extensions.html#verbsremoveextension">Verbs.RemoveExtension</a></li>
+<li><a href="Tumbleweed_extensions.html#verbsaddextension">Verbs.AddExtension</a></li>
+<li><a href="Tumbleweed_extensions.html#verbsextension">Verbs.Extension</a></li>
+<li><a href="Tumbleweed_extensions.html#verbsextensionex">Verbs.ExtensionEx</a></li>
+<li><a href="Tumbleweed_extensions.html#verbsopencloseextension">Verbs.OpenCloseExtension</a></li>
+<li><a href="Tumbleweed_extensions.html#verbsvariableextensions">Verbs.VariableExtensions</a></li>
+</ul>
+<p>Extensions are used to define the default action for the right-click. You can add extensions to characters, hotspots, objects and inventory items. To add an extension, e.g. chose an object in the room editor and take a look at the description (not the name). In the sample room, we have an object, called Cup. In addition to the name we have an angle bracket and the letter p:</p>
+<pre><code>Cup&gt;p
+</code></pre>
+<p>The bracket acts as a seperator for the extension, the letter tells the script, which default action to use. By default, the template knows about the following extensions:</p>
+<ul>
+<li><code>n</code>: nothing / default</li>
+<li><code>g</code>: give to</li>
+<li><code>p</code>: pick up</li>
+<li><code>u</code>: use</li>
+<li><code>o</code>: open</li>
+<li><code>l</code>: look at</li>
+<li><code>s</code>: push</li>
+<li><code>c</code>: close</li>
+<li><code>t</code>: talk to</li>
+<li><code>y</code>: pull</li>
+<li><code>v</code>: variable extension</li>
+<li><code>e</code>: exit</li>
+</ul>
+<p>If you like to customize or add these extensions, take a look at the function CheckDefaultAction.</p>
+<p>You don't have to add an extension for every object and hotspot. The template also adds some default actions on it's own. The default action for Characters is "talk to", for Hotspots and Objects, it's look at. Inventory items are handled a little differently, the right-click always causes "look at", no matter what. If you left-click an item, it's usually "use with". But if you have added the extension "u", the action will be simply "use". Clicking the verb button "use" and the item afterwards would cause the same action. But it could seem a little bit unpredictable, whether an item can used by a verb button or not. With this shortcut you can make things a little bit easier. You can see this behaviour in the sample room, when opening the letter. Otherwise you would have needed something else to interact with it. But with the use-extension, it is getting opened by a single left-click. The exit extension is covered in the following chapter.</p>
+<p><em>See also:</em> <a href="Tumbleweed_actions.html#verbscheckdefaultaction">Verbs.CheckDefaultAction</a></p>
+<hr />
+<section id="verbsremoveextension" class="level3">
+<h3><a href="#verbsremoveextension">Verbs.RemoveExtension</a></h3>
+<pre><code>void Verbs.RemoveExtension();
+</code></pre>
+<p>Used to remove the extension from a location (Hotspots, Objects etc.), so it doesn't get displayed in the status bar.</p>
+<hr />
+</section>
+<section id="verbsaddextension" class="level3">
+<h3><a href="#verbsaddextension">Verbs.AddExtension</a></h3>
+<pre><code>void Verbs.AddExtension(char extension);
+</code></pre>
+<p>Used to add a default extension in case the location doesn't have one.</p>
+<hr />
+</section>
+<section id="verbsextension" class="level3">
+<h3><a href="#verbsextension">Verbs.Extension</a></h3>
+<pre><code>char Verbs.Extension();
+</code></pre>
+<p>Returns the first extention of a location.</p>
+<hr />
+</section>
+<section id="verbsextensionex" class="level3">
+<h3><a href="#verbsextensionex">Verbs.ExtensionEx</a></h3>
+<pre><code>char Verbs.ExtensionEx(int index, String name);
+</code></pre>
+<p>Returns the n-th extension of the given string. This is currently used for exit extensions.</p>
+<hr />
+</section>
+<section id="verbsopencloseextension" class="level3">
+<h3><a href="#verbsopencloseextension">Verbs.OpenCloseExtension</a></h3>
+<pre><code>void Verbs.OpenCloseExtension(int door_id);
+</code></pre>
+<p>Used in combination with the door scripts. This function returns a close extension, if the door with the given id is open and vice versa.</p>
+<hr />
+</section>
+<section id="verbsvariableextensions" class="level3">
+<h3><a href="#verbsvariableextensions">Verbs.VariableExtensions</a></h3>
+<pre><code>void Verbs.VariableExtensions();
+</code></pre>
+<p>This function is called, if you have have set "v" as an extension for a certain location. Currently it is used for the OpenClose extension, but of course you can add your own variable extensions here, for example "turn on / turn off".</p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/22/2019 02:29:28 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

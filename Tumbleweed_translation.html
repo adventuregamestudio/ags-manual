@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Translation</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/milligram.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <nav class="navigation">
+      <section class="container">
+        <div class="float-left">
+          <a class="navigation-title" href="index.html">
+            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+              <g shape-rendering="crispEdges">
+                <rect width="10" height="7" fill="#ffffff" />
+                <svg y="1">
+                  <rect width="12" height="5" fill="#ffffff" />
+                </svg>
+                <svg x="1">
+                  <rect width="8" height="8" fill="#ffffff" />
+                </svg>
+                <svg x="1" y="1">
+                  <rect width="8" height="5" fill="#2a7fff" />
+                </svg>
+                <svg x="2" y="6">
+                  <rect width="6" height="1" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="2">
+                  <rect width="2" height="3" fill="#2a7fff" />
+                </svg>
+                <svg x="9" y="3">
+                  <rect width="1" height="1" fill="#ffffff" />
+                </svg>
+                <svg x="2" y="2">
+                  <rect width="6" height="3" fill="#0000d4" />
+                </svg>
+                <svg x="3" y="5">
+                  <rect width="4" height="1" fill="#0000d4" />
+                </svg>
+                <svg x="2" y="1">
+                  <rect width="6" height="1" fill="#ffffff" />
+                </svg>
+              </g>
+            </svg>
+            <h1 class="title">AGS Manual</h1>
+          </a>
+        </div>
+        <div class="float-right">
+          <ul class="navigation-list float-right">
+            <li class="navigation-item">
+              <input type="search" id="search_input">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </nav>
+
+    <header>
+      <ul id="search_results">
+      </ul>
+    </header>
+
+    <section>
+      <div class="row">
+        <div class="column">
+          <nav id="TOC">
+            <ul>
+              <li><a href="genindex.html">Index</a></li>
+            </ul>
+<ul>
+<li><a href="#translation"><span>Translation</span></a><ul>
+<li><a href="#verbstranslateaction"><span>Verbs.TranslateAction</span></a></li>
+<li><a href="#verbsadjustlanguage"><span>Verbs.AdjustLanguage</span></a></li>
+<li><a href="#verbsadjustguitext"><span>Verbs.AdjustGUIText</span></a></li>
+</ul></li>
+</ul>
+          </nav>
+        </div>
+        <div class="column column-75">
+<section id="translation" class="level2">
+<h2><a href="#translation">Translation</a></h2>
+<p><a href="Tumbleweed_translation.html#verbstranslateaction">TranslateAction</a> <a href="Tumbleweed_translation.html#verbsadjustlanguage">AdjustLanguage</a> <a href="Tumbleweed_translation.html#verbsadjustguitext">AdjustGUIText</a></p>
+<p>To make the verbs work with translations, strings are being used to define the button graphics, hotkeys and so on. If you like to customize your game or get it translated, you need to take a closer look at the function AdjustLanguage.</p>
+<hr />
+<section id="verbstranslateaction" class="level3">
+<h3><a href="#verbstranslateaction">Verbs.TranslateAction</a></h3>
+<pre><code>void Verbs.TranslateAction(int action, int tr_lang);
+</code></pre>
+<p>This function defines the text for the verb buttons, e.g. if you click on the talk verb button, "Talk to" is being displayed in the action/status bar. The second parameter defines the returned language. If you want to customize this text, you have to edit this function.</p>
+<hr />
+</section>
+<section id="verbsadjustlanguage" class="level3">
+<h3><a href="#verbsadjustlanguage">Verbs.AdjustLanguage</a></h3>
+<pre><code>void Verbs.AdjustLanguage();
+</code></pre>
+<p>This function has to be called from inside the template's game_start() function. It sets up everything related to the verb buttons, so you need to take a look at this, if you want to customize your GUI. It is also import to understand, how this function works, if you want to get you game translated. If you take a closer look at this function, you will notice the following lines:</p>
+<pre><code>Verbs.SetActionButtons(eGA_Open,    0, 59, 60, &#39;q&#39;);
+Verbs.SetActionButtons(eGA_Close,   1, 61, 62, &#39;a&#39;);
+Verbs.SetActionButtons(eGA_GiveTo,  2, 63, 64, &#39;z&#39;);
+</code></pre>
+<p>and so on.</p>
+<p>Your verb buttons are initialized here, by calling the function SetActionButtons. The parameters define the following:</p>
+<ul>
+<li>Defined Action/Verb</li>
+<li>GUI-button ID</li>
+<li>Spriteslot normal</li>
+<li>Sprite slot highlighted</li>
+<li>Keyboard-Shortcut.</li>
+</ul>
+<p>This line</p>
+<pre><code>Verbs.SetActionButtons(eGA_GiveTo,  2, 63, 64, &#39;z&#39;);
+</code></pre>
+<p>tells the AGS:</p>
+<ul>
+<li>We want to define a button for the verb "Give"</li>
+<li>The buttons has the GUI-ID 2. If you take a look at the GUI "gMaingui", you can see several buttons. The one with the ID 2 will be used for the action you define here.</li>
+<li>The button will use the spriteslot 63 as the default graphic and spriteslot 64, if it's highlighted. This can be a little bit confusing, since if you look at <code>gMaingui</code>, those graphics have already been assigned. But you also need to define the graphics slots in this function, because eventually these are the ones being used.</li>
+<li>The last parameter defines the hotkey for this action.</li>
+</ul>
+<p>You might wonder, why this function overrides the values of gMaingui. But in some other languages the translation for use could be a very long word, so you might want to swap it with something else. E.g. in german "use" means "Benutze", so you need more space for the verb. But "pick up" can be translated to "nimm", so you save some space here.</p>
+<p>Unlike the 9Verb MI-Style template, the fonts can be customized and overwritten in AdjustGUIText().</p>
+<p><em>See also:</em> <a href="Tumbleweed_actions.html#verbssetactionbuttons">Verbs.SetActionButtons</a></p>
+<hr />
+</section>
+<section id="verbsadjustguitext" class="level3">
+<h3><a href="#verbsadjustguitext">Verbs.AdjustGUIText</a></h3>
+<pre><code>void Verbs.AdjustGUIText();
+</code></pre>
+<p>This function will also be called inside the template's game_start() function. Here you can modify the labels of your GUI buttons for the options GUI. In case you need it, you can also define alternative fonts for different languages.</p>
+<p><em>See also:</em> <a href="Tumbleweed_translation.html#verbsadjustlanguage">Verbs.AdjustLanguage</a></p>
+</section>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer>
+    <section class="container">
+      <p>Build: 09/22/2019 02:29:25 AM</p>
+    </section>
+  </footer>
+
+  <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

@@ -81,6 +81,7 @@
 <li><a href="#playfrom"><span>PlayFrom</span></a></li>
 <li><a href="#playqueued"><span>PlayQueued</span></a></li>
 <li><a href="#stop"><span>Stop</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
 <li><a href="#filetype"><span>FileType</span></a></li>
 <li><a href="#isavailable"><span>IsAvailable</span></a></li>
 <li><a href="#type"><span>Type</span></a></li>
@@ -160,6 +161,25 @@ aExplosion.Stop();
 <p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a></p>
 <hr />
 </section>
+<section id="id" class="level3">
+<h3><a href="#id">ID</a></h3>
+<pre><code>readonly int AudioClip.ID
+</code></pre>
+<p>Gets the ID of this audio clip. This could be used for diagnostic purposes as well to find same clip in the Game.AudioClips[] array.</p>
+<p>Example:</p>
+<pre><code>for (int i = 0; i &lt; System.AudioChannelCount; i++) {
+  AudioClip *clip = System.AudioChannels[i].PlayingClip;
+  if (clip != null)
+    Display(&quot;Channel %d has clip %d playing&quot;, i, clip.ID);
+  else
+    Display(&quot;Channel %d has no clip on it at the moment&quot;, i);
+}
+</code></pre>
+<p>will display information about clips playing on each audio channel.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Game.html#audioclips">Game.AudioClips</a></p>
+<hr />
+</section>
 <section id="filetype" class="level3">
 <h3><a href="#filetype">FileType</a></h3>
 <pre><code>readonly AudioFileType AudioClip.FileType;
@@ -220,7 +240,7 @@ aExplosion.Stop();
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:58 AM</p>
+      <p>Build: 09/22/2019 02:29:35 AM</p>
     </section>
   </footer>
 

@@ -162,15 +162,15 @@ Mouse.Click(eMouseLeft);
 </section>
 <section id="controlenabled" class="level3">
 <h3><a href="#controlenabled">ControlEnabled</a></h3>
-<pre><code>readonly static bool Mouse.ControlEnabled;
+<pre><code>static bool Mouse.ControlEnabled;
 </code></pre>
-<p>Tells if the mouse cursor movement is currently being controlled by AGS engine; otherwise it is controlled by operation system. This is usually true only when game is run in fullscreen mode.</p>
-<p>This property may be useful to know if custom mouse speed setting is applied or not.</p>
+<p>Gets/sets if the mouse cursor movement has to be controlled by AGS engine; otherwise it is controlled by operation system. Note that in practice mouse is only controlled when the game is run in fullscreen mode.</p>
+<p>This setting may be useful to know if custom mouse speed setting is applied or not.</p>
 <p>Example:</p>
 <pre><code>sldMouseSpeed.Visible = Mouse.ControlEnabled;
 </code></pre>
 <p>makes mouse speed slider visible only if the mouse is controlled by the game.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.<br> Settable since <strong>AGS 3.5.0</strong>.</p>
 <p><em>See Also:</em> <a href="Mouse.html#speed">Mouse.Speed</a></p>
 <hr />
 </section>
@@ -407,7 +407,7 @@ mouse.Visible = true;
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:52 AM</p>
+      <p>Build: 09/22/2019 02:29:26 AM</p>
     </section>
   </footer>
 

@@ -88,12 +88,14 @@
 <li><a href="#getviewframe"><span>GetViewFrame</span></a></li>
 <li><a href="#inputbox"><span>InputBox</span></a></li>
 <li><a href="#ispluginloaded"><span>IsPluginLoaded</span></a></li>
+<li><a href="#playvoiceclip"><span>PlayVoiceClip</span></a></li>
 <li><a href="#setsavegamedirectory"><span>SetSaveGameDirectory</span></a></li>
+<li><a href="#simulatekeypress"><span>SimulateKeyPress</span></a></li>
 <li><a href="#audioclipcount"><span>AudioClipCount</span></a></li>
 <li><a href="#audioclips"><span>AudioClips</span></a></li>
 <li><a href="#camera"><span>Camera</span></a></li>
-<li><a href="#cameras"><span>Cameras</span></a></li>
 <li><a href="#cameracount"><span>CameraCount</span></a></li>
+<li><a href="#cameras"><span>Cameras</span></a></li>
 <li><a href="#charactercount"><span>CharacterCount</span></a></li>
 <li><a href="#dialogcount"><span>DialogCount</span></a></li>
 <li><a href="#filename"><span>FileName</span></a></li>
@@ -199,13 +201,16 @@ Display(&quot;Loop 2 in SWIMMING view has %d frames.&quot;, frameCount);
 <p><em>(Formerly known as global function GetLocationName, which is now obsolete)</em></p>
 <pre><code>static String Game.GetLocationName(int x, int y)
 </code></pre>
-<p>Returns the name of whatever is on the screen at (X,Y). This allows you to create the Lucasarts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
-<p><strong>NOTE:</strong> Unlike Room.ProcessClick, this function actually works on what the player can see on the screen - therefore, if the co-ordinates are on a GUI, a blank string is returned.</p>
-<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that with a scrolling room, the co-ordinates you pass are relative to the screen's current position, and NOT absolute room co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
+<p>Returns the name of whatever is seen in the room under the given screen coordinates (x, y).</p>
+<p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return a blank string.</p>
+<p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return blank string if one is found under these screen coordinates.</p>
+<p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
+<p>This function may allow you, for instance, to create the Lucasarts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
 <p>Example:</p>
 <pre><code>String location = Game.GetLocationName(mouse.x, mouse.y);
+lblDescription.Text = location;
 </code></pre>
-<p>will get the name of whatever the mouse is over into the string variable.</p>
+<p>will get the name of whatever the mouse is over into the string variable and then assign to a label lblDescription.</p>
 <p><em>See Also:</em> <a href="Hotspot.html#name">Hotspot.Name</a>, <a href="InventoryItem.html#name">InventoryItem.Name</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a>, <a href="Object.html#name">Object.Name</a></p>
 <hr />
 </section>
@@ -300,6 +305,19 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <p>will display a message if plugin is present.</p>
 <hr />
 </section>
+<section id="playvoiceclip" class="level3">
+<h3><a href="#playvoiceclip">PlayVoiceClip</a></h3>
+<pre><code>static AudioChannel* Game.PlayVoiceClip(Character* c, int cue, bool as_speech)
+</code></pre>
+<p>Plays a voice clip from the <strong>speech.vox</strong> in a non-blocking manner. It returns an AudioChannel pointer which you may use to control playback same way you control other clips, or null if it could not be started.</p>
+<p>Character and "cue" arguments are used to find actual clip, this works the same way as when you do <code>cEgo.Say("&amp;10 speech text");</code> in which case "10" is a cue number. For more information about this see: <a href="MusicAndSound.html#voice-speech">Voice speech</a>.</p>
+<p>The "as_speech" argument tells whether playback has same effect on game as regular speech. At the moment this means that music volume will drop and restore after playback is finished. This parameter "as_speech" is TRUE by default and may be omited.</p>
+<p>This command will be ignored if a regular blocking voice is currently playing. Also, both blocking and non-blocking voice will interrupt non-blocking voice-over if one was playing.</p>
+<p><strong>NOTE:</strong> because of how audiochannels work internally right now voice is always played on the same channel 0, therefore you could also get it as <code>System.AudioChannels[0]</code>, but it may not be a good idea to rely on this because channel behavior may change in future.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also</em>: <a href="MusicAndSound.html#voice-speech">Voice speech</a>, <a href="AudioChannel.html">AudioChannel</a>, <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="Character.html#say">Character.Say</a></p>
+<hr />
+</section>
 <section id="setsavegamedirectory" class="level3">
 <h3><a href="#setsavegamedirectory">SetSaveGameDirectory</a></h3>
 <pre><code>static bool Game.SetSaveGameDirectory(string directory)
@@ -319,6 +337,20 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 </code></pre>
 <p>will change the save game directory to "My Cool Game Saves" in My Documents, and create the folder if it does not exist (might be useful to do this in game_start).</p>
 <p><em>See Also:</em> <a href="ListBox.html#fillsavegamelist">ListBox.FillSaveGameList</a>, <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a></p>
+<hr />
+</section>
+<section id="simulatekeypress" class="level3">
+<h3><a href="#simulatekeypress">SimulateKeyPress</a></h3>
+<pre><code>static Game.SimulateKeyPress(eKeyCode key)
+</code></pre>
+<p>Fires a keypress event. This is in all aspects identical to what would happen if a player pressed a key on keyboard. This function may be useful to simulate player actions in game, or create automatic demonstrations (like tutorials).</p>
+<p><strong>IMPORTANT:</strong> because of how AGS engine and scripts work the game will react to this keypress not before current script function finishes. Any things that normally react to keys (such as skippable speech, cutscenes, and certain GUI controls) will be affected only at the following internal game update.</p>
+<p>Example:</p>
+<pre><code>Game.SimulateKeyPress(eKeySpace);
+</code></pre>
+<p>This simulates a "space" key press.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Mouse.html#click">Mouse.Click</a>, <a href="ASCIIcodes.html#ascii-code-table">List of supported key codes</a></p>
 <hr />
 </section>
 <section id="audioclipcount" class="level3">
@@ -353,26 +385,36 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </section>
 <section id="camera" class="level3">
 <h3><a href="#camera">Camera</a></h3>
-<pre><code>static readonly Camera* Camera
+<pre><code>static readonly Camera* Game.Camera;
 </code></pre>
-<p>Gets the primary camera. This camera cannot be deleted.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a>, <a href="Camera.html#delete">Camera.Delete</a>, <a href="Viewport.html#camera">Viewport.Camera</a></p>
-<hr />
-</section>
-<section id="cameras" class="level3">
-<h3><a href="#cameras">Cameras</a></h3>
-<pre><code>static readonly Camera* Cameras[]
-</code></pre>
-<p>Gets a Camera by it's index.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a>, <a href="Viewport.html#camera">Viewport.Camera</a>, <a href="Game.html#camera">Game.Camera</a></p>
+<p>Gets the primary camera. This is the default camera that is created automatically at the start of the game and cannot be deleted.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Game.html#cameras">Game.Cameras</a>, <a href="Camera.html">Camera</a>, <a href="Camera.html#create">Camera.Create</a>, <a href="Camera.html#delete">Camera.Delete</a>, <a href="Viewport.html#camera">Viewport.Camera</a></p>
 <hr />
 </section>
 <section id="cameracount" class="level3">
 <h3><a href="#cameracount">CameraCount</a></h3>
-<pre><code>static readonly int CameraCount
+<pre><code>static readonly int Game.CameraCount
 </code></pre>
 <p>Gets the number of cameras.</p>
-<p><em>See Also:</em> <a href="Camera.html#create">Camera.Create</a>, <a href="Viewport.html#camera">Viewport.Camera</a>, <a href="Game.html#camera">Game.Camera</a></p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Game.html#cameras">Game.Cameras</a></p>
+<hr />
+</section>
+<section id="cameras" class="level3">
+<h3><a href="#cameras">Cameras</a></h3>
+<pre><code>static readonly Camera* Game.Cameras[int index];
+</code></pre>
+<p>Returns the Camera instance by its index. There's always at least primary camera at the index 0, more could be created in script using <a href="Camera.html#create">Camera.Create</a>.</p>
+<p><strong>IMPORTANT:</strong> with the current implementation when you delete a custom camera in the middle all the following cameras will be shifted towards beginning of array, changing their indexes.</p>
+<p>Example:</p>
+<pre><code>for (int i = 0; i &lt; Game.CameraCount; i++) {
+    Game.Cameras[i].SetAt(0, 0);
+}
+</code></pre>
+<p>This script positions all existing cameras at the room's top-left corner.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Game.html#camera">Game.Camera</a>, <a href="Game.html#cameracount">Game.CameraCount</a>, <a href="Camera.html#create">Camera.Create</a>, <a href="Camera.html#delete">Camera.Delete</a>, <a href="Viewport.html#camera">Viewport.Camera</a></p>
 <hr />
 </section>
 <section id="charactercount" class="level3">
@@ -703,7 +745,7 @@ else
 
   <footer>
     <section class="container">
-      <p>Build: 09/16/2019 12:33:48 AM</p>
+      <p>Build: 09/22/2019 02:29:22 AM</p>
     </section>
   </footer>
 
