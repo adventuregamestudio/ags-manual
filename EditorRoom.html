@@ -78,15 +78,12 @@
 <ul>
 <li><a href="#room-editor"><span>Room Editor</span></a><ul>
 <li><a href="#background"><span>Background</span></a></li>
-<li><a href="#show-this-rooms-control"><span>Show this room's control</span></a></li>
+<li><a href="#edit-this-rooms-control"><span>Edit this room's control</span></a></li>
 <li><a href="#properties-control"><span>Properties control</span></a></li>
 <li><a href="#edges"><span>Edges</span></a></li>
-<li><a href="#characters"><span>Characters</span></a></li>
 <li><a href="#objects"><span>Objects</span></a></li>
-<li><a href="#hotspot"><span>Hotspot</span></a></li>
-<li><a href="#walkable-areas"><span>Walkable areas</span></a></li>
-<li><a href="#walk-behinds"><span>Walk-behinds</span></a></li>
-<li><a href="#regions"><span>Regions</span></a></li>
+<li><a href="#characters"><span>Characters</span></a></li>
+<li><a href="#room-masks-hotspot-walkable-areas-walk-behinds-and-regions"><span>Room masks (Hotspot, Walkable areas, Walk-behinds and Regions)</span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -100,41 +97,44 @@
 <h3><a href="#background">Background</a></h3>
 <p>By selecting a background on the <code>Display Background</code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code>Change...</code> button to change the background. If a background of different size than the previous background is selected, all masks (hotspot, walkbehind, region and walkable) are erased. If a room has more than one background, by default, they are animated.</p>
 </section>
-<section id="show-this-rooms-control" class="level3">
-<h3><a href="#show-this-rooms-control">Show this room's control</a></h3>
-<p>Select one between Nothing, Edges, Characters, Objects, Hotspots, Walkable areas, Walk-behinds, and Regions to be shown on the room area.</p>
+<section id="edit-this-rooms-control" class="level3">
+<h3><a href="#edit-this-rooms-control">Edit this room's control</a></h3>
+<p>This control allows you to view characters,objects and edges, simultaneously with one of the room masks: hotspots, walkable areas, walk-behinds or regions. Moving a character or object already in the room is as simple as clicking and dragging it.</p>
+<p><img src="images/EditorRoom_2.png" alt="Editor Room" /></p>
+<p>You can select any element in the room by navigating on the bar using the down arrows, which will reveal the available elements on the chosen category.</p>
+<p>Characters, objects can also be select on the room area by clicking on them. To move edges directly on room area, first select the edges layer, and then you will also be able to directly manipulate edges shown in the room area. To select any room mask type of layer, first select the layer you are interested and later use the Select area tool (picker icon on toolbar) to pick the specific element.</p>
+<p><strong>Placing a new object</strong></p>
+<p>If you want to place a new object, you need to select Objects in the layer menu and right click on the screen where to put the new object and click on "Place New Object Here".</p>
+<p><img src="images/EditorRoom_3.png" alt="Editor Room" /></p>
+<p><strong>Placing a character</strong></p>
+<p>For placing a character not in the room, on it, you need to select the character in the characters tree on Explore Project, and change it's <code>StartingRoom</code> property to the current room being edited.</p>
+<p><strong>Layer and element Visibility (eye icon)</strong></p>
+<p>Each layer can be made visible/hidden by the push of a button. In addition, for the objects/characters/edges layers each element in the layer can also be made visible/hidden by the push of a button. <em>This will only affect the editor, not the actual game</em>.</p>
+<p><strong>Layer and element Locking (padlock icon)</strong></p>
+<p>Each layer can be locked/unlocked by the push of a button. In addition, for each layer, each element in the layer can also be locked/unlocked by the push of a button. A locked element cannot be moved until it is unlocked, useful to prevent mistakes when designing the room. <em>This will only affect the editor, not the actual game</em>.</p>
 </section>
 <section id="properties-control" class="level3">
 <h3><a href="#properties-control">Properties control</a></h3>
-<p>The list button shows properties and the lighting bolt are for events.</p>
+<p>The properties control will adapt to which element is selected at the specific layer. If no element is selected or the edges layer is selected, this control will show the current Room properties and events.</p>
+<p>The list button switches the tree to show <strong>Properties</strong> and the lighting bolt switches the tree to show <strong>Events</strong>. Both can be navigated either in categorical order or alphabetical order.</p>
+<p>Positional changes on the properties of an element, say it's (x,y) position, will instantly be updated in the room area, which is useful for pixel positioning things.</p>
 </section>
 <section id="edges" class="level3">
 <h3><a href="#edges">Edges</a></h3>
-<p>You can draw edges.</p>
-</section>
-<section id="characters" class="level3">
-<h3><a href="#characters">Characters</a></h3>
-<p>You need to place the characters on the room first by using the Character Editor.</p>
+<p>Edges are draggable by clicking and holding on them, once their layer is selected. If no edges are shown, you may need to look into the properties of your room and place valid values on the BottomEdgeY, LeftEdgeX, RightEdgeX and TopEdgeY properties of your room.</p>
 </section>
 <section id="objects" class="level3">
 <h3><a href="#objects">Objects</a></h3>
-<p>Right click on the room and click <code>Place New Object Here</code> to create a new object.</p>
+<p>Right click on the room and click <code>Place New Object Here</code> to create a new object. They can be freely positioned in the room, and when one object is selected you can edit it's properties on the Properties control. While dragging an Object it's (x,y) position will be shown on screen, which refers to an object sprite bottom left corner. Locked objects can't be moved.</p>
 </section>
-<section id="hotspot" class="level3">
-<h3><a href="#hotspot">Hotspot</a></h3>
-<p>Use to mark interactive areas on the background.</p>
+<section id="characters" class="level3">
+<h3><a href="#characters">Characters</a></h3>
+<p>You need to place the characters on the room first by using the Character Editor. While dragging an Character it's (x,y) position will be shown on screen, which refers to an the current character sprite bottom middle position, similar to a characters foot. Locked characters can't be moved.</p>
 </section>
-<section id="walkable-areas" class="level3">
-<h3><a href="#walkable-areas">Walkable areas</a></h3>
-<p>TBD.</p>
-</section>
-<section id="walk-behinds" class="level3">
-<h3><a href="#walk-behinds">Walk-behinds</a></h3>
-<p>TBD.</p>
-</section>
-<section id="regions" class="level3">
-<h3><a href="#regions">Regions</a></h3>
-<p>TBD.</p>
+<section id="room-masks-hotspot-walkable-areas-walk-behinds-and-regions" class="level3">
+<h3><a href="#room-masks-hotspot-walkable-areas-walk-behinds-and-regions">Room masks (Hotspot, Walkable areas, Walk-behinds and Regions)</a></h3>
+<p>AGS offers a simple editor when one of these layers is selected so that you can directly edit these masks in the room area offering a picker, a line tool, a freehand tool, a rectangle tool, and a fill area.</p>
+<p>Also available is a way to both export the a mask layer as a bitmap and import a mask layer. These are offered in case you prefer to draw those in your preferred image editor, just make sure that you keep the exported 8bit indexed color palette.</p>
 <p>See Also: <a href="Room.html">Room</a></p>
 </section>
 </section>
@@ -146,7 +146,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/22/2019 03:54:41 AM</p>
+      <p>Build: 09/22/2019 10:24:52 PM</p>
     </section>
   </footer>
 
