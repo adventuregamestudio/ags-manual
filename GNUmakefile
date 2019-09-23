@@ -123,7 +123,6 @@ meta/build/%.yaml: source/%.md | meta/build
 		$<
 
 spell/work/%.html: source/%.md | spell/work
-	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to html4 \
 		--metadata title=$* \
