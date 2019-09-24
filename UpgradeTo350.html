@@ -92,15 +92,52 @@
 <li>Toggle each group's and even each item's visibility in any combinations. This lets you display, for example, characters, objects and walkable areas at the same time. The only exception is that you may only display one type of area mask at the same time (that is - either walkable areas, regions, hotspots or walk-behinds).</li>
 <li>Toggle each group's and each item's locked state. When locked the object cannot be moved or have its shape changed (as with mask areas which may be changed by painting).</li>
 </ul>
-<p>Note that you can still only select and edit objects of the chosen group, not all at once.</p>
+<p><strong>NOTE:</strong> you can still only select and edit objects of the chosen group, not all at once.</p>
+<p><strong>NOTE:</strong> in order to remember user preference on visible and locked items Editor saves a new file called <strong>roomNNN.crm.user</strong> per each room, where 'NNN' is a room's number. These files are not part of the game data and are safe to remove (but in that case all item visibility and lock states in the room will be reset).</p>
 <p><strong>New Viewport/Camera system</strong></p>
 <p>In the past, AGS had a very simple concept of Viewport: a rectangular "eye" which selected a part of the room to display on the screen. If a room was larger than the game's screen it became a "scrolling room" and you could move a viewport around it, showing different parts of that room.</p>
 <p>In 3.5.0 the concept of viewport has changed a lot to provide more options. First of all, it's now split into two parts: Viewport and Camera.</p>
 <p>The new Camera is almost what the old Viewport was: it is a rectangle <em>inside the room</em> that acts like an "eye" and tells which part of this room can be seen. Camera's position and size are defined in <em>room coordinates</em>. If Camera is smaller than the room, then it can be moved around it to see different parts.<br> The new Viewport is a different thing, now it defines a rectangle <em>on a game's screen</em> where the room will be drawn. Viewport has a link to Camera and displays what camera "sees" at this moment. Viewport's position and size are defined in <em>screen coordinates</em>, just like GUIs and Overlays. This means that if a camera is moving inside the room, the viewport will still stay at the same place on the screen, and vice-versa when a viewport is moved around the screen it will still display same part of the room. Of course, moving both viewport and camera will produce more complicated result.<br> You may think of Viewport as of a TV screen or computer monitor, which translates the image from the camera.</p>
+<p>Following is a table of conversion between old viewport functions and new camera functions:</p>
+<table>
+<thead>
+<tr class="header">
+<th>obsolete function</th>
+<th>replace with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SetViewport(x, y)</td>
+<td>Game.Camera.SetAt(x, y)</td>
+</tr>
+<tr class="even">
+<td>ReleaseViewport()</td>
+<td>Game.Camera.AutoTracking = true</td>
+</tr>
+<tr class="odd">
+<td>GetViewportX()</td>
+<td>Game.Camera.X</td>
+</tr>
+<tr class="even">
+<td>GetViewportY()</td>
+<td>Game.Camera.Y</td>
+</tr>
+</tbody>
+</table>
 <p>Introduction of new Viewport and Camera concepts allows a lot of new effects which were previously impossible or not easy to accomplish. For example, you no longer must display the room covering the whole screen, you may make a smaller "window" to see the room and position it in the middle of the screen.<br> By the way, this also means that you do not have to keep all your rooms same size, you may create very small rooms in your game now and adjust viewport and camera to display it on screen where and how you like.<br> By default Viewport and Camera has the same size, but you may make them have different sizes. If a camera is smaller than the viewport then its image will be stretched to fill it causing a "zoom-in" effect. If the camera is larger than the viewport then it will be shrunk to fit in causing a "zoom-out" effect.</p>
 <p>The first viewport-camera pair is created automatically when the game starts, but you may create more of them. Viewport's and camera's parameters may be changed anytime, thus you may have different settings per each room and even animations (like moving viewport and camera around, zooming in and out).</p>
 <p>It's important to note that any cursor actions will only work on the room if the cursor is on a viewport.</p>
-<p>Only rooms and their contents (characters, objects) are affected by the viewport/camera system, and they got GetAtRoomXY and GetAtScreenXY functions to help scripting your game systems. GUI and Overlays, including speech and other on-screen text, still work outside of it.</p>
+<p>Only rooms and their contents (characters, objects) are affected by the viewport/camera system. GUI and Overlays, including speech and other on-screen text, still work outside of it.</p>
+<p><strong>IMPORTANT:</strong> Another thing which needs a different approach is a conversion between screen and room coordinates. Earlier, if you'd like to know where in the room the player has clicked with a mouse, you only had to apply camera's offset in room (previously known as viewport's offset):</p>
+<pre><code>int roomx = mouse.x + GetViewportX();
+int roomy = mouse.y + GetViewportY();
+</code></pre>
+<p>Since 3.5.0 this is no longer enough, because not only viewport itself may have offset on screen, but also camera's image may be scaled inside a viewport. For that reason there are now actual functions that help you do this conversion: <a href="Screen.html#screentoroompoint">Screen.ScreenToRoomPoint</a>, <a href="Screen.html#roomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a>.<br> They are used like:</p>
+<pre><code>Point *roompt = Screen.ScreenToRoomPoint(mouse.x, mouse.y);
+int roomx = roompt.x;
+int roomy = roompt.y;
+</code></pre>
 <p>For more information see: <a href="Camera.html">Camera</a>, <a href="Viewport.html">Viewport</a>, <a href="Game.html#cameras">Game.Cameras</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
 <p><strong>Room sizes and mask resolution</strong></p>
 <p>Previously AGS had a restriction that a room background must be at least size of a game resolution. With 3.5.0 this restriction is gone and you can now make rooms any size. This became possible after the rewrite of the viewport system, as explained above.</p>
@@ -115,8 +152,8 @@
 <li><p>Sprites retain resolution tag for backward compatibility, but it is now set to "Real" by default and not recommended to change. When you import older project sprites get "promoted" to "real" resolution if their tag matches the game: for example if a sprite is tagged as "low-res" and your game is 320x200, or if a sprite is tagged as "high-res" and your game is 640x400 or higher.</p></li>
 <li><p>"Fonts designed for high resolution" setting was removed because it no longer makes sense. Instead, each font has an individual ScalingMultiplier property. When importing older project each font will be scaled x2 if it was a "high-res" game and this setting was OFF.</p></li>
 </ol>
-<p><strong>New API cheat sheet</strong></p>
-<p>Some functions from previous Script API can be easily replaced, they are shown in the table below.</p>
+<p><strong>Some script functions replaced and/or deprecated</strong></p>
+<p>Some functions from previous Script API were either replaced by new equivalents or deprecated. They are shown in the table below:</p>
 <table>
 <thead>
 <tr class="header">
@@ -126,31 +163,35 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>SetViewport(x, y);</td>
-<td>Game.Camera.SetAt(x, y);</td>
+<td>GetWalkableAreaAt(x, y)</td>
+<td>GetWalkableAreaAtScreen(x, y)</td>
 </tr>
 <tr class="even">
-<td>ReleaseViewport();</td>
-<td>Game.Camera.AutoTracking = true;</td>
+<td>Character.IgnoreWalkbehinds</td>
+<td><em>Do not use</em></td>
 </tr>
 <tr class="odd">
-<td>GetViewportX();</td>
-<td>Game.Camera.X;</td>
+<td>Object.IgnoreWalkbehinds</td>
+<td><em>Do not use</em></td>
 </tr>
 <tr class="even">
-<td>GetViewportY();</td>
-<td>Game.Camera.Y;</td>
-</tr>
-<tr class="odd">
-<td>GetWalkableAreaAt(x, y);</td>
-<td>GetWalkableAreaAtScreen(x, y);</td>
+<td>DrawingSurface.UseHighResCoordinates</td>
+<td><em>Do not use</em></td>
 </tr>
 </tbody>
 </table>
-<p>You can also use "Script Compatibility Level" switch to enable old functions.</p>
+<p>Note that you can still use "Script Compatibility Level" switch in General Settings to enable old functions.</p>
 <p><strong>System limits update</strong></p>
-<p>This version's compiled game, sprite set, and room files now may exceed 2 GB.</p>
-<p>Additionally, imported sprites count limit were raised to 90000 and Dynamic Sprites count limit are removed. ListBox item count limit, Button length limit, TextBox length limit, and font count limit are also removed.</p>
+<p>Support for very large files was added to AGS, therefore now package file and every asset file is allowed to exceed 2 GB. One good example to mention is the packed sprites file (acsprset.spr) which 2 GB limit was causing most inconveniences.</p>
+<p>Other limits:</p>
+<ul>
+<li>Imported sprites count limit was raised to 90000;</li>
+<li>Total number of sprites in game, which includes both imported and Dynamic Sprites is no longer limited by arbitrary number (in practice you may have around 2 billions of dynamic sprites);</li>
+<li>Font count limit removed;</li>
+<li>Removed length limit on the Button and TextBox text (was 50 and 200 respectively);</li>
+<li>Removed ListBox item count limit (was 200).</li>
+<li>Removed hidden limit for DoOnceOnly token length (was 200 characters).</li>
+</ul>
 </section>
         </div>
       </div>
@@ -160,7 +201,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/22/2019 11:22:09 PM</p>
+      <p>Build: 09/24/2019 02:40:04 PM</p>
     </section>
   </footer>
 
