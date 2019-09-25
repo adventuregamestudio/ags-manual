@@ -201,7 +201,7 @@ eSkipMouse         text does not time-out; player can skip text by clicking mous
 <p><em>(Formerly known as SetSpeechStyle, which is now obsolete)</em></p>
 <pre><code>static eSpeechStyle Speech.Style
 </code></pre>
-<p>Gets/sets theway in which speech text is displayed. This modifies the setting originally set in the editor. SpeechStyle can be:</p>
+<p>Gets/sets the way in which speech text is displayed. This modifies the setting originally set in the editor. SpeechStyle can be:</p>
 <pre><code>eSpeechLucasarts
   speech text over character&#39;s head
 eSpeechSierra
@@ -222,7 +222,7 @@ eSpeechFullScreen
 <p><em>(Formerly known as game.speech_text_align, which is now obsolete)</em></p>
 <pre><code>static Alignment Speech.TextAlignment
 </code></pre>
-<p>Sets how text in Lucasarts-style speech is aligned.</p>
+<p>Sets how text in LucasArts-style speech is aligned.</p>
 <p>The accepted values are</p>
 <pre><code>eAlignLeft
 eAlignCentre
@@ -259,7 +259,7 @@ eAlignRight
 eSpeechVoiceAndText  both voice and text
 eSpeechVoiceOnly     voice only, no text
 </code></pre>
-<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behaviour of all <a href="Character.html#say">Say</a> and <a href="Globalfunctions_Message.html#display">Display</a> commands which have a speech file assigned to them.</p>
+<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behavior of all <a href="Character.html#say">Say</a> and <a href="Globalfunctions_Message.html#display">Display</a> commands which have a speech file assigned to them.</p>
 <p><strong>WARNING:</strong> you should only ever use <em>eSpeechVoiceOnly</em> at the player's request to do so, because there is no guarantee that they even have a sound card and so may not understand what is going on.</p>
 <p>Example:</p>
 <pre><code>if (IsSpeechVoxAvailable()==1)
@@ -276,7 +276,7 @@ eSpeechVoiceOnly     voice only, no text
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:59 PM</p>
+      <p>Build: 09/25/2019 12:04:29 AM</p>
     </section>
   </footer>
 

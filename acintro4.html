@@ -113,17 +113,17 @@
 <p>Select the <em>"Inventory Items"</em> node in the project tree. You'll see that there are already two items defined - "Key" and "Pink poster". These are just defaults to help you get started. Double click "1: iKey", and you should see a window open with the key image in it. But that picture's a bit small for an inventory item, I'm sure I saw something better in the sprite list earlier.</p>
 <p>Find the "Image" property in the property grid, select it, and then click the "..." button. The sprite manager re-appears, so find sprite number 5, and you should see that it's a much larger picture of a key. Let's use that as our inventory icon. Double-click the sprite to select it.</p>
 <p><img src="images/intro4_3.jpg" alt="Yay, we&#39;ve got a big inventory icon for the key" /></p>
-<p>Ok, there are a few other settings on this screen, but let's return to our objective - letting the player pick up the key. Remember that the script name is <em>iKey</em>, as we'll need it later.</p>
+<p>OK, there are a few other settings on this screen, but let's return to our objective - letting the player pick up the key. Remember that the script name is <em>iKey</em>, as we'll need it later.</p>
 <section id="back-to-the-events" class="level4">
 <h4>Back to the events</h4>
 <p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes you've guessed it, the <em>Events</em> button. The events here are very similar to the ones we had for the hotspot:</p>
 <p><img src="images/intro4_4.jpg" alt="The events list for the object" /></p>
-<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a lucasArts-style interface which has more verb types available to the player.</p>
+<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a LucasArts-style interface which has more verb types available to the player.</p>
 <p>So, select "Interact object" and click the "..." button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
 <p>Here's my script solution. As an added bonus, I've also given the player 5 points for their trouble, but you don't need to have that third command:</p>
 <p><img src="images/intro4_5.jpg" alt="Script for taking the key" /></p>
 <p>Note that our solution is not perfect - the player can click the hand icon on the key from anywhere in the room and it will disappear. We are also not displaying a message informing the player of what happened. But, the functionality is there, and this will do fine for now.</p>
-<p>Okey, so we now have a fully-working first room. Test the game as before, and try it out. Once the player has taken the key, call up his inventory and you should see the large key picture there.</p>
+<p>OK, so we now have a fully-working first room. Test the game as before, and try it out. Once the player has taken the key, call up his inventory and you should see the large key picture there.</p>
 </section>
 </section>
 <section id="room-settings" class="level3">
@@ -147,7 +147,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:06 PM</p>
+      <p>Build: 09/25/2019 12:04:36 AM</p>
     </section>
   </footer>
 

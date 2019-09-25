@@ -96,7 +96,7 @@ lstTest.AddItem(&quot;New item&quot;);
 <p>The script editor's autocomplete functionality has been significantly enhanced to aid in all this as well. You'll see as you start to experiment that autocomplete pops up more often and lists only the relevant commands thanks to object-based scripting.</p>
 <p><strong>So does this mean I have to throw out all my scripts?</strong></p>
 <p>No, certainly not! The new version is fully backwards compatible, so all your existing scripts will continue to work just fine. However, for any new scripts that you write, it's strongly recommended that you use the new object-based commands.</p>
-<p><strong>Ok, so uh... what's changed exactly?</strong></p>
+<p><strong>OK, so uh... what's changed exactly?</strong></p>
 <p>The script language syntax hasn't changed at all (that's the way you use semicolons, brackets, and so on). It's still just like it was before, but with some new additions. Most significantly, most commands are now called <strong>on something</strong>. For example, the old command:</p>
 <p><code>StopMoving(EGO);</code></p>
 <p>Just from looking at that, it's not at all obvious what StopMoving does. Does it stop a character moving, an object moving, or does it stop the screen moving? It's not intuitive. So now, rather than supplying the character as a parameter to the function, you actually call the function <strong>on</strong> the character. So:</p>
@@ -111,7 +111,7 @@ lstTest.AddItem(&quot;New item&quot;);
 <p><code>StopMoving(GetPlayerCharacter());</code></p>
 <p>can now be done like this:</p>
 <p><code>player.StopMoving();</code></p>
-<p><strong>Hmm, I see... so what exactly has been object-ised?</strong></p>
+<p><strong>Hmm, I see... so what exactly has been object-ized?</strong></p>
 <p>Currently, the following object-based things are available:</p>
 <table>
 <thead>
@@ -179,7 +179,7 @@ lstTest.AddItem(&quot;New item&quot;);
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:00 PM</p>
+      <p>Build: 09/25/2019 12:04:29 AM</p>
     </section>
   </footer>
 

@@ -119,7 +119,7 @@
                                  optional RepeatStyle)
 </code></pre>
 <p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#seek">AudioChannel.Seek</a> help page.</p>
-<p>Otherwise, this command behaves identially to <a href="AudioClip.html#play">AudioClip.Play</a>. Please see that help page for more information.</p>
+<p>Otherwise, this command behaves identically to <a href="AudioClip.html#play">AudioClip.Play</a>. Please see that help page for more information.</p>
 <p>Example:</p>
 <pre><code>aExplosion.PlayFrom(1000);
 </code></pre>
@@ -134,7 +134,7 @@
 <pre><code>AudioChannel* AudioClip.PlayQueued(optional AudioPriority, optional RepeatStyle)
 </code></pre>
 <p>Plays the audio clip, or queues it to be played later if it cannot be played now.</p>
-<p>This command behaves identially to <a href="AudioClip.html#play">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
+<p>This command behaves identically to <a href="AudioClip.html#play">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
 <p>Additionally, unlike the Play command, using PlayQueued will not interrupt an existing audio clip with an equal priority; it will only interrupt clips with a lower priority.</p>
 <p>You can queue up to 10 tracks in the audio queue. Note that if you queue audio clips to be played after a repeating audio clip, they will never be played.</p>
 <p>Example:</p>
@@ -240,7 +240,7 @@ aExplosion.Stop();
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:10 PM</p>
+      <p>Build: 09/25/2019 12:04:39 AM</p>
     </section>
   </footer>
 

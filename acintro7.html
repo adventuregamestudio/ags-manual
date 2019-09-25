@@ -109,14 +109,14 @@
 <h3><a href="#characters">Characters</a></h3>
 <p>If you remember back to part 3 of this tutorial, we talked about three types of thing that the player can interact with - hotspots, objects and characters. We've covered the first two, so now it's time to take a look at characters.</p>
 <p>Put simply, a character is similar to an object, except that it can move between different rooms in the game, take part in conversations, carry its own inventory and more.</p>
-<p>Expand the "Characters" node in the project tree. You'll see that so far you only have one character in the list, labelled "0: cEgo". You can create a new character by right-clicking the "Characters" node. For now, double-click the "cEgo" character:</p>
+<p>Expand the "Characters" node in the project tree. You'll see that so far you only have one character in the list, labeled "0: cEgo". You can create a new character by right-clicking the "Characters" node. For now, double-click the "cEgo" character:</p>
 <p><img src="images/intro7_3.jpg" alt="The Character Editor" /></p>
 <p>The first thing you'll notice is the text "This character is the player character" at the top of the window. This shows that the currently selected character is the initial player character when the game starts up. The game will start off in whatever room number the <em>Starts in room</em> option is set to for the player character. To change it, simply open up the character that you want to use instead and click the "Make this the player character" button.</p>
 <p>There are quite a few properties available in the property grid. Rather than explain them all here, we'll just cover the most important ones - you can find a full description of all the options in the manual.</p>
 <ul>
 <li><strong>StartingRoom</strong> - this sets which room number the character starts off in at the beginning of the game.</li>
 <li><strong>NormalView</strong> - sets which view is used for the normal walking animation of the character. The view specified here must have 4 or 8 loops, and the first frame of each loop is the standing still frame.<br> For a 4-loop character, when walking diagonally the closest straight direction is chosen for display. With an 8-loop character, all 8 directions are displayed depending on the character's direction.<br> Which loop represents which direction is shown in the Views editor (eg. "Loop 0 (down)").</li>
-<li><strong>Clickable</strong> - if this is not checked, then this character will be see-through to mouse clicks. This is similar to the way the player character worked in Lucasarts games - you cannot actually click on Guybrush, it will always activate whatever is behind him.</li>
+<li><strong>Clickable</strong> - if this is not checked, then this character will be see-through to mouse clicks. This is similar to the way the player character worked in LucasArts games - you cannot actually click on Guybrush, it will always activate whatever is behind him.</li>
 </ul>
 <p>The character's "<em>RealName</em>" field simply gives you an easy way to identify the character in the editor, and can also be accessed from the game script if desired.</p>
 <p>The "<em>ScriptName</em>" field is very important, as it sets the name by which the character will be referred to in the game scripts. The reason for having this as well as the RealName is that the script name can only contain the letters A-Z, whereas the <em>RealName</em> field can contain any spaces, numbers, etc.</p>
@@ -136,7 +136,7 @@
 <p>So, we want to add something extra to picking up the key. How do we do this? Yes, that's right, we need to return to the Event Script for the key object. Go back to the Events List for the key object (remember, you open the room, select the "Objects" mode, then click on the key to select it):</p>
 <p><img src="images/intro7_4.jpg" alt="Remember this?" /></p>
 <p>The main difference you'll notice now is that the "Interact object" event already has a name. This "oKey_Interact" is the name of the script function that we created earlier. So, just select it and click the "..." button to return to the script editor.</p>
-<p>Now, we want the player to walk across to the key <strong>before</strong> it disappears, so we need to add a new line of script <strong>before</strong> the existing command that makes the key invisible. We want to do an action on the player character (ie. move him), so type "player." and auto-complete will pop up with the available commands. See if you can work out which one we need.</p>
+<p>Now, we want the player to walk across to the key <strong>before</strong> it disappears, so we need to add a new line of script <strong>before</strong> the existing command that makes the key invisible. We want to do an action on the player character (i.e. move him), so type "player." and auto-complete will pop up with the available commands. See if you can work out which one we need.</p>
 <p><img src="images/intro7_5.jpg" alt="The Walk command needs X and Y co-ordinates" /></p>
 <p><strong>Eeek!</strong> It wants a destination X and Y location! We don't know that, but we can find out! Click the "Room 1" tab on the tab bar at the top of the editor, and move the mouse cursor to where the key is on the background. Look just above the background image, and you should see "Mouse Position: 158, 108" or something similar. These are the X and Y co-ordinates, respectively, of the key's location. So, note them down, and click the "room1.asc" tab to return to the script.</p>
 <p>Now, we can type in those co-ordinates to our script. We also need to pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for Roger to get to those co-ordinates before continuing the script. If we didn't do this, he would start to walk but the key would disappear before he got there! The final script should look like this:</p>
@@ -154,7 +154,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:58 PM</p>
+      <p>Build: 09/25/2019 12:04:27 AM</p>
     </section>
   </footer>
 

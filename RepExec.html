@@ -84,10 +84,10 @@
 <section id="repeatedly_execute-_always" class="level2">
 <h2><a href="#repeatedly_execute-_always">repeatedly_execute (_always)</a></h2>
 <p>One of the most common things you'll need to do when scripting is to check if something has happened in the game -- and if so, then make the game do something in response.</p>
-<p>For example, suppose that you want a bird to fly backwards and forwards across the screen in the background. You need a way of telling the bird to move in one direction, recognise when it has finished, and tell it to move back again.</p>
+<p>For example, suppose that you want a bird to fly backwards and forwards across the screen in the background. You need a way of telling the bird to move in one direction, recognize when it has finished, and tell it to move back again.</p>
 <p>This is where <em>repeatedly_execute</em>, <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> come in.</p>
 <p><strong>What's the difference between them?</strong></p>
-<p>The <em>repeatedly_execute</em> event is run on every game loop (by default this is 40 times per second), but only when the game is not blocked. That means that it will run as long as there are no current blocking animations or moves going on (ie. a Walk or Animate command where <em>eBlock</em> has been specified as a parameter).</p>
+<p>The <em>repeatedly_execute</em> event is run on every game loop (by default this is 40 times per second), but only when the game is not blocked. That means that it will run as long as there are no current blocking animations or moves going on (i.e. a Walk or Animate command where <em>eBlock</em> has been specified as a parameter).</p>
 <p>On the other hand, <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> are always run on every game loop, no matter whether the game is blocked or not. This comes at a price though, which is that you cannot run any blocking code within it. So if you try to script a <em>player.Walk()</em> command that passes the <em>eBlock</em> parameter -- or even just try to use a <code>Wait(1);</code> command, these will fail within <em>(late_)repeatedly_execute_always</em>.</p>
 <p>The difference between <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> is that first is run <strong>before</strong> game updates itself, changing animation frames, moving objects into new position etc, while the second, "late" version, is run <strong>after</strong> the game was updated, but before it redrew its new state on screen.</p>
 <p><strong>What would I use each one for?</strong></p>
@@ -157,7 +157,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:04 PM</p>
+      <p>Build: 09/25/2019 12:04:33 AM</p>
     </section>
   </footer>
 

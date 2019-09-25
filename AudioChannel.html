@@ -301,7 +301,7 @@ Display(&quot;After 1 second, offset is %d ms.&quot;, channel.PositionMs);
 <p>Gets/sets the volume of this audio channel, from 0 to 100. This allows you to dynamically adjust the volume of a playing sound.</p>
 <p>This command adjusts the volume of this channel relative to the other channels. It is still constrained within the overall volume, set by the System.Volume property.</p>
 <p><strong>NOTE:</strong> This command only affects the current sound being played on the channel. When a new audio clip starts playing on this channel, the volume will be set to the DefaultVolume of the new audio clip.</p>
-<p><strong>NOTE:</strong> The volume returned by this property is the channel's base volume, ie. it does not include the effects of any directional audio set with SetRoomLocation, or any temporary volume drop while speech is playing.</p>
+<p><strong>NOTE:</strong> The volume returned by this property is the channel's base volume, i.e. it does not include the effects of any directional audio set with SetRoomLocation, or any temporary volume drop while speech is playing.</p>
 <p>Example:</p>
 <pre><code>AudioChannel *channel = aExplosion.Play();
 Wait(40);
@@ -320,7 +320,7 @@ channel.Volume = 20;
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:08 PM</p>
+      <p>Build: 09/25/2019 12:04:38 AM</p>
     </section>
   </footer>
 

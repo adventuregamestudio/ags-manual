@@ -139,9 +139,9 @@
 <p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
 <pre><code>static GUI* GUI.GetAtScreenXY(int x, int y)
 </code></pre>
-<p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If there is, returns its GUI. If two GUIs overlap, the frontmost one will be returned - this can be changed with the GUI.ZOrder property.</p>
+<p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If there is, returns its GUI. If two GUIs overlap, the front-most one will be returned - this can be changed with the GUI.ZOrder property.</p>
 <p>If there is not currently a displayed, clickable GUI at the location then <em>null</em> is returned. If null is returned, do NOT attempt to call any methods or use any properties of the GUI (since it does not actually exist).</p>
-<p><strong>NOTE:</strong> This command will not find any GUIs that are set as Non-Clickable (ie. the "Clickable" checkbox not checked).</p>
+<p><strong>NOTE:</strong> This command will not find any GUIs that are set as Non-Clickable (i.e. the "Clickable" checkbox not checked).</p>
 <p>Example:</p>
 <pre><code>GUI *theGui = GUI.GetAtScreenXY(mouse.x, mouse.y);
 if (theGui == gInventory) {
@@ -453,7 +453,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:03 PM</p>
+      <p>Build: 09/25/2019 12:04:32 AM</p>
     </section>
   </footer>
 

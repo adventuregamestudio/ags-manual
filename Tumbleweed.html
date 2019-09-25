@@ -103,7 +103,7 @@
 <hr />
 <section id="introduction" class="level3">
 <h3><a href="#introduction">Introduction</a></h3>
-<p><em>Tumbleweed Verbs</em> is a template that allows you to recreate those classic SCUMM games, as well as the modern iteration Thimbleweed Park(tm) by Terrible Toybox, Inc.</p>
+<p><em>Tumbleweed Verbs</em> is a template that allows you to recreate those classic SCUMM games, as well as the modern iteration Thimbleweed Park (TM) by Terrible Toybox, Inc.</p>
 <p>Setting up the template with all your custom graphics and colors has been simplified a lot. All settings are grouped in the submodule TemplateSettings.asc. There is no need anymore for digging around in the single modules. The messages for unhandled events are defined in the TemplateSettings modules as well.</p>
 <p>If you like to create a game with this template, you have to re-think some concepts you use when creating a game with AGS.</p>
 <p>The two new concepts are: event handling and default actions, using extensions.</p>
@@ -137,7 +137,7 @@
 </code></pre>
 <p>For inventory items, it's a little bit different, because there is no any_click event in the room editor. So you first start with "other click on inventory item", which creates the function <code>iCup_OtherClick</code> (in case you have an item, called <code>iCup</code>). Now copy this function name and paste it at other events, like interact, look, talk and so on. In the end, you only have one function name in all five events. You can also take a look at the sample items.</p>
 <p>The second main aspect of the GUI are the extensions. You add an extension to a location (Hotspots, Objects etc.) by editing its description.</p>
-<p>For example, let's take an object. In the sample room, the object is called <code>oCup</code> and the description is simply "Cup". When move the cursor over this cup and no extension is defined, the default action will be "look at". Also the corresponding verb button in the gui starts to highlight. Now we can change this behaviour with adding an angled bracket, followed by one of the following letters:</p>
+<p>For example, let's take an object. In the sample room, the object is called <code>oCup</code> and the description is simply "Cup". When move the cursor over this cup and no extension is defined, the default action will be "look at". Also the corresponding verb button in the gui starts to highlight. Now we can change this behavior with adding an angled bracket, followed by one of the following letters:</p>
 <ul>
 <li><code>n</code>: nothing / default</li>
 <li><code>g</code>: give to</li>
@@ -178,7 +178,7 @@ else Verbs.Unhandled();
 <p>There are currently three ways of using an inventory item, you can choose from.</p>
 <ol>
 <li><p>"Use" only</p>
-<p>For this, you need to add the use-extention "&gt;u" to the description of the item and an event function for "Interact inventory item". If you have followed the instructions in this manual you probably already have it there. This option might come handy for a watch. Clicking on it always gives you the current time. You can not give it away or use it with different items.</p></li>
+<p>For this, you need to add the use-extension "&gt;u" to the description of the item and an event function for "Interact inventory item". If you have followed the instructions in this manual you probably already have it there. This option might come handy for a watch. Clicking on it always gives you the current time. You can not give it away or use it with different items.</p></li>
 <li><p>"Use" and "Use with"</p>
 <p>Here you need to remove the use-extension from the description, but still keep the event function. This allows the player to directly use the item by clicking on the "use"-verb first. Directly clicking the items results in "use-with". Sticking to the watch-example: using the watch with the verb-button sets an alarm. Clicking directly on it in the inventory results in "use with", so you can use the watch with a shelf to hide it there. But please note that it might be hard for the player to understand, that using the verb button and using the inventory directly are two different things.</p></li>
 <li><p>"Use with" only</p>
@@ -221,7 +221,7 @@ else Verbs.Unhandled();
 <pre><code>Verbs.VerbGuiOptions[eVerbGuiTemplateLanguage] = eLangEN;
 </code></pre>
 <p>At the time of writing, valid values are: <code>eLangEN</code>, <code>eLangDE</code>, <code>eLangES</code>, <code>eLangFR</code>, <code>eLangIT</code>, <code>eLangPT</code>, <code>eLangNL</code>. Setting this variable to one of these values will translate all your GUIs, including all provided dialogs, unhandled events and verb actions.</p>
-<p>If you are providing a multilanguage game, which default language is English instead, you will probably create one or more AGS translation files. Sadly AGS won't automatically change GUI graphics by the language preference set by running the game setup, but we got you covered with this: after generating a new language, tell your translators to look out for the line.</p>
+<p>If you are providing a multi-language game, which default language is English instead, you will probably create one or more AGS translation files. Sadly AGS won't automatically change GUI graphics by the language preference set by running the game setup, but we got you covered with this: after generating a new language, tell your translators to look out for the line.</p>
 <pre><code>GUI_LANGUAGE
 </code></pre>
 <p>Now simply put a translation for that line choosing between <em><code>EN</code>, <code>DE</code>, <code>ES</code>, <code>FR</code>, <code>IT</code>, <code>PT</code> or <code>NL</code></em>. For example:</p>
@@ -239,7 +239,7 @@ DE
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:05 PM</p>
+      <p>Build: 09/25/2019 12:04:35 AM</p>
     </section>
   </footer>
 

@@ -87,7 +87,7 @@
 <h2><a href="#getting-started-with-ags---part-3">Getting Started with AGS - Part 3</a></h2>
 <section id="adding-some-interaction" class="level3">
 <h3><a href="#adding-some-interaction">Adding some interaction</a></h3>
-<p>Ok, so we now have a working room. The player can walk around it as much as they like. However, our game so far is pretty boring - the player can't actually do anything of value yet!</p>
+<p>OK, so we now have a working room. The player can walk around it as much as they like. However, our game so far is pretty boring - the player can't actually do anything of value yet!</p>
 <p>AGS provides you with three types of things that the player can interact with - <em>hotspots</em>, <em>objects</em> and <em>characters</em>:</p>
 <ul>
 <li>A <strong>hotspot</strong> is an area of the background image that the player can look at and interact with. Hotspots are generally used for parts of the screen such as a tree or the grass which won't change as the game progresses.</li>
@@ -105,7 +105,7 @@
 <li><p><em>The hotspot's Name:</em> This is a name by which the hotspot can be referred to in the room script. This name cannot have any spaces or special characters -- just the letters <em>a</em> to <em>z</em>. The convention in AGS is to start the script names for hotspots with an <em>h</em>, for example <em>hDoor</em>. The name must be unique within the room.</p></li>
 </ul>
 <p><img src="images/icon_info.gif" /></p>
-<p>In the Areas editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasise which hotspot you have selected to edit. You can change this behaviour by toggling the "show non-selected masks greyed out" button at the right hand end of the toolbar.</p>
+<p>In the Areas editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasize which hotspot you have selected to edit. You can change this behavior by toggling the "show non-selected masks greyed out" button at the right hand end of the toolbar.</p>
 </section>
 <section id="interactions" class="level4">
 <h4>Interactions</h4>
@@ -124,13 +124,13 @@
 </section>
 <section id="walk-to-points" class="level4">
 <h4>Walk-to points</h4>
-<p>Ok, since we're back editing hotspots, let me quickly explain the "Walk-to point" option in the property grid. This allows you to set a position for each hotspot that the character will walk to whenever the player interacts with the hotspot - just like the way the LucasArts games like Monkey Island worked.</p>
+<p>OK, since we're back editing hotspots, let me quickly explain the "Walk-to point" option in the property grid. This allows you to set a position for each hotspot that the character will walk to whenever the player interacts with the hotspot - just like the way the LucasArts games like Monkey Island worked.</p>
 <p>If you set a walk-to point, then whenever the player clicks interact or talk on the hotspot, the main character will first walk to the walk-to point before the relevant event is triggered. If you want, the character can also walk there when the LOOK mode is used - this option is configurable in the game General Settings pane.</p>
 <p>To remove a walk-to point, simply set it to 0,0.</p>
 </section>
 <section id="edges-revisited" class="level4">
 <h4>Edges revisited</h4>
-<p>Ok, so we've covered the basics of creating a room. However, there's one thing that we did a while back that we need to clear up - yes, the edges.</p>
+<p>OK, so we've covered the basics of creating a room. However, there's one thing that we did a while back that we need to clear up - yes, the edges.</p>
 <p>Select "Edges" again in the list box. Now, click the Events button in the property grid and this time we'll see the events for the room itself. Among the events listed, you'll see "Walks off left edge", "Walks off right edge", and so on. These are fired when the player character crosses the edges that we defined back in part 2. Normally, you'll use the <em>player.ChangeRoom</em> script command for these events, to take the player to a different room.</p>
 <p>Now, hit F5 to try out our latest additions! Make sure that when you look at hotspot 1 the game displays the message that you typed into the script.</p>
 <p><strong>Scripting tutorial</strong></p>
@@ -147,7 +147,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:58 PM</p>
+      <p>Build: 09/25/2019 12:04:27 AM</p>
     </section>
   </footer>
 

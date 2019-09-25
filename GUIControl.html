@@ -355,7 +355,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>int GUIControl.ZOrder;
 </code></pre>
 <p>Gets/sets the control's Z-order relative to other controls within the same owning GUI. This allows you to precisely arrange the display order of controls at runtime and to know which position the control had at certain moment in time.</p>
-<p>For AGS GUI Z-order means the order in wich controls are displayed from bottom to top. That means that control at the bottom has Z-order equal to 0, and control at the top has highest Z-order, equal to (number of controls - 1).</p>
+<p>For AGS GUI Z-order means the order in which controls are displayed from bottom to top. That means that control at the bottom has Z-order equal to 0, and control at the top has highest Z-order, equal to (number of controls - 1).</p>
 <p>Setting <code>GUIControl.ZOrder = 0;</code> will do same thing as calling <code>GUIControl.SendToBack()</code>, and setting <code>GUIControl.ZOrder = GUIControl.OwningGUI.ControlCount - 1;</code> will do same thing as calling <code>GUIControl.BringToFront()</code>.</p>
 <p>If you try to set inappropriate ZOrder, the nearest acceptable one will be applied instead.</p>
 <p><strong>Applies To</strong></p>
@@ -372,7 +372,7 @@ lstSaves.OwningGUI.Visible = true;
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:08 PM</p>
+      <p>Build: 09/25/2019 12:04:38 AM</p>
     </section>
   </footer>
 

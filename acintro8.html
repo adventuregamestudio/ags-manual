@@ -89,7 +89,7 @@
 <h3><a href="#conversations">Conversations</a></h3>
 <p>What fun would an adventure be if there were no other characters to talk to? Probably not much!</p>
 <p>How much you go into dialog depends of course on your game style. Generally, Sierra games used to just have one fixed line of dialog which the characters would talk about, possibly changing if you talked to the same person again.</p>
-<p>Lucasarts games (and some Sierra titles such as Quest for Glory) on the other hand, had complete dialog trees through which you could choose your topics to talk about.</p>
+<p>LucasArts games (and some Sierra titles such as Quest for Glory) on the other hand, had complete dialog trees through which you could choose your topics to talk about.</p>
 <p>AGS lets you do it whichever way you want. We'll start off by looking at the complete dialog tree approach, and then see how easy it is to cut it down to get a Sierra-style system.</p>
 <p>Now, before we go any further, let's consider for a moment what conversation structure we want. It's going to be a lot easier to implement if we have this planned in advance. For this tutorial, we'll go for a structure like this:</p>
 <p><img src="images/intro8_1.jpg" alt="Our planned dialog tree" /></p>
@@ -97,7 +97,7 @@
 <p>The "Tell me more about your wares" option will then lead us to be able to ask a different set of questions.</p>
 <p>Before we begin, we need to create a second character - we can't just have Roger talking to himself! Go to the "Characters" node, right-click it and choose "New Character". Double-click the new "cChar1" entry to open him up.</p>
 <p>In the property grid, give the new character a RealName -- I'll call him <em>Merchant</em>. Now - and this bit is vital - you also need to set this new character's <strong>script name</strong>. This is the name by which we refer to him when creating our dialogs. I'll just use "cMerchant" as the script name. I'd recommend you set it to something sensible like this, and don't just leave it as "cChar1" or else your dialog scripts will get very confusing!</p>
-<p>Ok, all done? Expand the "Dialogs" node in the editor, and you'll see one existing "0" entry. We'd may as well use it since it's there, so double-click it. (If not, you can always right-click the Dialogs node and choose "New dialog" to make a new one). You'll see this rather empty window:</p>
+<p>OK, all done? Expand the "Dialogs" node in the editor, and you'll see one existing "0" entry. We'd may as well use it since it's there, so double-click it. (If not, you can always right-click the Dialogs node and choose "New dialog" to make a new one). You'll see this rather empty window:</p>
 <p><img src="images/intro8_2.jpg" alt="The dialog editor" /></p>
 <p>Conversations in AGS are made up of <strong>topics</strong>. A topic consists of a set of options that the player can talk about - not all of which are necessarily available to the player at the start of the game. When the player selects an option from a topic, the topic's <strong>dialog script</strong> is run.</p>
 <p>Each topic can contain some start-up text, which is displayed before the options are presented to the player. Our "Greetings" line qualifies for this, so we don't need to make a special topic for it. A <strong>topic</strong> is also referred to as a <strong>dialog</strong> in AGS -- the two words are one and the same thing.</p>
@@ -127,7 +127,7 @@ return
 <p><img src="images/intro8_6.jpg" alt="Dialog script for dWares" /></p>
 <p>As you can see, it's done very similarly to the first one. Notice the use of "return" in the startup entry point, to make sure that it doesn't go on and run the next bit of script straight away.</p>
 <p>We're almost done! All we've got to do now is add a way for the player to initiate the conversation.</p>
-<p>Open up the Character editor for the new <em>cMerchant</em> character. Change his StartingRoom to room 1 (ie. the same as the player character), and position him at let's say X:260, Y:130. You can always change this later.</p>
+<p>Open up the Character editor for the new <em>cMerchant</em> character. Change his StartingRoom to room 1 (i.e. the same as the player character), and position him at let's say X:260, Y:130. You can always change this later.</p>
 <p>Now, still with the Merchant open, go to his Events list. Using your skills from earlier on in this tutorial, add a command to initiate the dialog when the player talks to the Merchant. Now, we're all set!</p>
 <p><img src="images/intro8_7.jpg" alt="Event script to launch the dialog" /></p>
 <p>Test the game, talk to the Merchant, and try out the conversation.</p>
@@ -147,7 +147,7 @@ return
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:05 PM</p>
+      <p>Build: 09/25/2019 12:04:35 AM</p>
     </section>
   </footer>
 

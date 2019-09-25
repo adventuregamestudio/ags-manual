@@ -181,7 +181,7 @@ else {
 <section id="your-own-functions" class="level3">
 <h3><a href="#your-own-functions">Your Own Functions</a></h3>
 <p>You've probably noticed in the manual, it mentioning functions such as <code>repeatedly_execute</code>, and <code>on_event</code>, and how you can add them to your global script to do cool stuff. But you may be wondering, how exactly to go about it.</p>
-<p>Remember in tutorial 1, we learnt about function <strong>parameters</strong> and how they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions like this:</p>
+<p>Remember in tutorial 1, we learned about function <strong>parameters</strong> and how they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions like this:</p>
 <pre><code>function dialog_request(int param)
 {
  // contents of function go here
@@ -190,7 +190,7 @@ else {
 <p>You start with the keyword <code>function</code>, then follow it by the function name, and then parenthesis listing the parameter types and names. For each parameter that you want, you need to write its type (<em>int</em> or <em>string</em>), followed by the name it will be known by inside the function. This name can be anything you like - it is similar to naming a variable.</p>
 <p>There are some <strong>fixed</strong> functions, such as dialog_request and on_event, which are part of AGS and therefore you <strong>MUST</strong> use the correct number and type of parameters. However, you may also add your own functions by naming them however you like, and having as many parameters as you need.</p>
 <p>Functions are useful if you have a block of script code that you need to use in two different places - putting it in a function instead means you don't have to copy &amp; paste, and that if you modify it, all other script that relies on it gets updated too.</p>
-<p>To call your function from elsewhere in the script, just do it exactly like you call a built-in function - ie. just write its name, parameters then a semicolon.</p>
+<p>To call your function from elsewhere in the script, just do it exactly like you call a built-in function - i.e. just write its name, parameters then a semicolon.</p>
 <p>I think a couple of examples are in order. First of all, let's show a fixed function, on_event:</p>
 <pre><code>function on_event (EventType event, int data)
 {
@@ -249,7 +249,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:03 PM</p>
+      <p>Build: 09/25/2019 12:04:32 AM</p>
     </section>
   </footer>
 

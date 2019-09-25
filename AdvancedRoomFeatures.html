@@ -94,7 +94,7 @@
 <section id="character-scaling" class="level3">
 <h3><a href="#character-scaling">Character scaling</a></h3>
 <p>AGS supports scaling of characters, where the character can appear to get smaller as he walks away from the screen. Character scaling is supported as part of the walkable areas in a room.</p>
-<p>The reason why you have multiple colours available for the walkable areas is because you can set a zoom level for each colour, which defines how large the character will be while he is in that area. The default for all walkable areas is <code>100%</code>, ie. full size. However, you can adjust it using the "Walkable Areas" mode to anywhere from <code>10%</code> (one-tenth size) to <code>200%</code> (double size).</p>
+<p>The reason why you have multiple colours available for the walkable areas is because you can set a zoom level for each colour, which defines how large the character will be while he is in that area. The default for all walkable areas is <code>100%</code>, i.e. full size. However, you can adjust it using the "Walkable Areas" mode to anywhere from <code>10%</code> (one-tenth size) to <code>200%</code> (double size).</p>
 <p>The scaling settings can effect all characters and objects in the game. For characters, it is on by default but you can disable the scaling for an individual character by setting the "UseRoomAreaScaling" option in that character's properties.</p>
 <p>For objects, it is off by default but you can make a specific object obey scaling levels by setting its "UseRoomAreaScaling" option.</p>
 <p>If you set the "UseContinuousScaling" option, then rather than just specifying a zoom level for the whole walkable area, you specify a min and max zoom level. These specify the scaling at the top and bottom of the walkable area. When the game is run, AGS will interpolate these values to make the character smoothly scale down from one value to another as he walks towards the back or front of the screen.</p>
@@ -102,8 +102,8 @@
 </section>
 <section id="scrolling" class="level3">
 <h3><a href="#scrolling">Scrolling</a></h3>
-<p>It's easy to create scrolling rooms like the ones used in Lucasarts games like Monkey Island (tm) and Day of the Tentacle.</p>
-<p>To do this, just import a background scene that is larger than your game resolution. For example, in a 320x200 game, 500x200 is a good size for Lucasarts-type rooms.</p>
+<p>It's easy to create scrolling rooms like the ones used in LucasArts games like Monkey Island (TM) and Day of the Tentacle.</p>
+<p>To do this, just import a background scene that is larger than your game resolution. For example, in a 320x200 game, 500x200 is a good size for LucasArts-type rooms.</p>
 <p>That's all you have to do. Draw on the walkable areas, hotspots and so on, as normal, and then save the room. The screen will scroll to follow the main character around.</p>
 <p>With the script command <a href="Camera.html#setat">Camera.SetAt</a>, you can manually scroll the room around if you don't want it to follow the character. The default camera is accessible using <a href="Game.html#camera">Game.Camera</a>.</p>
 <hr />
@@ -138,7 +138,7 @@
 <p>By default this is <code>100%</code>, but you can change it from <code>0% to 200%</code>. This number is the light level in the current walkable area. Smaller numbers are darker, so that <code>0%</code> is pitch black and <code>200%</code> is very bright.</p>
 <p>This feature could be useful if, for example, you have a street lamp on your scene so when the character walks under it they get brighter, or if a wall is shading the character from the light they can get darker.</p>
 <p>You can alternatively use a colour tint for the region. If you select this, then you can enter Red, Green and Blue values as numbers from 0-255, which reflect the colour you want the area to be tinted to. The Amount setting determines to what extent characters will be tinted, and is from 0-100.</p>
-<p><strong>NOTE:</strong> Light levels only work when the character's graphic is at the same colour depth as the background (ie. a 256-colour character in a hi-colour game won't get lightened).</p>
+<p><strong>NOTE:</strong> Light levels only work when the character's graphic is at the same colour depth as the background (i.e. a 256-colour character in a hi-colour game won't get lightened).</p>
 <p><strong>NOTE:</strong> In a 256-colour game, only darkening areas (light level &lt; <code>100%</code>) will work. Also, depending on the room palette the quality of the darkening will vary in 256-colour games.</p>
 <p><strong>NOTE:</strong> Light levels affect characters and objects, depending on the "UseRoomAreaLighting" setting for each one. They do not affect overlays or the background scene.</p>
 </section>
@@ -151,7 +151,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:58 PM</p>
+      <p>Build: 09/25/2019 12:04:26 AM</p>
     </section>
   </footer>
 

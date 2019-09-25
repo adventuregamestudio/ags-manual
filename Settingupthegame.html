@@ -103,7 +103,7 @@
 <p>If you want to use 8-bit, you need to set up the palette. This is because all sprite and background scene imports rely on the palette setup to be the same. You <strong>CANNOT</strong> use hi-colour nor true-colour sprites or backgrounds in a 256-colour game. All this means, use 8-bit color only when you know what you are doing or when you intentionally want to punish yourself with lots of nerdy fumbling around on settings for colormodes that were not artist's decisions but actual hardware limitations of the time and every artist is glad these restrictions are no longer in place. But you can do really cool color cycling effects only in 8-bit games, other than that this is really outdated technology, but it still works of course, and how it works is explained in the next paragraphs.</p>
 <p>You set your chosen colour depth by opening the General Settings pane and adjusting the Colour Depth setting near the top of the list.</p>
 <p>Now, choose the "Colours" pane. Here you will see the 256-colour palette displayed in a grid. Most of the slots are marked "X" - these are the slots reserved for the background pictures, and will be different in each room. The other colours will be as they look here for the entire game. These fixed colours allow things like the main character graphics, which must be displayed on more than one screen, to work.</p>
-<p>If you want, you can assign more or less colours to the backgrounds. To toggle the background assignment on/off, click on the slot, then check the "This colour is room-dependant" box to swap the slot's status.</p>
+<p>If you want, you can assign more or less colours to the backgrounds. To toggle the background assignment on/off, click on the slot, then check the "This colour is room-dependent" box to swap the slot's status.</p>
 <p><strong>IMPORTANT NOTE:</strong> <em>You must set up the palette as you want it before you start making your game - if you change it later, you will have to re-import all the sprites and background scenes.</em></p>
 <p>You can select multiple colour slots by clicking on the first slot, then shift-clicking on the last slot in the range you want to select. You can then toggle the background status of all the selected slots at once.</p>
 <p>You can right-click in the palette grid to export the entire palette to a .PAL or PCX file which you can then use to read back into the Editor in a different game. If you choose to export to a pcx file, then a screen shot of the Palette Editor will be saved as the picture. This way you can see all the game-wide colours in the file.</p>
@@ -128,10 +128,10 @@
 <p>When you were choosing the graphics for the object earlier in this tutorial, you probably noticed that most of the graphics available didn't look up to much. This is no problem, because you can import your own graphics using the Sprite Manager.</p>
 <p>Go to the <strong>Sprites</strong> pane in the editor. Here, you will see the complete sprite set for the game. There are two ways to import your graphics - either overwrite an existing slot with your graphic, or create a new slot for it.</p>
 <p>To overwrite an existing sprite, right-click the sprite and select "Replace sprite from file". To import a new slot, right-click on the background to the window and choose "Import new sprite".</p>
-<p>The graphic you choose to import must be at the same colour depth as your game (ie. if you are using hi-colour backgrounds, your sprites must be hi-colour, and vice versa). AGS will attempt to convert the image if possible, but if your game is 256-colour then the results of downgrading a hi-colour image can be poor.</p>
+<p>The graphic you choose to import must be at the same colour depth as your game (i.e. if you are using hi-colour backgrounds, your sprites must be hi-colour, and vice versa). AGS will attempt to convert the image if possible, but if your game is 256-colour then the results of downgrading a hi-colour image can be poor.</p>
 <p>Then, the Import Sprite window will appear. Here, you need to decide which portion of the image will be imported. You do this by right-clicking and dragging in the image, which will produce a yellow rectangle showing the selection. Once you are happy with it, left-click to import. Alternatively, you can import the entire image with the "Import whole image" button.</p>
 <p><em>NOTE (256-colour only): You may well find that the colours on your graphic look slightly strange in the AGS Editor. This is because the sprites are only allocated, by default, the first 41 of the palette colours (see the <a href="Settingupthegame.html#palette-setup">palette section</a>), so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colours assigned to sprites, at the expense of background colours (again see the section above for information on how to do this).</em></p>
-<p>If your sprite will only be used in one room then alternatively you can use the "use background palette" option, which will remap your graphic to the palette of the room currently loaded, giving much better results. Note, however, that if you do this, and then try and use the sprite on another screen, its colours will most likely be screwed up. To use the room palette, check the "use bkgrnd pal" check-box. Make sure to un-check this box before you import any other sprites.</p>
+<p>If your sprite will only be used in one room then alternatively you can use the "use background palette" option, which will remap your graphic to the palette of the room currently loaded, giving much better results. Note, however, that if you do this, and then try and use the sprite on another screen, its colours will most likely be screwed up. To use the room palette, check the "Use room background" check-box. Make sure to un-check this box before you import any other sprites.</p>
 <p>NOTE: The transparent colour used by AGS is palette index 0 (for 256-colour sprites) and RGB (255,0,255) for hi-color. Any pixels you draw on imported sprites in these colours will be transparent.</p>
 <p>You can group imported sprites into folders. This prevents the main sprite list from becoming too long. By default, the Sprite Manager displays the Main folder, which contains some graphics and a sub-folder called "Defaults". Folders work the same way as Windows folders. Right-click on a folder in the tree to rename it or make a sub-folder.</p>
 <p>You can delete a folder by right-clicking on it and selecting the "Delete" option; beware though that <strong>this will also delete all the sprites in the folder</strong>.</p>
@@ -161,7 +161,7 @@
 <p>Go to the editor's "Views" node, right-click it and select the "New view" option to create us a new, empty view. Double-click the new view to open it. Each loop is displayed horizontally with its number at the left hand side, frames going out to the right. To add a frame, click the grey "New frame" button. To delete a frame, right-click it.</p>
 <p>To change a frame's graphic, double-left-click it. The sprite list screen will be displayed (you may remember this from the Object graphic selection) where you can choose the graphic you want to use for this frame.</p>
 <p>Note that for walking animations, the first frame in each loop is reserved for the standing frame, and when walking it will only cycle through from the second frame onwards.</p>
-<p>You select a frame by left-clicking it -- when you do so, the property grid will update with information about the frame. One of these settings is called "Delay", which is the frame's <strong>relative</strong> speed. The larger the number, the longer the frame stays (ie. the slower it is). When the animation is run, an overall animation speed will be set, so the actual speed of the frame will be: overall_speed + frame_speed . Note that you can use negative numbers for the frame delay to make it particularly fast, for example setting it to -3 means that the frame will stay for hardly any time at all.<br> Animation speed is specified in Game Loops (ie. animation speed 4 will show the frame for 4 game loops - at 40fps, that would be 0.1 seconds).</p>
+<p>You select a frame by left-clicking it -- when you do so, the property grid will update with information about the frame. One of these settings is called "Delay", which is the frame's <strong>relative</strong> speed. The larger the number, the longer the frame stays (i.e. the slower it is). When the animation is run, an overall animation speed will be set, so the actual speed of the frame will be: overall_speed + frame_speed . Note that you can use negative numbers for the frame delay to make it particularly fast, for example setting it to -3 means that the frame will stay for hardly any time at all.<br> Animation speed is specified in Game Loops (i.e. animation speed 4 will show the frame for 4 game loops - at 40 FPS, that would be 0.1 seconds).</p>
 <p>The "Sound" property allows you to enter a sound number that will be played when this frame becomes visible on the screen. This is especially useful for footstep sounds.</p>
 <p>You run an animation by using the script animation commands, which will be explained in detail later. Briefly, to animate an object, you first of all need to set the object's view to the correct view number (use the Object.SetView script command), and then use the Object.Animate script command to actually start the animation.</p>
 <hr />
@@ -173,7 +173,7 @@
 <p>You will see that there are a lot of options which you can set for each character. The most immediately obvious one is the "Make this the player character" button, which allows you to change which character the player will control at the start of the game. When the game starts, the first room loaded will be this character's starting room.</p>
 <p>The rest of the options are hidden away in the property grid on the right. Some of them are described below:</p>
 <p>The "UseRoomAreaScaling" option allows you to specify whether this character will be stretched or shrunk in scaling areas of the screen. You might want to disable this if you have a character who always stands still in the same place, and you want the graphics on-screen to be the same size as you drew them, even though he is standing on a scaled area.</p>
-<p>The "Clickable" option tells AGS whether you want the player to be able to click on the character. If Clickable is enabled, then the character will be interactable, like the way things worked in Sierra games. If it is not enabled then the character works like the main character did in Lucasarts games - if you move the cursor over him or click to look, speak, etc, then the game will ignore the character and respond to whatever is behind him.</p>
+<p>The "Clickable" option tells AGS whether you want the player to be able to click on the character. If Clickable is enabled, then the character will be interactable, like the way things worked in Sierra games. If it is not enabled then the character works like the main character did in LucasArts games - if you move the cursor over him or click to look, speak, etc, then the game will ignore the character and respond to whatever is behind him.</p>
 <p>To set which room this character starts in, change the "StartingRoom" property. You can set the character's location within this room by using the "StartX" and "StartY" properties to type in the X,Y co-ordinates you want him to start at. These co-ordinates define where the middle of his feet will be placed.</p>
 <p>The "NormalView" is where you set what the character looks like. You must create a view in the <a href="Settingupthegame.html#animations">View Editor</a>, and this view must have either 4 or 8 loops. If you use 4 loops, then when walking diagonally the closest straight direction is used for the graphics. Each loop is used for the character walking in one direction, as follows:</p>
 <pre><code> Loop 0 - walking down (towards screen)
@@ -206,7 +206,7 @@
 </section>
 <section id="conversations" class="level3">
 <h3><a href="#conversations">Conversations</a></h3>
-<p>While the old Sierra games were mainly based on action and not talking, the Lucasarts games took the opposite approach.</p>
+<p>While the old Sierra games were mainly based on action and not talking, the LucasArts games took the opposite approach.</p>
 <p>If you want to create a game with conversations where the player can choose from a list of optional topics to talk about, you can now with the new Dialog Editor. Go to the "Dialogs" node.</p>
 <p>Conversations are made up of Topics. A "topic" is a list of choices from which the player can choose. You may have up to 30 choices in a topic. However, not all of them need to be available to the player at the start of the game - you can enable various options for conversation once the player has said or done other things.</p>
 <p>The Dialog Editor is quite self-explanatory. Double-click a dialog topic to open up its window. You'll see the list of options for the topic on the left, and the dialog script on the right. Each option has a couple of checkboxes to its right:</p>
@@ -283,6 +283,7 @@ return
 <li><strong>Colour Depth</strong> - the number of colours your game will use. Default is 32-bit, which lets you use all the range of colours contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of colour precision. 8-bit colour mode is a special feature for making palette-based games. See Also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></li>
 <li><strong>Developer name</strong> - this will add the provided string to the game's executable properties, which will also be shown in <a href="IntegrationWithWindows.html#windows-game-explorer">Windows Game Explorer</a>, if you configure integration with one.</li>
 <li><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</li>
+<li><strong>Game file name</strong> - your game's executable and/or data filename. This string will be used when creating game package files on disk.</li>
 <li><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</li>
 <li><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Globalfunctions_General.html#givescore">GiveScore</a> script function.</li>
 <li><strong>Put sound and sprite files in source control</strong> - whether game resources, such as sprites and audio, are put under source control. For more information see <a href="SourceControl.html">Source Control integration</a>.</li>
@@ -291,6 +292,7 @@ return
 </ul>
 <p><strong>Backwards compatibility</strong></p>
 <ul>
+<li><strong>Allow relative asset resolutions</strong> - if enabled then your game will scale sprites according to their resolution tags: sprites tagged as "low-res" will be scaled up in a "high-res" game (640x400 and higher), sprites tagged as "high-res" will be scaled down in a "low-res" game (less than 640x400). When disabled resolution tags will be ignored as all sprites displayed with their real size (this is default).</li>
 <li><strong>Enable mouse wheel support</strong> - if enabled, on_mouse_click can be called with the values eMouseWheelNorth and eMouseWheelSouth, which signify the user scrolling their mouse wheel north or south, respectively. <strong>NOTE:</strong> Not all mice have mouse wheels, therefore its suggested that your game should never require the mouse wheel in order to be playable - it should only be used as a handy extra.</li>
 <li><strong>Enforce new-style audio scripting</strong> - Puts the script compiler into strict mode, where it will not accept the old-style (pre-AGS 3.2) audio-related script commands.</li>
 <li><strong>Enforce new style strings</strong> - Puts the script compiler into strict mode, where it will not accept the old-style (pre-AGS 2.7) fixed-length strings.</li>
@@ -318,6 +320,30 @@ return
 <p><strong>Dialog</strong></p>
 <ul>
 <li><p><strong>Allow speech to be skipped by which events</strong> - determines how and whether the player can skip speech in-game. This can be set to allow the mouse and/or keyboard, or neither, to skip speech in the game.</p></li>
+<li><p><strong>Custom Narrate function in dialog scripts</strong> - determines which function will be used to substitute standard narration in dialog scripts. For example, if you have</p>
+<pre><code>narrator: The man looks you in the eye.
+</code></pre>
+<p>in a dialog script, then normally this is replaced by</p>
+<pre><code>Display(&quot;The man looks you in the eye&quot;);
+</code></pre>
+<p>during compilation. With the above setting you can provide <em>the name</em> of your custom function that you've defined in your script. Such function must have one of the following prototype forms:</p>
+<pre><code>function CustomNarrate1(const string text);
+function CustomNarrate2(String text);
+</code></pre>
+<p>The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Display function is used.</p></li>
+<li><p><strong>Custom Say function in dialog scripts</strong> - determines which function will be used to substitute standard character cues in dialog scripts. For example, if you have something like</p>
+<pre><code>Roger: Hello, my name is Roger.
+</code></pre>
+<p>in a dialog script, then normally this is replaced by</p>
+<pre><code>cRoger.Say(&quot;Hello, my name is Roger.&quot;);
+</code></pre>
+<p>during compilation. With the above setting you can provide <em>the name</em> of your custom function that you've defined in your script. Such function must have one of the following prototype forms:</p>
+<pre><code>function CustomSay1(Character *c, const string text);
+function CustomSay2(Character *c, String text);
+function CustomSay3(this Character*, const string text);
+function CustomSay4(this Character*, String text);
+</code></pre>
+<p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
@@ -328,7 +354,7 @@ return
 <li><p><strong>Print dialog options upwards</strong> - Normally, if you select a non-textwindow GUI for the dialog options, they will be printed from the top down. However, if you select this option they will go from the bottom of the GUI upwards.</p></li>
 <li><p><strong>Run game loops while dialog options are displayed</strong> - whether to allow game animations to continue in the background while waiting for the player to select a dialog option.</p></li>
 <li><p><strong>Sierra-style portrait location</strong> - if you're using Sierra-style speech, then this determines whether the portrait appears on the left or the right of the screen. The "alternate" setting means it swaps sides whenever a different person talks, and the "Based on X position" setting means that the side of the screen is chosen depending on where the characters are standing.</p></li>
-<li><p><strong>Speech style</strong> - in the default Lucasarts-style speech, when a character talks, the speech text is displayed above their head in the game, and the character's talking view is used to animate the actual character.<br> However, if you set this option to Sierra-style then the talking view is used to display an animating portrait separately in the top-left of the screen, with the text to the right of it. This is similar to the way that Space Quest 5, King's Quest 6 and other later Sierra games worked. You can also cycle to another option, "Sierra- style with background", which is the same except a text window is drawn behind the speech text to make it easier to read.<br> "Whole Screen" uses a full-screen character portrait, like the way that QFG4 worked.</p></li>
+<li><p><strong>Speech style</strong> - in the default LucasArts-style speech, when a character talks, the speech text is displayed above their head in the game, and the character's talking view is used to animate the actual character.<br> However, if you set this option to Sierra-style then the talking view is used to display an animating portrait separately in the top-left of the screen, with the text to the right of it. This is similar to the way that Space Quest 5, King's Quest 6 and other later Sierra games worked. You can also cycle to another option, "Sierra- style with background", which is the same except a text window is drawn behind the speech text to make it easier to read.<br> "Whole Screen" uses a full-screen character portrait, like the way that QFG4 worked.</p></li>
 <li><p><strong>Use game-wide speech animation delay</strong> - defines whether to use game-wide speech animation delay as opposed to using the individual character settings.</p></li>
 <li><p><strong>Use GUI for dialog options</strong> - controls where the player's options for dialog are displayed. If set to 0, then in a conversation, the options will be displayed at the bottom of the screen. If you type in GUI's ID number, then instead the options will be displayed on the GUI you specify.</p></li>
 </ul>
@@ -337,7 +363,11 @@ return
 <li><strong>Display multiple icons for multiple items</strong> - normally, if the player has two of an inventory item, the item will still only be shown once in the Inventory window. If you check this option, however, then all the copies of the item that the player has will be displayed. Useful for RPG-style inventories.</li>
 <li><strong>Inventory item cursor hotspot marker</strong> - whether AGS should automatically add a marker to inventory item cursors to help the player see where the active hotspot is on the cursor. May either draw simple crosshair using told colours, or use specified sprite.</li>
 <li><strong>Override built-in inventory window click handling</strong> - AGS has some built-in processing of Inventory Window GUI controls, whereby a right-click will Look at the item, and a left click will select it if the cursor mode is Interact. However, if you enable this option, then clicking on an inventory item in an Inventory Window will call your <code>on_mouse_click</code> function with eMouseLeftInv, eMouseMiddleInv or eMouseRightInv, and you then need to process it yourself. You can use the <code>game.inv_activated</code> variable to find out what they clicked on.</li>
-<li><strong>Use selected inventory graphics for cursors</strong> - normally, when you select an inventory item the mouse cursor is changed into that item. However, if you want to create a Lucasarts-style game (where the inventory cursor is always a cross-hair), disable this option and it won't be changed.</li>
+<li><strong>Use selected inventory graphics for cursors</strong> - normally, when you select an inventory item the mouse cursor is changed into that item. However, if you want to create a LucasArts-style game (where the inventory cursor is always a cross-hair), disable this option and it won't be changed.</li>
+</ul>
+<p><strong>Rooms</strong></p>
+<ul>
+<li><strong>Default mask resolution</strong> - sets default value for MaskResolution property which will be applied for each new room in your game. Mask resolution defines the factor between room masks' sizes and room background size. Common is 1:1, but you can choose other options for less precise masks, which may reduce data size and slightly improve perfomance in high-resolution games.</li>
 </ul>
 <p><strong>Saved Games</strong></p>
 <ul>
@@ -352,19 +382,18 @@ return
 </ul>
 <p><strong>Text output</strong></p>
 <ul>
-<li><strong>Always display text as speech</strong> - if you select this option, then all normal text in the game will be displayed above the main character's head as speech text, much like the way the Lucasarts games worked. If this option is not checked, then normal text appears in a pop-up message box, like the way that the Sierra games worked.</li>
+<li><strong>Always display text as speech</strong> - if you select this option, then all normal text in the game will be displayed above the main character's head as speech text, much like the way the LucasArts games worked. If this option is not checked, then normal text appears in a pop-up message box, like the way that the Sierra games worked.</li>
 <li><strong>Anti-alias TTF fonts</strong> - If enabled, any TTF fonts you have in your game will be rendered to the screen anti-aliased. This can make them look a lot better, but it has two drawbacks - firstly, anti-aliasing is significantly slower than normal rendering, so you might want an option to allow the player to turn it off. Second, anti-aliasing only works in hi-color games (in 256-colour games, the output will look blurred and unreadable).</li>
 <li><strong>Custom text-windows GUI</strong> - allows you to customize the standard text window appearance in the game, using the specified interface element. See <a href="EditingGUIs.html#customized-text-windows">here</a> for more information.</li>
 <li><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is used for displaying thoughts with <a href="Character.html#think">Think</a>.</li>
-<li><strong>Fonts designed for high resolution</strong> - normally, if the player chooses high resolution for their game, then the fonts will be scaled up to match. However, if you have drawn your fonts for the high resolution display, use this option to stop them being stretched.</li>
-<li><strong>Write game text Right-to-Left</strong> - in-game text will be written right-to-left, ie. line breaks are worked out from the end of the sentence going backwards, and the last words are displayed first. This is used by languages such as Arabic and Hebrew.</li>
+<li><strong>Write game text Right-to-Left</strong> - in-game text will be written right-to-left, i.e. line breaks are worked out from the end of the sentence going backwards, and the last words are displayed first. This is used by languages such as Arabic and Hebrew.</li>
 </ul>
 <p><strong>Visual</strong></p>
 <ul>
 <li><strong>Default transition when changing rooms</strong> - defines what type of screen transition is used when moving from one room to another. Various options are available.</li>
-<li><strong>GUI alpha rendering style</strong> - determines which rendering method to use in 32-bit games when a GUI Control is drawn over GUI. The "Proper alpha belnding" choice is meant for full alpha blending support, other options exist for compatibility with older versions of AGS only.</li>
+<li><strong>GUI alpha rendering style</strong> - determines which rendering method to use in 32-bit games when a GUI Control is drawn over GUI. The "Proper alpha blending" choice is meant for full alpha blending support, other options exist for compatibility with older versions of AGS only.</li>
 <li><strong>Pixel-perfect click detection</strong> - normally, when the player clicks the mouse, AGS just checks to see if the cursor is within the rectangular area of each character and object on the screen. However, if this option is checked, then it will further check whether the player clicked on an actual pixel of the object graphic, or whether it was a transparent part of the graphic. If this option is enabled and they click on a transparent pixel, then the hotspot behind the object will be activated instead.</li>
-<li><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurfaceFunctions.html">drawing surface</a>. The "Proper alpha belnding" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</li>
+<li><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurfaceFunctions.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</li>
 <li><strong>When player interface is disabled, GUI should</strong> - determines what happens to buttons on your GUIs while the game interface is disabled (eg. during a cutscene).</li>
 </ul>
 <p><strong>Windows Game Explorer</strong> See: <a href="IntegrationWithWindows.html#windows-game-explorer">Windows Game Explorer</a></p>
@@ -382,7 +411,7 @@ return
 <p><strong>Environment</strong></p>
 <ul>
 <li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
-<li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hiscore tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players <strong>won't</strong> normally be able to change it in setup program.</li>
+<li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players <strong>won't</strong> normally be able to change it in setup program.</li>
 </ul>
 <p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
 <p>See also: <a href="Setup.html">Run-time engine setup</a></p>
@@ -391,14 +420,14 @@ return
 <section id="cursors" class="level3">
 <h3><a href="#cursors">Cursors</a></h3>
 <p>The Cursors node of the editor shows you the current mouse cursor modes available in the game. Each cursor mode performs a different action within the game. Double-click one to open it up.</p>
-<p>The "StandardMode" option in the property grid tells AGS that this is a 'normal' cursor mode - ie. using this cursor will fire an event on whatever is clicked on as usual. This mode applies to the standard Walk, Look, Interact and Talk modes, but you can create others too. Do not tick it for the Use Inventory mode, since this is a special mode.</p>
+<p>The "StandardMode" option in the property grid tells AGS that this is a 'normal' cursor mode - i.e. using this cursor will fire an event on whatever is clicked on as usual. This mode applies to the standard Walk, Look, Interact and Talk modes, but you can create others too. Do not tick it for the Use Inventory mode, since this is a special mode.</p>
 <p>The "Animate" option allows you to specify that the mouse cursor will animate while it is on the screen. Choose a view number, and the cursor will animate using the first loop of that view. You can make it animate only when over something (hotspot, object or character) by enabling the "AnimateOnlyOnHotspots" option.</p>
 <p>The "AnimateOnlyWhenMoving" box allows you to do a QFG4-style cursor, where it only animates while the player is moving it around.</p>
 <p>Three of the cursor modes are hard-coded special meanings into AGS:</p>
 <ul>
 <li><strong>Mode 4 (Use Inventory)</strong>. This is special because the game decides whether to allow its use or not, depending on whether the player has an active inventory item selected.</li>
-<li><strong>Mode 6 (Pointer)</strong>. This cursor is used whenever a modal dialog is displayed (ie. a GUI that pauses the game). Normally this is a standard arrow pointer.</li>
-<li><strong>Mode 7 (Wait)</strong>. This cursor is used whenever the player cannot control the action, for example during a scripted cutscene. For a lucasarts-style game where the cursor disappears completely in this state, simply import a blank graphic over the wait cursor.</li>
+<li><strong>Mode 6 (Pointer)</strong>. This cursor is used whenever a modal dialog is displayed (i.e. a GUI that pauses the game). Normally this is a standard arrow pointer.</li>
+<li><strong>Mode 7 (Wait)</strong>. This cursor is used whenever the player cannot control the action, for example during a scripted cutscene. For a LucasArts-style game where the cursor disappears completely in this state, simply import a blank graphic over the wait cursor.</li>
 </ul>
 <p>For the standard modes,</p>
 <ul>
@@ -423,7 +452,7 @@ return
 </ul>
 <p>In general you should prefer using TTF fonts, but SCI fonts may still be useful in low-resolution games (because not all TTF fonts scale down well) and situations where you need pixel-precise looks of the drawn symbols.</p>
 <p>Go to the "Fonts" node in the main tree. Here you can see all the current fonts listed underneath. You can create a new font by right-clicking the "Fonts" node and choosing "New font". To overwrite an existing font, open it up and press the "Import over this font" button.</p>
-<p>Fonts can have outlines. For lucasarts-style speech, outlines are really a necessity since they stop the text blending into the background and becoming un-readable. To outline a font, either set the OutlineStyle to "Automatic" to have AGS do it for you, or you can use a specific font slot as the outline font (it will be drawn in black behind the main font when the main font is used).</p>
+<p>Fonts can have outlines. For LucasArts-style speech, outlines are really a necessity since they stop the text blending into the background and becoming un-readable. To outline a font, either set the OutlineStyle to "Automatic" to have AGS do it for you, or you can use a specific font slot as the outline font (it will be drawn in black behind the main font when the main font is used).</p>
 <p>Every font have following optional properties:</p>
 <ul>
 <li><strong>LineSpacing</strong> - defines default difference (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</li>
@@ -441,7 +470,7 @@ return
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:58 PM</p>
+      <p>Build: 09/25/2019 12:04:27 AM</p>
     </section>
   </footer>
 

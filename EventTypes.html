@@ -134,12 +134,12 @@
 <p>occurs when the player character walks off the top edge of the screen.</p>
 <p>First time enters room</p>
 <p>occurs the first time the player enters the room. This event occurs AFTER the screen has faded in, so it allows you to display a message describing the scene.</p>
-<p>Player enters room (before fadein)</p>
+<p>Player enters room (before fade-in)</p>
 <p>occurs just after the room is loaded into memory. This event occurs every time the player enters the screen, and it happens BEFORE the screen has faded in, which allows you to change object graphics and do other things to the screen which the player won't notice.</p>
 <p><em>NOTE: This event is ONLY meant for adjusting things such as object and character placement. Do NOT use this event for any sort of automated intro to the room - use the "Enters Room After Fade In" event for that instead.</em></p>
 <p>Repeatedly execute</p>
 <p>occurs repeatedly on every interpreter cycle. The normal game speed is 40 cycles per second, so this event occurs about every 25 milliseconds.</p>
-<p>Player enters room (after fadein)</p>
+<p>Player enters room (after fade-in)</p>
 <p>occurs every time the player enters the room, AFTER the screen has faded-in. Suitable for displaying text descriptions and so on, that you want the player to see.</p>
 <p>Player leaves room</p>
 <p>occurs when the player leaves the screen, just before the screen fades out.</p>
@@ -150,13 +150,13 @@
 <p>Look at inventory</p>
 <p>occurs when the player clicks on the inventory item while in the "look" mode.</p>
 <p>Interact with inventory</p>
-<p>currently, because the Interact mode selects the inventory item, this event can only be triggered by manually calling the InventoryItem.RunInteraction script function (ie. you have to use the Handle Inv Clicks in Script option).</p>
+<p>currently, because the Interact mode selects the inventory item, this event can only be triggered by manually calling the InventoryItem.RunInteraction script function (i.e. you have to use the Handle Inv Clicks in Script option).</p>
 <p>Speak to inventory</p>
-<p>only applies to the Lucasarts-style inventory, occurs when the player clicks the Talk icon on the inventory item.</p>
+<p>only applies to the LucasArts-style inventory, occurs when the player clicks the Talk icon on the inventory item.</p>
 <p>Use inventory on inv</p>
 <p>occurs when the player uses another inventory object on this one. You can use the <a href="Character.html#activeinventory">player.ActiveInventory</a> property to distinguish which item they used.<br> This event allows the player to combine items, and so on. For example, if they had picked up a laptop computer and a battery separately, then you could use this to allow them to insert the battery into the computer.</p>
 <p>Other click on inventory</p>
-<p>only applies to the Lucasarts-style inventory, occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the item.</p>
+<p>only applies to the LucasArts-style inventory, occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the item.</p>
 <hr />
 </section>
 <section id="character-events" class="level3">
@@ -191,7 +191,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:59 PM</p>
+      <p>Build: 09/25/2019 12:04:28 AM</p>
     </section>
   </footer>
 

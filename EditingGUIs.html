@@ -104,7 +104,7 @@
 <p>The "Popup modal" option means that the GUI will be initially off and must be turned on by a script command. With this option, the game will be paused while the GUI is displayed, during which time the on_mouse_click and on_key_press functions will not get run.</p>
 <p>The "Mouse YPos" option means that the GUI only appears when the mouse vertical position moves above the y-coordinate set with the "Popup-YP" option.</p>
 <p>"Persistent" is like "Normal", except that this GUI will not be removed during a cutscene when the setting "GUIs turn off when disabled" is set in the general settings. Useful if you want most of your GUIs to turn off, except a status line or whatever.</p>
-<p>The "Z-Order" setting allows you to set which order the GUIs are drawn in - ie. when there are two GUIs that overlap, which is drawn in front. The Z-order setting is an arbitrary number between 0 and 1000. AGS draws the GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
+<p>The "Z-Order" setting allows you to set which order the GUIs are drawn in - i.e. when there are two GUIs that overlap, which is drawn in front. The Z-order setting is an arbitrary number between 0 and 1000. AGS draws the GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
 <p>The "Clickable" setting allows you to set whether the GUI and buttons on it respond to mouse clicks. This is on by default, but if you turn it off and the player clicks on the GUI, the game will actually process the click as if they clicked behind the GUI onto the actual screen. Useful for transparent GUIs which are only used to display information.</p>
 <p>You'll notice that the GUIs have names. These can be used in the script in the same way as character names. For example, if a GUI is called "gIconBar", you can use scripts such as:</p>
 <p><code>gIconBar.Visible = true;</code></p>
@@ -167,12 +167,12 @@
 <p>For example editing the GUI Borders of the [Display] Command in the [New Sierra Style Template] looks like this:</p>
 <p><img src="https://i.imgur.com/BGB1OQd.png" alt="Editing the GUI Borders" /></p>
 <p>After compiling it looks like this in game (with x2 Scaling):</p>
-<p><img src="https://i.imgur.com/LdJkWPj.png" alt="Ingame GUI Borders" /></p>
+<p><img src="https://i.imgur.com/LdJkWPj.png" alt="In-game GUI Borders" /></p>
 <hr />
 </section>
 <section id="custom-inventory" class="level3">
 <h3><a href="#custom-inventory">Custom inventory</a></h3>
-<p>Another option you may have noticed in the GUI editor is the Add Inventory button. This allows you to drag out a rectangle which will display the player's current inventory, in the same way as the Lucasarts games did. To make the inventory window scrollable, you will need to add Up and Down arrow buttons, and attach script code to those buttons to use the available functions such as <a href="InvWindow.html#scrollup">InvWindow.ScrollUp</a> and <a href="InvWindow.html#scrolldown">InvWindow.ScrollDown</a>.</p>
+<p>Another option you may have noticed in the GUI editor is the Add Inventory button. This allows you to drag out a rectangle which will display the player's current inventory, in the same way as the LucasArts games did. To make the inventory window scrollable, you will need to add Up and Down arrow buttons, and attach script code to those buttons to use the available functions such as <a href="InvWindow.html#scrollup">InvWindow.ScrollUp</a> and <a href="InvWindow.html#scrolldown">InvWindow.ScrollDown</a>.</p>
 <p>To see a full list of commands available for inventory windows, see the <a href="GUI.html">GUI Inv Window Functions and Properties</a> section.</p>
 <hr />
 </section>
@@ -189,7 +189,7 @@
 <section id="text-boxes" class="level3">
 <h3><a href="#text-boxes">Text Boxes</a></h3>
 <p>A text box is a simple device that allows the player to type information into your game. Adding a text box works like adding the other types of control.</p>
-<p>If a text box is on a currently displayed GUI, all standard keypresses (ie. letter keys, return and backspace) are diverted to the textbox instead of being passed to the on_key_press function. When the player presses Return in the text box, the OnActivate event is called. You can then use the TextBox.Text property to retrieve what they typed in.</p>
+<p>If a text box is on a currently displayed GUI, all standard keypresses (i.e. letter keys, return and backspace) are diverted to the textbox instead of being passed to the on_key_press function. When the player presses Return in the text box, the OnActivate event is called. You can then use the TextBox.Text property to retrieve what they typed in.</p>
 <hr />
 </section>
 <section id="list-boxes" class="level3">
@@ -208,7 +208,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:08 PM</p>
+      <p>Build: 09/25/2019 12:04:38 AM</p>
     </section>
   </footer>
 

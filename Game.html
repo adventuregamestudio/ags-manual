@@ -205,7 +205,7 @@ Display(&quot;Loop 2 in SWIMMING view has %d frames.&quot;, frameCount);
 <p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return a blank string.</p>
 <p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return blank string if one is found under these screen coordinates.</p>
 <p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
-<p>This function may allow you, for instance, to create the Lucasarts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
+<p>This function may allow you, for instance, to create the LucasArts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
 <p>Example:</p>
 <pre><code>String location = Game.GetLocationName(mouse.x, mouse.y);
 lblDescription.Text = location;
@@ -311,7 +311,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 </code></pre>
 <p>Plays a voice clip from the <strong>speech.vox</strong> in a non-blocking manner. It returns an AudioChannel pointer which you may use to control playback same way you control other clips, or null if it could not be started.</p>
 <p>Character and "cue" arguments are used to find actual clip, this works the same way as when you do <code>cEgo.Say("&amp;10 speech text");</code> in which case "10" is a cue number. For more information about this see: <a href="MusicAndSound.html#voice-speech">Voice speech</a>.</p>
-<p>The "as_speech" argument tells whether playback has same effect on game as regular speech. At the moment this means that music volume will drop and restore after playback is finished. This parameter "as_speech" is TRUE by default and may be omited.</p>
+<p>The "as_speech" argument tells whether playback has same effect on game as regular speech. At the moment this means that music volume will drop and restore after playback is finished. This parameter "as_speech" is TRUE by default and may be omitted.</p>
 <p>This command will be ignored if a regular blocking voice is currently playing. Also, both blocking and non-blocking voice will interrupt non-blocking voice-over if one was playing.</p>
 <p><strong>NOTE:</strong> because of how audiochannels work internally right now voice is always played on the same channel 0, therefore you could also get it as <code>System.AudioChannels[0]</code>, but it may not be a good idea to rely on this because channel behavior may change in future.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
@@ -615,7 +615,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>static bool Game.SkippingCutscene
 </code></pre>
 <p>Returns whether the player has elected to skip the current cutscene. This will return true if the game is between a StartCutscene and EndCutscene command, and the player has chosen to skip it.</p>
-<p>Although cutscene skipping is handled automatically by AGS, you can use this property to optimise the process by bypassing any lengthy blocks of code that don't need to be run if the cutscene is being skipped over.</p>
+<p>Although cutscene skipping is handled automatically by AGS, you can use this property to optimize the process by bypassing any lengthy blocks of code that don't need to be run if the cutscene is being skipped over.</p>
 <p><strong>NOTE:</strong> This is a static function, and thus need to be called with <code>Game.</code> in front of it. See the example below.</p>
 <p>Example:</p>
 <pre><code>if (!Game.SkippingCutscene)
@@ -745,7 +745,7 @@ else
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:39:58 PM</p>
+      <p>Build: 09/25/2019 12:04:27 AM</p>
     </section>
   </footer>
 

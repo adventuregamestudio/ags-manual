@@ -634,7 +634,7 @@ sword.damage = 10;
 sword.price = 50;
 sword.name = &quot;Fine sword&quot;;
 </code></pre>
-<p>Much neater and better organised. You can also combine structs with <a href="ScriptKeywords.html#arrays">arrays</a>:</p>
+<p>Much neater and better organized. You can also combine structs with <a href="ScriptKeywords.html#arrays">arrays</a>:</p>
 <pre><code>// at top of script
 Weapon weapons[10];
 // inside script function
@@ -860,7 +860,7 @@ readonly int months = 12;
 <p>function <strong>noloopcheck</strong> <em>function_name</em> ( <em>parameters ...</em> ) <code>{</code></p>
 <p>The noloopcheck keyword disables the script loop checking for the current function.</p>
 <p>Normally, if a <a href="ScriptKeywords.html#dowhile">while</a> loop runs for more than 150,000 loops, AGS will assume that the script has hung and abort the game. This is to assist scripting since otherwise the game would lock up if you scripted a loop wrongly.</p>
-<p>However, there are some rare situations in which you need a loop to run several thousand times (for example, when initialising a very large array). In this case, the <em>noloopcheck</em> keyword can be used to stop AGS aborting your script.</p>
+<p>However, there are some rare situations in which you need a loop to run several thousand times (for example, when initializing a very large array). In this case, the <em>noloopcheck</em> keyword can be used to stop AGS aborting your script.</p>
 <p><strong>NOTE:</strong> The <em>noloopcheck</em> keyword must be placed between "function" and the function's name.<br> If you import the function into the script header, you <strong>do not</strong> include the "noloopcheck" keyword in the import declaration -- it is only included in the actual function body.</p>
 <p><strong>NOTE:</strong> If AGS gives you a script iterations error, <strong>DO NOT</strong> just automatically add this keyword as a way to fix the problem -- more often than not, it is a fault in your scripting and using this keyword will mean that the game will hang rather than abort.</p>
 <p>For example:</p>
@@ -884,7 +884,7 @@ readonly int months = 12;
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:09 PM</p>
+      <p>Build: 09/25/2019 12:04:38 AM</p>
     </section>
   </footer>
 

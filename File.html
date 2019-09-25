@@ -108,7 +108,7 @@
 </code></pre>
 <p>Opens a disk file for reading or writing. These disk I/O functions are only intended for simple tasks like the way the QFG series export the character when you complete it.</p>
 <p>MODE is either eFileRead, eFileWrite or eFileAppend, depending on whether you want to write to or read from the file. If you pass eFileWrite and a file called FILENAME already exists, it will be overwritten.</p>
-<p>eFileAppend opens an existing file for writing and starts adding information at the end (ie. the existing contents are not deleted).</p>
+<p>eFileAppend opens an existing file for writing and starts adding information at the end (i.e. the existing contents are not deleted).</p>
 <p>This function returns a File object, which you use to perform operations on the file. <em>null</em> is returned if there was a problem (eg. file not existing when MODE is eFileRead).</p>
 <p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
 <p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. An attempt to write file into relative path without specifying any location tag will make AGS to automatically remap such path into <code>$APPDATADIR$</code>. This is done for backwards-compatibility. On other hand, if you open file for writing using an absolute path, or relative path that points to location outside of game directory, it will automatically be rejected, and <em>null</em> is returned.</p>
@@ -414,7 +414,7 @@ output.Close();
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:04 PM</p>
+      <p>Build: 09/25/2019 12:04:34 AM</p>
     </section>
   </footer>
 

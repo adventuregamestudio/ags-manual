@@ -114,7 +114,7 @@
 <p>If the game colour depth is lower than 32-bit, then the <em>hasAlphaChannel</em> parameter will be ignored.</p>
 <p>Use the <a href="DynamicSprite.html#graphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.Create(50, 30);
 DrawingSurface *surface = sprite.GetDrawingSurface();
@@ -139,7 +139,7 @@ sprite.Delete();
 <p>Optionally, you can specify a portion of the background to grab. You must either supply all or none of the x, y, width and height parameters; if you do supply them, this allows you to just get a small portion of the background image into the new sprite. All co-ordinates are in 320x200-resolution room co-ordinates.</p>
 <p>Use the <a href="DynamicSprite.html#graphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromBackground(GetBackgroundFrame(), 130, 70, 60, 60);
 DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -161,7 +161,7 @@ sprite.Delete();
 <p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurfaceFunctions.html#usehighrescoordinates">UseHighResCoordinates</a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
 <p>Use the <a href="DynamicSprite.html#graphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromExistingSprite(object[0].Graphic);
 DrawingSurface *surface = sprite.GetDrawingSurface();
@@ -185,7 +185,7 @@ object[0].Graphic = newSprite.Graphic;
 <p>Use the <a href="DynamicSprite.html#graphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><em>preserveAlphaChannel</em> determines whether the sprite's alpha channel will also be copied across. It is false by default for backwards compatibility reasons, and is useful because it allows you to strip the alpha channel in order to do whole image transparency. This parameter has no effect with sprites that do not have an alpha channel.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromExistingSprite(object[0].Graphic);
 sprite.Resize(20, 20);
@@ -209,7 +209,7 @@ sprite.Delete();
 <p>Use the <a href="DynamicSprite.html#graphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#open">File.Open</a> and similar commands.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
 if (sprite != null) {
@@ -234,7 +234,7 @@ if (sprite != null) {
 <p>Returns the DynamicSprite instance of the image if successful, or returns <em>null</em> if the screenshot could not be loaded (perhaps the save game didn't include one).</p>
 <p>In order for this to work, the "Save screenshots in save games" option must be ticked in the main Game Settings pane.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>// at top of script, outside event functions
 DynamicSprite *buttonSprite;
@@ -259,7 +259,7 @@ if (buttonSprite != null) {
 <p>This command can be useful if you're creating a save game screenshots GUI, in order to display the current game position as well as the saved slot positions.</p>
 <p><strong>NOTE:</strong> This command can be slow when using the Direct3D graphics driver.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (ie. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <pre><code>// at top of script, outside event functions
 DynamicSprite *buttonSprite;
@@ -538,7 +538,7 @@ if (sprite != null) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:09 PM</p>
+      <p>Build: 09/25/2019 12:04:39 AM</p>
     </section>
   </footer>
 

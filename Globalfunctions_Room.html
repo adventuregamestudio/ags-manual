@@ -109,7 +109,7 @@
 </code></pre>
 <p>Checks whether two characters or objects are overlapping each other on screen. This simply carries out a quick rectangular check on the two things to decide - so if they have large transparent regions around the edges, it may seem to be overlapping too soon.</p>
 <p>THING1 and THING2 can either be a CHARID, or can be an object number PLUS 1000. So for example, passing EGO as THING1, and 1004 as THING2, will compare the character EGO with Object 4 in the current room.</p>
-<p>Returns 0 if they are not overlapping, or the overlapping amount if they are. This amount is an arbitrary scale, but 1 means they are just about touching, all the way up to higher numbers for more overlappingness.</p>
+<p>Returns 0 if they are not overlapping, or the overlapping amount if they are. This amount is an arbitrary scale, but 1 means they are just about touching, with higher numbers representing an increasing degree of overlap.</p>
 <p>Calling this function with both the parameters as objects is the same as calling Object.IsCollidingWithObject.</p>
 <p>Example:</p>
 <pre><code>if (AreThingsOverlapping(1002, EGO)) {
@@ -127,7 +127,7 @@
 <p>Disables all ground-level events. This means that all Region events, the Player Stands On Hotspot event, and the room edges become disabled.</p>
 <p>This command is useful in conjunction with the character[].z variable, if you want the player to be able to temporarily fly or levitate, for example. It allows you to stop the character from triggering Player Stands On events while they are in the air.</p>
 <p>This command is also useful during some cutscenes, if you don't want the player to trigger events as they walk around the room while in the cutscene.</p>
-<p>The DISABLETINTS parameter specifies whether the visual effects of the regions (ie. light levels and tints) are also disabled. If you pass this as 0, then just the events will be turned off.</p>
+<p>The DISABLETINTS parameter specifies whether the visual effects of the regions (i.e. light levels and tints) are also disabled. If you pass this as 0, then just the events will be turned off.</p>
 <p>Example:</p>
 <pre><code>DisableGroundLevelAreas(0);
 </code></pre>
@@ -230,9 +230,9 @@
 <h3><a href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a></h3>
 <pre><code>HasPlayerBeenInRoom(int room_number)
 </code></pre>
-<p>Checks whether the player has ever been in ROOM_NUMBER (ie. has the 'First Time Player Enters Room' event there ever been run). Returns 1 if they have, and 0 if they haven't.</p>
+<p>Checks whether the player has ever been in ROOM_NUMBER (i.e. has the 'First Time Player Enters Room' event there ever been run). Returns 1 if they have, and 0 if they haven't.</p>
 <p>You can use this function to determine whether the player has been to a particular location previously. If you reset the room with ResetRoom, then this command will return 0 until they enter the room again.</p>
-<p>This command will always return 1 if you ask it about the current room; and it will always return 0 if you ask it about a non-state saving room (ie. rooms numbered &gt; 300).</p>
+<p>This command will always return 1 if you ask it about the current room; and it will always return 0 if you ask it about a non-state saving room (i.e. rooms numbered &gt; 300).</p>
 <p>Example:</p>
 <pre><code>if (HasPlayerBeenInRoom(14)) {
   Display(&quot;The player has been to room 14 before.&quot;);
@@ -269,7 +269,7 @@
 </code></pre>
 <p>Discards all the data that the engine has in memory about when the player last visited ROOM_NUMBER, and resets it as if they'd never been there. The next time the player goes to that room, all the objects and scripts will be in their initial state (as set up in the editor), and not how they were when the player left the room. The "First time enters room" event will be run when they enter this room again.</p>
 <p>This function is useful if you want to have a "View intro" option to allow the player to watch an intro again - this function can reset all the objects in the intro rooms to their starting positions.</p>
-<p>NOTE: You cannot reset the current room (ie. the room that the player is in).</p>
+<p>NOTE: You cannot reset the current room (i.e. the room that the player is in).</p>
 <p>Example:</p>
 <pre><code>ResetRoom(0);
 </code></pre>
@@ -312,7 +312,7 @@
 <pre><code>SetBackgroundFrame (int frame)
 </code></pre>
 <p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to 4). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
-<p>Pass the <em>frame</em> as -1 to return to the default behaviour of automatically cycling through all the background frames.</p>
+<p>Pass the <em>frame</em> as -1 to return to the default behavior of automatically cycling through all the background frames.</p>
 <p>The frame lock is released when the game changes rooms.</p>
 <p>Example:</p>
 <pre><code>if (GetGlobalInt(20)==1)
@@ -353,7 +353,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:07 PM</p>
+      <p>Build: 09/25/2019 12:04:37 AM</p>
     </section>
   </footer>
 

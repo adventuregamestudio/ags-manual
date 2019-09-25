@@ -258,8 +258,8 @@ cEgo.UnlockView();
 <pre><code>Character.ChangeRoomAutoPosition(int room_number, optional int newPosition)
 </code></pre>
 <p>Changes the room that the character is in, and positions him along one of the room edges.</p>
-<p>This command simulates the behaviour of the old "Go to room" interaction command from AGS 2.72 and previous versions. If <em>newPosition</em> is not specified or is 0, the character will be placed on the opposite side of the new room, if he is within 10 pixels of a room edge in the current room.</p>
-<p>Altenatively, you can specify the position where he will get placed in the new room. <em>newPosition</em> can be 1000 for the left edge, 2000 for the right edge, 3000 for the bottom edge and 4000 for the top edge. Then, add on the offset within that edge where you want to place the character, in normal room co-ordinates.</p>
+<p>This command simulates the behavior of the old "Go to room" interaction command from AGS 2.72 and previous versions. If <em>newPosition</em> is not specified or is 0, the character will be placed on the opposite side of the new room, if he is within 10 pixels of a room edge in the current room.</p>
+<p>Alternatively, you can specify the position where he will get placed in the new room. <em>newPosition</em> can be 1000 for the left edge, 2000 for the right edge, 3000 for the bottom edge and 4000 for the top edge. Then, add on the offset within that edge where you want to place the character, in normal room co-ordinates.</p>
 <p><strong>IMPORTANT:</strong> This command does not change the room immediately; instead, it will perform the actual room change once your script function has finished (This is to avoid problems with unloading the script while it is still running). This means that you should not use any other commands which rely on the new room (object positionings, and so on) after this command within the same function.</p>
 <p><strong>NOTE:</strong> This command can only be used with the player character.</p>
 <p>Example:</p>
@@ -289,7 +289,7 @@ cEgo.UnlockView();
 <pre><code>Character.FaceCharacter(Character* toFace, optional BlockingStyle)
 </code></pre>
 <p>Turns the graphic of the character so that it looks like he is facing character TOFACE. This involves changing the current loop to the appropriate loop number, and setting the frame number to 0 (standing).</p>
-<p>If the character has Turning enabled (ie. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
+<p>If the character has Turning enabled (i.e. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
 <p>If the character does not have Turning enabled, he will immediately turn to face the new direction and the BlockingStyle parameter has no effect. In this case, the screen will not be refreshed straight away -- if you want to see the character facing his new direction immediately, call Wait(1);</p>
 <p>Example:</p>
 <pre><code>cEgo.FaceCharacter(cMan);
@@ -303,7 +303,7 @@ cEgo.UnlockView();
 <pre><code>Character.FaceDirection(CharacterDirection direction, BlockingStyle=eBlock)
 </code></pre>
 <p>Turns the graphic of the character so that it looks like he is facing direction <em>direction</em>. This involves changing the current loop to the appropriate loop number, and setting the frame number to 0 (standing).</p>
-<p>If the character has Turning enabled (ie. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
+<p>If the character has Turning enabled (i.e. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
 <p>If the character does not have Turning enabled, he will immediately turn to face the new direction and the BlockingStyle parameter has no effect. In this case, the screen will not be refreshed straight away -- if you want to see the character facing his new direction immediately, call Wait(1);</p>
 <p>Example:</p>
 <pre><code>cEgo.FaceDirection(eDirectionUpRight);
@@ -319,7 +319,7 @@ cEgo.UnlockView();
 <pre><code>Character.FaceLocation(int x, int y, optional BlockingStyle)
 </code></pre>
 <p>Similar to the FaceCharacter function, except that this faces the character to room co-ordinates (X,Y). This allows him to face not only other characters, but also hotspots or anything else as well (you can get co-ordinates by watching the co-ordinates displayed in the Room Settings mode as you move the mouse over the room background).</p>
-<p>If the character has Turning enabled (ie. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
+<p>If the character has Turning enabled (i.e. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
 <p>If the character does not have Turning enabled, he will immediately turn to face the new direction and the BlockingStyle parameter has no effect. In this case, the screen will not be refreshed straight away -- if you want to see the character facing his new direction immediately, call Wait(1);</p>
 <p>Example:</p>
 <pre><code>cEgo.FaceLocation(cEgo.x + 50, cEgo.y);
@@ -333,7 +333,7 @@ cEgo.UnlockView();
 <pre><code>Character.FaceObject(Object* object, optional BlockingStyle)
 </code></pre>
 <p>Similar to the FaceCharacter function, except that this faces the character to object OBJECT in the current room.</p>
-<p>If the character has Turning enabled (ie. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
+<p>If the character has Turning enabled (i.e. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
 <p>If the character does not have Turning enabled, he will immediately turn to face the new direction and the BlockingStyle parameter has no effect. In this case, the screen will not be refreshed straight away -- if you want to see the character facing his new direction immediately, call Wait(1);</p>
 <p>Example:</p>
 <pre><code>player.FaceObject(object[2]);
@@ -507,7 +507,7 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 <p><em>(Formerly known as AreCharObjColliding, which is now obsolete)</em></p>
 <pre><code>Character.IsCollidingWithObject(Object* obj)
 </code></pre>
-<p>Checks whether the character's feet (ie. the bottom third of the character) are touching OBJ. This can be used to determine if the character is standing on the object.</p>
+<p>Checks whether the character's feet (i.e. the bottom third of the character) are touching OBJ. This can be used to determine if the character is standing on the object.</p>
 <p>Returns 1 if they are, and 0 if they are not.</p>
 <p>Example:</p>
 <pre><code>if (cEgo.IsCollidingWithObject(object[3]) == 1) {
@@ -535,7 +535,7 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 </code></pre>
 <p>Sets the character's view to VIEW. This can be used to perform animations with characters, for example bending down to pick something up, which don't use the default view.</p>
 <p><em>StopMovementStyle</em> determines what to do if character was moving when this function is called. You can pass either eStopMoving (in which case the walking character will stop), or eKeepMoving (in which case the character will keep moving). The default is eStopMoving.</p>
-<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (ie. it won't automatically be changed by AGS on walkable areas, screen changes, etc). When you are done with the animation, call UnlockView to allow AGS to take control back.</p>
+<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (i.e. it won't automatically be changed by AGS on walkable areas, screen changes, etc). When you are done with the animation, call UnlockView to allow AGS to take control back.</p>
 <p>Example:</p>
 <pre><code>cEgo.LockView(12);
 cEgo.Animate(0, 0, eOnce, eBlock, eForwards);
@@ -578,7 +578,7 @@ cEgo.UnlockView();
 </table>
 <p>Note that this only aligns the first frame of the animation, so to get the full benefit all your frames in the animation loop should be the same width. All following frames will be shifted by the same amount, until UnlockView is called.</p>
 <p><em>StopMovementStyle</em> determines what to do if character was moving when this function is called. You can pass either eStopMoving (in which case the walking character will stop), or eKeepMoving (in which case the character will keep moving). The default is eStopMoving.</p>
-<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (ie. it won't automatically be changed by the program on regions, screen changes, etc). When you are done with the animation, call UnlockView to allow the program to take control back.</p>
+<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (i.e. it won't automatically be changed by the program on regions, screen changes, etc). When you are done with the animation, call UnlockView to allow the program to take control back.</p>
 <p>Example:</p>
 <pre><code>cEgo.LockViewAligned(12, 1, eAlignLeft);
 cEgo.Animate(1, 5, eOnce, eBlock, eForwards);
@@ -617,7 +617,7 @@ cEgo.UnlockView();
 <p>This command is designed to allow you to cope with those niggly situations where animations don't quite line up with the standing frame, assuming all the frames of the animation are the same size. Note that LockViewAligned is easier to use if your frames will align at the left or right hand side.</p>
 <p><em>StopMovementStyle</em> determines what to do if character was moving when this function is called. You can pass either eStopMoving (in which case the walking character will stop), or eKeepMoving (in which case the character will keep moving). The default is eStopMoving.</p>
 <p><strong>NOTE:</strong> You should only use this command for minor adjustments, since the offsets do not affect the clickable area of the character, what walkable area he is in, and so forth. You should limit the use of this command to in-game cutscenes where the player has no control.</p>
-<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (ie. it won't automatically be changed by AGS on walkable areas, screen changes, etc). When you are done with the animation, call UnlockView to allow AGS to take control back.</p>
+<p><strong>NOTE:</strong> This function locks the character's view to the specified view, so that it can only be changed by other script commands (i.e. it won't automatically be changed by AGS on walkable areas, screen changes, etc). When you are done with the animation, call UnlockView to allow AGS to take control back.</p>
 <p>Example:</p>
 <pre><code>cEgo.LockViewOffset(12, 1, -1);
 cEgo.Animate(1, 5, eOnce, eBlock, eForwards);
@@ -846,8 +846,8 @@ player.RemoveTint();
 <p>Displays the text MESSAGE as a thought above the specified character's head. The text will remain on screen for a limited time, and the user may or may not be able to click it away depending on the setting of "Player can't skip speech text".</p>
 <p>How this function displays the text depends on a few things: the Speech Style setting, the 'Thought uses bubble GUI' setting, and whether the character has a thinking animation or not.</p>
 <p>If the "Thought uses bubble GUI" setting is not checked, then the thought will be displayed in the same way as normal speech - the difference being that the character's thinking animation will play (or no animation if they don't have one).</p>
-<p>If you are using Sierra-style speech and the character doesn't have a thinking animation, the thought bubble will be displayed in lucasarts-style.</p>
-<p>If the "Thought uses bubble GUI" setting has been set, then the thought will be displayed like normal speech, except that the bubble GUI will be used for the window background. In Lucasarts-style speech this means above the character's head, in Sierra-style it will be done along the top of the screen as normal.</p>
+<p>If you are using Sierra-style speech and the character doesn't have a thinking animation, the thought bubble will be displayed in LucasArts-style.</p>
+<p>If the "Thought uses bubble GUI" setting has been set, then the thought will be displayed like normal speech, except that the bubble GUI will be used for the window background. In LucasArts-style speech this means above the character's head, in Sierra-style it will be done along the top of the screen as normal.</p>
 <p>If the character has a thinking animation, it will just loop through once (it won't repeat).</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
@@ -1115,8 +1115,8 @@ cEgo.BlinkInterval = 160;
 <p><em>(Formerly known as SetCharacterClickable, which is now obsolete)</em></p>
 <pre><code>bool Character.Clickable
 </code></pre>
-<p>Gets/sets whether the character is recognised as something which the player can interact with. This allows you to modify the "Clickable" property set initially in the Editor.</p>
-<p>If you set this to <em>true</em> then the player can look at, speak to, and so on the character (as with the old Sierra games). If you set this to <em>false</em>, then if the player clicks on the character it will activate whatever is behind them (as with the old Lucasarts games).</p>
+<p>Gets/sets whether the character is recognized as something which the player can interact with. This allows you to modify the "Clickable" property set initially in the Editor.</p>
+<p>If you set this to <em>true</em> then the player can look at, speak to, and so on the character (as with the old Sierra games). If you set this to <em>false</em>, then if the player clicks on the character it will activate whatever is behind them (as with the old LucasArts games).</p>
 <p>Example:</p>
 <pre><code>cMan.Clickable = 0;
 </code></pre>
@@ -1553,7 +1553,7 @@ cEgo.Scaling = 50;
 <p><em>(Formerly known as SetCharacterTransparency, which is now obsolete)</em></p>
 <pre><code>int Character.Transparency
 </code></pre>
-<p>Gets/sets the character's transparency. This is specified as a percentage, from 0 to 100. 100 means fully transparent (ie. invisible), and 0 is totally opaque (fully visible). Numbers in between represent varying levels of transparency.</p>
+<p>Gets/sets the character's transparency. This is specified as a percentage, from 0 to 100. 100 means fully transparent (i.e. invisible), and 0 is totally opaque (fully visible). Numbers in between represent varying levels of transparency.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
 <p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent character can significantly slow down AGS.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>cEgo.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
@@ -1672,7 +1672,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/24/2019 02:40:05 PM</p>
+      <p>Build: 09/25/2019 12:04:34 AM</p>
     </section>
   </footer>
 
