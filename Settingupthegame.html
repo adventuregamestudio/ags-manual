@@ -244,6 +244,8 @@ return
 <li><strong>return</strong><br> Stops the script and returns to the list of choices.</li>
 <li><strong>stop</strong><br> Stops the conversation and returns the player to the game.</li>
 </ul>
+<p><strong>Substituting dialog speech with custom functions</strong></p>
+<p>By default all of the character dialog lines are executed using the standard function Character.Say. Since AGS 3.5.0 it is possible to define a custom script function as a substitute instead. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarily, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
 <p><strong>Using scripting commands in dialogs</strong></p>
 <p>Often the provided dialog scripting commands won't be enough for what you want to do in the dialog. You might want to give the player an inventory item or add some points to their score, for example.</p>
 <p>AGS now lets you put normal scripting commands in your dialog script, by indenting the line with spaces or tabs. For example:</p>
@@ -456,6 +458,7 @@ function CustomSay4(this Character*, String text);
 <p>Every font have following optional properties:</p>
 <ul>
 <li><strong>LineSpacing</strong> - defines default difference (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</li>
+<li><strong>SizeMultiplier</strong> - an integer scale multiplier applied to this font. Note that it is commonly makes sense to assign this for the bitmap fonts, as TTF fonts may be reimported with different font size. When set for a TTF font it will simply be initialized with a higher point-size in game.</li>
 <li><strong>VerticalOffset</strong> - defines additional vertical offset applied to every drawn line of text (when using this font). This property is mainly meant to override particular font's misbehavior.</li>
 </ul>
 <p><strong>NOTE:</strong> If you go to your Windows Fonts folder, you will not be able to select any fonts to import, since double-clicking them will open them up in the Windows Font Viewer. Unfortunately there is nothing I can do about this, you must either type the filename in manually, or copy the font to another folder and import it from there.</p>
@@ -470,7 +473,7 @@ function CustomSay4(this Character*, String text);
 
   <footer>
     <section class="container">
-      <p>Build: 09/25/2019 12:04:27 AM</p>
+      <p>Build: 10/01/2019 02:31:46 PM</p>
     </section>
   </footer>
 

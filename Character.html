@@ -217,13 +217,14 @@ cSomeguy.AddWaypoint(50, 50);
 <h3><a href="#animate">Animate</a></h3>
 <p><em>(Formerly known as AnimateCharacter, which is now obsolete)</em><br> <em>(Formerly known as AnimateCharacterEx, which is now obsolete)</em></p>
 <pre><code>Character.Animate(int loop, int delay, optional RepeatStyle,
-                  optional BlockingStyle, optional Direction)
+                  optional BlockingStyle, optional Direction, optional int frame)
 </code></pre>
-<p>Starts the character animating, using loop number LOOP of his current view. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
+<p>Starts the character animating, using loop number LOOP of his current view and optionally starting at FRAME. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
 <p>Before using this command, you should use <a href="Character.html#lockview">LockView</a> in order to select the view you want to animate with and prevent any automatic animations (eg. walking or idle animations) from playing.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it will go back to the first frame and start over again with the animation.</p>
-<p><em>direction</em> specifies which way the animation plays. You can either pass eForwards (the default) or eBackwards.</p>
 <p>For <em>blocking</em> you can pass either eBlock (in which case the function will wait for the animation to finish before returning), or eNoBlock (in which case the animation will start to play, but your script will continue). The default is eBlock.</p>
+<p><em>Direction</em> specifies which way the animation plays. You can either pass eForwards (the default) or eBackwards.</p>
+<p><em>Frame</em> lets you specify the starting frame, which should be one of the chosen loop's frame.<br> Note that for compatibility reasons if direction is eBackwards the animation actually begins with the <em>previous frame</em>. If you pass frame 0 (the default) then it will begin with the last frame in the loop.</p>
 <p>If the character is currently moving, it will be stopped.</p>
 <p>Example:</p>
 <pre><code>cEgo.LockView(5);
@@ -231,7 +232,8 @@ cEgo.Animate(3, 1, 0, eBlock, eBackwards);
 cEgo.UnlockView();
 </code></pre>
 <p>will animate the character once using loop number 3 of view 5 backwards, and wait until the animation finishes before returning.</p>
-<p><em>See Also:</em> <a href="Object.html#animate">Object.Animate</a></p>
+<p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Button.html#animate">Button.Animate</a>, <a href="Object.html#animate">Object.Animate</a></p>
 <hr />
 </section>
 <section id="changeroom" class="level3">
@@ -1672,7 +1674,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 09/25/2019 12:04:34 AM</p>
+      <p>Build: 10/01/2019 02:31:53 PM</p>
     </section>
   </footer>
 

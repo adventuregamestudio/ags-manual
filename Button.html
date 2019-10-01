@@ -116,16 +116,17 @@
 <pre><code>Button.Animate(int view, int loop, int delay, RepeatStyle)
 </code></pre>
 <p>Animates a GUI button by playing the specified view loop on it. This could be useful for Sierra-style death animations and other effects.</p>
-<p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the Character.Animate and Object.Animate commands.</p>
+<p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the <a href="Character.html#animate">Character.Animate</a> and <a href="Object.html#animate">Object.Animate</a> commands.</p>
 <p>REPEAT determines whether the animation will loop repeatedly, or just play once and stop with the last frame showing (eOnce or eRepeat are the possible values).</p>
-<p>You can abort an animation at any time by setting the button's NormalGraphic property, or starting a new animation on the same button.</p>
+<p>You can abort an animation at any time by setting the button's <a href="Button.html#normalgraphic">NormalGraphic property</a>, or starting a new animation on the same button.</p>
 <p><strong>NOTE:</strong> This command destroys the button's normal, pushed and mouseover images. If you want to return the button to normal usage after playing an animation, you will have to set the Graphic properties to restore the images.</p>
 <p><strong>NOTE:</strong> This command does not support flipped view frames. Any frames marked as "Flipped" will in fact be drawn normally when on a button.</p>
 <p>Example:</p>
 <pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
 </code></pre>
 <p>will animate the 'btnDeathAnim' button using loop 2 of view 6, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
-<p><em>See Also:</em> <a href="Button.html#animating">Button.Animating</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a></p>
+<p><em>See Also:</em> <a href="Button.html#animating">Button.Animating</a>, <a href="Button.html#frame">Button.Frame</a>, <a href="Button.html#loop">Button.Loop</a>, <a href="Button.html#view">Button.View</a>, <a href="Button.html#normalgraphic">Button.NormalGraphic</a>,<br />
+<a href="Character.html#animate">Character.Animate</a>, <a href="Object.html#animate">Object.Animate</a>,</p>
 <hr />
 </section>
 <section id="animating" class="level3">
@@ -300,7 +301,7 @@ btnController.Text = &quot;Enable jibble&quot;;
 
   <footer>
     <section class="container">
-      <p>Build: 09/25/2019 12:04:33 AM</p>
+      <p>Build: 10/01/2019 02:31:51 PM</p>
     </section>
   </footer>
 

@@ -76,15 +76,31 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#upgrading-to-350"><span>Upgrading to 3.5.0</span></a></li>
+<li><a href="#upgrading-to-350"><span>Upgrading to 3.5.0</span></a><ul>
+<li><a href="#room-editor-and-multilayer-mode"><span>Room editor and multilayer mode</span></a></li>
+<li><a href="#new-viewportcamera-system"><span>New Viewport/Camera system</span></a></li>
+<li><a href="#room-sizes-and-mask-resolution"><span>Room sizes and mask resolution</span></a></li>
+<li><a href="#deprecated-relative-asset-resolutions"><span>Deprecated relative asset resolutions</span></a></li>
+<li><a href="#some-script-functions-replaced-andor-deprecated"><span>Some script functions replaced and/or deprecated</span></a></li>
+<li><a href="#system-limits-update"><span>System limits update</span></a></li>
+</ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="upgrading-to-350" class="level2">
 <h2><a href="#upgrading-to-350">Upgrading to 3.5.0</a></h2>
-<p>3.5.0 is another big update and it has few serious changes to both editor UI and scripting.</p>
-<p><strong>Room editor and multilayer mode</strong></p>
+<p>AGS version 3.5.0 is another big update and it has few serious changes to both editor UI and scripting.</p>
+<ul>
+<li><a href="UpgradeTo350.html#room-editor-and-multilayer-mode">Room editor and multilayer mode</a></li>
+<li><a href="UpgradeTo350.html#new-viewportcamera-system">New Viewport/Camera system</a></li>
+<li><a href="UpgradeTo350.html#room-sizes-and-mask-resolution">Room sizes and mask resolution</a></li>
+<li><a href="UpgradeTo350.html#deprecated-relative-asset-resolutions">Deprecated relative asset resolutions</a></li>
+<li><a href="UpgradeTo350.html#some-script-functions-replaced-andor-deprecated">Some script functions replaced and/or deprecated</a></li>
+<li><a href="UpgradeTo350.html#system-limits-update">System limits update</a></li>
+</ul>
+<section id="room-editor-and-multilayer-mode" class="level3">
+<h3><a href="#room-editor-and-multilayer-mode">Room editor and multilayer mode</a></h3>
 <p>Room editor has got a new navigation bar on the top of the panel instead of the plain drop-down list where you used to select edit mode. This navigation bar lets you do the following:</p>
 <ul>
 <li>See the full list of elements grouped into layers by type (characters, objects, edges and so forth).</li>
@@ -94,7 +110,9 @@
 </ul>
 <p><strong>NOTE:</strong> you can still only select and edit objects of the chosen group, not all at once.</p>
 <p><strong>NOTE:</strong> in order to remember user preference on visible and locked items Editor saves a new file called <strong>roomNNN.crm.user</strong> per each room, where 'NNN' is a room's number. These files are not part of the game data and are safe to remove (but in that case all item visibility and lock states in the room will be reset).</p>
-<p><strong>New Viewport/Camera system</strong></p>
+</section>
+<section id="new-viewportcamera-system" class="level3">
+<h3><a href="#new-viewportcamera-system">New Viewport/Camera system</a></h3>
 <p>In the past, AGS had a very simple concept of Viewport: a rectangular "eye" which selected a part of the room to display on the screen. If a room was larger than the game's screen it became a "scrolling room" and you could move a viewport around it, showing different parts of that room.</p>
 <p>In 3.5.0 the concept of viewport has changed a lot to provide more options. First of all, it's now split into two parts: Viewport and Camera.</p>
 <p>The new Camera is almost what the old Viewport was: it is a rectangle <em>inside the room</em> that acts like an "eye" and tells which part of this room can be seen. Camera's position and size are defined in <em>room coordinates</em>. If Camera is smaller than the room, then it can be moved around it to see different parts.<br> The new Viewport is a different thing, now it defines a rectangle <em>on a game's screen</em> where the room will be drawn. Viewport has a link to Camera and displays what camera "sees" at this moment. Viewport's position and size are defined in <em>screen coordinates</em>, just like GUIs and Overlays. This means that if a camera is moving inside the room, the viewport will still stay at the same place on the screen, and vice-versa when a viewport is moved around the screen it will still display same part of the room. Of course, moving both viewport and camera will produce more complicated result.<br> You may think of Viewport as of a TV screen or computer monitor, which translates the image from the camera.</p>
@@ -139,11 +157,15 @@ int roomx = roompt.x;
 int roomy = roompt.y;
 </code></pre>
 <p>For more information see: <a href="Camera.html">Camera</a>, <a href="Viewport.html">Viewport</a>, <a href="Game.html#cameras">Game.Cameras</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
-<p><strong>Room sizes and mask resolution</strong></p>
+</section>
+<section id="room-sizes-and-mask-resolution" class="level3">
+<h3><a href="#room-sizes-and-mask-resolution">Room sizes and mask resolution</a></h3>
 <p>Previously AGS had a restriction that a room background must be at least size of a game resolution. With 3.5.0 this restriction is gone and you can now make rooms any size. This became possible after the rewrite of the viewport system, as explained above.</p>
 <p>Another change is related to the room masks that define walkable areas, hotspots and so forth. Historically only walk-behinds mask was always made equal to the size of room background. Other masks were 1:1 to room background's size only in "low-res" games (below 640x400). In "high-res" games (640x400 and above) hotspots, regions and walkable masks were made x2 smaller resolution than the room, which means that for 4 room pixels (2x2 square) there was 1 mask pixel. That, in turn, caused these masks to be less precise. Originally this was done to reduce both memory size of a room and speed up any operations run against these masks, such as path-finding, but sometimes annoyed users who were unable to draw exactly a region they want.</p>
 <p>Since 3.5.0 each room has a property called MaskResolution which currently ranges from 1:1 to 1:4. This resolution determines the resolution factor for hotspots, regions and walkable masks (but not walk-behinds which is still fixed at 1:1). Default is 1:1, but you may change it anytime for any individual room if you prefer your room to have <em>less precise</em> area masks.<br> To make things more convenient there's also an option in General Settings called "Default mask resolution" which lets you choose a value that will be applied to every newly created room.<br> Note that when importing older projects the mask resolution is kept unchanged.</p>
-<p><strong>Deprecated relative asset resolutions</strong></p>
+</section>
+<section id="deprecated-relative-asset-resolutions" class="level3">
+<h3><a href="#deprecated-relative-asset-resolutions">Deprecated relative asset resolutions</a></h3>
 <p>This is something users do not know much about now but may stumble upon sometimes. In the long past AGS divided all games into "low-resolution" and "high-resolution" games, "high-res" was defined roughly as 640x400 and higher while "low-res" was 320x200 or 320x240. Similarly AGS allowed certain assets, such as sprites, fonts, and rooms, be tagged as "low-res" or "high-res". The idea behind this was that if a "low-res" asset is used in a "high-res" game then it gets automatically scaled up x2, and vice-versa a "high-res" asset in a "low-res" game would be downscaled x2.</p>
 <p>Although such practice is not commonly used for a while, you could still experience this effect if you, for example, take game template or project made in low resolution and convert it to high resolution. Some sprites from the original game which were marked as "low-res" will be scaled up. Sometimes this behavior may be useful - in case you are using these sprites as placeholders but may confuse inexperienced users.</p>
 <p>In AGS 3.5.0 we are deprecating concept of resolution tags and disable these conversions <em>by default</em>. We also make asset scaling more explicit in an attempt to prevent its misuse.</p>
@@ -152,7 +174,9 @@ int roomy = roompt.y;
 <li><p>Sprites retain resolution tag for backward compatibility, but it is now set to "Real" by default and not recommended to change. When you import older project sprites get "promoted" to "real" resolution if their tag matches the game: for example if a sprite is tagged as "low-res" and your game is 320x200, or if a sprite is tagged as "high-res" and your game is 640x400 or higher.</p></li>
 <li><p>"Fonts designed for high resolution" setting was removed because it no longer makes sense. Instead, each font has an individual ScalingMultiplier property. When importing older project each font will be scaled x2 if it was a "high-res" game and this setting was OFF.</p></li>
 </ol>
-<p><strong>Some script functions replaced and/or deprecated</strong></p>
+</section>
+<section id="some-script-functions-replaced-andor-deprecated" class="level3">
+<h3><a href="#some-script-functions-replaced-andor-deprecated">Some script functions replaced and/or deprecated</a></h3>
 <p>Some functions from previous Script API were either replaced by new equivalents or deprecated. They are shown in the table below:</p>
 <table>
 <thead>
@@ -181,7 +205,9 @@ int roomy = roompt.y;
 </tbody>
 </table>
 <p>Note that you can still use "Script Compatibility Level" switch in General Settings to enable old functions.</p>
-<p><strong>System limits update</strong></p>
+</section>
+<section id="system-limits-update" class="level3">
+<h3><a href="#system-limits-update">System limits update</a></h3>
 <p>Support for very large files was added to AGS, therefore now package file and every asset file is allowed to exceed 2 GB. One good example to mention is the packed sprites file (acsprset.spr) which 2 GB limit was causing most inconveniences.</p>
 <p>Other limits:</p>
 <ul>
@@ -193,6 +219,7 @@ int roomy = roompt.y;
 <li>Removed hidden limit for DoOnceOnly token length (was 200 characters).</li>
 </ul>
 </section>
+</section>
         </div>
       </div>
     </section>
@@ -201,7 +228,7 @@ int roomy = roompt.y;
 
   <footer>
     <section class="container">
-      <p>Build: 09/25/2019 12:04:34 AM</p>
+      <p>Build: 10/01/2019 02:31:52 PM</p>
     </section>
   </footer>
 
