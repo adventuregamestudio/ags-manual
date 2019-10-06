@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Global functions: Screen Effects</title>
+  <title>Global functions (Screen Effects)</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,25 +76,25 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#global-functions-screen-effects"><span>Global functions: Screen Effects</span></a><ul>
-<li><a href="#fadein"><span>FadeIn</span></a></li>
-<li><a href="#fadeout"><span>FadeOut</span></a></li>
-<li><a href="#flipscreen"><span>FlipScreen</span></a></li>
-<li><a href="#setfadecolor"><span>SetFadeColor</span></a></li>
-<li><a href="#setnextscreentransition"><span>SetNextScreenTransition</span></a></li>
-<li><a href="#setscreentransition"><span>SetScreenTransition</span></a></li>
-<li><a href="#shakescreen"><span>ShakeScreen</span></a></li>
-<li><a href="#shakescreenbackground"><span>ShakeScreenBackground</span></a></li>
-<li><a href="#tintscreen"><span>TintScreen</span></a></li>
+<li><a href="#global-functions-screen-effects"><span>Global functions (Screen Effects)</span></a><ul>
+<li><a href="#fadein"><span><code>FadeIn</code></span></a></li>
+<li><a href="#fadeout"><span><code>FadeOut</code></span></a></li>
+<li><a href="#flipscreen"><span><code>FlipScreen</code></span></a></li>
+<li><a href="#setfadecolor"><span><code>SetFadeColor</code></span></a></li>
+<li><a href="#setnextscreentransition"><span><code>SetNextScreenTransition</code></span></a></li>
+<li><a href="#setscreentransition"><span><code>SetScreenTransition</code></span></a></li>
+<li><a href="#shakescreen"><span><code>ShakeScreen</code></span></a></li>
+<li><a href="#shakescreenbackground"><span><code>ShakeScreenBackground</code></span></a></li>
+<li><a href="#tintscreen"><span><code>TintScreen</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="global-functions-screen-effects" class="level2">
-<h2><a href="#global-functions-screen-effects">Global functions: Screen Effects</a></h2>
+<h2><a href="#global-functions-screen-effects">Global functions (Screen Effects)</a></h2>
 <section id="fadein" class="level3">
-<h3><a href="#fadein">FadeIn</a></h3>
+<h3><a href="#fadein"><code>FadeIn</code></a></h3>
 <pre><code>FadeIn (int speed)
 </code></pre>
 <p>Fades in from a black screen to the current palette. This is used to restore the screen after a FadeOut call. SPEED is from 1 (slowest) to 64 (fastest).</p>
@@ -109,7 +109,7 @@ FadeIn(10);
 <hr />
 </section>
 <section id="fadeout" class="level3">
-<h3><a href="#fadeout">FadeOut</a></h3>
+<h3><a href="#fadeout"><code>FadeOut</code></a></h3>
 <pre><code>FadeOut (int speed)
 </code></pre>
 <p>Fades the screen out to black. SPEED is the speed of the fade, from 1 (slowest) to 64 (instant). You can restore the screen with FadeIn.</p>
@@ -124,7 +124,7 @@ FadeIn(10);
 <hr />
 </section>
 <section id="flipscreen" class="level3">
-<h3><a href="#flipscreen">FlipScreen</a></h3>
+<h3><a href="#flipscreen"><code>FlipScreen</code></a></h3>
 <pre><code>FlipScreen (int way)
 </code></pre>
 <p>Flips the screen round either the horizontal or vertical axis, or both. This function is for special effects only - all co-ordinates remain the same and it doesn't effect any other script functions.</p>
@@ -162,7 +162,7 @@ FadeIn(10);
 <hr />
 </section>
 <section id="setfadecolor" class="level3">
-<h3><a href="#setfadecolor">SetFadeColor</a></h3>
+<h3><a href="#setfadecolor"><code>SetFadeColor</code></a></h3>
 <pre><code>SetFadeColor(int red, int green, int blue)
 </code></pre>
 <p>Changes the colour which the screen fades out to, to have the specified RGB value. Each of the parameters can range from 0-255. The default is black, i.e. (0, 0, 0)</p>
@@ -175,7 +175,7 @@ FadeIn(10);
 <hr />
 </section>
 <section id="setnextscreentransition" class="level3">
-<h3><a href="#setnextscreentransition">SetNextScreenTransition</a></h3>
+<h3><a href="#setnextscreentransition"><code>SetNextScreenTransition</code></a></h3>
 <pre><code>SetNextScreenTransition(TransitionStyle)
 </code></pre>
 <p>Sets the room transition type to <em>TransitionStyle</em>, but ONLY for the next room change. After that, it will revert back to the normal transition type specified in the editor or with SetScreenTransition.</p>
@@ -189,7 +189,7 @@ cEgo.ChangeRoom(10);
 <hr />
 </section>
 <section id="setscreentransition" class="level3">
-<h3><a href="#setscreentransition">SetScreenTransition</a></h3>
+<h3><a href="#setscreentransition"><code>SetScreenTransition</code></a></h3>
 <pre><code>SetScreenTransition(TransitionStyle)
 </code></pre>
 <p>Changes the default screen transition. TransitionStyle can be one of the following:</p>
@@ -208,7 +208,7 @@ eTransitionCrossfade
 <hr />
 </section>
 <section id="shakescreen" class="level3">
-<h3><a href="#shakescreen">ShakeScreen</a></h3>
+<h3><a href="#shakescreen"><code>ShakeScreen</code></a></h3>
 <pre><code>ShakeScreen (int amount)
 </code></pre>
 <p>Shakes the screen to simulate, for example, an earthquake. AMOUNT is how much the screen shakes: 1 is hardly anything, and 25 is a lot.</p>
@@ -220,7 +220,7 @@ eTransitionCrossfade
 <hr />
 </section>
 <section id="shakescreenbackground" class="level3">
-<h3><a href="#shakescreenbackground">ShakeScreenBackground</a></h3>
+<h3><a href="#shakescreenbackground"><code>ShakeScreenBackground</code></a></h3>
 <pre><code>ShakeScreenBackground (int delay, int amount, int length)
 </code></pre>
 <p>Shakes the screen to simulate, for example, an earthquake. The game is not paused while the screen shakes - it will continue in the background.</p>
@@ -236,7 +236,7 @@ eTransitionCrossfade
 <hr />
 </section>
 <section id="tintscreen" class="level3">
-<h3><a href="#tintscreen">TintScreen</a></h3>
+<h3><a href="#tintscreen"><code>TintScreen</code></a></h3>
 <pre><code>TintScreen (int red, int green, int blue)
 </code></pre>
 <p>Tints the screen with the specified RGB values. RED, GREEN and BLUE range from 1 to 100.</p>
@@ -258,7 +258,7 @@ eTransitionCrossfade
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:59 PM</p>
+      <p>Build: 10/06/2019 10:30:50 PM</p>
     </section>
   </footer>
 

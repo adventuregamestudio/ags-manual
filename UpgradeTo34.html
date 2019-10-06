@@ -97,7 +97,7 @@
 <p><strong>NOTE:</strong> You may change those two settings anytime if you'd like to experiment, or your plans has changed. It is recommended to do full game rebuild after you do so though.</p>
 <p><strong>Mutable custom properties</strong></p>
 <p>Since introduction Custom Properties could not be changed at runtime, they had to keep their default values set in the Editor throughout the course of the game. Now this restriction was eliminated and you can change any existing custom property in game script, using appropriate SetProperty and SetTextProperty functions:</p>
-<p><a href="Character.html#setproperty">Character.SetProperty</a>, <a href="Character.html#settextproperty">Character.SetTextProperty</a>, <a href="Hotspot.html#setproperty">Hotspot.SetProperty</a>, <a href="Hotspot.html#settextproperty">Hotspot.SetTextProperty</a>, <a href="InventoryItem.html#setproperty">InventoryItem.SetProperty</a>, <a href="InventoryItem.html#settextproperty">InventoryItem.SetTextProperty</a>, <a href="Object.html#setproperty">Object.SetProperty</a>, <a href="Object.html#settextproperty">Object.SetTextProperty</a>, <a href="Room.html#setproperty">Room.SetProperty</a>, <a href="Room.html#settextproperty">Room.SetTextProperty</a></p>
+<p><a href="Character.html#charactersetproperty">Character.SetProperty</a>, <a href="Character.html#charactersettextproperty">Character.SetTextProperty</a>, <a href="Hotspot.html#hotspotsetproperty">Hotspot.SetProperty</a>, <a href="Hotspot.html#hotspotsettextproperty">Hotspot.SetTextProperty</a>, <a href="InventoryItem.html#inventoryitemsetproperty">InventoryItem.SetProperty</a>, <a href="InventoryItem.html#inventoryitemsettextproperty">InventoryItem.SetTextProperty</a>, <a href="Object.html#objectsetproperty">Object.SetProperty</a>, <a href="Object.html#objectsettextproperty">Object.SetTextProperty</a>, <a href="Room.html#roomsetproperty">Room.SetProperty</a>, <a href="Room.html#roomsettextproperty">Room.SetTextProperty</a></p>
 <p>Besides, the number of properties is no longer limited by 30, you may make as much of them as you need for your game.</p>
 <p><strong>Extended WFN fonts</strong></p>
 <p>WFN (bitmap fonts) can now have up to 256 characters (as opposed to previously supported 128). You may need a specialized editor to create such fonts (for example, there is a good Editor plugin around meant for this task), and AGS will properly draw any of the 256 characters.</p>
@@ -108,8 +108,8 @@
 <p><strong>Custom Dialog Options rendering extended</strong></p>
 <p>In the past the custom dialog rendering was strictly tied to mouse movement and clicks. Now it is extended to give you more freedom in setting it up.</p>
 <p>Two more related callbacks are added: <code>dialog_options_repexec</code> - that is an analogue of <code>repeatedly_execute</code> function, but is called only while dialog options are displayed, and <code>dialog_options_key_press</code> function, which is called whenever player presses a key when dialog options are on screen.</p>
-<p>The <code>dialog_options_mouse_click</code> will now be called always, even if user clicks on the option, but on other hand option won't be run without explicit command: <a href="DialogOptionsRenderingInfo.html#runactiveoption">RunActiveOption</a>.</p>
-<p>Along with RunActiveOption, <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> struct received another member function: <a href="DialogOptionsRenderingInfo.html#update">Update</a>. It forces options GUI to redraw itself, hence may be used to implement custom animation, or similar behavior.</p>
+<p>The <code>dialog_options_mouse_click</code> will now be called always, even if user clicks on the option, but on other hand option won't be run without explicit command: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginforunactiveoption">RunActiveOption</a>.</p>
+<p>Along with RunActiveOption, <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> struct received another member function: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoupdate">Update</a>. It forces options GUI to redraw itself, hence may be used to implement custom animation, or similar behavior.</p>
 <p><strong>IMPORTANT:</strong> The <code>dialog_options_get_active</code> callback was deprecated and won't be called, at all. You will need to slightly change the logic of your script. In most cases it may be enough to simply rename <code>dialog_options_get_active</code> to <code>dialog_options_repexec</code>.</p>
 <p><strong>NOTE:</strong> For backwards compatibility you may use an option in General Settings called "Use old-style custom dialog options API". This will disable all the new stuff, but return <code>dialog_options_get_active</code> and make <code>dialog_options_mouse_click</code> behave as it did before.</p>
 <p>For detailed information see: <a href="CustomDialogOptions.html">Custom dialog options rendering</a></p>
@@ -124,11 +124,11 @@
 <tbody>
 <tr class="odd">
 <td>GetRoomProperty</td>
-<td><a href="Room.html#getproperty">Room.GetProperty</a></td>
+<td><a href="Room.html#roomgetproperty">Room.GetProperty</a></td>
 </tr>
 <tr class="even">
 <td>ProcessClick</td>
-<td><a href="Room.html#processclick">Room.ProcessClick</a></td>
+<td><a href="Room.html#roomprocessclick">Room.ProcessClick</a></td>
 </tr>
 </tbody>
 </table>
@@ -144,7 +144,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:58 PM</p>
+      <p>Build: 10/06/2019 10:30:49 PM</p>
     </section>
   </footer>
 

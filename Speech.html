@@ -76,28 +76,28 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#speech-functions-and-properties"><span>Speech functions and properties</span></a><ul>
-<li><a href="#animationstoptimemargin"><span>AnimationStopTimeMargin</span></a></li>
-<li><a href="#customportraitplacement"><span>CustomPortraitPlacement</span></a></li>
-<li><a href="#displayposttimems"><span>DisplayPostTimeMs</span></a></li>
-<li><a href="#globalspeechanimationdelay"><span>GlobalSpeechAnimationDelay</span></a></li>
-<li><a href="#portraitxoffset"><span>PortraitXOffset</span></a></li>
-<li><a href="#portraity"><span>PortraitY</span></a></li>
-<li><a href="#skipkey"><span>SkipKey</span></a></li>
-<li><a href="#skipstyle"><span>SkipStyle</span></a></li>
-<li><a href="#style"><span>Style</span></a></li>
-<li><a href="#textalignment"><span>TextAlignment</span></a></li>
-<li><a href="#useglobalspeechanimationdelay"><span>UseGlobalSpeechAnimationDelay</span></a></li>
-<li><a href="#voicemode"><span>VoiceMode</span></a></li>
+<li><a href="#speech-functions-and-properties"><span><code>Speech</code> functions and properties</span></a><ul>
+<li><a href="#speechanimationstoptimemargin"><span><code>Speech.AnimationStopTimeMargin</code></span></a></li>
+<li><a href="#speechcustomportraitplacement"><span><code>Speech.CustomPortraitPlacement</code></span></a></li>
+<li><a href="#speechdisplayposttimems"><span><code>Speech.DisplayPostTimeMs</code></span></a></li>
+<li><a href="#speechglobalspeechanimationdelay"><span><code>Speech.GlobalSpeechAnimationDelay</code></span></a></li>
+<li><a href="#speechportraitxoffset"><span><code>Speech.PortraitXOffset</code></span></a></li>
+<li><a href="#speechportraity"><span><code>Speech.PortraitY</code></span></a></li>
+<li><a href="#speechskipkey"><span><code>Speech.SkipKey</code></span></a></li>
+<li><a href="#speechskipstyle"><span><code>Speech.SkipStyle</code></span></a></li>
+<li><a href="#speechstyle"><span><code>Speech.Style</code></span></a></li>
+<li><a href="#speechtextalignment"><span><code>Speech.TextAlignment</code></span></a></li>
+<li><a href="#speechuseglobalspeechanimationdelay"><span><code>Speech.UseGlobalSpeechAnimationDelay</code></span></a></li>
+<li><a href="#speechvoicemode"><span><code>Speech.VoiceMode</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="speech-functions-and-properties" class="level2">
-<h2><a href="#speech-functions-and-properties">Speech functions and properties</a></h2>
-<section id="animationstoptimemargin" class="level3">
-<h3><a href="#animationstoptimemargin">AnimationStopTimeMargin</a></h3>
+<h2><a href="#speech-functions-and-properties"><code>Speech</code> functions and properties</a></h2>
+<section id="speechanimationstoptimemargin" class="level3">
+<h3><a href="#speechanimationstoptimemargin"><code>Speech.AnimationStopTimeMargin</code></a></h3>
 <p><em>(Formerly known as game.close_mouth_end_speech_time, which is now obsolete)</em></p>
 <pre><code>static int Speech.AnimationStopTimeMargin
 </code></pre>
@@ -107,61 +107,61 @@
 <pre><code>Speech.AnimationStopTimeMargin = 40;
 </code></pre>
 <p>will stop talking animation 40 game loops (1 second with the default game speed) before speech time ends.</p>
-<p><em>See Also:</em> <a href="Speech.html#displayposttimems">Speech.DisplayPostTimeMs</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechdisplayposttimems">Speech.DisplayPostTimeMs</a></p>
 <hr />
 </section>
-<section id="customportraitplacement" class="level3">
-<h3><a href="#customportraitplacement">CustomPortraitPlacement</a></h3>
+<section id="speechcustomportraitplacement" class="level3">
+<h3><a href="#speechcustomportraitplacement"><code>Speech.CustomPortraitPlacement</code></a></h3>
 <pre><code>static bool Speech.CustomPortraitPlacement
 </code></pre>
-<p>Enables/disables the custom speech portrait placement. When set to <strong>true</strong> the character portraits are positioned at screen coordinates defined by <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a> and <a href="Speech.html#portraity">Speech.PortraitY</a>. When set to <strong>false</strong> the portraits will be automatically aligned again.</p>
+<p>Enables/disables the custom speech portrait placement. When set to <strong>true</strong> the character portraits are positioned at screen coordinates defined by <a href="Speech.html#speechportraitxoffset">Speech.PortraitXOffset</a> and <a href="Speech.html#speechportraity">Speech.PortraitY</a>. When set to <strong>false</strong> the portraits will be automatically aligned again.</p>
 <p><strong>NOTE:</strong> This property has no effect if the Lucas-Arts speech style is used.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a>, <a href="Speech.html#portraity">Speech.PortraitY</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechportraitxoffset">Speech.PortraitXOffset</a>, <a href="Speech.html#speechportraity">Speech.PortraitY</a></p>
 <hr />
 </section>
-<section id="displayposttimems" class="level3">
-<h3><a href="#displayposttimems">DisplayPostTimeMs</a></h3>
+<section id="speechdisplayposttimems" class="level3">
+<h3><a href="#speechdisplayposttimems"><code>Speech.DisplayPostTimeMs</code></a></h3>
 <pre><code>static int Speech.DisplayPostTimeMs
 </code></pre>
 <p>Gets/sets the extra time the speech will stay on screen after its base time runs out. Commonly the time the speech lines and portrait stay on screen is calculated based on the text length - if the text mode is on, or voice clip length - if the voice mode is on. This property prolongs the time the speech text and/or portrait is displayed. This property does not interfere with speech skipping by key or mouse click: players will still be able to skip speech any time they want (if appropriate skip mode is enabled). This property is specified in <strong>milliseconds</strong> and is set to zero by default.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Speech.html#animationstoptimemargin">Speech.AnimationStopTimeMargin</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechanimationstoptimemargin">Speech.AnimationStopTimeMargin</a></p>
 <hr />
 </section>
-<section id="globalspeechanimationdelay" class="level3">
-<h3><a href="#globalspeechanimationdelay">GlobalSpeechAnimationDelay</a></h3>
+<section id="speechglobalspeechanimationdelay" class="level3">
+<h3><a href="#speechglobalspeechanimationdelay"><code>Speech.GlobalSpeechAnimationDelay</code></a></h3>
 <p><em>(Formerly known as game.talkanim_speed, which is now obsolete)</em></p>
 <pre><code>static int Speech.GlobalSpeechAnimationDelay
 </code></pre>
 <p>Gets/sets global speech animation delay which affects every character in game. This property is specified in <strong>game loops</strong> and is set to 5 by default.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip sync is enabled.</p>
 <p><strong>NOTE:</strong> The property is only used when the <strong>Speech.UseGlobalSpeechAnimationDelay</strong> is set to <strong>true</strong>. This property <strong>cannot</strong> be used if the global speech animation delay is disabled. In that case, the individual character's animation delay is used instead.</p>
-<p><em>See Also:</em> <a href="Character.html#speechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#useglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a></p>
+<p><em>See Also:</em> <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#speechuseglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a></p>
 <hr />
 </section>
-<section id="portraitxoffset" class="level3">
-<h3><a href="#portraitxoffset">PortraitXOffset</a></h3>
+<section id="speechportraitxoffset" class="level3">
+<h3><a href="#speechportraitxoffset"><code>Speech.PortraitXOffset</code></a></h3>
 <pre><code>static int Speech.PortraitXOffset
 </code></pre>
 <p>Gets/sets the character's speech portrait <strong>horizontal</strong> offset relative to screen side. The actual x coordinate of the portrait is calculated based on whether portrait is to be displayed at the left or right side of the screen. This property specifies the distance between the screen side and respected portrait's border.</p>
 <p>**NOTE:**The property is only used when the <strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Speech.html#customportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#portraity">Speech.PortraitY</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechcustomportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#speechportraity">Speech.PortraitY</a></p>
 <hr />
 </section>
-<section id="portraity" class="level3">
-<h3><a href="#portraity">PortraitY</a></h3>
+<section id="speechportraity" class="level3">
+<h3><a href="#speechportraity"><code>Speech.PortraitY</code></a></h3>
 <pre><code>static int Speech.PortraitY
 </code></pre>
 <p>Gets/sets the character's speech portrait <strong>y</strong> coordinate on screen.</p>
 <p>**NOTE:**The property is only used when the <strong>Speech.CustomPortraitPlacement</strong> is set to <strong>true</strong>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Speech.html#customportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#portraitxoffset">Speech.PortraitXOffset</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechcustomportraitplacement">Speech.CustomPortraitPlacement</a>, <a href="Speech.html#speechportraitxoffset">Speech.PortraitXOffset</a></p>
 <hr />
 </section>
-<section id="skipkey" class="level3">
-<h3><a href="#skipkey">SkipKey</a></h3>
+<section id="speechskipkey" class="level3">
+<h3><a href="#speechskipkey"><code>Speech.SkipKey</code></a></h3>
 <p><em>(Formerly known as game.skip_speech_specific_key, which is now obsolete)</em></p>
 <pre><code>static eKeyCode Speech.SkipKey
 </code></pre>
@@ -171,11 +171,11 @@
 <pre><code>Speech.SkipKey = eKeySpace;
 </code></pre>
 <p>will assign the "space" key to skip the speech.</p>
-<p><em>See Also:</em> <a href="Speech.html#skipstyle">Speech.SkipStyle</a></p>
+<p><em>See Also:</em> <a href="Speech.html#speechskipstyle">Speech.SkipStyle</a></p>
 <hr />
 </section>
-<section id="skipstyle" class="level3">
-<h3><a href="#skipstyle">SkipStyle</a></h3>
+<section id="speechskipstyle" class="level3">
+<h3><a href="#speechskipstyle"><code>Speech.SkipStyle</code></a></h3>
 <p><em>(Formerly known as SetSkipSpeech, which is now obsolete)</em></p>
 <pre><code>static SkipSpeechStyle Speech.SkipStyle
 </code></pre>
@@ -193,11 +193,11 @@ eSkipMouse         text does not time-out; player can skip text by clicking mous
 <pre><code>Speech.SkipStyle = eSkipTime;
 </code></pre>
 <p>will make the player unable to skip the text by pressing a mouse button or a key.</p>
-<p><em>See Also:</em> <a href="Game.html#ignoreuserinputaftertexttimeoutms">Game.IgnoreUserInputAfterTextTimeoutMs</a>, <a href="Game.html#textreadingspeed">Game.TextReadingSpeed</a>, <a href="Speech.html#skipkey">Game.Speech.SkipKey</a></p>
+<p><em>See Also:</em> <a href="Game.html#gameignoreuserinputaftertexttimeoutms">Game.IgnoreUserInputAfterTextTimeoutMs</a>, <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a>, <a href="Speech.html#speechskipkey">Game.Speech.SkipKey</a></p>
 <hr />
 </section>
-<section id="style" class="level3">
-<h3><a href="#style">Style</a></h3>
+<section id="speechstyle" class="level3">
+<h3><a href="#speechstyle"><code>Speech.Style</code></a></h3>
 <p><em>(Formerly known as SetSpeechStyle, which is now obsolete)</em></p>
 <pre><code>static eSpeechStyle Speech.Style
 </code></pre>
@@ -217,8 +217,8 @@ eSpeechFullScreen
 <p>will change the speech style to a close up portrait of the character.</p>
 <hr />
 </section>
-<section id="textalignment" class="level3">
-<h3><a href="#textalignment">TextAlignment</a></h3>
+<section id="speechtextalignment" class="level3">
+<h3><a href="#speechtextalignment"><code>Speech.TextAlignment</code></a></h3>
 <p><em>(Formerly known as game.speech_text_align, which is now obsolete)</em></p>
 <pre><code>static Alignment Speech.TextAlignment
 </code></pre>
@@ -235,8 +235,8 @@ eAlignRight
 <p>will align the speech text at the right side.</p>
 <hr />
 </section>
-<section id="useglobalspeechanimationdelay" class="level3">
-<h3><a href="#useglobalspeechanimationdelay">UseGlobalSpeechAnimationDelay</a></h3>
+<section id="speechuseglobalspeechanimationdelay" class="level3">
+<h3><a href="#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a></h3>
 <pre><code>static bool Speech.UseGlobalSpeechAnimationDelay
 </code></pre>
 <p>Gets/sets whether speech animation delay should use global setting, as opposed to individual character's setting. The actual global delay value is specified with <strong>Speech.GlobalSpeechAnimationDelay</strong>.</p>
@@ -245,11 +245,11 @@ eAlignRight
 </code></pre>
 <p>will make the game use global speech animation delay.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#speechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#globalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a></p>
+<p><em>See Also:</em> <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Speech.html#speechglobalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a></p>
 <hr />
 </section>
-<section id="voicemode" class="level3">
-<h3><a href="#voicemode">VoiceMode</a></h3>
+<section id="speechvoicemode" class="level3">
+<h3><a href="#speechvoicemode"><code>Speech.VoiceMode</code></a></h3>
 <p><em>(Formerly known as SetVoiceMode, which is now obsolete)</em></p>
 <pre><code>static eVoiceMode Speech.VoiceMode
 </code></pre>
@@ -259,7 +259,7 @@ eAlignRight
 eSpeechVoiceAndText  both voice and text
 eSpeechVoiceOnly     voice only, no text
 </code></pre>
-<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behavior of all <a href="Character.html#say">Say</a> and <a href="Globalfunctions_Message.html#display">Display</a> commands which have a speech file assigned to them.</p>
+<p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behavior of all <a href="Character.html#charactersay">Say</a> and <a href="Globalfunctions_Message.html#display">Display</a> commands which have a speech file assigned to them.</p>
 <p><strong>WARNING:</strong> you should only ever use <em>eSpeechVoiceOnly</em> at the player's request to do so, because there is no guarantee that they even have a sound card and so may not understand what is going on.</p>
 <p>Example:</p>
 <pre><code>if (IsSpeechVoxAvailable()==1)
@@ -276,7 +276,7 @@ eSpeechVoiceOnly     voice only, no text
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:47 PM</p>
+      <p>Build: 10/06/2019 10:30:39 PM</p>
     </section>
   </footer>
 

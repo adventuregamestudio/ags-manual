@@ -76,36 +76,36 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#room-functions-and-properties"><span>Room functions and properties</span></a><ul>
-<li><a href="#getdrawingsurfaceforbackground"><span>GetDrawingSurfaceForBackground</span></a></li>
-<li><a href="#getproperty"><span>GetProperty</span></a></li>
-<li><a href="#gettextproperty"><span>GetTextProperty</span></a></li>
-<li><a href="#setproperty"><span>SetProperty</span></a></li>
-<li><a href="#settextproperty"><span>SetTextProperty</span></a></li>
-<li><a href="#processclick"><span>ProcessClick</span></a></li>
-<li><a href="#bottomedge"><span>BottomEdge</span></a></li>
-<li><a href="#colordepth"><span>ColorDepth</span></a></li>
-<li><a href="#height"><span>Height</span></a></li>
-<li><a href="#leftedge"><span>LeftEdge</span></a></li>
-<li><a href="#messages"><span>Messages</span></a></li>
-<li><a href="#musiconload"><span>MusicOnLoad</span></a></li>
-<li><a href="#objectcount"><span>ObjectCount</span></a></li>
-<li><a href="#rightedge"><span>RightEdge</span></a></li>
-<li><a href="#topedge"><span>TopEdge</span></a></li>
-<li><a href="#width"><span>Width</span></a></li>
+<li><a href="#room-functions-and-properties"><span><code>Room</code> functions and properties</span></a><ul>
+<li><a href="#roomgetdrawingsurfaceforbackground"><span><code>Room.GetDrawingSurfaceForBackground</code></span></a></li>
+<li><a href="#roomgetproperty"><span><code>Room.GetProperty</code></span></a></li>
+<li><a href="#roomgettextproperty"><span><code>Room.GetTextProperty</code></span></a></li>
+<li><a href="#roomsetproperty"><span><code>Room.SetProperty</code></span></a></li>
+<li><a href="#roomsettextproperty"><span><code>Room.SetTextProperty</code></span></a></li>
+<li><a href="#roomprocessclick"><span><code>Room.ProcessClick</code></span></a></li>
+<li><a href="#roombottomedge"><span><code>Room.BottomEdge</code></span></a></li>
+<li><a href="#roomcolordepth"><span><code>Room.ColorDepth</code></span></a></li>
+<li><a href="#roomheight"><span><code>Room.Height</code></span></a></li>
+<li><a href="#roomleftedge"><span><code>Room.LeftEdge</code></span></a></li>
+<li><a href="#roommessages"><span><code>Room.Messages</code></span></a></li>
+<li><a href="#roommusiconload"><span><code>Room.MusicOnLoad</code></span></a></li>
+<li><a href="#roomobjectcount"><span><code>Room.ObjectCount</code></span></a></li>
+<li><a href="#roomrightedge"><span><code>Room.RightEdge</code></span></a></li>
+<li><a href="#roomtopedge"><span><code>Room.TopEdge</code></span></a></li>
+<li><a href="#roomwidth"><span><code>Room.Width</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="room-functions-and-properties" class="level2">
-<h2><a href="#room-functions-and-properties">Room functions and properties</a></h2>
-<section id="getdrawingsurfaceforbackground" class="level3">
-<h3><a href="#getdrawingsurfaceforbackground">GetDrawingSurfaceForBackground</a></h3>
+<h2><a href="#room-functions-and-properties"><code>Room</code> functions and properties</a></h2>
+<section id="roomgetdrawingsurfaceforbackground" class="level3">
+<h3><a href="#roomgetdrawingsurfaceforbackground"><code>Room.GetDrawingSurfaceForBackground</code></a></h3>
 <pre><code>static DrawingSurface* Room.GetDrawingSurfaceForBackground(optional int backgroundNumber)
 </code></pre>
 <p>Gets a drawing surface for a room background, which allows you to directly draw onto the room's background image. You can provide a background frame number if you want to modify a specific frame; otherwise, the current background's surface will be returned.</p>
-<p>After calling this method, use the various <a href="DrawingSurfaceFunctions.html">DrawingSurface functions</a> to modify the background, then call Release on the surface when you are finished.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the background, then call Release on the surface when you are finished.</p>
 <p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can either use this method in the Player Enters Room event, or consider using an alternate background frame for the changed image.</p>
 <p><strong>NOTE:</strong> Drawing onto the room background can be slow, especially when using the Direct3D driver. Do not use this command in repeatedly_execute; make sure you only use this command when absolutely necessary.</p>
 <p>Example:</p>
@@ -115,11 +115,11 @@ surface.DrawLine(0, 0, 50, 50);
 surface.Release();
 </code></pre>
 <p>draws a yellow diagonal line across the top-left of the current room background, then releases the image.</p>
-<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html#drawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurfaceFunctions.html#release">DrawingSurface.Release</a></p>
+<p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurface.html#drawingsurfacerelease">DrawingSurface.Release</a></p>
 <hr />
 </section>
-<section id="getproperty" class="level3">
-<h3><a href="#getproperty">GetProperty</a></h3>
+<section id="roomgetproperty" class="level3">
+<h3><a href="#roomgetproperty"><code>Room.GetProperty</code></a></h3>
 <p><em>(Formerly known as global function GetRoomProperty, which is now obsolete)</em></p>
 <pre><code>Room.GetProperty(string property)
 </code></pre>
@@ -132,11 +132,11 @@ surface.Release();
   Display(&quot;An evil monster lunges at you!&quot;);
 </code></pre>
 <p>will print the message if the current room has its "CanBeAttackedHere" box ticked.</p>
-<p><em>See Also:</em> <a href="Room.html#gettextproperty">Room.GetTextProperty</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomgettextproperty">Room.GetTextProperty</a></p>
 <hr />
 </section>
-<section id="gettextproperty" class="level3">
-<h3><a href="#gettextproperty">GetTextProperty</a></h3>
+<section id="roomgettextproperty" class="level3">
+<h3><a href="#roomgettextproperty"><code>Room.GetTextProperty</code></a></h3>
 <p><em>(Formerly known as global function GetRoomPropertyText, which is now obsolete)</em></p>
 <pre><code>static String Room.GetTextProperty(string property)
 </code></pre>
@@ -149,11 +149,11 @@ surface.Release();
 Display(&quot;The room&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will retrieve the room's "description" property then display it.</p>
-<p><em>See Also:</em> <a href="Room.html#getproperty">Room.GetProperty</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomgetproperty">Room.GetProperty</a></p>
 <hr />
 </section>
-<section id="setproperty" class="level3">
-<h3><a href="#setproperty">SetProperty</a></h3>
+<section id="roomsetproperty" class="level3">
+<h3><a href="#roomsetproperty"><code>Room.SetProperty</code></a></h3>
 <pre><code>static bool Room.SetProperty(const string property, int value)
 </code></pre>
 <p>Sets the new <em>value</em> for the custom <em>property</em> for the specified room. Returns TRUE if such property exists and FALSE on failure.</p>
@@ -165,11 +165,11 @@ Display(&quot;The room&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change room's "Darkness" custom property to 10.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Room.html#settextproperty">Room.SetTextProperty</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomsettextproperty">Room.SetTextProperty</a></p>
 <hr />
 </section>
-<section id="settextproperty" class="level3">
-<h3><a href="#settextproperty">SetTextProperty</a></h3>
+<section id="roomsettextproperty" class="level3">
+<h3><a href="#roomsettextproperty"><code>Room.SetTextProperty</code></a></h3>
 <pre><code>bool Room.SetTextProperty(const string property, const string value)
 </code></pre>
 <p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified room. Returns TRUE if such property exists and FALSE on failure.</p>
@@ -181,11 +181,11 @@ Display(&quot;The room&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change room's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Room.html#setproperty">Room.SetProperty</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomsetproperty">Room.SetProperty</a></p>
 <hr />
 </section>
-<section id="processclick" class="level3">
-<h3><a href="#processclick">ProcessClick</a></h3>
+<section id="roomprocessclick" class="level3">
+<h3><a href="#roomprocessclick"><code>Room.ProcessClick</code></a></h3>
 <p><em>(Formerly known as global function ProcessClick, which is now obsolete)</em></p>
 <pre><code>static void Room.ProcessClick(int x, int y, CursorMode)
 </code></pre>
@@ -196,33 +196,33 @@ Display(&quot;The room&#39;s description: %s&quot;, description);
 <pre><code>Room.ProcessClick(100, 50, eModeLookat);
 </code></pre>
 <p>will simulate a click in the Look mode on screen co-ordinates (100, 50).</p>
-<p><em>See Also:</em> <a href="GUI.html#processclick">GUI.ProcessClick</a>, <a href="Mouse.html#click">Mouse.Click</a>, <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Hotspot.html#runinteraction">Hotspot.RunInteraction</a></p>
+<p><em>See Also:</em> <a href="GUI.html#guiprocessclick">GUI.ProcessClick</a>, <a href="Mouse.html#mouseclick">Mouse.Click</a>, <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Hotspot.html#hotspotruninteraction">Hotspot.RunInteraction</a></p>
 <hr />
 </section>
-<section id="bottomedge" class="level3">
-<h3><a href="#bottomedge">BottomEdge</a></h3>
+<section id="roombottomedge" class="level3">
+<h3><a href="#roombottomedge"><code>Room.BottomEdge</code></a></h3>
 <pre><code>readonly static int Room.BottomEdge
 </code></pre>
 <p>Returns the Y co-ordinate of the bottom edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The current room&#39;s bottom edge is at %d.&quot;, Room.BottomEdge);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomleftedge">Room.LeftEdge</a>, <a href="Room.html#roomrightedge">Room.RightEdge</a>, <a href="Room.html#roomtopedge">Room.TopEdge</a></p>
 <hr />
 </section>
-<section id="colordepth" class="level3">
-<h3><a href="#colordepth">ColorDepth</a></h3>
+<section id="roomcolordepth" class="level3">
+<h3><a href="#roomcolordepth"><code>Room.ColorDepth</code></a></h3>
 <pre><code>readonly static int Room.ColorDepth
 </code></pre>
 <p>Returns the colour depth of the room's background scene. This is important if you want to use DrawImage, since any sprites that you draw must be the same colour depth as the room itself.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The current room background is %d-bit colour.&quot;, Room.ColorDepth);
 </code></pre>
-<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html#drawimage">DrawingSurface.DrawImage</a></p>
+<p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawimage">DrawingSurface.DrawImage</a></p>
 <hr />
 </section>
-<section id="height" class="level3">
-<h3><a href="#height">Height</a></h3>
+<section id="roomheight" class="level3">
+<h3><a href="#roomheight"><code>Room.Height</code></a></h3>
 <p><em>(Formerly known as game.room_height, which is now obsolete)</em></p>
 <pre><code>readonly static int Room.Height
 </code></pre>
@@ -230,22 +230,22 @@ Display(&quot;The room&#39;s description: %s&quot;, description);
 <p>Example:</p>
 <pre><code>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#width">Room.Width</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomwidth">Room.Width</a></p>
 <hr />
 </section>
-<section id="leftedge" class="level3">
-<h3><a href="#leftedge">LeftEdge</a></h3>
+<section id="roomleftedge" class="level3">
+<h3><a href="#roomleftedge"><code>Room.LeftEdge</code></a></h3>
 <pre><code>readonly static int Room.LeftEdge
 </code></pre>
 <p>Returns the X co-ordinate of the left edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The current room&#39;s left edge is at %d.&quot;, Room.LeftEdge);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<p><em>See Also:</em> <a href="Room.html#roombottomedge">Room.BottomEdge</a>, <a href="Room.html#roomrightedge">Room.RightEdge</a>, <a href="Room.html#roomtopedge">Room.TopEdge</a></p>
 <hr />
 </section>
-<section id="messages" class="level3">
-<h3><a href="#messages">Messages</a></h3>
+<section id="roommessages" class="level3">
+<h3><a href="#roommessages"><code>Room.Messages</code></a></h3>
 <p><em>(Formerly known as global function GetMessageText, which is now obsolete)</em></p>
 <pre><code>readonly static String Room.Messages[int message]
 </code></pre>
@@ -258,8 +258,8 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 <p>will print the contents of room message 1.</p>
 <hr />
 </section>
-<section id="musiconload" class="level3">
-<h3><a href="#musiconload">MusicOnLoad</a></h3>
+<section id="roommusiconload" class="level3">
+<h3><a href="#roommusiconload"><code>Room.MusicOnLoad</code></a></h3>
 <pre><code>readonly static int Room.MusicOnLoad
 </code></pre>
 <p><strong>This property is now obsolete.</strong> It is still accessible for backwards compatibility with old games.</p>
@@ -269,8 +269,8 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 </code></pre>
 <hr />
 </section>
-<section id="objectcount" class="level3">
-<h3><a href="#objectcount">ObjectCount</a></h3>
+<section id="roomobjectcount" class="level3">
+<h3><a href="#roomobjectcount"><code>Room.ObjectCount</code></a></h3>
 <p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
 <pre><code>readonly static int Room.ObjectCount
 </code></pre>
@@ -280,30 +280,30 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 </code></pre>
 <hr />
 </section>
-<section id="rightedge" class="level3">
-<h3><a href="#rightedge">RightEdge</a></h3>
+<section id="roomrightedge" class="level3">
+<h3><a href="#roomrightedge"><code>Room.RightEdge</code></a></h3>
 <pre><code>readonly static int Room.RightEdge
 </code></pre>
 <p>Returns the X co-ordinate of the right edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The current room&#39;s right edge is at %d.&quot;, Room.RightEdge);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#topedge">Room.TopEdge</a></p>
+<p><em>See Also:</em> <a href="Room.html#roombottomedge">Room.BottomEdge</a>, <a href="Room.html#roomleftedge">Room.LeftEdge</a>, <a href="Room.html#roomtopedge">Room.TopEdge</a></p>
 <hr />
 </section>
-<section id="topedge" class="level3">
-<h3><a href="#topedge">TopEdge</a></h3>
+<section id="roomtopedge" class="level3">
+<h3><a href="#roomtopedge"><code>Room.TopEdge</code></a></h3>
 <pre><code>readonly static int Room.TopEdge
 </code></pre>
 <p>Returns the Y co-ordinate of the top edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The current room&#39;s top edge is at %d.&quot;, Room.TopEdge);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#bottomedge">Room.BottomEdge</a>, <a href="Room.html#leftedge">Room.LeftEdge</a>, <a href="Room.html#rightedge">Room.RightEdge</a></p>
+<p><em>See Also:</em> <a href="Room.html#roombottomedge">Room.BottomEdge</a>, <a href="Room.html#roomleftedge">Room.LeftEdge</a>, <a href="Room.html#roomrightedge">Room.RightEdge</a></p>
 <hr />
 </section>
-<section id="width" class="level3">
-<h3><a href="#width">Width</a></h3>
+<section id="roomwidth" class="level3">
+<h3><a href="#roomwidth"><code>Room.Width</code></a></h3>
 <p><em>(Formerly known as game.room_width, which is now obsolete)</em></p>
 <pre><code>readonly static int Room.Width
 </code></pre>
@@ -311,7 +311,7 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 <p>Example:</p>
 <pre><code>Display(&quot;The current room size is %d x %d.&quot;, Room.Width, Room.Height);
 </code></pre>
-<p><em>See Also:</em> <a href="Room.html#height">Room.Height</a></p>
+<p><em>See Also:</em> <a href="Room.html#roomheight">Room.Height</a></p>
 </section>
 </section>
         </div>
@@ -322,7 +322,7 @@ Display(&quot;Message 1 says: %s&quot;, message1);
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:47 PM</p>
+      <p>Build: 10/06/2019 10:30:38 PM</p>
     </section>
   </footer>
 

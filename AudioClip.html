@@ -76,26 +76,26 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#audioclip-functions-and-properties"><span>AudioClip functions and properties</span></a><ul>
-<li><a href="#play"><span>Play</span></a></li>
-<li><a href="#playfrom"><span>PlayFrom</span></a></li>
-<li><a href="#playqueued"><span>PlayQueued</span></a></li>
-<li><a href="#stop"><span>Stop</span></a></li>
-<li><a href="#id"><span>ID</span></a></li>
-<li><a href="#filetype"><span>FileType</span></a></li>
-<li><a href="#isavailable"><span>IsAvailable</span></a></li>
-<li><a href="#type"><span>Type</span></a></li>
+<li><a href="#audioclip-functions-and-properties"><span><code>AudioClip</code> functions and properties</span></a><ul>
+<li><a href="#audioclipplay"><span><code>AudioClip.Play</code></span></a></li>
+<li><a href="#audioclipplayfrom"><span><code>AudioClip.PlayFrom</code></span></a></li>
+<li><a href="#audioclipplayqueued"><span><code>AudioClip.PlayQueued</code></span></a></li>
+<li><a href="#audioclipstop"><span><code>AudioClip.Stop</code></span></a></li>
+<li><a href="#audioclipid"><span><code>AudioClip.ID</code></span></a></li>
+<li><a href="#audioclipfiletype"><span><code>AudioClip.FileType</code></span></a></li>
+<li><a href="#audioclipisavailable"><span><code>AudioClip.IsAvailable</code></span></a></li>
+<li><a href="#audiocliptype"><span><code>AudioClip.Type</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="audioclip-functions-and-properties" class="level2">
-<h2><a href="#audioclip-functions-and-properties">AudioClip functions and properties</a></h2>
+<h2><a href="#audioclip-functions-and-properties"><code>AudioClip</code> functions and properties</a></h2>
 <p>AudioClips are created when you import files in the AGS Editor. The commands in this section allow to play them.</p>
 <hr />
-<section id="play" class="level3">
-<h3><a href="#play">Play</a></h3>
+<section id="audioclipplay" class="level3">
+<h3><a href="#audioclipplay"><code>AudioClip.Play</code></a></h3>
 <p><em>(Formerly known as PlayAmbientSound, which is now obsolete)</em><br> <em>(Formerly known as PlayMP3File, which is now obsolete)</em><br> <em>(Formerly known as PlayMusic, which is now obsolete)</em><br> <em>(Formerly known as PlaySound, which is now obsolete)</em><br> <em>(Formerly known as PlaySoundEx, which is now obsolete)</em><br> <em>(Formerly known as SetMusicRepeat, which is now obsolete)</em></p>
 <pre><code>AudioChannel* AudioClip.Play(optional AudioPriority, optional RepeatStyle)
 </code></pre>
@@ -110,31 +110,31 @@
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#playfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#playqueued">AudioClip.PlayQueued</a>, <a href="AudioClip.html#stop">AudioClip.Stop</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#audioclipplayqueued">AudioClip.PlayQueued</a>, <a href="AudioClip.html#audioclipstop">AudioClip.Stop</a></p>
 <hr />
 </section>
-<section id="playfrom" class="level3">
-<h3><a href="#playfrom">PlayFrom</a></h3>
+<section id="audioclipplayfrom" class="level3">
+<h3><a href="#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></h3>
 <pre><code>AudioChannel* AudioClip.PlayFrom(int position, optional AudioPriority,
                                  optional RepeatStyle)
 </code></pre>
-<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#seek">AudioChannel.Seek</a> help page.</p>
-<p>Otherwise, this command behaves identically to <a href="AudioClip.html#play">AudioClip.Play</a>. Please see that help page for more information.</p>
+<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a> help page.</p>
+<p>Otherwise, this command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>. Please see that help page for more information.</p>
 <p>Example:</p>
 <pre><code>aExplosion.PlayFrom(1000);
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if it is OGG/MP3).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
 <hr />
 </section>
-<section id="playqueued" class="level3">
-<h3><a href="#playqueued">PlayQueued</a></h3>
+<section id="audioclipplayqueued" class="level3">
+<h3><a href="#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></h3>
 <p><em>(Formerly known as PlayMusicQueued, which is now obsolete)</em></p>
 <pre><code>AudioChannel* AudioClip.PlayQueued(optional AudioPriority, optional RepeatStyle)
 </code></pre>
 <p>Plays the audio clip, or queues it to be played later if it cannot be played now.</p>
-<p>This command behaves identically to <a href="AudioClip.html#play">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
+<p>This command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
 <p>Additionally, unlike the Play command, using PlayQueued will not interrupt an existing audio clip with an equal priority; it will only interrupt clips with a lower priority.</p>
 <p>You can queue up to 10 tracks in the audio queue. Note that if you queue audio clips to be played after a repeating audio clip, they will never be played.</p>
 <p>Example:</p>
@@ -143,11 +143,11 @@ aAftermath.PlayQueued();
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
 <hr />
 </section>
-<section id="stop" class="level3">
-<h3><a href="#stop">Stop</a></h3>
+<section id="audioclipstop" class="level3">
+<h3><a href="#audioclipstop"><code>AudioClip.Stop</code></a></h3>
 <pre><code>AudioClip.Stop()
 </code></pre>
 <p>Stops all currently playing instances of this audio clip.</p>
@@ -158,11 +158,11 @@ aExplosion.Stop();
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
 <hr />
 </section>
-<section id="id" class="level3">
-<h3><a href="#id">ID</a></h3>
+<section id="audioclipid" class="level3">
+<h3><a href="#audioclipid"><code>AudioClip.ID</code></a></h3>
 <pre><code>readonly int AudioClip.ID
 </code></pre>
 <p>Gets the ID of this audio clip. This could be used for diagnostic purposes as well to find same clip in the Game.AudioClips[] array.</p>
@@ -177,11 +177,11 @@ aExplosion.Stop();
 </code></pre>
 <p>will display information about clips playing on each audio channel.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#audioclips">Game.AudioClips</a></p>
+<p><em>See Also:</em> <a href="Game.html#gameaudioclips">Game.AudioClips</a></p>
 <hr />
 </section>
-<section id="filetype" class="level3">
-<h3><a href="#filetype">FileType</a></h3>
+<section id="audioclipfiletype" class="level3">
+<h3><a href="#audioclipfiletype"><code>AudioClip.FileType</code></a></h3>
 <pre><code>readonly AudioFileType AudioClip.FileType;
 </code></pre>
 <p>Gets the file type of this audio clip. This is useful in conjunction with the PlayFrom and Seek commands to determine what the position offset represents.</p>
@@ -193,11 +193,11 @@ aExplosion.Stop();
 </code></pre>
 <p>displays a message if aExplosion is a MIDI file</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioChannel.html#seek">AudioChannel.Seek</a>, <a href="AudioChannel.html#position">AudioChannel.Position</a>, <a href="AudioClip.html#playfrom">AudioClip.PlayFrom</a></p>
+<p><em>See Also:</em> <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a>, <a href="AudioChannel.html#audiochannelposition">AudioChannel.Position</a>, <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a></p>
 <hr />
 </section>
-<section id="isavailable" class="level3">
-<h3><a href="#isavailable">IsAvailable</a></h3>
+<section id="audioclipisavailable" class="level3">
+<h3><a href="#audioclipisavailable"><code>AudioClip.IsAvailable</code></a></h3>
 <p><em>(Formerly known as IsMusicVoxAvailable, which is now obsolete)</em></p>
 <pre><code>readonly bool AudioClip.IsAvailable;
 </code></pre>
@@ -212,11 +212,11 @@ aExplosion.Stop();
 </code></pre>
 <p>checks if the aExplosion audio clip is available, and if so plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
 <hr />
 </section>
-<section id="type" class="level3">
-<h3><a href="#type">Type</a></h3>
+<section id="audiocliptype" class="level3">
+<h3><a href="#audiocliptype"><code>AudioClip.Type</code></a></h3>
 <pre><code>readonly AudioType AudioClip.Type;
 </code></pre>
 <p>Gets the type of this audio clip, as initially set in the editor.</p>
@@ -229,7 +229,7 @@ aExplosion.Stop();
 </code></pre>
 <p>displays a message if the <em>aExplosion</em> clip is music.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="Multimedia.html#isaudioplaying">Game.IsAudioPlaying</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="Multimedia.html#gameisaudioplaying">Game.IsAudioPlaying</a></p>
 </section>
 </section>
         </div>
@@ -240,7 +240,7 @@ aExplosion.Stop();
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:59 PM</p>
+      <p>Build: 10/06/2019 10:30:50 PM</p>
     </section>
   </footer>
 

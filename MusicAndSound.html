@@ -136,7 +136,7 @@ chan.Volume = 20;
 </code></pre>
 <p>Note the check for null here -- this makes sure that your game won't crash if the sound isn't playing (it might have finished, or not have been started yet).</p>
 <p><strong>Overall system volume</strong></p>
-<p>There is a property called <a href="System.html#volume">System.Volume</a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
+<p>There is a property called <a href="System.html#systemvolume">System.Volume</a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
 <p><strong>Conclusion</strong></p>
 <p>The new audio system in AGS gives you much more control over your game audio. Please see the following sections for a complete list of the supported commands:</p>
 <p><a href="AudioClip.html">AudioClip reference</a>, <a href="AudioChannel.html">AudioChannel reference</a></p>
@@ -161,7 +161,7 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 <p><strong>NOTE:</strong> WAV, OGG and MP3 format files can be used for speech.</p>
 <p><strong>NOTE:</strong> You cannot use speech file numbers above 9999. That is, you can have EGO1.OGG all the way up to EGO9999.OGG, but not EGO10000.OGG or higher.</p>
 <p>Speech is compiled into a file called SPEECH.VOX and is separate from the rest of your game data so that you can offer it as an optional extra download to the player. The game will function correctly if the file is not present.</p>
-<p><em>SeeAlso:</em> <a href="Speech.html#voicemode">Speech.VoiceMode</a></p>
+<p><em>SeeAlso:</em> <a href="Speech.html#speechvoicemode">Speech.VoiceMode</a></p>
 <hr />
 </section>
 <section id="the-audiocache-folder" class="level3">
@@ -181,7 +181,7 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:49 PM</p>
+      <p>Build: 10/06/2019 10:30:40 PM</p>
     </section>
   </footer>
 

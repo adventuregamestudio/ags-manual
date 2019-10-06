@@ -76,28 +76,28 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#invwindow-functions-and-properties"><span>InvWindow functions and properties</span></a><ul>
-<li><a href="#scrolldown"><span>ScrollDown</span></a></li>
-<li><a href="#scrollup"><span>ScrollUp</span></a></li>
-<li><a href="#charactertouse"><span>CharacterToUse</span></a></li>
-<li><a href="#itematindex"><span>ItemAtIndex</span></a></li>
-<li><a href="#itemcount"><span>ItemCount</span></a></li>
-<li><a href="#itemheight"><span>ItemHeight</span></a></li>
-<li><a href="#itemwidth"><span>ItemWidth</span></a></li>
-<li><a href="#itemsperrow"><span>ItemsPerRow</span></a></li>
-<li><a href="#rowcount"><span>RowCount</span></a></li>
-<li><a href="#topitem"><span>TopItem</span></a></li>
+<li><a href="#invwindow-functions-and-properties"><span><code>InvWindow</code> functions and properties</span></a><ul>
+<li><a href="#invwindowscrolldown"><span><code>InvWindow.ScrollDown</code></span></a></li>
+<li><a href="#invwindowscrollup"><span><code>InvWindow.ScrollUp</code></span></a></li>
+<li><a href="#invwindowcharactertouse"><span><code>InvWindow.CharacterToUse</code></span></a></li>
+<li><a href="#invwindowitematindex"><span><code>InvWindow.ItemAtIndex</code></span></a></li>
+<li><a href="#invwindowitemcount"><span><code>InvWindow.ItemCount</code></span></a></li>
+<li><a href="#invwindowitemheight"><span><code>InvWindow.ItemHeight</code></span></a></li>
+<li><a href="#invwindowitemwidth"><span><code>InvWindow.ItemWidth</code></span></a></li>
+<li><a href="#invwindowitemsperrow"><span><code>InvWindow.ItemsPerRow</code></span></a></li>
+<li><a href="#invwindowrowcount"><span><code>InvWindow.RowCount</code></span></a></li>
+<li><a href="#invwindowtopitem"><span><code>InvWindow.TopItem</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="invwindow-functions-and-properties" class="level2">
-<h2><a href="#invwindow-functions-and-properties">InvWindow functions and properties</a></h2>
+<h2><a href="#invwindow-functions-and-properties"><code>InvWindow</code> functions and properties</a></h2>
 <p>InvWindow is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
-<section id="scrolldown" class="level3">
-<h3><a href="#scrolldown">ScrollDown</a></h3>
+<section id="invwindowscrolldown" class="level3">
+<h3><a href="#invwindowscrolldown"><code>InvWindow.ScrollDown</code></a></h3>
 <pre><code>InvWindow.ScrollDown()
 </code></pre>
 <p>Scrolls the inventory window down one line, if there are more items to display. If the inventory window is already at the bottom, then nothing happens.</p>
@@ -106,11 +106,11 @@
 <pre><code>invMain.ScrollDown();
 </code></pre>
 <p>will scroll the <em>invMain</em> inv window down one row.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#scrollup">InvWindow.ScrollUp</a>, <a href="InvWindow.html#topitem">InvWindow.TopItem</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowscrollup">InvWindow.ScrollUp</a>, <a href="InvWindow.html#invwindowtopitem">InvWindow.TopItem</a></p>
 <hr />
 </section>
-<section id="scrollup" class="level3">
-<h3><a href="#scrollup">ScrollUp</a></h3>
+<section id="invwindowscrollup" class="level3">
+<h3><a href="#invwindowscrollup"><code>InvWindow.ScrollUp</code></a></h3>
 <pre><code>InvWindow.ScrollUp()
 </code></pre>
 <p>Scrolls the inventory window up one line, if there are more items to display. If the inventory window is already at the top, then nothing happens.</p>
@@ -119,11 +119,11 @@
 <pre><code>invMain.ScrollUp();
 </code></pre>
 <p>will scroll the <em>invMain</em> inv window up one row.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#scrolldown">InvWindow.ScrollDown</a>, <a href="InvWindow.html#topitem">InvWindow.TopItem</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowscrolldown">InvWindow.ScrollDown</a>, <a href="InvWindow.html#invwindowtopitem">InvWindow.TopItem</a></p>
 <hr />
 </section>
-<section id="charactertouse" class="level3">
-<h3><a href="#charactertouse">CharacterToUse</a></h3>
+<section id="invwindowcharactertouse" class="level3">
+<h3><a href="#invwindowcharactertouse"><code>InvWindow.CharacterToUse</code></a></h3>
 <pre><code>Character* InvWindow.CharacterToUse;
 </code></pre>
 <p>Gets/sets which character the inventory window is currently displaying the inventory for. This is either set to a specific character, or it can be set to <em>null</em>, in which case the inventory window will track the current player character (this is the default).</p>
@@ -133,22 +133,22 @@
 <p>will change the <em>invMain</em> inventory window to display character JACK's inventory.</p>
 <hr />
 </section>
-<section id="itematindex" class="level3">
-<h3><a href="#itematindex">ItemAtIndex</a></h3>
+<section id="invwindowitematindex" class="level3">
+<h3><a href="#invwindowitematindex"><code>InvWindow.ItemAtIndex</code></a></h3>
 <pre><code>readonly InventoryItem* InvWindow.ItemAtIndex[];
 </code></pre>
-<p>Gets the inventory item that is currently displayed at the specified index in this inventory window. The number of items in the window can be retrieved with the <a href="InvWindow.html#itemcount">ItemCount</a> property. Indexes range from 0 to ItemCount - 1.</p>
+<p>Gets the inventory item that is currently displayed at the specified index in this inventory window. The number of items in the window can be retrieved with the <a href="InvWindow.html#invwindowitemcount">ItemCount</a> property. Indexes range from 0 to ItemCount - 1.</p>
 <p>If an invalid index is supplied, <em>null</em> is returned.</p>
 <p>Example:</p>
 <pre><code>String firstOne = invMain.ItemAtIndex[0].Name;
 Display(&quot;First item is %s.&quot;, firstOne);
 </code></pre>
 <p>will display the name of the first item displayed in the <em>invMain</em> inventory window.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemcount">InvWindow.ItemCount</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemcount">InvWindow.ItemCount</a></p>
 <hr />
 </section>
-<section id="itemcount" class="level3">
-<h3><a href="#itemcount">ItemCount</a></h3>
+<section id="invwindowitemcount" class="level3">
+<h3><a href="#invwindowitemcount"><code>InvWindow.ItemCount</code></a></h3>
 <p><em>(Formerly known as game.num_inv_items, which is now obsolete)</em></p>
 <pre><code>readonly int InvWindow.ItemCount;
 </code></pre>
@@ -160,11 +160,11 @@ Display(&quot;First item is %s.&quot;, firstOne);
 }
 </code></pre>
 <p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are more inventory items than will fit in the inventory window.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itematindex">InvWindow.ItemAtIndex</a>, <a href="InvWindow.html#itemsperrow">InvWindow.ItemsPerRow</a>, <a href="InvWindow.html#rowcount">InvWindow.RowCount</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitematindex">InvWindow.ItemAtIndex</a>, <a href="InvWindow.html#invwindowitemsperrow">InvWindow.ItemsPerRow</a>, <a href="InvWindow.html#invwindowrowcount">InvWindow.RowCount</a></p>
 <hr />
 </section>
-<section id="itemheight" class="level3">
-<h3><a href="#itemheight">ItemHeight</a></h3>
+<section id="invwindowitemheight" class="level3">
+<h3><a href="#invwindowitemheight"><code>InvWindow.ItemHeight</code></a></h3>
 <p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
 <pre><code>int InvWindow.ItemHeight;
 </code></pre>
@@ -174,11 +174,11 @@ Display(&quot;First item is %s.&quot;, firstOne);
 invMain.ItemHeight = 30;
 </code></pre>
 <p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemwidth">InvWindow.ItemWidth</a>, <a href="InvWindow.html#rowcount">InvWindow.RowCount</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemwidth">InvWindow.ItemWidth</a>, <a href="InvWindow.html#invwindowrowcount">InvWindow.RowCount</a></p>
 <hr />
 </section>
-<section id="itemwidth" class="level3">
-<h3><a href="#itemwidth">ItemWidth</a></h3>
+<section id="invwindowitemwidth" class="level3">
+<h3><a href="#invwindowitemwidth"><code>InvWindow.ItemWidth</code></a></h3>
 <p><em>(Formerly known as SetInvDimensions, which is now obsolete)</em></p>
 <pre><code>int InvWindow.ItemWidth;
 </code></pre>
@@ -188,11 +188,11 @@ invMain.ItemHeight = 30;
 invMain.ItemHeight = 30;
 </code></pre>
 <p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemheight">InvWindow.ItemHeight</a>, <a href="InvWindow.html#itemsperrow">InvWindow.ItemsPerRow</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemheight">InvWindow.ItemHeight</a>, <a href="InvWindow.html#invwindowitemsperrow">InvWindow.ItemsPerRow</a></p>
 <hr />
 </section>
-<section id="itemsperrow" class="level3">
-<h3><a href="#itemsperrow">ItemsPerRow</a></h3>
+<section id="invwindowitemsperrow" class="level3">
+<h3><a href="#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a></h3>
 <p><em>(Formerly known as game.items_per_line, which is now obsolete)</em></p>
 <pre><code>readonly int InvWindow.ItemsPerRow;
 </code></pre>
@@ -201,11 +201,11 @@ invMain.ItemHeight = 30;
 <pre><code>Display(&quot;The inventory window can show %d items at a time&quot;, invMain.ItemsPerRow * invMain.RowCount);
 </code></pre>
 <p>displays how many items can be visible in the invMain window at once.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemwidth">InvWindow.ItemWidth</a>, <a href="InvWindow.html#rowcount">InvWindow.RowCount</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemwidth">InvWindow.ItemWidth</a>, <a href="InvWindow.html#invwindowrowcount">InvWindow.RowCount</a></p>
 <hr />
 </section>
-<section id="rowcount" class="level3">
-<h3><a href="#rowcount">RowCount</a></h3>
+<section id="invwindowrowcount" class="level3">
+<h3><a href="#invwindowrowcount"><code>InvWindow.RowCount</code></a></h3>
 <pre><code>readonly int InvWindow.RowCount;
 </code></pre>
 <p>Gets the number of rows that can be displayed within the inventory window. This is calculated by dividing the height of the window by the individual ItemHeight.</p>
@@ -213,15 +213,15 @@ invMain.ItemHeight = 30;
 <pre><code>Display(&quot;The inventory window can show %d items at a time&quot;, invMain.ItemsPerRow * invMain.RowCount);
 </code></pre>
 <p>displays how many items can be visible in the invMain window at once.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemheight">InvWindow.ItemHeight</a>, <a href="InvWindow.html#itemsperrow">InvWindow.ItemsPerRow</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemheight">InvWindow.ItemHeight</a>, <a href="InvWindow.html#invwindowitemsperrow">InvWindow.ItemsPerRow</a></p>
 <hr />
 </section>
-<section id="topitem" class="level3">
-<h3><a href="#topitem">TopItem</a></h3>
+<section id="invwindowtopitem" class="level3">
+<h3><a href="#invwindowtopitem"><code>InvWindow.TopItem</code></a></h3>
 <p><em>(Formerly known as game.top_inv_item, which is now obsolete)</em></p>
 <pre><code>int InvWindow.TopItem;
 </code></pre>
-<p>Gets/sets the index of the first item currently displayed in the inventory window. The first item is represented by 0, and the last item is has an index of <a href="InvWindow.html#itemcount">ItemCount</a> - 1.</p>
+<p>Gets/sets the index of the first item currently displayed in the inventory window. The first item is represented by 0, and the last item is has an index of <a href="InvWindow.html#invwindowitemcount">ItemCount</a> - 1.</p>
 <p>You can use this to work out whether to display scroll arrows or not.</p>
 <p>Example:</p>
 <pre><code>if (invMain.TopItem &gt; 0) {
@@ -232,7 +232,7 @@ else {
 }
 </code></pre>
 <p>makes the <em>btnScrollUp</em> button visible or invisible depending on whether the inventory list can be scrolled up.</p>
-<p><em>See Also:</em> <a href="InvWindow.html#itemcount">InvWindow.ItemCount</a></p>
+<p><em>See Also:</em> <a href="InvWindow.html#invwindowitemcount">InvWindow.ItemCount</a></p>
 </section>
 </section>
         </div>
@@ -243,7 +243,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:54 PM</p>
+      <p>Build: 10/06/2019 10:30:47 PM</p>
     </section>
   </footer>
 

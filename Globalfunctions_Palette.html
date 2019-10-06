@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Global functions: Palette Operations</title>
+  <title>Global functions (Palette Operations)</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,19 +76,19 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#global-functions-palette-operations"><span>Global functions: Palette Operations</span></a><ul>
-<li><a href="#cyclepalette"><span>CyclePalette</span></a></li>
-<li><a href="#setpalrgb"><span>SetPalRGB</span></a></li>
-<li><a href="#updatepalette"><span>UpdatePalette</span></a></li>
+<li><a href="#global-functions-palette-operations"><span>Global functions (Palette Operations)</span></a><ul>
+<li><a href="#cyclepalette"><span><code>CyclePalette</code></span></a></li>
+<li><a href="#setpalrgb"><span><code>SetPalRGB</code></span></a></li>
+<li><a href="#updatepalette"><span><code>UpdatePalette</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="global-functions-palette-operations" class="level2">
-<h2><a href="#global-functions-palette-operations">Global functions: Palette Operations</a></h2>
+<h2><a href="#global-functions-palette-operations">Global functions (Palette Operations)</a></h2>
 <section id="cyclepalette" class="level3">
-<h3><a href="#cyclepalette">CyclePalette</a></h3>
+<h3><a href="#cyclepalette"><code>CyclePalette</code></a></h3>
 <pre><code>CyclePalette (int start, int end)
 </code></pre>
 <p>This is used for special effects, like the flowing colours on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
@@ -102,7 +102,7 @@
 <hr />
 </section>
 <section id="setpalrgb" class="level3">
-<h3><a href="#setpalrgb">SetPalRGB</a></h3>
+<h3><a href="#setpalrgb"><code>SetPalRGB</code></a></h3>
 <pre><code>SetPalRGB (int slot, int red, int green, int blue)
 </code></pre>
 <p>Changes the RGB components of one of the palette slots. The palette is initially set up in the Palette Editor, but you can override it during the game using this function for special effects. The RED, GREEN and BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
@@ -116,7 +116,7 @@
 <hr />
 </section>
 <section id="updatepalette" class="level3">
-<h3><a href="#updatepalette">UpdatePalette</a></h3>
+<h3><a href="#updatepalette"><code>UpdatePalette</code></a></h3>
 <pre><code>UpdatePalette()
 </code></pre>
 <p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colours of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
@@ -136,7 +136,7 @@ UpdatePalette();
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:51 PM</p>
+      <p>Build: 10/06/2019 10:30:42 PM</p>
     </section>
   </footer>
 

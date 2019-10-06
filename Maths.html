@@ -76,36 +76,36 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#maths-functions-and-properties"><span>Maths functions and properties</span></a><ul>
-<li><a href="#floattoint"><span>FloatToInt</span></a></li>
-<li><a href="#inttofloat"><span>IntToFloat</span></a></li>
-<li><a href="#arccos"><span>ArcCos</span></a></li>
-<li><a href="#arcsin"><span>ArcSin</span></a></li>
-<li><a href="#arctan"><span>ArcTan</span></a></li>
-<li><a href="#arctan2"><span>ArcTan2</span></a></li>
-<li><a href="#cos"><span>Cos</span></a></li>
-<li><a href="#cosh"><span>Cosh</span></a></li>
-<li><a href="#degreestoradians"><span>DegreesToRadians</span></a></li>
-<li><a href="#exp"><span>Exp</span></a></li>
-<li><a href="#log"><span>Log</span></a></li>
-<li><a href="#log10"><span>Log10</span></a></li>
-<li><a href="#radianstodegrees"><span>RadiansToDegrees</span></a></li>
-<li><a href="#raisetopower"><span>RaiseToPower</span></a></li>
-<li><a href="#sin"><span>Sin</span></a></li>
-<li><a href="#sinh"><span>Sinh</span></a></li>
-<li><a href="#sqrt"><span>Sqrt</span></a></li>
-<li><a href="#tan"><span>Tan</span></a></li>
-<li><a href="#tanh"><span>Tanh</span></a></li>
-<li><a href="#pi"><span>Pi</span></a></li>
+<li><a href="#maths-functions-and-properties"><span><code>Maths</code> functions and properties</span></a><ul>
+<li><a href="#floattoint"><span><code>FloatToInt</code></span></a></li>
+<li><a href="#inttofloat"><span><code>IntToFloat</code></span></a></li>
+<li><a href="#mathsarccos"><span><code>Maths.ArcCos</code></span></a></li>
+<li><a href="#mathsarcsin"><span><code>Maths.ArcSin</code></span></a></li>
+<li><a href="#mathsarctan"><span><code>Maths.ArcTan</code></span></a></li>
+<li><a href="#mathsarctan2"><span><code>Maths.ArcTan2</code></span></a></li>
+<li><a href="#mathscos"><span><code>Maths.Cos</code></span></a></li>
+<li><a href="#mathscosh"><span><code>Maths.Cosh</code></span></a></li>
+<li><a href="#mathsdegreestoradians"><span><code>Maths.DegreesToRadians</code></span></a></li>
+<li><a href="#mathsexp"><span><code>Maths.Exp</code></span></a></li>
+<li><a href="#mathslog"><span><code>Maths.Log</code></span></a></li>
+<li><a href="#mathslog10"><span><code>Maths.Log10</code></span></a></li>
+<li><a href="#mathsradianstodegrees"><span><code>Maths.RadiansToDegrees</code></span></a></li>
+<li><a href="#mathsraisetopower"><span><code>Maths.RaiseToPower</code></span></a></li>
+<li><a href="#mathssin"><span><code>Maths.Sin</code></span></a></li>
+<li><a href="#mathssinh"><span><code>Maths.Sinh</code></span></a></li>
+<li><a href="#mathssqrt"><span><code>Maths.Sqrt</code></span></a></li>
+<li><a href="#mathstan"><span><code>Maths.Tan</code></span></a></li>
+<li><a href="#mathstanh"><span><code>Maths.Tanh</code></span></a></li>
+<li><a href="#mathspi"><span><code>Maths.Pi</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="maths-functions-and-properties" class="level2">
-<h2><a href="#maths-functions-and-properties">Maths functions and properties</a></h2>
+<h2><a href="#maths-functions-and-properties"><code>Maths</code> functions and properties</a></h2>
 <section id="floattoint" class="level3">
-<h3><a href="#floattoint">FloatToInt</a></h3>
+<h3><a href="#floattoint"><code>FloatToInt</code></a></h3>
 <pre><code>int FloatToInt(float value, optional RoundDirection)
 </code></pre>
 <p>Converts the supplied floating point value into an integer.</p>
@@ -121,7 +121,7 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <hr />
 </section>
 <section id="inttofloat" class="level3">
-<h3><a href="#inttofloat">IntToFloat</a></h3>
+<h3><a href="#inttofloat"><code>IntToFloat</code></a></h3>
 <pre><code>float IntToFloat(int value)
 </code></pre>
 <p>Converts the supplied integer value into a floating point number.</p>
@@ -133,87 +133,87 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <p><em>See Also:</em> <a href="Maths.html#floattoint">FloatToInt</a></p>
 <hr />
 </section>
-<section id="arccos" class="level3">
-<h3><a href="#arccos">ArcCos</a></h3>
+<section id="mathsarccos" class="level3">
+<h3><a href="#mathsarccos"><code>Maths.ArcCos</code></a></h3>
 <pre><code>float Maths.ArcCos(float value)
 </code></pre>
 <p>Calculates the arc-cosine, in radians, of the specified value.</p>
-<p>To convert an angle in radians to degrees, use <a href="Maths.html#radianstodegrees">Maths.RadiansToDegrees</a>.</p>
+<p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees">Maths.RadiansToDegrees</a>.</p>
 <p>Example:</p>
 <pre><code>float angle = Maths.ArcCos(1.0);
 </code></pre>
 <p>calculates the arc-cosine of 1.0 and places it into variable <em>angle</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>,</p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>,</p>
 <hr />
 </section>
-<section id="arcsin" class="level3">
-<h3><a href="#arcsin">ArcSin</a></h3>
+<section id="mathsarcsin" class="level3">
+<h3><a href="#mathsarcsin"><code>Maths.ArcSin</code></a></h3>
 <pre><code>float Maths.ArcSin(float value)
 </code></pre>
 <p>Calculates the arc-sine, in radians, of the specified value.</p>
-<p>To convert an angle in radians to degrees, use <a href="Maths.html#radianstodegrees">Maths.RadiansToDegrees</a>.</p>
+<p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees">Maths.RadiansToDegrees</a>.</p>
 <p>Example:</p>
 <pre><code>float angle = Maths.ArcSin(0.5);
 </code></pre>
 <p>calculates the arc-sine of 0.5 and places it into variable <em>angle</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>,</p>
+<p><em>See Also:</em> <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>,</p>
 <hr />
 </section>
-<section id="arctan" class="level3">
-<h3><a href="#arctan">ArcTan</a></h3>
+<section id="mathsarctan" class="level3">
+<h3><a href="#mathsarctan"><code>Maths.ArcTan</code></a></h3>
 <pre><code>float Maths.ArcTan(float value)
 </code></pre>
 <p>Calculates the arc-tan, in radians, of the specified value.</p>
-<p>To convert an angle in radians to degrees, use <a href="Maths.html#radianstodegrees">Maths.RadiansToDegrees</a>.</p>
+<p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees">Maths.RadiansToDegrees</a>.</p>
 <p>Example:</p>
 <pre><code>float angle = Maths.ArcTan(0.5);
 </code></pre>
 <p>calculates the arc-tan of 0.5 and places it into variable <em>angle</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#arctan2">Maths.ArcTan2</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarctan2">Maths.ArcTan2</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="arctan2" class="level3">
-<h3><a href="#arctan2">ArcTan2</a></h3>
+<section id="mathsarctan2" class="level3">
+<h3><a href="#mathsarctan2"><code>Maths.ArcTan2</code></a></h3>
 <pre><code>float Maths.ArcTan2(float y, float x)
 </code></pre>
 <p>Calculates the arctangent of y/x. This is well defined for every point other than the origin, even if x equals 0 and y does not equal 0. The result is returned in radians.</p>
-<p>To convert an angle in radians to degrees, use <a href="Maths.html#radianstodegrees">Maths.RadiansToDegrees</a>.</p>
+<p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees">Maths.RadiansToDegrees</a>.</p>
 <p>Example:</p>
 <pre><code>float angle = Maths.ArcTan2(-862.42, 78.5149);
 </code></pre>
 <p>calculates the arc-tan of -862.42 / 78.5149 and places it into variable <em>angle</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#arctan">Maths.ArcTan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathsarctan">Maths.ArcTan</a></p>
 <hr />
 </section>
-<section id="cos" class="level3">
-<h3><a href="#cos">Cos</a></h3>
+<section id="mathscos" class="level3">
+<h3><a href="#mathscos"><code>Maths.Cos</code></a></h3>
 <pre><code>float Maths.Cos(float radians)
 </code></pre>
 <p>Calculates the cosine of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float cosine = Maths.Cos(Maths.DegreesToRadians(360.0));
 </code></pre>
 <p>calculates the cosine of 360 degrees (which is 1.0) and places it into variable <em>cosine</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#arccos">Maths.ArcCos</a>, <a href="Maths.html#cosh">Maths.Cosh</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarccos">Maths.ArcCos</a>, <a href="Maths.html#mathscosh">Maths.Cosh</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="cosh" class="level3">
-<h3><a href="#cosh">Cosh</a></h3>
+<section id="mathscosh" class="level3">
+<h3><a href="#mathscosh"><code>Maths.Cosh</code></a></h3>
 <pre><code>float Maths.Cosh(float radians)
 </code></pre>
 <p>Calculates the hyperbolic cosine of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float hcos = Maths.Cosh(Maths.DegreesToRadians(360.0));
 </code></pre>
 <p>calculates the hyperbolic cosine of 360 degrees and places it into variable <em>hcos</em>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#sinh">Maths.Sinh</a>, <a href="Maths.html#tanh">Maths.Tanh</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathssinh">Maths.Sinh</a>, <a href="Maths.html#mathstanh">Maths.Tanh</a></p>
 <hr />
 </section>
-<section id="degreestoradians" class="level3">
-<h3><a href="#degreestoradians">DegreesToRadians</a></h3>
+<section id="mathsdegreestoradians" class="level3">
+<h3><a href="#mathsdegreestoradians"><code>Maths.DegreesToRadians</code></a></h3>
 <pre><code>float Maths.DegreesToRadians(float degrees)
 </code></pre>
 <p>Converts the supplied angle in degrees, to the equivalent angle in radians.</p>
@@ -222,11 +222,11 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <pre><code>float cosine = Maths.Cos(Maths.DegreesToRadians(360.0));
 </code></pre>
 <p>calculates the cosine of 360 degrees (which is 1.0) and places it into variable <em>cosine</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#radianstodegrees">Maths.RadiansToDegrees</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathsradianstodegrees">Maths.RadiansToDegrees</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="exp" class="level3">
-<h3><a href="#exp">Exp</a></h3>
+<section id="mathsexp" class="level3">
+<h3><a href="#mathsexp"><code>Maths.Exp</code></a></h3>
 <pre><code>float Maths.Exp(float x)
 </code></pre>
 <p>Returns the exponential value of the floating-point parameter, x</p>
@@ -236,11 +236,11 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 </code></pre>
 <p>calculates Exp of 2.302585093 (which should be 10) and places it into the variable.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#log">Maths.Log</a>, <a href="Maths.html#log10">Maths.Log10</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathslog">Maths.Log</a>, <a href="Maths.html#mathslog10">Maths.Log10</a></p>
 <hr />
 </section>
-<section id="log" class="level3">
-<h3><a href="#log">Log</a></h3>
+<section id="mathslog" class="level3">
+<h3><a href="#mathslog"><code>Maths.Log</code></a></h3>
 <pre><code>float Maths.Log(float x)
 </code></pre>
 <p>Returns the natural logarithm (base e) of x.</p>
@@ -250,11 +250,11 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 </code></pre>
 <p>calculates Log of 9000 (which should be 9.104980) and places it into the variable.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#exp">Maths.Exp</a>, <a href="Maths.html#log10">Maths.Log10</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsexp">Maths.Exp</a>, <a href="Maths.html#mathslog10">Maths.Log10</a></p>
 <hr />
 </section>
-<section id="log10" class="level3">
-<h3><a href="#log10">Log10</a></h3>
+<section id="mathslog10" class="level3">
+<h3><a href="#mathslog10"><code>Maths.Log10</code></a></h3>
 <pre><code>float Maths.Log10(float x)
 </code></pre>
 <p>Returns the base-10 logarithm of x.</p>
@@ -264,11 +264,11 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 </code></pre>
 <p>calculates Log10 of 9000 (which should be 3.954243) and places it into the variable.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#exp">Maths.Exp</a>, <a href="Maths.html#log">Maths.Log</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsexp">Maths.Exp</a>, <a href="Maths.html#mathslog">Maths.Log</a></p>
 <hr />
 </section>
-<section id="radianstodegrees" class="level3">
-<h3><a href="#radianstodegrees">RadiansToDegrees</a></h3>
+<section id="mathsradianstodegrees" class="level3">
+<h3><a href="#mathsradianstodegrees"><code>Maths.RadiansToDegrees</code></a></h3>
 <pre><code>float Maths.RadiansToDegrees(float radians)
 </code></pre>
 <p>Converts the supplied angle in radians, to the equivalent angle in degrees.</p>
@@ -277,11 +277,11 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <pre><code>float halfCircle = Maths.RadiansToDegrees(Maths.Pi);
 </code></pre>
 <p>converts <em>PI</em> radians into degrees (which is 180).</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="raisetopower" class="level3">
-<h3><a href="#raisetopower">RaiseToPower</a></h3>
+<section id="mathsraisetopower" class="level3">
+<h3><a href="#mathsraisetopower"><code>Maths.RaiseToPower</code></a></h3>
 <pre><code>float Maths.RaiseToPower(float base, float exponent)
 </code></pre>
 <p>Calculates the value of <em>base</em> raised to the power <em>exponent</em>.</p>
@@ -290,38 +290,38 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <pre><code>float value = Maths.RaiseToPower(4.0, 3.0);
 </code></pre>
 <p>calculates 4 to the power 3 (which is 64).</p>
-<p><em>See Also:</em> <a href="Maths.html#sqrt">Maths.Sqrt</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathssqrt">Maths.Sqrt</a></p>
 <hr />
 </section>
-<section id="sin" class="level3">
-<h3><a href="#sin">Sin</a></h3>
+<section id="mathssin" class="level3">
+<h3><a href="#mathssin"><code>Maths.Sin</code></a></h3>
 <pre><code>float Maths.Sin(float radians)
 </code></pre>
 <p>Calculates the sine of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float sine = Maths.Sin(Maths.DegreesToRadians(360.0));
 </code></pre>
 <p>calculates the sine of 360 degrees (which is 0) and places it into variable <em>sine</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#arcsin">Maths.ArcSin</a>, <a href="Maths.html#sinh">Maths.Sinh</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarcsin">Maths.ArcSin</a>, <a href="Maths.html#mathssinh">Maths.Sinh</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="sinh" class="level3">
-<h3><a href="#sinh">Sinh</a></h3>
+<section id="mathssinh" class="level3">
+<h3><a href="#mathssinh"><code>Maths.Sinh</code></a></h3>
 <pre><code>float Maths.Sinh(float radians)
 </code></pre>
 <p>Calculates the hyperbolic sine of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float hsine = Maths.Sinh(Maths.DegreesToRadians(360.0));
 </code></pre>
 <p>calculates the hyperbolic sine of 360 degrees and places it into variable <em>hsine</em>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#arcsin">Maths.ArcSin</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#cosh">Maths.Cosh</a>, <a href="Maths.html#tanh">Maths.Tanh</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarcsin">Maths.ArcSin</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathscosh">Maths.Cosh</a>, <a href="Maths.html#mathstanh">Maths.Tanh</a></p>
 <hr />
 </section>
-<section id="sqrt" class="level3">
-<h3><a href="#sqrt">Sqrt</a></h3>
+<section id="mathssqrt" class="level3">
+<h3><a href="#mathssqrt"><code>Maths.Sqrt</code></a></h3>
 <pre><code>float Maths.Sqrt(float value)
 </code></pre>
 <p>Calculates the square root of the supplied value.</p>
@@ -330,38 +330,38 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <pre><code>Display(&quot;The square root of 4 is %d!&quot;, FloatToInt(Maths.Sqrt(4.0)));
 </code></pre>
 <p>displays the square root of 4 (rounded down to the nearest integer).</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#raisetopower">Maths.RaiseToPower</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathsraisetopower">Maths.RaiseToPower</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 <hr />
 </section>
-<section id="tan" class="level3">
-<h3><a href="#tan">Tan</a></h3>
+<section id="mathstan" class="level3">
+<h3><a href="#mathstan"><code>Maths.Tan</code></a></h3>
 <pre><code>float Maths.Tan(float radians)
 </code></pre>
 <p>Calculates the tangent of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float tan = Maths.Tan(Maths.DegreesToRadians(45.0));
 </code></pre>
 <p>calculates the tan of 45 degrees (which is 1.0) and places it into variable <em>tan</em>.</p>
-<p><em>See Also:</em> <a href="Maths.html#arctan">Maths.ArcTan</a>, <a href="Maths.html#tanh">Maths.Tanh</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#sin">Maths.Sin</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarctan">Maths.ArcTan</a>, <a href="Maths.html#mathstanh">Maths.Tanh</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathssin">Maths.Sin</a></p>
 <hr />
 </section>
-<section id="tanh" class="level3">
-<h3><a href="#tanh">Tanh</a></h3>
+<section id="mathstanh" class="level3">
+<h3><a href="#mathstanh"><code>Maths.Tanh</code></a></h3>
 <pre><code>float Maths.Tanh(float radians)
 </code></pre>
 <p>Calculates the hyperbolic tangent of the specified angle (in radians).</p>
-<p>To convert an angle in degrees to radians, use <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>.</p>
+<p>To convert an angle in degrees to radians, use <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>.</p>
 <p>Example:</p>
 <pre><code>float htan = Maths.Tanh(Maths.DegreesToRadians(45.0));
 </code></pre>
 <p>calculates the hyperbolic tan of 45 degrees and places it into variable <em>htan</em>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Maths.html#arctan">Maths.ArcTan</a>, <a href="Maths.html#tan">Maths.Tan</a>, <a href="Maths.html#degreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#sin">Maths.Sin</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathsarctan">Maths.ArcTan</a>, <a href="Maths.html#mathstan">Maths.Tan</a>, <a href="Maths.html#mathsdegreestoradians">Maths.DegreesToRadians</a>, <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathssin">Maths.Sin</a></p>
 <hr />
 </section>
-<section id="pi" class="level3">
-<h3><a href="#pi">Pi</a></h3>
+<section id="mathspi" class="level3">
+<h3><a href="#mathspi"><code>Maths.Pi</code></a></h3>
 <pre><code>readonly float Maths.Pi
 </code></pre>
 <p>Gets the value of Pi (defined as 3.14159265358979323846).</p>
@@ -369,7 +369,7 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 <pre><code>Display(&quot;Pi is %f!&quot;, Maths.Pi);
 </code></pre>
 <p>displays the value of Pi.</p>
-<p><em>See Also:</em> <a href="Maths.html#cos">Maths.Cos</a>, <a href="Maths.html#sin">Maths.Sin</a>, <a href="Maths.html#tan">Maths.Tan</a></p>
+<p><em>See Also:</em> <a href="Maths.html#mathscos">Maths.Cos</a>, <a href="Maths.html#mathssin">Maths.Sin</a>, <a href="Maths.html#mathstan">Maths.Tan</a></p>
 </section>
 </section>
         </div>
@@ -380,7 +380,7 @@ Display(&quot;Round nearest: %d&quot;, FloatToInt(10.7, eRoundNearest));
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:50 PM</p>
+      <p>Build: 10/06/2019 10:30:42 PM</p>
     </section>
   </footer>
 

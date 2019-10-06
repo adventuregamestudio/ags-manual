@@ -76,25 +76,25 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#slider-properties"><span>Slider properties</span></a><ul>
-<li><a href="#backgroundgraphic"><span>BackgroundGraphic</span></a></li>
-<li><a href="#handlegraphic"><span>HandleGraphic</span></a></li>
-<li><a href="#handleoffset"><span>HandleOffset</span></a></li>
-<li><a href="#max"><span>Max</span></a></li>
-<li><a href="#min"><span>Min</span></a></li>
-<li><a href="#value"><span>Value</span></a></li>
+<li><a href="#slider-properties"><span><code>Slider</code> properties</span></a><ul>
+<li><a href="#sliderbackgroundgraphic"><span><code>Slider.BackgroundGraphic</code></span></a></li>
+<li><a href="#sliderhandlegraphic"><span><code>Slider.HandleGraphic</code></span></a></li>
+<li><a href="#sliderhandleoffset"><span><code>Slider.HandleOffset</code></span></a></li>
+<li><a href="#slidermax"><span><code>Slider.Max</code></span></a></li>
+<li><a href="#slidermin"><span><code>Slider.Min</code></span></a></li>
+<li><a href="#slidervalue"><span><code>Slider.Value</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="slider-properties" class="level2">
-<h2><a href="#slider-properties">Slider properties</a></h2>
+<h2><a href="#slider-properties"><code>Slider</code> properties</a></h2>
 <p>Slider is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <p><em>See also:</em> <a href="EditingGUIs.html#sliders">Editing GUI Sliders</a></p>
 <hr />
-<section id="backgroundgraphic" class="level3">
-<h3><a href="#backgroundgraphic">BackgroundGraphic</a></h3>
+<section id="sliderbackgroundgraphic" class="level3">
+<h3><a href="#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a></h3>
 <pre><code>int Slider.BackgroundGraphic;
 </code></pre>
 <p>Gets/sets the sprite used to draw the slider background. This image is tiled along the length of the slider.</p>
@@ -104,11 +104,11 @@
 </code></pre>
 <p>displays the <em>sldHealth</em> slider's background image</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Slider.html#handlegraphic">Slider.HandleGraphic</a></p>
+<p><em>See Also:</em> <a href="Slider.html#sliderhandlegraphic">Slider.HandleGraphic</a></p>
 <hr />
 </section>
-<section id="handlegraphic" class="level3">
-<h3><a href="#handlegraphic">HandleGraphic</a></h3>
+<section id="sliderhandlegraphic" class="level3">
+<h3><a href="#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></h3>
 <pre><code>int Slider.HandleGraphic;
 </code></pre>
 <p>Gets/sets the sprite used to draw the handle on the slider. The handle represents the slider's current position, and can be dragged around by the player.</p>
@@ -118,11 +118,11 @@
 </code></pre>
 <p>displays the <em>sldHealth</em> slider's handle image</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Slider.html#backgroundgraphic">Slider.BackgroundGraphic</a>, <a href="Slider.html#handleoffset">Slider.HandleOffset</a></p>
+<p><em>See Also:</em> <a href="Slider.html#sliderbackgroundgraphic">Slider.BackgroundGraphic</a>, <a href="Slider.html#sliderhandleoffset">Slider.HandleOffset</a></p>
 <hr />
 </section>
-<section id="handleoffset" class="level3">
-<h3><a href="#handleoffset">HandleOffset</a></h3>
+<section id="sliderhandleoffset" class="level3">
+<h3><a href="#sliderhandleoffset"><code>Slider.HandleOffset</code></a></h3>
 <pre><code>int Slider.HandleOffset;
 </code></pre>
 <p>Gets/sets the offset at which the handle image is drawn. This value is initially set up in the editor.</p>
@@ -131,11 +131,11 @@
 </code></pre>
 <p>sets the <em>sldHealth</em> slider's handle to be drawn an extra 2 pixels to the right.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Slider.html#handlegraphic">Slider.HandleGraphic</a></p>
+<p><em>See Also:</em> <a href="Slider.html#sliderhandlegraphic">Slider.HandleGraphic</a></p>
 <hr />
 </section>
-<section id="max" class="level3">
-<h3><a href="#max">Max</a></h3>
+<section id="slidermax" class="level3">
+<h3><a href="#slidermax"><code>Slider.Max</code></a></h3>
 <pre><code>int Slider.Max;
 </code></pre>
 <p>Gets/sets the maximum value of the specified GUI slider.</p>
@@ -145,11 +145,11 @@
 <pre><code>sldHealth.Max = 200;
 </code></pre>
 <p>sets the maximum value of the <em>sldHealth</em> slider to 200.</p>
-<p><em>See Also:</em> <a href="Slider.html#min">Slider.Min</a>, <a href="Slider.html#value">Slider.Value</a></p>
+<p><em>See Also:</em> <a href="Slider.html#slidermin">Slider.Min</a>, <a href="Slider.html#slidervalue">Slider.Value</a></p>
 <hr />
 </section>
-<section id="min" class="level3">
-<h3><a href="#min">Min</a></h3>
+<section id="slidermin" class="level3">
+<h3><a href="#slidermin"><code>Slider.Min</code></a></h3>
 <pre><code>int Slider.Min;
 </code></pre>
 <p>Gets/sets the minimum value of the specified GUI slider.</p>
@@ -159,11 +159,11 @@
 <pre><code>sldHealth.Min = 0;
 </code></pre>
 <p>sets the minimum value of the <em>sldHealth</em> slider to 0.</p>
-<p><em>See Also:</em> <a href="Slider.html#max">Slider.Max</a>, <a href="Slider.html#value">Slider.Value</a></p>
+<p><em>See Also:</em> <a href="Slider.html#slidermax">Slider.Max</a>, <a href="Slider.html#slidervalue">Slider.Value</a></p>
 <hr />
 </section>
-<section id="value" class="level3">
-<h3><a href="#value">Value</a></h3>
+<section id="slidervalue" class="level3">
+<h3><a href="#slidervalue"><code>Slider.Value</code></a></h3>
 <p><em>(Formerly known as GetSliderValue, which is now obsolete)</em><br> <em>(Formerly known as SetSliderValue, which is now obsolete)</em></p>
 <pre><code>int Slider.Value;
 </code></pre>
@@ -173,7 +173,7 @@
 <pre><code>System.Volume = sldVolume.Value;
 </code></pre>
 <p>will set the audio volume to the value of the slider <em>sldVolume</em>.</p>
-<p><em>See Also:</em> <a href="Label.html#text">Label.Text</a></p>
+<p><em>See Also:</em> <a href="Label.html#labeltext">Label.Text</a></p>
 </section>
 </section>
         </div>
@@ -184,7 +184,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:56 PM</p>
+      <p>Build: 10/06/2019 10:30:47 PM</p>
     </section>
   </footer>
 

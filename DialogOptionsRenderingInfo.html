@@ -76,31 +76,31 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#dialogoptionsrenderinginfo-functions-and-properties"><span>DialogOptionsRenderingInfo functions and properties</span></a><ul>
-<li><a href="#runactiveoption"><span>RunActiveOption</span></a></li>
-<li><a href="#update"><span>Update</span></a></li>
-<li><a href="#activeoptionid"><span>ActiveOptionID</span></a></li>
-<li><a href="#dialogtorender"><span>DialogToRender</span></a></li>
-<li><a href="#hasalphachannel"><span>HasAlphaChannel</span></a></li>
-<li><a href="#height"><span>Height</span></a></li>
-<li><a href="#parsertextboxwidth"><span>ParserTextBoxWidth</span></a></li>
-<li><a href="#parsertextboxx"><span>ParserTextBoxX</span></a></li>
-<li><a href="#parsertextboxy"><span>ParserTextBoxY</span></a></li>
-<li><a href="#surface"><span>Surface</span></a></li>
-<li><a href="#width"><span>Width</span></a></li>
-<li><a href="#x"><span>X</span></a></li>
-<li><a href="#y"><span>Y</span></a></li>
+<li><a href="#dialogoptionsrenderinginfo-functions-and-properties"><span><code>DialogOptionsRenderingInfo</code> functions and properties</span></a><ul>
+<li><a href="#dialogoptionsrenderinginforunactiveoption"><span><code>DialogOptionsRenderingInfo.RunActiveOption</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoupdate"><span><code>DialogOptionsRenderingInfo.Update</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoactiveoptionid"><span><code>DialogOptionsRenderingInfo.ActiveOptionID</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfodialogtorender"><span><code>DialogOptionsRenderingInfo.DialogToRender</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfohasalphachannel"><span><code>DialogOptionsRenderingInfo.HasAlphaChannel</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoheight"><span><code>DialogOptionsRenderingInfo.Height</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoparsertextboxwidth"><span><code>DialogOptionsRenderingInfo.ParserTextBoxWidth</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoparsertextboxx"><span><code>DialogOptionsRenderingInfo.ParserTextBoxX</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoparsertextboxy"><span><code>DialogOptionsRenderingInfo.ParserTextBoxY</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfosurface"><span><code>DialogOptionsRenderingInfo.Surface</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfowidth"><span><code>DialogOptionsRenderingInfo.Width</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfox"><span><code>DialogOptionsRenderingInfo.X</code></span></a></li>
+<li><a href="#dialogoptionsrenderinginfoy"><span><code>DialogOptionsRenderingInfo.Y</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="dialogoptionsrenderinginfo-functions-and-properties" class="level2">
-<h2><a href="#dialogoptionsrenderinginfo-functions-and-properties">DialogOptionsRenderingInfo functions and properties</a></h2>
+<h2><a href="#dialogoptionsrenderinginfo-functions-and-properties"><code>DialogOptionsRenderingInfo</code> functions and properties</a></h2>
 <p>The DialogOptionsRenderingInfo instance is used by the <a href="CustomDialogOptions.html">custom dialog options</a> system. You can never create one yourself, it will be passed in to the dialog option functions as described in the linked page.</p>
 <hr />
-<section id="runactiveoption" class="level3">
-<h3><a href="#runactiveoption">RunActiveOption</a></h3>
+<section id="dialogoptionsrenderinginforunactiveoption" class="level3">
+<h3><a href="#dialogoptionsrenderinginforunactiveoption"><code>DialogOptionsRenderingInfo.RunActiveOption</code></a></h3>
 <pre><code>bool DialogOptionsRenderingInfo.RunActiveOption();
 </code></pre>
 <p>Runs the currently selected dialog option, the one set in ActiveOptionID, and returns <strong>true</strong> on success.</p>
@@ -114,11 +114,11 @@
 </code></pre>
 <p>runs selected dialog option when player presses Enter/Return key.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#activeoptionid">DialogOptionsRenderingInfo.ActiveOptionID</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoactiveoptionid">DialogOptionsRenderingInfo.ActiveOptionID</a></p>
 <hr />
 </section>
-<section id="update" class="level3">
-<h3><a href="#update">Update</a></h3>
+<section id="dialogoptionsrenderinginfoupdate" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoupdate"><code>DialogOptionsRenderingInfo.Update</code></a></h3>
 <pre><code>void DialogOptionsRenderingInfo.Update();
 </code></pre>
 <p>Forces dialog options to redraw, eventually leading to be <code>dialog_options_render</code> function run.</p>
@@ -127,8 +127,8 @@
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <hr />
 </section>
-<section id="activeoptionid" class="level3">
-<h3><a href="#activeoptionid">ActiveOptionID</a></h3>
+<section id="dialogoptionsrenderinginfoactiveoptionid" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoactiveoptionid"><code>DialogOptionsRenderingInfo.ActiveOptionID</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.ActiveOptionID;
 </code></pre>
 <p>Gets/sets the currently active option on the dialog options screen. You set this in the <code>dialog_options_get_active</code> function to tell AGS which option the mouse is hovering over. This ensures that the correct option is activated when the player clicks the mouse button.</p>
@@ -142,21 +142,21 @@
 </code></pre>
 <p>always selects the first option</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#runactiveoption">DialogOptionsRenderingInfo.RunActiveOption</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginforunactiveoption">DialogOptionsRenderingInfo.RunActiveOption</a>, <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a></p>
 <hr />
 </section>
-<section id="dialogtorender" class="level3">
-<h3><a href="#dialogtorender">DialogToRender</a></h3>
+<section id="dialogoptionsrenderinginfodialogtorender" class="level3">
+<h3><a href="#dialogoptionsrenderinginfodialogtorender"><code>DialogOptionsRenderingInfo.DialogToRender</code></a></h3>
 <pre><code>Dialog* DialogOptionsRenderingInfo.DialogToRender;
 </code></pre>
 <p>Gets the dialog that needs to be rendered. You can loop through all the options in the dialog in order to decide what to display on the screen.</p>
 <p>Example: For an example please see the <a href="CustomDialogOptions.html">custom dialog options</a> page.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="DialogOptionsRenderingInfo.html#surface">DialogOptionsRenderingInfo.Surface</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a>, <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfosurface">DialogOptionsRenderingInfo.Surface</a></p>
 <hr />
 </section>
-<section id="hasalphachannel" class="level3">
-<h3><a href="#hasalphachannel">HasAlphaChannel</a></h3>
+<section id="dialogoptionsrenderinginfohasalphachannel" class="level3">
+<h3><a href="#dialogoptionsrenderinginfohasalphachannel"><code>DialogOptionsRenderingInfo.HasAlphaChannel</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.HasAlphaChannel;
 </code></pre>
 <p>Gets/sets whether the dialog options's drawing surface will have alpha channel.</p>
@@ -171,11 +171,11 @@
 </code></pre>
 <p>creates a 300x150 size area with alpha channel to draw the dialog options in.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#height">DialogOptionsRenderingInfo.Height</a>, <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoheight">DialogOptionsRenderingInfo.Height</a>, <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfowidth">DialogOptionsRenderingInfo.Width</a></p>
 <hr />
 </section>
-<section id="height" class="level3">
-<h3><a href="#height">Height</a></h3>
+<section id="dialogoptionsrenderinginfoheight" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoheight"><code>DialogOptionsRenderingInfo.Height</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.Height;
 </code></pre>
 <p>Gets/sets the height of the area needed to draw the dialog options.</p>
@@ -189,11 +189,11 @@
 </code></pre>
 <p>creates a 300x150 size area to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfowidth">DialogOptionsRenderingInfo.Width</a></p>
 <hr />
 </section>
-<section id="parsertextboxwidth" class="level3">
-<h3><a href="#parsertextboxwidth">ParserTextBoxWidth</a></h3>
+<section id="dialogoptionsrenderinginfoparsertextboxwidth" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoparsertextboxwidth"><code>DialogOptionsRenderingInfo.ParserTextBoxWidth</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.ParserTextBoxWidth;
 </code></pre>
 <p>Gets/sets the width of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
@@ -211,11 +211,11 @@
 </code></pre>
 <p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#width">DialogOptionsRenderingInfo.Width</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfowidth">DialogOptionsRenderingInfo.Width</a>, <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoparsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a>, <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoparsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
 <hr />
 </section>
-<section id="parsertextboxx" class="level3">
-<h3><a href="#parsertextboxx">ParserTextBoxX</a></h3>
+<section id="dialogoptionsrenderinginfoparsertextboxx" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoparsertextboxx"><code>DialogOptionsRenderingInfo.ParserTextBoxX</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.ParserTextBoxX;
 </code></pre>
 <p>Gets/sets the X-position of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
@@ -234,11 +234,11 @@
 </code></pre>
 <p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#parsertextboxwidth">DialogOptionsRenderingInfo.ParserTextBoxWidth</a>, <a href="DialogOptionsRenderingInfo.html#parsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoparsertextboxwidth">DialogOptionsRenderingInfo.ParserTextBoxWidth</a>, <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoparsertextboxy">DialogOptionsRenderingInfo.ParserTextBoxY</a></p>
 <hr />
 </section>
-<section id="parsertextboxy" class="level3">
-<h3><a href="#parsertextboxy">ParserTextBoxY</a></h3>
+<section id="dialogoptionsrenderinginfoparsertextboxy" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoparsertextboxy"><code>DialogOptionsRenderingInfo.ParserTextBoxY</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.ParserTextBoxY;
 </code></pre>
 <p>Gets/sets the Y-position of the text parser textbox on the dialog options. If the text parser is not enabled for this dialog, this setting will be ignored.</p>
@@ -257,11 +257,11 @@
 </code></pre>
 <p>positions the parser text box at (10,130) inside the 300x150 dialog options area</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#parsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoparsertextboxx">DialogOptionsRenderingInfo.ParserTextBoxX</a></p>
 <hr />
 </section>
-<section id="surface" class="level3">
-<h3><a href="#surface">Surface</a></h3>
+<section id="dialogoptionsrenderinginfosurface" class="level3">
+<h3><a href="#dialogoptionsrenderinginfosurface"><code>DialogOptionsRenderingInfo.Surface</code></a></h3>
 <pre><code>DrawingSurface* DialogOptionsRenderingInfo.Surface;
 </code></pre>
 <p>Gets the drawing surface that can be used to draw the dialog options.</p>
@@ -276,11 +276,11 @@
 </code></pre>
 <p>clears the dialog options area to yellow.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DrawingSurfaceFunctions.html">DrawingSurface functions</a></p>
+<p><em>See Also:</em> <a href="DrawingSurface.html">DrawingSurface functions</a></p>
 <hr />
 </section>
-<section id="width" class="level3">
-<h3><a href="#width">Width</a></h3>
+<section id="dialogoptionsrenderinginfowidth" class="level3">
+<h3><a href="#dialogoptionsrenderinginfowidth"><code>DialogOptionsRenderingInfo.Width</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.Width;
 </code></pre>
 <p>Gets/sets the width of the area needed to draw the dialog options.</p>
@@ -294,11 +294,11 @@
 </code></pre>
 <p>creates a 300x150 size area to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#height">DialogOptionsRenderingInfo.Height</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoheight">DialogOptionsRenderingInfo.Height</a></p>
 <hr />
 </section>
-<section id="x" class="level3">
-<h3><a href="#x">X</a></h3>
+<section id="dialogoptionsrenderinginfox" class="level3">
+<h3><a href="#dialogoptionsrenderinginfox"><code>DialogOptionsRenderingInfo.X</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.X;
 </code></pre>
 <p>Gets/sets the horizontal co-ordinate of the top-left corner of the dialog options area.</p>
@@ -314,11 +314,11 @@
 </code></pre>
 <p>creates a 200x150 size area at (50, 20) to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#y">DialogOptionsRenderingInfo.Y</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoy">DialogOptionsRenderingInfo.Y</a></p>
 <hr />
 </section>
-<section id="y" class="level3">
-<h3><a href="#y">Y</a></h3>
+<section id="dialogoptionsrenderinginfoy" class="level3">
+<h3><a href="#dialogoptionsrenderinginfoy"><code>DialogOptionsRenderingInfo.Y</code></a></h3>
 <pre><code>int DialogOptionsRenderingInfo.Y;
 </code></pre>
 <p>Gets/sets the vertical co-ordinate of the top-left corner of the dialog options area.</p>
@@ -334,7 +334,7 @@
 </code></pre>
 <p>creates a 200x150 size area at (50, 20) to draw the dialog options in</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#x">DialogOptionsRenderingInfo.X</a></p>
+<p><em>See Also:</em> <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfox">DialogOptionsRenderingInfo.X</a></p>
 </section>
 </section>
         </div>
@@ -345,7 +345,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:55 PM</p>
+      <p>Build: 10/06/2019 10:30:48 PM</p>
     </section>
   </footer>
 

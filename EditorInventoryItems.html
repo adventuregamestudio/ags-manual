@@ -98,11 +98,11 @@ Select the X value of the active cursor image by hand. It's the distance from th
 <p><em>HotspotY:</em><br />
 Select the Y value of the active cursor image by hand. It's the distance from the top border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
 <p><em>ID:</em><br />
-The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a href="InventoryItem.html#id">InventoryItem.ID</a>.</p>
+The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a href="InventoryItem.html#inventoryitemid">InventoryItem.ID</a>.</p>
 <p><em>Name:</em><br />
 The script name of the inventory item. Usually the convention is to start inventory item names with an i, like <em>iKey</em>. This convention sure gets tricky when you give your game characters apple products...</p>
 <p><em>PlayerStartsWithItem:</em><br />
-Is a boolean value that means what it says, it sets whether the player character starts with this inventory item in his inventory or not. Mostly the default setting of no is used. <br/> <br/> <br/> Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#addinventory">cChar.AddInventory(iInvItem)</a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#loseinventory">cChar.LoseInventory(iInvItem)</a> function. Make sure you check the <a href="Mouse.html#mode">Mouse.Mode</a> afterwards, especially when the active cursor is the inventory item the player just lost. <br/> <br/> <br/> See Also: <a href="InventoryItem.html">InventoryItem</a></p>
+Is a boolean value that means what it says, it sets whether the player character starts with this inventory item in his inventory or not. Mostly the default setting of no is used. <br/> <br/> <br/> Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#characteraddinventory">cChar.AddInventory(iInvItem)</a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#characterloseinventory">cChar.LoseInventory(iInvItem)</a> function. Make sure you check the <a href="Mouse.html#mousemode">Mouse.Mode</a> afterwards, especially when the active cursor is the inventory item the player just lost. <br/> <br/> <br/> See Also: <a href="InventoryItem.html">InventoryItem</a></p>
 </section>
         </div>
       </div>
@@ -112,7 +112,7 @@ Is a boolean value that means what it says, it sets whether the player character
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:50 PM</p>
+      <p>Build: 10/06/2019 10:30:41 PM</p>
     </section>
   </footer>
 

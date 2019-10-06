@@ -76,35 +76,35 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#string-functions"><span>String functions</span></a><ul>
-<li><a href="#append"><span>Append</span></a></li>
-<li><a href="#appendchar"><span>AppendChar</span></a></li>
-<li><a href="#compareto"><span>CompareTo</span></a></li>
-<li><a href="#copy"><span>Copy</span></a></li>
-<li><a href="#endswith"><span>EndsWith</span></a></li>
-<li><a href="#format"><span>Format</span></a></li>
-<li><a href="#indexof"><span>IndexOf</span></a></li>
-<li><a href="#isnullorempty"><span>IsNullOrEmpty</span></a></li>
-<li><a href="#lowercase"><span>LowerCase</span></a></li>
-<li><a href="#replace"><span>Replace</span></a></li>
-<li><a href="#replacecharat"><span>ReplaceCharAt</span></a></li>
-<li><a href="#startswith"><span>StartsWith</span></a></li>
-<li><a href="#substring"><span>Substring</span></a></li>
-<li><a href="#truncate"><span>Truncate</span></a></li>
-<li><a href="#uppercase"><span>UpperCase</span></a></li>
-<li><a href="#asfloat"><span>AsFloat</span></a></li>
-<li><a href="#asint"><span>AsInt</span></a></li>
-<li><a href="#chars"><span>Chars</span></a></li>
-<li><a href="#length"><span>Length</span></a></li>
+<li><a href="#string-functions"><span><code>String</code> functions</span></a><ul>
+<li><a href="#stringappend"><span><code>String.Append</code></span></a></li>
+<li><a href="#stringappendchar"><span><code>String.AppendChar</code></span></a></li>
+<li><a href="#stringcompareto"><span><code>String.CompareTo</code></span></a></li>
+<li><a href="#stringcopy"><span><code>String.Copy</code></span></a></li>
+<li><a href="#stringendswith"><span><code>String.EndsWith</code></span></a></li>
+<li><a href="#stringformat"><span><code>String.Format</code></span></a></li>
+<li><a href="#stringindexof"><span><code>String.IndexOf</code></span></a></li>
+<li><a href="#stringisnullorempty"><span><code>String.IsNullOrEmpty</code></span></a></li>
+<li><a href="#stringlowercase"><span><code>String.LowerCase</code></span></a></li>
+<li><a href="#stringreplace"><span><code>String.Replace</code></span></a></li>
+<li><a href="#stringreplacecharat"><span><code>String.ReplaceCharAt</code></span></a></li>
+<li><a href="#stringstartswith"><span><code>String.StartsWith</code></span></a></li>
+<li><a href="#stringsubstring"><span><code>String.Substring</code></span></a></li>
+<li><a href="#stringtruncate"><span><code>String.Truncate</code></span></a></li>
+<li><a href="#stringuppercase"><span><code>String.UpperCase</code></span></a></li>
+<li><a href="#stringasfloat"><span><code>String.AsFloat</code></span></a></li>
+<li><a href="#stringasint"><span><code>String.AsInt</code></span></a></li>
+<li><a href="#stringchars"><span><code>String.Chars</code></span></a></li>
+<li><a href="#stringlength"><span><code>String.Length</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="string-functions" class="level2">
-<h2><a href="#string-functions">String functions</a></h2>
-<section id="append" class="level3">
-<h3><a href="#append">Append</a></h3>
+<h2><a href="#string-functions"><code>String</code> functions</a></h2>
+<section id="stringappend" class="level3">
+<h3><a href="#stringappend"><code>String.Append</code></a></h3>
 <p><em>(Formerly known as global function StrCat, which is now obsolete)</em></p>
 <pre><code>String.Append(string str2)
 </code></pre>
@@ -116,11 +116,11 @@ mytext = mytext.Append(&quot;World&quot;);
 Display(mytext);
 </code></pre>
 <p>will display "HelloWorld".</p>
-<p><em>See Also:</em> <a href="String.html#appendchar">String.AppendChar</a>, <a href="String.html#substring">String.Substring</a>, <a href="String.html#truncate">String.Truncate</a></p>
+<p><em>See Also:</em> <a href="String.html#stringappendchar">String.AppendChar</a>, <a href="String.html#stringsubstring">String.Substring</a>, <a href="String.html#stringtruncate">String.Truncate</a></p>
 <hr />
 </section>
-<section id="appendchar" class="level3">
-<h3><a href="#appendchar">AppendChar</a></h3>
+<section id="stringappendchar" class="level3">
+<h3><a href="#stringappendchar"><code>String.AppendChar</code></a></h3>
 <pre><code>String.AppendChar(char extraChar)
 </code></pre>
 <p>Appends a single character to the end of the specified string, and returns the result.</p>
@@ -131,11 +131,11 @@ mytext = mytext.AppendChar(&#39;o&#39;);
 Display(mytext);
 </code></pre>
 <p>will display "Hello".</p>
-<p><em>See Also:</em> <a href="String.html#append">String.Append</a></p>
+<p><em>See Also:</em> <a href="String.html#stringappend">String.Append</a></p>
 <hr />
 </section>
-<section id="compareto" class="level3">
-<h3><a href="#compareto">CompareTo</a></h3>
+<section id="stringcompareto" class="level3">
+<h3><a href="#stringcompareto"><code>String.CompareTo</code></a></h3>
 <p><em>(Formerly known as global function StrCaseComp, which is now obsolete)</em><br> <em>(Formerly known as global function StrComp, which is now obsolete)</em></p>
 <pre><code>String.CompareTo(string str2, optional bool caseSensitive)
 </code></pre>
@@ -161,8 +161,8 @@ else {
 <p>will display "Strings match with case sensitivity off!", and then "Strings don't match with case sensitivity on!".</p>
 <hr />
 </section>
-<section id="copy" class="level3">
-<h3><a href="#copy">Copy</a></h3>
+<section id="stringcopy" class="level3">
+<h3><a href="#stringcopy"><code>String.Copy</code></a></h3>
 <p><em>(Formerly known as global function StrCopy, which is now obsolete)</em></p>
 <pre><code>String.Copy()
 </code></pre>
@@ -175,8 +175,8 @@ Display(newstring);
 <p>will display "This is a test string".</p>
 <hr />
 </section>
-<section id="endswith" class="level3">
-<h3><a href="#endswith">EndsWith</a></h3>
+<section id="stringendswith" class="level3">
+<h3><a href="#stringendswith"><code>String.EndsWith</code></a></h3>
 <pre><code>bool String.EndsWith(string lookForText, optional bool caseSensitive)
 </code></pre>
 <p>Returns <em>true</em> if this string ends with <em>lookForText</em>, or <em>false</em> if not.</p>
@@ -190,11 +190,11 @@ if (myString.EndsWith(&quot;script!&quot;))
 </code></pre>
 <p>will display the "Ends with script!" message.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="String.html#indexof">String.IndexOf</a>, <a href="String.html#startswith">String.StartsWith</a></p>
+<p><em>See Also:</em> <a href="String.html#stringindexof">String.IndexOf</a>, <a href="String.html#stringstartswith">String.StartsWith</a></p>
 <hr />
 </section>
-<section id="format" class="level3">
-<h3><a href="#format">Format</a></h3>
+<section id="stringformat" class="level3">
+<h3><a href="#stringformat"><code>String.Format</code></a></h3>
 <p><em>(Formerly known as global function StrFormat, which is now obsolete)</em></p>
 <pre><code>static String.Format(string fmt, ...)
 </code></pre>
@@ -209,8 +209,8 @@ String text = String.Format(&quot;%d&quot;, health);
 <p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a></p>
 <hr />
 </section>
-<section id="indexof" class="level3">
-<h3><a href="#indexof">IndexOf</a></h3>
+<section id="stringindexof" class="level3">
+<h3><a href="#stringindexof"><code>String.IndexOf</code></a></h3>
 <p><em>(Formerly known as global function StrContains, which is now obsolete)</em><br> <em>(Formerly known as String.Contains, which is now obsolete)</em></p>
 <pre><code>String.IndexOf(string needle)
 </code></pre>
@@ -227,11 +227,11 @@ else {
   Display(&quot;a needle was found starting at character %d in the string.&quot;, result);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="String.html#endswith">String.EndsWith</a>, <a href="String.html#startswith">String.StartsWith</a></p>
+<p><em>See Also:</em> <a href="String.html#stringendswith">String.EndsWith</a>, <a href="String.html#stringstartswith">String.StartsWith</a></p>
 <hr />
 </section>
-<section id="isnullorempty" class="level3">
-<h3><a href="#isnullorempty">IsNullOrEmpty</a></h3>
+<section id="stringisnullorempty" class="level3">
+<h3><a href="#stringisnullorempty"><code>String.IsNullOrEmpty</code></a></h3>
 <pre><code>static bool String.IsNullOrEmpty(String stringToCheck)
 </code></pre>
 <p>Returns whether the supplied string is null or empty. This is simply shorthand for the following:</p>
@@ -250,8 +250,8 @@ if (String.IsNullOrEmpty(myString))
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <hr />
 </section>
-<section id="lowercase" class="level3">
-<h3><a href="#lowercase">LowerCase</a></h3>
+<section id="stringlowercase" class="level3">
+<h3><a href="#stringlowercase"><code>String.LowerCase</code></a></h3>
 <p><em>(Formerly known as global function StrToLowerCase, which is now obsolete)</em></p>
 <pre><code>String.LowerCase()
 </code></pre>
@@ -263,11 +263,11 @@ String lowercased = mystring.LowerCase();
 Display(&quot;Old: %s, new: %s&quot;, mystring, lowercased);
 </code></pre>
 <p>will display "Old: THIS is a test string, new: this is a test string".</p>
-<p><em>See Also:</em> <a href="String.html#uppercase">String.UpperCase</a></p>
+<p><em>See Also:</em> <a href="String.html#stringuppercase">String.UpperCase</a></p>
 <hr />
 </section>
-<section id="replace" class="level3">
-<h3><a href="#replace">Replace</a></h3>
+<section id="stringreplace" class="level3">
+<h3><a href="#stringreplace"><code>String.Replace</code></a></h3>
 <pre><code>String.Replace(string lookForText, string replaceWithText,
                optional bool caseSensitive)
 </code></pre>
@@ -281,11 +281,11 @@ Display(&quot;Old: %s, new: %s&quot;, original, changed);
 </code></pre>
 <p>will display "Old: Hello from the script!, new: goodbye from the script!".</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="String.html#replacecharat">String.ReplaceCharAt</a></p>
+<p><em>See Also:</em> <a href="String.html#stringreplacecharat">String.ReplaceCharAt</a></p>
 <hr />
 </section>
-<section id="replacecharat" class="level3">
-<h3><a href="#replacecharat">ReplaceCharAt</a></h3>
+<section id="stringreplacecharat" class="level3">
+<h3><a href="#stringreplacecharat"><code>String.ReplaceCharAt</code></a></h3>
 <p><em>(Formerly known as global function StrSetCharAt, which is now obsolete)</em></p>
 <pre><code>String.ReplaceCharAt(int index, char newChar)
 </code></pre>
@@ -298,11 +298,11 @@ String changed = mystring.ReplaceCharAt(2, &#39;m&#39;);
 Display(&quot;Old: %s, new: %s&quot;, newstring, changed);
 </code></pre>
 <p>will display "Old: Hello, new: Hemlo".</p>
-<p><em>See Also:</em> <a href="String.html#chars">String.Chars</a>, <a href="String.html#replace">String.Replace</a></p>
+<p><em>See Also:</em> <a href="String.html#stringchars">String.Chars</a>, <a href="String.html#stringreplace">String.Replace</a></p>
 <hr />
 </section>
-<section id="startswith" class="level3">
-<h3><a href="#startswith">StartsWith</a></h3>
+<section id="stringstartswith" class="level3">
+<h3><a href="#stringstartswith"><code>String.StartsWith</code></a></h3>
 <pre><code>bool String.StartsWith(string lookForText, optional bool caseSensitive)
 </code></pre>
 <p>Returns <em>true</em> if this string starts with <em>lookForText</em>, or <em>false</em> if not.</p>
@@ -316,11 +316,11 @@ if (myString.StartsWith(&quot;hello&quot;))
 </code></pre>
 <p>will display the "Starts with hello!" message.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="String.html#endswith">String.EndsWith</a>, <a href="String.html#indexof">String.IndexOf</a></p>
+<p><em>See Also:</em> <a href="String.html#stringendswith">String.EndsWith</a>, <a href="String.html#stringindexof">String.IndexOf</a></p>
 <hr />
 </section>
-<section id="substring" class="level3">
-<h3><a href="#substring">Substring</a></h3>
+<section id="stringsubstring" class="level3">
+<h3><a href="#stringsubstring"><code>String.Substring</code></a></h3>
 <pre><code>String.Substring(int index, int length)
 </code></pre>
 <p>Returns part of the string, starting from character <em>index</em> and <em>length</em> characters long.</p>
@@ -331,11 +331,11 @@ String substring = mystring.Substring(3, 5);
 Display(&quot;Original: %s, Substring: %s&quot;, mystring, substring);
 </code></pre>
 <p>will display "Original: Hello World!, Substring: lo Wo".</p>
-<p><em>See Also:</em> <a href="String.html#append">String.Append</a>, <a href="String.html#chars">String.Chars</a></p>
+<p><em>See Also:</em> <a href="String.html#stringappend">String.Append</a>, <a href="String.html#stringchars">String.Chars</a></p>
 <hr />
 </section>
-<section id="truncate" class="level3">
-<h3><a href="#truncate">Truncate</a></h3>
+<section id="stringtruncate" class="level3">
+<h3><a href="#stringtruncate"><code>String.Truncate</code></a></h3>
 <pre><code>String.Truncate(int length)
 </code></pre>
 <p>Returns a version of the string that has been truncated down to <em>length</em> characters.</p>
@@ -346,11 +346,11 @@ String truncated = mystring.Truncate(4);
 Display(&quot;Original: %s, Truncated: %s&quot;, mystring, truncated);
 </code></pre>
 <p>will display "Original: Hello World!, Truncated: Hell".</p>
-<p><em>See Also:</em> <a href="String.html#append">String.Append</a>, <a href="String.html#substring">String.Substring</a></p>
+<p><em>See Also:</em> <a href="String.html#stringappend">String.Append</a>, <a href="String.html#stringsubstring">String.Substring</a></p>
 <hr />
 </section>
-<section id="uppercase" class="level3">
-<h3><a href="#uppercase">UpperCase</a></h3>
+<section id="stringuppercase" class="level3">
+<h3><a href="#stringuppercase"><code>String.UpperCase</code></a></h3>
 <p><em>(Formerly known as global function StrToUpperCase, which is now obsolete)</em></p>
 <pre><code>String.UpperCase()
 </code></pre>
@@ -362,11 +362,11 @@ String uppercased = mystring.UpperCase();
 Display(&quot;Old: %s, new: %s&quot;, mystring, uppercased);
 </code></pre>
 <p>will display "Old: THIS is a test string, new: THIS IS A TEST STRING".</p>
-<p><em>See Also:</em> <a href="String.html#lowercase">String.LowerCase</a></p>
+<p><em>See Also:</em> <a href="String.html#stringlowercase">String.LowerCase</a></p>
 <hr />
 </section>
-<section id="asfloat" class="level3">
-<h3><a href="#asfloat">AsFloat</a></h3>
+<section id="stringasfloat" class="level3">
+<h3><a href="#stringasfloat"><code>String.AsFloat</code></a></h3>
 <pre><code>readonly float String.AsFloat;
 </code></pre>
 <p>Converts the string into a float, and returns that value. Returns 0.0 if the string does not contain a number.</p>
@@ -379,12 +379,12 @@ number1 = text1.AsFloat;
 number2 = text2.AsFloat;
 </code></pre>
 <p>will set number1 value to 57.362 and number2 value to 0.0 This function is useful for processing strings input from the user.</p>
-<p><strong>NOTE:</strong> To convert a float to a string, you can use the <a href="String.html#format">String.Format</a> command.</p>
-<p><em>See Also:</em> <a href="Game.html#inputbox">Game.InputBox</a>, <a href="String.html#asint">String.AsInt</a>, <a href="String.html#format">String.Format</a></p>
+<p><strong>NOTE:</strong> To convert a float to a string, you can use the <a href="String.html#stringformat">String.Format</a> command.</p>
+<p><em>See Also:</em> <a href="Game.html#gameinputbox">Game.InputBox</a>, <a href="String.html#stringasint">String.AsInt</a>, <a href="String.html#stringformat">String.Format</a></p>
 <hr />
 </section>
-<section id="asint" class="level3">
-<h3><a href="#asint">AsInt</a></h3>
+<section id="stringasint" class="level3">
+<h3><a href="#stringasint"><code>String.AsInt</code></a></h3>
 <p><em>(Formerly known as global function StringToInt, which is now obsolete)</em></p>
 <pre><code>readonly int String.AsInt;
 </code></pre>
@@ -399,29 +399,29 @@ number1 = text1.AsInt;
 number2 = text2.AsInt;
 </code></pre>
 <p>will set number1 value to 53 and number2 value to 0. This function is useful for processing strings input from the user.</p>
-<p><strong>NOTE:</strong> To convert an integer to a string, you can use the <a href="String.html#format">String.Format</a> command.</p>
-<p><em>See Also:</em> <a href="Game.html#inputbox">Game.InputBox</a>, <a href="String.html#asfloat">String.AsFloat</a>, <a href="String.html#format">String.Format</a></p>
+<p><strong>NOTE:</strong> To convert an integer to a string, you can use the <a href="String.html#stringformat">String.Format</a> command.</p>
+<p><em>See Also:</em> <a href="Game.html#gameinputbox">Game.InputBox</a>, <a href="String.html#stringasfloat">String.AsFloat</a>, <a href="String.html#stringformat">String.Format</a></p>
 <hr />
 </section>
-<section id="chars" class="level3">
-<h3><a href="#chars">Chars</a></h3>
+<section id="stringchars" class="level3">
+<h3><a href="#stringchars"><code>String.Chars</code></a></h3>
 <p><em>(Formerly known as global function StrGetCharAt, which is now obsolete)</em></p>
 <pre><code>readonly char String.Chars[position];
 </code></pre>
 <p>Returns the character at POSITION within the string.</p>
 <p>POSITION is the character index (where 0 is the first character, and the last allowable value is the Length minus 1).</p>
 <p>If POSITION is outside the string, this function returns 0.</p>
-<p><strong>NOTE:</strong> The <em>Chars</em> array is read-only. If you want to change one of the characters in the string, use <a href="String.html#replacecharat">String.ReplaceCharAt</a>.</p>
+<p><strong>NOTE:</strong> The <em>Chars</em> array is read-only. If you want to change one of the characters in the string, use <a href="String.html#stringreplacecharat">String.ReplaceCharAt</a>.</p>
 <p>Example:</p>
 <pre><code>String text = &quot;This is my string.&quot;;
 Display(&quot;The 4th character is: %c&quot;, text.Chars[3]);
 </code></pre>
 <p>will display "The 4th character is: s".</p>
-<p><em>See Also:</em> <a href="String.html#length">String.Length</a>, <a href="String.html#replacecharat">String.ReplaceCharAt</a></p>
+<p><em>See Also:</em> <a href="String.html#stringlength">String.Length</a>, <a href="String.html#stringreplacecharat">String.ReplaceCharAt</a></p>
 <hr />
 </section>
-<section id="length" class="level3">
-<h3><a href="#length">Length</a></h3>
+<section id="stringlength" class="level3">
+<h3><a href="#stringlength"><code>String.Length</code></a></h3>
 <p><em>(Formerly known as global function StrLen, which is now obsolete)</em></p>
 <pre><code>readonly int String.Length;
 </code></pre>
@@ -441,7 +441,7 @@ Display(&quot;Length: %d&quot;, text.Length);
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:51 PM</p>
+      <p>Build: 10/06/2019 10:30:43 PM</p>
     </section>
   </footer>
 

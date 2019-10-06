@@ -76,21 +76,21 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#parser-functions"><span>Parser functions</span></a><ul>
-<li><a href="#findwordid"><span>FindWordID</span></a></li>
-<li><a href="#parsetext"><span>ParseText</span></a></li>
-<li><a href="#said"><span>Said</span></a></li>
-<li><a href="#saidunknownword"><span>SaidUnknownWord</span></a></li>
+<li><a href="#parser-functions"><span><code>Parser</code> functions</span></a><ul>
+<li><a href="#parserfindwordid"><span><code>Parser.FindWordID</code></span></a></li>
+<li><a href="#parserparsetext"><span><code>Parser.ParseText</code></span></a></li>
+<li><a href="#parsersaid"><span><code>Parser.Said</code></span></a></li>
+<li><a href="#parsersaidunknownword"><span><code>Parser.SaidUnknownWord</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="parser-functions" class="level2">
-<h2><a href="#parser-functions">Parser functions</a></h2>
+<h2><a href="#parser-functions"><code>Parser</code> functions</a></h2>
 <p>You can look into <a href="TextParser.html">TextParser</a> for additional help on using the parser in your games.</p>
-<section id="findwordid" class="level3">
-<h3><a href="#findwordid">FindWordID</a></h3>
+<section id="parserfindwordid" class="level3">
+<h3><a href="#parserfindwordid"><code>Parser.FindWordID</code></a></h3>
 <pre><code>static int Parser.FindWordID(string wordToFind)
 </code></pre>
 <p>Looks up <em>wordToFind</em> in the text parser dictionary, and returns the ID number.</p>
@@ -106,11 +106,11 @@
 </code></pre>
 <p>will display a message if the game dictionary includes "machine"</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Parser.html#parsetext">Parser.ParseText</a></p>
+<p><em>See Also:</em> <a href="Parser.html#parserparsetext">Parser.ParseText</a></p>
 <hr />
 </section>
-<section id="parsetext" class="level3">
-<h3><a href="#parsetext">ParseText</a></h3>
+<section id="parserparsetext" class="level3">
+<h3><a href="#parserparsetext"><code>Parser.ParseText</code></a></h3>
 <pre><code>static Parser.ParseText(string text)
 </code></pre>
 <p>Stores the supplied user text string for later use by Said. You need to call this command first with the user's input before using the Said command. You would usually call this inside the text box's OnActivate event handler.</p>
@@ -119,11 +119,11 @@
  Parser.ParseText(command);
 </code></pre>
 <p>will get the players input and store it in string "command" for use with the said command.</p>
-<p><em>See Also:</em> <a href="Parser.html#findwordid">Parser.FindWordID</a>, <a href="Parser.html#said">Parser.Said</a></p>
+<p><em>See Also:</em> <a href="Parser.html#parserfindwordid">Parser.FindWordID</a>, <a href="Parser.html#parsersaid">Parser.Said</a></p>
 <hr />
 </section>
-<section id="said" class="level3">
-<h3><a href="#said">Said</a></h3>
+<section id="parsersaid" class="level3">
+<h3><a href="#parsersaid"><code>Parser.Said</code></a></h3>
 <pre><code>static bool Parser.Said(string text)
 </code></pre>
 <p>Checks whether the player typed in TEXT in their input passed to ParseText. Returns <em>true</em> if it matches, <em>false</em> otherwise.</p>
@@ -137,11 +137,11 @@ if (Parser.Said(&quot;load&quot;)) {
 }
 </code></pre>
 <p>will bring up the restore game dialogue if the player types "load" in the text parser.</p>
-<p><em>See Also:</em> <a href="Parser.html#parsetext">Parser.ParseText</a>, <a href="Parser.html#saidunknownword">Parser.SaidUnknownWord</a></p>
+<p><em>See Also:</em> <a href="Parser.html#parserparsetext">Parser.ParseText</a>, <a href="Parser.html#parsersaidunknownword">Parser.SaidUnknownWord</a></p>
 <hr />
 </section>
-<section id="saidunknownword" class="level3">
-<h3><a href="#saidunknownword">SaidUnknownWord</a></h3>
+<section id="parsersaidunknownword" class="level3">
+<h3><a href="#parsersaidunknownword"><code>Parser.SaidUnknownWord</code></a></h3>
 <pre><code>static String Parser.SaidUnknownWord()
 </code></pre>
 <p>If a word not in the game dictionary was submitted to the last ParseText call, then the word is returned by this command. This allows you to display a message like "Sorry, this game doesn't recognize 'XXXX'."</p>
@@ -152,7 +152,7 @@ if (badWord != null)
    Display(&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;, badWord);
 </code></pre>
 <p>will display the message if the player types a word that's not in the vocabulary.</p>
-<p><em>See Also:</em> <a href="Parser.html#parsetext">Parser.ParseText</a>, <a href="Parser.html#said">Parser.Said</a></p>
+<p><em>See Also:</em> <a href="Parser.html#parserparsetext">Parser.ParseText</a>, <a href="Parser.html#parsersaid">Parser.Said</a></p>
 </section>
 </section>
         </div>
@@ -163,7 +163,7 @@ if (badWord != null)
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:52 PM</p>
+      <p>Build: 10/06/2019 10:30:44 PM</p>
     </section>
   </footer>
 

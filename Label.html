@@ -76,22 +76,22 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#label-functions-and-properties"><span>Label functions and properties</span></a><ul>
-<li><a href="#font"><span>Font</span></a></li>
-<li><a href="#text"><span>Text</span></a></li>
-<li><a href="#textalignment"><span>TextAlignment</span></a></li>
-<li><a href="#textcolor"><span>TextColor</span></a></li>
+<li><a href="#label-functions-and-properties"><span><code>Label</code> functions and properties</span></a><ul>
+<li><a href="#labelfont"><span><code>Label.Font</code></span></a></li>
+<li><a href="#labeltext"><span><code>Label.Text</code></span></a></li>
+<li><a href="#labeltextalignment"><span><code>Label.TextAlignment</code></span></a></li>
+<li><a href="#labeltextcolor"><span><code>Label.TextColor</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="label-functions-and-properties" class="level2">
-<h2><a href="#label-functions-and-properties">Label functions and properties</a></h2>
+<h2><a href="#label-functions-and-properties"><code>Label</code> functions and properties</a></h2>
 <p>Label is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
-<section id="font" class="level3">
-<h3><a href="#font">Font</a></h3>
+<section id="labelfont" class="level3">
+<h3><a href="#labelfont"><code>Label.Font</code></a></h3>
 <p><em>(Formerly known as SetLabelFont, which is now obsolete)</em></p>
 <pre><code>FontType Label.Font;
 </code></pre>
@@ -102,11 +102,11 @@
 }
 </code></pre>
 <p>will change label 'lblStatus' to use font "Foreign" if a game translation is in use.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Label.html#text">Label.Text</a>, <a href="TextBox.html#font">TextBox.Font</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Label.html#labeltext">Label.Text</a>, <a href="TextBox.html#textboxfont">TextBox.Font</a></p>
 <hr />
 </section>
-<section id="text" class="level3">
-<h3><a href="#text">Text</a></h3>
+<section id="labeltext" class="level3">
+<h3><a href="#labeltext"><code>Label.Text</code></a></h3>
 <p><em>(Formerly known as SetLabelText, which is now obsolete)</em><br> <em>(Formerly known as Label.GetText, which is now obsolete)</em><br> <em>(Formerly known as Label.SetText, which is now obsolete)</em></p>
 <pre><code>String Label.Text;
 </code></pre>
@@ -115,20 +115,20 @@
 <pre><code>lblStatus.Text = Game.GetLocationName(mouse.x, mouse.y);
 </code></pre>
 <p>will display the name of the location the cursor is over on label 'lblStatus'</p>
-<p><em>See Also:</em> <a href="Button.html#normalgraphic">Button.NormalGraphic</a>, <a href="Button.html#text">Button.Text</a>, <a href="Label.html#textcolor">Label.TextColor</a>, <a href="Label.html#font">Label.Font</a></p>
+<p><em>See Also:</em> <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>, <a href="Button.html#buttontext">Button.Text</a>, <a href="Label.html#labeltextcolor">Label.TextColor</a>, <a href="Label.html#labelfont">Label.Font</a></p>
 <hr />
 </section>
-<section id="textalignment" class="level3">
-<h3><a href="#textalignment">TextAlignment</a></h3>
+<section id="labeltextalignment" class="level3">
+<h3><a href="#labeltextalignment"><code>Label.TextAlignment</code></a></h3>
 <pre><code>HorizontalAlignment Label.TextAlignment;
 </code></pre>
 <p>Gets/sets how the text is aligned relative to the label's rectangle. Note that currently label supports only horizontal alignment which could be eAlignLeft, eAlignRight and eAlignCenter.</p>
-<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#font">Label.Font</a>, <a href="Label.html#text">Label.Text</a></p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#labelfont">Label.Font</a>, <a href="Label.html#labeltext">Label.Text</a></p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
-<section id="textcolor" class="level3">
-<h3><a href="#textcolor">TextColor</a></h3>
+<section id="labeltextcolor" class="level3">
+<h3><a href="#labeltextcolor"><code>Label.TextColor</code></a></h3>
 <p><em>(Formerly known as SetLabelColor, which is now obsolete)</em></p>
 <pre><code>int Label.TextColor;
 </code></pre>
@@ -137,7 +137,7 @@
 <pre><code>lblStatus.TextColor = 14;
 </code></pre>
 <p>will change label 'lblStatus' to have yellow text.</p>
-<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="Label.html#text">Label.Text</a></p>
+<p><em>See Also:</em> <a href="Label.html#labelfont">Label.Font</a>, <a href="Label.html#labeltext">Label.Text</a></p>
 </section>
 </section>
         </div>
@@ -148,7 +148,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:58 PM</p>
+      <p>Build: 10/06/2019 10:30:49 PM</p>
     </section>
   </footer>
 

@@ -102,15 +102,15 @@
 <p>When you upgrade an old game, the original file location for where AGS thinks your audio files came from is set to the "Sound" and "Music" folders. Therefore, keeping these folders is advisable initially as it allows you to continue to update the existing files in the same way you always have done, and AGS will automatically pick up the changes.</p>
 <p>But going forward, as you import new audio files, there's no need to have them in the Sound or Music folders; import them from wherever you like.</p>
 <p><strong>What about controlling the volume?</strong></p>
-<p>Glad you asked! Instead of all those old commands like SetMusicVolume, SetDigitalMasterVolume, etc, there is now simply one overall system volume (<a href="System.html#volume">System.Volume</a>), and then each sound that is playing has its own volume control as well. This is controlled by the <a href="AudioChannel.html#volume">Volume property</a> on the audio channel (see the <a href="MusicAndSound.html">Audio page</a> for details on this).</p>
-<p>Finally, you can update the volume of one particular type of audio (eg. sound, music) by using the <a href="Multimedia.html#setaudiotypevolume">Game.SetAudioTypeVolume</a> command.</p>
+<p>Glad you asked! Instead of all those old commands like SetMusicVolume, SetDigitalMasterVolume, etc, there is now simply one overall system volume (<a href="System.html#systemvolume">System.Volume</a>), and then each sound that is playing has its own volume control as well. This is controlled by the <a href="AudioChannel.html#audiochannelvolume">Volume property</a> on the audio channel (see the <a href="MusicAndSound.html">Audio page</a> for details on this).</p>
+<p>Finally, you can update the volume of one particular type of audio (eg. sound, music) by using the <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a> command.</p>
 <p><strong>Wait, what's an audio channel?</strong></p>
 <p>AGS uses two new concepts -- Audio Clips (which represent a particular sound file), and Audio Channels (which represent a currently playing piece of audio). The reason for this distinction is that you might have the same sound effect playing two or more times simultaneously, and having Audio Channels allows you to control each one individually. The <a href="MusicAndSound.html">Audio page</a> describes this further.</p>
 <p><strong>PlayAmbientSound is obsolete! How do I do ambient sounds?</strong></p>
-<p>Ambient Sounds were a bit of an oddity in AGS, caused by the fact that you couldn't tell a PlaySound command to loop the sound. With the new audio system, the <a href="AudioClip.html#play">Play command</a> has an optional Repeat parameter, allowing you to specify whether it loops or not.</p>
-<p>The X/Y directional aspect of PlayAmbientSound is supported by the <a href="AudioChannel.html#setroomlocation">SetRoomLocation</a> command on the audio channel.</p>
+<p>Ambient Sounds were a bit of an oddity in AGS, caused by the fact that you couldn't tell a PlaySound command to loop the sound. With the new audio system, the <a href="AudioClip.html#audioclipplay">Play command</a> has an optional Repeat parameter, allowing you to specify whether it loops or not.</p>
+<p>The X/Y directional aspect of PlayAmbientSound is supported by the <a href="AudioChannel.html#audiochannelsetroomlocation">SetRoomLocation</a> command on the audio channel.</p>
 <p><strong>Is there any new cool stuff that I can do?</strong></p>
-<p>You can now adjust the left-right panning of audio, using the <a href="AudioChannel.html#panning">AudioChannel.Panning</a> property. You also have finer control over syncing up different pieces of audio, through the ability to get and seek offsets more accurately.</p>
+<p>You can now adjust the left-right panning of audio, using the <a href="AudioChannel.html#audiochannelpanning">AudioChannel.Panning</a> property. You also have finer control over syncing up different pieces of audio, through the ability to get and seek offsets more accurately.</p>
 <p><strong>Has voice speech changed?</strong></p>
 <p>No, speech is still handled the same way as in previous versions of AGS. You still need the Speech folder within your game folder, and name the files within it using the same naming convention as you always have done.</p>
 <p><strong>Where should I look for more info?</strong></p>
@@ -124,7 +124,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:49 PM</p>
+      <p>Build: 10/06/2019 10:30:41 PM</p>
     </section>
   </footer>
 

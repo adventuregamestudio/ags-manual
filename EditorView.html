@@ -128,14 +128,14 @@ You can add a lot of object animations to one single view, but you could for exa
 <h3><a href="#show-preview">Show Preview</a></h3>
 <p>When you tick the checkbox above the Loops called <strong>Show Preview</strong> you get to see a preview of the animation of course. It is located to the left of the list of Loops and you can either manually browse through all the frames of the Loop or you check the <strong>animate</strong> checkbox to see it in motion.</p>
 <p>The <strong>Skip Frame 0 (standing Frame)</strong> Checkbox does exactly that, it skips Frame 0 for the preview animation. This is only important for previews for views that are used as walking views for a character.<br />
-When you animate a <a href="Object.html#animate">game object</a> or you want the <a href="Character.html#animate">character to animate</a> different from walking (like picking up an <a href="EditorInventoryItems.html">Inventory Item</a>) Frame 0 is always included in the animation. When the view is used as a walking view Frame 0 is skipped for the animation until the character reaches the endpoint of the walk and stops there. Then Frame 0 is displayed all the time in the direction the character is facing when he stopped walking.</p>
+When you animate a <a href="Object.html#objectanimate">game object</a> or you want the <a href="Character.html#characteranimate">character to animate</a> different from walking (like picking up an <a href="EditorInventoryItems.html">Inventory Item</a>) Frame 0 is always included in the animation. When the view is used as a walking view Frame 0 is skipped for the animation until the character reaches the endpoint of the walk and stops there. Then Frame 0 is displayed all the time in the direction the character is facing when he stopped walking.</p>
 <p><img src="images/EditorView_3.png" /></p>
 </section>
 <section id="properties" class="level3">
 <h3><a href="#properties">Properties</a></h3>
 <p><img src="images/EditorView_4.png" /></p>
 <p><em>Delay</em><br />
-With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the game-speed for easy debugging with <a href="Globalfunctions_General.html#getgamespeed">GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Globalfunctions_General.html#setgamespeed">SetGameSpeed</a>. By default AGS games run at 40 FPS. This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#animate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
+With the delay setting you delay the displaytime of the one selected <em>frame</em> only by that amount. This delay is in game frames, so, how long the delay is in time depends on the frames per second your game is running on. You can check the game-speed for easy debugging with <a href="Globalfunctions_General.html#getgamespeed">GetGameSpeed</a>. In your start function you can even set the FPS with <a href="Globalfunctions_General.html#setgamespeed">SetGameSpeed</a>. By default AGS games run at 40 FPS. This delay value is specific to one frame only. And you can slow down the whole animation with the Delay value of the <a href="Object.html#objectanimate">Animate</a> function. This frame delay is added to the overall loop delay.</p>
 <p><em>Flipped</em><br />
 You flip that one frame with that property. Very useful for mirrored animations like in walkcycles for left and right walk. Don't have a character with a cane then. Please note you can also flip the whole loop and not only a single frame within the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a>.</p>
 <p><em>Image</em><br />
@@ -155,7 +155,7 @@ Useful for footsteps and all other sounds needed for object animations.</p>
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:53 PM</p>
+      <p>Build: 10/06/2019 10:30:45 PM</p>
     </section>
   </footer>
 

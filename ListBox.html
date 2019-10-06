@@ -76,43 +76,43 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#listbox-functions-and-properties"><span>ListBox functions and properties</span></a><ul>
-<li><a href="#additem"><span>AddItem</span></a></li>
-<li><a href="#clear"><span>Clear</span></a></li>
-<li><a href="#filldirlist"><span>FillDirList</span></a></li>
-<li><a href="#fillsavegamelist"><span>FillSaveGameList</span></a></li>
-<li><a href="#getitematlocation"><span>GetItemAtLocation</span></a></li>
-<li><a href="#insertitemat"><span>InsertItemAt</span></a></li>
-<li><a href="#removeitem"><span>RemoveItem</span></a></li>
-<li><a href="#scrolldown"><span>ScrollDown</span></a></li>
-<li><a href="#scrollup"><span>ScrollUp</span></a></li>
-<li><a href="#font"><span>Font</span></a></li>
-<li><a href="#hideborder"><span>HideBorder</span></a></li>
-<li><a href="#hidescrollarrows"><span>HideScrollArrows</span></a></li>
-<li><a href="#itemcount"><span>ItemCount</span></a></li>
-<li><a href="#items"><span>Items</span></a></li>
-<li><a href="#rowcount"><span>RowCount</span></a></li>
-<li><a href="#savegameslots"><span>SaveGameSlots</span></a></li>
-<li><a href="#selectedbackcolor"><span>SelectedBackColor</span></a></li>
-<li><a href="#selectedindex"><span>SelectedIndex</span></a></li>
-<li><a href="#selectedtextcolor"><span>SelectedTextColor</span></a></li>
-<li><a href="#showborder"><span>ShowBorder</span></a></li>
-<li><a href="#showscrollarrows"><span>ShowScrollArrows</span></a></li>
-<li><a href="#textalignment"><span>TextAlignment</span></a></li>
-<li><a href="#textcolor"><span>TextColor</span></a></li>
-<li><a href="#topitem"><span>TopItem</span></a></li>
-<li><a href="#translated"><span>Translated</span></a></li>
+<li><a href="#listbox-functions-and-properties"><span><code>ListBox</code> functions and properties</span></a><ul>
+<li><a href="#listboxadditem"><span><code>ListBox.AddItem</code></span></a></li>
+<li><a href="#listboxclear"><span><code>ListBox.Clear</code></span></a></li>
+<li><a href="#listboxfilldirlist"><span><code>ListBox.FillDirList</code></span></a></li>
+<li><a href="#listboxfillsavegamelist"><span><code>ListBox.FillSaveGameList</code></span></a></li>
+<li><a href="#listboxgetitematlocation"><span><code>ListBox.GetItemAtLocation</code></span></a></li>
+<li><a href="#listboxinsertitemat"><span><code>ListBox.InsertItemAt</code></span></a></li>
+<li><a href="#listboxremoveitem"><span><code>ListBox.RemoveItem</code></span></a></li>
+<li><a href="#listboxscrolldown"><span><code>ListBox.ScrollDown</code></span></a></li>
+<li><a href="#listboxscrollup"><span><code>ListBox.ScrollUp</code></span></a></li>
+<li><a href="#listboxfont"><span><code>ListBox.Font</code></span></a></li>
+<li><a href="#listboxhideborder"><span><code>ListBox.HideBorder</code></span></a></li>
+<li><a href="#listboxhidescrollarrows"><span><code>ListBox.HideScrollArrows</code></span></a></li>
+<li><a href="#listboxitemcount"><span><code>ListBox.ItemCount</code></span></a></li>
+<li><a href="#listboxitems"><span><code>ListBox.Items</code></span></a></li>
+<li><a href="#listboxrowcount"><span><code>ListBox.RowCount</code></span></a></li>
+<li><a href="#listboxsavegameslots"><span><code>ListBox.SaveGameSlots</code></span></a></li>
+<li><a href="#listboxselectedbackcolor"><span><code>ListBox.SelectedBackColor</code></span></a></li>
+<li><a href="#listboxselectedindex"><span><code>ListBox.SelectedIndex</code></span></a></li>
+<li><a href="#listboxselectedtextcolor"><span><code>ListBox.SelectedTextColor</code></span></a></li>
+<li><a href="#listboxshowborder"><span><code>ListBox.ShowBorder</code></span></a></li>
+<li><a href="#listboxshowscrollarrows"><span><code>ListBox.ShowScrollArrows</code></span></a></li>
+<li><a href="#listboxtextalignment"><span><code>ListBox.TextAlignment</code></span></a></li>
+<li><a href="#listboxtextcolor"><span><code>ListBox.TextColor</code></span></a></li>
+<li><a href="#listboxtopitem"><span><code>ListBox.TopItem</code></span></a></li>
+<li><a href="#listboxtranslated"><span><code>ListBox.Translated</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="listbox-functions-and-properties" class="level2">
-<h2><a href="#listbox-functions-and-properties">ListBox functions and properties</a></h2>
+<h2><a href="#listbox-functions-and-properties"><code>ListBox</code> functions and properties</a></h2>
 <p>ListBox is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
-<section id="additem" class="level3">
-<h3><a href="#additem">AddItem</a></h3>
+<section id="listboxadditem" class="level3">
+<h3><a href="#listboxadditem"><code>ListBox.AddItem</code></a></h3>
 <p><em>(Formerly known as ListBoxAdd, which is now obsolete)</em></p>
 <pre><code>ListBox.AddItem(string newitem)
 </code></pre>
@@ -123,11 +123,11 @@
 lstChoices.AddItem(input);
 </code></pre>
 <p>will take the input from the user and add it to the listbox.</p>
-<p><em>See Also:</em> <a href="ListBox.html#clear">ListBox.Clear</a>, <a href="ListBox.html#filldirlist">ListBox.FillDirList</a>, <a href="ListBox.html#insertitemat">ListBox.InsertItemAt</a>, <a href="ListBox.html#items">ListBox.Items</a>, <a href="ListBox.html#removeitem">ListBox.RemoveItem</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxclear">ListBox.Clear</a>, <a href="ListBox.html#listboxfilldirlist">ListBox.FillDirList</a>, <a href="ListBox.html#listboxinsertitemat">ListBox.InsertItemAt</a>, <a href="ListBox.html#listboxitems">ListBox.Items</a>, <a href="ListBox.html#listboxremoveitem">ListBox.RemoveItem</a></p>
 <hr />
 </section>
-<section id="clear" class="level3">
-<h3><a href="#clear">Clear</a></h3>
+<section id="listboxclear" class="level3">
+<h3><a href="#listboxclear"><code>ListBox.Clear</code></a></h3>
 <p><em>(Formerly known as ListBoxClear, which is now obsolete)</em></p>
 <pre><code>ListBox.Clear()
 </code></pre>
@@ -136,11 +136,11 @@ lstChoices.AddItem(input);
 <pre><code>lstNoteBook.Clear();
 </code></pre>
 <p>will remove all the items from listbox <em>lstNoteBook</em>.</p>
-<p><em>See Also:</em> <a href="ListBox.html#additem">ListBox.AddItem</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxadditem">ListBox.AddItem</a></p>
 <hr />
 </section>
-<section id="filldirlist" class="level3">
-<h3><a href="#filldirlist">FillDirList</a></h3>
+<section id="listboxfilldirlist" class="level3">
+<h3><a href="#listboxfilldirlist"><code>ListBox.FillDirList</code></a></h3>
 <p><em>(Formerly known as ListBoxDirList, which is now obsolete)</em></p>
 <pre><code>ListBox.FillDirList(string filemask)
 </code></pre>
@@ -151,16 +151,16 @@ lstChoices.AddItem(input);
 <pre><code>lstSaveGames.FillDirList(&quot;agssave.*&quot;);
 </code></pre>
 <p>will fill the listbox with the list of the saved games. Note that actually for this task you would use FillSaveGameList instead.</p>
-<p><em>See Also:</em> <a href="ListBox.html#additem">ListBox.AddItem</a>, <a href="ListBox.html#clear">ListBox.Clear</a>, <a href="ListBox.html#fillsavegamelist">ListBox.FillSaveGameList</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxadditem">ListBox.AddItem</a>, <a href="ListBox.html#listboxclear">ListBox.Clear</a>, <a href="ListBox.html#listboxfillsavegamelist">ListBox.FillSaveGameList</a></p>
 <hr />
 </section>
-<section id="fillsavegamelist" class="level3">
-<h3><a href="#fillsavegamelist">FillSaveGameList</a></h3>
+<section id="listboxfillsavegamelist" class="level3">
+<h3><a href="#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a></h3>
 <p><em>(Formerly known as ListBoxSaveGameList, which is now obsolete)</em></p>
 <pre><code>ListBox.FillSaveGameList()
 </code></pre>
 <p>Fills the specified listbox with the save game list, sorted correctly with the most recent game at the top of the list.</p>
-<p>The <a href="ListBox.html#savegameslots">SaveGameSlots</a> property is updated to contain the save game slot number for each index in the list, so that you can do:</p>
+<p>The <a href="ListBox.html#listboxsavegameslots">SaveGameSlots</a> property is updated to contain the save game slot number for each index in the list, so that you can do:</p>
 <pre><code>int index = lstSaveGames.SelectedIndex;
 RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 </code></pre>
@@ -169,11 +169,11 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <pre><code>lstSaveGames.FillSaveGameList();
 </code></pre>
 <p>will fill listbox <em>lstSaveGames</em> with the list of the saved games.</p>
-<p><em>See Also:</em> <a href="ListBox.html#filldirlist">ListBox.FillDirList</a>, <a href="ListBox.html#itemcount">ListBox.ItemCount</a>, <a href="ListBox.html#savegameslots">ListBox.SaveGameSlots</a>, <a href="ListBox.html#selectedindex">ListBox.SelectedIndex</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxfilldirlist">ListBox.FillDirList</a>, <a href="ListBox.html#listboxitemcount">ListBox.ItemCount</a>, <a href="ListBox.html#listboxsavegameslots">ListBox.SaveGameSlots</a>, <a href="ListBox.html#listboxselectedindex">ListBox.SelectedIndex</a></p>
 <hr />
 </section>
-<section id="getitematlocation" class="level3">
-<h3><a href="#getitematlocation">GetItemAtLocation</a></h3>
+<section id="listboxgetitematlocation" class="level3">
+<h3><a href="#listboxgetitematlocation"><code>ListBox.GetItemAtLocation</code></a></h3>
 <pre><code>ListBox.GetItemAtLocation(int x, int y)
 </code></pre>
 <p>Determines which item in the list box is at the screen co-ordinates (X,Y). This allows you to find out which item the mouse is hovering over, for instance.</p>
@@ -189,11 +189,11 @@ else {
 }
 </code></pre>
 <p>will display the item text that the mouse is currently hovering over.</p>
-<p><em>See Also:</em> <a href="ListBox.html#selectedindex">ListBox.SelectedIndex</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxselectedindex">ListBox.SelectedIndex</a></p>
 <hr />
 </section>
-<section id="insertitemat" class="level3">
-<h3><a href="#insertitemat">InsertItemAt</a></h3>
+<section id="listboxinsertitemat" class="level3">
+<h3><a href="#listboxinsertitemat"><code>ListBox.InsertItemAt</code></a></h3>
 <pre><code>ListBox.InsertItemAt(int index, string newitem)
 </code></pre>
 <p>Inserts NEWITEM into the specified list box. The item will be inserted <strong>before</strong> the specified index.</p>
@@ -205,16 +205,16 @@ lstChoices.AddItem(&quot;Second item&quot;);
 lstChoices.InsertItemAt(1, &quot;Third item&quot;);
 </code></pre>
 <p>will insert the Third Item in between the First and Second items.</p>
-<p><em>See Also:</em> <a href="ListBox.html#additem">ListBox.AddItem</a>, <a href="ListBox.html#removeitem">ListBox.RemoveItem</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxadditem">ListBox.AddItem</a>, <a href="ListBox.html#listboxremoveitem">ListBox.RemoveItem</a></p>
 <hr />
 </section>
-<section id="removeitem" class="level3">
-<h3><a href="#removeitem">RemoveItem</a></h3>
+<section id="listboxremoveitem" class="level3">
+<h3><a href="#listboxremoveitem"><code>ListBox.RemoveItem</code></a></h3>
 <p><em>(Formerly known as ListBoxRemove, which is now obsolete)</em></p>
 <pre><code>ListBox.RemoveItem(int item)
 </code></pre>
 <p>Removes ITEM from the specified list box. ITEM is the list index of the item to remove, starting with 0 for the top item.</p>
-<p>If you want to remove all items from the list, then use <a href="ListBox.html#clear">ListBox.Clear</a> instead.</p>
+<p>If you want to remove all items from the list, then use <a href="ListBox.html#listboxclear">ListBox.Clear</a> instead.</p>
 <p><strong>NOTE:</strong> Calling this function causes other items in the list to get re-numbered, so make sure you don't keep around any references from ListBox.SelectedIndex and related functions while using this command.</p>
 <p>Example:</p>
 <pre><code>lstTest.AddItem(&quot;First item&quot;);
@@ -222,11 +222,11 @@ lstTest.AddItem(&quot;Second item&quot;);
 lstTest.RemoveItem(0);
 </code></pre>
 <p>the list box will now just contain "Second item".</p>
-<p><em>See Also:</em> <a href="ListBox.html#clear">ListBox.Clear</a>, <a href="ListBox.html#filldirlist">ListBox.FillDirList</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxclear">ListBox.Clear</a>, <a href="ListBox.html#listboxfilldirlist">ListBox.FillDirList</a></p>
 <hr />
 </section>
-<section id="scrolldown" class="level3">
-<h3><a href="#scrolldown">ScrollDown</a></h3>
+<section id="listboxscrolldown" class="level3">
+<h3><a href="#listboxscrolldown"><code>ListBox.ScrollDown</code></a></h3>
 <pre><code>ListBox.ScrollDown()
 </code></pre>
 <p>Scrolls the list box down one row. If it is already at the bottom, nothing happens.</p>
@@ -234,11 +234,11 @@ lstTest.RemoveItem(0);
 <pre><code>lstTest.ScrollDown();
 </code></pre>
 <p>will scroll the <em>lstTest</em> list box down one row.</p>
-<p><em>See Also:</em> <a href="ListBox.html#scrollup">ListBox.ScrollUp</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxscrollup">ListBox.ScrollUp</a></p>
 <hr />
 </section>
-<section id="scrollup" class="level3">
-<h3><a href="#scrollup">ScrollUp</a></h3>
+<section id="listboxscrollup" class="level3">
+<h3><a href="#listboxscrollup"><code>ListBox.ScrollUp</code></a></h3>
 <pre><code>ListBox.ScrollUp()
 </code></pre>
 <p>Scrolls the list box up one row. If it is already at the top, nothing happens.</p>
@@ -246,11 +246,11 @@ lstTest.RemoveItem(0);
 <pre><code>lstTest.ScrollUp();
 </code></pre>
 <p>will scroll the <em>lstTest</em> list box up one row.</p>
-<p><em>See Also:</em> <a href="ListBox.html#scrolldown">ListBox.ScrollDown</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxscrolldown">ListBox.ScrollDown</a></p>
 <hr />
 </section>
-<section id="font" class="level3">
-<h3><a href="#font">Font</a></h3>
+<section id="listboxfont" class="level3">
+<h3><a href="#listboxfont"><code>ListBox.Font</code></a></h3>
 <pre><code>FontType ListBox.Font
 </code></pre>
 <p>Gets/sets the font used by the specified list box.</p>
@@ -258,27 +258,27 @@ lstTest.RemoveItem(0);
 <pre><code>lstSaveGames.Font = eFontSpeech;
 </code></pre>
 <p>will change the <em>lstSaveGames</em> list box to use Font "Speech".</p>
-<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
+<p><em>See Also:</em> <a href="Label.html#labelfont">Label.Font</a>, <a href="TextBox.html#textboxtext">TextBox.Text</a></p>
 <hr />
 </section>
-<section id="hideborder" class="level3">
-<h3><a href="#hideborder">HideBorder</a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#showborder">ListBox.ShowBorder</a> instead.</strong></p>
+<section id="listboxhideborder" class="level3">
+<h3><a href="#listboxhideborder"><code>ListBox.HideBorder</code></a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#listboxshowborder">ListBox.ShowBorder</a> instead.</strong></p>
 <pre><code>bool ListBox.HideBorder
 </code></pre>
 <p>Gets/sets whether the list box's border is <em>hidden</em>.</p>
 <hr />
 </section>
-<section id="hidescrollarrows" class="level3">
-<h3><a href="#hidescrollarrows">HideScrollArrows</a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a> instead.</strong></p>
+<section id="listboxhidescrollarrows" class="level3">
+<h3><a href="#listboxhidescrollarrows"><code>ListBox.HideScrollArrows</code></a></h3>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="ListBox.html#listboxshowscrollarrows">ListBox.ShowScrollArrows</a> instead.</strong></p>
 <pre><code>bool ListBox.HideScrollArrows
 </code></pre>
 <p>Gets/sets whether the built-in up/down scroll arrows are <em>hidden</em>.</p>
 <hr />
 </section>
-<section id="itemcount" class="level3">
-<h3><a href="#itemcount">ItemCount</a></h3>
+<section id="listboxitemcount" class="level3">
+<h3><a href="#listboxitemcount"><code>ListBox.ItemCount</code></a></h3>
 <p><em>(Formerly known as ListBoxGetNumItems, which is now obsolete)</em></p>
 <pre><code>readonly int ListBox.ItemCount
 </code></pre>
@@ -288,26 +288,26 @@ lstTest.RemoveItem(0);
 <pre><code>int saves = lstSaveGames.ItemCount;
 </code></pre>
 <p>will pass the number of saved games to the int saves.</p>
-<p><em>See Also:</em> <a href="ListBox.html#items">ListBox.Items</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxitems">ListBox.Items</a></p>
 <hr />
 </section>
-<section id="items" class="level3">
-<h3><a href="#items">Items</a></h3>
+<section id="listboxitems" class="level3">
+<h3><a href="#listboxitems"><code>ListBox.Items</code></a></h3>
 <p><em>(Formerly known as ListBoxGetItemText, which is now obsolete)</em><br> <em>(Formerly known as ListBox.GetItemText, which is now obsolete)</em><br> <em>(Formerly known as ListBox.SetItemText, which is now obsolete)</em></p>
 <pre><code>String ListBox.Items[index]
 </code></pre>
 <p>Gets/sets the text of the list box item at INDEX.</p>
 <p>List box items are numbered starting from 0, so the first item is 0, the second is 1, and so on. The highest allowable index is ItemCount minus 1.</p>
-<p>If you want to add a new item to the listbox, use the <a href="ListBox.html#additem">ListBox.AddItem</a> method.</p>
+<p>If you want to add a new item to the listbox, use the <a href="ListBox.html#listboxadditem">ListBox.AddItem</a> method.</p>
 <p>Example:</p>
 <pre><code>String selectedItemText = lstOptions.Items[lstOptions.SelectedIndex];
 </code></pre>
 <p>will get the text of the selected item in the list box.</p>
-<p><em>See Also:</em> <a href="ListBox.html#selectedindex">ListBox.SelectedIndex</a>, <a href="ListBox.html#itemcount">ListBox.ItemCount</a>, <a href="ListBox.html#additem">ListBox.AddItem</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxselectedindex">ListBox.SelectedIndex</a>, <a href="ListBox.html#listboxitemcount">ListBox.ItemCount</a>, <a href="ListBox.html#listboxadditem">ListBox.AddItem</a></p>
 <hr />
 </section>
-<section id="rowcount" class="level3">
-<h3><a href="#rowcount">RowCount</a></h3>
+<section id="listboxrowcount" class="level3">
+<h3><a href="#listboxrowcount"><code>ListBox.RowCount</code></a></h3>
 <pre><code>readonly int ListBox.RowCount
 </code></pre>
 <p>Gets the number of rows that can be shown within the list box. This depends on the size of the list box, and <strong>does not</strong> depend on how many items are actually stored in the list box.</p>
@@ -316,11 +316,11 @@ lstTest.RemoveItem(0);
 <pre><code>Display(&quot;You can currently see %d items from the listbox&#39;s contents&quot;, lstSaveGames.RowCount);
 </code></pre>
 <p>will display the number of rows that the listbox can display.</p>
-<p><em>See Also:</em> <a href="ListBox.html#itemcount">ListBox.ItemCount</a>, <a href="ListBox.html#scrolldown">ListBox.ScrollDown</a>, <a href="ListBox.html#scrollup">ListBox.ScrollUp</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxitemcount">ListBox.ItemCount</a>, <a href="ListBox.html#listboxscrolldown">ListBox.ScrollDown</a>, <a href="ListBox.html#listboxscrollup">ListBox.ScrollUp</a></p>
 <hr />
 </section>
-<section id="savegameslots" class="level3">
-<h3><a href="#savegameslots">SaveGameSlots</a></h3>
+<section id="listboxsavegameslots" class="level3">
+<h3><a href="#listboxsavegameslots"><code>ListBox.SaveGameSlots</code></a></h3>
 <p><em>(Formerly known as global array savegameindex, which is now obsolete)</em></p>
 <pre><code>readonly int ListBox.SaveGameSlots[];
 </code></pre>
@@ -332,11 +332,11 @@ lstTest.RemoveItem(0);
 RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 </code></pre>
 <p>will restore the currently selected game in the list, assuming FillSaveGameList had been used previously.</p>
-<p><em>See Also:</em> <a href="ListBox.html#fillsavegamelist">ListBox.FillSaveGameList</a>, <a href="ListBox.html#selectedindex">ListBox.SelectedIndex</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxfillsavegamelist">ListBox.FillSaveGameList</a>, <a href="ListBox.html#listboxselectedindex">ListBox.SelectedIndex</a></p>
 <hr />
 </section>
-<section id="selectedbackcolor" class="level3">
-<h3><a href="#selectedbackcolor">SelectedBackColor</a></h3>
+<section id="listboxselectedbackcolor" class="level3">
+<h3><a href="#listboxselectedbackcolor"><code>ListBox.SelectedBackColor</code></a></h3>
 <pre><code>int ListBox.SelectedBackColor
 </code></pre>
 <p>Gets/sets the fill color of the selection rectangle drawn around the selected item.</p>
@@ -344,11 +344,11 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <pre><code>lstSaveGames.SelectedBackColor = Game.GetColorFromRGB(0, 148, 255);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxfont">ListBox.Font</a>, <a href="ListBox.html#listboxselectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#listboxtextcolor">ListBox.TextColor</a></p>
 <hr />
 </section>
-<section id="selectedindex" class="level3">
-<h3><a href="#selectedindex">SelectedIndex</a></h3>
+<section id="listboxselectedindex" class="level3">
+<h3><a href="#listboxselectedindex"><code>ListBox.SelectedIndex</code></a></h3>
 <p><em>(Formerly known as ListBoxGetSelected, which is now obsolete)</em><br> <em>(Formerly known as ListBoxSetSelected, which is now obsolete)</em></p>
 <pre><code>int ListBox.SelectedIndex
 </code></pre>
@@ -360,8 +360,8 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p>will get the text of the selected item in the listbox.</p>
 <hr />
 </section>
-<section id="selectedtextcolor" class="level3">
-<h3><a href="#selectedtextcolor">SelectedTextColor</a></h3>
+<section id="listboxselectedtextcolor" class="level3">
+<h3><a href="#listboxselectedtextcolor"><code>ListBox.SelectedTextColor</code></a></h3>
 <pre><code>int ListBox.SelectedTextColor
 </code></pre>
 <p>Gets/sets the text color used for the selected item.</p>
@@ -369,11 +369,11 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <pre><code>lstSaveGames.SelectedTextColor = Game.GetColorFromRGB(255, 255, 80);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxfont">ListBox.Font</a>, <a href="ListBox.html#listboxselectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#listboxtextcolor">ListBox.TextColor</a></p>
 <hr />
 </section>
-<section id="showborder" class="level3">
-<h3><a href="#showborder">ShowBorder</a></h3>
+<section id="listboxshowborder" class="level3">
+<h3><a href="#listboxshowborder"><code>ListBox.ShowBorder</code></a></h3>
 <p><em>(Formerly known as ListBox.HideBorder, which is now obsolete)</em></p>
 <pre><code>bool ListBox.ShowBorder
 </code></pre>
@@ -381,11 +381,11 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p>Border is drawn using color from TextColor property.</p>
 <p>Note that hiding the border will also implicitly hide the up/down scroll arrows for the list box.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxshowscrollarrows">ListBox.ShowScrollArrows</a>, <a href="ListBox.html#listboxtextcolor">ListBox.TextColor</a></p>
 <hr />
 </section>
-<section id="showscrollarrows" class="level3">
-<h3><a href="#showscrollarrows">ShowScrollArrows</a></h3>
+<section id="listboxshowscrollarrows" class="level3">
+<h3><a href="#listboxshowscrollarrows"><code>ListBox.ShowScrollArrows</code></a></h3>
 <p><em>(Formerly known as ListBox.HideScrollArrows, which is now obsolete)</em></p>
 <pre><code>bool ListBox.ShowScrollArrows
 </code></pre>
@@ -394,20 +394,20 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p>Because the overall appearance of the scroll arrows is not customizable, you may wish to use this to hide them and provide your own arrows using GUI Button controls.</p>
 <p><strong>NOTE:</strong> If the list box's "Show Border" setting is disabled, then the scroll arrows will also be hidden, since "Show Border" supersedes "Show Scroll Arrows". You only need to use this ShowScrollArrows property if you want the border to be shown but the arrows hidden.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="ListBox.html#showborder">ListBox.ShowBorder</a>, <a href="ListBox.html#textcolor">ListBox.TextColor</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxshowborder">ListBox.ShowBorder</a>, <a href="ListBox.html#listboxtextcolor">ListBox.TextColor</a></p>
 <hr />
 </section>
-<section id="textalignment" class="level3">
-<h3><a href="#textalignment">TextAlignment</a></h3>
+<section id="listboxtextalignment" class="level3">
+<h3><a href="#listboxtextalignment"><code>ListBox.TextAlignment</code></a></h3>
 <pre><code>HorizontalAlignment ListBox.TextAlignment
 </code></pre>
 <p>Gets/sets the way a text is aligned inside an item's rectangle. Currently only horizontal alignment is supported, that is: eAlignLeft, eAlignCenter and eAlignRight.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a></p>
+<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="ListBox.html#listboxfont">ListBox.Font</a>, <a href="ListBox.html#listboxselectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#listboxselectedtextcolor">ListBox.SelectedTextColor</a></p>
 <hr />
 </section>
-<section id="textcolor" class="level3">
-<h3><a href="#textcolor">TextColor</a></h3>
+<section id="listboxtextcolor" class="level3">
+<h3><a href="#listboxtextcolor"><code>ListBox.TextColor</code></a></h3>
 <pre><code>int ListBox.TextColor
 </code></pre>
 <p>Gets/sets the text color used by default, that is - for the non-selected items. Note that the same color is also used for the listbox's border and and scroll arrows.</p>
@@ -415,11 +415,11 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <pre><code>lstSaveGames.TextColor = Game.GetColorFromRGB(80, 80, 200);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="ListBox.html#font">ListBox.Font</a>, <a href="ListBox.html#selectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#selectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#showborder">ListBox.ShowBorder</a>, <a href="ListBox.html#showscrollarrows">ListBox.ShowScrollArrows</a></p>
+<p><em>See Also:</em> <a href="ListBox.html#listboxfont">ListBox.Font</a>, <a href="ListBox.html#listboxselectedbackcolor">ListBox.SelectedBackColor</a>, <a href="ListBox.html#listboxselectedtextcolor">ListBox.SelectedTextColor</a>, <a href="ListBox.html#listboxshowborder">ListBox.ShowBorder</a>, <a href="ListBox.html#listboxshowscrollarrows">ListBox.ShowScrollArrows</a></p>
 <hr />
 </section>
-<section id="topitem" class="level3">
-<h3><a href="#topitem">TopItem</a></h3>
+<section id="listboxtopitem" class="level3">
+<h3><a href="#listboxtopitem"><code>ListBox.TopItem</code></a></h3>
 <p><em>(Formerly known as ListBoxSetTopItem, which is now obsolete)</em></p>
 <pre><code>int ListBox.TopItem
 </code></pre>
@@ -431,8 +431,8 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 <p>will automatically scroll listbox <em>lstSaveGames</em> back to the top of the list.</p>
 <hr />
 </section>
-<section id="translated" class="level3">
-<h3><a href="#translated">Translated</a></h3>
+<section id="listboxtranslated" class="level3">
+<h3><a href="#listboxtranslated"><code>ListBox.Translated</code></a></h3>
 <pre><code>bool ListBox.Translated
 </code></pre>
 <p>Gets/sets whether the list box's items are translated to the selected game language at runtime.</p>
@@ -447,7 +447,7 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:59 PM</p>
+      <p>Build: 10/06/2019 10:30:50 PM</p>
     </section>
   </footer>
 

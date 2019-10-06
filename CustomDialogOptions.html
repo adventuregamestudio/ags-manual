@@ -89,7 +89,7 @@
 <p>To write your custom dialog options code, you need to do the following:</p>
 <ul>
 <li>Add a <code>dialog_options_get_dimensions</code> function to your script (an example follows). This function is called by AGS to find out which part of the screen you will be drawing onto. By setting the width and height to values greater than 0, the custom dialog system is activated.</li>
-<li>Add a <code>dialog_options_render</code> function, which is called by AGS when it needs to draw the dialog options. A standard script <a href="DrawingSurfaceFunctions.html">DrawingSurface</a> is supplied, which you can use to draw onto.</li>
+<li>Add a <code>dialog_options_render</code> function, which is called by AGS when it needs to draw the dialog options. A standard script <a href="DrawingSurface.html">DrawingSurface</a> is supplied, which you can use to draw onto.</li>
 <li>Optionally, add a <code>dialog_options_mouse_click</code> function. This is called by AGS if the player clicks the mouse anywhere on dialog options GUI. You might want to use this to process clicks on dialog options, and also on some custom scroll arrows, for example.</li>
 <li>Optionally, add a <code>dialog_options_key_press</code> function. This is called by AGS if the player presses any key while custom dialog options are shown on screen. You can use this to implement key-controlled selection of dialog option, for example.</li>
 <li>Optionally, add a <code>dialog_options_repexec</code> function. This works similarly to general <code>repeatedly_execute</code> function, but is called only if custom dialog options are shown on screen. You may use this to handle any other situations, such as determining which option the mouse is currently hovering over, or scripting time-related actions.</li>
@@ -231,7 +231,7 @@ function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode key
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:49 PM</p>
+      <p>Build: 10/06/2019 10:30:40 PM</p>
     </section>
   </footer>
 

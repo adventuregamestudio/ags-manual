@@ -245,7 +245,7 @@ return
 <li><strong>stop</strong><br> Stops the conversation and returns the player to the game.</li>
 </ul>
 <p><strong>Substituting dialog speech with custom functions</strong></p>
-<p>By default all of the character dialog lines are executed using the standard function Character.Say. Since AGS 3.5.0 it is possible to define a custom script function as a substitute instead. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarily, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
+<p>By default all of the character dialog lines are executed using the standard function Character.Say. Since AGS 3.5.0 it is possible to define a custom script function as a substitute instead. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarly, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
 <p><strong>Using scripting commands in dialogs</strong></p>
 <p>Often the provided dialog scripting commands won't be enough for what you want to do in the dialog. You might want to give the player an inventory item or add some points to their score, for example.</p>
 <p>AGS now lets you put normal scripting commands in your dialog script, by indenting the line with spaces or tabs. For example:</p>
@@ -310,7 +310,7 @@ return
 <li><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</li>
 <li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
 <li><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</li>
-<li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#facelocation">Character.FaceLocation</a> or <a href="Character.html#facecharacter">Character.FaceCharacter</a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
+<li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation">Character.FaceLocation</a> or <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
 </ul>
 <p><strong>Compiler</strong></p>
 <ul>
@@ -369,7 +369,7 @@ function CustomSay4(this Character*, String text);
 </ul>
 <p><strong>Rooms</strong></p>
 <ul>
-<li><strong>Default mask resolution</strong> - sets default value for MaskResolution property which will be applied for each new room in your game. Mask resolution defines the factor between room masks' sizes and room background size. Common is 1:1, but you can choose other options for less precise masks, which may reduce data size and slightly improve perfomance in high-resolution games.</li>
+<li><strong>Default mask resolution</strong> - sets default value for MaskResolution property which will be applied for each new room in your game. Mask resolution defines the factor between room masks' sizes and room background size. Common is 1:1, but you can choose other options for less precise masks, which may reduce data size and slightly improve performance in high-resolution games.</li>
 </ul>
 <p><strong>Saved Games</strong></p>
 <ul>
@@ -387,7 +387,7 @@ function CustomSay4(this Character*, String text);
 <li><strong>Always display text as speech</strong> - if you select this option, then all normal text in the game will be displayed above the main character's head as speech text, much like the way the LucasArts games worked. If this option is not checked, then normal text appears in a pop-up message box, like the way that the Sierra games worked.</li>
 <li><strong>Anti-alias TTF fonts</strong> - If enabled, any TTF fonts you have in your game will be rendered to the screen anti-aliased. This can make them look a lot better, but it has two drawbacks - firstly, anti-aliasing is significantly slower than normal rendering, so you might want an option to allow the player to turn it off. Second, anti-aliasing only works in hi-color games (in 256-colour games, the output will look blurred and unreadable).</li>
 <li><strong>Custom text-windows GUI</strong> - allows you to customize the standard text window appearance in the game, using the specified interface element. See <a href="EditingGUIs.html#customized-text-windows">here</a> for more information.</li>
-<li><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is used for displaying thoughts with <a href="Character.html#think">Think</a>.</li>
+<li><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is used for displaying thoughts with <a href="Character.html#characterthink">Think</a>.</li>
 <li><strong>Write game text Right-to-Left</strong> - in-game text will be written right-to-left, i.e. line breaks are worked out from the end of the sentence going backwards, and the last words are displayed first. This is used by languages such as Arabic and Hebrew.</li>
 </ul>
 <p><strong>Visual</strong></p>
@@ -395,7 +395,7 @@ function CustomSay4(this Character*, String text);
 <li><strong>Default transition when changing rooms</strong> - defines what type of screen transition is used when moving from one room to another. Various options are available.</li>
 <li><strong>GUI alpha rendering style</strong> - determines which rendering method to use in 32-bit games when a GUI Control is drawn over GUI. The "Proper alpha blending" choice is meant for full alpha blending support, other options exist for compatibility with older versions of AGS only.</li>
 <li><strong>Pixel-perfect click detection</strong> - normally, when the player clicks the mouse, AGS just checks to see if the cursor is within the rectangular area of each character and object on the screen. However, if this option is checked, then it will further check whether the player clicked on an actual pixel of the object graphic, or whether it was a transparent part of the graphic. If this option is enabled and they click on a transparent pixel, then the hotspot behind the object will be activated instead.</li>
-<li><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurfaceFunctions.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</li>
+<li><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurface.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</li>
 <li><strong>When player interface is disabled, GUI should</strong> - determines what happens to buttons on your GUIs while the game interface is disabled (eg. during a cutscene).</li>
 </ul>
 <p><strong>Windows Game Explorer</strong> See: <a href="IntegrationWithWindows.html#windows-game-explorer">Windows Game Explorer</a></p>
@@ -473,7 +473,7 @@ function CustomSay4(this Character*, String text);
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:46 PM</p>
+      <p>Build: 10/06/2019 10:30:37 PM</p>
     </section>
   </footer>
 

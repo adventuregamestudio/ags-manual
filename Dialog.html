@@ -76,34 +76,34 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#dialog-functions-and-properties"><span>Dialog functions and properties</span></a><ul>
-<li><a href="#displayoptions"><span>DisplayOptions</span></a></li>
-<li><a href="#getoptionstate"><span>GetOptionState</span></a></li>
-<li><a href="#getoptiontext"><span>GetOptionText</span></a></li>
-<li><a href="#hasoptionbeenchosen"><span>HasOptionBeenChosen</span></a></li>
-<li><a href="#id"><span>ID</span></a></li>
-<li><a href="#optioncount"><span>OptionCount</span></a></li>
-<li><a href="#sethasoptionbeenchosen"><span>SetHasOptionBeenChosen</span></a></li>
-<li><a href="#setoptionstate"><span>SetOptionState</span></a></li>
-<li><a href="#showtextparser"><span>ShowTextParser</span></a></li>
-<li><a href="#start"><span>Start</span></a></li>
-<li><a href="#stopdialog"><span>StopDialog</span></a></li>
+<li><a href="#dialog-functions-and-properties"><span><code>Dialog</code> functions and properties</span></a><ul>
+<li><a href="#dialogdisplayoptions"><span><code>Dialog.DisplayOptions</code></span></a></li>
+<li><a href="#dialoggetoptionstate"><span><code>Dialog.GetOptionState</code></span></a></li>
+<li><a href="#dialoggetoptiontext"><span><code>Dialog.GetOptionText</code></span></a></li>
+<li><a href="#dialoghasoptionbeenchosen"><span><code>Dialog.HasOptionBeenChosen</code></span></a></li>
+<li><a href="#dialogid"><span><code>Dialog.ID</code></span></a></li>
+<li><a href="#dialogoptioncount"><span><code>Dialog.OptionCount</code></span></a></li>
+<li><a href="#dialogsethasoptionbeenchosen"><span><code>Dialog.SetHasOptionBeenChosen</code></span></a></li>
+<li><a href="#dialogsetoptionstate"><span><code>Dialog.SetOptionState</code></span></a></li>
+<li><a href="#dialogshowtextparser"><span><code>Dialog.ShowTextParser</code></span></a></li>
+<li><a href="#dialogstart"><span><code>Dialog.Start</code></span></a></li>
+<li><a href="#stopdialog"><span><code>StopDialog</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="dialog-functions-and-properties" class="level2">
-<h2><a href="#dialog-functions-and-properties">Dialog functions and properties</a></h2>
-<section id="displayoptions" class="level3">
-<h3><a href="#displayoptions">DisplayOptions</a></h3>
+<h2><a href="#dialog-functions-and-properties"><code>Dialog</code> functions and properties</a></h2>
+<section id="dialogdisplayoptions" class="level3">
+<h3><a href="#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></h3>
 <pre><code>int Dialog.DisplayOptions(optional DialogOptionSayStyle)
 </code></pre>
 <p>Presents the options for this dialog to the user and waits until they select one of them. The selected option number is returned.</p>
-<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply displays the options and waits for the player to choose one. To run the dialog normally, use the <a href="Dialog.html#start">Dialog.Start</a> command instead.</p>
+<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply displays the options and waits for the player to choose one. To run the dialog normally, use the <a href="Dialog.html#dialogstart">Dialog.Start</a> command instead.</p>
 <p>This command is useful if you want to implement your own dialog system, but still use the standard AGS dialog option selection screens.</p>
 <p>The optional <em>DialogOptionSayStyle</em> parameter determines whether the chosen option is automatically spoken by the player character. The default is <em>eSayUseOptionSetting</em>, which will use the option's "Say" setting from the dialog editor. You can alternatively use <em>eSayAlways</em>, which will speak the chosen option regardless of its setting in the editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
-<p>If the text parser is enabled for this dialog and the player types something into it rather than selecting an option, the special value <code>DIALOG_PARSER_SELECTED</code> will be returned, and AGS will have automatically called <a href="Parser.html#parsetext">Parser.ParseText</a> with the player's text. Therefore, you can call <a href="Parser.html#said">Parser.Said</a> to process it.</p>
+<p>If the text parser is enabled for this dialog and the player types something into it rather than selecting an option, the special value <code>DIALOG_PARSER_SELECTED</code> will be returned, and AGS will have automatically called <a href="Parser.html#parserparsetext">Parser.ParseText</a> with the player's text. Therefore, you can call <a href="Parser.html#parsersaid">Parser.Said</a> to process it.</p>
 <p>Example:</p>
 <pre><code>int result = dOldMan.DisplayOptions();
 if (result == DIALOG_PARSER_SELECTED)
@@ -117,11 +117,11 @@ else
 </code></pre>
 <p>will show the options for dialog <em>dOldMan</em> and display a message depending on what the player selected.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#start">Dialog.Start</a>, <a href="Parser.html#parsetext">Parser.ParseText</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialogstart">Dialog.Start</a>, <a href="Parser.html#parserparsetext">Parser.ParseText</a></p>
 <hr />
 </section>
-<section id="getoptionstate" class="level3">
-<h3><a href="#getoptionstate">GetOptionState</a></h3>
+<section id="dialoggetoptionstate" class="level3">
+<h3><a href="#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></h3>
 <p><em>(Formerly known as global function GetDialogOption, which is now obsolete)</em></p>
 <pre><code>Dialog.GetOptionState(int option)
 </code></pre>
@@ -142,11 +142,11 @@ eOptionOffForever
   Display(&quot;It&#39;s turned off&quot;);
 </code></pre>
 <p>Will display a message if option 2 of dialog dJoeExcited is not currently switched on.</p>
-<p><em>See Also:</em> <a href="Dialog.html#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a>, <a href="Dialog.html#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>, <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoghasoptionbeenchosen">Dialog.HasOptionBeenChosen</a>, <a href="Dialog.html#dialogsethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>, <a href="Dialog.html#dialogsetoptionstate">Dialog.SetOptionState</a></p>
 <hr />
 </section>
-<section id="getoptiontext" class="level3">
-<h3><a href="#getoptiontext">GetOptionText</a></h3>
+<section id="dialoggetoptiontext" class="level3">
+<h3><a href="#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a></h3>
 <pre><code>String Dialog.GetOptionText(int option)
 </code></pre>
 <p>Returns the text for the specified dialog option.</p>
@@ -157,11 +157,11 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 </code></pre>
 <p>will display the text for the third option of the dJoeBloggs dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#optioncount">Dialog.OptionCount</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialogoptioncount">Dialog.OptionCount</a>, <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a></p>
 <hr />
 </section>
-<section id="hasoptionbeenchosen" class="level3">
-<h3><a href="#hasoptionbeenchosen">HasOptionBeenChosen</a></h3>
+<section id="dialoghasoptionbeenchosen" class="level3">
+<h3><a href="#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a></h3>
 <pre><code>bool Dialog.HasOptionBeenChosen(int option)
 </code></pre>
 <p>Finds out whether the player has already chosen the specified option in this dialog. This is mainly useful when drawing your own custom dialog options display, since it allows you to differentiate options that have already been chosen.</p>
@@ -172,11 +172,11 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 </code></pre>
 <p>will display a message if the player has used option 2 of the dialog before.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#sethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>,</p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#dialogsethasoptionbeenchosen">Dialog.SetHasOptionBeenChosen</a>,</p>
 <hr />
 </section>
-<section id="id" class="level3">
-<h3><a href="#id">ID</a></h3>
+<section id="dialogid" class="level3">
+<h3><a href="#dialogid"><code>Dialog.ID</code></a></h3>
 <pre><code>readonly int Dialog.ID;
 </code></pre>
 <p>Gets the dialog ID number from the editor.</p>
@@ -188,8 +188,8 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
 <hr />
 </section>
-<section id="optioncount" class="level3">
-<h3><a href="#optioncount">OptionCount</a></h3>
+<section id="dialogoptioncount" class="level3">
+<h3><a href="#dialogoptioncount"><code>Dialog.OptionCount</code></a></h3>
 <pre><code>readonly int Dialog.OptionCount;
 </code></pre>
 <p>Gets the number of options that this dialog has.</p>
@@ -199,11 +199,11 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 </code></pre>
 <p>will display the number of options in the dFisherman dialog.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#getoptiontext">Dialog.GetOptionText</a>, <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoggetoptiontext">Dialog.GetOptionText</a>, <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a></p>
 <hr />
 </section>
-<section id="sethasoptionbeenchosen" class="level3">
-<h3><a href="#sethasoptionbeenchosen">SetHasOptionBeenChosen</a></h3>
+<section id="dialogsethasoptionbeenchosen" class="level3">
+<h3><a href="#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></h3>
 <pre><code>Dialog.SetHasOptionBeenChosen(int option, bool chosen)
 </code></pre>
 <p>Changes whether an option in a conversation is marked as previously chosen by the player. The option is marked as chosen whenever player selects it during the conversation, and is usually highlighted with different text colour. This function lets you to reset the option state, or force it change at any random moment.</p>
@@ -214,11 +214,11 @@ Display(&quot;Option 3 of dialog dJoeBloggs is %s!&quot;, optionText);
 </code></pre>
 <p>will mark option 1 of dialog dDialog1 as "not chosen yet".</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#hasoptionbeenchosen">Dialog.HasOptionBeenChosen</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#dialoghasoptionbeenchosen">Dialog.HasOptionBeenChosen</a></p>
 <hr />
 </section>
-<section id="setoptionstate" class="level3">
-<h3><a href="#setoptionstate">SetOptionState</a></h3>
+<section id="dialogsetoptionstate" class="level3">
+<h3><a href="#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></h3>
 <p><em>(Formerly known as global function SetDialogOption, which is now obsolete)</em></p>
 <pre><code>Dialog.SetOptionState(int option, DialogOptionState)
 </code></pre>
@@ -239,11 +239,11 @@ eOptionOffForever
     dialog[4].SetOptionState(2, eOptionOn);
 </code></pre>
 <p>will enable option 2 of topic number 4 if the Global Integer 10 is 1.</p>
-<p><em>See Also:</em> <a href="Dialog.html#getoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#start">Dialog.Start</a>, <a href="Dialog.html#stopdialog">StopDialog</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialoggetoptionstate">Dialog.GetOptionState</a>, <a href="Dialog.html#dialogstart">Dialog.Start</a>, <a href="Dialog.html#stopdialog">StopDialog</a></p>
 <hr />
 </section>
-<section id="showtextparser" class="level3">
-<h3><a href="#showtextparser">ShowTextParser</a></h3>
+<section id="dialogshowtextparser" class="level3">
+<h3><a href="#dialogshowtextparser"><code>Dialog.ShowTextParser</code></a></h3>
 <pre><code>readonly bool Dialog.ShowTextParser;
 </code></pre>
 <p>Gets whether this dialog shows a text box allowing the player to type in text.</p>
@@ -258,8 +258,8 @@ eOptionOffForever
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.1</strong> and later versions.</p>
 <hr />
 </section>
-<section id="start" class="level3">
-<h3><a href="#start">Start</a></h3>
+<section id="dialogstart" class="level3">
+<h3><a href="#dialogstart"><code>Dialog.Start</code></a></h3>
 <p><em>(Formerly known as global function RunDialog, which is now obsolete)</em></p>
 <pre><code>Dialog.Start()
 </code></pre>
@@ -270,11 +270,11 @@ eOptionOffForever
 <pre><code>dMerchant.Start();
 </code></pre>
 <p>will start the conversation topic named dMerchant.</p>
-<p><em>See Also:</em> <a href="Dialog.html#displayoptions">Dialog.DisplayOptions</a>, <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialogdisplayoptions">Dialog.DisplayOptions</a>, <a href="Dialog.html#dialogsetoptionstate">Dialog.SetOptionState</a></p>
 <hr />
 </section>
 <section id="stopdialog" class="level3">
-<h3><a href="#stopdialog">StopDialog</a></h3>
+<h3><a href="#stopdialog"><code>StopDialog</code></a></h3>
 <pre><code>StopDialog ()
 </code></pre>
 <p>This command can only be used from within the dialog_request function. It tells AGS that when dialog_request finishes, the whole conversation should stop rather than continuing with the dialog script.</p>
@@ -287,7 +287,7 @@ eOptionOffForever
  }
 </code></pre>
 <p>will give the player the inventory item 3 and then end the conversation.</p>
-<p><em>See Also:</em> <a href="Dialog.html#setoptionstate">Dialog.SetOptionState</a></p>
+<p><em>See Also:</em> <a href="Dialog.html#dialogsetoptionstate">Dialog.SetOptionState</a></p>
 </section>
 </section>
         </div>
@@ -298,7 +298,7 @@ eOptionOffForever
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:59 PM</p>
+      <p>Build: 10/06/2019 10:30:50 PM</p>
     </section>
   </footer>
 

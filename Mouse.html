@@ -76,51 +76,51 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#mouse-functions-and-properties"><span>Mouse functions and properties</span></a><ul>
-<li><a href="#changemodegraphic"><span>ChangeModeGraphic</span></a></li>
-<li><a href="#changemodehotspot"><span>ChangeModeHotspot</span></a></li>
-<li><a href="#changemodeview"><span>ChangeModeView</span></a></li>
-<li><a href="#click"><span>Click</span></a></li>
-<li><a href="#controlenabled"><span>ControlEnabled</span></a></li>
-<li><a href="#disablemode"><span>DisableMode</span></a></li>
-<li><a href="#enablemode"><span>EnableMode</span></a></li>
-<li><a href="#ismodeenabled"><span>IsModeEnabled</span></a></li>
-<li><a href="#getmodegraphic"><span>GetModeGraphic</span></a></li>
-<li><a href="#isbuttondown"><span>IsButtonDown</span></a></li>
-<li><a href="#savecursoruntilitleaves"><span>SaveCursorUntilItLeaves</span></a></li>
-<li><a href="#selectnextmode"><span>SelectNextMode</span></a></li>
-<li><a href="#selectpreviousmode"><span>SelectPreviousMode</span></a></li>
-<li><a href="#setbounds"><span>SetBounds</span></a></li>
-<li><a href="#setposition"><span>SetPosition</span></a></li>
-<li><a href="#speed"><span>Speed</span></a></li>
-<li><a href="#update"><span>Update</span></a></li>
-<li><a href="#usedefaultgraphic"><span>UseDefaultGraphic</span></a></li>
-<li><a href="#usemodegraphic"><span>UseModeGraphic</span></a></li>
-<li><a href="#mode"><span>Mode</span></a></li>
-<li><a href="#visible"><span>Visible</span></a></li>
+<li><a href="#mouse-functions-and-properties"><span><code>Mouse</code> functions and properties</span></a><ul>
+<li><a href="#mousechangemodegraphic"><span><code>Mouse.ChangeModeGraphic</code></span></a></li>
+<li><a href="#mousechangemodehotspot"><span><code>Mouse.ChangeModeHotspot</code></span></a></li>
+<li><a href="#mousechangemodeview"><span><code>Mouse.ChangeModeView</code></span></a></li>
+<li><a href="#mouseclick"><span><code>Mouse.Click</code></span></a></li>
+<li><a href="#mousecontrolenabled"><span><code>Mouse.ControlEnabled</code></span></a></li>
+<li><a href="#mousedisablemode"><span><code>Mouse.DisableMode</code></span></a></li>
+<li><a href="#mouseenablemode"><span><code>Mouse.EnableMode</code></span></a></li>
+<li><a href="#mouseismodeenabled"><span><code>Mouse.IsModeEnabled</code></span></a></li>
+<li><a href="#mousegetmodegraphic"><span><code>Mouse.GetModeGraphic</code></span></a></li>
+<li><a href="#mouseisbuttondown"><span><code>Mouse.IsButtonDown</code></span></a></li>
+<li><a href="#mousesavecursoruntilitleaves"><span><code>Mouse.SaveCursorUntilItLeaves</code></span></a></li>
+<li><a href="#mouseselectnextmode"><span><code>Mouse.SelectNextMode</code></span></a></li>
+<li><a href="#mouseselectpreviousmode"><span><code>Mouse.SelectPreviousMode</code></span></a></li>
+<li><a href="#mousesetbounds"><span><code>Mouse.SetBounds</code></span></a></li>
+<li><a href="#mousesetposition"><span><code>Mouse.SetPosition</code></span></a></li>
+<li><a href="#mousespeed"><span><code>Mouse.Speed</code></span></a></li>
+<li><a href="#mouseupdate"><span><code>Mouse.Update</code></span></a></li>
+<li><a href="#mouseusedefaultgraphic"><span><code>Mouse.UseDefaultGraphic</code></span></a></li>
+<li><a href="#mouseusemodegraphic"><span><code>Mouse.UseModeGraphic</code></span></a></li>
+<li><a href="#mousemode"><span><code>Mouse.Mode</code></span></a></li>
+<li><a href="#mousevisible"><span><code>Mouse.Visible</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="mouse-functions-and-properties" class="level2">
-<h2><a href="#mouse-functions-and-properties">Mouse functions and properties</a></h2>
-<section id="changemodegraphic" class="level3">
-<h3><a href="#changemodegraphic">ChangeModeGraphic</a></h3>
+<h2><a href="#mouse-functions-and-properties"><code>Mouse</code> functions and properties</a></h2>
+<section id="mousechangemodegraphic" class="level3">
+<h3><a href="#mousechangemodegraphic"><code>Mouse.ChangeModeGraphic</code></a></h3>
 <p><em>(Formerly known as ChangeCursorGraphic, which is now obsolete)</em></p>
 <pre><code>Mouse.ChangeModeGraphic(CursorMode, int slot)
 </code></pre>
 <p>Changes the specified mouse cursor mode's cursor graphic to SLOT. This allows you to dynamically change what a mouse cursor looks like.</p>
-<p><strong>NOTE:</strong> To change what the Use Inventory cursor looks like, you should change the active inventory item's <a href="InventoryItem.html#cursorgraphic">CursorGraphic</a> property instead of using this function.</p>
+<p><strong>NOTE:</strong> To change what the Use Inventory cursor looks like, you should change the active inventory item's <a href="InventoryItem.html#inventoryitemcursorgraphic">CursorGraphic</a> property instead of using this function.</p>
 <p>Example:</p>
 <pre><code>mouse.ChangeModeGraphic(eModeLookat, 120);
 </code></pre>
 <p>will change the cursor's graphic for look mode to the image that's imported in the sprite's manager slot 120.</p>
-<p><em>See Also:</em> <a href="Mouse.html#changemodehotspot">Mouse.ChangeModeHotspot</a>, <a href="Mouse.html#changemodeview">Mouse.ChangeModeView</a>, <a href="Mouse.html#getmodegraphic">Mouse.GetModeGraphic</a>, <a href="Mouse.html#mode">Mouse.Mode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousechangemodehotspot">Mouse.ChangeModeHotspot</a>, <a href="Mouse.html#mousechangemodeview">Mouse.ChangeModeView</a>, <a href="Mouse.html#mousegetmodegraphic">Mouse.GetModeGraphic</a>, <a href="Mouse.html#mousemode">Mouse.Mode</a></p>
 <hr />
 </section>
-<section id="changemodehotspot" class="level3">
-<h3><a href="#changemodehotspot">ChangeModeHotspot</a></h3>
+<section id="mousechangemodehotspot" class="level3">
+<h3><a href="#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a></h3>
 <p><em>(Formerly known as ChangeCursorHotspot, which is now obsolete)</em></p>
 <pre><code>Mouse.ChangeModeHotspot(CursorMode, int x, int y)
 </code></pre>
@@ -129,11 +129,11 @@
 <pre><code>mouse.ChangeModeHotspot(eModeWalkto, 10, 10);
 </code></pre>
 <p>will change the cursor's hotspot for walk mode to coordinates 10,10.</p>
-<p><em>See Also:</em> <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#changemodeview">Mouse.ChangeModeView</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousechangemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#mousechangemodeview">Mouse.ChangeModeView</a></p>
 <hr />
 </section>
-<section id="changemodeview" class="level3">
-<h3><a href="#changemodeview">ChangeModeView</a></h3>
+<section id="mousechangemodeview" class="level3">
+<h3><a href="#mousechangemodeview"><code>Mouse.ChangeModeView</code></a></h3>
 <pre><code>Mouse.ChangeModeView(CursorMode, int view)
 </code></pre>
 <p>Changes the specified mouse cursor mode's animation view to VIEW.</p>
@@ -143,11 +143,11 @@
 <pre><code>mouse.ChangeModeView(eModeLookat, ROLLEYES);
 </code></pre>
 <p>will change the Look cursor's view to ROLLEYES.</p>
-<p><em>See Also:</em> <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#changemodehotspot">Mouse.ChangeModeHotspot</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousechangemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#mousechangemodehotspot">Mouse.ChangeModeHotspot</a></p>
 <hr />
 </section>
-<section id="click" class="level3">
-<h3><a href="#click">Click</a></h3>
+<section id="mouseclick" class="level3">
+<h3><a href="#mouseclick"><code>Mouse.Click</code></a></h3>
 <pre><code>static void Click(MouseButton)
 </code></pre>
 <p>Fires mouse click event at current mouse position (at mouse.x / mouse.y). This is in all aspects identical to what would happen if a player clicked actual mouse button. This function may be useful to simulate player actions in game, or create automatic demonstrations (like tutorials).</p>
@@ -157,11 +157,11 @@ Mouse.Click(eMouseLeft);
 </code></pre>
 <p>This will simulate user click at (100,100).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#processclick">GUI.ProcessClick</a>, <a href="Room.html#processclick">Room.ProcessClick</a></p>
+<p><em>See Also:</em> <a href="GUI.html#guiprocessclick">GUI.ProcessClick</a>, <a href="Room.html#roomprocessclick">Room.ProcessClick</a></p>
 <hr />
 </section>
-<section id="controlenabled" class="level3">
-<h3><a href="#controlenabled">ControlEnabled</a></h3>
+<section id="mousecontrolenabled" class="level3">
+<h3><a href="#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a></h3>
 <pre><code>static bool Mouse.ControlEnabled;
 </code></pre>
 <p>Gets/sets if the mouse cursor movement has to be controlled by AGS engine; otherwise it is controlled by operation system. Note that in practice mouse is only controlled when the game is run in fullscreen mode.</p>
@@ -171,11 +171,11 @@ Mouse.Click(eMouseLeft);
 </code></pre>
 <p>makes mouse speed slider visible only if the mouse is controlled by the game.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.<br> Settable since <strong>AGS 3.5.0</strong>.</p>
-<p><em>See Also:</em> <a href="Mouse.html#speed">Mouse.Speed</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousespeed">Mouse.Speed</a></p>
 <hr />
 </section>
-<section id="disablemode" class="level3">
-<h3><a href="#disablemode">DisableMode</a></h3>
+<section id="mousedisablemode" class="level3">
+<h3><a href="#mousedisablemode"><code>Mouse.DisableMode</code></a></h3>
 <p><em>(Formerly known as DisableCursorMode, which is now obsolete)</em></p>
 <pre><code>Mouse.DisableMode(int mode)
 </code></pre>
@@ -185,11 +185,11 @@ Mouse.Click(eMouseLeft);
 <pre><code>mouse.DisableMode(eModeWalkto);
 </code></pre>
 <p>will make the walk mode unavailable until it's enabled again.</p>
-<p><em>See Also:</em> <a href="Mouse.html#enablemode">Mouse.EnableMode</a>, <a href="Mouse.html#ismodeenabled">Mouse.IsModeEnabled</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mouseenablemode">Mouse.EnableMode</a>, <a href="Mouse.html#mouseismodeenabled">Mouse.IsModeEnabled</a></p>
 <hr />
 </section>
-<section id="enablemode" class="level3">
-<h3><a href="#enablemode">EnableMode</a></h3>
+<section id="mouseenablemode" class="level3">
+<h3><a href="#mouseenablemode"><code>Mouse.EnableMode</code></a></h3>
 <p><em>(Formerly known as EnableCursorMode, which is now obsolete)</em></p>
 <pre><code>Mouse.EnableMode(int mode)
 </code></pre>
@@ -198,11 +198,11 @@ Mouse.Click(eMouseLeft);
 <pre><code>mouse.EnableMode(eModeWalkto);
 </code></pre>
 <p>will enable cursor mode walk which was disabled before.</p>
-<p><em>See Also:</em> <a href="Mouse.html#disablemode">Mouse.DisableMode</a>, <a href="Mouse.html#ismodeenabled">Mouse.IsModeEnabled</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousedisablemode">Mouse.DisableMode</a>, <a href="Mouse.html#mouseismodeenabled">Mouse.IsModeEnabled</a></p>
 <hr />
 </section>
-<section id="ismodeenabled" class="level3">
-<h3><a href="#ismodeenabled">IsModeEnabled</a></h3>
+<section id="mouseismodeenabled" class="level3">
+<h3><a href="#mouseismodeenabled"><code>Mouse.IsModeEnabled</code></a></h3>
 <pre><code>static bool Mouse.IsModeEnabled(int mode)
 </code></pre>
 <p>Returns whether the specified mouse cursor is currently enabled.</p>
@@ -212,11 +212,11 @@ Mouse.Click(eMouseLeft);
 }
 </code></pre>
 <p>will change the the "WalkTo" cursor mode, but only if it's currently enabled.</p>
-<p><em>See Also:</em> <a href="Mouse.html#enablemode">Mouse.EnableMode</a>, <a href="Mouse.html#disablemode">Mouse.DisableMode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mouseenablemode">Mouse.EnableMode</a>, <a href="Mouse.html#mousedisablemode">Mouse.DisableMode</a></p>
 <hr />
 </section>
-<section id="getmodegraphic" class="level3">
-<h3><a href="#getmodegraphic">GetModeGraphic</a></h3>
+<section id="mousegetmodegraphic" class="level3">
+<h3><a href="#mousegetmodegraphic"><code>Mouse.GetModeGraphic</code></a></h3>
 <pre><code>static int Mouse.GetModeGraphic(CursorMode)
 </code></pre>
 <p>Returns the sprite slot number of the specified mouse cursor mode.</p>
@@ -225,11 +225,11 @@ Mouse.Click(eMouseLeft);
 <pre><code>Display(&quot;The current mouse cursor sprite is %d.&quot;, mouse.GetModeGraphic(mouse.Mode));
 </code></pre>
 <p>will display the sprite slot number of the current mouse cursor.</p>
-<p><em>See Also:</em> <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousechangemodegraphic">Mouse.ChangeModeGraphic</a></p>
 <hr />
 </section>
-<section id="isbuttondown" class="level3">
-<h3><a href="#isbuttondown">IsButtonDown</a></h3>
+<section id="mouseisbuttondown" class="level3">
+<h3><a href="#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a></h3>
 <p><em>(Formerly known as global function IsButtonDown, which is now obsolete)</em></p>
 <pre><code>Mouse.IsButtonDown(MouseButton)
 </code></pre>
@@ -252,8 +252,8 @@ if (mouse.IsButtonDown(eMouseRight)) {
 <p><em>See Also:</em> <a href="Globalfunctions_General.html#iskeypressed">IsKeyPressed</a></p>
 <hr />
 </section>
-<section id="savecursoruntilitleaves" class="level3">
-<h3><a href="#savecursoruntilitleaves">SaveCursorUntilItLeaves</a></h3>
+<section id="mousesavecursoruntilitleaves" class="level3">
+<h3><a href="#mousesavecursoruntilitleaves"><code>Mouse.SaveCursorUntilItLeaves</code></a></h3>
 <p><em>(Formerly known as SaveCursorForLocationChange, which is now obsolete)</em></p>
 <pre><code>Mouse.SaveCursorUntilItLeaves()
 </code></pre>
@@ -265,28 +265,28 @@ if (mouse.IsButtonDown(eMouseRight)) {
 mouse.Mode = eModeTalk;
 </code></pre>
 <p>will change the cursor mode to Talk for as long as the mouse is over the current object</p>
-<p><em>See Also:</em> <a href="Mouse.html#mode">Mouse.Mode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousemode">Mouse.Mode</a></p>
 <hr />
 </section>
-<section id="selectnextmode" class="level3">
-<h3><a href="#selectnextmode">SelectNextMode</a></h3>
+<section id="mouseselectnextmode" class="level3">
+<h3><a href="#mouseselectnextmode"><code>Mouse.SelectNextMode</code></a></h3>
 <p><em>(Formerly known as SetNextCursorMode, which is now obsolete)</em></p>
 <pre><code>Mouse.SelectNextMode()
 </code></pre>
 <p>Selects the next enabled mouse cursor mode. This is useful for Sierra-style right-click cycling through modes. This function will choose the next mode marked as a Standard Mode, and will also use the Use Inventory mode if the player has an active inventory item.</p>
-<p><em>See Also:</em> <a href="Mouse.html#mode">Mouse.Mode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousemode">Mouse.Mode</a></p>
 <hr />
 </section>
-<section id="selectpreviousmode" class="level3">
-<h3><a href="#selectpreviousmode">SelectPreviousMode</a></h3>
+<section id="mouseselectpreviousmode" class="level3">
+<h3><a href="#mouseselectpreviousmode"><code>Mouse.SelectPreviousMode</code></a></h3>
 <pre><code>Mouse.SelectPreviousMode()
 </code></pre>
 <p>Selects the previous enabled mouse cursor mode. This is useful for Sierra-style right-click cycling through modes. This function will choose the previous mode marked as a Standard Mode, and will also use the Use Inventory mode if the player has an active inventory item.</p>
-<p><em>See Also:</em> <a href="Mouse.html#mode">Mouse.Mode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousemode">Mouse.Mode</a></p>
 <hr />
 </section>
-<section id="setbounds" class="level3">
-<h3><a href="#setbounds">SetBounds</a></h3>
+<section id="mousesetbounds" class="level3">
+<h3><a href="#mousesetbounds"><code>Mouse.SetBounds</code></a></h3>
 <p><em>(Formerly known as SetMouseBounds, which is now obsolete)</em></p>
 <pre><code>Mouse.SetBounds(int left, int top, int right, int bottom)
 </code></pre>
@@ -297,11 +297,11 @@ mouse.Mode = eModeTalk;
 <pre><code>mouse.SetBounds(160, 100, 320, 200);
 </code></pre>
 <p>will restrict the mouse cursor to the bottom-right quarter of the screen.</p>
-<p><em>See Also:</em> <a href="Mouse.html#setposition">Mouse.SetPosition</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousesetposition">Mouse.SetPosition</a></p>
 <hr />
 </section>
-<section id="setposition" class="level3">
-<h3><a href="#setposition">SetPosition</a></h3>
+<section id="mousesetposition" class="level3">
+<h3><a href="#mousesetposition"><code>Mouse.SetPosition</code></a></h3>
 <p><em>(Formerly known as SetMousePosition, which is now obsolete)</em></p>
 <pre><code>Mouse.SetPosition(int x, int y)
 </code></pre>
@@ -311,27 +311,27 @@ mouse.Mode = eModeTalk;
 <pre><code>mouse.SetPosition(160, 100);
 </code></pre>
 <p>will place the mouse cursor in the centre of the screen.</p>
-<p><em>See Also:</em> <a href="Mouse.html#setbounds">Mouse.SetBounds</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousesetbounds">Mouse.SetBounds</a></p>
 <hr />
 </section>
-<section id="speed" class="level3">
-<h3><a href="#speed">Speed</a></h3>
+<section id="mousespeed" class="level3">
+<h3><a href="#mousespeed"><code>Mouse.Speed</code></a></h3>
 <pre><code>static float Mouse.Speed;
 </code></pre>
 <p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the range 0-1 make cursor movement slower, values higher than 1 make cursor movement faster.</p>
 <p>Mouse speed changed this way will be saved to the configuration file when player exits the game. Next time game starts it will restore the last value you applied, unless player has modified it in the setup program.</p>
-<p>The custom mouse speed is only applied if mouse cursor movement is currently being controlled by the game, which is usually true only when game is run in fullscreen mode. Setting this property has no effect otherwise. You can use <a href="Mouse.html#controlenabled">Mouse.ControlEnabled</a> to know if speed will be applied.</p>
+<p>The custom mouse speed is only applied if mouse cursor movement is currently being controlled by the game, which is usually true only when game is run in fullscreen mode. Setting this property has no effect otherwise. You can use <a href="Mouse.html#mousecontrolenabled">Mouse.ControlEnabled</a> to know if speed will be applied.</p>
 <p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to achieve gameplay effect (such as character's loss of coordination, and so forth).</p>
 <p>Example:</p>
 <pre><code>Mouse.Speed = IntToFloat(sldMouseSpeed.Value) / 10.0;
 </code></pre>
 <p>converts slider control's position into mouse speed.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Mouse.html#controlenabled">Mouse.ControlEnabled</a>, <a href="Mouse.html#setposition">Mouse.SetPosition</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousecontrolenabled">Mouse.ControlEnabled</a>, <a href="Mouse.html#mousesetposition">Mouse.SetPosition</a></p>
 <hr />
 </section>
-<section id="update" class="level3">
-<h3><a href="#update">Update</a></h3>
+<section id="mouseupdate" class="level3">
+<h3><a href="#mouseupdate"><code>Mouse.Update</code></a></h3>
 <p><em>(Formerly known as RefreshMouse, which is now obsolete)</em></p>
 <pre><code>Mouse.Update();
 </code></pre>
@@ -344,17 +344,17 @@ Display(&quot;The mouse is now at: %d, %d.&quot;, mouse.x, mouse.y);
 <p>will display the mouse position just before each dialog box is displayed</p>
 <hr />
 </section>
-<section id="usedefaultgraphic" class="level3">
-<h3><a href="#usedefaultgraphic">UseDefaultGraphic</a></h3>
+<section id="mouseusedefaultgraphic" class="level3">
+<h3><a href="#mouseusedefaultgraphic"><code>Mouse.UseDefaultGraphic</code></a></h3>
 <p><em>(Formerly known as SetDefaultCursor, which is now obsolete)</em></p>
 <pre><code>Mouse.UseDefaultGraphic()
 </code></pre>
 <p>Changes the appearance of the mouse cursor to the default for the current cursor mode. Use this to restore the cursor picture after you changed it with the UseModeGraphic function.</p>
-<p><em>See Also:</em> <a href="Mouse.html#usemodegraphic">Mouse.UseModeGraphic</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mouseusemodegraphic">Mouse.UseModeGraphic</a></p>
 <hr />
 </section>
-<section id="usemodegraphic" class="level3">
-<h3><a href="#usemodegraphic">UseModeGraphic</a></h3>
+<section id="mouseusemodegraphic" class="level3">
+<h3><a href="#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a></h3>
 <p><em>(Formerly known as SetMouseCursor, which is now obsolete)</em></p>
 <pre><code>Mouse.UseModeGraphic(CursorMode)
 </code></pre>
@@ -363,11 +363,11 @@ Display(&quot;The mouse is now at: %d, %d.&quot;, mouse.x, mouse.y);
 <pre><code>mouse.UseModeGraphic(eModeWait);
 </code></pre>
 <p>will change the mouse cursor to the cursor 'Wait' specified in the Cursors tab.</p>
-<p><em>See Also:</em> <a href="Mouse.html#changemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#mode">Mouse.Mode</a>, <a href="Mouse.html#usedefaultgraphic">Mouse.UseDefaultGraphic</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousechangemodegraphic">Mouse.ChangeModeGraphic</a>, <a href="Mouse.html#mousemode">Mouse.Mode</a>, <a href="Mouse.html#mouseusedefaultgraphic">Mouse.UseDefaultGraphic</a></p>
 <hr />
 </section>
-<section id="mode" class="level3">
-<h3><a href="#mode">Mode</a></h3>
+<section id="mousemode" class="level3">
+<h3><a href="#mousemode"><code>Mouse.Mode</code></a></h3>
 <p><em>(Formerly known as GetCursorMode, which is now obsolete)</em><br> <em>(Formerly known as SetCursorMode, which is now obsolete)</em></p>
 <pre><code>int Mouse.Mode;
 </code></pre>
@@ -380,11 +380,11 @@ Display(&quot;The mouse is now at: %d, %d.&quot;, mouse.x, mouse.y);
 }
 </code></pre>
 <p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
-<p><em>See Also:</em> <a href="Mouse.html#savecursoruntilitleaves">Mouse.SaveCursorUntilItLeaves</a>, <a href="Mouse.html#usemodegraphic">Mouse.UseModeGraphic</a>, <a href="Mouse.html#selectnextmode">Mouse.SelectNextMode</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mousesavecursoruntilitleaves">Mouse.SaveCursorUntilItLeaves</a>, <a href="Mouse.html#mouseusemodegraphic">Mouse.UseModeGraphic</a>, <a href="Mouse.html#mouseselectnextmode">Mouse.SelectNextMode</a></p>
 <hr />
 </section>
-<section id="visible" class="level3">
-<h3><a href="#visible">Visible</a></h3>
+<section id="mousevisible" class="level3">
+<h3><a href="#mousevisible"><code>Mouse.Visible</code></a></h3>
 <p><em>(Formerly known as HideMouseCursor, which is now obsolete)</em><br> <em>(Formerly known as ShowMouseCursor, which is now obsolete)</em></p>
 <pre><code>bool Mouse.Visible;
 </code></pre>
@@ -396,7 +396,7 @@ Wait(40);
 mouse.Visible = true;
 </code></pre>
 <p>hides the mouse, waits for a second, then turns it back on again</p>
-<p><em>See Also:</em> <a href="Mouse.html#usemodegraphic">Mouse.UseModeGraphic</a></p>
+<p><em>See Also:</em> <a href="Mouse.html#mouseusemodegraphic">Mouse.UseModeGraphic</a></p>
 </section>
 </section>
         </div>
@@ -407,7 +407,7 @@ mouse.Visible = true;
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:50 PM</p>
+      <p>Build: 10/06/2019 10:30:42 PM</p>
     </section>
   </footer>
 

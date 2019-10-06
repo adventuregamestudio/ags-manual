@@ -76,40 +76,40 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#overlay-functions-and-properties"><span>Overlay functions and properties</span></a><ul>
-<li><a href="#creategraphical"><span>CreateGraphical</span></a></li>
-<li><a href="#createtextual"><span>CreateTextual</span></a></li>
-<li><a href="#remove"><span>Remove</span></a></li>
-<li><a href="#settext"><span>SetText</span></a></li>
-<li><a href="#valid"><span>Valid</span></a></li>
-<li><a href="#x"><span>X</span></a></li>
-<li><a href="#y"><span>Y</span></a></li>
+<li><a href="#overlay-functions-and-properties"><span><code>Overlay</code> functions and properties</span></a><ul>
+<li><a href="#overlaycreategraphical"><span><code>Overlay.CreateGraphical</code></span></a></li>
+<li><a href="#overlaycreatetextual"><span><code>Overlay.CreateTextual</code></span></a></li>
+<li><a href="#overlayremove"><span><code>Overlay.Remove</code></span></a></li>
+<li><a href="#overlaysettext"><span><code>Overlay.SetText</code></span></a></li>
+<li><a href="#overlayvalid"><span><code>Overlay.Valid</code></span></a></li>
+<li><a href="#overlayx"><span><code>Overlay.X</code></span></a></li>
+<li><a href="#overlayy"><span><code>Overlay.Y</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="overlay-functions-and-properties" class="level2">
-<h2><a href="#overlay-functions-and-properties">Overlay functions and properties</a></h2>
-<section id="creategraphical" class="level3">
-<h3><a href="#creategraphical">CreateGraphical</a></h3>
+<h2><a href="#overlay-functions-and-properties"><code>Overlay</code> functions and properties</a></h2>
+<section id="overlaycreategraphical" class="level3">
+<h3><a href="#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a></h3>
 <p><em>(Formerly known as CreateGraphicOverlay, which is now obsolete)</em></p>
 <pre><code>static Overlay* Overlay.CreateGraphical(int x, int y, int slot, bool transparent)
 </code></pre>
 <p>Creates a screen overlay containing a copy of the image from SLOT in the Sprite Manager. The image is placed at (X,Y) on the screen (these are screen co-ordinates, not room co-ordinates).</p>
 <p>If <em>transparent</em> is true then the overlay will be drawn in the same way as characters/objects, if it is false then a black rectangle will be painted behind the sprite.</p>
-<p>See the description of <a href="Overlay.html#createtextual">Overlay.CreateTextual</a> for more on overlays.</p>
+<p>See the description of <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a> for more on overlays.</p>
 <p>Example:</p>
 <pre><code>Overlay* myOverlay = Overlay.CreateGraphical(100, 100, 300, true);
 Wait(40);
 myOverlay.Remove();
 </code></pre>
 <p>will create an overlay of the image stored in sprite manager's slot 300, at the coordinates 100,100. It will display for 1 second, then remove it.</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 <hr />
 </section>
-<section id="createtextual" class="level3">
-<h3><a href="#createtextual">CreateTextual</a></h3>
+<section id="overlaycreatetextual" class="level3">
+<h3><a href="#overlaycreatetextual"><code>Overlay.CreateTextual</code></a></h3>
 <p><em>(Formerly known as CreateTextOverlay, which is now obsolete)</em></p>
 <pre><code>static Overlay* Overlay.CreateTextual(int x, int y, int width,
                                       FontType font, int color, string text)
@@ -127,11 +127,11 @@ Wait(40);
 myOverlay.Remove();
 </code></pre>
 <p>will display a 120 pixels text area with its upper left corner at coordinates 50,80 containing the string "This is a text overlay" using the speech font and white color. It will be displayed for 1 second, then removed.</p>
-<p><em>See Also:</em> <a href="Overlay.html#creategraphical">Overlay.CreateGraphical</a>, <a href="Overlay.html#x">Overlay.X</a>, <a href="Overlay.html#y">Overlay.Y</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreategraphical">Overlay.CreateGraphical</a>, <a href="Overlay.html#overlayx">Overlay.X</a>, <a href="Overlay.html#overlayy">Overlay.Y</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 <hr />
 </section>
-<section id="remove" class="level3">
-<h3><a href="#remove">Remove</a></h3>
+<section id="overlayremove" class="level3">
+<h3><a href="#overlayremove"><code>Overlay.Remove</code></a></h3>
 <p><em>(Formerly known as RemoveOverlay, which is now obsolete)</em></p>
 <pre><code>Overlay.Remove()
 </code></pre>
@@ -142,11 +142,11 @@ Wait(200);
 myOverlay.Remove();
 </code></pre>
 <p>will create a text overlay , wait for 200 game cycles (about 5 seconds) and then remove the overlay from the screen.</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a></p>
 <hr />
 </section>
-<section id="settext" class="level3">
-<h3><a href="#settext">SetText</a></h3>
+<section id="overlaysettext" class="level3">
+<h3><a href="#overlaysettext"><code>Overlay.SetText</code></a></h3>
 <p><em>(Formerly known as SetTextOverlay, which is now obsolete)</em></p>
 <pre><code>Overlay.SetText(int width, FontType font, int color, string text, ...)
 </code></pre>
@@ -158,11 +158,11 @@ Wait(200);
 myOverlay.SetText(120,Game.SpeechFont,15,&quot;This is another text overlay&quot;);
 </code></pre>
 <p>will create a text overlay , wait for 200 game cycles (about 5 seconds) and then replace the overlay with another one.</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 <hr />
 </section>
-<section id="valid" class="level3">
-<h3><a href="#valid">Valid</a></h3>
+<section id="overlayvalid" class="level3">
+<h3><a href="#overlayvalid"><code>Overlay.Valid</code></a></h3>
 <p><em>(Formerly known as IsOverlayValid, which is now obsolete)</em></p>
 <pre><code>readonly bool Overlay.Valid;
 </code></pre>
@@ -174,11 +174,11 @@ myOverlay.Remove();
 Display(&quot;Overlay valid after: %d&quot;, myOverlay.Valid);
 </code></pre>
 <p>creates an overlay, and prints out the Valid property (which will be 1). Then, removes the overlay and prints Valid again (which will now be 0).</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 <hr />
 </section>
-<section id="x" class="level3">
-<h3><a href="#x">X</a></h3>
+<section id="overlayx" class="level3">
+<h3><a href="#overlayx"><code>Overlay.X</code></a></h3>
 <p><em>(Formerly known as MoveOverlay, which is now obsolete)</em></p>
 <pre><code>int Overlay.X;
 </code></pre>
@@ -193,11 +193,11 @@ while (testOverlay.X &lt; 100) {
 testOverlay.Remove();
 </code></pre>
 <p>creates a text overlay, then gradually slides it across the screen.</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#y">Overlay.Y</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a>, <a href="Overlay.html#overlayy">Overlay.Y</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 <hr />
 </section>
-<section id="y" class="level3">
-<h3><a href="#y">Y</a></h3>
+<section id="overlayy" class="level3">
+<h3><a href="#overlayy"><code>Overlay.Y</code></a></h3>
 <p><em>(Formerly known as MoveOverlay, which is now obsolete)</em></p>
 <pre><code>int Overlay.Y;
 </code></pre>
@@ -212,7 +212,7 @@ while (testOverlay.Y &lt; 100) {
 testOverlay.Remove();
 </code></pre>
 <p>creates a text overlay, then gradually slides it down the screen.</p>
-<p><em>See Also:</em> <a href="Overlay.html#createtextual">Overlay.CreateTextual</a>, <a href="Overlay.html#x">Overlay.X</a>, <a href="Overlay.html#remove">Overlay.Remove</a></p>
+<p><em>See Also:</em> <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a>, <a href="Overlay.html#overlayx">Overlay.X</a>, <a href="Overlay.html#overlayremove">Overlay.Remove</a></p>
 </section>
 </section>
         </div>
@@ -223,7 +223,7 @@ testOverlay.Remove();
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:50 PM</p>
+      <p>Build: 10/06/2019 10:30:42 PM</p>
     </section>
   </footer>
 

@@ -77,16 +77,16 @@
             </ul>
 <ul>
 <li><a href="#multimedia-functions"><span>Multimedia functions</span></a><ul>
-<li><a href="#cdaudio"><span>CDAudio</span></a></li>
-<li><a href="#isaudioplaying"><span>IsAudioPlaying</span></a></li>
-<li><a href="#isspeechvoxavailable"><span>IsSpeechVoxAvailable</span></a></li>
-<li><a href="#playflic"><span>PlayFlic</span></a></li>
-<li><a href="#playsilentmidi"><span>PlaySilentMIDI</span></a></li>
-<li><a href="#playvideo"><span>PlayVideo</span></a></li>
-<li><a href="#setaudiotypespeechvolumedrop"><span>SetAudioTypeSpeechVolumeDrop</span></a></li>
-<li><a href="#setaudiotypevolume"><span>SetAudioTypeVolume</span></a></li>
-<li><a href="#setspeechvolume"><span>SetSpeechVolume</span></a></li>
-<li><a href="#stopaudio"><span>StopAudio</span></a></li>
+<li><a href="#cdaudio"><span><code>CDAudio</code></span></a></li>
+<li><a href="#gameisaudioplaying"><span><code>Game.IsAudioPlaying</code></span></a></li>
+<li><a href="#isspeechvoxavailable"><span><code>IsSpeechVoxAvailable</code></span></a></li>
+<li><a href="#playflic"><span><code>PlayFlic</code></span></a></li>
+<li><a href="#playsilentmidi"><span><code>PlaySilentMIDI</code></span></a></li>
+<li><a href="#playvideo"><span><code>PlayVideo</code></span></a></li>
+<li><a href="#gamesetaudiotypespeechvolumedrop"><span><code>Game.SetAudioTypeSpeechVolumeDrop</code></span></a></li>
+<li><a href="#gamesetaudiotypevolume"><span><code>Game.SetAudioTypeVolume</code></span></a></li>
+<li><a href="#setspeechvolume"><span><code>SetSpeechVolume</code></span></a></li>
+<li><a href="#gamestopaudio"><span><code>Game.StopAudio</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -95,7 +95,7 @@
 <section id="multimedia-functions" class="level2">
 <h2><a href="#multimedia-functions">Multimedia functions</a></h2>
 <section id="cdaudio" class="level3">
-<h3><a href="#cdaudio">CDAudio</a></h3>
+<h3><a href="#cdaudio"><code>CDAudio</code></a></h3>
 <pre><code>CDAudio (eCDAudioFunction, int param)
 </code></pre>
 <p>This function allows you to play and control an audio CD in your game. Different tasks are performed, depending on the value of the AudioFunction parameter. If there is no CD-ROM drive on the system, the function does nothing.</p>
@@ -133,8 +133,8 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 <p>will play track 3 of the CD that's in the CD ROM drive.</p>
 <hr />
 </section>
-<section id="isaudioplaying" class="level3">
-<h3><a href="#isaudioplaying">IsAudioPlaying</a></h3>
+<section id="gameisaudioplaying" class="level3">
+<h3><a href="#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></h3>
 <p><em>(Formerly known as IsMusicPlaying, which is now obsolete)</em><br> <em>(Formerly known as IsSoundPlaying, which is now obsolete)</em></p>
 <pre><code>static bool Game.IsAudioPlaying(optional AudioType)
 </code></pre>
@@ -148,11 +148,11 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 </code></pre>
 <p>waits for any currently playing music to finish.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Multimedia.html#stopaudio">Game.StopAudio</a></p>
+<p><em>See Also:</em> <a href="Multimedia.html#gamestopaudio">Game.StopAudio</a></p>
 <hr />
 </section>
 <section id="isspeechvoxavailable" class="level3">
-<h3><a href="#isspeechvoxavailable">IsSpeechVoxAvailable</a></h3>
+<h3><a href="#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a></h3>
 <pre><code>IsSpeechVoxAvailable()
 </code></pre>
 <p>Returns whether the SPEECH.VOX file is being used by the game. This could be useful if you have an optional speech download pack, and you want to know whether the player has it or not.</p>
@@ -163,11 +163,11 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 </code></pre>
 <p>will display a message if the voice pack is not available.</p>
 <p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now been renamed to avoid confusion.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#isavailable">AudioClip.IsAvailable</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipisavailable">AudioClip.IsAvailable</a></p>
 <hr />
 </section>
 <section id="playflic" class="level3">
-<h3><a href="#playflic">PlayFlic</a></h3>
+<h3><a href="#playflic"><code>PlayFlic</code></a></h3>
 <pre><code>PlayFlic (int flic_number, int options)
 </code></pre>
 <p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
@@ -187,16 +187,16 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 <hr />
 </section>
 <section id="playsilentmidi" class="level3">
-<h3><a href="#playsilentmidi">PlaySilentMIDI</a></h3>
+<h3><a href="#playsilentmidi"><code>PlaySilentMIDI</code></a></h3>
 <pre><code>PlaySilentMIDI (int music_number)
 </code></pre>
 <p>This command is obsolete.</p>
 <p>Use the AudioClip.Play command and set its Volume property to 0 to simulate this effect.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioChannel.html#volume">AudioChannel.Volume</a></p>
+<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="AudioChannel.html#audiochannelvolume">AudioChannel.Volume</a></p>
 <hr />
 </section>
 <section id="playvideo" class="level3">
-<h3><a href="#playvideo">PlayVideo</a></h3>
+<h3><a href="#playvideo"><code>PlayVideo</code></a></h3>
 <pre><code>PlayVideo (string filename, VideoSkipStyle, int flags)
 </code></pre>
 <p>Plays an AVI, MPG or OGG Theora file, or any other file type supported by Media Player. The game is paused while the video plays.</p>
@@ -227,8 +227,8 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 <p><em>See Also:</em> <a href="Multimedia.html#playflic">PlayFlic</a></p>
 <hr />
 </section>
-<section id="setaudiotypespeechvolumedrop" class="level3">
-<h3><a href="#setaudiotypespeechvolumedrop">SetAudioTypeSpeechVolumeDrop</a></h3>
+<section id="gamesetaudiotypespeechvolumedrop" class="level3">
+<h3><a href="#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></h3>
 <p><em>(Formerly known as game.speech_music_drop, which is now obsolete)</em></p>
 <pre><code>static Game.SetAudioTypeSpeechVolumeDrop(AudioType, int volumeReduction)
 </code></pre>
@@ -239,11 +239,11 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 </code></pre>
 <p>will reduce the volume of Music audio clips by 25 percentage points while speech is playing.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Multimedia.html#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<p><em>See Also:</em> <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a></p>
 <hr />
 </section>
-<section id="setaudiotypevolume" class="level3">
-<h3><a href="#setaudiotypevolume">SetAudioTypeVolume</a></h3>
+<section id="gamesetaudiotypevolume" class="level3">
+<h3><a href="#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></h3>
 <p><em>(Formerly known as SetSoundVolume, which is now obsolete)</em></p>
 <pre><code>static Game.SetAudioTypeVolume(AudioType, int volume, ChangeVolumeType)
 </code></pre>
@@ -260,11 +260,11 @@ eVolExistingAndFuture   change both currently playing and future audio
 </code></pre>
 <p>will change the volume of all currently playing and future music to <code>20%</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Multimedia.html#setspeechvolume">SetSpeechVolume</a>, <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="System.html#volume">System.Volume</a></p>
+<p><em>See Also:</em> <a href="Multimedia.html#setspeechvolume">SetSpeechVolume</a>, <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="System.html#systemvolume">System.Volume</a></p>
 <hr />
 </section>
 <section id="setspeechvolume" class="level3">
-<h3><a href="#setspeechvolume">SetSpeechVolume</a></h3>
+<h3><a href="#setspeechvolume"><code>SetSpeechVolume</code></a></h3>
 <pre><code>SetSpeechVolume (int volume)
 </code></pre>
 <p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255 is the loudest. The default speech volume is 255 so this function can only be used to reduce the volume.</p>
@@ -272,11 +272,11 @@ eVolExistingAndFuture   change both currently playing and future audio
 <pre><code>SetSpeechVolume(200);
 </code></pre>
 <p>will set the speech volume to 200.</p>
-<p><em>See Also:</em> <a href="Multimedia.html#setaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<p><em>See Also:</em> <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a></p>
 <hr />
 </section>
-<section id="stopaudio" class="level3">
-<h3><a href="#stopaudio">StopAudio</a></h3>
+<section id="gamestopaudio" class="level3">
+<h3><a href="#gamestopaudio"><code>Game.StopAudio</code></a></h3>
 <p><em>(Formerly known as Game.StopSound, which is now obsolete)</em><br> <em>(Formerly known as StopMusic, which is now obsolete)</em></p>
 <pre><code>static Game.StopAudio(optional AudioType)
 </code></pre>
@@ -287,7 +287,7 @@ eVolExistingAndFuture   change both currently playing and future audio
 </code></pre>
 <p>will stop all currently playing audio.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Multimedia.html#isaudioplaying">Game.IsAudioPlaying</a>, <a href="AudioClip.html#play">AudioClip.Play</a>, <a href="AudioChannel.html#stop">AudioChannel.Stop</a></p>
+<p><em>See Also:</em> <a href="Multimedia.html#gameisaudioplaying">Game.IsAudioPlaying</a>, <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="AudioChannel.html#audiochannelstop">AudioChannel.Stop</a></p>
 </section>
 </section>
         </div>
@@ -298,7 +298,7 @@ eVolExistingAndFuture   change both currently playing and future audio
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:47 PM</p>
+      <p>Build: 10/06/2019 10:30:38 PM</p>
     </section>
   </footer>
 

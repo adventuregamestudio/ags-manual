@@ -76,22 +76,22 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#textbox-functions-and-properties"><span>TextBox functions and properties</span></a><ul>
-<li><a href="#font"><span>Font</span></a></li>
-<li><a href="#showborder"><span>ShowBorder</span></a></li>
-<li><a href="#text"><span>Text</span></a></li>
-<li><a href="#textcolor"><span>TextColor</span></a></li>
+<li><a href="#textbox-functions-and-properties"><span><code>TextBox</code> functions and properties</span></a><ul>
+<li><a href="#textboxfont"><span><code>TextBox.Font</code></span></a></li>
+<li><a href="#textboxshowborder"><span><code>TextBox.ShowBorder</code></span></a></li>
+<li><a href="#textboxtext"><span><code>TextBox.Text</code></span></a></li>
+<li><a href="#textboxtextcolor"><span><code>TextBox.TextColor</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="textbox-functions-and-properties" class="level2">
-<h2><a href="#textbox-functions-and-properties">TextBox functions and properties</a></h2>
+<h2><a href="#textbox-functions-and-properties"><code>TextBox</code> functions and properties</a></h2>
 <p>TextBox is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
-<section id="font" class="level3">
-<h3><a href="#font">Font</a></h3>
+<section id="textboxfont" class="level3">
+<h3><a href="#textboxfont"><code>TextBox.Font</code></a></h3>
 <p><em>(Formerly known as SetTextBoxFont, which is now obsolete)</em></p>
 <pre><code>FontType TextBox.Font
 </code></pre>
@@ -100,11 +100,11 @@
 <pre><code>txtUserInput.Font = eFontNormal;
 </code></pre>
 <p>will change the <em>txtUserInput</em> text box to use Font "Normal".</p>
-<p><em>See Also:</em> <a href="Label.html#font">Label.Font</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
+<p><em>See Also:</em> <a href="Label.html#labelfont">Label.Font</a>, <a href="TextBox.html#textboxtext">TextBox.Text</a></p>
 <hr />
 </section>
-<section id="showborder" class="level3">
-<h3><a href="#showborder">ShowBorder</a></h3>
+<section id="textboxshowborder" class="level3">
+<h3><a href="#textboxshowborder"><code>TextBox.ShowBorder</code></a></h3>
 <pre><code>bool TextBox.ShowBorder
 </code></pre>
 <p>Gets/sets whether the text box's border is shown.</p>
@@ -112,8 +112,8 @@
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
-<section id="text" class="level3">
-<h3><a href="#text">Text</a></h3>
+<section id="textboxtext" class="level3">
+<h3><a href="#textboxtext"><code>TextBox.Text</code></a></h3>
 <p><em>(Formerly known as GetTextBoxText, which is now obsolete)</em><br> <em>(Formerly known as SetTextBoxText, which is now obsolete)</em><br> <em>(Formerly known as TextBox.GetText, which is now obsolete)</em><br> <em>(Formerly known as TextBox.SetText, which is now obsolete)</em></p>
 <pre><code>String TextBox.Text;
 </code></pre>
@@ -122,11 +122,11 @@
 <pre><code>txtUserInput.Text = &quot;&quot;;
 </code></pre>
 <p>will clear the txtUserInput text box.</p>
-<p><em>See Also:</em> <a href="TextBox.html#font">TextBox.Font</a>, <a href="String.html#compareto">String.CompareTo</a>, <a href="Label.html#text">Label.Text</a></p>
+<p><em>See Also:</em> <a href="TextBox.html#textboxfont">TextBox.Font</a>, <a href="String.html#stringcompareto">String.CompareTo</a>, <a href="Label.html#labeltext">Label.Text</a></p>
 <hr />
 </section>
-<section id="textcolor" class="level3">
-<h3><a href="#textcolor">TextColor</a></h3>
+<section id="textboxtextcolor" class="level3">
+<h3><a href="#textboxtextcolor"><code>TextBox.TextColor</code></a></h3>
 <pre><code>int TextBox.TextColor;
 </code></pre>
 <p>Gets/sets the text colour used to draw the text box. This affects both the text in the text box, and also the text box's border.</p>
@@ -135,7 +135,7 @@
 </code></pre>
 <p>will change text box 'txtInput' to have yellow text.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="TextBox.html#showborder">TextBox.ShowBorder</a>, <a href="TextBox.html#text">TextBox.Text</a></p>
+<p><em>See Also:</em> <a href="TextBox.html#textboxshowborder">TextBox.ShowBorder</a>, <a href="TextBox.html#textboxtext">TextBox.Text</a></p>
 </section>
 </section>
         </div>
@@ -146,7 +146,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:52 PM</p>
+      <p>Build: 10/06/2019 10:30:44 PM</p>
     </section>
   </footer>
 

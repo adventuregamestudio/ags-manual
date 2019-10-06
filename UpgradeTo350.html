@@ -151,12 +151,12 @@
 <pre><code>int roomx = mouse.x + GetViewportX();
 int roomy = mouse.y + GetViewportY();
 </code></pre>
-<p>Since 3.5.0 this is no longer enough, because not only viewport itself may have offset on screen, but also camera's image may be scaled inside a viewport. For that reason there are now actual functions that help you do this conversion: <a href="Screen.html#screentoroompoint">Screen.ScreenToRoomPoint</a>, <a href="Screen.html#roomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Viewport.html#screentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Viewport.html#roomtoscreenpoint">Viewport.RoomToScreenPoint</a>.<br> They are used like:</p>
+<p>Since 3.5.0 this is no longer enough, because not only viewport itself may have offset on screen, but also camera's image may be scaled inside a viewport. For that reason there are now actual functions that help you do this conversion: <a href="Screen.html#screenscreentoroompoint">Screen.ScreenToRoomPoint</a>, <a href="Screen.html#screenroomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Viewport.html#viewportscreentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Viewport.html#viewportroomtoscreenpoint">Viewport.RoomToScreenPoint</a>.<br> They are used like:</p>
 <pre><code>Point *roompt = Screen.ScreenToRoomPoint(mouse.x, mouse.y);
 int roomx = roompt.x;
 int roomy = roompt.y;
 </code></pre>
-<p>For more information see: <a href="Camera.html">Camera</a>, <a href="Viewport.html">Viewport</a>, <a href="Game.html#cameras">Game.Cameras</a>, <a href="Screen.html#viewports">Screen.Viewports</a></p>
+<p>For more information see: <a href="Camera.html">Camera</a>, <a href="Viewport.html">Viewport</a>, <a href="Game.html#gamecameras">Game.Cameras</a>, <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
 </section>
 <section id="room-sizes-and-mask-resolution" class="level3">
 <h3><a href="#room-sizes-and-mask-resolution">Room sizes and mask resolution</a></h3>
@@ -228,7 +228,7 @@ int roomy = roompt.y;
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:52 PM</p>
+      <p>Build: 10/06/2019 10:30:44 PM</p>
     </section>
   </footer>
 

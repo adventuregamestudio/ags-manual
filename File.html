@@ -76,33 +76,33 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#file-functions-and-properties"><span>File functions and properties</span></a><ul>
-<li><a href="#open"><span>Open</span></a></li>
-<li><a href="#close"><span>Close</span></a></li>
-<li><a href="#delete"><span>Delete</span></a></li>
-<li><a href="#exists"><span>Exists</span></a></li>
-<li><a href="#readint"><span>ReadInt</span></a></li>
-<li><a href="#readrawchar"><span>ReadRawChar</span></a></li>
-<li><a href="#readrawint"><span>ReadRawInt</span></a></li>
-<li><a href="#readrawlineback"><span>ReadRawLineBack</span></a></li>
-<li><a href="#readstringback"><span>ReadStringBack</span></a></li>
-<li><a href="#seek"><span>Seek</span></a></li>
-<li><a href="#writeint"><span>WriteInt</span></a></li>
-<li><a href="#writerawchar"><span>WriteRawChar</span></a></li>
-<li><a href="#writerawline"><span>WriteRawLine</span></a></li>
-<li><a href="#writestring"><span>WriteString</span></a></li>
-<li><a href="#eof"><span>EOF</span></a></li>
-<li><a href="#error"><span>Error</span></a></li>
-<li><a href="#position"><span>Position</span></a></li>
+<li><a href="#file-functions-and-properties"><span><code>File</code> functions and properties</span></a><ul>
+<li><a href="#fileopen"><span><code>File.Open</code></span></a></li>
+<li><a href="#fileclose"><span><code>File.Close</code></span></a></li>
+<li><a href="#filedelete"><span><code>File.Delete</code></span></a></li>
+<li><a href="#fileexists"><span><code>File.Exists</code></span></a></li>
+<li><a href="#filereadint"><span><code>File.ReadInt</code></span></a></li>
+<li><a href="#filereadrawchar"><span><code>File.ReadRawChar</code></span></a></li>
+<li><a href="#filereadrawint"><span><code>File.ReadRawInt</code></span></a></li>
+<li><a href="#filereadrawlineback"><span><code>File.ReadRawLineBack</code></span></a></li>
+<li><a href="#filereadstringback"><span><code>File.ReadStringBack</code></span></a></li>
+<li><a href="#fileseek"><span><code>File.Seek</code></span></a></li>
+<li><a href="#filewriteint"><span><code>File.WriteInt</code></span></a></li>
+<li><a href="#filewriterawchar"><span><code>File.WriteRawChar</code></span></a></li>
+<li><a href="#filewriterawline"><span><code>File.WriteRawLine</code></span></a></li>
+<li><a href="#filewritestring"><span><code>File.WriteString</code></span></a></li>
+<li><a href="#fileeof"><span><code>File.EOF</code></span></a></li>
+<li><a href="#fileerror"><span><code>File.Error</code></span></a></li>
+<li><a href="#fileposition"><span><code>File.Position</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="file-functions-and-properties" class="level2">
-<h2><a href="#file-functions-and-properties">File functions and properties</a></h2>
-<section id="open" class="level3">
-<h3><a href="#open">Open</a></h3>
+<h2><a href="#file-functions-and-properties"><code>File</code> functions and properties</a></h2>
+<section id="fileopen" class="level3">
+<h3><a href="#fileopen"><code>File.Open</code></a></h3>
 <p><em>(Formerly known as FileOpen, which is now obsolete)</em></p>
 <pre><code>static File* File.Open(string filename, FileMode)
 </code></pre>
@@ -124,11 +124,11 @@ else {
 }
 </code></pre>
 <p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
-<p><em>See Also:</em> <a href="File.html#close">File.Close</a>, <a href="File.html#exists">File.Exists</a>, <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a href="File.html#fileclose">File.Close</a>, <a href="File.html#fileexists">File.Exists</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
 <hr />
 </section>
-<section id="close" class="level3">
-<h3><a href="#close">Close</a></h3>
+<section id="fileclose" class="level3">
+<h3><a href="#fileclose"><code>File.Close</code></a></h3>
 <p><em>(Formerly known as FileClose, which is now obsolete)</em></p>
 <pre><code>File.Close()
 </code></pre>
@@ -139,11 +139,11 @@ output.WriteString(&quot;test string&quot;);
 output.Close();
 </code></pre>
 <p>will open the file test.dat, write the string "test string", and close it.</p>
-<p><em>See Also:</em> <a href="File.html#open">File.Open</a></p>
+<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a></p>
 <hr />
 </section>
-<section id="delete" class="level3">
-<h3><a href="#delete">Delete</a></h3>
+<section id="filedelete" class="level3">
+<h3><a href="#filedelete"><code>File.Delete</code></a></h3>
 <pre><code>static File.Delete(string filename)
 </code></pre>
 <p>Deletes the specified file from the disk.</p>
@@ -154,11 +154,11 @@ output.Close();
 </code></pre>
 <p>will delete the file "temp.tmp" from the app data directory, if it exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#exists">File.Exists</a>, <a href="File.html#open">File.Open</a></p>
+<p><em>See Also:</em> <a href="File.html#fileexists">File.Exists</a>, <a href="File.html#fileopen">File.Open</a></p>
 <hr />
 </section>
-<section id="exists" class="level3">
-<h3><a href="#exists">Exists</a></h3>
+<section id="fileexists" class="level3">
+<h3><a href="#fileexists"><code>File.Exists</code></a></h3>
 <pre><code>static bool File.Exists(string filename)
 </code></pre>
 <p>Checks if the specified file exists on the file system.</p>
@@ -174,11 +174,11 @@ output.Close();
 </code></pre>
 <p>will create the file "temp.tmp" if it doesn't exist</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#delete">File.Delete</a>, <a href="File.html#open">File.Open</a></p>
+<p><em>See Also:</em> <a href="File.html#filedelete">File.Delete</a>, <a href="File.html#fileopen">File.Open</a></p>
 <hr />
 </section>
-<section id="readint" class="level3">
-<h3><a href="#readint">ReadInt</a></h3>
+<section id="filereadint" class="level3">
+<h3><a href="#filereadint"><code>File.ReadInt</code></a></h3>
 <p><em>(Formerly known as FileReadInt, which is now obsolete)</em></p>
 <pre><code>File.ReadInt()
 </code></pre>
@@ -190,11 +190,11 @@ number = input.ReadInt();
 input.Close();
 </code></pre>
 <p>will open the file stats.dat, read an integer into number and then close the file.</p>
-<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#writeint">File.WriteInt</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filewriteint">File.WriteInt</a></p>
 <hr />
 </section>
-<section id="readrawchar" class="level3">
-<h3><a href="#readrawchar">ReadRawChar</a></h3>
+<section id="filereadrawchar" class="level3">
+<h3><a href="#filereadrawchar"><code>File.ReadRawChar</code></a></h3>
 <p><em>(Formerly known as FileReadRawChar, which is now obsolete)</em></p>
 <pre><code>File.ReadRawChar()
 </code></pre>
@@ -205,11 +205,11 @@ String buffer = String.Format(&quot;%c&quot;, input.ReadRawChar());
 input.Close();
 </code></pre>
 <p>will read a raw character from file stats.txt and writes it to the string 'buffer'.</p>
-<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#readrawint">File.ReadRawInt</a>, <a href="File.html#writerawchar">File.WriteRawChar</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filereadrawint">File.ReadRawInt</a>, <a href="File.html#filewriterawchar">File.WriteRawChar</a></p>
 <hr />
 </section>
-<section id="readrawint" class="level3">
-<h3><a href="#readrawint">ReadRawInt</a></h3>
+<section id="filereadrawint" class="level3">
+<h3><a href="#filereadrawint"><code>File.ReadRawInt</code></a></h3>
 <p><em>(Formerly known as FileReadRawInt, which is now obsolete)</em></p>
 <pre><code>File.ReadRawInt()
 </code></pre>
@@ -221,11 +221,11 @@ number = input.ReadRawInt();
 input.Close();
 </code></pre>
 <p>will read a raw integer from file stats.txt and put it into the integer number.</p>
-<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#readrawchar">File.ReadRawChar</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filereadrawchar">File.ReadRawChar</a></p>
 <hr />
 </section>
-<section id="readrawlineback" class="level3">
-<h3><a href="#readrawlineback">ReadRawLineBack</a></h3>
+<section id="filereadrawlineback" class="level3">
+<h3><a href="#filereadrawlineback"><code>File.ReadRawLineBack</code></a></h3>
 <p><em>(Formerly known as File.ReadRawLine, which is now obsolete)</em></p>
 <pre><code>String File.ReadRawLineBack()
 </code></pre>
@@ -242,11 +242,11 @@ if (input != null) {
 }
 </code></pre>
 <p>will display the contents of the 'error.log' file, if it exists</p>
-<p><em>See Also:</em> <a href="File.html#writerawline">File.WriteRawLine</a></p>
+<p><em>See Also:</em> <a href="File.html#filewriterawline">File.WriteRawLine</a></p>
 <hr />
 </section>
-<section id="readstringback" class="level3">
-<h3><a href="#readstringback">ReadStringBack</a></h3>
+<section id="filereadstringback" class="level3">
+<h3><a href="#filereadstringback"><code>File.ReadStringBack</code></a></h3>
 <p><em>(Formerly known as FileRead, which is now obsolete)</em><br> <em>(Formerly known as File.ReadString, which is now obsolete)</em></p>
 <pre><code>String File.ReadStringBack()
 </code></pre>
@@ -257,11 +257,11 @@ String buffer = input.ReadStringBack();
 input.Close();
 </code></pre>
 <p>will open the file test.dat (which you have previously written with File.WriteString) and read a string into the buffer. Then close the file.</p>
-<p><em>See Also:</em> <a href="File.html#open">File.Open</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
 <hr />
 </section>
-<section id="seek" class="level3">
-<h3><a href="#seek">Seek</a></h3>
+<section id="fileseek" class="level3">
+<h3><a href="#fileseek"><code>File.Seek</code></a></h3>
 <pre><code>int Seek(int offset, optional FileSeek origin);
 </code></pre>
 <p>Moves read/write position by <em>offset</em> bytes related to <em>origin</em>. Returns new read/write position. This is usually used when you are reading file and want to skip over some data, or writing a file and want to move back and overwrite a piece of data in the previous section for some reason.</p>
@@ -277,11 +277,11 @@ input.Close();
 </code></pre>
 <p>will open the file test.dat, read <code>first_value</code>, skip 256 bytes, read <code>second_value</code>, and close the file.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#position">File.Position</a></p>
+<p><em>See Also:</em> <a href="File.html#fileposition">File.Position</a></p>
 <hr />
 </section>
-<section id="writeint" class="level3">
-<h3><a href="#writeint">WriteInt</a></h3>
+<section id="filewriteint" class="level3">
+<h3><a href="#filewriteint"><code>File.WriteInt</code></a></h3>
 <p><em>(Formerly known as FileWriteInt, which is now obsolete)</em></p>
 <pre><code>File.WriteInt(int value)
 </code></pre>
@@ -293,11 +293,11 @@ output.WriteInt(number);
 output.Close();
 </code></pre>
 <p>will open the file stats.dat and write the integer number in it.</p>
-<p><em>See Also:</em> <a href="File.html#readint">File.ReadInt</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadint">File.ReadInt</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
 <hr />
 </section>
-<section id="writerawchar" class="level3">
-<h3><a href="#writerawchar">WriteRawChar</a></h3>
+<section id="filewriterawchar" class="level3">
+<h3><a href="#filewriterawchar"><code>File.WriteRawChar</code></a></h3>
 <p><em>(Formerly known as FileWriteRawChar, which is now obsolete)</em></p>
 <pre><code>File.WriteRawChar(int value)
 </code></pre>
@@ -311,11 +311,11 @@ output.WriteRawChar(13);
 output.Close();
 </code></pre>
 <p>will write the text "AB", followed by a carriage return character, to the file.</p>
-<p><em>See Also:</em> <a href="File.html#readrawchar">File.ReadRawChar</a>, <a href="File.html#writeint">File.WriteInt</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadrawchar">File.ReadRawChar</a>, <a href="File.html#filewriteint">File.WriteInt</a></p>
 <hr />
 </section>
-<section id="writerawline" class="level3">
-<h3><a href="#writerawline">WriteRawLine</a></h3>
+<section id="filewriterawline" class="level3">
+<h3><a href="#filewriterawline"><code>File.WriteRawLine</code></a></h3>
 <p><em>(Formerly known as FileWriteRawLine, which is now obsolete)</em></p>
 <pre><code>File.WriteRawLine(string text)
 </code></pre>
@@ -327,11 +327,11 @@ output.WriteRawLine(&quot;There was an error playing sound1.wav&quot;);
 output.Close();
 </code></pre>
 <p>will write an error line in the file error.log.</p>
-<p><em>See Also:</em> <a href="File.html#readrawlineback">File.ReadRawLineBack</a>, <a href="File.html#writestring">File.WriteString</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadrawlineback">File.ReadRawLineBack</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
 <hr />
 </section>
-<section id="writestring" class="level3">
-<h3><a href="#writestring">WriteString</a></h3>
+<section id="filewritestring" class="level3">
+<h3><a href="#filewritestring"><code>File.WriteString</code></a></h3>
 <p><em>(Formerly known as FileWrite, which is now obsolete)</em></p>
 <pre><code>File.WriteString(string text)
 </code></pre>
@@ -345,11 +345,11 @@ else {
 }
 </code></pre>
 <p>will open the file temp.tmp for writing. If it cannot create the file, it will display an error message. Otherwise, it will write the string "test string" and close it.</p>
-<p><em>See Also:</em> <a href="File.html#readstringback">File.ReadStringBack</a>, <a href="File.html#open">File.Open</a>, <a href="File.html#writerawline">File.WriteRawLine</a></p>
+<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filewriterawline">File.WriteRawLine</a></p>
 <hr />
 </section>
-<section id="eof" class="level3">
-<h3><a href="#eof">EOF</a></h3>
+<section id="fileeof" class="level3">
+<h3><a href="#fileeof"><code>File.EOF</code></a></h3>
 <p><em>(Formerly known as FileIsEOF, which is now obsolete)</em></p>
 <pre><code>readonly bool File.EOF
 </code></pre>
@@ -363,18 +363,18 @@ while (!output.EOF) {
 output.Close();
 </code></pre>
 <p>will display every character in the file test.dat, one by one, to the screen.</p>
-<p><em>See Also:</em> <a href="File.html#error">File.Error</a>, <a href="File.html#open">File.Open</a>, <a href="File.html#readstringback">File.ReadStringBack</a></p>
+<p><em>See Also:</em> <a href="File.html#fileerror">File.Error</a>, <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a></p>
 <hr />
 </section>
-<section id="error" class="level3">
-<h3><a href="#error">Error</a></h3>
+<section id="fileerror" class="level3">
+<h3><a href="#fileerror"><code>File.Error</code></a></h3>
 <p><em>(Formerly known as FileIsError, which is now obsolete)</em></p>
 <pre><code>readonly bool File.Error
 </code></pre>
 <p>Checks whether an error has occurred reading from or writing to the specified file.</p>
 <p>An error can occur if, for example, you run out of disk space or the user removes the disk that is being read from.</p>
 <p>This function only checks for errors while actually reading/writing data. The File.Open function will return null if there was an error actually opening or creating the file.</p>
-<p>To find out whether all data has been read from a file, use <a href="File.html#eof">EOF</a> instead.</p>
+<p>To find out whether all data has been read from a file, use <a href="File.html#fileeof">EOF</a> instead.</p>
 <p>Example:</p>
 <pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
 output.WriteInt(51);
@@ -384,11 +384,11 @@ if (output.Error) {
 output.Close();
 </code></pre>
 <p>will write a number to the file 'test.dat', and display a message if there was a problem.</p>
-<p><em>See Also:</em> <a href="File.html#eof">File.EOF</a>, <a href="File.html#readstringback">File.ReadStringBack</a></p>
+<p><em>See Also:</em> <a href="File.html#fileeof">File.EOF</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a></p>
 <hr />
 </section>
-<section id="position" class="level3">
-<h3><a href="#position">Position</a></h3>
+<section id="fileposition" class="level3">
+<h3><a href="#fileposition"><code>File.Position</code></a></h3>
 <pre><code>readonly int File.Position
 </code></pre>
 <p>Gets current File's reading or writing position. This value means number of bytes between file's beginning and current place you are reading from or writing to.</p>
@@ -403,7 +403,7 @@ output.Close();
 </code></pre>
 <p>will open file, pass the file pointer to some custom function, then display amount of data that function wrote.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#seek">File.Seek</a></p>
+<p><em>See Also:</em> <a href="File.html#fileseek">File.Seek</a></p>
 </section>
 </section>
         </div>
@@ -414,7 +414,7 @@ output.Close();
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:52 PM</p>
+      <p>Build: 10/06/2019 10:30:44 PM</p>
     </section>
   </footer>
 

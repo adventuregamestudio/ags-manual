@@ -76,21 +76,21 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#textwindowgui-functions-and-properties"><span>TextWindowGUI functions and properties</span></a><ul>
-<li><a href="#textcolor"><span>TextColor</span></a></li>
-<li><a href="#textpadding"><span>TextPadding</span></a></li>
+<li><a href="#textwindowgui-functions-and-properties"><span><code>TextWindowGUI</code> functions and properties</span></a><ul>
+<li><a href="#textwindowguitextcolor"><span><code>TextWindowGUI.TextColor</code></span></a></li>
+<li><a href="#textwindowguitextpadding"><span><code>TextWindowGUI.TextPadding</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="textwindowgui-functions-and-properties" class="level2">
-<h2><a href="#textwindowgui-functions-and-properties">TextWindowGUI functions and properties</a></h2>
+<h2><a href="#textwindowgui-functions-and-properties"><code>TextWindowGUI</code> functions and properties</a></h2>
 <p>This struct extends the GUI struct, so it has all functions and properties from <a href="GUI.html">GUI</a>, in addition to the properties below.</p>
 <p><em>Compatibility:</em> TextWindowGUI is supported by AGS 3.5.0 and later versions.</p>
 <hr />
-<section id="textcolor" class="level3">
-<h3><a href="#textcolor">TextColor</a></h3>
+<section id="textwindowguitextcolor" class="level3">
+<h3><a href="#textwindowguitextcolor"><code>TextWindowGUI.TextColor</code></a></h3>
 <pre><code>int TextWindowGUI.TextColor
 </code></pre>
 <p>Gets/sets the text color to be used when rendering text on this TextWindowGUI.</p>
@@ -102,13 +102,13 @@ function MySay(this Character*, const string message) {
   this.Say(message);
 }
 </code></pre>
-<p>above function adjusts gTextGui's text color before calling a standard <a href="Character.html#say">Character.Say</a> function. It assumes that gTextGui was assigned as a default textwindow for the character speech. Such custom function may then be used as:</p>
+<p>above function adjusts gTextGui's text color before calling a standard <a href="Character.html#charactersay">Character.Say</a> function. It assumes that gTextGui was assigned as a default textwindow for the character speech. Such custom function may then be used as:</p>
 <pre><code>cEgo.MySay(&quot;My text has my colors!&quot;);
 </code></pre>
 <hr />
 </section>
-<section id="textpadding" class="level3">
-<h3><a href="#textpadding">TextPadding</a></h3>
+<section id="textwindowguitextpadding" class="level3">
+<h3><a href="#textwindowguitextpadding"><code>TextWindowGUI.TextPadding</code></a></h3>
 <pre><code>int TextWindowGUI.TextPadding
 </code></pre>
 <p>Gets/sets the amount of padding, in pixels, surrounding the text in the TextWindow.</p>
@@ -122,7 +122,7 @@ function MySay(this Character*, const string message) {
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:55 PM</p>
+      <p>Build: 10/06/2019 10:30:47 PM</p>
     </section>
   </footer>
 

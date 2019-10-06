@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Global functions: room actions</title>
+  <title>Global functions (room actions)</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -76,35 +76,35 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#global-functions-room-actions"><span>Global functions: room actions</span></a><ul>
-<li><a href="#arethingsoverlapping"><span>AreThingsOverlapping</span></a></li>
-<li><a href="#disablegroundlevelareas"><span>DisableGroundLevelAreas</span></a></li>
-<li><a href="#enablegroundlevelareas"><span>EnableGroundLevelAreas</span></a></li>
-<li><a href="#getbackgroundframe"><span>GetBackgroundFrame</span></a></li>
-<li><a href="#getscalingat"><span>GetScalingAt</span></a></li>
-<li><a href="#getviewportx"><span>GetViewportX</span></a></li>
-<li><a href="#getviewporty"><span>GetViewportY</span></a></li>
-<li><a href="#getwalkableareaat"><span>GetWalkableAreaAt</span></a></li>
-<li><a href="#getwalkableareaatroom"><span>GetWalkableAreaAtRoom</span></a></li>
-<li><a href="#getwalkableareaatscreen"><span>GetWalkableAreaAtScreen</span></a></li>
-<li><a href="#hasplayerbeeninroom"><span>HasPlayerBeenInRoom</span></a></li>
-<li><a href="#releaseviewport"><span>ReleaseViewport</span></a></li>
-<li><a href="#removewalkablearea"><span>RemoveWalkableArea</span></a></li>
-<li><a href="#resetroom"><span>ResetRoom</span></a></li>
-<li><a href="#restorewalkablearea"><span>RestoreWalkableArea</span></a></li>
-<li><a href="#setareascaling"><span>SetAreaScaling</span></a></li>
-<li><a href="#setbackgroundframe"><span>SetBackgroundFrame</span></a></li>
-<li><a href="#setviewport"><span>SetViewport</span></a></li>
-<li><a href="#setwalkbehindbase"><span>SetWalkBehindBase</span></a></li>
+<li><a href="#global-functions-room-actions"><span>Global functions (room actions)</span></a><ul>
+<li><a href="#arethingsoverlapping"><span><code>AreThingsOverlapping</code></span></a></li>
+<li><a href="#disablegroundlevelareas"><span><code>DisableGroundLevelAreas</code></span></a></li>
+<li><a href="#enablegroundlevelareas"><span><code>EnableGroundLevelAreas</code></span></a></li>
+<li><a href="#getbackgroundframe"><span><code>GetBackgroundFrame</code></span></a></li>
+<li><a href="#getscalingat"><span><code>GetScalingAt</code></span></a></li>
+<li><a href="#getviewportx"><span><code>GetViewportX</code></span></a></li>
+<li><a href="#getviewporty"><span><code>GetViewportY</code></span></a></li>
+<li><a href="#getwalkableareaat"><span><code>GetWalkableAreaAt</code></span></a></li>
+<li><a href="#getwalkableareaatroom"><span><code>GetWalkableAreaAtRoom</code></span></a></li>
+<li><a href="#getwalkableareaatscreen"><span><code>GetWalkableAreaAtScreen</code></span></a></li>
+<li><a href="#hasplayerbeeninroom"><span><code>HasPlayerBeenInRoom</code></span></a></li>
+<li><a href="#releaseviewport"><span><code>ReleaseViewport</code></span></a></li>
+<li><a href="#removewalkablearea"><span><code>RemoveWalkableArea</code></span></a></li>
+<li><a href="#resetroom"><span><code>ResetRoom</code></span></a></li>
+<li><a href="#restorewalkablearea"><span><code>RestoreWalkableArea</code></span></a></li>
+<li><a href="#setareascaling"><span><code>SetAreaScaling</code></span></a></li>
+<li><a href="#setbackgroundframe"><span><code>SetBackgroundFrame</code></span></a></li>
+<li><a href="#setviewport"><span><code>SetViewport</code></span></a></li>
+<li><a href="#setwalkbehindbase"><span><code>SetWalkBehindBase</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="global-functions-room-actions" class="level2">
-<h2><a href="#global-functions-room-actions">Global functions: room actions</a></h2>
+<h2><a href="#global-functions-room-actions">Global functions (room actions)</a></h2>
 <section id="arethingsoverlapping" class="level3">
-<h3><a href="#arethingsoverlapping">AreThingsOverlapping</a></h3>
+<h3><a href="#arethingsoverlapping"><code>AreThingsOverlapping</code></a></h3>
 <pre><code>AreThingsOverlapping(int thing1, int thing2)
 </code></pre>
 <p>Checks whether two characters or objects are overlapping each other on screen. This simply carries out a quick rectangular check on the two things to decide - so if they have large transparent regions around the edges, it may seem to be overlapping too soon.</p>
@@ -117,11 +117,11 @@
 }
 </code></pre>
 <p>will run the code if object 2 is overlapping EGO. This could be useful if object 2 was a bullet, for instance.</p>
-<p><em>See Also:</em> <a href="Character.html#iscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#iscollidingwithobject">Object.IsCollidingWithObject</a></p>
+<p><em>See Also:</em> <a href="Character.html#characteriscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#objectiscollidingwithobject">Object.IsCollidingWithObject</a></p>
 <hr />
 </section>
 <section id="disablegroundlevelareas" class="level3">
-<h3><a href="#disablegroundlevelareas">DisableGroundLevelAreas</a></h3>
+<h3><a href="#disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></h3>
 <pre><code>DisableGroundLevelAreas(int disableTints)
 </code></pre>
 <p>Disables all ground-level events. This means that all Region events, the Player Stands On Hotspot event, and the room edges become disabled.</p>
@@ -132,11 +132,11 @@
 <pre><code>DisableGroundLevelAreas(0);
 </code></pre>
 <p>will disable all ground-level events, but leave light levels working</p>
-<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Region.html#enabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#enablegroundlevelareas">EnableGroundLevelAreas</a></p>
+<p><em>See Also:</em> <a href="Hotspot.html#hotspotenabled">Hotspot.Enabled</a>, <a href="Region.html#regionenabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#enablegroundlevelareas">EnableGroundLevelAreas</a></p>
 <hr />
 </section>
 <section id="enablegroundlevelareas" class="level3">
-<h3><a href="#enablegroundlevelareas">EnableGroundLevelAreas</a></h3>
+<h3><a href="#enablegroundlevelareas"><code>EnableGroundLevelAreas</code></a></h3>
 <pre><code>EnableGroundLevelAreas()
 </code></pre>
 <p>Re-enables all ground-level events. This is used to reverse the effects of using the DisableGroundLevelAreas command, and will return things to normal.</p>
@@ -144,11 +144,11 @@
 <pre><code>EnableGroundLevelAreas();
 </code></pre>
 <p>will re-enable all ground-level events.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#enabled">Hotspot.Enabled</a>, <a href="Region.html#enabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#disablegroundlevelareas">DisableGroundLevelAreas</a></p>
+<p><em>See Also:</em> <a href="Hotspot.html#hotspotenabled">Hotspot.Enabled</a>, <a href="Region.html#regionenabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#disablegroundlevelareas">DisableGroundLevelAreas</a></p>
 <hr />
 </section>
 <section id="getbackgroundframe" class="level3">
-<h3><a href="#getbackgroundframe">GetBackgroundFrame</a></h3>
+<h3><a href="#getbackgroundframe"><code>GetBackgroundFrame</code></a></h3>
 <pre><code>GetBackgroundFrame()
 </code></pre>
 <p>Returns the number of the current background being displayed. In a room without animating backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to 4.</p>
@@ -161,7 +161,7 @@
 <hr />
 </section>
 <section id="getscalingat" class="level3">
-<h3><a href="#getscalingat">GetScalingAt</a></h3>
+<h3><a href="#getscalingat"><code>GetScalingAt</code></a></h3>
 <pre><code>GetScalingAt (int x, int y)
 </code></pre>
 <p>Returns the room area scaling at room co-ordinates (X,Y).</p>
@@ -174,23 +174,23 @@
 <hr />
 </section>
 <section id="getviewportx" class="level3">
-<h3><a href="#getviewportx">GetViewportX</a></h3>
-<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#camera">Game</a><a href="Camera.html#x">.Camera.X</a> instead.</strong></p>
+<h3><a href="#getviewportx"><code>GetViewportX</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera">Game</a><a href="Camera.html#camerax">.Camera.X</a> instead.</strong></p>
 <pre><code>GetViewportX()
 </code></pre>
 <p>Returns the X-position of the main camera's rectangle in a room. This allows you to find out what part of the room the player is looking at.</p>
 <hr />
 </section>
 <section id="getviewporty" class="level3">
-<h3><a href="#getviewporty">GetViewportY</a></h3>
-<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#camera">Game</a><a href="Camera.html#y">.Camera.Y</a> instead.</strong></p>
+<h3><a href="#getviewporty"><code>GetViewportY</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera">Game</a><a href="Camera.html#cameray">.Camera.Y</a> instead.</strong></p>
 <pre><code>GetViewportY()
 </code></pre>
 <p>Returns the Y-position of the main camera's rectangle in a room. This allows you to find out what part of the room the player is looking at.</p>
 <hr />
 </section>
 <section id="getwalkableareaat" class="level3">
-<h3><a href="#getwalkableareaat">GetWalkableAreaAt</a></h3>
+<h3><a href="#getwalkableareaat"><code>GetWalkableAreaAt</code></a></h3>
 <p><strong>This function is obsolete since AGS 3.5.0. Use equivalent <a href="Globalfunctions_Room.html#getwalkableareaatscreen">GetWalkableAreaAtScreen</a> instead.</strong></p>
 <pre><code>int GetWalkableAreaAt(int x, int y)
 </code></pre>
@@ -198,7 +198,7 @@
 <hr />
 </section>
 <section id="getwalkableareaatroom" class="level3">
-<h3><a href="#getwalkableareaatroom">GetWalkableAreaAtRoom</a></h3>
+<h3><a href="#getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></h3>
 <pre><code>int GetWalkableAreaAtRoom(int x, int y)
 </code></pre>
 <p>Returns the ID of the walkable area at <em>room</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
@@ -208,11 +208,11 @@
     Display (&quot;Player is standing on the walkable area.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatscreen">GetWalkableAreaAtScreen</a>, <a href="Hotspot.html#getatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Region.html#getatroomxy">Region.GetAtRoomXY</a>, <a href="Globalfunctions_Room.html#getscalingat">GetScalingAt</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatscreen">GetWalkableAreaAtScreen</a>, <a href="Hotspot.html#hotspotgetatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Region.html#regiongetatroomxy">Region.GetAtRoomXY</a>, <a href="Globalfunctions_Room.html#getscalingat">GetScalingAt</a></p>
 <hr />
 </section>
 <section id="getwalkableareaatscreen" class="level3">
-<h3><a href="#getwalkableareaatscreen">GetWalkableAreaAtScreen</a></h3>
+<h3><a href="#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></h3>
 <pre><code>int GetWalkableAreaAtScreen(int x, int y)
 </code></pre>
 <p>Returns the ID of the walkable area at <em>screen</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
@@ -223,11 +223,11 @@
     Display (&quot;You can&#39;t walk there.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatroom">GetWalkableAreaAtRoom</a>, <a href="Hotspot.html#getatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Region.html#getatscreenxy">Region.GetAtScreenXY</a>, <a href="Globalfunctions_Room.html#getscalingat">GetScalingAt</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatroom">GetWalkableAreaAtRoom</a>, <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Region.html#regiongetatscreenxy">Region.GetAtScreenXY</a>, <a href="Globalfunctions_Room.html#getscalingat">GetScalingAt</a></p>
 <hr />
 </section>
 <section id="hasplayerbeeninroom" class="level3">
-<h3><a href="#hasplayerbeeninroom">HasPlayerBeenInRoom</a></h3>
+<h3><a href="#hasplayerbeeninroom"><code>HasPlayerBeenInRoom</code></a></h3>
 <pre><code>HasPlayerBeenInRoom(int room_number)
 </code></pre>
 <p>Checks whether the player has ever been in ROOM_NUMBER (i.e. has the 'First Time Player Enters Room' event there ever been run). Returns 1 if they have, and 0 if they haven't.</p>
@@ -243,15 +243,15 @@
 <hr />
 </section>
 <section id="releaseviewport" class="level3">
-<h3><a href="#releaseviewport">ReleaseViewport</a></h3>
-<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#camera">Game</a><a href="Camera.html#autotracking">.Camera.AutoTracking</a> instead.</strong></p>
+<h3><a href="#releaseviewport"><code>ReleaseViewport</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera">Game</a><a href="Camera.html#cameraautotracking">.Camera.AutoTracking</a> instead.</strong></p>
 <pre><code>ReleaseViewport()
 </code></pre>
 <p>Releases the lock on the main camera, allowing it to automatically scroll around following the player character as normal.</p>
 <hr />
 </section>
 <section id="removewalkablearea" class="level3">
-<h3><a href="#removewalkablearea">RemoveWalkableArea</a></h3>
+<h3><a href="#removewalkablearea"><code>RemoveWalkableArea</code></a></h3>
 <pre><code>RemoveWalkableArea (int areanum)
 </code></pre>
 <p>Removes the walkable areas in colour AREANUM from the current room. You can put the area back with RestoreWalkableArea.</p>
@@ -264,7 +264,7 @@
 <hr />
 </section>
 <section id="resetroom" class="level3">
-<h3><a href="#resetroom">ResetRoom</a></h3>
+<h3><a href="#resetroom"><code>ResetRoom</code></a></h3>
 <pre><code>ResetRoom (int room_number)
 </code></pre>
 <p>Discards all the data that the engine has in memory about when the player last visited ROOM_NUMBER, and resets it as if they'd never been there. The next time the player goes to that room, all the objects and scripts will be in their initial state (as set up in the editor), and not how they were when the player left the room. The "First time enters room" event will be run when they enter this room again.</p>
@@ -278,7 +278,7 @@
 <hr />
 </section>
 <section id="restorewalkablearea" class="level3">
-<h3><a href="#restorewalkablearea">RestoreWalkableArea</a></h3>
+<h3><a href="#restorewalkablearea"><code>RestoreWalkableArea</code></a></h3>
 <pre><code>RestoreWalkableArea (int areanum)
 </code></pre>
 <p>Makes the area AREANUM walkable again.</p>
@@ -290,7 +290,7 @@
 <hr />
 </section>
 <section id="setareascaling" class="level3">
-<h3><a href="#setareascaling">SetAreaScaling</a></h3>
+<h3><a href="#setareascaling"><code>SetAreaScaling</code></a></h3>
 <pre><code>SetAreaScaling(int area, int min, int max)
 </code></pre>
 <p>Changes walkable area number AREA's scaling.</p>
@@ -308,7 +308,7 @@
 <hr />
 </section>
 <section id="setbackgroundframe" class="level3">
-<h3><a href="#setbackgroundframe">SetBackgroundFrame</a></h3>
+<h3><a href="#setbackgroundframe"><code>SetBackgroundFrame</code></a></h3>
 <pre><code>SetBackgroundFrame (int frame)
 </code></pre>
 <p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to 4). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
@@ -323,8 +323,8 @@
 <hr />
 </section>
 <section id="setviewport" class="level3">
-<h3><a href="#setviewport">SetViewport</a></h3>
-<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#camera">Game</a><a href="Camera.html#setat">.Camera.SetAt</a> instead.</strong></p>
+<h3><a href="#setviewport"><code>SetViewport</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera">Game</a><a href="Camera.html#camerasetat">.Camera.SetAt</a> instead.</strong></p>
 <pre><code>SetViewport(int x, int y)
 </code></pre>
 <p>Locks the main camera to having the top-left hand corner at (X,Y) in a scrolling room. This allows you to manually pan across a scrolling room or to have the camera follow a non-player character.</p>
@@ -332,7 +332,7 @@
 <hr />
 </section>
 <section id="setwalkbehindbase" class="level3">
-<h3><a href="#setwalkbehindbase">SetWalkBehindBase</a></h3>
+<h3><a href="#setwalkbehindbase"><code>SetWalkBehindBase</code></a></h3>
 <pre><code>SetWalkBehindBase (int area, int baseline)
 </code></pre>
 <p>Changes the walk-behind AREA to have new BASELINE. This effectively allows you to turn walk-behinds on and off, although you can do other tricks with it as well. BASELINE is from 1 to the height of the room (normally 200) and moves the line which you set originally in the editor.</p>
@@ -342,7 +342,7 @@
 <pre><code>SetWalkBehindBase (3,0);
 </code></pre>
 <p>will disable the walkbehind area number 3.</p>
-<p><em>See Also:</em> <a href="Object.html#baseline">Object.Baseline</a></p>
+<p><em>See Also:</em> <a href="Object.html#objectbaseline">Object.Baseline</a></p>
 </section>
 </section>
         </div>
@@ -353,7 +353,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/01/2019 02:31:55 PM</p>
+      <p>Build: 10/06/2019 10:30:47 PM</p>
     </section>
   </footer>
 
