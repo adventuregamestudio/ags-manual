@@ -19,6 +19,7 @@ $endif$
       td{font-family: Verdana; font-size: 10pt;}
       a{font-weight: bold;}
       code{white-space: pre-wrap;}
+      h2 code{font-size: 20pt;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}

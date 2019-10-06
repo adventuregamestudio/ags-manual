@@ -3,131 +3,7 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local meta = PANDOC_DOCUMENT.meta
-
-local namespace_map = {
-  Dialog = {
-    'StopDialog'
-  },
-  Game = {
-    'AbortGame',
-    'CallRoomScript',
-    'ClaimEvent',
-    'Debug',
-    'DeleteSaveSlot',
-    'DisableInterface',
-    'EnableInterface',
-    'EndCutscene',
-    'GetGameOption',
-    'GetGameParameter',
-    'GetGameSpeed',
-    'GetGlobalInt',
-    'GetGraphicalVariable',
-    'GetLocationType',
-    'GetTextHeight',
-    'GetTextWidth',
-    'GetTranslation',
-    'GiveScore',
-    'GetFontHeight',
-    'GetFontLineSpacing',
-    'InventoryScreen',
-    'IsGamePaused',
-    'IsInterfaceEnabled',
-    'IsInteractionAvailable',
-    'IsKeyPressed',
-    'IsTimerExpired',
-    'IsTranslationAvailable',
-    'MoveCharacterToHotspot',
-    'MoveCharacterToObject',
-    'PauseGame',
-    'QuitGame',
-    'Random',
-    'RestartGame',
-    'RestoreGameDialog',
-    'RestoreGameSlot',
-    'RunAGSGame',
-    'SaveGameDialog',
-    'SaveGameSlot',
-    'SaveScreenShot',
-    'SetAmbientLightLevel',
-    'SetAmbientTint',
-    'SetGameOption',
-    'SetGameSpeed',
-    'SetGlobalInt',
-    'SetGraphicalVariable',
-    'SetMultitaskingMode',
-    'SetRestartPoint',
-    'SetTextWindowGUI',
-    'SetTimer',
-    'SkipUntilCharacterStops',
-    'StartCutscene',
-    'UpdateInventory',
-    'UnPauseGame',
-    'Wait',
-    'WaitKey',
-    'WaitMouseKey'
-  },
-  Maths = {
-    'FloatToInt',
-    'IntToFloat'
-  },
-  Message = {
-    'Display',
-    'DisplayAt',
-    'DisplayAtY',
-    'DisplayMessage',
-    'DisplayMessageAtY',
-    'DisplayTopBar'
-  },
-  Multimedia = {
-    'CDAudio',
-    ['IsAudioPlaying'] = 'Game',
-    'IsSpeechVoxAvailable',
-    'PlayFlic',
-    'PlaySilentMIDI',
-    'PlayVideo',
-    ['SetAudioTypeSpeechVolumeDrop'] = 'Game',
-    ['SetAudioTypeVolume'] = 'Game',
-    'SetSpeechVolume',
-    ['StopAudio'] = 'Game'
-  },
-  Palette = {
-    'CyclePalette',
-    'SetPalRGB',
-    'UpdatePalette'
-  },
-  Room = {
-    'AreThingsOverlapping',
-    'DisableGroundLevelAreas',
-    'EnableGroundLevelAreas',
-    'GetBackgroundFrame',
-    'GetPlayerCharacter',
-    'GetScalingAt',
-    'GetViewportX',
-    'GetViewportY',
-    'GetWalkableAreaAt',
-    'HasPlayerBeenInRoom',
-    'ReleaseViewport',
-    'RemoveWalkableArea',
-    'ResetRoom',
-    'RestoreWalkableArea',
-    'SetAreaScaling',
-    'SetBackgroundFrame',
-    'SetViewport',
-    'SetWalkBehindBase'
-  },
-  Screen = {
-    'FadeIn',
-    'FadeOut',
-    'FlipScreen',
-    'SetFadeColor',
-    'SetNextScreenTransition',
-    'SetScreenTransition',
-    'ShakeScreen',
-    'ShakeScreenBackground',
-    'TintScreen'
-  }
-}
+local stringify = (require 'pandoc.utils').stringify
 
 local keywords = {
   ['a'] = false,
@@ -166,68 +42,10 @@ local keywords = {
 }
 
 local links = {}
-local indices = {}
-local script_object
-
-function force_namespace(value, key)
-  if not namespace_map[key] then
-    return false
-  end
-
-  for k, v in ipairs(namespace_map[key]) do
-    if v == value then
-      return true
-    end
-  end
-
-  return namespace_map[key][value] or false
-end
-
-function get_script_object(heading)
-  local capture
-  capture = string.match(heading, '^(%a+) [Pp]roperties')
-
-  if not capture then
-    capture = string.match(heading, '^(%a+) [Ff]unctions')
-  end
-
-  return capture
-end
 
 function Link(s, src, title)
   -- track all link targets
   links[src] = (links[src] or 0) + 1
-  return ''
-end
-
-function Header(lev, s, attr)
-  local id = attr.id
-  local name = s
-
-  if lev == 2 then
-    script_object = get_script_object(name)
-
-    if script_object then
-      indices[id] = script_object
-    else
-      indices[id] = name
-    end
-  elseif lev == 3 then
-    if not script_object then
-      indices[id] = name
-    else
-      local namespace = force_namespace(name, script_object)
-
-      if namespace == true then
-        indices[id] = name
-      elseif type(namespace) == 'string' then
-        indices[id] = namespace .. '.' .. name
-      else
-        indices[id] = script_object .. '.' .. name
-      end
-    end
-  end
-
   return ''
 end
 
@@ -280,6 +98,8 @@ function add_word(word)
 end
 
 function Doc(body, metadata, variables)
+  local blocks = PANDOC_DOCUMENT.blocks
+  local meta = PANDOC_DOCUMENT.meta
   local buffer = {}
 
   -- order ignoring case
@@ -291,8 +111,26 @@ function Doc(body, metadata, variables)
   table.insert(buffer, '    ' .. (meta.title or meta.docname))
   table.insert(buffer, '\n  headings:')
 
-  for id, name in pairs(indices) do
-    table.insert(buffer, string.format("    %s: %s", name, id))
+  for i, block in ipairs(blocks) do
+    -- check each header for inline code
+    if block.t == "Header" then
+      local header = nil
+
+      for i, child in ipairs(block.content) do
+        -- take the first match and stop checking
+        if child.t == "Code" then
+          header = child.text
+          break
+        end
+      end
+
+      -- if no code matched just convert to a string
+      if not header then
+        header = stringify(block)
+      end
+
+      table.insert(buffer, string.format("    %s: %s", header, block.attr.identifier))
+    end
   end
 
   table.insert(buffer, '\n  links:')
