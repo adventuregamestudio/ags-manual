@@ -19,6 +19,7 @@ build_script:
   - set CHECKOUTDIR=%TEMP%\ags-manual.wiki
   - set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
   - make SHELL=%COMSPEC% source
+  - make SHELL=%COMSPEC% test
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% spellcheck | find /v /c ""
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /r . && exit 1 & exit 0
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp

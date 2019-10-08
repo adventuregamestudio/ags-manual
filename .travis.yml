@@ -35,6 +35,7 @@ before_script:
 script:
   - export CHECKOUTDIR=/tmp/ags-manual.wiki
   - make source
+  - make test
   - make -j $(getconf _NPROCESSORS_ONLN) spellcheck | wc -l
   - (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep .) || travis_terminate 1
   - make -j $(getconf _NPROCESSORS_ONLN) html
