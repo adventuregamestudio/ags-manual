@@ -8,6 +8,7 @@ BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 METAFILES = $(addsuffix .yaml, $(BASENAMES))
 DICTFILES = $(wildcard spell/dict/*.dic)
+DICTTESTS = $(basename $(notdir $(wildcard spell/test/*.txt)))
 MAKEFILE = $(lastword $(MAKEFILE_LIST))
 COMMA = ,
 SPACE = $(subst ,, )
@@ -49,7 +50,7 @@ else
   DATETIME = $(shell date "+%x %X")
 endif
 
-.PHONY: help html htmlhelp metacheck spellcheck clean source
+.PHONY: help html htmlhelp metacheck spellcheck test clean source
 .SECONDARY: $(addprefix meta/build/, $(METAFILES))
 
 help:
@@ -72,6 +73,19 @@ spellcheck: $(addprefix spell/work/, $(HTMLFILES))
 		-l \
 		-H \
 		$+
+
+# dictionary test template
+define DICTTEST_template
+	@echo Testing dictionary $1
+	@"$(HUNSPELL)" -i utf-8 \
+		-d spell/dict/$1 \
+		-l \
+		spell/test/$1.txt
+
+endef
+
+test:
+	$(foreach testfile,$(DICTTESTS),$(call DICTTEST_template,$(testfile)))
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	html/build/genindex.html html/build/js/search.js html/build/css/main.css html/build/css/normalize.css \
