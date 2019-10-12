@@ -16,9 +16,11 @@ function Doc(body, metadata, variables)
 
   -- get all of the heading info into a table
   for k, v in pairs(meta) do
-    if v.headings then
-      for name, id in pairs(v.headings) do
-        indices[name] = k .. '.html#' .. stringify(id)
+    if v.index then
+      for itemtype, item in pairs(v.index) do
+        for name, id in pairs(item) do
+          indices[name] = k .. '.html#' .. stringify(id)
+        end
       end
     end
   end

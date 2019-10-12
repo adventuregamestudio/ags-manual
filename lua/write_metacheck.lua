@@ -31,11 +31,13 @@ function Doc(body, metadata, variables)
 
   -- get all valid link targets
   for k, v in pairs(meta) do
-    if v.headings then
-      valid[k] = true
+    if v.index then
+      for itemtype, item in pairs(v.index) do
+        valid[k] = true
 
-      for name, id in pairs(v.headings) do
-        valid[k .. '#' .. stringify(id)] = true
+        for name, id in pairs(item) do
+          valid[k .. '#' .. stringify(id)] = true
+        end
       end
     end
   end
