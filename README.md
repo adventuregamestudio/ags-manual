@@ -76,7 +76,7 @@ target | function
 source | update the source directory from CHECKOUTDIR
 html | build the website into 'html/build' (requires curl)
 htmlhelp | build an HTML Help Project into 'htmlhelp/build' and call HHC if set (requires HTML Help Workshop)
-metacheck | validate generated page metadata (currently just checks page links)
+metacheck | validate generated page metadata (currently checks page links and index entries)
 clean | delete everything listed in .gitignore
 
 ### Build example (Windows and Chocolatey)
