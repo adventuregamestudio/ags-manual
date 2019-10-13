@@ -268,7 +268,7 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 </code></pre>
 <p>Merges the object into the background scene for this room. By doing this, the object becomes part of the background and so does not slow the game down. This is a 1-way operation - once the object has been merged, it cannot be changed back and the state of the room is permanently altered. Therefore you should only use this function if a game event has occurred that means the room is permanently changed.</p>
 <p><strong>NOTE:</strong> after calling this function, you cannot use the object any more and it is permanently removed from the game.</p>
-<p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported at the same colour depth as the background graphic.</p>
+<p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported at the same color depth as the background graphic.</p>
 <p>Example:</p>
 <pre><code>object[3].MergeIntoBackground();
 </code></pre>
@@ -422,7 +422,7 @@ object[1].SetView(5, 2, 0);
 <p>This function applies a tint to a specific object. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the object (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient tint for this object, call <a href="Object.html#objectremovetint">RemoveTint</a>.</p>
-<p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour sprites.</p>
+<p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p>Example:</p>
 <pre><code>object[1].Tint(0, 250, 0, 30, 100);
 </code></pre>
@@ -487,7 +487,7 @@ while (object[2].Animating) Wait(1);
 <p>Example:</p>
 <pre><code>oRock.BlockingWidth = 50;
 </code></pre>
-<p>will make the Rock object block 50 pixels wide (25 pixels to the left of his centre, and 25 to the right)</p>
+<p>will make the Rock object block 50 pixels wide (25 pixels to the left of its center, and 25 to the right)</p>
 <p><em>See Also:</em> <a href="Object.html#objectblockingheight">Object.BlockingHeight</a>, <a href="Object.html#objectsolid">Object.Solid</a></p>
 <hr />
 </section>
@@ -713,7 +713,7 @@ while (object[2].Moving) Wait(1);
 </code></pre>
 <p>Gets/sets the object's transparency level.</p>
 <p>If this is set to 100, it means that the object is totally invisible, and lower values represent varying levels of transparency. Set this to 0 to stop the object being transparent.</p>
-<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
+<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
 <p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent object can significantly slow down AGS.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>object[0].Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade an object in/out, the best approach is shown in the example below:</p>
@@ -791,7 +791,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:43 PM</p>
+      <p>Build: 10/13/2019 11:19:59 AM</p>
     </section>
   </footer>
 

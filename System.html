@@ -155,12 +155,12 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <p><em>(Formerly known as system.color_depth, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ColorDepth;
 </code></pre>
-<p>Returns the colour depth at which the game is running. This is the overall game colour depth setting, and it is possible for individual sprites or backgrounds to be different.</p>
+<p>Returns the color depth at which the game is running. This is the overall game color depth setting, and it is possible for individual sprites or backgrounds to be different.</p>
 <p>Example:</p>
-<pre><code>Display(&quot;Game is running at: %d x %d, %d-bit colour&quot;, System.ScreenWidth,
+<pre><code>Display(&quot;Game is running at: %d x %d, %d-bit color&quot;, System.ScreenWidth,
                                   System.ScreenHeight, System.ColorDepth);
 </code></pre>
-<p>will display the current resolution and colour depth</p>
+<p>will display the current resolution and color depth</p>
 <p><em>See Also:</em> <a href="System.html#systemscreenheight">System.ScreenHeight</a>, <a href="System.html#systemscreenwidth">System.ScreenWidth</a></p>
 <hr />
 </section>
@@ -397,7 +397,7 @@ else {
 </code></pre>
 <p>Gets/sets whether AGS waits for the vertical retrace before rendering each frame. This is off by default.</p>
 <p>If you switch this on, it can help to reduce the "tearing" effect that you can get when the screen scrolls. However, doing so will lock the game frame rate to the monitor's refresh rate, which will mean you cannot reliably set a game speed higher than 60 fps.</p>
-<p><strong>NOTE:</strong> This property has no effect with the Direct3D driver.</p>
+<p><strong>NOTE:</strong> This property has no effect with the Direct3D or OpenGL driver.</p>
 <p>Example:</p>
 <pre><code>if (System.VSync) {
   Display(&quot;Vertical retrace sync is enabled!&quot;);
@@ -438,7 +438,7 @@ else {
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:49 PM</p>
+      <p>Build: 10/13/2019 11:20:05 AM</p>
     </section>
   </footer>
 

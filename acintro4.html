@@ -79,7 +79,6 @@
 <li><a href="#getting-started-with-ags---part-4"><span>Getting Started with AGS - Part 4</span></a><ul>
 <li><a href="#objects"><span>Objects</span></a></li>
 <li><a href="#inventory"><span>Inventory</span></a></li>
-<li><a href="#room-settings"><span>Room Settings</span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -104,7 +103,7 @@
 <li><strong>Visible</strong> - this toggles whether the object is switched on at the beginning of the game or not. For our key we want it to be True, but sometimes you'll have objects which you don't want the player to see until they've done something else in the game.</li>
 </ul>
 <p><img src="images/icon_info.gif" /></p>
-<p>The game speed is directly related to the number and size of objects on-screen. AGS imposes a limit of 20 objects per room, but even if you use all of these and have them visible at the same time, the game speed could suffer.</p>
+<p>Having a large number of large objects on-screen can potentially cause the game to slow down. AGS imposes a limit of 40 objects per room.</p>
 <p>Right, now back to the pressing matter at hand - letting the player pick up the key.</p>
 </section>
 <section id="inventory" class="level3">
@@ -124,19 +123,8 @@
 <p><img src="images/intro4_5.jpg" alt="Script for taking the key" /></p>
 <p>Note that our solution is not perfect - the player can click the hand icon on the key from anywhere in the room and it will disappear. We are also not displaying a message informing the player of what happened. But, the functionality is there, and this will do fine for now.</p>
 <p>OK, so we now have a fully-working first room. Test the game as before, and try it out. Once the player has taken the key, call up his inventory and you should see the large key picture there.</p>
-</section>
-</section>
-<section id="room-settings" class="level3">
-<h3><a href="#room-settings">Room Settings</a></h3>
-<p>Finally, let's just quickly go over the available properties for the room itself (available when in Nothing mode):</p>
-<ul>
-<li><strong>PlayMusicOnRoomLoad</strong> - you can type a music number in the box and that background music will start playing when the player enters the room. For more about music and sound, see later in the manual.</li>
-<li><strong>SaveLoadEnabled</strong> - if disabled, then if the player tries to save or load the game while in this room, a message ("Sorry, not now") is displayed instead. .</li>
-<li><strong>ShowPlayerCharacter</strong> - if checked, the player character will not be visible in this room, and the Walk mode will be disabled. Useful for close-up displays of control panels and so forth.</li>
-<li><strong>PlayerCharacterView</strong> - you can type a number in here to override the player character's graphic for this room. For example, if you have an overhead map screen, you will probably want a different image of the character from an overhead perspective.</li>
-<li><strong>MusicVolumeAdjustment</strong> - this allows you to modify the background music volume for this screen.</li>
-</ul>
 <p>Go to part 5: <a href="acintro5.html">Managing Inventory</a></p>
+</section>
 </section>
 </section>
         </div>
@@ -147,7 +135,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:46 PM</p>
+      <p>Build: 10/13/2019 11:20:02 AM</p>
     </section>
   </footer>
 

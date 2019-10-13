@@ -90,16 +90,16 @@
 <p>When you were choosing the graphics for the object earlier in this tutorial, you probably noticed that the images available didn't look up to much. This is no problem, because you can import your own graphics using the Sprite Manager.</p>
 <p>Double-click <em>"Sprites"</em> near the top of the project tree. This opens up the Sprite Manager, where you can see the complete sprite set for the game.</p>
 <p>AGS uses these sprites for all game graphics, except room backgrounds. The Sprite Manager is the central place where you do all your graphics importing. Whenever you want to use images in the game (for mouse cursors, views, objects, etc), you select an image to use from here.</p>
-<p>There are two ways to import your graphics - either overwrite an existing sprite with your graphic, or create a new slot for it. To overwrite an existing sprite, right-click the sprite and select <em>"Replace sprite from file"</em>. To import a new slot, right-click on the background of the window and choose <em>"Import new sprite from file"</em>. If your game is hi-colour, you'll also have options to paste from the clipboard.</p>
-<p>Note that the sprite graphics you import must be the same colour depth as your backgrounds - i.e. if you have a 256-colour game, you must import 256-colour sprites.</p>
+<p>There are two ways to import your graphics - either overwrite an existing sprite with your graphic, or create a new slot for it. To overwrite an existing sprite, right-click the sprite and select <em>"Replace sprite from file"</em>. To import a new slot, right-click on the background of the window and choose <em>"Import new sprite from file"</em>. If your game is hi-color, you'll also have options to paste from the clipboard.</p>
+<p>Note that the sprite graphics you import shouldn't exceed the maximum number of colors that the game supports - i.e. if you have a 256-color game, you must import 256-color sprites.</p>
 <p><img src="images/intro6_1.jpg" alt="Right-clicking to replace existing sprite" /></p>
 <p>So, let's replace the default key image with something of our own. Right-click on it and choose "<em>Replace sprite from file</em>". Select the file that you want in the dialog, and then you'll be presented with this:</p>
 <p><img src="images/intro6_2.jpg" alt="The &quot;Import Sprite&quot; window" /></p>
-<p>This is the Import Sprite window. You'll see the image from the file that you chose, along with various options. The Zoom slider on the left allows you to zoom in on the image (very useful for 320x200-resolution graphics), and the "Transparent colour" option allows you to choose how AGS decides which colour is the image's transparent colour.</p>
+<p>This is the Import Sprite window. You'll see the image from the file that you chose, along with various options. The Zoom slider on the left allows you to zoom in on the image (very useful for 320x200-resolution graphics), and the "Transparent color" option allows you to choose how AGS decides which color is the image's transparent color.</p>
 <p>Now, you have two choices. If you want to import the whole image, just click the "Import Whole Image" button, and you're done. If on the other hand you only want to import a portion of the image, then you need to right-drag the mouse within the image to select the area that you want to import. Once you've got it right, left-click to confirm and the selected area of the image will be imported.</p>
 <p><strong>NOTE:</strong> For character graphics, make sure you import graphics that are a suitable size for the game backgrounds. For example, don't import a 320x200-sized image for your character, since it will take up the whole screen. A good size would be about 20x50 pixels. This will look really small in the Import window, but your game runs at a much lower resolution so it'll look much larger.</p>
 <p><img src="images/icon_info.gif" /></p>
-<p>NOTE (256-colour only): You may well find that the colours on your graphic look slightly strange once you've imported the image. This is because by default only the first 41 of the palette colours are allocated to sprites, so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colours assigned to sprites, at the expense of background colours (see the earlier part of the tutorial for palette setup).</p>
+<p>NOTE (256-color only): You may well find that the colors on your graphic look slightly strange once you've imported the image. This is because by default only the first 41 of the palette colors are allocated to sprites, so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colors assigned to sprites, at the expense of background colors (see the earlier part of the tutorial for palette setup).</p>
 <section id="tiled-sprite-import" class="level4">
 <h4>Tiled sprite import</h4>
 <p>This feature allows you to import a grid of sprites into separate slots</p>
@@ -121,7 +121,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:49 PM</p>
+      <p>Build: 10/13/2019 11:20:05 AM</p>
     </section>
   </footer>
 

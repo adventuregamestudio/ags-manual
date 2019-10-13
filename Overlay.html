@@ -115,7 +115,7 @@ myOverlay.Remove();
                                       FontType font, int color, string text)
 </code></pre>
 <p>Creates a screen overlay containing the text you pass at the position specified. A screen overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
-<p>The X and Y parameters specify the upper-left corner of where the text will be written. WIDTH is the width, in pixels, of the text area. FONT is the font number from the editor to use (0 is the normal font, 1 is the speech font). COLOR is the text color - use one of the colours from 1 to 15. Finally, TEXT is obviously the text that gets displayed.</p>
+<p>The X and Y parameters specify the upper-left corner of where the text will be written. WIDTH is the width, in pixels, of the text area. FONT is the font number from the editor to use (0 is the normal font, 1 is the speech font). COLOR is the text color - use one of the colors from 1 to 15. Finally, TEXT is obviously the text that gets displayed.</p>
 <p>The function returns the Overlay, which you use later to reposition and remove the overlay.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p><strong>NOTE:</strong> large overlays, in the same way as objects, can impact performance while displayed.</p>
@@ -150,7 +150,7 @@ myOverlay.Remove();
 <p><em>(Formerly known as SetTextOverlay, which is now obsolete)</em></p>
 <pre><code>Overlay.SetText(int width, FontType font, int color, string text, ...)
 </code></pre>
-<p>Replaces the specified overlay with a new one, at the same co-ordinates but with the new specified text, width, font and colour.</p>
+<p>Replaces the specified overlay with a new one, at the same co-ordinates but with the new specified text, width, font and color.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
 <pre><code>Overlay* myOverlay = Overlay.CreateTextual(50,80,120,Game.SpeechFont,15,&quot;This is a text overlay&quot;);
@@ -223,7 +223,7 @@ testOverlay.Remove();
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:42 PM</p>
+      <p>Build: 10/13/2019 11:19:58 AM</p>
     </section>
   </footer>
 

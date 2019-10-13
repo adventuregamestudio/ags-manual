@@ -77,16 +77,16 @@
             </ul>
 <ul>
 <li><a href="#tumbleweed-math-and-helper-functions"><span>Tumbleweed Math and Helper Functions</span></a><ul>
-<li><a href="#verbsdistance"><span>Verbs.Distance</span></a></li>
-<li><a href="#verbsoffset"><span>Verbs.Offset</span></a></li>
-<li><a href="#verbsgetbuttonaction"><span>Verbs.GetButtonAction</span></a></li>
-<li><a href="#verbsdisablegui"><span>Verbs.DisableGui</span></a></li>
-<li><a href="#verbsenablegui"><span>Verbs.EnableGui</span></a></li>
-<li><a href="#verbsisguidisabled"><span>Verbs.IsGuiDisabled</span></a></li>
-<li><a href="#verbsglobalcondition"><span>Verbs.GlobalCondition</span></a></li>
-<li><a href="#verbsinitguilanguage"><span>Verbs.InitGuiLanguage</span></a></li>
-<li><a href="#verbssetdoubleclickspeed"><span>Verbs.SetDoubleClickSpeed</span></a></li>
-<li><a href="#verbshandleinvarrows"><span>Verbs.HandleInvArrows</span></a></li>
+<li><a href="#verbsdistance"><span><code>Verbs.Distance</code></span></a></li>
+<li><a href="#verbsoffset"><span><code>Verbs.Offset</code></span></a></li>
+<li><a href="#verbsgetbuttonaction"><span><code>Verbs.GetButtonAction</code></span></a></li>
+<li><a href="#verbsdisablegui"><span><code>Verbs.DisableGui</code></span></a></li>
+<li><a href="#verbsenablegui"><span><code>Verbs.EnableGui</code></span></a></li>
+<li><a href="#verbsisguidisabled"><span><code>Verbs.IsGuiDisabled</code></span></a></li>
+<li><a href="#verbsglobalcondition"><span><code>Verbs.GlobalCondition</code></span></a></li>
+<li><a href="#verbsinitguilanguage"><span><code>Verbs.InitGuiLanguage</code></span></a></li>
+<li><a href="#verbssetdoubleclickspeed"><span><code>Verbs.SetDoubleClickSpeed</code></span></a></li>
+<li><a href="#verbshandleinvarrows"><span><code>Verbs.HandleInvArrows</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -96,21 +96,21 @@
 <h2><a href="#tumbleweed-math-and-helper-functions">Tumbleweed Math and Helper Functions</a></h2>
 <hr />
 <section id="verbsdistance" class="level3">
-<h3><a href="#verbsdistance">Verbs.Distance</a></h3>
+<h3><a href="#verbsdistance"><code>Verbs.Distance</code></a></h3>
 <pre><code>float Verbs.Distance(int x1, int y1, int x2, int y2);
 </code></pre>
 <p>Returns the distance between two coordinates</p>
 <hr />
 </section>
 <section id="verbsoffset" class="level3">
-<h3><a href="#verbsoffset">Verbs.Offset</a></h3>
+<h3><a href="#verbsoffset"><code>Verbs.Offset</code></a></h3>
 <pre><code>int Verbs.Offset(int point1, int point2);
 </code></pre>
 <p>Returns the offset between to two given values.</p>
 <hr />
 </section>
 <section id="verbsgetbuttonaction" class="level3">
-<h3><a href="#verbsgetbuttonaction">Verbs.GetButtonAction</a></h3>
+<h3><a href="#verbsgetbuttonaction"><code>Verbs.GetButtonAction</code></a></h3>
 <pre><code>int Verbs.GetButtonAction(int action);
 </code></pre>
 <p>Returns the connected action of a verb button. The actions for the verb buttons are not "hard-wired" inside the GUI-script, but defined in the function SetButtonAction.</p>
@@ -118,7 +118,7 @@
 <hr />
 </section>
 <section id="verbsdisablegui" class="level3">
-<h3><a href="#verbsdisablegui">Verbs.DisableGui</a></h3>
+<h3><a href="#verbsdisablegui"><code>Verbs.DisableGui</code></a></h3>
 <pre><code>void Verbs.DisableGui();
 </code></pre>
 <p>This functions disables the GUI and hides it.</p>
@@ -126,7 +126,7 @@
 <hr />
 </section>
 <section id="verbsenablegui" class="level3">
-<h3><a href="#verbsenablegui">Verbs.EnableGui</a></h3>
+<h3><a href="#verbsenablegui"><code>Verbs.EnableGui</code></a></h3>
 <pre><code>void Verbs.EnableGui();
 </code></pre>
 <p>This function enables the GUI again.</p>
@@ -134,7 +134,7 @@
 <hr />
 </section>
 <section id="verbsisguidisabled" class="level3">
-<h3><a href="#verbsisguidisabled">Verbs.IsGuiDisabled</a></h3>
+<h3><a href="#verbsisguidisabled"><code>Verbs.IsGuiDisabled</code></a></h3>
 <pre><code>bool Verbs.IsGuiDisabled();
 </code></pre>
 <p>Returns true, if the GUI is currently disabled, false otherwise</p>
@@ -142,28 +142,28 @@
 <hr />
 </section>
 <section id="verbsglobalcondition" class="level3">
-<h3><a href="#verbsglobalcondition">Verbs.GlobalCondition</a></h3>
+<h3><a href="#verbsglobalcondition"><code>Verbs.GlobalCondition</code></a></h3>
 <pre><code>int Verbs.GlobalCondition(int parameter);
 </code></pre>
 <p>Used to check for conditions that are used many times in the script. For example, it's used to check, if the mouse cursor is in the inventory and the mode walk or pickup are selected. Returns 1, if the condition is true and 0 otherwise.</p>
 <hr />
 </section>
 <section id="verbsinitguilanguage" class="level3">
-<h3><a href="#verbsinitguilanguage">Verbs.InitGuiLanguage</a></h3>
+<h3><a href="#verbsinitguilanguage"><code>Verbs.InitGuiLanguage</code></a></h3>
 <pre><code>void Verbs.InitGuiLanguage();
 </code></pre>
 <p>This is a helper function to set the correct sprites for the verb GUI.</p>
 <hr />
 </section>
 <section id="verbssetdoubleclickspeed" class="level3">
-<h3><a href="#verbssetdoubleclickspeed">Verbs.SetDoubleClickSpeed</a></h3>
+<h3><a href="#verbssetdoubleclickspeed"><code>Verbs.SetDoubleClickSpeed</code></a></h3>
 <pre><code>void Verbs.SetDoubleClickSpeed(int speed)
 </code></pre>
 <p>Defines the double click speed</p>
 <hr />
 </section>
 <section id="verbshandleinvarrows" class="level3">
-<h3><a href="#verbshandleinvarrows">Verbs.HandleInvArrows</a></h3>
+<h3><a href="#verbshandleinvarrows"><code>Verbs.HandleInvArrows</code></a></h3>
 <pre><code>void Verbs.HandleInvArrows()
 </code></pre>
 <p>Takes care of showing or hiding the inventory scroll sprites.</p>
@@ -177,7 +177,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:41 PM</p>
+      <p>Build: 10/13/2019 11:19:57 AM</p>
     </section>
   </footer>
 

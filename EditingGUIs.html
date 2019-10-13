@@ -99,7 +99,7 @@
 </ul>
 <p>The default interface is made up of two GUIs - the status line, and the icon bar.</p>
 <p>Go to the "GUIs" node in the main tree. Under this all the GUIs in the game are listed -- double-click one to edit it. To create a new one, right-click on the main "GUIs" node and choose "New GUI".</p>
-<p>Once you've opened up a GUI, you'll notice the GUI itself in the main window, and its settings can be edited in the Properties grid. This allows you to change the background colour of the GUI, set a background picture, and set the location and width/height amongst other things.</p>
+<p>Once you've opened up a GUI, you'll notice the GUI itself in the main window, and its settings can be edited in the Properties grid. This allows you to change the background color of the GUI, set a background picture, and set the location and width/height amongst other things.</p>
 <p>The "Visibility" property allows you to set when the GUI is displayed. The default is "Normal", which means that the GUI will initially be visible, though you can turn it off with a GUI.Visible=false command in game_start if you need to.</p>
 <p>The "Popup modal" option means that the GUI will be initially off and must be turned on by a script command. With this option, the game will be paused while the GUI is displayed, during which time the on_mouse_click and on_key_press functions will not get run.</p>
 <p>The "Mouse YPos" option means that the GUI only appears when the mouse vertical position moves above the y-coordinate set with the "Popup-YP" option.</p>
@@ -131,29 +131,29 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>@GAMENAME@</td>
+<td><code>@GAMENAME@</code></td>
 <td>The game's name, specified on the Game Settings pane</td>
 </tr>
 <tr class="even">
-<td>@OVERHOTSPOT@</td>
-<td>Name of the hotspot which the cursor is over</td>
+<td><code>@OVERHOTSPOT@</code></td>
+<td>The name of the hotspot which the cursor is over</td>
 </tr>
 <tr class="odd">
-<td>@SCORE@</td>
+<td><code>@SCORE@</code></td>
 <td>The player's current score</td>
 </tr>
 <tr class="even">
-<td>@SCORETEXT@</td>
+<td><code>@SCORETEXT@</code></td>
 <td>The text "Score: X of XX" with the relevant numbers filled in</td>
 </tr>
 <tr class="odd">
-<td>@TOTALSCORE@</td>
+<td><code>@TOTALSCORE@</code></td>
 <td>The maximum possible score, specified on the Game Settings pane</td>
 </tr>
 </tbody>
 </table>
-<p>Example: You have @SCORE@ out of @TOTALSCORE@ points.</p>
-<p>The Properties window also allows you to align the text to left, right or centre, as well as change its font and colour.</p>
+<p>Example: <code>"You have @SCORE@ out of @TOTALSCORE@ points."</code></p>
+<p>The Properties window also allows you to align the text to left, right or center, as well as change its font and color.</p>
 <hr />
 </section>
 <section id="customized-text-windows" class="level3">
@@ -162,7 +162,7 @@
 <p>The element will be resized to about 1/4 of the screen, and you will see 8 pictures - one in each corner and one on each side. These are the border graphics. You change the graphic for a corner in the normal way by browsing through the 8 possible and needed graphics slots under the properties panel and setting the image number according to the image number in the <a href="EditorSprite.html">Sprite Manager</a>. You can give every corner and side a name to know what is what but it is not necessary as the selected corner or side is indicated by bright red squares.</p>
 <p>In the game, the corner graphics will be placed in the respective corners of the text window, and the side graphics will be repeated along the edge of the window. To tell the game to use your custom text window style, go to the General Settings pane, and check the "Text windows use GUI" box. Then, enter the number of the GUI which you used.</p>
 <p>You can also set a background picture for the text window. In the GUI editor, simply set a background picture for the GUI element. The graphic you specify will not be tiled or stretched in the game; however, it will be clipped to fit the window. You should use a graphic of at least about 250x80 pixels to make sure that it fills up the whole window.</p>
-<p>To set the text colour in the window, simply set the Foreground Colour of the GUI and that will be used to print the message text in.</p>
+<p>To set the text color in the window, simply set the Foreground Color of the GUI and that will be used to print the message text in.</p>
 <p>Additionally, you may configure padding - the distance kept between text window's border and text inside of it.</p>
 <p>For example editing the GUI Borders of the [Display] Command in the [New Sierra Style Template] looks like this:</p>
 <p><img src="https://i.imgur.com/BGB1OQd.png" alt="Editing the GUI Borders" /></p>
@@ -208,7 +208,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:48 PM</p>
+      <p>Build: 10/13/2019 11:20:04 AM</p>
     </section>
   </footer>
 

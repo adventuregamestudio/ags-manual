@@ -108,10 +108,10 @@
 <section id="drawingsurfaceclear" class="level3">
 <h3><a href="#drawingsurfaceclear"><code>DrawingSurface.Clear</code></a></h3>
 <p><em>(Formerly known as RawClearScreen, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.Clear(optional int colour)
+<pre><code>DrawingSurface.Clear(optional int color)
 </code></pre>
-<p>Clears the surface to the specified COLOUR (this is a number you can find in the Colours pane of the editor). The current contents of the surface will be lost.</p>
-<p>If you do not supply the COLOUR parameter, or use COLOR_TRANSPARENT, the surface will be cleared to be fully transparent.</p>
+<p>Clears the surface to the specified COLOR (this is a number you can find in the Colors pane of the editor). The current contents of the surface will be lost.</p>
+<p>If you do not supply the COLOR parameter, or use COLOR_TRANSPARENT, the surface will be cleared to be fully transparent.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.Clear(14);
@@ -148,14 +148,14 @@ surface.Release();
 <p><em>(Formerly known as RawDrawCircle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawCircle(int x, int y, int radius)
 </code></pre>
-<p>Draws a filled circle of radius RADIUS with its centre at (X,Y) in the current drawing colour.</p>
+<p>Draws a filled circle of radius RADIUS with its center at (X,Y) in the current drawing color.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
 surface.DrawCircle(160,100,50);
 surface.Release();
 </code></pre>
-<p>will draw a circle in the centre of the screen, of 50 pixels radius.</p>
+<p>will draw a circle in the center of the screen, of 50 pixels radius.</p>
 <p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor">DrawingSurface.DrawingColor</a></p>
 <hr />
 </section>
@@ -168,8 +168,8 @@ surface.Release();
 <p>Draws image SLOT from the sprite manager onto the surface at location (X,Y).</p>
 <p>Optionally, you can also specify the transparency of the image. This is a number from 0-100; using a <em>transparency</em> of 50 will draw the image semi-transparent; using 0 means it will not be transparent.</p>
 <p>You can also resize the image as you draw it. In order to do this, simply specify a <em>width</em> and <em>height</em> that you wish to resize the image to when it is drawn.</p>
-<p><strong>NOTE:</strong> This command only works if the image to be drawn is the same colour depth as the surface that you are drawing onto.</p>
-<p><strong>NOTE:</strong> Transparency does not work in 256-colour games, or with 256-colour sprites.</p>
+<p><strong>NOTE:</strong> This command only works if the image to be drawn is the same color depth as the surface that you are drawing onto.</p>
+<p><strong>NOTE:</strong> Transparency does not work in 256-color games, or with 256-color sprites.</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -186,7 +186,7 @@ surface.Release();
 <pre><code>DrawingSurface.DrawLine(int from_x, int from_y, int to_x, int to_y,
                         optional int thickness)
 </code></pre>
-<p>Draws a line from (FROM_X, FROM_Y) to (TO_X, TO_Y) in the surface's current drawing colour.</p>
+<p>Draws a line from (FROM_X, FROM_Y) to (TO_X, TO_Y) in the surface's current drawing color.</p>
 <p>The <em>thickness</em> parameter allows you to specify how thick the line is, the default being 1 pixel.</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
@@ -207,14 +207,14 @@ surface.Release();
 </code></pre>
 <p>Draws the room message MESSAGE_NUMBER onto the surface at (x,y), using the specified FONT.</p>
 <p>WIDTH is the width of the virtual textbox enclosing the text, and is the point that the text will wrap at. This command is designed for writing a long message to the screen with it wrapping normally like a standard label would do.</p>
-<p>The text will be printed using the current drawing colour.</p>
+<p>The text will be printed using the current drawing color.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
 surface.DrawMessageWrapped(80, 40, 160, Game.NormalFont, 10);
 surface.Release();
 </code></pre>
-<p>will display message 10 in the centre of the screen, starting from Y = 40.</p>
+<p>will display message 10 in the center of the screen, starting from Y = 40.</p>
 <p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawstring">DrawingSurface.DrawString</a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor">DrawingSurface.DrawingColor</a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped">DrawingSurface.DrawStringWrapped</a></p>
 <hr />
 </section>
@@ -222,7 +222,7 @@ surface.Release();
 <h3><a href="#drawingsurfacedrawpixel"><code>DrawingSurface.DrawPixel</code></a></h3>
 <pre><code>DrawingSurface.DrawPixel(int x, int y)
 </code></pre>
-<p>Draws a single pixel onto the surface at (X,Y) in the current colour. The pixel thickness respects the <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates">UseHighResCoordinates</a> property.</p>
+<p>Draws a single pixel onto the surface at (X,Y) in the current color. The pixel thickness respects the <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates">UseHighResCoordinates</a> property.</p>
 <p><strong>NOTE:</strong> This command is not fast enough to use repeatedly to build up an image. Only use it for single pixel adjustments.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -239,7 +239,7 @@ surface.Release();
 <p><em>(Formerly known as RawDrawRectangle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawRectangle(int x1, int y1, int x2, int y2)
 </code></pre>
-<p>Draws a filled rectangle in the current colour with its top-left corner at (x1,y1) and its bottom right corner at (x2, y2)</p>
+<p>Draws a filled rectangle in the current color with its top-left corner at (x1,y1) and its bottom right corner at (x2, y2)</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -256,7 +256,7 @@ surface.Release();
 <p><em>(Formerly known as RawPrint, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawString(int x, int y, FontType font, string text, ...)
 </code></pre>
-<p>Draws the <em>text</em> onto the surface at (x, y), using the supplied font number. The text will be drawn in the current drawing colour.</p>
+<p>Draws the <em>text</em> onto the surface at (x, y), using the supplied font number. The text will be drawn in the current drawing color.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -276,14 +276,14 @@ surface.Release();
 </code></pre>
 <p>Draws the <em>text</em> onto the surface at (x,y), using the specified FONT.</p>
 <p><em>width</em> is the width of the virtual textbox enclosing the text, and is the point that the text will wrap at. You can use the <em>alignment</em> parameter to determine how the text is horizontally aligned.</p>
-<p>The text will be printed using the current drawing colour.</p>
+<p>The text will be printed using the current drawing color.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
 surface.DrawStringWrapped(80, 40, 160, Game.NormalFont, eAlignCentre, &quot;Hello, my name is Bob.&quot;);
 surface.Release();
 </code></pre>
-<p>will display the text in the centre of the screen, starting from Y = 40.</p>
+<p>will display the text in the center of the screen, starting from Y = 40.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawstring">DrawingSurface.DrawString</a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor">DrawingSurface.DrawingColor</a>, <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped">DrawingSurface.DrawMessageWrapped</a></p>
 <hr />
@@ -295,7 +295,7 @@ surface.Release();
 </code></pre>
 <p>Draws the specified surface on top of this surface, optionally using <em>transparency</em> percent transparency.</p>
 <p>This allows you to perform day-to-night fading and other special effects.</p>
-<p><strong>NOTE:</strong> You cannot use the <em>transparency</em> parameter with 256-colour surfaces.</p>
+<p><strong>NOTE:</strong> You cannot use the <em>transparency</em> parameter with 256-color surfaces.</p>
 <p><strong>NOTE:</strong> This command can be a bit on the slow side, so don't call it from repeatedly_execute.</p>
 <p><strong>TIP:</strong> If you want to gradually fade in a second background, create a copy of the original surface and then restore it after each iteration, otherwise the backgrounds will converge too quickly.</p>
 <p>Example:</p>
@@ -314,7 +314,7 @@ nightBackground.Release();
 <p><em>(Formerly known as RawDrawTriangle, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
 </code></pre>
-<p>Draws a filled triangle in the current colour with corners at the points (x1,y1), (x2,y2) and (x3,y3).</p>
+<p>Draws a filled triangle in the current color with corners at the points (x1,y1), (x2,y2) and (x3,y3).</p>
 <p>Well, don't look at me, you might find it useful for something :-)</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -347,8 +347,8 @@ surface.Release();
 <p><em>(Formerly known as RawSetColor, which is now obsolete)</em></p>
 <pre><code>int DrawingSurface.DrawingColor
 </code></pre>
-<p>Gets/sets the current drawing colour on this surface. Set this before using commands like <a href="DrawingSurface.html#drawingsurfacedrawline">DrawLine</a>, which use this colour for their drawing.</p>
-<p>You can set this either to an AGS Colour Number (as you'd get from the Colours pane in the editor) or to the special constant COLOR_TRANSPARENT, which allows you to draw transparent areas onto the surface.</p>
+<p>Gets/sets the current drawing color on this surface. Set this before using commands like <a href="DrawingSurface.html#drawingsurfacedrawline">DrawLine</a>, which use this color for their drawing.</p>
+<p>You can set this either to an AGS Color Number (as you'd get from the Colors pane in the editor) or to the special constant COLOR_TRANSPARENT, which allows you to draw transparent areas onto the surface.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
@@ -365,15 +365,15 @@ surface.Release();
 <h3><a href="#drawingsurfacegetpixel"><code>DrawingSurface.GetPixel</code></a></h3>
 <pre><code>int DrawingSurface.GetPixel(int x, int y)
 </code></pre>
-<p>Returns the AGS Colour Number of the pixel at (X,Y) on the surface.</p>
-<p><strong>NOTE:</strong> In high-colour games, the first 32 colour numbers have a special meaning due to an AGS feature which maintains compatibility with 8-bit games. Therefore, if you draw onto the surface using a blue colour number 0-31 you will get a different number when you GetPixel -- and in fact the colour drawn may not be what you expect. To get around this, add 1 Red or Green component to adjust the colour number out of this range.</p>
+<p>Returns the AGS Color Number of the pixel at (X,Y) on the surface.</p>
+<p><strong>NOTE:</strong> In high-color games, the first 32 color numbers have a special meaning due to an AGS feature which maintains compatibility with 8-bit games. Therefore, if you draw onto the surface using a blue color number 0-31 you will get a different number when you GetPixel -- and in fact the color drawn may not be what you expect. To get around this, add 1 Red or Green component to adjust the color number out of this range.</p>
 <p><strong>NOTE:</strong> This command is relatively slow. Don't use it to try and process an entire image.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-Display(&quot;The colour of the middle pixel is %d.&quot;, surface.GetPixel(160, 100));
+Display(&quot;The color of the middle pixel is %d.&quot;, surface.GetPixel(160, 100));
 surface.Release();
 </code></pre>
-<p>displays the pixel colour of the centre pixel on the screen.</p>
+<p>displays the pixel color of the center pixel on the screen.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor">DrawingSurface.DrawingColor</a>, <a href="DrawingSurface.html#drawingsurfacedrawpixel">DrawingSurface.DrawPixel</a>, <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates">DrawingSurface.UseHighResCoordinates</a></p>
 <hr />
@@ -425,7 +425,7 @@ surface.Release();
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:47 PM</p>
+      <p>Build: 10/13/2019 11:20:03 AM</p>
     </section>
   </footer>
 

@@ -103,7 +103,7 @@
 <p>As a first step, let's give the room a description. This is just to help us easily remember which room it is, and this description isn't used at all by the game engine. Click in the "Description" property in the property grid, and type in something appropriate. You'll notice that the project tree updates to include this description.</p>
 <p><strong>The Background</strong></p>
 <p>Now, the first thing you need to do is draw the background for the room. This needs to be an image of at least the same size as your game resolution (that we set earlier on the General Settings pane); if it's bigger than the game resolution then it'll become a scrolling room.</p>
-<p>Draw the image in your favourite paint package, and once done, save it as a BMP or PNG file. Then, return to the AGS Editor, and press the "Change" button. Find the file you just created, and click Open.</p>
+<p>Draw the image in your favorite paint package, and once done, save it as a BMP or PNG file. Then, return to the AGS Editor, and press the "Change" button. Find the file you just created, and click Open.</p>
 <p>You should see the black area in the editor replaced by your image. For this tutorial, I'm going to shamelessly steal a background from Space Quest 4. Obviously, you should draw your own!</p>
 <p><img src="images/intro2_3.jpg" alt="I&#39;ve imported my background" /></p>
 <p><strong>Edges</strong></p>
@@ -126,7 +126,7 @@
 <p>Notice that I haven't bothered to make the whole of the pillar a walk-behind from top to bottom - using my knowledge of the walkable areas and the height of the character, I can just draw a walk-behind in the places where it's possible for the character to be.</p>
 <p>Now that we've done that, there's a very important next step in order to make the area work - the <strong>baseline</strong>. The baseline is a horizontal line, which tells the game where the character has to be in order to be drawn behind the area. For example, if you had a table in the middle of the room, you'd only want him drawn behind the table if he was standing behind it.</p>
 <p>You normally place a baseline at the lowest point of the walk-behind area. Move the mouse cursor to the bottom of the walk-behind area, and look at the "Mouse Position" display above the room background. These are the X and Y co-ordinates of where the mouse cursor currently is. We're only interested in the Y co-ordinate, so type it in to the Baseline setting in the property grid.</p>
-<p>By default, we've been drawing blue areas onto the screen. But what if we had two pillars, in different places? We wouldn't want the same baseline to apply to both. Never fear, AGS allows you to have several different areas on each screen. Above the property grid, there's a combobox that says "Walk-behind area ID 1". You can change this to draw in another colour, and each area has its own baseline.</p>
+<p>By default, we've been drawing blue areas onto the screen. But what if we had two pillars, in different places? We wouldn't want the same baseline to apply to both. Never fear, AGS allows you to have several different areas on each screen. Above the property grid, there's a combobox that says "Walk-behind area ID 1". You can change this to draw in another color, and each area has its own baseline.</p>
 <p><img src="images/intro2_8.jpg" alt="Selecting a different walk-behind area" /></p>
 <p><strong>Trying out the game</strong></p>
 <p>OK, we've slogged away at making our room - now it's about time to give it a go. Press F5, or click "Run" on the Build menu. This will save your work and launch the game! Once loaded, you should see your room with the character in it.</p>
@@ -147,7 +147,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:49 PM</p>
+      <p>Build: 10/13/2019 11:20:05 AM</p>
     </section>
   </footer>
 

@@ -77,9 +77,9 @@
             </ul>
 <ul>
 <li><a href="#tumbleweed-translation"><span>Tumbleweed Translation</span></a><ul>
-<li><a href="#verbstranslateaction"><span>Verbs.TranslateAction</span></a></li>
-<li><a href="#verbsadjustlanguage"><span>Verbs.AdjustLanguage</span></a></li>
-<li><a href="#verbsadjustguitext"><span>Verbs.AdjustGUIText</span></a></li>
+<li><a href="#verbstranslateaction"><span><code>Verbs.TranslateAction</code></span></a></li>
+<li><a href="#verbsadjustlanguage"><span><code>Verbs.AdjustLanguage</code></span></a></li>
+<li><a href="#verbsadjustguitext"><span><code>Verbs.AdjustGUIText</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -90,14 +90,14 @@
 <p>To make the verbs work with translations, strings are being used to define the button graphics, hotkeys and so on. If you like to customize your game or get it translated, you need to take a closer look at the function AdjustLanguage.</p>
 <hr />
 <section id="verbstranslateaction" class="level3">
-<h3><a href="#verbstranslateaction">Verbs.TranslateAction</a></h3>
+<h3><a href="#verbstranslateaction"><code>Verbs.TranslateAction</code></a></h3>
 <pre><code>void Verbs.TranslateAction(int action, int tr_lang);
 </code></pre>
 <p>This function defines the text for the verb buttons, e.g. if you click on the talk verb button, "Talk to" is being displayed in the action/status bar. The second parameter defines the returned language. If you want to customize this text, you have to edit this function.</p>
 <hr />
 </section>
 <section id="verbsadjustlanguage" class="level3">
-<h3><a href="#verbsadjustlanguage">Verbs.AdjustLanguage</a></h3>
+<h3><a href="#verbsadjustlanguage"><code>Verbs.AdjustLanguage</code></a></h3>
 <pre><code>void Verbs.AdjustLanguage();
 </code></pre>
 <p>This function has to be called from inside the template's game_start() function. It sets up everything related to the verb buttons, so you need to take a look at this, if you want to customize your GUI. It is also import to understand, how this function works, if you want to get you game translated. If you take a closer look at this function, you will notice the following lines:</p>
@@ -124,13 +124,13 @@ Verbs.SetActionButtons(eGA_GiveTo,  2, 63, 64, &#39;z&#39;);
 <li>The button will use the sprite-slot 63 as the default graphic and sprite-slot 64, if it's highlighted. This can be a little bit confusing, since if you look at <code>gMaingui</code>, those graphics have already been assigned. But you also need to define the graphics slots in this function, because eventually these are the ones being used.</li>
 <li>The last parameter defines the hotkey for this action.</li>
 </ul>
-<p>You might wonder, why this function overrides the values of gMaingui. But in some other languages the translation for use could be a very long word, so you might want to swap it with something else. E.g. in german "use" means "Benutze", so you need more space for the verb. But "pick up" can be translated to "nimm", so you save some space here.</p>
+<p>You might wonder, why this function overrides the values of gMaingui. But in some other languages the translation for use could be a very long word, so you might want to swap it with something else. E.g. in German "use" means "Benutze", so you need more space for the verb. But "pick up" can be translated to "nimm", so you save some space here.</p>
 <p>Unlike the 9Verb MI-Style template, the fonts can be customized and overwritten in AdjustGUIText().</p>
 <p><em>See also:</em> <a href="Tumbleweed_actions.html#verbssetactionbuttons">Verbs.SetActionButtons</a></p>
 <hr />
 </section>
 <section id="verbsadjustguitext" class="level3">
-<h3><a href="#verbsadjustguitext">Verbs.AdjustGUIText</a></h3>
+<h3><a href="#verbsadjustguitext"><code>Verbs.AdjustGUIText</code></a></h3>
 <pre><code>void Verbs.AdjustGUIText();
 </code></pre>
 <p>This function will also be called inside the template's game_start() function. Here you can modify the labels of your GUI buttons for the options GUI. In case you need it, you can also define alternative fonts for different languages.</p>
@@ -145,7 +145,7 @@ Verbs.SetActionButtons(eGA_GiveTo,  2, 63, 64, &#39;z&#39;);
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:41 PM</p>
+      <p>Build: 10/13/2019 11:19:57 AM</p>
     </section>
   </footer>
 

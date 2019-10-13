@@ -91,9 +91,9 @@
 <h3><a href="#cyclepalette"><code>CyclePalette</code></a></h3>
 <pre><code>CyclePalette (int start, int end)
 </code></pre>
-<p>This is used for special effects, like the flowing colours on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
-<p>By default, the colours rotate leftwards through the palette. If you pass the arguments the other way round (i.e. START being larger than END) then the colours will rotate in the opposite direction.</p>
-<p><strong>NOTE:</strong> This command only works in 256-colour games.</p>
+<p>This is used for special effects, like the flowing colors on the Space Quest 4 title screen, and the Sierra logo of the later Sierra games. The palette indexes from START to END are cycled around one slot. Using this call in a repeatedly_execute function gives the effect of animation.</p>
+<p>By default, the colors rotate leftwards through the palette. If you pass the arguments the other way round (i.e. START being larger than END) then the colors will rotate in the opposite direction.</p>
+<p><strong>NOTE:</strong> This command only works in 256-color games.</p>
 <p>Example:</p>
 <pre><code>CyclePalette(10,200);
 </code></pre>
@@ -107,7 +107,7 @@
 </code></pre>
 <p>Changes the RGB components of one of the palette slots. The palette is initially set up in the Palette Editor, but you can override it during the game using this function for special effects. The RED, GREEN and BLUE parameters each range from 0 to 63 (as used in the Palette Editor).</p>
 <p>If SLOT is a background slot, then this function's effect will last until the player changes screen, when the palette is changed to the new room's palette. If SLOT is not a background slot, the effect of this function is permanent.</p>
-<p>NOTE: This function will allow you to change the colours which are "locked" in the AGS Editor. However, you should not normally do this as it can cause strange colours in the game.</p>
+<p>NOTE: This function will allow you to change the colors which are "locked" in the AGS Editor. However, you should not normally do this as it can cause strange colors in the game.</p>
 <p>Example:</p>
 <pre><code>SetPalRGB(10,63,63,21);
 </code></pre>
@@ -119,12 +119,12 @@
 <h3><a href="#updatepalette"><code>UpdatePalette</code></a></h3>
 <pre><code>UpdatePalette()
 </code></pre>
-<p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colours of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
+<p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colors of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
 <p>Example:</p>
 <pre><code>palette[16].r = 60;
 UpdatePalette();
 </code></pre>
-<p>will make the black colour turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
+<p>will make the black color turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
 <p><em>See Also:</em> <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
 </section>
 </section>
@@ -136,7 +136,7 @@ UpdatePalette();
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:42 PM</p>
+      <p>Build: 10/13/2019 11:19:59 AM</p>
     </section>
   </footer>
 

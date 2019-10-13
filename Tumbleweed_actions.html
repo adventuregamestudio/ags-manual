@@ -77,15 +77,15 @@
             </ul>
 <ul>
 <li><a href="#tumbleweed-action-functions"><span>Tumbleweed Action Functions</span></a><ul>
-<li><a href="#verbsusedaction"><span>Verbs.UsedAction</span></a></li>
-<li><a href="#verbsisaction"><span>Verbs.IsAction</span></a></li>
-<li><a href="#verbssetactionbuttons"><span>Verbs.SetActionButtons</span></a></li>
-<li><a href="#verbssetdefaultaction"><span>Verbs.SetDefaultAction</span></a></li>
-<li><a href="#verbssetaction"><span>Verbs.SetAction</span></a></li>
-<li><a href="#verbssetalternativeaction"><span>Verbs.SetAlternativeAction</span></a></li>
-<li><a href="#verbscheckdefaultaction"><span>Verbs.CheckDefaultAction</span></a></li>
-<li><a href="#verbsupdateactionbar"><span>Verbs.UpdateActionBar</span></a></li>
-<li><a href="#verbstoogleguistyle"><span>Verbs.ToogleGuiStyle</span></a></li>
+<li><a href="#verbsusedaction"><span><code>Verbs.UsedAction</code></span></a></li>
+<li><a href="#verbsisaction"><span><code>Verbs.IsAction</code></span></a></li>
+<li><a href="#verbssetactionbuttons"><span><code>Verbs.SetActionButtons</code></span></a></li>
+<li><a href="#verbssetdefaultaction"><span><code>Verbs.SetDefaultAction</code></span></a></li>
+<li><a href="#verbssetaction"><span><code>Verbs.SetAction</code></span></a></li>
+<li><a href="#verbssetalternativeaction"><span><code>Verbs.SetAlternativeAction</code></span></a></li>
+<li><a href="#verbscheckdefaultaction"><span><code>Verbs.CheckDefaultAction</code></span></a></li>
+<li><a href="#verbsupdateactionbar"><span><code>Verbs.UpdateActionBar</code></span></a></li>
+<li><a href="#verbstoogleguistyle"><span><code>Verbs.ToogleGuiStyle</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -96,21 +96,21 @@
 <p>These functions are mainly used to control the verb buttons.</p>
 <hr />
 <section id="verbsusedaction" class="level3">
-<h3><a href="#verbsusedaction">Verbs.UsedAction</a></h3>
+<h3><a href="#verbsusedaction"><code>Verbs.UsedAction</code></a></h3>
 <pre><code>void Verbs.UsedAction (Action test_action);
 </code></pre>
 <p>Used to determine, which action has been selected by the player. Instead of checking cursor modes, this function is used.</p>
 <hr />
 </section>
 <section id="verbsisaction" class="level3">
-<h3><a href="#verbsisaction">Verbs.IsAction</a></h3>
+<h3><a href="#verbsisaction"><code>Verbs.IsAction</code></a></h3>
 <pre><code>bool Verbs.IsAction(Action test_action);
 </code></pre>
 <p>Used to check, if the current action is the one, given in the parameter.</p>
 <hr />
 </section>
 <section id="verbssetactionbuttons" class="level3">
-<h3><a href="#verbssetactionbuttons">Verbs.SetActionButtons</a></h3>
+<h3><a href="#verbssetactionbuttons"><code>Verbs.SetActionButtons</code></a></h3>
 <pre><code>void Verbs.SetActionButtons(Action action, int btn_ID, int sprite, int sprite_highlight, char key);
 </code></pre>
 <p>This functions connects the verb buttons with the action and is also used to assign / change the graphics of the verb buttons.</p>
@@ -118,21 +118,21 @@
 <hr />
 </section>
 <section id="verbssetdefaultaction" class="level3">
-<h3><a href="#verbssetdefaultaction">Verbs.SetDefaultAction</a></h3>
+<h3><a href="#verbssetdefaultaction"><code>Verbs.SetDefaultAction</code></a></h3>
 <pre><code>void Verbs.SetDefaultAction(Action def_action);
 </code></pre>
 <p>Used to define, which action is being used, if no verb has been clicked. Usually this is "walk to".</p>
 <hr />
 </section>
 <section id="verbssetaction" class="level3">
-<h3><a href="#verbssetaction">Verbs.SetAction</a></h3>
+<h3><a href="#verbssetaction"><code>Verbs.SetAction</code></a></h3>
 <pre><code>void Verbs.SetAction(Action new_action);
 </code></pre>
 <p>Since the cursor modes are bypassed, this function defines the current action. Among other things, this function is called by clicking a verb button.</p>
 <hr />
 </section>
 <section id="verbssetalternativeaction" class="level3">
-<h3><a href="#verbssetalternativeaction">Verbs.SetAlternativeAction</a></h3>
+<h3><a href="#verbssetalternativeaction"><code>Verbs.SetAlternativeAction</code></a></h3>
 <pre><code>void Verbs.SetAlternativeAction(char extension, Action alt_action);
 </code></pre>
 <p>This function makes the right-click shortcuts work. If you use extensions like "&gt;p" (e.g. pickup), this function makes sure, that the correct verb button is highlighted.</p>
@@ -140,7 +140,7 @@
 <hr />
 </section>
 <section id="verbscheckdefaultaction" class="level3">
-<h3><a href="#verbscheckdefaultaction">Verbs.CheckDefaultAction</a></h3>
+<h3><a href="#verbscheckdefaultaction"><code>Verbs.CheckDefaultAction</code></a></h3>
 <pre><code>void CheckDefaultAction();
 </code></pre>
 <p>This function checks for a given extension in hotspots, objects and characters. If there isn't an extension, a default action is given, e.g. "Talk to" if the mouse is over a character. In case of a given extension, the default actions are being overridden. It is also defined here, which letters are causing what default action. See the chapter Extensions for more details.</p>
@@ -148,7 +148,7 @@
 <hr />
 </section>
 <section id="verbsupdateactionbar" class="level3">
-<h3><a href="#verbsupdateactionbar">Verbs.UpdateActionBar</a></h3>
+<h3><a href="#verbsupdateactionbar"><code>Verbs.UpdateActionBar</code></a></h3>
 <pre><code>void UpdateActionBar();
 </code></pre>
 <p>This function is used to show and update the status bar. It checks for an extension, triggers the translation and renders the results on screen.</p>
@@ -156,7 +156,7 @@
 <hr />
 </section>
 <section id="verbstoogleguistyle" class="level3">
-<h3><a href="#verbstoogleguistyle">Verbs.ToogleGuiStyle</a></h3>
+<h3><a href="#verbstoogleguistyle"><code>Verbs.ToogleGuiStyle</code></a></h3>
 <pre><code>void ToogleGuiStyle(int enable_new);
 </code></pre>
 <p>Switches between classic SCUMM mode and new one.</p>
@@ -170,7 +170,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:49 PM</p>
+      <p>Build: 10/13/2019 11:20:05 AM</p>
     </section>
   </footer>
 

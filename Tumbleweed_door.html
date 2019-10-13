@@ -77,11 +77,11 @@
             </ul>
 <ul>
 <li><a href="#tumbleweed-door-functions"><span>Tumbleweed Door functions</span></a><ul>
-<li><a href="#verbssetdoorstate"><span>Verbs.SetDoorState</span></a></li>
-<li><a href="#verbsgetdoorstate"><span>Verbs.GetDoorState</span></a></li>
-<li><a href="#verbsinitobject"><span>Verbs.InitObject</span></a></li>
-<li><a href="#verbsanyclick"><span>Verbs.AnyClick</span></a></li>
-<li><a href="#verbsanyclickspecial"><span>Verbs.AnyClickSpecial</span></a></li>
+<li><a href="#verbssetdoorstate"><span><code>Verbs.SetDoorState</code></span></a></li>
+<li><a href="#verbsgetdoorstate"><span><code>Verbs.GetDoorState</code></span></a></li>
+<li><a href="#verbsinitobject"><span><code>Verbs.InitObject</code></span></a></li>
+<li><a href="#verbsanyclick"><span><code>Verbs.AnyClick</code></span></a></li>
+<li><a href="#verbsanyclickspecial"><span><code>Verbs.AnyClickSpecial</code></span></a></li>
 </ul></li>
 </ul>
           </nav>
@@ -112,7 +112,7 @@ Verbs.OpenCloseExtension (20);
 <p>To define the messages, the player character says, when approaching a door, you can access the array holding those messages anytime. Initially they are setup in the TemplateSettings.asc module.</p>
 <hr />
 <section id="verbssetdoorstate" class="level3">
-<h3><a href="#verbssetdoorstate">Verbs.SetDoorState</a></h3>
+<h3><a href="#verbssetdoorstate"><code>Verbs.SetDoorState</code></a></h3>
 <pre><code>void Doors.SetDoorState(int door_id, int value);
 </code></pre>
 <p>Call this function to set a door state for the given door_id. A door can have 3 different states:</p>
@@ -125,7 +125,7 @@ Verbs.OpenCloseExtension (20);
 <hr />
 </section>
 <section id="verbsgetdoorstate" class="level3">
-<h3><a href="#verbsgetdoorstate">Verbs.GetDoorState</a></h3>
+<h3><a href="#verbsgetdoorstate"><code>Verbs.GetDoorState</code></a></h3>
 <pre><code>int Doors.GetDoorState(int door_id);
 </code></pre>
 <p>Returns the current state of a door.</p>
@@ -138,7 +138,7 @@ Verbs.OpenCloseExtension (20);
 <hr />
 </section>
 <section id="verbsinitobject" class="level3">
-<h3><a href="#verbsinitobject">Verbs.InitObject</a></h3>
+<h3><a href="#verbsinitobject"><code>Verbs.InitObject</code></a></h3>
 <pre><code>void Doors.InitObject(int door_id, int act_object);
 </code></pre>
 <p>Used to set up the corresponding object, used by the door with the given id. If the state of the door is closed, the object will be invisible. Otherwise, the object will be shown. The object stays unclickable all the time.</p>
@@ -146,7 +146,7 @@ Verbs.OpenCloseExtension (20);
 <hr />
 </section>
 <section id="verbsanyclick" class="level3">
-<h3><a href="#verbsanyclick">Verbs.AnyClick</a></h3>
+<h3><a href="#verbsanyclick"><code>Verbs.AnyClick</code></a></h3>
 <pre><code>int Doors.AnyClick(int door_id, int act_object, int x, int y, eDirection dir, int nr_room, int nr_x, int nr_y, eDirection nr_dir);
 </code></pre>
 <p>This function is used in the room script in combination with the door hotspot. Parameters:</p>
@@ -164,7 +164,7 @@ Verbs.OpenCloseExtension (20);
 <hr />
 </section>
 <section id="verbsanyclickspecial" class="level3">
-<h3><a href="#verbsanyclickspecial">Verbs.AnyClickSpecial</a></h3>
+<h3><a href="#verbsanyclickspecial"><code>Verbs.AnyClickSpecial</code></a></h3>
 <pre><code>int Doors.AnyClickSpecial(int door_id, int act_object, int x, int y, eDirection dir, int nr_room, int nr_x, int nr_y, eDirection nr_dir, AudioClip *opensound, AudioClip *closesound, int key, int closevalue);
 </code></pre>
 <p>This function extends any_click_door with the following parameters:</p>
@@ -185,7 +185,7 @@ Verbs.OpenCloseExtension (20);
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:49 PM</p>
+      <p>Build: 10/13/2019 11:20:05 AM</p>
     </section>
   </footer>
 

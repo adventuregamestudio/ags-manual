@@ -220,7 +220,7 @@
 2   Walkable from here - fills in the parts of the screen where the player
     can walk from their current location. This is useful if you think the
     path-finder is not working properly. All walkable areas are drawn in
-    their respective colours, but with blocking areas at characters feet
+    their respective colors, but with blocking areas at characters feet
     removed.
 3   Teleport - displays a dialog box asking for what room you want to go
     to, and then calls ChangeRoom to teleport you there. Useful for skipping
@@ -395,7 +395,7 @@ gBottomLine.SetPosition(0, 200 - height);
 <pre><code>GetTextWidth(string text, FontType font)
 </code></pre>
 <p>Returns the width on the screen that drawing TEXT in FONT on one line would take up.</p>
-<p>This could be useful if you manually need to centre or right-align some text, for example with the raw drawing routines.</p>
+<p>This could be useful if you manually need to center or right-align some text, for example with the raw drawing routines.</p>
 <p>The width is returned in normal 320-resolution pixels, so it can be used with the screen display commands.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -679,7 +679,7 @@ else cEgo.ChangeRoom(3);
 <p>DATA allows you to pass an integer through to the next game. The value you pass here will be accessible to the loaded game by it reading the game.previous_game_data variable.</p>
 <p>The save game slots are shared between the two games, and if you load a save slot that was saved in the other game, it will automatically be loaded.</p>
 <p>Bear in mind that because the games must be in the same folder, they will also share the audio.vox, speech.vox and so forth. This is a limitation of this command.</p>
-<p><strong>NOTE:</strong> The game you run will be loaded at the same resolution and colour depth as the current game; if you mismatch colour depths some nasty results will occur.</p>
+<p><strong>NOTE:</strong> The game you run will be loaded at the same resolution and color depth as the current game; if you mismatch color depths some nasty results will occur.</p>
 <p><strong>NOTE:</strong> The game you want to launch must have been created with the same point-version of AGS as the one you are launching it from. (version 2.xy - the X must be the same version between the two games).</p>
 <p>Example:</p>
 <pre><code>RunAGSGame (&quot;MyGame.exe&quot;, 0, 51);
@@ -753,11 +753,11 @@ SaveScreenShot(input);
 <pre><code>SetAmbientTint(int red, int green, int blue, int saturation, int luminance)
 </code></pre>
 <p>Tints all objects and characters on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
-<p>This allows you to apply a global tint to everything on the screen. The RED, GREEN and BLUE parameters are from 0-255, and specify the colour of the tint.</p>
-<p>The SATURATION parameter defines how much the tint is applied, and is from 0-100. A saturation of 100 will completely re-colourize the sprites to the supplied colour, and a saturation of 1 will give them a very minor tint towards the specified colour.</p>
+<p>This allows you to apply a global tint to everything on the screen. The RED, GREEN and BLUE parameters are from 0-255, and specify the color of the tint.</p>
+<p>The SATURATION parameter defines how much the tint is applied, and is from 0-100. A saturation of 100 will completely re-colorize the sprites to the supplied color, and a saturation of 1 will give them a very minor tint towards the specified color.</p>
 <p>The LUMINANCE parameter allows you to adjust the brightness of the sprites at the same time. It ranges from 0-100. Passing 100 will draw the sprites at normal brightness. Lower numbers will darken the images accordingly, right down to 0 which will draw everything black.</p>
 <p>The tint applied by this function is global. To turn it off, call this command again but pass the saturation as 0.</p>
-<p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour sprites.</p>
+<p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p><strong>NOTE:</strong> This function overrides any specific region light levels or tints on the screen.</p>
 <p>Example:</p>
 <pre><code>SetAmbientTint(0, 0, 250, 30, 100);
@@ -838,7 +838,7 @@ SaveScreenShot(input);
 </tr>
 <tr class="odd">
 <td>OPT_CROSSFADEMUSIC</td>
-<td>Crossfade music tracks (0=no, 1=slow, 2=slowish, 3=medium, 4=fast)</td>
+<td>Crossfade music tracks (0=no, 1=slow, 2=slow-ish, 3=medium, 4=fast)</td>
 </tr>
 <tr class="even">
 <td>OPT_ANTIALIASFONTS</td>
@@ -1119,7 +1119,7 @@ cEgo.FaceLocation(1000,100);
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:40 PM</p>
+      <p>Build: 10/13/2019 11:19:56 AM</p>
     </section>
   </footer>
 

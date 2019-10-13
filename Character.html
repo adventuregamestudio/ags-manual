@@ -209,7 +209,7 @@
 cSomeguy.AddWaypoint(50, 150);
 cSomeguy.AddWaypoint(50, 50);
 </code></pre>
-<p>tells character SOMEGUY to first of all walk to the centre of the screen normally (obeying walkable areas), then move to the bottom left corner and then top left corner afterwards.</p>
+<p>tells character SOMEGUY to first of all walk to the center of the screen normally (obeying walkable areas), then move to the bottom left corner and then top left corner afterwards.</p>
 <p><em>See Also:</em> <a href="Character.html#charactermove">Character.Move</a> <a href="Character.html#characterwalk">Character.Walk</a></p>
 <hr />
 </section>
@@ -570,7 +570,7 @@ cEgo.UnlockView();
 </tr>
 <tr class="even">
 <td>eAlignCentre</td>
-<td>Leaves the frames centred in the middle.<br>This is the default and using this is equivalent to just calling LockView.</td>
+<td>Leaves the frames centered in the middle.<br>This is the default and using this is equivalent to just calling LockView.</td>
 </tr>
 <tr class="odd">
 <td>eAlignRight</td>
@@ -868,7 +868,7 @@ player.RemoveTint();
 <p>This function applies a tint to a specific character. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the character (even if an ambient tint is set).</p>
 <p>To remove the tint set by this function and return to using the ambient tint for this character, call <a href="Character.html#characterremovetint">RemoveTint</a>.</p>
-<p><strong>NOTE:</strong> This function only works in hi-colour games and with hi-colour sprites.</p>
+<p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p>Example:</p>
 <pre><code>cEgo.Tint(0, 250, 0, 30, 100);
 </code></pre>
@@ -1475,7 +1475,7 @@ cEgo.Scaling = 50;
 <pre><code>int Character.SpeechColor
 </code></pre>
 <p>Gets/sets the character's speech text color. This is set by default in the editor.</p>
-<p>NEWCOLOR is the colour slot index from the Palette Editor. This can be 0-255 for a 256-colour game, or one of the hi-colour indexes available from the Palette Editor.</p>
+<p>NEWCOLOR is the color slot index from the Palette Editor. This can be 0-255 for a 256-color game, or one of the hi-color indexes available from the Palette Editor.</p>
 <p>Example:</p>
 <pre><code>cEgo.SpeechColor = 14;
 </code></pre>
@@ -1556,7 +1556,7 @@ cEgo.Scaling = 50;
 <pre><code>int Character.Transparency
 </code></pre>
 <p>Gets/sets the character's transparency. This is specified as a percentage, from 0 to 100. 100 means fully transparent (i.e. invisible), and 0 is totally opaque (fully visible). Numbers in between represent varying levels of transparency.</p>
-<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit colour games.</p>
+<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
 <p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent character can significantly slow down AGS.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>cEgo.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade a character in, the best approach is shown in the example below:</p>
@@ -1628,7 +1628,7 @@ while (trans &lt; 100) {
 <h3><a href="#characterx"><code>Character.x</code></a></h3>
 <pre><code>int Character.x;
 </code></pre>
-<p>Gets/sets the character's current X co-ordinate. This is expressed in normal room co-ordinates, and specifies the centre-bottom of the character's sprite.</p>
+<p>Gets/sets the character's current X co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The player is at %d,%d.&quot;, player.x, player.y);
@@ -1641,7 +1641,7 @@ while (trans &lt; 100) {
 <h3><a href="#charactery"><code>Character.y</code></a></h3>
 <pre><code>int Character.y;
 </code></pre>
-<p>Gets/sets the character's current Y co-ordinate. This is expressed in normal room co-ordinates, and specifies the centre-bottom of the character's sprite.</p>
+<p>Gets/sets the character's current Y co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The player is at %d,%d.&quot;, player.x, player.y);
@@ -1674,7 +1674,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 10/06/2019 10:30:45 PM</p>
+      <p>Build: 10/13/2019 11:20:01 AM</p>
     </section>
   </footer>
 
