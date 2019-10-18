@@ -143,7 +143,7 @@ function Doc(body, metadata, variables)
       -- (since storing data with keys will mask later checks)
       for k, v in pairs(index) do
         if v[header] ~= nil then
-          io.stderr:write(string.format("WARNING: duplicate header %s\n", header))
+          io.stderr:write(string.format("ERROR: duplicate header %s\n", header))
         end
       end
 

@@ -19,6 +19,7 @@ function Doc(body, metadata, variables)
   local duplicates = {}
   local duplicates_count = 0
   local link_count = 0
+  local script_items = {}
   local unmatched = {}
   local valid = {}
 
@@ -27,6 +28,19 @@ function Doc(body, metadata, variables)
     for line in io.lines(meta._approved_links) do
       if line:len() > 0 then
         valid[line] = true
+      end
+    end
+  end
+
+  -- get all script items
+  for k, v in pairs(meta) do
+    if v.index then
+      for itemtype, item in pairs(v.index) do
+        if itemtype == 'script' then
+          for name, _ in pairs(item) do
+            script_items[name] = true
+          end
+        end
       end
     end
   end
@@ -42,7 +56,7 @@ function Doc(body, metadata, variables)
 
           if duplicates[name] ~= nil then
             table.insert(duplicates[name], string.format("used again in page '%s'", k))
-            io.stderr:write(string.format("WARNING: Duplicate index item '%s'\n", k))
+            io.stderr:write(string.format("%s: Duplicate index item '%s'\n", script_items[name] and "ERROR" or "WARNING", name))
           else
             duplicates[name] = { string.format("first seen in page '%s'", k) }
           end
