@@ -3,10 +3,7 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local meta = PANDOC_DOCUMENT.meta
 local stringify = (require 'pandoc.utils').stringify
-local indices = {}
-local sections = {}
 
 function Doc(body, metadata, variables)
   local buffer = {}
@@ -14,6 +11,9 @@ function Doc(body, metadata, variables)
 <param name="Keyword" value="%s">
 <param name="Local" value="%s">
 </OBJECT>]]
+  local indices = {}
+  local meta = PANDOC_DOCUMENT.meta
+  local sections = {}
 
   -- get all of the heading info into a table
   for k, v in pairs(meta) do

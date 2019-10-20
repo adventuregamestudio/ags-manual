@@ -3,15 +3,15 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local meta = PANDOC_DOCUMENT.meta
 local stringify = (require 'pandoc.utils').stringify
-local indices = {}
 
 function Doc(body, metadata, variables)
-  local menu = {}
   local buffer = {}
   local header_format = '<h3 id="%s">%s</h3>'
+  local indices = {}
   local link_format = '<a href="%s">%s</a>'
+  local meta = PANDOC_DOCUMENT.meta
+  local menu = {}
   local section
 
   -- get all of the heading info into a table

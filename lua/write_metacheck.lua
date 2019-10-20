@@ -3,7 +3,6 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local meta = PANDOC_DOCUMENT.meta
 local stringify = (require 'pandoc.utils').stringify
 
 local function get_table_size(t)
@@ -19,6 +18,7 @@ function Doc(body, metadata, variables)
   local duplicates = {}
   local duplicates_count = 0
   local link_count = 0
+  local meta = PANDOC_DOCUMENT.meta
   local script_items = {}
   local unmatched = {}
   local valid = {}
