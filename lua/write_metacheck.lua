@@ -1,6 +1,12 @@
 -- invoke as Pandoc writer
 -- write a report of metablock checks
 
+-- This writer serves two purposes:
+-- 1. Produce some kind of report that gives some information on the state of
+--    all page items, particularly when page metadata is cross-referenced
+-- 2. Output WARNINGs or ERRORs to stderr. The current use-case is to halt a
+--    CI deployment if there is a clear error in page content
+
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
 local stringify = (require 'pandoc.utils').stringify

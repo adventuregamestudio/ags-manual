@@ -19,6 +19,7 @@ build_script:
   - set CHECKOUTDIR=%TEMP%\ags-manual.wiki
   - set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
   - make SHELL=%COMSPEC% source
+  # abort build if anything from metacheck prints to stderr and begins with 'ERROR'
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
   - make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
 
