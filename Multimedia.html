@@ -215,14 +215,15 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 </code></pre>
 <p>There are two distinct type of videos that the PlayVideo function can play.</p>
 <p>The first is OGG Theora, which is a recently introduced video file format. AGS has built-in support for playing these videos, so everyone who plays your game will be able to see the video. OGG Theora videos are also built into the game EXE file when you compile the game (just make sure the file has a .OGV extension and is placed in your main game folder). A good converter for theora is <a href="https://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
+<p><strong>IMPORANT:</strong> Because of an old mistake in AGS, OGG Theora videos may be positioned on screen with a slight negative offset, cutting few rows or columns of pixels. Until this is fixed, as a workaround, make sure that your video's frame sizes are multipliers of 16 and actual image placed aligned to the center. For example, if you want 320x200 video then increase canvas to 320x208 and place image at offset (0, 4).</p>
 <p>The second type of files that AGS can play is anything supported by Windows Media Player. This includes AVI, MPG and more. However, in order for these to work on the player's system, they will need to have the correct codecs installed. For example, if you create your video with the XVid codec, the player will need to have XVid installed to be able to view it. These types of video cannot be included into the game EXE, so you will have to place them separately in the Compiled folder for them to work.</p>
 <p><strong>NOTE:</strong> In 256-color games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic">PlayFlic</a> command instead.</p>
-<p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Yes</strong><br> Linux: <strong>No</strong><br> MacOS: <strong>Yes</strong></p>
 <p>Example:</p>
-<pre><code>PlayVideo(&quot;intro.mpg&quot;, eVideoSkipEscKey, 1);
+<pre><code>PlayVideo(&quot;Intro.ogv&quot;, eVideoSkipEscKey, 1);
 </code></pre>
-<p>will play the video Intro.mpg, allowing the player to skip with ESC if they've seen it before.</p>
+<p>will play the video Intro.ogv, allowing the player to skip with ESC if they've seen it before.</p>
+<p><strong>Cross-Platform Support</strong></p>
+<p>OGG Theora: supported everywhere. AVI / MPG: Windows only.</p>
 <p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="Multimedia.html#playflic">PlayFlic</a></p>
 <hr />
@@ -298,7 +299,7 @@ eVolExistingAndFuture   change both currently playing and future audio
 
   <footer>
     <section class="container">
-      <p>Build: 10/13/2019 11:19:55 AM</p>
+      <p>Build: 10/25/2019 01:25:37 AM</p>
     </section>
   </footer>
 

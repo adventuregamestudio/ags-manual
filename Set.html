@@ -93,12 +93,12 @@
         <div class="column column-75">
 <section id="set-functions-and-properties" class="level2">
 <h2><a href="#set-functions-and-properties"><code>Set</code> Functions and Properties</a></h2>
-<p>Set allows you to store a sequence of unique strings and efficiently look them up. When adding a string Set will automatically test whether such string is already contained and won't make a duplicate.</p>
-<p>Because of how sets work internally, searching for a string in a set is faster than you'd search for it in a plain array. Its advantage increases with the number of items. They are also fast in adding and removing items dynamically.</p>
+<p>A Set allows you to store a sequence of unique strings and look them up efficiently. When adding a string a Set will automatically test whether such string is already contained and won't make a duplicate.</p>
+<p>Because of how a Set work internally, searching for a string in a Set is faster than searching for it in a plain array. Its advantage increases with the number of items. They are also fast in adding and removing items dynamically.</p>
 <p>Similar to <a href="Dictionary.html">Dictionary</a>, Set has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
-<p><strong>Sort style</strong> defines whether items are stored sorted or unsorted. The unsorted containers are commonly somewhat faster to search in, but the items will be stored in an undefined order.</p>
-<p><strong>Compare style</strong> determines whether strings are compared as case sensitive or case insensitive. For example, in case-sensitive set strings "Parameter" and "parameter" will be seen as two different items, but in case-insensitive they will be seen as identical. Compare style defines both string uniqueness and sorting.</p>
-<p>At the moment a set itself does not let you access all of its internal data at once directly, but has <a href="Set.html#setgetitemsasarray">GetItemsAsArray </a> function that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in this array will be matching one inside the set, hence if the set was sorted the array will be sorted as well.</p>
+<p><strong>Sort style</strong> defines whether items are stored sorted or unsorted. The unsorted containers are typically faster to search in, but the items will be stored in an undefined order.</p>
+<p><strong>Compare style</strong> determines whether strings are compared as case sensitive or case insensitive. For example, in a case-sensitive Set the strings "Parameter" and "parameter" will be seen as two different items, but in a case-insensitive Set they will be seen as identical. Compare style defines both string uniqueness and sorting.</p>
+<p>At the moment a Set does not let you directly access all of its internal data at once, but it does have the <a href="Set.html#setgetitemsasarray">GetItemsAsArray</a> function that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in this array will be match the order within the Set, hence if the Set was sorted the array will be sorted as well.</p>
 <p><em>Compatibility:</em> Set struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="Dictionary.html">Dictionary</a></p>
 <hr />
@@ -116,7 +116,7 @@
 <h3><a href="#setadd"><code>Set.Add</code></a></h3>
 <pre><code>bool Set.Add(String item)
 </code></pre>
-<p>Adds item to the set, fails if such item was already contained, returning false.</p>
+<p>Adds an item to the Set. Returns false if the Set already contained the item, otherwise returns true.</p>
 <p>Example:</p>
 <pre><code>mySet.Add(&quot;item1&quot;);
 bool wasAdded = mySet.Add(&quot;item1&quot;); // wasAdded will be false
@@ -128,14 +128,14 @@ bool wasAdded = mySet.Add(&quot;item1&quot;); // wasAdded will be false
 <h3><a href="#setclear"><code>Set.Clear</code></a></h3>
 <pre><code>void Set.Clear()
 </code></pre>
-<p>Removes all items from the set.</p>
+<p>Removes all items from the Set.</p>
 <hr />
 </section>
 <section id="setcontains" class="level3">
 <h3><a href="#setcontains"><code>Set.Contains</code></a></h3>
 <pre><code>bool Set.Contains(String item)
 </code></pre>
-<p>Gets if the given item is in the set.</p>
+<p>Returns whether an item is already in a Set.</p>
 <p>Example:</p>
 <pre><code>Set* mySet = Set.Create();
 mySet.Add(&quot;test&quot;);
@@ -167,7 +167,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <h3><a href="#setremove"><code>Set.Remove</code></a></h3>
 <pre><code>bool Set.Remove(String item)
 </code></pre>
-<p>Removes item from the set, returns false if there was no such item.</p>
+<p>Removes an item from the Set. Returns false if there was no such item, otherwise returns true.</p>
 <p><em>See Also:</em> <a href="Set.html#setadd">Add</a>, <a href="Set.html#setcontains">Contains</a></p>
 <hr />
 </section>
@@ -175,7 +175,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <h3><a href="#setcomparestyle"><code>Set.CompareStyle</code></a></h3>
 <pre><code>StringCompareStyle Set.CompareStyle
 </code></pre>
-<p>Gets if this set is case-sensitive.</p>
+<p>Returns the string comparison method for this Set.</p>
 <p><em>See Also:</em> <a href="Set.html#setsortstyle">SortStyle</a></p>
 <hr />
 </section>
@@ -183,14 +183,14 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <h3><a href="#setitemcount"><code>Set.ItemCount</code></a></h3>
 <pre><code>int Set.ItemCount
 </code></pre>
-<p>Gets the number of items currently in the set.</p>
+<p>Returns the number of items currently in the Set.</p>
 <hr />
 </section>
 <section id="setsortstyle" class="level3">
 <h3><a href="#setsortstyle"><code>Set.SortStyle</code></a></h3>
 <pre><code>SortStyle Set.SortStyle
 </code></pre>
-<p>Gets the method items are arranged in this set.</p>
+<p>Returns the sorting method for this Set.</p>
 <p><em>See Also:</em> <a href="Set.html#setcomparestyle">CompareStyle</a></p>
 </section>
 </section>
@@ -202,7 +202,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 
   <footer>
     <section class="container">
-      <p>Build: 10/13/2019 11:20:02 AM</p>
+      <p>Build: 10/25/2019 01:25:44 AM</p>
     </section>
   </footer>
 
