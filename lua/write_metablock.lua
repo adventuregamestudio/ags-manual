@@ -101,6 +101,10 @@ function Doc(body, metadata, variables)
   local blocks = PANDOC_DOCUMENT.blocks
   local meta = PANDOC_DOCUMENT.meta
   local buffer = {}
+  local index = {
+    editorial = {},
+    script = {}
+  }
 
   -- order ignoring case
   order = function(a, b)
@@ -109,12 +113,12 @@ function Doc(body, metadata, variables)
 
   table.insert(buffer, '  title: >')
   table.insert(buffer, '    ' .. (meta.title or meta.docname))
-  table.insert(buffer, '\n  headings:')
 
   for i, block in ipairs(blocks) do
     -- check each header for inline code
     if block.t == "Header" then
       local header = nil
+      local itemtype = nil
 
       for i, child in ipairs(block.content) do
         -- take the first match and stop checking
@@ -124,12 +128,36 @@ function Doc(body, metadata, variables)
         end
       end
 
-      -- if no code matched just convert to a string
-      if not header then
+      if header then
+        -- heading was describing some code
+        itemtype = 'script'
+      else
+        -- if no code matched just convert to a string
+        itemtype = 'editorial'
         header = stringify(block)
       end
 
-      table.insert(buffer, string.format("    %s: %s", header, block.attr.identifier))
+      assert(itemtype == 'editorial' or itemtype == 'script')
+
+      -- emit warnings for heading collisions within this page
+      -- (since storing data with keys will mask later checks)
+      for k, v in pairs(index) do
+        if v[header] ~= nil then
+          io.stderr:write(string.format("ERROR: duplicate header %s\n", header))
+        end
+      end
+
+      index[itemtype][header] = block.attr.identifier
+    end
+  end
+
+  table.insert(buffer, '\n  index:')
+
+  for itemtype, item in agsman.pairs_by_keys(index, order) do
+    table.insert(buffer, string.format("    %s:", itemtype))
+
+    for name, id in agsman.pairs_by_keys(item, order) do
+      table.insert(buffer, string.format("      %s: %s", name, id))
     end
   end
 

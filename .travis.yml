@@ -28,7 +28,8 @@ before_script:
 script:
   - export CHECKOUTDIR=/tmp/ags-manual.wiki
   - make source
-  - (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep .) || travis_terminate 1
+  # abort build if anything from metacheck prints to stderr and begins with 'ERROR'
+  - (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR) || travis_terminate 1
   - make -j $(getconf _NPROCESSORS_ONLN) html
   - touch html/build/.nojekyll
   - |

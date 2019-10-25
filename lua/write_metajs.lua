@@ -3,7 +3,6 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local meta = PANDOC_DOCUMENT.meta
 local stringify = (require 'pandoc.utils').stringify
 
 function render_keywords(keywords)
@@ -55,6 +54,7 @@ function render_titles(titles)
 end
 
 function Doc(body, metadata, variables)
+  local meta = PANDOC_DOCUMENT.meta
   local titles = {}
   local keywords = {}
 
