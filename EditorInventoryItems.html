@@ -76,33 +76,66 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#inventory-items-editor"><span>Inventory Items Editor</span></a></li>
+<li><a href="#inventory-items-editor"><span>Inventory Items Editor</span></a><ul>
+<li><a href="#cursor-image"><span>Cursor Image</span></a></li>
+<li><a href="#description"><span>Description</span></a></li>
+<li><a href="#image"><span>Image</span></a></li>
+<li><a href="#hotspotx"><span>HotspotX</span></a></li>
+<li><a href="#hotspoty"><span>HotspotY</span></a></li>
+<li><a href="#id"><span>ID</span></a></li>
+<li><a href="#name"><span>Name</span></a></li>
+<li><a href="#playerstartswithitem"><span>PlayerStartsWithItem</span></a></li>
+<li><a href="#properties"><span>Properties</span></a></li>
+</ul></li>
 </ul>
           </nav>
         </div>
         <div class="column column-75">
 <section id="inventory-items-editor" class="level2">
 <h2><a href="#inventory-items-editor">Inventory Items Editor</a></h2>
-<p>A place to edit Items that can be placed on the <a href="Settingupthegame.html#inventory">inventory</a> by the player.</p>
+<p>A place to edit Items that can be added to a character's <a href="Settingupthegame.html#inventory">inventory</a> by the player.</p>
 <p><img src="images/EditorInventoryItems_img1.png" alt="Screenshot Inventory Item Editor" /></p>
-<p><em>Cursor Image</em>:<br />
-The image number from the <a href="EditorSprite.html">Sprite Manager</a> that is displayed as active cursor image when selecting this inventory item from the inventory to use it on other inventory items or somewhere inside your scene. You set the active hotspot of the mouse-cursor, there where the click from that mouse cursor is detected, by left-clicking on the right image in the inventory item settings. Alternatively you can set the hotspot position by hand with the HotspotX and HotspotY Value, this is explained 3 paragraphs below.<br />
-This Cursor Image is usually a bit smaller than the normal image of the inventory item inside the inventory, this is covered 2 paragraphs below.<br />
-It is good practice to add a kind of crosshair or a single pixel in any color standing out from the rest of the image (maybe pure red?) and put the click hotspot there so the player knows where he is pointing exactly. Figuring out bad controls is no puzzle!</p>
-<p><em>Description:</em><br />
-The name of the item that is displayed for example on [@OVERHOTSPOT@] when the mouse is over the inventory item still in the inventory.</p>
-<p><em>Image:</em><br />
-The image displayed for the inventory item within the normal AGS inventory. Usually a bit bigger than the mouse cursor image of the inventory item.</p>
-<p><em>HotspotX:</em><br />
-Select the X value of the active cursor image by hand. It's the distance from the left border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
-<p><em>HotspotY:</em><br />
-Select the Y value of the active cursor image by hand. It's the distance from the top border in pixels. You can also set this value by clicking on the right image in the inventory item settings.</p>
-<p><em>ID:</em><br />
-The internal ID of this inventory Item. This value cannot be changed, it can be read only by script with the call <a href="InventoryItem.html#inventoryitemid">InventoryItem.ID</a>.</p>
-<p><em>Name:</em><br />
-The script name of the inventory item. Usually the convention is to start inventory item names with an i, like <em>iKey</em>. This convention sure gets tricky when you give your game characters apple products...</p>
-<p><em>PlayerStartsWithItem:</em><br />
-Is a boolean value that means what it says, it sets whether the player character starts with this inventory item in his inventory or not. Mostly the default setting of no is used. <br/> <br/> <br/> Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#characteraddinventory">cChar.AddInventory(iInvItem)</a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#characterloseinventory">cChar.LoseInventory(iInvItem)</a> function. Make sure you check the <a href="Mouse.html#mousemode">Mouse.Mode</a> afterwards, especially when the active cursor is the inventory item the player just lost. <br/> <br/> <br/> See Also: <a href="InventoryItem.html">InventoryItem</a></p>
+<section id="cursor-image" class="level3">
+<h3><a href="#cursor-image">Cursor Image</a></h3>
+<p>The image number from the <a href="EditorSprite.html">Sprite Manager</a> that is displayed as the active cursor image when selecting this inventory item from the inventory. This could be to use it on another inventory item or to use it somewhere inside your room. You can also set the active hotspot of the mouse-cursor image, which is where the click from the mouse cursor will be registered when using this image. This can be done by left clicking on the mouse-cursor image itself, or by entering the appropriate into the HotspotX and HotspotY properties (see below).</p>
+<p>It is generally good practice to add some kind of crosshair or a single pixel marker in an easy to spot color to the image and align the click hotspot to this. This way the player should be able to tell exactly where they are pointing. Figuring out bad controls is no puzzle!</p>
+</section>
+<section id="description" class="level3">
+<h3><a href="#description">Description</a></h3>
+<p>The name of the item. This is also the value used by the <code>@OVERHOTSPOT@</code> token when the mouse cursor is hovering over this item, whilst still in the inventory.</p>
+</section>
+<section id="image" class="level3">
+<h3><a href="#image">Image</a></h3>
+<p>The image displayed for the inventory item within the character's inventory. This is typically larger than the mouse cursor image of the inventory item, depending on how the GUI that is used for the inventory window has been configured.</p>
+</section>
+<section id="hotspotx" class="level3">
+<h3><a href="#hotspotx">HotspotX</a></h3>
+<p>Select the X value for the hotspot of the active cursor image. It's the distance from the left edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+</section>
+<section id="hotspoty" class="level3">
+<h3><a href="#hotspoty">HotspotY</a></h3>
+<p>Select the Y value for the hotspot of the active cursor image. It's the distance from the top edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+</section>
+<section id="id" class="level3">
+<h3><a href="#id">ID</a></h3>
+<p>The internal ID of this inventory Item. This value cannot be changed, it can be read only by the script property <a href="InventoryItem.html#inventoryitemid">InventoryItem.ID</a>.</p>
+</section>
+<section id="name" class="level3">
+<h3><a href="#name">Name</a></h3>
+<p>The script name of the inventory item. Usually the convention is to start inventory item names with an 'i', so a key might be named <code>iKey</code>. This convention sure gets tricky when you give your game characters some Apple products...</p>
+</section>
+<section id="playerstartswithitem" class="level3">
+<h3><a href="#playerstartswithitem">PlayerStartsWithItem</a></h3>
+<p>This is a boolean value which sets whether the player character starts with this inventory item in their inventory or not. In the majority of cases, where items are collected during gameplay, the default setting of no is probably the one to use.</p>
+</section>
+<section id="properties" class="level3">
+<h3><a href="#properties">Properties</a></h3>
+<p>Configure any <a href="CustomProperties.html">custom properties</a> for this inventory item. A common use is to use an additional boolean flag to indicate that an inventory item should be 'used' by itself, without needing to combine it with another inventory item.</p>
+<hr>
+
+<p>Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#characteraddinventory">cChar.AddInventory(iInvItem)</a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#characterloseinventory">cChar.LoseInventory(iInvItem)</a> function. Make sure you check the <a href="Mouse.html#mousemode">Mouse.Mode</a> afterwards, especially when the active cursor is the inventory item the player just lost.</p>
+<p>See Also: <a href="InventoryItem.html">InventoryItem</a></p>
+</section>
 </section>
         </div>
       </div>
@@ -112,7 +145,7 @@ Is a boolean value that means what it says, it sets whether the player character
 
   <footer>
     <section class="container">
-      <p>Build: 10/25/2019 01:25:40 AM</p>
+      <p>Build: 11/03/2019 04:07:20 PM</p>
     </section>
   </footer>
 

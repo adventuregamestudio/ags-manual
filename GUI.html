@@ -330,15 +330,16 @@ gIconbar.Clickable = false;
 </code></pre>
 <p>Gets the style of GUI behavior on screen. Possible values are:</p>
 <pre><code>eGUIPopupNormal       no special behavior
-eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen, past GUI.PopupYPos, and hidden all other time.
+eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen, past GUI.PopupYPos, and hidden at all other times
 eGUIPopupModal        like normal, but pauses game when shown
-eGUIPopupPersistent   like normal, but not removed when all interface is disabled
+eGUIPopupPersistent   like normal, but not removed when the game&#39;s user interface is disabled
 </code></pre>
 <p><strong>NOTE:</strong> for MouseYPos style GUI.Visible property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
 <ul>
 <li>GUI.Visible property set to TRUE;</li>
 <li>mouse cursor is closer to the screen top than GUI.PopupYPos value.</li>
 </ul>
+<p><strong>NOTE:</strong> To automatically hide a GUI when the user interface is disabled, the General Settings option <code>When player interface is disabled, GUIs should</code> needs to be set as <code>Be hidden</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="GUI.html#guipopupypos">GUI.PopupYPos</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
 <hr />
@@ -453,7 +454,7 @@ while (trans &lt; 100) {
 
   <footer>
     <section class="container">
-      <p>Build: 10/25/2019 01:25:41 AM</p>
+      <p>Build: 11/03/2019 04:07:21 PM</p>
     </section>
   </footer>
 
