@@ -79,6 +79,7 @@
 <li><a href="#upgrading-to-ags-35"><span>Upgrading to AGS 3.5</span></a><ul>
 <li><a href="#room-editor-and-multilayer-mode"><span>Room editor and multilayer mode</span></a></li>
 <li><a href="#new-viewportcamera-system"><span>New Viewport/Camera system</span></a></li>
+<li><a href="#new-screen-struct"><span>New Screen struct</span></a></li>
 <li><a href="#room-sizes-and-mask-resolution"><span>Room sizes and mask resolution</span></a></li>
 <li><a href="#deprecated-relative-asset-resolutions"><span>Deprecated relative asset resolutions</span></a></li>
 <li><a href="#some-script-functions-replaced-andor-deprecated"><span>Some script functions replaced and/or deprecated</span></a></li>
@@ -150,6 +151,38 @@ int roomy = roompt.y;
 </code></pre>
 <p>For more information see: <a href="Camera.html">Camera</a>, <a href="Viewport.html">Viewport</a>, <a href="Game.html#gamecameras">Game.Cameras</a>, <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
 </section>
+<section id="new-screen-struct" class="level3">
+<h3><a href="#new-screen-struct">New Screen struct</a></h3>
+<p>There's now a new Screen struct that contains several game screen related functions and properties. Its addition renders some of the older properties from System struct obsolete. Following is a table of conversion between old and new properties:</p>
+<table>
+<thead>
+<tr class="header">
+<th>obsolete property</th>
+<th>replace with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>System.ScreenWidth</td>
+<td>Screen.Width</td>
+</tr>
+<tr class="even">
+<td>System.ScreenHeight</td>
+<td>Screen.Height</td>
+</tr>
+<tr class="odd">
+<td>System.ViewportWidth</td>
+<td>Screen.Width</td>
+</tr>
+<tr class="even">
+<td>System.ViewportHeight</td>
+<td>Screen.Height</td>
+</tr>
+</tbody>
+</table>
+<p>As you may notice, both deprecated ScreenWidth/Height and ViewportWidth/Height properties are corresponding to the single new pair. That is because in practice both System.ScreenWidth and System.ViewportWidth were representing almost same thing, except for specific cases which are no longer valid in modern AGS anyway.</p>
+<p>For more information see: <a href="Screen.html">Screen</a></p>
+</section>
 <section id="room-sizes-and-mask-resolution" class="level3">
 <h3><a href="#room-sizes-and-mask-resolution">Room sizes and mask resolution</a></h3>
 <p>Previously AGS had a restriction that a room background must be at least size of a game resolution. With 3.5 this restriction is gone and you can now make rooms any size. This became possible after the rewrite of the viewport system, as explained above.</p>
@@ -220,7 +253,7 @@ int roomy = roompt.y;
 
   <footer>
     <section class="container">
-      <p>Build: 11/03/2019 04:07:27 PM</p>
+      <p>Build: 11/11/2019 11:24:42 AM</p>
     </section>
   </footer>
 
