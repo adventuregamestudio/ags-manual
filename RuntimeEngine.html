@@ -76,7 +76,11 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#the-run-time-engine"><span>The run-time engine</span></a></li>
+<li><a href="#the-run-time-engine"><span>The run-time engine</span></a><ul>
+<li><a href="#configuration-file-locations"><span>Configuration file locations</span></a></li>
+<li><a href="#configuration-file-options"><span>Configuration file options</span></a></li>
+<li><a href="#command-line"><span>Command line</span></a></li>
+</ul></li>
 </ul>
           </nav>
         </div>
@@ -84,8 +88,178 @@
 <section id="the-run-time-engine" class="level2">
 <h2><a href="#the-run-time-engine">The run-time engine</a></h2>
 <p>The engine (also called the "interpreter") is what runs your game and is what the end player will use.</p>
-<p>If you are using the default interface, then you use the right mouse button to cycle between the available 'modes', and the left button to use the current mode on the mouse position. You can also move the mouse to the top of the screen to bring up the icon bar where you can directly select a mode. To exit the engine, press Ctrl-Q. You can save your game position using F5 and restore with F7.</p>
-<p>The controls described above work with the default setup; however, you can customize your game to use a different interface and shortcut keys.</p>
+<section id="configuration-file-locations" class="level3">
+<h3><a href="#configuration-file-locations">Configuration file locations</a></h3>
+<p>For historical reasons the configuration file should be called "<code>acsetup.cfg</code>".</p>
+<p>The engine supports three configuration files that are read in the following order, every next overriding values from the previous one:</p>
+<ol>
+<li>Default config file, found in the game's installation directory, applied for the game loaded from that directory;</li>
+<li>Current user's global config file, applied for any AGS game.</li>
+<li>Current user's game config file, applied only for the game of particular title. This config file is also the one being written to when the engine or setup application (Windows only) modifies game configuration.</li>
+</ol>
+<p>Locations of two latter files differ between running platforms:</p>
+<ul>
+<li><strong>Linux</strong>:
+<ul>
+<li>user's global config: <code>$XDG_DATA_HOME/ags/acsetup.cfg</code></li>
+<li>user's game config: <code>$XDG_DATA_HOME/ags/GAMENAME/acsetup.cfg</code></li>
+<li>NOTE: if <code>$XDG_DATA_HOME</code> is not defined, then "<code>$HOME/.local/share</code>" is used instead.</li>
+</ul></li>
+<li><strong>Windows</strong>:
+<ul>
+<li>user's global config: not used</li>
+<li>user's game config: <code>%USERPROFILE%/Saved Games/GAMENAME/acsetup.cfg</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="configuration-file-options" class="level3">
+<h3><a href="#configuration-file-options">Configuration file options</a></h3>
+<ul>
+<li><strong>[graphics]</strong> - display mode and various graphics options
+<ul>
+<li><code>driver</code> = [string] - id of the graphics renderer to use. Supported names are:
+<ul>
+<li><code>D3D9</code> - Direct3D9 (MS Windows version only);</li>
+<li><code>OGL</code> - OpenGL;</li>
+<li><code>Software</code> - software renderer.</li>
+</ul></li>
+<li><code>windowed</code> = [0; 1] - when enabled, runs game in windowed mode.</li>
+<li><code>screen_def</code> = [string] - determines how display mode is deduced:
+<ul>
+<li><code>explicit</code> - use screen_width and screen_height parameters;</li>
+<li><code>scaling</code> - sets equal to scaled game size;</li>
+<li><code>max</code> - sets equal to device/desktop size.</li>
+</ul></li>
+<li><code>screen_width</code> = [integer] - if screen_def is 'explicit', defines display mode width; otherwise ignored.</li>
+<li><code>screen_height</code> = [integer] - if screen_def is 'explicit', defines display mode height; otherwise ignored.</li>
+<li><code>match_device_ratio</code> = [0; 1] - when looking for appropriate fullscreen mode, prioritise ones which have same aspect ration as current device/desktop mode.</li>
+<li><code>game_scale_fs</code> = [string | integer] - game scaling rule for fullscreen mode, and...</li>
+<li><code>game_scale_win</code> = [string | integer] - game scaling rule for windowed mode, where
+<ul>
+<li>any integer number - positive number means upscale multiplier, negative number means downscale divisor;</li>
+<li><code>max_round</code> - deduce maximal integer multiplier that fits in current desktop/device size;</li>
+<li><code>stretch</code> - stretch to current desktop/device size;</li>
+<li><code>proportional</code> - similar to stretch, but keep game's aspect ratio.</li>
+</ul></li>
+<li><code>filter</code> = [string] - id of the scaling filter to use. Supported filter names are:
+<ul>
+<li><code>none</code> - run in native game size;</li>
+<li><code>stdscale</code> - nearest-neighbour scaling;</li>
+<li><code>hqx</code> - high quality scaling filter; only usable in 32-bit games with software renderer;</li>
+<li><code>linear</code> - anti-aliased scaling; only usable with hardware-accelerated renderer.</li>
+</ul></li>
+<li><code>refresh</code> = [integer] - refresh rate for the display mode.</li>
+<li><code>render_at_screenres</code> = [0; 1] - whether the sprites are transformed and rendered in native game's or current display resolution;</li>
+<li><code>supersampling</code> = [integer] - supersampling multiplier, default is 1, used with render_at_screenres = 0 (currently supported only by OpenGL renderer);</li>
+<li><code>vsync</code> = [0; 1] - enable or disable vertical sync.</li>
+</ul></li>
+<li><strong>[sound]</strong> - sound options
+<ul>
+<li><code>digiid</code> = [string; 0; -1] - digital driver id, '0' or 'none', '-1' or 'auto'. Driver IDs are platform-dependent.
+<ul>
+<li>For Linux:
+<ul>
+<li><code>ALSA</code>, <code>ARTS</code>, <code>ESSD</code>, <code>JACK</code>, <code>OSSD</code> (OSS digital), <code>SGIA</code>.</li>
+</ul></li>
+<li>For Windows:
+<ul>
+<li><code>DXA</code> - pure DirectSound driver;</li>
+<li><code>AXA</code> - Allegro mixer to DirectSound;</li>
+<li><code>WOA</code> - Allegro mixer to WaveOut;</li>
+</ul></li>
+</ul></li>
+<li><code>midiid</code> = [string; 0; -1] - MIDI driver id, '0' or 'none', '-1' or 'auto'. Driver IDs are platform-dependent.
+<ul>
+<li>For Linux:
+<ul>
+<li><code>AMID</code> (Alsa MIDI), <code>OSSM</code> (OSS MIDI).</li>
+</ul></li>
+<li>For Windows:
+<ul>
+<li><code>W32M</code> - MIDI mapper;</li>
+<li><code>W32A</code> - MIDI driver.</li>
+</ul></li>
+</ul></li>
+<li><code>usespeech</code> = [0; 1] - enable or disable in-game speech (voice-overs).</li>
+<li><code>threaded</code> = [0; 1] - when enabled, engine runs audio on a separate thread.</li>
+</ul></li>
+<li><strong>[mouse]</strong> - mouse options
+<ul>
+<li><code>auto_lock</code> = [0; 1] - enables mouse autolock in window: mouse cursor locks inside the window whenever it receives input focus.</li>
+<li><code>control_when</code> = [string] - determines when the mouse cursor speed control is allowed, acceptable values are:
+<ul>
+<li><code>never</code> - self-explanatory;</li>
+<li><code>fullscreen</code> - only when the game is run in fullscreen (this is default);</li>
+<li><code>always</code> - both in fullscreen and windowed mode.</li>
+</ul></li>
+<li><code>control_enabled</code> = [0; 1] - enables or disables mouse control. Note that this setting may be overriden by control_when.</li>
+<li><code>speed_def</code> = [string] - determines how the cursor speed value is interpreted, possible modes are:
+<ul>
+<li><code>absolute</code> - use precisely the speed value provided by config;</li>
+<li><code>current_display</code> - keep cursor's speed by screen size relation by increasing actual cursor speed when running game in low resolution and decreasing when running in higher than the current user's desktop resolution (this is default).</li>
+</ul></li>
+<li><code>speed</code> = [real] - mouse cursor speed (default is 1.0).</li>
+</ul></li>
+<li><strong>[language]</strong> - language options
+<ul>
+<li><code>translation</code> = [string] - name of the translation to use. A &lt;name&gt;.tra file should be present in the game directory.</li>
+</ul></li>
+<li><strong>[misc]</strong> - various options
+<ul>
+<li><code>log</code> = [0; 1] - enable or disable writing debug messages to the log file.</li>
+<li><code>datafile</code> = [string] - path to the game file.</li>
+<li><code>datadir</code> = [string] - path to the game directory.</li>
+<li><code>user_data_dir</code> = [string] - custom path to saved games location.</li>
+<li><code>shared_data_dir</code> = [string] - custom path to shared appdata location.</li>
+<li><code>antialias</code> = [0; 1] - anti-alias scaled sprites.</li>
+<li><code>cachemax</code> = [integer] - size of the engine's sprite cache, in kilobytes. Default is 131072 (128 MB).</li>
+</ul></li>
+<li><strong>[override]</strong> - special options, overriding game behavior.
+<ul>
+<li><code>multitasking</code> = [0; 1] - lock the game in the "single-tasking" or "multitasking" mode. In the nutshell, "multitasking" here means that the game will continue running when player switched away from game window; otherwise it will freeze until player switches back.</li>
+<li><code>os</code> = [string] - trick the game to think that it runs on a particular operating system. This may come handy if the game is scripted to play differently depending on OS. Possible choices are:
+<ul>
+<li><code>win</code> - Windows;</li>
+<li><code>linux</code> - Linux;</li>
+<li><code>mac</code> - MacOS.</li>
+</ul></li>
+<li><code>upscale</code> = [0; 1] - run game in the "upscale mode". The earlier versions of AGS provided support for "upscaling" low-res games to hi-res. The script API has means for detecting if the game is running upscaled, and game developer could use this opportunity to setup game accordingly (e.g. assign hi-res fonts, etc). This options works <strong>only</strong> for games created before AGS 3.1.0 with low-res native resolution, such as 320x200 or 320x240, and it may somewhat improve game looks.</li>
+</ul></li>
+<li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or lock some in the certain state. Ignored by the engine.
+<ul>
+<li><code>render_at_screenres</code> = [0; 1] - tells to lock "Render sprites in screen resolution" in a default state;</li>
+<li><code>speechvox</code> = [0; 1] - tells to lock "Use digital speech pack" in a default state;</li>
+<li><code>filters</code> = [0; 1] - tells to lock "Graphics filter" selection in a default state;</li>
+<li>&lt;<code>filter id</code>&gt; - tells to remove particular graphics filter from the selection list;</li>
+</ul></li>
+</ul>
+</section>
+<section id="command-line" class="level3">
+<h3><a href="#command-line">Command line</a></h3>
+<p>General usage: <code>ags [OPTIONS] [GAMEFILE PATH or GAME DIRECTORY]</code> (Where "ags" is executable name)</p>
+<p>Following <code>OPTIONS</code> are supported when running from command line:</p>
+<ul>
+<li><code>-? / --help</code> - prints most useful command line arguments and quits.</li>
+<li><code>-v / --version</code> - prints engine version and quits.</li>
+<li><code>--fps</code> - display fps counter.</li>
+<li><code>--fullscreen</code> - run in fullscreen mode.</li>
+<li><code>--gfxdriver &lt;name&gt;</code> - use specified graphics driver (see list above).</li>
+<li><code>--gfxfilter &lt;name&gt; [ &lt;game_scaling&gt; ]</code> - use specified graphics filter and scaling factor (see explanation above).</li>
+<li><code>--log</code> - write debug messages to log file.</li>
+<li><code>--no-log</code> - prevent from writing to log file.</li>
+<li><code>--setup</code> - run integrated setup dialog. Currently only supported by Windows version.</li>
+<li><code>--tell</code> - print various information concerning engine and the game, and quits. Output is done in JSON format.
+<ul>
+<li><code>--tell-config</code> - print contents of merged game config.</li>
+<li><code>--tell-configpath</code> - print paths to available config files.</li>
+<li><code>--tell-data</code> - print information on game data and its location.</li>
+<li><code>--tell-engine</code> - print engine name and version.</li>
+<li><code>--tell-graphicdriver</code> - print list of supported graphic drivers.</li>
+</ul></li>
+<li><code>--windowed</code> - run in windowed mode.</li>
+</ul>
+<p>Command line arguments override options from configuration file where applicable.</p>
+</section>
 </section>
         </div>
       </div>
@@ -95,7 +269,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 11/11/2019 11:24:33 AM</p>
+      <p>Build: 12/07/2019 08:23:43 PM</p>
     </section>
   </footer>
 
