@@ -94,10 +94,10 @@
 <p>Note that the sprite graphics you import shouldn't exceed the maximum number of colors that the game supports - i.e. if you have a 256-color game, you must import 256-color sprites.</p>
 <p><img src="images/intro6_1.jpg" alt="Right-clicking to replace existing sprite" /></p>
 <p>So, let's replace the default key image with something of our own. Right-click on it and choose "<em>Replace sprite from file</em>". Select the file that you want in the dialog, and then you'll be presented with this:</p>
-<p><img src="images/intro6_2.jpg" alt="The &quot;Import Sprite&quot; window" /></p>
-<p>This is the Import Sprite window. You'll see the image from the file that you chose, along with various options. The Zoom slider on the left allows you to zoom in on the image (very useful for 320x200-resolution graphics), and the "Transparent color" option allows you to choose how AGS decides which color is the image's transparent color.</p>
+<p><img src="images/intro6_2.png" alt="The &quot;Import Sprite&quot; window" /></p>
+<p>This is the Import Sprite window. You'll see the image from the file that you chose, along with various options. The Zoom slider on the left allows you to zoom in on the image (very useful for low resolution graphics), and the "Transparent color" option allows you to choose how AGS decides which color is the image's transparent color.</p>
 <p>Now, you have two choices. If you want to import the whole image, just click the "Import Whole Image" button, and you're done. If on the other hand you only want to import a portion of the image, then you need to right-drag the mouse within the image to select the area that you want to import. Once you've got it right, left-click to confirm and the selected area of the image will be imported.</p>
-<p><strong>NOTE:</strong> For character graphics, make sure you import graphics that are a suitable size for the game backgrounds. For example, don't import a 320x200-sized image for your character, since it will take up the whole screen. A good size would be about 20x50 pixels. This will look really small in the Import window, but your game runs at a much lower resolution so it'll look much larger.</p>
+<p><strong>NOTE:</strong> For character graphics, make sure you import graphics that are a suitable size for the game backgrounds. For example, don't import a 320x200-sized image for your character if your game resolution is 320x200. A good size for games with this size of screen resolution would be about 20x50 pixels.</p>
 <p><img src="images/icon_info.gif" /></p>
 <p>NOTE (256-color only): You may well find that the colors on your graphic look slightly strange once you've imported the image. This is because by default only the first 41 of the palette colors are allocated to sprites, so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colors assigned to sprites, at the expense of background colors (see the earlier part of the tutorial for palette setup).</p>
 <section id="tiled-sprite-import" class="level4">
@@ -121,7 +121,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:54 PM</p>
+      <p>Build: 12/22/2019 02:04:24 PM</p>
     </section>
   </footer>
 

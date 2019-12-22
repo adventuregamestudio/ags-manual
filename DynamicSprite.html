@@ -136,7 +136,7 @@ sprite.Delete();
 <p>Creates a new dynamic sprite containing a copy of the specified room background.</p>
 <p>The most basic use of this function is to supply no parameters, in which case the sprite will contain an exact copy of the current room background.</p>
 <p>If you want, you can supply the <em>frame</em> only, in which case you will get a complete copy of that background frame number from the current room.</p>
-<p>Optionally, you can specify a portion of the background to grab. You must either supply all or none of the x, y, width and height parameters; if you do supply them, this allows you to just get a small portion of the background image into the new sprite. All co-ordinates are in 320x200-resolution room co-ordinates.</p>
+<p>Optionally, you can specify a portion of the background to grab. You must either supply all or none of the x, y, width and height parameters; if you do supply them, this allows you to just get a small portion of the background image into the new sprite. All co-ordinates are room co-ordinates.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
@@ -281,7 +281,7 @@ if (buttonSprite != null) {
 </code></pre>
 <p>Changes the sprite size to <em>width</em> x <em>height</em>, placing the current image at offset (x, y) within the new canvas. Unlike the <a href="DynamicSprite.html#dynamicspriteresize">Resize</a> command, the current image is kept at its original size.</p>
 <p>This function allows you to enlarge the sprite background in order to draw more onto it than its current boundaries allow. It is effectively the opposite of <a href="DynamicSprite.html#dynamicspritecrop">Crop</a>. The additional surface area will be transparent.</p>
-<p>The width and height are specified in 320x200-resolution units.</p>
+<p>The width and height are specified in pixels.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromExistingSprite(10);
 sprite.ChangeCanvasSize(sprite.Width + 10, sprite.Height, 5, 0);
@@ -319,7 +319,7 @@ sprite.Delete();
 <h3><a href="#dynamicspritecrop"><code>DynamicSprite.Crop</code></a></h3>
 <pre><code>DynamicSprite.Crop(int x, int y, int width, int height);
 </code></pre>
-<p>Crops the sprite down to <em>width</em> x <em>height</em>, starting from (x,y) in the image. The width and height are specified in 320x200-resolution units, as usual.</p>
+<p>Crops the sprite down to <em>width</em> x <em>height</em>, starting from (x,y) in the image. The width and height are specified in pixels.</p>
 <p>This allows you to trim the edges off a sprite, and perform related tasks. Only the area with its top-left corner as (x,y) and of WIDTH x HEIGHT in size will remain.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
@@ -395,7 +395,6 @@ sprite.Delete();
 <pre><code>DynamicSprite.Resize(int width, int height);
 </code></pre>
 <p>Resizes an existing dynamic sprite to WIDTH x HEIGHT pixels.</p>
-<p>The width and height are specified in 320x200-resolution units, as usual.</p>
 <p><strong>NOTE:</strong> Resizing is a relatively slow operation, so do not attempt to resize sprites every game loop; only do it when necessary.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
@@ -502,7 +501,7 @@ ds.Delete();
 <h3><a href="#dynamicspriteheight"><code>DynamicSprite.Height</code></a></h3>
 <pre><code>readonly int DynamicSprite.Height;
 </code></pre>
-<p>Gets the height of this dynamic sprite. The height is always returned in 320x200-resolution units.</p>
+<p>Gets the height of this dynamic sprite. The height is always returned in pixels.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
 if (sprite != null) {
@@ -518,7 +517,7 @@ if (sprite != null) {
 <h3><a href="#dynamicspritewidth"><code>DynamicSprite.Width</code></a></h3>
 <pre><code>readonly int DynamicSprite.Width;
 </code></pre>
-<p>Gets the width of this dynamic sprite. The width is always returned in 320x200-resolution units.</p>
+<p>Gets the width of this dynamic sprite. The width is always returned in pixels.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
 if (sprite != null) {
@@ -538,7 +537,7 @@ if (sprite != null) {
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:54 PM</p>
+      <p>Build: 12/22/2019 02:04:24 PM</p>
     </section>
   </footer>
 

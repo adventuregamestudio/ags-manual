@@ -76,7 +76,14 @@
               <li><a href="genindex.html">Index</a></li>
             </ul>
 <ul>
-<li><a href="#run-time-engine-setup"><span>Run-time engine setup</span></a></li>
+<li><a href="#run-time-engine-setup"><span>Run-time engine setup</span></a><ul>
+<li><a href="#graphics-settings"><span>Graphics settings</span></a></li>
+<li><a href="#gameplay-settings"><span>Gameplay settings</span></a></li>
+<li><a href="#advanced-graphics-options"><span>Advanced graphics options</span></a></li>
+<li><a href="#sound-options"><span>Sound options</span></a></li>
+<li><a href="#mouse-options"><span>Mouse options</span></a></li>
+<li><a href="#other-advanced-settings"><span>Other advanced settings</span></a></li>
+</ul></li>
 </ul>
           </nav>
         </div>
@@ -86,54 +93,65 @@
 <p>The engine Setup program allows the player to customize certain game settings.</p>
 <p><strong>NOTE:</strong> currently setup program is featured only for Windows.</p>
 <p>The options in setup are divided into two parts: common and advanced. Advanced options could be accessed by pressing "Advanced" button.</p>
-<p><strong>Graphics settings</strong></p>
-<p>Driver</p>
-<p>Lets player choose a graphics driver. Currently supported are Software renderer (old and slower one, but only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration).</p>
-<p>Run in the window instead of fullscreen</p>
+<section id="graphics-settings" class="level3">
+<h3><a href="#graphics-settings">Graphics settings</a></h3>
+<p><strong>Driver</strong></p>
+<p>Lets player choose a graphics driver. Currently supported are Software renderer (old and slower one, but only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
+<p><strong>Start in a windowed mode</strong></p>
 <p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
-<p>Mode</p>
+<p><strong>Mode</strong></p>
 <p>Lets choose a fullscreen display mode (otherwise shows the approximate size of window the game will be running in). The list of modes depends on graphic card and system capabilities.</p>
-<p>Fullscreen scale</p>
-<p>Windowed scale</p>
+<p><strong>Fullscreen scale</strong> <strong>Windowed scale</strong></p>
 <p>These two options determine the way game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
 <p><strong>None</strong>. The game will be shown in its native resolution. Note that low-resolution games will be running in a tiniest window on modern monitors, so this choice is more suitable for high-resolution games.</p>
 <p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p>
 <p><strong>Stretch to fit screen</strong>. The game will be stretched to fill whole screen. Note that if the game's native aspect ratio is different from screen one's, the game image will appear deformed.</p>
 <p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be stretched to screen borders while respecting game's native aspect ratio (width/height proportions). This ensures that game image will always look correct, but may cause black borders appear at the left&amp;right or top&amp;bottom sides of the screen.</p>
-<p>Scaling method</p>
+<p><strong>Scaling method</strong></p>
 <p>Here player may choose a game scaling algorithm (nearest-neighbor is the simplest one). Some of the methods (notably Hqx) are restricted to which scaling multiplier they may use; if it is not enough to resize the game on its own, the nearest-neighbor method will be applied additionally. The list of available filters depend on graphics driver selection.</p>
-<p><strong>Gameplay settings</strong></p>
-<p>Game language</p>
+</section>
+<section id="gameplay-settings" class="level3">
+<h3><a href="#gameplay-settings">Gameplay settings</a></h3>
+<p><strong>Game language</strong></p>
 <p>Here player may choose one of the available game translations.</p>
-<p><strong>Advanced graphics options</strong></p>
-<p>Vertical sync</p>
+</section>
+<section id="advanced-graphics-options" class="level3">
+<h3><a href="#advanced-graphics-options">Advanced graphics options</a></h3>
+<p><strong>Vertical sync</strong></p>
 <p>This option enables vertical synchronization mode, which reduces "tearing" effect on game image, but may decrease the game running speed.</p>
-<p>Use 85 Hz display</p>
+<p><strong>Use 85 Hz display</strong></p>
 <p>This option sets the monitor refresh rate to 85 Hz to run the game, which eliminates flicker. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
-<p>Smooth scaled sprites</p>
+<p><strong>Smooth scaled sprites</strong></p>
 <p>This option will apply anti-aliasing to scaled characters, in order to give a smoother look to the resizing. This can slow down the game though, so it is off by default.</p>
-<p>Downgrade 32-bit graphics to 16-bit</p>
-<p>This option is only available for 32-bit games. It allows people with slower PCs to choose to play the game at 16-bit instead, in order to boost performance. If they use this, the graphical quality will reduce, but it should at least allow them to play the game at a decent speed.</p>
-<p>Render sprites at screen resolution</p>
+<p><strong>Render sprites at screen resolution</strong></p>
 <p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to certain state by the game itself (according to author's choice), in which case players will not be able to change it.</p>
-<p><strong>Sound options</strong></p>
-<p>Digital sound</p>
+</section>
+<section id="sound-options" class="level3">
+<h3><a href="#sound-options">Sound options</a></h3>
+<p><strong>Digital sound</strong></p>
 <p>Here player may choose the digital audio driver, or disable digital sound completely.</p>
-<p>MIDI music</p>
+<p><strong>MIDI music</strong></p>
 <p>Here player may choose the MIDI music playback method, or disable MIDI music completely.</p>
-<p>Use voice pack is available</p>
+<p><strong>Enable threaded audio</strong></p>
+<p>When enabled, engine will process audio on a separate thread. This results in a much smoother playback, but may potentially break game's synchronization with the music (if it had one).</p>
+<p><strong>Use voice pack is available</strong></p>
 <p>When checked, this option enables voice speech in game (where available).</p>
-<p><strong>Mouse options</strong></p>
-<p>Auto lock to window</p>
+</section>
+<section id="mouse-options" class="level3">
+<h3><a href="#mouse-options">Mouse options</a></h3>
+<p><strong>Auto lock to window</strong></p>
 <p>If this option is enabled, the mouse will be locked inside game window whenever player clicks on it or switches into game. The locked mouse cannot leave game window, making it impossible to switch out from the game by mistake (by clicking on desktop, for example). Naturally, this option only has importance if game is run in windowed mode; when in fullscreen the mouse is always locked.</p>
-<p>Mouse speed</p>
+<p><strong>Mouse speed</strong></p>
 <p>This slider allows player to set up mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
-<p><strong>Other advanced settings</strong></p>
-<p>Sprite cache max size</p>
+</section>
+<section id="other-advanced-settings" class="level3">
+<h3><a href="#other-advanced-settings">Other advanced settings</a></h3>
+<p><strong>Sprite cache max size</strong></p>
 <p>This option limits the maximum amount of memory that the game will use for its sprite cache. Sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
-<p>Custom game saves path</p>
+<p><strong>Custom game saves path</strong></p>
 <p>When unchecked, the game will store its files - saved games, and custom runtime data - in the default Windows folders: <code>C:/Users/&lt;Username&gt;/Saved Games/&lt;Game Title&gt;</code> and <code>C:/Program Data/Adventure Game Studio/&lt;Game Title&gt;</code> respectively. Players may enable this option and define their own location to store game files.</p>
 <p>See Also: <a href="Settingupthegame.html#default-setup">Default setup</a></p>
+</section>
 </section>
         </div>
       </div>
@@ -143,7 +161,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:41 PM</p>
+      <p>Build: 12/22/2019 02:04:14 PM</p>
     </section>
   </footer>
 

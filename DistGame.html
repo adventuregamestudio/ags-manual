@@ -77,8 +77,13 @@
             </ul>
 <ul>
 <li><a href="#distributing-your-game"><span>Distributing your game</span></a><ul>
+<li><a href="#compiled-folder-structure"><span>Compiled folder structure</span></a></li>
+<li><a href="#compiled-game-contents"><span>Compiled game contents</span></a></li>
+<li><a href="#customizing-game-data"><span>Customizing game data</span></a></li>
+<li><a href="#warning-on-de-compiling-built-game"><span>Warning on de-compiling built game</span></a></li>
 <li><a href="#licensing"><span>Licensing</span></a></li>
 <li><a href="#custom-icon"><span>Custom icon</span></a></li>
+<li><a href="#splash-screen"><span>Splash screen</span></a></li>
 <li><a href="#splitting-resource-files"><span>Splitting resource files</span></a></li>
 </ul></li>
 </ul>
@@ -87,10 +92,35 @@
         <div class="column column-75">
 <section id="distributing-your-game" class="level2">
 <h2><a href="#distributing-your-game">Distributing your game</a></h2>
-<p>When you choose the "Build EXE" option in the Editor, a "Compiled" sub-directory is created in your game's folder, where more subdirectories are created in turn. "Compiled/Data" subfolder is made always. It will contain the "raw" game files that cannot be used on their own, but may be run by the AGS engine executable. From this folder these files will be then copied into other subfolders, each for one build target (platform) you selected in the project's General Settings. For example, "Compiled/Windows" subfolder will be created if you have Windows build enabled, and "Compiled/Linux" subfolder if you have Linux build enabled. The contents of those subfolders may be now distributed to corresponding operating systems. So, for example, if you want to distribute Windows version of your game, you need to take the contents of "Compiled/Windows" subfolder. At its simplest this will just be your game executable and the setup program, but you may also have audio and speech libraries (AUDIO.VOX and SPEECH.VOX); and if you have selected to split resources files, you will also have several files named "game.001", "game.002", and so forth.</p>
+<section id="compiled-folder-structure" class="level3">
+<h3><a href="#compiled-folder-structure">Compiled folder structure</a></h3>
+<p>When you choose the "Build EXE" option in the Editor, a "Compiled" directory is created in your game's folder, where more subdirectories are created in turn.</p>
+<ul>
+<li>"Compiled/Data" subfolder is made always. Here it serves as an intermediate storage, and contains the "raw" game data that cannot be used on its own, but may be run by an AGS engine executable (on any supported platform). From this folder these files will be then <em>copied into other subfolders</em>, each for one build target (platform) you selected in the project's General Settings.</li>
+<li>"Compiled/Windows" subfolder will be created if you have "Windows" target enabled. It will contain game data merged with the engine executable for Windows, as well as the "winsetup.exe" which launches an integrated setup program.</li>
+<li>"Compiled/Linux" subfolder will be created if you have "Linux" target enabled. It will contain game data merged with the engine executable and necessary third-party libraries for 32-bit and 64-bit Linux systems.</li>
+</ul>
+<p>The contents of these subfolders may be now distributed to corresponding operating systems. For example, if you want to distribute Windows version of your game, you need to take <em>only</em> the contents of "Compiled/Windows" subfolder. For Linux the "Compiled/Linux" subfolder is sufficient.</p>
+<p>"Compiled/Data" should usually be skipped. It still may come useful if you are preparing a kind of a custom distribution, but remember that it cannot be run on its own: you'd need to add one of the available engine versions to it, or warn users that they'd have to have AGS engine installed on their system.</p>
+</section>
+<section id="compiled-game-contents" class="level3">
+<h3><a href="#compiled-game-contents">Compiled game contents</a></h3>
+<p>The main game data file has <strong>game.ags</strong> naming format, where "game" is the "Game file name" property set in the General Settings. When compiled for Windows it is merged with the engine and results in <strong>game.exe</strong> instead.</p>
+<p>If you have selected to split resources files, you will also have several files named <strong>game.001</strong>, <strong>game.002</strong>, and so forth.</p>
+<p>Games with digital music will usually have <strong>audio.vox</strong>. The <strong>audio.vox</strong> contains audio clips that you have marked as "InSeperateVOX" in the editor. This allows you to have an optional audio download, if your game uses lots of sound files but you don't want the player to have to download them.</p>
+<p>Games with digital speech voice-over will have a separate <strong>speech.vox</strong> file.</p>
+<p><strong>acsetup.cfg</strong> is a text file containing default configuration for the game. It's generated by the editor from Default Setup's properties.</p>
+<p>The Windows build of your game will also include <strong>winsetup.exe</strong> which is a setup program launcher. Note that the setup program itself is integrated into your game exe, and it's also possible to launch it by executing <code>game.exe --setup</code> in command line.</p>
+</section>
+<section id="customizing-game-data" class="level3">
+<h3><a href="#customizing-game-data">Customizing game data</a></h3>
+<p>If you want to distribute custom data with your game you may simply add necessary files to where the main game data (game.ags or game.exe) is located.</p>
+<p>Note that any custom files put into "Compiled/Data" folder will also be copied to all the final build targets (Windows, Linux, etc) when the game is built. At the moment this is the most convenient method of making sure same custom data will be included everywhere. If you need it to be present only with particular distribution, like only Windows, or only Linux, then put the files into corresponding platform subfolder instead.</p>
+</section>
+<section id="warning-on-de-compiling-built-game" class="level3">
+<h3><a href="#warning-on-de-compiling-built-game">Warning on de-compiling built game</a></h3>
 <p>It is not possible to load the exe file back into the AGS Editor. This means two things when only the EXE file is available: (1) other people can't edit your game's data, and (2) you can't either. Always keep a backup of the other files produced (.CRM, GAME.AGF, etc) as they are what the Editor needs to be able to load your game for editing.</p>
-<p>You can make a "Loading..." style splash screen to be displayed while your game starts up. To do so, simply save the image as PRELOAD.PCX (must be the same resolution and color depth as the game) in the game folder, and build the game. It should then display while the game is loading.</p>
-<p>The AUDIO.VOX file contains audio clips that you have marked as "InSeperateVOX" in the editor. This allows you to have an optional audio download, if your game uses lots of sound files but you don't want the player to have to download them.</p>
+</section>
 <section id="licensing" class="level3">
 <h3><a href="#licensing">Licensing</a></h3>
 <p>Due to the licenses of code used by AGS, your documentation should acknowledge the following:</p>
@@ -107,6 +137,10 @@
 <p>If you wish, you can use your own custom icon when you build a Windows EXE file. To do this, simply place your icon in your game's folder, and name it USER.ICO. Then, load the editor and save the game.</p>
 <p><em>NOTE: The icon <strong>must</strong> be a proper Windows .ICO file, <strong>not</strong> just a renamed BMP file. Icon editors, such as AX-Icons from <a href="https://www.axialis.com/">https://www.axialis.com/</a>, will convert it for you.</em></p>
 <p>You can also have a custom icon for the Setup program generated. To do so, create your icon as above but name it <strong>setup.ico</strong> in the game folder.</p>
+</section>
+<section id="splash-screen" class="level3">
+<h3><a href="#splash-screen">Splash screen</a></h3>
+<p>You can make a "Loading..." style splash screen to be displayed while your game starts up. To do so, simply save the image as <strong>preload.pcx</strong> (must be the same resolution and color depth as the game) in the game folder, and build the game. It should then display while the game is loading.</p>
 <hr />
 </section>
 <section id="splitting-resource-files" class="level3">
@@ -124,7 +158,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:51 PM</p>
+      <p>Build: 12/22/2019 02:04:21 PM</p>
     </section>
   </footer>
 

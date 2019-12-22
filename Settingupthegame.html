@@ -311,6 +311,7 @@ return
 <li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
 <li><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</li>
 <li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation">Character.FaceLocation</a> or <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
+<li><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</li>
 </ul>
 <p><strong>Compiler</strong></p>
 <ul>
@@ -415,8 +416,9 @@ function CustomSay4(this Character*, String text);
 <li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
 <li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players <strong>won't</strong> normally be able to change it in setup program.</li>
 </ul>
+<p><strong>IMPORTANT:</strong> what you set on this page is a default game configuration, but it may be overriden by a user config. If you have run your game's setup program at least once and chose to save, that created a user config file <a href="RuntimeEngine.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
 <p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
-<p>See also: <a href="Setup.html">Run-time engine setup</a></p>
+<p>See also: <a href="Setup.html">Run-time engine setup</a>, <a href="RuntimeEngine.html#configuration-file-locations">Config file locations</a></p>
 <hr />
 </section>
 <section id="cursors" class="level3">
@@ -473,7 +475,7 @@ function CustomSay4(this Character*, String text);
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:42 PM</p>
+      <p>Build: 12/22/2019 02:04:14 PM</p>
     </section>
   </footer>
 

@@ -650,7 +650,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>readonly static int Game.SpriteHeight[int slot]
 </code></pre>
 <p>Returns the height of the specified sprite.</p>
-<p>The height will be returned in the usual 320x200-resolution co-ordinates. If an invalid sprite slot is supplied, 0 will be returned.</p>
+<p>The height will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;Object 0&#39;s sprite is sized %d x %d.&quot;, Game.SpriteWidth[object[0].Graphic],
                                                Game.SpriteHeight[object[0].Graphic]);
@@ -664,7 +664,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>readonly static int Game.SpriteWidth[int slot]
 </code></pre>
 <p>Returns the width of the specified sprite.</p>
-<p>The width will be returned in the usual 320x200-resolution co-ordinates. If an invalid sprite slot is supplied, 0 will be returned.</p>
+<p>The width will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;Object 0&#39;s sprite is sized %d x %d.&quot;, Game.SpriteWidth[object[0].Graphic],
                                                Game.SpriteHeight[object[0].Graphic]);
@@ -745,7 +745,7 @@ else
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:42 PM</p>
+      <p>Build: 12/22/2019 02:04:15 PM</p>
     </section>
   </footer>
 

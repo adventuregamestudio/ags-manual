@@ -381,7 +381,7 @@ eLocationObject     an object
 </code></pre>
 <p>Calculates the height on the screen that drawing TEXT in FONT within an area of WIDTH would take up.</p>
 <p>This allows you to work out how tall a message displayed with a command like <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped">DrawMessageWrapped</a> will be. WIDTH is the width of the area in which the text will be displayed.</p>
-<p>The height is returned in normal 320-resolution pixels, so it can be used with the screen display commands.</p>
+<p>The height is returned in screen pixels, so it can be used with the screen display commands.</p>
 <p>Example:</p>
 <pre><code>int height = GetTextHeight(&quot;The message on the GUI!&quot;, Game.NormalFont, 100);
 gBottomLine.SetPosition(0, 200 - height);
@@ -396,7 +396,7 @@ gBottomLine.SetPosition(0, 200 - height);
 </code></pre>
 <p>Returns the width on the screen that drawing TEXT in FONT on one line would take up.</p>
 <p>This could be useful if you manually need to center or right-align some text, for example with the raw drawing routines.</p>
-<p>The width is returned in normal 320-resolution pixels, so it can be used with the screen display commands.</p>
+<p>The width is returned in screen pixels, so it can be used with the screen display commands.</p>
 <p>Example:</p>
 <pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawingColor = 14;
@@ -523,7 +523,7 @@ int gap = spacing - h;
 <p>Returns 1 if the key is currently pressed, 0 if not.</p>
 <p><strong>NOTE:</strong> The numeric keypad can have inconsistent keycodes between IsKeyPressed and on_key_press. With IsKeyPressed, the numeric keypad always uses keycodes in the 370-381 range. on_key_press, however, passes different values if Num Lock is on since the key presses are interpreted as the number key rather than the arrow key.</p>
 <p>Example:</p>
-<pre><code>if (IsKeyPressed(eKeyUpArrow) == 1)
+<pre><code>if (IsKeyPressed(eKeyUpArrow))
   cEgo.Walk(cEgo.x, cEgo.y+3);
 </code></pre>
 <p>will move the character EGO upwards 3 pixels when the up arrow is pressed.</p>
@@ -594,7 +594,7 @@ object[0].Visible = false;
 <p><strong>NOTE:</strong> When the game is paused, game cycles will continue to run but no animations or movement will be performed, and timers will not count down. Apart from that, your scripts will continue to run as normal.</p>
 <p><strong>NOTE:</strong> GUI button animations will not be paused by this command, so that you can run animations on a pop-up GUI while the rest of the game is paused.</p>
 <p>Example:</p>
-<pre><code>if (IsKeyPressed(32)==1) PauseGame();
+<pre><code>if (IsKeyPressed(32)) PauseGame();
 </code></pre>
 <p>will pause the game if the player presses the space bar</p>
 <p><em>See Also:</em> <a href="Globalfunctions_General.html#unpausegame">UnPauseGame</a></p>
@@ -635,7 +635,7 @@ else cEgo.ChangeRoom(3);
 </code></pre>
 <p>Restarts the game from the beginning.</p>
 <p>Example:</p>
-<pre><code>if (IsKeyPressed(365) == 1) RestartGame();
+<pre><code>if (IsKeyPressed(365)) RestartGame();
 </code></pre>
 <p>will restart the game if the player presses the F7 key.</p>
 <p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#setrestartpoint">SetRestartPoint</a></p>
@@ -648,7 +648,7 @@ else cEgo.ChangeRoom(3);
 <p>Displays the restore game dialog, where the player can select a previously saved game position to restore.</p>
 <p>The dialog is not displayed immediately; instead, it will be displayed when the script function finishes executing.</p>
 <p>Example:</p>
-<pre><code>if (IsKeyPressed(363) == 1) RestoreGameDialog();
+<pre><code>if (IsKeyPressed(363)) RestoreGameDialog();
 </code></pre>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
 <p><em>See Also:</em> <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a>, <a href="Globalfunctions_General.html#savegamedialog">SaveGameDialog</a></p>
@@ -1119,7 +1119,7 @@ cEgo.FaceLocation(1000,100);
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:44 PM</p>
+      <p>Build: 12/22/2019 02:04:16 PM</p>
     </section>
   </footer>
 

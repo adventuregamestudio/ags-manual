@@ -290,13 +290,13 @@ mouse.Mode = eModeTalk;
 <p><em>(Formerly known as SetMouseBounds, which is now obsolete)</em></p>
 <pre><code>Mouse.SetBounds(int left, int top, int right, int bottom)
 </code></pre>
-<p>Restricts the area where the mouse can move on screen. The four parameters are the relevant pixel co-ordinates of that edge of the bounding rectangle. They are in the usual range (0,0) - (320,200).</p>
+<p>Restricts the area where the mouse can move on screen. The four parameters are the relevant pixel co-ordinates of that edge of the bounding rectangle. They are in the usual range (0, 0) - (Screen.Width, Screen.Height).</p>
 <p>You can pass (0,0,0,0) to disable the bounding rectangle and allow the mouse to move everywhere, as usual.</p>
 <p><em>NOTE:</em> The effect of this function only lasts until the player leaves the screen, at which point the cursor bounds will be reset.</p>
 <p>Example:</p>
 <pre><code>mouse.SetBounds(160, 100, 320, 200);
 </code></pre>
-<p>will restrict the mouse cursor to the bottom-right quarter of the screen.</p>
+<p>will restrict the mouse cursor to the bottom-right quarter of the screen of a game that has screen resolution of 320x200.</p>
 <p><em>See Also:</em> <a href="Mouse.html#mousesetposition">Mouse.SetPosition</a></p>
 <hr />
 </section>
@@ -305,10 +305,10 @@ mouse.Mode = eModeTalk;
 <p><em>(Formerly known as SetMousePosition, which is now obsolete)</em></p>
 <pre><code>Mouse.SetPosition(int x, int y)
 </code></pre>
-<p>Moves the mouse pointer to screen co-ordinates (X,Y). They are in the usual range (0,0) - (320,200/240). The mouse.x and mouse.y variables will be updated to reflect the new position.</p>
+<p>Moves the mouse pointer to screen co-ordinates (X,Y). They are in the usual range (0, 0) - (Screen.Width,Screen.Height). The mouse.x and mouse.y variables will be updated to reflect the new position.</p>
 <p><strong>NOTE:</strong> Only use this command when absolutely necessary. Moving the mouse cursor for the player is a sure way to irritate them if you do it too often during the game.</p>
 <p>Example:</p>
-<pre><code>mouse.SetPosition(160, 100);
+<pre><code>mouse.SetPosition(Screen.Width/2, Screen.Height/2);
 </code></pre>
 <p>will place the mouse cursor in the center of the screen.</p>
 <p><em>See Also:</em> <a href="Mouse.html#mousesetbounds">Mouse.SetBounds</a></p>
@@ -407,7 +407,7 @@ mouse.Visible = true;
 
   <footer>
     <section class="container">
-      <p>Build: 12/07/2019 08:23:47 PM</p>
+      <p>Build: 12/22/2019 02:04:18 PM</p>
     </section>
   </footer>
 
