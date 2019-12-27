@@ -82,6 +82,7 @@
 <li><a href="#new-screen-struct"><span>New Screen struct</span></a></li>
 <li><a href="#room-sizes-and-mask-resolution"><span>Room sizes and mask resolution</span></a></li>
 <li><a href="#deprecated-relative-asset-resolutions"><span>Deprecated relative asset resolutions</span></a></li>
+<li><a href="#custom-say-function-in-dialogs"><span>Custom Say function in Dialogs</span></a></li>
 <li><a href="#some-script-functions-replaced-andor-deprecated"><span>Some script functions replaced and/or deprecated</span></a></li>
 <li><a href="#system-limits-update"><span>System limits update</span></a></li>
 </ul></li>
@@ -200,6 +201,13 @@ int roomy = roompt.y;
 <li><p>"Fonts designed for high resolution" setting was removed because it no longer makes sense. Instead, each font has an individual ScalingMultiplier property. When importing older project each font will be scaled x2 if it was a "high-res" game and this setting was OFF.</p></li>
 </ol>
 </section>
+<section id="custom-say-function-in-dialogs" class="level3">
+<h3><a href="#custom-say-function-in-dialogs">Custom Say function in Dialogs</a></h3>
+<p>AGS 3.5.0 adds the possibility of using a custom script function as a substitute instead of regular <code>Character.Say</code> commands when building dialogs. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarly, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
+<p>These custom functions should be declared as imports in one of your script headers.<br> "Custom Say" function must have one of the following two declaration forms:<br> <code>void MySay(Character* c, const string text); // use ex: MySay(player, "Hello");</code><br> or<br> <code>void MySay(this Character*, const string text); // use ex: player.MySay("Hello");</code></p>
+<p>"Custom Narrate" function must have following declaration form:<br> <code>void MyNarrate(const string text);</code></p>
+<p><strong>IMPORTANT:</strong> There's currently a limitation that, if Say checkbox for dialog options is checked, it will use regular <code>Character.Say</code> despite defining a custom Say function.</p>
+</section>
 <section id="some-script-functions-replaced-andor-deprecated" class="level3">
 <h3><a href="#some-script-functions-replaced-andor-deprecated">Some script functions replaced and/or deprecated</a></h3>
 <p>Some functions from previous Script API were either replaced by new equivalents or deprecated. They are shown in the table below:</p>
@@ -253,7 +261,7 @@ int roomy = roompt.y;
 
   <footer>
     <section class="container">
-      <p>Build: 12/22/2019 02:04:22 PM</p>
+      <p>Build: 12/27/2019 03:51:55 PM</p>
     </section>
   </footer>
 
