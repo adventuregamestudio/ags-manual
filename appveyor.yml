@@ -2,7 +2,7 @@ version: chm-{build}
 
 environment:
   matrix:
-    - PANDOC_VERSION: 2.7.3
+    - PANDOC_VERSION: 2.9.1
 
 branches:
   except:
