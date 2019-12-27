@@ -72,7 +72,7 @@ htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/
 	$(if $(HHC),htmlhelp/build/ags-help.chm)
 
 html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build:
-	@$(MKDIR) $(subst /,$(SEP),$@) || echo $@ exists
+	@$(MKDIR) "$@" || echo $@ exists
 
 html/build/%.html: source/%.md | html/build
 	@echo Building $@
@@ -172,7 +172,7 @@ $(eval $(call CP_template,htmlhelp/stp,htmlhelp/build/ags-help.stp))
 # download from URL to destination
 define CURL_template
 $2: | $(patsubst %/,%,$(dir $2))
-	$(CURL) -fLso $$(subst /,$(SEP),$$@) $1
+	$(CURL) -fLso "$$@" $1
 endef
 
 $(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
