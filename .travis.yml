@@ -1,8 +1,11 @@
-os:
-  - linux
-  - osx
-
 language: minimal
+
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+    - os: osx
+      osx_image: xcode11
 
 env:
   - PANDOC_VERSION=2.9.1
