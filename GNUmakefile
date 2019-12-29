@@ -1,7 +1,6 @@
 PANDOC ?= pandoc
 CURL ?= curl
 NORMALIZE = https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css
-MILLIGRAM = https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
@@ -65,7 +64,7 @@ metacheck: $(addprefix meta/build/, $(METAFILES))
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	html/build/genindex.html html/build/js/search.js html/build/css/main.css html/build/css/normalize.css \
-	html/build/css/milligram.min.css html/build/static/favicon.ico
+	html/build/static/favicon.ico
 
 htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
@@ -87,7 +86,6 @@ html/build/%.html: source/%.md | html/build
 		--table-of-contents \
 		--section-divs \
 		--css "css/normalize.css" \
-		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output $@ \
 		$<
@@ -144,7 +142,6 @@ html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.yaml,$(MET
 		--template "html/template.html5" \
 		--variable=datetime:"$(DATETIME)" \
 		--css "css/normalize.css" \
-		--css "css/milligram.min.css" \
 		--css "css/main.css" \
 		--output=$@ \
 		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
@@ -176,7 +173,6 @@ $2: | $(patsubst %/,%,$(dir $2))
 endef
 
 $(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
-$(eval $(call CURL_template,$(MILLIGRAM),html/build/css/milligram.min.css))
 
 ifdef HHC
 ifndef ComSpec
