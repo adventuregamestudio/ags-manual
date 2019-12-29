@@ -84,12 +84,16 @@
 <section id="frequently-asked-questions" class="level2">
 <h2><a href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <p>This section of the manual is very rarely updated. Please consult the AGS Forums on the website -- in particular, the Beginners Technical Forum has an excellent Beginners FAQ (the "BFAQ") which is much more extensive and is updated regularly with all sorts of Q&amp;A's.</p>
+<hr />
 <p><strong>Q. What's the deal with the license?</strong></p>
 <p>A. The software is provided under <a href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a>.</p>
+<hr />
 <p><strong>Q. On my screen, I can't move the main character. Wherever I click to move him, he just stands there.</strong></p>
 <p>A. If the main character isn't on a walkable area, he will not be able to move. Load the room in the editor, and check that the location where the character starts is on a walkable area.</p>
+<hr />
 <p><strong>Q. I am looking/interacting with an object but nothing happens, but I have it on the script file.</strong></p>
 <p>A. In the AGS Room Editor, under the object properties, in events, the field should be filled with the function to execute, wiring the room element to the script. If it's empty, clicking on the three dots button (...) the respective script will be open with the a new function for you to fill the details. If it has a value, clicking on the same button will direct you to it on the respective script file. This is true for all events, so for example a 'room_Load' script function won't trigger if it's not wired on the room events. It's usually easier to click on the three dots button of the event you want to develop in the Room Editor, which will generate the function on the script file for you to fill up.</p>
+<hr />
 <p><strong>Q. I click on a GUI button, but nothing happens. It doesn't seem to register clicks!</strong></p>
 <p>A. There are some different immediate suspects here.</p>
 <ul>
@@ -98,17 +102,26 @@
 <li>Alternatively, if you are creating many GUIs, check if you have created a transparent, clickable GUI that is on top of the GUI you are clicking.</li>
 <li>Is your script in the right function? You need to put your script inside the <code>interfaceName_click</code> function in the global script, and the event must be wired on the GUI Editor.</li>
 </ul>
+<hr />
 <p><strong>Q. When I enter a certain room, I just get a black screen.</strong></p>
 <p>A. Make sure that you haven't used a Display Message command in the "Enters room before fade-in" event for that room. Remember that this event happens BEFORE the screen fades in.</p>
 <p>To make sure, when you get the black screen, try pressing enter, or clicking the left mouse button. If nothing happens then something more serious may have happened. If this is the case, press Alt+X, which should exit the program and allow you to trace which line of script it has stopped on.</p>
+<hr />
 <p><strong>Q. The character isn't drawn behind my walk-behind areas!</strong></p>
 <p>A. You need to define the base line for the area, or he will always be drawn in front. See the tutorial for more information.</p>
+<hr />
+<p><strong>Q. I created a script function, but I get "function is undefined" error trying to call it elsewhere.</strong></p>
+<p>A. If you have a function written in script file <code>my_script_A.asc</code>, and you want to call it from a different script file <code>my_script_B.asc</code>, you need to correctly declare it as import on it's header <code>my_script_A.ash</code>. Additionally, make sure the function is declared/defined above your call in script or placed in a higher script module, move function up if necessary.</p>
+<hr />
 <p><strong>Q. Can I use script commands on my dialogues?</strong></p>
 <p>A. Yes, you can. The dialog lines that start with at least one space character are interpreted as plain script, and the ones that don't are treated as special dialog commands. All special dialog commands are actually converted into real AGS script before compiling into your game.</p>
+<hr />
 <p><strong>Q. My game EXE file seems to have disappeared.</strong></p>
 <p>A. Because this file is your entire game, including the room files, when you save a room in the Room Editor it will delete the exe file (because the room contained in the exe is out of date). To get it back, simply build the game again by using the "Build EXE" command on the Build menu.</p>
+<hr />
 <p><strong>Q. What resolution should I make my game?</strong></p>
 <p>A. This is asked a lot on the forums and you can browse through it. AGS games are not different from any other games. Think on what resolution is best for your chosen game design and graphic style.</p>
+<hr />
 <p><strong>Q. How should I name my views, objects, ...</strong></p>
 <p>A. When you are looking into your objects in the Room Editor, they are obviously an object. When you are referencing them on script, you can get lost. It's a good and common practice when using AGS to precede the name of an element with a lower case letter of it's type, make it easier to find them in the Editor with auto complete (ctrl+space) and the consistency will make easier to remember. So for a view, something like <code>vRogerWalking</code> is a good name, and the <code>v</code> at start tells you it's a view; A character with real name Joe, is a good idea to have the script name be cJoe, now the <code>c</code> reminds of character; a GUI for a lever puzzle could be called <code>gLeverPuzzle</code>; An object that is a flower as <code>oFlower</code>; A hotspot of the exit door as hExitDoor.</p>
 </section>
@@ -120,7 +133,7 @@
 
   <footer>
     <section class="container">
-      <p>Build: 12/29/2019 04:10:58 AM</p>
+      <p>Build: 12/29/2019 05:31:44 PM</p>
     </section>
   </footer>
 
