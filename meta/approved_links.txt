@@ -2,6 +2,7 @@ http://dumb.sourceforge.net/
 http://sci.sierrahelp.com/Tools/SCITools.html
 http://www-personal.monash.edu.au/~myless/catnap/pamela/
 https://github.com/adventuregamestudio/ags
+https://github.com/adventuregamestudio/ags-manual
 https://opensource.org/licenses/artistic-license-2.0.php
 https://sourceforge.net/projects/alleg/
 https://technet.microsoft.com/en-us/sysinternals/bb897440
@@ -10,7 +11,9 @@ https://www.adventuregamestudio.co.uk/
 https://www.adventuregamestudio.co.uk/forums/
 https://www.adventuregamestudio.co.uk/forums/index.php?action=search2
 https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0
+https://www.adventuregamestudio.co.uk/forums/index.php?board=28.0
 https://www.adventuregamestudio.co.uk/forums/index.php?topic=23521.0
+https://www.adventuregamestudio.co.uk/site/ags/
 https://www.adventuregamestudio.co.uk/site/ags/sci_fonts/
 https://www.ambiera.com/irrklang/
 https://www.axialis.com/
