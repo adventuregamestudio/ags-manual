@@ -24,7 +24,6 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
-<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 $for(css)$
   <link rel="stylesheet" href="$css$" />
 $endfor$

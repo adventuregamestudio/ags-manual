@@ -2,6 +2,8 @@ PANDOC ?= pandoc
 CURL ?= curl
 NORMALIZE = https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
+FONTSOURCEDIR = $(wildcard vendor/open-sans-v*-latin)
+FONTFILES = $(notdir $(wildcard $(FONTSOURCEDIR)/open-sans-v*-latin*.*))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
 METAFILES = $(addsuffix .yaml, $(BASENAMES))
@@ -63,14 +65,14 @@ metacheck: $(addprefix meta/build/, $(METAFILES))
 		$+
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
-	html/build/genindex.html html/build/js/search.js html/build/css/main.css html/build/css/normalize.css \
-	html/build/static/favicon.ico
+	$(addprefix html/build/fonts/, $(FONTFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
+	html/build/css/normalize.css html/build/static/favicon.ico
 
 htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
 	$(if $(HHC),htmlhelp/build/ags-help.chm)
 
-html/build html/build/images html/build/js html/build/css html/build/static htmlhelp/build htmlhelp/build/images meta/build:
+html/build html/build/images html/build/js html/build/css html/build/fonts html/build/static htmlhelp/build htmlhelp/build/images meta/build:
 	@$(MKDIR) "$@" || echo $@ exists
 
 html/build/%.html: source/%.md | html/build
@@ -161,6 +163,7 @@ $2: $1 | $(patsubst %/,%,$(dir $2))
 endef
 
 $(eval $(call CP_template,html/css/%.css,html/build/css/%.css))
+$(eval $(call CP_template,$(FONTSOURCEDIR)/%,html/build/fonts/%))
 $(eval $(call CP_template,html/static/%,html/build/static/%))
 $(eval $(call CP_template,source/images/%,html/build/images/%))
 $(eval $(call CP_template,source/images/%,htmlhelp/build/images/%))
