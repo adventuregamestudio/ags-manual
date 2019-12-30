@@ -61,6 +61,20 @@ pre code {
     color: #d4d4d4;
 }
 
+table {
+    border-spacing: 0;
+    text-align: left;
+    width: 100%;
+}
+
+td {
+    border-top: 1px solid;
+}
+
+th {
+    border-bottom: 1px solid;
+}
+
 header {
     grid-area: header;
     text-align: right;
