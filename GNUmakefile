@@ -1,6 +1,6 @@
 PANDOC ?= pandoc
 CURL ?= curl
-NORMALIZE = https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css
+NORMALIZE = https://necolas.github.io/normalize.css/latest/normalize.css
 IMAGEFILES = $(addprefix images/, $(notdir $(wildcard source/images/*.*)))
 FONTSOURCEDIR = $(wildcard vendor/open-sans-v*-latin)
 FONTFILES = $(notdir $(wildcard $(FONTSOURCEDIR)/open-sans-v*-latin*.*))
