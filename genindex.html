@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title></title>
   <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
@@ -14,61 +13,53 @@
 
 
   <div class="container">
-    <nav class="navigation">
-      <section class="container">
-        <div class="float-left">
-          <a class="navigation-title" href="index.html">
-            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-              <g shape-rendering="crispEdges">
-                <rect width="10" height="7" fill="#ffffff" />
-                <svg y="1">
-                  <rect width="12" height="5" fill="#ffffff" />
-                </svg>
-                <svg x="1">
-                  <rect width="8" height="8" fill="#ffffff" />
-                </svg>
-                <svg x="1" y="1">
-                  <rect width="8" height="5" fill="#2a7fff" />
-                </svg>
-                <svg x="2" y="6">
-                  <rect width="6" height="1" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="2">
-                  <rect width="2" height="3" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="3">
-                  <rect width="1" height="1" fill="#ffffff" />
-                </svg>
-                <svg x="2" y="2">
-                  <rect width="6" height="3" fill="#0000d4" />
-                </svg>
-                <svg x="3" y="5">
-                  <rect width="4" height="1" fill="#0000d4" />
-                </svg>
-                <svg x="2" y="1">
-                  <rect width="6" height="1" fill="#ffffff" />
-                </svg>
-              </g>
-            </svg>
-            <h1 class="title">AGS Manual</h1>
-          </a>
-        </div>
-        <div class="float-right">
-          <ul class="navigation-list float-right">
-            <li class="navigation-item">
-              <input type="search" id="search_input">
-            </li>
-          </ul>
-        </div>
-      </section>
-    </nav>
-
     <header>
-      <ul id="search_results">
-      </ul>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
     </header>
 
-    <section>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+  </nav>
+
+  <main>
 <a href="#a">A</a>&nbsp;
 <a href="#b">B</a>&nbsp;
 <a href="#c">C</a>&nbsp;
@@ -875,8 +866,8 @@
 <a href="ScriptingTutorialPart1.html#recap">Recap (Scripting Tutorial)</a><br>
 <a href="ScriptingTutorialPart2.html#recap">Recap (Text Scripting Tutorial - Part 2)</a><br>
 <a href="Reference.html#reference">Reference</a><br>
-<a href="Region.html#region-functions-and-properties">Region</a><br>
 <a href="Preprocessor.html#region-code-folding">region</a><br>
+<a href="Region.html#region-functions-and-properties">Region</a><br>
 <a href="EventTypes.html#region-events">Region events (Event Types)</a><br>
 <a href="Region.html#regionenabled">Region.Enabled</a><br>
 <a href="Region.html#regiongetatroomxy">Region.GetAtRoomXY</a><br>
@@ -1233,16 +1224,14 @@
 <a href="ScriptKeywords.html#writeprotected">writeprotected (Script language keywords)</a><br>
 <h3 id="y">Y</h3>
 <a href="ScriptingTutorialPart2.html#your-own-functions">Your Own Functions (Text Scripting Tutorial - Part 2)</a><br>
-    </section>
-  </div>
+  </main>
 
 
   <footer>
-    <section class="container">
-      <p>Build: 12/29/2019 05:31:42 PM</p>
-    </section>
+    <p>Build: 01/01/2020 03:33:13 PM</p>
   </footer>
 
-  <script type="text/javascript" src="js/search.js"></script>
+  <script src="js/search.js"></script>
+  </div>
 </body>
 </html>

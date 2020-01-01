@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Predefined global script functions</title>
   <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
@@ -14,73 +13,59 @@
 
 
   <div class="container">
-    <nav class="navigation">
-      <section class="container">
-        <div class="float-left">
-          <a class="navigation-title" href="index.html">
-            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-              <g shape-rendering="crispEdges">
-                <rect width="10" height="7" fill="#ffffff" />
-                <svg y="1">
-                  <rect width="12" height="5" fill="#ffffff" />
-                </svg>
-                <svg x="1">
-                  <rect width="8" height="8" fill="#ffffff" />
-                </svg>
-                <svg x="1" y="1">
-                  <rect width="8" height="5" fill="#2a7fff" />
-                </svg>
-                <svg x="2" y="6">
-                  <rect width="6" height="1" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="2">
-                  <rect width="2" height="3" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="3">
-                  <rect width="1" height="1" fill="#ffffff" />
-                </svg>
-                <svg x="2" y="2">
-                  <rect width="6" height="3" fill="#0000d4" />
-                </svg>
-                <svg x="3" y="5">
-                  <rect width="4" height="1" fill="#0000d4" />
-                </svg>
-                <svg x="2" y="1">
-                  <rect width="6" height="1" fill="#ffffff" />
-                </svg>
-              </g>
-            </svg>
-            <h1 class="title">AGS Manual</h1>
-          </a>
-        </div>
-        <div class="float-right">
-          <ul class="navigation-list float-right">
-            <li class="navigation-item">
-              <input type="search" id="search_input">
-            </li>
-          </ul>
-        </div>
-      </section>
-    </nav>
-
     <header>
-      <ul id="search_results">
-      </ul>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
     </header>
 
-    <section>
-      <div class="row">
-        <div class="column">
-          <nav id="TOC">
-            <ul>
-              <li><a href="genindex.html">Index</a></li>
-            </ul>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
 <ul>
 <li><a href="#predefined-global-script-functions"><span>Predefined global script functions</span></a></li>
 </ul>
-          </nav>
-        </div>
-        <div class="column column-75">
+  </nav>
+
+  <main>
 <section id="predefined-global-script-functions" class="level2">
 <h2><a href="#predefined-global-script-functions">Predefined global script functions</a></h2>
 <p>In your main global script file, there are some functions which are automatically added when you create the game. These are global events, and the function is called when a particular event happens. There are also some other events which you can add if you want to.</p>
@@ -295,18 +280,14 @@ eEventRestoreGame
 <p>This function is <strong>not</strong> triggered if the player clicks on nothing (hotspot 0).</p>
 <p>The <em>on_key_press</em> and <em>on_mouse_click</em> events can also be handled by individual room scripts. If you add their function definitions to your room script in a similar way to how they are in the global script, the room script can intercept the keypress/mouseclick first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> function for more.</p>
 </section>
-        </div>
-      </div>
-    </section>
-  </div>
+  </main>
 
 
   <footer>
-    <section class="container">
-      <p>Build: 12/29/2019 05:31:43 PM</p>
-    </section>
+    <p>Build: 01/01/2020 03:33:13 PM</p>
   </footer>
 
-  <script type="text/javascript" src="js/search.js"></script>
+  <script src="js/search.js"></script>
+  </div>
 </body>
 </html>

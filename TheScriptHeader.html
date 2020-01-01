@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>The script header</title>
   <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/milligram.min.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
@@ -14,90 +13,72 @@
 
 
   <div class="container">
-    <nav class="navigation">
-      <section class="container">
-        <div class="float-left">
-          <a class="navigation-title" href="index.html">
-            <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-              <g shape-rendering="crispEdges">
-                <rect width="10" height="7" fill="#ffffff" />
-                <svg y="1">
-                  <rect width="12" height="5" fill="#ffffff" />
-                </svg>
-                <svg x="1">
-                  <rect width="8" height="8" fill="#ffffff" />
-                </svg>
-                <svg x="1" y="1">
-                  <rect width="8" height="5" fill="#2a7fff" />
-                </svg>
-                <svg x="2" y="6">
-                  <rect width="6" height="1" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="2">
-                  <rect width="2" height="3" fill="#2a7fff" />
-                </svg>
-                <svg x="9" y="3">
-                  <rect width="1" height="1" fill="#ffffff" />
-                </svg>
-                <svg x="2" y="2">
-                  <rect width="6" height="3" fill="#0000d4" />
-                </svg>
-                <svg x="3" y="5">
-                  <rect width="4" height="1" fill="#0000d4" />
-                </svg>
-                <svg x="2" y="1">
-                  <rect width="6" height="1" fill="#ffffff" />
-                </svg>
-              </g>
-            </svg>
-            <h1 class="title">AGS Manual</h1>
-          </a>
-        </div>
-        <div class="float-right">
-          <ul class="navigation-list float-right">
-            <li class="navigation-item">
-              <input type="search" id="search_input">
-            </li>
-          </ul>
-        </div>
-      </section>
-    </nav>
-
     <header>
-      <ul id="search_results">
-      </ul>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
     </header>
 
-    <section>
-      <div class="row">
-        <div class="column">
-          <nav id="TOC">
-            <ul>
-              <li><a href="genindex.html">Index</a></li>
-            </ul>
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
 <ul>
 <li><a href="#the-script-header"><span>The script header</span></a></li>
 </ul>
-          </nav>
-        </div>
-        <div class="column column-75">
+  </nav>
+
+  <main>
 <section id="the-script-header" class="level2">
 <h2><a href="#the-script-header">The script header</a></h2>
 <p>This allows you to include the same information into all your scripts. For example, if you have a global function you want all the room scripts to use, you can add its import definition to the header file.</p>
 <p>Do NOT place any actual functions or variables in this header, because if you do you will need to re-compile ALL the scripts whenever you modify the function. Instead, place your functions in your global script and just place an import line in the header file to allow the other scripts to access it.</p>
 </section>
-        </div>
-      </div>
-    </section>
-  </div>
+  </main>
 
 
   <footer>
-    <section class="container">
-      <p>Build: 12/29/2019 05:31:53 PM</p>
-    </section>
+    <p>Build: 01/01/2020 03:33:22 PM</p>
   </footer>
 
-  <script type="text/javascript" src="js/search.js"></script>
+  <script src="js/search.js"></script>
+  </div>
 </body>
 </html>
