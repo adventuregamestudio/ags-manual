@@ -71,10 +71,10 @@
 <li><a href="#objectsetproperty"><span><code>Object.SetProperty</code></span></a></li>
 <li><a href="#objectsettextproperty"><span><code>Object.SetTextProperty</code></span></a></li>
 <li><a href="#objectiscollidingwithobject"><span><code>Object.IsCollidingWithObject</code></span></a></li>
+<li><a href="#objectisinteractionavailable"><span><code>Object.IsInteractionAvailable</code></span></a></li>
 <li><a href="#objectmergeintobackground"><span><code>Object.MergeIntoBackground</code></span></a></li>
 <li><a href="#objectmove"><span><code>Object.Move</code></span></a></li>
 <li><a href="#objectremovetint"><span><code>Object.RemoveTint</code></span></a></li>
-<li><a href="#objectisinteractionavailable"><span><code>Object.IsInteractionAvailable</code></span></a></li>
 <li><a href="#objectruninteraction"><span><code>Object.RunInteraction</code></span></a></li>
 <li><a href="#objectsetlightlevel"><span><code>Object.SetLightLevel</code></span></a></li>
 <li><a href="#objectsetposition"><span><code>Object.SetPosition</code></span></a></li>
@@ -247,6 +247,20 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 <p><em>See Also:</em> <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
 <hr />
 </section>
+<section id="objectisinteractionavailable" class="level3">
+<h3><a href="#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a></h3>
+<pre><code>Object.IsInteractionAvailable(CursorMode)
+</code></pre>
+<p>Checks whether there is an event handler defined for activating the room object in cursor mode MODE.</p>
+<p>This function is very similar to RunInteraction, except that rather than run the event handler script function, it simply returns <em>true</em> if something would have happened, or <em>false</em> if unhandled_event would have been run.</p>
+<p>Example:</p>
+<pre><code>if (oDoor.IsInteractionAvailable(eModeInteract) == 0)
+  Display(&quot;interacting with this door would not do anything.&quot;);
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Object.html#objectruninteraction">Object.RunInteraction</a></p>
+<hr />
+</section>
 <section id="objectmergeintobackground" class="level3">
 <h3><a href="#objectmergeintobackground"><code>Object.MergeIntoBackground</code></a></h3>
 <p><em>(Formerly known as MergeObject, which is now obsolete)</em></p>
@@ -292,20 +306,6 @@ object[1].RemoveTint();
 </code></pre>
 <p>will tint object 1 green for a second, then turn it back to normal.</p>
 <p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a></p>
-<hr />
-</section>
-<section id="objectisinteractionavailable" class="level3">
-<h3><a href="#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a></h3>
-<pre><code>Object.IsInteractionAvailable(CursorMode)
-</code></pre>
-<p>Checks whether there is an event handler defined for activating the room object in cursor mode MODE.</p>
-<p>This function is very similar to RunInteraction, except that rather than run the event handler script function, it simply returns <em>true</em> if something would have happened, or <em>false</em> if unhandled_event would have been run.</p>
-<p>Example:</p>
-<pre><code>if (oDoor.IsInteractionAvailable(eModeInteract) == 0)
-  Display(&quot;interacting with this door would not do anything.&quot;);
-</code></pre>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Object.html#objectruninteraction">Object.RunInteraction</a></p>
 <hr />
 </section>
 <section id="objectruninteraction" class="level3">
@@ -488,7 +488,7 @@ while (object[2].Animating) Wait(1);
 <pre><code>object[2].Clickable = 0;
 </code></pre>
 <p>will make object 2 ignore clicks from the player.</p>
-<p><em>See Also:</em> <a href="Character.html#characterclickable">Character.Clickable</a></p>
+<p><em>See Also:</em> <a href="Object.html#objectvisible">Object.Visible</a>, <a href="Character.html#characterclickable">Character.Clickable</a>, <a href="Hotspot.html#hotspotenabled">Hotspot.Enabled</a>, <a href="Region.html#regionenabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
 <hr />
 </section>
 <section id="objectframe" class="level3">
@@ -738,6 +738,7 @@ while (trans &lt; 100) {
 <pre><code>object[5].Visible = false;
 </code></pre>
 <p>will make object number 5 in the current room disappear.</p>
+<p><em>See also:</em> <a href="Object.html#objectclickable">Object.Clickable</a>,</p>
 <hr />
 </section>
 <section id="objectx" class="level3">
@@ -773,7 +774,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:17 PM</p>
+    <p>Build: 04/22/2020 06:20:03 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

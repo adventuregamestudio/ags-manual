@@ -67,6 +67,7 @@
 <li><a href="#characters"><span>Characters</span></a></li>
 <li><a href="#game-starting-point"><span>Game starting point</span></a></li>
 <li><a href="#cutscenes"><span>Cutscenes</span></a></li>
+<li><a href="#testing-your-work"><span>Testing Your Work</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -76,67 +77,78 @@
 <h2><a href="#getting-started-with-ags---part-7">Getting Started with AGS - Part 7</a></h2>
 <section id="animations" class="level3">
 <h3><a href="#animations">Animations</a></h3>
-<p>A graphical adventure game would be no good without animations. These range from commonly-used animations such as the main character walking, to a flag waving in the background in one particular screen.</p>
-<p>Animations in AGS are managed using <em>Views</em>. A view is a set of one or more <em>loops</em>. A loop is a set of frames which, when played in sequence, give the illusion of movement. Expand the "Views" node in the project tree, and double-click the view 1:</p>
-<p><img src="images/intro7_1.jpg" alt="The View Editor showing view 1" /></p>
-<p>This is the View Editor where you will put together all your animations. You'll notice lots of frames of Roger's walking animation in this window.</p>
-<p>Each loop is displayed as a row of images (one for each frame), going from left to right. To change the image for a frame, double-click the image, and you'll be presented with the sprite manager where you can select the image to use. <strong>All images for use with views are imported as usual via the sprite manager</strong> before they can be inserted into a frame.</p>
-<p>At the right hand end of each loop, you'll see a "Create new frame" button, which you can click to create a new extra frame at the end of the loop. You can also right-click a frame to insert a new one before or after it.</p>
-<p>Left-click a frame to select it. When you do so, the property grid will be updated with the frame's details:</p>
-<p><img src="images/intro7_2.jpg" alt="Property Grid showing frame properties" /></p>
+<p>A graphical adventure game would be no good without animations. These range from commonly-used animations such as the main character walking, to perhaps a flag waving as an object on one of your backgrounds.</p>
+<p>Animations in AGS are managed using <em>Views</em>. A view is a set of one or more <em>loops</em>. A loop is a set of frames which, when played in sequence, give the illusion of movement.</p>
+<p>Expand the <strong>"Views"</strong> node in the Project Tree, and double-click on <strong>"View 1"</strong>:</p>
+<p><img src="images/acintro7_01.png" alt="The View Editor showing view 1" /></p>
+<p>This is the <strong>"View Editor"</strong> where you will put together all your animations. You'll notice lots of frames of Roger's walking animation in this window.</p>
+<p>Each loop is displayed as a row of images (one for each frame), going from left to right. To change the image for a frame, double-click the image, and you'll be presented with the sprite manager where you can select the image to use.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: All images for use within views are imported as usual via the sprite manager before they can be inserted into a view-frame.)</p>
+<p>At the right-hand end of each loop, you'll see a "Create new frame" button, which you can click to create a new extra frame at the end of the loop. You can also right-click a current frame to insert a new one before or after it.</p>
+<p>Left-click a frame to select it. When you do so, the Properties Grid will be updated with the frame's details:</p>
+<p><img src="images/acintro7_02.png" alt="Property Grid showing frame properties" /></p>
 <ul>
-<li><strong>Delay</strong> is the frame's <strong>relative</strong> speed. This number adds a delay to the amount of time which the frame is displayed for, therefore a larger number makes it stay longer. You can use negative numbers to specifically shorten the frame's display time.</li>
-<li><strong>Sound</strong> allows you to assign a sound number that will get played when this frame comes around in the animation. This feature is designed for footstep sounds, but has many other uses as well. Using sound will be covered later in the tutorial.</li>
-<li><strong>Flipped</strong> toggles whether the frame is displayed normally or mirrored left-right. This feature allows you to just create animations for your character walking right, and then use the same images for the walking left loop and AGS will automatically flip them.</li>
+<li><strong>Appearance</strong> -&gt; <strong>Delay</strong> is the frame's <strong>relative</strong> speed. This number adds a delay to the amount of time which the frame is displayed for, therefore a larger number makes it stay longer. You can use negative numbers to specifically shorten the frame's display time.</li>
+<li><strong>Appearance</strong> -&gt; <strong>Flipped</strong> toggles whether the frame is displayed normally or mirrored left-right. This feature allows you to just create animations for your character walking right, and then use the same images for the walking left loop and AGS will automatically flip them.</li>
+<li><strong>"Design</strong> -&gt; <strong>Sound"</strong> allows you to assign a sound number that will get played when this frame comes around in the animation. This feature is designed for footstep sounds, but has many other uses as well. Using sound in the AGS Editor is covered more in the <a href="MusicAndSound.html">Music and Sound tutorial</a>.</li>
 </ul>
 <p>Views aren't only used for character walking animations -- they're used for all types of animations in the game. How you actually run an animation in the game will be explained later on.</p>
 </section>
 <section id="characters" class="level3">
 <h3><a href="#characters">Characters</a></h3>
 <p>If you remember back to part 3 of this tutorial, we talked about three types of thing that the player can interact with - hotspots, objects and characters. We've covered the first two, so now it's time to take a look at characters.</p>
-<p>Put simply, a character is similar to an object, except that it can move between different rooms in the game, take part in conversations, carry its own inventory and more.</p>
-<p>Expand the "Characters" node in the project tree. You'll see that so far you only have one character in the list, labeled "0: cEgo". You can create a new character by right-clicking the "Characters" node. For now, double-click the "cEgo" character:</p>
-<p><img src="images/intro7_3.jpg" alt="The Character Editor" /></p>
-<p>The first thing you'll notice is the text "This character is the player character" at the top of the window. This shows that the currently selected character is the initial player character when the game starts up. The game will start off in whatever room number the <em>Starts in room</em> option is set to for the player character. To change it, simply open up the character that you want to use instead and click the "Make this the player character" button.</p>
-<p>There are quite a few properties available in the property grid. Rather than explain them all here, we'll just cover the most important ones - you can find a full description of all the options in the manual.</p>
+<p>Put simply, a character is similar to an object, except that it can move between different rooms in the game, take part in conversations, carry its own inventory, and more.</p>
+<p>Expand the <strong>"Characters"</strong> node in the Project Tree. You'll see that so far you only have one character in the list, labeled "0: cEgo". You could create a new character by right-clicking that parent <strong>"Characters"</strong> node, but for now, double-click the <strong>"cEgo"</strong> character to bring up the <strong>Selected Character Settings</strong> window:</p>
+<p><img src="images/acintro7_03.png" alt="The Character Editor" /></p>
+<p>The first thing you may notice is the text <strong>"This character is the player</strong> <strong>character"</strong> at the top of the window. This shows that the currently selected character is the initial player character when the game starts up. To change it, simply open up the other character that you want to use as your playable starting character and click the <strong>"Make this the</strong> <strong>player character"</strong> button. The game will start off in whatever room number the <em>Starts in room</em> Properties value is set to for the player character.</p>
+<p>There are quite a few properties available in the Properties Grid. Rather than explain them all here, we'll just cover the most important ones - you can find a full description of all the options in the manual.</p>
 <ul>
-<li><strong>StartingRoom</strong> - this sets which room number the character starts off in at the beginning of the game.</li>
-<li><strong>NormalView</strong> - sets which view is used for the normal walking animation of the character. The view specified here must have 4 or 8 loops, and the first frame of each loop is the standing still frame.<br> For a 4-loop character, when walking diagonally the closest straight direction is chosen for display. With an 8-loop character, all 8 directions are displayed depending on the character's direction.<br> Which loop represents which direction is shown in the Views editor (eg. "Loop 0 (down)").</li>
-<li><strong>Clickable</strong> - if this is not checked, then this character will be see-through to mouse clicks. This is similar to the way the player character worked in LucasArts games - you cannot actually click on Guybrush, it will always activate whatever is behind him.</li>
+<li><strong>Appearance</strong> -&gt; <strong>NormalView</strong> - sets which view is used for the normal walking animation of the character. The view specified here must have 4 or 8 loops, and the first frame of each loop is the "standing still" frame.<br> For a 4-loop character, when walking diagonally the closest straight direction is chosen for display. With an 8-loop character, all 8 directions are displayed depending on the character's direction.<br> Which loop represents which direction is shown in the Views editor (eg. "Loop 0 (down)").</li>
+<li><strong>Design</strong> -&gt; <strong>Clickable</strong> - if this is not checked, then this character will be see-through to mouse clicks. This is similar to the way the player character worked in LucasArts games - you cannot actually click on Guybrush, it will always activate whatever is behind him.</li>
+<li><strong>Design</strong> -&gt; <strong>StartingRoom</strong> - this sets which room number the character starts off in at the beginning of the game.</li>
+<li><strong>Design</strong> -&gt; <strong>RealName</strong> - Simply gives you an easy way to identify the character in the editor, and can also be accessed from the game script if desired.</li>
+<li><strong>Design</strong> -&gt; <strong>ScriptName</strong> - This field is very important, as it sets the name by which the character will be referred to in the game scripts. The reason for having this as well as the RealName is that the script name can only contain the letters A-Z, whereas the <em>RealName</em> field can contain any spaces, numbers, etc.</li>
 </ul>
-<p>The character's "<em>RealName</em>" field simply gives you an easy way to identify the character in the editor, and can also be accessed from the game script if desired.</p>
-<p>The "<em>ScriptName</em>" field is very important, as it sets the name by which the character will be referred to in the game scripts. The reason for having this as well as the RealName is that the script name can only contain the letters A-Z, whereas the <em>RealName</em> field can contain any spaces, numbers, etc.</p>
 </section>
 <section id="game-starting-point" class="level3">
 <h3><a href="#game-starting-point">Game starting point</a></h3>
-<p>Just in case you missed it, I'll repeat what was just said in the Characters section - the "<em>Starts in room</em>" setting of the player character is used to determine which room the game starts off in.</p>
-<p><img src="images/icon_info.gif" /></p>
-<p>TIP: This feature can be handy for testing various parts of your game. For example, when you're working on room 16, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.</p>
+<p>Just in case you missed it, I'll repeat what was just said in the Characters section - the <em>Starting Room</em> setting of the player character is used to determine which room the game starts off in.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: This feature can be handy for testing various parts of your game. For example, when you're working on your 16th room, set the starting room to room 16 so that you can get to it instantly when you run the game to test it.)</p>
 </section>
 <section id="cutscenes" class="level3">
 <h3><a href="#cutscenes">Cutscenes</a></h3>
+<p>A cutscene (coined by Ron Gilbert while developing Maniac Mansion) is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.</p>
+<section id="intro-and-outro-cutscenes" class="level4">
+<h4>Intro and Outro Cutscenes</h4>
 <p>You can easily add intro, outro and cutscene sequences to your game. There is no specific feature to do this - you simply use the provided animation and movement commands to do whatever you like.</p>
-<p><img src="images/icon_info.gif" /></p>
-<p>A cutscene is simply the name given to a sequence of actions over which the player has no control. This usually applies to the entire introduction sequence, as well as far simpler in-game events. For example, if the player goes to pick up a rock from the ground, you may wish to use a bending-down animation to show him picking it up. During this bending down and standing back up, the player cannot control proceedings, so it is a cutscene.</p>
-<p>Right, firstly let's do something very simple. When the player goes to pick up the key from the floor of our room, we want him to walk over to it first rather than it just disappearing from wherever he's standing.</p>
+<p>You could make an "invisible" character (a see-through sprite) initially set as your player character and have them start in your Title Room background and opening cutscenes, and when you get to really start your game, you can set your real playable character as the player character at that time.</p>
+</section>
+<section id="simple-cutscene" class="level4">
+<h4>Simple Cutscene</h4>
+<p>Right, firstly let's do something very simple. When the player goes to pick up the key from the floor of our room, we want Roger to walk over to it first rather than it just disappearing from wherever Roger is standing.</p>
 <p>So, we want to add something extra to picking up the key. How do we do this? Yes, that's right, we need to return to the Event Script for the key object. Go back to the Events List for the key object (remember, you open the room, select the "Objects" mode, then click on the key to select it):</p>
-<p><img src="images/intro7_4.jpg" alt="Remember this?" /></p>
-<p>The main difference you'll notice now is that the "Interact object" event already has a name. This "oKey_Interact" is the name of the script function that we created earlier. So, just select it and click the "..." button to return to the script editor.</p>
-<p>Now, we want the player to walk across to the key <strong>before</strong> it disappears, so we need to add a new line of script <strong>before</strong> the existing command that makes the key invisible. We want to do an action on the player character (i.e. move him), so type "player." and auto-complete will pop up with the available commands. See if you can work out which one we need.</p>
-<p><img src="images/intro7_5.jpg" alt="The Walk command needs X and Y co-ordinates" /></p>
-<p><strong>Eeek!</strong> It wants a destination X and Y location! We don't know that, but we can find out! Click the "Room 1" tab on the tab bar at the top of the editor, and move the mouse cursor to where the key is on the background. Look just above the background image, and you should see "Mouse Position: 158, 108" or something similar. These are the X and Y co-ordinates, respectively, of the key's location. So, note them down, and click the "room1.asc" tab to return to the script.</p>
-<p>Now, we can type in those co-ordinates to our script. We also need to pass in the BlockingStyle as <em>eBlock</em>, which tells the game to wait for Roger to get to those co-ordinates before continuing the script. If we didn't do this, he would start to walk but the key would disappear before he got there! The final script should look like this:</p>
-<p><img src="images/intro7_6.jpg" alt="Our new command is run before the existing ones" /></p>
+<p><img src="images/acintro7_04.png" alt="Room 1 Object Alien Key Events" /></p>
+<p>The main difference you'll notice now is that the "Interact object" event already has a name. This "oKey_Interact" is the name of the script function that we created earlier. So, just select it and click the <strong>"..."</strong> button to return to the script editor.</p>
+<p>Now, we want the player to walk across to the key <strong>before</strong> it disappears, so we need to add a new line of script <strong>before</strong> the existing command that makes the key invisible. We want to do an action on the player character (i.e. move him), so type <code>player.</code> and auto-complete will pop up with the available commands. See if you can work out which one we need.</p>
+<p><img src="images/acintro7_05.png" alt="The Walk command needs X and Y co-ordinates" /></p>
+<p><strong>Eeek!</strong> <code>player.Walk()</code> is correct, but the Editor wants a destination X and Y location! We don't know that, but we can find out! Click over to the <strong>"Room 1"</strong> tab on the tab bar at the top of the editor, and move the mouse cursor to where the key is on the background. Look just above the background image, and you should see "Mouse Position: 245, 150" or something similar. These are the X and Y co-ordinates, respectively, of the key's location. So, note them down, and click the "room1.asc" tab to return to the script.</p>
+<p><img src="images/acintro7_06.png" alt="Getting the mouse coordinates" /></p>
+<p>Now, we can type in those co-ordinates to our script. We also need to pass in the <strong>"BlockingStyle"</strong> as <strong>eBlock</strong>, which tells the game to wait for Roger to get to those co-ordinates before continuing the script. If we didn't do this, he would start to walk but the key would disappear before he got there! The final script should look like this:</p>
+<p><img src="images/acintro7_07.png" alt="Our new command is run before the existing ones" /></p>
+</section>
+</section>
+<section id="testing-your-work" class="level3">
+<h3><a href="#testing-your-work">Testing Your Work</a></h3>
 <p>Now, hit F5 and try it out!</p>
-<p>OK, I think we've had enough of animations and cutscenes for now. We'll return later to explore actual animations and more complex cutscenes.</p>
-<p>Go to part 8: <a href="acintro8.html">Conversations</a></p>
+<p>OK, I think we have had enough of animations and cutscenes for now. We'll return later to explore actual animations and more complex cutscenes.</p>
+<p>Next Chapter: <a href="acintro8.html">Part 8 - Conversations</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:13 PM</p>
+    <p>Build: 04/22/2020 06:19:57 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

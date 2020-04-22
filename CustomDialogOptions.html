@@ -106,9 +106,9 @@ function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
 function dialog_options_render(DialogOptionsRenderingInfo *info)
 {
   info.Surface.Clear(dlg_opt_color);
-  int i = 1,  ypos = 0;
+  int ypos = 0;
   // Render all the options that are enabled
-  while (i &lt;= info.DialogToRender.OptionCount)
+  for (int i = 1; i &lt;= info.DialogToRender.OptionCount; i++)
   {
     if (info.DialogToRender.GetOptionState(i) == eOptionOn)
     {
@@ -121,7 +121,6 @@ function dialog_options_render(DialogOptionsRenderingInfo *info)
               eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
       ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
     }
-    i++;
   }
 }
 
@@ -134,9 +133,9 @@ function dialog_options_repexec(DialogOptionsRenderingInfo *info)
     return; // return if the mouse is outside UI bounds
   }
 
-  int i = 1, ypos = 0;
+  int ypos = 0;
   // Find the option that corresponds to where the mouse cursor is
-  while (i &lt;= info.DialogToRender.OptionCount)
+  for (int i = 1; i &lt;= info.DialogToRender.OptionCount; i++)
   {
     if (info.DialogToRender.GetOptionState(i) == eOptionOn)
     {
@@ -147,7 +146,6 @@ function dialog_options_repexec(DialogOptionsRenderingInfo *info)
         return;
       }
     }
-    i++;
   }
 }
 
@@ -176,9 +174,9 @@ function dialog_options_get_dimensions(DialogOptionsRenderingInfo *info)
 function dialog_options_render(DialogOptionsRenderingInfo *info)
 {
   info.Surface.Clear(dlg_opt_color);
-  int i = 1,  ypos = 0;
+  int ypos = 0;
   // Render all the options that are enabled
-  while (i &lt;= info.DialogToRender.OptionCount)
+  for (int i = 1; i &lt;= info.DialogToRender.OptionCount; i++)
   {
     if (info.DialogToRender.GetOptionState(i) == eOptionOn)
     {
@@ -191,18 +189,39 @@ function dialog_options_render(DialogOptionsRenderingInfo *info)
           eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
       ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
     }
-    i++;
   }
 }
 
 function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode keycode)
 {
-  if (keycode == eKeyUpArrow &amp;&amp; info.ActiveOptionID &gt; 1)
-    info.ActiveOptionID = info.ActiveOptionID - 1;
-  if (keycode == eKeyDownArrow &amp;&amp; info.ActiveOptionID &lt; info.DialogToRender.OptionCount)
-    info.ActiveOptionID = info.ActiveOptionID + 1;
-  if (keycode == eKeyReturn || keycode == eKeySpace)
+  if (keycode == eKeyUpArrow)
+  {
+    // check all options upwards until found an active one
+    for (int next_opt = info.ActiveOptionID - 1; next_opt &gt;= 1; next_opt--)
+    {
+      if (info.DialogToRender.GetOptionState(next_opt) == eOptionOn)
+      {
+        info.ActiveOptionID = next_opt;
+        break;
+      }
+    }
+  }
+  else if (keycode == eKeyDownArrow)
+  {
+    // check all options downwards until found an active one
+    for (int next_opt = info.ActiveOptionID + 1; next_opt &lt;= info.DialogToRender.OptionCount; next_opt++)
+    {
+      if (info.DialogToRender.GetOptionState(next_opt) == eOptionOn)
+      {
+        info.ActiveOptionID = next_opt;
+        break;
+      }
+    }
+  }
+  else if (keycode == eKeyReturn || keycode == eKeySpace)
+  {
     info.RunActiveOption();
+  }
 }
 </code></pre>
 <p>For more detail on the commands used here, see the <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> page.</p>
@@ -212,7 +231,7 @@ function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode key
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:14 PM</p>
+    <p>Build: 04/22/2020 06:19:59 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

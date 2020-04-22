@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Scripting Tutorial</title>
+  <title>Scripting Tutorial - Part 1</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -61,7 +61,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#scripting-tutorial"><span>Scripting Tutorial</span></a>
+<li><a href="#scripting-tutorial---part-1"><span>Scripting Tutorial - Part 1</span></a>
 <ul>
 <li><a href="#the-basics"><span>The Basics</span></a></li>
 <li><a href="#commands-explained"><span>Commands Explained</span></a></li>
@@ -77,18 +77,18 @@
   </nav>
 
   <main>
-<section id="scripting-tutorial" class="level2">
-<h2><a href="#scripting-tutorial">Scripting Tutorial</a></h2>
+<section id="scripting-tutorial---part-1" class="level2">
+<h2><a href="#scripting-tutorial---part-1">Scripting Tutorial - Part 1</a></h2>
 <p>In AGS, all the interactivity in the game is handled using scripts. They're an essential part of game-making, so it's important that we go through how to use them.</p>
 <section id="the-basics" class="level3">
 <h3><a href="#the-basics">The Basics</a></h3>
-<p>Right, we'll start off by doing something very simple - displaying a message to the player when they click the Look icon on a hotspot. Assuming that you've done the main AGS Tutorial, you should already have created a script that looks like this:</p>
-<pre><code>function hDoor_Look()
+<p>Right, we'll start off by doing something very simple - displaying a message to the player when they click the <strong>"Look"</strong> icon on a hotspot. Assuming that you've done the main <a href="acintro1.html">AGS Tutorial</a>, you should already have created a script that looks like this:</p>
+<pre><code>function hSignHome_Look()
 {
-  Display(&quot;It&#39;s quite a large, ominous looking door.&quot;);
+  Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
 }
 </code></pre>
-<p>Let's look at this in detail. "<em>function</em>" tells AGS that this is a block of script code that will run when an event occurs. "<em>hDoor_Look</em>" is the name of that event. The empty parentheses <em>( )</em> tell AGS that this function takes no parameters (we'll come to them later). Finally, the curly brackets <em>{</em> and <em>}</em> define where this block of code starts and ends. Anything that you put between the { and the } will be run when this event is triggered.</p>
+<p>Let's look at this in detail. "<em>function</em>" tells AGS that this is a block of script code that will run when an event occurs. "<em>hSignHome_Look</em>" is the name of that event. The empty parentheses <em>( )</em> tell AGS that this function takes no parameters (we'll come to them later). Finally, the curly brackets <em>{</em> and <em>}</em> define where this block of code starts and ends. Anything that you put between the { and the } will be run when this event is triggered.</p>
 <p><em>Display</em> is the name of the built-in command that we're going to run. Then, in parenthesis we put the <em>parameters</em> to that command. Parameters are extra pieces of information that the command needs to run -- in this case, it needs the message that we want to display.</p>
 <p>Finally, we end the line with a semicolon. You use semicolons to tell AGS that it's the end of the command. Anything that you put after the semicolon becomes a separate command, and you'll usually do this on a new line.</p>
 <p>It's important to mention here that lines beginning with a double-slash <code>//</code> are <strong>comments</strong> - AGS will ignore them, they are just there to help you remember what your script is doing. You can add comments to your script simply by starting the line with the <code>//</code> symbol.</p>
@@ -102,18 +102,18 @@
   the standard message box, and centered in the middle of
   the screen. (description continues...)
 </code></pre>
-<p>The key point here is the part of the first line inside the brackets. This is called the <strong>parameter list</strong> and defines what parameters you give to the function. A parameter is some information that the function uses to decide what to do.</p>
-<p>Each parameter is listed, separated by commas. They can be one of the following:</p>
+<p>The key point here is the part of the first line inside the parentheses. This is called the <strong>parameter list</strong> and defines what parameters you give to the function. A parameter is some information that the function uses to decide what to do.</p>
+<p>Each parameter is listed, separated by commas, and different between functions. They can be <em>one</em> of the following:</p>
 <ul>
-<li><p>string <em>name</em> <br>This parameter is a string, i.e. a piece of text. This means that for this parameter you supply text, surrounded by double-quotes. For example, <code>"My text"</code>. <em>name</em> is the name by which the parameter is referred to in the function description, it is not relevant for writing your script.</p></li>
+<li><p>string <em>name</em> <br>This parameter is a string, i.e. a piece of text. This means that for this parameter you supply text, surrounded by double-quotes. For example, <code>"My text"</code>.<br><em>name</em> is the name by which the parameter is referred to in the function description, it is not relevant for writing your script.</p></li>
 <li><p>int <em>name</em> <br>This parameter is an integer, i.e. a numerical value. This means that for this parameter you supply a number, for example <code>65</code>.</p></li>
 <li><p>CHARID <br>This parameter is a character script name. You need to supply the script name of one of the game characters.</p></li>
-<li><p>InventoryItem* <br>This parameter is an inventory item. You need to supply the inventory item you want to use.</p></li>
+<li><p>InventoryItem <br>This parameter is an inventory item. You need to supply the inventory item you want to use.</p></li>
 <li><p>... <br>This parameter is optional, and can be of any type. You do not have to supply it at all, but if you do the function description will tell you what type of value to use.</p></li>
 </ul>
-<p>So, we know that our Display function needs a string and an optional parameter. The description goes on to explain that the optional parameter is used for advanced things like displaying variable values, so we can ignore it for now.</p>
+<p>So, we know that our <em>Display</em> function needs a string and an optional parameter. The description goes on to explain that the optional parameter is used for advanced things like displaying variable values, so we can ignore it for now.</p>
 <p>To make our script call the function we write its name, then the parameters inside brackets, and finally a semicolon. This is very important, as without the semicolon the script won't compile. Also, note that we DO NOT write the parameter type (eg. "string" or "int"). So, we can add this line to our script:</p>
-<pre><code>Display(&quot;It&#39;s quite a large, ominous looking door.&quot;);
+<pre><code>Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
 </code></pre>
 <p>This is what we already did in the main tutorial, but having examined it in more detail it should now make more sense why we've done it this way.</p>
 </section>
@@ -132,9 +132,9 @@
 </section>
 <section id="command-sequences" class="level3">
 <h3><a href="#command-sequences">Command Sequences</a></h3>
-<p>Suppose we want the player to be given a pink poster when they look at the hotspot, as well as displaying the message. Assuming we have an inventory item set up to be the poster with the Script Name of <em>iPoster</em> (see the main tutorial for how to do this), the script enables us to easily make this happen.</p>
+<p>Suppose we want the player to be given a pink poster when they look at the hotspot, as well as displaying the message. Assuming we have an inventory item set up to be the poster with the Script Name of <em>iPoster</em>, the script enables us to easily make this happen.</p>
 <p>Our final script will look like this:</p>
-<pre><code>Display(It&#39;s quite a large, ominous looking door.&quot;);
+<pre><code>Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
 cEgo.AddInventory(iPoster);
 </code></pre>
 <p>Note that the script system is case sensitive, so writing for example <code>addinventory(iposter);</code> will not work.</p>
@@ -173,14 +173,14 @@ Display(&quot;Because he was bored.&quot;);
 <pre><code>// room script file
 int myCounter;
 
-(other event scripts)
+//...(other event scripts)
 
-function hDoor_Look()
+function hSignHome_Look()
 {
-  Display(&quot;It&#39;s quite a large, ominous looking door.&quot;);
+  Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
 }
 
-(rest of file follows)
+//...(rest of file follows)
 </code></pre>
 <p>No script commands can be used outside functions (or AGS wouldn't know when to run them!) - only variable declarations are allowed there.</p>
 <p><strong>Changing variables</strong></p>
@@ -237,28 +237,31 @@ function hDoor_Look()
 </table>
 <p><strong>Putting it into practice</strong></p>
 <p>Now let's do something useful with our variable. Suppose that we want to have different messages every time the player looks at the hotspot. So, the first time they look it will describe it, then if they look again they get a different message describing something in more detail. Our code will want to look something like this:</p>
-<pre><code>if (myCounter == 0)
+<pre><code>// room script file
+int myCounter = 0;
+
+function hSignHome_Look()
 {
-  Display(&quot;You see a bookshelf.&quot;);
-}
-if (myCounter == 1)
-{
-  Display(&quot;Looking closer, you see a book called Hamlet.&quot;);
-}
-if (myCounter == 2)
-{
-  Display(&quot;There is also a book called Harry Potter.&quot;);
-}
-if (myCounter == 3)
-{
-  Display(&quot;There is nothing else of interest on the shelf.&quot;);
-}
-if (myCounter &lt; 3)
-{
-  myCounter += 1;
+  if (myCounter == 0)
+  {
+    Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
+  }
+  if (myCounter == 1)
+  {
+    Display(&quot;Oh it says &#39;Home&#39;.&quot;);
+  }
+  if (myCounter &gt;=2)
+  {
+    Display(&quot;I guess that way leads towards my home.&quot;);
+  }
+
+  if (myCounter &lt; 3)
+  {
+    myCounter += 1;
+  }
 }
 </code></pre>
-<p><em>myCounter</em> starts off set to 0, so the first time this script is called it will run the first Display command, but not the others. Then, since 0 is less than 3, it will increase <em>myCounter</em> by 1, and since 0+1 = 1 it now holds the value 1.<br> Once the player has seen all the messages (<em>myCounter</em> == 3), it no longer increases the value so if they click again they will keep getting the final message.</p>
+<p><em>myCounter</em> starts off set to 0, so the first time this script is called it will run the first Display command, but not the others. Then, since 0 is less than 3, it will increase <em>myCounter</em> by 1, and since 0+1 = 1 it now holds the value 1.<br> Once the player has seen all the messages (<em>myCounter</em> == 2), it no longer increases the value so if they click again they will keep getting the final message.</p>
 <p><strong>Global variables made easy</strong></p>
 <p>Sometimes, you may want to set a variable value that can be shared between a room script and your global script. There are two ways to do this -- you can export the variable from the global script and then import it in the script header, but that's a bit advanced for this tutorial. A simpler way is to use one of the 300 GlobalInts, which use the script functions SetGlobalInt and GetGlobalInt to access them. See their manual descriptions for more information.</p>
 </section>
@@ -279,7 +282,7 @@ if (IsGamePaused() == 0)
   myCounter += 5;
 }
 </code></pre>
-<p>Be sure to remember the parenthesis ().</p>
+<p>Be sure to remember the parenthesis () after the function name.</p>
 </section>
 <section id="common-shortcuts" class="level3">
 <h3><a href="#common-shortcuts">Common Shortcuts</a></h3>
@@ -290,11 +293,11 @@ if (IsGamePaused() == 0)
   myCounter++;
 }
 </code></pre>
-<p>Also, the { } brackets are only needed if you are using more than one command inside them. Since we have only one command, the "my_counter++;" line, we can remove the { } completely and just be left with:</p>
+<p>Also, the { } braces are only needed if you are using more than one command inside them. Since we have only one command, the "my_counter++;" line, we can remove the { } completely and just be left with:</p>
 <pre><code>if (myCounter &lt; 3)
   myCounter++;
 </code></pre>
-<p>However, this can lead to mistakes in scripts that are hard to spot, so I would advise always using brackets just to be safe.</p>
+<p>However, this can lead to mistakes in scripts that are hard to spot, so I would advise always using braces just to be safe.</p>
 <p>Finally, if you want to test whether a value is zero or not, you can just write it as follows:</p>
 <pre><code>if (myCounter)
   Display(&quot;counter is non-zero&quot;);
@@ -315,7 +318,7 @@ if (IsGamePaused() == 0)
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:14 PM</p>
+    <p>Build: 04/22/2020 06:19:59 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

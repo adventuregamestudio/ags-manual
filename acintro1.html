@@ -66,8 +66,6 @@
 <li><a href="#creating-the-game"><span>Creating the game</span></a></li>
 <li><a href="#starting-off"><span>Starting off</span></a></li>
 <li><a href="#color-choices"><span>Color choices</span></a></li>
-<li><a href="#creating-a-256-color-game"><span>Creating a 256-color game</span></a></li>
-<li><a href="#creating-a-16-bit-or-32-bit-color-game"><span>Creating a 16-bit or 32-bit color game</span></a></li>
 <li><a href="#game-resolution"><span>Game Resolution</span></a></li>
 </ul></li>
 </ul>
@@ -77,37 +75,45 @@
 <section id="getting-started-with-ags" class="level2">
 <h2><a href="#getting-started-with-ags">Getting Started with AGS</a></h2>
 <p>So, you've downloaded AGS. You want to make an adventure game. But where do you start?</p>
-<p>(<strong>NOTE</strong>: before we start, this tutorial was made using v3.0 of AGS. If you have a newer version, there may be minor inconsistencies in the screenshots where extra options have been added and so forth, but most of what's here should still apply).</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Before we start, this tutorial was made using v3.5 of AGS. If you have a newer version, there may be minor inconsistencies in the screenshots where extra options have been added and so forth, but most of what's here should still apply).</p>
 <section id="creating-the-game" class="level3">
 <h3><a href="#creating-the-game">Creating the game</a></h3>
 <p>Start up the AGS Editor by double-clicking the <em>AGSEditor.exe</em> file, and you should be greeted by the following screen:</p>
-<p><img src="images/intro1.jpg" alt="The &quot;Welcome to AGS&quot; dialog" /></p>
-<p>Make sure that "Start a new game" is selected, and click Continue. You'll be presented with the Create New Game wizard:</p>
-<p><img src="images/intro1a.jpg" alt="Create New Game dialog" /></p>
-<p>So, without further ado, click Next, and you'll see the Select Template screen:</p>
-<p><img src="images/intro1b.jpg" alt="Select Template dialog" /></p>
+<p><img src="images/acintro1_01.png" alt="The &quot;Welcome to AGS&quot; dialog" /></p>
+<p>Make sure that <strong>"Start a new game"</strong> is selected, and click <strong>Continue</strong>. You'll be presented with the <strong>Start New Game</strong> wizard:</p>
+<p><img src="images/acintro1_02.png" alt="Create New Game dialog" /></p>
+<p>So, without further ado, click <strong>Next</strong>, and you'll see the <strong>Select Template</strong> screen:</p>
+<p><img src="images/acintro1_03.png" alt="Select Template dialog" /></p>
 <p>Here, you need to choose which template you're going to use for your new game. AGS comes with several, and you can find others for download on the AGS Forums.</p>
-<p>The "Sierra-style" template is what we'll be using, as it has classic Sierra adventure game UI and comes with some default graphics to get you started quickly. The "Empty Game" template is something you may want to use later on when you're familiar with AGS - it comes with no default graphics at all.</p>
-<p>So, select "Sierra-style" and click Next.</p>
-<p><img src="images/intro1c.jpg" alt="Game Name dialog" /></p>
-<p>Finally, you need to decide on what to call your game. In the first box you can type the full name for your game. This is what will be displayed in the game title bar when it's running in a window, and it's used for a couple of other things too. For the purposes of this tutorial, I'm going to call it the incredibly lame "Roger's Adventure", but you can use whatever you like.</p>
-<p>The second box asks you for the game <em>file name.</em> This is only used for the name of the folder that your game is created in, and the name of the final EXE file you compile.</p>
-<p>The third box allows you to choose where AGS should put the game files -- the default is your My Documents folder, and I'm going to stick with that.</p>
-<p>Click the <em>Finish</em> button, and after a short wait you should be presented with the main AGS Editor window:</p>
-<p><img src="images/intro2.jpg" alt="The main editor window" /></p>
+<p>The <strong>"Sierra-style"</strong> template is what we'll be using, as it has classic Sierra adventure game UI and comes with some default graphics to get you started quickly.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: The <strong>"Empty Game"</strong> template is something you may want to use later on when you're familiar with AGS as it comes with no default graphics at all.)</p>
+<p>So, select <strong>"Sierra-style"</strong> and click <strong>Next</strong>.</p>
+<p><img src="images/acintro1_04.png" alt="Game Name dialog" /></p>
+<p>Finally, you need to decide on what to call your game.</p>
+<ol>
+<li>In the first box you can type the full name for your game. This is what will be displayed in the game title bar when it's running in a window, and it's used for a couple of other things too. For the purposes of this tutorial, I'm going to call it the incredibly lame <strong>"Roger's Adventure"</strong>, but you can use whatever you like.</li>
+<li>The second box asks you for the game's <em>file name.</em> This is only used for the name of the folder that your game is created in, and the name of the final EXE file you compile.</li>
+<li>The third box allows you to choose where AGS should put the game files -- the default is your My Documents folder, and I'm going to stick with that.</li>
+</ol>
+<p>Click the <strong>Finish</strong> button, and after a short wait you should be presented with the main AGS Editor window:</p>
+<p><img src="images/acintro1_05.png" alt="The main editor window" /></p>
 <p>So, there's your new game, ready and waiting for you to create it!</p>
 </section>
 <section id="starting-off" class="level3">
 <h3><a href="#starting-off">Starting off</a></h3>
-<p>The main way that you navigate around the editor is using the <strong>project tree</strong> in the top-right corner, which allows you to access all the various parts of your game. Let's start by scrolling to the top of the tree, and double-clicking the "General Settings" node:</p>
-<p><img src="images/intro3.jpg" alt="The General Settings pane" /></p>
-<p>This screenshot demonstrates three of the main editor features. The <strong>project tree</strong>, as we've already discussed, gives you access to the various parts of your game. The <strong>property grid</strong>, in the bottom-right, is where item-specific properties are accessed. It's not used in the Game Settings window, but we'll see it in action soon!</p>
-<p>Finally, the AGS editor allows you to have several windows open at once, and they are "tabbed" across the <strong>open windows</strong> bar at the top so that you can easily switch between them. Use the Close button to close a window once you're finished with it.</p>
-<p>Now, since we're on the Settings pane, let's briefly examine the various options we have in front of us. Make sure these options are enabled to begin with:</p>
+<p>The main way that you navigate around the editor is using the <strong>Project Tree</strong> in the top-right corner, which allows you to access all the various parts of your game. Let's start by scrolling to the top of the Project Tree, and double-clicking the <strong>"General Settings"</strong> node:</p>
+<p><img src="images/acintro1_06.png" alt="The General Settings pane" /></p>
+<p>This screenshot above demonstrates three of the main editor features.</p>
+<ol>
+<li>The <strong>Project Tree</strong>, as we've already discussed, gives you access to the various parts of your game.</li>
+<li>The <strong>Properties Grid</strong>, in the bottom-right, is where item-specific properties are accessed. It's not used in the Game Settings window, but we'll see it in action soon!</li>
+<li>Finally, the <strong>Open Windows</strong> tab bar at the top the AGS Editor allows you to have several windows open at once, and they are shown as tabs so that you can easily switch between them. (<strong>NOTE</strong>: You may use the Close button (X) at the end of the Open Windows tab bar to close a window once you're finished with it.)</li>
+</ol>
+<p>Now, since we're on the Game Settings pane, let's briefly examine the various options we have in front of us. Make sure these options are enabled to begin with:</p>
 <ul>
-<li><strong>Enable Debug Mode</strong> - Since we are going to be developing the game, we want the assistance of the debug features in the engine. This allows you to do things like teleport to different rooms, give yourself all the inventory items, and so forth. You would un-check this before compiling the final version of the game when it's complete.</li>
-<li><strong>Pixel-perfect click detection</strong> - improves the game playability by making sure that clicking transparent regions of objects won't trigger them.</li>
-<li><strong>Characters turn before walking</strong> - if the character is facing right, and you click to move him left, he'll rotate round before starting to move. This is what the Sierra and LucasArts point-and-click games did, and looks a bit more professional.</li>
+<li><strong>Character movement</strong> -&gt; <strong>Characters turn before walking</strong> - If the character is facing right, and you click to move him left, he'll rotate around before starting to move. This is what the Sierra and LucasArts point-and-click games did, and looks a bit more professional.</li>
+<li><strong>Compiler</strong> -&gt; <strong>Enable Debug Mode</strong> - Since we are going to be developing the game, we want the assistance of the debug features in the engine. This allows you to do things like teleport to different rooms, give yourself all the inventory items, and so forth. You would un-check this before compiling the final version of the game when it's complete.</li>
+<li><strong>Visual</strong> -&gt; <strong>Pixel-perfect click detection</strong> - Improves the game playability by making sure that clicking transparent regions of objects won't trigger them.</li>
 </ul>
 <p>Personally, I would always enable these three options when starting a new game. As you get a feel for AGS, you can decide what suits you best, and change these options again later.</p>
 </section>
@@ -116,41 +122,50 @@
 <p>Now, at this stage we really need to decide whether we want to create a palette-based (8-bit, 256-color) game, or a hi-color (16-bit or 32-bit) game.</p>
 <p>256-color games are much more complicated to make due to having to deal with the palette, they are not supported by the Direct3D or OpenGL graphics drivers, and may not run well on some modern graphics cards. Although they can give you the authentic retro feel, unless you really need to use palette-cycling effects it's recommended that you stay away from making new 256-color games.</p>
 <ul>
-<li>It's <strong>highly recommended</strong> that you go with 32-bit color since many modern computers don't support 8 or 16 bit screen modes. Also 32-bit color is required for the use of alpha transparency</li>
+<li>It's <strong>highly recommended</strong> that you go with 32-bit color since many modern computers don't support 8 or 16 bit screen modes. Also 32-bit color is required for the use of alpha transparency.</li>
 <li>Imported graphics are set to the chosen color depth. Should you change your mind later, you would have to re-import all the graphics.</li>
+<li>If you are following this tutorial, then you need to stay with the 32-bit color choice.</li>
 </ul>
+<section id="creating-a-16-bit-or-32-bit-color-game" class="level4">
+<h4>Creating a 16-bit or 32-bit color game</h4>
+<ul>
+<li><strong>Setting the Color Depth:</strong> Back on the <strong>General Settings</strong> pane, check out the very top option in the list. It's called "Color depth", and all you have to do is change it to your desired color depth. A warning message will prompt you to make sure. Confirm it, and you're done.</li>
+</ul>
+<p>You can skip the next section and make your way down to <a href="acintro1.html#game-resolution">"Game Resolution"</a>...</p>
 </section>
-<section id="creating-a-256-color-game" class="level3">
-<h3><a href="#creating-a-256-color-game">Creating a 256-color game</a></h3>
-<p>Double-click the "Colors" node in the project tree. You should see this:</p>
-<p><img src="images/intro4.jpg" alt="The Palette Editor" /></p>
+<section id="creating-a-256-color-game" class="level4">
+<h4>Creating a 256-color game</h4>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: If you are following this tutorial to continue to work on "Roger's Adventure" game, then do not adjust your game to be 256-color.)</p>
+<ul>
+<li><p><strong>Setting the Color Depth:</strong> Back on the <strong>General Settings</strong> pane, check out the very top option in the list. It's called "Color depth", and all you have to do is change it to your desired color depth. A warning message will prompt you to make sure. Confirm it, and you're done.</p></li>
+<li><p><strong>Adjusting the Palette:</strong> Double-click the <strong>"Colors"</strong> node in the project tree. You should see this:</p></li>
+</ul>
+<p><img src="images/acintro1_07.png" alt="The Palette Editor" /></p>
 <p>The palette display has a grid with the 256 color slots on it. The first 40 colors are <strong>game-wide</strong> colors, which means that those palette slots have a fixed color throughout the game, in every single room.</p>
 <p>The remaining slots, marked "X", are <strong>background</strong> colors and vary from room to room. This allows for different types of background to use different ranges of colors.</p>
 <p>The default palette setup is a little badly weighted. Your GUI and main character graphics will have to use just the game-wide colors, since they are shown in more than one room. Therefore, unless you want a grayscale main character, the colors displayed are probably not enough.</p>
 <p>So, let's swap some background colors for some game-wide ones. Select the first "X" slot, then hold shift and click on the last slot in the row marked "80". The screen should look as follows:</p>
-<p><img src="images/intro5.jpg" alt="We have selected colors 42-95" /></p>
-<p>We can now see the Property Grid in action. Change the "ColorType" setting from "Background" to "Gamewide", and you'll see the selected "X"s turn into various colors.</p>
-<p>If you select one of these colors you'll see its RGB color values in the property grid, where you can adjust the color of that slot. If you don't want to do this manually for every color, you can set up slots 42-95 in another paint package, save a BMP file, and then right-click on the selected slots and choose the "Replace selected slots from file" option.</p>
+<p><img src="images/acintro1_08.png" alt="We have selected colors 42-95" /></p>
+<p>We can now see the <strong>Properties Grid</strong> of the AGS Editor in action. Change the <strong>"ColorType"</strong> setting from <strong>"Background"</strong> to <strong>"Gamewide"</strong>, and you'll see the selected "X"s turn into various colors.</p>
+<p>If you select one of these colors you'll see its RGB color values in the Properties Grid, where you can adjust the color of that slot. If you don't want to do this manually for every color, you can set up slots 42-95 in another paint package, save a BMP file, and then right-click on the selected slots and choose the <strong>"Replace selected slots from file..."</strong> option.</p>
 <p>Which colors you use is up to you, and your choice will likely depend on the color scheme you're going for with your graphics.</p>
-<p><img src="images/icon_info.gif" /></p>
-<p>You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: You should set up the palette as well as you can now, because changing it later may require you to re-import some graphics.)</p>
 </section>
-<section id="creating-a-16-bit-or-32-bit-color-game" class="level3">
-<h3><a href="#creating-a-16-bit-or-32-bit-color-game">Creating a 16-bit or 32-bit color game</a></h3>
-<p>Back on the Game Settings pane, check out the very top option in the list. It's called "Color depth", and all you have to do is change it to your desired color depth. A warning message will prompt you to make sure. Confirm it, and you're done.</p>
 </section>
 <section id="game-resolution" class="level3">
 <h3><a href="#game-resolution">Game Resolution</a></h3>
 <p>Having decided on our color depth, the other important decision to make at this stage is what resolution we want the game to run at. Higher resolutions allow you to have more detailed graphics, but they need more memory and some operations may run more slowly.</p>
-<p>Go back to the General Settings pane, and select your chosen resolution from the "Resolution" drop-down list.</p>
-<p>Go to part 2: <a href="acintro2.html">Creating your first room</a></p>
+<ul>
+<li><strong>Setting the Game Resolution:</strong> Go back to the <strong>General Settings</strong> pane, and select your chosen resolution from the <strong>"Basic Properties"</strong> -&gt; <strong>"Resolution"</strong> drop-down list.</li>
+</ul>
+<p>Next Chapter: <a href="acintro2.html">Part 2 - Creating Your First Room</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:20 PM</p>
+    <p>Build: 04/22/2020 06:20:06 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -98,7 +98,7 @@
 <h3><a href="#importing-a-file-as-the-walkable-area-mask">Importing a file as the walkable area mask</a></h3>
 <p>AGS has the ability to import an external BMP or PNG file to use as the walkable-area, hotspot or walk-behind area mask. If you don't like the way you have to draw these in the editor itself, you can draw them in another program and then import them. This is also useful if you are converting a game you were making with another game-creation system into AGS.</p>
 <p>To use the feature, click the "Import Mask" button (in the toolbar) in the relevant mode of the Areas editor. There are some restrictions to how this file must be drawn: it must be the exact same size as the background scene, and it must be in 16-color (4-bit) or 256-color (8-bit). Then, color 0 on the bitmap signifies transparency and colors 1-15 are used as the respective hotspot/walk-behind/walkable area numbers.</p>
-<p><strong>IMPORTANT:</strong> Do NOT use any color numbers above 15 on the mask bitmap. Use only palette indexes 0 to 15.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>IMPORTANT</strong>: Do NOT use any color numbers above 15 on the mask bitmap. Use only palette indexes 0 to 15.)</p>
 <hr />
 </section>
 <section id="animating-background-scenes" class="level3">
@@ -114,8 +114,8 @@
 <p>To import a second background for a room, load the room into the editor, pull down the "Main background" list box, and choose the "Import new background" option. Choose the file that's storing the background and you're done.</p>
 <p>To delete a background, select it then click the "Delete" button.</p>
 <p>You define the speed at which the backgrounds will animate by setting the "BackgroundAnimationDelay" option in the property grid for the room. The default is 5, which cycles background every 5 frames.</p>
-<p><em>NOTE: All the background scenes must be the same size.</em></p>
-<p>NOTE: (256-color only) The backgrounds frames each have their own palette (unless you select "Share palette with main background" before importing). This means that when the current frame switches in-game, the palette will get reset - therefore you can't use special palette effects such as CyclePalette or SetPalRGB on screens with animating backgrounds.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: All the background scenes must be the same size.)</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: <strong>(256-color only)</strong> The backgrounds frames each have their own palette (unless you select "Share palette with main background" before importing). This means that when the current frame switches in-game, the palette will get reset - therefore you can't use special palette effects such as CyclePalette or SetPalRGB on screens with animating backgrounds.)</p>
 <hr />
 </section>
 <section id="lighting-effects" class="level3">
@@ -124,16 +124,19 @@
 <p>By default this is <code>100%</code>, but you can change it from <code>0% to 200%</code>. This number is the light level in the current walkable area. Smaller numbers are darker, so that <code>0%</code> is pitch black and <code>200%</code> is very bright.</p>
 <p>This feature could be useful if, for example, you have a street lamp on your scene so when the character walks under it they get brighter, or if a wall is shading the character from the light they can get darker.</p>
 <p>You can alternatively use a color tint for the region. If you select this, then you can enter Red, Green and Blue values as numbers from 0-255, which reflect the color you want the area to be tinted to. The Amount setting determines to what extent characters will be tinted, and is from 0-100.</p>
-<p><strong>NOTE:</strong> Light levels only work when the character's graphic is at the same color depth as the background (i.e. a 256-color character in a hi-color game won't get lightened).</p>
-<p><strong>NOTE:</strong> In a 256-color game, only darkening areas (light level &lt; <code>100%</code>) will work. Also, depending on the room palette the quality of the darkening will vary in 256-color games.</p>
-<p><strong>NOTE:</strong> Light levels affect characters and objects, depending on the "UseRoomAreaLighting" setting for each one. They do not affect overlays or the background scene.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Light levels only work when the character's graphic is at the same color depth as the background (i.e. a 256-color character in a hi-color game won't get lightened).)</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: In a 256-color game, only darkening areas (light level &lt; <code>100%</code>) will work. Also, depending on the room palette the quality of the darkening will vary in 256-color games.)</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Light levels affect characters and objects, depending on the "UseRoomAreaLighting" setting for each one. They do not affect overlays or the background scene.)</p>
+<p>Now you are ready to read in-depth about setting up your game.</p>
+<p>Next Reading: <a href="Settingupthegame.html">Setting Up Your Game</a></p>
+<p>Return to Tutorials Index: <a href="StartingOff.html">Tutorials Index</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:24 PM</p>
+    <p>Build: 04/22/2020 06:19:57 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

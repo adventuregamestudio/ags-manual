@@ -65,6 +65,7 @@
 <ul>
 <li><a href="#objects"><span>Objects</span></a></li>
 <li><a href="#inventory"><span>Inventory</span></a></li>
+<li><a href="#testing-your-work"><span>Testing Your Work</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -74,50 +75,70 @@
 <h2><a href="#getting-started-with-ags---part-4">Getting Started with AGS - Part 4</a></h2>
 <section id="objects" class="level3">
 <h3><a href="#objects">Objects</a></h3>
-<p>Objects are items on the screen which, unlike hotspots, can move, change and disappear. You use objects for things in the room that the player can take (since they can disappear), and for things which need to animate.</p>
-<p>So, let's revisit the age-old "key" inventory item. Let's say we've got a locked door, and the player can pick up a key from another room to open it with. Please don't use this puzzle when you're making a proper game, it's been done far too many times ;-)</p>
-<p>From the same list as we chose "Walkable areas" and "Hotspots" earlier, let's return there and select "Objects". Now, to add an object to the room, simply right-click on the background where you want to add it, and choose "New object here" from the menu which appears.</p>
-<p>As if by magic, a blue cup appears! This is the default sprite in AGS, and will appear anywhere that you haven't selected a proper image yet. Notice that the property grid has changed to display the details of this new object -- one of which is a property called Image. Select this property, and a "..." button appears.</p>
-<p><img src="images/intro4_1.jpg" alt="Adding an object to the room" /></p>
-<p>Click the "..." button, and you'll be presented with the <em>Sprite Manager</em>. We'll explain this in more detail later, but basically it is the focal point in AGS where you import and export all your graphics except for room backgrounds. You should see a small key picture as sprite number 2. Double-click that for now, we'll import our own graphics later.</p>
-<p>You should now see that the blue cup has changed into a key. You can move it around by left-clicking and dragging the sprite within the background image. Place it somewhere sensible on your screen.</p>
-<p>The next thing we should do is give the object a name. Similar to what we did with hotspots, since the object will be referred to in the script it'll need a name that we can call it by. Scroll down the property grid and find the "Name" property, and set it to something sensible. The convention in AGS is to have object names start with an "o", for example <em>oKey</em>.</p>
-<p><img src="images/intro4_2.jpg" alt="I&#39;ve placed the key cunningly in the middle of the walkway ;-)" /></p>
-<p>Before we enable the key to be taken by the player, let me quickly go over a couple of properties in the property grid:</p>
+<p>Objects are items on the screen which, unlike hotspots, can move, change, and disappear. You use objects for things in the room that the player can take (since they can disappear), and for things which need to animate.</p>
+<p>So, let's revisit the age-old "key" inventory item. Let's say we will have a locked door on another screen, and the player can pick up a key from this room to open the door with. Please don't use this puzzle when you're making a proper game, it's been done far too many times. ;-)</p>
+<section id="import-a-sprite" class="level4">
+<h4>Import a Sprite</h4>
+<p>For this tutorial we will need to import a sprite of a key to be used later as an object on the background. Right-click on the following key image, save it to your computer, and we will import it into the Sprite Manager of the AGS Editor soon.</p>
+<ul>
+<li><img src="images/acintro4_01.png" alt="The image of a key to be used" /></li>
+</ul>
+<p>Within the AGS Editor, choose "Sprites" from the Project Tree, in the upper-right of the editor. Making sure you have "Main" selected in the left-side tree, you should have a screen that look like this:v</p>
+<p><img src="images/acintro4_02.png" alt="A view of the Sprite viewer" /></p>
+<p>Right-click to the right of the "blue cup" image # 0, and you should get a context window drop-down of actions. Choose <strong>"Import new sprite(s) from files..."</strong>. Navigate to where you saved the key image on your computer and select that image file. Next, you will see the "Import Sprite" window. The window should look like this:</p>
+<p><img src="images/acintro4_03.png" alt="Importing a sprite view" /></p>
+<p>Go ahead and select the "Import" button. You will now be able to see your new key graphic next to the blue cup graphic. It is now ready to be chosen as a graphic within your game.</p>
+<p>Now that we've got our key sprite ready to be used, let's get back to discussing Objects.</p>
+<p>From the same Room Parts drop-down list as we chose "Walkable areas" and "Hotspots" earlier, let's return there and select <strong>"Objects"</strong>. Now, to add an object to the room, simply right-click on the background where you want to add it, and choose <strong>"Place New Object Here"</strong> from the menu which appears.</p>
+<p>As if by magic, a blue cup appears! This is the default sprite in AGS, and will appear anywhere that you haven't selected a proper image yet. Notice that the Properties Grid has changed to display the details of this new object -- one of which is a property called Image. Select this property, and a "..." button appears.</p>
+<p><img src="images/acintro4_04.png" alt="Adding an object to the room" /></p>
+<p>Click the "..." button, and you'll be presented with the <em>Sprite Manager</em>. We'll explain this in even more detail later, but basically it is the focal point in AGS where you import and export all your graphics except for room backgrounds. For this tutorial, ensure that the <strong>"Main"</strong> tree choice in the left-side tree is selected, and you should see your small key picture that we imported earlier. Double-click that <strong>"Key"</strong> image.</p>
+<p><img src="images/acintro4_05.png" alt="Selecting the Key in the Sprite Manager" /></p>
+<p>You should now see that the blue cup graphic has changed into a key. You can move it around by left-clicking and dragging the sprite within the background image. Place it somewhere sensible on your screen. I placed it further to the right of the walkable area.</p>
+<p>The next thing we should do is give the object a name. Similar to what we did with hotspots, since the object will be referred to in the script it will need a name that we can call it by. Scroll down the Properties Grid and find the <strong>"Name"</strong> property, and set it to something sensible. The convention in AGS is to have object names start with an "o", for example <em>oKey</em>.</p>
+<p><img src="images/acintro4_06.png" alt="I&#39;ve placed the key cunningly in the middle of the walkway ;-)" /></p>
+<p>Before we enable the key to be taken by the player, let me quickly go over a couple of properties in the Properties Grid:</p>
 <ul>
 <li><strong>Baseline</strong> - normally, the baseline for an object is set to the bottom of the object graphic (baselines are used to calculate which items on the screen are drawn in front and which are drawn at the back). However, in some cases you might want to override this.<br> What you'll notice with our key is that if the player walks just behind it, the key will appear in front of his feet. This is not what we want, since the key is supposed to be lying flat on the ground. To correct this, change the Baseline property to 5 (this means that it will be drawn behind everything that has a baseline lower down the screen than Y=5). This will make sure that the player is always drawn in front of the key.</li>
 <li><strong>Visible</strong> - this toggles whether the object is switched on at the beginning of the game or not. For our key we want it to be True, but sometimes you'll have objects which you don't want the player to see until they've done something else in the game.</li>
 </ul>
-<p><img src="images/icon_info.gif" /></p>
-<p>Having a large number of large objects on-screen can potentially cause the game to slow down. AGS imposes a limit of 40 objects per room.</p>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Having a large number of large objects on-screen can potentially cause the game to slow down. AGS imposes a limit of 40 objects per room.)</p>
 <p>Right, now back to the pressing matter at hand - letting the player pick up the key.</p>
+</section>
 </section>
 <section id="inventory" class="level3">
 <h3><a href="#inventory">Inventory</a></h3>
 <p>Now wait, there's one more step we need to do first. At the moment we could let the player pick up the key, but then what would happen to it? Where would it go? We need to define the player's <em>inventory</em>.</p>
-<p>Select the <em>"Inventory Items"</em> node in the project tree. You'll see that there are already two items defined - "Key" and "Pink poster". These are just defaults to help you get started. Double click "1: iKey", and you should see a window open with the key image in it. But that picture's a bit small for an inventory item, I'm sure I saw something better in the sprite list earlier.</p>
-<p>Find the "Image" property in the property grid, select it, and then click the "..." button. The sprite manager re-appears, so find sprite number 5, and you should see that it's a much larger picture of a key. Let's use that as our inventory icon. Double-click the sprite to select it.</p>
-<p><img src="images/intro4_3.jpg" alt="Yay, we&#39;ve got a big inventory icon for the key" /></p>
+<p>Expand the <strong>"Inventory Items"</strong> node in the upper-right Project Tree. You'll see that there are already two items defined - "iBlueCup" and "iKey". These are just defaults to help you get started. Double click "2: iKey", and you should see a window open with a slightly different key image than the key image you imported earlier. This inventory item "key" has already been setup for you with a different image that looks better on an inventory screen. This is because an object for a background can appear of a different size and image than when it is shown in the player's inventory (if you want it that way). Remember, objects are separate entities than inventory items.</p>
+<ul>
+<li>For this tutorial, update the field in the Properties Grid of <strong>"PlayerStartsWithItem"</strong> to be <strong>"False"</strong> for this iKey inventory object!</li>
+</ul>
+<p><img src="images/acintro4_07.png" alt="Inventory Screen of Key" /></p>
+<p>To view where this inventory image of a key is being linked to, find the <strong>"Image"</strong> property in the Properties Grid, select it, and then click the <strong>"..."</strong> button. The sprite manager re-appears, and you will find the sprite to represent the inventory object in the larger format.</p>
+<p><img src="images/acintro4_08.png" alt="Sprite manager view of the larger key" /></p>
 <p>OK, there are a few other settings on this screen, but let's return to our objective - letting the player pick up the key. Remember that the script name is <em>iKey</em>, as we'll need it later.</p>
 <section id="back-to-the-events" class="level4">
 <h4>Back to the events</h4>
-<p>Go back to the <em>Objects</em> pane of the Room Editor, and click on, yes you've guessed it, the <em>Events</em> button. The events here are very similar to the ones we had for the hotspot:</p>
-<p><img src="images/intro4_4.jpg" alt="The events list for the object" /></p>
+<p>Go back to the <strong>Objects</strong> pane of the "Room" tab, ensure that you still have the "key" object selected, and then click on, yes you've guessed it, the <strong>Events</strong> button. The events here are very similar to the ones we had for the hotspot:</p>
+<p><img src="images/images/acintro4_09.png" alt="The events list for the object" /></p>
 <p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a LucasArts-style interface which has more verb types available to the player.</p>
-<p>So, select "Interact object" and click the "..." button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
+<p>So, select <strong>"Interact object"</strong> and click the <strong>"..."</strong> button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
 <p>Here's my script solution. As an added bonus, I've also given the player 5 points for their trouble, but you don't need to have that third command:</p>
-<p><img src="images/intro4_5.jpg" alt="Script for taking the key" /></p>
+<p><img src="images/acintro4_10.png" alt="Script for taking the key" /></p>
 <p>Note that our solution is not perfect - the player can click the hand icon on the key from anywhere in the room and it will disappear. We are also not displaying a message informing the player of what happened. But, the functionality is there, and this will do fine for now.</p>
-<p>OK, so we now have a fully-working first room. Test the game as before, and try it out. Once the player has taken the key, call up his inventory and you should see the large key picture there.</p>
-<p>Go to part 5: <a href="acintro5.html">Managing Inventory</a></p>
 </section>
+</section>
+<section id="testing-your-work" class="level3">
+<h3><a href="#testing-your-work">Testing Your Work</a></h3>
+<p>OK, so we now have a fully-working first room. Test the game as before (F5) , and try it out. View your inventory first, and you should only have a "Blue Cup". Once the player has taken the key, call up their inventory and you should see the large key picture there.</p>
+<p>Next Chapter: <a href="acintro5.html">Part 5 - Managing Inventory</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:19 PM</p>
+    <p>Build: 04/22/2020 06:20:11 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

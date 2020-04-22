@@ -145,7 +145,8 @@
 </section>
 <section id="managing-audio-footprint" class="level3">
 <h3><a href="#managing-audio-footprint">Managing Audio Footprint</a></h3>
-<p>AGS stores audio files directly from their imported files, and can be globed as an external audio.vox file or be part of the main game executable. Speech is always packed as an external speech.vox file. The file doesn't compress the audio, but instead relies on the original compression from each individually imported audio file. Some distribution platforms don't provide binary patching, since audio files tend to be less volatile at middle to late parts of game development, it may be wise to have them as external files so that they are not downloaded again by your player.</p>
+<p>AGS stores audio files directly from their imported files, and can be globed as an external audio.vox file or be part of the main game executable. Speech is always packed as an external speech.vox file. AGS doesn't compress the audio, but instead relies on the original compression from each individually imported audio file when generating audio packs (<code>.vox</code>) or when embedding them in the game file.</p>
+<p>Since audio files tend to be less volatile at middle to late parts of game development, and some distribution platforms don't provide binary patching, it may be wise to have them as external files so that they are not downloaded again by your player when your game has an update.</p>
 <p><strong>Speech</strong></p>
 <p>Usually the ogg format can achieve good compression with voice files. If you use Audacity, a compression of 3 (of 10) provides good quality while providing very small files.</p>
 <p><strong>Sound Effects</strong></p>
@@ -158,7 +159,7 @@
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:19 PM</p>
+    <p>Build: 04/22/2020 06:20:05 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

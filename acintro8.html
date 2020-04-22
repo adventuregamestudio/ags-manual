@@ -64,6 +64,8 @@
 <li><a href="#getting-started-with-ags---part-8"><span>Getting Started with AGS - Part 8</span></a>
 <ul>
 <li><a href="#conversations"><span>Conversations</span></a></li>
+<li><a href="#testing-your-work"><span>Testing Your Work</span></a></li>
+<li><a href="#more-on-conversations"><span>More on conversations</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -78,22 +80,41 @@
 <p>LucasArts games (and some Sierra titles such as Quest for Glory) on the other hand, had complete dialog trees through which you could choose your topics to talk about.</p>
 <p>AGS lets you do it whichever way you want. We'll start off by looking at the complete dialog tree approach, and then see how easy it is to cut it down to get a Sierra-style system.</p>
 <p>Now, before we go any further, let's consider for a moment what conversation structure we want. It's going to be a lot easier to implement if we have this planned in advance. For this tutorial, we'll go for a structure like this:</p>
-<p><img src="images/intro8_1.jpg" alt="Our planned dialog tree" /></p>
-<p>In other words, when we first speak to the other character, we will say "Greetings!". After he replies, we will then be presented with three options to choose from.</p>
-<p>The "Tell me more about your wares" option will then lead us to be able to ask a different set of questions.</p>
-<p>Before we begin, we need to create a second character - we can't just have Roger talking to himself! Go to the "Characters" node, right-click it and choose "New Character". Double-click the new "cChar1" entry to open him up.</p>
-<p>In the property grid, give the new character a RealName -- I'll call him <em>Merchant</em>. Now - and this bit is vital - you also need to set this new character's <strong>script name</strong>. This is the name by which we refer to him when creating our dialogs. I'll just use "cMerchant" as the script name. I'd recommend you set it to something sensible like this, and don't just leave it as "cChar1" or else your dialog scripts will get very confusing!</p>
-<p>OK, all done? Expand the "Dialogs" node in the editor, and you'll see one existing "0" entry. We'd may as well use it since it's there, so double-click it. (If not, you can always right-click the Dialogs node and choose "New dialog" to make a new one). You'll see this rather empty window:</p>
-<p><img src="images/intro8_2.jpg" alt="The dialog editor" /></p>
-<p>Conversations in AGS are made up of <strong>topics</strong>. A topic consists of a set of options that the player can talk about - not all of which are necessarily available to the player at the start of the game. When the player selects an option from a topic, the topic's <strong>dialog script</strong> is run.</p>
-<p>Each topic can contain some start-up text, which is displayed before the options are presented to the player. Our "Greetings" line qualifies for this, so we don't need to make a special topic for it. A <strong>topic</strong> is also referred to as a <strong>dialog</strong> in AGS -- the two words are one and the same thing.</p>
-<p>Right, let's make our first dialog. Click the "Create new option" button three times, and three new rows will appear in the window. You'll also notice some new lines being added to the script on the right hand side. Make sure that the "Show" checkbox is ticked for all the options -- this determines whether the options are initially available to the player or not.</p>
-<p>Also, this dialog currently has no name, but we'll need to give it one so that we can access it later. The convention in AGS is for dialogs to start with "d", so I'm going to call this "dMerchant". Use the property grid to set the name, as usual.</p>
-<p>Now, type in some text to the three new text boxes:</p>
-<p><img src="images/intro8_3.jpg" alt="We&#39;ve inserted three options for topic 0" /></p>
-<p>While we're at it, let's create the next set of options too. Right click the "Dialogs" node in the project tree, and select "New Dialog". A new blank Dialog 1 is created. Double-click on this, and again, create three new options and type them in. In the property grid, change the Name from "dDialog1" to "dWares".</p>
-<p>Now, go back to the first dialog (select it in the tab bar), and let's have a look at the script. This is <strong>not</strong> the same type of script that we've used for our events like picking up the key. It's a much simpler dialog-only scripting language.</p>
-<p>Each of the "@" lines is an <strong>entry point</strong>. These define the different places where your script can start. The "@S" entry point happens when the topic is first started - and so this is where we want our "Greetings" text to be displayed.</p>
+<pre><code>| Greetings! |
+      |
+      ---- | Who are you? |                         / ---- | How much is a jacket? |
+      |                                            /
+      ---- | Tell me more about your wares. | ----&lt; -------| How much for a fake eyeball? |
+      |                                            \
+      ---- | Bye, see you later. |                  \ ---- | That&#39;s all for now. |
+</code></pre>
+<p>In other words, when we first speak to the other character, we will say <strong>"Greetings!"</strong>. After he replies, we will then be presented with three options to choose from.</p>
+<p>The <strong>"Tell me more about your wares"</strong> option will then lead us to be able to ask a different set of questions.</p>
+<section id="additional-characters" class="level4">
+<h4>Additional Characters</h4>
+<p>Before we begin, we need to create a second character - we can't just have Roger talking to himself! Go to the <strong>"Characters"</strong> node in the Project Tree, right-click it and choose <strong>"New Character"</strong>. The new <strong>"cChar1"</strong> character and their properties window will automatically open up.</p>
+<p><img src="images/acintro8_01.png" alt="New Character Window" /></p>
+<p>In the Properties Grid:</p>
+<ul>
+<li><strong>Design</strong> -&gt; <strong>RealName</strong> - Give this new character a <em>Real Name</em>. I'll call him <strong>"Merchant"</strong>.</li>
+<li><strong>Design</strong> -&gt; <strong>ScriptName</strong> - Now - <strong>and this bit is vital</strong> - you also need to set this new character's <em>Script Name</em>. This is the name by which we refer to him when creating our dialogs. I'll just use <strong>"cMerchant"</strong> as the script name.</li>
+</ul>
+<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: I'd recommend you set it to something sensible like this, and don't just leave it as "cChar1" or else your dialog scripts will get very confusing!)</p>
+</section>
+<section id="dialogs" class="level4">
+<h4>Dialogs</h4>
+<p>OK, all done? Navigate to the <strong>"Dialogs"</strong> node in the Project Tree, and right-click on that node. Choose <strong>"New dialog"</strong> to make our first dialog. You'll see this rather empty window:</p>
+<p><img src="images/acintro8_02.png" alt="The dialog editor" /></p>
+<p>Conversations in AGS are made up of <strong>topics</strong> also referred to as a <strong>dialog</strong> -- the two words are one and the same thing. A topic consists of a set of options that the player can talk about - not all of which are necessarily available to the player at the start of the game. When the player selects an option from a topic, the topic's <strong>dialog script</strong> is run.</p>
+<p>Each topic can contain some start-up text, which is displayed before the options are presented to the player. Our "Greetings" line qualifies for this, so we don't need to make a special topic for it.</p>
+<p>Right, let's make our first dialog. Click the <strong>"Create new option"</strong> button three times, and three new rows will appear in the window. You'll also notice some new lines being added to the script on the right-hand side. Make sure that the <strong>"Show"</strong> checkbox is ticked for all the options -- this determines whether the options are initially available to the player or not.</p>
+<p>Also, this dialog currently has no name, but we'll need to give it one so that we can access it later. The convention in AGS is for dialogs to start with "d", so I'm going to call this <strong>"dMerchant"</strong>. Use the Properties Grid to set the name, as usual.</p>
+<p>Now, type in some text from our dialog plan from above, into the three new text boxes:</p>
+<p><img src="images/acintro8_03.png" alt="We&#39;ve inserted three options for topic 0" /></p>
+<p>While we're at it, let's create the next set of options too. Right-click the <strong>"Dialogs"</strong> node in the Project Tree, and select <strong>"New Dialog"</strong>. A new blank <em>dDialog1</em> is created and should be automatically opened for you. Create three new options and type them in. In the Properties Grid, change the Name from "dDialog1" to <strong>"dWares"</strong>.</p>
+<p><img src="images/acintro8_04.png" alt="Our second dialog choices" /></p>
+<p>Now, go back to the first dialog <strong>"dMerchant"</strong> tab (select it in the Editor Tab bar), and let's have a look at the script. This is <strong>not</strong> the same type of script that we've used for our Events like picking up the key. It's a much simpler dialog-only scripting language.</p>
+<p>Each of the <strong>"@"</strong> lines is an <strong>entry point</strong>. These define the different places where your script can start. The "@S" entry point happens when the topic is first started - and so this is where we want our "Greetings" text to be displayed.</p>
 <p>Dialog scripting is very simple. It takes the form:</p>
 <pre><code>SCRIPTNAME: &quot;Text to say&quot;
 </code></pre>
@@ -102,34 +123,85 @@
 MERCHANT: &quot;Hello there!&quot;
 return
 </code></pre>
-<p>Remember, these are the <strong>script names</strong> of the characters (but without the initial "c"). The "return" is essential, because it tells AGS to stop running the script at that point and to display the options to the player.</p>
-<p>The numbered entry points will be run when the player selects the appropriate option - for example, if the player clicks the "Who are you?" option, then entry point @1 will run.</p>
-<p>Here's a finished script for this topic:</p>
-<p><img src="images/intro8_5.jpg" alt="Our finished dialog script" /></p>
-<p>The <em>goto-dialog</em> command takes the player to another dialog - in this case, the new "dWares" dialog we just created (with questions about the merchant's wares).</p>
+<p>Remember, these are the <strong>script names</strong> of the characters (but without the initial <strong>"c"</strong>). The <strong>"return"</strong> is essential, because it tells AGS to stop running the script at that point and to display the options to the player.</p>
+<p>The numbered entry points will be run when the player selects the appropriate option - for example, if the player clicks the <strong>"Who are you?"</strong> option, then entry point <strong>@1</strong> will run.</p>
+<p>Here is the finished script for this topic:</p>
+<pre><code>// Dialog script file
+@S  // Dialog startup entry point
+EGO: Greetings!
+MERCHANT: Hello there!
+return
+@1
+MERCHANT: My name is Derek, and I&#39;m a local merchant.
+MERCHANT: I can sell you all sorts of things.
+return
+@2
+MERCHANT: I specialize in selling various random items.
+MERCHANT: My jackets and fake eyeballs are popular.
+goto-dialog dWares
+@3
+MERCHANT: Do pop by again sometime.
+stop
+</code></pre>
+<p>The <em>goto-dialog</em> command takes the player to another dialog - in this case, the new <em>"dWares"</em> dialog we just created (with questions about the merchant's wares).</p>
 <p>The <em>stop</em> command tells AGS to end the conversation and return to the game (whereas <em>return</em> returns them to the list of options to talk about).</p>
-<p>Now, we're not quite done ... we've got to deal with our second dialog too! In the tab bar, click the "Dialog: dWares" tab to return to the main topic. Fill in the script however you like. You can use the <em>goto-previous</em> command to take the player back to the first list of options when they get bored of talking about his wares.</p>
+<p>Now, we're not quite done ... we've got to setup our second dialog too! In the Editor Tab bar, click the <strong>"Dialog: dWares"</strong> tab to return to the second topic. Fill in the script however you like. Here you can use the <em>goto-previous</em> command to take the player back to the first list of options when they get bored of talking about his wares.</p>
 <p>Here's my completed script for dWares:</p>
-<p><img src="images/intro8_6.jpg" alt="Dialog script for dWares" /></p>
-<p>As you can see, it's done very similarly to the first one. Notice the use of "return" in the startup entry point, to make sure that it doesn't go on and run the next bit of script straight away.</p>
+<pre><code>// Dialog script file
+@S  // Dialog startup entry point
+return
+@1
+MERCHANT: A fine leather jacket - for  you, just $200!
+EGO: That&#39;s a bit expensive, isn&#39;t it?
+MERCHANT: Not for this, sir. It&#39;s hand-made by my wife.
+EGO: Oh. But no, thank you.
+return
+@2
+MERCHANT: A perfect joke item, the eyeball is just $3.99.
+return
+@3
+MERCHANT: Very well.
+goto-previous
+</code></pre>
+<p>As you can see, it's done very similarly to the first one. Notice the use of <strong>"return"</strong> in the startup entry point, to make sure that it doesn't go on and run the next bit of script straight away.</p>
 <p>We're almost done! All we've got to do now is add a way for the player to initiate the conversation.</p>
-<p>Open up the Character editor for the new <em>cMerchant</em> character. Change his StartingRoom to room 1 (i.e. the same as the player character), and position him at let's say X:260, Y:130. You can always change this later.</p>
-<p>Now, still with the Merchant open, go to his Events list. Using your skills from earlier on in this tutorial, add a command to initiate the dialog when the player talks to the Merchant. Now, we're all set!</p>
-<p><img src="images/intro8_7.jpg" alt="Event script to launch the dialog" /></p>
-<p>Test the game, talk to the Merchant, and try out the conversation.</p>
-<p><strong>More on conversations</strong></p>
-<p>You may have noticed the "Show" and "Say" check-boxes in the dialog editors. You'll have noticed that when the player selects an option, the player character will say the option text. However, there are times when you won't want this to happen, and if you un-tick the "Say" box for an option, the character won't repeat the text when the player selects it.</p>
-<p>The "Show" box determines whether the option is initially available to the player. If you uncheck it, then that option won't appear to start with. You can enable it later using the <em>option-on</em> dialog script command, or the <em>dDialogName.SetOptionState</em> script command.</p>
-<p>There is also a dialog script command called <em>option-off</em>, which you can use to stop a particular option from appearing once the character has found out all the vital information. See the manual reference for more.</p>
-<p>If there is only one option enabled for a topic, then the game selects it automatically. You can use this to make Sierra-style conversations, because the options will never be shown to the player in this case.</p>
-<p>Go to part 9: <a href="acintro9.html">Cursors and fonts</a></p>
+<p>Open up the Character editor for the new <em>cMerchant</em> character. Change their <strong>"StartingRoom"</strong> property to room 1 (i.e. the same as the player character), and position him at, let's say, X:53, Y:144. You can always change this later.</p>
+<p>Now, still with the Merchant character tab open, go to their Events list. Using your skills from earlier on in this tutorial, add a command to initiate the dialog when the player talks to the Merchant <strong>"Talk to Character"</strong>. Now, we're all set!</p>
+<pre><code>function cMerchant_Talk()
+{
+  dMerchant.Start();
+}
+</code></pre>
+</section>
+</section>
+<section id="testing-your-work" class="level3">
+<h3><a href="#testing-your-work">Testing Your Work</a></h3>
+<p>Now, hit F5, talk to the Merchant, and try out the conversation.</p>
+</section>
+<section id="more-on-conversations" class="level3">
+<h3><a href="#more-on-conversations">More on conversations</a></h3>
+<p>You may have noticed the "Show" and "Say" check-boxes in the dialog editors.</p>
+<section id="say-dialog" class="level4">
+<h4>Say Dialog</h4>
+<p>You may have noticed that when the player selects an option in-game, the player character will say the option text. However, there are times when you do not want this to happen, and if you un-tick the <strong>"Say"</strong> check box for an option, the character will not repeat the text when the player selects it.</p>
+</section>
+<section id="show-dialog" class="level4">
+<h4>Show Dialog</h4>
+<p>The <strong>"Show"</strong> check box determines whether the option is initially available to the player. If you uncheck it, then that option won't appear to start with. You can enable it later using the <em>option-on</em> dialog script command, or the <code>dDialogName.SetOptionState</code> script command.</p>
+<p>There is also a dialog script command called <code>option-off</code>, which you can use to stop a particular option from appearing once the character has found out all the vital information. See the manual reference for more.</p>
+</section>
+<section id="sierra-style-system-dialogs" class="level4">
+<h4>Sierra-style system dialogs</h4>
+<p>As mentioned earlier, there is a simple way to have Sierra-style dialogs. Iif there is only one option enabled for a topic, then the game selects it automatically. You can use this to make Sierra-style conversations, because the options will never be shown to the player in this case.</p>
+<p>Next Chapter: <a href="acintro9.html">Part 9 - Cursors and Fonts</a></p>
+</section>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:19 PM</p>
+    <p>Build: 04/22/2020 06:19:57 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -173,14 +173,15 @@
 <p><em>(Formerly known as global function AddInventory, which is now obsolete)</em><br> <em>(Formerly known as global function AddInventoryToCharacter, which is now obsolete)</em></p>
 <pre><code>Character.AddInventory(InventoryItem *item, optional int addAtIndex)
 </code></pre>
-<p>Adds the specified item to the character's inventory. This ensures that the item gets added to the character's inventory list, and that any on-screen inventory display gets updated if appropriate.</p>
+<p>Adds one quantity of the specified item to the character's inventory. This ensures that the item gets added to the character's inventory list, and that any on-screen inventory display gets updated if appropriate.</p>
 <p>The first parameter is the inventory item's Script O-Name from the editor (for example, <em>iPoster</em>).</p>
 <p>By default, the new item is added to the end of the character's inventory list. However, you can insert it in a particular position in the list by supplying the second parameter. The new item is inserted <em>before</em> the current item at <em>addAtIndex</em>. Indexes are numbered from 0, so to add the item at the start of the list, pass 0 as the second parameter.</p>
+<p>Calling the function multiple times will increase the InventoryQuantity for the item.</p>
 <p>Example:</p>
 <pre><code>cEgo.AddInventory(iKey);
 </code></pre>
 <p>will give inventory item iKey to character EGO.</p>
-<p><em>See Also:</em> <a href="Character.html#characterhasinventory">Character.HasInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a>, <a href="Globalfunctions_General.html#updateinventory">UpdateInventory</a></p>
+<p><em>See Also:</em> <a href="Character.html#characterhasinventory">Character.HasInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a>, <a href="Globalfunctions_General.html#updateinventory">UpdateInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a></p>
 <hr />
 </section>
 <section id="characteraddwaypoint" class="level3">
@@ -621,13 +622,14 @@ cEgo.UnlockView();
 <p><em>(Formerly known as global function LoseInventory, which is now obsolete)</em><br> <em>(Formerly known as LoseInventoryFromCharacter, which is now obsolete)</em></p>
 <pre><code>Character.LoseInventory(InventoryItem *item)
 </code></pre>
-<p>Removes the specified inventory item from the character's inventory. If they do not have the item, nothing happens.</p>
+<p>Removes one quantity of the specified inventory item from the character's inventory. If they do not have the item, nothing happens.</p>
+<p>To completely remove an item of quantity greater than one will require calling the function InventoryQuantity times.</p>
 <p>The parameter is the inventory item's Script O-Name from the editor.</p>
 <p>Example:</p>
 <pre><code>cEgo.LoseInventory(iKey);
 </code></pre>
 <p>will make the character EGO lose the inventory item iKey from the inventory tab</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a></p>
+<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a></p>
 <hr />
 </section>
 <section id="charactermove" class="level3">
@@ -713,7 +715,7 @@ player.RemoveTint();
 <pre><code>cEgo.Say(&quot;My name is ego&quot;);
 </code></pre>
 <p>will display the message above the character's EGO head like the LEC games, whilst playing the character's talking animation.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Character.html#charactersayat">Character.SayAt</a>, <a href="Character.html#charactersaybackground">Character.SayBackground</a>, <a href="Character.html#characterthink">Character.Think</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Character.html#charactersayat">Character.SayAt</a>, <a href="Character.html#charactersaybackground">Character.SayBackground</a>, <a href="Character.html#characterthink">Character.Think</a>, <a href="MusicAndSound.html#voice-speech">Voice speech</a></p>
 <hr />
 </section>
 <section id="charactersayat" class="level3">
@@ -1656,7 +1658,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: 01/01/2020 03:33:18 PM</p>
+    <p>Build: 04/22/2020 06:20:04 PM</p>
   </footer>
 
   <script src="js/search.js"></script>
