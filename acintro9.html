@@ -87,7 +87,7 @@
 <li><strong>Mode 7 (Wait)</strong> - this cursor is shown whenever the player cannot interact with the game world (i.e. during a cutscene). It is automatically shown during blocking script functions.</li>
 </ul>
 <p>All the other cursors are 'normal' cursors, in that you can use them for whatever purposes you want.</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: If you want to create a LucasArts-style game where the mouse cursor disappears during cutscenes, the easiest way to do it is simply to import a blank image over the Wait mouse cursor.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you want to create a LucasArts-style game where the mouse cursor disappears during cutscenes, the easiest way to do it is simply to import a blank image over the Wait mouse cursor.)</p>
 <p>Selecting a cursor node from the Project Tree, you will see that the Cursors editor pane and Properties Grid is fairly self-explanatory.</p>
 <ul>
 <li><strong>Appearance</strong> -&gt; <strong>Image</strong> - Set a graphic for the cursor from the Sprite Manager.</li>
@@ -100,7 +100,7 @@
 <li><strong>Appearance</strong> -&gt; <strong>AnimateOnlyWhenMoving</strong> to do a QFG4-style cursor which only animates while the player is moving it around.</li>
 <li><strong>Design</strong> -&gt; <strong>StandardMode</strong> tells AGS that this is a normal user-selectable cursor. It is used when cycling through mouse cursors, to determine whether to use the cursor or skip over it. For example, if during the game you disable the current cursor, AGS will change to the next available Standard Mode.</li>
 </ul>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: You can right-click the <strong>"Mouse cursors"</strong> tree node and choose <strong>"New Cursor"</strong> to create additional cursors to the standard 10. If you do so however, any extra cursors you create will not have events created for them, so you will have to handle their clicks using the "Any Click" events.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: You can right-click the <strong>"Mouse cursors"</strong> tree node and choose <strong>"New Cursor"</strong> to create additional cursors to the standard 10. If you do so however, any extra cursors you create will not have events created for them, so you will have to handle their clicks using the "Any Click" events.)</p>
 </section>
 </section>
 <section id="fonts" class="level3">
@@ -131,8 +131,8 @@
 <li>Extract the font from a Sierra game, using the SCI Decoder program available on the internet (note however that this will have copyright implications for your game).</li>
 <li>You can get a Sierra SCI Font Pack on the <a href="https://www.adventuregamestudio.co.uk/site/ags/sci_fonts/">AGS website</a>.</li>
 </ul>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: If you go to your Windows Fonts folder to try and import a TTF font, you will not be able to do so (double-clicking them will open them up in the Windows Font Viewer). Unfortunately this is down to how the Fonts folder is configured to act within Windows Explorer - you must either type the filename in manually, or copy the font to another folder and import it from there.)</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: By default, font 0 is used as the normal text font, and font 1 is used as the speech font. To use any additional fonts, the script properties <code>Game.NormalFont</code> and <code>Game.SpeechFont</code> can be used to change the active fonts.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you go to your Windows Fonts folder to try and import a TTF font, you will not be able to do so (double-clicking them will open them up in the Windows Font Viewer). Unfortunately this is down to how the Fonts folder is configured to act within Windows Explorer - you must either type the filename in manually, or copy the font to another folder and import it from there.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: By default, font 0 is used as the normal text font, and font 1 is used as the speech font. To use any additional fonts, the script properties <code>Game.NormalFont</code> and <code>Game.SpeechFont</code> can be used to change the active fonts.)</p>
 </section>
 </section>
 <section id="conclusion" class="level3">
@@ -147,7 +147,7 @@
 
 
   <footer>
-    <p>Build: 04/22/2020 06:20:05 PM</p>
+    <p>Build: 07/13/2020 01:45:48 AM</p>
   </footer>
 
   <script src="js/search.js"></script>

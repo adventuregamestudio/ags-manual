@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (Event Handlers)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-event-handlers"><span>Global functions (Event Handlers)</span></a>
+<ul>
+<li><a href="#dialog_request"><span><code>dialog_request</code></span></a></li>
+<li><a href="#game_start"><span><code>game_start</code></span></a></li>
+<li><a href="#interface_click"><span><code>interface_click</code></span></a></li>
+<li><a href="#on_event"><span><code>on_event</code></span></a></li>
+<li><a href="#on_key_press"><span><code>on_key_press</code></span></a></li>
+<li><a href="#on_mouse_click"><span><code>on_mouse_click</code></span></a></li>
+<li><a href="#repeatedly_execute"><span><code>repeatedly_execute</code></span></a></li>
+<li><a href="#repeatedly_execute_always"><span><code>repeatedly_execute_always</code></span></a></li>
+<li><a href="#late_repeatedly_execute_always"><span><code>late_repeatedly_execute_always</code></span></a></li>
+<li><a href="#unhandled_event"><span><code>unhandled_event</code></span></a></li>
+<li><a href="#on_call"><span><code>on_call</code></span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-event-handlers" class="level2">
+<h2><a href="#global-functions-event-handlers">Global functions (Event Handlers)</a></h2>
+<p>In your global script file, some functions will have been automatically added when you created your game. These are global event handlers, and these functions are called when particular events occur. There are also some optional event handlers, which you can add if you would like specific additional events to be processed.</p>
+<section id="dialog_request" class="level3">
+<h3><a href="#dialog_request"><code>dialog_request</code></a></h3>
+<pre><code>dialog_request (int parameter)
+</code></pre>
+<p>Called when a dialog script line "run-script" is processed. PARAMETER is the value of the number following the "run-script" on that line of the dialog script.</p>
+<hr />
+</section>
+<section id="game_start" class="level3">
+<h3><a href="#game_start"><code>game_start</code></a></h3>
+<pre><code>game_start ()
+</code></pre>
+<p>Called at the start of the game, before the first room is loaded. You would typically use this to set up the initial positions of characters, and to modify initial visibility of GUIs.</p>
+<p><strong>Note:</strong> When this function is called it is too early to run animations or do anything else which relies on a room being loaded</p>
+<hr />
+</section>
+<section id="interface_click" class="level3">
+<h3><a href="#interface_click"><code>interface_click</code></a></h3>
+<p><em>(This function is now obsolete)</em></p>
+<pre><code>interface_click (int interface, int button)
+</code></pre>
+<p>Called when the player clicks on a button on a GUI which has its action set as "Run script". INTERFACE is the number of the GUI which they clicked on. BUTTON is the object number of the button within this GUI.</p>
+<hr />
+</section>
+<section id="on_event" class="level3">
+<h3><a href="#on_event"><code>on_event</code></a></h3>
+<pre><code>on_event (EventType event, int data)
+</code></pre>
+<p>Called whenever certain game events occur. The value of DATA depends on which event has occurred. The possible values of event are:</p>
+<pre><code>eEventEnterRoomBeforeFadein
+      called just before the room&#39;s &#39;Player Enters Room&#39; event occurs
+      DATA = new room number
+eEventLeaveRoom
+      called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs
+      DATA = room number they are leaving
+eEventGotScore
+      called whenever the player&#39;s score changes
+      DATA = number of points they&#39;ve received
+eEventGUIMouseDown
+      called when a mouse button is pressed down over a GUI
+      DATA = GUI number
+eEventGUIMouseUp
+      called when a mouse button is released over a GUI
+      DATA = GUI number
+eEventAddInventory
+      called when the player has just added an inventory item
+      DATA = inventory item number that was added
+eEventLoseInventory
+      called when the player has just lost an inventory item
+      DATA = inventory item number that was lost
+eEventRestoreGame
+      called after a saved game has been restored
+      DATA = save slot number
+</code></pre>
+<hr />
+</section>
+<section id="on_key_press" class="level3">
+<h3><a href="#on_key_press"><code>on_key_press</code></a></h3>
+<pre><code>on_key_press (eKeyCode keycode)
+</code></pre>
+<p>Called whenever a key is pressed on the keyboard. KEYCODE holds the ASCII value of the key. A list of these values is <a href="ASCIIcodes.html">available here</a>.</p>
+<p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> function for more details.</p>
+<hr />
+</section>
+<section id="on_mouse_click" class="level3">
+<h3><a href="#on_mouse_click"><code>on_mouse_click</code></a></h3>
+<pre><code>on_mouse_click (MouseButton button)
+</code></pre>
+<p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mouse.x</code> and <code>mouse.y</code> global variables contain the mouse's position.</p>
+<p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
+<p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
+<p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> function for more details.</p>
+<hr />
+</section>
+<section id="repeatedly_execute" class="level3">
+<h3><a href="#repeatedly_execute"><code>repeatedly_execute</code></a></h3>
+<pre><code>repeatedly_execute()
+</code></pre>
+<p>Called every game cycle (normally 40 times per second). Additional information is <a href="RepExec.html">available here</a>.</p>
+<hr />
+</section>
+<section id="repeatedly_execute_always" class="level3">
+<h3><a href="#repeatedly_execute_always"><code>repeatedly_execute_always</code></a></h3>
+<pre><code>repeatedly_execute_always()
+</code></pre>
+<p>Called every game cycle, even when a blocking routine (e.g speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>repeatedly_execute_always</code> is called <strong>before</strong> the game entities (characters, rooms, etc) get updated. Additional information is <a href="RepExec.html">available here</a>.</p>
+<hr />
+</section>
+<section id="late_repeatedly_execute_always" class="level3">
+<h3><a href="#late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a></h3>
+<pre><code>late_repeatedly_execute_always()
+</code></pre>
+<p>Called every game cycle, even when a blocking routine (e.g. speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>late_repeatedly_execute_always</code> is called <strong>after</strong> the game entities (characters, rooms, etc) have been updated, but before the game screen is redrawn.</p>
+<hr />
+</section>
+<section id="unhandled_event" class="level3">
+<h3><a href="#unhandled_event"><code>unhandled_event</code></a></h3>
+<pre><code>unhandled_event (int what, int type)
+</code></pre>
+<p>Called when an event occurs, but no corresponding event handler has been configured. This is typically used to display a default "I can't do that" type response in-order to avoid having to add unique messages for all in-game interactions. The values of WHAT and TYPE tell you what the player did. The possible values are listed below:</p>
+<table>
+<thead>
+<tr class="header">
+<th>WHAT</th>
+<th>TYPE</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>Look at hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>Interact with hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>Use inventory on hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>4</td>
+<td>Talk to hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>7</td>
+<td>Pick up hotspot</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>8</td>
+<td>Cursor Mode 8 on hotspot</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>9</td>
+<td>Cursor Mode 9 on hotspot</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0</td>
+<td>Look at object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>Interact with object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>Talk to object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>Use inventory on object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5</td>
+<td>Pick up object</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>6</td>
+<td>Cursor Mode 8 on object</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>7</td>
+<td>Cursor Mode 9 on object</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0</td>
+<td>Look at character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>1</td>
+<td>Interact with character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2</td>
+<td>Speak to character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>3</td>
+<td>Use inventory on character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>Pick up character</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>6</td>
+<td>Cursor Mode 8 on character</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>7</td>
+<td>Cursor Mode 9 on character</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>Look at nothing (i.e. no hotspot)</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>2</td>
+<td>Interact with nothing</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3</td>
+<td>Use inventory with nothing</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>4</td>
+<td>Talk to nothing</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>0</td>
+<td>Look at inventory</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1</td>
+<td>Interact with inventory (currently not possible)</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>2</td>
+<td>Speak to inventory</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>3</td>
+<td>Use an inventory item on another</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4</td>
+<td>Other click on inventory</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: the "Character stands on hotspot" event does not trigger this function, nor will it be triggered if there is an "Any click" event handler defined, nor if the player clicks on nothing (hotspot 0)</p>
+<hr />
+</section>
+<section id="on_call" class="level3">
+<h3><a href="#on_call"><code>on_call</code></a></h3>
+<pre><code>on_call (int value)
+</code></pre>
+<p>This callback can only be declared on Room Script.</p>
+<p>It's called after the function <code>CallRoomScript(value)</code> is executed, but not immediately. You can read an arbitrary integer value passed from <code>CallRoomScript</code>. Additional information is <a href="Globalfunctions_General.html#callroomscript">available here</a>.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 07/13/2020 01:45:42 AM</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

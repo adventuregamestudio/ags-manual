@@ -95,7 +95,7 @@
 <li><p><strong>Appearance</strong> -&gt; <strong>Description</strong>. This sets a player-friendly name for the hotspot, which is vital if you are going to use a LucasArts-style interface where the player can move the mouse over the screen to see what's where. If you're using a Sierra-style interface then this name will never be displayed to the player, but it's useful to fill it in anyway for your own benefit. By default this is "Hotspot 1", "Hotspot 2", etc.</p></li>
 <li><p><strong>Design</strong> -&gt; <strong>Name</strong> This is a name by which the hotspot can be referred to in the room script. This name cannot have any spaces or special characters -- just the letters <em>a</em> to <em>z</em>. The convention in AGS is to start the script names for hotspots with an <em>h</em>, for example <em>hDoor</em>. The name must be unique within the room.</p></li>
 </ul>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: In the Room Background Preview editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasize which hotspot you currently have selected to edit. You can change this behavior by toggling the "Show non-selected masks greyed out" button at the right-hand end of the AGS Editor toolbar.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: In the Room Background Preview editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasize which hotspot you currently have selected to edit. You can change this behavior by toggling the "Show non-selected masks greyed out" button at the right-hand end of the AGS Editor toolbar.)</p>
 </section>
 <section id="interactions" class="level4">
 <h4>Interactions</h4>
@@ -130,7 +130,7 @@ function hSignHome_Look()
 <p><img src="images/acintro3_04.png" alt="Setting a Walk To Point" /></p>
 <p>Select the "Properties" button on the Properties Grid. Hover your mouse over where you want the player to walk-to when interacting with the hotspot. Notice the "Mouse Position" of your cursor is given below the "Room Parts" drop-down. You'll now need to remember those coordinates and write them down in the Properties Grid -&gt; WalkToPoint. When completed, you should see a marker at those coordinates referencing the hotspot. In this case a <strong>"X 2"</strong> marker is shown, indicating that HotSpot "2" has a walk-to point at that "X".</p>
 <p>If you set a walk-to point, then whenever the player clicks interact or talk on the hotspot, the main character will first walk to the walk-to point before the relevant event is triggered. If you want, the character can also walk there when the LOOK mode is used - this option is configurable in the game General Settings pane.</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: To remove a walk-to point, simply set it to 0,0.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: To remove a walk-to point, simply set it to 0,0.)</p>
 </section>
 <section id="edges-revisited" class="level4">
 <h4>Edges revisited</h4>
@@ -153,7 +153,7 @@ function hSignHome_Look()
 
 
   <footer>
-    <p>Build: 04/22/2020 06:19:58 PM</p>
+    <p>Build: 07/13/2020 01:45:40 AM</p>
   </footer>
 
   <script src="js/search.js"></script>

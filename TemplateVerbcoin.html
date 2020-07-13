@@ -79,6 +79,7 @@
 <li><a href="#verbcoinopen"><span><code>VerbCoin.Open</code></span></a></li>
 <li><a href="#verbcoinclose"><span><code>VerbCoin.Close</code></span></a></li>
 <li><a href="#verbcoinisopen"><span><code>VerbCoin.IsOpen</code></span></a></li>
+<li><a href="#verbcoincleanup"><span><code>VerbCoin.CleanUp</code></span></a></li>
 <li><a href="#verbcoinbuttonautodisable"><span><code>VerbCoin.ButtonAutoDisable</code></span></a></li>
 </ul></li>
 </ul>
@@ -93,7 +94,7 @@
 <li>There is no built-in mechanism for using timed clicks, so no press and hold of a mouse button is required anywhere</li>
 <li>Inventory is still right-click to open, but now <a href="TemplateBASS.html">BASS</a> style controls are used within the inventory window</li>
 <li>No additional VerbCoin interfaces will be opened over the top of inventory items</li>
-<li>Rather than customize the action description per object/hotspot/character and allow actions to change based on context, the emphasis is on fixed actions with fallback to defaults (using <a href="TextScriptEvents.html">unhandled_event</a>)</li>
+<li>Rather than customize the action description per object/hotspot/character and allow actions to change based on context, the emphasis is on fixed actions with fallback to defaults (using <a href="Globalfunctions_Event.html">unhandled_event</a>)</li>
 </ul>
 <p>As a general guide, left click on things to open the Verbcoin, right click to open the inventory window.</p>
 <p>The script module functions are mostly to register the interface components used for displaying the VerbCoin and managing the inventory window.</p>
@@ -169,54 +170,70 @@ VerbCoin.ButtonAutoDisable = true;
 <pre><code>GUI* VerbCoin.InterfaceGui
 </code></pre>
 <p>Registers the <a href="GUI.html">GUI</a> used for the VerbCoin.</p>
+<hr />
 </section>
 <section id="verbcoininventorygui" class="level3">
 <h3><a href="#verbcoininventorygui"><code>VerbCoin.InventoryGui</code></a></h3>
 <pre><code>GUI* VerbCoin.InventoryGui
 </code></pre>
 <p>Registers the <a href="GUI.html">GUI</a> used for the inventory window.</p>
+<hr />
 </section>
 <section id="verbcoinactionlabel" class="level3">
 <h3><a href="#verbcoinactionlabel"><code>VerbCoin.ActionLabel</code></a></h3>
 <pre><code>Label* VerbCoin.ActionLabel
 </code></pre>
 <p>Registers the <a href="Label.html">Label</a> used to display text descriptions.</p>
+<hr />
 </section>
 <section id="verbcoinenable" class="level3">
 <h3><a href="#verbcoinenable"><code>VerbCoin.Enable</code></a></h3>
 <pre><code>VerbCoin.Enable();
 </code></pre>
 <p>Enables the VerbCoin interface.</p>
+<hr />
 </section>
 <section id="verbcoindisable" class="level3">
 <h3><a href="#verbcoindisable"><code>VerbCoin.Disable</code></a></h3>
 <pre><code>VerbCoin.Disable();
 </code></pre>
 <p>Disables the VerbCoin interface.</p>
+<hr />
 </section>
 <section id="verbcoinisenabled" class="level3">
 <h3><a href="#verbcoinisenabled"><code>VerbCoin.IsEnabled</code></a></h3>
 <pre><code>VerbCoin.IsEnabled();
 </code></pre>
 <p>Returns true if the VerbCoin interface is currently enabled, else returns false.</p>
+<hr />
 </section>
 <section id="verbcoinopen" class="level3">
 <h3><a href="#verbcoinopen"><code>VerbCoin.Open</code></a></h3>
 <pre><code>VerbCoin.Open();
 </code></pre>
 <p>Opens the VerbCoin interface (i.e. show its GUI).</p>
+<hr />
 </section>
 <section id="verbcoinclose" class="level3">
 <h3><a href="#verbcoinclose"><code>VerbCoin.Close</code></a></h3>
 <pre><code>VerbCoin.Close();
 </code></pre>
 <p>Closes the VerbCoin interface (i.e. hide its GUI)</p>
+<hr />
 </section>
 <section id="verbcoinisopen" class="level3">
 <h3><a href="#verbcoinisopen"><code>VerbCoin.IsOpen</code></a></h3>
 <pre><code>VerbCoin.IsOpen();
 </code></pre>
 <p>Returns true if the VerbCoin interface is currently open, else returns false.</p>
+<hr />
+</section>
+<section id="verbcoincleanup" class="level3">
+<h3><a href="#verbcoincleanup"><code>VerbCoin.CleanUp</code></a></h3>
+<pre><code>VerbCoin.CleanUp();
+</code></pre>
+<p>Deletes the dynamic sprite which is used in rendering the VerbCoin user interface. This would typically only be done immediately before exiting the game, in-order to suppress warnings about dynamic sprites still being allocated.</p>
+<hr />
 </section>
 <section id="verbcoinbuttonautodisable" class="level3">
 <h3><a href="#verbcoinbuttonautodisable"><code>VerbCoin.ButtonAutoDisable</code></a></h3>
@@ -229,7 +246,7 @@ VerbCoin.ButtonAutoDisable = true;
 
 
   <footer>
-    <p>Build: 04/22/2020 06:20:04 PM</p>
+    <p>Build: 07/13/2020 01:45:39 AM</p>
   </footer>
 
   <script src="js/search.js"></script>

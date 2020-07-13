@@ -89,7 +89,7 @@ while (counter &lt; 10) {
 }
 </code></pre>
 <p>This means that the body of the <code>while</code> statement is repeatedly processed, as long as the condition is true. So, in this case, since counter starts as 1, the loop will be run 9 times, since on the tenth time counter will be 10 and therefore it will stop.</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Be careful with while loops - it is possible to crash your game by using a badly written one.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Be careful with while loops - it is possible to crash your game by using a badly written one.)</p>
 <p>Consider this <strong>poorly</strong> written <em>while</em> loop:</p>
 <pre><code>int counter = 1;
 while (counter &gt; 0) {
@@ -120,7 +120,7 @@ while (counter &gt; 0) {
 }
 </code></pre>
 <p>This makes use of the <code>&amp;&amp;</code> operator.</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: Notice that you need an extra pair of outer parenthesis, to contain the whole expression. Each part of the expression goes inside parenthesis, as normal, and they are joined with the <code>&amp;&amp;</code> symbol.)</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Notice that you need an extra pair of outer parenthesis, to contain the whole expression. Each part of the expression goes inside parenthesis, as normal, and they are joined with the <code>&amp;&amp;</code> symbol.)</p>
 <p>You can extend this to as many checks as you like. For example, this will display the message if the <em>openedDoor</em> variable is currently set to true, and the variable <em>timer</em> is between 5 and 10.</p>
 <pre><code>if ((openedDoor == true) &amp;&amp; (timer &gt; 5) &amp;&amp; (timer &lt; 10))
 {
@@ -234,7 +234,7 @@ function hSignHome_Look()
 }
 </code></pre>
 <p>This function runs view 10, loop 2, as the character's animation, waits until it finishes and then reverts to the default view.</p>
-<p><img src="images/icon_info.gif" alt="Note" /> (<strong>NOTE</strong>: If you're wondering where to place your custom functions, just open up the <strong>"Global Script"</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and write them in there. The function must be outside all other functions.</p>
+<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you're wondering where to place your custom functions, just open up the <strong>"Global Script"</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and write them in there. The function must be outside all other functions.</p>
 <p>Now, elsewhere in your script, when you want the player to dance, just do:</p>
 <pre><code>do_dance();
 </code></pre>
@@ -265,7 +265,7 @@ function hSignHome_Look()
 
 
   <footer>
-    <p>Build: 04/22/2020 06:20:02 PM</p>
+    <p>Build: 07/13/2020 01:45:44 AM</p>
   </footer>
 
   <script src="js/search.js"></script>

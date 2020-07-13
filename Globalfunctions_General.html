@@ -164,7 +164,7 @@
 </code></pre>
 <p>The function doesn't get called immediately; instead, the engine will run it in due course, probably during the next game loop, so you can't use any values set by it immediately.</p>
 <p>Once the on_call function has executed (or not if there isn't one), the game.roomscript_finished variable will be set to 1, so you can check for that in your repeatedly_execute script if you need to do something afterwards.</p>
-<p>SeeAlso: <a href="TextParser.html">The text parser documentation</a></p>
+<p>SeeAlso: <a href="TextParser.html">The text parser documentation</a>, <a href="Globalfunctions_Event.html#on_call">on_call</a></p>
 <hr />
 </section>
 <section id="claimevent" class="level3">
@@ -188,7 +188,7 @@
 }
 </code></pre>
 <p>prevents the global script on_key_press from running if the player pressed the space bar.</p>
-<p>SeeAlso: <a href="TextScriptEvents.html">Script events</a></p>
+<p>SeeAlso: <a href="Globalfunctions_Event.html">Script events</a></p>
 <hr />
 </section>
 <section id="debug" class="level3">
@@ -1101,7 +1101,7 @@ cEgo.FaceLocation(1000,100);
 
 
   <footer>
-    <p>Build: 04/22/2020 06:20:08 PM</p>
+    <p>Build: 07/13/2020 01:45:49 AM</p>
   </footer>
 
   <script src="js/search.js"></script>
