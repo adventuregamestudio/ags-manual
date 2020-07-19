@@ -36,8 +36,8 @@ end
 function render_titles(titles)
   local buffer = {}
 
-  -- sort the keywords table and write it
-  for docname, title in pairs(titles) do
+  -- sort the titles table and write it
+  for docname, title in agsman.pairs_by_keys(titles, agsman.order_alpha) do
     table.insert(buffer, string.format('    "%s": "%s"', docname, title))
   end
 
