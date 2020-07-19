@@ -46,24 +46,25 @@ For the website target the output format is html5:
 
 #### Write metadata file
 
-For each converted page a matching YAML file is written using a custom Pandoc writer.
+For each converted page a matching Lua file is written using a custom Pandoc writer.
 
     --to "lua/write_metablock.lua" \
     --metadata docname=$* \
 
-These files are designed to concatenate, so the **docname** metadata variable is set based on the filename of the source file and used as a top level key. The information stored is:
+These files are designed to be evaluated using the Lua `dofile` function to return a Lua table which contains information about the page. The information stored is:
 
 * The page title
 * Headings found on the page and their anchor links
+* Links found on the page
 * A list of keywords and number of times each occurs
 
-An important feature of the custom writer is to identify what is Script API documentation and adjust the list of headings to ensure that an index built from this data knows the difference between a global function or property and one which is a member of an object.
+An important feature of the custom writer is to identify which parts of the page relate to script documentation so that later actions may treat them differently.
 
 ### CHM file only
 
 #### Write an hhk file
 
-The hhk file is used by the the CHM compiler to define the index. A custom Lua writer is used to write an HHK file from all YAML metadata files (excluding anything relating to index file). Since the input format is concatenated YAML the Pandoc input mode doesn't have to be GFM.
+The hhk file is used by the the CHM compiler to define the index. A custom Lua writer is used to write an HHK file from all Lua metadata files (excluding anything relating to index file).
 
     --from markdown \
     --to "lua/write_hhk.lua" \
@@ -71,11 +72,9 @@ The hhk file is used by the the CHM compiler to define the index. A custom Lua w
 The result should be a file of site map objects, like this one:
 
     <LI> <OBJECT type="text/sitemap">
-    <param name="Keyword" value="UnPauseGame">
-    <param name="Local" value="Game.html#unpausegame">
+    <param name="Keyword" value="AudioClip.FileType">
+    <param name="Local" value="AudioClip.html#audioclipfiletype">
     </OBJECT>
-
-Note that in this example the index entry is 'UnPauseGame' and not 'Game.UnPauseGame' since the script function `UnPauseGame` is global.
 
 #### Write an hhc file
 
@@ -107,7 +106,7 @@ The stp file is just a list of words that the CHM compiler should ignore when cr
 
 #### A-Z index page
 
-Since the website build wouldn't have a built in index, an index page is generated from all YAML metadata files (excluding anything relating to index file) using a custom Pandoc writer.
+Since the website build wouldn't have a built-in index, an index page is generated from all Lua metadata files (excluding anything relating to index file) using a custom Pandoc writer.
 
     --from markdown \
     --to "lua/write_genindex.lua" \
@@ -117,10 +116,10 @@ Note that the same HTML5 template that was used for the actual page conversion i
 
 #### Javascript search and JSON data
 
-For the current search system, the number of occurrences of each word are recorded in all of the YAML metadata files, so these are written as a JSON object into a template file which also contains the Javascript search functions.
+For the current search system, the number of occurrences of each word are recorded in all of the Lua metadata files, so these are written as a JSON object into a template file which also contains the Javascript search functions.
 
     --from markdown \
     --to "lua/write_metajs.lua" \
     --template "html/template.js" \
 
-Again, the YAML file for the index page is not processed so that the contents page remains acting like a site map and doesn't count towards search results. The resulting javascript file is included at the bottom of the HTML5 template, so every page of the website will have loaded the search functions as well as the JSON object that they require.
+Again, the Lua file for the index page is not processed so that the contents page remains acting like a site map and doesn't count towards search results. The resulting javascript file is included at the bottom of the HTML5 template, so every page of the website will have loaded the search functions as well as the JSON object that they require.
