@@ -31,11 +31,10 @@ function Doc(body, metadata, variables)
             indices[name] = pagelink
           else
             -- if this is not a script item and not the title, add as a subitem under the title
-            if sections[title] ~= nil then
-              table.insert(sections[title], { [name] = pagelink })
-            else
-              sections[title] = {{ [name] = pagelink }}
+            if sections[title] == nil then
+              sections[title] = {}
             end
+            sections[title][name] = pagelink
           end
         end
       end
@@ -51,10 +50,8 @@ function Doc(body, metadata, variables)
     if sections[name] ~= nil then
       table.insert(buffer, '<UL>')
 
-      for _, section in ipairs(sections[name]) do
-        for sectionname, sectionlink in pairs(section) do
-          table.insert(buffer, string.format(format, sectionname, sectionlink))
-        end
+      for sectionname, sectionlink in agsman.pairs_by_keys(sections[name], agsman.order_alpha) do
+        table.insert(buffer, string.format(format, sectionname, sectionlink))
       end
 
       table.insert(buffer, '</UL>')
