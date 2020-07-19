@@ -42,12 +42,8 @@ function Doc(body, metadata, variables)
     end
   end
 
-  order = function(a, b)
-    return b:lower() > a:lower()
-  end
-
   -- sort the table and write it
-  for name, pagelink in agsman.pairs_by_keys(indices, order) do
+  for name, pagelink in agsman.pairs_by_keys(indices, agsman.order_alpha) do
     -- add script object or page header
     table.insert(buffer, string.format(format, name, pagelink))
 

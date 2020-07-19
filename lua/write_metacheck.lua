@@ -94,13 +94,8 @@ function Doc(body, metadata, variables)
     end
   end
 
-  -- order ignoring case
-  order = function(a, b)
-    return b:lower() > a:lower()
-  end
-
   -- output unmatched links and where they appeared
-  for link, pages in agsman.pairs_by_keys(unmatched, order) do
+  for link, pages in agsman.pairs_by_keys(unmatched, agsman.order_alpha) do
     table.insert(buffer, string.format("Unresolved link target: %s", link))
 
     for n, desc in ipairs(pages) do
@@ -109,7 +104,7 @@ function Doc(body, metadata, variables)
   end
 
   -- output duplicate index entries and where they used
-  for name, dupinfo in agsman.pairs_by_keys(duplicates, order) do
+  for name, dupinfo in agsman.pairs_by_keys(duplicates, agsman.order_alpha) do
     if #dupinfo > 1 then
       duplicates_count = duplicates_count + 1
       table.insert(buffer, string.format("Duplicate index entry: %s", name))

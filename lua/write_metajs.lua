@@ -7,16 +7,8 @@ local agsman = require('agsman')
 function render_keywords(keywords)
   local buffer = {}
 
-  order_alpha = function(a, b)
-    return b:lower() > a:lower()
-  end
-
-  order_num = function(a, b)
-    return a > b
-  end
-
   -- sort the keywords table and write it
-  for word, map in agsman.pairs_by_keys(keywords, order_alpha) do
+  for word, map in agsman.pairs_by_keys(keywords, agsman.order_alpha) do
     local flipped = {}
 
     for name, count in pairs(map) do
@@ -29,7 +21,7 @@ function render_keywords(keywords)
 
     table.insert(outer, string.format('    "%s": {', word))
 
-    for count, name in agsman.pairs_by_keys(flipped, order_num) do
+    for count, name in agsman.pairs_by_keys(flipped, agsman.order) do
       table.insert(inner, string.format('      "%d": { "%s": %d }', n, name, count))
       n = n + 1
     end

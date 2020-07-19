@@ -34,6 +34,10 @@ function escape(s)
     end)
 end
 
+function order(a, b)
+  return a > b
+end
+
 function order_alpha(a, b)
   return b:lower() > a:lower()
 end
@@ -65,6 +69,7 @@ end
 return {
   pairs_by_keys = pairs_by_keys,
   escape = escape,
+  order = order,
   order_alpha = order_alpha,
   serialize = serialize
 }

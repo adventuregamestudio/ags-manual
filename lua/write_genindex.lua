@@ -35,12 +35,8 @@ function Doc(body, metadata, variables)
     end
   end
 
-  order = function(a, b)
-    return b:lower() > a:lower()
-  end
-
   -- sort the table and write it
-  for name, id in agsman.pairs_by_keys(indices, order) do
+  for name, id in agsman.pairs_by_keys(indices, agsman.order_alpha) do
     local letter = name:sub(1, 1):lower()
 
     if letter ~= section then
