@@ -3,7 +3,6 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local stringify = (require 'pandoc.utils').stringify
 
 function render_keywords(keywords)
   local buffer = {}
@@ -54,14 +53,18 @@ function render_titles(titles)
 end
 
 function Doc(body, metadata, variables)
-  local meta = PANDOC_DOCUMENT.meta
   local titles = {}
   local keywords = {}
+  local pagemeta = {}
 
-  for k, v in pairs(meta) do
+  for file in metadata._metafiles:gmatch('%S+') do
+    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
+  end
+
+  for k, v in pairs(pagemeta) do
     -- get all of the document titles
     if v.title then
-      titles[k] = stringify(v.title)
+      titles[k] = v.title
     end
 
     -- get all of the keywords
@@ -71,7 +74,7 @@ function Doc(body, metadata, variables)
           keywords[word] = {}
         end
 
-        keywords[word][k] = tonumber(stringify(count))
+        keywords[word][k] = count
       end
     end
   end

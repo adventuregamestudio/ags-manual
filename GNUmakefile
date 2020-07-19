@@ -6,7 +6,7 @@ FONTSOURCEDIR = $(wildcard vendor/open-sans-v*-latin)
 FONTFILES = $(notdir $(wildcard $(FONTSOURCEDIR)/open-sans-v*-latin*.*))
 BASENAMES = $(basename $(notdir $(wildcard source/*.md)))
 HTMLFILES = $(addsuffix .html, $(BASENAMES))
-METAFILES = $(addsuffix .yaml, $(BASENAMES))
+METAFILES = $(addsuffix .lua, $(BASENAMES))
 MAKEFILE = $(lastword $(MAKEFILE_LIST))
 
 ifneq ($(strip $(MAKECMDGOALS)),)
@@ -59,10 +59,10 @@ source:
 
 metacheck: $(addprefix meta/build/, $(METAFILES))
 	@echo Checking $(words $+) files for $@
-	@"$(PANDOC)" --from markdown \
+	@echo | "$(PANDOC)" \
 		--to "lua/write_metacheck.lua" \
 		--metadata=_approved_links:meta/approved_links.txt \
-		$+
+		--metadata=_metafiles="$+"
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	$(addprefix html/build/fonts/, $(FONTFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
@@ -103,7 +103,7 @@ htmlhelp/build/%.html: source/%.md | htmlhelp/build
 		--output $@ \
 		$<
 
-meta/build/%.yaml: source/%.md | meta/build
+meta/build/%.lua: source/%.md | meta/build
 	@echo Building $@
 	@"$(PANDOC)" --from gfm \
 		--to "lua/write_metablock.lua" \
@@ -112,12 +112,12 @@ meta/build/%.yaml: source/%.md | meta/build
 		--output $@ \
 		$<
 
-htmlhelp/build/ags-help.hhk: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | htmlhelp/build
+htmlhelp/build/ags-help.hhk: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | htmlhelp/build
 	@echo Building $@
-	@"$(PANDOC)" --from markdown \
+	@echo | "$(PANDOC)" \
 		--to "lua/write_hhk.lua" \
-		--output=$@ \
-		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
+		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
+		--output $@
 
 htmlhelp/build/ags-help.hhc: | htmlhelp/build
 	@echo Building $@
@@ -130,31 +130,31 @@ htmlhelp/build/ags-help.hhc: | htmlhelp/build
 
 htmlhelp/build/ags-help.hhp: | htmlhelp/build
 	@echo Building $@
-	@echo "" | "$(PANDOC)" \
+	@echo | "$(PANDOC)" \
 		--to "lua/write_hhp.lua" \
 		--metadata incfiles="$(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES))" \
 		--variable projectname=ags-help \
 		--template "htmlhelp/template.hhp" \
 		--output $@
 
-html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build 
+html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build 
 	@echo Building $@
-	@"$(PANDOC)" --from markdown \
+	@echo | "$(PANDOC)" \
 		--to "lua/write_genindex.lua" \
 		--template "html/template.html5" \
 		--variable=datetime:"$(DATETIME)" \
 		--css "css/normalize.css" \
 		--css "css/main.css" \
-		--output=$@ \
-		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
+		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
+		--output $@
 
-html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES))) | html/build/js
+html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build/js
 	@echo Building $@
-	@"$(PANDOC)" --from markdown \
+	@echo | "$(PANDOC)" \
 		--to "lua/write_metajs.lua" \
 		--template "html/template.js" \
+		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
 		--output=$@ \
-		$(addprefix meta/build/, $(filter-out index.yaml,$(METAFILES)))
 
 # copy source to destination
 define CP_template

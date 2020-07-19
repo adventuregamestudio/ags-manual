@@ -3,7 +3,6 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local stringify = (require 'pandoc.utils').stringify
 
 function Doc(body, metadata, variables)
   local buffer = {}
@@ -12,16 +11,20 @@ function Doc(body, metadata, variables)
 <param name="Local" value="%s">
 </OBJECT>]]
   local indices = {}
-  local meta = PANDOC_DOCUMENT.meta
   local sections = {}
+  local pagemeta = {}
+
+  for file in metadata._metafiles:gmatch('%S+') do
+    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
+  end
 
   -- get all of the heading info into a table
-  for k, v in pairs(meta) do
-    local title = stringify(v.title)
+  for k, v in pairs(pagemeta) do
+    local title = v.title
     if v.index then
       for itemtype, item in pairs(v.index) do
         for name, id in pairs(item) do
-          local pagelink = k .. '.html#' .. stringify(id)
+          local pagelink = k .. '.html#' .. id
 
           if itemtype == 'script' or name == title then
             -- if this is a script item or a page title then add the link at the root level
