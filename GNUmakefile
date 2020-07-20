@@ -12,7 +12,7 @@ MAKEFILE = $(lastword $(MAKEFILE_LIST))
 ifneq ($(strip $(MAKECMDGOALS)),)
 ifeq ($(strip $(CHECKOUTDIR)),)
 ifneq ($(filter-out source,$(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(error target 'source' requires CHECKOUTDIR to be set))
+$(error target 'source' requires CHECKOUTDIR to be set)
 endif
 endif
 ifeq ($(strip $(BASENAMES)),)
