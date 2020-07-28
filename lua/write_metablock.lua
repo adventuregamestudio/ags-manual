@@ -1,46 +1,48 @@
 -- invoke as Pandoc writer
--- write YAML metadata file for later processing
+-- write lua metadata file for later processing
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
+local serialize = agsman.serialize
 local stringify = (require 'pandoc.utils').stringify
 
-local keywords = {
-  ['a'] = false,
-  ['and'] = false,
-  ['are'] = false,
-  ['as'] = false,
-  ['at'] = false,
-  ['be'] = false,
-  ['but'] = false,
-  ['by'] = false,
-  ['for'] = false,
-  ['if'] = false,
-  ['in'] = false,
-  ['into'] = false,
-  ['is'] = false,
-  ['it'] = false,
-  ['near'] = false,
-  ['no'] = false,
-  ['not'] = false,
-  ['of'] = false,
-  ['on'] = false,
-  ['or'] = false,
-  ['such'] = false,
-  ['that'] = false,
-  ['the'] = false,
-  ['their'] = false,
-  ['then'] = false,
-  ['there'] = false,
-  ['these'] = false,
-  ['they'] = false,
-  ['this'] = false,
-  ['to'] = false,
-  ['was'] = false,
-  ['will'] = false,
-  ['with'] = false
+local skipwords = {
+  ['a'] = true,
+  ['and'] = true,
+  ['are'] = true,
+  ['as'] = true,
+  ['at'] = true,
+  ['be'] = true,
+  ['but'] = true,
+  ['by'] = true,
+  ['for'] = true,
+  ['if'] = true,
+  ['in'] = true,
+  ['into'] = true,
+  ['is'] = true,
+  ['it'] = true,
+  ['near'] = true,
+  ['no'] = true,
+  ['not'] = true,
+  ['of'] = true,
+  ['on'] = true,
+  ['or'] = true,
+  ['such'] = true,
+  ['that'] = true,
+  ['the'] = true,
+  ['their'] = true,
+  ['then'] = true,
+  ['there'] = true,
+  ['these'] = true,
+  ['they'] = true,
+  ['this'] = true,
+  ['to'] = true,
+  ['was'] = true,
+  ['will'] = true,
+  ['with'] = true
 }
 
+local keywords = {}
 local links = {}
 
 function Link(s, src, title)
@@ -90,7 +92,7 @@ function add_word(word)
   -- split on non-word characters
   for w in word:gmatch('[' .. chars .. ']+') do
     if w:len() > 1 and not w:match('%d') then
-      if keywords[w:lower()] ~= false then
+      if skipwords[w:lower()] == nil then
         keywords[w] = (keywords[w] or 0) + 1
       end
     end
@@ -98,23 +100,17 @@ function add_word(word)
 end
 
 function Doc(body, metadata, variables)
-  local blocks = PANDOC_DOCUMENT.blocks
-  local meta = PANDOC_DOCUMENT.meta
-  local buffer = {}
-  local index = {
-    editorial = {},
-    script = {}
+  local pagemeta = {
+    links = links,
+    keywords = keywords,
+    title = (metadata.title or metadata.docname),
+    index = {
+      editorial = {},
+      script = {}
+    }
   }
 
-  -- order ignoring case
-  order = function(a, b)
-    return b:lower() > a:lower()
-  end
-
-  table.insert(buffer, '  title: >')
-  table.insert(buffer, '    ' .. (meta.title or meta.docname))
-
-  for i, block in ipairs(blocks) do
+  for i, block in ipairs(PANDOC_DOCUMENT.blocks) do
     -- check each header for inline code
     if block.t == "Header" then
       local header = nil
@@ -138,44 +134,21 @@ function Doc(body, metadata, variables)
       end
 
       assert(itemtype == 'editorial' or itemtype == 'script')
+      assert(header:len() > 0)
 
       -- emit warnings for heading collisions within this page
       -- (since storing data with keys will mask later checks)
-      for k, v in pairs(index) do
+      for k, v in pairs(pagemeta['index']) do
         if v[header] ~= nil then
           io.stderr:write(string.format("ERROR: duplicate header %s\n", header))
         end
       end
 
-      index[itemtype][header] = block.attr.identifier
+      pagemeta["index"][itemtype][header] = block.attr.identifier
     end
   end
 
-  table.insert(buffer, '\n  index:')
-
-  for itemtype, item in agsman.pairs_by_keys(index, order) do
-    table.insert(buffer, string.format("    %s:", itemtype))
-
-    for name, id in agsman.pairs_by_keys(item, order) do
-      table.insert(buffer, string.format("      %s: %s", name, id))
-    end
-  end
-
-  table.insert(buffer, '\n  links:')
-
-  for link, count in agsman.pairs_by_keys(links, order) do
-    table.insert(buffer, string.format("    %s: %d", link, count))
-  end
-
-  table.insert(buffer, '\n  keywords:')
-
-  for word, count in agsman.pairs_by_keys(keywords, order) do
-    if count ~= false then
-      table.insert(buffer, string.format("    %s: %d", word, count))
-    end
-  end
-
-  return '---\n' .. meta.docname .. ':\n' .. table.concat(buffer, '\n') .. '\n---\n'
+  return string.format('-- %s\n\nreturn %s', metadata.docname, serialize(pagemeta))
 end
 
 local meta = {}

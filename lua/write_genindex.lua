@@ -3,24 +3,27 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local stringify = (require 'pandoc.utils').stringify
 
 function Doc(body, metadata, variables)
   local buffer = {}
   local header_format = '<h3 id="%s">%s</h3>'
   local indices = {}
   local link_format = '<a href="%s">%s</a>'
-  local meta = PANDOC_DOCUMENT.meta
   local menu = {}
   local section
+  local pagemeta = {}
+
+  for file in metadata._metafiles:gmatch('%S+') do
+    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
+  end
 
   -- get all of the heading info into a table
-  for k, v in pairs(meta) do
-    local title = stringify(v.title)
+  for k, v in pairs(pagemeta) do
+    local title = v.title
     if v.index then
       for itemtype, item in pairs(v.index) do
         for name, id in pairs(item) do
-          local pagelink = k .. '.html#' .. stringify(id)
+          local pagelink = k .. '.html#' .. id
 
           if itemtype == 'script' or name == title then
             indices[name] = pagelink
@@ -32,12 +35,8 @@ function Doc(body, metadata, variables)
     end
   end
 
-  order = function(a, b)
-    return b:lower() > a:lower()
-  end
-
   -- sort the table and write it
-  for name, id in agsman.pairs_by_keys(indices, order) do
+  for name, id in agsman.pairs_by_keys(indices, agsman.order_alpha) do
     local letter = name:sub(1, 1):lower()
 
     if letter ~= section then

@@ -24,7 +24,7 @@ The help files are generated using [Pandoc](https://pandoc.org/) and [GNU Make](
 
 ### Getting Pandoc
 
-The build process relies on Lua filter support, which was added in Pandoc version 2, and was further improved in later versions. It is recommended to use the [latest version](https://github.com/jgm/pandoc/releases/latest) of Pandoc regardless of platform.
+The build process relies on Lua support and additional features which were added in Pandoc version 2.4. It is recommended to use the [latest version](https://github.com/jgm/pandoc/releases/latest) of Pandoc regardless of platform.
 
 For Windows, Pandoc is also available for installation using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
 

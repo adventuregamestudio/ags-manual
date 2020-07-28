@@ -3,21 +3,12 @@
 
 package.path = package.path .. ';lua/agsman.lua'
 local agsman = require('agsman')
-local stringify = (require 'pandoc.utils').stringify
 
 function render_keywords(keywords)
   local buffer = {}
 
-  order_alpha = function(a, b)
-    return b:lower() > a:lower()
-  end
-
-  order_num = function(a, b)
-    return a > b
-  end
-
   -- sort the keywords table and write it
-  for word, map in agsman.pairs_by_keys(keywords, order_alpha) do
+  for word, map in agsman.pairs_by_keys(keywords, agsman.order_alpha) do
     local flipped = {}
 
     for name, count in pairs(map) do
@@ -30,7 +21,7 @@ function render_keywords(keywords)
 
     table.insert(outer, string.format('    "%s": {', word))
 
-    for count, name in agsman.pairs_by_keys(flipped, order_num) do
+    for count, name in agsman.pairs_by_keys(flipped, agsman.order) do
       table.insert(inner, string.format('      "%d": { "%s": %d }', n, name, count))
       n = n + 1
     end
@@ -45,8 +36,8 @@ end
 function render_titles(titles)
   local buffer = {}
 
-  -- sort the keywords table and write it
-  for docname, title in pairs(titles) do
+  -- sort the titles table and write it
+  for docname, title in agsman.pairs_by_keys(titles, agsman.order_alpha) do
     table.insert(buffer, string.format('    "%s": "%s"', docname, title))
   end
 
@@ -54,14 +45,18 @@ function render_titles(titles)
 end
 
 function Doc(body, metadata, variables)
-  local meta = PANDOC_DOCUMENT.meta
   local titles = {}
   local keywords = {}
+  local pagemeta = {}
 
-  for k, v in pairs(meta) do
+  for file in metadata._metafiles:gmatch('%S+') do
+    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
+  end
+
+  for k, v in pairs(pagemeta) do
     -- get all of the document titles
     if v.title then
-      titles[k] = stringify(v.title)
+      titles[k] = v.title
     end
 
     -- get all of the keywords
@@ -71,7 +66,7 @@ function Doc(body, metadata, variables)
           keywords[word] = {}
         end
 
-        keywords[word][k] = tonumber(stringify(count))
+        keywords[word][k] = count
       end
     end
   end
