@@ -10,9 +10,9 @@ function Doc(body, metadata, variables)
 <param name="Keyword" value="%s">
 <param name="Local" value="%s">
 </OBJECT>]]
-  local indices = {}
-  local sections = {}
   local pagemeta = {}
+  local toplevel = {}
+  local sections = {}
 
   for file in metadata._metafiles:gmatch('%S+') do
     pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
@@ -20,29 +20,31 @@ function Doc(body, metadata, variables)
 
   -- get all of the heading info into a table
   for k, v in pairs(pagemeta) do
-    local title = v.title
     if v.index then
-      for itemtype, item in pairs(v.index) do
-        for name, id in pairs(item) do
-          local pagelink = k .. '.html#' .. id
+      local title = v.title
 
-          if itemtype == 'script' or name == title then
-            -- if this is a script item or a page title then add the link at the root level
-            indices[name] = pagelink
-          else
-            -- if this is not a script item and not the title, add as a subitem under the title
-            if sections[title] == nil then
-              sections[title] = {}
-            end
-            sections[title][name] = pagelink
+      for _, item in ipairs(v.index) do
+        local pagelink = k .. '.html#' .. item["id"]
+        local name = item["header"]
+
+        if item["itemtype"] == 'script' or name == title then
+          -- if this is a script item or a page title then add the link at the root level
+          toplevel[name] = pagelink
+        else
+          -- if this is not a script item and not the title, add as a subitem under the title
+          if sections[title] == nil then
+            sections[title] = {}
           end
+
+          table.insert(sections[title], { [name] = pagelink })
         end
+
       end
     end
   end
 
   -- sort the table and write it
-  for name, pagelink in agsman.pairs_by_keys(indices, agsman.order_alpha) do
+  for name, pagelink in agsman.pairs_by_keys(toplevel, agsman.order_alpha) do
     -- add script object or page header
     table.insert(buffer, string.format(format, name, pagelink))
 
@@ -50,8 +52,10 @@ function Doc(body, metadata, variables)
     if sections[name] ~= nil then
       table.insert(buffer, '<UL>')
 
-      for sectionname, sectionlink in agsman.pairs_by_keys(sections[name], agsman.order_alpha) do
-        table.insert(buffer, string.format(format, sectionname, sectionlink))
+      for _, section in ipairs(sections[name]) do
+        for sectionname, sectionlink in pairs(section) do
+          table.insert(buffer, string.format(format, sectionname, sectionlink))
+        end
       end
 
       table.insert(buffer, '</UL>')

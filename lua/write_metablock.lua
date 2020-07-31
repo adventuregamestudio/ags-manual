@@ -104,10 +104,7 @@ function Doc(body, metadata, variables)
     links = links,
     keywords = keywords,
     title = (metadata.title or metadata.docname),
-    index = {
-      editorial = {},
-      script = {}
-    }
+    index = {}
   }
 
   for i, block in ipairs(PANDOC_DOCUMENT.blocks) do
@@ -133,18 +130,11 @@ function Doc(body, metadata, variables)
         header = stringify(block)
       end
 
-      assert(itemtype == 'editorial' or itemtype == 'script')
       assert(header:len() > 0)
-
-      -- emit warnings for heading collisions within this page
-      -- (since storing data with keys will mask later checks)
-      for k, v in pairs(pagemeta['index']) do
-        if v[header] ~= nil then
-          io.stderr:write(string.format("ERROR: duplicate header %s\n", header))
-        end
-      end
-
-      pagemeta["index"][itemtype][header] = block.attr.identifier
+      table.insert(pagemeta["index"],
+                   { header = header,
+                     itemtype = itemtype,
+                     id = block.attr.identifier })
     end
   end
 

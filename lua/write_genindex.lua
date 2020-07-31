@@ -19,17 +19,17 @@ function Doc(body, metadata, variables)
 
   -- get all of the heading info into a table
   for k, v in pairs(pagemeta) do
-    local title = v.title
     if v.index then
-      for itemtype, item in pairs(v.index) do
-        for name, id in pairs(item) do
-          local pagelink = k .. '.html#' .. id
+      local title = v.title
 
-          if itemtype == 'script' or name == title then
-            indices[name] = pagelink
-          else
-            indices[string.format('%s (%s)', name, title)] = pagelink
-          end
+      for _, item in ipairs(v.index) do
+        local pagelink = k .. '.html#' .. item["id"]
+        local name = item["header"]
+
+        if item["itemtype"] == 'script' or name == title then
+          indices[name] = pagelink
+        else
+          indices[string.format('%s (%s)', name, title)] = pagelink
         end
       end
     end
