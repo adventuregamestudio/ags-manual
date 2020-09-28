@@ -39,7 +39,14 @@ function order(a, b)
 end
 
 function order_alpha(a, b)
-  return b:lower() > a:lower()
+  local A = a:upper()
+  local B = b:upper()
+
+  if A == B then
+    return b > a
+  end
+
+  return B > A
 end
 
 function serialize(o, d)
