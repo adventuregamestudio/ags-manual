@@ -142,6 +142,7 @@ String myValue = myDictionary.Get(&quot;a-key&quot;);
 <pre><code>String[] Dictionary.GetKeysAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with keys in the same order as they are stored in the Dictionary.</p>
+<p>Returns null if this Dictionary is empty.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
@@ -159,6 +160,7 @@ for (int i = 0; i &lt; myDictionary.ItemCount; i++)
 <pre><code>String[] Dictionary.GetValuesAsArray()
 </code></pre>
 <p>Creates a dynamic array filled with values in the same order as they are stored in the Dictionary.</p>
+<p>Returns null if this Dictionary is empty.</p>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 myDictionary.Set(&quot;my-key1&quot;,&quot;my-value1&quot;);
@@ -214,7 +216,7 @@ for (int i = 0; i &lt; myDictionary.ItemCount; i++)
 
 
   <footer>
-    <p>Build: 08/03/2020 10:31:37 PM</p>
+    <p>Build: 09/29/2020 07:55:56 PM</p>
   </footer>
 
   <script src="js/search.js"></script>
