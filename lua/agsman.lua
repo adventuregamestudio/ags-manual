@@ -16,22 +16,13 @@ function pairs_by_keys(t, f)
 end
 
 function escape(s)
-  return s:gsub("[<>&\"']",
-    function(x)
-      if x == '<' then
-        return '&lt;'
-      elseif x == '>' then
-        return '&gt;'
-      elseif x == '&' then
-        return '&amp;'
-      elseif x == '"' then
-        return '&quot;'
-      elseif x == "'" then
-        return '&#39;'
-      else
-        return x
-      end
-    end)
+  return (s:gsub("[<>&\"']", {
+    ['<'] = '&lt;',
+    ['>'] = '&gt;',
+    ['&'] = '&amp;',
+    ['"'] = '&quot;',
+    ["'"] = '&#39;'
+  }))
 end
 
 function order(a, b)
