@@ -744,6 +744,7 @@ function doStuff(DoStuffOption param) {
 </code></pre>
 <p>and then the calling code looks like:<br> <code>doStuff(BakeCake);</code><br> thus making it perfectly clear what the command will do.</p>
 <p>Normally, you would put the enum definition into the script header.</p>
+<p>If you don't assign a value for the first enum item, it is assigned the value 1. Other enum items have the value of the enum before plus 1. Ex: <code>enum ABC { eA,eB, eC};</code> get's <code>eA</code>=1 <code>eB</code>=<code>eA+1</code>=2 <code>eC</code>=<code>eB+1</code>=3, by default.</p>
 <p>In summary, enums are not an essential part of scripting and you can get away perfectly well without using them, but in some specific situations they're very handy.</p>
 <hr />
 </section>
@@ -866,7 +867,7 @@ readonly int months = 12;
 
 
   <footer>
-    <p>Build: 10/04/2020 12:32:20 PM</p>
+    <p>Build: 10/06/2020 11:40:35 AM</p>
   </footer>
 
   <script src="js/search.js"></script>

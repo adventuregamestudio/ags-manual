@@ -150,7 +150,7 @@ lstChoices.AddItem(input);
 <pre><code>int index = lstSaveGames.SelectedIndex;
 RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 </code></pre>
-<p><strong>NOTE:</strong> The save game list can only hold 50 save games. If ListBox.ItemCount returns 50 and you are doing a Save dialog box, you may want to make the user replace an existing file rather than saving a new one.</p>
+<p><strong>NOTE:</strong> The save game list can only hold 50 save games. If ListBox.ItemCount returns 50 and you are doing a Save dialog box, you may want to make the user replace an existing file rather than saving a new one. Additionally, it can only list Save Game Slots from 0 to 99, this allows using slots of higher number for other purposes.</p>
 <p>Example:</p>
 <pre><code>lstSaveGames.FillSaveGameList();
 </code></pre>
@@ -429,7 +429,7 @@ RestoreGameSlot(lstSaveGames.SaveGameSlots[index]);
 
 
   <footer>
-    <p>Build: 10/04/2020 12:32:21 PM</p>
+    <p>Build: 10/06/2020 11:40:36 AM</p>
   </footer>
 
   <script src="js/search.js"></script>
