@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dialog Script</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#dialog-script"><span>Dialog Script</span></a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="dialog-script" class="level2">
+<h2><a href="#dialog-script">Dialog Script</a></h2>
+<p>Dialog scripts are scripts that run when a dialog starts or one of the options is executed, for example, when player selects it in the list of available options. Dialog scripts are streamlined for conversations and use an extended variant of script syntax that simplifies several common commands.</p>
+<p>With a newly created dialog topic, all you will see in the script is a number of lines starting with an '@' symbol. In the dialog script, these signify the starting points of the script for each option. For example, when the player clicks on option 3, the script will begin on the line following "@3". There is also a special starting point, called "@S". This is run when the conversation starts, before any choices are given to the player. This could be used to display a "Hello" message or something similar.</p>
+<p>To display some speech, you begin the line with the character's SCRIPT NAME (not full name), followed by a colon, then a space, and then what you want them to say. For example, if my main character's script name is EGO, I would write</p>
+<pre><code>ego: &quot;I am very happy today because it&#39;s my birthday.&quot;
+</code></pre>
+<p>The character name is used by the system to choose the correct color for the text.</p>
+<p><strong>IMPORTANT:</strong> Do <strong>NOT</strong> include the "c" at the start of the character's script name here.</p>
+<p>You can also use the special character name "narrator", which displays the text in the pop-up message box instead of as speech text; and the alias "player", which will say it as the current player character - useful if you don't know which character the player will be controlling when they speak the conversation.</p>
+<p>If you just use <code>...</code> as the text for a character to say, the game will pause briefly as if they are stopping to think, and nothing will be displayed.</p>
+<p>To signal the end of the script for this option, place a "return" command on the last line of it. For example,</p>
+<pre><code>@1
+ego: &quot;Hello. How are you?&quot;
+narrator: The man looks you in the eye.
+otherman: ...
+otherman: &quot;I&#39;m fine.&quot;
+return
+</code></pre>
+<p>"return" tells AGS to go back and display the choices again to the player. If you use "stop" instead of return, then the conversation is ended. Alternatively, you can use "goto-dialog" or "goto-previous", which abort the current dialog script and transfer control to the new dialog.</p>
+<p><strong>NOTE:</strong> Do <strong>NOT</strong> indent these lines with spaces or tabs. Indented lines signify that AGS should interpret the line as a normal scripting command rather than a dialog scripting command (see below).</p>
+<p>The dialog commands available are:</p>
+<ul>
+<li><strong>goto-dialog X</strong><br> Switches the current topic to Topic X, and displays the current list of choices for that topic.</li>
+<li><strong>goto-previous</strong><br> Returns to the previous topic that this one was called from. If the dialog started on this topic, then the dialog will be stopped.</li>
+<li><strong>option-off X</strong><br> Turns option X for the current topic off, meaning it won't be displayed in the list of choices next time.</li>
+<li><strong>option-off-forever X</strong><br> Turns option X off permanently. It will never again be displayed, not even if an "option-on" command is used.</li>
+<li><strong>option-on X</strong><br> Turns option X for the current topic on, including it in the list of choices to the player next time they are displayed.</li>
+<li><strong>return</strong><br> Stops the script and returns to the list of choices.</li>
+<li><strong>stop</strong><br> Stops the conversation and returns the player to the game.</li>
+</ul>
+<p><strong>Substituting dialog speech with custom functions</strong></p>
+<p>By default all of the character dialog lines are executed using the standard function Character.Say. Since AGS 3.5.0 it is possible to define a custom script function as a substitute instead. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarly, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
+<p>These custom functions should be declared as imports in one of your script headers.<br> "Custom Say" function must have one of the following two declaration forms:<br> <code>void MySay(Character* c, const string text); // use ex: MySay(player, "Hello");</code><br> or<br> <code>void MySay(this Character*, const string text); // use ex: player.MySay("Hello");</code></p>
+<p>"Custom Narrate" function must have following declaration form:<br> <code>void MyNarrate(const string text);</code></p>
+<p><strong>IMPORTANT:</strong> There's currently a limitation that, if Say checkbox for dialog options is checked, it will use regular <code>Character.Say</code> despite defining a custom Say function.<br> If you still want to have player pronounce dialog option text, one of the solutions is to add a call to your custom speech function as the first line in every dialog option script:</p>
+<pre><code>@X
+  player.MySay(this.GetOptionText( X )); \\ where X is the actual option index
+</code></pre>
+<p>If you wonder how such function will work in dialogs, see the following topic below.</p>
+<p><strong>Using scripting commands in dialogs</strong></p>
+<p>Often the provided dialog scripting commands won't be enough for what you want to do in the dialog. You might want to give the player an inventory item or add some points to their score, for example.</p>
+<p>AGS now lets you put normal scripting commands in your dialog script, by indenting the line with spaces or tabs. For example:</p>
+<pre><code>@1
+ego: &quot;Hello. How are you?&quot;
+narrator: The man looks you in the eye.
+  player.AddInventory(iKey);
+  Display(&quot;This line is displayed from a normal script command&quot;);
+otherman: &quot;I&#39;m fine.&quot;
+return
+</code></pre>
+<p>Here, you can see dialog script commands being used, but also then a couple of normal scripting commands have been inserted, on indented lines.</p>
+<p>When working with dialog scripts, the <strong>this</strong> keyword allows you to access the currently running dialog.</p>
+<p>If you want to conditionally break out of the dialog script, the special tokens <code>RUN_DIALOG_GOTO_PREVIOUS</code>, <code>RUN_DIALOG_RETURN</code> and <code>RUN_DIALOG_STOP_DIALOG</code> are available which you can <code>return</code> from inside a script block. For example:</p>
+<pre><code>@1
+ego: &quot;Hello. How are you?&quot;
+narrator: The man looks you in the eye.
+  if (player.HasInventory(iKey)) {
+    player.Say(&quot;Actually, I&#39;d better go.&quot;);
+    return RUN_DIALOG_STOP_DIALOG;
+  }
+otherman: &quot;Here&#39;s a key for you.&quot;
+return
+</code></pre>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 12/03/2020 12:11:04 PM</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

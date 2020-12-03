@@ -68,10 +68,19 @@
   <main>
 <section id="frequently-asked-questions" class="level2">
 <h2><a href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
-<p>This section of the manual is very rarely updated. Please consult the AGS Forums on the website -- in particular, the Beginners Technical Forum has an excellent Beginners FAQ (the "BFAQ") which is much more extensive and is updated regularly with all sorts of Q&amp;A's.</p>
+<p>This section of the manual is very rarely updated. Please visit the <a href="https://www.adventuregamestudio.co.uk/forums/">AGS Forums</a> or <a href="https://discord.gg/BSvN5ZF">AGS Discord server</a> if you need more answers on beginner questions.</p>
 <hr />
-<p><strong>Q. What's the deal with the license?</strong></p>
-<p>A. The software is provided under <a href="https://opensource.org/licenses/artistic-license-2.0.php">Artistic License 2.0</a>.</p>
+<p><strong>Q. Can I make commercial games with AGS?</strong></p>
+<p>A. Yes, absolutely. AGS is completely free to use for creating any kind of games, whether commercial or not.</p>
+<hr />
+<p><strong>Q. Can I make non-adventure games with AGS (platformer, strategy, card game, roguelike, ...)?</strong></p>
+<p>A. Yes, and such games were made with AGS in the past. But you should know that AGS was created as a point'n'click adventure Engine and Editor, and the way it works prioritizes this genre. In order to make something different you will have to apply considerably bigger effort.</p>
+<hr />
+<p><strong>Q. What resolution should I make my game in?</strong></p>
+<p>A. AGS games are not different from any other games. Think on what resolution would match your chosen game design and graphic style. Experiment, make few test games to find out what's best fit.<br> It's important to know the difference between "native resolution" and "window resolution". Your game itself may be as small as 320 x 200, but AGS allows players to stretch the game window to any size, scaling your game up (or down, although that usually is not a good thing), without any extra effort from you. So if you want to use "old-school" low-res graphics you don't have to worry about how to display your game on larger monitors.</p>
+<hr />
+<p><strong>Q. I just started making a new game, but Editor throws an error at me: "The game is set to start in room -1 which does not exist". What does that mean?</strong></p>
+<p>A. Each game has a main character, aka "player character", and starts in the room this character is assigned to. Open your main character for editing and make sure its "StartingRoom" property is valid (ofcourse we assume that you've created at least one room already).</p>
 <hr />
 <p><strong>Q. On my screen, I can't move the main character. Wherever I click to move him, he just stands there.</strong></p>
 <p>A. If the main character isn't on a walkable area, he will not be able to move. Load the room in the editor, and check that the location where the character starts is on a walkable area.</p>
@@ -82,18 +91,27 @@
 <p><strong>Q. I click on a GUI button, but nothing happens. It doesn't seem to register clicks!</strong></p>
 <p>A. There are some different immediate suspects here.</p>
 <ul>
-<li>Is the button set to Run Script? Go to the GUI Editor, select the button, and make sure that in its properties window, "Left Click" is set to "Run Script".</li>
-<li>Is the GUI clickable? While in the GUI Editor, make sure that the "Clickable" checkbox at the top is checked for the GUI that the button is on.</li>
+<li>Is the button set to Run Script? Go to the GUI Editor, select the button, and make sure that in its properties window, "Click Action" is set to "Run Script".</li>
+<li>Is your script wired to the button's event? In the button properties, in events, the "OnClick" field should be filled with the function to execute.</li>
+<li>Is the GUI <em>and</em> the button clickable? Make sure that the "Clickable" property is set to "True" for both of them.</li>
 <li>Alternatively, if you are creating many GUIs, check if you have created a transparent, clickable GUI that is on top of the GUI you are clicking.</li>
-<li>Is your script in the right function? You need to put your script inside the <code>interfaceName_click</code> function in the global script, and the event must be wired on the GUI Editor.</li>
 </ul>
 <hr />
 <p><strong>Q. When I enter a certain room, I just get a black screen.</strong></p>
-<p>A. Make sure that you haven't used a Display Message command in the "Enters room before fade-in" event for that room. Remember that this event happens BEFORE the screen fades in.</p>
-<p>To make sure, when you get the black screen, try pressing enter, or clicking the left mouse button. If nothing happens then something more serious may have happened. If this is the case, press Alt+X, which should exit the program and allow you to trace which line of script it has stopped on.</p>
+<p>A. Make sure that you haven't used a blocking script command such as "Display", "Character.Say", "Character.Walk" or similar in the "Enters room before fade-in" event for that room. Remember that this event happens BEFORE the screen fades in.</p>
+<p>To make sure, when you get the black screen, try pressing enter, or clicking the left mouse button. If nothing happens then something more serious may have happened. If this is the case, while running the game from the Editor, switch to the Editor and click on "Pause" button on toolbar: that will stop game execution and may allow you to trace which line of script it has stuck on.</p>
+<hr />
+<p><strong>Q. How do I make a main menu for my game?</strong></p>
+<p>A. There are various ways to do this, depending on how do you want your menu to work, but in general there's no dedicated "menu screen" feature in AGS, so you have to use any combination of common items. You could begin with creating a new room, assign a plain coloured background, and place objects to act like menu options. Or you could create a GUI with buttons. But you also may do a full scene with animating objects, characters and minigames, and force player to solve a puzzle in order to start a "real" game.</p>
+<hr />
+<p><strong>Q. Can I hide player character in particular room (main menu, intro, credits screen)?</strong></p>
+<p>A. Open your room in the Room Editor and set its "ShowPlayerCharacter" property to "False".<br> If you want to hide player character only for some time, you may set that character's Transparency to "100" in script, or just move him/her out of the room borders, for example, by assigning x position to a large negative value.</p>
 <hr />
 <p><strong>Q. The character isn't drawn behind my walk-behind areas!</strong></p>
-<p>A. You need to define the base line for the area, or he will always be drawn in front. See the tutorial for more information.</p>
+<p>A. You need to define the baseline for these areas, baselines determine the order things (characters, objects and walk-behinds) are arranged in the room.</p>
+<hr />
+<p><strong>Q. There's a bunch of identical script commands I need to execute on several events, is there a way to not copy/paste same 5 (20, 50, 100) lines everywhere I need them?</strong></p>
+<p>A. Sure, create your own custom function in script, put these commands there, and call this functions each time you want these commands executed. Refer to <a href="ScriptingTutorialPart2.html#your-own-functions">Scripting Tutorial</a> for more on this subject.</p>
 <hr />
 <p><strong>Q. I created a script function, but I get "function is undefined" error trying to call it elsewhere.</strong></p>
 <p>A. If you have a function written in script file <code>my_script_A.asc</code>, and you want to call it from a different script file <code>my_script_B.asc</code>, you need to correctly declare it as import on it's header <code>my_script_A.ash</code>. Additionally, make sure the function is declared/defined above your call in script or placed in a higher script module, move function up if necessary.</p>
@@ -101,11 +119,26 @@
 <p><strong>Q. Can I use script commands on my dialogues?</strong></p>
 <p>A. Yes, you can. The dialog lines that start with at least one space character are interpreted as plain script, and the ones that don't are treated as special dialog commands. All special dialog commands are actually converted into real AGS script before compiling into your game.</p>
 <hr />
+<p><strong>Q. How do I change object's "Name" or "Description" at runtime so that I could display a different one after a game event?</strong></p>
+<p>A. At the time of writing this answer AGS does not let you change these values, as well as few other properties at runtime (this may be fixed in future versions). The common solution is to use "Custom Properties", which you define in the Editor and may modify in script using SetProperty and SetTextProperty functions for the respective object type.</p>
+<hr />
+<p><strong>Q. How do I keep animations running while I am showing a message on screen using Display function?</strong></p>
+<p>A. "Display" command pauses whole game, use an Overlay or GUI with a label instead. You may make them look similar to Display by defining background and border colours, or assigning a sprite. Then use "Wait" or "WaitMouseKey" command to halt the game while this Overlay or GUI is on screen.</p>
+<hr />
+<p><strong>Q. How do I do an action when animation reaches certain frame?</strong></p>
+<p>A. In repeatedly_execute function test whether an object is <a href="Object.html#objectanimating">animating</a>, and what it's current View, Loop and Frame properties (Characters and Buttons have similar values). Execute an action when these properties match your condition.</p>
+<hr />
+<p><strong>Q. How do I put a variable on a GUI label?</strong></p>
+<p>A. <a href="String.html#stringformat">String.Format</a> script function allows to create a string with variable printed in it. You may then use that string anywhere, for example, assign to a label's Text property.</p>
+<hr />
 <p><strong>Q. My game EXE file seems to have disappeared.</strong></p>
 <p>A. Because this file is your entire game, including the room files, when you save a room in the Room Editor it will delete the exe file (because the room contained in the exe is out of date). To get it back, simply build the game again by using the "Build EXE" command on the Build menu.</p>
 <hr />
-<p><strong>Q. What resolution should I make my game?</strong></p>
-<p>A. This is asked a lot on the forums and you can browse through it. AGS games are not different from any other games. Think on what resolution is best for your chosen game design and graphic style.</p>
+<p><strong>Q. I change settings in Default Setup pane in the Editor, but in game nothing changes.</strong></p>
+<p>A. Default Setup affects only default configuration. If you ran game's own setup program at least once and saved, there's already personal configuration written in your user documents, which overrides defaults. Also some of the settings are written by the game itself on exit. Change the setting by running setup program as well, or delete user config file to reset everything to defaults.</p>
+<hr />
+<p><strong>Q: I loaded my old game in a newer version of AGS, and now I get errors about some AGS functions are "undefined".</strong></p>
+<p>A: These functions were probably deprecated. Check the <a href="UpgradingFromPreviousVersion.html">"Upgrading from a previous version"</a> topics in the manual to learn about possible breaking changes and how can you adjust your script to the new standard.<br> There's also a <a href="ObsoleteScriptAPI.html">big table of outdated functions and properties</a> where you may find suggested replacements.<br> But if you're in a real hurry, go to game's General Settings and set "Script compatibility level" to the version you were making game in previously (that usually works).</p>
 <hr />
 <p><strong>Q. How should I name my views, objects, ...</strong></p>
 <p>A. When you are looking into your objects in the Room Editor, they are obviously an object. When you are referencing them on script, you can get lost. It's a good and common practice when using AGS to precede the name of an element with a lower case letter of it's type, make it easier to find them in the Editor with auto complete (ctrl+space) and the consistency will make easier to remember. So for a view, something like <code>vRogerWalking</code> is a good name, and the <code>v</code> at start tells you it's a view; A character with real name Joe, is a good idea to have the script name be cJoe, now the <code>c</code> reminds of character; a GUI for a lever puzzle could be called <code>gLeverPuzzle</code>; An object that is a flower as <code>oFlower</code>; A hotspot of the exit door as hExitDoor.</p>
@@ -114,7 +147,7 @@
 
 
   <footer>
-    <p>Build: 10/06/2020 11:40:33 AM</p>
+    <p>Build: 12/03/2020 12:11:04 PM</p>
   </footer>
 
   <script src="js/search.js"></script>
