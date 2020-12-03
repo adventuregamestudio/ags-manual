@@ -1,6 +1,7 @@
 http://dumb.sourceforge.net/
 http://sci.sierrahelp.com/Tools/SCITools.html
 http://www-personal.monash.edu.au/~myless/catnap/pamela/
+https://discord.gg/BSvN5ZF
 https://github.com/adventuregamestudio/ags
 https://github.com/adventuregamestudio/ags-manual
 https://opensource.org/licenses/artistic-license-2.0.php
