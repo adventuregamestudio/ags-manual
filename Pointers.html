@@ -74,51 +74,62 @@
 <section id="pointers-in-ags" class="level2">
 <h2><a href="#pointers-in-ags">Pointers in AGS</a></h2>
 <p>Various commands in the new scripting language will require you to use pointers. This section has been split into three separate topics to introduce you to pointers depending on your previous programming experience -- select one of the links below:</p>
+<p><a href="Pointers.html#pointers-for-programming-newbies">Pointers for programming newbies</a><br> <a href="Pointers.html#pointers-for-people-who-know-java-or-c">Pointers for people who know Java or C#</a><br> <a href="Pointers.html#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></p>
 <hr />
 <section id="pointers-for-programming-newbies" class="level3">
 <h3><a href="#pointers-for-programming-newbies">Pointers for programming newbies</a></h3>
 <p>Pointers can be quite a daunting prospect, and in languages like C and C++ they certainly are; but AGS tries to make things as simple as possible.</p>
-<p>Basically, a pointer is a variable that <em>points</em> to something of a particular type. For example, a <em>Character</em> pointer would point to characters. What's the point of all this, I hear you ask?</p>
-<p>Well, let's look back at AGS 2.62. If you wanted to reference a particular hotspot, you'd need to remember its number. If you wanted to switch on an object, you'd need to remember what number it was too. And because you could accidentally use an object number where you wanted a hotspot number, mistakes could easily happen and it all got rather messy.</p>
-<p>That's where pointers step in -- basically, they allow you to do away with identifying things by number, and in the process provide <em>type checking</em>, so you can't accidentally use a hotspot where you meant to use an object.</p>
-<p>Let's look at an example. If you wanted to write a string to a file in 2.62, you'd do this:</p>
-<pre><code>int handle = FileOpen(&quot;temp.txt&quot;, FILE_WRITE);
-FileWrite(handle, &quot;Test!&quot;);
-FileClose(handle);
+<p>Basically, a pointer is a variable that <em>points</em> to something of a particular type. For example, a <em>Character</em> pointer would point to a character.</p>
+<p>Think of a pointer as of a roadsign with arrow that tells you direction to another place. The pointer itself is not the object, but it lets you use an object through itself. You may reassign a pointer anytime and make it point to another object. This would be like turning roadsign and making it direct to another place: the sign will be the same, but the place it shows is different. Similarily, the pointer variable stays, but referring to a different object.</p>
+<p>What's the point of having pointers? There are few common reasons why they are used.</p>
+<p>The main purpose of the pointer could sound a bit too technical, but it's still good to know. In programming languages, when you use a value somewhere, would it be assigning to a variable, or passing into a function, or returning it from function, that value gets <em>copied</em>. If it's something simple, like few integers, that's not a big deal. But if it's an object with many properties stored inside, many such operations could slow program down. Furthermore, because it's a copy, it becomes impossible to do work on an object inside a function, and then use modified object further. Any changes applied in a function would be done over a <em>copy</em> rather than the original object. There are various methods to overcome this problem, and pointers could be the most straightforward of them. With pointers only "direction to object" is copied, but not the object itself.</p>
+<p>Then, pointers are more direct way to use objects, read and set their properties. For example, if there's an array of objects, like <code>character[]</code> is an array of all Characters in your game, then to address a particular character you'd have to use this array and a character index, like this:</p>
+<pre><code>character[4].Walk(100, 100);
 </code></pre>
-<p>That's simple enough; but what if you wanted to open the file in one place, and write to it somewhere else? You'd have to make <em>handle</em> a global variable, and then make sure you remembered that it was a file handle and not a hotspot number or anything else. Now, with 2.7 the same code would be:</p>
-<pre><code>File *file = File.Open(&quot;temp.txt&quot;, eFileWrite);
+<p>Because using numbers like this may be inconvenient for various reasons, and easier to forget what they mean, you could create an integer variable to store that index there <code>int MY_FRIEND = 4;</code>, or define a named constant <code>#define MY_FRIEND 4</code>, then use it like:</p>
+<pre><code>character[MY_FRIEND].Walk(100, 100);
+</code></pre>
+<p>That seem more explicit, but still looks bit complicated. On another hand you could create a pointer <code>Character* cMyFriend;</code> and assign it to character from array at the start of the game: <code>cMyFriend = character[4];</code>, and then use like:</p>
+<pre><code>cMyFriend.Walk(100, 100);
+</code></pre>
+<p>Not only you do not need to refer to array anymore, but you now only use one "symbol" to refer to the character (the pointer) instead of two or more symbols (array, index, and so on).</p>
+<p><strong>NOTE:</strong> the above is just an example of concept, and in practice AGS already generates such pointer for each character and other object you create for your game. The script names you give to your characters are used to name these pointers, for example if your character is called <code>cPlayerChar</code>, then there will be a pointer <code>Character* cPlayerChar</code> autogenerated for you that you can use in scripts.</p>
+<p>Another reason is that pointers have the type of the object they are pointing to, and <em>type checking</em> in AGS script makes their use more reliable than use of an integer index, for instance, which does not tell what kind of object its refering to. For example, if you have <code>int door_id;</code> containing a hotspot's index, you could by mistake use it in a function expecting room object's index, and program won't complain. Finding such mistakes could be difficult. On the other hand, if you have <code>Hotspot* hDoor;</code> and you try to pass it into a function expecting <code>Object*</code>, script compiler will display and error, letting you notice your mistake early.</p>
+<p>How to use pointers?</p>
+<p>Let's look at an example. If you want to write a string to a file you do this:</p>
+<pre><code>File* file = File.Open(&quot;temp.txt&quot;, eFileWrite);
 file.WriteString(&quot;Test!&quot;);
 file.Close();
 </code></pre>
-<p>Looks fairly simple, doesn't it. The only slightly confusing part is getting used to declaring the variable as <code>File*</code> rather than <code>int</code>; but that's something you'll get used to quite quickly, and all the examples in the manual should point you in the right direction.</p>
-<p>Let's look at another example. Suppose you want a variable that contains the current hotspot that the mouse is over. In 2.62, you might have something like this:</p>
-<pre><code>// top of global script
-int mouseOverHotspot;
-
-// repeatedly_execute
-mouseOverHotspot = GetHotspotAt(mouse.x, mouse.y);
-</code></pre>
-<p>How would you do this in 2.7? Well, quite simply:</p>
+<p>Here File.Open returns a pointer to a "file object", which is then used to do file operations. Looks fairly simple, the only slightly confusing part is getting used to declaring the variable as <code>File*</code> with an asterisk; but that's something you'll get used to quite quickly, and all the examples in the manual should point you in the right direction.</p>
+<p>Let's look at another example. Suppose you want a variable that contains the current hotspot that the mouse is over:</p>
 <pre><code>// top of global script
 Hotspot *mouseOverHotspot;
 
 // repeatedly_execute
 mouseOverHotspot = Hotspot.GetAtScreenXY(mouse.x, mouse.y);
 </code></pre>
-<p>But hold on, what if you want to know whether the mouse is over your Door hotspot (say it's hotspot 2). In 2.62, you'd have done:</p>
-<pre><code>if (mouseOverHotspot == 2) {
-  Display(&quot;Mouse over the door&quot;);
-}
-</code></pre>
-<p>but that's rather messy, because what if you change the door's hotspot number? You'd have to remember to go back and change all the 2's to 3, or whatever. In 2.7, you now just do this (assuming you gave the hotspot a script name of hDoor):</p>
+<p>Above script declares a pointer to Hotspot and assigns it to a hotspot found under mouse on each game tick.</p>
+<p>Now, what if you want to know whether the mouse is over your Door hotspot:</p>
 <pre><code>if (mouseOverHotspot == hDoor) {
   Display(&quot;Mouse over the door&quot;);
 }
 </code></pre>
-<p>If you're a fan of numbers for some strange reason, you can still use them like this:</p>
+<p>Above compares values of two pointers, this will only be successful if both <em>point to same object</em>.</p>
+<p>If you'd like or have to use an index from hotspots array instead, you can still use it like this:</p>
 <pre><code>if (mouseOverHotspot == hotspot[2]) {
   Display(&quot;Mouse over the door&quot;);
+}
+</code></pre>
+<p><strong>IMPORTANT:</strong> So far so good, but there's still one thing that must be told, and that one is a bit of a downer. Unlike other variables, which always have some data, pointers may have a state where they do not point to any object. This kind of value is defined by a keyword <code>null</code>, and pointers in this state are called "null pointer". The problem with "null pointers" is that trying to use object's data or functions with them would result in program error. Good news is that you may find this out, comparing them to null. If you have a custom pointer variable, which in theory (according to your script's logic) may happen to not be assigned, then it's best to check if it's null or not before using it.</p>
+<p>Suppose you want to find a character under a mouse and display their name on a GUI label:</p>
+<pre><code>Character* chUnderMouse = Character.GetAtScreenXY(mouse.x, mouse.y);
+lblCharacterName.Text = chUnderMouse.Name;
+</code></pre>
+<p>What would happen if there's no character under mouse? Character.GetAtScreenXY will return "null" value, it gets assigned to chUnderMouse, and as soon as program tries to get character's name, it will throw an error, because it cannot get Name from "nothing". This is how we prevent this:</p>
+<pre><code>Character* chUnderMouse = Character.GetAtScreenXY(mouse.x, mouse.y);
+if (chUnderMouse != null) {
+    lblCharacterName.Text = chUnderMouse.Name;
 }
 </code></pre>
 <p>So, that concludes our introduction to pointers. Hopefully you've got an understanding of what they are and what they do; if there's anything you can't work out, feel free to ask on the Technical forums.</p>
@@ -132,8 +143,11 @@ mouseOverHotspot = Hotspot.GetAtScreenXY(mouse.x, mouse.y);
 <p>would declare a variable <em>hs</em> which points to a Hotspot. This would be equivalent to the following in Java or C#:</p>
 <pre><code>Hotspot hs;
 </code></pre>
-<p>In AGS, pointers are used to point to various built-in types, such as Hotspots, Inventory Items, Characters and so on. Because AGS does not have a <em>new</em> keyword, you cannot create pointers to custom struct types.</p>
-<p>You use pointers in the same way as you would in Java and C#. Various built-in AGS static methods return a pointer to an instance (for example, <a href="File.html#fileopen">File.Open</a>, <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, and so on). You can save this pointer into a pointer variable, and then call its methods as you would in Java or C#. The following examples are all valid:</p>
+<p>In AGS, pointers are used to point to various built-in types, such as Hotspots, Inventory Items, Characters and so on, or custom user structs declared with <code>managed</code> keyword, but not regular structs.</p>
+<p>There are no proper constructors in AGS. User managed types are created with <code>new</code> keyword and have all of their members initialized to zero, built-in types are either found in autogenerated variables and arrays, or returned by static member functions, like <a href="Overlay.html#overlaycreategraphical">Overlay.CreateGraphical</a>.</p>
+<p>You use pointers in the same way as you would in Java and C#. Pointer memory management in AGS is all automatic -- the memory is freed when there are no longer any variables pointing to the instance. Thus, if you have global pointer variables in your global script, it's a good idea to set them to <em>null</em> when you're no longer using them, to allow the memory to be freed.</p>
+<p>If you attempt to call a method on a null pointer, an error will occur (just like you'd get an exception in Java or C#).</p>
+<p>Various built-in AGS static methods return a pointer to an instance (for example, <a href="File.html#fileopen">File.Open</a>, <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, and so on). You can save this pointer into a pointer variable, and then call its methods as you would in Java or C#. The following examples are all valid:</p>
 <pre><code>File *theFile = File.Open(&quot;test.dat&quot;, eFileWrite);
 if (theFile == null) Display(&quot;It&#39;s null!&quot;);
 File *file2 = theFile;
@@ -142,24 +156,22 @@ theFile = null;
 file2.WriteInt(10);
 file2.Close();
 </code></pre>
-<p>If you attempt to call a method on a null pointer, an error will occur (just like you'd get an exception in Java or C#).</p>
-<p>Pointer memory management in AGS is all automatic -- the memory is freed when there are no longer any variables pointing to the instance. Thus, if you have global pointer variables in your global script, it's a good idea to set them to <em>null</em> when you're no longer using them, to allow the memory to be freed.</p>
 <hr />
 </section>
 <section id="pointers-for-people-who-know-c-or-c" class="level3">
 <h3><a href="#pointers-for-people-who-know-c-or-c">Pointers for people who know C or C++</a></h3>
-<p>Pointers in AGS are based on the C/C++ syntax, so they are declared with an asterisk. However, in AGS you can only create pointers to built-in AGS types, and not to any custom structs declared in your script.</p>
-<p>Pointer members are accessed with the dot operator, and not the <code>-&gt;</code> C-style operator. Because AGS doesn't support features such as pointers-to-pointers and so forth, there is no need for a separate operator.</p>
-<p>In AGS, pointer memory management is done automatically based on reference counting (similar to the way COM works), so there is no <em>new</em> or <em>delete</em> keyword. When an object is no longer referenced by any pointer variables, it will be freed. For this reason, if you have any global pointer variables it's advisable to set them to <em>null</em> if you are done with them.</p>
-<p>AGS pointers are strongly typed, and you cannot cast between types at will like you can in C and C++. AGS will only allow you to compare and assign pointers of the same type, or of the same base type. There is a special keyword <em>null</em> which all pointers can be set to and compared with, which indicates that they are unassigned.</p>
-<p>Because there is no <em>new</em> keyword, you cannot create object instances; rather, they are returned by static member functions in AGS, such as <a href="File.html#fileopen">File.Open</a> and <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>. See the examples for the functions to get an idea of how to use them.</p>
+<p>For historical reasons pointers in AGS are declared similar to the C/C++ syntax, with an asterisk, but their members are accessed with the dot operator, and not the <code>-&gt;</code> C-style operator. Because AGS didn't support features such as pointers-to-pointers and so forth, there was no need for a separate operator.</p>
+<p>Pointers in AGS are more comparable to "smart pointers" in modern C++, not "raw" C-style pointers that would store address to real memory. They may only point to "managed" structs, whether built-in or managed types declared by user. In this way they are more "handles" than pointers.</p>
+<p>Pointer memory management is done automatically based on reference counting, so there's no <code>delete</code> keyword. When an object is no longer referenced by any pointer variables, it will be freed. For this reason, if you have any global pointer variables it's advisable to set them to <em>null</em> if you are done with them.</p>
+<p>AGS pointers are strongly typed, and you cannot cast between types at will like you can in C and C++. AGS will only allow you to compare and assign pointers of the same type, or of the same base type. There is a special keyword <em>null</em> (similar to nullptr in C++) which all pointers can be set to and compared with, which indicates that they are unassigned.</p>
+<p>There are no proper constructors in AGS. User managed types are created with <code>new</code> keyword and have all of their members initialized to zero, built-in types are either found in autogenerated variables and arrays, or returned by static member functions, such as <a href="File.html#fileopen">File.Open</a> and <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>. See the examples for the functions to get an idea of how to use them.</p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 12/03/2020 12:11:03 PM</p>
+    <p>Build: 12/12/2020 09:58:38 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -63,8 +63,8 @@
 <ul>
 <li><a href="#script-language-keywords"><span>Script language keywords</span></a>
 <ul>
-<li><a href="#arrays"><span>Arrays</span></a></li>
 <li><a href="#data-types"><span>Data types</span></a></li>
+<li><a href="#arrays"><span>Arrays</span></a></li>
 <li><a href="#operators"><span>Operators</span></a></li>
 <li><a href="#constants"><span>Constants</span></a></li>
 <li><a href="#version-checking"><span>Version checking</span></a></li>
@@ -95,28 +95,6 @@
   <main>
 <section id="script-language-keywords" class="level2">
 <h2><a href="#script-language-keywords">Script language keywords</a></h2>
-<section id="arrays" class="level3">
-<h3><a href="#arrays">Arrays</a></h3>
-<p><em>data_type</em> <em>name</em> <code>[</code> <em>size</em> <code>];</code></p>
-<p>Arrays allow you to easily create several variables of the same type. For example, suppose you wanted to store a health variable for all the different characters in the game. One way would be to declare several different variables like this:</p>
-<pre><code>int egoHealth;
-int badGuyHealth;
-int swordsmanHealth;
-</code></pre>
-<p>but that quickly gets messy and difficult to keep up to date, since you need to use different script code to update each one. So instead, you can do this at the top of your script:</p>
-<pre><code>int health[50];
-</code></pre>
-<p>This example declares 50 int variables, all called <em>health</em>.<br> You access each separate variable via its <strong>index</strong> (the number in the brackets). Indexes start from 0, so in this case the <em>health</em> array can be accessed by indexes 0 to 49. If you attempt to access an invalid index, your game will exit with an error.</p>
-<p>Here's an example of using the array:</p>
-<pre><code>health[3] = 50;
-health[4] = 100;
-health[player.ID] = 10;
-</code></pre>
-<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.<br />
-You need to do this inside a function.</p>
-<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
-<hr />
-</section>
 <section id="data-types" class="level3">
 <h3><a href="#data-types">Data types</a></h3>
 <table>
@@ -170,6 +148,28 @@ if ((result &gt; 5.99) &amp;&amp; (result &lt; 6.01)) {
 }
 </code></pre>
 <p>The way floating point numbers are stored means that 6 might actually be stored as 6.000001 or 5.999999; this is a common gotcha to all programming languages so just be aware of it if you use any floating point arithmetic.</p>
+<hr />
+</section>
+<section id="arrays" class="level3">
+<h3><a href="#arrays">Arrays</a></h3>
+<p><em>data_type</em> <em>name</em> <code>[</code> <em>size</em> <code>];</code></p>
+<p>Arrays allow you to easily create several variables of the same type. For example, suppose you wanted to store a health variable for all the different characters in the game. One way would be to declare several different variables like this:</p>
+<pre><code>int egoHealth;
+int badGuyHealth;
+int swordsmanHealth;
+</code></pre>
+<p>but that quickly gets messy and difficult to keep up to date, since you need to use different script code to update each one. So instead, you can do this at the top of your script:</p>
+<pre><code>int health[50];
+</code></pre>
+<p>This example declares 50 int variables, all called <em>health</em>.<br> You access each separate variable via its <strong>index</strong> (the number in the brackets). Indexes start from 0, so in this case the <em>health</em> array can be accessed by indexes 0 to 49. If you attempt to access an invalid index, your game will exit with an error.</p>
+<p>Here's an example of using the array:</p>
+<pre><code>health[3] = 50;
+health[4] = 100;
+health[player.ID] = 10;
+</code></pre>
+<p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.<br />
+You need to do this inside a function.</p>
+<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
 <hr />
 </section>
 <section id="operators" class="level3">
@@ -391,7 +391,7 @@ if ((result &gt; 5.99) &amp;&amp; (result &lt; 6.01)) {
 #endif
 </code></pre>
 <p>Note that this ability was only added in 2.72, so you cannot use the <code>#ifver</code> checks if you want your module to work with earlier versions than this.</p>
-<p><em>See also</em>: <a href="Preprocessor.html#ifver-version-checking">Preprocessor</a></p>
+<p><em>See also</em>: <a href="Preprocessor.html#ifver-ifnver">Preprocessor</a></p>
 <hr />
 </section>
 <section id="if-else-statements" class="level3">
@@ -712,7 +712,6 @@ function game_start()
 </section>
 <section id="enum" class="level3">
 <h3><a href="#enum">enum</a></h3>
-<p><strong>Recommended for advanced users only</strong></p>
 <p><strong>enum</strong> <em>name</em> <code>{</code><br> <em>option1</em> [ = <em>value1</em> ],<br> <em>option2</em> [ = <em>value2</em> ],<br> ...<br> <code>};</code></p>
 <p>Declares an enumeration type. An enumeration allows you to group together a set of related options, where only one will be true at any one time -- a bit like the contents of a list box.</p>
 <p>For example, if you have a script function, <em>doStuff</em>, that can perform 3 different operations, you could do this:</p>
@@ -867,7 +866,7 @@ readonly int months = 12;
 
 
   <footer>
-    <p>Build: 12/03/2020 12:11:08 PM</p>
+    <p>Build: 12/12/2020 09:58:43 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

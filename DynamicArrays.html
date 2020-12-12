@@ -74,14 +74,15 @@
 <p>in your script file. This special notation tells AGS that you don't yet know how large you want the array to be. Now, before you use the array (so probably in game_start), you can do this:</p>
 <p><code>characterHealth = new int[Game.CharacterCount];</code></p>
 <p>If you forget to do this <code>new</code> command, you'll get a Null Pointer Error if you try to access the array. You can change the size of an array by simply using another <code>new</code> command with a different size; but this will erase the contents of the array in the process.</p>
-<p>Currently dynamic arrays are supported as global and local variables, or members of normal (not managed) structs. Also, at present you can create arrays of basic types (int, char, etc) and of built-in types (String, Character, etc) but not of custom structs.</p>
+<p>You may create dynamic arrays of basic types (int, char, etc), built-in types (String, Character, etc), and custom structs declared as <code>managed</code>. But currently you cannot have dynamic arrays of regular (non-managed) custom structs.</p>
+<p>On another hand, you cannot have dynamic arrays inside "managed" structs as their members, but can have them anywhere else.</p>
 <p>See Also: <a href="ScriptKeywords.html#arrays">Arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 12/03/2020 12:11:09 PM</p>
+    <p>Build: 12/12/2020 09:58:43 PM</p>
   </footer>
 
   <script src="js/search.js"></script>

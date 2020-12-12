@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Importing functions and variables in other scripts</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#importing-functions-and-variables-in-other-scripts"><span>Importing functions and variables in other scripts</span></a>
+<ul>
+<li><a href="#exporting-and-importing-a-function"><span>Exporting and importing a function</span></a></li>
+<li><a href="#exporting-and-importing-a-variable"><span>Exporting and importing a variable</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="importing-functions-and-variables-in-other-scripts" class="level2">
+<h2><a href="#importing-functions-and-variables-in-other-scripts">Importing functions and variables in other scripts</a></h2>
+<p>Functions and variables declared in script A could be used in script B if two conditions are met:</p>
+<ol>
+<li>Script B is located below script A in the list of scripts;</li>
+<li>They are correctly exported/imported.</li>
+</ol>
+<p><strong>NOTE:</strong> Room and Dialog scripts can use functions and variables from all the regular script modules, but not from other rooms or dialogs.</p>
+<section id="exporting-and-importing-a-function" class="level3">
+<h3><a href="#exporting-and-importing-a-function">Exporting and importing a function</a></h3>
+<p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import">import</a> keyword somewhere where script B can "see" it. The best practice is to place them in script A's header.</p>
+<p>For example, suppose you have following function in script A:</p>
+<pre><code>function ScriptAFunction(int param1, int param2)
+{
+    // some actions here
+}
+</code></pre>
+<p>Then import declaration in the script A header will looks like:</p>
+<pre><code>import function ScriptAFunction(int param1, int param2);
+</code></pre>
+<p>The name, type and arguments of the function must be the same ofcourse, otherwise there will be errors either during compilation or at runtime.</p>
+</section>
+<section id="exporting-and-importing-a-variable" class="level3">
+<h3><a href="#exporting-and-importing-a-variable">Exporting and importing a variable</a></h3>
+<p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using <a href="ScriptKeywords.html#export">export</a> keyword.</p>
+<p>Suppose you have following declaration in the script A:</p>
+<pre><code>int public_variable;
+</code></pre>
+<p>and you want to export this to be used in other scripts, all you do is put following statement <em>inside the same script</em>:</p>
+<pre><code>export public_variable;
+</code></pre>
+<p>And then declare variable's import for other scripts to see, presumably in the script A header:</p>
+<pre><code>import int public_variable;
+</code></pre>
+<p>The name and type must match the script's variable.</p>
+<p>To put this simply, the import declaration lets other scripts see this variable, and the export command actually connects existing variable to that declaration.</p>
+<p><strong>NOTE:</strong> AGS Editor has a special menu "Global Variables" meant for easier creation of public variables which could be accessible everywhere. This may be a better alternative for beginners, as it takes care of all this import/export stuff behind the scenes.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 12/12/2020 09:58:41 PM</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>
