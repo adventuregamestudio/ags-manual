@@ -33,6 +33,7 @@ ifdef ComSpec
   UPDATESOURCE ?= robocopy "$(CHECKOUTDIR)" $@ /MIR /XD .git & if %ERRORLEVEL% LEQ 7 exit /b 0
   CLEANDIRS = for /f "tokens=*" %%l in (.gitignore) do if exist "%%l" rd /s /q "%%l"
   DATETIME ?= $(shell echo %DATE% %TIME:~,-3%)
+  FLIPCODE = || exit /b 0 & exit /b 1
 else
   CP = cp
   MV = mv
@@ -44,6 +45,7 @@ else
   UPDATESOURCE ?= rm -rf $@ && mkdir $@ && cp "$(CHECKOUTDIR)"/*.md $@ && cp -r "$(CHECKOUTDIR)/images" $@
   CLEANDIRS = while read -r line; do rm -rf "$$line"; done < .gitignore
   DATETIME ?= $(shell date "+%x %X")
+  FLIPCODE = || exit 0; exit 1
 endif
 
 .PHONY: help html htmlhelp metacheck clean source
@@ -178,12 +180,9 @@ endef
 $(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
 
 ifdef HHC
-ifndef ComSpec
-$(warning HHC is not supported on this platform)
-endif
 htmlhelp/build/ags-help.chm: htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhp | htmlhelp/build
-	@"$(HHC)" htmlhelp/build/ags-help.hhp || exit /b 0 & exit /b 1
+	@"$(HHC)" htmlhelp/build/ags-help.hhp $(FLIPCODE)
 endif
 
 clean:
