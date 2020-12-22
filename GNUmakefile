@@ -16,7 +16,7 @@ $(error target 'source' requires CHECKOUTDIR to be set)
 endif
 endif
 ifeq ($(strip $(BASENAMES)),)
-ifneq ($(filter-out html htmlhelp metacheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+ifneq ($(filter-out chm html htmlhelp metacheck,$(MAKECMDGOALS)),$(MAKECMDGOALS))
 $(error no source files were found)
 endif
 endif
@@ -48,7 +48,7 @@ else
   FLIPCODE = || exit 0; exit 1
 endif
 
-.PHONY: help html htmlhelp metacheck clean source
+.PHONY: chm help html htmlhelp metacheck clean source
 .SECONDARY: $(addprefix meta/build/, $(METAFILES))
 
 help:
@@ -71,8 +71,9 @@ html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFIL
 	html/build/css/normalize.css html/build/static/favicon.ico
 
 htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
-	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp \
-	$(if $(HHC),htmlhelp/build/ags-help.chm)
+	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp
+
+chm: htmlhelp/build/ags-help.chm
 
 html/build html/build/images html/build/js html/build/css html/build/fonts html/build/static htmlhelp/build htmlhelp/build/images meta/build:
 	@$(MKDIR) "$@" || echo $@ exists
@@ -179,11 +180,8 @@ endef
 
 $(eval $(call CURL_template,$(NORMALIZE),html/build/css/normalize.css))
 
-ifdef HHC
-htmlhelp/build/ags-help.chm: htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc \
-	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhp | htmlhelp/build
+htmlhelp/build/ags-help.chm: | htmlhelp
 	@"$(HHC)" htmlhelp/build/ags-help.hhp $(FLIPCODE)
-endif
 
 clean:
 	@$(CLEANDIRS)
