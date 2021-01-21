@@ -1,1 +1,5 @@
+*.svg -text
+html/css/* eol=lf
+html/static/* -text
+htmlhelp/stp eol=crlf
 vendor/* linguist-vendored
