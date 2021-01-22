@@ -92,6 +92,7 @@ html/build/%.html: source/%.md | html/build
 		--section-divs \
 		--css "css/normalize.css" \
 		--css "css/main.css" \
+		--eol=lf \
 		--output $@ \
 		$<
 
@@ -103,6 +104,7 @@ htmlhelp/build/%.html: source/%.md | htmlhelp/build
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--template "htmlhelp/template.html4" \
+		--eol=crlf \
 		--output $@ \
 		$<
 
@@ -120,6 +122,7 @@ htmlhelp/build/ags-help.hhk: $(addprefix meta/build/, $(filter-out index.lua,$(M
 	@echo | "$(PANDOC)" \
 		--to "lua/write_hhk.lua" \
 		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
+		--eol=crlf \
 		--output $@
 
 htmlhelp/build/ags-help.hhc: | htmlhelp/build
@@ -128,6 +131,7 @@ htmlhelp/build/ags-help.hhc: | htmlhelp/build
 		--to "lua/write_hhc.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
 		--template "htmlhelp/template.hhc" \
+		--eol=crlf \
 		--output $@ \
 		source/index.md
 
@@ -138,6 +142,7 @@ htmlhelp/build/ags-help.hhp: | htmlhelp/build
 		--metadata incfiles="$(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES))" \
 		--variable projectname=ags-help \
 		--template "htmlhelp/template.hhp" \
+		--eol=crlf \
 		--output $@
 
 html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build 
@@ -149,6 +154,7 @@ html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.lua,$(META
 		--css "css/normalize.css" \
 		--css "css/main.css" \
 		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
+		--eol=lf \
 		--output $@
 
 html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build/js
@@ -157,6 +163,7 @@ html/build/js/search.js: $(addprefix meta/build/, $(filter-out index.lua,$(METAF
 		--to "lua/write_metajs.lua" \
 		--template "html/template.js" \
 		--metadata=_metafiles="$(addprefix meta/build/, $(filter-out index.lua,$(METAFILES)))" \
+		--eol=lf \
 		--output=$@ \
 
 # copy source to destination
