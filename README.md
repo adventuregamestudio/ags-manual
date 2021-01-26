@@ -2,9 +2,7 @@
 
 ![](ags-manual-readme.png)
 
-Travis (web): [![Build Status](https://travis-ci.com/adventuregamestudio/ags-manual.svg?branch=master)](https://travis-ci.com/adventuregamestudio/ags-manual)
-
-Appveyor (chm): [![Build status](https://ci.appveyor.com/api/projects/status/ufw6n10yg1q38yvc?svg=true)](https://ci.appveyor.com/project/ags-manual-ci/ags-manual-4hkmp)
+![Build test](https://github.com/adventuregamestudio/ags-manual/workflows/Build%20test/badge.svg)
 
 ## Editing the help files
 
