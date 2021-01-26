@@ -139,7 +139,7 @@ htmlhelp/build/ags-help.hhp: | htmlhelp/build
 	@echo Building $@
 	@echo | "$(PANDOC)" \
 		--to "lua/write_hhp.lua" \
-		--metadata incfiles="$(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES))" \
+		--metadata incfiles="$(sort $(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES)))" \
 		--variable projectname=ags-help \
 		--template "htmlhelp/template.hhp" \
 		--eol=crlf \
