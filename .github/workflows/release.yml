@@ -41,7 +41,7 @@ jobs:
         env:
           CHECKSUM: b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
           HHC: C:\Program Files (x86)\HTML Help Workshop\hhc.exe
-          URL: https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
+          URL: https://web.archive.org/web/20200918004813/https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
         run: |
           %COMSPEC% /c "pushd "${{ runner.temp }}" && curl -fLOJ "%URL%"" || exit /b 1
 
