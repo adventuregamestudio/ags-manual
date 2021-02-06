@@ -9,16 +9,16 @@ on:
   - workflow_dispatch
 
 jobs:
-defjob(`windows', `cmd', `2.9.1')dnl
+defjob(`windows', `cmd', `2.9.2')dnl
 include(`job.m4')dnl
 
-defjob(`windows', `bash', `2.9.1')dnl
+defjob(`windows', `bash', `2.9.2')dnl
 include(`job.m4')dnl
 
-defjob(`ubuntu', `bash', `2.9.1')dnl
+defjob(`ubuntu', `bash', `2.9.2')dnl
 include(`job.m4')dnl
 
-defjob(`macos', `bash', `2.9.1')dnl
+defjob(`macos', `bash', `2.9.2')dnl
 include(`job.m4')dnl
 
   check:

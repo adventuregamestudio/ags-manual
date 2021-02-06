@@ -36,7 +36,7 @@ ifelse(__OS, <{macos}>, <{dnl
           tar=bsdtar
 }>)dnl
 ifelse(__OS, <{windows}>, <{dnl
-          pandoc=pandoc.exe
+          pandoc=pandoc-__PANDOC/pandoc.exe
           suffix=windows-x86_64.zip
           tar=/c/Windows/System32/tar.exe
 }>)dnl
