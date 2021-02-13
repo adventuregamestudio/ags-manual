@@ -8,7 +8,7 @@ on:
       - v*
 
 jobs:
-defjob(`windows', `bash', `2.9.1')dnl
+defjob(`windows', `bash', `2.9.2')dnl
 include(`job.m4')dnl
       - name: Create wiki source archive
         shell: cmd

@@ -103,6 +103,7 @@ htmlhelp/build/%.html: source/%.md | htmlhelp/build
 		--metadata title=$* \
 		--lua-filter "lua/set_title.lua" \
 		--lua-filter "lua/rewrite_links.lua" \
+		$(if $(filter-out index, $*),--lua-filter "lua/insert_toc.lua") \
 		--template "htmlhelp/template.html4" \
 		--eol=crlf \
 		--output $@ \
