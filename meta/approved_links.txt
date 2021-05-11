@@ -9,6 +9,7 @@ https://sourceforge.net/projects/alleg/
 https://technet.microsoft.com/en-us/sysinternals/bb897440
 https://v2v.cc/~j/ffmpeg2theora/
 https://www.adventuregamestudio.co.uk/
+https://www.adventuregamestudio.co.uk/AGS.Plugin.Sample.zip
 https://www.adventuregamestudio.co.uk/forums/
 https://www.adventuregamestudio.co.uk/forums/index.php?action=search2
 https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0
