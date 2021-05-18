@@ -7,7 +7,8 @@
 -- 2. Output ERRORs to stderr. The current use-case is to halt a CI deployment
 --    if there is a clear error in page content
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 
 function get_valid_links(pagemeta, filepath)

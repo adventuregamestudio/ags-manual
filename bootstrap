@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if ! >/dev/null command -v git; then
+    >&2 echo git is required
+    exit 1
+fi
+
+dirname=$(dirname "$0")
+autoreconf --install "$dirname"

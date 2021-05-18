@@ -1,7 +1,8 @@
 -- invoke as Pandoc writer
 -- write an a-z index as an HTML document
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 
 function Doc(body, metadata, variables)

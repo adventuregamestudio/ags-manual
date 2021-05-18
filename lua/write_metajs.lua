@@ -1,7 +1,8 @@
 -- invoke as Pandoc writer
 -- write Javascript file for website search functions and data
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 
 function render_keywords(keywords)

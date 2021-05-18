@@ -1,7 +1,8 @@
 -- invoke as Pandoc writer
 -- write a contents file for the CHM compiler
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 local header = nil
 local format = [[<OBJECT type="text/sitemap">

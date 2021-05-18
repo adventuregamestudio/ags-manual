@@ -1,4 +1,3 @@
-# This file is templated. Do not edit!
 name: Build test
 
 on:
@@ -7,38 +6,71 @@ on:
   - workflow_dispatch
 
 jobs:
-  build-windows-cmd-2-9-2:
-    outputs:
-      html-sha256: ${{ steps.checksum.outputs.HTML_CHECKSUM }}
-      htmlhelp-sha256: ${{ steps.checksum.outputs.HTMLHELP_CHECKSUM }}
-    runs-on: windows-latest
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        with-feature:
+          - --with-chmcmd
+        shell:
+          - bash
+        os:
+          - macos-latest
+          - ubuntu-latest
+        include:
+          - os: windows-latest
+            shell: msys2 {0}
+            with-feature: --with-chmcmd
+          - os: windows-latest
+            shell: msys2 {0}
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
-        shell: cmd
-        working-directory: ags-manual
+        shell: ${{ matrix.shell }}
     env:
-      DATETIME: NOW
+      MSYS: winsymlinks:nativestrict
     steps:
-      - name: Checkout build system
+      - name: Checkout repository and submodules
         uses: actions/checkout@v2
         with:
-          path: ags-manual
-      - name: Checkout wiki
-        uses: actions/checkout@v2
+          submodules: recursive
+      - name: Setup msys2
+        if: ${{ runner.os == 'Windows' }}
+        uses: msys2/setup-msys2@v2
         with:
-          repository: adventuregamestudio/ags-manual.wiki
-          path: ags-manual.wiki
+          msystem: MSYS
+          update: true
+          install: >-
+            base-devel
+            git
       - name: Download and install Pandoc
-        shell: bash
         run : |
-          pandoc=pandoc-2.9.2/pandoc.exe
-          suffix=windows-x86_64.zip
-          tar=/c/Windows/System32/tar.exe
+          case ${{ runner.os }} in
+              macOS)
+                  pandoc=pandoc-2.9.2/bin/pandoc
+                  suffix=macOS.zip
+                  tar=bsdtar
+                  ;;
+              Linux)
+                  pandoc=pandoc-2.9.2/bin/pandoc
+                  suffix=linux-amd64.tar.gz
+                  tar=tar
+                  ;;
+              Windows)
+                  pandoc=pandoc-2.9.2/pandoc.exe
+                  suffix=windows-x86_64.zip
+                  tar=/c/Windows/System32/tar.exe
+                  ;;
+              *)
+                  exit 1
+                  ;;
+          esac
           url="https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-$suffix"
           curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
           chmod +x "${{ runner.temp }}/$pandoc"
           echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
       - name: Download and install HTML Help Workshop
+        if: ${{ runner.os == 'Windows' }}
         shell: cmd
         env:
           CHECKSUM: b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
@@ -56,329 +88,106 @@ jobs:
           if not exist "%HHC%" exit /b 1
 
           echo HHC=%HHC%>> %GITHUB_ENV%
-      - name: Set path to Markdown files
-        working-directory: ags-manual.wiki
-        run: echo CHECKOUTDIR=%CD%>> %GITHUB_ENV%
-      - name: Upgrade ezwinport make
+      - name: Update Autotools
         run: |
-          mkdir "${{ runner.temp }}\make"
-          %COMSPEC% /c "pushd "${{ runner.temp }}" && ^
-            curl -fLOJ https://downloads.sourceforge.net/project/ezwinports/make-4.3-without-guile-w32-bin.zip"
-          tar -f make-4.3-without-guile-w32-bin.zip -xvC "${{ runner.temp }}\make"
-          echo ${{ runner.temp }}\make\bin>> %GITHUB_PATH%
-      - name: Get Markdown files
-        run: make SHELL=%COMSPEC% source
-      - name: Check Markdown files
-        run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% metacheck 2>&1 >nul | findstr /b ERROR && exit 1 & exit 0
-      - name: Build website
-        run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% html
-      - name: Upload website
-        uses: actions/upload-artifact@v2
-        with:
-          name: html (windows-cmd-2.9.2)
-          path: ags-manual/html/build
-          if-no-files-found: error
-      - name: Build HTML Help Project
-        run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (windows-cmd-2.9.2)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
-      - name: Generate build checksums
-        shell: bash
+          case ${{ runner.os }} in
+              macOS)
+                  brew update
+                  brew install automake
+                  ;;
+              Linux)
+                  (cd "${{ runner.temp }}" && curl -fLOJ http://ftp.debian.org/debian/pool/main/a/autoconf/autoconf_2.71-1_all.deb)
+                  sudo dpkg -i "${{ runner.temp }}/autoconf_2.71-1_all.deb"
+                  ;;
+              Windows)
+                  ;;
+              *)
+                  exit 1
+                  ;;
+          esac
+      - name: Install Free Pascal CHM compiler
+        if: ${{ matrix.with-feature != null }}
         run: |
-          for d in html htmlhelp; do
-              find $d/build -type f -print0 | LC_ALL=C sort -z | xargs -0 openssl sha256 | tee '${{ github.workspace }}'/checksums_$d
-              dos2unix '${{ github.workspace }}'/checksums_$d
-          done;
-      - name: Output checksum
-        id: checksum
-        shell: bash
-        run: |
-          echo "::set-output name=HTML_CHECKSUM::${{ hashFiles('checksums_html') }}"
-          echo "::set-output name=HTMLHELP_CHECKSUM::${{ hashFiles('checksums_htmlhelp') }}"
-      - name: Build CHM file
-        if: env.HHC
-        run: make SHELL=%COMSPEC% -j %NUMBER_OF_PROCESSORS% chm
-      - name: Upload CHM file
-        if: env.HHC
-        uses: actions/upload-artifact@v2
-        with:
-          name: ags-help.chm (windows-cmd-2.9.2)
-          path: ags-manual/htmlhelp/build/ags-help.chm
-          if-no-files-found: error
-
-  build-windows-bash-2-9-2:
-    outputs:
-      html-sha256: ${{ steps.checksum.outputs.HTML_CHECKSUM }}
-      htmlhelp-sha256: ${{ steps.checksum.outputs.HTMLHELP_CHECKSUM }}
-    runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ags-manual
-    env:
-      DATETIME: NOW
-    steps:
-      - name: Checkout build system
-        uses: actions/checkout@v2
-        with:
-          path: ags-manual
-      - name: Checkout wiki
-        uses: actions/checkout@v2
-        with:
-          repository: adventuregamestudio/ags-manual.wiki
-          path: ags-manual.wiki
-      - name: Download and install Pandoc
-        shell: bash
-        run : |
-          pandoc=pandoc-2.9.2/pandoc.exe
-          suffix=windows-x86_64.zip
-          tar=/c/Windows/System32/tar.exe
-          url="https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-$suffix"
-          curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
-          chmod +x "${{ runner.temp }}/$pandoc"
-          echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-      - name: Download and install HTML Help Workshop
-        shell: cmd
+          case ${{ runner.os }} in
+              macOS)
+                  brew update
+                  brew install fpc
+                  ;;
+              Linux)
+                  cd "${{ runner.temp }}" && \
+                      curl -fLSs https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download | \
+                      tar -Oxf - fpc-3.2.2.x86_64-linux/binary.x86_64-linux.tar | \
+                      tar -Oxf - units-chm.x86_64-linux.tar.gz | \
+                      tar -xvzf - bin/chmcmd
+                  >> $GITHUB_ENV echo CHMCMD="${{ runner.temp }}/bin/chmcmd"
+                  ;;
+              Windows)
+                  cd "${{ runner.temp }}" && \
+                      curl -fLOJ https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download && \
+                      ./fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
+                  >> $GITHUB_ENV echo CHMCMD="/c/FPC/3.2.2/bin/i386-win32/chmcmd.exe"
+                  ;;
+              *)
+                  exit 1
+                  ;;
+          esac
+      - name: bootstrap
+        run: ./bootstrap
+      - name: configure
+        run: >
+          mkdir build &&
+          cd build &&
+          ../configure --prefix=/usr/local ${{ matrix.with-feature }}
+      - name: distcheck
         env:
-          CHECKSUM: b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
-          HHC: C:\Program Files (x86)\HTML Help Workshop\hhc.exe
-          URL: https://web.archive.org/web/20200918004813/https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
-        run: |
-          %COMSPEC% /c "pushd "${{ runner.temp }}" && curl -fLOJ "%URL%"" || exit /b 1
-
-          for /f %%a in ('certutil -hashfile "${{ runner.temp }}\htmlhelp.exe" SHA256 ^| find /v " "') do set SHA256=%%a
-          if not "%SHA256%" == "%CHECKSUM%" exit /b 1
-
-          "${{ runner.temp }}\htmlhelp.exe" /Q /T:"${{ runner.temp }}\htmlhelp" /C
-          > "${{ runner.temp }}\htmlhelp\htmlhelp_noupdate.inf" findstr /v /b """hhupd.exe "${{ runner.temp }}\htmlhelp\htmlhelp.inf"
-          %SYSTEMROOT%\SysWOW64\rundll32.exe advpack.dll,LaunchINFSection "${{ runner.temp }}\htmlhelp\htmlhelp_noupdate.inf",,3,N
-          if not exist "%HHC%" exit /b 1
-
-          echo HHC=%HHC%>> %GITHUB_ENV%
-      - name: Set path to Markdown files
-        working-directory: ags-manual.wiki
-        run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-      - name: Get Markdown files
-        run: make source
-      - name: Check Markdown files
-        run: |
-          set +e
-          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-      - name: Build website
-        run: make -j $(getconf _NPROCESSORS_ONLN) html
+          DISTCHECK_CONFIGURE_FLAGS: ${{ matrix.with-feature }}
+        run: >
+          cd build &&
+          make -j $(getconf _NPROCESSORS_ONLN) distcheck
+      - name: stage installation
+        run: >
+          cd build &&
+          make -j $(getconf _NPROCESSORS_ONLN) DESTDIR=destdir install
       - name: Upload website
+        if: ${{ matrix.with-feature != null }}
         uses: actions/upload-artifact@v2
         with:
-          name: html (windows-bash-2.9.2)
-          path: ags-manual/html/build
+          name: website_${{ runner.os }}_2.9.2
+          path: build/destdir/usr/local/share/ags-manual/website
           if-no-files-found: error
-      - name: Build HTML Help Project
-        run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (windows-bash-2.9.2)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
-      - name: Generate build checksums
-        shell: bash
-        run: |
-          for d in html htmlhelp; do
-              find $d/build -type f -print0 | LC_ALL=C sort -z | xargs -0 openssl sha256 | tee '${{ github.workspace }}'/checksums_$d
-              dos2unix '${{ github.workspace }}'/checksums_$d
-          done;
-      - name: Output checksum
-        id: checksum
-        shell: bash
-        run: |
-          echo "::set-output name=HTML_CHECKSUM::${{ hashFiles('checksums_html') }}"
-          echo "::set-output name=HTMLHELP_CHECKSUM::${{ hashFiles('checksums_htmlhelp') }}"
-      - name: Build CHM file
-        if: env.HHC
-        run: make -j $(getconf _NPROCESSORS_ONLN) chm
       - name: Upload CHM file
-        if: env.HHC
         uses: actions/upload-artifact@v2
         with:
-          name: ags-help.chm (windows-bash-2.9.2)
-          path: ags-manual/htmlhelp/build/ags-help.chm
+          name: chm_${{ runner.os }}_2.9.2${{ matrix.with-feature }}
+          path: build/destdir/usr/local/share/ags-manual/*.chm
           if-no-files-found: error
-
-  build-ubuntu-bash-2-9-2:
-    outputs:
-      html-sha256: ${{ steps.checksum.outputs.HTML_CHECKSUM }}
-      htmlhelp-sha256: ${{ steps.checksum.outputs.HTMLHELP_CHECKSUM }}
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ags-manual
-    env:
-      DATETIME: NOW
-    steps:
-      - name: Checkout build system
-        uses: actions/checkout@v2
-        with:
-          path: ags-manual
-      - name: Checkout wiki
-        uses: actions/checkout@v2
-        with:
-          repository: adventuregamestudio/ags-manual.wiki
-          path: ags-manual.wiki
-      - name: Download and install Pandoc
-        shell: bash
-        run : |
-          pandoc="pandoc-2.9.2/bin/pandoc"
-          suffix=linux-amd64.tar.gz
-          tar=tar
-          url="https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-$suffix"
-          curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
-          chmod +x "${{ runner.temp }}/$pandoc"
-          echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-      - name: Set path to Markdown files
-        working-directory: ags-manual.wiki
-        run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-      - name: Get Markdown files
-        run: make source
-      - name: Check Markdown files
-        run: |
-          set +e
-          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-      - name: Build website
-        run: make -j $(getconf _NPROCESSORS_ONLN) html
-      - name: Upload website
-        uses: actions/upload-artifact@v2
-        with:
-          name: html (ubuntu-bash-2.9.2)
-          path: ags-manual/html/build
-          if-no-files-found: error
-      - name: Build HTML Help Project
-        run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (ubuntu-bash-2.9.2)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
-      - name: Generate build checksums
-        shell: bash
-        run: |
-          for d in html htmlhelp; do
-              find $d/build -type f -print0 | LC_ALL=C sort -z | xargs -0 openssl sha256 | tee '${{ github.workspace }}'/checksums_$d
-          done;
-      - name: Output checksum
-        id: checksum
-        shell: bash
-        run: |
-          echo "::set-output name=HTML_CHECKSUM::${{ hashFiles('checksums_html') }}"
-          echo "::set-output name=HTMLHELP_CHECKSUM::${{ hashFiles('checksums_htmlhelp') }}"
-      - name: Build CHM file
-        if: env.HHC
-        run: make -j $(getconf _NPROCESSORS_ONLN) chm
-      - name: Upload CHM file
-        if: env.HHC
-        uses: actions/upload-artifact@v2
-        with:
-          name: ags-help.chm (ubuntu-bash-2.9.2)
-          path: ags-manual/htmlhelp/build/ags-help.chm
-          if-no-files-found: error
-
-  build-macos-bash-2-9-2:
-    outputs:
-      html-sha256: ${{ steps.checksum.outputs.HTML_CHECKSUM }}
-      htmlhelp-sha256: ${{ steps.checksum.outputs.HTMLHELP_CHECKSUM }}
-    runs-on: macos-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ags-manual
-    env:
-      DATETIME: NOW
-    steps:
-      - name: Checkout build system
-        uses: actions/checkout@v2
-        with:
-          path: ags-manual
-      - name: Checkout wiki
-        uses: actions/checkout@v2
-        with:
-          repository: adventuregamestudio/ags-manual.wiki
-          path: ags-manual.wiki
-      - name: Download and install Pandoc
-        shell: bash
-        run : |
-          pandoc="pandoc-2.9.2/bin/pandoc"
-          suffix=macOS.zip
-          tar=bsdtar
-          url="https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-$suffix"
-          curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
-          chmod +x "${{ runner.temp }}/$pandoc"
-          echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
-      - name: Set path to Markdown files
-        working-directory: ags-manual.wiki
-        run: echo "CHECKOUTDIR=$(pwd)" >> $GITHUB_ENV
-      - name: Get Markdown files
-        run: make source
-      - name: Check Markdown files
-        run: |
-          set +e
-          (! make -j $(getconf _NPROCESSORS_ONLN) metacheck 2>&1 >/dev/null | grep ^ERROR)
-      - name: Build website
-        run: make -j $(getconf _NPROCESSORS_ONLN) html
-      - name: Upload website
-        uses: actions/upload-artifact@v2
-        with:
-          name: html (macos-bash-2.9.2)
-          path: ags-manual/html/build
-          if-no-files-found: error
-      - name: Build HTML Help Project
-        run: make -j $(getconf _NPROCESSORS_ONLN) htmlhelp
-      - name: Upload HTML Help Project
-        uses: actions/upload-artifact@v2
-        with:
-          name: htmlhelp (macos-bash-2.9.2)
-          path: ags-manual/htmlhelp/build
-          if-no-files-found: error
-      - name: Generate build checksums
-        shell: bash
-        run: |
-          for d in html htmlhelp; do
-              find $d/build -type f -print0 | LC_ALL=C sort -z | xargs -0 openssl sha256 | tee '${{ github.workspace }}'/checksums_$d
-          done;
-      - name: Output checksum
-        id: checksum
-        shell: bash
-        run: |
-          echo "::set-output name=HTML_CHECKSUM::${{ hashFiles('checksums_html') }}"
-          echo "::set-output name=HTMLHELP_CHECKSUM::${{ hashFiles('checksums_htmlhelp') }}"
-      - name: Build CHM file
-        if: env.HHC
-        run: make -j $(getconf _NPROCESSORS_ONLN) chm
-      - name: Upload CHM file
-        if: env.HHC
-        uses: actions/upload-artifact@v2
-        with:
-          name: ags-help.chm (macos-bash-2.9.2)
-          path: ags-manual/htmlhelp/build/ags-help.chm
-          if-no-files-found: error
-
   check:
     runs-on: ubuntu-latest
-    needs:
-      - build-windows-cmd-2-9-2
-      - build-windows-bash-2-9-2
-      - build-ubuntu-bash-2-9-2
-      - build-macos-bash-2-9-2
+    needs: build
     steps:
-      - name: Verify all html build checksums match
-        run: >
-          echo '${{ toJSON(needs.*.outputs.html-sha256) }}' |
-          jq -e '.|unique|length == 1 and (.[0]|test("^[A-Fa-f0-9]{64}$"))'
-      - name: Verify all htmlhelp build checksums match
-        run: >
-          echo '${{ toJSON(needs.*.outputs.htmlhelp-sha256) }}' |
-          jq -e '.|unique|length == 1 and (.[0]|test("^[A-Fa-f0-9]{64}$"))'
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: artifacts
+      - name: Compare website artifacts
+        run: |
+          dirs=$(echo website_*)
+          count=$(echo "$dirs" | wc -w)
+
+          if [ "$count" -lt 2 ]; then
+              echo "Nothing to compare"
+              exit 0
+          fi
+
+          echo "Comparing $count directories"
+          first=${dirs%% *}
+          rest=${dirs#* }
+          rc=0
+
+          for r in $rest; do
+              echo "Comparing '$first' to '$r'"
+              diff -r $first $r || rc=1
+          done
+
+          exit $rc
+        working-directory: artifacts
