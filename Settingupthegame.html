@@ -201,7 +201,7 @@
 <li>The "Say" column defines whether the character says the option when the player clicks it. The default is on, but if you want options describing the player's actions rather than the actual words, you may want to turn this column off for that dialog.</li>
 </ul>
 <p><strong>Dialog scripts</strong></p>
-<p>You control what happens when the player chooses an option by editing the script on the right. For more information on this script see <a href="DialogScript.html">related topic</a>.</p>
+<p>You control what happens when the player chooses an option by editing the script on the right. For more information on how to handle this script see the <a href="DialogScript.html">Article about Dialog Scripts</a>.</p>
 <p><strong>Parser input</strong></p>
 <p>You'll notice in the dialog editor, the property grid has an option called "ShowTextParser". If you enable this, a text box will be displayed below the predefined options in the game, which allows the player to type in their own input.</p>
 <p>If they type in something themselves, then the dialog_request global script function will be run, with its parameter being the dialog topic number that the player was in.</p>
@@ -247,6 +247,7 @@
 </ul>
 <p><strong>Compiler</strong></p>
 <ul>
+<li><strong>Attach game data to exe</strong> (Windows only) - when enabled the main game data will be appended to "gamename.exe" file. This is how AGS games were packed traditionally, and is on by default. When disabled game data will be packed into the separate "gamename.ags" file and placed alongside with the game exe.<br> Disabling this option will make the game file structure more transparent and, for example, may help to prevent false positive reports from antiviruses that often don't like it when AGS engine reads data from exe.</li>
 <li><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</li>
 <li><strong>Compress the sprite file</strong> - when enabled the sprites will be compressed to reduce game size, at expense of performance.</li>
 <li><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</li>
@@ -406,7 +407,7 @@ function CustomSay4(this Character*, String text);
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:50</p>
+    <p>Build: 05/25/21 14:06:47</p>
   </footer>
 
   <script src="js/search.js"></script>

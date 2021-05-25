@@ -94,7 +94,7 @@
 <p><em>(Formerly known as global function StrCat, which is now obsolete)</em></p>
 <pre><code>String.Append(string str2)
 </code></pre>
-<p>Appends the string STR2 to the end of the specified string, and returns the result.</p>
+<p>Appends the string <code>str2</code> to the end of the specified string, and returns the result.</p>
 <p><strong>IMPORTANT:</strong> The result of joining the strings together is returned as a new string from this command. The original string will <strong>NOT</strong> be changed. For example, the following script will not do anything:<br> <code>mytext.Append("World");</code><br> what you probably want instead is:<br> <code>mytext = mytext.Append("World");</code></p>
 <p>Example:</p>
 <pre><code>String mytext = &quot;Hello&quot;;
@@ -125,8 +125,8 @@ Display(mytext);
 <p><em>(Formerly known as global function StrCaseComp, which is now obsolete)</em><br> <em>(Formerly known as global function StrComp, which is now obsolete)</em></p>
 <pre><code>String.CompareTo(string str2, optional bool caseSensitive)
 </code></pre>
-<p>Compares the specified string to STR2. <em>caseSensitive</em> determines whether "Dog" and "dog" are equivalent; case sensitivity is off by default.</p>
-<p>Returns 0 if the strings match, a number less than 0 if this string is earlier in the alphabet than STR2, and a number greater than 0 if this string is later in the alphabet than STR2.</p>
+<p>Compares the specified string to <code>str2</code>. <em>caseSensitive</em> determines whether "Dog" and "dog" are equivalent; case sensitivity is off by default.</p>
+<p>Returns 0 if the strings match, a number less than 0 if this string is earlier in the alphabet than <code>str2</code>, and a number greater than 0 if this string is later in the alphabet than <code>str2</code>.</p>
 <p><strong>TIP:</strong> To do a case-sensitive comparison of two strings, it's easier to just use the == operator.</p>
 <p>Example:</p>
 <pre><code>String mytext = &quot;Hello&quot;;
@@ -423,7 +423,7 @@ Display(&quot;Length: %d&quot;, text.Length);
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:46</p>
+    <p>Build: 05/25/21 14:06:43</p>
   </footer>
 
   <script src="js/search.js"></script>

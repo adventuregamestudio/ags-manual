@@ -396,7 +396,7 @@ surface.Release();
 </section>
 <section id="gettranslation" class="level3">
 <h3><a href="#gettranslation"><code>GetTranslation</code></a></h3>
-<pre><code>String GetTranslation(string original)
+<pre><code>const string GetTranslation(string original)
 </code></pre>
 <p>Gets the translated equivalent of the supplied string. You do not normally need to use this since the game translates most things for you. However, if you have used an InputBox or other form of user input, and want to compare the user's input to a particular string, it cannot be translated automatically. So, you can do this instead.</p>
 <p>Example:</p>
@@ -720,7 +720,7 @@ SaveScreenShot(input);
 <h3><a href="#setambientlightlevel"><code>SetAmbientLightLevel</code></a></h3>
 <pre><code>void SetAmbientLightLevel(int light_level);
 </code></pre>
-<p>Sets an ambient light level that affects all objects and characters in the room.</p>
+<p>Sets an ambient light level that affects all objects and characters in the room that have their UseRoomAreaLighting property set to true.</p>
 <p>The light level is from <strong>-100 to 100</strong>, where 0 means that no adjustment will be applied to sprites.</p>
 <p>In 8-bit games you cannot use positive light level for brightening effect, but you may still use negative values to produce darkening effect.</p>
 <p>To turn light level off, call this command again but pass the <em>light_level</em> as 0.</p>
@@ -738,7 +738,7 @@ SaveScreenShot(input);
 <h3><a href="#setambienttint"><code>SetAmbientTint</code></a></h3>
 <pre><code>SetAmbientTint(int red, int green, int blue, int saturation, int luminance)
 </code></pre>
-<p>Tints all objects and characters on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
+<p>Tints all objects and characters on the screen that have their UseRoomAreaLighting property set to true to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
 <p>This allows you to apply a global tint to everything on the screen. The RED, GREEN and BLUE parameters are from 0-255, and specify the color of the tint.</p>
 <p>The SATURATION parameter defines how much the tint is applied, and is from 0-100. A saturation of 100 will completely re-colorize the sprites to the supplied color, and a saturation of 1 will give them a very minor tint towards the specified color.</p>
 <p>The LUMINANCE parameter allows you to adjust the brightness of the sprites at the same time. It ranges from 0-100. Passing 100 will draw the sprites at normal brightness. Lower numbers will darken the images accordingly, right down to 0 which will draw everything black.</p>
@@ -1101,7 +1101,7 @@ cEgo.FaceLocation(1000,100);
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:46</p>
+    <p>Build: 05/25/21 14:06:43</p>
   </footer>
 
   <script src="js/search.js"></script>

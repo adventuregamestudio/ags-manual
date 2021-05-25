@@ -80,6 +80,7 @@
 <li><a href="#guiid"><span><code>GUI.ID</code></span></a></li>
 <li><a href="#guipopupstyle"><span><code>GUI.PopupStyle</code></span></a></li>
 <li><a href="#guipopupypos"><span><code>GUI.PopupYPos</code></span></a></li>
+<li><a href="#guishown"><span><code>GUI.Shown</code></span></a></li>
 <li><a href="#guitransparency"><span><code>GUI.Transparency</code></span></a></li>
 <li><a href="#guivisible"><span><code>GUI.Visible</code></span></a></li>
 <li><a href="#guiwidth"><span><code>GUI.Width</code></span></a></li>
@@ -320,14 +321,15 @@ eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen
 eGUIPopupModal        like normal, but pauses game when shown
 eGUIPopupPersistent   like normal, but not removed when the game&#39;s user interface is disabled
 </code></pre>
-<p><strong>NOTE:</strong> for MouseYPos style GUI.Visible property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
+<p><strong>NOTE:</strong> for MouseYPos style <a href="GUI.html#guivisible">GUI.Visible</a> property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
 <ul>
 <li>GUI.Visible property set to TRUE;</li>
 <li>mouse cursor is closer to the screen top than GUI.PopupYPos value.</li>
 </ul>
+<p><a href="GUI.html#guishown">GUI.Shown</a> property tells whether GUI is actually displayed, which may be different from GUI.Visible in the case of MouseYPos style.</p>
 <p><strong>NOTE:</strong> To automatically hide a GUI when the user interface is disabled, the General Settings option <code>When player interface is disabled, GUIs should</code> needs to be set as <code>Be hidden</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guipopupypos">GUI.PopupYPos</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<p><em>See Also:</em> <a href="GUI.html#guipopupypos">GUI.PopupYPos</a>, <a href="GUI.html#guishown">GUI.Shown</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
 <hr />
 </section>
 <section id="guipopupypos" class="level3">
@@ -337,6 +339,17 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style. The GUI will be automatically shown when the mouse cursor's Y coordinate is <em>equal or lower</em> than GUI.PopupYPos (closer to the screen top) and hidden when it is <em>greater</em>.</p>
 <p>This property is ignored if GUI has a different style.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="GUI.html#guipopupstyle">GUI.PopupStyle</a>, <a href="GUI.html#guishown">GUI.Shown</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<hr />
+</section>
+<section id="guishown" class="level3">
+<h3><a href="#guishown"><code>GUI.Shown</code></a></h3>
+<pre><code>readonly bool GUI.Shown
+</code></pre>
+<p>Tells whether GUI is currently active on screen.</p>
+<p>In the common circumstances this property's value is equivalent to checking <a href="GUI.html#guivisible">GUI.Visible</a>. But for GUIs with "Mouse Ypos" popup style the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. In such case it is Shown property that would tell if the GUI is actually displayed on screen at this moment.</p>
+<p><strong>NOTE:</strong> Shown property only reports a logical state, it does not test whether GUI may be seen by the player or not (overlapped by other objects, moved offscreen or fully transparent).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.1</strong> and later versions.</p>
 <p><em>See Also:</em> <a href="GUI.html#guipopupstyle">GUI.PopupStyle</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
 <hr />
 </section>
@@ -371,12 +384,13 @@ while (trans &lt; 100) {
 <p>Gets/sets whether the GUI is visible or not. This property has behaves differently depending on the GUI popup style.</p>
 <p>For "Normal" and "Persistent" GUIs, this property simply switches the GUI on and off, and has no further effects.</p>
 <p>For "Popup modal" GUIs, setting Visible to true causes the game to become paused until the GUI is removed by setting Visible back to false (eg. when the user presses an OK button or something similar).</p>
-<p>For "Mouse Ypos" GUIs, the Visible property does not actually determine whether the GUI can be seen, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse to the top of the screen will not activate the GUI; if it is <em>true</em>, then the GUI will be allowed to be popped up.</p>
+<p>For "Mouse Ypos" GUIs, the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse to the top of the screen will not activate the GUI; if it is <em>true</em>, then the GUI will be allowed to be popped up.</p>
+<p><strong>NOTE:</strong> for "Mouse Ypos" style GUIs the way to actually know if GUI is displayed or not is <a href="GUI.html#guishown">GUI.Shown</a> property.</p>
 <p>Example:</p>
 <pre><code>gSettings.Visible = true;
 </code></pre>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isgamepaused">IsGamePaused</a></p>
+<p><em>See Also:</em> <a href="GUI.html#guishown">GUI.Shown</a>, <a href="Globalfunctions_General.html#isgamepaused">IsGamePaused</a></p>
 <hr />
 </section>
 <section id="guiwidth" class="level3">
@@ -436,7 +450,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:46</p>
+    <p>Build: 05/25/21 14:06:43</p>
   </footer>
 
   <script src="js/search.js"></script>

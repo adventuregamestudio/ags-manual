@@ -75,45 +75,61 @@
 <p>Functions and variables declared in script A could be used in script B if two conditions are met:</p>
 <ol>
 <li>Script B is located below script A in the list of scripts;</li>
-<li>They are correctly exported/imported.</li>
+<li>These functions and variables are correctly exported/imported.</li>
 </ol>
 <p><strong>NOTE:</strong> Room and Dialog scripts can use functions and variables from all the regular script modules, but not from other rooms or dialogs.</p>
 <section id="exporting-and-importing-a-function" class="level3">
 <h3><a href="#exporting-and-importing-a-function">Exporting and importing a function</a></h3>
 <p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import">import</a> keyword somewhere where script B can "see" it. The best practice is to place them in script A's header.</p>
-<p>For example, suppose you have following function in script A:</p>
+<p>For example, suppose you have the following function in script A:</p>
 <pre><code>function ScriptAFunction(int param1, int param2)
 {
     // some actions here
 }
 </code></pre>
-<p>Then import declaration in the script A header will looks like:</p>
+<p>Then import the declaration in the script A header will looks like:</p>
 <pre><code>import function ScriptAFunction(int param1, int param2);
 </code></pre>
-<p>The name, type and arguments of the function must be the same ofcourse, otherwise there will be errors either during compilation or at runtime.</p>
+<p>The name, type and arguments of the function must be the same of course, otherwise there will be errors either during compilation or at runtime.</p>
 </section>
 <section id="exporting-and-importing-a-variable" class="level3">
 <h3><a href="#exporting-and-importing-a-variable">Exporting and importing a variable</a></h3>
-<p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using <a href="ScriptKeywords.html#export">export</a> keyword.</p>
-<p>Suppose you have following declaration in the script A:</p>
+<p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using the <a href="ScriptKeywords.html#export">export</a> keyword.</p>
+<p>Suppose you have the following variable declaration inside script A:</p>
 <pre><code>int public_variable;
 </code></pre>
-<p>and you want to export this to be used in other scripts, you put following statement <em>inside the same script where you declared the variable</em> (script A):</p>
+<p>If you want to export this variable for use in other scripts, you put the following <code>export</code> statement <em>inside the same script where you declared the variable</em> (script A):</p>
 <pre><code>export public_variable;
 </code></pre>
-<p>And then declare variable's import for other scripts to see, presumably in the script A header:</p>
+<p>The <code>export</code> statement must be placed outside of the function and needs <em>only the variable's name</em> and nothing else. You can export several variables in one statement if you separate their names with commas.</p>
+<p>Then declare the variable's import for other scripts to see, presumably <em>in the script A header</em>:</p>
 <pre><code>import int public_variable;
 </code></pre>
-<p>The name and type must match the script's variable.</p>
-<p>To put this simply, the import declaration lets other scripts see this variable, and the export command actually connects existing variable to that declaration.</p>
-<p><strong>NOTE:</strong> AGS Editor has a special menu "Global Variables" meant for easier creation of public variables which could be accessible everywhere. This may be a better alternative for beginners, as it takes care of all this import/export stuff behind the scenes.</p>
+<p>Both the name and type must match the variable's own declaration exactly.<br> This bit is important. If the variable is <code>int</code> it should be imported as <code>int</code>, if it's of the type <code>Character*</code> then the import should also be declared as <code>Character*</code>.<br> Imported arrays must have the correct size, for example if you have <code>int arr[10];</code> then the import declaration must be <code>import int arr[10];</code>, otherwise there will be errors. You can declare the import of several variables <em>of the same type</em> in one statement if you separate them by commas:</p>
+<pre><code>import int var1, var2;
+</code></pre>
+<p>Most commonly import declarations are put in the header of the same script where these variables are defined. But in theory you may not do that and instead place imports inside each particular script where you intend to use these variables.</p>
+<p>So, for a final example, you have this in MyScript.asc:</p>
+<pre><code>int public_int1, public_int2;
+float public_float;
+String public_str;
+export public_int1, public_int2, public_float, public_str;
+</code></pre>
+<p>And in MyScript.ash:</p>
+<pre><code>import int public_int1, public_int2;
+import float public_float;
+import String public_str;
+</code></pre>
+<p>To sum this up, the import declaration lets other scripts see this variable, and the export command actually connects existing variables to that declaration.</p>
+<p><strong>NOTE:</strong> The AGS Editor has a special menu called "Global Variables" meant for easier creation of public variables which could are accessible everywhere. This may be a better alternative for beginners, as it takes care of all this import/export managing behind the scenes.</p>
+<p>See Also: <a href="ScriptKeywords.html#import">import keyword</a>, <a href="ScriptKeywords.html#export">export keyword</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:45</p>
+    <p>Build: 05/25/21 14:06:42</p>
   </footer>
 
   <script src="js/search.js"></script>

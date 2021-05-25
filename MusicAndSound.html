@@ -75,19 +75,19 @@
 <p>Sound and music are an essential part of any gameplay experience, and AGS 3.2 and higher provides a re-written audio system giving you full control over your game audio.</p>
 <p><strong>File formats</strong></p>
 <p>AGS is able to play the following types of audio file: OGG, MP3, MIDI, WAV (uncompressed), MOD, XM, IT, S3M and VOC.</p>
-<p>The only limitation to this is that AGS is only able to play one MIDI file at a time. If you attempt to play two simultaneous MIDI music files, the first one will be cut off when the second one starts playing.</p>
-<p>If you haven't heard of OGG before, it's a digital music format, similar to MP3, but achieving better compression and higher quality. More importantly, it is a totally free format so no royalty payments or licenses are required to use it. For more information and programs to encode your music to OGG, see <a href="https://www.vorbis.org/">https://www.vorbis.org/</a></p>
+<p>The only limitation to this is that AGS is only able to play one MIDI file at a time. If you attempt to play two MIDI music files simultaneously, the first one will be cut off when the second one starts playing.</p>
+<p>OGG is a digital music format similar to MP3, but achieving better compression and higher quality. More importantly, it is a totally free format so no royalty payments or licenses are required to use it. For more information and programs to encode your music to OGG, see <a href="https://www.vorbis.org/">https://www.vorbis.org/</a></p>
 <p><strong>Audio in the Editor</strong></p>
 <p>Look under the "Audio" branch in the project tree. Here you'll find sub-nodes called "Speech", "Types" and two default folders called "Music" and "Sounds".</p>
 <p><strong>Speech</strong></p>
-<p>At the moment, voice speech files are not setup within the editor. See the <a href="MusicAndSound.html#voice-speech">Speech</a> help page to find out more about adding speech to your game.</p>
+<p>At the moment, voice speech files are not set up within the editor. See the <a href="MusicAndSound.html#voice-speech">Speech</a> help page to find out more about adding speech to your game.</p>
 <p><strong>Audio Types</strong></p>
 <p>Audio Types allow you to group together similar types of audio files. The standard distinction here is between Sound and Music, whereby you usually only want one Music file to be playing at any one time; whereas you might have several simultaneous sound effects.</p>
 <p>Double-click on an Audio Type and it will open up; you can see its properties in the Property Grid. Here, the "MaxChannels" setting allows you to specify how many audio clips of this type are allowed to play at the same time. The "VolumeReductionWhenSpeechPlaying" setting allows you to have AGS automatically reduce the volume of these audio clips while speech is playing, to make it easier for the player to hear the speech over the background music.</p>
 <p>You'll probably find that the default settings here are fine, and in many games you won't need to change them.</p>
 <p><strong>Importing audio files</strong></p>
 <p>Now let's get on to the important question -- how do you add sound and music to your game? Well, if you right-click on the "Sound" or "Music" folders (or any other folders that you create yourself), you'll see an option called "Add Audio Files".</p>
-<p>Select this option, and you'll be given a dialog box to find the audio files that you want to import. Once imported, they'll be assigned script names automatically.</p>
+<p>Select this option, and you'll be given a dialog box to find the audio files that you want to import. Once imported, they'll be assigned script names automatically. If you already name the soundfiles you create and want to use in a short and descriptive way you don't have to rename them in the game project and save a lot of time and keep both your game project and the assets organized.</p>
 <p>Double-click an audio file in the project tree to open a window where you can preview it, as well as change its properties in the Property Grid.</p>
 <p><strong>Using folders to organize sounds</strong></p>
 <p>Rightclick on the main music node, on one of the subordinate type folders or any user-created subfolder to these to create a subfolder to that node. It is good practice to add some new subfolders when you start a new project or you will have to drag and drop a lot of files later (as you can not drag and drop them in droves but only one at a time). You could split your music into Chapter 1 music, Chapter 2 music, etc or split it to "music calm" and "music battle" or whatever you need.<br />
@@ -98,12 +98,15 @@ The same applies to the folder for sounds and sound effects, add subfolders to i
 </code></pre>
 <p>plays the audio clip called <em>aExplosion</em>.</p>
 <p><strong>Priorities and channels</strong></p>
-<p>AGS currently has an 8-channel audio system, which means that up to 8 sounds can be playing at the same time. With the default Audio Types settings, one channel is reserved for speech, one for music and one for ambient sounds; thus leaving 5 available for sound effects.</p>
+<p>AGS currently has an 8-channel audio system, which means that up to 8 sounds can be playing at the same time. One channel is always reserved for the speech voice-over and you cannot change that, so you have 7 at your disposal. By default Audio Types reserve one channel for music and one for ambient sounds; thus leaving 5 available for other types, but you can change that to your needs.</p>
+<p><strong>NOTE:</strong> Because total number of channels is a constant, AGS does not guarantee to reserve exactly as many channels as you set. Channels are reserved in the order of types in the project, so if you set "MaxChannels" to 5 for music and 5 for sounds, then at runtime the game will reserve 5 for music and only 2 remaining for sounds.</p>
 <p>If you try to play an audio clip and there are no channels available, then an existing one will be stopped and the new one will take its place. However, this will only happen if the new audio clip has an <strong>equal or higher</strong> priority than one of the currently playing sounds.</p>
 <p>Thus, the priority allows you to decide which audio clips are more important than others. For example, you might set a footstep sound as low priority, and a door opening as high priority. This can be configured at the folder level in the editor, and also by changing the properties of an individual audio clip (by default they will inherit from their containing folder).</p>
 <p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicitly specify the priority when you play it, for example:</p>
 <pre><code>aExplosion.Play(eAudioPriorityLow);
 </code></pre>
+<p><strong>NOTE:</strong> having only one channel reserved for an audio type and all clips having same priority by default will make any new played sound of that type replace the previous one automatically. This may be useful, for example, to ensure that only one music clip is playing at the same time in your game.</p>
+<p><em>See also:</em> <a href="AudioInScript.html">AGS Audio Channel Troubleshooting</a></p>
 <p><strong>Seeking and changing volume</strong></p>
 <p>So, how do you change a sound once it is playing? Well, there are no methods on the Audio Clip to do this, because you might be playing two copies of the same sound at once, and then AGS wouldn't know which one you wanted to access. That's where <strong>Audio Channels</strong> come to the rescue.</p>
 <p>When you use the Play() command, AGS returns to you an AudioChannel* instance representing the channel on which the sound is playing. You can store this to a global variable and access it later on. For example:</p>
@@ -163,7 +166,7 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:48</p>
+    <p>Build: 05/25/21 14:06:46</p>
   </footer>
 
   <script src="js/search.js"></script>

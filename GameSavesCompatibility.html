@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Game saves compatibility</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#game-saves-compatibility"><span>Game saves compatibility</span></a>
+<ul>
+<li><a href="#changes-in-the-game-project-that-break-saves"><span>Changes in the game project that break saves</span></a></li>
+<li><a href="#changes-that-dont-break-saves-but-are-not-safe"><span>Changes that DON'T break saves but are NOT SAFE</span></a></li>
+<li><a href="#changes-that-dont-break-saves-and-are-safe"><span>Changes that DON'T break saves and ARE SAFE</span></a></li>
+<li><a href="#an-issue-of-dynamic-objects"><span>An issue of dynamic objects</span></a></li>
+<li><a href="#solution-0-code-your-own-save-system"><span>Solution 0: Code your own save system</span></a></li>
+<li><a href="#solution-1-reusing-game-objects"><span>Solution 1: Reusing game objects</span></a></li>
+<li><a href="#solution-2-dummy-object-reserve"><span>Solution 2: Dummy object reserve</span></a></li>
+<li><a href="#solution-3-new-rooms"><span>Solution 3: New rooms</span></a></li>
+<li><a href="#solution-4-string-dictionary-and-set"><span>Solution 4: String, Dictionary and Set</span></a></li>
+<li><a href="#solution-5-extending-dynamic-arrays-and-managed-structs"><span>Solution 5: Extending dynamic arrays and managed structs</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="game-saves-compatibility" class="level2">
+<h2><a href="#game-saves-compatibility">Game saves compatibility</a></h2>
+<p>AGS games have a built-in save system that is very convenient most of the time as it automatically writes down states of the game and all objects in it, allowing to restore saved game to exactly same condition it was saved in.</p>
+<p>But it has one serious flaw. When game data is written to a save file the game objects and variables are written as lists, where separate items are not identified in any way rather than order in that list. Because of that, <strong>if you</strong>, the author of the game, <strong>update your game adding or removing any objects, <em>all the saves made with a previous version of the game will become unusable</em></strong>. Simply changing the IDs of game objects in the project tree or changing the order of the variables in script will cause previous saves to glitch, as old data will be restored into wrong objects or variables.</p>
+<p>This may not be the biggest issue while the game is in development, as you have multiple ways to make the game "teleport" the player character to the desired scene instead of using a save state. But it becomes a problem after you released your game to the public, as any update or patch that involves adding new objects or variables will render the player's saves unusable.</p>
+<p>Following article explores which changes to your game are safe and which are not in terms of keeping your game compatible with older saves, and which known methods exist to work around this problem.</p>
+<section id="changes-in-the-game-project-that-break-saves" class="level3">
+<h3><a href="#changes-in-the-game-project-that-break-saves">Changes in the game project that break saves</a></h3>
+<p>Changing the number (adding or removing) of almost all game objects will break previous saved states. Following types of objects contribute to this:</p>
+<ul>
+<li>Audio Types,</li>
+<li>Characters,</li>
+<li>Dialogs (but not options in existing Dialog, for technical reasons),</li>
+<li>Global Variables,</li>
+<li>GUIs and controls on existing GUIs,</li>
+<li>Inventory items,</li>
+<li>Mouse cursor types,</li>
+<li>Views, loops and frames in them (because frames may be changed in script and their properties are added to the save state),</li>
+<li>Script modules (when changing the number of them by adding or removing scripts)</li>
+</ul>
+<p>In addition to that, changing the <em>total size</em> of variables declared in the global scope of each script (<em>NOT</em> local function variables) will break older save states.<br> To elaborate on what "total size" is, imagine you have this declared in a script:</p>
+<pre>
+int a;
+int b;
+int c;
+</pre>
+
+<p>This adds up to make the total size of script variables 3 integers (or 3 * 4 bytes = 12 bytes). Now, if you change this to</p>
+<pre>
+int vars[3];
+</pre>
+
+<p>even though there's now only one variable, this also gives a total size of 3 integers, and won't break save states. (Here we omit the question whether it will still make sense to restore older save with such a change in the script.)</p>
+</section>
+<section id="changes-that-dont-break-saves-but-are-not-safe" class="level3">
+<h3><a href="#changes-that-dont-break-saves-but-are-not-safe">Changes that DON'T break saves but are NOT SAFE</a></h3>
+<p>Changing the number of Room Objects in existing rooms, while technically not preventing the compiled game to restore old saves, still may lead to bugs. Because their real number is stored in saves, players may end up having more or less objects in a room than there are supposed to be. And because currently you cannot create or delete Room Objects with a script command you won't be able to fix this, you can only detect this happening by checking <a href="Room.html#roomobjectcount">Room.ObjectCount</a>.</p>
+<p>Changing the size of the dynamic arrays and managed structs won't break saves, but may cause the game to crash if a script tries to access newer elements or variables in these arrays and structs after restoring older saves.<br> Still this may be worked around and can actually be used to your advantage: see the <a href="GameSavesCompatibility.html#an-issue-of-dynamic-objects">dedicated section below</a> for more information.</p>
+</section>
+<section id="changes-that-dont-break-saves-and-are-safe" class="level3">
+<h3><a href="#changes-that-dont-break-saves-and-are-safe">Changes that DON'T break saves and ARE SAFE</a></h3>
+<p>Parts of the game which may be safely added or removed:</p>
+<ul>
+<li>Dialog options in existing Dialogs.</li>
+<li>Rooms, adding new ones. Removing a room is <em>not</em> safe, as loading a state saved in a no longer existing room will crash the game.</li>
+<li>Adding room backgrounds in existing rooms, but probably not removing them (<em>needs to be checked</em>).</li>
+<li>Custom properties. If you remove existing ones, their values may still load from the older save but will not be accessible.</li>
+</ul>
+<p>Adding or removing any kind of plain resources, such as</p>
+<ul>
+<li>Sprites</li>
+<li>Fonts,</li>
+<li>Audio clips,</li>
+<li>Voice-over clips,</li>
+<li>Video files,</li>
+<li>Translations</li>
+</ul>
+<p><strong>IMPORTANT:</strong> Removing sprites is only safe if you fix all objects that could have them assigned upon restoring a save. The same goes for clips assigned to View Frames, and fonts used on GUIs.</p>
+<p>In scripts:</p>
+<ul>
+<li>User types (structs) may be added; but if you change the size of a regular struct while having variables of that type in your script - that would also change the size of these variables, and may break saves. Managed structs <em>may</em> be changed in size without breaking a save, but this requires a special approach (<a href="GameSavesCompatibility.html#an-issue-of-dynamic-objects">see below</a>).</li>
+<li>Macros,</li>
+<li>Functions and attributes, and generally - function code itself,</li>
+<li>For the same reasons - changing existing dialog scripts,</li>
+<li>Local variables (inside functions) may be added and removed freely because they are not saved, because AGS does not allow the game to save while it is inside a script function</li>
+</ul>
+</section>
+<section id="an-issue-of-dynamic-objects" class="level3">
+<h3><a href="#an-issue-of-dynamic-objects">An issue of dynamic objects</a></h3>
+<p>The pointers which are global variables are part of script's total variable size, so adding or removing them in script will result in the save breaking. The <em>managed objects themselves</em> are not stored in the script's variable memory, but in their own memory pool. They are also completely written to the save file, and loading this save will restore the original managed object with its original size. Therefore, changing their sizes in a new version of the game doesn't break previous saves. However, there's a number of potential problems with that and these have to be resolved if you want to maintain save compatibility.</p>
+<p>Consider a simple dynamic array:</p>
+<pre>
+int dyn_arr[];
+
+function game_start() {
+    dyn_arr = new int[100];
+}
+</pre>
+
+<p>Let's assume you had this in game version 1, made a save, then increased the dynamic array's size in script to 200:</p>
+<pre>
+    dyn_arr = new int[200];
+</pre>
+
+<p>What will happen if you now compile game version 2 and then restore the old save? The game will restore the dynamic array with the previous size of 100. This means that if your new script will now try to access elements in the array beyond 100 (thinking that this array has 200 elements now), that will result in an "index out of range" error. Unfortunately at the time of writing this AGS manual page, you can't access the length of a dynamic arrays directly in script. But you can store their length somewhere else, for example, in a variable:</p>
+<pre>
+int dyn_arr[];
+int arr_size;
+
+function game_start() {
+    dyn_arr = new int[100];
+    arr_size = 100;
+}
+</pre>
+
+<p>There are other ways of fixing this, for example you could store the array length in its first element. This way you keep the save breaking value within the array itself, but you will have to remember it's there when you work with the array. Anyway, that's a different topic. In any case, having the array length stored, if you ever change that array's size and restore an older save, that length variable will also be restored and will tell you the correct size of the array. If you still need the array to be exactly 200 elements in size in the new version of the game you may resize it after restoring a save. This is explained further in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
+<p>Less likely, but if you instead reduce the array's size then the array restored from the older save will be bigger in size than necessary, but that's much less of a problem and can be ignored safely.</p>
+<p>This is what happens with changes in dynamic arrays, but what about <em>changes in custom managed structs</em>? Assume in game version 1 you have:</p>
+<pre>
+managed struct MyStruct {
+    int a;
+    int b;
+};
+
+MyStruct* var;
+
+function game_start() {
+    var = new MyStruct;
+}
+</pre>
+
+<p>Then in game version 2 you decided to add another variable:</p>
+<pre>
+managed struct MyStruct {
+    int a;
+    int b;
+    int c;
+};
+</pre>
+
+<p>If you load an older save from version 1 while running version 2, created objects of this type will load but will be one variable less in size. Trying to use the additional variable in script will result in an error. This is similar to the array case. The solution here is similar to the array solution: upon restoring the older save recreate all managed objects (they will be of the correct size), copy valid content from restored objects into them, and reassign pointers to these recreated objects. Again this is explained more in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
+<p>And again, if you remove a variable instead:</p>
+<pre>
+managed struct MyStruct {
+    int a;
+};
+</pre>
+
+<p>in this case the older save will be restored, and the old variants of MyStruct will also be loaded. They will contain all the removed variables, but you no longer will be able to access them in script because they are no longer declared so the script is not aware of their existence.</p>
+<p>Finally, there's another potential problem. Let's look at this variant:</p>
+<pre>
+managed struct MyStruct {
+    int a;
+    // int b;
+    int c;
+};
+</pre>
+
+<p>The <code>b</code> variable was removed, so variable <code>c</code> now follows <code>a</code>. If you load an older save however, the old MyStruct objects contain variable <code>b</code>, and its value will be assigned to <code>c</code> instead of <code>b</code>, as it took its place in the struct.</p>
+<p>For that reason, if save compatibility is essential, it is recommended to only <em>extend</em> managed types and not cut out existing data.</p>
+<hr />
+</section>
+<section id="solution-0-code-your-own-save-system" class="level3">
+<h3><a href="#solution-0-code-your-own-save-system">Solution 0: Code your own save system</a></h3>
+<p>Yes, this may sound like a crazy suggestion, but it's a real possibility. Depending on your requirements this solution may range from almost trivial to nearly impossible to accomplish in script. This is a whole separate topic though, so we won't go into much detail here. But if you want to experiment here are some points to get you started:</p>
+<ul>
+<li>AGS supports writing and reading custom files. See <a href="File.html">File functions</a> for reference.</li>
+<li>Consider using simpler save states, more like checkpoints. If you can live without restoring literally everything to the smallest bit, maybe you can only save the most important game variables, items that the player possesses, the state of the accessible puzzles.</li>
+<li>Learn to describe the game state using just a few variables and restore the game and rooms from these. For example, if your variable says that "puzzle A is solved", you may know that Room Objects A and B are invisible, item C is in the player's inventory, and non-player character D moved to room 2. This approach allows you to rebuild the game state in script just from a few variables the game reads from a custom file. But of course you have to plan this ahead well.</li>
+</ul>
+</section>
+<section id="solution-1-reusing-game-objects" class="level3">
+<h3><a href="#solution-1-reusing-game-objects">Solution 1: Reusing game objects</a></h3>
+<p>If you need to urgently patch your released game but realize you are going to break previous saves by doing that, you may try reusing existing game objects.</p>
+<p>Characters may switch Views and play different roles in other rooms. Unused Room Objects are perhaps more rare, but their Graphic or View may be switched too and can act as something else. Characters may be used as room elements too, except they cannot be simply assigned a sprite, but require a View. GUIs may be reconfigured on the fly, if you have enough suitable controls on them. View Frames may be assigned different sprites, even <a href="DynamicSprite.html">Dynamic Sprites</a>, which you can paint upon with script functions to display something completely different.</p>
+<p>Global variables may be reused for other purposes if you find a way to indicate what meaning they have at the moment and how they should be used in your script in various circumstances.</p>
+</section>
+<section id="solution-2-dummy-object-reserve" class="level3">
+<h3><a href="#solution-2-dummy-object-reserve">Solution 2: Dummy object reserve</a></h3>
+<p>If you are planning changes after your game's release, there's one very straightforward yet ugly solution: create a number of extra objects of every type (Characters, GUIs, and so on) that you don't use right now but which could be used in case of emergency for patching the game.</p>
+<p>In your script, you can allocate big global arrays of ints and other types as a reserve for future fixes and updates, then use elements of those arrays whenever you need an extra variable.</p>
+</section>
+<section id="solution-3-new-rooms" class="level3">
+<h3><a href="#solution-3-new-rooms">Solution 3: New rooms</a></h3>
+<p>If you must change the content of a room but do not want to break saves at all costs you may create a duplicate room with a new number and updated contents, then script changing to this new room if the player restores a save made in the old room.</p>
+<p>This is done like this, for example:</p>
+<pre>
+function on_event(EventType evt, int data) {
+    if (evt == eEventRestoreGame) {
+        if (player.Room == OLD_ROOM_NUMBER) {
+            player.ChangeRoom(NEW_ROOM_NUMBER);
+        }
+    }
+}
+</pre>
+
+</section>
+<section id="solution-4-string-dictionary-and-set" class="level3">
+<h3><a href="#solution-4-string-dictionary-and-set">Solution 4: String, Dictionary and Set</a></h3>
+<p>You may use String variables (or even one String) to store almost any amount of additional data without adding new variables. Strings may be <a href="StringFormats.html">formatted</a> to include numbers too. You may create for example a comma-separated list of values, then parse it back by iterating over characters, cutting it into substrings and converting it back to the wanted types. That will involve some advanced scripting but can be used as a last resort.</p>
+<p>Since AGS 3.5.0 there's also a <a href="Dictionary.html">Dictionary</a> type and a <a href="Set.html">Set</a> type available. Those types may serve as an easier alternative in this solution. It's easy to check which variables (keys) they contain. You can even store the "game version" inside them as one of the elements and check for that value after restoring a save to know which version of your game saved it. They may be used as a universal global storage, for example, for story variables, expanding them between game updates.</p>
+</section>
+<section id="solution-5-extending-dynamic-arrays-and-managed-structs" class="level3">
+<h3><a href="#solution-5-extending-dynamic-arrays-and-managed-structs">Solution 5: Extending dynamic arrays and managed structs</a></h3>
+<p>As mentioned earlier in this article, any managed object is not restricted to change because its full content is read from the save. This allows you to use managed structs and dynamic arrays as infinite reserve for variables. Upon loading an old save you would need to test the length or another kind of "version" of that array and resize it: create a new one, copy the old restored contents, fill up the rest with default values, replace the pointer variable.</p>
+<p>Consider following example:</p>
+<pre>
+#define GAME_VER_001_LENGTH 10
+#define GAME_VER_002_LENGTH 20
+
+int GameVersion;
+int MyVariables[];
+
+function game_start() {
+    GameVersion = 2;
+    MyVariables = new int[GAME_VER_002_LENGTH];
+}
+
+function on_event(EventType evt, int data) {
+    if (evt == eEventRestoreGame) {
+        // detect old save
+        if (GameVersion == 1) {
+            // allocate bigger array suited for latest version of the game
+            int new_vars[] = new int[GAME_VER_002_LENGTH];
+            // copy restored array with old data into our new array
+            for (int i = 0; i < GAME_VER_001_LENGTH; i++) {
+                 new_vars[i] = MyVariables[i];
+            }
+            // set default values for the rest (replace with your code as appropriate)
+            for (int i = GAME_VER_001_LENGTH; i < GAME_VER_002_LENGTH; i++) {
+                 new_vars[i] = 0;
+            }
+            // finally replace pointer and version number
+            MyVariables = new_vars;
+            GameVersion = 2;
+        }
+    }
+}
+</pre>
+
+<p>A similar solution may be used for managed structs, although it may be bit more complicated to script but essentially it is the same thing.</p>
+<pre>
+managed struct MyStruct {
+    // variables from version 1
+    int a;
+    int b;
+    // variables from version 2
+    int c;
+    int d;
+}
+
+int GameVersion;
+MyStruct MyObj;
+
+function game_start() {
+    GameVersion = 2;
+    MyObj = new MyStruct;
+}
+
+function on_event(EventType evt, int data) {
+    if (evt == eEventRestoreGame) {
+        // detect old save
+        if (GameVersion == 1) {
+            // allocate new managed object suited for latest version of the game
+            MyStruct new_obj = new MyStruct;
+            // copy restored object with old data into our new object
+            new_obj.a = MyObj.a;
+            new_obj.b = MyObj.b;
+            // set default values for the rest (replace with your code as appropriate)
+            new_obj.c = 0;
+            new_obj.d = 0;
+            // finally replace pointer and version number
+            MyObj = new_obj;
+            GameVersion = 2;
+        }
+    }
+}
+</pre>
+
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 05/25/21 14:06:48</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

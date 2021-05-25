@@ -63,6 +63,7 @@
 <ul>
 <li><a href="#system-functions-and-properties"><span><code>System</code> functions and properties</span></a>
 <ul>
+<li><a href="#systemsaveconfigtofile"><span><code>System.SaveConfigToFile</code></span></a></li>
 <li><a href="#systemaudiochannelcount"><span><code>System.AudioChannelCount</code></span></a></li>
 <li><a href="#systemaudiochannels"><span><code>System.AudioChannels</code></span></a></li>
 <li><a href="#systemcapslock"><span><code>System.CapsLock</code></span></a></li>
@@ -91,6 +92,16 @@
   <main>
 <section id="system-functions-and-properties" class="level2">
 <h2><a href="#system-functions-and-properties"><code>System</code> functions and properties</a></h2>
+<section id="systemsaveconfigtofile" class="level3">
+<h3><a href="#systemsaveconfigtofile"><code>System.SaveConfigToFile</code></a></h3>
+<pre><code>static void System.SaveConfigToFile()
+</code></pre>
+<p>Writes current engine settings to the player's configuration file, so that they may be applied next time the game is launched.</p>
+<p>This saves only the options that may be changed at runtime, such as translation and fullscreen/windowed graphic mode.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.1</strong> and later versions.</p>
+<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a></p>
+<hr />
+</section>
 <section id="systemaudiochannelcount" class="level3">
 <h3><a href="#systemaudiochannelcount"><code>System.AudioChannelCount</code></a></h3>
 <pre><code>readonly static int System.AudioChannelCount;
@@ -420,7 +431,7 @@ else {
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:53</p>
+    <p>Build: 05/25/21 14:06:51</p>
   </footer>
 
   <script src="js/search.js"></script>

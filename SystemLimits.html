@@ -81,11 +81,9 @@
 <li>5 background frames per room</li>
 <li>20 mouse cursors</li>
 <li>8 audio channels</li>
-<li>100 local messages per room (excluding script)</li>
-<li>30 fonts</li>
-<li>150 lines of text in a listbox</li>
 <li>126 different script modules due to bytecode format</li>
 <li>unlimited words in the text parser dictionary</li>
+<li>unlimited fonts</li>
 <li>unlimited characters</li>
 <li>unlimited dialog topics</li>
 <li>unlimited views</li>
@@ -100,7 +98,6 @@
 <li><p>In AGS integers and floats are 32-bit. Integers can be from -2147483648 to +2147483647, and floats are a bit more complicated, so it's better to test them.</p></li>
 <li><p>You should be able to have up to 15 parameters to a function.</p></li>
 <li><p>To ensure the pathfinder always works, your walkable areas should always be at least 3 pixels wide.</p></li>
-<li><p>You'll get an error if you define over 4 KB's worth of variables inside a function.</p></li>
 <li><p>AGS currently allows the call stack to be 50 levels deep, so if you have a recursive function that calls itself more often you'll get the "call stack overflow" error. Additionally, the stack size is set at 4 KB so if the recursive function declares a lot of local variables you could reach the limit that way, too.</p></li>
 <li><p>There is a total overall limit on the number of functions that can be exported by all plugins added together, which in theory it would be possible for a single plugin to exceed. It's in the region of a couple of hundred though, so it shouldn't be an issue. It wouldn't be too difficult to increase, if the need arose.</p></li>
 </ul>
@@ -110,7 +107,7 @@
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:56</p>
+    <p>Build: 05/25/21 14:06:53</p>
   </footer>
 
   <script src="js/search.js"></script>

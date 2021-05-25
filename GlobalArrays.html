@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global Arrays</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-arrays"><span>Global Arrays</span></a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-arrays" class="level2">
+<h2><a href="#global-arrays">Global Arrays</a></h2>
+<p>There's a number of global arrays declared for you to access certain game objects. For historical reasons some of them have their length defined as a constant, others have their length provided as a property.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Array</th>
+<th>Length</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Character character[]</td>
+<td><a href="Game.html#gamecharactercount">Game.CharacterCount</a></td>
+<td>All game's Characters</td>
+</tr>
+<tr class="even">
+<td>Dialog dialog[]</td>
+<td><a href="Game.html#gamedialogcount">Game.DialogCount</a></td>
+<td>All game's dialogs</td>
+</tr>
+<tr class="odd">
+<td>GUI gui[]</td>
+<td><a href="Game.html#gameguicount">Game.GUICount</a></td>
+<td>All game's GUI</td>
+</tr>
+<tr class="even">
+<td>InventoryItem inventory[]</td>
+<td><a href="Game.html#gameinventoryitemcount">Game.InventoryItemCount</a></td>
+<td>All game's InventoryItems</td>
+</tr>
+<tr class="odd">
+<td>Hotspot hotspot[]</td>
+<td>AGS_MAX_HOTSPOTS</td>
+<td>Current room's Hotspots</td>
+</tr>
+<tr class="even">
+<td>Object object[]</td>
+<td><a href="Room.html#roomobjectcount">Room.ObjectCount</a></td>
+<td>Current room's Room Objects</td>
+</tr>
+<tr class="odd">
+<td>Region region[]</td>
+<td>AGS_MAX_REGIONS</td>
+<td>Current room's Regions</td>
+</tr>
+<tr class="even">
+<td>ColorType palette[]</td>
+<td>PALETTE_SIZE</td>
+<td>Game's palette, for 256-color mode</td>
+</tr>
+</tbody>
+</table>
+<p>Arrays that contain game objects contain them in the order of their respective ID. For example, if you have a character with the script name "cChar", then <code>cChar.ID</code> would tell you the index at which this character is in the <code>character</code> array. This may be useful if you have to store its numeric ID in an integer variable for later use and then find the Character by this number.</p>
+<p>Abstract example:</p>
+<pre>
+int saved_id;
+...
+saved_id = cChar.ID;
+...
+Character* found_char = character[saved_id];
+</pre>
+
+<p>Naturally, when you know the array's size it's possible to iterate over it, for example when you want to perform an action on all of these objects, or when you want to find one of the objects in the game array by certain rules:</p>
+<pre>
+for (int i = 0; i < Game.CharacterCount; i++) {
+    Character* c = character[i];
+    Display("Character number %d got name %s", i, c.Name);
+}
+</pre>
+
+<p><strong>IMPORTANT:</strong> there is a known issue that if the game script mentions one of those arrays anywhere, then your game must have at least one object of that type. This is because AGS script cannot have zero-sized arrays and does not declare those that won't have any elements.<br> This is essential to remember if you're using a game template or script module that works with <code>dialog[]</code>, <code>gui[]</code> or <code>inventory[]</code> arrays: to make your game compile in this case you have to create at least one dummy Dialog, GUI or Inventory item (even if you don't use it).</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 05/25/21 14:06:53</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

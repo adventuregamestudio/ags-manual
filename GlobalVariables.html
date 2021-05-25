@@ -68,7 +68,7 @@
   <main>
 <section id="global-variables" class="level2">
 <h2><a href="#global-variables">Global variables</a></h2>
-<p>The Global Variables pane allows you to easily add variables to your game which can then be accessed from all your scripts.</p>
+<p>The Global Variables dialog window allows you to easily add variables to your game which can then be accessed from all your scripts.</p>
 <p>In previous versions of AGS, declaring a global variable in the script involved defining it in three different places, with import and export clauses in the appropriate locations. Now, this whole process is vastly simplified with the new Global Variables Editor.</p>
 <p><strong>When should I use a global variable?</strong></p>
 <p>Use a global variable when you need to store some information that you need to access from different scripts. For example, if you want to store the player's health and you want all your different scripts to be able to access this value, then use a global variable.</p>
@@ -87,12 +87,13 @@
 <p><code>Display("myVariable: %d", myVariable);</code></p>
 <p>That's it! Just use it as you'd use any other variable declared in the script.</p>
 <p>Note that some of the types available are managed instance pointers, like "GUI", "DynamicSprite" and "Character". These are for more advanced users only. If you create one of these you cannot set a default value, and it will initially be set to <em>null</em>. You will need to initialize the pointer in your script to point to something before you use it.</p>
+<p><em>See also:</em> <a href="ImportingFunctionsAndVariables.html">Importing Functions and Variables</a>, <a href="GlobalArrays.html">Global Arrays</a></p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:56</p>
+    <p>Build: 05/25/21 14:06:53</p>
   </footer>
 
   <script src="js/search.js"></script>

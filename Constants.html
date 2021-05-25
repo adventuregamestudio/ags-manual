@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Constants</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#constants"><span>Constants</span></a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="constants" class="level2">
+<h2><a href="#constants">Constants</a></h2>
+<p>The following predefined macros and constants are available in your scripts:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DEBUG</td>
+<td>Defined if the game is being compiled in debug mode, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>SCRIPT_API_vXXX</td>
+<td>Defined if corresponding version of script API is enabled (e.g. SCRIPT_API_v340)</td>
+</tr>
+<tr class="odd">
+<td>SCRIPT_COMPAT_vXXX</td>
+<td>Defined if certain compatibility level is enabled (e.g. SCRIPT_COMPAT_v321)</td>
+</tr>
+<tr class="even">
+<td>STRICT</td>
+<td>Defined if "Enforce Object Based Scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>STRICT_STRINGS</td>
+<td>Defined if "Enforce new-style strings" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>STRICT_AUDIO</td>
+<td>Defined if "Enforce new-style audio scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>LRPRECEDENCE</td>
+<td>Defined if "Left-to-right operator precedence" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>AGS_NEW_STRINGS</td>
+<td>Defined if AGS 2.71 or later (with new-String support), not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>NEW_DIALOGOPTS_API</td>
+<td>Defined if "Use old-style dialog options rendering API" is disabled</td>
+</tr>
+<tr class="even">
+<td>AGS_SUPPORTS_IFVER</td>
+<td>Defined if AGS 2.72 or later (with <code>#ifver</code> support), not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_INV_ITEMS</td>
+<td>The maximum number of inventory items</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_OBJECTS</td>
+<td>The maximum objects per room</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_HOTSPOTS</td>
+<td>The maximum hotspots per room</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_REGIONS</td>
+<td>The maximum regions per room</td>
+</tr>
+<tr class="odd">
+<td>MAX_LISTBOX_SAVED_GAMES</td>
+<td>Limit of save files filled into ListBox when using <a href="ListBox.html#listboxfillsavegamelist">FillSaveGameList</a></td>
+</tr>
+<tr class="even">
+<td>PALETTE_SIZE</td>
+<td>Size of game palette, for 256-color mode</td>
+</tr>
+</tbody>
+</table>
+<p>You can check for whether a macro is defined or not by using the <code>#ifdef</code> and <code>#ifndef</code> keywords:</p>
+<pre><code>#ifndef STRICT
+  // only compile the MoveCharacter command if not using object-based scripting
+  MoveCharacter(EGO, 30, 40);
+#endif
+#ifdef DEBUG
+  // only display this when the game is compiled in debug mode
+  Display(&quot;Debugging information&quot;);
+#endif
+</code></pre>
+<p>There is also an <code>#error</code> directive you can use to stop the script compiling:</p>
+<pre><code>#ifndef AGS_NEW_STRINGS
+#error This script requires at least AGS 2.71
+#endif
+</code></pre>
+<p>The other constants <code>AGS_MAX_*</code> are useful if you are writing some script code that you want to be portable to different versions of AGS, and to pick up the limits from the user's AGS version. For example, if you wanted to store some extra information on all the inventory items, you could do:</p>
+<pre><code>int invWeights[AGS_MAX_INV_ITEMS];
+</code></pre>
+<p>To get the actual number of things in the game rather than the AGS limit, use the <a href="Game.html#gamecharactercount">Game.CharacterCount</a>-style properties.</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 05/25/21 14:06:45</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

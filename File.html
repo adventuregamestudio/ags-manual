@@ -96,7 +96,15 @@
 <p>MODE is either eFileRead, eFileWrite or eFileAppend, depending on whether you want to write to or read from the file. If you pass eFileWrite and a file called FILENAME already exists, it will be overwritten.</p>
 <p>eFileAppend opens an existing file for writing and starts adding information at the end (i.e. the existing contents are not deleted).</p>
 <p>This function returns a File object, which you use to perform operations on the file. <em>null</em> is returned if there was a problem (eg. file not existing when MODE is eFileRead).</p>
-<p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
+<p>When specifying file path you may use tags that specify either a special file or location.</p>
+<p>Following file tags are supported:<br> <code>$CONFIGFILE$</code>, which allows you to open player's configuration file for reading or writing. This is recommended to be used instead of telling exact path, because config file may be found in different places depending on game settings or personal player's setup.</p>
+<p>Example:</p>
+<pre><code>File.Open(&quot;$CONFIGFILE$&quot;, eFileRead);
+</code></pre>
+<p>Following location tags are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
+<p>Example:</p>
+<pre><code>File.Open(&quot;$SAVEGAMEDIR$/game.dat&quot;, eFileWrite);
+</code></pre>
 <p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. An attempt to write file into relative path without specifying any location tag will make AGS to automatically remap such path into <code>$APPDATADIR$</code>. This is done for backwards-compatibility. On other hand, if you open file for writing using an absolute path, or relative path that points to location outside of game directory, it will automatically be rejected, and <em>null</em> is returned.</p>
 <p><strong>NOTE:</strong> You <strong>MUST</strong> close the file with the Close function when you have finished using it. There are only a limited number of file handles, and forgetting to close the file can lead to problems later on.</p>
 <p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
@@ -110,6 +118,7 @@ else {
 }
 </code></pre>
 <p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
+<p><em>Compatibility:</em> $CONFIGFILE$ tag supported by AGS 3.5.1 and later versions.</p>
 <p><em>See Also:</em> <a href="File.html#fileclose">File.Close</a>, <a href="File.html#fileexists">File.Exists</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
 <hr />
 </section>
@@ -396,7 +405,7 @@ output.Close();
 
 
   <footer>
-    <p>Build: 02/13/21 12:30:57</p>
+    <p>Build: 05/25/21 14:06:55</p>
   </footer>
 
   <script src="js/search.js"></script>
