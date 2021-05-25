@@ -1,9 +1,11 @@
+http://dockpanelsuite.com/
 http://dumb.sourceforge.net/
 http://sci.sierrahelp.com/Tools/SCITools.html
 http://www-personal.monash.edu.au/~myless/catnap/pamela/
 https://discord.gg/BSvN5ZF
 https://github.com/adventuregamestudio/ags
 https://github.com/adventuregamestudio/ags-manual
+https://liballeg.org/
 https://opensource.org/licenses/artistic-license-2.0.php
 https://sourceforge.net/projects/alleg/
 https://technet.microsoft.com/en-us/sysinternals/bb897440
@@ -22,6 +24,7 @@ https://www.ambiera.com/irrklang/
 https://www.axialis.com/
 https://www.imagemagick.org/
 https://www.lostmarble.com/papagayo/
+https://www.newtonsoft.com/json
 https://www.scintilla.org/
 https://www.vorbis.org/
 https://www.xiph.org/
