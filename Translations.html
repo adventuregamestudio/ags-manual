@@ -96,7 +96,7 @@
 <h3><a href="#additional-options">Additional options</a></h3>
 <p>There are two more things you may add to the translation file: comments and font options.</p>
 <p>Comment lines should begin with <code>//</code>, just like in script, and anything else on the same line will be ignored, and such lines won't be counted when deciding which line is original text and which is translation. Comments are allowed to be placed anywhere in the file, and they are good way to keep notes for yourself or your translators.</p>
-<p>Font options let you define certain font substitutes for this particular translation. All options begin with <code>#</code> followed by <code>OPTION=VALUE</code> kind of string where "OPTION" is the corresponding name. Following options are supported:</p>
+<p>Font options let you define certain font substitutes for this particular translation. All options begin with the comment opening and a pound sign: <code>//#</code> - followed by <code>OPTION=VALUE</code> kind of string where "OPTION" is the corresponding name. Following options are supported:</p>
 <ul>
 <li><strong>NormalFont</strong> - sets font used for displaying messages on screen. This corresponds to <a href="Game.html#gamenormalfont">Game.NormalFont</a> script property. The value may be either font's number or <code>DEFAULT</code> for no change.</li>
 <li><strong>SpeechFont</strong> - sets font used for character speech. This corresponds to <a href="Game.html#gamespeechfont">Game.SpeechFont</a> script property. The value may be either font's number or <code>DEFAULT</code> for no change.</li>
@@ -105,11 +105,11 @@
 <p>Example:</p>
 <pre>
 // The normal font to use - DEFAULT or font number
-#NormalFont=4
+//#NormalFont=4
 // The speech font to use - DEFAULT or font number
-#SpeechFont=DEFAULT
+//#SpeechFont=DEFAULT
 // Text direction - DEFAULT, LEFT or RIGHT
-#TextDirection=RIGHT
+//#TextDirection=RIGHT
 </pre>
 
 <p>This would set NormalFont to font 4, leave SpeechFont unchanged, and switch text direction to Right-to-left mode.</p>
@@ -127,7 +127,7 @@
 
 
   <footer>
-    <p>Build: 05/25/21 14:06:42</p>
+    <p>Build: 06/04/21 16:04:19</p>
   </footer>
 
   <script src="js/search.js"></script>

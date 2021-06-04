@@ -21433,7 +21433,8 @@ var meta = {
     },
     "comment": {
       "0": { "acintro5": 1 },
-      "1": { "ScriptingTutorialPart2": 1 }
+      "1": { "ScriptingTutorialPart2": 1 },
+      "2": { "Translations": 1 }
     },
     "comments": {
       "0": { "ContactingTheDevelopers": 1 },
@@ -39899,8 +39900,9 @@ var meta = {
       "2": { "File": 3 },
       "3": { "MusicAndSound": 1 },
       "4": { "Settingupthegame": 1 },
-      "5": { "Tumbleweed_extensions": 1 },
-      "6": { "UpgradeTo335": 2 }
+      "5": { "Translations": 1 },
+      "6": { "Tumbleweed_extensions": 1 },
+      "7": { "UpgradeTo335": 2 }
     },
     "opens": {
       "0": { "acintro6": 1 },
@@ -42294,6 +42296,9 @@ var meta = {
       "1": { "DistGame": 1 },
       "2": { "Setup": 1 },
       "3": { "TroubleshootingWindowsZoneID": 1 }
+    },
+    "pound": {
+      "0": { "Translations": 1 }
     },
     "power": {
       "0": { "Maths": 3 }
@@ -47295,7 +47300,8 @@ var meta = {
       "1": { "Pointers": 1 },
       "2": { "ScriptingTutorialPart1": 6 },
       "3": { "ScriptingTutorialPart2": 1 },
-      "4": { "StringFormats": 1 }
+      "4": { "StringFormats": 1 },
+      "5": { "Translations": 1 }
     },
     "signal": {
       "0": { "DialogScript": 1 },
