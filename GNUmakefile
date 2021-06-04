@@ -67,8 +67,8 @@ metacheck: $(addprefix meta/build/, $(METAFILES))
 		--metadata=_metafiles="$+"
 
 html: $(addprefix html/build/, $(HTMLFILES)) $(addprefix html/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
-	$(addprefix html/build/fonts/, $(FONTFILES)) html/build/genindex.html html/build/js/search.js html/build/css/main.css \
-	html/build/css/normalize.css html/build/static/favicon.ico
+	$(addprefix html/build/fonts/, $(FONTFILES)) html/build/genindex.html html/build/js/search.js html/build/js/darkmode.js \
+	html/build/css/main.css html/build/css/normalize.css html/build/static/favicon.ico
 
 htmlhelp: $(addprefix htmlhelp/build/, $(HTMLFILES)) $(addprefix htmlhelp/build/, $(IMAGEFILES)) $(addprefix meta/build/, $(METAFILES)) \
 	htmlhelp/build/ags-help.stp htmlhelp/build/ags-help.hhk htmlhelp/build/ags-help.hhc htmlhelp/build/ags-help.hhp
@@ -146,7 +146,7 @@ htmlhelp/build/ags-help.hhp: | htmlhelp/build
 		--eol=crlf \
 		--output $@
 
-html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build 
+html/build/genindex.html: $(addprefix meta/build/, $(filter-out index.lua,$(METAFILES))) | html/build
 	@echo Building $@
 	@echo | "$(PANDOC)" \
 		--to "lua/write_genindex.lua" \
@@ -173,6 +173,7 @@ $2: $1 | $(patsubst %/,%,$(dir $2))
 	$(CP) $$(subst /,$(SEP),$$<) $$(subst /,$(SEP),$$@)
 endef
 
+$(eval $(call CP_template,html/js/%.js,html/build/js/%.js))
 $(eval $(call CP_template,html/css/%.css,html/build/css/%.css))
 $(eval $(call CP_template,$(FONTSOURCEDIR)/%,html/build/fonts/%))
 $(eval $(call CP_template,html/static/%,html/build/static/%))
