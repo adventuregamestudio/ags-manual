@@ -243,9 +243,9 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
+  height: 23px;
   width: 50px;
-  border-radius: 12.5px;
+  border-radius: 11.5px;
   background-color: darkgray;
   transition: background-color 0.15s ease-in;
 }
@@ -253,10 +253,10 @@ main {
   content: "";
   position: absolute;
   left: 5px;
-  top: 5px;
+  top: 4px;
   width: 15px;
   height: 15px;
-  border-radius: 12.5px;
+  border-radius: 11.5px;
   background: white;
   transition: left 0.15s ease-in;
 }
