@@ -20,14 +20,28 @@ function init_dark_mode_toggle() {
   document.body.classList.add('notransition'); // Disable transitions
   if((local_theme == 'dark' || prefersDarkScheme.matches) && local_theme != 'light' ) {
     set_dark_theme();
-    checkbox_mode.checked = true
+    checkbox_mode.checked = true;
   } else if(local_theme == 'light' || !prefersDarkScheme.matches) {
-    set_light_theme()
-    checkbox_mode.checked = false
+    set_light_theme();
+    checkbox_mode.checked = false;
   }
   document.body.offsetHeight; // Trigger a reflow, flushing the CSS changes
   document.body.classList.remove('notransition'); // Re-enable transitions
+
+  var elms = [];
+  elms = document.getElementsByClassName("toggle-control");
+  for(i=0; i<elms.length; i++) {
+    elms[i].classList.add('toggle-control-trn');
+  }
+  elms = document.getElementsByClassName("control");
+  for(i=0; i<elms.length; i++) {
+    elms[i].classList.add('control-trn');
+  }
+
   document.body.style.transition = "1.2s";
+
+  setTimeout(function () {
+  }, 1);
 }
 
 init_dark_mode_toggle();

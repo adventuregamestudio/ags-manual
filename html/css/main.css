@@ -247,6 +247,7 @@ main {
 .toggle-control input:checked ~ .control:after {
   left: 30px;
 }
+
 .toggle-control .control {
   position: absolute;
   top: 0;
@@ -255,8 +256,12 @@ main {
   width: 50px;
   border-radius: 11.5px;
   background-color: darkgray;
+}
+
+.toggle-control-trn .control-trn {
   transition: background-color 0.15s ease-in;
 }
+
 .toggle-control .control:after {
   content: "";
   position: absolute;
@@ -266,5 +271,8 @@ main {
   height: 15px;
   border-radius: 11.5px;
   background: white;
+}
+
+.toggle-control-trn .control-trn:after {
   transition: left 0.15s ease-in;
 }
