@@ -1,12 +1,8 @@
 # Adventure Game Studio Help Files
 
-![](ags-manual-readme.png)
-
-![Build test](https://github.com/adventuregamestudio/ags-manual/workflows/Build%20test/badge.svg)
-
 ## Editing the help files
 
-[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history)
+[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history) | [![Build test](https://github.com/adventuregamestudio/ags-manual/workflows/Build%20test/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions)
 
 The help files can be edited on the wiki or cloned locally and pushed. Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if something is wrong.
 
@@ -16,19 +12,25 @@ The help files can be edited on the wiki or cloned locally and pushed. Please op
 
 The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual/). You can also download the [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
 
+## Contributing
+
+Please check the guide in [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
+
+[![](ags-manual-readme.png)](https://adventuregamestudio.github.io/ags-manual/)
+
 ## Creating a release
 
 Below are the steps necessary to creating a release using the automation currently in place (GitHub Actions).
 
 ### Approving links
 
-If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail. 
+If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail.
 
 Approved links are alphabetically ordered in [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt). Update it as needed.
 
 ### Generating a release
 
-Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page. 
+Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page.
 
 The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
 
@@ -117,3 +119,7 @@ clean | delete everything listed in .gitignore
     make source
     make -j metacheck
     make -j html htmlhelp chm
+
+## License
+
+Source code in this repository is distributed under MIT license. See [`LICENSE`](LICENSE) for more information. Manual content follows [Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).
