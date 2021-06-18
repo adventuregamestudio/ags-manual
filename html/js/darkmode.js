@@ -6,14 +6,12 @@ function set_dark_theme() {
   if(!document.body.classList.contains("dark-theme")){
     document.body.classList.add("dark-theme");
   }
-  window.localStorage.setItem('local_theme', 'dark');
 }
 
 function set_light_theme() {
   if(document.body.classList.contains("dark-theme")){
     document.body.classList.remove("dark-theme");
   }
-  window.localStorage.setItem('local_theme', 'light');
 }
 
 function init_dark_mode_toggle() {
@@ -49,8 +47,10 @@ init_dark_mode_toggle();
 function adjust_theme() {
   if(checkbox_mode.checked) {
     set_dark_theme();
+    window.localStorage.setItem('local_theme', 'dark');
   } else {
     set_light_theme();
+    window.localStorage.setItem('local_theme', 'light');
   }
 }
 
