@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -241,13 +246,15 @@ void set_Damage(this Weapon*, int damage)
 // since the attribute is static, adding a property to the struct doesn&#39;t make sense
 int Some_Thing;
 
-// even though it&#39;s static we can still use extenders to define the accessors
-int get_Thing(this Some*) 
+// even though it&#39;s static we can still use extenders to define the accessors;
+// but note how we use &quot;static Some&quot; here instead of &quot;this Some*&quot;, as no this pointer
+// may be available in a static method.
+int get_Thing(static Some) 
 {
     return Some_Thing;
 }
 
-void set_Thing(this Some*, int thing)
+void set_Thing(static Some, int thing)
 {
     Some_Thing = thing;
 }
@@ -261,7 +268,7 @@ Some.Thing = 42;
 
 
   <footer>
-    <p>Build: 06/04/21 16:04:29</p>
+    <p>Build: 06/26/21 10:39:03</p>
   </footer>
 
   <script src="js/search.js"></script>

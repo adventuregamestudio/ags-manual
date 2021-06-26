@@ -14,7 +14,12 @@
 
   <div class="container">
     <header>
-      <label for="search_input">Search:</label>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
     </header>
@@ -1825,7 +1830,7 @@
 
 
   <footer>
-    <p>Build: 06/04/21 16:04:28</p>
+    <p>Build: 06/26/21 10:39:01</p>
   </footer>
 
   <script src="js/search.js"></script>
