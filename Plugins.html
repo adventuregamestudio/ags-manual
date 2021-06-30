@@ -66,7 +66,10 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#plugins"><span>Plugins</span></a></li>
+<li><a href="#plugins"><span>Plugins</span></a>
+<ul>
+<li><a href="#creating-plugins"><span>Creating Plugins</span></a></li>
+</ul></li>
 </ul>
   </nav>
 
@@ -84,12 +87,24 @@
 <p>2. Start the AGS Editor up, and load your game. Go to the Plugins node in the main tree. Open it up, and you should see all available plugins listed. To use one in your game, right-click it and choose "Use plugin". The plugin developer should provide instructions on what to do next. Save your game to make sure that AGS remembers that you want to use the plugin.</p>
 <p>If you have a Linux version of an Engine plugin (ex: <code>libagsdrawcircle.so</code>), place it in the corresponding <code>Linux/lib64</code> and <code>Linux/lib32</code> directories in the folder containing AGS Editor.</p>
 <p><strong>NOTE:</strong> If you hit a "there was an error loading this plugin" message, there is a chance the problem is with the file Security Zone Identifier, check the <a href="TroubleshootingWindowsZoneID.html">Troubleshooting Windows Zone Identifier</a> section. If this doesn't solve your problem, please post in the respective plugin page on the <a href="https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0">Modules &amp; Plugins board</a> in the forums.</p>
+<section id="creating-plugins" class="level3">
+<h3><a href="#creating-plugins">Creating Plugins</a></h3>
+<p>If you want to create your own plugin to extend the functionality of either the AGS Editor or what's possible with the AGS Engine, read on the respective links below.</p>
+<ul>
+<li><a href="EditorPlugins.html">Editor Plugins</a></li>
+<li><a href="EnginePlugins.html">Engine Plugins</a>
+<ul>
+<li><a href="EnginePluginDesign-timeAPI.html">Engine Plugin Design-time API</a></li>
+<li><a href="EnginePluginRun-timeAPI.html">Engine Plugin Run-time API</a></li>
+</ul></li>
+</ul>
+</section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/26/21 10:39:01</p>
+    <p>Build: 06/30/21 17:27:26</p>
   </footer>
 
   <script src="js/search.js"></script>

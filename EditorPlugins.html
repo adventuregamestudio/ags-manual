@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>AGS Editor Plugins</title>
+  <title>Editor Plugins</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -66,7 +66,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#ags-editor-plugins"><span>AGS Editor Plugins</span></a>
+<li><a href="#editor-plugins"><span>Editor Plugins</span></a>
 <ul>
 <li><a href="#plugin-requirements"><span>Plugin Requirements</span></a></li>
 <li><a href="#creating-a-plugin-with-visual-c"><span>Creating a plugin with Visual C#</span></a></li>
@@ -76,8 +76,8 @@
   </nav>
 
   <main>
-<section id="ags-editor-plugins" class="level2">
-<h2><a href="#ags-editor-plugins">AGS Editor Plugins</a></h2>
+<section id="editor-plugins" class="level2">
+<h2><a href="#editor-plugins">Editor Plugins</a></h2>
 <p>AGS allows external utilities to enhance the Editor's functionality by the use of .NET plugins. These plugins can be written in any .NET language including C#, VB.NET, Visual C++ .NET and more.</p>
 <p><img src="images/icon_info.png" alt="Note" /> Note that .NET plugins are only supported for enhancing the editor functionality. Any plugins which need to be included with the game at run-time must be written with as plain DLLs using the Plugin API.</p>
 <p><strong>NOTE:</strong> .NET plugins require AGS 3.0 or later. They are not supported by AGS 2, and replace the old COM-based editor plugin API from AGS 2.x which is no longer supported.</p>
@@ -96,14 +96,14 @@
 <h3><a href="#creating-a-plugin-with-visual-c">Creating a plugin with Visual C#</a></h3>
 <p>The following tutorial will walk you through creating a plugin with Visual C#. I'll be using Visual Studio 2005 in this tutorial, but the further versions should likely work very similarly.</p>
 <p>Start up Visual Studio, and select to create a new project (File, New, Project). In the "New project" window which appears, make sure "Visual C#" is selected in the left hand list, and then choose "Class Library" on the right. Type a name that starts with <em>AGS.Plugin</em>. for example I'm going to use <code>AGS.Plugin.TestPlugin</code>:</p>
-<p>IMAGE 1</p>
+<p><em><img src="images/netplug1.png" alt="Creating a new Class Library project" /></em></p>
 <p>Now, we need to add a class that will be created when the plugin is loaded. Choose "Add Class" from the Project menu, and give it a name. This will be the main plugin class, so I'm going to call mine "PluginMain".</p>
 <p>Next, we need access to the AGS libraries. Choose "Add Reference" from the Project menu. Go to the Browse tab, and find the directory where you installed AGS. There, you should find a file called "AGS.Types.dll". Add a reference to this file.</p>
 <p>Visual Studio has given us a pretty bare class file. We need to make a couple of adjustments. First, add "public" to the class definition so that AGS can find it. Second, we need to tell AGS that this is our main class. We do this by making it implement the <em>IAGSEditorPlugin</em> interface, so add that to the class definition too:</p>
-<p>IMAGE 2</p>
+<p><em><img src="images/netplug2.png" alt="New class, now public and implementing the interface" /></em></p>
 <p>There's one other requirement for our main class. We need to add a <em>RequiredAGSVersion</em> attribute to the class, defining what the minimum version of AGS is that our plugin needs. You can just set it to "3.0.0.0" if your plugin works with the basic editor functionality, but if you use any new features added in later versions then you'll need to change the version number to match.</p>
 <p>The next thing we need is a constructor so that our class can be created. AGS requires it to have one parameter, of the type <em>IAGSEditor</em>. This will be the main object that we will use to communicate with the editor, so we'll save a copy in a member variable for future reference:</p>
-<p>IMAGE 3</p>
+<p><em><img src="images/netplug3.png" alt="Added attribute and basic plumbing" /></em></p>
 </section>
 <section id="components" class="level3">
 <h3><a href="#components">Components</a></h3>
@@ -118,7 +118,7 @@
 
 
   <footer>
-    <p>Build: 06/26/21 10:38:58</p>
+    <p>Build: 06/30/21 17:27:27</p>
   </footer>
 
   <script src="js/search.js"></script>

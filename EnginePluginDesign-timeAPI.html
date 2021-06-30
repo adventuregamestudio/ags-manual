@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Engine Plugin Design-time API</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#engine-plugin-design-time-api"><span>Engine Plugin Design-time API</span></a>
+<ul>
+<li><a href="#dllmain"><span>DllMain</span></a></li>
+<li><a href="#design-time-events"><span>Design-time events</span></a></li>
+<li><a href="#the-iagseditor-interface"><span>The IAGSEditor interface</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="engine-plugin-design-time-api" class="level2">
+<h2><a href="#engine-plugin-design-time-api">Engine Plugin Design-time API</a></h2>
+<p>Since the AGS Editor is currently windows only, you can use a macro to not include the design-time parts when building the plugin for other platforms.</p>
+<section id="dllmain" class="level3">
+<h3><a href="#dllmain">DllMain</a></h3>
+<p>Your DLL should have the following entry points:</p>
+<p>The standard Windows DLL entry point, you know how to use this.</p>
+<p>This will get called once when the editor first starts up, and once when it finally shuts down. The plugins are kept in memory at all times, so you will not get lots of load-unloads during the editor's lifetime.</p>
+</section>
+<section id="design-time-events" class="level3">
+<h3><a href="#design-time-events">Design-time events</a></h3>
+<section id="ags_getpluginname" class="level4">
+<h4>AGS_GetPluginName</h4>
+<pre><code>DLLEXPORT LPCSTR AGS_GetPluginName ();
+</code></pre>
+<p>Called by the editor to retrieve a user-friendly name for the plugin. This is the very first function the editor calls as soon as it starts up, in order to build its list of plugins.</p>
+<p>Normally, you will implement this as a simple one-line function that returns a static string with the plugin description.</p>
+</section>
+<section id="ags_editorstartup" class="level4">
+<h4>AGS_EditorStartup</h4>
+<pre><code>DLLEXPORT int AGS_EditorStartup (IAGSEditor *lpEditor);
+</code></pre>
+<p>Called by the editor when the user selects to add the plugin to their game. This function should perform any initialization necessary for design-time operation.</p>
+<p>The parameter passed to the function is a pointer to the editor interface, which your plugin can execute various methods on to communicate with the editor.</p>
+<p>In particular, this function should register any additions to the script header files that it uses.</p>
+<p>You should return 0 to indicate success; any other value indicates that a problem occurred, and the editor will not attempt any further communication with the plugin unless the user tries to start it again.</p>
+</section>
+<section id="ags_editorshutdown" class="level4">
+<h4>AGS_EditorShutdown</h4>
+<pre><code>DLLEXPORT void AGS_EditorShutdown ();
+</code></pre>
+<p>Called by the editor when the user elects to remove the plugin from their game. The plugin should un-register anything that it registered at startup, since if the user later decides to add the plugin again, the Startup function will be run again.</p>
+</section>
+<section id="ags_editorproperties" class="level4">
+<h4>AGS_EditorProperties</h4>
+<pre><code>DLLEXPORT void AGS_EditorProperties (HWND parent);
+</code></pre>
+<p><em>(Optional - plugin does not have to have this function)</em></p>
+<p>Called by the editor when the user highlights the plugin and clicks the Properties button. You can use this to display a copyright message, or allow the user to set options for your plugin, for instance. This will only be called when the plugin is selected (ie. <code>EditorStartup</code> has been called).</p>
+<p>The parameter gives you the parent window handle you should use if you want to pop up a dialog. You should make any dialogs modal so that this function does not return until they are dismissed.</p>
+</section>
+<section id="ags_editorsavegame" class="level4">
+<h4>AGS_EditorSaveGame</h4>
+<pre><code>DLLEXPORT int AGS_EditorSaveGame (char *buffer, int bufsize);
+</code></pre>
+<p><em>(Optional - plugin does not have to have this function)</em></p>
+<p>Called by the editor when the current game is saved to disk. This will only be called if your plugin is selected into the current game.</p>
+<p><code>buffer</code> is a byte array of size <code>bufsize</code>, which you can write any data to as you see fit. The buffer will then be written into the user's game file. You must return the number of bytes actually used, which can be up to and including <code>bufsize</code>.</p>
+<p>If you need more storage space than <code>bufsize</code> provides, you will have to write your own separate file out to disk, store in the registry, or do some compression.</p>
+<p>The current version of AGS gives you a 5120 byte buffer, but future versions may increase or decrease this amount, so be sure to check <code>bufsize</code> before using it.</p>
+<p>You will probably only need this function if you have some options in the Properties that the user can set, otherwise there's no need to use it.</p>
+</section>
+<section id="ags_editorloadgame" class="level4">
+<h4>AGS_EditorLoadGame</h4>
+<pre><code>DLLEXPORT void AGS_EditorLoadGame (char *buffer, int bufsize);
+</code></pre>
+<p><em>(Optional - plugin does not have to have this function)</em></p>
+<p>Called by the editor when a game is loaded from disk. This will only be called if your plugin is selected into the new game.</p>
+<p><code>buffer</code> is a byte array of size <code>bufsize</code>, which contains any data you wrote out in a previous session with <code>AGS_EditorSaveGame</code>. Note that the buffer is not persistent - when your function returns, the buffer is freed, so you should copy any important data you need to elsewhere.</p>
+</section>
+<section id="ags_pluginv2" class="level4">
+<h4>AGS_PluginV2</h4>
+<pre><code>DLLEXPORT int AGS_PluginV2 ();
+</code></pre>
+<p>This entry point is never called by AGS, but it must be present and exported from your DLL in order to let AGS know that it is a valid plugin that supports version 5 and later of the engine interface. If you don't export this, AGS won't load the plugin.</p>
+</section>
+</section>
+<section id="the-iagseditor-interface" class="level3">
+<h3><a href="#the-iagseditor-interface">The IAGSEditor interface</a></h3>
+<p>This interface is provided to the plugin as the way of calling back to the editor. It provides these members:</p>
+<section id="iagseditorversion" class="level4">
+<h4>IAGSEditor.version</h4>
+<pre><code>int version;
+</code></pre>
+<p>Specifies the interface version. You should check this to determine what version of the editor is being used, because certain interface methods will have been added in later versions, and attempting to use them with an earlier version will crash the system.</p>
+<p>The current version number for the latest version of AGS is <strong>1</strong>.</p>
+</section>
+<section id="iagseditorgeteditorhandle" class="level4">
+<h4>IAGSEditor.GetEditorHandle</h4>
+<pre><code>HWND GetEditorHandle ();
+</code></pre>
+<p>Returns the window handle to the AGS Editor's main frame. This might be useful if you wanted to add extra menu options to the editor, for example.</p>
+<p><em>Added in version: 1</em></p>
+</section>
+<section id="iagseditorgetwindowhandle" class="level4">
+<h4>IAGSEditor.GetWindowHandle</h4>
+<pre><code>HWND GetWindowHandle ();
+</code></pre>
+<p>Returns the window handle to the current active window. If you want to pop up a messagebox, for instance, you should always use this handle as the parent, because using the main frame's handle would un-modal any dialog boxes currently displayed.</p>
+<p><em>Added in version: 1</em></p>
+</section>
+<section id="iagseditorregisterscriptheader" class="level4">
+<h4>IAGSEditor.RegisterScriptHeader</h4>
+<pre><code>void RegisterScriptHeader (const char * header);
+</code></pre>
+<p>Adds the contents of <code>header</code> to the built-in script header, which is compiled into every script in the game. The idea here is that you would use this to register your text script functions, for example:</p>
+<pre><code>char *header = &quot;import int Add (int, int);
+                import int Substract(int, int); &quot;;
+RegisterScriptHeader (header);
+</code></pre>
+<p>Note that the editor only keeps a reference to this string rather than a copy, so do not overwrite or destroy the string after calling this function.</p>
+<p><em>Added in version: 1</em></p>
+</section>
+<section id="iagseditorunregisterscriptheader" class="level4">
+<h4>IAGSEditor.UnregisterScriptHeader</h4>
+<pre><code>void UnregisterScriptHeader (const char *header);
+</code></pre>
+<p>Unregisters the specified script header, which you earlier used with <code>RegisterScriptHeader</code>.</p>
+<p><em>Added in version: 1</em></p>
+</section>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>Build: 06/30/21 17:27:20</p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>
