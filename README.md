@@ -34,91 +34,70 @@ Just create a new tag in GitHub release interface with a name that begins with `
 
 The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
 
-## Building the help files
+## Downloading pre-built release assets
 
-The help files are generated using [Pandoc](https://pandoc.org/) and [GNU Make](https://www.gnu.org/software/make/)!
+Alongside the release package pre-built assets should be available for download:
 
-### Getting Pandoc
+- [CHM help file for Windows](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/ags-help.chm)
+- [Website archive](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/website.zip)
 
-The build process relies on Lua support and additional features which were added in Pandoc version 2.9.2. It is recommended to use the [latest version](https://github.com/jgm/pandoc/releases/latest) of Pandoc regardless of platform.
+## Building a release
 
-For Windows, Pandoc is also available for installation using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
+Building a release requires a POSIX-like shell and build environment,
+Pandoc, and optionally a CHM compiler.
 
-    choco install pandoc
+Firstly download and extract the latest release archive:
 
-### Getting GNU Make
+```sh
+# Download the release archive for version $VERSION to the current directory
+url="https://github.com/adventuregamestudio/ags-manual/releases/download/v$VERSION/ags-manual-$VERSION.tar.gz"
+curl -fLOJ "$url"
 
-If using macOS or Linux it is likely that you already have a version of GNU Make installed. Other Unix platforms may require that GNU Make is installed separately, typically it is packaged under the name ['gmake'](http://pkgsrc.se/devel/gmake).
+# Extract the archive to the current directory
+tar -xvzf "ags-manual-$VERSION.tar.gz"
 
-For Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
+# Change into the new created directory
+cd "ags-manual-$VERSION"
+```
 
-    choco install make
+Next run the `configure` script. Help is available by running
+`configure --help`.
 
-...or if manual installation is preferred, the same binary can also be downloaded from [ezwinports](https://sourceforge.net/projects/ezwinports/).
+The default behaviour is to build with Microsoft's CHM compiler `hhc`
+which is found within an installation of "HTML Help Workshop", to
+instead build with Free Pascal's `chmcmd` use the configure option
+`--with-chmcmd`.
 
-### Getting curl
+The default behaviour is to locate Pandoc and a CHM compiler by
+searching in PATH and running feature tests as necessary. To bypass
+the search and feature checks the following environment variables can
+be set:
 
-If using macOS or Linux it is likely that you already have a version of curl installed, or it will be packaged under the name ['curl'](http://pkgsrc.se/www/curl). It is also included with recent versions of Windows.
-
-For older versions of Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
-
-    where curl || choco install curl
-
-...or if manual installation is preferred, the same binary can also be downloaded from [curl.haxx.se](https://curl.haxx.se/windows/).
-
-**Note: curl is only required for the html target**
-
-### Getting the HTML help compiler
-
-As far as we know, the compiler that comes with [HTML Help Workshop](http://go.microsoft.com/fwlink/?LinkId=14188) is the only way to create a CHM file with working and complete indices. Unfortunately this makes the final compilation stage only possible on Windows.
-
-The easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager.
-
-    choco install html-help-workshop
-
-**Note: HTML Help Workshop is only required for the htmlhelp target**
-
-### Make variables and targets
-
-variable | function
+variable | defines
 --- | ---
-CHECKOUTDIR | path to checked out wiki source
-HHC | path to the HTML Help Compiler
-CURL | path to the curl binary (defaults to 'curl')
-PANDOC | path to the Pandoc binary (defaults to 'pandoc')
+PANDOC | path to pandoc
+CHMCMD | path to chmcmd
+HHC | path to hhc
 
-target | function
---- | ---
-source | update the source directory from CHECKOUTDIR
-html | build the website into 'html/build' (requires curl)
-htmlhelp | build an HTML Help Project into 'htmlhelp/build'
-chm | run HHC and build 'htmlhelp/build/ags-help.chm' (requires HTML Help Workshop)
-metacheck | validate generated page metadata (currently checks page links and index entries)
-clean | delete everything listed in .gitignore
+```sh
+# configure build with default settings
+./configure
+```
 
-### Build example (Windows and Chocolatey)
+Once configuration is complete the build can be started by running
+`make`.
 
-    choco install curl html-help-workshop pandoc make
-    refreshenv
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki
-    git clone https://github.com/adventuregamestudio/ags-manual
-    set CHECKOUTDIR=%CD%\ags-manual.wiki
-    set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
-    cd ags-manual
-    make SHELL=%COMSPEC% source
-    make SHELL=%COMSPEC% -j metacheck
-    make SHELL=%COMSPEC% -j html htmlhelp chm
+```sh
+make -j $(($(getconf _NPROCESSORS_ONLN) - 1))
+```
 
-### Build example (macOS/Linux/... and downloaded pandoc binary)
+The resulting files can be installed with `make install` but the
+installation can be staged into a custom directory to achieve the
+final file and directory structure.
 
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki
-    git clone https://github.com/adventuregamestudio/ags-manual
-    export CHECKOUTDIR=$(pwd)/ags-manual.wiki
-    export PANDOC=~/bin/pandoc
-    cd ags-manual
-    make source
-    make -j metacheck
-    make -j html htmlhelp chm
+```sh
+make DESTDIR=destdir install
+```
 
 ## License
 
