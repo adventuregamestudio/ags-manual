@@ -18,22 +18,6 @@ Please check the guide in [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
 
 [![](ags-manual-readme.png)](https://adventuregamestudio.github.io/ags-manual/)
 
-## Creating a release
-
-Below are the steps necessary to creating a release using the automation currently in place (GitHub Actions).
-
-### Approving links
-
-If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail.
-
-Approved links are alphabetically ordered in [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt). Update it as needed.
-
-### Generating a release
-
-Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page.
-
-The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
-
 ## Downloading pre-built release assets
 
 Alongside the release package pre-built assets should be available for download:
@@ -56,7 +40,7 @@ curl -fLOJ "$url"
 # Extract the archive to the current directory
 tar -xvzf "ags-manual-$VERSION.tar.gz"
 
-# Change into the new created directory
+# Change into the newly created directory
 cd "ags-manual-$VERSION"
 ```
 

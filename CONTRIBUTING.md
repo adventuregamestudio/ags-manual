@@ -176,3 +176,19 @@ For the current search system, the number of occurrences of each word are record
     --template "html/template.js" \
 
 Again, the Lua file for the index page is not processed so that the contents page remains acting like a site map and doesn't count towards search results. The resulting javascript file is included at the bottom of the HTML5 template, so every page of the website will have loaded the search functions as well as the JSON object that they require.
+
+## Creating releases
+
+Below are the steps necessary to creating a release using the automation currently in place (GitHub Actions).
+
+### Approving links
+
+If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail.
+
+Approved links are alphabetically ordered in [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt). Update it as needed.
+
+### Generating a release
+
+Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page.
+
+The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
