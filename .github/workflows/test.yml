@@ -1,9 +1,12 @@
-name: Build test
+name: Build
 
 on:
   - push
   - pull_request
   - workflow_dispatch
+
+env:
+  PANDOC_VERSION: 2.9.2
 
 jobs:
   build:
@@ -43,51 +46,27 @@ jobs:
           install: >-
             base-devel
             git
-      - name: Download and install Pandoc
-        run : |
-          case ${{ runner.os }} in
-              macOS)
-                  pandoc=pandoc-2.9.2/bin/pandoc
-                  suffix=macOS.zip
-                  tar=bsdtar
-                  ;;
-              Linux)
-                  pandoc=pandoc-2.9.2/bin/pandoc
-                  suffix=linux-amd64.tar.gz
-                  tar=tar
-                  ;;
-              Windows)
-                  pandoc=pandoc-2.9.2/pandoc.exe
-                  suffix=windows-x86_64.zip
-                  tar=/c/Windows/System32/tar.exe
-                  ;;
-              *)
-                  exit 1
-                  ;;
-          esac
-          url="https://github.com/jgm/pandoc/releases/download/2.9.2/pandoc-2.9.2-$suffix"
-          curl -fL "$url" | $tar -f - -vxzC "${{ runner.temp }}" "$pandoc"
-          chmod +x "${{ runner.temp }}/$pandoc"
-          echo PANDOC="${{ runner.temp }}/$pandoc" >> $GITHUB_ENV
+      - name: Setup tangling
+        run: >
+          cd /tmp &&
+          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          tar -xvzf - &&
+          cd dram-1.0 &&
+          ./configure &&
+          make &&
+          make install
+      - name: Download Pandoc
+        run: >
+          mkdir -p /tmp/bin &&
+          cd /tmp/bin &&
+          dram words='pandoc ${{ runner.os }}' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
+          >> $GITHUB_ENV echo PANDOC="$(echo /tmp/bin/pandoc*)"
       - name: Download and install HTML Help Workshop
-        if: ${{ runner.os == 'Windows' }}
-        shell: cmd
-        env:
-          CHECKSUM: b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
-          HHC: C:\Program Files (x86)\HTML Help Workshop\hhc.exe
-          URL: https://web.archive.org/web/20200918004813/https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
-        run: |
-          %COMSPEC% /c "pushd "${{ runner.temp }}" && curl -fLOJ "%URL%"" || exit /b 1
-
-          for /f %%a in ('certutil -hashfile "${{ runner.temp }}\htmlhelp.exe" SHA256 ^| find /v " "') do set SHA256=%%a
-          if not "%SHA256%" == "%CHECKSUM%" exit /b 1
-
-          "${{ runner.temp }}\htmlhelp.exe" /Q /T:"${{ runner.temp }}\htmlhelp" /C
-          > "${{ runner.temp }}\htmlhelp\htmlhelp_noupdate.inf" findstr /v /b """hhupd.exe "${{ runner.temp }}\htmlhelp\htmlhelp.inf"
-          %SYSTEMROOT%\SysWOW64\rundll32.exe advpack.dll,LaunchINFSection "${{ runner.temp }}\htmlhelp\htmlhelp_noupdate.inf",,3,N
-          if not exist "%HHC%" exit /b 1
-
-          echo HHC=%HHC%>> %GITHUB_ENV%
+        if: ${{ runner.os == 'Windows' && matrix.with-feature == null }}
+        run: >
+          cd /tmp &&
+          dram words=html-help-workshop '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
+          >> $GITHUB_ENV echo 'HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
       - name: Update Autotools
         run: |
           case ${{ runner.os }} in
@@ -110,22 +89,18 @@ jobs:
         run: |
           case ${{ runner.os }} in
               macOS)
-                  brew update
-                  brew install fpc
+                  dram words='chmcmd macOS' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD="$(brew --prefix)/bin/chmcmd"
                   ;;
               Linux)
-                  cd "${{ runner.temp }}" && \
-                      curl -fLSs https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download | \
-                      tar -Oxf - fpc-3.2.2.x86_64-linux/binary.x86_64-linux.tar | \
-                      tar -Oxf - units-chm.x86_64-linux.tar.gz | \
-                      tar -xvzf - bin/chmcmd
-                  >> $GITHUB_ENV echo CHMCMD="${{ runner.temp }}/bin/chmcmd"
+                  mkdir -p /tmp/bin && cd /tmp/bin
+                  dram words='chmcmd Linux' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD='/tmp/bin/chmcmd'
                   ;;
               Windows)
-                  cd "${{ runner.temp }}" && \
-                      curl -fLOJ https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download && \
-                      ./fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
-                  >> $GITHUB_ENV echo CHMCMD="/c/FPC/3.2.2/bin/i386-win32/chmcmd.exe"
+                  cd /tmp
+                  dram words='chmcmd Windows' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD='/c/FPC/3.2.2/bin/i386-win32/chmcmd.exe'
                   ;;
               *)
                   exit 1
@@ -143,51 +118,68 @@ jobs:
           DISTCHECK_CONFIGURE_FLAGS: ${{ matrix.with-feature }}
         run: >
           cd build &&
-          make -j $(getconf _NPROCESSORS_ONLN) distcheck
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) distcheck
       - name: stage installation
         run: >
           cd build &&
-          make -j $(getconf _NPROCESSORS_ONLN) DESTDIR=destdir install
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) DESTDIR=destdir install
+      - name: Upload release archive
+        if: ${{ matrix.with-feature != null }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: release_${{ runner.os }}_${{ env.PANDOC_VERSION }}
+          path: build/ags-manual-*.tar.gz
+          if-no-files-found: error
       - name: Upload website
         if: ${{ matrix.with-feature != null }}
         uses: actions/upload-artifact@v2
         with:
-          name: website_${{ runner.os }}_2.9.2
+          name: website_${{ runner.os }}_${{ env.PANDOC_VERSION }}
           path: build/destdir/usr/local/share/ags-manual/website
           if-no-files-found: error
       - name: Upload CHM file
         uses: actions/upload-artifact@v2
         with:
-          name: chm_${{ runner.os }}_2.9.2${{ matrix.with-feature }}
+          name: chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
           path: build/destdir/usr/local/share/ags-manual/*.chm
           if-no-files-found: error
-  check:
+  check-and-release:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup tangling
+        run: >
+          cd /tmp &&
+          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          tar -xvzf - &&
+          cd dram-1.0 &&
+          ./configure &&
+          make &&
+          make install
+      - name: Tangle comparison script
+        run: |
+          dram words=diff-dirs '${{ github.workspace }}/CONTRIBUTING.md' > diff-dirs
+          chmod +x diff-dirs
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
           path: artifacts
       - name: Compare website artifacts
-        run: |
-          dirs=$(echo website_*)
-          count=$(echo "$dirs" | wc -w)
-
-          if [ "$count" -lt 2 ]; then
-              echo "Nothing to compare"
-              exit 0
-          fi
-
-          echo "Comparing $count directories"
-          first=${dirs%% *}
-          rest=${dirs#* }
-          rc=0
-
-          for r in $rest; do
-              echo "Comparing '$first' to '$r'"
-              diff -r $first $r || rc=1
-          done
-
-          exit $rc
         working-directory: artifacts
+        run: ../diff-dirs website_*
+      - name: Create release and upload assets
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: artifacts/chm_Windows_${{ env.PANDOC_VERSION }}/ags-help.chm,artifacts/release_Windows_${{ env.PANDOC_VERSION }}/ags-manual-*.tar.gz
+          allowUpdates: true
+          omitBodyDuringUpdate: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy on GitHub Pages
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: artifacts/website_Windows_${{ env.PANDOC_VERSION }}

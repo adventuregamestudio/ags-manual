@@ -59,6 +59,86 @@ Always ensure your code snippets in the manual follow below
 
 ## Build system
 
+### Installing dependencies
+
+#### Installing Pandoc
+
+```sh pandoc Linux
+# Download the binary release for Pandoc $PANDOC_VERSION on Linux
+url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-linux-amd64.tar.gz"
+curl -fL "$url" | tar -f - -vxz --strip-components 2 pandoc-$PANDOC_VERSION/bin/pandoc
+chmod +x pandoc
+```
+
+```sh pandoc macOS
+# Download the binary release for Pandoc $PANDOC_VERSION on macOS
+url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-macOS.zip"
+curl -fL "$url" | bsdtar -f - -vxz --strip-components 2 pandoc-$PANDOC_VERSION/bin/pandoc
+chmod +x pandoc
+```
+
+```sh pandoc Windows
+# Download the binary release for Pandoc $PANDOC_VERSION on Windows
+url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-windows-x86_64.zip"
+curl -fL "$url" | /c/Windows/System32/tar.exe -f - -vxz --strip-components 1 pandoc-$PANDOC_VERSION/pandoc.exe
+chmod +x pandoc.exe
+```
+
+#### Installing HTML Help Workshop
+
+```sh html-help-workshop
+# Download and install HTML Help Workshop
+checksum=b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
+url=https://web.archive.org/web/20200918004813/https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
+curl -fLOJ $url
+echo "$checksum  htmlhelp.exe" | sha256sum --check
+./htmlhelp.exe //Q //T:"$(cygpath --windows "$(pwd)/htmlhelp_ex")" //C
+> htmlhelp_ex/htmlhelp_noupdate.inf grep -v '^"hhupd.exe' htmlhelp_ex/htmlhelp.inf
+"$(cygpath --windir)/SysWOW64/rundll32.exe" advpack.dll,LaunchINFSection ""$(cygpath --windows "$(pwd)/htmlhelp_ex/htmlhelp_noupdate.inf")"",,3,N
+test -f '/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
+```
+
+#### Installing chmcmd
+
+```sh chmcmd Linux
+curl -fLSs https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download | \
+    tar -Oxf - fpc-3.2.2.x86_64-linux/binary.x86_64-linux.tar | \
+    tar -Oxf - units-chm.x86_64-linux.tar.gz | \
+    tar -xvzf - --strip-components 1 bin/chmcmd
+```
+
+```sh chmcmd macOS
+brew update
+brew install fpc
+```
+
+```sh chmcmd Windows
+curl -fLOJ https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download && \
+    ./fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
+```
+
+#### Comparing builds
+
+```sh diff-dirs
+#!/bin/sh
+
+if [ "$#" -lt 2 ]; then
+    echo "Nothing to compare"
+    exit 0
+fi
+
+first="$1"
+rc=0
+shift
+
+for other; do
+    echo "Comparing '$first' to '$other'"
+    diff -r "$first" "$other" || rc=1
+done
+
+exit $rc
+```
+
 The current manual build process can produce two types of output (build targets):
 
  - A CHM file that can be used on Windows
