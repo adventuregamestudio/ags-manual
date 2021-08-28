@@ -148,7 +148,7 @@ source/ags-help.hhp:
 		--to "$(srcdir)/lua/write_hhp.lua" \
 		--metadata incfiles="$(HHP_FILES_LIST)" \
 		--variable projectname=ags-help \
-		--variable index="$(HHP_INDEX)" \
+		--variable index=index.htm \
 		--template "$(srcdir)/htmlhelp/template.hhp" \
 		--eol crlf \
 		--output $@
