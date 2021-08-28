@@ -49,7 +49,7 @@ AC_SUBST([METADATA_FILES], ["m4_map_args_w(BASENAME_NO_INDEX_LIST, [[ source/]],
 AC_SUBST([SOURCE_FILES], ["m4_map_args_w(PLIST, [[ source/]])"])
 AC_SUBST([HHP_FILES_LIST], ["m4_map_args_w(BASENAME_LIST, [[ ]], [[.htm]]) IMAGEFILES_LIST"])
 AC_SUBST([HHP_INDEX], ["index.htm"])
-AC_SUBST([DATETIME], ["m4_chomp(m4_esyscmd([git rev-parse HEAD]))"])
+AC_SUBST([DATETIME], ["m4_chomp(m4_quote(m4_esyscmd([git rev-parse HEAD])))"])
 AC_OUTPUT
 
 cat << EOF
