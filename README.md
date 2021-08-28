@@ -1,29 +1,29 @@
 # Adventure Game Studio Help Files
 
-## Editing the help files
-
-[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history) | [![Build test](https://github.com/adventuregamestudio/ags-manual/workflows/Build%20test/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions)
-
-The help files can be edited on the wiki or cloned locally and pushed. Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if something is wrong.
-
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
+[![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
 
 ## Reading the help files
 
-The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual/). You can also download the [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
+For the most recent release of the manual two options are available:
+
+- View the web pages at <https://adventuregamestudio.github.io/ags-manual/>
+- Download a [CHM file](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/ags-help.chm)
 
 ## Contributing
 
-Please check the guide in [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
-
 [![](ags-manual-readme.png)](https://adventuregamestudio.github.io/ags-manual/)
 
-## Downloading pre-built release assets
+The source files for the help pages are contained within the
+[wiki repository](https://github.com/adventuregamestudio/ags-manual/wiki)
+of this project and can be edited on the wiki or cloned locally and pushed back.
+Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if
+something appears to be wrong. For a more in-depth look at contributing see
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for further details.
 
-Alongside the release package pre-built assets should be available for download:
+## Downloading a release
 
-- [CHM help file for Windows](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/ags-help.chm)
-- [Website archive](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/website.zip)
+Release packages and pre-built release assets are available from the
+[latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
 
 ## Building a release
 
@@ -44,17 +44,15 @@ tar -xvzf "ags-manual-$VERSION.tar.gz"
 cd "ags-manual-$VERSION"
 ```
 
-Next run the `configure` script. Help is available by running
-`configure --help`.
+Next run the `configure` script.
 
-The default behaviour is to build with Microsoft's CHM compiler `hhc`
-which is found within an installation of "HTML Help Workshop", to
-instead build with Free Pascal's `chmcmd` use the configure option
-`--with-chmcmd`.
+Two CHM compilers are supported. Microsoft's `hhc` is preferred by
+default. To instead build with Free Pascal's `chmcmd` use the configure
+option `--with-chmcmd`.
 
 The default behaviour is to locate Pandoc and a CHM compiler by
 searching in PATH and running feature tests as necessary. To bypass
-the search and feature checks the following environment variables can
+the search any feature checks the following environment variables can
 be set:
 
 variable | defines
@@ -63,8 +61,15 @@ PANDOC | path to pandoc
 CHMCMD | path to chmcmd
 HHC | path to hhc
 
+Failure to locate a usable CHM compiler means that building the CHM
+version of the manual pages will be skipped. Failure to locate a
+usable version of Pandoc will mean that the build process will not be
+able to proceed.
+
+Help is available by running `configure --help`.
+
 ```sh
-# configure build with default settings
+# Configure build with default settings
 ./configure
 ```
 
@@ -72,17 +77,24 @@ Once configuration is complete the build can be started by running
 `make`.
 
 ```sh
-make -j $(($(getconf _NPROCESSORS_ONLN) - 1))
+# Start the configured build
+make
 ```
 
-The resulting files can be installed with `make install` but the
-installation can be staged into a custom directory to achieve the
+Once the build has finished files can be installed with `make
+install`. To stage files into a custom directory instead of performing
+a regular installation, set the variable `DESTDIR` to the path which
+should be used - this is a straightforward way to investigate the
 final file and directory structure.
 
 ```sh
+# Create an installation in a sub-directory named 'destdir'
 make DESTDIR=destdir install
 ```
 
 ## License
 
-Source code in this repository is distributed under MIT license. See [`LICENSE`](LICENSE) for more information. Manual content follows [Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).
+Source code in this repository is distributed under MIT license. See
+[`LICENSE`](LICENSE) for more information. The manual content which is
+included from the wiki as a sub-module follows
+[Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).
