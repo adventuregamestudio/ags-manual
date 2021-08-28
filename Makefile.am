@@ -32,7 +32,8 @@ CLEANFILES = \
 	source/ags-help.hhp
 
 EXTRA_DIST = \
-	$(SOURCE_FILES) \
+	$(IMAGE_FILES) \
+	$(TOP_FILES) \
 	$(srcdir)/html/js/darkmode.js \
 	$(srcdir)/html/template.html5 \
 	$(srcdir)/html/template.js \
