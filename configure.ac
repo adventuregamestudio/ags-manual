@@ -30,15 +30,9 @@ AC_CONFIG_LINKS([source/index.md:source/Home.md])
 AC_CONFIG_SRCDIR([source/Home.md])
 AC_CONFIG_FILES([Makefile])
 
-m4_define([PLIST], m4_flatten(m4_quote(m4_include([plist]))))
-m4_define([IMAGEFILES_LIST])
-m4_define([TOPFILES_LIST])
-
-m4_foreach_w([var], PLIST,
-    [m4_cond([m4_index(var, [/])], [-1],
-                 [m4_append([TOPFILES_LIST], var, [ ])],
-             [m4_index(var, [images/])], [0],
-                 [m4_append([IMAGEFILES_LIST], var, [ ])])])
+m4_define([IMAGEFILES_LIST], [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files 'images/*']))))])
+m4_define([TOPFILES_LIST], [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files ':(exclude)*/*' ':(exclude)_*' ':(exclude)Home.md']))))])
+m4_append([TOPFILES_LIST], [index.md], [ ])
 
 AM_COND_IF([BUILD_CHM],
     [m4_foreach_w([var], IMAGEFILES_LIST,
@@ -53,7 +47,7 @@ AC_SUBST([HTML_FILES], ["m4_map_args_w(BASENAME_LIST, [[ source/]], [[.html]])"]
 AC_SUBST([IMAGE_FILES], ["m4_map_args_w(IMAGEFILES_LIST, [[ source/]])"])
 AC_SUBST([METADATA_FILES], ["m4_map_args_w(BASENAME_NO_INDEX_LIST, [[ source/]], [[.lua]])"])
 AC_SUBST([SOURCE_FILES], ["m4_map_args_w(PLIST, [[ source/]])"])
-AC_SUBST([HHP_FILES_LIST], ["m4_map_args_w(BASENAME_LIST, [[ ]], [[.htm]])IMAGEFILES_LIST"])
+AC_SUBST([HHP_FILES_LIST], ["m4_map_args_w(BASENAME_LIST, [[ ]], [[.htm]]) IMAGEFILES_LIST"])
 AC_SUBST([HHP_INDEX], ["index.htm"])
 AC_SUBST([DATETIME], ["m4_chomp(m4_esyscmd([git rev-parse HEAD]))"])
 AC_OUTPUT
