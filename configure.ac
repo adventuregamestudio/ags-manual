@@ -32,20 +32,19 @@ AC_CONFIG_FILES([Makefile])
 
 m4_define([IMAGEFILES_LIST], [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files 'images/*']))))])
 m4_define([TOPFILES_LIST], [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files ':(exclude)*/*' ':(exclude)_*' ':(exclude)Home.md']))))])
-m4_append([TOPFILES_LIST], [index.md], [ ])
 
 AM_COND_IF([BUILD_CHM],
     [m4_foreach_w([var], IMAGEFILES_LIST,
         [AC_CONFIG_LINKS(source/var:source/var)])
      AC_CONFIG_LINKS([source/ags-help.stp:htmlhelp/ags-help.stp])])
 
-m4_define([BASENAME_LIST], [m4_bpatsubst(TOPFILES_LIST, [\.[^.]+\( \|$\)], [\1])])
-m4_define([BASENAME_NO_INDEX_LIST], [m4_bpatsubst(BASENAME_LIST, [ index\|index ], [])])
+m4_define([BASENAME_LIST_NO_INDEX], [m4_bpatsubst(TOPFILES_LIST, [\.[^.]+\( \|$\)], [\1])])
+m4_define([BASENAME_LIST], [BASENAME_LIST_NO_INDEX index])
 
 AC_SUBST([HTM_FILES], ["m4_map_args_w(BASENAME_LIST, [[ source/]], [[.htm]])"])
 AC_SUBST([HTML_FILES], ["m4_map_args_w(BASENAME_LIST, [[ source/]], [[.html]])"])
 AC_SUBST([IMAGE_FILES], ["m4_map_args_w(IMAGEFILES_LIST, [[ source/]])"])
-AC_SUBST([METADATA_FILES], ["m4_map_args_w(BASENAME_NO_INDEX_LIST, [[ source/]], [[.lua]])"])
+AC_SUBST([METADATA_FILES], ["m4_map_args_w(BASENAME_LIST_NO_INDEX, [[ source/]], [[.lua]])"])
 AC_SUBST([SOURCE_FILES], ["m4_map_args_w(PLIST, [[ source/]])"])
 AC_SUBST([HHP_FILES_LIST], ["m4_map_args_w(BASENAME_LIST, [[ ]], [[.htm]]) IMAGEFILES_LIST"])
 AC_SUBST([HHP_INDEX], ["index.htm"])
