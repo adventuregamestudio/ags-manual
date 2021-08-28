@@ -44,8 +44,10 @@ jobs:
           msystem: MSYS
           update: true
           install: >-
-            base-devel
+            autoconf
+            automake-wrapper
             git
+            make
       - name: Setup tangling
         run: >
           cd /tmp &&
