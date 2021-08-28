@@ -64,7 +64,6 @@ jobs:
       - name: Download and install HTML Help Workshop
         if: ${{ runner.os == 'Windows' && matrix.with-feature == null }}
         run: >
-          cd /tmp &&
           dram words=html-help-workshop '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
           >> $GITHUB_ENV echo 'HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
       - name: Update Autotools

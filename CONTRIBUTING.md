@@ -64,37 +64,44 @@ Always ensure your code snippets in the manual follow below
 #### Installing Pandoc
 
 ```sh pandoc Linux
-# Download the binary release for Pandoc $PANDOC_VERSION on Linux
+# Download the Linux binary for Pandoc $PANDOC_VERSION into the current directory
 url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-linux-amd64.tar.gz"
 curl -fL "$url" | tar -f - -vxz --strip-components 2 pandoc-$PANDOC_VERSION/bin/pandoc
-chmod +x pandoc
 ```
 
 ```sh pandoc macOS
-# Download the binary release for Pandoc $PANDOC_VERSION on macOS
+# Download the macOS binary for Pandoc $PANDOC_VERSION into the current directory
 url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-macOS.zip"
-curl -fL "$url" | bsdtar -f - -vxz --strip-components 2 pandoc-$PANDOC_VERSION/bin/pandoc
-chmod +x pandoc
+(cd /tmp && curl -fLOJ "$url")
+bsdtar -vxf /tmp/pandoc-$PANDOC_VERSION-macOS.zip --strip-components 2 pandoc-$PANDOC_VERSION/bin/pandoc
 ```
 
 ```sh pandoc Windows
-# Download the binary release for Pandoc $PANDOC_VERSION on Windows
+# Download the Windows binary for Pandoc $PANDOC_VERSION into the current directory
 url="https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-windows-x86_64.zip"
-curl -fL "$url" | /c/Windows/System32/tar.exe -f - -vxz --strip-components 1 pandoc-$PANDOC_VERSION/pandoc.exe
-chmod +x pandoc.exe
+(cd /tmp && curl -fLOJ "$url")
+bsdtar -vxf /tmp/pandoc-$PANDOC_VERSION-windows-x86_64.zip --strip-components 1 pandoc-$PANDOC_VERSION/pandoc.exe
 ```
 
 #### Installing HTML Help Workshop
 
 ```sh html-help-workshop
-# Download and install HTML Help Workshop
-checksum=b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
+# Download HTML Help Workshop
 url=https://web.archive.org/web/20200918004813/https://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
-curl -fLOJ $url
-echo "$checksum  htmlhelp.exe" | sha256sum --check
-./htmlhelp.exe //Q //T:"$(cygpath --windows "$(pwd)/htmlhelp_ex")" //C
-> htmlhelp_ex/htmlhelp_noupdate.inf grep -v '^"hhupd.exe' htmlhelp_ex/htmlhelp.inf
-"$(cygpath --windir)/SysWOW64/rundll32.exe" advpack.dll,LaunchINFSection ""$(cygpath --windows "$(pwd)/htmlhelp_ex/htmlhelp_noupdate.inf")"",,3,N
+(cd /tmp && curl -fLOJ "$url")
+
+# Verify this was the expected download
+checksum=b2b3140d42a818870c1ab13c1c7b8d4536f22bd994fa90aade89729a6009a3ae
+echo "$checksum  /tmp/htmlhelp.exe" | sha256sum --check
+
+# Extract the installer from the outer wrapper
+/tmp/htmlhelp.exe //Q //T:"$(cygpath --windows /tmp/htmlhelp_ex)" //C
+
+# Remove the update check and install
+> /tmp/htmlhelp_ex/htmlhelp_noupdate.inf grep -v '^"hhupd.exe' /tmp/htmlhelp_ex/htmlhelp.inf
+"$(cygpath --windir)/SysWOW64/rundll32.exe" advpack.dll,LaunchINFSection ""$(cygpath --windows /tmp/htmlhelp_ex/htmlhelp_noupdate.inf)"",,3,N
+
+# Verify that the CHM compiler is now present
 test -f '/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
 ```
 
