@@ -179,7 +179,8 @@ commands will download the archive and just extract `chmcmd` to the
 current directory:
 
 ```sh chmcmd Linux
-curl -fLSs https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download | \
+url=https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download
+curl -fLSs "$url" | \
     tar -Oxf - fpc-3.2.2.x86_64-linux/binary.x86_64-linux.tar | \
     tar -Oxf - units-chm.x86_64-linux.tar.gz | \
     tar -xvzf - --strip-components 1 bin/chmcmd
