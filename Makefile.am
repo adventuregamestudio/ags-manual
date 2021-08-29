@@ -76,7 +76,7 @@ SUFFIXES: .htm .html .lua .md
 		--lua-filter "$(srcdir)/lua/rewrite_links.lua" \
 		--lua-filter "$(srcdir)/lua/insert_anchors.lua" \
 		--template "$(srcdir)/html/template.html5" \
-		--variable datetime="$(DATETIME)" \
+		--variable footer="$(FOOTER)" \
 		--table-of-contents \
 		--section-divs \
 		--css "css/normalize.css" \
@@ -89,7 +89,7 @@ genindex.html: $(METADATA_FILES)
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_genindex.lua" \
 		--template "$(srcdir)/html/template.html5" \
-		--variable datetime="$(DATETIME)" \
+		--variable footer="$(FOOTER)" \
 		--css "css/normalize.css" \
 		--css "css/main.css" \
 		--metadata _metafiles="$(METADATA_FILES)" \
