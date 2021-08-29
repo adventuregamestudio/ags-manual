@@ -384,16 +384,130 @@ Again, the Lua file for the index page is not processed so that the contents pag
 
 ## Creating releases
 
-Below are the steps necessary to creating a release using the automation currently in place (GitHub Actions).
+Below are the steps necessary to create a release, beginning from a
+newly cloned working tree. Note that in order to bootstrap the build
+system you will need a local installation of Autoconf, Automake, and
+Git.
 
-### Approving links
+### Update the wiki content
 
-If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail.
+1. Clone the wiki sub-module
 
-Approved links are alphabetically ordered in [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt). Update it as needed.
+   Wiki content is referenced as a sub-module for the 'source'
+   directory and so this directory will be initially be empty. Update
+   all sub-modules to get the version of the wiki content which is
+   currently referenced.
 
-### Generating a release
+   ```
+   git submodule update --init
+   ```
 
-Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page.
+2. Update the sub-module
 
-The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
+   The source directory should no longer be empty. Pull the latest
+   copy of wiki content and merge it.
+
+   ```sh
+   git submodule update --remote --merge
+   ```
+
+   If there were any changes they will be reported. Whoever is
+   committing the changes is effectively responsible for promoting the
+   content from the wiki into the official release; reading the
+   changes in the page content is a good idea.
+
+3. Bootstrap the build system
+
+   At the time that the build system is bootstrapped the content of
+   the sub-module (as reported by `git ls-files`) is the authoritative
+   source of which source files will be incorporated into the build
+   process.
+
+   ```sh
+   ./bootstrap
+   ```
+
+4. Configure and distcheck
+
+   Run configure and then verify that everything builds and that there
+   are no packaging problems. Ideally do this with the CHM build
+   enabled to also cover optional files in the checks. Note that
+   configuration for the 'distcheck' target is specified separately to
+   the initial configuration.
+
+   ```sh
+   ./configure
+   make DISTCHECK_CONFIGURE_FLAGS=--with-chmcmd distcheck
+   ```
+
+   When the process has completed you should see a confirmation that
+   the release is available to use:
+
+   ```
+   ==================================================
+   ags-manual-1.2.3 archives ready for distribution:
+   ags-manual-1.2.3.tar.gz
+   ==================================================
+   ```
+
+   The most likely cause of failure is that new external links have
+   been added to the wiki pages and they haven't yet been added to the
+   approved links list. Approved links are listed alphabetically in
+   [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt).
+   Once new links have been added to this file the 'distcheck' target
+   should report success.
+
+5. Commit the changes
+
+   If the updates look OK and there are no issues highlighted by the
+   checks commit the sub-module change:
+
+   ```sh
+   git add source
+   git commit -m "Sync with wiki content"
+   ```
+
+   Now the changes can be pushed back.
+
+### Generating a GitHub release
+
+1. Check the current package version
+
+   Firstly verify the package version currently defined by the build
+   system:
+
+   ```sh
+   grep ^AC_INIT configure.ac
+   ```
+
+   ...which will give output similar to:
+
+   ```
+   AC_INIT([ags-manual], [1.2.3])
+   ```
+
+   This defines the package name and version. If the version needs to
+   be increased edit the number and push the changes back before doing
+   anything else.
+
+2. Create a GitHub release
+
+   This can be done in two ways but whichever method is used **you
+   must ensure that the new tag name begins with a "v"**. For example,
+   if the package version is "1.2.3" use the tag name "v1.2.3".
+   
+   The first method is via the GitHub web interface. Create a release
+   based on a new tag which matches the format described above. The CI
+   system will build and upload the release assets to the release you
+   have just created.
+
+   Alternatively, use git to create an annotated tag which matches the
+   format described above:
+   
+   ```sh
+   git tag -a v1.2.3 -m "Release version 1.2.3"
+   ```
+
+   When this tag is pushed back the CI system will build the release
+   assets, create a GitHub release referencing this new tag, and
+   upload the release assets to the release.
