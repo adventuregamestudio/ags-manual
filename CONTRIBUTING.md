@@ -179,6 +179,7 @@ commands will download the archive and just extract `chmcmd` to the
 current directory:
 
 ```sh chmcmd Linux
+# Download the Linux chmcmd binary to the current directory
 url=https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.x86_64-linux.tar/download
 curl -fLSs "$url" | \
     tar -Oxf - fpc-3.2.2.x86_64-linux/binary.x86_64-linux.tar | \
@@ -192,6 +193,7 @@ update the package database and then install latest version of Free
 Pascal:
 
 ```sh chmcmd macOS
+# Install Free Pascal with the Homebrew package manager
 brew update
 brew install fpc
 ```
@@ -200,6 +202,7 @@ For Windows, the following commands will download the Free Pascal
 installer and run it without requiring any user interaction:
 
 ```sh chmcmd Windows
+# Download and install the Windows build of Free Pascal
 url=https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download
 (cd /tmp && curl -fLOJ "$url")
 /tmp/fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
