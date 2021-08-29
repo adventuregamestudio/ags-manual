@@ -274,116 +274,81 @@ done
 
 **Note that the dictionary should be configured as US English**
 
-### Common tasks
+### Lua scripts
 
-#### Page metadata
+#### Common functions
 
-Both build targets require that any missing metadata be generated; the same Pandoc filter can be used to generate a page title. The metadata value for **title** is also set directly, based on the filename of what is being converted:
+- lua/agsman.lua
 
-    --metadata title=$* \
-	--lua-filter "lua/set_title.lua" \
+  A collection of functions which can be imported by any filters or
+  writers. The `serialize` function which creates a textual
+  presentation of a Lua table is found here.
 
-...this means that if whatever the Lua filter wants to use a page title is not present, the stem name coming from GNU Make is used instead.
+#### Filters
 
-#### Link targets
+- lua/insert_anchors.lua
 
-There is also the issue of fixing internal document links, as converting from GFM to HTML in Pandoc does not implicitly rewrite the link target to match the output format. i.e. the GFM link `[Other Features](OtherFeatures)` works within GitHub pages but would need to be converted to the equivalent of `[Other Features](OtherFeatures.html)` in the HTML version. Since both build targets require the same conversion, they also share the same Pandoc filter:
+  Replaces header content for level 2 or level 3 headings with an
+  anchor link to itself.
 
-    --lua-filter "lua/rewrite_links.lua" \
+- lua/insert_toc.lua
 
-#### Output templates
+  Inserts a local table of contents above or below the first heading
+  of a page, depending on the heading level structure of the page.
 
-The page conversion itself also requires a template that matches the output format; the default templates have been exported from Pandoc and modified. The coresponding template needs to be specified for each output format.
+- lua/rewrite_links.lua
 
-For the CHM file the output format is html4:
+  Appends an additional file extension to link targets. The extension
+  is taken from the output file's extension where possible.
 
-    --to html4 \
-    --template "htmlhelp/template.html4" \
+- lua/set_title.lua
 
-For the website target the output format is html5:
+  Set the metadata value for the page title based on the text of the
+  first level 2 heading which appears in the document.
 
-    --to html5 \
-    --template "html/template.html5" \
+#### Writers
 
-#### Write metadata file
+- lua/write_feature_check.lua
 
-For each converted page a matching Lua file is written using a custom Pandoc writer.
+  A writer which just performs any actions necessary to verify that
+  the Pandoc version being used is suitable to build with. If any
+  filter or writer depends on a specific Pandoc version it should be
+  tested for here.
 
-    --to "lua/write_metablock.lua" \
-    --metadata docname=$* \
+- lua/write_genindex.lua
 
-These files are designed to be evaluated using the Lua `dofile` function to return a Lua table which contains information about the page. The information stored is:
+  Writes an A-Z index page for the website build.
 
-* The page title
-* Headings found on the page and their anchor links
-* Links found on the page
-* A list of keywords and number of times each occurs
+- lua/write_hhc.lua
 
-An important feature of the custom writer is to identify which parts of the page relate to script documentation so that later actions may treat them differently.
+  Writes a contents page for the htmlhelp project, to be read by the
+  CHM compiler.
 
-### CHM file only
+- lua/write_hhk.lua
 
-#### Write an hhk file
+  Writes an index file for the htmlhelp project, to be read by the CHM
+  compiler.
 
-The hhk file is used by the the CHM compiler to define the index. A custom Lua writer is used to write an HHK file from all Lua metadata files (excluding anything relating to index file).
+- lua/write_hhp.lua
 
-    --from markdown \
-    --to "lua/write_hhk.lua" \
+  Writes the main project file for the htmlhelp project, to be read by
+  the CHM compiler.
 
-The result should be a file of site map objects, like this one:
+- lua/write_metablock.lua
 
-    <LI> <OBJECT type="text/sitemap">
-    <param name="Keyword" value="AudioClip.FileType">
-    <param name="Local" value="AudioClip.html#audioclipfiletype">
-    </OBJECT>
+  Writes page metadata as a serialized Lua table.
 
-#### Write an hhc file
+- lua/write_metacheck.lua
 
-The hhc file is used by the CHM compiler to define the contents. Currently we are only considering the index page (index.md) for the source of the contents, so this is converted using a custom Lua writer which writes the hhc file based on the headings and bulleted lists which are present. The output needs to produce hierarchical lists where the contents page should expand and collapse.
+  Reads the Lua metadata tables and cross-references information
+  between them to look for broken links or index problems. If any
+  issues are found they are written to stderr and the writer will fail
+  through a negative assertion.
 
-    --from gfm \
-    --to "lua/write_hhc.lua" \
-    --lua-filter "lua/rewrite_links.lua" \
-    --template "htmlhelp/template.hhc" \
+- lua/write_metajs.lua
 
-Note that link target are being rewritten too, because the input file will be the original GFM source for the index page.
-
-#### Write an hhp file
-
-The hhp file is the main project file that is passed to the CHM compiler. It is written using a custom Pandoc writer which just needs to know the list of source files to include and the name prefix that is used for the hhk, hhc, and stp project files.
-
-    --to "lua/write_hhp.lua" \
-    --metadata incfiles="$(HTMLFILES) $(subst /,$(strip \),$(IMAGEFILES))" \
-    --variable projectname=ags-help \
-    --template "htmlhelp/template.hhp" \
-
-Note that the paths passed in need to have the slashes changes from / to \ in so that if this file is written on a non-Windows platform the content will still be valid.
-
-#### Write an stp file
-
-The stp file is just a list of words that the CHM compiler should ignore when creating its own search index. Rather than dynamically generate this file, it is just copied into position.
-
-### Website files only
-
-#### A-Z index page
-
-Since the website build wouldn't have a built-in index, an index page is generated from all Lua metadata files (excluding anything relating to index file) using a custom Pandoc writer.
-
-    --from markdown \
-    --to "lua/write_genindex.lua" \
-    --template "html/template.html5" \
-
-Note that the same HTML5 template that was used for the actual page conversion is used here, so the page will keep the same styling as the other pages. If passing in any external styling (i.e. using `--css`) on other pages, it will need to be included here too.
-
-#### Javascript search and JSON data
-
-For the current search system, the number of occurrences of each word are recorded in all of the Lua metadata files, so these are written as a JSON object into a template file which also contains the Javascript search functions.
-
-    --from markdown \
-    --to "lua/write_metajs.lua" \
-    --template "html/template.js" \
-
-Again, the Lua file for the index page is not processed so that the contents page remains acting like a site map and doesn't count towards search results. The resulting javascript file is included at the bottom of the HTML5 template, so every page of the website will have loaded the search functions as well as the JSON object that they require.
+  Writes a JavaScript file for website search functionality. This
+  includes the search functions as well as the search data.
 
 ## Creating releases
 
