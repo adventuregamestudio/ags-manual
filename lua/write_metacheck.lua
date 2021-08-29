@@ -1,11 +1,5 @@
 -- invoke as Pandoc writer
--- write a report of metablock checks
-
--- This writer serves two purposes:
--- 1. Produce some kind of report that gives some information on the state of
---    all page items, particularly when page metadata is cross-referenced
--- 2. Output ERRORs to stderr. The current use-case is to halt a CI deployment
---    if there is a clear error in page content
+-- write metablock check errors to stderr and then cause a failure
 
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
@@ -127,17 +121,23 @@ function Doc(body, metadata, variables)
     pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
   end
 
-  local valid_links = get_valid_links(pagemeta, metadata._approved_links)
-  local buffer = {}
-  table.insert(buffer,
-               string.format(
-                 "Broken links: %d",
-                 get_bad_links(pagemeta, valid_links)))
-  table.insert(buffer,
-               string.format(
-                 "Heading errors: %d",
-                 get_toplevel_collisions(pagemeta) + get_editorial_collisions(pagemeta)))
-  return table.concat(buffer, '\n')
+  local bad_links = get_bad_links(
+    pagemeta,
+    get_valid_links(pagemeta, metadata._approved_links))
+
+  local collisions = get_toplevel_collisions(pagemeta) +
+    get_editorial_collisions(pagemeta)
+
+  if bad_links > 0 then
+    io.stderr:write(string.format("Broken links: %d\n", bad_links))
+  end
+
+  if collisions > 0 then
+    io.stderr:write(string.format("Heading errors: %d\n", collisions))
+  end
+
+  assert (bad_links == 0 and collisions == 0)
+  return ''
 end
 
 local meta = {}
