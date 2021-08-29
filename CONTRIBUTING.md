@@ -199,8 +199,9 @@ For Windows, the following commands will download the Free Pascal
 installer and run it without requiring any user interaction:
 
 ```sh chmcmd Windows
-curl -fLOJ https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download && \
-    ./fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
+url=https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download
+(cd /tmp && curl -fLOJ "$url")
+/tmp/fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
 ```
 
 ### Comparing builds
