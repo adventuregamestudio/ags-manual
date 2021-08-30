@@ -146,7 +146,7 @@ source/ags-help.hhc:
 source/ags-help.hhp:
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_hhp.lua" \
-		--metadata incfiles="$(HHP_FILES_LIST)" \
+		--metadata incfiles="$(HHP_FILES)" \
 		--variable projectname=ags-help \
 		--variable index=index.htm \
 		--template "$(srcdir)/htmlhelp/template.hhp" \
