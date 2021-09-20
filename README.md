@@ -1,6 +1,6 @@
 # Adventure Game Studio Help Files
 
-[![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
+[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history) | [![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
 
 ## Reading the help files
 
