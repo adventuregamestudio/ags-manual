@@ -1,7 +1,8 @@
 -- invoke as Pandoc writer
 -- write an index file for the CHM compiler
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 
 function Doc(body, metadata, variables)
@@ -24,7 +25,7 @@ function Doc(body, metadata, variables)
       local title = v.title
 
       for _, item in ipairs(v.index) do
-        local pagelink = k .. '.html#' .. item["id"]
+        local pagelink = k .. '.htm#' .. item["id"]
         local name = item["header"]
 
         if item["itemtype"] == 'script' or name == title then

@@ -4,7 +4,7 @@ Binary Index=No
 Compiled file=$projectname$.chm
 Contents file=$projectname$.hhc
 Default Window=$projectname$
-Default topic=index.html
+Default topic=$index$
 Display compile progress=No
 Full text search stop list file=$projectname$.stp
 Full-text search=Yes
@@ -13,7 +13,7 @@ Language=0x409
 Title=AGS Documentation
 
 [WINDOWS]
-$projectname$="AGS Documentation","$projectname$.hhc","$projectname$.hhk","index.html","index.html",,,,,0x63520,220,0x10384e,[0,0,1024,768],,,,,,,0
+$projectname$="AGS Documentation","$projectname$.hhc","$projectname$.hhk","$index$","$index$",,,,,0x63520,220,0x10384e,[0,0,1024,768],,,,,,,0
 
 [FILES]
 $body$

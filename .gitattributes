@@ -2,5 +2,6 @@
 html/css/* eol=lf
 html/js/* eol=lf
 html/static/* -text
-htmlhelp/stp eol=crlf
+htmlhelp/ags-help.stp eol=crlf
 vendor/* linguist-vendored
+vendor/normalize.css eol=lf

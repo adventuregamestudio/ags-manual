@@ -1,125 +1,100 @@
 # Adventure Game Studio Help Files
 
-## Editing the help files
-
-[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history) | [![Build test](https://github.com/adventuregamestudio/ags-manual/workflows/Build%20test/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions)
-
-The help files can be edited on the wiki or cloned locally and pushed. Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if something is wrong.
-
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
+[![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
 
 ## Reading the help files
 
-The manual is hosted online on [adventuregamestudio.github.io/ags-manual/](https://adventuregamestudio.github.io/ags-manual/). You can also download the [latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
+For the most recent release of the manual two options are available:
+
+- View the web pages at <https://adventuregamestudio.github.io/ags-manual/>
+- Download a [CHM file](https://github.com/adventuregamestudio/ags-manual/releases/latest/download/ags-help.chm)
 
 ## Contributing
 
-Please check the guide in [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
-
 [![](ags-manual-readme.png)](https://adventuregamestudio.github.io/ags-manual/)
 
-## Creating a release
+The source files for the help pages are contained within the
+[wiki repository](https://github.com/adventuregamestudio/ags-manual/wiki)
+of this project and can be edited on the wiki or cloned locally and pushed back.
+Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if
+something appears to be wrong. For a more in-depth look at contributing see
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for further details.
 
-Below are the steps necessary to creating a release using the automation currently in place (GitHub Actions).
+## Downloading a release
 
-### Approving links
+Release packages and pre-built release assets are available from the
+[latest release](https://github.com/adventuregamestudio/ags-manual/releases/latest).
 
-If a link to a URL that is not a manual page is added in the GitHub wiki, this means any website links but also special URLs like `mailto:`, it needs to be approved or the build process will fail.
+## Building a release
 
-Approved links are alphabetically ordered in [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt). Update it as needed.
+Building a release requires a POSIX-like shell and build environment,
+Pandoc, and optionally a CHM compiler.
 
-### Generating a release
+Firstly download and extract the latest release archive:
 
-Just create a new tag in GitHub release interface with a name that begins with `v` (e.g. `v1.2.3`) and the GitHub Actions should trigger and generate the appropriate packages and push as assets in the Release page.
+```sh
+# Download the release archive for version $VERSION to the current directory
+url="https://github.com/adventuregamestudio/ags-manual/releases/download/v$VERSION/ags-manual-$VERSION.tar.gz"
+curl -fLOJ "$url"
 
-The CI from ags will then pick up the most recent version of the `ags-help.chm` uploaded to a release.
+# Extract the archive to the current directory
+tar -xvzf "ags-manual-$VERSION.tar.gz"
 
-## Building the help files
+# Change into the newly created directory
+cd "ags-manual-$VERSION"
+```
 
-The help files are generated using [Pandoc](https://pandoc.org/) and [GNU Make](https://www.gnu.org/software/make/)!
+Next run the `configure` script.
 
-### Getting Pandoc
+Two CHM compilers are supported. Microsoft's `hhc` is preferred by
+default. To instead build with Free Pascal's `chmcmd` use the configure
+option `--with-chmcmd`.
 
-The build process relies on Lua support and additional features which were added in Pandoc version 2.9.2. It is recommended to use the [latest version](https://github.com/jgm/pandoc/releases/latest) of Pandoc regardless of platform.
+The default behaviour is to locate Pandoc and a CHM compiler by
+searching in PATH and running feature tests as necessary. To bypass
+the search any feature checks the following environment variables can
+be set:
 
-For Windows, Pandoc is also available for installation using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
-
-    choco install pandoc
-
-### Getting GNU Make
-
-If using macOS or Linux it is likely that you already have a version of GNU Make installed. Other Unix platforms may require that GNU Make is installed separately, typically it is packaged under the name ['gmake'](http://pkgsrc.se/devel/gmake).
-
-For Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
-
-    choco install make
-
-...or if manual installation is preferred, the same binary can also be downloaded from [ezwinports](https://sourceforge.net/projects/ezwinports/).
-
-### Getting curl
-
-If using macOS or Linux it is likely that you already have a version of curl installed, or it will be packaged under the name ['curl'](http://pkgsrc.se/www/curl). It is also included with recent versions of Windows.
-
-For older versions of Windows, the easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager which will retrieve the binary and add it to your PATH.
-
-    where curl || choco install curl
-
-...or if manual installation is preferred, the same binary can also be downloaded from [curl.haxx.se](https://curl.haxx.se/windows/).
-
-**Note: curl is only required for the html target**
-
-### Getting the HTML help compiler
-
-As far as we know, the compiler that comes with [HTML Help Workshop](http://go.microsoft.com/fwlink/?LinkId=14188) is the only way to create a CHM file with working and complete indices. Unfortunately this makes the final compilation stage only possible on Windows.
-
-The easiest installation method is using the [Chocolatey](https://chocolatey.org/) package manager.
-
-    choco install html-help-workshop
-
-**Note: HTML Help Workshop is only required for the htmlhelp target**
-
-### Make variables and targets
-
-variable | function
+variable | defines
 --- | ---
-CHECKOUTDIR | path to checked out wiki source
-HHC | path to the HTML Help Compiler
-CURL | path to the curl binary (defaults to 'curl')
-PANDOC | path to the Pandoc binary (defaults to 'pandoc')
+PANDOC | path to pandoc
+CHMCMD | path to chmcmd
+HHC | path to hhc
 
-target | function
---- | ---
-source | update the source directory from CHECKOUTDIR
-html | build the website into 'html/build' (requires curl)
-htmlhelp | build an HTML Help Project into 'htmlhelp/build'
-chm | run HHC and build 'htmlhelp/build/ags-help.chm' (requires HTML Help Workshop)
-metacheck | validate generated page metadata (currently checks page links and index entries)
-clean | delete everything listed in .gitignore
+Failure to locate a usable CHM compiler means that building the CHM
+version of the manual pages will be skipped. Failure to locate a
+usable version of Pandoc will mean that the build process will not be
+able to proceed.
 
-### Build example (Windows and Chocolatey)
+Help is available by running `configure --help`.
 
-    choco install curl html-help-workshop pandoc make
-    refreshenv
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki
-    git clone https://github.com/adventuregamestudio/ags-manual
-    set CHECKOUTDIR=%CD%\ags-manual.wiki
-    set HHC=%PROGRAMFILES(X86)%\HTML Help Workshop\hhc.exe
-    cd ags-manual
-    make SHELL=%COMSPEC% source
-    make SHELL=%COMSPEC% -j metacheck
-    make SHELL=%COMSPEC% -j html htmlhelp chm
+```sh
+# Configure build with default settings
+./configure
+```
 
-### Build example (macOS/Linux/... and downloaded pandoc binary)
+Once configuration is complete the build can be started by running
+`make`.
 
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki
-    git clone https://github.com/adventuregamestudio/ags-manual
-    export CHECKOUTDIR=$(pwd)/ags-manual.wiki
-    export PANDOC=~/bin/pandoc
-    cd ags-manual
-    make source
-    make -j metacheck
-    make -j html htmlhelp chm
+```sh
+# Start the configured build
+make
+```
+
+Once the build has finished files can be installed with `make
+install`. To stage files into a custom directory instead of performing
+a regular installation, set the variable `DESTDIR` to the path which
+should be used - this is a straightforward way to investigate the
+final file and directory structure.
+
+```sh
+# Create an installation in a sub-directory named 'destdir'
+make DESTDIR=destdir install
+```
 
 ## License
 
-Source code in this repository is distributed under MIT license. See [`LICENSE`](LICENSE) for more information. Manual content follows [Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).
+Source code in this repository is distributed under MIT license. See
+[`LICENSE`](LICENSE) for more information. The manual content which is
+included from the wiki as a sub-module follows
+[Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).

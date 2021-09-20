@@ -1,0 +1,186 @@
+name: Build
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+env:
+  PANDOC_VERSION: 2.9.2
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        with-feature:
+          - --with-chmcmd
+        shell:
+          - bash
+        os:
+          - macos-latest
+          - ubuntu-latest
+        include:
+          - os: windows-latest
+            shell: msys2 {0}
+            with-feature: --with-chmcmd
+          - os: windows-latest
+            shell: msys2 {0}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+    env:
+      MSYS: winsymlinks:nativestrict
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Setup msys2
+        if: ${{ runner.os == 'Windows' }}
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MSYS
+          update: true
+          install: >-
+            autoconf
+            automake-wrapper
+            git
+            make
+      - name: Setup tangling
+        run: >
+          cd /tmp &&
+          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          tar -xvzf - &&
+          cd dram-1.0 &&
+          ./configure &&
+          make &&
+          make install
+      - name: Download Pandoc
+        run: >
+          mkdir -p /tmp/bin &&
+          cd /tmp/bin &&
+          dram words='pandoc ${{ runner.os }}' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
+          >> $GITHUB_ENV echo PANDOC="$(echo /tmp/bin/pandoc*)"
+      - name: Download and install HTML Help Workshop
+        if: ${{ runner.os == 'Windows' && matrix.with-feature == null }}
+        run: >
+          dram words=html-help-workshop '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
+          >> $GITHUB_ENV echo 'HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
+      - name: Update Autotools
+        run: |
+          case ${{ runner.os }} in
+              macOS)
+                  brew update
+                  brew install automake
+                  ;;
+              Linux)
+                  (cd "${{ runner.temp }}" && curl -fLOJ http://ftp.debian.org/debian/pool/main/a/autoconf/autoconf_2.71-1_all.deb)
+                  sudo dpkg -i "${{ runner.temp }}/autoconf_2.71-1_all.deb"
+                  ;;
+              Windows)
+                  ;;
+              *)
+                  exit 1
+                  ;;
+          esac
+      - name: Install Free Pascal CHM compiler
+        if: ${{ matrix.with-feature != null }}
+        run: |
+          case ${{ runner.os }} in
+              macOS)
+                  dram words='chmcmd macOS' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD="$(brew --prefix)/bin/chmcmd"
+                  ;;
+              Linux)
+                  mkdir -p /tmp/bin && cd /tmp/bin
+                  dram words='chmcmd Linux' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD='/tmp/bin/chmcmd'
+                  ;;
+              Windows)
+                  cd /tmp
+                  dram words='chmcmd Windows' '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh
+                  >> $GITHUB_ENV echo CHMCMD='/c/FPC/3.2.2/bin/i386-win32/chmcmd.exe'
+                  ;;
+              *)
+                  exit 1
+                  ;;
+          esac
+      - name: bootstrap
+        run: ./bootstrap
+      - name: configure
+        run: >
+          mkdir build &&
+          cd build &&
+          ../configure --prefix=/usr/local ${{ matrix.with-feature }}
+      - name: distcheck
+        env:
+          DISTCHECK_CONFIGURE_FLAGS: ${{ matrix.with-feature }}
+        run: >
+          cd build &&
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) distcheck
+      - name: stage installation
+        run: >
+          cd build &&
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) DESTDIR=destdir install
+      - name: Upload release archive
+        if: ${{ matrix.with-feature != null }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: release_${{ runner.os }}_${{ env.PANDOC_VERSION }}
+          path: build/ags-manual-*.tar.gz
+          if-no-files-found: error
+      - name: Upload website
+        if: ${{ matrix.with-feature != null }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: website_${{ runner.os }}_${{ env.PANDOC_VERSION }}
+          path: build/destdir/usr/local/share/ags-manual/website
+          if-no-files-found: error
+      - name: Upload CHM file
+        uses: actions/upload-artifact@v2
+        with:
+          name: chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
+          path: build/destdir/usr/local/share/ags-manual/*.chm
+          if-no-files-found: error
+  check-and-release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup tangling
+        run: >
+          cd /tmp &&
+          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          tar -xvzf - &&
+          cd dram-1.0 &&
+          ./configure &&
+          make &&
+          make install
+      - name: Tangle comparison script
+        run: |
+          dram words=diff-dirs '${{ github.workspace }}/CONTRIBUTING.md' > diff-dirs
+          chmod +x diff-dirs
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: artifacts
+      - name: Compare website artifacts
+        working-directory: artifacts
+        run: ../diff-dirs website_*
+      - name: Create release and upload assets
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: artifacts/chm_Windows_${{ env.PANDOC_VERSION }}/ags-help.chm,artifacts/release_Linux_${{ env.PANDOC_VERSION }}/ags-manual-*.tar.gz
+          allowUpdates: true
+          omitBodyDuringUpdate: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy on GitHub Pages
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: artifacts/website_Windows_${{ env.PANDOC_VERSION }}

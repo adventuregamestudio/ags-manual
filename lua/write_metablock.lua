@@ -1,7 +1,8 @@
 -- invoke as Pandoc writer
 -- write lua metadata file for later processing
 
-package.path = package.path .. ';lua/agsman.lua'
+package.path = package.path .. ';' ..
+  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
 local serialize = agsman.serialize
 local stringify = (require 'pandoc.utils').stringify

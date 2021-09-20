@@ -108,7 +108,7 @@ $include-after$
 $endfor$
 
   <footer>
-    <p>Build: $datetime$</p>
+    <p>Build: $footer$</p>
   </footer>
 
   <script src="js/search.js"></script>
