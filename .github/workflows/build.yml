@@ -76,7 +76,7 @@ jobs:
                   brew install automake
                   ;;
               Linux)
-                  (cd "${{ runner.temp }}" && curl -fLOJ http://ftp.debian.org/debian/pool/main/a/autoconf/autoconf_2.71-1_all.deb)
+                  (cd "${{ runner.temp }}" && curl -fLOJ http://ftp.debian.org/debian/pool/main/a/autoconf/autoconf_2.71-2_all.deb)
                   sudo dpkg -i "${{ runner.temp }}/autoconf_2.71-1_all.deb"
                   ;;
               Windows)
