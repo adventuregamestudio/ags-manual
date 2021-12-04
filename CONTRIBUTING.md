@@ -384,6 +384,10 @@ Git.
    content from the wiki into the official release; reading the
    changes in the page content is a good idea.
 
+   ```sh
+   git diff --submodule=diff
+   ```
+
 3. Bootstrap the build system
 
    At the time that the build system is bootstrapped the content of
