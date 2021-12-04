@@ -68,6 +68,7 @@
 <ul>
 <li><a href="#system-functions-and-properties"><span><code>System</code> functions and properties</span></a>
 <ul>
+<li><a href="#systemlog"><span><code>System.Log</code></span></a></li>
 <li><a href="#systemsaveconfigtofile"><span><code>System.SaveConfigToFile</code></span></a></li>
 <li><a href="#systemaudiochannelcount"><span><code>System.AudioChannelCount</code></span></a></li>
 <li><a href="#systemaudiochannels"><span><code>System.AudioChannels</code></span></a></li>
@@ -97,6 +98,15 @@
   <main>
 <section id="system-functions-and-properties" class="level2">
 <h2><a href="#system-functions-and-properties"><code>System</code> functions and properties</a></h2>
+<section id="systemlog" class="level3">
+<h3><a href="#systemlog"><code>System.Log</code></a></h3>
+<pre><code>static void System.Log(LogLevel level, const string format, ...)
+</code></pre>
+<p>Prints the message string in <code>format</code> to the log, with the defined LogLevel, to the group <code>script</code>.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="RuntimeEngine.html">The run-time engine</a>, <a href="StandardEnums.html#loglevel">LogLevel Enum</a></p>
+<hr />
+</section>
 <section id="systemsaveconfigtofile" class="level3">
 <h3><a href="#systemsaveconfigtofile"><code>System.SaveConfigToFile</code></a></h3>
 <pre><code>static void System.SaveConfigToFile()
@@ -104,7 +114,7 @@
 <p>Writes current engine settings to the player's configuration file, so that they may be applied next time the game is launched.</p>
 <p>This saves only the options that may be changed at runtime, such as translation and fullscreen/windowed graphic mode.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a></p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a></p>
 <hr />
 </section>
 <section id="systemaudiochannelcount" class="level3">
@@ -118,7 +128,7 @@
 </code></pre>
 <p>will display a message with the number of audio channels.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="System.html#systemaudiochannels">System.AudioChannels</a></p>
+<p><em>See also:</em> <a href="System.html#systemaudiochannels"><code>System.AudioChannels</code></a></p>
 <hr />
 </section>
 <section id="systemaudiochannels" class="level3">
@@ -132,7 +142,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 </code></pre>
 <p>will display a message with Audio Channel 2's current volume.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioChannel.html">AudioChannel</a>, <a href="System.html#systemaudiochannelcount">System.AudioChannelCount</a></p>
+<p><em>See also:</em> <a href="AudioChannel.html"><code>AudioChannel</code></a>, <a href="System.html#systemaudiochannelcount"><code>System.AudioChannelCount</code></a></p>
 <hr />
 </section>
 <section id="systemcapslock" class="level3">
@@ -149,12 +159,12 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 </code></pre>
 <p>will display a message if Caps Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="System.html#systemnumlock">System.NumLock</a>, <a href="System.html#systemscrolllock">System.ScrollLock</a></p>
+<p><em>See also:</em> <a href="System.html#systemnumlock"><code>System.NumLock</code></a>, <a href="System.html#systemscrolllock"><code>System.ScrollLock</code></a></p>
 <hr />
 </section>
 <section id="systemcolordepth" class="level3">
 <h3><a href="#systemcolordepth"><code>System.ColorDepth</code></a></h3>
-<p><em>(Formerly known as system.color_depth, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>system.color_depth</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ColorDepth;
 </code></pre>
 <p>Returns the color depth at which the game is running. This is the overall game color depth setting, and it is possible for individual sprites or backgrounds to be different.</p>
@@ -163,7 +173,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
                                   System.ScreenHeight, System.ColorDepth);
 </code></pre>
 <p>will display the current resolution and color depth</p>
-<p><em>See Also:</em> <a href="System.html#systemscreenheight">System.ScreenHeight</a>, <a href="System.html#systemscreenwidth">System.ScreenWidth</a></p>
+<p><em>See also:</em> <a href="System.html#systemscreenheight"><code>System.ScreenHeight</code></a>, <a href="System.html#systemscreenwidth"><code>System.ScreenWidth</code></a></p>
 <hr />
 </section>
 <section id="systemgamma" class="level3">
@@ -171,7 +181,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <pre><code>static int System.Gamma;
 </code></pre>
 <p>Gets/sets the current screen Gamma level. This is 100 by default, and you can set it anywhere from 0 (pitch black) to 200 (double normal brightness).</p>
-<p><a href="System.html#systemsupportsgammacontrol">System.SupportsGammaControl</a> must return <em>true</em> in order for this property to have any effect.</p>
+<p><a href="System.html#systemsupportsgammacontrol"><code>System.SupportsGammaControl</code></a> must return <em>true</em> in order for this property to have any effect.</p>
 <p>Because every player's monitor will be different, you should normally use this property linked to a GUI Slider in order to allow the player to adjust it to suit their system.</p>
 <p>Example:</p>
 <pre><code>if (System.SupportsGammaControl) {
@@ -179,14 +189,14 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 }
 </code></pre>
 <p>will turn the screen brightness up to <code>50%</code> higher than normal</p>
-<p><em>See Also:</em> <a href="System.html#systemsupportsgammacontrol">System.SupportsGammaControl</a></p>
+<p><em>See also:</em> <a href="System.html#systemsupportsgammacontrol"><code>System.SupportsGammaControl</code></a></p>
 <hr />
 </section>
 <section id="systemhardwareacceleration" class="level3">
 <h3><a href="#systemhardwareacceleration"><code>System.HardwareAcceleration</code></a></h3>
 <pre><code>readonly static bool System.HardwareAcceleration;
 </code></pre>
-<p>Returns whether the game is running with hardware acceleration (eg. Direct3D or OpenGL). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
+<p>Returns whether the game is running with hardware acceleration (e.g. Direct3D or OpenGL). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Direct3D, OpenGL driver</strong><br> Linux: <strong>OpenGL driver</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
@@ -195,7 +205,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 }
 </code></pre>
 <p>will display a message if the game is being run with hardware acceleration</p>
-<p>See Also: <a href="GraphicsDriver.html">AGS Graphics Drivers</a></p>
+<p><em>See also:</em> <a href="GraphicsDriver.html">AGS Graphics Drivers</a></p>
 <hr />
 </section>
 <section id="systemhasinputfocus" class="level3">
@@ -220,7 +230,7 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 </code></pre>
 <p>pauses game when player switches out, and unpauses it when player switches back to game.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setmultitaskingmode">SetMultitaskingMode</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setmultitaskingmode"><code>SetMultitaskingMode</code></a></p>
 <hr />
 </section>
 <section id="systemnumlock" class="level3">
@@ -237,12 +247,12 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 </code></pre>
 <p>will display a message if Num Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="System.html#systemcapslock">System.CapsLock</a>, <a href="System.html#systemscrolllock">System.ScrollLock</a></p>
+<p><em>See also:</em> <a href="System.html#systemcapslock"><code>System.CapsLock</code></a>, <a href="System.html#systemscrolllock"><code>System.ScrollLock</code></a></p>
 <hr />
 </section>
 <section id="systemoperatingsystem" class="level3">
 <h3><a href="#systemoperatingsystem"><code>System.OperatingSystem</code></a></h3>
-<p><em>(Formerly known as system.os, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>system.os</code>, which is now obsolete)</em></p>
 <pre><code>readonly static eOperatingSystem System.OperatingSystem;
 </code></pre>
 <p>Returns which operating system the game is currently running under. It can be one of the following values:</p>
@@ -288,27 +298,27 @@ else {
 }
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#debug">Debug</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#debug"><code>Debug</code></a></p>
 <hr />
 </section>
 <section id="systemscreenheight" class="level3">
 <h3><a href="#systemscreenheight"><code>System.ScreenHeight</code></a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight">Screen.Height</a> instead.</strong></p>
-<p><em>(Formerly known as system.screen_height, which is now obsolete)</em></p>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight"><code>Screen.Height</code></a> instead.</strong></p>
+<p><em>(Formerly known as <code>system.screen_height</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenHeight;
 </code></pre>
 <p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black letterbox borders, making it a confusing parameter.</p>
-<p><em>See Also:</em> <a href="System.html#systemcolordepth">System.ColorDepth</a>, <a href="Screen.html#screenwidth">Screen.Width</a>, <a href="Screen.html#screenheight">Screen.Height</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a></p>
+<p><em>See also:</em> <a href="System.html#systemcolordepth"><code>System.ColorDepth</code></a>, <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="systemscreenwidth" class="level3">
 <h3><a href="#systemscreenwidth"><code>System.ScreenWidth</code></a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth">Screen.Width</a> instead.</strong></p>
-<p><em>(Formerly known as system.screen_width, which is now obsolete)</em></p>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth"><code>Screen.Width</code></a> instead.</strong></p>
+<p><em>(Formerly known as <code>system.screen_width</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ScreenWidth;
 </code></pre>
 <p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black widescreen side borders, making it a confusing parameter.</p>
-<p><em>See Also:</em> <a href="System.html#systemcolordepth">System.ColorDepth</a>, <a href="Screen.html#screenwidth">Screen.Width</a>, <a href="Screen.html#screenheight">Screen.Height</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a></p>
+<p><em>See also:</em> <a href="System.html#systemcolordepth"><code>System.ColorDepth</code></a>, <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="systemscrolllock" class="level3">
@@ -325,7 +335,7 @@ else {
 </code></pre>
 <p>will display a message if Scroll Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="System.html#systemcapslock">System.CapsLock</a>, <a href="System.html#systemnumlock">System.NumLock</a></p>
+<p><em>See also:</em> <a href="System.html#systemcapslock"><code>System.CapsLock</code></a>, <a href="System.html#systemnumlock"><code>System.NumLock</code></a></p>
 <hr />
 </section>
 <section id="systemsupportsgammacontrol" class="level3">
@@ -333,7 +343,7 @@ else {
 <pre><code>readonly static bool System.SupportsGammaControl;
 </code></pre>
 <p>Gets whether the player's PC supports changing the screen's gamma control settings.</p>
-<p>This must return <em>true</em> before you try and change the <a href="System.html#systemgamma">System.Gamma</a> property. The situations in which this will be supported are listed below.</p>
+<p>This must return <em>true</em> before you try and change the <a href="System.html#systemgamma"><code>System.Gamma</code></a> property. The situations in which this will be supported are listed below.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Full-screen only</strong><br> Linux: <strong>No</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
@@ -342,12 +352,12 @@ else {
 }
 </code></pre>
 <p>will display a message if the system supports changing the gamma</p>
-<p><em>See Also:</em> <a href="System.html#systemgamma">System.Gamma</a></p>
+<p><em>See also:</em> <a href="System.html#systemgamma"><code>System.Gamma</code></a></p>
 <hr />
 </section>
 <section id="systemversion" class="level3">
 <h3><a href="#systemversion"><code>System.Version</code></a></h3>
-<p><em>(Formerly known as system.version, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>system.version</code>, which is now obsolete)</em></p>
 <pre><code>readonly static String System.Version;
 </code></pre>
 <p>Returns the AGS engine version number. This could be useful from within script modules in order to use features available on a particular engine version, or work around any known bugs.</p>
@@ -360,27 +370,27 @@ else {
 </section>
 <section id="systemviewportheight" class="level3">
 <h3><a href="#systemviewportheight"><code>System.ViewportHeight</code></a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight">Screen.Height</a> instead.</strong></p>
-<p><em>(Formerly known as system.viewport_height, which is now obsolete)</em></p>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight"><code>Screen.Height</code></a> instead.</strong></p>
+<p><em>(Formerly known as <code>system.viewport_height</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportHeight;
 </code></pre>
-<p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportheight">Viewport.Height</a> is <strong>not</strong> a direct equivalent.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenwidth">Screen.Width</a>, <a href="Screen.html#screenheight">Screen.Height</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a></p>
+<p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a> is <strong>not</strong> a direct equivalent.</p>
+<p><em>See also:</em> <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="systemviewportwidth" class="level3">
 <h3><a href="#systemviewportwidth"><code>System.ViewportWidth</code></a></h3>
-<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth">Screen.Width</a> instead.</strong></p>
-<p><em>(Formerly known as system.viewport_width, which is now obsolete)</em></p>
+<p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth"><code>Screen.Width</code></a> instead.</strong></p>
+<p><em>(Formerly known as <code>system.viewport_width</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int System.ViewportWidth;
 </code></pre>
-<p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportwidth">Viewport.Width</a> is <strong>not</strong> a direct equivalent.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenwidth">Screen.Width</a>, <a href="Screen.html#screenheight">Screen.Height</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a></p>
+<p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a> is <strong>not</strong> a direct equivalent.</p>
+<p><em>See also:</em> <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="systemvolume" class="level3">
 <h3><a href="#systemvolume"><code>System.Volume</code></a></h3>
-<p><em>(Formerly known as SetDigitalMasterVolume, which is now obsolete)</em><br> <em>(Formerly known as SetMusicMasterVolume, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetDigitalMasterVolume</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetMusicMasterVolume</code>, which is now obsolete)</em></p>
 <pre><code>static int System.Volume;
 </code></pre>
 <p>Gets/sets the overall system volume, from 0 to 100. This is the master volume control, that affects all audio in the game. You would usually attach this to a GUI Slider to enable the player to control the volume from some sort of Control Panel GUI.</p>
@@ -389,12 +399,12 @@ else {
 </code></pre>
 <p>will set the overall output volume to 80.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioChannel.html#audiochannelvolume">AudioChannel.Volume</a>, <a href="Multimedia.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a></p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a>, <a href="Multimedia.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
 <hr />
 </section>
 <section id="systemvsync" class="level3">
 <h3><a href="#systemvsync"><code>System.VSync</code></a></h3>
-<p><em>(Formerly known as system.vsync, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>system.vsync</code>, which is now obsolete)</em></p>
 <pre><code>static bool System.VSync;
 </code></pre>
 <p>Gets/sets whether AGS waits for the vertical retrace before rendering each frame. This is off by default.</p>
@@ -410,7 +420,7 @@ else {
 </section>
 <section id="systemwindowed" class="level3">
 <h3><a href="#systemwindowed"><code>System.Windowed</code></a></h3>
-<p><em>(Formerly known as system.windowed, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>system.windowed</code>, which is now obsolete)</em></p>
 <pre><code>static bool System.Windowed;
 </code></pre>
 <p>Gets/sets whether the game is running in a window (<em>true</em>) or full-screen (<em>false</em>).</p>
@@ -436,7 +446,7 @@ else {
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:27</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

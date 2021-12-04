@@ -109,6 +109,7 @@
 <li><a href="#gametranslationfilename"><span><code>Game.TranslationFilename</code></span></a></li>
 <li><a href="#gameusenativecoordinates"><span><code>Game.UseNativeCoordinates</code></span></a></li>
 <li><a href="#gameviewcount"><span><code>Game.ViewCount</code></span></a></li>
+<li><a href="#gameblockingwaitskipped"><span><code>Game.BlockingWaitSkipped</code></span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -135,7 +136,7 @@ else
 </code></pre>
 <p>will attempt to change the translation to Spanish</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gametranslationfilename">Game.TranslationFilename</a>, <a href="Globalfunctions_General.html#gettranslation">GetTranslation</a>, <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="gamedoonceonly" class="level3">
@@ -152,12 +153,12 @@ else
 }
 </code></pre>
 <p>will give the player 5 points the first time this script is run.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#givescore">GiveScore</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#givescore"><code>GiveScore</code></a></p>
 <hr />
 </section>
 <section id="gamegetcolorfromrgb" class="level3">
 <h3><a href="#gamegetcolorfromrgb"><code>Game.GetColorFromRGB</code></a></h3>
-<p><em>(Formerly known as RawSetColorRGB, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RawSetColorRGB</code>, which is now obsolete)</em></p>
 <pre><code>static int Game.GetColorFromRGB(int red, int green, int blue)
 </code></pre>
 <p>Gets the AGS Color Number for the specified RGB color. The red, green and blue components are values from 0 to 255. This function gives you a run-time equivalent to the Color Finder in the editor.</p>
@@ -170,12 +171,12 @@ surface.DrawLine(0, 0, 50, 50);
 surface.Release();
 </code></pre>
 <p>will draw a bright green line onto the room background</p>
-<p><em>See Also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor">DrawingSurface.DrawingColor</a></p>
+<p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></p>
 <hr />
 </section>
 <section id="gamegetframecountforloop" class="level3">
 <h3><a href="#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>static int Game.GetFrameCountForLoop(int view, int loop)
 </code></pre>
 <p>Returns the number of frames in the specified loop of the specified view.</p>
@@ -184,12 +185,12 @@ surface.Release();
 <pre><code>int frameCount = Game.GetFrameCountForLoop(SWIMMING, 2);
 Display(&quot;Loop 2 in SWIMMING view has %d frames.&quot;, frameCount);
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamegetloopcountforview">Game.GetLoopCountForView</a>, <a href="Game.html#gamegetrunnextsettingforloop">Game.GetRunNextSettingForLoop</a>, <a href="Game.html#gamegetviewframe">Game.GetViewFrame</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a>, <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a>, <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></p>
 <hr />
 </section>
 <section id="gamegetlocationname" class="level3">
 <h3><a href="#gamegetlocationname"><code>Game.GetLocationName</code></a></h3>
-<p><em>(Formerly known as global function GetLocationName, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetLocationName</code>, which is now obsolete)</em></p>
 <pre><code>static String Game.GetLocationName(int x, int y)
 </code></pre>
 <p>Returns the name of whatever is seen in the room under the given screen coordinates (x, y).</p>
@@ -202,12 +203,12 @@ Display(&quot;Loop 2 in SWIMMING view has %d frames.&quot;, frameCount);
 lblDescription.Text = location;
 </code></pre>
 <p>will get the name of whatever the mouse is over into the string variable and then assign to a label lblDescription.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotname">Hotspot.Name</a>, <a href="InventoryItem.html#inventoryitemname">InventoryItem.Name</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a>, <a href="Object.html#objectname">Object.Name</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotname"><code>Hotspot.Name</code></a>, <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a>, <a href="Object.html#objectname"><code>Object.Name</code></a></p>
 <hr />
 </section>
 <section id="gamegetloopcountforview" class="level3">
 <h3><a href="#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>static int Game.GetLoopCountForView(int view)
 </code></pre>
 <p>Returns the number of loops in the specified view.</p>
@@ -216,12 +217,12 @@ lblDescription.Text = location;
 <pre><code>int loops = Game.GetLoopCountForView(SWIMMING);
 Display(&quot;The SWIMMING view (view %d) has %d loops.&quot;, SWIMMING, loops);
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamegetrunnextsettingforloop">Game.GetRunNextSettingForLoop</a>, <a href="Game.html#gamegetframecountforloop">Game.GetFrameCountForLoop</a>, <a href="Game.html#gamegetviewframe">Game.GetViewFrame</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a>, <a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a>, <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></p>
 <hr />
 </section>
 <section id="gamegetrunnextsettingforloop" class="level3">
 <h3><a href="#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>static bool Game.GetRunNextSettingForLoop(int view, int loop)
 </code></pre>
 <p>Returns whether the specified loop in the specified view has the "Run the next loop after this one" option checked.</p>
@@ -234,12 +235,12 @@ else {
   Display(&quot;Loop 5 in view SWIMMING does not have Run Next Loop set.&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamegetloopcountforview">Game.GetLoopCountForView</a>, <a href="Game.html#gamegetframecountforloop">Game.GetFrameCountForLoop</a>, <a href="Game.html#gamegetviewframe">Game.GetViewFrame</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a>, <a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a>, <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></p>
 <hr />
 </section>
 <section id="gamegetsaveslotdescription" class="level3">
 <h3><a href="#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a></h3>
-<p><em>(Formerly known as global function GetSaveSlotDescription, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetSaveSlotDescription</code>, which is now obsolete)</em></p>
 <pre><code>static String Game.GetSaveSlotDescription(int slot)
 </code></pre>
 <p>Gets the text description of save game slot SLOT.</p>
@@ -248,12 +249,12 @@ else {
 <pre><code>String description = Game.GetSaveSlotDescription(10);
 </code></pre>
 <p>will get the description of save slot 10 into the variable.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromsavegame">DynamicSprite.CreateFromSaveGame</a>, <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a>, <a href="Globalfunctions_General.html#savegameslot">SaveGameSlot</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a>, <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="gamegetviewframe" class="level3">
 <h3><a href="#gamegetviewframe"><code>Game.GetViewFrame</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>static ViewFrame* Game.GetViewFrame(int view, int loop, int frame)
 </code></pre>
 <p>Returns a <em>ViewFrame</em> instance for the specified frame in the specified loop of the specified view.</p>
@@ -263,12 +264,12 @@ else {
 <pre><code>ViewFrame *frame = Game.GetViewFrame(SWIMMING, 2, 3);
 Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, frame.Graphic);
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamegetloopcountforview">Game.GetLoopCountForView</a>, <a href="Game.html#gamegetrunnextsettingforloop">Game.GetRunNextSettingForLoop</a>, <a href="Game.html#gamegetframecountforloop">Game.GetFrameCountForLoop</a>, <a href="ViewFrame.html#viewframegraphic">ViewFrame.Graphic</a>, <a href="ViewFrame.html#viewframespeed">ViewFrame.Speed</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a>, <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a>, <a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a>, <a href="ViewFrame.html#viewframegraphic"><code>ViewFrame.Graphic</code></a>, <a href="ViewFrame.html#viewframespeed"><code>ViewFrame.Speed</code></a></p>
 <hr />
 </section>
 <section id="gameinputbox" class="level3">
 <h3><a href="#gameinputbox"><code>Game.InputBox</code></a></h3>
-<p><em>(Formerly known as global function InputBox, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>InputBox</code>, which is now obsolete)</em></p>
 <pre><code>static String Game.InputBox(string prompt)
 </code></pre>
 <p>Pops up a window asking the user to type in a string, with PROMPT as the text in the window. Whatever they type in will be returned from this function.</p>
@@ -279,7 +280,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <pre><code>String name = Game.InputBox(&quot;!What is your name?&quot;);
 </code></pre>
 <p>will prompt the user for his name and store it in the string NAME. If the user presses Cancel, the NAME string will be blank.</p>
-<p><em>See Also:</em> <a href="String.html#stringasint">String.AsInt</a></p>
+<p><em>See also:</em> <a href="String.html#stringasint"><code>String.AsInt</code></a></p>
 <hr />
 </section>
 <section id="gameispluginloaded" class="level3">
@@ -306,7 +307,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <p>This command will be ignored if a regular blocking voice is currently playing. Also, both blocking and non-blocking voice will interrupt non-blocking voice-over if one was playing.</p>
 <p><strong>NOTE:</strong> because of how audiochannels work internally right now voice is always played on the same channel 0, therefore you could also get it as <code>System.AudioChannels[0]</code>, but it may not be a good idea to rely on this because channel behavior may change in future.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also</em>: <a href="MusicAndSound.html#voice-speech">Voice speech</a>, <a href="AudioChannel.html">AudioChannel</a>, <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="Character.html#charactersay">Character.Say</a></p>
+<p><em>See also:</em> <a href="MusicAndSound.html#voice-speech">Voice speech</a>, <a href="AudioChannel.html"><code>AudioChannel</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a></p>
 <hr />
 </section>
 <section id="gamesetsavegamedirectory" class="level3">
@@ -314,10 +315,10 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <pre><code>static bool Game.SetSaveGameDirectory(string directory)
 </code></pre>
 <p>Changes the directory where save game files are stored to the supplied <em>directory</em>. If the directory does not exist, AGS will attempt to create it.</p>
-<p>You cannot use fully qualified directories with this command (eg. <code>C:\Games\Cool\Saves</code>), because the player might have installed your game to any folder, and they might not be running Windows.</p>
+<p>You cannot use fully qualified directories with this command (e.g. <code>C:\Games\Cool\Saves</code>), because the player might have installed your game to any folder, and they might not be running Windows.</p>
 <p>Therefore, only two types of path are supported:<br></p>
 <ol>
-<li>Relative paths (eg. "Saves"). This will create a subfolder inside <strong>default game save folder</strong><br></li>
+<li>Relative paths (e.g. "Saves"). This will create a subfolder inside <strong>default game save folder</strong><br></li>
 <li>The special tag <code>$MYDOCS$</code> which allows you to explicitly create a different folder for your save games inside the user's documents folder.</li>
 </ol>
 <p>The actual folder referenced with <code>$MYDOCS$</code> is different on every platform: Windows XP: "My Documents"<br> Windows Vista and later: "Saved Games"<br> Linux: <code>$XDG_DATA_HOME</code>/ags<br> MacOS: game installation folder.</p>
@@ -327,7 +328,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <pre><code>Game.SetSaveGameDirectory(&quot;$MYDOCS$/My Cool Game Saves&quot;);
 </code></pre>
 <p>will change the save game directory to "My Cool Game Saves" in My Documents, and create the folder if it does not exist (might be useful to do this in game_start).</p>
-<p><em>See Also:</em> <a href="ListBox.html#listboxfillsavegamelist">ListBox.FillSaveGameList</a>, <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a></p>
+<p><em>See also:</em> <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a></p>
 <hr />
 </section>
 <section id="gamesimulatekeypress" class="level3">
@@ -341,7 +342,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 </code></pre>
 <p>This simulates a "space" key press.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Mouse.html#mouseclick">Mouse.Click</a>, <a href="ASCIIcodes.html#ascii-code-table">List of supported key codes</a></p>
+<p><em>See also:</em> <a href="Mouse.html#mouseclick"><code>Mouse.Click</code></a>, <a href="ASCIIcodes.html#ascii-code-table">List of supported key codes</a></p>
 <hr />
 </section>
 <section id="gameaudioclipcount" class="level3">
@@ -351,7 +352,7 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <p>Returns the number of audio clips in the game.</p>
 <p>This is useful for script modules if you need to iterate through all the audio clips for some reason.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gameaudioclips">Game.AudioClips</a></p>
+<p><em>See also:</em> <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
 <hr />
 </section>
 <section id="gameaudioclips" class="level3">
@@ -371,7 +372,7 @@ while (i &lt; Game.AudioClipCount)
 Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gameaudioclipcount">Game.AudioClipCount</a></p>
+<p><em>See also:</em> <a href="Game.html#gameaudioclipcount"><code>Game.AudioClipCount</code></a></p>
 <hr />
 </section>
 <section id="gamecamera" class="level3">
@@ -380,7 +381,7 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </code></pre>
 <p>Gets the primary camera. This is the default camera that is created automatically at the start of the game and cannot be deleted.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gamecameras">Game.Cameras</a>, <a href="Camera.html">Camera</a>, <a href="Camera.html#cameracreate">Camera.Create</a>, <a href="Camera.html#cameradelete">Camera.Delete</a>, <a href="Viewport.html#viewportcamera">Viewport.Camera</a></p>
+<p><em>See also:</em> <a href="Game.html#gamecameras"><code>Game.Cameras</code></a>, <a href="Camera.html"><code>Camera</code></a>, <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Camera.html#cameradelete"><code>Camera.Delete</code></a>, <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a></p>
 <hr />
 </section>
 <section id="gamecameracount" class="level3">
@@ -389,14 +390,14 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </code></pre>
 <p>Gets the number of cameras.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gamecameras">Game.Cameras</a></p>
+<p><em>See also:</em> <a href="Game.html#gamecameras"><code>Game.Cameras</code></a></p>
 <hr />
 </section>
 <section id="gamecameras" class="level3">
 <h3><a href="#gamecameras"><code>Game.Cameras</code></a></h3>
 <pre><code>static readonly Camera* Game.Cameras[int index];
 </code></pre>
-<p>Returns the Camera instance by its index. There's always at least primary camera at the index 0, more could be created in script using <a href="Camera.html#cameracreate">Camera.Create</a>.</p>
+<p>Returns the Camera instance by its index. There's always at least primary camera at the index 0, more could be created in script using <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>.</p>
 <p><strong>IMPORTANT:</strong> with the current implementation when you delete a custom camera in the middle all the following cameras will be shifted towards beginning of array, changing their indexes.</p>
 <p>Example:</p>
 <pre><code>for (int i = 0; i &lt; Game.CameraCount; i++) {
@@ -405,12 +406,12 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </code></pre>
 <p>This script positions all existing cameras at the room's top-left corner.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gamecamera">Game.Camera</a>, <a href="Game.html#gamecameracount">Game.CameraCount</a>, <a href="Camera.html#cameracreate">Camera.Create</a>, <a href="Camera.html#cameradelete">Camera.Delete</a>, <a href="Viewport.html#viewportcamera">Viewport.Camera</a></p>
+<p><em>See also:</em> <a href="Game.html#gamecamera"><code>Game.Camera</code></a>, <a href="Game.html#gamecameracount"><code>Game.CameraCount</code></a>, <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Camera.html#cameradelete"><code>Camera.Delete</code></a>, <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a></p>
 <hr />
 </section>
 <section id="gamecharactercount" class="level3">
 <h3><a href="#gamecharactercount"><code>Game.CharacterCount</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.CharacterCount
 </code></pre>
 <p>Returns the number of characters in the game.</p>
@@ -441,7 +442,7 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 <pre><code>Display(&quot;The main game file is: %s&quot;, Game.FileName);
 </code></pre>
 <p>will display the game filename.</p>
-<p><em>See Also:</em> <a href="Game.html#gamename">Game.Name</a></p>
+<p><em>See also:</em> <a href="Game.html#gamename"><code>Game.Name</code></a></p>
 <hr />
 </section>
 <section id="gamefontcount" class="level3">
@@ -457,7 +458,7 @@ Display(&quot;We have %d musical clips in our game&quot;, music_count);
 </section>
 <section id="gameglobalmessages" class="level3">
 <h3><a href="#gameglobalmessages"><code>Game.GlobalMessages</code></a></h3>
-<p><em>(Formerly known as global function GetMessageText, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetMessageText</code>, which is now obsolete)</em></p>
 <pre><code>readonly static String Game.GlobalMessages[int message]
 </code></pre>
 <p>Gets the text of the specified global message. The message number is one of the global message numbers from 500 to 999.</p>
@@ -472,7 +473,7 @@ Display(&quot;Global message 997 says: %s&quot;, message);
 </section>
 <section id="gameglobalstrings" class="level3">
 <h3><a href="#gameglobalstrings"><code>Game.GlobalStrings</code></a></h3>
-<p><em>(Formerly known as GetGlobalString, which is now obsolete)</em><br> <em>(Formerly known as SetGlobalString, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetGlobalString</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetGlobalString</code>, which is now obsolete)</em></p>
 <pre><code>static String Game.GlobalStrings[index]
 </code></pre>
 <p>Gets/sets global string <em>index</em>. Global strings provide you with an easy way to share string variables between scripts. There are 50 available global strings, with <em>index</em> values from 0 to 49.</p>
@@ -481,12 +482,12 @@ Display(&quot;Global message 997 says: %s&quot;, message);
 Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>will set global string 15 to contain "Joe".</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getglobalint">GetGlobalInt</a>, <a href="Globalfunctions_General.html#setglobalint">SetGlobalInt</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a>, <a href="Globalfunctions_General.html#setglobalint"><code>SetGlobalInt</code></a></p>
 <hr />
 </section>
 <section id="gameguicount" class="level3">
 <h3><a href="#gameguicount"><code>Game.GUICount</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.GUICount
 </code></pre>
 <p>Returns the number of GUIs in the game.</p>
@@ -508,12 +509,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>will tell AGS to ignore mouse clicks and key presses for 1 second after text is automatically removed from the screen.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gameminimumtextdisplaytimems">Game.MinimumTextDisplayTimeMs</a>, <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a>, <a href="Speech.html#speechskipstyle">Speech.SkipStyle</a></p>
+<p><em>See also:</em> <a href="Game.html#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
 <hr />
 </section>
 <section id="gameinskippablecutscene" class="level3">
 <h3><a href="#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a></h3>
-<p><em>(Formerly known as game.in_cutscene, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>game.in_cutscene</code>, which is now obsolete)</em></p>
 <pre><code>static bool Game.InSkippableCutscene
 </code></pre>
 <p>Returns whether the game is currently between a StartCutscene and EndCutscene, and therefore whether the player is able to skip over this part of the game.</p>
@@ -527,12 +528,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>will display a message if we are within a cutscene</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Game.html#gameskippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
 <hr />
 </section>
 <section id="gameinventoryitemcount" class="level3">
 <h3><a href="#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.InventoryItemCount
 </code></pre>
 <p>Returns the number of inventory items in the game. This is the total number of items that you created in the Inventory Items pane of the editor, not how many the player is currently carrying.</p>
@@ -545,7 +546,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <h3><a href="#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a></h3>
 <pre><code>static int Game.MinimumTextDisplayTimeMs;
 </code></pre>
-<p>Gets/sets the minimum length of time that text is displayed on the screen. AGS automatically adjusts the length of time that text is displayed for depending on the length of the text (and you can customize this calculation with <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a>), but for very short statements like "Hi!", you might want the text to remain for longer.</p>
+<p>Gets/sets the minimum length of time that text is displayed on the screen. AGS automatically adjusts the length of time that text is displayed for depending on the length of the text (and you can customize this calculation with <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>), but for very short statements like "Hi!", you might want the text to remain for longer.</p>
 <p>This property is specified in milliseconds (1000 = 1 second), and is set to 1000 by default.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip-sync is enabled, or if the General Settings are set not to allow text to be automatically removed.</p>
 <p>Example:</p>
@@ -553,7 +554,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>will ensure that even the shortest "Hi!" text line will be displayed for at least 2 seconds</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Game.html#gameignoreuserinputaftertexttimeoutms">Game.IgnoreUserInputAfterTextTimeoutMs</a> <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a></p>
+<p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Game.html#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a> <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a></p>
 <hr />
 </section>
 <section id="gamemousecursorcount" class="level3">
@@ -576,12 +577,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>Display(&quot;The game name is: %s&quot;, Game.Name);
 </code></pre>
 <p>will display the game name.</p>
-<p><em>See Also:</em> <a href="Game.html#gamefilename">Game.FileName</a></p>
+<p><em>See also:</em> <a href="Game.html#gamefilename"><code>Game.FileName</code></a></p>
 <hr />
 </section>
 <section id="gamenormalfont" class="level3">
 <h3><a href="#gamenormalfont"><code>Game.NormalFont</code></a></h3>
-<p><em>(Formerly known as global function SetNormalFont, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>SetNormalFont</code>, which is now obsolete)</em></p>
 <pre><code>static FontType Game.NormalFont
 </code></pre>
 <p>Gets/sets the font used for all in-game text, except speech. The font number must be a valid number from the Fonts pane of the editor.</p>
@@ -597,12 +598,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>Game.NormalFont = eFontSpecial;
 </code></pre>
 <p>will change the normal font to the font "Special".</p>
-<p><em>See Also:</em> <a href="Game.html#gamespeechfont">Game.SpeechFont</a></p>
+<p><em>See also:</em> <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a></p>
 <hr />
 </section>
 <section id="gameskippingcutscene" class="level3">
 <h3><a href="#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></h3>
-<p><em>(Formerly known as game.skipping_cutscene, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>game.skipping_cutscene</code>, which is now obsolete)</em></p>
 <pre><code>static bool Game.SkippingCutscene
 </code></pre>
 <p>Returns whether the player has elected to skip the current cutscene. This will return true if the game is between a StartCutscene and EndCutscene command, and the player has chosen to skip it.</p>
@@ -618,12 +619,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>will only attempt to play the music if the player is not skipping the cutscene.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Game.html#gameinskippablecutscene">Game.InSkippableCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a></p>
 <hr />
 </section>
 <section id="gamespeechfont" class="level3">
 <h3><a href="#gamespeechfont"><code>Game.SpeechFont</code></a></h3>
-<p><em>(Formerly known as global function SetSpeechFont, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>SetSpeechFont</code>, which is now obsolete)</em></p>
 <pre><code>static FontType Game.SpeechFont;
 </code></pre>
 <p>Gets/sets the font used for character speech. The font number you supply must be a valid number from the Fonts pane of the editor.</p>
@@ -632,12 +633,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>Game.SpeechFont = eFontStandard;
 </code></pre>
 <p>will change the speech font to "Standard".</p>
-<p><em>See Also:</em> <a href="Game.html#gamenormalfont">Game.NormalFont</a></p>
+<p><em>See also:</em> <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a></p>
 <hr />
 </section>
 <section id="gamespriteheight" class="level3">
 <h3><a href="#gamespriteheight"><code>Game.SpriteHeight</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.SpriteHeight[int slot]
 </code></pre>
 <p>Returns the height of the specified sprite.</p>
@@ -646,12 +647,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>Display(&quot;Object 0&#39;s sprite is sized %d x %d.&quot;, Game.SpriteWidth[object[0].Graphic],
                                                Game.SpriteHeight[object[0].Graphic]);
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamespritewidth">Game.SpriteWidth</a></p>
+<p><em>See also:</em> <a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a></p>
 <hr />
 </section>
 <section id="gamespritewidth" class="level3">
 <h3><a href="#gamespritewidth"><code>Game.SpriteWidth</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.SpriteWidth[int slot]
 </code></pre>
 <p>Returns the width of the specified sprite.</p>
@@ -660,12 +661,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <pre><code>Display(&quot;Object 0&#39;s sprite is sized %d x %d.&quot;, Game.SpriteWidth[object[0].Graphic],
                                                Game.SpriteHeight[object[0].Graphic]);
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamespriteheight">Game.SpriteHeight</a></p>
+<p><em>See also:</em> <a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a></p>
 <hr />
 </section>
 <section id="gametextreadingspeed" class="level3">
 <h3><a href="#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a></h3>
-<p><em>(Formerly known as game.text_speed, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>game.text_speed</code>, which is now obsolete)</em></p>
 <pre><code>static int Game.TextReadingSpeed;
 </code></pre>
 <p>Gets/sets the speed at which AGS assumes the player can read text, and therefore how long speech stays on the screen before it is automatically removed.</p>
@@ -677,12 +678,12 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 </code></pre>
 <p>sets the text reading speed to half the default, which will leave speech on-screen for twice as long as usual.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Game.html#gameminimumtextdisplaytimems">Game.MinimumTextDisplayTimeMs</a>, <a href="Speech.html#speechskipstyle">Speech.SkipStyle</a></p>
+<p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Game.html#gameminimumtextdisplaytimems"><code>Game.MinimumTextDisplayTimeMs</code></a>, <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
 <hr />
 </section>
 <section id="gametranslationfilename" class="level3">
 <h3><a href="#gametranslationfilename"><code>Game.TranslationFilename</code></a></h3>
-<p><em>(Formerly known as GetTranslationName, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetTranslationName</code>, which is now obsolete)</em></p>
 <pre><code>readonly static String Game.TranslationFilename;
 </code></pre>
 <p>Gets the name of the current translation filename (without the ".tra" extension). This may be useful if you want to use a different graphic somewhere depending on which translation is being used.</p>
@@ -692,7 +693,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
   Display(&quot;You are using the German translation.&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Game.html#gamechangetranslation">Game.ChangeTranslation</a>, <a href="Globalfunctions_General.html#gettranslation">GetTranslation</a>, <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="gameusenativecoordinates" class="level3">
@@ -718,7 +719,7 @@ else
 </section>
 <section id="gameviewcount" class="level3">
 <h3><a href="#gameviewcount"><code>Game.ViewCount</code></a></h3>
-<p><em>(Formerly part of GetGameParameter, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
 <pre><code>readonly static int Game.ViewCount
 </code></pre>
 <p>Returns the number of views in the game.</p>
@@ -726,13 +727,22 @@ else
 <p>Example:</p>
 <pre><code>Display(&quot;The game has %d views.&quot;, Game.ViewCount);
 </code></pre>
+<hr />
+</section>
+<section id="gameblockingwaitskipped" class="level3">
+<h3><a href="#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></h3>
+<pre><code>readonly static int Game.BlockingWaitSkipped
+</code></pre>
+<p>Gets the code which describes how was the last blocking state skipped by a user (or autotimer).</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Globalfunctions_Wait.html#skipwait"><code>SkipWait</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:23</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

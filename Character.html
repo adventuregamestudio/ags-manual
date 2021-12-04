@@ -175,7 +175,7 @@
 <h2><a href="#character-functions-and-properties"><code>Character</code> functions and properties</a></h2>
 <section id="characteraddinventory" class="level3">
 <h3><a href="#characteraddinventory"><code>Character.AddInventory</code></a></h3>
-<p><em>(Formerly known as global function AddInventory, which is now obsolete)</em><br> <em>(Formerly known as global function AddInventoryToCharacter, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>AddInventory</code>, which is now obsolete)</em><br> <em>(Formerly known as global function <code>AddInventoryToCharacter</code>, which is now obsolete)</em></p>
 <pre><code>Character.AddInventory(InventoryItem *item, optional int addAtIndex)
 </code></pre>
 <p>Adds one quantity of the specified item to the character's inventory. This ensures that the item gets added to the character's inventory list, and that any on-screen inventory display gets updated if appropriate.</p>
@@ -186,12 +186,12 @@
 <pre><code>cEgo.AddInventory(iKey);
 </code></pre>
 <p>will give inventory item iKey to character EGO.</p>
-<p><em>See Also:</em> <a href="Character.html#characterhasinventory">Character.HasInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a>, <a href="Globalfunctions_General.html#updateinventory">UpdateInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a></p>
+<p><em>See also:</em> <a href="Character.html#characterhasinventory"><code>Character.HasInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a>, <a href="Globalfunctions_General.html#updateinventory"><code>UpdateInventory</code></a>, <a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></p>
 <hr />
 </section>
 <section id="characteraddwaypoint" class="level3">
 <h3><a href="#characteraddwaypoint"><code>Character.AddWaypoint</code></a></h3>
-<p><em>(Formerly known as MoveCharacterPath, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MoveCharacterPath</code>, which is now obsolete)</em></p>
 <pre><code>Character.AddWaypoint(int x, int y)
 </code></pre>
 <p>Tells the character to move to (X,Y) directly, after it has finished its current move. This function allows you to queue up a series of moves for the character to make, if you want them to take a preset path around the screen. Note that any moves made with this command ignore walkable areas.</p>
@@ -202,17 +202,17 @@ cSomeguy.AddWaypoint(50, 150);
 cSomeguy.AddWaypoint(50, 50);
 </code></pre>
 <p>tells character SOMEGUY to first of all walk to the center of the screen normally (obeying walkable areas), then move to the bottom left corner and then top left corner afterwards.</p>
-<p><em>See Also:</em> <a href="Character.html#charactermove">Character.Move</a> <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a> <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characteranimate" class="level3">
 <h3><a href="#characteranimate"><code>Character.Animate</code></a></h3>
-<p><em>(Formerly known as AnimateCharacter, which is now obsolete)</em><br> <em>(Formerly known as AnimateCharacterEx, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AnimateCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>AnimateCharacterEx</code>, which is now obsolete)</em></p>
 <pre><code>Character.Animate(int loop, int delay, optional RepeatStyle,
                   optional BlockingStyle, optional Direction, optional int frame)
 </code></pre>
 <p>Starts the character animating, using loop number LOOP of his current view and optionally starting at FRAME. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
-<p>Before using this command, you should use <a href="Character.html#characterlockview">LockView</a> in order to select the view you want to animate with and prevent any automatic animations (eg. walking or idle animations) from playing.</p>
+<p>Before using this command, you should use <a href="Character.html#characterlockview"><code>LockView</code></a> in order to select the view you want to animate with and prevent any automatic animations (e.g. walking or idle animations) from playing.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it will go back to the first frame and start over again with the animation.</p>
 <p>For <em>blocking</em> you can pass either eBlock (in which case the function will wait for the animation to finish before returning), or eNoBlock (in which case the animation will start to play, but your script will continue). The default is eBlock.</p>
 <p><em>Direction</em> specifies which way the animation plays. You can either pass eForwards (the default) or eBackwards.</p>
@@ -225,12 +225,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will animate the character once using loop number 3 of view 5 backwards, and wait until the animation finishes before returning.</p>
 <p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimate">Button.Animate</a>, <a href="Object.html#objectanimate">Object.Animate</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
 <hr />
 </section>
 <section id="characterchangeroom" class="level3">
 <h3><a href="#characterchangeroom"><code>Character.ChangeRoom</code></a></h3>
-<p><em>(Formerly known as NewRoom, which is now obsolete)</em><br> <em>(Formerly known as NewRoomEx, which is now obsolete)</em><br> <em>(Formerly known as NewRoomNPC, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>NewRoom</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>NewRoomEx</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>NewRoomNPC</code>, which is now obsolete)</em></p>
 <pre><code>Character.ChangeRoom(int room_number, optional int x, optional int y, optional CharacterDirection direction)
 </code></pre>
 <p>Changes the room that the character is in.</p>
@@ -244,7 +244,7 @@ cEgo.UnlockView();
 </code></pre>
 <p>will move the player character to room 4 and also place him at coordinates 100,50. This will also mean that the game moves into room 4.</p>
 <p><em>Compatibility:</em> Optional <em>direction</em> parameter is supported only by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterchangeroomautoposition">Character.ChangeRoomAutoPosition</a></p>
+<p><em>See also:</em> <a href="Character.html#characterchangeroomautoposition"><code>Character.ChangeRoomAutoPosition</code></a></p>
 <hr />
 </section>
 <section id="characterchangeroomautoposition" class="level3">
@@ -260,12 +260,12 @@ cEgo.UnlockView();
 <pre><code>player.ChangeRoomAutoPosition(4, 2100);
 </code></pre>
 <p>will move the player character to room 4 and place him half way down the right hand side of the screen. This will also mean that the game moves into room 4.</p>
-<p><em>See Also:</em> <a href="Character.html#characterchangeroom">Character.ChangeRoom</a></p>
+<p><em>See also:</em> <a href="Character.html#characterchangeroom"><code>Character.ChangeRoom</code></a></p>
 <hr />
 </section>
 <section id="characterchangeview" class="level3">
 <h3><a href="#characterchangeview"><code>Character.ChangeView</code></a></h3>
-<p><em>(Formerly known as ChangeCharacterView, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>ChangeCharacterView</code>, which is now obsolete)</em></p>
 <pre><code>Character.ChangeView(int view)
 </code></pre>
 <p>Changes the normal view number of the character to <em>view</em>. This is useful if, for example, you want the character to change the clothes they are wearing, and so permanently alter their view number.</p>
@@ -274,12 +274,12 @@ cEgo.UnlockView();
 <pre><code>cEgo.ChangeView(5);
 </code></pre>
 <p>will make the EGO character use view number 5 as his walking view.</p>
-<p><em>See Also:</em> <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characternormalview">Character.NormalView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characternormalview"><code>Character.NormalView</code></a></p>
 <hr />
 </section>
 <section id="characterfacecharacter" class="level3">
 <h3><a href="#characterfacecharacter"><code>Character.FaceCharacter</code></a></h3>
-<p><em>(Formerly known as global function FaceCharacter, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>FaceCharacter</code>, which is now obsolete)</em></p>
 <pre><code>Character.FaceCharacter(Character* toFace, optional BlockingStyle)
 </code></pre>
 <p>Turns the graphic of the character so that it looks like he is facing character TOFACE. This involves changing the current loop to the appropriate loop number, and setting the frame number to 0 (standing).</p>
@@ -289,7 +289,7 @@ cEgo.UnlockView();
 <pre><code>cEgo.FaceCharacter(cMan);
 </code></pre>
 <p>will make the character EGO face the character MAN</p>
-<p><em>See Also:</em> <a href="Character.html#characterfacedirection">Character.FaceDirection</a>, <a href="Character.html#characterfacelocation">Character.FaceLocation</a>, <a href="Character.html#characterfaceobject">Character.FaceObject</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterfaceobject"><code>Character.FaceObject</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterfacedirection" class="level3">
@@ -304,12 +304,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will make the character EGO face up-right.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a>, <a href="Character.html#characterfacelocation">Character.FaceLocation</a>, <a href="Character.html#characterfaceobject">Character.FaceObject</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterfaceobject"><code>Character.FaceObject</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterfacelocation" class="level3">
 <h3><a href="#characterfacelocation"><code>Character.FaceLocation</code></a></h3>
-<p><em>(Formerly known as global function FaceLocation, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>FaceLocation</code>, which is now obsolete)</em></p>
 <pre><code>Character.FaceLocation(int x, int y, optional BlockingStyle)
 </code></pre>
 <p>Similar to the FaceCharacter function, except that this faces the character to room co-ordinates (X,Y). This allows him to face not only other characters, but also hotspots or anything else as well (you can get co-ordinates by watching the co-ordinates displayed in the Room Settings mode as you move the mouse over the room background).</p>
@@ -319,7 +319,7 @@ cEgo.UnlockView();
 <pre><code>cEgo.FaceLocation(cEgo.x + 50, cEgo.y);
 </code></pre>
 <p>will make the character face to the east.</p>
-<p><em>See Also:</em> <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a>, <a href="Character.html#characterfacedirection">Character.FaceDirection</a>, <a href="Character.html#characterfaceobject">Character.FaceObject</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a>, <a href="Character.html#characterfaceobject"><code>Character.FaceObject</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterfaceobject" class="level3">
@@ -333,12 +333,12 @@ cEgo.UnlockView();
 <pre><code>player.FaceObject(object[2]);
 </code></pre>
 <p>will make the player character face object 2.</p>
-<p><em>See Also:</em> <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a>, <a href="Character.html#characterfacedirection">Character.FaceDirection</a>, <a href="Character.html#characterfacelocation">Character.FaceLocation</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterfollowcharacter" class="level3">
 <h3><a href="#characterfollowcharacter"><code>Character.FollowCharacter</code></a></h3>
-<p><em>(Formerly known as global function FollowCharacter, which is now obsolete)</em><br> <em>(Formerly known as global function FollowCharacterEx, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>FollowCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as global function <code>FollowCharacterEx</code>, which is now obsolete)</em></p>
 <pre><code>Character.FollowCharacter(Character* chartofollow, optional int dist,
                           optional int eagerness)
 </code></pre>
@@ -356,7 +356,7 @@ cEgo.UnlockView();
 <pre><code>cMan.FollowCharacter(cEgo, 5, 80);
 </code></pre>
 <p>will make character MAN follow character EGO standing about 5 pixels near him and waiting for a while before he makes his move.</p>
-<p><em>See Also:</em> <a href="Gamevariables.html">game.following_room_timer</a></p>
+<p><em>See also:</em> <a href="Gamevariables.html"><code>game.following_room_timer</code></a></p>
 <hr />
 </section>
 <section id="charactergetatroomxy" class="level3">
@@ -373,12 +373,12 @@ if (target != null) {
 </code></pre>
 <p>will display the message if the room object oBullet is over any character.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactergetatscreenxy">Character.GetAtScreenXY</a>, <a href="Hotspot.html#hotspotgetatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Object.html#objectgetatroomxy">Object.GetAtRoomXY</a>, <a href="Region.html#regiongetatroomxy">Region.GetAtRoomXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
 <section id="charactergetatscreenxy" class="level3">
 <h3><a href="#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as global function GetCharacterAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetCharacterAt</code>, which is now obsolete)</em></p>
 <pre><code>static Character* Character.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Checks if there is a character at SCREEN co-ordinates (X,Y). Returns the character if there is, or null if there is not. See the description of GetLocationName for more on screen co-ordinates.</p>
@@ -389,12 +389,12 @@ if (target != null) {
 }
 </code></pre>
 <p>will display the message if the mouse cursor is over the EGO character</p>
-<p><em>See Also:</em> <a href="Character.html#charactergetatroomxy">Character.GetAtRoomXY</a>, <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a>, <a href="Region.html#regiongetatscreenxy">Region.GetAtScreenXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
 <section id="charactergetproperty" class="level3">
 <h3><a href="#charactergetproperty"><code>Character.GetProperty</code></a></h3>
-<p><em>(Formerly known as GetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>Character.GetProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the specified character.</p>
@@ -405,12 +405,12 @@ if (target != null) {
   Display(&quot;EGO&#39;s value is over 200!&quot;);
 </code></pre>
 <p>will print the message if EGO has its "Value" property set to more than 200.</p>
-<p><em>See Also:</em> <a href="Character.html#charactergettextproperty">Character.GetTextProperty</a></p>
+<p><em>See also:</em> <a href="Character.html#charactergettextproperty"><code>Character.GetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="charactergettextproperty" class="level3">
 <h3><a href="#charactergettextproperty"><code>Character.GetTextProperty</code></a></h3>
-<p><em>(Formerly known as GetCharacterPropertyText, which is now obsolete)</em><br> <em>(Formerly known as Character.GetPropertyText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetCharacterPropertyText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Character.GetPropertyText</code>, which is now obsolete)</em></p>
 <pre><code>String Character.GetTextProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the specified character.</p>
@@ -421,7 +421,7 @@ if (target != null) {
 Display(&quot;EGO&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will retrieve EGO's "description" property and display it.</p>
-<p><em>See Also:</em> <a href="Character.html#charactergetproperty">Character.GetProperty</a></p>
+<p><em>See also:</em> <a href="Character.html#charactergetproperty"><code>Character.GetProperty</code></a></p>
 <hr />
 </section>
 <section id="charactersetproperty" class="level3">
@@ -436,7 +436,7 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change EGO character's "XPLevel" custom property to 10.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersettextproperty">Character.SetTextProperty</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersettextproperty"><code>Character.SetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="charactersettextproperty" class="level3">
@@ -451,17 +451,17 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change EGO's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersetproperty">Character.SetProperty</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetproperty"><code>Character.SetProperty</code></a></p>
 <hr />
 </section>
 <section id="characterhasexplicitlight" class="level3">
 <h3><a href="#characterhasexplicitlight"><code>Character.HasExplicitLight</code></a></h3>
 <pre><code>readonly bool Character.HasExplicitTint
 </code></pre>
-<p>Returns <em>true</em> if the character has a light set explicitly with the <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a> command.</p>
-<p>Returns <em>false</em> if the character has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a> or a region light.</p>
+<p>Returns <em>true</em> if the character has a light set explicitly with the <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a> command.</p>
+<p>Returns <em>false</em> if the character has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a> or a region light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a></p>
 <hr />
 </section>
 <section id="characterhasinventory" class="level3">
@@ -478,12 +478,12 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will display a message if the player has the key.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a></p>
 <hr />
 </section>
 <section id="characteriscollidingwithchar" class="level3">
 <h3><a href="#characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a></h3>
-<p><em>(Formerly known as AreCharactersColliding, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AreCharactersColliding</code>, which is now obsolete)</em></p>
 <pre><code>Character.IsCollidingWithChar(Character* otherChar)
 </code></pre>
 <p>Checks if the character is touching OTHERCHAR. This function just checks the baseline of both characters, so if one is standing a fair distance behind the other, it will not be marked as colliding.</p>
@@ -493,12 +493,12 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
    { colliding code here }
 </code></pre>
 <p>will execute the colliding code only if the characters EGO and MAN are colliding.</p>
-<p><em>See Also:</em> <a href="Character.html#characteriscollidingwithobject">Character.IsCollidingWithObject</a>, <a href="Object.html#objectiscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
+<p><em>See also:</em> <a href="Character.html#characteriscollidingwithobject"><code>Character.IsCollidingWithObject</code></a>, <a href="Object.html#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a>, <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
 </section>
 <section id="characteriscollidingwithobject" class="level3">
 <h3><a href="#characteriscollidingwithobject"><code>Character.IsCollidingWithObject</code></a></h3>
-<p><em>(Formerly known as AreCharObjColliding, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AreCharObjColliding</code>, which is now obsolete)</em></p>
 <pre><code>Character.IsCollidingWithObject(Object* obj)
 </code></pre>
 <p>Checks whether the character's feet (i.e. the bottom third of the character) are touching OBJ. This can be used to determine if the character is standing on the object.</p>
@@ -509,22 +509,22 @@ Display(&quot;EGO&#39;s description: %s&quot;, description);
 }
 </code></pre>
 <p>will execute the colliding code only if the character EGO and the object number 3 are colliding.</p>
-<p><em>See Also:</em> <a href="Character.html#characteriscollidingwithchar">Character.IsCollidingWithChar</a>, <a href="Object.html#objectiscollidingwithobject">Object.IsCollidingWithObject</a>, <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
+<p><em>See also:</em> <a href="Character.html#characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a>, <a href="Object.html#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a>, <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
 </section>
 <section id="characterlightlevel" class="level3">
 <h3><a href="#characterlightlevel"><code>Character.LightLevel</code></a></h3>
 <pre><code>readonly int Character.LightLevel
 </code></pre>
-<p>If the character has an individual light set explicitly with the <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a> command, this property returns the light level value. Otherwise it returns 0.</p>
+<p>If the character has an individual light set explicitly with the <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a> command, this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Character.LightLevel returns 0 even if the character is affected by the ambient or region's light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a></p>
 <hr />
 </section>
 <section id="characterlockview" class="level3">
 <h3><a href="#characterlockview"><code>Character.LockView</code></a></h3>
-<p><em>(Formerly known as SetCharacterView, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterView</code>, which is now obsolete)</em></p>
 <pre><code>Character.LockView(int view, optional StopMovementStyle)
 </code></pre>
 <p>Sets the character's view to VIEW. This can be used to perform animations with characters, for example bending down to pick something up, which don't use the default view.</p>
@@ -537,12 +537,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will change the character's EGO view to view 12, perform an animation using loop 0, wait until the animation finishes and then return the character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterchangeview">Character.ChangeView</a>, <a href="Character.html#characterspeechview">Character.SpeechView</a>, <a href="Character.html#characterlockviewaligned">Character.LockViewAligned</a>, <a href="Character.html#characterlockviewoffset">Character.LockViewOffset</a> <a href="Character.html#characterunlockview">Character.UnlockView</a>,</p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a>, <a href="Character.html#characterlockviewaligned"><code>Character.LockViewAligned</code></a>, <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a> <a href="Character.html#characterunlockview"><code>Character.UnlockView</code></a>,</p>
 <hr />
 </section>
 <section id="characterlockviewaligned" class="level3">
 <h3><a href="#characterlockviewaligned"><code>Character.LockViewAligned</code></a></h3>
-<p><em>(Formerly known as SetCharacterViewEx, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterViewEx</code>, which is now obsolete)</em></p>
 <pre><code>Character.LockViewAligned(int view, int loop, Alignment, optional StopMovementStyle)
 </code></pre>
 <p>Sets the character's view to VIEW, and sets the character's current frame to the first frame in LOOP of VIEW.</p>
@@ -580,12 +580,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will change the character's EGO view to view 12, perform an animation using loop 1, wait until the animation finishes and then return the character to his normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characterlockviewoffset">Character.LockViewOffset</a>, <a href="Character.html#characterunlockview">Character.UnlockView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>, <a href="Character.html#characterunlockview"><code>Character.UnlockView</code></a></p>
 <hr />
 </section>
 <section id="characterlockviewframe" class="level3">
 <h3><a href="#characterlockviewframe"><code>Character.LockViewFrame</code></a></h3>
-<p><em>(Formerly known as SetCharacterFrame, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterFrame</code>, which is now obsolete)</em></p>
 <pre><code>Character.LockViewFrame(int view, int loop, int frame, optional StopMovementStyle)
 </code></pre>
 <p>Sets the character's graphic to frame FRAME of loop LOOP of view number VIEW. This is useful if you don't want an animation, but just want to change the character to display a specific frame.</p>
@@ -598,12 +598,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will change EGO to have frame 4 of loop 2 in the AGHAST view, wait for a second, then return him to normal.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characterunlockview">Character.UnlockView</a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterunlockview"><code>Character.UnlockView</code></a></p>
 <hr />
 </section>
 <section id="characterlockviewoffset" class="level3">
 <h3><a href="#characterlockviewoffset"><code>Character.LockViewOffset</code></a></h3>
-<p><em>(Formerly known as SetCharacterViewOffset, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterViewOffset</code>, which is now obsolete)</em></p>
 <pre><code>Character.LockViewOffset(int view, int xOffset, int yOffset, optional StopMovementStyle)
 </code></pre>
 <p>Sets the character's view to VIEW, in the same way as LockView does. However, it also adds a specified offset to all the character's frames until UnlockView is called.</p>
@@ -619,12 +619,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will change EGO's view to view 12 and animate using loop 1, meanwhile all frames will be shifted 1 pixel right and 1 pixel up.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characterlockviewaligned">Character.LockViewAligned</a>, <a href="Character.html#characterunlockview">Character.UnlockView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterlockviewaligned"><code>Character.LockViewAligned</code></a>, <a href="Character.html#characterunlockview"><code>Character.UnlockView</code></a></p>
 <hr />
 </section>
 <section id="characterloseinventory" class="level3">
 <h3><a href="#characterloseinventory"><code>Character.LoseInventory</code></a></h3>
-<p><em>(Formerly known as global function LoseInventory, which is now obsolete)</em><br> <em>(Formerly known as LoseInventoryFromCharacter, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>LoseInventory</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>LoseInventoryFromCharacter</code>, which is now obsolete)</em></p>
 <pre><code>Character.LoseInventory(InventoryItem *item)
 </code></pre>
 <p>Removes one quantity of the specified inventory item from the character's inventory. If they do not have the item, nothing happens.</p>
@@ -634,7 +634,7 @@ cEgo.UnlockView();
 <pre><code>cEgo.LoseInventory(iKey);
 </code></pre>
 <p>will make the character EGO lose the inventory item iKey from the inventory tab</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></p>
 <hr />
 </section>
 <section id="charactermove" class="level3">
@@ -643,19 +643,19 @@ cEgo.UnlockView();
                              optional WalkWhere);
 </code></pre>
 <p>Starts the character moving from its current location to (X,Y), but does not play the character's walking animation.</p>
-<p>The parameters to this command are identical to the <a href="Character.html#characterwalk">Character.Walk</a> command -- see that page for more details. The only difference is that <em>Walk</em> plays the walking animation whereas <em>Move</em> does not.</p>
+<p>The parameters to this command are identical to the <a href="Character.html#characterwalk"><code>Character.Walk</code></a> command -- see that page for more details. The only difference is that <em>Walk</em> plays the walking animation whereas <em>Move</em> does not.</p>
 <p>In the vast majority of cases, you will use <strong>Character.Walk</strong> instead.</p>
 <p>Example:</p>
 <pre><code>cEgo.Move(155, 122, eBlock);
 </code></pre>
 <p>will make the character move to 155,122 without playing his walking animation. The script will not continue until the character has reached his destination.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddwaypoint">Character.AddWaypoint</a>, <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Globalfunctions_General.html#movecharactertoobject">MoveCharacterToObject</a>, <a href="Object.html#objectmove">Object.Move</a>, <a href="Character.html#characterstopmoving">Character.StopMoving</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddwaypoint"><code>Character.AddWaypoint</code></a>, <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Globalfunctions_General.html#movecharactertoobject"><code>MoveCharacterToObject</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="characterplaceonwalkablearea" class="level3">
 <h3><a href="#characterplaceonwalkablearea"><code>Character.PlaceOnWalkableArea</code></a></h3>
-<p><em>(Formerly known as MoveToWalkableArea, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MoveToWalkableArea</code>, which is now obsolete)</em></p>
 <pre><code>Character.PlaceOnWalkableArea()
 </code></pre>
 <p>Places the character in the nearest walkable area to its current location. If the character is already on a walkable area, nothing happens.</p>
@@ -679,7 +679,7 @@ Wait(40);
 player.RemoveTint();
 </code></pre>
 <p>will tint the player character green for a second, then turn it back to normal.</p>
-<p><em>See Also:</em> <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a>, <a href="Character.html#charactertint">Character.Tint</a></p>
+<p><em>See also:</em> <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a>, <a href="Character.html#charactertint"><code>Character.Tint</code></a></p>
 <hr />
 </section>
 <section id="characterisinteractionavailable" class="level3">
@@ -693,12 +693,12 @@ player.RemoveTint();
   Display(&quot;speaking with this character would not do anything.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Character.html#characterruninteraction">Character.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="characterruninteraction" class="level3">
 <h3><a href="#characterruninteraction"><code>Character.RunInteraction</code></a></h3>
-<p><em>(Formerly known as RunCharacterInteraction, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RunCharacterInteraction</code>, which is now obsolete)</em></p>
 <pre><code>Character.RunInteraction(CursorMode)
 </code></pre>
 <p>Fires the event script as if the player had clicked the mouse on the character in the specified cursor mode. This is one of the mouse cursor modes, as defined in your Cursors tab in the editor.</p>
@@ -706,12 +706,12 @@ player.RemoveTint();
 <pre><code>cMan.RunInteraction(eModeTalk);
 </code></pre>
 <p>will execute the code defined in the MAN's "TALK TO CHARACTER" event.</p>
-<p><em>See Also:</em> <a href="Room.html#roomprocessclick">Room.ProcessClick</a>, <a href="Character.html#characterisinteractionavailable">Character.IsInteractionAvailable</a>, <a href="Hotspot.html#hotspotruninteraction">Hotspot.RunInteraction</a>, <a href="InventoryItem.html#inventoryitemruninteraction">InventoryItem.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Character.html#characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a>, <a href="InventoryItem.html#inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="charactersay" class="level3">
 <h3><a href="#charactersay"><code>Character.Say</code></a></h3>
-<p><em>(Formerly known as DisplaySpeech, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DisplaySpeech</code>, which is now obsolete)</em></p>
 <pre><code>Character.Say(string message)
 </code></pre>
 <p>Displays the text MESSAGE as speech above the character's head. The text will remain on screen for a limited time, and the user may or may not be able to click it away depending on the setting of "Player can't skip speech text". The text displayed by this function looks identical to that used by the dialog system.</p>
@@ -720,43 +720,43 @@ player.RemoveTint();
 <pre><code>cEgo.Say(&quot;My name is ego&quot;);
 </code></pre>
 <p>will display the message above the character's EGO head like the LEC games, whilst playing the character's talking animation.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Message.html#display">Display</a>, <a href="Character.html#charactersayat">Character.SayAt</a>, <a href="Character.html#charactersaybackground">Character.SayBackground</a>, <a href="Character.html#characterthink">Character.Think</a>, <a href="MusicAndSound.html#voice-speech">Voice speech</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Character.html#charactersayat"><code>Character.SayAt</code></a>, <a href="Character.html#charactersaybackground"><code>Character.SayBackground</code></a>, <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="MusicAndSound.html#voice-speech">Voice speech</a></p>
 <hr />
 </section>
 <section id="charactersayat" class="level3">
 <h3><a href="#charactersayat"><code>Character.SayAt</code></a></h3>
-<p><em>(Formerly known as DisplaySpeechAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DisplaySpeechAt</code>, which is now obsolete)</em></p>
 <pre><code>SayAt(int x, int y, int width, string message)
 </code></pre>
-<p>Similar to <a href="Character.html#charactersay">Say</a>, except that the text is displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
+<p>Similar to <a href="Character.html#charactersay"><code>Say</code></a>, except that the text is displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
 <p>You can use this function to write the character's speech text anywhere you like, and AGS will still play the character's talking animation and so on if appropriate.</p>
 <p><strong>NOTE:</strong> This function does not support Whole-Screen speech.</p>
 <p>Example:</p>
 <pre><code>cEgo.SayAt(220, 20, 100, &quot;My name is ego&quot;);
 </code></pre>
 <p>will display the message in the top right corner of the screen, whilst playing the character's talking animation.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#charactersaybackground">Character.SayBackground</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#charactersaybackground"><code>Character.SayBackground</code></a></p>
 <hr />
 </section>
 <section id="charactersaybackground" class="level3">
 <h3><a href="#charactersaybackground"><code>Character.SayBackground</code></a></h3>
-<p><em>(Formerly known as DisplaySpeechBackground, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DisplaySpeechBackground</code>, which is now obsolete)</em></p>
 <pre><code>Overlay* Character.SayBackground(string message)
 </code></pre>
 <p>Similar to Say, except that this function returns immediately and the game continues while the character is talking. This allows you to have characters talking in the background while the player does other things. Note that the character's talking animation is not played if this function is used.</p>
 <p>This command works by creating a text overlay with an automatic removal time delay. The overlay is returned by this command, so you can save it for use later with Overlay.IsValid and Overlay.Remove, if you want to remove the text prematurely.</p>
 <p>If background speech is already on-screen for the character, it will be removed and replaced with the new MESSAGE.</p>
-<p>All background speech is automatically removed when a normal Say command is used (unless you set the global variable <a href="Gamevariables.html">game.bgspeech_stay_on_display</a> to 1).</p>
+<p>All background speech is automatically removed when a normal Say command is used (unless you set the global variable <a href="Gamevariables.html"><code>game.bgspeech_stay_on_display</code></a> to 1).</p>
 <p>Example:</p>
 <pre><code>cMan.SayBackground(&quot;Hey, why won&#39;t you talk to me?&quot;);
 </code></pre>
 <p>will display the message above character MAN's head without pausing the game.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersay">Character.Say</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersay"><code>Character.Say</code></a></p>
 <hr />
 </section>
 <section id="charactersetasplayer" class="level3">
 <h3><a href="#charactersetasplayer"><code>Character.SetAsPlayer</code></a></h3>
-<p><em>(Formerly known as SetPlayerCharacter, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetPlayerCharacter</code>, which is now obsolete)</em></p>
 <pre><code>Character.SetAsPlayer()
 </code></pre>
 <p>Changes the character which the player controls to the specified character. This function will also cause the room to change to the room which the chosen character is currently in (though as with ChangeRoom, the change won't happen until the end of the script).</p>
@@ -765,7 +765,7 @@ player.RemoveTint();
 <pre><code>cMan.SetAsPlayer();
 </code></pre>
 <p>will change the character that the player controls to character MAN and also change to the room that MAN is in, if he is not in the current room.</p>
-<p><em>See Also:</em> <a href="Character.html#characterid">Character.ID</a>, <a href="Character.html#characterchangeroom">Character.ChangeRoom</a></p>
+<p><em>See also:</em> <a href="Character.html#characterid"><code>Character.ID</code></a>, <a href="Character.html#characterchangeroom"><code>Character.ChangeRoom</code></a></p>
 <hr />
 </section>
 <section id="charactersetlightlevel" class="level3">
@@ -775,7 +775,7 @@ player.RemoveTint();
 <p>Sets individual light level for this character.</p>
 <p>The light level is from <strong>-100 to 100</strong>.</p>
 <p>In 8-bit games you cannot use positive light level for brightening effect, but you may still use negative values to produce darkening effect.</p>
-<p>To disable character lighting and tinting effects, call <a href="Character.html#characterremovetint">RemoveTint</a>.</p>
+<p>To disable character lighting and tinting effects, call <a href="Character.html#characterremovetint"><code>RemoveTint</code></a>.</p>
 <p><strong>NOTE</strong>: Setting a light level will disable any RGB tint set for the character.</p>
 <p><strong>NOTE:</strong> Character's individual light level OVERRIDES both ambient light level and local region light level.</p>
 <p>Example:</p>
@@ -783,12 +783,12 @@ player.RemoveTint();
 </code></pre>
 <p>This will give character EGO maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a>, <a href="Region.html#regionlightlevel">Region.LightLevel</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a>, <a href="Region.html#regionlightlevel"><code>Region.LightLevel</code></a></p>
 <hr />
 </section>
 <section id="charactersetidleview" class="level3">
 <h3><a href="#charactersetidleview"><code>Character.SetIdleView</code></a></h3>
-<p><em>(Formerly known as SetCharacterIdle, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterIdle</code>, which is now obsolete)</em></p>
 <pre><code>Character.SetIdleView(int idleview, int delay)
 </code></pre>
 <p>Changes the character's idle view to IDLEVIEW, with a timeout of DELAY seconds of inactivity before it is played. Inactivity is defined as when the character is not moving and not being animated.</p>
@@ -804,7 +804,7 @@ player.RemoveTint();
 </section>
 <section id="charactersetwalkspeed" class="level3">
 <h3><a href="#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a></h3>
-<p><em>(Formerly known as SetCharacterSpeed, which is now obsolete)</em><br> <em>(Formerly known as SetCharacterSpeedEx, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterSpeed</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetCharacterSpeedEx</code>, which is now obsolete)</em></p>
 <pre><code>Character.SetWalkSpeed(int x_speed, int y_speed)
 </code></pre>
 <p>Changes the character to have a walking speed of X_SPEED in the horizontal direction and Y_SPEED in the vertical direction. The values used for X_SPEED and Y_SPEED are identical to those set in the AGS Editor for walking speed.</p>
@@ -814,12 +814,12 @@ player.RemoveTint();
 <pre><code>cEgo.SetWalkSpeed(10, 10);
 </code></pre>
 <p>will change the character EGO's speed to 10.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimationspeed">Character.AnimationSpeed</a>, <a href="Character.html#characterstopmoving">Character.StopMoving</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Character.html#characterwalkspeedx">Character.WalkSpeedX</a>, <a href="Character.html#characterwalkspeedy">Character.WalkSpeedY</a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimationspeed"><code>Character.AnimationSpeed</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Character.html#characterwalkspeedx"><code>Character.WalkSpeedX</code></a>, <a href="Character.html#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></p>
 <hr />
 </section>
 <section id="characterstopmoving" class="level3">
 <h3><a href="#characterstopmoving"><code>Character.StopMoving</code></a></h3>
-<p><em>(Formerly known as global function StopMoving, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>StopMoving</code>, which is now obsolete)</em></p>
 <pre><code>Character.StopMoving()
 </code></pre>
 <p>Stops the character moving and sets its graphic to the standing frame of the current loop.</p>
@@ -830,12 +830,12 @@ player.RemoveTint();
 }
 </code></pre>
 <p>will stop the character when he reaches the coordinate x=300.</p>
-<p><em>See Also:</em> <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Object.html#objectstopmoving">Object.StopMoving</a></p>
+<p><em>See also:</em> <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="characterthink" class="level3">
 <h3><a href="#characterthink"><code>Character.Think</code></a></h3>
-<p><em>(Formerly known as DisplayThought, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DisplayThought</code>, which is now obsolete)</em></p>
 <pre><code>Character.Think(string message, ...)
 </code></pre>
 <p>Displays the text MESSAGE as a thought above the specified character's head. The text will remain on screen for a limited time, and the user may or may not be able to click it away depending on the setting of "Player can't skip speech text".</p>
@@ -849,7 +849,7 @@ player.RemoveTint();
 <pre><code>cEgo.Think(&quot;I wonder what&#39;s for dinner.&quot;);
 </code></pre>
 <p>will display the message above EGO's head and play the character's thinking animation.</p>
-<p><em>See Also:</em> <a href="Character.html#characterblinkwhilethinking">Character.BlinkWhileThinking</a>, <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#characterthinking">Character.Thinking</a>, <a href="Character.html#characterthinkingframe">Character.ThinkingFrame</a>, <a href="Character.html#characterthinkview">Character.ThinkView</a>, <a href="Gamevariables.html">game.speech_bubble_width</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblinkwhilethinking"><code>Character.BlinkWhileThinking</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a>, <a href="Character.html#characterthinkingframe"><code>Character.ThinkingFrame</code></a>, <a href="Character.html#characterthinkview"><code>Character.ThinkView</code></a>, <a href="Gamevariables.html"><code>game.speech_bubble_width</code></a></p>
 <hr />
 </section>
 <section id="charactertint" class="level3">
@@ -858,15 +858,15 @@ player.RemoveTint();
                int saturation, int luminance)
 </code></pre>
 <p>Tints the character on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
-<p>This function applies a tint to a specific character. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
+<p>This function applies a tint to a specific character. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the character (even if an ambient tint is set).</p>
-<p>To remove the tint set by this function and return to using the ambient tint for this character, call <a href="Character.html#characterremovetint">RemoveTint</a>.</p>
+<p>To remove the tint set by this function and return to using the ambient tint for this character, call <a href="Character.html#characterremovetint"><code>RemoveTint</code></a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p>Example:</p>
 <pre><code>cEgo.Tint(0, 250, 0, 30, 100);
 </code></pre>
 <p>will tint the EGO character green.</p>
-<p><em>See Also:</em> <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a>, <a href="Character.html#characterremovetint">Character.RemoveTint</a>, <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a></p>
+<p><em>See also:</em> <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a>, <a href="Character.html#characterremovetint"><code>Character.RemoveTint</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
 </section>
 <section id="charactertintblue" class="level3">
@@ -874,10 +874,10 @@ player.RemoveTint();
 <pre><code>readonly int Character.TintBlue
 </code></pre>
 <p>Gets the <em>Blue</em> setting for the character's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a>, <a href="Character.html#charactertintgreen">Character.TintGreen</a>, <a href="Character.html#charactertintred">Character.TintRed</a>, <a href="Character.html#charactertintluminance">Character.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a>, <a href="Character.html#charactertintgreen"><code>Character.TintGreen</code></a>, <a href="Character.html#charactertintred"><code>Character.TintRed</code></a>, <a href="Character.html#charactertintluminance"><code>Character.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="charactertintgreen" class="level3">
@@ -885,10 +885,10 @@ player.RemoveTint();
 <pre><code>readonly int Character.TintGreen
 </code></pre>
 <p>Gets the <em>Green</em> setting for the character's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#charactertintblue">Character.TintBlue</a>, <a href="Character.html#charactertintred">Character.TintRed</a>, <a href="Character.html#charactertintsaturation">Character.TintSaturation</a>, <a href="Character.html#charactertintluminance">Character.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#charactertintblue"><code>Character.TintBlue</code></a>, <a href="Character.html#charactertintred"><code>Character.TintRed</code></a>, <a href="Character.html#charactertintsaturation"><code>Character.TintSaturation</code></a>, <a href="Character.html#charactertintluminance"><code>Character.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="charactertintred" class="level3">
@@ -896,10 +896,10 @@ player.RemoveTint();
 <pre><code>readonly int Character.TintRed
 </code></pre>
 <p>Gets the <em>Red</em> setting for the character's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#charactertintblue">Character.TintBlue</a>, <a href="Character.html#charactertintgreen">Character.TintGreen</a>, <a href="Character.html#charactertintsaturation">Character.TintSaturation</a>, <a href="Character.html#charactertintluminance">Character.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#charactertintblue"><code>Character.TintBlue</code></a>, <a href="Character.html#charactertintgreen"><code>Character.TintGreen</code></a>, <a href="Character.html#charactertintsaturation"><code>Character.TintSaturation</code></a>, <a href="Character.html#charactertintluminance"><code>Character.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="charactertintsaturation" class="level3">
@@ -907,10 +907,10 @@ player.RemoveTint();
 <pre><code>readonly int Character.TintSaturation
 </code></pre>
 <p>Gets the <em>saturation</em> setting for the character's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#charactertintblue">Character.TintBlue</a>, <a href="Character.html#charactertintgreen">Character.TintGreen</a>, <a href="Character.html#charactertintred">Character.TintRed</a>, <a href="Character.html#charactertintluminance">Character.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#charactertintblue"><code>Character.TintBlue</code></a>, <a href="Character.html#charactertintgreen"><code>Character.TintGreen</code></a>, <a href="Character.html#charactertintred"><code>Character.TintRed</code></a>, <a href="Character.html#charactertintluminance"><code>Character.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="charactertintluminance" class="level3">
@@ -918,15 +918,15 @@ player.RemoveTint();
 <pre><code>readonly int Character.TintLuminance
 </code></pre>
 <p>Gets the <em>luminance</em> setting for the character's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Character.html#characterhasexplicittint"><code>Character.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#charactertintblue">Character.TintBlue</a>, <a href="Character.html#charactertintgreen">Character.TintGreen</a>, <a href="Character.html#charactertintred">Character.TintRed</a>, <a href="Character.html#charactertintsaturation">Character.TintSaturation</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#charactertintblue"><code>Character.TintBlue</code></a>, <a href="Character.html#charactertintgreen"><code>Character.TintGreen</code></a>, <a href="Character.html#charactertintred"><code>Character.TintRed</code></a>, <a href="Character.html#charactertintsaturation"><code>Character.TintSaturation</code></a></p>
 <hr />
 </section>
 <section id="characterunlockview" class="level3">
 <h3><a href="#characterunlockview"><code>Character.UnlockView</code></a></h3>
-<p><em>(Formerly known as ReleaseCharacterView, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>ReleaseCharacterView</code>, which is now obsolete)</em></p>
 <pre><code>Character.UnlockView(StopMovementStyle=eStopMoving)
 </code></pre>
 <p>Allows the engine to automatically control the character's view, as normal. Use this once you have finished doing the animation which you started with the LockView command.</p>
@@ -938,12 +938,12 @@ cEgo.UnlockView();
 </code></pre>
 <p>will play an animation using loop 0 of view 12, then return the character to its normal view.</p>
 <p><em>Compatibility:</em> Optional <em>StopMovementStyle</em> parameter is supported only by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterlockview">Character.LockView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterlockview"><code>Character.LockView</code></a></p>
 <hr />
 </section>
 <section id="characterwalk" class="level3">
 <h3><a href="#characterwalk"><code>Character.Walk</code></a></h3>
-<p><em>(Formerly known as MoveCharacter, which is now obsolete)</em><br> <em>(Formerly known as MoveCharacterBlocking, which is now obsolete)</em><br> <em>(Formerly known as MoveCharacterDirect, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MoveCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>MoveCharacterBlocking</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>MoveCharacterDirect</code>, which is now obsolete)</em></p>
 <pre><code>Character.Walk(int x, int y, optional BlockingStyle,
                              optional WalkWhere);
 </code></pre>
@@ -952,19 +952,19 @@ cEgo.UnlockView();
 <p>If <em>blocking</em> is eBlock then this command will wait for the character to finish moving before your script resumes.</p>
 <p>If <em>walkWhere</em> is eWalkableAreas (the default), then the character will attempt to get as close a possible to (X,Y) by using the room's walkable areas.</p>
 <p>If <em>walkWhere</em> is eAnywhere, then the character will simply walk directly from its current location to (X,Y), ignoring the room walkable areas.</p>
-<p>If you don't want the character's walking animation to play, you can use the <a href="Character.html#charactermove">Move</a> command instead.</p>
+<p>If you don't want the character's walking animation to play, you can use the <a href="Character.html#charactermove"><code>Move</code></a> command instead.</p>
 <p><strong>NOTE:</strong> this function only works with characters which are on the current screen.</p>
-<p><strong>NOTE:</strong> if you need to find out when the character has reached its destination, use the <a href="Character.html#charactermoving">Moving</a> property.</p>
+<p><strong>NOTE:</strong> if you need to find out when the character has reached its destination, use the <a href="Character.html#charactermoving"><code>Moving</code></a> property.</p>
 <p>Example:</p>
 <pre><code>cEgo.Walk(155, 122, eBlock);
 </code></pre>
 <p>will make the character walk to 155,122. The script will not continue until the character has reached his destination.</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddwaypoint">Character.AddWaypoint</a>, <a href="Character.html#characterfacecharacter">Character.FaceCharacter</a>, <a href="Character.html#charactermove">Character.Move</a>, <a href="Globalfunctions_General.html#movecharactertoobject">MoveCharacterToObject</a>, <a href="Object.html#objectmove">Object.Move</a>, <a href="Character.html#characterstopmoving">Character.StopMoving</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddwaypoint"><code>Character.AddWaypoint</code></a>, <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Globalfunctions_General.html#movecharactertoobject"><code>MoveCharacterToObject</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="characterwalkstraight" class="level3">
 <h3><a href="#characterwalkstraight"><code>Character.WalkStraight</code></a></h3>
-<p><em>(Formerly known as MoveCharacterStraight, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MoveCharacterStraight</code>, which is now obsolete)</em></p>
 <pre><code>Character.WalkStraight(int x, int y, optional BlockingStyle);
 </code></pre>
 <p>Moves the character from its current location towards (X,Y) in a straight line as far as is possible before hitting a non-walkable area. This is useful for use with the arrow keys for character movement, since it guarantees that the character will move in a straight line in the direction specified.</p>
@@ -973,12 +973,12 @@ cEgo.UnlockView();
 <pre><code>cEgo.WalkStraight(166, 78);
 </code></pre>
 <p>will move the character EGO in a straight line towards co ordinates 166,78 until he hits a non walkable area.</p>
-<p><em>See Also:</em> <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characteractiveinventory" class="level3">
 <h3><a href="#characteractiveinventory"><code>Character.ActiveInventory</code></a></h3>
-<p><em>(Formerly known as SetActiveInventory, which is now obsolete)</em><br> <em>(Formerly known as character[].activeinv, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetActiveInventory</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>character[].activeinv</code>, which is now obsolete)</em></p>
 <pre><code>InventoryItem* Character.ActiveInventory
 </code></pre>
 <p>Gets/sets the character's current active inventory item. Setting it will update the mouse cursor if appropriate.</p>
@@ -992,23 +992,23 @@ cEgo.UnlockView();
 </section>
 <section id="characteranimating" class="level3">
 <h3><a href="#characteranimating"><code>Character.Animating</code></a></h3>
-<p><em>(Formerly known as character[].animating, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].animating</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool Character.Animating
 </code></pre>
 <p>Returns 1 if the character is currently animating.<br> Returns 0 if the character has finished its animation.</p>
-<p>This property is read-only. To change character animation, use the <a href="Character.html#characteranimate">Animate</a> command.</p>
+<p>This property is read-only. To change character animation, use the <a href="Character.html#characteranimate"><code>Animate</code></a> command.</p>
 <p>Example:</p>
 <pre><code>cEgo.Animate(5, 0);
 while (cEgo.Animating) Wait(1);
 </code></pre>
 <p>will animate EGO and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so you wouldn't need to do this.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterspeaking">Character.Speaking</a>, <a href="Character.html#characterthinking">Character.Thinking</a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
 <hr />
 </section>
 <section id="characteranimationspeed" class="level3">
 <h3><a href="#characteranimationspeed"><code>Character.AnimationSpeed</code></a></h3>
-<p><em>(Formerly known as character[].animspeed, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].animspeed</code>, which is now obsolete)</em></p>
 <pre><code>int Character.AnimationSpeed;
 </code></pre>
 <p>Gets/sets the character's animation delay, as set in the editor.</p>
@@ -1016,12 +1016,12 @@ while (cEgo.Animating) Wait(1);
 <pre><code>player.AnimationSpeed = 4;
 </code></pre>
 <p>will change the player character's animation speed to 4.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersetwalkspeed">Character.SetWalkSpeed</a>, <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a></p>
 <hr />
 </section>
 <section id="characterbaseline" class="level3">
 <h3><a href="#characterbaseline"><code>Character.Baseline</code></a></h3>
-<p><em>(Formerly known as SetCharacterBaseline, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterBaseline</code>, which is now obsolete)</em></p>
 <pre><code>int Character.Baseline
 </code></pre>
 <p>Gets/sets the character's baseline. This allows you to set a specific base line for the character, which works similarly to walk-behind area and object baselines.</p>
@@ -1030,37 +1030,37 @@ while (cEgo.Animating) Wait(1);
 <pre><code>cEgo.Baseline = 120;
 </code></pre>
 <p>will move the character's baseline (which can be used for testing collisions, or for walk-behinds) to a line positioned at y coordinate = 120.</p>
-<p><em>See Also:</em> <a href="Object.html#objectbaseline">Object.Baseline</a>, <a href="Globalfunctions_Room.html#setwalkbehindbase">SetWalkBehindBase</a></p>
+<p><em>See also:</em> <a href="Object.html#objectbaseline"><code>Object.Baseline</code></a>, <a href="Globalfunctions_Room.html#setwalkbehindbase"><code>SetWalkBehindBase</code></a></p>
 <hr />
 </section>
 <section id="characterblinkinterval" class="level3">
 <h3><a href="#characterblinkinterval"><code>Character.BlinkInterval</code></a></h3>
-<p><em>(Formerly part of SetCharacterBlinkView, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterBlinkView</code>, which is now obsolete)</em></p>
 <pre><code>int Character.BlinkInterval
 </code></pre>
 <p>Gets/sets the character's blinking interval, which specifies how long the game waits between playing the blinking animation. This is specified in game loops - an interval of 80 would play the blinking animation about every 2 seconds.</p>
-<p>This property has no effect if no <a href="Character.html#characterblinkview">BlinkView</a> has been set.</p>
+<p>This property has no effect if no <a href="Character.html#characterblinkview"><code>BlinkView</code></a> has been set.</p>
 <p>Example:</p>
 <pre><code>cEgo.BlinkView = 10;
 cEgo.BlinkInterval = 160;
 </code></pre>
 <p>will change the character EGO's blink view to view 10, and play the animation every 4 seconds.</p>
-<p><em>See Also:</em> <a href="Character.html#characterblinkview">Character.BlinkView</a>, <a href="Character.html#characterspeechview">Character.SpeechView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblinkview"><code>Character.BlinkView</code></a>, <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a></p>
 <hr />
 </section>
 <section id="characterblinkview" class="level3">
 <h3><a href="#characterblinkview"><code>Character.BlinkView</code></a></h3>
-<p><em>(Formerly part of SetCharacterBlinkView, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterBlinkView</code>, which is now obsolete)</em></p>
 <pre><code>int Character.BlinkView
 </code></pre>
 <p>Gets/sets the character's blinking view. To stop the character from blinking, set this to -1.</p>
-<p>The <a href="Character.html#characterblinkinterval">BlinkInterval</a> property sets how often the blinking animation is played.</p>
+<p>The <a href="Character.html#characterblinkinterval"><code>BlinkInterval</code></a> property sets how often the blinking animation is played.</p>
 <p>Example:</p>
 <pre><code>cEgo.BlinkView = 10;
 cEgo.BlinkInterval = 160;
 </code></pre>
 <p>will change the character EGO's blink view to view 10, and play the animation every 4 seconds.</p>
-<p><em>See Also:</em> <a href="Character.html#characterblinkinterval">Character.BlinkInterval</a>, <a href="Character.html#characterspeechview">Character.SpeechView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblinkinterval"><code>Character.BlinkInterval</code></a>, <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a></p>
 <hr />
 </section>
 <section id="characterblinkwhilethinking" class="level3">
@@ -1072,7 +1072,7 @@ cEgo.BlinkInterval = 160;
 <pre><code>cEgo.BlinkWhileThinking = false;
 </code></pre>
 <p>will stop EGO from blinking while his thinking animation is playing.</p>
-<p><em>See Also:</em> <a href="Character.html#characterblinkview">Character.BlinkView</a>, <a href="Character.html#characterthink">Character.Think</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblinkview"><code>Character.BlinkView</code></a>, <a href="Character.html#characterthink"><code>Character.Think</code></a></p>
 <hr />
 </section>
 <section id="characterblockingheight" class="level3">
@@ -1082,12 +1082,12 @@ cEgo.BlinkInterval = 160;
 <p>Gets/sets the character's blocking height.</p>
 <p>The blocking height determines how large of a blocking rectangle the character exerts to stop other characters walking through it. If this is set to 0 (the default), then the blocking rectangle is automatically calculated to be the character's width, and 5 pixels high.</p>
 <p>You can manually change the setting by entering a blocking height in pixels, which is the size of walkable area that the character effectively removes by standing on it.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the <a href="Character.html#charactersolid">Solid</a> property is set to <em>true</em>.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the <a href="Character.html#charactersolid"><code>Solid</code></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <pre><code>cEgo.BlockingHeight = 20;
 </code></pre>
 <p>will make EGO block 20 pixels high (10 above and 10 below his baseline)</p>
-<p><em>See Also:</em> <a href="Character.html#characterblockingwidth">Character.BlockingWidth</a>, <a href="Character.html#charactersolid">Character.Solid</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblockingwidth"><code>Character.BlockingWidth</code></a>, <a href="Character.html#charactersolid"><code>Character.Solid</code></a></p>
 <hr />
 </section>
 <section id="characterblockingwidth" class="level3">
@@ -1097,17 +1097,17 @@ cEgo.BlinkInterval = 160;
 <p>Gets/sets the character's blocking width.</p>
 <p>The blocking width determines how large of a blocking rectangle the character exerts to stop other characters walking through it. If this is set to 0 (the default), then the blocking rectangle is automatically calculated to be the character's width, and 5 pixels high.</p>
 <p>You can manually change the setting by entering a blocking width in pixels, which is the size of walkable area that the character effectively removes by standing on it.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the <a href="Character.html#charactersolid">Solid</a> property is set to <em>true</em>.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the <a href="Character.html#charactersolid"><code>Solid</code></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <pre><code>cEgo.BlockingWidth = 50;
 </code></pre>
 <p>will make EGO block 50 pixels wide (25 pixels to the left of his X co-ordinate, and 25 to the right)</p>
-<p><em>See Also:</em> <a href="Character.html#characterblockingheight">Character.BlockingHeight</a>, <a href="Character.html#charactersolid">Character.Solid</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblockingheight"><code>Character.BlockingHeight</code></a>, <a href="Character.html#charactersolid"><code>Character.Solid</code></a></p>
 <hr />
 </section>
 <section id="characterclickable" class="level3">
 <h3><a href="#characterclickable"><code>Character.Clickable</code></a></h3>
-<p><em>(Formerly known as SetCharacterClickable, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterClickable</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.Clickable
 </code></pre>
 <p>Gets/sets whether the character is recognized as something which the player can interact with. This allows you to modify the "Clickable" property set initially in the Editor.</p>
@@ -1116,7 +1116,7 @@ cEgo.BlinkInterval = 160;
 <pre><code>cMan.Clickable = 0;
 </code></pre>
 <p>will make the game ignore clicks on the character MAN.</p>
-<p><em>See Also:</em> <a href="Object.html#objectclickable">Object.Clickable</a>, <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Object.html#objectclickable"><code>Object.Clickable</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterdestinationx" class="level3">
@@ -1125,7 +1125,7 @@ cEgo.BlinkInterval = 160;
 </code></pre>
 <p>Gets the X coordinate of the character's final moving destination. If character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterdestinationy">Character.DestinationY</a>, <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterdestinationy"><code>Character.DestinationY</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterdestinationy" class="level3">
@@ -1134,12 +1134,12 @@ cEgo.BlinkInterval = 160;
 </code></pre>
 <p>Gets the Y coordinate of the character's final moving destination. If character is not walking or moving it is equal to its current position.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterdestinationx">Character.DestinationX</a>, <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characterdestinationx"><code>Character.DestinationX</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characterdiagonalloops" class="level3">
 <h3><a href="#characterdiagonalloops"><code>Character.DiagonalLoops</code></a></h3>
-<p><em>(Formerly part of SetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.DiagonalLoops
 </code></pre>
 <p>Gets/sets whether diagonal walking loops are used for the character. If this is set to <em>true</em>, then loops 4-7 will be used as diagonal walking loops. If this is set to <em>false</em>, then the character will only face in 4 directions and you can use loops 4-7 for other purposes.</p>
@@ -1151,7 +1151,7 @@ cEgo.BlinkInterval = 160;
 </section>
 <section id="characterframe" class="level3">
 <h3><a href="#characterframe"><code>Character.Frame</code></a></h3>
-<p><em>(Formerly known as character[].frame, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].frame</code>, which is now obsolete)</em></p>
 <pre><code>int Character.Frame
 </code></pre>
 <p>Gets/sets the character's current frame number. Usually you won't change this directly, but will use the Animate command to play an animation.</p>
@@ -1159,15 +1159,15 @@ cEgo.BlinkInterval = 160;
 <pre><code>Display(&quot;EGO currently using frame %d.&quot;, cEgo.Frame);
 </code></pre>
 <p>displays EGO's current frame number within his view.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterloop">Character.Loop</a>, <a href="Character.html#characterview">Character.View</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characterhasexplicittint" class="level3">
 <h3><a href="#characterhasexplicittint"><code>Character.HasExplicitTint</code></a></h3>
 <pre><code>readonly bool Character.HasExplicitTint
 </code></pre>
-<p>Returns <em>true</em> if the character has a tint set explicitly with the <a href="Character.html#charactertint">Character.Tint</a> command.</p>
-<p>Returns <em>false</em> if the character has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a> or a region tint.</p>
+<p>Returns <em>true</em> if the character has a tint set explicitly with the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
+<p>Returns <em>false</em> if the character has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a> or a region tint.</p>
 <p>Example:</p>
 <pre><code>if (player.HasExplicitTint)
 {
@@ -1176,7 +1176,7 @@ cEgo.BlinkInterval = 160;
 </code></pre>
 <p>removes the player's tint if it currently has one.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactertint">Character.Tint</a>, <a href="Character.html#characterremovetint">Character.RemoveTint</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#characterremovetint"><code>Character.RemoveTint</code></a></p>
 <hr />
 </section>
 <section id="characterid" class="level3">
@@ -1195,17 +1195,17 @@ cEgo.BlinkInterval = 160;
 <pre><code>readonly int Character.IdleView
 </code></pre>
 <p>Gets the character's current idle view. If the character doesn't have one, returns -1.</p>
-<p>This property is read-only; to change the view, use the <a href="Character.html#charactersetidleview">SetIdleView</a> function.</p>
+<p>This property is read-only; to change the view, use the <a href="Character.html#charactersetidleview"><code>SetIdleView</code></a> function.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;EGO&#39;s idle view is currently view %d.&quot;, cEgo.IdleView);
 </code></pre>
 <p>will display EGO's current idle view number.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetidleview">SetIdleView</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactersetidleview"><code>SetIdleView</code></a></p>
 <hr />
 </section>
 <section id="characterignorelighting" class="level3">
 <h3><a href="#characterignorelighting"><code>Character.IgnoreLighting</code></a></h3>
-<p><em>(Formerly known as SetCharacterIgnoreLight, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterIgnoreLight</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.IgnoreLighting
 </code></pre>
 <p>Allows you to dynamically modify the "ignore lighting" checkbox for the character. If this is set to 0, the character will be affected by region light levels and tints; if this is set to 1, then the character will ignore all region lighting.</p>
@@ -1218,33 +1218,33 @@ cEgo.BlinkInterval = 160;
 <section id="characterignorewalkbehinds" class="level3">
 <h3><a href="#characterignorewalkbehinds"><code>Character.IgnoreWalkbehinds</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
-<p><em>(Formerly known as SetCharacterIgnoreWalkbehinds, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterIgnoreWalkbehinds</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.IgnoreWalkbehinds
 </code></pre>
 <p>Gets/sets whether the character is affected by walkbehind areas. Passing <em>false</em> (the default setting) means that the character will be placed behind walk- behind areas according to the relevant baselines.</p>
 <p>Passing <em>true</em> means that the character will never be placed behind a walk-behind area. This is useful if for example you want to use the character as an overlay to display rain or snow onto a scene.</p>
-<p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Character.html#characterbaseline">Baseline</a> property instead.</p>
+<p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Character.html#characterbaseline"><code>Baseline</code></a> property instead.</p>
 <hr />
 </section>
 <section id="characterinventoryquantity" class="level3">
 <h3><a href="#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></h3>
-<p><em>(Formerly known as character[].inv, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].inv</code>, which is now obsolete)</em></p>
 <pre><code>int Character.InventoryQuantity[]
 </code></pre>
 <p>Gets/sets the quantity of the specified inventory item that the character currently has. The array index is the inventory item number, from the Inventory pane in the editor.</p>
 <p>Usually, you should use the AddInventory and LoseInventory functions to modify the character's inventory; however, if you need to add or remove a large number of items in one go, directly changing this array can be an easier method.</p>
 <p>If you change this array directly, the on-screen inventory will not be updated. In this case, you must call UpdateInventory to see any new or removed items.</p>
-<p>If you just want to quickly check whether the character has a particular item or not, use the <a href="Character.html#characterhasinventory">HasInventory</a> function instead.</p>
+<p>If you just want to quickly check whether the character has a particular item or not, use the <a href="Character.html#characterhasinventory"><code>HasInventory</code></a> function instead.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The player has $%d.&quot;, player.InventoryQuantity[iCash.ID]);
 </code></pre>
 <p>will display how many inventory items of type iCash the player has.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#updateinventory">UpdateInventory</a>, <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterhasinventory">Character.HasInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#updateinventory"><code>UpdateInventory</code></a>, <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterhasinventory"><code>Character.HasInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a></p>
 <hr />
 </section>
 <section id="characterloop" class="level3">
 <h3><a href="#characterloop"><code>Character.Loop</code></a></h3>
-<p><em>(Formerly known as character[].loop, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].loop</code>, which is now obsolete)</em></p>
 <pre><code>int Character.Loop
 </code></pre>
 <p>Gets/sets the character's current loop number. Usually you won't change this directly, but will use the Animate command to play an animation.</p>
@@ -1252,22 +1252,22 @@ cEgo.BlinkInterval = 160;
 <pre><code>Display(&quot;EGO currently using loop %d.&quot;, cEgo.Loop);
 </code></pre>
 <p>displays EGO's current loop number within his view.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterframe">Character.Frame</a>, <a href="Character.html#characterview">Character.View</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="charactermanualscaling" class="level3">
 <h3><a href="#charactermanualscaling"><code>Character.ManualScaling</code></a></h3>
-<p><em>(Formerly known as Character.IgnoreScaling, which is now obsolete)</em><br> <em>(Formerly part of SetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>Character.IgnoreScaling</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.ManualScaling
 </code></pre>
 <p>Gets/sets whether the character's scaling level is determined by the walkable area that he is walking on, or whether it is set manually by the script. This is equivalent to the "Ignore room area scaling" checkbox in the editor.</p>
-<p>If this is set to <em>true</em>, then the character's scaling level is set manually by the <a href="Character.html#characterscaling">Scaling</a> property (by default this is <code>100%</code>). If it is set to <em>false</em>, then the character will be stretched or shrunk automatically as appropriate on walkable areas.</p>
+<p>If this is set to <em>true</em>, then the character's scaling level is set manually by the <a href="Character.html#characterscaling"><code>Scaling</code></a> property (by default this is <code>100%</code>). If it is set to <em>false</em>, then the character will be stretched or shrunk automatically as appropriate on walkable areas.</p>
 <p>Example:</p>
 <pre><code>cEgo.ManualScaling = true;
 cEgo.Scaling = 50;
 </code></pre>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to <code>50%</code> zoom level.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterscaling">Character.Scaling</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#characterscaling"><code>Character.Scaling</code></a></p>
 <hr />
 </section>
 <section id="charactermovementlinkedtoanimation" class="level3">
@@ -1284,27 +1284,27 @@ player.MovementLinkedToAnimation = true;
 </code></pre>
 <p>will turn off movement-linked animation for the player character, walk him to (50,100), then turn it back on again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="charactermoving" class="level3">
 <h3><a href="#charactermoving"><code>Character.Moving</code></a></h3>
-<p><em>(Formerly known as character[].walking, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].walking</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool Character.Moving
 </code></pre>
 <p>Returns <em>true</em> if the character is currently moving, or <em>false</em> if not.</p>
-<p>This property is read-only; to change the character's movement, use the <a href="Character.html#characterwalk">Walk</a>, <a href="Character.html#charactermove">Move</a> and <a href="Character.html#characterstopmoving">StopMoving</a> commands.</p>
+<p>This property is read-only; to change the character's movement, use the <a href="Character.html#characterwalk"><code>Walk</code></a>, <a href="Character.html#charactermove"><code>Move</code></a> and <a href="Character.html#characterstopmoving"><code>StopMoving</code></a> commands.</p>
 <p>Example:</p>
 <pre><code>cEgo.Walk(125, 40);
 while (cEgo.Moving) Wait(1);
 </code></pre>
 <p>will move EGO to 125,40 and return control to the player when he gets there.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimating">Character.Animating</a>, <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#characterspeaking">Character.Speaking</a>, <a href="Character.html#characterstopmoving">Character.StopMoving</a>, <a href="Character.html#characterthinking">Character.Thinking</a>, <a href="Character.html#characterwalk">Character.Walk</a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="charactername" class="level3">
 <h3><a href="#charactername"><code>Character.Name</code></a></h3>
-<p><em>(Formerly known as character[].name, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].name</code>, which is now obsolete)</em></p>
 <pre><code>String Character.Name
 </code></pre>
 <p>Gets/sets the name of the character, as set in the AGS Editor. This is the full name, not the script name.</p>
@@ -1317,27 +1317,27 @@ while (cEgo.Moving) Wait(1);
 </section>
 <section id="characternormalview" class="level3">
 <h3><a href="#characternormalview"><code>Character.NormalView</code></a></h3>
-<p><em>(Formerly known as character[].defview, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].defview</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Character.NormalView
 </code></pre>
 <p>Gets the character's normal view. This is the character's standard walking view, that is used when his view is not locked to something else.</p>
-<p>This property is read-only; to change it, use the <a href="Character.html#characterchangeview">ChangeView</a> command.</p>
+<p>This property is read-only; to change it, use the <a href="Character.html#characterchangeview"><code>ChangeView</code></a> command.</p>
 <p>Example:</p>
 <pre><code>if (cEgo.View == cEgo.NormalView) {
   Display(&quot;EGO is not animating, not talking and not idle.&quot;);
 }
 </code></pre>
 <p>will display a message if EGO is currently displayed using his normal view.</p>
-<p><em>See Also:</em> <a href="Character.html#characterchangeview">Character.ChangeView</a>, <a href="Character.html#characterview">Character.View</a></p>
+<p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characterpreviousroom" class="level3">
 <h3><a href="#characterpreviousroom"><code>Character.PreviousRoom</code></a></h3>
-<p><em>(Formerly known as character[].prevroom, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].prevroom</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Character.PreviousRoom
 </code></pre>
 <p>Gets the room number that the character was previously in. If the character is still in the room that they started in, this will be -1. Otherwise, it will be the room number of the room that they were last in.</p>
-<p>This is a read-only property. It is set automatically by <a href="Character.html#characterchangeroom">ChangeRoom</a>.</p>
+<p>This is a read-only property. It is set automatically by <a href="Character.html#characterchangeroom"><code>ChangeRoom</code></a>.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;EGO&#39;s previous room was %d.&quot;, cEgo.PreviousRoom);
 </code></pre>
@@ -1346,11 +1346,11 @@ while (cEgo.Moving) Wait(1);
 </section>
 <section id="characterroom" class="level3">
 <h3><a href="#characterroom"><code>Character.Room</code></a></h3>
-<p><em>(Formerly known as character[].room, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].room</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Character.Room
 </code></pre>
 <p>Gets the room number that the character is currently in.</p>
-<p>This is a read-only property. It is set by <a href="Character.html#characterchangeroom">ChangeRoom</a>.</p>
+<p>This is a read-only property. It is set by <a href="Character.html#characterchangeroom"><code>ChangeRoom</code></a>.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;EGO is in room %d.&quot;, cEgo.Room);
 </code></pre>
@@ -1359,7 +1359,7 @@ while (cEgo.Moving) Wait(1);
 </section>
 <section id="characterscalemovespeed" class="level3">
 <h3><a href="#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></h3>
-<p><em>(Formerly part of SetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.ScaleMoveSpeed
 </code></pre>
 <p>Gets/sets whether the character's movement speed is adjusted in line with his current scaling level. This allows you to modify the "Adjust speed with scaling" option from the editor.</p>
@@ -1368,7 +1368,7 @@ while (cEgo.Moving) Wait(1);
 <pre><code>cEgo.ScaleMoveSpeed = true;
 </code></pre>
 <p>will mean that EGO's speed is adjusted in line with his scaling</p>
-<p><em>See Also:</em> <a href="Character.html#characterscalevolume">Character.ScaleVolume</a></p>
+<p><em>See also:</em> <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a></p>
 <hr />
 </section>
 <section id="characterscalevolume" class="level3">
@@ -1381,7 +1381,7 @@ while (cEgo.Moving) Wait(1);
 <pre><code>cEgo.ScaleVolume = true;
 </code></pre>
 <p>will mean that EGO's footstep sounds are adjusted in line with his scaling</p>
-<p><em>See Also:</em> <a href="Character.html#characterscalemovespeed">Character.ScaleMoveSpeed</a></p>
+<p><em>See also:</em> <a href="Character.html#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></p>
 <hr />
 </section>
 <section id="characterscaling" class="level3">
@@ -1390,18 +1390,18 @@ while (cEgo.Moving) Wait(1);
 </code></pre>
 <p>Gets/sets the character's current scaling level.</p>
 <p>This property can always be read, and returns the character's current zoom level, which will be between 5 and 200 (the default being 100 if they are not currently scaled).</p>
-<p>You can only set the value of this property if <a href="Character.html#charactermanualscaling">ManualScaling</a> is enabled for the character; otherwise, the scaling is determined automatically based on the walkable area that the character is on.</p>
+<p>You can only set the value of this property if <a href="Character.html#charactermanualscaling"><code>ManualScaling</code></a> is enabled for the character; otherwise, the scaling is determined automatically based on the walkable area that the character is on.</p>
 <p>Example:</p>
 <pre><code>cEgo.ManualScaling = true;
 cEgo.Scaling = 50;
 </code></pre>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to <code>50%</code> zoom level.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactermanualscaling">Character.ManualScaling</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactermanualscaling"><code>Character.ManualScaling</code></a></p>
 <hr />
 </section>
 <section id="charactersolid" class="level3">
 <h3><a href="#charactersolid"><code>Character.Solid</code></a></h3>
-<p><em>(Formerly part of SetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.Solid
 </code></pre>
 <p>Gets/sets whether the character can be walked through by other characters.</p>
@@ -1410,7 +1410,7 @@ cEgo.Scaling = 50;
 <pre><code>cEgo.Solid = true;
 </code></pre>
 <p>will mean that EGO blocks the path other characters.</p>
-<p><em>See Also:</em> <a href="Character.html#characterblockingheight">Character.BlockingHeight</a>, <a href="Character.html#characterblockingwidth">Character.BlockingWidth</a></p>
+<p><em>See also:</em> <a href="Character.html#characterblockingheight"><code>Character.BlockingHeight</code></a>, <a href="Character.html#characterblockingwidth"><code>Character.BlockingWidth</code></a></p>
 <hr />
 </section>
 <section id="characterspeaking" class="level3">
@@ -1426,7 +1426,7 @@ cEgo.Scaling = 50;
 }
 </code></pre>
 <p>will animate the character using loop 3 while they are talking (only useful with Sierra-style speech).</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimating">Character.Animating</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#characterspeakingframe">Character.SpeakingFrame</a>, <a href="Character.html#characterthinking">Character.Thinking</a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterspeakingframe"><code>Character.SpeakingFrame</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
 <hr />
 </section>
 <section id="characterspeakingframe" class="level3">
@@ -1434,7 +1434,7 @@ cEgo.Scaling = 50;
 <pre><code>readonly int Character.SpeakingFrame
 </code></pre>
 <p>Returns the current frame number of the character's talking animation. This is useful when using Sierra-style speech, if you want to synchronize events with the progress of the close-up face talking animation.</p>
-<p>This property is read-only. It is only accessible while the character is speaking; if you attempt to call it when <a href="Character.html#characterspeaking">Character.Speaking</a> is <em>false</em> then it will raise an error.</p>
+<p>This property is read-only. It is only accessible while the character is speaking; if you attempt to call it when <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a> is <em>false</em> then it will raise an error.</p>
 <p>Since speaking is a blocking command, this property will probably only be useful access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <pre><code>if (cEgo.Speaking) {
@@ -1444,7 +1444,7 @@ cEgo.Scaling = 50;
 }
 </code></pre>
 <p>will move cMan to the right every time the talking animation loops back to Frame 0.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#characterspeaking">Character.Speaking</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a></p>
 <hr />
 </section>
 <section id="characterspeechanimationdelay" class="level3">
@@ -1459,12 +1459,12 @@ cEgo.Scaling = 50;
 </code></pre>
 <p>will change the player character's speech animation speed to 4.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimationspeed">Character.AnimationSpeed</a>, <a href="Character.html#characterspeechview">Character.SpeechView</a>, <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a>, <a href="Speech.html#speechglobalspeechanimationdelay">Speech.GlobalSpeechAnimationDelay</a>, <a href="Speech.html#speechuseglobalspeechanimationdelay">Speech.UseGlobalSpeechAnimationDelay</a>,</p>
+<p><em>See also:</em> <a href="Character.html#characteranimationspeed"><code>Character.AnimationSpeed</code></a>, <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechglobalspeechanimationdelay"><code>Speech.GlobalSpeechAnimationDelay</code></a>, <a href="Speech.html#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a>,</p>
 <hr />
 </section>
 <section id="characterspeechcolor" class="level3">
 <h3><a href="#characterspeechcolor"><code>Character.SpeechColor</code></a></h3>
-<p><em>(Formerly known as SetTalkingColor, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetTalkingColor</code>, which is now obsolete)</em></p>
 <pre><code>int Character.SpeechColor
 </code></pre>
 <p>Gets/sets the character's speech text color. This is set by default in the editor.</p>
@@ -1473,12 +1473,12 @@ cEgo.Scaling = 50;
 <pre><code>cEgo.SpeechColor = 14;
 </code></pre>
 <p>will change the character's EGO talking color to yellow.</p>
-<p><em>See Also:</em> <a href="Character.html#characterspeechview">Character.SpeechView</a></p>
+<p><em>See also:</em> <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a></p>
 <hr />
 </section>
 <section id="characterspeechview" class="level3">
 <h3><a href="#characterspeechview"><code>Character.SpeechView</code></a></h3>
-<p><em>(Formerly known as SetCharacterSpeechView, which is now obsolete)</em><br> <em>(Formerly known as character[].talkview, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterSpeechView</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>character[].talkview</code>, which is now obsolete)</em></p>
 <pre><code>int Character.SpeechView
 </code></pre>
 <p>Gets/sets the character's talking view. If you change it, the new view number will be used as the character's talking view in all future conversations.</p>
@@ -1487,7 +1487,7 @@ cEgo.Scaling = 50;
 <pre><code>cEgo.SpeechView = 10;
 </code></pre>
 <p>will change the character EGO's speech view to view 10.</p>
-<p><em>See Also:</em> <a href="Character.html#characterchangeview">Character.ChangeView</a>, <a href="Character.html#characterblinkview">Character.BlinkView</a>, <a href="Character.html#characterspeechanimationdelay">Character.SpeechAnimationDelay</a>, <a href="Character.html#characterspeechcolor">Character.SpeechColor</a></p>
+<p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterblinkview"><code>Character.BlinkView</code></a>, <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Character.html#characterspeechcolor"><code>Character.SpeechColor</code></a></p>
 <hr />
 </section>
 <section id="characterthinking" class="level3">
@@ -1508,7 +1508,7 @@ cEgo.Scaling = 50;
 </code></pre>
 <p>this will keep character semi-transparent while he is thinking.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characteranimating">Character.Animating</a>, <a href="Character.html#charactermoving">Character.Moving</a>, <a href="Character.html#characterspeaking">Character.Speaking</a> <a href="Character.html#characterthink">Character.Think</a>, <a href="Character.html#characterthinkingframe">Character.ThinkingFrame</a>,</p>
+<p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a> <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="Character.html#characterthinkingframe"><code>Character.ThinkingFrame</code></a>,</p>
 <hr />
 </section>
 <section id="characterthinkingframe" class="level3">
@@ -1516,7 +1516,7 @@ cEgo.Scaling = 50;
 <pre><code>readonly int Character.ThinkingFrame
 </code></pre>
 <p>Returns the current frame number of the character's thinking animation. This is useful when using Sierra-style speech, if you want to synchronize events with the progress of the close-up face talking animation.</p>
-<p>This property is read-only. It is only accessible while the character is thinking; if you attempt to call it when <a href="Character.html#characterthinking">Character.Thinking</a> is <em>false</em> then it will raise an error.</p>
+<p>This property is read-only. It is only accessible while the character is thinking; if you attempt to call it when <a href="Character.html#characterthinking"><code>Character.Thinking</code></a> is <em>false</em> then it will raise an error.</p>
 <p>Since thinking is a blocking command, this property will probably only be useful access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <pre><code>if (cEgo.Thinking) {
@@ -1527,12 +1527,12 @@ cEgo.Scaling = 50;
 </code></pre>
 <p>will move cMan to the right every time the thinking animation loops back to Frame 0.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Character.html#characterthink">Character.Think</a>, <a href="Character.html#characterthinking">Character.Thinking</a></p>
+<p><em>See also:</em> <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
 <hr />
 </section>
 <section id="characterthinkview" class="level3">
 <h3><a href="#characterthinkview"><code>Character.ThinkView</code></a></h3>
-<p><em>(Formerly known as character[].thinkview, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>character[].thinkview</code>, which is now obsolete)</em></p>
 <pre><code>int Character.ThinkView
 </code></pre>
 <p>Gets/sets the character's thinking view. This is used to animate the character when a thought is being displayed.</p>
@@ -1540,12 +1540,12 @@ cEgo.Scaling = 50;
 <pre><code>cEgo.ThinkView = 14;
 </code></pre>
 <p>will change the character EGO's thinking view to 14.</p>
-<p><em>See Also:</em> <a href="Character.html#characterthink">Character.Think</a></p>
+<p><em>See also:</em> <a href="Character.html#characterthink"><code>Character.Think</code></a></p>
 <hr />
 </section>
 <section id="charactertransparency" class="level3">
 <h3><a href="#charactertransparency"><code>Character.Transparency</code></a></h3>
-<p><em>(Formerly known as SetCharacterTransparency, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetCharacterTransparency</code>, which is now obsolete)</em></p>
 <pre><code>int Character.Transparency
 </code></pre>
 <p>Gets/sets the character's transparency. This is specified as a percentage, from 0 to 100. 100 means fully transparent (i.e. invisible), and 0 is totally opaque (fully visible). Numbers in between represent varying levels of transparency.</p>
@@ -1562,12 +1562,12 @@ while (trans &lt; 100) {
 }
 </code></pre>
 <p>will gradually fade out the character from its current transparency level to being fully invisible.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttransparency">Object.Transparency</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
 <hr />
 </section>
 <section id="characterturnbeforewalking" class="level3">
 <h3><a href="#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></h3>
-<p><em>(Formerly part of SetCharacterProperty, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
 <pre><code>bool Character.TurnBeforeWalking
 </code></pre>
 <p>Gets/sets whether the character turns to face his new direction before walking. This is equivalent (though opposite) to the editor "Do not turn before walking" tick-box.</p>
@@ -1588,7 +1588,7 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;EGO&#39;s view is currently view %d.&quot;, cEgo.View);
 </code></pre>
 <p>will display EGO's current view number.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterchangeview">Character.ChangeView</a>, <a href="Character.html#characterframe">Character.Frame</a>, <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characterloop">Character.Loop</a>, <a href="Character.html#characternormalview">Character.NormalView</a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characternormalview"><code>Character.NormalView</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedx" class="level3">
@@ -1601,7 +1601,7 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;player&#39;s x speed: %d&quot;, player.WalkSpeedX);
 </code></pre>
 <p>will display the player's X speed.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersetwalkspeed">Character.SetWalkSpeed</a>, <a href="Character.html#characterwalkspeedy">Character.WalkSpeedY</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedy" class="level3">
@@ -1614,7 +1614,7 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;player&#39;s y speed: %d&quot;, player.WalkSpeedY);
 </code></pre>
 <p>will display the player's Y speed.</p>
-<p><em>See Also:</em> <a href="Character.html#charactersetwalkspeed">Character.SetWalkSpeed</a>, <a href="Character.html#characterwalkspeedx">Character.WalkSpeedX</a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedx"><code>Character.WalkSpeedX</code></a></p>
 <hr />
 </section>
 <section id="characterx" class="level3">
@@ -1627,7 +1627,7 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;The player is at %d,%d.&quot;, player.x, player.y);
 </code></pre>
 <p>displays the player character's current coordinates.</p>
-<p><em>See Also:</em> <a href="Character.html#charactery">Character.y</a>, <a href="Character.html#characterz">Character.z</a></p>
+<p><em>See also:</em> <a href="Character.html#charactery"><code>Character.y</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="charactery" class="level3">
@@ -1640,7 +1640,7 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;The player is at %d,%d.&quot;, player.x, player.y);
 </code></pre>
 <p>displays the player character's current coordinates.</p>
-<p><em>See Also:</em> <a href="Character.html#characterx">Character.x</a>, <a href="Character.html#characterz">Character.z</a></p>
+<p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="characterz" class="level3">
@@ -1656,14 +1656,14 @@ while (trans &lt; 100) {
 }
 </code></pre>
 <p>gradually levitates the character up to 20 pixels.</p>
-<p><em>See Also:</em> <a href="Character.html#characterx">Character.x</a>, <a href="Character.html#charactery">Character.y</a></p>
+<p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#charactery"><code>Character.y</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:30</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

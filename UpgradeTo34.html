@@ -87,19 +87,19 @@
 <p><strong>NOTE:</strong> You may change those two settings anytime if you'd like to experiment, or your plans has changed. It is recommended to do full game rebuild after you do so though.</p>
 <p><strong>Mutable custom properties</strong></p>
 <p>Since introduction Custom Properties could not be changed at runtime, they had to keep their default values set in the Editor throughout the course of the game. Now this restriction was eliminated and you can change any existing custom property in game script, using appropriate SetProperty and SetTextProperty functions:</p>
-<p><a href="Character.html#charactersetproperty">Character.SetProperty</a>, <a href="Character.html#charactersettextproperty">Character.SetTextProperty</a>, <a href="Hotspot.html#hotspotsetproperty">Hotspot.SetProperty</a>, <a href="Hotspot.html#hotspotsettextproperty">Hotspot.SetTextProperty</a>, <a href="InventoryItem.html#inventoryitemsetproperty">InventoryItem.SetProperty</a>, <a href="InventoryItem.html#inventoryitemsettextproperty">InventoryItem.SetTextProperty</a>, <a href="Object.html#objectsetproperty">Object.SetProperty</a>, <a href="Object.html#objectsettextproperty">Object.SetTextProperty</a>, <a href="Room.html#roomsetproperty">Room.SetProperty</a>, <a href="Room.html#roomsettextproperty">Room.SetTextProperty</a></p>
+<p><a href="Character.html#charactersetproperty"><code>Character.SetProperty</code></a>, <a href="Character.html#charactersettextproperty"><code>Character.SetTextProperty</code></a>, <a href="Hotspot.html#hotspotsetproperty"><code>Hotspot.SetProperty</code></a>, <a href="Hotspot.html#hotspotsettextproperty"><code>Hotspot.SetTextProperty</code></a>, <a href="InventoryItem.html#inventoryitemsetproperty"><code>InventoryItem.SetProperty</code></a>, <a href="InventoryItem.html#inventoryitemsettextproperty"><code>InventoryItem.SetTextProperty</code></a>, <a href="Object.html#objectsetproperty"><code>Object.SetProperty</code></a>, <a href="Object.html#objectsettextproperty"><code>Object.SetTextProperty</code></a>, <a href="Room.html#roomsetproperty"><code>Room.SetProperty</code></a>, <a href="Room.html#roomsettextproperty"><code>Room.SetTextProperty</code></a></p>
 <p>Besides, the number of properties is no longer limited by 30, you may make as much of them as you need for your game.</p>
 <p><strong>Extended WFN fonts</strong></p>
 <p>WFN (bitmap fonts) can now have up to 256 characters (as opposed to previously supported 128). You may need a specialized editor to create such fonts (for example, there is a good Editor plugin around meant for this task), and AGS will properly draw any of the 256 characters.</p>
 <p><strong>New script features</strong></p>
 <p>First of all, you can now create your own managed structs and objects of their type in script. The difference from common structs is that you use pointers to work with these objects, and can pass them around as function parameters and function return values as well. <strong>IMPORTANT:</strong> there is a big limitation for user-defined managed structs now, it is that they themselves cannot have members of pointer types (or dynamic arrays). We suppose that this restriction is only temporary and hope to remove it in future updates.</p>
 <p>You can now have some new forms of loop in your script, in addition to previously existing <code>while</code>. First is <code>do..while</code> kind of loop that always performs its commands at least once before checking end condition, second is <code>for</code> loop that lets you initialize internal variable, define end condition and write iteration - all in its header. Another introduced command is <code>switch</code>. One <code>switch</code> can replace a long list of <code>if</code> and <code>else if</code> blocks.</p>
-<p>See: <a href="ScriptKeywords.html#switch-case-statements">switch</a>, <a href="ScriptKeywords.html#dowhile">do..while</a>, <a href="ScriptKeywords.html#for">for</a>, <a href="ScriptKeywords.html#break">break</a>, <a href="ScriptKeywords.html#continue">continue</a>, <a href="ScriptKeywords.html#managed">managed</a>, <a href="ScriptKeywords.html#new">new</a></p>
+<p>See: <a href="ScriptKeywords.html#switch-case-statements"><code>switch</code></a>, <a href="ScriptKeywords.html#dowhile"><code>do..while</code></a>, <a href="ScriptKeywords.html#for"><code>for</code></a>, <a href="ScriptKeywords.html#break"><code>break</code></a>, <a href="ScriptKeywords.html#continue"><code>continue</code></a>, <a href="ScriptKeywords.html#managed"><code>managed</code></a>, <a href="ScriptKeywords.html#new"><code>new</code></a></p>
 <p><strong>Custom Dialog Options rendering extended</strong></p>
 <p>In the past the custom dialog rendering was strictly tied to mouse movement and clicks. Now it is extended to give you more freedom in setting it up.</p>
 <p>Two more related callbacks are added: <code>dialog_options_repexec</code> - that is an analogue of <code>repeatedly_execute</code> function, but is called only while dialog options are displayed, and <code>dialog_options_key_press</code> function, which is called whenever player presses a key when dialog options are on screen.</p>
-<p>The <code>dialog_options_mouse_click</code> will now be called always, even if user clicks on the option, but on other hand option won't be run without explicit command: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginforunactiveoption">RunActiveOption</a>.</p>
-<p>Along with RunActiveOption, <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> struct received another member function: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoupdate">Update</a>. It forces options GUI to redraw itself, hence may be used to implement custom animation, or similar behavior.</p>
+<p>The <code>dialog_options_mouse_click</code> will now be called always, even if user clicks on the option, but on other hand option won't be run without explicit command: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginforunactiveoption"><code>RunActiveOption</code></a>.</p>
+<p>Along with RunActiveOption, <a href="DialogOptionsRenderingInfo.html"><code>DialogOptionsRenderingInfo</code></a> struct received another member function: <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfoupdate"><code>Update</code></a>. It forces options GUI to redraw itself, hence may be used to implement custom animation, or similar behavior.</p>
 <p><strong>IMPORTANT:</strong> The <code>dialog_options_get_active</code> callback was deprecated and won't be called, at all. You will need to slightly change the logic of your script. In most cases it may be enough to simply rename <code>dialog_options_get_active</code> to <code>dialog_options_repexec</code>.</p>
 <p><strong>NOTE:</strong> For backwards compatibility you may use an option in General Settings called "Use old-style custom dialog options API". This will disable all the new stuff, but return <code>dialog_options_get_active</code> and make <code>dialog_options_mouse_click</code> behave as it did before.</p>
 <p>For detailed information see: <a href="CustomDialogOptions.html">Custom dialog options rendering</a></p>
@@ -114,11 +114,11 @@
 <tbody>
 <tr class="odd">
 <td>GetRoomProperty</td>
-<td><a href="Room.html#roomgetproperty">Room.GetProperty</a></td>
+<td><a href="Room.html#roomgetproperty"><code>Room.GetProperty</code></a></td>
 </tr>
 <tr class="even">
 <td>ProcessClick</td>
-<td><a href="Room.html#roomprocessclick">Room.ProcessClick</a></td>
+<td><a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -130,7 +130,7 @@
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:25</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

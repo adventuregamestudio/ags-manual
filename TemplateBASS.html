@@ -81,7 +81,7 @@
   <main>
 <section id="bass-template" class="level2">
 <h2><a href="#bass-template">BASS template</a></h2>
-<p>This template is a modified version of what was previously known as the 'Lightweight BASS stub', although the script module within retains its previous name of TwoClickHandler. The behavior of the script module aims to simplify and mask the cursor modes, removing the need for the player to manually set them. It also implements default behaviors where none are explicitly implemented, through the use of <a href="Globalfunctions_Event.html">unhandled_event</a> in the global script.</p>
+<p>This template is a modified version of what was previously known as the 'Lightweight BASS stub', although the script module within retains its previous name of TwoClickHandler. The behavior of the script module aims to simplify and mask the cursor modes, removing the need for the player to manually set them. It also implements default behaviors where none are explicitly implemented, through the use of <a href="Globalfunctions_Event.html"><code>unhandled_event</code></a> in the global script.</p>
 <p>Without making any direct comparisons which might result in a lawsuit, in the <strong>default</strong> mode left-clicking will do things, right-clicking will look at things. In the <strong>reversed</strong> mode, left-clicking will look at things, right-clicking will do things.</p>
 <p>The popup threshold for the GUI is managed by two properties (PopupProportional and PopupDistance), both of which are considered at the same time. Setting both to 0 means that the GUI will never appear.</p>
 <p>Example:</p>
@@ -100,14 +100,14 @@ TwoClickHandler.PopupDistance = 50;             // 50 pixels
 <h3><a href="#twoclickhandlerinventorygui"><code>TwoClickHandler.InventoryGui</code></a></h3>
 <pre><code>GUI* TwoClickHandler.InventoryGui
 </code></pre>
-<p>Assigns the <a href="GUI.html">GUI</a> which will be used for the inventory.</p>
+<p>Assigns the <a href="GUI.html"><code>GUI</code></a> which will be used for the inventory.</p>
 <hr />
 </section>
 <section id="twoclickhandleractionlabel" class="level3">
 <h3><a href="#twoclickhandleractionlabel"><code>TwoClickHandler.ActionLabel</code></a></h3>
 <pre><code>Label* TwoClickHandler.ActionLabel
 </code></pre>
-<p>Assigns the <a href="Label.html">Label</a> which will be used to display text descriptions.</p>
+<p>Assigns the <a href="Label.html"><code>Label</code></a> which will be used to display text descriptions.</p>
 <hr />
 </section>
 <section id="twoclickhandlerreversedclicks" class="level3">
@@ -147,7 +147,7 @@ TwoClickHandler.PopupDistance = 50;             // 50 pixels
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:26</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

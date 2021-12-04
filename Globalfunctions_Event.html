@@ -147,7 +147,7 @@ eEventRestoreGame
 <pre><code>on_key_press (eKeyCode keycode)
 </code></pre>
 <p>Called whenever a key is pressed on the keyboard. KEYCODE holds the ASCII value of the key. A list of these values is <a href="ASCIIcodes.html">available here</a>.</p>
-<p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> function for more details.</p>
+<p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
 <hr />
 </section>
 <section id="on_mouse_click" class="level3">
@@ -157,7 +157,7 @@ eEventRestoreGame
 <p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mouse.x</code> and <code>mouse.y</code> global variables contain the mouse's position.</p>
 <p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
 <p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
-<p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> function for more details.</p>
+<p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
 <hr />
 </section>
 <section id="repeatedly_execute" class="level3">
@@ -362,7 +362,7 @@ eEventRestoreGame
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

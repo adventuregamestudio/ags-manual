@@ -94,25 +94,26 @@
 <h2><a href="#file-functions-and-properties"><code>File</code> functions and properties</a></h2>
 <section id="fileopen" class="level3">
 <h3><a href="#fileopen"><code>File.Open</code></a></h3>
-<p><em>(Formerly known as FileOpen, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileOpen</code>, which is now obsolete)</em></p>
 <pre><code>static File* File.Open(string filename, FileMode)
 </code></pre>
-<p>Opens a disk file for reading or writing. These disk I/O functions are only intended for simple tasks like the way the QFG series export the character when you complete it.</p>
-<p>MODE is either eFileRead, eFileWrite or eFileAppend, depending on whether you want to write to or read from the file. If you pass eFileWrite and a file called FILENAME already exists, it will be overwritten.</p>
-<p>eFileAppend opens an existing file for writing and starts adding information at the end (i.e. the existing contents are not deleted).</p>
-<p>This function returns a File object, which you use to perform operations on the file. <em>null</em> is returned if there was a problem (eg. file not existing when MODE is eFileRead).</p>
-<p>When specifying file path you may use tags that specify either a special file or location.</p>
-<p>Following file tags are supported:<br> <code>$CONFIGFILE$</code>, which allows you to open player's configuration file for reading or writing. This is recommended to be used instead of telling exact path, because config file may be found in different places depending on game settings or personal player's setup.</p>
+<p>Opens a disk file for reading or writing, and returns a <code>File</code> object pointer which you may use to perform operations on this file, or <em>null</em> if engine failed to open a file for whatever reasons.</p>
+<p>MODE is either <code>eFileRead</code>, <code>eFileWrite</code> or <code>FileAppend</code>, depending on whether you want to write to or read from the file. If you pass <code>eFileWrite</code> and a file called FILENAME already exists, it will be overwritten.</p>
+<p><code>eFileAppend</code> opens an existing file for writing and starts adding information at the end (i.e. the existing contents are not deleted).</p>
+<p>When specifying a file path you may use tags that define either a special file or location.</p>
+<p>Following <em>file tags</em> are supported:<br> <code>$CONFIGFILE$</code>, which allows you to open player's configuration file for reading or writing. This is recommended to be used instead of telling exact path, because config file may be found in different places depending on game settings or personal player's setup.</p>
 <p>Example:</p>
 <pre><code>File.Open(&quot;$CONFIGFILE$&quot;, eFileRead);
 </code></pre>
-<p>Following location tags are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
-<p>Example:</p>
-<pre><code>File.Open(&quot;$SAVEGAMEDIR$/game.dat&quot;, eFileWrite);
+<p>Following <em>location tags</em> are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
+<p>Examples:</p>
+<pre><code>File.Open(&quot;$INSTALLDIR$/game.dat&quot;, eFileRead);
+File.Open(&quot;$SAVEGAMEDIR$/userinfo.txt&quot;, eFileWrite);
+File.Open(&quot;$APPDATADIR$/scoretable.dat&quot;, eFileAppend);
 </code></pre>
-<p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. An attempt to write file into relative path without specifying any location tag will make AGS to automatically remap such path into <code>$APPDATADIR$</code>. This is done for backwards-compatibility. On other hand, if you open file for writing using an absolute path, or relative path that points to location outside of game directory, it will automatically be rejected, and <em>null</em> is returned.</p>
-<p><strong>NOTE:</strong> You <strong>MUST</strong> close the file with the Close function when you have finished using it. There are only a limited number of file handles, and forgetting to close the file can lead to problems later on.</p>
-<p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
+<p><strong>IMPORTANT</strong>: For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. Similarily, if you try to open a file for writing using an absolute path, or relative path that points to location outside of the game directory, it will be automatically rejected, and <em>null</em> is returned.</p>
+<p><strong>IMPORTANT</strong>: An attempt to write file into relative path <em>without specifying any location tag</em> will make AGS automatically remap such path into <code>$APPDATADIR$</code>. This is done for backward compatibility. To ensure that your script does exactly what you want, please use location tags.</p>
+<p><code>File.Open</code> returns a File* pointer, which you should store in a variable of that type. You may then use that pointer to perform reading or writing operations. After finishing work you should close the file with the <code>Close</code> function. There are only a limited number of file handles, and forgetting to close the file can lead to problems later on.</p>
 <p>Example:</p>
 <pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/temp.tmp&quot;, eFileWrite);
 if (output == null)
@@ -123,23 +124,24 @@ else {
 }
 </code></pre>
 <p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
+<p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
 <p><em>Compatibility:</em> $CONFIGFILE$ tag supported by AGS 3.5.1 and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#fileclose">File.Close</a>, <a href="File.html#fileexists">File.Exists</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
+<p><em>See also:</em> <a href="File.html#fileclose"><code>File.Close</code></a>, <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
 <hr />
 </section>
 <section id="fileclose" class="level3">
 <h3><a href="#fileclose"><code>File.Close</code></a></h3>
-<p><em>(Formerly known as FileClose, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileClose</code>, which is now obsolete)</em></p>
 <pre><code>File.Close()
 </code></pre>
 <p>Closes the file, and commits all changes to disk. You <strong>must</strong> call this function when you have finished reading/writing the file.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileWrite);
 output.WriteString(&quot;test string&quot;);
 output.Close();
 </code></pre>
 <p>will open the file test.dat, write the string "test string", and close it.</p>
-<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a></p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a></p>
 <hr />
 </section>
 <section id="filedelete" class="level3">
@@ -150,11 +152,11 @@ output.Close();
 <p>For security reasons this command only works with files in the <code>$SAVEGAMEDIR$</code> and <code>$APPDATADIR$</code> directories.</p>
 <p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
 <p>Example:</p>
-<pre><code>File.Delete(&quot;$APPDATADIR$/temp.tmp&quot;);
+<pre><code>File.Delete(&quot;$SAVEGAMEDIR$/temp.tmp&quot;);
 </code></pre>
 <p>will delete the file "temp.tmp" from the app data directory, if it exists.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#fileexists">File.Exists</a>, <a href="File.html#fileopen">File.Open</a></p>
+<p><em>See also:</em> <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a></p>
 <hr />
 </section>
 <section id="fileexists" class="level3">
@@ -162,77 +164,76 @@ output.Close();
 <pre><code>static bool File.Exists(string filename)
 </code></pre>
 <p>Checks if the specified file exists on the file system.</p>
-<p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to access files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users.</p>
 <p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
 <p>Example:</p>
-<pre><code>if (!File.Exists(&quot;temp.tmp&quot;))
+<pre><code>if (!File.Exists(&quot;$SAVEGAMEDIR$/temp.tmp&quot;))
 {
-  File *output = File.Open(&quot;temp.tmp&quot;, eFileWrite);
+  File *output = File.Open(&quot;$SAVEGAMEDIR$/temp.tmp&quot;, eFileWrite);
   output.WriteString(&quot;some text&quot;);
   output.Close();
 }
 </code></pre>
 <p>will create the file "temp.tmp" if it doesn't exist</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#filedelete">File.Delete</a>, <a href="File.html#fileopen">File.Open</a></p>
+<p><em>See also:</em> <a href="File.html#filedelete"><code>File.Delete</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a></p>
 <hr />
 </section>
 <section id="filereadint" class="level3">
 <h3><a href="#filereadint"><code>File.ReadInt</code></a></h3>
-<p><em>(Formerly known as FileReadInt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileReadInt</code>, which is now obsolete)</em></p>
 <pre><code>File.ReadInt()
 </code></pre>
 <p>Reads an integer from the file, and returns it to the script. Only integers written with File.WriteInt can be read back.</p>
 <p>Example:</p>
 <pre><code>int number;
-File *input = File.Open(&quot;stats.dat&quot;, eFileRead);
+File *input = File.Open(&quot;$SAVEGAMEDIR$/stats.dat&quot;, eFileRead);
 number = input.ReadInt();
 input.Close();
 </code></pre>
 <p>will open the file stats.dat, read an integer into number and then close the file.</p>
-<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filewriteint">File.WriteInt</a></p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
 <hr />
 </section>
 <section id="filereadrawchar" class="level3">
 <h3><a href="#filereadrawchar"><code>File.ReadRawChar</code></a></h3>
-<p><em>(Formerly known as FileReadRawChar, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileReadRawChar</code>, which is now obsolete)</em></p>
 <pre><code>File.ReadRawChar()
 </code></pre>
 <p>Reads a raw character from the input file and returns it. This function allows you to read from files that weren't created by your game, however it is recommended for expert users only.</p>
 <p>Example:</p>
-<pre><code>File *input = File.Open(&quot;stats.txt&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;$SAVEGAMEDIR$/stats.txt&quot;, eFileRead);
 String buffer = String.Format(&quot;%c&quot;, input.ReadRawChar());
 input.Close();
 </code></pre>
 <p>will read a raw character from file stats.txt and writes it to the string 'buffer'.</p>
-<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filereadrawint">File.ReadRawInt</a>, <a href="File.html#filewriterawchar">File.WriteRawChar</a></p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filereadrawint"><code>File.ReadRawInt</code></a>, <a href="File.html#filewriterawchar"><code>File.WriteRawChar</code></a></p>
 <hr />
 </section>
 <section id="filereadrawint" class="level3">
 <h3><a href="#filereadrawint"><code>File.ReadRawInt</code></a></h3>
-<p><em>(Formerly known as FileReadRawInt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileReadRawInt</code>, which is now obsolete)</em></p>
 <pre><code>File.ReadRawInt()
 </code></pre>
 <p>Reads a raw 32-bit integer from the input file and returns it to the script. This allows you to read from files created by other programs - however, it should only be used by experts as no error-checking is performed.</p>
 <p>Example:</p>
 <pre><code>int number;
-File *input = File.Open(&quot;stats.txt&quot;, eFileRead);
+File *input = File.Open(&quot;$SAVEGAMEDIR$/stats.txt&quot;, eFileRead);
 number = input.ReadRawInt();
 input.Close();
 </code></pre>
 <p>will read a raw integer from file stats.txt and put it into the integer number.</p>
-<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#filereadrawchar">File.ReadRawChar</a></p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a></p>
 <hr />
 </section>
 <section id="filereadrawlineback" class="level3">
 <h3><a href="#filereadrawlineback"><code>File.ReadRawLineBack</code></a></h3>
-<p><em>(Formerly known as File.ReadRawLine, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>File.ReadRawLine</code>, which is now obsolete)</em></p>
 <pre><code>String File.ReadRawLineBack()
 </code></pre>
 <p>Reads a line of text back in from the file and returns it. This enables you to read in lines from text files and use them in your game.</p>
 <p><strong>NOTE:</strong> this command can only read back plain text lines from text files. If you attempt to use it with binary files or files written with commands like WriteString, WriteInt, etc then the results are unpredictable.</p>
 <p>Example:</p>
-<pre><code>File *input = File.Open(&quot;error.log&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;$SAVEGAMEDIR$/error.log&quot;, eFileRead);
 if (input != null) {
   while (!input.EOF) {
     String line = input.ReadRawLineBack();
@@ -242,22 +243,22 @@ if (input != null) {
 }
 </code></pre>
 <p>will display the contents of the 'error.log' file, if it exists</p>
-<p><em>See Also:</em> <a href="File.html#filewriterawline">File.WriteRawLine</a></p>
+<p><em>See also:</em> <a href="File.html#filewriterawline"><code>File.WriteRawLine</code></a></p>
 <hr />
 </section>
 <section id="filereadstringback" class="level3">
 <h3><a href="#filereadstringback"><code>File.ReadStringBack</code></a></h3>
-<p><em>(Formerly known as FileRead, which is now obsolete)</em><br> <em>(Formerly known as File.ReadString, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileRead</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>File.ReadString</code>, which is now obsolete)</em></p>
 <pre><code>String File.ReadStringBack()
 </code></pre>
 <p>Reads a string back in from a file previously opened with File.Open, and returns it. You should only use this with files which you previously wrote out with File.WriteString. Do NOT use this function with any other files, even text files.</p>
 <p>Example:</p>
-<pre><code>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileRead);
 String buffer = input.ReadStringBack();
 input.Close();
 </code></pre>
 <p>will open the file test.dat (which you have previously written with File.WriteString) and read a string into the buffer. Then close the file.</p>
-<p><em>See Also:</em> <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
 <hr />
 </section>
 <section id="fileseek" class="level3">
@@ -269,7 +270,7 @@ input.Close();
 <p>If optional <em>origin</em> parameter is not specified, eSeekCurrent type is used by default.</p>
 <p><strong>IMPORTANT:</strong> Do not use Seek on files which you have written with safe data writing functions, such as WriteInt and WriteString. These functions add additional data for the purpose of protection against incorrect reading, and Seek ignores that protection. If you use Seek and then try to ReadIntBack, for example, most probably you will receive a reading error. Only use it on files that contain "raw" data, or when you know written format precisely.</p>
 <p>Example:</p>
-<pre><code>File *input = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *input = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileRead);
 int first_value = input.ReadRawInt();
 input.Seek(256);
 int second_value = input.ReadRawInt();
@@ -277,67 +278,67 @@ input.Close();
 </code></pre>
 <p>will open the file test.dat, read <code>first_value</code>, skip 256 bytes, read <code>second_value</code>, and close the file.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#fileposition">File.Position</a></p>
+<p><em>See also:</em> <a href="File.html#fileposition"><code>File.Position</code></a></p>
 <hr />
 </section>
 <section id="filewriteint" class="level3">
 <h3><a href="#filewriteint"><code>File.WriteInt</code></a></h3>
-<p><em>(Formerly known as FileWriteInt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileWriteInt</code>, which is now obsolete)</em></p>
 <pre><code>File.WriteInt(int value)
 </code></pre>
 <p>Writes VALUE to the file. This allows you to save the contents of variables to disk. The file must have been previously opened with File.Open, and you can read the value back later with File.ReadInt.</p>
 <p>Example:</p>
 <pre><code>int number = 6;
-File *output = File.Open(&quot;stats.dat&quot;, eFileWrite);
+File *output = File.Open(&quot;$SAVEGAMEDIR$/stats.dat&quot;, eFileWrite);
 output.WriteInt(number);
 output.Close();
 </code></pre>
 <p>will open the file stats.dat and write the integer number in it.</p>
-<p><em>See Also:</em> <a href="File.html#filereadint">File.ReadInt</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
+<p><em>See also:</em> <a href="File.html#filereadint"><code>File.ReadInt</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
 <hr />
 </section>
 <section id="filewriterawchar" class="level3">
 <h3><a href="#filewriterawchar"><code>File.WriteRawChar</code></a></h3>
-<p><em>(Formerly known as FileWriteRawChar, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileWriteRawChar</code>, which is now obsolete)</em></p>
 <pre><code>File.WriteRawChar(int value)
 </code></pre>
 <p>Writes a single character to the specified file, in raw mode so that other applications can read it back. If you are just creating a file for your game to read back in, use File.WriteInt instead because it offers additional protection. Only use this function if you need other applications to be able to read the file in.</p>
 <p>This command writes a single byte to the output file - therefore, VALUE can contain any value from 0 to 255.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;output.txt&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/output.txt&quot;, eFileWrite);
 output.WriteRawChar(&#39;A&#39;);
 output.WriteRawChar(&#39;B&#39;);
 output.WriteRawChar(13);
 output.Close();
 </code></pre>
 <p>will write the text "AB", followed by a carriage return character, to the file.</p>
-<p><em>See Also:</em> <a href="File.html#filereadrawchar">File.ReadRawChar</a>, <a href="File.html#filewriteint">File.WriteInt</a></p>
+<p><em>See also:</em> <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
 <hr />
 </section>
 <section id="filewriterawline" class="level3">
 <h3><a href="#filewriterawline"><code>File.WriteRawLine</code></a></h3>
-<p><em>(Formerly known as FileWriteRawLine, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileWriteRawLine</code>, which is now obsolete)</em></p>
 <pre><code>File.WriteRawLine(string text)
 </code></pre>
 <p>Writes a string of text to the file in plain text format. This enables you to read it back in Notepad or any text editor. This is useful for generating logs and such like.</p>
 <p>The TEXT will be printed to the file, followed by the standard newline characters.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;error.log&quot;, eFileAppend);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/error.log&quot;, eFileAppend);
 output.WriteRawLine(&quot;There was an error playing sound1.wav&quot;);
 output.Close();
 </code></pre>
 <p>will write an error line in the file error.log.</p>
-<p><em>See Also:</em> <a href="File.html#filereadrawlineback">File.ReadRawLineBack</a>, <a href="File.html#filewritestring">File.WriteString</a></p>
+<p><em>See also:</em> <a href="File.html#filereadrawlineback"><code>File.ReadRawLineBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
 <hr />
 </section>
 <section id="filewritestring" class="level3">
 <h3><a href="#filewritestring"><code>File.WriteString</code></a></h3>
-<p><em>(Formerly known as FileWrite, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileWrite</code>, which is now obsolete)</em></p>
 <pre><code>File.WriteString(string text)
 </code></pre>
 <p>Writes TEXT to the file, which must have been previously opened with File.Open for writing. The string is written using a custom format to the file, which can only be read back by using File.ReadStringBack.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;temp.tmp&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/temp.tmp&quot;, eFileWrite);
 if (output == null) Display(&quot;Error opening file.&quot;);
 else {
   output.WriteString(&quot;test string&quot;);
@@ -345,17 +346,17 @@ else {
 }
 </code></pre>
 <p>will open the file temp.tmp for writing. If it cannot create the file, it will display an error message. Otherwise, it will write the string "test string" and close it.</p>
-<p><em>See Also:</em> <a href="File.html#filereadstringback">File.ReadStringBack</a>, <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filewriterawline">File.WriteRawLine</a></p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filewriterawline"><code>File.WriteRawLine</code></a></p>
 <hr />
 </section>
 <section id="fileeof" class="level3">
 <h3><a href="#fileeof"><code>File.EOF</code></a></h3>
-<p><em>(Formerly known as FileIsEOF, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileIsEOF</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool File.EOF
 </code></pre>
 <p>Checks whether the specified file has had all its data read. This is only useful with files opened for <strong>reading</strong>. It returns 1 if the entire contents of the file has now been read, or 0 if not.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileRead);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileRead);
 while (!output.EOF) {
   int temp = output.ReadRawChar();
   Display(&quot;%c&quot;, temp);
@@ -363,20 +364,20 @@ while (!output.EOF) {
 output.Close();
 </code></pre>
 <p>will display every character in the file test.dat, one by one, to the screen.</p>
-<p><em>See Also:</em> <a href="File.html#fileerror">File.Error</a>, <a href="File.html#fileopen">File.Open</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a></p>
+<p><em>See also:</em> <a href="File.html#fileerror"><code>File.Error</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a></p>
 <hr />
 </section>
 <section id="fileerror" class="level3">
 <h3><a href="#fileerror"><code>File.Error</code></a></h3>
-<p><em>(Formerly known as FileIsError, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>FileIsError</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool File.Error
 </code></pre>
 <p>Checks whether an error has occurred reading from or writing to the specified file.</p>
 <p>An error can occur if, for example, you run out of disk space or the user removes the disk that is being read from.</p>
 <p>This function only checks for errors while actually reading/writing data. The File.Open function will return null if there was an error actually opening or creating the file.</p>
-<p>To find out whether all data has been read from a file, use <a href="File.html#fileeof">EOF</a> instead.</p>
+<p>To find out whether all data has been read from a file, use <a href="File.html#fileeof"><code>EOF</code></a> instead.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileWrite);
 output.WriteInt(51);
 if (output.Error) {
   Display(&quot;Error writing the data!&quot;);
@@ -384,7 +385,7 @@ if (output.Error) {
 output.Close();
 </code></pre>
 <p>will write a number to the file 'test.dat', and display a message if there was a problem.</p>
-<p><em>See Also:</em> <a href="File.html#fileeof">File.EOF</a>, <a href="File.html#filereadstringback">File.ReadStringBack</a></p>
+<p><em>See also:</em> <a href="File.html#fileeof"><code>File.EOF</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a></p>
 <hr />
 </section>
 <section id="fileposition" class="level3">
@@ -394,7 +395,7 @@ output.Close();
 <p>Gets current File's reading or writing position. This value means number of bytes between file's beginning and current place you are reading from or writing to.</p>
 <p>This may be useful, for example, if you are passing the file pointer to another script module function and want to know how much data that function has read or written.</p>
 <p>Example:</p>
-<pre><code>File *output = File.Open(&quot;test.dat&quot;, eFileWrite);
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/test.dat&quot;, eFileWrite);
 int old_pos = output.Position;
 WriteCustomModuleData(output);
 int new_pos = output.Position;
@@ -403,14 +404,14 @@ output.Close();
 </code></pre>
 <p>will open file, pass the file pointer to some custom function, then display amount of data that function wrote.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="File.html#fileseek">File.Seek</a></p>
+<p><em>See also:</em> <a href="File.html#fileseek"><code>File.Seek</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:31</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

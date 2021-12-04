@@ -79,14 +79,14 @@
 <p>To write your custom dialog options code, you need to do the following:</p>
 <ul>
 <li>Add a <code>dialog_options_get_dimensions</code> function to your script (an example follows). This function is called by AGS to find out which part of the screen you will be drawing onto. By setting the width and height to values greater than 0, the custom dialog system is activated.</li>
-<li>Add a <code>dialog_options_render</code> function, which is called by AGS when it needs to draw the dialog options. A standard script <a href="DrawingSurface.html">DrawingSurface</a> is supplied, which you can use to draw onto.</li>
+<li>Add a <code>dialog_options_render</code> function, which is called by AGS when it needs to draw the dialog options. A standard script <a href="DrawingSurface.html"><code>DrawingSurface</code></a> is supplied, which you can use to draw onto.</li>
 <li>Optionally, add a <code>dialog_options_mouse_click</code> function. This is called by AGS if the player clicks the mouse anywhere on dialog options GUI. You might want to use this to process clicks on dialog options, and also on some custom scroll arrows, for example.</li>
 <li>Optionally, add a <code>dialog_options_key_press</code> function. This is called by AGS if the player presses any key while custom dialog options are shown on screen. You can use this to implement key-controlled selection of dialog option, for example.</li>
 <li>Optionally, add a <code>dialog_options_repexec</code> function. This works similarly to general <code>repeatedly_execute</code> function, but is called only if custom dialog options are shown on screen. You may use this to handle any other situations, such as determining which option the mouse is currently hovering over, or scripting time-related actions.</li>
 </ul>
 <p>These functions don't have to go in the global script; you can put them in any script you like. However, beware that if the functions are present in more than one script they could interfere with each other and cause problems.</p>
-<p><strong>COMPATIBILITY NOTE:</strong> The older versions of AGS (pre-3.4.0) supported slightly different set of functions. Thus, there was no <code>dialog_options_repexec</code>, but you had to add <code>dialog_options_get_active</code> function instead, in which you set active option property. Clicks on the options were processed by AGS automatically, so doing this was essential. If you have imported older project and want to keep old dialog option scripts, then you should go to General Settings and enable "Use old-style dialog options rendering API".</p>
-<p><strong>IMPORTANT:</strong> When adding the functions to the script, they all take in a parameter of type <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a>. The dialog_options_mouse_click function has an extra parameter for the mouse button, and dialog_options_key_press has an extra parameter for the key code. See the example below.</p>
+<p><strong>COMPATIBILITY NOTE:</strong> The older versions of AGS (pre-3.4.0) were working with somewhat different set of functions. There was no <code>dialog_options_repexec</code> and <code>dialog_options_key_press</code>, but you had to add <code>dialog_options_get_active</code> function instead in which you'd set an active dialog option (or none) on each game update, for example, depending on the cursor position. Mouse clicks were processed by the engine, and if an active option was set in <code>dialog_options_get_active</code> then it was run automatically. There is a compatibility switch in the General Settings called "Use old-style dialog options rendering API" that toggles between the old and new behavior. If you have imported older project and want to keep old dialog option scripts, then make sure it's enabled. If you wish to update your game to the new behavior, then turn it off.</p>
+<p><strong>IMPORTANT:</strong> When adding the functions to the script, they all take in a parameter of type <a href="DialogOptionsRenderingInfo.html"><code>DialogOptionsRenderingInfo</code></a>. The dialog_options_mouse_click function has an extra parameter for the mouse button, and dialog_options_key_press has an extra parameter for the key code. See the example below.</p>
 <p><strong>IMPORTANT:</strong> All of the Custom Dialog functions run on the non-blocking thread. That means that you should not make any blocking calls, such as Character.Say, Wait or Display within them, as they may not behave correctly.</p>
 <p><strong>Example A. Classic mouse controls</strong></p>
 <pre><code>int dlg_opt_color = 14;
@@ -229,14 +229,14 @@ function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode key
   }
 }
 </code></pre>
-<p>For more detail on the commands used here, see the <a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo</a> page.</p>
+<p>For more detail on the commands used here, see the <a href="DialogOptionsRenderingInfo.html"><code>DialogOptionsRenderingInfo</code></a> page.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.<br> dialog_options_repexec and dialog_options_key_press callbacks are supported since <strong>AGS 3.4.0</strong>.</p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -101,7 +101,7 @@
 <h2><a href="#gui-functions-and-properties"><code>GUI</code> functions and properties</a></h2>
 <section id="guicentre" class="level3">
 <h3><a href="#guicentre"><code>GUI.Centre</code></a></h3>
-<p><em>(Formerly known as CentreGUI, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>CentreGUI</code>, which is now obsolete)</em></p>
 <pre><code>GUI.Centre()
 </code></pre>
 <p>Centers the specified GUI in the middle of the screen. Useful if you've been moving it around with SetPosition and just want to return it to the center.</p>
@@ -109,7 +109,7 @@
 <pre><code>gControlpanel.Centre();
 </code></pre>
 <p>will center the CONTROLPANEL GUI in the middle of the screen.</p>
-<p><em>See Also:</em> <a href="GUI.html#guisetposition">GUI.SetPosition</a></p>
+<p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a></p>
 <hr />
 </section>
 <section id="guiclick" class="level3">
@@ -123,12 +123,12 @@
 </code></pre>
 <p>triggers OnClick event for gMainMenu.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonclick">Button.Click</a>, <a href="GUI.html#guiprocessclick">GUI.ProcessClick</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonclick"><code>Button.Click</code></a>, <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="guigetatscreenxy" class="level3">
 <h3><a href="#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as GetGUIAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetGUIAt</code>, which is now obsolete)</em></p>
 <pre><code>static GUI* GUI.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Checks whether there is currently a GUI at screen co-ordinates (X,Y). If there is, returns its GUI. If two GUIs overlap, the front-most one will be returned - this can be changed with the GUI.ZOrder property.</p>
@@ -147,7 +147,7 @@ else {
 }
 </code></pre>
 <p>will display the number of the GUI that the mouse is over.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolgetatscreenxy">GUIControl.GetAtScreenXY</a>, <a href="GUI.html#guiid">GUI.ID</a>, <a href="GUI.html#guizorder">GUI.ZOrder</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolgetatscreenxy"><code>GUIControl.GetAtScreenXY</code></a>, <a href="GUI.html#guiid"><code>GUI.ID</code></a>, <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a></p>
 <hr />
 </section>
 <section id="guiprocessclick" class="level3">
@@ -161,12 +161,12 @@ else {
 </code></pre>
 <p>will simulate clicking the mouse on co-ordinates (100, 50) in the Pointer mode, which will ignore anything but interface.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Mouse.html#mouseclick">Mouse.Click</a>, <a href="Room.html#roomprocessclick">Room.ProcessClick</a></p>
+<p><em>See also:</em> <a href="Mouse.html#mouseclick"><code>Mouse.Click</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="guisetposition" class="level3">
 <h3><a href="#guisetposition"><code>GUI.SetPosition</code></a></h3>
-<p><em>(Formerly known as SetGUIPosition, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIPosition</code>, which is now obsolete)</em></p>
 <pre><code>GUI.SetPosition(int x, int y)
 </code></pre>
 <p>Moves the top-left corner of GUI to the new location (X,Y) on the screen. This allows you to dynamically move GUIs around on the screen while the game is running. The co-ordinates are screen co-ordinates, not room co-ordinates, and use the same scale as in the editor.</p>
@@ -174,12 +174,12 @@ else {
 <pre><code>gMyGui.SetPosition(mouse.x, mouse.y);
 </code></pre>
 <p>will move the GUI to the position where the cursor is.</p>
-<p><em>See Also:</em> <a href="GUI.html#guicentre">GUI.Centre</a>, <a href="GUI.html#guibackgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUIControl.html#guicontrolsetposition">GUIControl.SetPosition</a>, <a href="GUI.html#guisetsize">GUI.SetSize</a>, <a href="GUI.html#guix">GUI.X</a>, <a href="GUI.html#guiy">GUI.Y</a></p>
+<p><em>See also:</em> <a href="GUI.html#guicentre"><code>GUI.Centre</code></a>, <a href="GUI.html#guibackgroundgraphic"><code>GUI.BackgroundGraphic</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUI.html#guix"><code>GUI.X</code></a>, <a href="GUI.html#guiy"><code>GUI.Y</code></a></p>
 <hr />
 </section>
 <section id="guisetsize" class="level3">
 <h3><a href="#guisetsize"><code>GUI.SetSize</code></a></h3>
-<p><em>(Formerly known as SetGUISize, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUISize</code>, which is now obsolete)</em></p>
 <pre><code>GUI.SetSize(int width, int height)
 </code></pre>
 <p>Changes the GUI to have the new size WIDTH x HEIGHT</p>
@@ -189,7 +189,7 @@ else {
 <pre><code>gIconbar.SetSize(160, 100);
 </code></pre>
 <p>changes the ICONBAR GUI to be the size of half the screen</p>
-<p><em>See Also:</em> <a href="GUI.html#guicentre">GUI.Centre</a>, <a href="GUI.html#guiheight">GUI.Height</a>, <a href="GUIControl.html#guicontrolsetposition">GUIControl.SetPosition</a>, <a href="GUI.html#guisetposition">GUI.SetPosition</a>, <a href="GUI.html#guiwidth">GUI.Width</a></p>
+<p><em>See also:</em> <a href="GUI.html#guicentre"><code>GUI.Centre</code></a>, <a href="GUI.html#guiheight"><code>GUI.Height</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUI.html#guiwidth"><code>GUI.Width</code></a></p>
 <hr />
 </section>
 <section id="guiastextwindow" class="level3">
@@ -202,7 +202,7 @@ else {
 tw.TextColor = Game.GetColorFromRGB(255, 0, 0);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="TextWindowGUI.html">TextWindowGUI</a></p>
+<p><em>See also:</em> <a href="TextWindowGUI.html"><code>TextWindowGUI</code></a></p>
 <hr />
 </section>
 <section id="guibackgroundcolor" class="level3">
@@ -213,18 +213,18 @@ tw.TextColor = Game.GetColorFromRGB(255, 0, 0);
 <p>Setting BackgroundColor to 0 will make GUI background fully transparent.</p>
 <p>This property is ignored if the GUI.BackgroundGraphic is assigned a sprite number (other than 0).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guibackgroundgraphic">GUI.BackgroundGraphic</a>, <a href="GUI.html#guibordercolor">GUI.BorderColor</a></p>
+<p><em>See also:</em> <a href="GUI.html#guibackgroundgraphic"><code>GUI.BackgroundGraphic</code></a>, <a href="GUI.html#guibordercolor"><code>GUI.BorderColor</code></a></p>
 <hr />
 </section>
 <section id="guibackgroundgraphic" class="level3">
 <h3><a href="#guibackgroundgraphic"><code>GUI.BackgroundGraphic</code></a></h3>
-<p><em>(Formerly known as SetGUIBackgroundPic, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIBackgroundPic</code>, which is now obsolete)</em></p>
 <pre><code>int GUI.BackgroundGraphic
 </code></pre>
 <p>Gets/sets the background image of the GUI.</p>
 <p>You can set this to 0 to remove the background image from the GUI.</p>
 <p>When this property is assigned a sprite number other than 0 GUI.BackgroundColor and GUI.BorderColor are ignored.</p>
-<p><em>See Also:</em> <a href="GUI.html#guisetposition">GUI.SetPosition</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a></p>
+<p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 <hr />
 </section>
 <section id="guibordercolor" class="level3">
@@ -235,12 +235,12 @@ tw.TextColor = Game.GetColorFromRGB(255, 0, 0);
 <p>Setting BorderColor to 0 will make GUI border fully transparent.</p>
 <p>Not applicable to TextWindow GUIs. This property is ignored if the GUI.BackgroundGraphic is assigned a sprite number (other than 0).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guibackgroundcolor">GUI.BackgroundColor</a>, <a href="GUI.html#guibackgroundgraphic">GUI.BackgroundGraphic</a></p>
+<p><em>See also:</em> <a href="GUI.html#guibackgroundcolor"><code>GUI.BackgroundColor</code></a>, <a href="GUI.html#guibackgroundgraphic"><code>GUI.BackgroundGraphic</code></a></p>
 <hr />
 </section>
 <section id="guiclickable" class="level3">
 <h3><a href="#guiclickable"><code>GUI.Clickable</code></a></h3>
-<p><em>(Formerly known as SetGUIClickable, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIClickable</code>, which is now obsolete)</em></p>
 <pre><code>bool GUI.Clickable
 </code></pre>
 <p>Gets/sets whether the GUI is clickable or not. This allows you to modify the "Clickable" checkbox from the GUI Editor.</p>
@@ -250,7 +250,7 @@ tw.TextColor = Game.GetColorFromRGB(255, 0, 0);
 <pre><code>gStatusline.Clickable = false;
 </code></pre>
 <p>sets the STATUSLINE GUI to no longer respond to mouse clicks.</p>
-<p><em>See Also:</em> <a href="GUI.html#guigetatscreenxy">GUI.GetAtScreenXY</a></p>
+<p><em>See also:</em> <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="guicontrolcount" class="level3">
@@ -266,7 +266,7 @@ while (i &lt; gInventory.ControlCount) {
 }
 </code></pre>
 <p>disables all controls on the INVENTORY GUI.</p>
-<p><em>See Also:</em> <a href="GUI.html#guicontrols">GUI.Controls</a></p>
+<p><em>See also:</em> <a href="GUI.html#guicontrols"><code>GUI.Controls</code></a></p>
 <hr />
 </section>
 <section id="guicontrols" class="level3">
@@ -287,7 +287,7 @@ else {
 }
 </code></pre>
 <p>gets list box number 4 from the INVENTORY GUI, and then adds an item to it. If control 4 isn't a listbox, you will get a Null Reference error.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolastype">GUIControl.As*</a>, <a href="GUI.html#guicontrolcount">GUI.ControlCount</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolastype"><code>GUIControl.As\*</code></a>, <a href="GUI.html#guicontrolcount"><code>GUI.ControlCount</code></a></p>
 <hr />
 </section>
 <section id="guiheight" class="level3">
@@ -300,7 +300,7 @@ else {
 <pre><code>Display(&quot;The icon bar GUI is %d pixels high.&quot;, gIconbar.Height);
 </code></pre>
 <p>displays the height of the ICONBAR GUI.</p>
-<p><em>See Also:</em> <a href="GUI.html#guisetsize">GUI.SetSize</a>, <a href="GUI.html#guiwidth">GUI.Width</a></p>
+<p><em>See also:</em> <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUI.html#guiwidth"><code>GUI.Width</code></a></p>
 <hr />
 </section>
 <section id="guiid" class="level3">
@@ -313,7 +313,7 @@ else {
 gIconbar.Clickable = false;
 </code></pre>
 <p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI clickable, and then uses the equivalent modern property to stop it being clickable.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolid">GUIControl.ID</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolid"><code>GUIControl.ID</code></a></p>
 <hr />
 </section>
 <section id="guipopupstyle" class="level3">
@@ -326,15 +326,15 @@ eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen
 eGUIPopupModal        like normal, but pauses game when shown
 eGUIPopupPersistent   like normal, but not removed when the game&#39;s user interface is disabled
 </code></pre>
-<p><strong>NOTE:</strong> for MouseYPos style <a href="GUI.html#guivisible">GUI.Visible</a> property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
+<p><strong>NOTE:</strong> for MouseYPos style <a href="GUI.html#guivisible"><code>GUI.Visible</code></a> property does not control visibility directly. The GUI will become visible only when both conditions match:</p>
 <ul>
 <li>GUI.Visible property set to TRUE;</li>
 <li>mouse cursor is closer to the screen top than GUI.PopupYPos value.</li>
 </ul>
-<p><a href="GUI.html#guishown">GUI.Shown</a> property tells whether GUI is actually displayed, which may be different from GUI.Visible in the case of MouseYPos style.</p>
+<p><a href="GUI.html#guishown"><code>GUI.Shown</code></a> property tells whether GUI is actually displayed, which may be different from GUI.Visible in the case of MouseYPos style.</p>
 <p><strong>NOTE:</strong> To automatically hide a GUI when the user interface is disabled, the General Settings option <code>When player interface is disabled, GUIs should</code> needs to be set as <code>Be hidden</code>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guipopupypos">GUI.PopupYPos</a>, <a href="GUI.html#guishown">GUI.Shown</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<p><em>See also:</em> <a href="GUI.html#guipopupypos"><code>GUI.PopupYPos</code></a>, <a href="GUI.html#guishown"><code>GUI.Shown</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="guipopupypos" class="level3">
@@ -344,7 +344,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style. The GUI will be automatically shown when the mouse cursor's Y coordinate is <em>equal or lower</em> than GUI.PopupYPos (closer to the screen top) and hidden when it is <em>greater</em>.</p>
 <p>This property is ignored if GUI has a different style.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guipopupstyle">GUI.PopupStyle</a>, <a href="GUI.html#guishown">GUI.Shown</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<p><em>See also:</em> <a href="GUI.html#guipopupstyle"><code>GUI.PopupStyle</code></a>, <a href="GUI.html#guishown"><code>GUI.Shown</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="guishown" class="level3">
@@ -352,15 +352,15 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <pre><code>readonly bool GUI.Shown
 </code></pre>
 <p>Tells whether GUI is currently active on screen.</p>
-<p>In the common circumstances this property's value is equivalent to checking <a href="GUI.html#guivisible">GUI.Visible</a>. But for GUIs with "Mouse Ypos" popup style the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. In such case it is Shown property that would tell if the GUI is actually displayed on screen at this moment.</p>
+<p>In the common circumstances this property's value is equivalent to checking <a href="GUI.html#guivisible"><code>GUI.Visible</code></a>. But for GUIs with "Mouse Ypos" popup style the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. In such case it is Shown property that would tell if the GUI is actually displayed on screen at this moment.</p>
 <p><strong>NOTE:</strong> Shown property only reports a logical state, it does not test whether GUI may be seen by the player or not (overlapped by other objects, moved offscreen or fully transparent).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guipopupstyle">GUI.PopupStyle</a>, <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<p><em>See also:</em> <a href="GUI.html#guipopupstyle"><code>GUI.PopupStyle</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="guitransparency" class="level3">
 <h3><a href="#guitransparency"><code>GUI.Transparency</code></a></h3>
-<p><em>(Formerly known as SetGUITransparency, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUITransparency</code>, which is now obsolete)</em></p>
 <pre><code>int GUI.Transparency
 </code></pre>
 <p>Gets/sets the GUI translucency, in percent.</p>
@@ -378,24 +378,24 @@ while (trans &lt; 100) {
 }
 </code></pre>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttransparency">Object.Transparency</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
 <hr />
 </section>
 <section id="guivisible" class="level3">
 <h3><a href="#guivisible"><code>GUI.Visible</code></a></h3>
-<p><em>(Formerly known as GUIOff, which is now obsolete)</em><br> <em>(Formerly known as GUIOn, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOff, which is now obsolete)</em><br> <em>(Formerly known as InterfaceOn, which is now obsolete)</em><br> <em>(Formerly known as IsGUIOn, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GUIOff</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>GUIOn</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InterfaceOff</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InterfaceOn</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>IsGUIOn</code>, which is now obsolete)</em></p>
 <pre><code>bool GUI.Visible
 </code></pre>
 <p>Gets/sets whether the GUI is visible or not. This property has behaves differently depending on the GUI popup style.</p>
 <p>For "Normal" and "Persistent" GUIs, this property simply switches the GUI on and off, and has no further effects.</p>
-<p>For "Popup modal" GUIs, setting Visible to true causes the game to become paused until the GUI is removed by setting Visible back to false (eg. when the user presses an OK button or something similar).</p>
+<p>For "Popup modal" GUIs, setting Visible to true causes the game to become paused until the GUI is removed by setting Visible back to false (e.g. when the user presses an OK button or something similar).</p>
 <p>For "Mouse Ypos" GUIs, the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse to the top of the screen will not activate the GUI; if it is <em>true</em>, then the GUI will be allowed to be popped up.</p>
-<p><strong>NOTE:</strong> for "Mouse Ypos" style GUIs the way to actually know if GUI is displayed or not is <a href="GUI.html#guishown">GUI.Shown</a> property.</p>
+<p><strong>NOTE:</strong> for "Mouse Ypos" style GUIs the way to actually know if GUI is displayed or not is <a href="GUI.html#guishown"><code>GUI.Shown</code></a> property.</p>
 <p>Example:</p>
 <pre><code>gSettings.Visible = true;
 </code></pre>
 <p>will turn on the SETTINGS GUI.</p>
-<p><em>See Also:</em> <a href="GUI.html#guishown">GUI.Shown</a>, <a href="Globalfunctions_General.html#isgamepaused">IsGamePaused</a></p>
+<p><em>See also:</em> <a href="GUI.html#guishown"><code>GUI.Shown</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 <hr />
 </section>
 <section id="guiwidth" class="level3">
@@ -408,7 +408,7 @@ while (trans &lt; 100) {
 <pre><code>gInventory.Width += 5;
 </code></pre>
 <p>makes the INVENTORY GUI 5 pixels wider.</p>
-<p><em>See Also:</em> <a href="GUI.html#guiheight">GUI.Height</a>, <a href="GUI.html#guisetsize">GUI.SetSize</a></p>
+<p><em>See also:</em> <a href="GUI.html#guiheight"><code>GUI.Height</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a></p>
 <hr />
 </section>
 <section id="guix" class="level3">
@@ -421,7 +421,7 @@ while (trans &lt; 100) {
 <pre><code>gMyGui.X += 5;
 </code></pre>
 <p>moves the GUI right 5 pixels.</p>
-<p><em>See Also:</em> <a href="GUI.html#guisetposition">GUI.SetPosition</a>, <a href="GUI.html#guiy">GUI.Y</a></p>
+<p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUI.html#guiy"><code>GUI.Y</code></a></p>
 <hr />
 </section>
 <section id="guiy" class="level3">
@@ -434,12 +434,12 @@ while (trans &lt; 100) {
 <pre><code>gMyGui.Y += 5;
 </code></pre>
 <p>moves the GUI down 5 pixels.</p>
-<p><em>See Also:</em> <a href="GUI.html#guisetposition">GUI.SetPosition</a>, <a href="GUI.html#guix">GUI.X</a></p>
+<p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUI.html#guix"><code>GUI.X</code></a></p>
 <hr />
 </section>
 <section id="guizorder" class="level3">
 <h3><a href="#guizorder"><code>GUI.ZOrder</code></a></h3>
-<p><em>(Formerly known as SetGUIZOrder, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIZOrder</code>, which is now obsolete)</em></p>
 <pre><code>int GUI.ZOrder
 </code></pre>
 <p>Gets/sets the z-order of the GUI. This allows you to dynamically change the ordering of GUIs on the screen.</p>
@@ -448,14 +448,14 @@ while (trans &lt; 100) {
 <pre><code>gStatusline.ZOrder = 0;
 </code></pre>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
-<p><em>See Also:</em> <a href="GUI.html#guigetatscreenxy">GUI.GetAtScreenXY</a></p>
+<p><em>See also:</em> <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:19</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

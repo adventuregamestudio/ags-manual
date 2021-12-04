@@ -87,7 +87,7 @@
 <hr />
 <section id="audioclipplay" class="level3">
 <h3><a href="#audioclipplay"><code>AudioClip.Play</code></a></h3>
-<p><em>(Formerly known as PlayAmbientSound, which is now obsolete)</em><br> <em>(Formerly known as PlayMP3File, which is now obsolete)</em><br> <em>(Formerly known as PlayMusic, which is now obsolete)</em><br> <em>(Formerly known as PlaySound, which is now obsolete)</em><br> <em>(Formerly known as PlaySoundEx, which is now obsolete)</em><br> <em>(Formerly known as SetMusicRepeat, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>PlayAmbientSound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlayMP3File</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlayMusic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlaySound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlaySoundEx</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetMusicRepeat</code>, which is now obsolete)</em></p>
 <pre><code>AudioChannel* AudioClip.Play(optional AudioPriority, optional RepeatStyle)
 </code></pre>
 <p>Plays the audio clip.</p>
@@ -101,7 +101,7 @@
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a>, <a href="AudioClip.html#audioclipplayqueued">AudioClip.PlayQueued</a>, <a href="AudioClip.html#audioclipstop">AudioClip.Stop</a>, <a href="ViewFrame.html#viewframelinkedaudio">ViewFrame.LinkedAudio</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a>, <a href="AudioClip.html#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a>, <a href="AudioClip.html#audioclipstop"><code>AudioClip.Stop</code></a>, <a href="ViewFrame.html#viewframelinkedaudio"><code>ViewFrame.LinkedAudio</code></a></p>
 <hr />
 </section>
 <section id="audioclipplayfrom" class="level3">
@@ -109,23 +109,23 @@
 <pre><code>AudioChannel* AudioClip.PlayFrom(int position, optional AudioPriority,
                                  optional RepeatStyle)
 </code></pre>
-<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a> help page.</p>
-<p>Otherwise, this command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>. Please see that help page for more information.</p>
+<p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#audiochannelseek"><code>AudioChannel.Seek</code></a> help page.</p>
+<p>Otherwise, this command behaves identically to <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>. Please see that help page for more information.</p>
 <p>Example:</p>
 <pre><code>aExplosion.PlayFrom(1000);
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if it is OGG/MP3).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
 <section id="audioclipplayqueued" class="level3">
 <h3><a href="#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></h3>
-<p><em>(Formerly known as PlayMusicQueued, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>PlayMusicQueued</code>, which is now obsolete)</em></p>
 <pre><code>AudioChannel* AudioClip.PlayQueued(optional AudioPriority, optional RepeatStyle)
 </code></pre>
 <p>Plays the audio clip, or queues it to be played later if it cannot be played now.</p>
-<p>This command behaves identically to <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
+<p>This command behaves identically to <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
 <p>Additionally, unlike the Play command, using PlayQueued will not interrupt an existing audio clip with an equal priority; it will only interrupt clips with a lower priority.</p>
 <p>You can queue up to 10 tracks in the audio queue. Note that if you queue audio clips to be played after a repeating audio clip, they will never be played.</p>
 <p>Example:</p>
@@ -134,7 +134,7 @@ aAftermath.PlayQueued();
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
 <section id="audioclipstop" class="level3">
@@ -149,7 +149,7 @@ aExplosion.Stop();
 </code></pre>
 <p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
 <section id="audioclipid" class="level3">
@@ -168,7 +168,7 @@ aExplosion.Stop();
 </code></pre>
 <p>will display information about clips playing on each audio channel.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Game.html#gameaudioclips">Game.AudioClips</a></p>
+<p><em>See also:</em> <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
 <hr />
 </section>
 <section id="audioclipfiletype" class="level3">
@@ -184,12 +184,12 @@ aExplosion.Stop();
 </code></pre>
 <p>displays a message if aExplosion is a MIDI file</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a>, <a href="AudioChannel.html#audiochannelposition">AudioChannel.Position</a>, <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a></p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelseek"><code>AudioChannel.Seek</code></a>, <a href="AudioChannel.html#audiochannelposition"><code>AudioChannel.Position</code></a>, <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></p>
 <hr />
 </section>
 <section id="audioclipisavailable" class="level3">
 <h3><a href="#audioclipisavailable"><code>AudioClip.IsAvailable</code></a></h3>
-<p><em>(Formerly known as IsMusicVoxAvailable, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>IsMusicVoxAvailable</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool AudioClip.IsAvailable;
 </code></pre>
 <p>Gets whether this audio clip is available on the player's system.</p>
@@ -203,7 +203,7 @@ aExplosion.Stop();
 </code></pre>
 <p>checks if the aExplosion audio clip is available, and if so plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
 <section id="audiocliptype" class="level3">
@@ -220,14 +220,14 @@ aExplosion.Stop();
 </code></pre>
 <p>displays a message if the <em>aExplosion</em> clip is music.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="AudioClip.html#audioclipplay">AudioClip.Play</a>, <a href="Multimedia.html#gameisaudioplaying">Game.IsAudioPlaying</a></p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="Multimedia.html#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:25</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

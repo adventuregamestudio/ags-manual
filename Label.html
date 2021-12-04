@@ -79,11 +79,11 @@
   <main>
 <section id="label-functions-and-properties" class="level2">
 <h2><a href="#label-functions-and-properties"><code>Label</code> functions and properties</a></h2>
-<p>Label is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<p>Label is a subclass of <a href="GUIControl.html"><code>GUIControl</code></a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
 <section id="labelfont" class="level3">
 <h3><a href="#labelfont"><code>Label.Font</code></a></h3>
-<p><em>(Formerly known as SetLabelFont, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetLabelFont</code>, which is now obsolete)</em></p>
 <pre><code>FontType Label.Font;
 </code></pre>
 <p>Gets/sets the font used to display the label's text. This is useful if you have a standard SCI font for your English version, but want to change to a TTF font for foreign language versions.</p>
@@ -93,12 +93,12 @@
 }
 </code></pre>
 <p>will change label 'lblStatus' to use font "Foreign" if a game translation is in use.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Label.html#labeltext">Label.Text</a>, <a href="TextBox.html#textboxfont">TextBox.Font</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a>, <a href="TextBox.html#textboxfont"><code>TextBox.Font</code></a></p>
 <hr />
 </section>
 <section id="labeltext" class="level3">
 <h3><a href="#labeltext"><code>Label.Text</code></a></h3>
-<p><em>(Formerly known as SetLabelText, which is now obsolete)</em><br> <em>(Formerly known as Label.GetText, which is now obsolete)</em><br> <em>(Formerly known as Label.SetText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetLabelText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Label.GetText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Label.SetText</code>, which is now obsolete)</em></p>
 <pre><code>String Label.Text;
 </code></pre>
 <p>Gets/sets the text displayed in the specified label. This allows you to change the text during the game, for example to create a LucasArts-style status line.</p>
@@ -106,7 +106,7 @@
 <pre><code>lblStatus.Text = Game.GetLocationName(mouse.x, mouse.y);
 </code></pre>
 <p>will display the name of the location the cursor is over on label 'lblStatus'</p>
-<p><em>See Also:</em> <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>, <a href="Button.html#buttontext">Button.Text</a>, <a href="Label.html#labeltextcolor">Label.TextColor</a>, <a href="Label.html#labelfont">Label.Font</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttontext"><code>Button.Text</code></a>, <a href="Label.html#labeltextcolor"><code>Label.TextColor</code></a>, <a href="Label.html#labelfont"><code>Label.Font</code></a></p>
 <hr />
 </section>
 <section id="labeltextalignment" class="level3">
@@ -114,13 +114,13 @@
 <pre><code>HorizontalAlignment Label.TextAlignment;
 </code></pre>
 <p>Gets/sets how the text is aligned relative to the label's rectangle. Note that currently label supports only horizontal alignment which could be eAlignLeft, eAlignRight and eAlignCenter.</p>
-<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#labelfont">Label.Font</a>, <a href="Label.html#labeltext">Label.Text</a></p>
+<p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
 <section id="labeltextcolor" class="level3">
 <h3><a href="#labeltextcolor"><code>Label.TextColor</code></a></h3>
-<p><em>(Formerly known as SetLabelColor, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetLabelColor</code>, which is now obsolete)</em></p>
 <pre><code>int Label.TextColor;
 </code></pre>
 <p>Gets/sets the text color used to display the label's text.</p>
@@ -128,14 +128,14 @@
 <pre><code>lblStatus.TextColor = 14;
 </code></pre>
 <p>will change label 'lblStatus' to have yellow text.</p>
-<p><em>See Also:</em> <a href="Label.html#labelfont">Label.Font</a>, <a href="Label.html#labeltext">Label.Text</a></p>
+<p><em>See also:</em> <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:25</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

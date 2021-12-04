@@ -95,7 +95,7 @@
 <hr />
 <section id="guicontrolgetatscreenxy" class="level3">
 <h3><a href="#guicontrolgetatscreenxy"><code>GUIControl.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as GetGUIObjectAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetGUIObjectAt</code>, which is now obsolete)</em></p>
 <pre><code>static GUIControl* GUIControl.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Checks whether there is a GUI control at screen co-ordinates (X,Y). Returns the control object if there is, or null if there is not. You probably want to use this in conjunction with GetGUIAtLocation.</p>
@@ -113,7 +113,7 @@ else {
 }
 </code></pre>
 <p>will display what control the mouse is over.</p>
-<p><em>See Also:</em> <a href="GUI.html#guigetatscreenxy">GUI.GetAtScreenXY</a></p>
+<p><em>See also:</em> <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="guicontrolastype" class="level3">
@@ -136,7 +136,7 @@ else {
 }
 </code></pre>
 <p>attempts to set Button 2 on GUI ICONBAR to have NormalGraphic 44, but if that control is not a button, prints a message.</p>
-<p><em>See Also:</em> <a href="GUI.html#guicontrols">GUI.Controls</a></p>
+<p><em>See also:</em> <a href="GUI.html#guicontrols"><code>GUI.Controls</code></a></p>
 <hr />
 </section>
 <section id="guicontrolbringtofront" class="level3">
@@ -150,7 +150,7 @@ else {
 <pre><code>btnBigButton.BringToFront();
 </code></pre>
 <p>will move the <em>btnBigButton</em> button to be in front of all other controls on the GUI.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolsendtoback">GUIControl.SendToBack</a>, <a href="GUIControl.html#guicontrolzorder">GUIControl.ZOrder</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolsendtoback"><code>GUIControl.SendToBack</code></a>, <a href="GUIControl.html#guicontrolzorder"><code>GUIControl.ZOrder</code></a></p>
 <hr />
 </section>
 <section id="guicontrolclickable" class="level3">
@@ -167,12 +167,12 @@ else {
 <pre><code>btnSaveGame.Clickable = false;
 </code></pre>
 <p>will make the <em>btnSaveGame</em> button non-clickable.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolenabled">GUIControl.Enabled</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a></p>
 <hr />
 </section>
 <section id="guicontrolenabled" class="level3">
 <h3><a href="#guicontrolenabled"><code>GUIControl.Enabled</code></a></h3>
-<p><em>(Formerly known as SetGUIObjectEnabled, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIObjectEnabled</code>, which is now obsolete)</em></p>
 <pre><code>bool GUIControl.Enabled
 </code></pre>
 <p>Enables or disables a GUI control.</p>
@@ -186,7 +186,7 @@ else {
 <pre><code>btnSaveGame.Enabled = false;
 </code></pre>
 <p>will disable the <em>btnSaveGame</em> button.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolclickable">GUIControl.Clickable</a>, <a href="GUIControl.html#guicontrolvisible">GUIControl.Visible</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolclickable"><code>GUIControl.Clickable</code></a>, <a href="GUIControl.html#guicontrolvisible"><code>GUIControl.Visible</code></a></p>
 <hr />
 </section>
 <section id="guicontrolheight" class="level3">
@@ -200,7 +200,7 @@ else {
 <pre><code>btnConfirm.Height = 20;
 </code></pre>
 <p>makes the <em>btnConfirm</em> button 20 pixels high.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolsetsize">GUIControl.SetSize</a>, <a href="GUIControl.html#guicontrolwidth">GUIControl.Width</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a>, <a href="GUIControl.html#guicontrolwidth"><code>GUIControl.Width</code></a></p>
 <hr />
 </section>
 <section id="guicontrolid" class="level3">
@@ -215,7 +215,7 @@ else {
 lstSaves.Enabled = false;
 </code></pre>
 <p>uses the obsolete SetGUIObjectEnabled function to enable the lstSaves list box, and then uses the equivalent modern property to disable it.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolowninggui">GUIControl.OwningGUI</a>, <a href="GUI.html#guiid">GUI.ID</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolowninggui"><code>GUIControl.OwningGUI</code></a>, <a href="GUI.html#guiid"><code>GUI.ID</code></a></p>
 <hr />
 </section>
 <section id="guicontrolowninggui" class="level3">
@@ -233,7 +233,7 @@ thegui.Visible = false;
 lstSaves.OwningGUI.Visible = true;
 </code></pre>
 <p>turns off the GUI that contains the lstSaves list box, then turns it on again using the niftier full pathing approach.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolid">GUIControl.ID</a>, <a href="GUI.html#guiid">GUI.ID</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolid"><code>GUIControl.ID</code></a>, <a href="GUI.html#guiid"><code>GUI.ID</code></a></p>
 <hr />
 </section>
 <section id="guicontrolsendtoback" class="level3">
@@ -247,12 +247,12 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnBigButton.SendToBack();
 </code></pre>
 <p>will move the <em>btnBigButton</em> button to be behind all other controls on the GUI.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolbringtofront">GUIControl.BringToFront</a>, <a href="GUIControl.html#guicontrolzorder">GUIControl.ZOrder</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbringtofront"><code>GUIControl.BringToFront</code></a>, <a href="GUIControl.html#guicontrolzorder"><code>GUIControl.ZOrder</code></a></p>
 <hr />
 </section>
 <section id="guicontrolsetposition" class="level3">
 <h3><a href="#guicontrolsetposition"><code>GUIControl.SetPosition</code></a></h3>
-<p><em>(Formerly known as SetGUIObjectPosition, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIObjectPosition</code>, which is now obsolete)</em></p>
 <pre><code>GUIControl.SetPosition(int x, int y)
 </code></pre>
 <p>Moves the top-left corner of the GUI control to be at (X,Y). These co-ordinates are relative to the GUI which contains the control.</p>
@@ -263,12 +263,12 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnConfirm.SetPosition(40, 10);
 </code></pre>
 <p>will move the <em>btnConfirm</em> button to be positioned at (40,10) within the GUI.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolenabled">GUIControl.Enabled</a>, <a href="GUI.html#guisetposition">GUI.SetPosition</a>, <a href="GUIControl.html#guicontrolsetsize">GUIControl.SetSize</a>, <a href="GUIControl.html#guicontrolx">GUIControl.X</a>, <a href="GUIControl.html#guicontroly">GUIControl.Y</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a>, <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a>, <a href="GUIControl.html#guicontrolx"><code>GUIControl.X</code></a>, <a href="GUIControl.html#guicontroly"><code>GUIControl.Y</code></a></p>
 <hr />
 </section>
 <section id="guicontrolsetsize" class="level3">
 <h3><a href="#guicontrolsetsize"><code>GUIControl.SetSize</code></a></h3>
-<p><em>(Formerly known as SetGUIObjectSize, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetGUIObjectSize</code>, which is now obsolete)</em></p>
 <pre><code>GUIControl.SetSize(int width, int height)
 </code></pre>
 <p>Adjusts the specified GUI control to have the new size WIDTH x HEIGHT.</p>
@@ -279,7 +279,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>invMain.SetSize(160, 100);
 </code></pre>
 <p>will resize the <em>invMain</em> control to have a size of 160 x 100.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolheight">GUIControl.Height</a>, <a href="GUIControl.html#guicontrolsetposition">GUIControl.SetPosition</a>, <a href="GUI.html#guisetsize">GUI.SetSize</a>, <a href="GUIControl.html#guicontrolwidth">GUIControl.Width</a>,</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolheight"><code>GUIControl.Height</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUIControl.html#guicontrolwidth"><code>GUIControl.Width</code></a>,</p>
 <hr />
 </section>
 <section id="guicontrolvisible" class="level3">
@@ -294,7 +294,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnSaveGame.Visible = false;
 </code></pre>
 <p>will make the <em>btnSaveGame</em> button invisible.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolenabled">GUIControl.Enabled</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a></p>
 <hr />
 </section>
 <section id="guicontrolwidth" class="level3">
@@ -308,7 +308,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnConfirm.Width = 110;
 </code></pre>
 <p>makes the <em>btnConfirm</em> button 110 pixels wide.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolheight">GUIControl.Height</a>, <a href="GUIControl.html#guicontrolsetsize">GUIControl.SetSize</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolheight"><code>GUIControl.Height</code></a>, <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a></p>
 <hr />
 </section>
 <section id="guicontrolx" class="level3">
@@ -323,7 +323,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnConfirm.X = 10;
 </code></pre>
 <p>will move the <em>btnConfirm</em> button to be positioned 10 pixels from the left of its GUI.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolsetposition">GUIControl.SetPosition</a>, <a href="GUIControl.html#guicontroly">GUIControl.Y</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUIControl.html#guicontroly"><code>GUIControl.Y</code></a></p>
 <hr />
 </section>
 <section id="guicontroly" class="level3">
@@ -338,7 +338,7 @@ lstSaves.OwningGUI.Visible = true;
 <pre><code>btnConfirm.Y = 20;
 </code></pre>
 <p>will move the <em>btnConfirm</em> button to be positioned 20 pixels from the top of its GUI.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolsetposition">GUIControl.SetPosition</a>, <a href="GUIControl.html#guicontrolx">GUIControl.X</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUIControl.html#guicontrolx"><code>GUIControl.X</code></a></p>
 <hr />
 </section>
 <section id="guicontrolzorder" class="level3">
@@ -352,14 +352,14 @@ lstSaves.OwningGUI.Visible = true;
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUIControl.html#guicontrolbringtofront">GUIControl.BringToFront</a>, <a href="GUIControl.html#guicontrolsendtoback">GUIControl.SendToBack</a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolbringtofront"><code>GUIControl.BringToFront</code></a>, <a href="GUIControl.html#guicontrolsendtoback"><code>GUIControl.SendToBack</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:23</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

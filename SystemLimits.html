@@ -66,7 +66,12 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#system-limits"><span>System limits</span></a></li>
+<li><a href="#system-limits"><span>System limits</span></a>
+<ul>
+<li><a href="#system-restrictions"><span>System restrictions</span></a></li>
+<li><a href="#additional-considerations"><span>Additional considerations</span></a></li>
+<li><a href="#changelog-of-lifted-limits"><span>Changelog of lifted limits</span></a></li>
+</ul></li>
 </ul>
   </nav>
 
@@ -74,7 +79,8 @@
 <section id="system-limits" class="level2">
 <h2><a href="#system-limits">System limits</a></h2>
 <p>This section tells you the maximums for various parts of the system. If you have been wondering "How many rooms can I have?" or something similar, chances are this section will answer it.</p>
-<p>There are maximum...</p>
+<section id="system-restrictions" class="level3">
+<h3><a href="#system-restrictions">System restrictions</a></h3>
 <ul>
 <li>40 objects per room</li>
 <li>299 state-saving rooms per game</li>
@@ -82,7 +88,6 @@
 <li>90000 imported sprites</li>
 <li>30 options per dialog topic</li>
 <li>20 timers</li>
-<li>20 screen overlays at a time</li>
 <li>5 background frames per room</li>
 <li>20 mouse cursors</li>
 <li>8 audio channels</li>
@@ -97,8 +102,11 @@
 <li>unlimited loops per view</li>
 <li>unlimited frames per loop</li>
 <li>unlimited custom properties</li>
+<li>unlimited screen overlays at a time</li>
 </ul>
-<p>Some additional limits</p>
+</section>
+<section id="additional-considerations" class="level3">
+<h3><a href="#additional-considerations">Additional considerations</a></h3>
 <ul>
 <li><p>In AGS integers and floats are 32-bit. Integers can be from -2147483648 to +2147483647, and floats are a bit more complicated, so it's better to test them.</p></li>
 <li><p>You should be able to have up to 15 parameters to a function.</p></li>
@@ -108,11 +116,31 @@
 </ul>
 <p>We are working on removing existing limitations in the AGS, so some of the remaining restrictions might be loosened or eliminated in the following updates.</p>
 </section>
+<section id="changelog-of-lifted-limits" class="level3">
+<h3><a href="#changelog-of-lifted-limits">Changelog of lifted limits</a></h3>
+<p>AGS v3.6:</p>
+<ul>
+<li>20 screen overlays at a time lifted</li>
+</ul>
+<p>AGS v3.5</p>
+<ul>
+<li>packed sprites file (acsprset.spr) lifted from 2 GB limit</li>
+<li>Imported sprites count limit raised from 30000 to 90000</li>
+<li>Total number of sprites in game (includes both imported and Dynamic Sprites) lifted to around 2 billions of dynamic sprites</li>
+<li>Font count limit of 30 removed</li>
+<li>length limit on the Button lifted from 50 character</li>
+<li>length limit on TextBox lifted from 200 lines</li>
+<li>ListBox item count limit lifted from 200</li>
+<li>hidden limit for DoOnceOnly token length lifted from 200 characters</li>
+<li>local messages per room limit lifted from 100 (excluding script)</li>
+</ul>
+</section>
+</section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:29</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

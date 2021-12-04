@@ -89,7 +89,7 @@
 <pre><code>CyclePalette(10,200);
 </code></pre>
 <p>will cause the palette indexes from 10 to 200 cycle around one slot and give a color effect.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Screen.html#fadein"><code>FadeIn</code></a>, <a href="Globalfunctions_Screen.html#fadeout"><code>FadeOut</code></a>, <a href="Globalfunctions_Palette.html#setpalrgb"><code>SetPalRGB</code></a></p>
 <hr />
 </section>
 <section id="setpalrgb" class="level3">
@@ -103,27 +103,27 @@
 <pre><code>SetPalRGB(10,63,63,21);
 </code></pre>
 <p>will change palette slot number 10 from light green to yellow</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#cyclepalette">CyclePalette</a>, <a href="Globalfunctions_Screen.html#fadein">FadeIn</a>, <a href="Globalfunctions_Screen.html#fadeout">FadeOut</a>, <a href="Globalfunctions_Palette.html#updatepalette">UpdatePalette</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Palette.html#cyclepalette"><code>CyclePalette</code></a>, <a href="Globalfunctions_Screen.html#fadein"><code>FadeIn</code></a>, <a href="Globalfunctions_Screen.html#fadeout"><code>FadeOut</code></a>, <a href="Globalfunctions_Palette.html#updatepalette"><code>UpdatePalette</code></a></p>
 <hr />
 </section>
 <section id="updatepalette" class="level3">
 <h3><a href="#updatepalette"><code>UpdatePalette</code></a></h3>
 <pre><code>UpdatePalette()
 </code></pre>
-<p>Commits the changes you made to the game palette. The script global variable palette[] stores the state of all the colors of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
+<p>Commits the changes you made to the game palette. The script global variable <code>palette[]</code> stores the state of all the colors of the palette. You can access the red, green and blue components with .r, .g and .b. The values range from 0 to 63.</p>
 <p>Example:</p>
 <pre><code>palette[16].r = 60;
 UpdatePalette();
 </code></pre>
 <p>will make the black color turn bright red. When you actually change the variable, nothing happens. Call this function to update the screen.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Palette.html#setpalrgb">SetPalRGB</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Palette.html#setpalrgb"><code>SetPalRGB</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:19</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -100,12 +100,12 @@
 </code></pre>
 <p>will display the message if the player character is over the hPressurePlate hotspot.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Character.html#charactergetatroomxy">Character.GetAtRoomXY</a>, <a href="Object.html#objectgetatroomxy">Object.GetAtRoomXY</a>, <a href="Region.html#regiongetatroomxy">Region.GetAtRoomXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="hotspotgetatscreenxy" class="level3">
 <h3><a href="#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as global function GetHotspotAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetHotspotAt</code>, which is now obsolete)</em></p>
 <pre><code>static Hotspot* Hotspot.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Returns the hotspot at SCREEN co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
@@ -118,12 +118,12 @@ else
   Display(&quot;Mouse not on a hotspot&quot;);
 </code></pre>
 <p>will display a message depending on what the mouse is on.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgetatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Character.html#charactergetatscreenxy">Character.GetAtScreenXY</a>, <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a>, <a href="Region.html#regiongetatscreenxy">Region.GetAtScreenXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="hotspotgetproperty" class="level3">
 <h3><a href="#hotspotgetproperty"><code>Hotspot.GetProperty</code></a></h3>
-<p><em>(Formerly known as GetHotspotProperty, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetHotspotProperty</code>, which is now obsolete)</em></p>
 <pre><code>Hotspot.GetProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
@@ -134,12 +134,12 @@ else
   Display(&quot;Hotspot 1&#39;s value is over 200!&quot;);
 </code></pre>
 <p>will print the message if hotspot 1 has its "Value" property set to more than 200.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgettextproperty">Hotspot.GetTextProperty</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgettextproperty"><code>Hotspot.GetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="hotspotgettextproperty" class="level3">
 <h3><a href="#hotspotgettextproperty"><code>Hotspot.GetTextProperty</code></a></h3>
-<p><em>(Formerly known as GetHotspotPropertyText, which is now obsolete)</em><br> <em>(Formerly known as Hotspot.GetPropertyText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetHotspotPropertyText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetPropertyText</code>, which is now obsolete)</em></p>
 <pre><code>String Hotspot.GetTextProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
@@ -150,7 +150,7 @@ else
 Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will retrieve hotspot 2's "description" property and display it.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgetproperty">Hotspot.GetProperty</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetproperty"><code>Hotspot.GetProperty</code></a></p>
 <hr />
 </section>
 <section id="hotspotsetproperty" class="level3">
@@ -165,7 +165,7 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change Door hotspot's "LockDifficulty" custom property to 5.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotsettextproperty">Hotspot.SetTextProperty</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotsettextproperty"><code>Hotspot.SetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="hotspotsettextproperty" class="level3">
@@ -180,7 +180,7 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change Door's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotsetproperty">Hotspot.SetProperty</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotsetproperty"><code>Hotspot.SetProperty</code></a></p>
 <hr />
 </section>
 <section id="hotspotisinteractionavailable" class="level3">
@@ -194,12 +194,12 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
   Display(&quot;looking on this table would not do anything.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Hotspot.html#hotspotruninteraction">Hotspot.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="hotspotruninteraction" class="level3">
 <h3><a href="#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></h3>
-<p><em>(Formerly known as RunHotspotInteraction, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RunHotspotInteraction</code>, which is now obsolete)</em></p>
 <pre><code>Hotspot.RunInteraction(CursorMode)
 </code></pre>
 <p>Processes the event handler as if the player had clicked the mouse on the hotspot using the specified cursor mode.</p>
@@ -207,12 +207,12 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 <pre><code>hDoor.RunInteraction(eModeLookat);
 </code></pre>
 <p>will run the code defined in the "LOOK AT HOTSPOT" event for hotspot hDoor.</p>
-<p><em>See Also:</em> <a href="Room.html#roomprocessclick">Room.ProcessClick</a>, <a href="Hotspot.html#hotspotisinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Character.html#characterruninteraction">Character.RunInteraction</a>, <a href="Object.html#objectruninteraction">Object.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="hotspotenabled" class="level3">
 <h3><a href="#hotspotenabled"><code>Hotspot.Enabled</code></a></h3>
-<p><em>(Formerly known as DisableHotspot, which is now obsolete)</em><br> <em>(Formerly known as EnableHotspot, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DisableHotspot</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>EnableHotspot</code>, which is now obsolete)</em></p>
 <pre><code>bool Hotspot.Enabled
 </code></pre>
 <p>Enables/disables the specified hotspot. If you set this to false, then all areas of the screen that were previously made up of the hotspot now act as type 0 (no hotspot). You can turn the hotspot back on later by setting this back to true.</p>
@@ -222,7 +222,7 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 <pre><code>hBrownTree.Enabled = false;
 </code></pre>
 <p>will disable the hBrownTree hotspot.</p>
-<p><em>See Also:</em> <a href="Region.html#regionenabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<p><em>See also:</em> <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
 <section id="hotspotid" class="level3">
@@ -235,12 +235,12 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 </code></pre>
 <p>displays hDoor's hotspot number, and then displays hotspot 3's number (which will be 3).</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="hotspotname" class="level3">
 <h3><a href="#hotspotname"><code>Hotspot.Name</code></a></h3>
-<p><em>(Formerly known as GetHotspotName, which is now obsolete)</em><br> <em>(Formerly known as Hotspot.GetName, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetHotspotName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetName</code>, which is now obsolete)</em></p>
 <pre><code>readonly String Hotspot.Name;
 </code></pre>
 <p>Gets the name of the hotspot.</p>
@@ -249,12 +249,12 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <pre><code>Display(&quot;Hotspot 3&#39;s name is %s.&quot;, hotspot[3].Name);
 </code></pre>
 <p>will retrieve and then display hotspot 3's name.</p>
-<p><em>See Also:</em> <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
 <section id="hotspotwalktox" class="level3">
 <h3><a href="#hotspotwalktox"><code>Hotspot.WalkToX</code></a></h3>
-<p><em>(Formerly known as GetHotspotPointX, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetHotspotPointX</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Hotspot.WalkToX
 </code></pre>
 <p>Gets the X room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
@@ -262,12 +262,12 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
 </code></pre>
 <p>will move the character to hotspot hTable's walk-to point.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotwalktoy">Hotspot.WalkToY</a>, <a href="Globalfunctions_General.html#movecharactertohotspot">MoveCharacterToHotspot</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotwalktoy"><code>Hotspot.WalkToY</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 <hr />
 </section>
 <section id="hotspotwalktoy" class="level3">
 <h3><a href="#hotspotwalktoy"><code>Hotspot.WalkToY</code></a></h3>
-<p><em>(Formerly known as GetHotspotPointY, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetHotspotPointY</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Hotspot.WalkToY
 </code></pre>
 <p>Gets the Y room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
@@ -275,14 +275,14 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
 </code></pre>
 <p>will move the character to hotspot hTable's walk-to point.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotwalktox">Hotspot.WalkToX</a>, <a href="Globalfunctions_General.html#movecharactertohotspot">MoveCharacterToHotspot</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:20</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

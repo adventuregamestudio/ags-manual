@@ -140,7 +140,7 @@
 </tr>
 <tr class="odd">
 <td>MAX_LISTBOX_SAVED_GAMES</td>
-<td>Limit of save files filled into ListBox when using <a href="ListBox.html#listboxfillsavegamelist">FillSaveGameList</a></td>
+<td>Limit of save files filled into ListBox when using <a href="ListBox.html#listboxfillsavegamelist"><code>FillSaveGameList</code></a></td>
 </tr>
 <tr class="even">
 <td>PALETTE_SIZE</td>
@@ -163,16 +163,26 @@
 #error This script requires at least AGS 2.71
 #endif
 </code></pre>
+<p>If you'd like to know if a new API is available, test for the corresponding SCRIPT_API_vXXX constant:</p>
+<pre><code>#ifdef SCRIPT_API_v360
+// can use new code added in 3.6.0
+#endif
+</code></pre>
+<p>If on contrary you need to know if a deprecated API is enabled, test for the corresponding SCRIPT_COMPAT_vXXX constant:</p>
+<pre><code>#ifdef SCRIPT_COMPAT_v320
+// can use old code, deprecated after 3.2.0
+#endif
+</code></pre>
 <p>The other constants <code>AGS_MAX_*</code> are useful if you are writing some script code that you want to be portable to different versions of AGS, and to pick up the limits from the user's AGS version. For example, if you wanted to store some extra information on all the inventory items, you could do:</p>
 <pre><code>int invWeights[AGS_MAX_INV_ITEMS];
 </code></pre>
-<p>To get the actual number of things in the game rather than the AGS limit, use the <a href="Game.html#gamecharactercount">Game.CharacterCount</a>-style properties.</p>
+<p>To get the actual number of things in the game rather than the AGS limit, use the <a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a>-style properties.</p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:21</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

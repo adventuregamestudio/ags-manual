@@ -85,7 +85,7 @@
 <p><strong>NOTE:</strong> Room and Dialog scripts can use functions and variables from all the regular script modules, but not from other rooms or dialogs.</p>
 <section id="exporting-and-importing-a-function" class="level3">
 <h3><a href="#exporting-and-importing-a-function">Exporting and importing a function</a></h3>
-<p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import">import</a> keyword somewhere where script B can "see" it. The best practice is to place them in script A's header.</p>
+<p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import"><code>import</code></a> keyword somewhere where script B can "see" it. The best practice is to place them in script A's header.</p>
 <p>For example, suppose you have the following function in script A:</p>
 <pre><code>function ScriptAFunction(int param1, int param2)
 {
@@ -99,7 +99,7 @@
 </section>
 <section id="exporting-and-importing-a-variable" class="level3">
 <h3><a href="#exporting-and-importing-a-variable">Exporting and importing a variable</a></h3>
-<p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using the <a href="ScriptKeywords.html#export">export</a> keyword.</p>
+<p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using the <a href="ScriptKeywords.html#export"><code>export</code></a> keyword.</p>
 <p>Suppose you have the following variable declaration inside script A:</p>
 <pre><code>int public_variable;
 </code></pre>
@@ -110,7 +110,12 @@
 <p>Then declare the variable's import for other scripts to see, presumably <em>in the script A header</em>:</p>
 <pre><code>import int public_variable;
 </code></pre>
-<p>Both the name and type must match the variable's own declaration exactly.<br> This bit is important. If the variable is <code>int</code> it should be imported as <code>int</code>, if it's of the type <code>Character*</code> then the import should also be declared as <code>Character*</code>.<br> Imported arrays must have the correct size, for example if you have <code>int arr[10];</code> then the import declaration must be <code>import int arr[10];</code>, otherwise there will be errors. You can declare the import of several variables <em>of the same type</em> in one statement if you separate them by commas:</p>
+<p>Both the name and type must match the variable's own declaration exactly.<br> This bit is important. If the variable is <code>int</code> it should be imported as <code>int</code>, if it's of the type <code>Character*</code> then the import should also be declared as <code>Character*</code>.</p>
+<p>Imported arrays must have the correct size, for example if you have <code>int arr[10];</code> then the import declaration must be:</p>
+<pre><code>import int arr[10];
+</code></pre>
+<p>(NOTE: the export command still requires its name <em>only</em>: <code>export arr;</code>)</p>
+<p>You can declare the import of several variables <em>of the same type</em> in one statement if you separate them by commas:</p>
 <pre><code>import int var1, var2;
 </code></pre>
 <p>Most commonly import declarations are put in the header of the same script where these variables are defined. But in theory you may not do that and instead place imports inside each particular script where you intend to use these variables.</p>
@@ -127,14 +132,14 @@ import String public_str;
 </code></pre>
 <p>To sum this up, the import declaration lets other scripts see this variable, and the export command actually connects existing variables to that declaration.</p>
 <p><strong>NOTE:</strong> The AGS Editor has a special menu called "Global Variables" meant for easier creation of public variables which could are accessible everywhere. This may be a better alternative for beginners, as it takes care of all this import/export managing behind the scenes.</p>
-<p>See Also: <a href="ScriptKeywords.html#import">import keyword</a>, <a href="ScriptKeywords.html#export">export keyword</a></p>
+<p><em>See also:</em> <a href="ScriptKeywords.html#import">import keyword</a>, <a href="ScriptKeywords.html#export">export keyword</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:18</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

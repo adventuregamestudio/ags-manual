@@ -76,7 +76,7 @@
 <p>If you're working on a fairly large game, you'll find that your global script can quickly become rather large and unwieldy. AGS allows you to create extra scripts (also known as Script Modules) in order to split up your code and easily import scripts written by other people.</p>
 <p>The main global script still has to contain all the event functions (Look At Character scripts, Interact With Inventory scripts and so forth) and all the GUI handlers (btnSave_Click, etc).</p>
 <p>But if you have any custom functions then you can put them in a separate script in order to divide up your code. Scripts have the added advantage that they can be easily exported and imported, if you want to share some of your code with other people, or even just move it from one game to another.</p>
-<p>The scripts for the game can be seen under the "Scripts" node in the project tree. Each script has its own header, which is where you place the <a href="ScriptKeywords.html#import">import</a> definitions for that script to allow the rest of your game to access its functionality.</p>
+<p>The scripts for the game can be seen under the "Scripts" node in the project tree. Each script has its own header, which is where you place the <a href="ScriptKeywords.html#import"><code>import</code></a> definitions for that script to allow the rest of your game to access its functionality.</p>
 <p>The order of the scripts is important. A script can only use functionality from other scripts that come before it in the list, so the Move Up and Move Down options allow you to adjust the order. The global script is always at the bottom so that it can access all other scripts, and room scripts are automatically provided with access to all the scripts.</p>
 <p>As an example, suppose you want to have a special <em>AddNumbers</em> function in a module. You'd create a new script, then put this in its header file (.ASH):</p>
 <pre><code>import function AddNumbers(int a, int b);
@@ -99,14 +99,14 @@
 <li>function late_repeatedly_execute_always()</li>
 </ul>
 <p>All other special functions, such as <code>dialog_request</code>, will only be called in the Global Script, even if they exist in another script. If you need other scripts to handle any of this functionality, you can simply create a custom function in the script and then call it from the global script.</p>
-<p>The <a href="Globalfunctions_General.html#claimevent">ClaimEvent</a> command is supported for on_key_press, on_mouse_click and on_event. Calling it prevents the rest of the scripts (including the global script) from being called.</p>
-<p>See Also: <a href="ImportingFunctionsAndVariables.html">Importing functions and variables in other scripts</a></p>
+<p>The <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> command is supported for on_key_press, on_mouse_click and on_event. Calling it prevents the rest of the scripts (including the global script) from being called.</p>
+<p><em>See also:</em> <a href="ImportingFunctionsAndVariables.html">Importing functions and variables in other scripts</a></p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:29</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

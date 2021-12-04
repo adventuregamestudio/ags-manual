@@ -86,12 +86,12 @@
 <h2><a href="#set-functions-and-properties"><code>Set</code> Functions and Properties</a></h2>
 <p>A Set allows you to store a sequence of unique strings and look them up efficiently. When adding a string a Set will automatically test whether such string is already contained and won't make a duplicate.</p>
 <p>Because of how a Set work internally, searching for a string in a Set is faster than searching for it in a plain array. Its advantage increases with the number of items. They are also fast in adding and removing items dynamically.</p>
-<p>Similar to <a href="Dictionary.html">Dictionary</a>, Set has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
+<p>Similar to <a href="Dictionary.html"><code>Dictionary</code></a>, Set has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
 <p><strong>Sort style</strong> defines whether items are stored sorted or unsorted. The unsorted containers are typically faster to search in, but the items will be stored in an undefined order.</p>
 <p><strong>Compare style</strong> determines whether strings are compared as case sensitive or case insensitive. For example, in a case-sensitive Set the strings "Parameter" and "parameter" will be seen as two different items, but in a case-insensitive Set they will be seen as identical. Compare style defines both string uniqueness and sorting.</p>
-<p>At the moment a Set does not let you directly access all of its internal data at once, but it does have the <a href="Set.html#setgetitemsasarray">GetItemsAsArray</a> function that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in this array will be match the order within the Set, hence if the Set was sorted the array will be sorted as well.</p>
+<p>At the moment a Set does not let you directly access all of its internal data at once, but it does have the <a href="Set.html#setgetitemsasarray"><code>GetItemsAsArray</code></a> function that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in this array will be match the order within the Set, hence if the Set was sorted the array will be sorted as well.</p>
 <p><em>Compatibility:</em> Set struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Dictionary.html">Dictionary</a></p>
+<p><em>See also:</em> <a href="Dictionary.html"><code>Dictionary</code></a></p>
 <hr />
 <section id="setcreate" class="level3">
 <h3><a href="#setcreate"><code>Set.Create</code></a></h3>
@@ -112,7 +112,7 @@
 <pre><code>mySet.Add(&quot;item1&quot;);
 bool wasAdded = mySet.Add(&quot;item1&quot;); // wasAdded will be false
 </code></pre>
-<p><em>See Also:</em> <a href="Set.html#setcontains">Contains</a>, <a href="Set.html#setremove">Remove</a></p>
+<p><em>See also:</em> <a href="Set.html#setcontains"><code>Contains</code></a>, <a href="Set.html#setremove"><code>Remove</code></a></p>
 <hr />
 </section>
 <section id="setclear" class="level3">
@@ -134,7 +134,7 @@ if (mySet.Contains(&quot;test&quot;)) {
   Display(&quot;Test passed!&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Set.html#setadd">Add</a>, <a href="Set.html#setremove">Remove</a></p>
+<p><em>See also:</em> <a href="Set.html#setadd"><code>Add</code></a>, <a href="Set.html#setremove"><code>Remove</code></a></p>
 <hr />
 </section>
 <section id="setgetitemsasarray" class="level3">
@@ -152,7 +152,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
   Display(&quot;#%d: %s&quot;, i, items[i]);
 </code></pre>
 <p>In the above example the items will be displayed on screen one by one, preceded by their index.</p>
-<p><em>See Also:</em> <a href="Set.html#setitemcount">Set.ItemCount</a></p>
+<p><em>See also:</em> <a href="Set.html#setitemcount"><code>Set.ItemCount</code></a></p>
 <hr />
 </section>
 <section id="setremove" class="level3">
@@ -160,7 +160,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <pre><code>bool Set.Remove(String item)
 </code></pre>
 <p>Removes an item from the Set. Returns false if there was no such item, otherwise returns true.</p>
-<p><em>See Also:</em> <a href="Set.html#setadd">Add</a>, <a href="Set.html#setcontains">Contains</a></p>
+<p><em>See also:</em> <a href="Set.html#setadd"><code>Add</code></a>, <a href="Set.html#setcontains"><code>Contains</code></a></p>
 <hr />
 </section>
 <section id="setcomparestyle" class="level3">
@@ -168,7 +168,7 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <pre><code>StringCompareStyle Set.CompareStyle
 </code></pre>
 <p>Returns the string comparison method for this Set.</p>
-<p><em>See Also:</em> <a href="Set.html#setsortstyle">SortStyle</a></p>
+<p><em>See also:</em> <a href="Set.html#setsortstyle"><code>SortStyle</code></a></p>
 <hr />
 </section>
 <section id="setitemcount" class="level3">
@@ -183,14 +183,14 @@ for (int i = 0; i &lt; mySet.ItemCount; i++)
 <pre><code>SortStyle Set.SortStyle
 </code></pre>
 <p>Returns the sorting method for this Set.</p>
-<p><em>See Also:</em> <a href="Set.html#setcomparestyle">CompareStyle</a></p>
+<p><em>See also:</em> <a href="Set.html#setcomparestyle"><code>CompareStyle</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:25</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

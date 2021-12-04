@@ -173,7 +173,7 @@ health[player.ID] = 10;
 </code></pre>
 <p>this sets Health 3 to 50, Health 4 to 100, and the Health index that corresponds to the player character's ID number to 10.<br />
 You need to do this inside a function.</p>
-<p>See Also: <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
+<p><em>See also:</em> <a href="DynamicArrays.html">Dynamic arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
 <hr />
 </section>
 <section id="operators" class="level3">
@@ -306,7 +306,7 @@ You need to do this inside a function.</p>
 </code></pre>
 <p>Note that this ability was only added in 2.72, so you cannot use the <code>#ifver</code> checks if you want your module to work with earlier versions than this.</p>
 <p><strong>NOTE:</strong> We recommend to not rely on editor version in most cases, and use <a href="Constants.html">Script API version macros</a> instead whenever possible.</p>
-<p><em>See also</em>: <a href="Preprocessor.html#ifver-ifnver">Preprocessor</a></p>
+<p><em>See also:</em> <a href="Preprocessor.html#ifver-ifnver">Preprocessor</a></p>
 <hr />
 </section>
 <section id="if-else-statements" class="level3">
@@ -405,7 +405,7 @@ else {
 <section id="dowhile" class="level3">
 <h3><a href="#dowhile">do..while</a></h3>
 <p><strong>do</strong> <code>{</code><br> <em>statements</em><br> <code>}</code> <strong>while (</strong> <em>expression</em> <strong>);</strong></p>
-<p>Similarly to <a href="ScriptKeywords.html#while">while</a> runs <em>statements</em> continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it checks the expression AFTER executing statements, not before. This also means that the statements will be executed at least once.</p>
+<p>Similarly to <a href="ScriptKeywords.html#while"><code>while</code></a> runs <em>statements</em> continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it checks the expression AFTER executing statements, not before. This also means that the statements will be executed at least once.</p>
 <p>For example:</p>
 <pre><code>do
 {
@@ -420,7 +420,7 @@ while (IsKeyPressed(eKeyRightArrow));
 <h3><a href="#for">for</a></h3>
 <p><strong>for (</strong> [<em>initialization</em>]<strong>;</strong> [<em>expression</em>]<strong>;</strong> [<em>iteration</em>] <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
 <p>This loop command first performs <em>initialization</em> statements, then runs <em>statements</em> inside curved brackets continuously. Each time before executing these statements it checks whether <em>expression</em> is true, and if not - ends the loop. Each time after statements were executed it additionally runs <em>iteration</em> statements.</p>
-<p><em>Initialization</em> is commonly used to declare variables or setting up existing variable values. If a new variable is declared in <em>initialization</em> - such variable will exist and may be used only inside the loop. <em>Iteration</em> step is usually meant to "move" to the next step, by changing some variable value. Every part of the command header - <em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may be <strong>for</strong> command without initialization, or without iteration, or even without conditional expression (in which case loop should be ended with either <a href="ScriptKeywords.html#break">break</a> or <a href="ScriptKeywords.html#return">return</a>.</p>
+<p><em>Initialization</em> is commonly used to declare variables or setting up existing variable values. If a new variable is declared in <em>initialization</em> - such variable will exist and may be used only inside the loop. <em>Iteration</em> step is usually meant to "move" to the next step, by changing some variable value. Every part of the command header - <em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may be <strong>for</strong> command without initialization, or without iteration, or even without conditional expression (in which case loop should be ended with either <a href="ScriptKeywords.html#break"><code>break</code></a> or <a href="ScriptKeywords.html#return"><code>return</code></a>.</p>
 <p>For example:</p>
 <pre><code>for (int i = 0; i &lt; Game.CharacterCount; i++)
 {
@@ -440,7 +440,7 @@ while (IsKeyPressed(eKeyRightArrow));
 <section id="break" class="level3">
 <h3><a href="#break">break</a></h3>
 <p><strong>break</strong>;</p>
-<p><code>break</code> statement ends the execution of most inner loop or <a href="ScriptKeywords.html#switch-case-statements">switch</a> immediately. After this script continues running from the next line after loop or switch.</p>
+<p><code>break</code> statement ends the execution of most inner loop or <a href="ScriptKeywords.html#switch-case-statements"><code>switch</code></a> immediately. After this script continues running from the next line after loop or switch.</p>
 <p>For example:</p>
 <pre><code>while (cEgo.Moving) {
   if (IsKeyPressed(eKeyEscape))
@@ -455,7 +455,7 @@ while (IsKeyPressed(eKeyRightArrow));
 <section id="continue" class="level3">
 <h3><a href="#continue">continue</a></h3>
 <p><strong>continue</strong>;</p>
-<p><code>continue</code> statement makes the loop skip remaining statements in current iteration and proceed to the next end-condition check, followed by the loop restart, if condition is still met, or loop end. If in <a href="ScriptKeywords.html#for">for</a> kind of loop, the <em>iteration</em> statement is executed right before that.</p>
+<p><code>continue</code> statement makes the loop skip remaining statements in current iteration and proceed to the next end-condition check, followed by the loop restart, if condition is still met, or loop end. If in <a href="ScriptKeywords.html#for"><code>for</code></a> kind of loop, the <em>iteration</em> statement is executed right before that.</p>
 <p>For example:</p>
 <pre><code>for (int i = 0; i &lt; 100; i++)
 {
@@ -484,7 +484,7 @@ while (IsKeyPressed(eKeyRightArrow));
 <pre><code>AddInvAndPlaySound(iKey);
 </code></pre>
 <p>to add inventory item <em>iKey</em> and play the sound.</p>
-<p>Generally, you place your functions in your global script. You then need to add an <a href="ScriptKeywords.html#import">import</a> line to your script header to allow the function to be called from room scripts.</p>
+<p>Generally, you place your functions in your global script. You then need to add an <a href="ScriptKeywords.html#import"><code>import</code></a> line to your script header to allow the function to be called from room scripts.</p>
 <p><strong>Optional parameters</strong></p>
 <p>You can make <em>int</em> parameters optional if there is a default value that the user doesn't need to supply. To do this, change the script header <em>import</em> declaration like this:</p>
 <pre><code>import function TestFunction(int stuff, int things = 5);
@@ -566,7 +566,7 @@ weapons[1].name = &quot;Poison dagger&quot;;
 <pre><code>Apple* my_apple;
 </code></pre>
 <p>This creates a pointer variable <code>my_apple</code> of managed type <code>Apple</code>.</p>
-<p>However, this does <strong>not</strong> create an object itself yet, and <code>my_apple</code> is assigned <strong>null</strong> value now. If you try to access struct members using <code>my_apple</code> now, you will get errors. To create an actual object you need to use a <a href="ScriptKeywords.html#new">new</a> keyword:</p>
+<p>However, this does <strong>not</strong> create an object itself yet, and <code>my_apple</code> is assigned <strong>null</strong> value now. If you try to access struct members using <code>my_apple</code> now, you will get errors. To create an actual object you need to use a <a href="ScriptKeywords.html#new"><code>new</code></a> keyword:</p>
 <pre><code>my_apple = new Apple;
 </code></pre>
 <p>The object is now created in the dynamic memory pool, and variable <code>my_apple</code> <strong>points</strong> to it. This lets us access object contents:</p>
@@ -598,7 +598,7 @@ my_apple.freshness = 100;
 <pre><code>Apple *my_apple = CreateYellowApple(50);
 </code></pre>
 <p><strong>When does the dynamic object gets destroyed?</strong> After you created dynamic object as described above, it will exist in memory as long as <em>there is at least one pointer variable pointing to it</em>. As soon as the last pointer gets destroyed itself (for example, if it was local function variable, and function ended), or is assigned another object, or simply assigned <code>null</code>, then the dynamic object is removed from your game forever.</p>
-<p>See Also: <a href="ScriptKeywords.html#new">new</a>, <a href="Pointers.html">Pointers in AGS</a></p>
+<p><em>See also:</em> <a href="ScriptKeywords.html#new"><code>new</code></a>, <a href="Pointers.html">Pointers in AGS</a></p>
 <hr />
 </section>
 <section id="new" class="level3">
@@ -622,7 +622,7 @@ function game_start()
   SomeApple = new Apple;
 }
 </code></pre>
-<p>See Also: <a href="ScriptKeywords.html#managed">managed</a>, <a href="Pointers.html">Pointers in AGS</a></p>
+<p><em>See also:</em> <a href="ScriptKeywords.html#managed"><code>managed</code></a>, <a href="Pointers.html">Pointers in AGS</a></p>
 <hr />
 </section>
 <section id="enum" class="level3">
@@ -712,7 +712,7 @@ import function add_numbers (int, int);
 <section id="export" class="level3">
 <h3><a href="#export">export</a></h3>
 <p><strong>export</strong> <em>variable</em> [, <em>variable</em> ... ] ;</p>
-<p>Declares that <em>variable</em> is exported and is available to access in other scripts, if declared using the <a href="ScriptKeywords.html#import">import</a> keyword in those scripts.</p>
+<p>Declares that <em>variable</em> is exported and is available to access in other scripts, if declared using the <a href="ScriptKeywords.html#import"><code>import</code></a> keyword in those scripts.</p>
 <p>For example:</p>
 <pre><code>export my_variable;
 export counter, strength;
@@ -733,7 +733,7 @@ readonly int months = 12;
 <section id="writeprotected" class="level3">
 <h3><a href="#writeprotected">writeprotected</a></h3>
 <p><strong>writeprotected</strong> <em>data_type</em> <em>struct_member</em>;</p>
-<p>The <em>writeprotected</em> keyword is used to define a property within a struct, which can only be modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this">this</a> keyword. Reading the value is not restricted.</p>
+<p>The <em>writeprotected</em> keyword is used to define a property within a struct, which can only be modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this"><code>this</code></a> keyword. Reading the value is not restricted.</p>
 <p>For example:</p>
 <pre><code>struct Weapon
 {
@@ -746,7 +746,7 @@ readonly int months = 12;
 <section id="protected" class="level3">
 <h3><a href="#protected">protected</a></h3>
 <p><strong>protected</strong> <em>data_type</em> <em>struct_member</em>;</p>
-<p>The <em>protected</em> keyword is used to define a property within a struct, which can only be accessed or modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this">this</a> keyword.</p>
+<p>The <em>protected</em> keyword is used to define a property within a struct, which can only be accessed or modified by struct members (including extender functions) using the <a href="ScriptKeywords.html#this"><code>this</code></a> keyword.</p>
 <p>For example:</p>
 <pre><code>struct Weapon
 {
@@ -760,7 +760,7 @@ readonly int months = 12;
 <h3><a href="#noloopcheck">noloopcheck</a></h3>
 <p>function <strong>noloopcheck</strong> <em>function_name</em> ( <em>parameters ...</em> ) <code>{</code></p>
 <p>The noloopcheck keyword disables the script loop checking for the current function.</p>
-<p>Normally, if a <a href="ScriptKeywords.html#dowhile">while</a> loop runs for more than 150,000 loops, AGS will assume that the script has hung and abort the game. This is to assist scripting since otherwise the game would lock up if you scripted a loop wrongly.</p>
+<p>Normally, if a <a href="ScriptKeywords.html#dowhile"><code>while</code></a> loop runs for more than 150,000 loops, AGS will assume that the script has hung and abort the game. This is to assist scripting since otherwise the game would lock up if you scripted a loop wrongly.</p>
 <p>However, there are some rare situations in which you need a loop to run several thousand times (for example, when initializing a very large array). In this case, the <em>noloopcheck</em> keyword can be used to stop AGS aborting your script.</p>
 <p><strong>NOTE:</strong> The <em>noloopcheck</em> keyword must be placed between "function" and the function's name.<br> If you import the function into the script header, you <strong>do not</strong> include the "noloopcheck" keyword in the import declaration -- it is only included in the actual function body.</p>
 <p><strong>NOTE:</strong> If AGS gives you a script iterations error, <strong>DO NOT</strong> just automatically add this keyword as a way to fix the problem -- more often than not, it is a fault in your scripting and using this keyword will mean that the game will hang rather than abort.</p>
@@ -781,7 +781,7 @@ readonly int months = 12;
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:26</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

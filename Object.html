@@ -123,7 +123,7 @@
 <h2><a href="#object-functions-and-properties"><code>Object</code> functions and properties</a></h2>
 <section id="objectanimate" class="level3">
 <h3><a href="#objectanimate"><code>Object.Animate</code></a></h3>
-<p><em>(Formerly known as AnimateObject, which is now obsolete)</em><br> <em>(Formerly known as AnimateObjectEx, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AnimateObject</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>AnimateObjectEx</code>, which is now obsolete)</em></p>
 <pre><code>Object.Animate(int loop, int delay, optional RepeatStyle,
                optional BlockingStyle, optional Direction, optional int frame)
 </code></pre>
@@ -139,7 +139,7 @@ object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
 </code></pre>
 <p>will animate object 0 using loop 2 of its current view, at speed 5, and play the animation once only. This happens in the background. Then, object 1 will animate backwards using loop 1 of its current view, at speed 3. The function won't return until the animation is finished.</p>
 <p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimate">Button.Animate</a>, <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Object.html#objectanimating">Object.Animating</a>, <a href="Object.html#objectsetview">Object.SetView</a>, <a href="Object.html#objectstopanimating">Object.StopAnimating</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectsetview"><code>Object.SetView</code></a>, <a href="Object.html#objectstopanimating"><code>Object.StopAnimating</code></a></p>
 <hr />
 </section>
 <section id="objectgetatroomxy" class="level3">
@@ -154,12 +154,12 @@ object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
 </code></pre>
 <p>will display the message if the object oBullet is over the object oWall.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a>, <a href="Character.html#charactergetatroomxy">Character.GetAtRoomXY</a>, <a href="Hotspot.html#hotspotgetatroomxy">Hotspot.GetAtRoomXY</a>, <a href="Region.html#regiongetatroomxy">Region.GetAtRoomXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="objectgetatscreenxy" class="level3">
 <h3><a href="#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as global function GetObjectAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetObjectAt</code>, which is now obsolete)</em></p>
 <pre><code>static Object* Object.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Checks if there is a room object at SCREEN co-ordinates (X,Y). Returns the object if there is, or <em>null</em> if there is not.</p>
@@ -170,12 +170,12 @@ object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
 }
 </code></pre>
 <p>will display the message if there is the object oRock under the mouse cursor.</p>
-<p><em>See Also:</em> <a href="Object.html#objectgetatroomxy">Object.GetAtRoomXY</a>, <a href="Character.html#charactergetatscreenxy">Character.GetAtScreenXY</a>, <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Region.html#regiongetatscreenxy">Region.GetAtScreenXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a>, <a href="Globalfunctions_General.html#getlocationtype">GetLocationType</a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="objectgetproperty" class="level3">
 <h3><a href="#objectgetproperty"><code>Object.GetProperty</code></a></h3>
-<p><em>(Formerly known as GetObjectProperty, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectProperty</code>, which is now obsolete)</em></p>
 <pre><code>Object.GetProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the specified object.</p>
@@ -186,12 +186,12 @@ object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
   Display(&quot;Object 0&#39;s value is over 200!&quot;);
 </code></pre>
 <p>will print the message if object 0 has its "Value" property set to more than 200.</p>
-<p><em>See Also:</em> <a href="Object.html#objectgettextproperty">Object.GetTextProperty</a></p>
+<p><em>See also:</em> <a href="Object.html#objectgettextproperty"><code>Object.GetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="objectgettextproperty" class="level3">
 <h3><a href="#objectgettextproperty"><code>Object.GetTextProperty</code></a></h3>
-<p><em>(Formerly known as GetObjectPropertyText, which is now obsolete)</em><br> <em>(Formerly known as Object.GetPropertyText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectPropertyText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Object.GetPropertyText</code>, which is now obsolete)</em></p>
 <pre><code>String Object.GetTextProperty(string property)
 </code></pre>
 <p>Returns the custom property setting of the PROPERTY for the specified object.</p>
@@ -202,7 +202,7 @@ object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
 Display(&quot;Object 0&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will retrieve Object 0's "description" property then display it.</p>
-<p><em>See Also:</em> <a href="Object.html#objectgetproperty">Object.GetProperty</a></p>
+<p><em>See also:</em> <a href="Object.html#objectgetproperty"><code>Object.GetProperty</code></a></p>
 <hr />
 </section>
 <section id="objectsetproperty" class="level3">
@@ -217,7 +217,7 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change Table's "ItemCapacity" custom property to 5.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objectsettextproperty">Object.SetTextProperty</a></p>
+<p><em>See also:</em> <a href="Object.html#objectsettextproperty"><code>Object.SetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="objectsettextproperty" class="level3">
@@ -232,12 +232,12 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change table's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objectsetproperty">Object.SetProperty</a></p>
+<p><em>See also:</em> <a href="Object.html#objectsetproperty"><code>Object.SetProperty</code></a></p>
 <hr />
 </section>
 <section id="objectiscollidingwithobject" class="level3">
 <h3><a href="#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a></h3>
-<p><em>(Formerly known as AreObjectsColliding, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AreObjectsColliding</code>, which is now obsolete)</em></p>
 <pre><code>bool Object.IsCollidingWithObject(Object* obj2)
 </code></pre>
 <p>Checks if the specified object and OBJ2 are touching each other. Returns <em>true</em> if they are, and <em>false</em> if they are not.</p>
@@ -249,7 +249,7 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 }
 </code></pre>
 <p>will display the message if the objects 2 and 3 are colliding.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
 </section>
 <section id="objectisinteractionavailable" class="level3">
@@ -263,12 +263,12 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
   Display(&quot;interacting with this door would not do anything.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="Object.html#objectruninteraction">Object.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="objectmergeintobackground" class="level3">
 <h3><a href="#objectmergeintobackground"><code>Object.MergeIntoBackground</code></a></h3>
-<p><em>(Formerly known as MergeObject, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MergeObject</code>, which is now obsolete)</em></p>
 <pre><code>Object.MergeIntoBackground()
 </code></pre>
 <p>Merges the object into the background scene for this room. By doing this, the object becomes part of the background and so does not slow the game down. This is a 1-way operation - once the object has been merged, it cannot be changed back and the state of the room is permanently altered. Therefore you should only use this function if a game event has occurred that means the room is permanently changed.</p>
@@ -282,7 +282,7 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 </section>
 <section id="objectmove" class="level3">
 <h3><a href="#objectmove"><code>Object.Move</code></a></h3>
-<p><em>(Formerly known as MoveObject, which is now obsolete)</em><br> <em>(Formerly known as MoveObjectDirect, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>MoveObject</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>MoveObjectDirect</code>, which is now obsolete)</em></p>
 <pre><code>Object.Move(int x, int y, int speed, optional BlockingStyle,
             optional WalkWhere);
 </code></pre>
@@ -295,12 +295,12 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 <pre><code>object[2].Move(125, 40, 4, eBlock);
 </code></pre>
 <p>will move object 2 to 125,40 and return control to the player when the object gets there.</p>
-<p><em>See Also:</em> <a href="Object.html#objectmoving">Object.Moving</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Object.html#objectstopmoving">Object.StopMoving</a></p>
+<p><em>See also:</em> <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="objectremovetint" class="level3">
 <h3><a href="#objectremovetint"><code>Object.RemoveTint</code></a></h3>
-<p><em>(Formerly known as RemoveObjectTint, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RemoveObjectTint</code>, which is now obsolete)</em></p>
 <pre><code>Object.RemoveTint()
 </code></pre>
 <p>Undoes the effects of calling Tint, and returns the object to using the room's ambient tint.</p>
@@ -310,12 +310,12 @@ Wait(40);
 object[1].RemoveTint();
 </code></pre>
 <p>will tint object 1 green for a second, then turn it back to normal.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a></p>
 <hr />
 </section>
 <section id="objectruninteraction" class="level3">
 <h3><a href="#objectruninteraction"><code>Object.RunInteraction</code></a></h3>
-<p><em>(Formerly known as RunObjectInteraction, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RunObjectInteraction</code>, which is now obsolete)</em></p>
 <pre><code>Object.RunInteraction(CursorMode)
 </code></pre>
 <p>Runs the event handler as if the player had clicked the mouse on the object in the current room, using the specified cursor mode.</p>
@@ -323,7 +323,7 @@ object[1].RemoveTint();
 <pre><code>object[3].RunInteraction(eModeInteract);
 </code></pre>
 <p>will execute the code defined in object 3's "Interact with object" event handler.</p>
-<p><em>See Also:</em> <a href="Room.html#roomprocessclick">Room.ProcessClick</a>, <a href="Object.html#objectisinteractionavailable">Object.IsInteractionAvailable</a>, <a href="Character.html#characterruninteraction">Character.RunInteraction</a>, <a href="Hotspot.html#hotspotruninteraction">Hotspot.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="objectsetlightlevel" class="level3">
@@ -341,12 +341,12 @@ object[1].RemoveTint();
 </code></pre>
 <p>This will give the lamp maximal individual brightness.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a>, <a href="Region.html#regionlightlevel">Region.LightLevel</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Region.html#regionlightlevel"><code>Region.LightLevel</code></a></p>
 <hr />
 </section>
 <section id="objectsetposition" class="level3">
 <h3><a href="#objectsetposition"><code>Object.SetPosition</code></a></h3>
-<p><em>(Formerly known as SetObjectPosition, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectPosition</code>, which is now obsolete)</em></p>
 <pre><code>Object.SetPosition(int x, int y)
 </code></pre>
 <p>Changes the object's position to (X,Y). These co-ordinates specify the lower-left hand corner of the object.</p>
@@ -356,12 +356,12 @@ object[1].RemoveTint();
 <pre><code>object[2].SetPosition(50, 100);
 </code></pre>
 <p>will change object's 2 position to 50,100.</p>
-<p><em>See Also:</em> <a href="Object.html#objectx">Object.X</a>, <a href="Object.html#objecty">Object.Y</a></p>
+<p><em>See also:</em> <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objecty"><code>Object.Y</code></a></p>
 <hr />
 </section>
 <section id="objectsetview" class="level3">
 <h3><a href="#objectsetview"><code>Object.SetView</code></a></h3>
-<p><em>(Formerly known as SetObjectFrame, which is now obsolete)</em><br> <em>(Formerly known as SetObjectView, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectFrame</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetObjectView</code>, which is now obsolete)</em></p>
 <pre><code>Object.SetView(int view, optional int loop, optional int frame)
 </code></pre>
 <p>Sets the object's view to VIEW, and changes the object's graphic to FRAME of LOOP in VIEW. If you do not supply the loop or frame, they will be left unchanged.</p>
@@ -371,7 +371,8 @@ object[1].RemoveTint();
 object[1].SetView(5, 2, 0);
 </code></pre>
 <p>will change object 3's view to view number 14, and change object 1 to view 5, loop 2, frame 0.</p>
-<p><em>See Also:</em> <a href="Object.html#objectanimate">Object.Animate</a></p>
+<p><em>Note:</em> Since <strong>AGS 3.6.0</strong> and later versions, this function will also resets loop and frame to 0 by default if you don't specify their values.</p>
+<p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
 <hr />
 </section>
 <section id="objectstopanimating" class="level3">
@@ -385,12 +386,12 @@ object[1].SetView(5, 2, 0);
 }
 </code></pre>
 <p>will stop object 2 animating if it currently is doing so.</p>
-<p><em>See Also:</em> <a href="Object.html#objectanimate">Object.Animate</a>, <a href="Object.html#objectanimating">Object.Animating</a></p>
+<p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a></p>
 <hr />
 </section>
 <section id="objectstopmoving" class="level3">
 <h3><a href="#objectstopmoving"><code>Object.StopMoving</code></a></h3>
-<p><em>(Formerly known as StopObjectMoving, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>StopObjectMoving</code>, which is now obsolete)</em></p>
 <pre><code>Object.StopMoving()
 </code></pre>
 <p>Stops the object from moving. It will remain in its current position until any further commands are issued.</p>
@@ -400,46 +401,46 @@ object[1].SetView(5, 2, 0);
 }
 </code></pre>
 <p>will stop object 2 moving if it currently is doing so.</p>
-<p><em>See Also:</em> <a href="Object.html#objectmoving">Object.Moving</a>, <a href="Object.html#objectmove">Object.Move</a>, <a href="Character.html#characterstopmoving">Character.StopMoving</a></p>
+<p><em>See also:</em> <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="objecttint" class="level3">
 <h3><a href="#objecttint"><code>Object.Tint</code></a></h3>
-<p><em>(Formerly known as SetObjectTint, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectTint</code>, which is now obsolete)</em></p>
 <pre><code>Object.Tint(int red, int green, int blue,
             int saturation, int luminance)
 </code></pre>
 <p>Tints the object on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
-<p>This function applies a tint to a specific object. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
+<p>This function applies a tint to a specific object. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the object (even if an ambient tint is set).</p>
-<p>To remove the tint set by this function and return to using the ambient tint for this object, call <a href="Object.html#objectremovetint">RemoveTint</a>.</p>
+<p>To remove the tint set by this function and return to using the ambient tint for this object, call <a href="Object.html#objectremovetint"><code>RemoveTint</code></a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p>Example:</p>
 <pre><code>object[1].Tint(0, 250, 0, 30, 100);
 </code></pre>
 <p>will tint object 1 green.</p>
-<p><em>See Also:</em> <a href="Object.html#objectremovetint">Object.RemoveTint</a>, <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a></p>
+<p><em>See also:</em> <a href="Object.html#objectremovetint"><code>Object.RemoveTint</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
 </section>
 <section id="objectanimating" class="level3">
 <h3><a href="#objectanimating"><code>Object.Animating</code></a></h3>
-<p><em>(Formerly known as IsObjectAnimating, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>IsObjectAnimating</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool Object.Animating
 </code></pre>
 <p>Returns 1 if the specified object is currently animating.<br> Returns 0 if the object has finished its animation.</p>
-<p>This property is read-only. To change object animation, use the <a href="Object.html#objectanimate">Animate</a> command.</p>
+<p>This property is read-only. To change object animation, use the <a href="Object.html#objectanimate"><code>Animate</code></a> command.</p>
 <p>Example:</p>
 <pre><code>object[2].Animate(5, 0);
 while (object[2].Animating) Wait(1);
 </code></pre>
 <p>will animate object 2 and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so you wouldn't need to do this.</p>
-<p><em>See Also:</em> <a href="Object.html#objectanimate">Object.Animate</a>, <a href="Object.html#objectmoving">Object.Moving</a>, <a href="Object.html#objectstopanimating">Object.StopAnimating</a>, <a href="Object.html#objectx">Object.X</a>, <a href="Object.html#objecty">Object.Y</a></p>
+<p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Object.html#objectstopanimating"><code>Object.StopAnimating</code></a>, <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objecty"><code>Object.Y</code></a></p>
 <hr />
 </section>
 <section id="objectbaseline" class="level3">
 <h3><a href="#objectbaseline"><code>Object.Baseline</code></a></h3>
-<p><em>(Formerly known as GetObjectBaseline, which is now obsolete)</em><br> <em>(Formerly known as SetObjectBaseline, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectBaseline</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetObjectBaseline</code>, which is now obsolete)</em></p>
 <pre><code>int Object.Baseline
 </code></pre>
 <p>Gets/sets the object's baseline. This allows you to modify the line you can set in the editor. You can disable the baseline (and revert to using the base of the object's image on the screen) by setting it to 0.</p>
@@ -449,7 +450,7 @@ while (object[2].Animating) Wait(1);
 <pre><code>object[4].Baseline = 100;
 </code></pre>
 <p>will change object's 4 baseline to a line positioned at y coordinate 100.</p>
-<p><em>See Also:</em> <a href="Character.html#characterbaseline">Character.Baseline</a>, <a href="Object.html#objecty">Object.Y</a>, <a href="Globalfunctions_Room.html#setwalkbehindbase">SetWalkBehindBase</a></p>
+<p><em>See also:</em> <a href="Character.html#characterbaseline"><code>Character.Baseline</code></a>, <a href="Object.html#objecty"><code>Object.Y</code></a>, <a href="Globalfunctions_Room.html#setwalkbehindbase"><code>SetWalkBehindBase</code></a></p>
 <hr />
 </section>
 <section id="objectblockingheight" class="level3">
@@ -459,12 +460,12 @@ while (object[2].Animating) Wait(1);
 <p>Gets/sets the object's blocking height.</p>
 <p>The blocking height determines how large of a blocking rectangle the object exerts to stop characters walking through it. If this is set to 0 (the default), then the blocking rectangle is automatically calculated to be the object's width, and 5 pixels high.</p>
 <p>You can manually change the setting by entering a blocking height in pixels, which is the size of walkable area that the object effectively removes by being there.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the <a href="Object.html#objectsolid">Solid</a> property is set to <em>true</em>.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the <a href="Object.html#objectsolid"><code>Solid</code></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <pre><code>oRock.BlockingHeight = 20;
 </code></pre>
 <p>will make the Rock object block 20 pixels high (10 above and 10 below its baseline)</p>
-<p><em>See Also:</em> <a href="Object.html#objectblockingwidth">Object.BlockingWidth</a>, <a href="Object.html#objectsolid">Object.Solid</a></p>
+<p><em>See also:</em> <a href="Object.html#objectblockingwidth"><code>Object.BlockingWidth</code></a>, <a href="Object.html#objectsolid"><code>Object.Solid</code></a></p>
 <hr />
 </section>
 <section id="objectblockingwidth" class="level3">
@@ -474,17 +475,17 @@ while (object[2].Animating) Wait(1);
 <p>Gets/sets the object's blocking width.</p>
 <p>The blocking width determines how large of a blocking rectangle the object exerts to stop characters walking through it. If this is set to 0 (the default), then the blocking rectangle is automatically calculated to be the object's width, and 5 pixels high.</p>
 <p>You can manually change the setting by entering a blocking width in pixels, which is the size of walkable area that the object effectively removes by being there.</p>
-<p><strong>NOTE:</strong> This property has no effect unless the <a href="Object.html#objectsolid">Solid</a> property is set to <em>true</em>.</p>
+<p><strong>NOTE:</strong> This property has no effect unless the <a href="Object.html#objectsolid"><code>Solid</code></a> property is set to <em>true</em>.</p>
 <p>Example:</p>
 <pre><code>oRock.BlockingWidth = 50;
 </code></pre>
 <p>will make the Rock object block 50 pixels wide (25 pixels to the left of its center, and 25 to the right)</p>
-<p><em>See Also:</em> <a href="Object.html#objectblockingheight">Object.BlockingHeight</a>, <a href="Object.html#objectsolid">Object.Solid</a></p>
+<p><em>See also:</em> <a href="Object.html#objectblockingheight"><code>Object.BlockingHeight</code></a>, <a href="Object.html#objectsolid"><code>Object.Solid</code></a></p>
 <hr />
 </section>
 <section id="objectclickable" class="level3">
 <h3><a href="#objectclickable"><code>Object.Clickable</code></a></h3>
-<p><em>(Formerly known as SetObjectClickable, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectClickable</code>, which is now obsolete)</em></p>
 <pre><code>bool Object.Clickable
 </code></pre>
 <p>Gets/sets whether the object is recognized as something which the player can interact with.</p>
@@ -493,7 +494,7 @@ while (object[2].Animating) Wait(1);
 <pre><code>object[2].Clickable = 0;
 </code></pre>
 <p>will make object 2 ignore clicks from the player.</p>
-<p><em>See Also:</em> <a href="Object.html#objectvisible">Object.Visible</a>, <a href="Character.html#characterclickable">Character.Clickable</a>, <a href="Hotspot.html#hotspotenabled">Hotspot.Enabled</a>, <a href="Region.html#regionenabled">Region.Enabled</a>, <a href="Globalfunctions_Room.html#removewalkablearea">RemoveWalkableArea</a>, <a href="Globalfunctions_Room.html#restorewalkablearea">RestoreWalkableArea</a></p>
+<p><em>See also:</em> <a href="Object.html#objectvisible"><code>Object.Visible</code></a>, <a href="Character.html#characterclickable"><code>Character.Clickable</code></a>, <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
 <section id="objectframe" class="level3">
@@ -506,12 +507,12 @@ while (object[2].Animating) Wait(1);
 <pre><code>Display(&quot;Object oDoor&#39;s frame is currently %d.&quot;, oDoor.Frame);
 </code></pre>
 <p>will display the oDoor object's current frame number</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objectgraphic">Object.Graphic</a>, <a href="Object.html#objectloop">Object.Loop</a>, <a href="Object.html#objectview">Object.View</a></p>
+<p><em>SeeAlso:</em> <a href="Object.html#objectgraphic"><code>Object.Graphic</code></a>, <a href="Object.html#objectloop"><code>Object.Loop</code></a>, <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
 </section>
 <section id="objectgraphic" class="level3">
 <h3><a href="#objectgraphic"><code>Object.Graphic</code></a></h3>
-<p><em>(Formerly known as GetObjectGraphic, which is now obsolete)</em><br> <em>(Formerly known as SetObjectGraphic, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectGraphic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetObjectGraphic</code>, which is now obsolete)</em></p>
 <pre><code>int Object.Graphic
 </code></pre>
 <p>Gets/sets the sprite slot number that the object is currently displayed as. You can get the slot number from the Sprite Manager. If the object is currently animating (from an Animate command) and you change the Graphic, then the animation will be stopped.</p>
@@ -519,27 +520,27 @@ while (object[2].Animating) Wait(1);
 <pre><code>object[2].Graphic = 100;
 </code></pre>
 <p>will change the object 2's image to the image stored in the sprite manager's slot 100.</p>
-<p><em>See Also:</em> <a href="Object.html#objectsetview">Object.SetView</a></p>
+<p><em>See also:</em> <a href="Object.html#objectsetview"><code>Object.SetView</code></a></p>
 <hr />
 </section>
 <section id="objecthasexplicitlight" class="level3">
 <h3><a href="#objecthasexplicitlight"><code>Object.HasExplicitLight</code></a></h3>
 <pre><code>readonly bool Object.HasExplicitTint
 </code></pre>
-<p>Returns <em>true</em> if the object has a light set explicitly with the <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a> or a region light.</p>
+<p>Returns <em>true</em> if the object has a light set explicitly with the <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a> command.</p>
+<p>Returns <em>false</em> if the object has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a> or a region light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a></p>
+<p><em>SeeAlso:</em> <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a></p>
 <hr />
 </section>
 <section id="objecthasexplicittint" class="level3">
 <h3><a href="#objecthasexplicittint"><code>Object.HasExplicitTint</code></a></h3>
 <pre><code>readonly bool Object.HasExplicitTint
 </code></pre>
-<p>Returns <em>true</em> if the object has a tint set explicitly with the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p>Returns <em>false</em> if the object has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a> or a region tint.</p>
+<p>Returns <em>true</em> if the object has a tint set explicitly with the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p>Returns <em>false</em> if the object has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a> or a region tint.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objectremovetint">Object.RemoveTint</a></p>
+<p><em>SeeAlso:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objectremovetint"><code>Object.RemoveTint</code></a></p>
 <hr />
 </section>
 <section id="objectid" class="level3">
@@ -568,22 +569,22 @@ while (object[2].Animating) Wait(1);
 <section id="objectignorewalkbehinds" class="level3">
 <h3><a href="#objectignorewalkbehinds"><code>Object.IgnoreWalkbehinds</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
-<p><em>(Formerly known as SetObjectIgnoreWalkbehinds, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectIgnoreWalkbehinds</code>, which is now obsolete)</em></p>
 <pre><code>bool Object.IgnoreWalkbehinds
 </code></pre>
 <p>Sets whether the object is affected by walkbehind areas. Setting this to <em>false</em> (the default setting) means that the object will be placed behind walk-behind areas according to the relevant baselines.</p>
 <p>If this is set to <em>true</em>, then the object will never be placed behind a walk-behind area. This is useful if for example you want an object to be a picture on a wall, and the wall can be walked behind - but you also want it to act correctly in relation to characters, so changing its baseline wouldn't work.</p>
-<p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Object.html#objectbaseline">Baseline</a> property instead.</p>
+<p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Object.html#objectbaseline"><code>Baseline</code></a> property instead.</p>
 <hr />
 </section>
 <section id="objectlightlevel" class="level3">
 <h3><a href="#objectlightlevel"><code>Object.LightLevel</code></a></h3>
 <pre><code>readonly int Object.LightLevel
 </code></pre>
-<p>If the object has an individual light set explicitly with the <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a> command, this property returns the light level value. Otherwise it returns 0.</p>
+<p>If the object has an individual light set explicitly with the <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a> command, this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Object.LightLevel returns 0 even if the object is affected by the ambient or region's light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a>, <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>,</p>
+<p><em>SeeAlso:</em> <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>,</p>
 <hr />
 </section>
 <section id="objectloop" class="level3">
@@ -596,27 +597,27 @@ while (object[2].Animating) Wait(1);
 <pre><code>Display(&quot;Object oDoor&#39;s loop is currently %d.&quot;, oDoor.Loop);
 </code></pre>
 <p>will display the oDoor object's current loop number</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objectframe">Object.Frame</a>, <a href="Object.html#objectgraphic">Object.Graphic</a>, <a href="Object.html#objectview">Object.View</a></p>
+<p><em>SeeAlso:</em> <a href="Object.html#objectframe"><code>Object.Frame</code></a>, <a href="Object.html#objectgraphic"><code>Object.Graphic</code></a>, <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
 </section>
 <section id="objectmoving" class="level3">
 <h3><a href="#objectmoving"><code>Object.Moving</code></a></h3>
-<p><em>(Formerly known as IsObjectMoving, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>IsObjectMoving</code>, which is now obsolete)</em></p>
 <pre><code>readonly bool Object.Moving
 </code></pre>
 <p>Returns 1 if the object is currently moving, or 0 if not.</p>
-<p>This property is read-only; to change the object's movement, use the <a href="Object.html#objectmove">Move</a> and <a href="Object.html#objectstopmoving">StopMoving</a> commands.</p>
+<p>This property is read-only; to change the object's movement, use the <a href="Object.html#objectmove"><code>Move</code></a> and <a href="Object.html#objectstopmoving"><code>StopMoving</code></a> commands.</p>
 <p>Example:</p>
 <pre><code>object[2].Move(125,40,3);
 while (object[2].Moving) Wait(1);
 </code></pre>
 <p>will move object 2 to 125,40 and return control to the player when the object gets there.</p>
-<p><em>See Also:</em> <a href="Object.html#objectanimating">Object.Animating</a>, <a href="Object.html#objectstopmoving">Object.StopMoving</a></p>
+<p><em>See also:</em> <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
 <section id="objectname" class="level3">
 <h3><a href="#objectname"><code>Object.Name</code></a></h3>
-<p><em>(Formerly known as GetObjectName, which is now obsolete)</em><br> <em>(Formerly known as Object.GetName, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Object.GetName</code>, which is now obsolete)</em></p>
 <pre><code>readonly String Object.Name;
 </code></pre>
 <p>Gets the name of the object.</p>
@@ -625,7 +626,7 @@ while (object[2].Moving) Wait(1);
 <pre><code>Display(&quot;Object 0&#39;s name is %s.&quot;, object[0].Name);
 </code></pre>
 <p>will retrieve and then display object 0's name.</p>
-<p><em>See Also:</em> <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
 <section id="objectsolid" class="level3">
@@ -639,7 +640,7 @@ while (object[2].Moving) Wait(1);
 <pre><code>oSmallrock.Solid = true;
 </code></pre>
 <p>will mean that the Smallrock object blocks the path of characters.</p>
-<p><em>See Also:</em> <a href="Object.html#objectblockingheight">Object.BlockingHeight</a>, <a href="Object.html#objectblockingwidth">Object.BlockingWidth</a></p>
+<p><em>See also:</em> <a href="Object.html#objectblockingheight"><code>Object.BlockingHeight</code></a>, <a href="Object.html#objectblockingwidth"><code>Object.BlockingWidth</code></a></p>
 <hr />
 </section>
 <section id="objecttintblue" class="level3">
@@ -647,10 +648,10 @@ while (object[2].Moving) Wait(1);
 <pre><code>readonly int Object.TintBlue
 </code></pre>
 <p>Gets the <em>Blue</em> setting for the object's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a>, <a href="Object.html#objecttintgreen">Object.TintGreen</a>, <a href="Object.html#objecttintred">Object.TintRed</a>, <a href="Object.html#objecttintluminance">Object.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a>, <a href="Object.html#objecttintgreen"><code>Object.TintGreen</code></a>, <a href="Object.html#objecttintred"><code>Object.TintRed</code></a>, <a href="Object.html#objecttintluminance"><code>Object.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="objecttintgreen" class="level3">
@@ -658,10 +659,10 @@ while (object[2].Moving) Wait(1);
 <pre><code>readonly int Object.TintGreen
 </code></pre>
 <p>Gets the <em>Green</em> setting for the object's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objecttintblue">Object.TintBlue</a>, <a href="Object.html#objecttintred">Object.TintRed</a>, <a href="Object.html#objecttintsaturation">Object.TintSaturation</a>, <a href="Object.html#objecttintluminance">Object.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objecttintblue"><code>Object.TintBlue</code></a>, <a href="Object.html#objecttintred"><code>Object.TintRed</code></a>, <a href="Object.html#objecttintsaturation"><code>Object.TintSaturation</code></a>, <a href="Object.html#objecttintluminance"><code>Object.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="objecttintred" class="level3">
@@ -669,10 +670,10 @@ while (object[2].Moving) Wait(1);
 <pre><code>readonly int Object.TintRed
 </code></pre>
 <p>Gets the <em>Red</em> setting for the object's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objecttintblue">Object.TintBlue</a>, <a href="Object.html#objecttintgreen">Object.TintGreen</a>, <a href="Object.html#objecttintsaturation">Object.TintSaturation</a>, <a href="Object.html#objecttintluminance">Object.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objecttintblue"><code>Object.TintBlue</code></a>, <a href="Object.html#objecttintgreen"><code>Object.TintGreen</code></a>, <a href="Object.html#objecttintsaturation"><code>Object.TintSaturation</code></a>, <a href="Object.html#objecttintluminance"><code>Object.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="objecttintsaturation" class="level3">
@@ -680,10 +681,10 @@ while (object[2].Moving) Wait(1);
 <pre><code>readonly int Object.TintSaturation
 </code></pre>
 <p>Gets the <em>saturation</em> setting for the object's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objecttintblue">Object.TintBlue</a>, <a href="Object.html#objecttintgreen">Object.TintGreen</a>, <a href="Object.html#objecttintred">Object.TintRed</a>, <a href="Object.html#objecttintluminance">Object.TintLuminance</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objecttintblue"><code>Object.TintBlue</code></a>, <a href="Object.html#objecttintgreen"><code>Object.TintGreen</code></a>, <a href="Object.html#objecttintred"><code>Object.TintRed</code></a>, <a href="Object.html#objecttintluminance"><code>Object.TintLuminance</code></a></p>
 <hr />
 </section>
 <section id="objecttintluminance" class="level3">
@@ -691,15 +692,15 @@ while (object[2].Moving) Wait(1);
 <pre><code>readonly int Object.TintLuminance
 </code></pre>
 <p>Gets the <em>luminance</em> setting for the object's current tint.</p>
-<p>This property is read-only; to change it, use the <a href="Object.html#objecttint">Object.Tint</a> command.</p>
-<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint">Object.HasExplicitTint</a> property is false, then this value is meaningless.</p>
+<p>This property is read-only; to change it, use the <a href="Object.html#objecttint"><code>Object.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Object.html#objecthasexplicittint"><code>Object.HasExplicitTint</code></a> property is false, then this value is meaningless.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Object.html#objecttint">Object.Tint</a>, <a href="Object.html#objecttintblue">Object.TintBlue</a>, <a href="Object.html#objecttintgreen">Object.TintGreen</a>, <a href="Object.html#objecttintred">Object.TintRed</a>, <a href="Object.html#objecttintsaturation">Object.TintSaturation</a></p>
+<p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Object.html#objecttintblue"><code>Object.TintBlue</code></a>, <a href="Object.html#objecttintgreen"><code>Object.TintGreen</code></a>, <a href="Object.html#objecttintred"><code>Object.TintRed</code></a>, <a href="Object.html#objecttintsaturation"><code>Object.TintSaturation</code></a></p>
 <hr />
 </section>
 <section id="objecttransparency" class="level3">
 <h3><a href="#objecttransparency"><code>Object.Transparency</code></a></h3>
-<p><em>(Formerly known as SetObjectTransparency, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetObjectTransparency</code>, which is now obsolete)</em></p>
 <pre><code>int Object.Transparency
 </code></pre>
 <p>Gets/sets the object's transparency level.</p>
@@ -717,7 +718,7 @@ while (trans &lt; 100) {
 }
 </code></pre>
 <p>will gradually fade out the object from its current transparency level to being fully invisible.</p>
-<p><em>See Also:</em> <a href="Character.html#charactertransparency">Character.Transparency</a>, <a href="GUI.html#guitransparency">GUI.Transparency</a></p>
+<p><em>See also:</em> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
 <hr />
 </section>
 <section id="objectview" class="level3">
@@ -730,12 +731,12 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;Object oDoor&#39;s view is currently view %d.&quot;, oDoor.View);
 </code></pre>
 <p>will display the oDoor object's current view number</p>
-<p><em>SeeAlso:</em> <a href="Object.html#objectsetview">Object.SetView</a>, <a href="Object.html#objectgraphic">Object.Graphic</a>, <a href="Object.html#objectloop">Object.Loop</a>, <a href="Object.html#objectframe">Object.Frame</a></p>
+<p><em>SeeAlso:</em> <a href="Object.html#objectsetview"><code>Object.SetView</code></a>, <a href="Object.html#objectgraphic"><code>Object.Graphic</code></a>, <a href="Object.html#objectloop"><code>Object.Loop</code></a>, <a href="Object.html#objectframe"><code>Object.Frame</code></a></p>
 <hr />
 </section>
 <section id="objectvisible" class="level3">
 <h3><a href="#objectvisible"><code>Object.Visible</code></a></h3>
-<p><em>(Formerly known as IsObjectOn, which is now obsolete)</em><br> <em>(Formerly known as ObjectOff, which is now obsolete)</em><br> <em>(Formerly known as ObjectOn, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>IsObjectOn</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ObjectOff</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>ObjectOn</code>, which is now obsolete)</em></p>
 <pre><code>bool Object.Visible
 </code></pre>
 <p>Gets/sets the visible state of the object. If this is 1 (true), the object is switched on and visible in the room. If you set this to 0 (false), the object disappears and no longer appears in the room.</p>
@@ -743,12 +744,12 @@ while (trans &lt; 100) {
 <pre><code>object[5].Visible = false;
 </code></pre>
 <p>will make object number 5 in the current room disappear.</p>
-<p><em>See also:</em> <a href="Object.html#objectclickable">Object.Clickable</a>,</p>
+<p><em>See also:</em> <a href="Object.html#objectclickable"><code>Object.Clickable</code></a>,</p>
 <hr />
 </section>
 <section id="objectx" class="level3">
 <h3><a href="#objectx"><code>Object.X</code></a></h3>
-<p><em>(Formerly known as GetObjectX, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectX</code>, which is now obsolete)</em></p>
 <pre><code>int Object.X
 </code></pre>
 <p>Gets/sets the X co-ordinate of the object.</p>
@@ -757,12 +758,12 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;Object 1&#39;s X co-ordinate is %d.&quot;, object[1].X);
 </code></pre>
 <p>will display the X co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a href="Object.html#objecty">Object.Y</a>, <a href="Object.html#objectanimating">Object.Animating</a>, <a href="Object.html#objectvisible">Object.Visible</a>, <a href="Object.html#objectsetposition">Object.SetPosition</a></p>
+<p><em>See also:</em> <a href="Object.html#objecty"><code>Object.Y</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectvisible"><code>Object.Visible</code></a>, <a href="Object.html#objectsetposition"><code>Object.SetPosition</code></a></p>
 <hr />
 </section>
 <section id="objecty" class="level3">
 <h3><a href="#objecty"><code>Object.Y</code></a></h3>
-<p><em>(Formerly known as GetObjectY, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetObjectY</code>, which is now obsolete)</em></p>
 <pre><code>int Object.Y
 </code></pre>
 <p>Gets/sets the Y co-ordinate of the object, which is the bottom of the object's image.</p>
@@ -772,14 +773,14 @@ while (trans &lt; 100) {
 <pre><code>Display(&quot;Object 1&#39;s Y co-ordinate is %d.&quot;, object[1].Y);
 </code></pre>
 <p>will display the Y co-ordinate of object 1.</p>
-<p><em>See Also:</em> <a href="Object.html#objectanimating">Object.Animating</a>, <a href="Object.html#objectbaseline">Object.Baseline</a>, <a href="Object.html#objectx">Object.X</a>, <a href="Object.html#objectsetposition">Object.SetPosition</a></p>
+<p><em>See also:</em> <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectbaseline"><code>Object.Baseline</code></a>, <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objectsetposition"><code>Object.SetPosition</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:18</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

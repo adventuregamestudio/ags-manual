@@ -70,7 +70,6 @@
 <ul>
 <li><a href="#run-time-events"><span>Run-time events</span></a></li>
 <li><a href="#the-iagsengine-interface"><span>The IAGSEngine interface</span></a></li>
-<li><a href="#iagsenginedeletedynamicsprite"><span>IAGSEngine.DeleteDynamicSprite</span></a></li>
 <li><a href="#iagsscriptmanagedobject-interface"><span>IAGSScriptManagedObject interface</span></a></li>
 <li><a href="#iagsmanagedobjectreader-interface"><span>IAGSManagedObjectReader interface</span></a></li>
 <li><a href="#iagsfontrenderer-interface"><span>IAGSFontRenderer interface</span></a></li>
@@ -655,8 +654,8 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </code></pre>
 <p>Returns the view frame structure for the specified frame. <code>view</code> is the number you get from the editor (that's used in <code>SetCharacterView</code> and so forth), not the view minus 1.</p>
 <ul>
-<li><strong>Interface version 10 and later:</strong> If <code>frame</code> is not valid (eg. there aren't that many frames in the specified loop), returns NULL.</li>
-<li><strong>Interface version 9:</strong> If <code>frame</code> is not valid (eg. there aren't that many frames in the specified loop), AGS will exit with an error message.</li>
+<li><strong>Interface version 10 and later:</strong> If <code>frame</code> is not valid (e.g. there aren't that many frames in the specified loop), returns NULL.</li>
+<li><strong>Interface version 9:</strong> If <code>frame</code> is not valid (e.g. there aren't that many frames in the specified loop), AGS will exit with an error message.</li>
 </ul>
 <p>If <code>view</code> or <code>loop</code> are invalid, AGS will exit with an error message.</p>
 <p><em>Added in version: 9</em></p>
@@ -665,7 +664,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 <h4>IAGSEngine.GetWalkbehindBaseline</h4>
 <pre><code>int GetWalkbehindBaseline (int area);
 </code></pre>
-<p>Returns the baseline for walk-behind area number <code>area</code>. This is always in character-resolution, ie. the maximum value is 200 in all resolutions.</p>
+<p>Returns the baseline for walk-behind area number <code>area</code>. This is always in character-resolution, i.e. the maximum value is 200 in all resolutions.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsenginegetscriptfunctionaddress" class="level4">
@@ -674,7 +673,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </code></pre>
 <p>Returns the memory address of the text script exported function <code>funcName</code>. This allows you to call any of the functions which AGS makes available to the text scripts.</p>
 <p>Returns NULL if you specify a function that doesn't exist.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> You <strong>must</strong> cast the result to the correct function type in order to call it - ie. you must know how many parameters the function expects, and call it appropriately. Failure to do so will corrupt the stack and likely crash the engine.</p>
+<p><em><img src="images/icon_warn.png" alt="Warning" /></em> You <strong>must</strong> cast the result to the correct function type in order to call it - i.e. you must know how many parameters the function expects, and call it appropriately. Failure to do so will corrupt the stack and likely crash the engine.</p>
 <p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you specify the name of an actual function in the script, for example repeatedly_execute, it will return an address - however, this will be a script address and attempting to call it will crash the game. <strong>Only</strong> use this feature to obtain the address of AGS's script functions as documented in the manual.</p>
 <p><em>Added in version: 9</em></p>
 </section>
@@ -866,13 +865,13 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 <p>Returns 0 if the sprite could not be created, or the sprite slot number on success.</p>
 <p><em>Added in version: 12</em></p>
 </section>
-</section>
-<section id="iagsenginedeletedynamicsprite" class="level3">
-<h3><a href="#iagsenginedeletedynamicsprite">IAGSEngine.DeleteDynamicSprite</a></h3>
+<section id="iagsenginedeletedynamicsprite" class="level4">
+<h4>IAGSEngine.DeleteDynamicSprite</h4>
 <pre><code>void DeleteDynamicSprite(int slot);
 </code></pre>
 <p>Removes the previously created dynamic sprite from memory. It can no longer be used in the game.</p>
 <p><em>Added in version: 12</em></p>
+</section>
 <section id="iagsengineisspritealphablended" class="level4">
 <h4>IAGSEngine.IsSpriteAlphaBlended</h4>
 <pre><code>int IsSpriteAlphaBlended(int slot);
@@ -967,7 +966,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 <pre><code>int RegisterManagedObject(const void *object, IAGSScriptManagedObject *callback);
 </code></pre>
 <p>Registers a new managed object with the script engine. <code>object</code> points to the actual object itself, and <code>callback</code> points to the class implementing the <code>IAGSScriptManagedObject</code> interface, which will be called to perform operations on the object.</p>
-<p><code>callback</code> and <code>object</code> can, but do not have to, point to the same thing (ie. it is possible to have the actual object implement the interface; but if you do so, beware that you should not expose any normal variables from the class due to the vtable occupying the first part of the memory).</p>
+<p><code>callback</code> and <code>object</code> can, but do not have to, point to the same thing (i.e. it is possible to have the actual object implement the interface; but if you do so, beware that you should not expose any normal variables from the class due to the vtable occupying the first part of the memory).</p>
 <p>The <code>object</code> is added to the managed object pool, with a reference count of zero. Once this function has been called, <code>object</code> can be returned to the script and will be automatically picked up by the script engine.</p>
 <p>See further down this page for a description of the <code>IAGSScriptManagedObject</code> interface.</p>
 <p>From engine interface version 16 and later, this function returns the managed pool key for the object. You will not normally need this, but it can be useful to link a parent and child object if your structure is complex.</p>
@@ -1143,7 +1142,7 @@ struct AGSRenderStageDesc {
 </code></pre>
 <p>AGSRenderStageDesc's first field is <code>Version</code>, which must be filled by the plugin itself <em>before</em> calling this function. This field's value corresponds to the required engine's interface and tells which struct's fields should be assigned by the engine. It should be 25 or higher for this function to have any effect at all.</p>
 <p>As of interface version 25 the only other meaningful field in <code>AGSRenderStageDesc</code> is <code>Matrixes</code> of type <code>AGSRenderMatrixes</code>. This is another struct that contains three arrays, 16 floating point values each. They represent three main transformation matrixes for the current render stage: World, View and Projection. The matrix format will correspond to the <em>internal format of the current renderer</em> that engine runs (OpenGL, Direct3D, and so on). Thus, if your plugin works with the same renderer as the engine it may safely use these matrixes with that renderer's functions.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> You may know which renderer is run by the engine if you call <a href="EnginePluginRun-timeAPI.html#iagsenginegetgraphicsdriverid">GetGraphicsDriverID</a>.</p>
+<p><em><img src="images/icon_info.png" alt="Info icon" /></em> You may know which renderer is run by the engine if you call <a href="EnginePluginRun-timeAPI.html#iagsenginegetgraphicsdriverid"><code>GetGraphicsDriverID</code></a>.</p>
 <p><em><img src="images/icon_info.png" alt="Info icon" /></em> Software renderer will always fill these matrixes with zeroes.</p>
 <p><em><img src="images/icon_info.png" alt="Info icon" /></em> This function is only guaranteed to return useful data if you call it in one of the <a href="EnginePluginRun-timeAPI.html#iagsenginerequesteventhook">render stage events</a>.</p>
 <p><em><img src="images/icon_warn.png" alt="Warning" /></em> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
@@ -1212,7 +1211,7 @@ struct AGSRenderStageDesc {
 <h4>IAGSFontRenderer.SupportsExtendedCharacters</h4>
 <pre><code>bool SupportsExtendedCharacters(int fontNumber);
 </code></pre>
-<p>AGS will call this method to determine whether the specified font supports extended characters (ie. characters with a ASCII value of 128 or above). Return <code>true</code> or <code>false</code>, depending on your implementation.</p>
+<p>AGS will call this method to determine whether the specified font supports extended characters (i.e. characters with a ASCII value of 128 or above). Return <code>true</code> or <code>false</code>, depending on your implementation.</p>
 <p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you return false from this function, AGS will not necessarily strip extended characters out of text. If you do not support extended characters, then you should implement the <code>EnsureTextValidForFont</code> method (below) to strip them out.</p>
 <p><em>Added in version: 23</em></p>
 </section>
@@ -1259,7 +1258,7 @@ struct AGSRenderStageDesc {
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:29</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

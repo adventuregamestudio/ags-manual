@@ -103,7 +103,7 @@
 </code></pre>
 <p>Creates a new blank dynamic sprite of the specified size. It will initially be fully transparent, and can optionally have an alpha channel. This command is useful if you just want to create a new sprite and then use the DrawingSurface commands to draw onto it.</p>
 <p>If the game color depth is lower than 32-bit, then the <em>hasAlphaChannel</em> parameter will be ignored.</p>
-<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
@@ -115,7 +115,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a 50x30 sprite, draws a white dot in the middle, then deletes the sprite.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a>, <a href="DynamicSprite.html#dynamicspritegraphic">DynamicSprite.Graphic</a>, <a href="DynamicSprite.html#dynamicspritegetdrawingsurface">DynamicSprite.GetDrawingSurface</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a>, <a href="DynamicSprite.html#dynamicspritegetdrawingsurface"><code>DynamicSprite.GetDrawingSurface</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefrombackground" class="level3">
@@ -128,7 +128,7 @@ sprite.Delete();
 <p>The most basic use of this function is to supply no parameters, in which case the sprite will contain an exact copy of the current room background.</p>
 <p>If you want, you can supply the <em>frame</em> only, in which case you will get a complete copy of that background frame number from the current room.</p>
 <p>Optionally, you can specify a portion of the background to grab. You must either supply all or none of the x, y, width and height parameters; if you do supply them, this allows you to just get a small portion of the background image into the new sprite. All co-ordinates are room co-ordinates.</p>
-<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
@@ -139,7 +139,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a copy of the center 60x60 area on the background, and draws it onto the top left corner of the background image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefromdrawingsurface" class="level3">
@@ -149,8 +149,8 @@ sprite.Delete();
                         int width, int height)
 </code></pre>
 <p>Creates a new dynamic sprite containing a copy of the specified portion of the drawing surface. This allows you to easily create new sprites from portions of other sprites.</p>
-<p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates">UseHighResCoordinates</a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
-<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
+<p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>UseHighResCoordinates</code></a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
@@ -163,7 +163,7 @@ object[0].Graphic = newSprite.Graphic;
 </code></pre>
 <p>changes object 0's image to be just the top-left corner of what it previously was.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefromexistingsprite" class="level3">
@@ -173,7 +173,7 @@ object[0].Graphic = newSprite.Graphic;
 </code></pre>
 <p>Creates a new dynamic sprite containing a copy of the specified sprite <em>slot</em>.</p>
 <p>Returns the DynamicSprite instance representing the new sprite. This function is useful as it effectively allows you to apply transformations such as resizing to any sprite in the game.</p>
-<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><em>preserveAlphaChannel</em> determines whether the sprite's alpha channel will also be copied across. It is false by default for backwards compatibility reasons, and is useful because it allows you to strip the alpha channel in order to do whole image transparency. This parameter has no effect with sprites that do not have an alpha channel.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
@@ -186,19 +186,19 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a copy of object 0's current sprite, resizes it down to 20x20, and then draws the result onto the background.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a>, <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefromfile" class="level3">
 <h3><a href="#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a></h3>
-<p><em>(Formerly known as LoadImageFile, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>LoadImageFile</code>, which is now obsolete)</em></p>
 <pre><code>static DynamicSprite* DynamicSprite.CreateFromFile(string filename)
 </code></pre>
 <p>Loads an external image FILENAME into memory as a sprite.</p>
 <p>Returns the DynamicSprite instance representing the sprite, or <em>null</em> if the image could not be loaded (file not found or unsupported format).</p>
 <p>Only BMP and PCX files can be loaded with this command.</p>
-<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic">Graphic</a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
-<p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen">File.Open</a> and similar commands.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
+<p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen"><code>File.Open</code></a> and similar commands.</p>
 <p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
 <p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
@@ -212,12 +212,12 @@ if (sprite != null) {
 </code></pre>
 <p>will load the file "CustomAvatar.bmp" and if successful draw the image near the middle of the screen.</p>
 <p>Once the image is finished with, Delete should be called on it.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a>, <a href="DynamicSprite.html#dynamicspritecreatefromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefromsavegame" class="level3">
 <h3><a href="#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a></h3>
-<p><em>(Formerly known as LoadSaveSlotScreenshot, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>LoadSaveSlotScreenshot</code>, which is now obsolete)</em></p>
 <pre><code>static DynamicSprite* DynamicSprite.CreateFromSaveGame
                         (int saveSlot, int width, int height)
 </code></pre>
@@ -238,7 +238,7 @@ if (buttonSprite != null) {
 </code></pre>
 <p>will load the screenshot for save game 1 and resize it to 50x50. It then places it onto the btnScrnshot GUI button.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a>, <a href="Game.html#gamegetsaveslotdescription">Game.GetSaveSlotDescription</a>, <a href="DynamicSprite.html#dynamicspritecreatefromfile">DynamicSprite.CreateFromFile</a>, <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot">DynamicSprite.CreateFromScreenShot</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="Game.html#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecreatefromscreenshot" class="level3">
@@ -263,15 +263,15 @@ if (buttonSprite != null) {
 </code></pre>
 <p>places a screen grab of the current game session onto btnScrnshot.</p>
 <p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a>, <a href="Game.html#gamegetsaveslotdescription">Game.GetSaveSlotDescription</a>, <a href="DynamicSprite.html#dynamicspritecreatefromfile">DynamicSprite.CreateFromFile</a>, <a href="DynamicSprite.html#dynamicspritecreatefromsavegame">DynamicSprite.CreateFromSaveGame</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="Game.html#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritechangecanvassize" class="level3">
 <h3><a href="#dynamicspritechangecanvassize"><code>DynamicSprite.ChangeCanvasSize</code></a></h3>
 <pre><code>DynamicSprite.ChangeCanvasSize(int width, int height, int x, int y);
 </code></pre>
-<p>Changes the sprite size to <em>width</em> x <em>height</em>, placing the current image at offset (x, y) within the new canvas. Unlike the <a href="DynamicSprite.html#dynamicspriteresize">Resize</a> command, the current image is kept at its original size.</p>
-<p>This function allows you to enlarge the sprite background in order to draw more onto it than its current boundaries allow. It is effectively the opposite of <a href="DynamicSprite.html#dynamicspritecrop">Crop</a>. The additional surface area will be transparent.</p>
+<p>Changes the sprite size to <em>width</em> x <em>height</em>, placing the current image at offset (x, y) within the new canvas. Unlike the <a href="DynamicSprite.html#dynamicspriteresize"><code>Resize</code></a> command, the current image is kept at its original size.</p>
+<p>This function allows you to enlarge the sprite background in order to draw more onto it than its current boundaries allow. It is effectively the opposite of <a href="DynamicSprite.html#dynamicspritecrop"><code>Crop</code></a>. The additional surface area will be transparent.</p>
 <p>The width and height are specified in pixels.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromExistingSprite(10);
@@ -283,7 +283,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a dynamic sprite as a copy of sprite 10, enlarges it by 5 pixels to the left and right, and draws a line in the new area to the left.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecrop">DynamicSprite.Crop</a>, <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a>, <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecopytransparencymask" class="level3">
@@ -303,7 +303,7 @@ Wait(80);
 sprite.Delete();
 </code></pre>
 <p>creates a dynamic sprite as a copy of sprite 10, changes its transparency mask to use that of sprite 11, and displays it on object 0.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite">DynamicSprite.CreateFromExistingSprite</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecrop" class="level3">
@@ -321,12 +321,12 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, cut off the left and top 10 pixels, and then draw it onto the room background at (100,100).</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritechangecanvassize">DynamicSprite.ChangeCanvasSize</a>, <a href="DynamicSprite.html#dynamicspriteflip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritechangecanvassize"><code>DynamicSprite.ChangeCanvasSize</code></a>, <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritedelete" class="level3">
 <h3><a href="#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></h3>
-<p><em>(Formerly known as DeleteSprite, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>DeleteSprite</code>, which is now obsolete)</em></p>
 <pre><code>DynamicSprite.Delete();
 </code></pre>
 <p>Deletes the specified dynamic sprite from memory. Use this when you are no longer displaying the sprite and it can be safely disposed of.</p>
@@ -340,7 +340,7 @@ object[1].Graphic = 22;
 sprite.Delete();
 </code></pre>
 <p>will load the file "CustomAvatar.bmp", change Object 1 to display this graphic, wait 5 seconds, then change object 1 back to its old sprite 22 and free the new image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot">DynamicSprite.CreateFromScreenShot</a>, <a href="DynamicSprite.html#dynamicspritegraphic">DynamicSprite.Graphic</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a>, <a href="DynamicSprite.html#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a></p>
 <hr />
 </section>
 <section id="dynamicspriteflip" class="level3">
@@ -358,7 +358,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, flip it upside down, and then draw it onto the room background at (100,100).</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecrop">DynamicSprite.Crop</a>, <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a>, <a href="DynamicSprite.html#dynamicspriterotate">DynamicSprite.Rotate</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriterotate"><code>DynamicSprite.Rotate</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritegetdrawingsurface" class="level3">
@@ -378,7 +378,7 @@ Wait(40);
 sprite.Delete();
 </code></pre>
 <p>this creates a dynamic sprite as a copy of Object 0's existing sprite, draws a pink diagonal line across it, sets this new sprite onto the object for 1 second and then removes it.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite">DynamicSprite.CreateFromExistingSprite</a>, <a href="DrawingSurface.html#drawingsurfacedrawline">DrawingSurface.DrawLine</a>, <a href="DrawingSurface.html#drawingsurfacerelease">DrawingSurface.Release</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacerelease"><code>DrawingSurface.Release</code></a></p>
 <hr />
 </section>
 <section id="dynamicspriteresize" class="level3">
@@ -396,7 +396,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, stretch it to double its original size, and then draw it onto the room background at (100,100).</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritechangecanvassize">DynamicSprite.ChangeCanvasSize</a>, <a href="DynamicSprite.html#dynamicspritecrop">DynamicSprite.Crop</a>, <a href="DynamicSprite.html#dynamicspriteflip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#dynamicspriterotate">DynamicSprite.Rotate</a>, <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritechangecanvassize"><code>DynamicSprite.ChangeCanvasSize</code></a>, <a href="DynamicSprite.html#dynamicspritecrop"><code>DynamicSprite.Crop</code></a>, <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a>, <a href="DynamicSprite.html#dynamicspriterotate"><code>DynamicSprite.Rotate</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspriterotate" class="level3">
@@ -416,7 +416,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise, draw the result onto the screen, and then delete the image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspriteflip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a>, <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritesavetofile" class="level3">
@@ -426,7 +426,7 @@ sprite.Delete();
 <p>Saves the dynamic sprite to the specified file.</p>
 <p>The filename you supply must have a .PCX or .BMP extension; they are the only two file types that the engine supports.</p>
 <p>Returns 1 if the sprite was saved successfully, or 0 if it failed.</p>
-<p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen">File.Open</a> and similar commands.</p>
+<p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen"><code>File.Open</code></a> and similar commands.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* sprite = DynamicSprite.CreateFromFile(&quot;CustomAvatar.bmp&quot;);
 sprite.Rotate(90);
@@ -434,14 +434,14 @@ sprite.SaveToFile(&quot;RotatedAvatar.bmp&quot;);
 sprite.Delete();
 </code></pre>
 <p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise, then save the result back to the disk.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromfile">DynamicSprite.CreateFromFile</a>, <a href="Globalfunctions_General.html#savescreenshot">SaveScreenShot</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a>, <a href="Globalfunctions_General.html#savescreenshot"><code>SaveScreenShot</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritetint" class="level3">
 <h3><a href="#dynamicspritetint"><code>DynamicSprite.Tint</code></a></h3>
 <pre><code>DynamicSprite.Tint(int red, int green, int blue, int saturation, int luminance)
 </code></pre>
-<p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent saturation. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>.</p>
+<p>Tints the dynamic sprite to (RED, GREEN, BLUE) with SATURATION percent saturation. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
 <p>The tint set by this function is permanent for the dynamic sprite -- after the tint has been set, it is not possible to remove it. If you call Tint again with different parameters, it will apply the new tint to the already tinted sprite from the first call.</p>
 <p><strong>NOTE:</strong> This function only works with hi-color sprites.</p>
 <p>Example:</p>
@@ -453,7 +453,7 @@ surface.Release();
 sprite.Delete();
 </code></pre>
 <p>creates a copy of object 0's sprite, tints it red, and draws it onto the room background.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspriteflip">DynamicSprite.Flip</a>, <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a>, <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritecolordepth" class="level3">
@@ -469,14 +469,14 @@ if (sprite != null) {
 }
 </code></pre>
 <p>displays the color depth of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritegraphic" class="level3">
 <h3><a href="#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a></h3>
 <pre><code>readonly int DynamicSprite.Graphic;
 </code></pre>
-<p>Gets the sprite slot number in which this dynamic sprite is stored. This value can then be passed to other functions and properties, such as <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>.</p>
+<p>Gets the sprite slot number in which this dynamic sprite is stored. This value can then be passed to other functions and properties, such as <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>.</p>
 <p>Example:</p>
 <pre><code>DynamicSprite* ds = DynamicSprite.CreateFromScreenShot(50, 50);
 DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
@@ -485,7 +485,7 @@ surface.Release();
 ds.Delete();
 </code></pre>
 <p>takes a screen shot, and draws it onto the background scene at (100,100).</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot">DynamicSprite.CreateFromScreenShot</a>, <a href="DynamicSprite.html#dynamicspritedelete">DynamicSprite.Delete</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a>, <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
 </section>
 <section id="dynamicspriteheight" class="level3">
@@ -501,7 +501,7 @@ if (sprite != null) {
 }
 </code></pre>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a>, <a href="DynamicSprite.html#dynamicspritewidth">DynamicSprite.Width</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a></p>
 <hr />
 </section>
 <section id="dynamicspritewidth" class="level3">
@@ -517,14 +517,14 @@ if (sprite != null) {
 }
 </code></pre>
 <p>displays the size of the CustomAvatar.bmp image.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspriteheight">DynamicSprite.Height</a>, <a href="DynamicSprite.html#dynamicspriteresize">DynamicSprite.Resize</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:26</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

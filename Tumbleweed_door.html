@@ -112,7 +112,7 @@ Verbs.OpenCloseExtension (20);
 <li><code>1</code> = The door is open</li>
 <li><code>2</code> = The door is closed and locked</li>
 </ul>
-<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsgetdoorstate">Verbs.GetDoorState</a>, <a href="Tumbleweed_door.html#verbsinitobject">Verbs.InitObject</a></p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsgetdoorstate"><code>Verbs.GetDoorState</code></a>, <a href="Tumbleweed_door.html#verbsinitobject"><code>Verbs.InitObject</code></a></p>
 <hr />
 </section>
 <section id="verbsgetdoorstate" class="level3">
@@ -125,7 +125,7 @@ Verbs.OpenCloseExtension (20);
 <li><code>1</code> = The door is open</li>
 <li><code>2</code> = The door is closed and locked</li>
 </ul>
-<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate">Verbs.SetDoorState</a>, <a href="Tumbleweed_door.html#verbsinitobject">Verbs.InitObject</a></p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate"><code>Verbs.SetDoorState</code></a>, <a href="Tumbleweed_door.html#verbsinitobject"><code>Verbs.InitObject</code></a></p>
 <hr />
 </section>
 <section id="verbsinitobject" class="level3">
@@ -133,7 +133,7 @@ Verbs.OpenCloseExtension (20);
 <pre><code>void Doors.InitObject(int door_id, int act_object);
 </code></pre>
 <p>Used to set up the corresponding object, used by the door with the given id. If the state of the door is closed, the object will be invisible. Otherwise, the object will be shown. The object stays unclickable all the time.</p>
-<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate">Verbs.SetDoorState</a></p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate"><code>Verbs.SetDoorState</code></a></p>
 <hr />
 </section>
 <section id="verbsanyclick" class="level3">
@@ -151,7 +151,7 @@ Verbs.OpenCloseExtension (20);
 <li>nr_dir: after the room change, the player faces this direction</li>
 </ul>
 <p>This is the main function of the door scripts. With this you connect the hotspot with the door and the player's action. If you have defined default door sounds, these are also being called in this function. Also you can't unlock a door with this function. You need Doors.AnyClickSpecial for that.</p>
-<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclickspecial">Verbs.AnyClickSpecial</a></p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclickspecial"><code>Verbs.AnyClickSpecial</code></a></p>
 <hr />
 </section>
 <section id="verbsanyclickspecial" class="level3">
@@ -165,14 +165,14 @@ Verbs.OpenCloseExtension (20);
 <li>key: the id of the inventory item, that can unlock the door, -1 masterkey, -2 if the door cannot be unlocked</li>
 <li>closevalue: default 0 (closed), but you can also set 2 (locked).</li>
 </ul>
-<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclick">Verbs.AnyClick</a></p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclick"><code>Verbs.AnyClick</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

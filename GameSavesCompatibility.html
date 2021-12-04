@@ -104,22 +104,18 @@
 <li>Script modules (when changing the number of them by adding or removing scripts)</li>
 </ul>
 <p>In addition to that, changing the <em>total size</em> of variables declared in the global scope of each script (<em>NOT</em> local function variables) will break older save states.<br> To elaborate on what "total size" is, imagine you have this declared in a script:</p>
-<pre>
-int a;
+<pre><code>int a;
 int b;
 int c;
-</pre>
-
+</code></pre>
 <p>This adds up to make the total size of script variables 3 integers (or 3 * 4 bytes = 12 bytes). Now, if you change this to</p>
-<pre>
-int vars[3];
-</pre>
-
+<pre><code>int vars[3];
+</code></pre>
 <p>even though there's now only one variable, this also gives a total size of 3 integers, and won't break save states. (Here we omit the question whether it will still make sense to restore older save with such a change in the script.)</p>
 </section>
 <section id="changes-that-dont-break-saves-but-are-not-safe" class="level3">
 <h3><a href="#changes-that-dont-break-saves-but-are-not-safe">Changes that DON'T break saves but are NOT SAFE</a></h3>
-<p>Changing the number of Room Objects in existing rooms, while technically not preventing the compiled game to restore old saves, still may lead to bugs. Because their real number is stored in saves, players may end up having more or less objects in a room than there are supposed to be. And because currently you cannot create or delete Room Objects with a script command you won't be able to fix this, you can only detect this happening by checking <a href="Room.html#roomobjectcount">Room.ObjectCount</a>.</p>
+<p>Changing the number of Room Objects in existing rooms, while technically not preventing the compiled game to restore old saves, still may lead to bugs. Because their real number is stored in saves, players may end up having more or less objects in a room than there are supposed to be. And because currently you cannot create or delete Room Objects with a script command you won't be able to fix this, you can only detect this happening by checking <a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a>.</p>
 <p>Changing the size of the dynamic arrays and managed structs won't break saves, but may cause the game to crash if a script tries to access newer elements or variables in these arrays and structs after restoring older saves.<br> Still this may be worked around and can actually be used to your advantage: see the <a href="GameSavesCompatibility.html#an-issue-of-dynamic-objects">dedicated section below</a> for more information.</p>
 </section>
 <section id="changes-that-dont-break-saves-and-are-safe" class="level3">
@@ -154,35 +150,28 @@ int vars[3];
 <h3><a href="#an-issue-of-dynamic-objects">An issue of dynamic objects</a></h3>
 <p>The pointers which are global variables are part of script's total variable size, so adding or removing them in script will result in the save breaking. The <em>managed objects themselves</em> are not stored in the script's variable memory, but in their own memory pool. They are also completely written to the save file, and loading this save will restore the original managed object with its original size. Therefore, changing their sizes in a new version of the game doesn't break previous saves. However, there's a number of potential problems with that and these have to be resolved if you want to maintain save compatibility.</p>
 <p>Consider a simple dynamic array:</p>
-<pre>
-int dyn_arr[];
+<pre><code>int dyn_arr[];
 
 function game_start() {
     dyn_arr = new int[100];
 }
-</pre>
-
+</code></pre>
 <p>Let's assume you had this in game version 1, made a save, then increased the dynamic array's size in script to 200:</p>
-<pre>
-    dyn_arr = new int[200];
-</pre>
-
+<pre><code>    dyn_arr = new int[200];
+</code></pre>
 <p>What will happen if you now compile game version 2 and then restore the old save? The game will restore the dynamic array with the previous size of 100. This means that if your new script will now try to access elements in the array beyond 100 (thinking that this array has 200 elements now), that will result in an "index out of range" error. Unfortunately at the time of writing this AGS manual page, you can't access the length of a dynamic arrays directly in script. But you can store their length somewhere else, for example, in a variable:</p>
-<pre>
-int dyn_arr[];
+<pre><code>int dyn_arr[];
 int arr_size;
 
 function game_start() {
     dyn_arr = new int[100];
     arr_size = 100;
 }
-</pre>
-
+</code></pre>
 <p>There are other ways of fixing this, for example you could store the array length in its first element. This way you keep the save breaking value within the array itself, but you will have to remember it's there when you work with the array. Anyway, that's a different topic. In any case, having the array length stored, if you ever change that array's size and restore an older save, that length variable will also be restored and will tell you the correct size of the array. If you still need the array to be exactly 200 elements in size in the new version of the game you may resize it after restoring a save. This is explained further in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
 <p>Less likely, but if you instead reduce the array's size then the array restored from the older save will be bigger in size than necessary, but that's much less of a problem and can be ignored safely.</p>
 <p>This is what happens with changes in dynamic arrays, but what about <em>changes in custom managed structs</em>? Assume in game version 1 you have:</p>
-<pre>
-managed struct MyStruct {
+<pre><code>managed struct MyStruct {
     int a;
     int b;
 };
@@ -192,35 +181,28 @@ MyStruct* var;
 function game_start() {
     var = new MyStruct;
 }
-</pre>
-
+</code></pre>
 <p>Then in game version 2 you decided to add another variable:</p>
-<pre>
-managed struct MyStruct {
+<pre><code>managed struct MyStruct {
     int a;
     int b;
     int c;
 };
-</pre>
-
+</code></pre>
 <p>If you load an older save from version 1 while running version 2, created objects of this type will load but will be one variable less in size. Trying to use the additional variable in script will result in an error. This is similar to the array case. The solution here is similar to the array solution: upon restoring the older save recreate all managed objects (they will be of the correct size), copy valid content from restored objects into them, and reassign pointers to these recreated objects. Again this is explained more in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
 <p>And again, if you remove a variable instead:</p>
-<pre>
-managed struct MyStruct {
+<pre><code>managed struct MyStruct {
     int a;
 };
-</pre>
-
+</code></pre>
 <p>in this case the older save will be restored, and the old variants of MyStruct will also be loaded. They will contain all the removed variables, but you no longer will be able to access them in script because they are no longer declared so the script is not aware of their existence.</p>
 <p>Finally, there's another potential problem. Let's look at this variant:</p>
-<pre>
-managed struct MyStruct {
+<pre><code>managed struct MyStruct {
     int a;
     // int b;
     int c;
 };
-</pre>
-
+</code></pre>
 <p>The <code>b</code> variable was removed, so variable <code>c</code> now follows <code>a</code>. If you load an older save however, the old MyStruct objects contain variable <code>b</code>, and its value will be assigned to <code>c</code> instead of <code>b</code>, as it took its place in the struct.</p>
 <p>For that reason, if save compatibility is essential, it is recommended to only <em>extend</em> managed types and not cut out existing data.</p>
 <hr />
@@ -249,28 +231,25 @@ managed struct MyStruct {
 <h3><a href="#solution-3-new-rooms">Solution 3: New rooms</a></h3>
 <p>If you must change the content of a room but do not want to break saves at all costs you may create a duplicate room with a new number and updated contents, then script changing to this new room if the player restores a save made in the old room.</p>
 <p>This is done like this, for example:</p>
-<pre>
-function on_event(EventType evt, int data) {
+<pre><code>function on_event(EventType evt, int data) {
     if (evt == eEventRestoreGame) {
         if (player.Room == OLD_ROOM_NUMBER) {
             player.ChangeRoom(NEW_ROOM_NUMBER);
         }
     }
 }
-</pre>
-
+</code></pre>
 </section>
 <section id="solution-4-string-dictionary-and-set" class="level3">
 <h3><a href="#solution-4-string-dictionary-and-set">Solution 4: String, Dictionary and Set</a></h3>
 <p>You may use String variables (or even one String) to store almost any amount of additional data without adding new variables. Strings may be <a href="StringFormats.html">formatted</a> to include numbers too. You may create for example a comma-separated list of values, then parse it back by iterating over characters, cutting it into substrings and converting it back to the wanted types. That will involve some advanced scripting but can be used as a last resort.</p>
-<p>Since AGS 3.5.0 there's also a <a href="Dictionary.html">Dictionary</a> type and a <a href="Set.html">Set</a> type available. Those types may serve as an easier alternative in this solution. It's easy to check which variables (keys) they contain. You can even store the "game version" inside them as one of the elements and check for that value after restoring a save to know which version of your game saved it. They may be used as a universal global storage, for example, for story variables, expanding them between game updates.</p>
+<p>Since AGS 3.5.0 there's also a <a href="Dictionary.html"><code>Dictionary</code></a> type and a <a href="Set.html"><code>Set</code></a> type available. Those types may serve as an easier alternative in this solution. It's easy to check which variables (keys) they contain. You can even store the "game version" inside them as one of the elements and check for that value after restoring a save to know which version of your game saved it. They may be used as a universal global storage, for example, for story variables, expanding them between game updates.</p>
 </section>
 <section id="solution-5-extending-dynamic-arrays-and-managed-structs" class="level3">
 <h3><a href="#solution-5-extending-dynamic-arrays-and-managed-structs">Solution 5: Extending dynamic arrays and managed structs</a></h3>
 <p>As mentioned earlier in this article, any managed object is not restricted to change because its full content is read from the save. This allows you to use managed structs and dynamic arrays as infinite reserve for variables. Upon loading an old save you would need to test the length or another kind of "version" of that array and resize it: create a new one, copy the old restored contents, fill up the rest with default values, replace the pointer variable.</p>
 <p>Consider following example:</p>
-<pre>
-#define GAME_VER_001_LENGTH 10
+<pre><code>#define GAME_VER_001_LENGTH 10
 #define GAME_VER_002_LENGTH 20
 
 int GameVersion;
@@ -288,11 +267,11 @@ function on_event(EventType evt, int data) {
             // allocate bigger array suited for latest version of the game
             int new_vars[] = new int[GAME_VER_002_LENGTH];
             // copy restored array with old data into our new array
-            for (int i = 0; i < GAME_VER_001_LENGTH; i++) {
+            for (int i = 0; i &lt; GAME_VER_001_LENGTH; i++) {
                  new_vars[i] = MyVariables[i];
             }
             // set default values for the rest (replace with your code as appropriate)
-            for (int i = GAME_VER_001_LENGTH; i < GAME_VER_002_LENGTH; i++) {
+            for (int i = GAME_VER_001_LENGTH; i &lt; GAME_VER_002_LENGTH; i++) {
                  new_vars[i] = 0;
             }
             // finally replace pointer and version number
@@ -301,11 +280,9 @@ function on_event(EventType evt, int data) {
         }
     }
 }
-</pre>
-
+</code></pre>
 <p>A similar solution may be used for managed structs, although it may be bit more complicated to script but essentially it is the same thing.</p>
-<pre>
-managed struct MyStruct {
+<pre><code>managed struct MyStruct {
     // variables from version 1
     int a;
     int b;
@@ -340,15 +317,14 @@ function on_event(EventType evt, int data) {
         }
     }
 }
-</pre>
-
+</code></pre>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:24</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

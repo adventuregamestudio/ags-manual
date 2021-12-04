@@ -66,13 +66,21 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#dynamic-arrays"><span>Dynamic Arrays</span></a></li>
+<li><a href="#dynamic-arrays"><span>Dynamic Arrays</span></a>
+<ul>
+<li><a href="#overview"><span>Overview</span></a></li>
+<li><a href="#filling-a-dynamic-array"><span>Filling a dynamic array</span></a></li>
+<li><a href="#resizing-a-dynamic-array"><span>Resizing a dynamic array</span></a></li>
+<li><a href="#deleting-dynamic-array"><span>Deleting dynamic array</span></a></li>
+</ul></li>
 </ul>
   </nav>
 
   <main>
 <section id="dynamic-arrays" class="level2">
 <h2><a href="#dynamic-arrays">Dynamic Arrays</a></h2>
+<section id="overview" class="level3">
+<h3><a href="#overview">Overview</a></h3>
 <p>Suppose that you're writing a script that you want people to be able to use in their games. You need to store the Health for every character in the game, but you don't know how many characters there will be. What do you do?</p>
 <p>Dynamic Arrays are designed for just this purpose. You can declare an array like this:</p>
 <p><code>int characterHealth[];</code></p>
@@ -81,13 +89,92 @@
 <p>If you forget to do this <code>new</code> command, you'll get a Null Pointer Error if you try to access the array. You can change the size of an array by simply using another <code>new</code> command with a different size; but this will erase the contents of the array in the process.</p>
 <p>You may create dynamic arrays of basic types (int, char, etc), built-in types (String, Character, etc), and custom structs declared as <code>managed</code>. But currently you cannot have dynamic arrays of regular (non-managed) custom structs.</p>
 <p>On another hand, you cannot have dynamic arrays inside "managed" structs as their members, but can have them anywhere else.</p>
-<p>See Also: <a href="ScriptKeywords.html#arrays">Arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
+</section>
+<section id="filling-a-dynamic-array" class="level3">
+<h3><a href="#filling-a-dynamic-array">Filling a dynamic array</a></h3>
+<p>If you have dynamic array of managed pointers, then after creation all of these pointers will be null. You must also assign individual elements one by one. For example, when you want to fill an array with already existing game objects:</p>
+<pre><code>Character *groupOfChars[] = new Character[4];
+groupOfChars[0] = cRoger;
+groupOfChars[1] = cMary;
+groupOfChars[2] = cThomas;
+groupOfChars[3] = cVillager;
+</code></pre>
+<p>Similarily, when you want to create completely new objects:</p>
+<pre><code>DynamicSprite *sprites[] = new DynamicSprite[4];
+sprites[0] = DynamicSprite.Create(10, 10);
+sprites[1] = DynamicSprite.Create(20, 20);
+sprites[2] = DynamicSprite.Create(10, 40);
+sprites[3] = DynamicSprite.Create(50, 10);
+</code></pre>
+<p>Accessing individual elements is as simple as with regular array:</p>
+<pre><code>int health = characterHealth[5];
+int charX = groupOfChars[3].x;
+sprites[1].Flip(eFlipLeftToRight);
+</code></pre>
+<p>You don't <em>have</em> to fill all the array indexes of course, you may as well leave some empty (null). Just remember to keep track of that, and if your script may access empty indexes make sure to check if the element is null or not before using it:</p>
+<pre><code>for (int i = 0; i &lt; numSprites; i++) {
+    if (sprites[i] != null) {
+        sprites[i].Flip(eFlipLeftToRight);
+    }
+}
+</code></pre>
+</section>
+<section id="resizing-a-dynamic-array" class="level3">
+<h3><a href="#resizing-a-dynamic-array">Resizing a dynamic array</a></h3>
+<p>Dynamic arrays cannot be resized on their own. If later you require a bigger array, you may to do following:</p>
+<ul>
+<li>Create a new, larger array and save it in a temporary variable;</li>
+<li>Copy all elements from the old array into the new one;</li>
+<li>Assign new array to your usual array variable.</li>
+</ul>
+<p>For example:</p>
+<pre><code>int arrOfInts[]; // declare a dynamic array of ints
+
+function game_start() {
+    arrOfInts = new int[100]; // create array of 100 ints
+}
+
+function resize_array() {
+    int tempArr[] = new int[200]; // create array of 200 ints and save it in a temp var
+    for (i = 0; i &lt; 100; i++) {
+        tempArr[i] = arrOfInts[i]; // copy contents of the old array
+    }
+    arrOfInts = tempArr; // assign new array to your usual variable
+}
+</code></pre>
+<p>Same solution may work when you want to reduce an array to a smaller size, except in that case you'll have to loose some elements.</p>
+</section>
+<section id="deleting-dynamic-array" class="level3">
+<h3><a href="#deleting-dynamic-array">Deleting dynamic array</a></h3>
+<p>Like most of the dynamically created objects in AGS, dynamic arrays exist so long as it is assigned to at least one pointer. If you have one pointer to array, and you change its value or assign it to null, then the dynamic array will get deleted automatically:</p>
+<pre><code>int arrOfInts[];
+arrOfInts = new int[100]; // create and assign an array of 100 ints
+arrOfInts = new int[200]; // assign a new array of 200 ints; the previous one is lost and gets deleted
+arrOfInts = null; // now the second array is also lost and get deleted
+</code></pre>
+<p>Note that if you store a dynamic array in a local function variable, that variable will get removed as soon as function ends, and if array was not reassigned to any global pointer, then it also gets deleted automatically.</p>
+<pre><code>function func() {
+    int arrOfInts[] = new int[100];
+    &lt;...&gt; // do something with this array
+} // as soon as function ends the array gets deleted
+</code></pre>
+<p>The array will not be deleted if you <em>return</em> it from the function; so long as the returned array is assigned to a pointer of course:</p>
+<pre><code>int[] func_makearr(int size) {
+    int arrOfInts[] = new int[size];
+    return arrOfInts; // not deleted just yet
+}
+
+// somewhere else in code:
+int arr[] = func_makearr(100); // the returned array will be assigned to `arr` pointer
+</code></pre>
+<p><em>See also:</em> <a href="ScriptKeywords.html#arrays">Arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
+</section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:26</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

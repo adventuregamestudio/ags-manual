@@ -85,22 +85,22 @@
 <tbody>
 <tr class="odd">
 <td>Character character[]</td>
-<td><a href="Game.html#gamecharactercount">Game.CharacterCount</a></td>
+<td><a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a></td>
 <td>All game's Characters</td>
 </tr>
 <tr class="even">
 <td>Dialog dialog[]</td>
-<td><a href="Game.html#gamedialogcount">Game.DialogCount</a></td>
+<td><a href="Game.html#gamedialogcount"><code>Game.DialogCount</code></a></td>
 <td>All game's dialogs</td>
 </tr>
 <tr class="odd">
 <td>GUI gui[]</td>
-<td><a href="Game.html#gameguicount">Game.GUICount</a></td>
+<td><a href="Game.html#gameguicount"><code>Game.GUICount</code></a></td>
 <td>All game's GUI</td>
 </tr>
 <tr class="even">
 <td>InventoryItem inventory[]</td>
-<td><a href="Game.html#gameinventoryitemcount">Game.InventoryItemCount</a></td>
+<td><a href="Game.html#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></td>
 <td>All game's InventoryItems</td>
 </tr>
 <tr class="odd">
@@ -110,7 +110,7 @@
 </tr>
 <tr class="even">
 <td>Object object[]</td>
-<td><a href="Room.html#roomobjectcount">Room.ObjectCount</a></td>
+<td><a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a></td>
 <td>Current room's Room Objects</td>
 </tr>
 <tr class="odd">
@@ -127,29 +127,25 @@
 </table>
 <p>Arrays that contain game objects contain them in the order of their respective ID. For example, if you have a character with the script name "cChar", then <code>cChar.ID</code> would tell you the index at which this character is in the <code>character</code> array. This may be useful if you have to store its numeric ID in an integer variable for later use and then find the Character by this number.</p>
 <p>Abstract example:</p>
-<pre>
-int saved_id;
+<pre><code>int saved_id;
 ...
 saved_id = cChar.ID;
 ...
 Character* found_char = character[saved_id];
-</pre>
-
+</code></pre>
 <p>Naturally, when you know the array's size it's possible to iterate over it, for example when you want to perform an action on all of these objects, or when you want to find one of the objects in the game array by certain rules:</p>
-<pre>
-for (int i = 0; i < Game.CharacterCount; i++) {
+<pre><code>for (int i = 0; i &lt; Game.CharacterCount; i++) {
     Character* c = character[i];
-    Display("Character number %d got name %s", i, c.Name);
+    Display(&quot;Character number %d got name %s&quot;, i, c.Name);
 }
-</pre>
-
+</code></pre>
 <p><strong>IMPORTANT:</strong> there is a known issue that if the game script mentions one of those arrays anywhere, then your game must have at least one object of that type. This is because AGS script cannot have zero-sized arrays and does not declare those that won't have any elements.<br> This is essential to remember if you're using a game template or script module that works with <code>dialog[]</code>, <code>gui[]</code> or <code>inventory[]</code> arrays: to make your game compile in this case you have to create at least one dummy Dialog, GUI or Inventory item (even if you don't use it).</p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:29</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

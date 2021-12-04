@@ -90,7 +90,7 @@
   <main>
 <section id="button-functions-and-properties" class="level2">
 <h2><a href="#button-functions-and-properties"><code>Button</code> functions and properties</a></h2>
-<p>Button is a subclass of <a href="GUIControl.html">GUIControl</a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<p>Button is a subclass of <a href="GUIControl.html"><code>GUIControl</code></a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
 <section id="buttonclick" class="level3">
 <h3><a href="#buttonclick"><code>Button.Click</code></a></h3>
@@ -98,16 +98,16 @@
 </code></pre>
 <p>Forces Button's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="GUI.html#guiclick">GUI.Click</a>, <a href="GUI.html#guiprocessclick">GUI.ProcessClick</a></p>
+<p><em>See also:</em> <a href="GUI.html#guiclick"><code>GUI.Click</code></a>, <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="buttonanimate" class="level3">
 <h3><a href="#buttonanimate"><code>Button.Animate</code></a></h3>
-<p><em>(Formerly known as AnimateButton, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>AnimateButton</code>, which is now obsolete)</em></p>
 <pre><code>Button.Animate(int view, int loop, int delay, RepeatStyle)
 </code></pre>
 <p>Animates a GUI button by playing the specified view loop on it. This could be useful for Sierra-style death animations and other effects.</p>
-<p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the <a href="Character.html#characteranimate">Character.Animate</a> and <a href="Object.html#objectanimate">Object.Animate</a> commands.</p>
+<p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the <a href="Character.html#characteranimate"><code>Character.Animate</code></a> and <a href="Object.html#objectanimate"><code>Object.Animate</code></a> commands.</p>
 <p>REPEAT determines whether the animation will loop repeatedly, or just play once and stop with the last frame showing (eOnce or eRepeat are the possible values).</p>
 <p>You can abort an animation at any time by setting the button's <a href="Button.html#buttonnormalgraphic">NormalGraphic property</a>, or starting a new animation on the same button.</p>
 <p><strong>NOTE:</strong> This command destroys the button's normal, pushed and mouseover images. If you want to return the button to normal usage after playing an animation, you will have to set the Graphic properties to restore the images.</p>
@@ -116,8 +116,8 @@
 <pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
 </code></pre>
 <p>will animate the 'btnDeathAnim' button using loop 2 of view 6, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimating">Button.Animating</a>, <a href="Button.html#buttonframe">Button.Frame</a>, <a href="Button.html#buttonloop">Button.Loop</a>, <a href="Button.html#buttonview">Button.View</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>,<br />
-<a href="Character.html#characteranimate">Character.Animate</a>, <a href="Object.html#objectanimate">Object.Animate</a>,</p>
+<p><em>See also:</em> <a href="Button.html#buttonanimating"><code>Button.Animating</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>,<br />
+<a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a>,</p>
 <hr />
 </section>
 <section id="buttonanimating" class="level3">
@@ -125,14 +125,14 @@
 <pre><code>readonly bool Button.Animating
 </code></pre>
 <p>Returns true if the specified button is currently animating, or false otherwise.</p>
-<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate">Animate</a> command.</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate"><code>Animate</code></a> command.</p>
 <p>Example:</p>
 <pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
 while (btnDeathAnim.Animating) Wait(1);
 </code></pre>
 <p>will animate button and wait until the animation finishes.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimate">Button.Animate</a>, <a href="Button.html#buttonframe">Button.Frame</a>, <a href="Button.html#buttonloop">Button.Loop</a>, <a href="Button.html#buttonview">Button.View</a>, <a href="Button.html#buttongraphic">Button.Graphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
 <section id="buttonframe" class="level3">
@@ -140,9 +140,9 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>readonly int Button.Frame
 </code></pre>
 <p>Gets the frame number that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate">Animate</a> command.</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate"><code>Animate</code></a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimating">Button.Animating</a>, <a href="Button.html#buttonloop">Button.Loop</a>, <a href="Button.html#buttonview">Button.View</a>, <a href="Button.html#buttongraphic">Button.Graphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimating"><code>Button.Animating</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
 <section id="buttonloop" class="level3">
@@ -150,9 +150,9 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>readonly int Button.Loop
 </code></pre>
 <p>Gets the loop that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate">Animate</a> command.</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate"><code>Animate</code></a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimate">Button.Animate</a>, <a href="Button.html#buttonframe">Button.Frame</a>, <a href="Button.html#buttonview">Button.View</a>, <a href="Button.html#buttongraphic">Button.Graphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
 <section id="buttonview" class="level3">
@@ -160,9 +160,9 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>readonly int Button.View
 </code></pre>
 <p>Gets the view that the animated button is currently set to. If the button is not currently animated, this will be 0 (in which case the Graphic property will hold its sprite number).</p>
-<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate">Animate</a> command.</p>
+<p>This property is read-only. To change button's animation, use the <a href="Button.html#buttonanimate"><code>Animate</code></a> command.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonanimate">Button.Animate</a>, <a href="Button.html#buttonframe">Button.Frame</a>, <a href="Button.html#buttonloop">Button.Loop</a>, <a href="Button.html#buttongraphic">Button.Graphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
 <section id="buttonclipimage" class="level3">
@@ -177,7 +177,7 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>btnOK.ClipImage = true;
 </code></pre>
 <p>sets the <em>btnOK</em> button so that its image will be restrained to the button's clickable area.</p>
-<p><em>See Also:</em> <a href="Button.html#buttongraphic">Button.Graphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a></p>
 <hr />
 </section>
 <section id="buttonfont" class="level3">
@@ -190,26 +190,26 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>btnOK.Font = eFontMain;
 </code></pre>
 <p>will change the <em>btnOK</em> button to use Font "Main".</p>
-<p><em>See Also:</em> <a href="Label.html#labelfont">Label.Font</a>, <a href="TextBox.html#textboxfont">TextBox.Font</a></p>
+<p><em>See also:</em> <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="TextBox.html#textboxfont"><code>TextBox.Font</code></a></p>
 <hr />
 </section>
 <section id="buttongraphic" class="level3">
 <h3><a href="#buttongraphic"><code>Button.Graphic</code></a></h3>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em></p>
 <pre><code>readonly int Button.Graphic;
 </code></pre>
 <p>Gets the current image on a GUI button. If a value less than 1 is returned, then no image is currently displayed on the button.</p>
-<p>This property is read-only; in order to set the image, you must use one of the <a href="Button.html#buttonnormalgraphic">NormalGraphic</a>, <a href="Button.html#buttonmouseovergraphic">MouseOverGraphic</a> or <a href="Button.html#buttonpushedgraphic">PushedGraphic</a> properties.</p>
+<p>This property is read-only; in order to set the image, you must use one of the <a href="Button.html#buttonnormalgraphic"><code>NormalGraphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>MouseOverGraphic</code></a> or <a href="Button.html#buttonpushedgraphic"><code>PushedGraphic</code></a> properties.</p>
 <p>Example:</p>
 <pre><code>Display(&quot;The button is currently using sprite %d.&quot;, btnPlay.Graphic);
 </code></pre>
 <p>will display btnPlay's current sprite number.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonclipimage">Button.ClipImage</a>, <a href="Button.html#buttonmouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>, <a href="Button.html#buttonpushedgraphic">Button.PushedGraphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonclipimage"><code>Button.ClipImage</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></p>
 <hr />
 </section>
 <section id="buttonmouseovergraphic" class="level3">
 <h3><a href="#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a></h3>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
 <pre><code>int Button.MouseOverGraphic;
 </code></pre>
 <p>Gets/sets the button's mouse-over sprite. This can be -1, which indicates that the button does not have a mouse-over graphic.</p>
@@ -217,12 +217,12 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>Display(&quot;The button&#39;s mouse-over image is sprite %d.&quot;, btnPlay.MouseOverGraphic);
 </code></pre>
 <p>will display btnPlay's mouse-over sprite number.</p>
-<p><em>See Also:</em> <a href="Button.html#buttongraphic">Button.Graphic</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>, <a href="Button.html#buttonpushedgraphic">Button.PushedGraphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></p>
 <hr />
 </section>
 <section id="buttonnormalgraphic" class="level3">
 <h3><a href="#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></h3>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
 <pre><code>int Button.NormalGraphic;
 </code></pre>
 <p>Gets/sets the button's normal sprite (i.e. the graphic used when the button is not pushed and the mouse is not over it).</p>
@@ -231,12 +231,12 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>Display(&quot;The button&#39;s normal image is sprite %d.&quot;, btnPlay.NormalGraphic);
 </code></pre>
 <p>will display btnPlay's normal sprite number.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonclipimage">Button.ClipImage</a> <a href="Button.html#buttongraphic">Button.Graphic</a>, <a href="Button.html#buttonmouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#buttonpushedgraphic">Button.PushedGraphic</a>, <a href="Button.html#buttontextcolor">Button.TextColor</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonclipimage"><code>Button.ClipImage</code></a> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonpushedgraphic"><code>Button.PushedGraphic</code></a>, <a href="Button.html#buttontextcolor"><code>Button.TextColor</code></a></p>
 <hr />
 </section>
 <section id="buttonpushedgraphic" class="level3">
 <h3><a href="#buttonpushedgraphic"><code>Button.PushedGraphic</code></a></h3>
-<p><em>(Formerly part of GetButtonPic, which is now obsolete)</em><br> <em>(Formerly part of SetButtonPic, which is now obsolete)</em></p>
+<p><em>(Formerly part of <code>GetButtonPic</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetButtonPic</code>, which is now obsolete)</em></p>
 <pre><code>int Button.PushedGraphic;
 </code></pre>
 <p>Gets/sets the button's pushed sprite (i.e. the graphic used when the button is pushed in by the user). This can be -1, which indicates that the button does not have a pushed image.</p>
@@ -244,12 +244,12 @@ while (btnDeathAnim.Animating) Wait(1);
 <pre><code>Display(&quot;The button&#39;s pushed image is sprite %d.&quot;, btnPlay.PushedGraphic);
 </code></pre>
 <p>will display btnPlay's pushed sprite number.</p>
-<p><em>See Also:</em> <a href="Button.html#buttongraphic">Button.Graphic</a>, <a href="Button.html#buttonmouseovergraphic">Button.MouseOverGraphic</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttongraphic"><code>Button.Graphic</code></a>, <a href="Button.html#buttonmouseovergraphic"><code>Button.MouseOverGraphic</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 <hr />
 </section>
 <section id="buttontext" class="level3">
 <h3><a href="#buttontext"><code>Button.Text</code></a></h3>
-<p><em>(Formerly known as SetButtonText, which is now obsolete)</em><br> <em>(Formerly known as Button.GetText, which is now obsolete)</em><br> <em>(Formerly known as Button.SetText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>SetButtonText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Button.GetText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Button.SetText</code>, which is now obsolete)</em></p>
 <pre><code>String Button.Text;
 </code></pre>
 <p>Gets/sets the text displayed on the button.</p>
@@ -258,7 +258,7 @@ while (btnDeathAnim.Animating) Wait(1);
 btnController.Text = &quot;Enable jibble&quot;;
 </code></pre>
 <p>will display the old text, then change button btnController to read 'Enable jibble'.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a>, <a href="Label.html#labeltext">Label.Text</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 <hr />
 </section>
 <section id="buttontextalignment" class="level3">
@@ -267,7 +267,7 @@ btnController.Text = &quot;Enable jibble&quot;;
 </code></pre>
 <p>Gets/sets how the text is aligned relative to the button's rectangle.</p>
 <p>If the button is displaying an image rather than text, then this property has no effect.</p>
-<p><em>See Also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a></p>
+<p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <hr />
 </section>
@@ -281,14 +281,14 @@ btnController.Text = &quot;Enable jibble&quot;;
 <pre><code>btnRestart.TextColor = 15;
 </code></pre>
 <p>will change button 'btnRestart' to have white text.</p>
-<p><em>See Also:</em> <a href="Button.html#buttonnormalgraphic">Button.NormalGraphic</a></p>
+<p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:18</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

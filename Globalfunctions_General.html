@@ -123,9 +123,6 @@
 <li><a href="#startcutscene"><span><code>StartCutscene</code></span></a></li>
 <li><a href="#updateinventory"><span><code>UpdateInventory</code></span></a></li>
 <li><a href="#unpausegame"><span><code>UnPauseGame</code></span></a></li>
-<li><a href="#wait"><span><code>Wait</code></span></a></li>
-<li><a href="#waitkey"><span><code>WaitKey</code></span></a></li>
-<li><a href="#waitmousekey"><span><code>WaitMouseKey</code></span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -148,7 +145,7 @@
 }
 </code></pre>
 <p>will abort the game if MakeWider is called with a parameter less than 10.</p>
-<p>SeeAlso: <a href="Globalfunctions_General.html#quitgame">QuitGame</a></p>
+<p>SeeAlso: <a href="Globalfunctions_General.html#quitgame"><code>QuitGame</code></a></p>
 <hr />
 </section>
 <section id="callroomscript" class="level3">
@@ -169,7 +166,7 @@
 </code></pre>
 <p>The function doesn't get called immediately; instead, the engine will run it in due course, probably during the next game loop, so you can't use any values set by it immediately.</p>
 <p>Once the on_call function has executed (or not if there isn't one), the game.roomscript_finished variable will be set to 1, so you can check for that in your repeatedly_execute script if you need to do something afterwards.</p>
-<p>SeeAlso: <a href="TextParser.html">The text parser documentation</a>, <a href="Globalfunctions_Event.html#on_call">on_call</a></p>
+<p>SeeAlso: <a href="TextParser.html">The text parser documentation</a>, <a href="Globalfunctions_Event.html#on_call"><code>on_call</code></a></p>
 <hr />
 </section>
 <section id="claimevent" class="level3">
@@ -218,21 +215,22 @@
     parts of the game or going to a specific point to test something.
 4   Show FPS - toggles whether the current frames per second is displayed
     on the screen. Pass DATA as 1 to turn this on, 0 to turn it off.
+5   Character Walk Path - shows walking path for the character.
+    Pass DATA matching desired Character ID.
 </code></pre>
-<p><em>See Also:</em> <a href="Debuggingfeatures.html">Debugging features</a>, <a href="System.html#systemruntimeinfo">System.RuntimeInfo</a></p>
+<p><em>See also:</em> <a href="Debuggingfeatures.html">Debugging features</a>, <a href="System.html#systemruntimeinfo"><code>System.RuntimeInfo</code></a></p>
 <hr />
 </section>
 <section id="deletesaveslot" class="level3">
 <h3><a href="#deletesaveslot"><code>DeleteSaveSlot</code></a></h3>
 <pre><code>DeleteSaveSlot (int slot)
 </code></pre>
-<p>Deletes the save game in save slot number SLOT.</p>
-<p>NOTE: if you specify one of the standard slots (1-50), then AGS will rearrange the other save games to make sure there is a sequence of slots from 1 upwards. Therefore, you will need to refresh any save game lists you have after calling this function.</p>
+<p>Deletes the save game in save slot number SLOT. If there were no save then nothing happens.</p>
 <p>Example:</p>
 <pre><code>DeleteSaveSlot (130);
 </code></pre>
 <p>deletes save game slot 130 (which we should have saved earlier).</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a>, <a href="Globalfunctions_General.html#savegameslot">SaveGameSlot</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="disableinterface" class="level3">
@@ -245,7 +243,7 @@
 <pre><code>DisableInterface();
 </code></pre>
 <p>will disable the user's interface.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#enableinterface">EnableInterface</a>, <a href="Globalfunctions_General.html#isinterfaceenabled">IsInterfaceEnabled</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#enableinterface"><code>EnableInterface</code></a>, <a href="Globalfunctions_General.html#isinterfaceenabled"><code>IsInterfaceEnabled</code></a></p>
 <hr />
 </section>
 <section id="enableinterface" class="level3">
@@ -257,7 +255,7 @@
 <pre><code>EnableInterface();
 </code></pre>
 <p>will enable the user's interface.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#disableinterface">DisableInterface</a>, <a href="Globalfunctions_General.html#isinterfaceenabled">IsInterfaceEnabled</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#disableinterface"><code>DisableInterface</code></a>, <a href="Globalfunctions_General.html#isinterfaceenabled"><code>IsInterfaceEnabled</code></a></p>
 <hr />
 </section>
 <section id="endcutscene" class="level3">
@@ -265,7 +263,7 @@
 <pre><code>EndCutscene()
 </code></pre>
 <p>Marks the end of a cutscene. If the player skips the cutscene, the game will fast-forward to this point. This function returns 0 if the player watched the cutscene, or 1 if they skipped it.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#skipcutscene">SkipCutscene</a>, <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Game.html#gameinskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#gameskippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#skipcutscene"><code>SkipCutscene</code></a>, <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
 <hr />
 </section>
 <section id="getgameoption" class="level3">
@@ -274,20 +272,20 @@
 </code></pre>
 <p>Gets the current setting of one of the game options, originally set in the AGS Editor Game Settings pane.</p>
 <p>OPTION specifies which option to get, and its current value is returned.</p>
-<p>The valid values for OPTION are listed in <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>.</p>
+<p>The valid values for OPTION are listed in <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a>.</p>
 <p>Example:</p>
 <pre><code>if (GetGameOption(OPT_PIXELPERFECT) == 1) {
   Display(&quot;pixel-perfect click deteciton is on!&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a></p>
 <hr />
 </section>
 <section id="getgameparameter" class="level3">
 <h3><a href="#getgameparameter"><code>GetGameParameter</code></a></h3>
 <p>The <em>GetGameParameter</em> function is now obsolete.</p>
 <p>It has been replaced with the following functions and properties:</p>
-<p><a href="Game.html#gamespritewidth">Game.SpriteWidth</a> (was gp_spritewidth)<br> <a href="Game.html#gamespriteheight">Game.SpriteHeight</a> (was gp_spriteheight)<br> <a href="Game.html#gamegetloopcountforview">Game.GetLoopCountForView</a> (was GP_NUMLOOPS)<br> <a href="Game.html#gamegetframecountforloop">Game.GetFrameCountForLoop</a> (was GP_NUMFRAMES)<br> <a href="Game.html#gamegetrunnextsettingforloop">Game.GetRunNextSettingForLoop</a> (was GP_ISRUNNEXTLOOP)<br> <a href="Game.html#gamegetviewframe">Game.GetViewFrame</a> (was GP_FRAMExxx, GP_ISFRAMEFLIPPED)<br> <a href="Game.html#gameguicount">Game.GUICount</a> (was gp_numguis)<br> <a href="Room.html#roomobjectcount">Room.ObjectCount</a> (was gp_numobjects)<br> <a href="Game.html#gamecharactercount">Game.CharacterCount</a> (was GP_NUMCHARACTERS)<br> <a href="Game.html#gameinventoryitemcount">Game.InventoryItemCount</a>(was GP_NUMINVITEMS)</p>
+<p><a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a> (was gp_spritewidth)<br> <a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a> (was gp_spriteheight)<br> <a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a> (was GP_NUMLOOPS)<br> <a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a> (was GP_NUMFRAMES)<br> <a href="Game.html#gamegetrunnextsettingforloop"><code>Game.GetRunNextSettingForLoop</code></a> (was GP_ISRUNNEXTLOOP)<br> <a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a> (was GP_FRAMExxx, GP_ISFRAMEFLIPPED)<br> <a href="Game.html#gameguicount"><code>Game.GUICount</code></a> (was gp_numguis)<br> <a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a> (was gp_numobjects)<br> <a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a> (was GP_NUMCHARACTERS)<br> <a href="Game.html#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a>(was GP_NUMINVITEMS)</p>
 <hr />
 </section>
 <section id="getgamespeed" class="level3">
@@ -301,7 +299,7 @@
 }
 </code></pre>
 <p>will always keep the game speed at 40 cycles per second (in case the user has raised it )</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setgamespeed">SetGameSpeed</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setgamespeed"><code>SetGameSpeed</code></a></p>
 <hr />
 </section>
 <section id="getglobalint" class="level3">
@@ -316,7 +314,7 @@
 }
 </code></pre>
 <p>will execute the code only if Global Integer 20 is 1.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setglobalint">SetGlobalInt</a>, <a href="Game.html#gameglobalstrings">Game.GlobalStrings</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setglobalint"><code>SetGlobalInt</code></a>, <a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></p>
 <hr />
 </section>
 <section id="getgraphicalvariable" class="level3">
@@ -330,7 +328,7 @@
    { code here }
 </code></pre>
 <p>will execute the code only if interaction variable "climbed rock" is 1.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getglobalint">GetGlobalInt</a>, <a href="Globalfunctions_General.html#setgraphicalvariable">SetGraphicalVariable</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a>, <a href="Globalfunctions_General.html#setgraphicalvariable"><code>SetGraphicalVariable</code></a></p>
 <hr />
 </section>
 <section id="getlocationtype" class="level3">
@@ -352,7 +350,7 @@ eLocationObject     an object
     mouse.Mode = eModeTalk;
 </code></pre>
 <p>will set the cursor mode to talk if the cursor is over a character.</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotgetatscreenxy">Hotspot.GetAtScreenXY</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a>, <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="getplayercharacter" class="level3">
@@ -363,7 +361,7 @@ eLocationObject     an object
 <p>Example:</p>
 <pre><code>Display(&quot;The player character number is %d&quot;, player.ID);
 </code></pre>
-<p><em>See Also:</em> <a href="Character.html#characterid">Character.ID</a></p>
+<p><em>See also:</em> <a href="Character.html#characterid"><code>Character.ID</code></a></p>
 <hr />
 </section>
 <section id="gettextheight" class="level3">
@@ -371,14 +369,14 @@ eLocationObject     an object
 <pre><code>GetTextHeight(string text, FontType font, int width)
 </code></pre>
 <p>Calculates the height on the screen that drawing TEXT in FONT within an area of WIDTH would take up.</p>
-<p>This allows you to work out how tall a message displayed with a command like <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped">DrawMessageWrapped</a> will be. WIDTH is the width of the area in which the text will be displayed.</p>
+<p>This allows you to work out how tall a message displayed with a command like <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawMessageWrapped</code></a> will be. WIDTH is the width of the area in which the text will be displayed.</p>
 <p>The height is returned in screen pixels, so it can be used with the screen display commands.</p>
 <p>Example:</p>
 <pre><code>int height = GetTextHeight(&quot;The message on the GUI!&quot;, Game.NormalFont, 100);
 gBottomLine.SetPosition(0, 200 - height);
 </code></pre>
 <p>will move the BOTTOMLINE GUI so that it can display the text within the screen.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#gettextwidth">GetTextWidth</a>, <a href="DrawingSurface.html#drawingsurfacedrawstring">DrawingSurface.DrawString</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#gettextwidth"><code>GetTextWidth</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a></p>
 <hr />
 </section>
 <section id="gettextwidth" class="level3">
@@ -396,7 +394,7 @@ surface.DrawString(160 - (width / 2), 100, Game.NormalFont, &quot;Hello!&quot;);
 surface.Release();
 </code></pre>
 <p>will print "Hello!" onto the middle of the background scene.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#gettextheight">GetTextHeight</a>, <a href="DrawingSurface.html#drawingsurfacedrawstring">DrawingSurface.DrawString</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#gettextheight"><code>GetTextHeight</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a></p>
 <hr />
 </section>
 <section id="gettranslation" class="level3">
@@ -411,7 +409,7 @@ if (buffer.CompareTo(GetTranslation(&quot;secret&quot;)) == 0) {
 }
 </code></pre>
 <p>If there is no translation for the supplied string, it will be returned unchanged, so it is always safe to use this function.</p>
-<p><em>See Also:</em> <a href="Game.html#gamechangetranslation">Game.ChangeTranslation</a>, <a href="Game.html#gametranslationfilename">Game.TranslationFilename</a>, <a href="Globalfunctions_General.html#istranslationavailable">IsTranslationAvailable</a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="givescore" class="level3">
@@ -424,7 +422,7 @@ if (buffer.CompareTo(GetTranslation(&quot;secret&quot;)) == 0) {
 <pre><code>GiveScore(5);
 </code></pre>
 <p>will give 5 points to the player.</p>
-<p><em>See Also:</em> <a href="Game.html#gamedoonceonly">Game.DoOnceOnly</a></p>
+<p><em>See also:</em> <a href="Game.html#gamedoonceonly"><code>Game.DoOnceOnly</code></a></p>
 <hr />
 </section>
 <section id="getfontheight" class="level3">
@@ -437,7 +435,7 @@ if (buffer.CompareTo(GetTranslation(&quot;secret&quot;)) == 0) {
 </code></pre>
 <p>will store the speech font's height in the variable.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getfontlinespacing">GetFontLineSpacing</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getfontlinespacing"><code>GetFontLineSpacing</code></a></p>
 <hr />
 </section>
 <section id="getfontlinespacing" class="level3">
@@ -453,7 +451,7 @@ int gap = spacing - h;
 </code></pre>
 <p>will calculate the gap between two lines of text, that are drawn using speech font.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getfontheight">GetFontHeight</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getfontheight"><code>GetFontHeight</code></a></p>
 <hr />
 </section>
 <section id="inventoryscreen" class="level3">
@@ -474,7 +472,7 @@ int gap = spacing - h;
 <pre><code>if (IsGamePaused()) UnPauseGame();
 </code></pre>
 <p>will unpause the game if it's paused.</p>
-<p><em>See Also:</em> <a href="GUI.html#guivisible">GUI.Visible</a></p>
+<p><em>See also:</em> <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="isinterfaceenabled" class="level3">
@@ -487,7 +485,7 @@ int gap = spacing - h;
     DisableInterface();
 </code></pre>
 <p>will disable the user interface if it's enabled.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#disableinterface">DisableInterface</a>, <a href="Globalfunctions_General.html#enableinterface">EnableInterface</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#disableinterface"><code>DisableInterface</code></a>, <a href="Globalfunctions_General.html#enableinterface"><code>EnableInterface</code></a></p>
 <hr />
 </section>
 <section id="isinteractionavailable" class="level3">
@@ -502,7 +500,7 @@ int gap = spacing - h;
 <pre><code>if (IsInteractionAvailable(mouse.x, mouse.y, eModeLookat) == 0)
   Display(&quot;looking here would not do anything.&quot;);
 </code></pre>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="Hotspot.html#hotspotisinteractionavailable">Hotspot.IsInteractionAvailable</a>, <a href="Object.html#objectisinteractionavailable">Object.IsInteractionAvailable</a>, <a href="Character.html#characterisinteractionavailable">Character.IsInteractionAvailable</a>, <a href="Room.html#roomprocessclick">Room.ProcessClick</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Character.html#characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="iskeypressed" class="level3">
@@ -518,7 +516,7 @@ int gap = spacing - h;
   cEgo.Walk(cEgo.x, cEgo.y+3);
 </code></pre>
 <p>will move the character EGO upwards 3 pixels when the up arrow is pressed.</p>
-<p><em>See Also:</em> <a href="Mouse.html#mouseisbuttondown">Mouse.IsButtonDown</a></p>
+<p><em>See also:</em> <a href="Mouse.html#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a></p>
 <hr />
 </section>
 <section id="istimerexpired" class="level3">
@@ -533,7 +531,7 @@ int gap = spacing - h;
 }
 </code></pre>
 <p>will display a message when timer 1 expires.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#settimer">SetTimer</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a></p>
 <hr />
 </section>
 <section id="istranslationavailable" class="level3">
@@ -542,7 +540,7 @@ int gap = spacing - h;
 </code></pre>
 <p>Finds out whether the player is using a game translation or not.</p>
 <p>Returns 1 if a translation is in use, 0 if not.</p>
-<p><em>See Also:</em> <a href="Game.html#gamechangetranslation">Game.ChangeTranslation</a>, <a href="Game.html#gametranslationfilename">Game.TranslationFilename</a>, <a href="Globalfunctions_General.html#gettranslation">GetTranslation</a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="movecharactertohotspot" class="level3">
@@ -556,7 +554,7 @@ int gap = spacing - h;
 <pre><code>MoveCharacterToHotspot(EGO,6);
 </code></pre>
 <p>will move the character EGO to the hotspot's 6 "walk to point".</p>
-<p><em>See Also:</em> <a href="Hotspot.html#hotspotwalktox">Hotspot.WalkToX</a>, <a href="Hotspot.html#hotspotwalktoy">Hotspot.WalkToY</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Globalfunctions_General.html#movecharactertoobject">MoveCharacterToObject</a></p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX</code></a>, <a href="Hotspot.html#hotspotwalktoy"><code>Hotspot.WalkToY</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Globalfunctions_General.html#movecharactertoobject"><code>MoveCharacterToObject</code></a></p>
 <hr />
 </section>
 <section id="movecharactertoobject" class="level3">
@@ -570,7 +568,7 @@ int gap = spacing - h;
 object[0].Visible = false;
 </code></pre>
 <p>Will move the character EGO below object number 0, then turn off object 0.</p>
-<p><em>See Also:</em> <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Globalfunctions_General.html#movecharactertohotspot">MoveCharacterToHotspot</a></p>
+<p><em>See also:</em> <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 <hr />
 </section>
 <section id="pausegame" class="level3">
@@ -588,7 +586,7 @@ object[0].Visible = false;
 <pre><code>if (IsKeyPressed(32)) PauseGame();
 </code></pre>
 <p>will pause the game if the player presses the space bar</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#unpausegame">UnPauseGame</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a></p>
 <hr />
 </section>
 <section id="quitgame" class="level3">
@@ -601,7 +599,7 @@ object[0].Visible = false;
 <pre><code>QuitGame(0);
 </code></pre>
 <p>will quit the game without asking the player to confirm.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#abortgame">AbortGame</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#abortgame"><code>AbortGame</code></a></p>
 <hr />
 </section>
 <section id="random" class="level3">
@@ -629,7 +627,7 @@ else cEgo.ChangeRoom(3);
 <pre><code>if (IsKeyPressed(365)) RestartGame();
 </code></pre>
 <p>will restart the game if the player presses the F7 key.</p>
-<p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#setrestartpoint">SetRestartPoint</a></p>
+<p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#setrestartpoint"><code>SetRestartPoint</code></a></p>
 <hr />
 </section>
 <section id="restoregamedialog" class="level3">
@@ -642,20 +640,20 @@ else cEgo.ChangeRoom(3);
 <pre><code>if (IsKeyPressed(363)) RestoreGameDialog();
 </code></pre>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a>, <a href="Globalfunctions_General.html#savegamedialog">SaveGameDialog</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
 <hr />
 </section>
 <section id="restoregameslot" class="level3">
 <h3><a href="#restoregameslot"><code>RestoreGameSlot</code></a></h3>
 <pre><code>RestoreGameSlot (int slot)
 </code></pre>
-<p>Restores the game position saved into slot number SLOT. You might want to use these specific slot functions if for example you only want to allow the player to have one save game position rather than the usual 20. If this slot number does not exist, an error message is displayed to the player but the game continues. To avoid the error, use the GetSaveSlotDescription function to see if the position exists before restoring it.</p>
+<p>Restores the game position saved into slot number SLOT. If this slot number does not exist, an error message is displayed to the player but the game continues. To avoid the error, use the GetSaveSlotDescription function to see if the position exists before restoring it.</p>
 <p><strong>NOTE:</strong> The game will not be restored immediately; instead, it will be restored when the script function finishes executing.</p>
 <p>Example:</p>
 <pre><code>RestoreGameSlot(30);
 </code></pre>
 <p>will restore game slot 30 if this slot number exists.</p>
-<p><em>See Also:</em> <a href="Game.html#gamegetsaveslotdescription">Game.GetSaveSlotDescription</a>, <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a>, <a href="Globalfunctions_General.html#savegameslot">SaveGameSlot</a></p>
+<p><em>See also:</em> <a href="Game.html#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a>, <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="runagsgame" class="level3">
@@ -688,7 +686,7 @@ else cEgo.ChangeRoom(3);
 <pre><code>if (keycode == 361) SaveGameDialog();
 </code></pre>
 <p>will bring up the save game dialog if the player presses the F3 key.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a>, <a href="Globalfunctions_General.html#savegameslot">SaveGameSlot</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="savegameslot" class="level3">
@@ -696,13 +694,12 @@ else cEgo.ChangeRoom(3);
 <pre><code>SaveGameSlot (int slot, string description)
 </code></pre>
 <p>Saves the current game position to the save game number specified by SLOT, using DESCRIPTION as the textual description of the save position. Be careful using this function, because you could overwrite one of the player's save slots if you aren't careful.</p>
-<p>The SaveGameDialog function uses slots numbered from 1 to 20, so if you don't want to interfere with the player's saves, I would recommend saving to slot numbers of 100 and above.</p>
 <p><strong>NOTE:</strong> The game will not be saved immediately; instead, it will be saved when the script function finishes executing.</p>
 <p>Example:</p>
 <pre><code>SaveGameSlot(30, &quot;save game&quot;);
 </code></pre>
 <p>will save the current game position to slot 30 with the description "Save game".</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#deletesaveslot">DeleteSaveSlot</a>, <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a>, <a href="Globalfunctions_General.html#savegamedialog">SaveGameDialog</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#deletesaveslot"><code>DeleteSaveSlot</code></a>, <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
 <hr />
 </section>
 <section id="savescreenshot" class="level3">
@@ -718,7 +715,7 @@ input = input.Append(&quot;.pcx&quot;);
 SaveScreenShot(input);
 </code></pre>
 <p>will prompt the player for a filename and then save the screenshot with the filename the player typed.</p>
-<p><em>See Also:</em> <a href="DynamicSprite.html#dynamicspritesavetofile">DynamicSprite.SaveToFile</a></p>
+<p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritesavetofile"><code>DynamicSprite.SaveToFile</code></a></p>
 <hr />
 </section>
 <section id="setambientlightlevel" class="level3">
@@ -736,7 +733,7 @@ SaveScreenShot(input);
 </code></pre>
 <p>will apply light level 50 to every character and object on screen (which do not have individual light levels).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setambienttint">SetAmbientTint</a>, <a href="Character.html#charactersetlightlevel">Character.SetLightLevel</a>, <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a>, <a href="Region.html#regionlightlevel">Region.LightLevel</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>, <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a>, <a href="Region.html#regionlightlevel"><code>Region.LightLevel</code></a></p>
 <hr />
 </section>
 <section id="setambienttint" class="level3">
@@ -754,7 +751,7 @@ SaveScreenShot(input);
 <pre><code>SetAmbientTint(0, 0, 250, 30, 100);
 </code></pre>
 <p>will tint everything on the screen with a hint of blue.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#setambientlightlevel">SetAmbientLightLevel</a>, <a href="Character.html#charactertint">Character.Tint</a>, <a href="Object.html#objecttint">Object.Tint</a>, <a href="Region.html#regiontint">Region.Tint</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Region.html#regiontint"><code>Region.Tint</code></a></p>
 <hr />
 </section>
 <section id="setgameoption" class="level3">
@@ -871,7 +868,7 @@ SaveScreenShot(input);
 <pre><code>SetGameOption (OPT_PIXELPERFECT, 0);
 </code></pre>
 <p>will disable pixel-perfect click detection.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getgameoption">GetGameOption</a>, <a href="Speech.html#speechstyle">Speech.Style</a>, <a href="Globalfunctions_General.html#settextwindowgui">SetTextWindowGUI</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getgameoption"><code>GetGameOption</code></a>, <a href="Speech.html#speechstyle"><code>Speech.Style</code></a>, <a href="Globalfunctions_General.html#settextwindowgui"><code>SetTextWindowGUI</code></a></p>
 <hr />
 </section>
 <section id="setgamespeed" class="level3">
@@ -881,12 +878,12 @@ SaveScreenShot(input);
 <p>Sets the maximum game frame rate to NEW_SPEED frames per second, or as near as possible to that speed. The default frame rate is 40 fps, but you can speed up or slow down the game by using this function. Note that this speed is also the rate at which the Repeatedly_Execute functions are triggered.</p>
 <p>The NEW_SPEED must lie between 10 and 1000. If it does not, it will be rounded to 10 or 1000. Note that if you set a speed which the player's computer cannot handle (for example, a 486 will not be able to manage 80 fps), then it will go as fast as possible.</p>
 <p>NOTE: Because the mouse cursor is repainted at the game frame rate, at very low speeds, like 10 to 20 fps, the mouse will appear to be jumpy and not very responsive.</p>
-<p>NOTE: If you set the <a href="System.html#systemvsync">System.VSync</a> property to <em>true</em>, the game speed will be capped at the screen's refresh rate, so you will be unable to set it higher than 60-85 (depending on the player's screen refresh).</p>
+<p>NOTE: If you set the <a href="System.html#systemvsync"><code>System.VSync</code></a> property to <em>true</em>, the game speed will be capped at the screen's refresh rate, so you will be unable to set it higher than 60-85 (depending on the player's screen refresh).</p>
 <p>Example:</p>
 <pre><code>SetGameSpeed(80);
 </code></pre>
 <p>will set the game speed to 80.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getgamespeed">GetGameSpeed</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getgamespeed"><code>GetGameSpeed</code></a></p>
 <hr />
 </section>
 <section id="setglobalint" class="level3">
@@ -900,7 +897,7 @@ SaveScreenShot(input);
 <pre><code>SetGlobalInt(10,1);
 </code></pre>
 <p>will set the Global Integer 10 to 1.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getglobalint">GetGlobalInt</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a></p>
 <hr />
 </section>
 <section id="setgraphicalvariable" class="level3">
@@ -913,7 +910,7 @@ SaveScreenShot(input);
 <pre><code>SetGraphicalVariable(&quot;climbed rock&quot;, 1);
 </code></pre>
 <p>will set the interaction editor "climbed rock" variable to 1.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#getgraphicalvariable">GetGraphicalVariable</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#getgraphicalvariable"><code>GetGraphicalVariable</code></a></p>
 <hr />
 </section>
 <section id="setmultitaskingmode" class="level3">
@@ -939,7 +936,7 @@ SaveScreenShot(input);
 <p>Changes the game restart point to the current position. This means that from now on, if the player chooses the Restart Game option, it will return here.</p>
 <p>This function is useful if the default restart point doesn't work properly in your game - just use this function to move it.</p>
 <p><strong>NOTE:</strong> The restart point cannot be set while a script is running -- therefore, when you call this it will actually set the restart point at the next game loop where there is not a blocking script running in the background.</p>
-<p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#restartgame">RestartGame</a></p>
+<p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#restartgame"><code>RestartGame</code></a></p>
 <hr />
 </section>
 <section id="settextwindowgui" class="level3">
@@ -970,10 +967,10 @@ SaveScreenShot(input);
 <p>When you have a hard time keeping track of the timers only by number you can use <a href="Preprocessor.html#define">Macros</a> to replace the descriptive name with the time number everywhere the descriptive name is use. To better keep track of these macros you could put them on top of the global script.</p>
 <pre><code>#define Delay_CustomAnimation 1
 
-SetTimer(Delay_CustomAnimation, 2000); 
+SetTimer(Delay_CustomAnimation, 2000);
 </code></pre>
 <p>this "names" timer 1 and sets it to expire after 2000 game cycles</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#istimerexpired">IsTimerExpired</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#istimerexpired"><code>IsTimerExpired</code></a></p>
 <hr />
 </section>
 <section id="skipcutscene" class="level3">
@@ -989,7 +986,7 @@ SetTimer(Delay_CustomAnimation, 2000);
 </code></pre>
 <p>will check if game is inside a cutscene, and if player has pressed a space bar then commands to skip it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops">SkipUntilCharacterStops</a>, <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a>, <a href="Game.html#gameinskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#gameskippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops"><code>SkipUntilCharacterStops</code></a>, <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
 <hr />
 </section>
 <section id="skipuntilcharacterstops" class="level3">
@@ -1003,7 +1000,7 @@ SetTimer(Delay_CustomAnimation, 2000);
 <pre><code>if (keycode == eKeyEscape) SkipUntilCharacterStops(EGO);
 </code></pre>
 <p>This means that if the player presses ESC, the game will skip ahead until EGO finishes moving, or is interrupted by a Display command or a blocking cutscene.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#startcutscene">StartCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a></p>
 <hr />
 </section>
 <section id="startcutscene" class="level3">
@@ -1029,7 +1026,7 @@ eSkipScriptOnly
 <p>You need to mark the end of the cutscene with the EndCutscene command.</p>
 <p>Be <strong>very careful</strong> with where you place the corresponding EndCutscene command. The script <strong>must</strong> pass through EndCutscene in its normal run in order for the skipping to work - otherwise, when the player presses ESC the game could appear to hang.</p>
 <p><em>Compatibility:</em> eSkipScriptOnly cutscene mode is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#endcutscene">EndCutscene</a>, <a href="Globalfunctions_General.html#skipcutscene">SkipCutscene</a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops">SkipUntilCharacterStops</a>, <a href="Game.html#gameinskippablecutscene">Game.InSkippableCutscene</a>, <a href="Game.html#gameskippingcutscene">Game.SkippingCutscene</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Globalfunctions_General.html#skipcutscene"><code>SkipCutscene</code></a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops"><code>SkipUntilCharacterStops</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
 <hr />
 </section>
 <section id="updateinventory" class="level3">
@@ -1038,7 +1035,7 @@ eSkipScriptOnly
 </code></pre>
 <p>Updates the on-screen inventory display. If you add or remove inventory items manually (i.e. by using the InventoryQuantity array rather than the AddInventory/LoseInventory functions), the display may not get updated. In this case call this function after making your changes, to update what is displayed to the player.</p>
 <p>Note that using this function will reset the order that items are displayed in the inventory window to the same order they were created in the editor.</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a>, <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a>, <a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></p>
 <hr />
 </section>
 <section id="unpausegame" class="level3">
@@ -1054,59 +1051,14 @@ eSkipScriptOnly
 <p><strong>NOTE:</strong> Because PauseGame works as a counter, if you called it more than once, this won't work. To ignore this behavior, unpause as much as needed with the below snippet.</p>
 <pre><code>while (IsGamePaused()) UnPauseGame();
 </code></pre>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#pausegame">PauseGame</a></p>
-<hr />
-</section>
-<section id="wait" class="level3">
-<h3><a href="#wait"><code>Wait</code></a></h3>
-<pre><code>Wait (int time)
-</code></pre>
-<p>Pauses the script and lets the game continue for TIME loops. There are normally 40 loops/second (unless you change it with SetGameSpeed), so using a value of 80 will wait 2 seconds. Note that no other scripts can run while the Wait function is in the background.</p>
-<p>Example:</p>
-<pre><code>cEgo.Walk(120, 140, eBlock, eWalkableAreas);
-Wait(80);
-cEgo.FaceLocation(1000,100);
-</code></pre>
-<p>will move the character EGO to 120,140, wait until he gets there then wait for 2 seconds (80 game cycles) and then face right.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#waitkey">WaitKey</a>, <a href="Globalfunctions_General.html#waitmousekey">WaitMouseKey</a></p>
-<hr />
-</section>
-<section id="waitkey" class="level3">
-<h3><a href="#waitkey"><code>WaitKey</code></a></h3>
-<pre><code>WaitKey (int time)
-</code></pre>
-<p>Pauses the script and lets the game continue until EITHER:</p>
-<p>(a) TIME loops have elapsed, or</p>
-<p>(b) the player presses a key</p>
-<p>Returns 0 if the time elapsed, or 1 if the player interrupted it.</p>
-<p>Example:</p>
-<pre><code>WaitKey(200);
-</code></pre>
-<p>will pause the script and wait until 5 seconds have passed or the player presses a key.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#wait">Wait</a>, <a href="Globalfunctions_General.html#waitmousekey">WaitMouseKey</a></p>
-<hr />
-</section>
-<section id="waitmousekey" class="level3">
-<h3><a href="#waitmousekey"><code>WaitMouseKey</code></a></h3>
-<pre><code>WaitMouseKey (int time)
-</code></pre>
-<p>Pauses the script and lets the game continue until EITHER:</p>
-<p>(a) TIME loops have elapsed, or</p>
-<p>(b) the player presses a key, or</p>
-<p>(c) the player clicks a mouse button</p>
-<p>Returns 0 if the time elapsed, or 1 if the player interrupted it.</p>
-<p>Example:</p>
-<pre><code>WaitMouseKey(200);
-</code></pre>
-<p>will pause the script and wait until 5 seconds have passed or the player presses a key or clicks the mouse.</p>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#wait">Wait</a>, <a href="Globalfunctions_General.html#waitkey">WaitKey</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:19</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

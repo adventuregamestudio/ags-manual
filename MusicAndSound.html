@@ -130,7 +130,7 @@ chan.Volume = 20;
 </code></pre>
 <p>Note the check for null here -- this makes sure that your game won't crash if the sound isn't playing (it might have finished, or not have been started yet).</p>
 <p><strong>Overall system volume</strong></p>
-<p>There is a property called <a href="System.html#systemvolume">System.Volume</a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
+<p>There is a property called <a href="System.html#systemvolume"><code>System.Volume</code></a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
 <p><strong>Conclusion</strong></p>
 <p>The new audio system in AGS gives you much more control over your game audio. Please see the following sections for a complete list of the supported commands:</p>
 <p><a href="AudioClip.html">AudioClip reference</a>, <a href="AudioChannel.html">AudioChannel reference</a></p>
@@ -153,9 +153,9 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 </code></pre>
 <p>Both of those examples would play EGO10.WAV with the first line, and MICH7.WAV with the second. When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
 <p><strong>NOTE:</strong> WAV, OGG and MP3 format files can be used for speech.</p>
-<p><strong>NOTE:</strong> You cannot use speech file numbers above 9999. That is, you can have EGO1.OGG all the way up to EGO9999.OGG, but not EGO10000.OGG or higher.</p>
+<p><strong>NOTE:</strong> Speech file numbers are restricted to the positive range of 1 to 2147483647 (2 billion). This is a technical limitation based on how these are handled inside the engine, but we do not think it will ever become a problem to the user.</p>
 <p>Speech is compiled into a file called SPEECH.VOX and is separate from the rest of your game data so that you can offer it as an optional extra download to the player. The game will function correctly if the file is not present.</p>
-<p><em>SeeAlso:</em> <a href="Speech.html#speechvoicemode">Speech.VoiceMode</a></p>
+<p><em>SeeAlso:</em> <a href="Speech.html#speechvoicemode"><code>Speech.VoiceMode</code></a></p>
 <hr />
 </section>
 <section id="the-audiocache-folder" class="level3">
@@ -171,7 +171,7 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

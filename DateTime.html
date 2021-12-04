@@ -85,7 +85,7 @@
 <h2><a href="#datetime-functions-and-properties"><code>DateTime</code> functions and properties</a></h2>
 <section id="datetimenow" class="level3">
 <h3><a href="#datetimenow"><code>DateTime.Now</code></a></h3>
-<p><em>(Formerly known as GetTime, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetTime</code>, which is now obsolete)</em></p>
 <pre><code>readonly static DateTime* DateTime.Now;
 </code></pre>
 <p>Gets the current system time. You could use this for timing a loop, or for effects like telling the player to go to bed, and so on.</p>
@@ -97,7 +97,7 @@ Display(&quot;The date is: %02d/%02d/%04d&quot;, dt.DayOfMonth, dt.Month, dt.Yea
 Display(&quot;The time is: %02d:%02d:%02d&quot;, dt.Hour, dt.Minute, dt.Second);
 </code></pre>
 <p>will display the current date and time in 24-hour format</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimedayofmonth">DateTime.DayOfMonth</a>, <a href="DateTime.html#datetimehour">DateTime.Hour</a>, <a href="DateTime.html#datetimeminute">DateTime.Minute</a>, <a href="DateTime.html#datetimemonth">DateTime.Month</a>, <a href="DateTime.html#datetimerawtime">DateTime.RawTime</a>, <a href="DateTime.html#datetimesecond">DateTime.Second</a>, <a href="DateTime.html#datetimeyear">DateTime.Year</a></p>
+<p><em>See also:</em> <a href="DateTime.html#datetimedayofmonth"><code>DateTime.DayOfMonth</code></a>, <a href="DateTime.html#datetimehour"><code>DateTime.Hour</code></a>, <a href="DateTime.html#datetimeminute"><code>DateTime.Minute</code></a>, <a href="DateTime.html#datetimemonth"><code>DateTime.Month</code></a>, <a href="DateTime.html#datetimerawtime"><code>DateTime.RawTime</code></a>, <a href="DateTime.html#datetimesecond"><code>DateTime.Second</code></a>, <a href="DateTime.html#datetimeyear"><code>DateTime.Year</code></a></p>
 <hr />
 </section>
 <section id="datetimedayofmonth" class="level3">
@@ -105,8 +105,8 @@ Display(&quot;The time is: %02d:%02d:%02d&quot;, dt.Hour, dt.Minute, dt.Second);
 <pre><code>readonly int DateTime.DayOfMonth;
 </code></pre>
 <p>Gets the day of the month represented by the DateTime object. This will be from 1 to 31, representing the current day within the month.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
 <section id="datetimehour" class="level3">
@@ -114,8 +114,8 @@ Display(&quot;The time is: %02d:%02d:%02d&quot;, dt.Hour, dt.Minute, dt.Second);
 <pre><code>readonly int DateTime.Hour;
 </code></pre>
 <p>Gets the hour represented by the DateTime object. This will be from 0 to 23, representing the hour in 24-hour format.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
 <section id="datetimeminute" class="level3">
@@ -123,8 +123,8 @@ Display(&quot;The time is: %02d:%02d:%02d&quot;, dt.Hour, dt.Minute, dt.Second);
 <pre><code>readonly int DateTime.Minute;
 </code></pre>
 <p>Gets the minute represented by the DateTime object. This will be from 0 to 59, representing the minute in 24-hour format.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
 <section id="datetimemonth" class="level3">
@@ -132,13 +132,13 @@ Display(&quot;The time is: %02d:%02d:%02d&quot;, dt.Hour, dt.Minute, dt.Second);
 <pre><code>readonly int DateTime.Month;
 </code></pre>
 <p>Gets the month represented by the DateTime object. This will be from 1 to 12, representing the month of the year.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
 <section id="datetimerawtime" class="level3">
 <h3><a href="#datetimerawtime"><code>DateTime.RawTime</code></a></h3>
-<p><em>(Formerly known as GetRawTime, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetRawTime</code>, which is now obsolete)</em></p>
 <pre><code>readonly int DateTime.RawTime;
 </code></pre>
 <p>This function returns the raw system time, as the number of seconds since January 1970. While this value is not useful in itself, you can use it to calculate time differences by getting the value at the start of the game, for example, and then getting the value later on, and the difference between the two is how much time has elapsed.</p>
@@ -151,7 +151,7 @@ dt = DateTime.Now;
 Display(&quot;After the wait it is now %d seconds later.&quot;, dt.RawTime - start_time);
 </code></pre>
 <p>should display that 3 seconds have elapsed.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a>, <a href="Globalfunctions_General.html#settimer">SetTimer</a></p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>, <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a></p>
 <hr />
 </section>
 <section id="datetimesecond" class="level3">
@@ -159,8 +159,8 @@ Display(&quot;After the wait it is now %d seconds later.&quot;, dt.RawTime - sta
 <pre><code>readonly int DateTime.Second;
 </code></pre>
 <p>Gets the second represented by the DateTime object. This will be from 0 to 59, representing the second.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
 <section id="datetimeyear" class="level3">
@@ -168,15 +168,15 @@ Display(&quot;After the wait it is now %d seconds later.&quot;, dt.RawTime - sta
 <pre><code>readonly int DateTime.Year;
 </code></pre>
 <p>Gets the year represented by the DateTime object. This is the full year, for example <em>2005</em>.</p>
-<p>Example: For an example, see <a href="DateTime.html#datetimenow">DateTime.Now</a>.</p>
-<p><em>See Also:</em> <a href="DateTime.html#datetimenow">DateTime.Now</a></p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

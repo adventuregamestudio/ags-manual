@@ -92,8 +92,8 @@
 </code></pre>
 <p>Returns the point on screen corresponding to the given room coordinates if seen through <strong>the primary viewport</strong>. Resulting Point struct will contain screen x and y coordinates.</p>
 <p>Function does the conversion from room to screen's coordinate system, correctly taking into account viewport's position on screen, camera's position in the room and its transformation (scaling etc).</p>
-<p>This is a convenience function which is used when you do not manage viewports yourself but just using default one. If you have more than one custom viewport in your room consider <a href="Viewport.html#viewportroomtoscreenpoint">Viewport.RoomToScreenPoint</a> instead.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenscreentoroompoint">Screen.ScreenToRoomPoint</a>, <a href="Viewport.html#viewportroomtoscreenpoint">Viewport.RoomToScreenPoint</a>, <a href="Viewport.html#viewportscreentoroompoint">Viewport.ScreenToRoomPoint</a></p>
+<p>This is a convenience function which is used when you do not manage viewports yourself but just using default one. If you have more than one custom viewport in your room consider <a href="Viewport.html#viewportroomtoscreenpoint"><code>Viewport.RoomToScreenPoint</code></a> instead.</p>
+<p><em>See also:</em> <a href="Screen.html#screenscreentoroompoint"><code>Screen.ScreenToRoomPoint</code></a>, <a href="Viewport.html#viewportroomtoscreenpoint"><code>Viewport.RoomToScreenPoint</code></a>, <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a></p>
 <hr />
 </section>
 <section id="screenscreentoroompoint" class="level3">
@@ -103,7 +103,7 @@
 <p>Returns the point in room corresponding to the given screen coordinates, but only if there's at least one visible viewport at that location. The conversion is done if seen through <em>the topmost viewport</em>. Resulting Point struct will contain room x and y coordinates.</p>
 <p>If there are no viewports found there then this function returns null.</p>
 <p>Function does the conversion from screen to room's coordinate system, correctly taking into account viewport's location on screen, camera's position in the room and its transformation (scaling etc).</p>
-<p><em>See Also:</em> <a href="Screen.html#screenroomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Viewport.html#viewportroomtoscreenpoint">Viewport.RoomToScreenPoint</a>, <a href="Viewport.html#viewportscreentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Viewport.html#viewportvisible">Viewport.Visible</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a></p>
+<p><em>See also:</em> <a href="Screen.html#screenroomtoscreenpoint"><code>Screen.RoomToScreenPoint</code></a>, <a href="Viewport.html#viewportroomtoscreenpoint"><code>Viewport.RoomToScreenPoint</code></a>, <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a>, <a href="Viewport.html#viewportvisible"><code>Viewport.Visible</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a></p>
 <hr />
 </section>
 <section id="screenautosizeviewportonroomload" class="level3">
@@ -113,7 +113,7 @@
 <p>Gets/sets whether the game should automatically adjust primary viewport and primary camera to the size of the room background each time the new room is loaded. This setting is <strong>enabled</strong> by default, and is the standard viewport behavior in AGS.</p>
 <p>When this setting is on then every time the new room is loaded primary viewport and camera will be resized to match either the size of a room's background or game screen, whatever is <em>smaller</em>. The viewport will also be centered on game screen.</p>
 <p>For example, if game is 320x200 and room is also 320x200, then both viewport and camera will be resized to 320x200 and cover whole screen. If game is 320x200 and room is 160x160, then both viewport and camera will be resized to 160x160 and viewport positioned in the center of screen (at 80, 20). If game is 320x200 and room is 400x200, then both viewport and camera will be resized to 320x200 again, and you'll have a scrolling room (one that is only partially seen at any time).</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Camera.html#camerasetsize">Camera.SetSize</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Camera.html#camerasetsize"><code>Camera.SetSize</code></a></p>
 <hr />
 </section>
 <section id="screenheight" class="level3">
@@ -139,7 +139,7 @@
 <pre><code>static readonly Viewport *Screen.Viewport;
 </code></pre>
 <p>Gets the primary room viewport. This is the default viewport that is created automatically at the start of the game and cannot be deleted.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenviewports">Screen.Viewports</a>, <a href="Viewport.html">Viewport</a>, <a href="Viewport.html#viewportcreate">Viewport.Create</a>, <a href="Viewport.html#viewportdelete">Viewport.Delete</a>, <a href="Game.html#gamecamera">Game.Camera</a></p>
+<p><em>See also:</em> <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a>, <a href="Viewport.html"><code>Viewport</code></a>, <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>, <a href="Viewport.html#viewportdelete"><code>Viewport.Delete</code></a>, <a href="Game.html#gamecamera"><code>Game.Camera</code></a></p>
 <hr />
 </section>
 <section id="screenviewportcount" class="level3">
@@ -147,14 +147,14 @@
 <pre><code>static readonly int Screen.ViewportCount;
 </code></pre>
 <p>Gets the number of viewports.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
+<p><em>See also:</em> <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 </section>
 <section id="screenviewports" class="level3">
 <h3><a href="#screenviewports"><code>Screen.Viewports</code></a></h3>
 <pre><code>static readonly Viewport* Screen.Viewports[int index];
 </code></pre>
-<p>Returns the Viewport instance by its index. There's always at least primary viewport at the index 0, more could be created in script using <a href="Viewport.html#viewportcreate">Viewport.Create</a>.</p>
+<p>Returns the Viewport instance by its index. There's always at least primary viewport at the index 0, more could be created in script using <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>.</p>
 <p><strong>IMPORTANT:</strong> with the current implementation when you delete a custom viewport in the middle all the following viewports will be shifted towards beginning of array, changing their indexes.</p>
 <p>Example:</p>
 <pre><code>for (int i = 0; i &lt; Screen.ViewportCount; i++) {
@@ -162,14 +162,14 @@
 }
 </code></pre>
 <p>Above disables (hides) all of the existing viewports.</p>
-<p><em>See Also:</em> <a href="Screen.html#screenviewport">Screen.Viewport</a>, <a href="Screen.html#screenviewportcount">Screen.ViewportCount</a>, <a href="Viewport.html#viewportcreate">Viewport.Create</a>, <a href="Viewport.html#viewportdelete">Viewport.Delete</a>, <a href="Game.html#gamecameras">Game.Cameras</a></p>
+<p><em>See also:</em> <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewportcount"><code>Screen.ViewportCount</code></a>, <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>, <a href="Viewport.html#viewportdelete"><code>Viewport.Delete</code></a>, <a href="Game.html#gamecameras"><code>Game.Cameras</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:21</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

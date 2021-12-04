@@ -105,7 +105,7 @@
 <p>if (Parser.Said("look [brick] wall"))</p></li>
 </ul>
 <p>will match "look wall" and "look brick wall".</p>
-<p>Now this is all very well, but in different rooms you have different items to interact with - for example, in one room there might be a tree that the player should be able to type "look at tree" to look at, and so on. Putting all this in your global script would make a big mess. So, enter the <a href="Globalfunctions_General.html#callroomscript">CallRoomScript</a> function. Using this, you can do:</p>
+<p>Now this is all very well, but in different rooms you have different items to interact with - for example, in one room there might be a tree that the player should be able to type "look at tree" to look at, and so on. Putting all this in your global script would make a big mess. So, enter the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> function. Using this, you can do:</p>
 <pre><code>  Parser.ParseText(input);
   String badWord = Parser.SaidUnknownWord();
   if (badWord != null)
@@ -117,13 +117,13 @@
   else
     CallRoomScript (1);
 </code></pre>
-<p>Then, the room script can check for things that the player can do in the current room. See the <a href="Globalfunctions_General.html#callroomscript">CallRoomScript</a> description for more information.</p>
+<p>Then, the room script can check for things that the player can do in the current room. See the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> description for more information.</p>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:22</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

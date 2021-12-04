@@ -77,7 +77,7 @@
 <section id="graphics-driver-selection" class="level2">
 <h2><a href="#graphics-driver-selection">Graphics driver selection</a></h2>
 <p>AGS has three available graphics drivers when run on Windows -- DirectDraw, Direct3D and OpenGL.</p>
-<p>DirectDraw is the 'classic' software graphics driver, that AGS has used ever since the initial Windows version was released. It's perfectly fine for simple games that don't use many large sprites, tinting or alpha blending. It's also quite fast at performing drawing operations issued through a <a href="DrawingSurface.html">DrawingSurface</a>.</p>
+<p>DirectDraw is the 'classic' software graphics driver, that AGS has used ever since the initial Windows version was released. It's perfectly fine for simple games that don't use many large sprites, tinting or alpha blending. It's also quite fast at performing drawing operations issued through a <a href="DrawingSurface.html"><code>DrawingSurface</code></a>.</p>
 <p>Direct3D is a newer, hardware accelerated graphics driver. It uses the Direct3D 9.0 to render the game in a fully hardware-accelerated environment. This means that the game will run a lot faster if you use features such as alpha blending and tinting, which are quite slow to perform in software mode. However, with Direct3D doing RawDraw operations can be quite slow, and the driver won't work on all graphics cards.</p>
 <p>It should be noted that DirectDraw and Direct3D 9 drivers are know to sometimes fail to work on latest versions of the Windows because of compatibility issues.</p>
 <p>OpenGL is another hardware accelerated graphics driver, and because it is not strictly linked to particular version of DirectX, it may work where Direct3D failed. Other than that, it should not have any significant performance differences from the former.</p>
@@ -88,14 +88,14 @@
 <p><strong>Direct3D</strong><br> Any Windows-based PC with DirectX 9.0 installed and a graphics card designed for DirectX 8.1 or later (most cards manufactured from 2003 onwards).</p>
 <p><strong>OpenGL</strong><br> Your graphics card drivers should provide support for OpenGL 3.0 or higher for the game visuals to have full functionality.</p>
 <p>If you are running with Direct3D 9 selected and get the error message "Graphics card does not support Pixel Shader 1.4" on startup, this indicates that your graphics card is too old to run with the Direct3D driver. You should try one of the other two drivers instead.</p>
-<p>See Also: <a href="System.html#systemhardwareacceleration">System.HardwareAcceleration property</a></p>
+<p><em>See also:</em> <a href="System.html#systemhardwareacceleration">System.HardwareAcceleration property</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:31</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

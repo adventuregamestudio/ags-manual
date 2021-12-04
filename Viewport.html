@@ -89,18 +89,18 @@
 <section id="viewport-functions-and-properties" class="level2">
 <h2><a href="#viewport-functions-and-properties"><code>Viewport</code> functions and properties</a></h2>
 <p>Viewport struct lets you manage screen viewports. You may think of them as of "windows" through which player sees the current room. Viewport is defined by its position on the game screen, in screen coordinates, and has linked Camera which contents it displays.</p>
-<p>There's always at least one viewport called "primary viewport", and you may create more. Viewport has a link to camera, and same camera may be linked to multiple viewports at once. If no camera is linked then viewport is not displayed at all. Viewports are allowed to go partially or fully offscreen, which may be useful to create transition effects, for instance. Viewports may overlap, in which case their order of display is defined by <a href="Viewport.html#viewportzorder">ZOrder</a> property.</p>
+<p>There's always at least one viewport called "primary viewport", and you may create more. Viewport has a link to camera, and same camera may be linked to multiple viewports at once. If no camera is linked then viewport is not displayed at all. Viewports are allowed to go partially or fully offscreen, which may be useful to create transition effects, for instance. Viewports may overlap, in which case their order of display is defined by <a href="Viewport.html#viewportzorder"><code>ZOrder</code></a> property.</p>
 <p>By default viewport covers whole game screen, but you may change that anytime. Camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling). If the camera is larger than the viewport that would work as a zoom-out (scale down). If the camera is smaller than the viewport that would work as a zoom-in (scale up).</p>
-<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport and camera to the size of the game screen or size of a room background, whatever is <em>smaller</em>, each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize viewports yourself standard behavior may be disabled using <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a> property.</p>
+<p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport and camera to the size of the game screen or size of a room background, whatever is <em>smaller</em>, each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize viewports yourself standard behavior may be disabled using <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a> property.</p>
 <p><em>Compatibility:</em> Viewport struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="Camera.html">Camera</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a>, <a href="Screen.html#screenviewport">Screen.Viewport</a>, <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
+<p><em>See also:</em> <a href="Camera.html"><code>Camera</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 <section id="viewportcreate" class="level3">
 <h3><a href="#viewportcreate"><code>Viewport.Create</code></a></h3>
 <pre><code>static Viewport* Viewport.Create()
 </code></pre>
-<p>Creates a new viewport and returns a pointer which you may use to operate it. Any viewport created like this may be also accessed by <a href="Screen.html#screenviewports">Screen.Viewports</a> by index. The new viewport will cover whole game screen by default and does not have any camera linked initially (this is something that you will have to do).</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportcamera">Viewport.Camera</a>, <a href="Viewport.html#viewportdelete">Viewport.Delete</a>, <a href="Screen.html#screenviewport">Screen.Viewport</a>, <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
+<p>Creates a new viewport and returns a pointer which you may use to operate it. Any viewport created like this may be also accessed by <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a> by index. The new viewport will cover whole game screen by default and does not have any camera linked initially (this is something that you will have to do).</p>
+<p><em>See also:</em> <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a>, <a href="Viewport.html#viewportdelete"><code>Viewport.Delete</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 </section>
 <section id="viewportdelete" class="level3">
@@ -109,7 +109,7 @@
 </code></pre>
 <p>Removes an existing viewport. Primary viewport can be never removed and this command issued for the primary viewport will be ignored.</p>
 <p><strong>IMPORTANT:</strong> in <strong>Screen.Viewports</strong> array viewports are arranged in the order they were created. When you delete one in the middle all the following viewports will be shifted towards beginning of array.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportcreate">Viewport.Create</a>, <a href="Screen.html#screenviewport">Screen.Viewport</a>, <a href="Screen.html#screenviewports">Screen.Viewports</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 </section>
 <section id="viewportgetatscreenxy" class="level3">
@@ -134,7 +134,7 @@ if (pt != null) {
   Display(&quot;Player character is currently offscreen.&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Viewport.html#viewportscreentoroompoint">Viewport.ScreenToRoomPoint</a>, <a href="Screen.html#screenroomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Screen.html#screenscreentoroompoint">Screen.ScreenToRoomPoint</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a>, <a href="Screen.html#screenroomtoscreenpoint"><code>Screen.RoomToScreenPoint</code></a>, <a href="Screen.html#screenscreentoroompoint"><code>Screen.ScreenToRoomPoint</code></a></p>
 <hr />
 </section>
 <section id="viewportsetposition" class="level3">
@@ -142,7 +142,7 @@ if (pt != null) {
 <pre><code>void Viewport.SetPosition(int x, int y, int width, int height);
 </code></pre>
 <p>Changes viewport's position on the screen.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportx">Viewport.X</a>, <a href="Viewport.html#viewporty">Viewport.Y</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportscreentoroompoint" class="level3">
@@ -160,7 +160,7 @@ if (pt != null) {
   Display(&quot;Mouse cursor is currently outside the viewport.&quot;);
 }
 </code></pre>
-<p><em>See Also:</em> <a href="Viewport.html#viewportscreentoroompoint">Viewport.RoomToScreenPoint</a>, <a href="Screen.html#screenroomtoscreenpoint">Screen.RoomToScreenPoint</a>, <a href="Screen.html#screenscreentoroompoint">Screen.ScreenToRoomPoint</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.RoomToScreenPoint</code></a>, <a href="Screen.html#screenroomtoscreenpoint"><code>Screen.RoomToScreenPoint</code></a>, <a href="Screen.html#screenscreentoroompoint"><code>Screen.ScreenToRoomPoint</code></a></p>
 <hr />
 </section>
 <section id="viewportcamera" class="level3">
@@ -168,7 +168,7 @@ if (pt != null) {
 <pre><code>Camera *Viewport.Camera;
 </code></pre>
 <p>Gets/sets the camera to be displayed in this viewport. Changing cameras is safe anytime, and the looks inside viewport will be changed during next drawing frame.</p>
-<p><em>See Also:</em> <a href="Camera.html#cameracreate">Camera.Create</a>, <a href="Game.html#gamecamera">Game.Camera</a>, <a href="Game.html#gamecameras">Game.Cameras</a></p>
+<p><em>See also:</em> <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Game.html#gamecamera"><code>Game.Camera</code></a>, <a href="Game.html#gamecameras"><code>Game.Cameras</code></a></p>
 <hr />
 </section>
 <section id="viewportheight" class="level3">
@@ -176,7 +176,7 @@ if (pt != null) {
 <pre><code>int Viewport.Height;
 </code></pre>
 <p>Gets/sets the viewport's height in screen coordinates.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Viewport.html#viewportx">Viewport.X</a>, <a href="Viewport.html#viewporty">Viewport.Y</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportzorder" class="level3">
@@ -184,8 +184,8 @@ if (pt != null) {
 <pre><code>int Viewport.ZOrder;
 </code></pre>
 <p>Gets/sets the viewport's z-order relative to other viewports. This will be taken into account if multiple viewports overlap to define which should be displayed above and which below.</p>
-<p>The z-order is an arbitrary number and only have meaning in comparison with other viewport's setting. Similarly to <a href="GUI.html#guizorder">GUI.ZOrder</a>, the lower value puts viewport to the back and higher value to the top.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Viewport.html#viewportx">Viewport.X</a>, <a href="Viewport.html#viewporty">Viewport.Y</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a></p>
+<p>The z-order is an arbitrary number and only have meaning in comparison with other viewport's setting. Similarly to <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a>, the lower value puts viewport to the back and higher value to the top.</p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="viewportvisible" class="level3">
@@ -200,7 +200,7 @@ if (pt != null) {
 <pre><code>int Viewport.Width;
 </code></pre>
 <p>Gets/sets the viewport's width in screen coordinates.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Viewport.html#viewportx">Viewport.X</a>, <a href="Viewport.html#viewporty">Viewport.Y</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportx" class="level3">
@@ -208,7 +208,7 @@ if (pt != null) {
 <pre><code>int Viewport.X;
 </code></pre>
 <p>Gets/sets the X position on the screen where this viewport is located.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Viewport.html#viewporty">Viewport.Y</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewporty" class="level3">
@@ -216,14 +216,14 @@ if (pt != null) {
 <pre><code>int Viewport.Y;
 </code></pre>
 <p>Gets/sets the Y position on the screen where this viewport is located.</p>
-<p><em>See Also:</em> <a href="Viewport.html#viewportsetposition">Viewport.SetPosition</a>, <a href="Viewport.html#viewportx">Viewport.X</a>, <a href="Viewport.html#viewportwidth">Viewport.Width</a>, <a href="Viewport.html#viewportheight">Viewport.Height</a>, <a href="Viewport.html#viewportzorder">Viewport.ZOrder</a>, <a href="Screen.html#screenautosizeviewportonroomload">Screen.AutoSizeViewportOnRoomLoad</a></p>
+<p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:28</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>

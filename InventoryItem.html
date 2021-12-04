@@ -88,7 +88,7 @@
 <h2><a href="#inventoryitem-functions-and-properties"><code>InventoryItem</code> functions and properties</a></h2>
 <section id="inventoryitemgetatscreenxy" class="level3">
 <h3><a href="#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a></h3>
-<p><em>(Formerly known as global function GetInvAt, which is now obsolete)</em></p>
+<p><em>(Formerly known as global function <code>GetInvAt</code>, which is now obsolete)</em></p>
 <pre><code>static InventoryItem* InventoryItem.GetAtScreenXY(int x, int y)
 </code></pre>
 <p>Returns the inventory item at SCREEN coordinates (X,Y). Note that this only detects inventory items on custom Inventory windows (that are switched on when this function is called), and is intended to allow you to do Verb Coin style GUIs and so on.</p>
@@ -104,12 +104,12 @@ else {
 }
 </code></pre>
 <p>will display the number of the inv item that the mouse is over</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemname">InventoryItem.Name</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemgetproperty" class="level3">
 <h3><a href="#inventoryitemgetproperty"><code>InventoryItem.GetProperty</code></a></h3>
-<p><em>(Formerly known as GetInvProperty, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetInvProperty</code>, which is now obsolete)</em></p>
 <pre><code>InventoryItem.GetProperty(string property)
 </code></pre>
 <p>Returns the custom property setting PROPERTY for the inventory item.</p>
@@ -120,12 +120,12 @@ else {
   Display(&quot;Inventory item 1&#39;s value is over 200!&quot;);
 </code></pre>
 <p>will print the message if inventory item 1 has its "Value" property set to more than 200.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemgettextproperty">InventoryItem.GetTextProperty</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgettextproperty"><code>InventoryItem.GetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemgettextproperty" class="level3">
 <h3><a href="#inventoryitemgettextproperty"><code>InventoryItem.GetTextProperty</code></a></h3>
-<p><em>(Formerly known as GetInvPropertyText, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.GetPropertyText, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetInvPropertyText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.GetPropertyText</code>, which is now obsolete)</em></p>
 <pre><code>String InventoryItem.GetTextProperty(string property)
 </code></pre>
 <p>Returns the custom property setting PROPERTY for the inventory item.</p>
@@ -136,7 +136,7 @@ else {
 Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will retrieve inv item 2's "description" property and display it.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemgetproperty">InventoryItem.GetProperty</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetproperty"><code>InventoryItem.GetProperty</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemsetproperty" class="level3">
@@ -151,7 +151,7 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change Stone's "weight" custom property to 120.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemsettextproperty">InventoryItem.SetTextProperty</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemsettextproperty"><code>InventoryItem.SetTextProperty</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemsettextproperty" class="level3">
@@ -166,12 +166,12 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will change key's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemsetproperty">InventoryItem.SetProperty</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemsetproperty"><code>InventoryItem.SetProperty</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemisinteractionavailable" class="level3">
 <h3><a href="#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a></h3>
-<p><em>(Formerly known as IsInventoryInteractionAvailable, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>IsInventoryInteractionAvailable</code>, which is now obsolete)</em></p>
 <pre><code>InventoryItem.IsInteractionAvailable(CursorMode)
 </code></pre>
 <p>Checks whether there is an event handler defined for activating the inventory item in cursor mode MODE.</p>
@@ -181,12 +181,12 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 <pre><code>if (iKeyring.IsInteractionAvailable(eModeLookat) == 0)
   Display(&quot;looking at this item would not do anything.&quot;);
 </code></pre>
-<p><em>See Also:</em> <a href="Globalfunctions_General.html#isinteractionavailable">IsInteractionAvailable</a>, <a href="InventoryItem.html#inventoryitemruninteraction">InventoryItem.RunInteraction</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="InventoryItem.html#inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemruninteraction" class="level3">
 <h3><a href="#inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a></h3>
-<p><em>(Formerly known as RunInventoryInteraction, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>RunInventoryInteraction</code>, which is now obsolete)</em></p>
 <pre><code>InventoryItem.RunInteraction(CursorMode)
 </code></pre>
 <p>Runs the event handler as if the player had clicked the mouse on the inventory item, using the specified cursor mode.</p>
@@ -195,7 +195,7 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
   inventory[game.inv_activated].RunInteraction(mouse.Mode);
 </code></pre>
 <p>will run the inventory event handler for the current cursor mode when the player clicks on the item (Handle Inv Clicks needs to be enabled for this to work)</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable">InventoryItem.IsInteractionAvailable</a>, <a href="Room.html#roomprocessclick">Room.ProcessClick</a>, <a href="Character.html#characterruninteraction">Character.RunInteraction</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemcursorgraphic" class="level3">
@@ -209,12 +209,12 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 </code></pre>
 <p>will display inventory item <em>iKey</em>'s cursor graphic.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemgraphic">InventoryItem.Graphic</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemgraphic" class="level3">
 <h3><a href="#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a></h3>
-<p><em>(Formerly known as GetInvGraphic, which is now obsolete)</em><br> <em>(Formerly known as SetInvItemPic, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetInvGraphic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemPic</code>, which is now obsolete)</em></p>
 <pre><code>int InventoryItem.Graphic
 </code></pre>
 <p>Gets/sets the sprite slot number of the inventory item. You could use this with the Object.Graphic property as a means of the player 'dropping' an inventory item, or it may be useful if you want to do a Raw Drawn inventory window.</p>
@@ -223,7 +223,7 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 <pre><code>int slot = player.ActiveInventory.Graphic;
 </code></pre>
 <p>will place the sprite number of the player's current inventory item into slot.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemcursorgraphic">InventoryItem.CursorGraphic</a>, <a href="InventoryItem.html#inventoryitemgetatscreenxy">InventoryItem.GetAtScreenXY</a>, <a href="InventoryItem.html#inventoryitemname">InventoryItem.Name</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemcursorgraphic"><code>InventoryItem.CursorGraphic</code></a>, <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemname"><code>InventoryItem.Name</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemid" class="level3">
@@ -235,12 +235,12 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 <pre><code>AddInventory(EGO, iShovel.ID);
 </code></pre>
 <p>uses the obsolete AddInventory command to add the shovel to EGO's inventory</p>
-<p><em>See Also:</em> <a href="Character.html#characteraddinventory">Character.AddInventory</a>, <a href="Character.html#characterloseinventory">Character.LoseInventory</a></p>
+<p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a></p>
 <hr />
 </section>
 <section id="inventoryitemname" class="level3">
 <h3><a href="#inventoryitemname"><code>InventoryItem.Name</code></a></h3>
-<p><em>(Formerly known as GetInvName, which is now obsolete)</em><br> <em>(Formerly known as SetInvItemName, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.GetName, which is now obsolete)</em><br> <em>(Formerly known as InventoryItem.SetName, which is now obsolete)</em></p>
+<p><em>(Formerly known as <code>GetInvName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.GetName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.SetName</code>, which is now obsolete)</em></p>
 <pre><code>String InventoryItem.Name;
 </code></pre>
 <p>Gets/sets the name of the inventory item. This is the name which is initially set under the Game tab, Inventory mode of the AGS Editor.</p>
@@ -250,14 +250,14 @@ Display(&quot;Inv item 2&#39;s description: %s&quot;, description);
 <pre><code>Display(&quot;Active inventory: %s&quot;, player.ActiveInventory.Name);
 </code></pre>
 <p>will display the name of the player's current inventory item.</p>
-<p><em>See Also:</em> <a href="InventoryItem.html#inventoryitemgetatscreenxy">InventoryItem.GetAtScreenXY</a>, <a href="InventoryItem.html#inventoryitemgraphic">InventoryItem.Graphic</a>, <a href="Game.html#gamegetlocationname">Game.GetLocationName</a></p>
+<p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: 06/30/21 17:27:20</p>
+    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
   </footer>
 
   <script src="js/search.js"></script>
