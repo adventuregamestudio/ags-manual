@@ -52,8 +52,8 @@ option `--with-chmcmd`.
 
 The default behaviour is to locate Pandoc and a CHM compiler by
 searching in PATH and running feature tests as necessary. To bypass
-the search any feature checks the following environment variables can
-be set:
+the search and any associated feature checks the following environment
+variables can be set:
 
 variable | defines
 --- | ---
