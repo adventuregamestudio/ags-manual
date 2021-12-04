@@ -79,7 +79,7 @@ jobs:
                   baseurl=https://deb.debian.org/debian/pool/main/a/autoconf
                   filename=$(curl -fLSs $baseurl | \
                       grep --perl-regexp \
-                           --only-matching '(?<=href=")autoconf_2.71-.+_all.deb(?=")')
+                           --only-matching '(?<=href=")autoconf_2\.71-.+_all\.deb(?=")')
                   (cd "${{ runner.temp }}" && curl -fLOJ "$baseurl/$filename")
                   sudo dpkg -i "${{ runner.temp }}/$filename"
                   ;;
