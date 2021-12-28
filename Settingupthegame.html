@@ -352,7 +352,7 @@ function CustomSay4(this Character*, String text);
 <p><strong>Environment</strong></p>
 <ul>
 <li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
-<li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players <strong>won't</strong> normally be able to change it in setup program.</li>
+<li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players will be able to modify this path in setup program.</li>
 </ul>
 <p><strong>IMPORTANT:</strong> what you set on this page is a default game configuration, but it may be overriden by a user config. If you have run your game's setup program at least once and chose to save, that created a user config file <a href="RuntimeEngine.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
 <p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
@@ -412,7 +412,7 @@ function CustomSay4(this Character*, String text);
 
 
   <footer>
-    <p>Build: 5161c4bf963f1f6a030d508a85cd0443db511def</p>
+    <p>Build: 29b9718c004b29ad4bedb21216a2cc16995f1170</p>
   </footer>
 
   <script src="js/search.js"></script>
