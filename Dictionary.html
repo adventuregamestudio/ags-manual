@@ -100,6 +100,10 @@
 <pre><code>static Dictionary* Dictionary.Create(SortStyle sortStyle, StringCompareStyle compareStyle)
 </code></pre>
 <p>Creates a new empty Dictionary of the given properties. If you don't pass any options the Dictionary is unsorted and case-insensitive. Note that you cannot change sorting style and case sensitivity later, you would have to create another Dictionary and then re-add the values there.</p>
+<ul>
+<li>Possible values for sortStyle: <code>eNonSorted</code>, <code>eSorted</code>.</li>
+<li>Possible values for compareStyle: <code>eCaseInsensitive</code>, <code>eCaseSensitive</code>.</li>
+</ul>
 <p>Example:</p>
 <pre><code>Dictionary* myDictionary = Dictionary.Create();
 </code></pre>
@@ -223,7 +227,7 @@ for (int i = 0; i &lt; myDictionary.ItemCount; i++)
 
 
   <footer>
-    <p>Build: d229b93150412ae91daaa8ab23282a6255b46ff7</p>
+    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -8745,6 +8745,9 @@ var meta = {
       "1": { "Setup": 1 },
       "2": { "UpgradeTo341": 1 }
     },
+    "Navarro": {
+      "0": { "Credits": 1 }
+    },
     "Navigate": {
       "0": { "acintro4": 1 },
       "1": { "acintro6": 1 },
@@ -9661,6 +9664,9 @@ var meta = {
     "PURPOSE": {
       "0": { "Copyright": 1 }
     },
+    "Pablo": {
+      "0": { "Credits": 1 }
+    },
     "Pack": {
       "0": { "acintro9": 1 }
     },
@@ -10114,11 +10120,13 @@ var meta = {
       "0": { "Character": 1 }
     },
     "Possible": {
-      "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "GUI": 1 },
-      "2": { "Multimedia": 1 },
-      "3": { "RuntimeEngine": 1 },
-      "4": { "TemplateSierraStyle": 1 }
+      "0": { "Dictionary": 2 },
+      "1": { "EnginePluginRun-timeAPI": 1 },
+      "2": { "GUI": 1 },
+      "3": { "Multimedia": 1 },
+      "4": { "RuntimeEngine": 1 },
+      "5": { "Set": 2 },
+      "6": { "TemplateSierraStyle": 1 }
     },
     "Post": {
       "0": { "ContactingTheDevelopers": 1 }
@@ -22710,8 +22718,8 @@ var meta = {
       "7": { "UpgradingTo271": 1 }
     },
     "compareStyle": {
-      "0": { "Dictionary": 1 },
-      "1": { "Set": 1 }
+      "0": { "Dictionary": 2 },
+      "1": { "Set": 2 }
     },
     "compared": {
       "0": { "Dictionary": 1 },
@@ -27097,10 +27105,14 @@ var meta = {
       "1": { "StandardEnums": 1 }
     },
     "eCaseInsensitive": {
-      "0": { "StandardEnums": 1 }
+      "0": { "Dictionary": 1 },
+      "1": { "Set": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "eCaseSensitive": {
-      "0": { "StandardEnums": 1 }
+      "0": { "Dictionary": 1 },
+      "1": { "Set": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "eDir": {
       "0": { "Tumbleweed": 2 },
@@ -27750,7 +27762,9 @@ var meta = {
       "4": { "UpgradingTo27": 1 }
     },
     "eNonSorted": {
-      "0": { "StandardEnums": 1 }
+      "0": { "Dictionary": 1 },
+      "1": { "Set": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "eOSAndroid": {
       "0": { "StandardEnums": 1 },
@@ -27903,7 +27917,9 @@ var meta = {
       "1": { "StandardEnums": 1 }
     },
     "eSorted": {
-      "0": { "StandardEnums": 1 }
+      "0": { "Dictionary": 1 },
+      "1": { "Set": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "eSpeechFullScreen": {
       "0": { "Speech": 1 },
@@ -50734,8 +50750,8 @@ var meta = {
       "8": { "System": 1 }
     },
     "sortStyle": {
-      "0": { "Dictionary": 1 },
-      "1": { "Set": 1 }
+      "0": { "Dictionary": 2 },
+      "1": { "Set": 2 }
     },
     "sorted": {
       "0": { "Dictionary": 3 },
@@ -56070,7 +56086,7 @@ var meta = {
       "4": { "CustomDialogOptions": 1 },
       "5": { "CustomProperties": 2 },
       "6": { "Dialog": 2 },
-      "7": { "Dictionary": 9 },
+      "7": { "Dictionary": 11 },
       "8": { "EditingGUIs": 3 },
       "9": { "EnginePluginRun-timeAPI": 8 },
       "10": { "FAQ": 2 },
@@ -56092,7 +56108,7 @@ var meta = {
       "26": { "RuntimeEngine": 2 },
       "27": { "ScriptingTutorialPart1": 8 },
       "28": { "ScriptKeywords": 5 },
-      "29": { "Set": 1 },
+      "29": { "Set": 3 },
       "30": { "Settingupthegame": 1 },
       "31": { "Setup": 1 },
       "32": { "Speech": 3 },
