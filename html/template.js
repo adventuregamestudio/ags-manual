@@ -41,6 +41,7 @@ function init() {
     search_results = document.getElementById('search_results');
     previous_search = search_input.value;
     search_check = setInterval(search, SEARCH_CHECK_MS);
+    do_highlight();
 }
 
 function search() {
@@ -130,5 +131,14 @@ function build_ci_keywords() {
     return output;
 }
 
+function do_highlight() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var highlight = urlParams.get('highlight');
+    
+    if (!highlight) return;
+    
+    var instance = new Mark(document.querySelector("main"));
+    instance.mark(highlight);
+}
 
 $body$
