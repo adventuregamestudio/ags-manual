@@ -48,6 +48,7 @@ $endfor$
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>

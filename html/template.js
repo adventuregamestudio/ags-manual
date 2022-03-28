@@ -31,26 +31,30 @@ var search_input;
 var search_results;
 var search_check;
 var previous_query;
+var ci_keywords;
 
 window.onload = function() { init(); }
 
 function init() {
+    ci_keywords = build_ci_keywords();
     search_input = document.getElementById('search_input');
     search_results = document.getElementById('search_results');
     previous_search = search_input.value;
     search_check = setInterval(search, SEARCH_CHECK_MS);
+    do_highlight();
 }
 
 function search() {
     var query = search_input.value;
+    var is_case_sensitive = false; // if we want to implement a checkbox in the future
 
     if (query !== previous_query) {
         previous_query = query;
-        update_results(query.split(/\s+/))
+        update_results(query.split(/\s+/), is_case_sensitive)
     }
 }
 
-function update_results(words) {
+function update_results(words, is_case_sensitive) {
     //remove exiting entries
     while (search_results.firstChild) {
         search_results.removeChild(search_results.firstChild);
@@ -58,17 +62,20 @@ function update_results(words) {
 
     var track = { "total": Object.create(null), "which": Object.create(null) }
 
+    var keywords =  is_case_sensitive ? meta.keywords : ci_keywords;
+
     words.forEach(word => {
-        if (word in meta.keywords) {
-            var max = Object.keys(meta.keywords[word]).length;
+        if (!is_case_sensitive) word = word.toLowerCase();
+        if (word in keywords) {
+            var max = Object.keys(keywords[word]).length;
 
             for (var i = 0; i < max; i ++) {
-            Object.keys(meta.keywords[word][i]).forEach(docname => {
+            Object.keys(keywords[word][i]).forEach(docname => {
                     // add counts for multiple hits
                     if (docname in track.total) {
-                        track.total[docname] += meta.keywords[word][i][docname];
+                        track.total[docname] += keywords[word][i][docname];
                     } else {
-                        track.total[docname] = meta.keywords[word][i][docname];
+                        track.total[docname] = keywords[word][i][docname];
                     }
 
                     // track which search words were found
@@ -76,7 +83,7 @@ function update_results(words) {
                         track.which[docname] = {}
                     }
 
-                    track.which[docname][word] = meta.keywords[word][i][docname]
+                    track.which[docname][word] = keywords[word][i][docname]
                })
             }
         }
@@ -104,6 +111,34 @@ function update_results(words) {
         li.className = 'search-match';
         search_results.appendChild(li);
     });
+}
+
+function build_ci_keywords() {
+    var output = {};
+
+    // build up the lookup table
+    Object.keys(meta.keywords).forEach(word => { 
+        var max = Object.keys(meta.keywords[word]).length;
+        var ci_word = word.toLowerCase();
+        if (!output[ci_word]) output[ci_word] = {};
+        var ci_children_count = Object.keys(output[ci_word]).length;
+        
+        for (var i = 0; i < max; i ++) {
+            output[ci_word][ci_children_count + i] = meta.keywords[word][i];
+        }
+    });
+    
+    return output;
+}
+
+function do_highlight() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var highlight = urlParams.get('highlight');
+    
+    if (!highlight) return;
+    
+    var instance = new Mark(document.querySelector("main"));
+    instance.mark(highlight);
 }
 
 $body$
