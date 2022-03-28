@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -120,7 +121,7 @@
 <h3><a href="#verbsgotocharacterex"><code>Verbs.GoToCharacterEx</code></a></h3>
 <pre><code>int Verbs.GoToCharacterEx(Character*chwhogoes, Character*ch, eDirection dir, int xoffset, int yoffset, bool NPCfacesplayer, int blocking);
 </code></pre>
-<p>Goes to a character staying at the side defined by 'direction': 1 up, 2 right, 3 down, 4 left and it stays at xoffset or yofsset from the character. blocking: 0=non-blocking; 1=blocking; 2=semi-blocking Returns 1, if the character has reached it's goal and 0 if the movement has been canceled before.</p>
+<p>Goes to a character staying at the side defined by 'direction': 1 up, 2 right, 3 down, 4 left and it stays at xoffset or yoffset from the character. blocking: 0=non-blocking; 1=blocking; 2=semi-blocking Returns 1, if the character has reached it's goal and 0 if the movement has been canceled before.</p>
 <p><em>See also:</em> <a href="Tumbleweed_movement.html#verbsgotocharacter"><code>Verbs.GoToCharacter</code></a>, <a href="Tumbleweed_movement.html#verbsnpcgotocharacter"><code>Verbs.NPCGoToCharacter</code></a></p>
 <hr />
 </section>
@@ -205,7 +206,7 @@
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

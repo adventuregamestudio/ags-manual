@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -124,12 +125,15 @@
 <a href="AudioInScript.html#audio-in-script">Audio in script</a><br>
 <a href="AudioChannel.html#audiochannel-functions-and-properties">AudioChannel</a><br>
 <a href="AudioChannel.html#audiochannelid">AudioChannel.ID</a><br>
+<a href="AudioChannel.html#audiochannelispaused">AudioChannel.IsPaused</a><br>
 <a href="AudioChannel.html#audiochannelisplaying">AudioChannel.IsPlaying</a><br>
 <a href="AudioChannel.html#audiochannellengthms">AudioChannel.LengthMs</a><br>
 <a href="AudioChannel.html#audiochannelpanning">AudioChannel.Panning</a><br>
+<a href="AudioChannel.html#audiochannelpause">AudioChannel.Pause</a><br>
 <a href="AudioChannel.html#audiochannelplayingclip">AudioChannel.PlayingClip</a><br>
 <a href="AudioChannel.html#audiochannelposition">AudioChannel.Position</a><br>
 <a href="AudioChannel.html#audiochannelpositionms">AudioChannel.PositionMs</a><br>
+<a href="AudioChannel.html#audiochannelresume">AudioChannel.Resume</a><br>
 <a href="AudioChannel.html#audiochannelseek">AudioChannel.Seek</a><br>
 <a href="AudioChannel.html#audiochannelsetroomlocation">AudioChannel.SetRoomLocation</a><br>
 <a href="AudioChannel.html#audiochannelspeed">AudioChannel.Speed</a><br>
@@ -141,6 +145,7 @@
 <a href="AudioClip.html#audioclipisavailable">AudioClip.IsAvailable</a><br>
 <a href="AudioClip.html#audioclipplay">AudioClip.Play</a><br>
 <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a><br>
+<a href="AudioClip.html#audioclipplayonchannel">AudioClip.PlayOnChannel</a><br>
 <a href="AudioClip.html#audioclipplayqueued">AudioClip.PlayQueued</a><br>
 <a href="AudioClip.html#audioclipstop">AudioClip.Stop</a><br>
 <a href="AudioClip.html#audiocliptype">AudioClip.Type</a><br>
@@ -224,6 +229,7 @@
 <a href="Character.html#characterhasexplicittint">Character.HasExplicitTint</a><br>
 <a href="Character.html#characterhasinventory">Character.HasInventory</a><br>
 <a href="Character.html#characterid">Character.ID</a><br>
+<a href="Character.html#characteridleanimationdelay">Character.IdleAnimationDelay</a><br>
 <a href="Character.html#characteridleview">Character.IdleView</a><br>
 <a href="Character.html#characterignorelighting">Character.IgnoreLighting</a><br>
 <a href="Character.html#characterignorewalkbehinds">Character.IgnoreWalkbehinds</a><br>
@@ -1048,11 +1054,15 @@
 <a href="Overlay.html#overlay-functions-and-properties">Overlay</a><br>
 <a href="Overlay.html#overlaycreategraphical">Overlay.CreateGraphical</a><br>
 <a href="Overlay.html#overlaycreatetextual">Overlay.CreateTextual</a><br>
+<a href="Overlay.html#overlayheight">Overlay.Height</a><br>
 <a href="Overlay.html#overlayremove">Overlay.Remove</a><br>
 <a href="Overlay.html#overlaysettext">Overlay.SetText</a><br>
+<a href="Overlay.html#overlaytransparency">Overlay.Transparency</a><br>
 <a href="Overlay.html#overlayvalid">Overlay.Valid</a><br>
+<a href="Overlay.html#overlaywidth">Overlay.Width</a><br>
 <a href="Overlay.html#overlayx">Overlay.X</a><br>
 <a href="Overlay.html#overlayy">Overlay.Y</a><br>
+<a href="Overlay.html#overlayzorder">Overlay.ZOrder</a><br>
 <a href="DynamicArrays.html#overview">Overview (Dynamic Arrays)</a><br>
 <a href="Translations.html#overview">Overview (Translations)</a><br>
 <h3 id="p">P</h3>
@@ -1497,7 +1507,7 @@
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

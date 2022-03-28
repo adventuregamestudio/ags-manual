@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -90,7 +91,7 @@
 <li>20 timers</li>
 <li>5 background frames per room</li>
 <li>20 mouse cursors</li>
-<li>8 audio channels</li>
+<li>16 audio channels</li>
 <li>126 different script modules due to bytecode format</li>
 <li>unlimited words in the text parser dictionary</li>
 <li>unlimited fonts</li>
@@ -120,7 +121,10 @@
 <h3><a href="#changelog-of-lifted-limits">Changelog of lifted limits</a></h3>
 <p>AGS v3.6:</p>
 <ul>
+<li>Audio channels number increased from 8 to 16.</li>
 <li>20 screen overlays at a time lifted</li>
+<li>Removed limit of simultaneous Button animations (was 15).</li>
+<li>Removed limit of Character followers (was 30).</li>
 </ul>
 <p>AGS v3.5</p>
 <ul>
@@ -140,7 +144,7 @@
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

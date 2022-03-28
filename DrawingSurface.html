@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -122,13 +123,15 @@ surface.Release();
 <p>Makes a backup copy of the current surface, in order that it can be restored later. This could be useful to back up a background scene before writing over it, or to save a certain state of your drawing to restore later.</p>
 <p>Unlike the obsolete RawSaveScreen command in previous versions of AGS, backup surfaces created with this command are not lost when the player changes room or restores a game. However, surfaces containing a copy of room backgrounds can be <strong>very large</strong>, using up a large amount of memory and can increase the save game sizes significantly. Therefore, it is <strong>strongly recommended</strong> that you Release any backup copy surfaces as soon as you are done with them.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-DrawingSurface *backup = surface.CreateCopy();
+<pre><code>DrawingSurface *backup = surface.CreateCopy();
+DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
 surface.DrawTriangle(0,0,160,100,0,200);
-Wait(80);
-surface.DrawSurface(backup);
-backup.Release();
 surface.Release();
+Wait(80);
+surface = Room.GetDrawingSurfaceForBackground();
+surface.DrawSurface(backup);
+surface.Release();
+backup.Release();
 </code></pre>
 <p>will save a copy of the room background, draw a triangle onto it, wait for a while and then restore the original background.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a></p>
@@ -412,7 +415,7 @@ surface.Release();
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

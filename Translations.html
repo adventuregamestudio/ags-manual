@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -123,7 +124,7 @@
 <section id="troubleshooting" class="level3">
 <h3><a href="#troubleshooting">Troubleshooting</a></h3>
 <p>If you have ?s displaying instead of special characters in the translated lines, make sure the <a href="Game.html#gamespeechfont">font</a> you use is imported into AGS correctly and supports the characters you want to display. In case some letters are mixed up this might be a mapping problem of the source font, you need to manually edit this fontsheet or just find a new font on the world wide web that works.</p>
-<p>When you play the game with the translation enabled and special characters of the language are replaced with ?? (2 questionmarks specifically), this means the encoding of the .trs files uses 2 bytes for each character, so make sure you save and encode the .trs file to ANSI and NOT in unicode or UTF-8 encoding.</p>
+<p>When you play the game with the translation enabled and special characters of the language are replaced with ?? (2 question marks specifically), this means the encoding of the .trs files uses 2 bytes for each character, so make sure you save and encode the .trs file to ANSI and NOT in unicode or UTF-8 encoding.</p>
 <p>In some wordprocessors changing the encoding of the whole file to ANSI encoding changes the normal special characters to something even more unrecognisable, so you might have to run a search and replace function over the whole document for every special character that is used in that language (make sure to check for capitalized special characters too) after changing the encoding to ANSI. A lot of wordprocessors use Ctrl+H as hotkey for the search and replace function.</p>
 </section>
 <section id="advanced-help" class="level3">
@@ -136,7 +137,7 @@
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

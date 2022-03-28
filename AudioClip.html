@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -71,6 +72,7 @@
 <li><a href="#audioclipplay"><span><code>AudioClip.Play</code></span></a></li>
 <li><a href="#audioclipplayfrom"><span><code>AudioClip.PlayFrom</code></span></a></li>
 <li><a href="#audioclipplayqueued"><span><code>AudioClip.PlayQueued</code></span></a></li>
+<li><a href="#audioclipplayonchannel"><span><code>AudioClip.PlayOnChannel</code></span></a></li>
 <li><a href="#audioclipstop"><span><code>AudioClip.Stop</code></span></a></li>
 <li><a href="#audioclipid"><span><code>AudioClip.ID</code></span></a></li>
 <li><a href="#audioclipfiletype"><span><code>AudioClip.FileType</code></span></a></li>
@@ -135,6 +137,22 @@ aAftermath.PlayQueued();
 <p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
+<hr />
+</section>
+<section id="audioclipplayonchannel" class="level3">
+<h3><a href="#audioclipplayonchannel"><code>AudioClip.PlayOnChannel</code></a></h3>
+<pre><code>AudioChannel* AudioClip.PlayOnChannel(int channel, optional AudioPriority, optional RepeatStyle)
+</code></pre>
+<p>Plays this audio clip, explicitly putting it on the particular channel, starting with 1 (as channel 0 is reserved for Speech). The maximal number of channels may be found on a <a href="SystemLimits.html">System limits</a> page, or using <a href="System.html#systemaudiochannelcount"><code>System.AudioChannelCount</code></a> at runtime.</p>
+<p>This function disregards any audio type rules, so you may script your own channel logic.</p>
+<p>If the selected audio channel is busy playing higher priority sounds, then this new audio clip will not be played.</p>
+<p>This command returns the AudioChannel instance that the new sound is playing on, or <em>null</em> if it did not play for any reason.</p>
+<p>Example:</p>
+<pre><code>aBeep.PlayOnChannel(2, eAudioPriorityHigh, eOnce);
+</code></pre>
+<p>plays the <em>aBeep</em> audio clip on channel 2.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a>, <a href="AudioClip.html#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a>, <a href="AudioClip.html#audioclipstop"><code>AudioClip.Stop</code></a></p>
 <hr />
 </section>
 <section id="audioclipstop" class="level3">
@@ -227,7 +245,7 @@ aExplosion.Stop();
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

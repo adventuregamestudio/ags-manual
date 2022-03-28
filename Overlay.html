@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -75,6 +76,10 @@
 <li><a href="#overlayvalid"><span><code>Overlay.Valid</code></span></a></li>
 <li><a href="#overlayx"><span><code>Overlay.X</code></span></a></li>
 <li><a href="#overlayy"><span><code>Overlay.Y</code></span></a></li>
+<li><a href="#overlaywidth"><span><code>Overlay.Width</code></span></a></li>
+<li><a href="#overlayheight"><span><code>Overlay.Height</code></span></a></li>
+<li><a href="#overlaytransparency"><span><code>Overlay.Transparency</code></span></a></li>
+<li><a href="#overlayzorder"><span><code>Overlay.ZOrder</code></span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -204,13 +209,50 @@ testOverlay.Remove();
 </code></pre>
 <p>creates a text overlay, then gradually slides it down the screen.</p>
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
+<hr />
+</section>
+<section id="overlaywidth" class="level3">
+<h3><a href="#overlaywidth"><code>Overlay.Width</code></a></h3>
+<pre><code>readonly int Overlay.Width;
+</code></pre>
+<p>Gets the width of this overlay.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
+<hr />
+</section>
+<section id="overlayheight" class="level3">
+<h3><a href="#overlayheight"><code>Overlay.Height</code></a></h3>
+<pre><code>readonly int Overlay.Height;
+</code></pre>
+<p>Gets the height of this overlay.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a></p>
+<hr />
+</section>
+<section id="overlaytransparency" class="level3">
+<h3><a href="#overlaytransparency"><code>Overlay.Transparency</code></a></h3>
+<pre><code>int Overlay.Transparency;
+</code></pre>
+<p>Gets/sets the transparency of this overlay.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
+<hr />
+</section>
+<section id="overlayzorder" class="level3">
+<h3><a href="#overlayzorder"><code>Overlay.ZOrder</code></a></h3>
+<pre><code>int Overlay.ZOrder;
+</code></pre>
+<p>Gets/sets the overlay's z-order relative to other overlays and on-screen objects.</p>
+<p>The Z-order setting is an arbitrary integer number that can be positive or negative. AGS draws the Overlays and GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

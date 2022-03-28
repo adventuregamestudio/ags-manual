@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -68,11 +69,14 @@
 <ul>
 <li><a href="#audiochannel-functions-and-properties"><span><code>AudioChannel</code> functions and properties</span></a>
 <ul>
+<li><a href="#audiochannelpause"><span><code>AudioChannel.Pause</code></span></a></li>
+<li><a href="#audiochannelresume"><span><code>AudioChannel.Resume</code></span></a></li>
 <li><a href="#audiochannelseek"><span><code>AudioChannel.Seek</code></span></a></li>
 <li><a href="#audiochannelsetroomlocation"><span><code>AudioChannel.SetRoomLocation</code></span></a></li>
 <li><a href="#audiochannelspeed"><span><code>AudioChannel.Speed</code></span></a></li>
 <li><a href="#audiochannelstop"><span><code>AudioChannel.Stop</code></span></a></li>
 <li><a href="#audiochannelid"><span><code>AudioChannel.ID</code></span></a></li>
+<li><a href="#audiochannelispaused"><span><code>AudioChannel.IsPaused</code></span></a></li>
 <li><a href="#audiochannelisplaying"><span><code>AudioChannel.IsPlaying</code></span></a></li>
 <li><a href="#audiochannellengthms"><span><code>AudioChannel.LengthMs</code></span></a></li>
 <li><a href="#audiochannelpanning"><span><code>AudioChannel.Panning</code></span></a></li>
@@ -89,6 +93,40 @@
 <h2><a href="#audiochannel-functions-and-properties"><code>AudioChannel</code> functions and properties</a></h2>
 <p>The AudioChannel instance represents a currently playing audio file. You can use this instance to check the status of playing sounds, and adjust them.</p>
 <hr />
+<section id="audiochannelpause" class="level3">
+<h3><a href="#audiochannelpause"><code>AudioChannel.Pause</code></a></h3>
+<pre><code>AudioChannel.Pause()
+</code></pre>
+<p>Pauses the playback on this channel</p>
+<p>Example:</p>
+<pre><code>AudioChannel *channel = aMusic.Play();
+Display(&quot;After this message the audio will pause, but we may unpause soon&quot;)
+channel.Pause();
+Display(&quot;After this message the audio will keep playing&quot;)
+channel.Resume();
+</code></pre>
+<p>will start playing the <em>aMusic</em> audio clip, and then pause after the first message and resume after the second message.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelresume"><code>AudioChannel.Resume</code></a></p>
+<hr />
+</section>
+<section id="audiochannelresume" class="level3">
+<h3><a href="#audiochannelresume"><code>AudioChannel.Resume</code></a></h3>
+<pre><code>AudioChannel.Resume()
+</code></pre>
+<p>Resumes the paused audio channel.</p>
+<p>Example:</p>
+<pre><code>AudioChannel *channel = aExplosion.Play();
+Wait(20);
+channel.Pause();
+Wait(20);
+channel.Resume();
+</code></pre>
+<p>will start playing the <em>aExplosion</em> audio clip, wait 20 ticks, pause, wait 20 ticks in silence, then continue playing.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelpause"><code>AudioChannel.Pause</code></a></p>
+<hr />
+</section>
 <section id="audiochannelseek" class="level3">
 <h3><a href="#audiochannelseek"><code>AudioChannel.Seek</code></a></h3>
 <p><em>(Formerly known as <code>SeekMIDIPosition</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SeekMODPattern</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SeekMP3PosMillis</code>, which is now obsolete)</em></p>
@@ -170,6 +208,15 @@ Display(&quot;Explosion playing on channel %d&quot;, channel.ID);
 </code></pre>
 <p>will start playing the <em>aExplosion</em> audio clip, and display which channel it is playing on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="audiochannelispaused" class="level3">
+<h3><a href="#audiochannelispaused"><code>AudioChannel.IsPaused</code></a></h3>
+<pre><code>readonly bool AudioChannel.IsPaused
+</code></pre>
+<p>Gets whether this audio channel is currently paused. Returns <em>true</em> if it is, or <em>false</em> if it is not.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelpause"><code>AudioChannel.Pause</code></a>, <a href="AudioChannel.html#audiochannelresume"><code>AudioChannel.Resume</code></a></p>
 <hr />
 </section>
 <section id="audiochannelisplaying" class="level3">
@@ -307,7 +354,7 @@ channel.Volume = 20;
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>

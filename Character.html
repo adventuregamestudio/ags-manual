@@ -19,6 +19,7 @@
         <span class="control"></span>
       </label>
       <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
       <label class="search_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
       <ul id="search_results"></ul>
@@ -134,6 +135,7 @@
 <li><a href="#characterframe"><span><code>Character.Frame</code></span></a></li>
 <li><a href="#characterhasexplicittint"><span><code>Character.HasExplicitTint</code></span></a></li>
 <li><a href="#characterid"><span><code>Character.ID</code></span></a></li>
+<li><a href="#characteridleanimationdelay"><span><code>Character.IdleAnimationDelay</code></span></a></li>
 <li><a href="#characteridleview"><span><code>Character.IdleView</code></span></a></li>
 <li><a href="#characterignorelighting"><span><code>Character.IgnoreLighting</code></span></a></li>
 <li><a href="#characterignorewalkbehinds"><span><code>Character.IgnoreWalkbehinds</code></span></a></li>
@@ -1190,6 +1192,15 @@ cEgo.BlinkInterval = 160;
 <p>uses the obsolete MoveCharacter function to move EGO to (100, 50)</p>
 <hr />
 </section>
+<section id="characteridleanimationdelay" class="level3">
+<h3><a href="#characteridleanimationdelay"><code>Character.IdleAnimationDelay</code></a></h3>
+<pre><code>int Character.IdleAnimationDelay
+</code></pre>
+<p>Gets/sets the character's idle animation delay</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>SeeAlso:</em> <a href="Character.html#characteridleview"><code>Character.IdleView</code></a>, <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
+<hr />
+</section>
 <section id="characteridleview" class="level3">
 <h3><a href="#characteridleview"><code>Character.IdleView</code></a></h3>
 <pre><code>readonly int Character.IdleView
@@ -1200,7 +1211,7 @@ cEgo.BlinkInterval = 160;
 <pre><code>Display(&quot;EGO&#39;s idle view is currently view %d.&quot;, cEgo.IdleView);
 </code></pre>
 <p>will display EGO's current idle view number.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetidleview"><code>SetIdleView</code></a></p>
+<p><em>SeeAlso:</em> <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
 <hr />
 </section>
 <section id="characterignorelighting" class="level3">
@@ -1663,7 +1674,7 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: a716f4f446a0d06a2aa79a0603f590a3c24ffbe9</p>
+    <p>Build: 884d00b2901a0e96691c4a55be33f7e45a0ded04</p>
   </footer>
 
   <script src="js/search.js"></script>
