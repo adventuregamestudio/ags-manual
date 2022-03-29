@@ -32,26 +32,45 @@ var search_results;
 var search_check;
 var previous_query;
 var ci_keywords;
+var case_sensitive_checkbox;
+var was_case_sensitive;
 
 window.onload = function() { init(); }
+
+function update_case_sensitive_checkbox_text()
+{
+  case_sensitive_checkbox.title = case_sensitive_checkbox.checked ? "Match case" : "Ignore case";  
+}
 
 function init() {
     ci_keywords = build_ci_keywords();
     search_input = document.getElementById('search_input');
     search_results = document.getElementById('search_results');
+    case_sensitive_checkbox = document.getElementById('citoggle');
     previous_search = search_input.value;
     search_check = setInterval(search, SEARCH_CHECK_MS);
+    
+    update_case_sensitive_checkbox_text();
     do_highlight();
+}
+
+function citoggle_clicked()
+{
+  update_case_sensitive_checkbox_text();
+  
+  search();
 }
 
 function search() {
     var query = search_input.value;
-    var is_case_sensitive = false; // if we want to implement a checkbox in the future
+    var is_case_sensitive = case_sensitive_checkbox.checked;
 
-    if (query !== previous_query) {
+    if (query !== previous_query || was_case_sensitive != is_case_sensitive) {
         previous_query = query;
         update_results(query.split(/\s+/), is_case_sensitive)
     }
+    
+    was_case_sensitive = is_case_sensitive;
 }
 
 function update_results(words, is_case_sensitive) {
@@ -104,7 +123,8 @@ function update_results(words, is_case_sensitive) {
         var a = document.createElement('a');
         a.appendChild(document.createTextNode(title));
         a.title = title;
-        a.href = docname + '.html?highlight=' + encodeURIComponent(found_by.join(' '))
+        a.href = docname + '.html?highlight=' + encodeURIComponent(found_by.join(' ')) + 
+                 '&case_sensitive=' + (case_sensitive_checkbox.checked ? '1' : '0')
 
         var li = document.createElement('li');
         li.appendChild(a);
@@ -134,11 +154,17 @@ function build_ci_keywords() {
 function do_highlight() {
     var urlParams = new URLSearchParams(window.location.search);
     var highlight = urlParams.get('highlight');
+    var case_sensitive = urlParams.get('case_sensitive') == '1';
     
     if (!highlight) return;
     
     var instance = new Mark(document.querySelector("main"));
-    instance.mark(highlight);
+    
+    var options = {
+      "caseSensitive": case_sensitive
+    }
+    
+    instance.mark(highlight, options);
 }
 
 $body$
