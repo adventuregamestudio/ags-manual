@@ -1,6 +1,7 @@
 *.svg -text
 html/css/* eol=lf
 html/js/* eol=lf
+html/jslicensing.html eol=lf
 html/static/* -text
 htmlhelp/ags-help.stp eol=crlf
 vendor/* linguist-vendored
