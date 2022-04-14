@@ -5,7 +5,7 @@ websiteimagesdir = $(pkgdatadir)/website/images
 websitejsdir = $(pkgdatadir)/website/js
 websitestaticdir = $(pkgdatadir)/website/static
 
-website_DATA = $(HTML_FILES) genindex.html
+website_DATA = $(HTML_FILES) $(srcdir)/html/jslicensing.html genindex.html
 websitecss_DATA = $(srcdir)/html/css/main.css $(srcdir)/vendor/normalize.css
 websitefonts_DATA = \
 	$(srcdir)/vendor/open-sans-v17-latin/open-sans-v17-latin-regular.eot \
@@ -14,7 +14,11 @@ websitefonts_DATA = \
 	$(srcdir)/vendor/open-sans-v17-latin/open-sans-v17-latin-regular.woff \
 	$(srcdir)/vendor/open-sans-v17-latin/open-sans-v17-latin-regular.woff2
 websiteimages_DATA = $(IMAGE_FILES)
-websitejs_DATA = $(srcdir)/html/js/darkmode.js $(srcdir)/vendor/mark.min.js search.js
+websitejs_DATA = \
+	$(srcdir)/html/js/darkmode.js \
+	$(srcdir)/vendor/mark.js \
+	$(srcdir)/vendor/mark.min.js \
+	search.js
 websitestatic_DATA = $(srcdir)/html/static/favicon.ico
 
 if BUILD_CHM
@@ -35,6 +39,7 @@ EXTRA_DIST = \
 	$(IMAGE_FILES) \
 	$(TOP_FILES) \
 	$(srcdir)/html/js/darkmode.js \
+	$(srcdir)/html/jslicensing.html \
 	$(srcdir)/html/template.html5 \
 	$(srcdir)/html/template.js \
 	$(srcdir)/htmlhelp/template.hhc \
@@ -54,6 +59,7 @@ EXTRA_DIST = \
 	$(srcdir)/lua/write_metacheck.lua \
 	$(srcdir)/lua/write_metajs.lua \
 	$(srcdir)/meta/approved_links.txt \
+	$(srcdir)/vendor/mark.js \
 	$(srcdir)/vendor/mark.min.js \
 	$(websitecss_DATA) \
 	$(websitefonts_DATA) \
