@@ -26,10 +26,11 @@ pkgdata_DATA = source/ags-help.chm
 endif
 
 CLEANFILES = \
+	$(HTML_FILES) \
 	$(HTM_FILES) \
 	$(METADATA_FILES) \
 	$(pkgdata_DATA) \
-	$(website_DATA) \
+	genindex.html \
 	search.js \
 	source/ags-help.hhc \
 	source/ags-help.hhk \
