@@ -367,7 +367,6 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <p>Gets/sets the GUI translucency, in percent.</p>
 <p>Setting this to 100 means the GUI is totally invisible, and lower values represent varying levels of translucency. Set it to 0 to stop the GUI being translucent.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
-<p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent GUI can significantly slow down AGS.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>gInventory.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade a GUI in/out, the best approach is shown in the example below:</p>
 <p>Example:</p>
@@ -379,7 +378,7 @@ while (trans &lt; 100) {
 }
 </code></pre>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
-<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontroltransparency"><code>GUIControl.Transparency</code></a>, <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
 <hr />
 </section>
 <section id="guivisible" class="level3">
@@ -456,7 +455,10 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

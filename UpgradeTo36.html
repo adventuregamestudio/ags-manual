@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Upgrading to AGS 3.6</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+      <label class="search_input" for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#upgrading-to-ags-36"><span>Upgrading to AGS 3.6</span></a>
+<ul>
+<li><a href="#unicode-support"><span>Unicode support</span></a></li>
+<li><a href="#changes-to-key-input-handling"><span>Changes to key input handling</span></a></li>
+<li><a href="#new-game-package-options"><span>New game package options</span></a></li>
+<li><a href="#multiple-speech-voxes"><span>Multiple speech voxes</span></a></li>
+<li><a href="#new-sprite-compression-options"><span>New sprite compression options</span></a></li>
+<li><a href="#multiplatform-support-extended"><span>Multiplatform support extended</span></a></li>
+<li><a href="#deprecated--replaced-script-functions"><span>Deprecated / replaced script functions</span></a></li>
+<li><a href="#system-limits-update"><span>System limits update</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="upgrading-to-ags-36" class="level2">
+<h2><a href="#upgrading-to-ags-36">Upgrading to AGS 3.6</a></h2>
+<p>AGS version 3.6 is another big change to AGS. First of all, this release presents a SDL2-based engine. For about 2 decades the AGS engine was based on the Allegro 4 graphic library, which was discontinued somewhere in the early 2010s, so this is overdue.</p>
+<p>Secondly, both the Editor and the Engine have full Unicode support now. This means that you may use any language whatsoever in scripts, object descriptions, and custom properties, as well as translations, - so long as you also provide proper Unicode fonts.</p>
+<p>Then, we have expanded a list of platforms that the Editor can directly build the game for: now this includes Android and Web (Emscripten).</p>
+<p>Below we'll look into these and other significant changes in more detail.</p>
+<section id="unicode-support" class="level3">
+<h3><a href="#unicode-support">Unicode support</a></h3>
+<p>AGS can now work in Unicode mode, but for backward compatibility, we have to support ASCII mode too. We recommend using Unicode mode when starting new projects, regardless of the game language.</p>
+<p>When in Unicode mode, all game texts and text files, such as scripts, are saved in UTF-8 format.</p>
+<p>In the Editor the switch between the two modes is called <strong>"Text format"</strong> and is located in "General Settings".</p>
+<p><strong>IMPORTANT:</strong> This switch is an important choice and should not be played with at random. Whenever you change the text format the Editor will convert all your game files by loading them and saving them back using a new mode. If all your game texts were using the standard Latin alphabet (English, etc), then you should not see any difference, but if you had texts with extended Latin characters or any other non-Latin languages, - these will be converted between ANSI and UTF-8. We strongly recommend doing a full project backup before doing this though.</p>
+<p>When in Unicode mode you may type your game texts in any language whatsoever. This refers to the following:</p>
+<ul>
+<li>Human texts in-game options: such as object descriptions, and so on;</li>
+<li>Values of String Custom properties and Global Variables;</li>
+<li>String literals in scripts (any text in double-quotes);</li>
+<li>Character literals in a script (a character in single quotes);</li>
+<li>Speech lines in dialog scripts;</li>
+<li>Translations.</li>
+</ul>
+<p>Mixing multiple languages, even in the same string, is fine (but requires having fonts that can display all of these languages).</p>
+<p>Where Unicode won't work (and is not supposed to):</p>
+<ul>
+<li>Script names of game objects: characters, guis, views, and so on;</li>
+<li>Names of Custom properties and Global Variables;</li>
+<li>Variable names and function names in script.</li>
+</ul>
+<p>All the above must be written strictly in the Latin alphabet.</p>
+<p>String variables and related functions should work seamlessly with Unicode texts. Functions that work with characters were changed to have arguments and return values as <code>int</code>, to be able to pass any Unicode character. This includes AppendChar(), ReplaceChar() and String.Char[] property. Also, <code>String.Format("%c", n)</code> will now be able to print Unicode characters.</p>
+<p>The Translations are not affected by the game's setting and have an individual setting of their own. When you open a TRS file made by the new version, it will have an "#Encoding" option in the file's header. This is where you may write either "UTF-8" or "ASCII" by hand to tell the translation compiler (and the engine) how this translation should be interpreted. By default this should be "UTF-8", so you only need to change this if you need the translation to be in ASCII for some reason. If you have imported an older project and the TRS file does not have this option, then you may add one yourself. Just remember that the TRS options must be preceded with a comment sign, like this:</p>
+<pre><code>//#Encoding=UTF-8
+</code></pre>
+<p>Don't forget to save the TRS in UTF-8 with whatever text editor you are using, if you want it to keep Unicode texts intact.</p>
+<p>The engine can run the game in both Unicode and ASCII modes. It uses a game setting to set up the mode on start, but when loading a translation it will switch to the translation's setting. This behavior is meant primarily to allow adding UTF-8 translations for older ASCII games.</p>
+<p><strong>NOTE:</strong> the engine cannot convert older ASCII games to Unicode at runtime, primarily because it does not know the exact codepage its texts were made in. So if you want your older game to fully work in Unicode, the proper way is to upgrade its project and compile the game anew.</p>
+</section>
+<section id="changes-to-key-input-handling" class="level3">
+<h3><a href="#changes-to-key-input-handling">Changes to key input handling</a></h3>
+<p>As a part of the Unicode support, and also to make key handling in the script more consistent, the script callbacks for key input were extended.</p>
+<p>First of all, the <code>on_key_press</code> function now supports a second optional argument <code>mod</code>. It's optional, so you don't have to declare it, but if you do then you'll get its benefits.</p>
+<p>The extended function definition now is:</p>
+<pre><code>function on_key_press(eKeyCode key, int mod)
+</code></pre>
+<p>The <code>mod</code> argument describes which key modifiers were enabled when this exact key was pressed. It's different from, for example, using <code>IsKeyPressed()</code> in <code>repeatedly_execute</code> callback, because the engine may receive several key-presses between two game frames, while <code>IsKeyPressed</code> only tells the last state of the key. Using <code>mod</code> argument is 100% reliable.</p>
+<p>But the <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated: as you should not use regular comparison (==, !=) with it, but a bitwise operator (&amp;):</p>
+<pre><code>// these two conditions check that ctrl was pressed (these commands are equivalent)
+if (mod &amp; eKeyModCtrl)
+if (mod &amp; eKeyModCtrl != 0)
+
+// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)
+if (!(mod &amp; eKeyModCtrl))
+if (mod &amp; eKeyModCtrl == 0)
+</code></pre>
+<p>Here's the full list of mod constants:</p>
+<table>
+<thead>
+<tr class="header">
+<th>constant</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eKeyModShiftLeft</td>
+<td>left shift key</td>
+</tr>
+<tr class="even">
+<td>eKeyModShiftRight</td>
+<td>right shift key</td>
+</tr>
+<tr class="odd">
+<td>eKeyModShift</td>
+<td>any of the shift keys</td>
+</tr>
+<tr class="even">
+<td>eKeyModCtrlLeft</td>
+<td>left control key</td>
+</tr>
+<tr class="odd">
+<td>eKeyModCtrlRight</td>
+<td>right control key</td>
+</tr>
+<tr class="even">
+<td>eKeyModCtrl</td>
+<td>any of the control keys</td>
+</tr>
+<tr class="odd">
+<td>eKeyModAltLeft</td>
+<td>left alt key</td>
+</tr>
+<tr class="even">
+<td>eKeyModAltRight</td>
+<td>right alt key</td>
+</tr>
+<tr class="odd">
+<td>eKeyModAlt</td>
+<td>any of the alt keys</td>
+</tr>
+<tr class="even">
+<td>eKeyModNum</td>
+<td>numlock key</td>
+</tr>
+<tr class="odd">
+<td>eKeyModCaps</td>
+<td>capslock key</td>
+</tr>
+</tbody>
+</table>
+<p>The engine now supports "new style" key handling mode and "old style" mode. There's a <strong>"Use old-style key handling"</strong> option in the "Backwards compatibility" group that lets you choose either old or new key handling mode. This will be "off" (meaning - new mode) by default but will be enabled (meaning - old mode) when you import older projects. If you like to use the new mode you'll need to disable this setting. What is the difference between the two modes?</p>
+<p><strong>Old (classic) key mode:</strong></p>
+<ul>
+<li>lone mod keys (Ctrl, Alt, Shift) are not passed further into the engine nor script, thus <code>on_key_press</code> is not called for them;</li>
+<li>key + mod combinations are merged into one key code for the <code>on_key_press</code> callback: e.g. <code>eKeyCodeCtrlA</code> and similar key code;</li>
+</ul>
+<p><strong>New key mode:</strong></p>
+<ul>
+<li>all keys are passed into the engine and <code>on_key_press</code> function as-is, one by one: for example, if you press Ctrl + Z, then you get <strong>two</strong> <code>on_key_press</code> calls, one with <code>eKeyCtrlLeft</code> and another with <code>eKeyZ</code> argument.</li>
+<li>the new <code>on_text_input</code> script function will be active and receive <strong>printable characters</strong>;</li>
+</ul>
+<p>In the new mode each key pressed triggers <code>on_key_press</code>, and when the pressed keys form a printable character an <code>on_text_input</code> function is called. This function must look simply like this:</p>
+<pre><code>function on_text_input(int ch)
+</code></pre>
+<p>Its argument (<code>ch</code>) contains a Unicode character's code. It may be used, for example, to append to a String, or add to the text field or label.</p>
+<p>Similarily to the above, <code>dialog_options_key_press</code> had been expanded with the third <code>mod</code> argument:</p>
+<pre><code>function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode keycode, int mod)
+</code></pre>
+<p>And there's now <code>dialog_options_text_input</code> callback for receiving unicode chars during the custom dialog options state:</p>
+<pre><code>function dialog_options_text_input(DialogOptionsRenderingInfo *info, int ch)
+</code></pre>
+</section>
+<section id="new-game-package-options" class="level3">
+<h3><a href="#new-game-package-options">New game package options</a></h3>
+<p>AGS now allows to package custom files into your game, and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html">General Settings</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
+<p>Any <a href="File.html">File functions</a> that accept file paths can now refer to the game package files using new <code>$DATA$</code> location tag. Virtually any packaged file may be queried this way, whether custom or regular game resource. These files may only be opened for reading however, never for writing.</p>
+<p>For example, you may read your custom file from the package as:</p>
+<pre><code>File* f = File.Open(&quot;$DATA$/UserData/myfile.dat&quot;, eFileRead);
+</code></pre>
+</section>
+<section id="multiple-speech-voxes" class="level3">
+<h3><a href="#multiple-speech-voxes">Multiple speech voxes</a></h3>
+<p>AGS now supports having multiple speech vox files. This may be useful if you, for example, would like to provide separate voice-over packs for each language (translation) in your game. Creating additional voxes is done by creating subfolders in "Speech" folder and placing sound files there. AGS will then generate a file called "sp_NAME.vox" for each such subfolder, where "NAME" is subfolder's name.</p>
+<p>In script you may switch between the speech packs using new <code>Game.ChangeSpeechVox()</code> function. Its value is not linked with the textual translation, which is set by <code>Game.ChangeTranslation()</code>. You may enable voice-over matching the language of the text, or on contrary allow player to choose different languages for the text and for the voice. For example:</p>
+<pre><code>Game.ChangeTranslation(&quot;Spanish&quot;);
+Game.ChangeSpeechVox(&quot;English&quot;);
+</code></pre>
+<p>Above will change textual translation to "Spanish", and voice-over to "sp_english.vox" pack.</p>
+</section>
+<section id="new-sprite-compression-options" class="level3">
+<h3><a href="#new-sprite-compression-options">New sprite compression options</a></h3>
+<p>First of all, the old "Compress the sprite file" option in <a href="GeneralSettings.html">General Settings</a> has been replaced with "Sprite file compression", which lets to choose one of the supported compression types. Previous common sprite compression in AGS is called "RLE"; an "LZW" compression was added for selection. It's possible that this list will be extended in the future.</p>
+<p>Secondly, there's now a "Enable sprite storage optimization" option, which is enabled by default. This option permits the Editor to repack sprites in a different storage format, reducing their disk size whenever possible. This option may be used alongside with the sprite compression. Note that this <em>does not</em> change how the sprites work in game, only how they are stored in the game files.</p>
+</section>
+<section id="multiplatform-support-extended" class="level3">
+<h3><a href="#multiplatform-support-extended">Multiplatform support extended</a></h3>
+<p>Editor can now produce game builds for Android and Web (using Web/Emscripten port). Both require corresponding component installed alongside with the Editor. In addition, for Android builds you'd also have to install Android Studio and configure certain settings in <a href="EditorPreferences.html">Editor's Preferences</a> and your game's <a href="GeneralSettings.html">General Settings</a>. For more information see <a href="DistGame.html">Distributing your game</a>.</p>
+</section>
+<section id="deprecated--replaced-script-functions" class="level3">
+<h3><a href="#deprecated--replaced-script-functions">Deprecated / replaced script functions</a></h3>
+<table>
+<thead>
+<tr class="header">
+<th>obsolete function</th>
+<th>replace with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Object.IgnoreScaling</td>
+<td>Object.ManualScaling</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="system-limits-update" class="level3">
+<h3><a href="#system-limits-update">System limits update</a></h3>
+<ul>
+<li>Max number of AudioChannels is now 16 (was 8).</li>
+<li>Removed game Cursors limit (was 20).</li>
+<li>Removed Overlays limit (was 20).</li>
+<li>Removed limit of simultaneous Button animations (was 15).</li>
+<li>Removed limit of Character followers (was 30).</li>
+</ul>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

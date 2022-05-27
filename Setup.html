@@ -83,75 +83,78 @@
 <section id="run-time-engine-setup" class="level2">
 <h2><a href="#run-time-engine-setup">Run-time engine setup</a></h2>
 <p>The engine Setup program allows the player to customize certain game settings.</p>
-<p><strong>NOTE:</strong> currently setup program is featured only for Windows.</p>
-<p>The options in setup are divided into two parts: common and advanced. Advanced options could be accessed by pressing "Advanced" button.</p>
+<p><strong>NOTE:</strong> currently a setup program is only available for Windows.</p>
+<p>The options in the setup program are divided into two parts: <em>common</em> and <em>advanced</em>. The advanced options can be accessed by clicking the "Advanced" button.</p>
 <section id="graphics-settings" class="level3">
 <h3><a href="#graphics-settings">Graphics settings</a></h3>
 <p><strong>Driver</strong></p>
-<p>Lets player choose a graphics driver. Currently supported are Software renderer (old and slower one, but only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
+<p>Lets the player choose a graphics driver. Currently supported are Software renderer (the old and slower option, but the only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
 <p><strong>Start in a windowed mode</strong></p>
 <p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
 <p><strong>Mode</strong></p>
-<p>Lets choose a fullscreen display mode (otherwise shows the approximate size of window the game will be running in). The list of modes depends on graphic card and system capabilities.</p>
+<p>Lets the player choose a fullscreen display mode (otherwise shows the approximate size of window the game will be running in). The list of modes depends on the graphic card and the system's capabilities.</p>
 <p><strong>Fullscreen scale</strong> <strong>Windowed scale</strong></p>
-<p>These two options determine the way game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
-<p><strong>None</strong>. The game will be shown in its native resolution. Note that low-resolution games will be running in a tiniest window on modern monitors, so this choice is more suitable for high-resolution games.</p>
+<p>These two options determine the way the game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
+<p><strong>None</strong>. The game will be shown in its native resolution. Note that low-resolution games will be running in a tiny window on modern monitors, so this choice is more suitable for high-resolution games.</p>
 <p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p>
-<p><strong>Stretch to fit screen</strong>. The game will be stretched to fill whole screen. Note that if the game's native aspect ratio is different from screen one's, the game image will appear deformed.</p>
-<p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be stretched to screen borders while respecting game's native aspect ratio (width/height proportions). This ensures that game image will always look correct, but may cause black borders appear at the left&amp;right or top&amp;bottom sides of the screen.</p>
+<p><strong>Stretch to fit screen</strong>. The game will be stretched to fill the whole screen. Note that if the game's native aspect ratio is different from the screen's aspect ratio, the game graphics will appear deformed and indeed stretched.</p>
+<p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be stretched to screen borders while respecting the game's native aspect ratio (width/height proportions). This ensures that the game graphics will always look correct, but the option can lead to black borders at the left &amp; right or top &amp; bottom sides of the screen.</p>
 <p><strong>Scaling method</strong></p>
-<p>Here player may choose a game scaling algorithm (nearest-neighbor is the simplest one). Some of the methods (notably Hqx) are restricted to which scaling multiplier they may use; if it is not enough to resize the game on its own, the nearest-neighbor method will be applied additionally. The list of available filters depend on graphics driver selection.</p>
+<p>Here the player can choose a game scaling algorithm (nearest-neighbor is the simplest one). Some of the methods (notably Hqx) are restricted to which scaling multiplier the player selected; if the multiplier is not enough to resize the game on its own, the nearest-neighbor method will be applied additionally. The list of available filters depend on graphics driver selection.</p>
 </section>
 <section id="gameplay-settings" class="level3">
 <h3><a href="#gameplay-settings">Gameplay settings</a></h3>
 <p><strong>Game language</strong></p>
-<p>Here player may choose one of the available game translations.</p>
+<p>Here the player selects one of the available game translations.</p>
 </section>
 <section id="advanced-graphics-options" class="level3">
 <h3><a href="#advanced-graphics-options">Advanced graphics options</a></h3>
 <p><strong>Vertical sync</strong></p>
-<p>This option enables vertical synchronization mode, which reduces "tearing" effect on game image, but may decrease the game running speed.</p>
+<p>This option enables vertical synchronization mode, which reduces the "tearing" effect on the game graphics, but the option may decrease the game running speed.</p>
 <p><strong>Use 85 Hz display</strong></p>
-<p>This option sets the monitor refresh rate to 85 Hz to run the game, which eliminates flicker. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
+<p>This option sets the monitor refresh rate to 85 Hz to run the game, which eliminates flickering. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
 <p><strong>Smooth scaled sprites</strong></p>
-<p>This option will apply anti-aliasing to scaled characters, in order to give a smoother look to the resizing. This can slow down the game though, so it is off by default.</p>
+<p>This option will apply anti-aliasing to scaled characters, in order to give them a smoother look after the resizing. This can slow down the game though, so it is off by default.</p>
 <p><strong>Render sprites at screen resolution</strong></p>
-<p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to certain state by the game itself (according to author's choice), in which case players will not be able to change it.</p>
+<p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when a low-resolution game is run in a larger window, the sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to a certain state by the game itself (according to author's choice), in which case the player will not be able to change it.</p>
 </section>
 <section id="sound-options" class="level3">
 <h3><a href="#sound-options">Sound options</a></h3>
 <p><strong>Digital sound</strong></p>
-<p>Here player may choose the digital audio driver, or disable digital sound completely.</p>
+<p>Here the player may choose the digital audio driver, or disable digital sound completely.</p>
 <p><strong>MIDI music</strong></p>
-<p>Here player may choose the MIDI music playback method, or disable MIDI music completely.</p>
+<p>Here the player may choose the MIDI music playback method, or disable MIDI music completely.</p>
 <p><strong>Enable threaded audio</strong></p>
-<p>When enabled, engine will process audio on a separate thread. This results in a much smoother playback, but may potentially break game's synchronization with the music (if it had one).</p>
-<p><strong>Use voice pack is available</strong></p>
+<p>When enabled, the engine will process audio on a separate thread. This results in a much smoother playback, but may potentially break the game's synchronization with the music (if it had one).</p>
+<p><strong>Use voice pack if available</strong></p>
 <p>When checked, this option enables voice speech in game (where available).</p>
 </section>
 <section id="mouse-options" class="level3">
 <h3><a href="#mouse-options">Mouse options</a></h3>
 <p><strong>Auto lock to window</strong></p>
-<p>If this option is enabled, the mouse will be locked inside game window whenever player clicks on it or switches into game. The locked mouse cannot leave game window, making it impossible to switch out from the game by mistake (by clicking on desktop, for example). Naturally, this option only has importance if game is run in windowed mode; when in fullscreen the mouse is always locked.</p>
+<p>If this option is enabled, the mouse will be locked inside game window whenever the player clicks on it or switches into game. The locked mouse cannot leave the game window, making it impossible to accidentally jump out of the game by mistake (by clicking on the desktop, for example). Naturally, this option is only important if the game is run in windowed mode; when the game runs in fullscreen mode, the mouse is always locked.</p>
 <p><strong>Mouse speed</strong></p>
-<p>This slider allows player to set up mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
+<p>This slider allows the player to set up the mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
 </section>
 <section id="other-advanced-settings" class="level3">
 <h3><a href="#other-advanced-settings">Other advanced settings</a></h3>
 <p><strong>Sprite cache max size</strong></p>
-<p>This option limits the maximum amount of memory that the game will use for its sprite cache. Sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
+<p>This option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
 <p><strong>Custom game saves path</strong></p>
 <p>When unchecked, the game will store its saved games in the default Windows folder: <code>C:/Users/&lt;Username&gt;/Saved Games/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store game saves.</p>
 <p><strong>Custom game shared data path</strong></p>
 <p>When unchecked, the game will store its shared files - custom runtime data shared among all the users of this computer - in the default Windows folder: <code>C:/Program Data/Adventure Game Studio/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store these game files.</p>
-<p><em>See also:</em> <a href="Settingupthegame.html#default-setup">Default setup</a></p>
+<p><em>See also:</em> <a href="Settingupthegame.html#default-setup">Default setup (Editor Pane)</a>, <a href="RuntimeEngine.html">Location of the configuration file on the system and options</a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

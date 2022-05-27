@@ -157,11 +157,14 @@ surface.Release();
 <h3><a href="#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawImage</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawDrawImageResized</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawDrawImageTransparent</code>, which is now obsolete)</em></p>
 <pre><code>DrawingSurface.DrawImage(int x, int y, int slot, optional int transparency,
-                         optional int width, optional int height)
+                         optional int width, optional int height,
+                         optional int cut_x, optional  int cut_y, 
+                         optional int cut_width, optional int cut_height)
 </code></pre>
 <p>Draws image SLOT from the sprite manager onto the surface at location (X,Y).</p>
 <p>Optionally, you can also specify the transparency of the image. This is a number from 0-100; using a <em>transparency</em> of 50 will draw the image semi-transparent; using 0 means it will not be transparent.</p>
 <p>You can also resize the image as you draw it. In order to do this, simply specify a <em>width</em> and <em>height</em> that you wish to resize the image to when it is drawn.</p>
+<p>As of <strong>AGS 3.6.0</strong>, you can also cut the original image in a specific rectangle using it's x,y position and width and height.</p>
 <p><strong>NOTE:</strong> This command only works if the image to be drawn is the same color depth as the surface that you are drawing onto.</p>
 <p><strong>NOTE:</strong> Transparency does not work in 256-color games, or with 256-color sprites.</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
@@ -285,9 +288,13 @@ surface.Release();
 <section id="drawingsurfacedrawsurface" class="level3">
 <h3><a href="#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawFrameTransparent</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawRestoreScreen</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawSurface(DrawingSurface *source, optional int transparency)
+<pre><code>DrawingSurface.DrawSurface(DrawingSurface* source, optional int transparency,
+                          optional int x, optional int y, 
+                          optional int width, optional int height,
+                          optional int cut_x, optional  int cut_y, 
+                          optional int cut_width, optional int cut_height)
 </code></pre>
-<p>Draws the specified surface on top of this surface, optionally using <em>transparency</em> percent transparency.</p>
+<p>Draws the specified surface on top of this surface, optionally using <em>transparency</em> percent transparency. As of <strong>AGS 3.6.0</strong>, it also supports additional parameters to draw a piece of the surface onto a specific area in the destination surface.</p>
 <p>This allows you to perform day-to-night fading and other special effects.</p>
 <p><strong>NOTE:</strong> You cannot use the <em>transparency</em> parameter with 256-color surfaces.</p>
 <p><strong>NOTE:</strong> This command can be a bit on the slow side, so don't call it from repeatedly_execute.</p>
@@ -415,7 +422,10 @@ surface.Release();
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

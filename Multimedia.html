@@ -70,15 +70,11 @@
 <li><a href="#multimedia-functions"><span>Multimedia functions</span></a>
 <ul>
 <li><a href="#cdaudio"><span><code>CDAudio</code></span></a></li>
-<li><a href="#gameisaudioplaying"><span><code>Game.IsAudioPlaying</code></span></a></li>
 <li><a href="#isspeechvoxavailable"><span><code>IsSpeechVoxAvailable</code></span></a></li>
 <li><a href="#playflic"><span><code>PlayFlic</code></span></a></li>
 <li><a href="#playsilentmidi"><span><code>PlaySilentMIDI</code></span></a></li>
 <li><a href="#playvideo"><span><code>PlayVideo</code></span></a></li>
-<li><a href="#gamesetaudiotypespeechvolumedrop"><span><code>Game.SetAudioTypeSpeechVolumeDrop</code></span></a></li>
-<li><a href="#gamesetaudiotypevolume"><span><code>Game.SetAudioTypeVolume</code></span></a></li>
 <li><a href="#setspeechvolume"><span><code>SetSpeechVolume</code></span></a></li>
-<li><a href="#gamestopaudio"><span><code>Game.StopAudio</code></span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -123,24 +119,6 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 <pre><code>CDAudio(eCDPlayTrack, 3);
 </code></pre>
 <p>will play track 3 of the CD that's in the CD ROM drive.</p>
-<hr />
-</section>
-<section id="gameisaudioplaying" class="level3">
-<h3><a href="#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></h3>
-<p><em>(Formerly known as <code>IsMusicPlaying</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>IsSoundPlaying</code>, which is now obsolete)</em></p>
-<pre><code>static bool Game.IsAudioPlaying(optional AudioType)
-</code></pre>
-<p>Returns <em>true</em> if there is currently audio playing of the specified type. If you don't supply an audio type, then <em>true</em> will be returned if there is any audio at all playing in the game.</p>
-<p>If no audio of the specified type is playing, returns <em>false</em>. You can use this to wait for some music to finish playing, for example.</p>
-<p>Example:</p>
-<pre><code>while (Game.IsAudioPlaying(eAudioTypeMusic))
-{
-  Wait(1);
-}
-</code></pre>
-<p>waits for any currently playing music to finish.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Multimedia.html#gamestopaudio"><code>Game.StopAudio</code></a></p>
 <hr />
 </section>
 <section id="isspeechvoxavailable" class="level3">
@@ -220,42 +198,6 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 <p><em>See also:</em> <a href="Multimedia.html#playflic"><code>PlayFlic</code></a></p>
 <hr />
 </section>
-<section id="gamesetaudiotypespeechvolumedrop" class="level3">
-<h3><a href="#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a></h3>
-<p><em>(Formerly known as <code>game.speech_music_drop</code>, which is now obsolete)</em></p>
-<pre><code>static Game.SetAudioTypeSpeechVolumeDrop(AudioType, int volumeReduction)
-</code></pre>
-<p>Changes the VolumeReductionWhileSpeechPlaying of the specified <em>AudioType</em>. This changes the setting, initially set in the Audio Types part of the editor. It specifies how much the volume of clips of this type will be reduced by while speech is playing.</p>
-<p>Specify 0 for no volume adjustment, up to 100 which will completely silence these audio clips while speech is playing.</p>
-<p>Example:</p>
-<pre><code>Game.SetAudioTypeSpeechVolumeDrop(eAudioTypeMusic, 25);
-</code></pre>
-<p>will reduce the volume of Music audio clips by 25 percentage points while speech is playing.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Multimedia.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
-<hr />
-</section>
-<section id="gamesetaudiotypevolume" class="level3">
-<h3><a href="#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></h3>
-<p><em>(Formerly known as <code>SetSoundVolume</code>, which is now obsolete)</em></p>
-<pre><code>static Game.SetAudioTypeVolume(AudioType, int volume, ChangeVolumeType)
-</code></pre>
-<p>Changes the default volume of the specified <em>AudioType</em>. This allows you to change the volume of all audio clips of a particular type, so that you can easily control sound and music volume separately, for example.</p>
-<p>VOLUME ranges from 0-100, where 100 is the loudest, and 0 will mute sound of that type completely.</p>
-<p>Possible values for <em>ChangeVolumeType</em> are:</p>
-<pre><code>eVolChangeExisting      change the volume of currently playing audio clips
-eVolSetFutureDefault    change the default volume for clips of this type
-eVolExistingAndFuture   change both currently playing and future audio
-</code></pre>
-<p>Initially general AudioType volume is not set, meaning that all future audio will be playing using their own custom volumes. If you use the <em>eVolSetFutureDefault</em> or <em>eVolExistingAndFuture</em>, then the DefaultVolume property for all audio clips of this type will be overridden. This means that any DefaultVolume set up in the editor will be lost.</p>
-<p>Example:</p>
-<pre><code>Game.SetAudioTypeVolume(eAudioTypeMusic, 20, eVolExistingAndFuture);
-</code></pre>
-<p>will change the volume of all currently playing and future music to <code>20%</code>.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Multimedia.html#setspeechvolume"><code>SetSpeechVolume</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="System.html#systemvolume"><code>System.Volume</code></a></p>
-<hr />
-</section>
 <section id="setspeechvolume" class="level3">
 <h3><a href="#setspeechvolume"><code>SetSpeechVolume</code></a></h3>
 <pre><code>SetSpeechVolume (int volume)
@@ -265,29 +207,17 @@ eVolExistingAndFuture   change both currently playing and future audio
 <pre><code>SetSpeechVolume(200);
 </code></pre>
 <p>will set the speech volume to 200.</p>
-<p><em>See also:</em> <a href="Multimedia.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
-<hr />
-</section>
-<section id="gamestopaudio" class="level3">
-<h3><a href="#gamestopaudio"><code>Game.StopAudio</code></a></h3>
-<p><em>(Formerly known as <code>Game.StopSound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>StopMusic</code>, which is now obsolete)</em></p>
-<pre><code>static Game.StopAudio(optional AudioType)
-</code></pre>
-<p>Stops all currently playing audio. If you pass no parameters, then all audio will be stopped. Alternatively, you can pass one of the AudioTypes which will only stop audio clips of that type.</p>
-<p>If there are any audio clips queued up with PlayQueued, they will also be canceled.</p>
-<p>Example:</p>
-<pre><code>Game.StopAudio();
-</code></pre>
-<p>will stop all currently playing audio.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Multimedia.html#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioChannel.html#audiochannelstop"><code>AudioChannel.Stop</code></a></p>
+<p><em>See also:</em> <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a>, <a href="Game.html#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a>, <a href="Game.html#gameplayvoiceclip"><code>Game.PlayVoiceClip</code></a></p>
 </section>
 </section>
   </main>
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

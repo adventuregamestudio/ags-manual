@@ -106,7 +106,7 @@
 <p>Example:</p>
 <pre><code>File.Open(&quot;$CONFIGFILE$&quot;, eFileRead);
 </code></pre>
-<p>Following <em>location tags</em> are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</p>
+<p>Following <em>location tags</em> are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below. <code>$DATA$</code>, which allows you to read files that are packaged inside the game package, originally from a directory specified in the General Settings, in the <code>Package custom data folder(s)</code> option.</p>
 <p>Examples:</p>
 <pre><code>File.Open(&quot;$INSTALLDIR$/game.dat&quot;, eFileRead);
 File.Open(&quot;$SAVEGAMEDIR$/userinfo.txt&quot;, eFileWrite);
@@ -127,7 +127,7 @@ else {
 <p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
 <p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
 <p><em>Compatibility:</em> $CONFIGFILE$ tag supported by AGS 3.5.1 and later versions.</p>
-<p><em>See also:</em> <a href="File.html#fileclose"><code>File.Close</code></a>, <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
+<p><em>See also:</em> <a href="File.html#fileclose"><code>File.Close</code></a>, <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a>, <a href="GeneralSettings.html#compiler">General Settings</a></p>
 <hr />
 </section>
 <section id="fileclose" class="level3">
@@ -412,7 +412,10 @@ output.Close();
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -281,7 +281,7 @@ else {
 </code></pre>
 <p>Gets/sets whether sprites are rendered at screen resolution (if it's <strong>true</strong>) or native game resolution (if it's <strong>false</strong>).</p>
 <p>When your game has low native resolution and player is running it in high display mode (for example 320x200 game being run in 1920x1080), then turning this property on will let engine to take advantage of higher display resolution and draw characters and objects less pixelated when they are scaled up or down (e.g. on walkable area with scaling).</p>
-<p><strong>IMPORTANT:</strong> unless you have locked this parameter to certain value in your game's <a href="Settingupthegame.html#general-settings">General settings</a>, players may also change it in the setup program. In such case it is suggested that you do not unconditionally modify this property in script, but rather provide a menu option for toggling it at runtime.</p>
+<p><strong>IMPORTANT:</strong> unless you have locked this parameter to certain value in your game's <a href="GeneralSettings.html">General settings</a>, players may also change it in the setup program. In such case it is suggested that you do not unconditionally modify this property in script, but rather provide a menu option for toggling it at runtime.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
 <hr />
 </section>
@@ -400,7 +400,7 @@ else {
 </code></pre>
 <p>will set the overall output volume to 80.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a>, <a href="Multimedia.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
+<p><em>See also:</em> <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a>, <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
 <hr />
 </section>
 <section id="systemvsync" class="level3">
@@ -447,7 +447,10 @@ else {
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

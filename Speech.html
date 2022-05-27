@@ -73,12 +73,14 @@
 <li><a href="#speechcustomportraitplacement"><span><code>Speech.CustomPortraitPlacement</code></span></a></li>
 <li><a href="#speechdisplayposttimems"><span><code>Speech.DisplayPostTimeMs</code></span></a></li>
 <li><a href="#speechglobalspeechanimationdelay"><span><code>Speech.GlobalSpeechAnimationDelay</code></span></a></li>
+<li><a href="#speechportraitoverlay"><span><code>Speech.PortraitOverlay</code></span></a></li>
 <li><a href="#speechportraitxoffset"><span><code>Speech.PortraitXOffset</code></span></a></li>
 <li><a href="#speechportraity"><span><code>Speech.PortraitY</code></span></a></li>
 <li><a href="#speechskipkey"><span><code>Speech.SkipKey</code></span></a></li>
 <li><a href="#speechskipstyle"><span><code>Speech.SkipStyle</code></span></a></li>
 <li><a href="#speechstyle"><span><code>Speech.Style</code></span></a></li>
 <li><a href="#speechtextalignment"><span><code>Speech.TextAlignment</code></span></a></li>
+<li><a href="#speechtextoverlay"><span><code>Speech.TextOverlay</code></span></a></li>
 <li><a href="#speechuseglobalspeechanimationdelay"><span><code>Speech.UseGlobalSpeechAnimationDelay</code></span></a></li>
 <li><a href="#speechvoicemode"><span><code>Speech.VoiceMode</code></span></a></li>
 </ul></li>
@@ -130,6 +132,31 @@
 <p><strong>NOTE:</strong> This property is ignored if lip sync is enabled.</p>
 <p><strong>NOTE:</strong> The property is only used when the <strong>Speech.UseGlobalSpeechAnimationDelay</strong> is set to <strong>true</strong>. This property <strong>cannot</strong> be used if the global speech animation delay is disabled. In that case, the individual character's animation delay is used instead.</p>
 <p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Speech.html#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a></p>
+<hr />
+</section>
+<section id="speechportraitoverlay" class="level3">
+<h3><a href="#speechportraitoverlay"><code>Speech.PortraitOverlay</code></a></h3>
+<pre><code>static Overlay* Speech.PortraitOverlay
+</code></pre>
+<p>Retrieves the portrait overlay of a current blocking speech. It's currently only available in eihter a <code>repeatedly_execute_always</code> or <code>late_repeatedly_execute_always</code>. It will return null if no portrait overlay is currently being shown.</p>
+<p>Example:</p>
+<pre><code>#define PORTRAIT_YMIN 5
+#define PORTRAIT_YMAX 30
+int plast = -1;
+int pmove = 1;
+function repeatedly_execute_always() {
+  if (Speech.PortraitOverlay != null) {
+    if (plast &gt;= 0) Speech.PortraitOverlay.Y = plast;
+    Speech.PortraitOverlay.Y += pmove;
+    if (Speech.PortraitOverlay.Y &lt; PORTRAIT_YMIN) pmove = 1;
+    if (Speech.PortraitOverlay.Y &gt; PORTRAIT_YMAX) pmove = -1;
+    plast = Speech.PortraitOverlay.Y;
+  }
+}
+</code></pre>
+<p>Waves a speech portrait up and down</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Speech.html#speechtextoverlay"><code>Speech.TextOverlay</code></a></p>
 <hr />
 </section>
 <section id="speechportraitxoffset" class="level3">
@@ -185,7 +212,7 @@ eSkipMouse         text does not time-out; player can skip text by clicking mous
 <pre><code>Speech.SkipStyle = eSkipTime;
 </code></pre>
 <p>will make the player unable to skip the text by pressing a mouse button or a key.</p>
-<p><em>See also:</em> <a href="Game.html#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechskipkey"><code>Game.Speech.SkipKey</code></a></p>
+<p><em>See also:</em> <a href="Game.html#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechskipkey"><code>Speech.SkipKey</code></a></p>
 <hr />
 </section>
 <section id="speechstyle" class="level3">
@@ -227,6 +254,32 @@ eAlignRight
 <p>will align the speech text at the right side.</p>
 <hr />
 </section>
+<section id="speechtextoverlay" class="level3">
+<h3><a href="#speechtextoverlay"><code>Speech.TextOverlay</code></a></h3>
+<pre><code>static Overlay* Speech.TextOverlay
+</code></pre>
+<p>Retrieves the text overlay of a current blocking speech. It's currently only available in eihter a <code>repeatedly_execute_always</code> or <code>late_repeatedly_execute_always</code>. It will return null if no text overlay is currently being shown.</p>
+<p>It allows to detect appearance, removal, and change of the blocking speech. Additionally, calling Speech.TextOverlay.Remove() will work as a speech interrupt.</p>
+<p>Example:</p>
+<pre><code>Overlay* lastSpeech;
+
+function late_repeatedly_execute_always() {
+  Overlay* curSpeech = Speech.TextOverlay;
+  if (lastSpeech == null &amp;&amp; curSpeech != null) {
+    // speech has started
+  } else if (lastSpeech != null &amp;&amp; curSpeech == null) {
+    // speech is over
+  } else if (lastSpeech != null &amp;&amp; curSpeech != lastSpeech) {
+    // speech changed to the next line
+  }
+  lastSpeech = curSpeech;
+}
+</code></pre>
+<p>Detects when the blocking speech has begun, changed to the next line or is over.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Speech.html#speechportraitoverlay"><code>Speech.PortraitOverlay</code></a></p>
+<hr />
+</section>
 <section id="speechuseglobalspeechanimationdelay" class="level3">
 <h3><a href="#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a></h3>
 <pre><code>static bool Speech.UseGlobalSpeechAnimationDelay
@@ -264,7 +317,10 @@ eSpeechVoiceOnly     voice only, no text
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

@@ -167,6 +167,10 @@ footer {
     grid-area: footer;
 }
 
+footer a {
+    color: var(--text-color-footer);
+}
+
 footer p {
     color: var(--text-color-footer);
 }

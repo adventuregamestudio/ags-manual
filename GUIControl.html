@@ -80,6 +80,7 @@
 <li><a href="#guicontrolsendtoback"><span><code>GUIControl.SendToBack</code></span></a></li>
 <li><a href="#guicontrolsetposition"><span><code>GUIControl.SetPosition</code></span></a></li>
 <li><a href="#guicontrolsetsize"><span><code>GUIControl.SetSize</code></span></a></li>
+<li><a href="#guicontroltransparency"><span><code>GUIControl.Transparency</code></span></a></li>
 <li><a href="#guicontrolvisible"><span><code>GUIControl.Visible</code></span></a></li>
 <li><a href="#guicontrolwidth"><span><code>GUIControl.Width</code></span></a></li>
 <li><a href="#guicontrolx"><span><code>GUIControl.X</code></span></a></li>
@@ -283,6 +284,18 @@ lstSaves.OwningGUI.Visible = true;
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolheight"><code>GUIControl.Height</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUIControl.html#guicontrolwidth"><code>GUIControl.Width</code></a>,</p>
 <hr />
 </section>
+<section id="guicontroltransparency" class="level3">
+<h3><a href="#guicontroltransparency"><code>GUIControl.Transparency</code></a></h3>
+<pre><code>int GUIControl.Transparency
+</code></pre>
+<p>Gets/sets the GUIControl translucency, in percent.</p>
+<p>Setting this to 100 means the GUI is totally invisible, and lower values represent varying levels of translucency. Set it to 0 to stop the GUI being translucent.</p>
+<p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
+<p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>gInventory.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a>, <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
+<hr />
+</section>
 <section id="guicontrolvisible" class="level3">
 <h3><a href="#guicontrolvisible"><code>GUIControl.Visible</code></a></h3>
 <pre><code>bool GUIControl.Visible
@@ -360,7 +373,10 @@ lstSaves.OwningGUI.Visible = true;
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

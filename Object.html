@@ -98,12 +98,13 @@
 <li><a href="#objecthasexplicitlight"><span><code>Object.HasExplicitLight</code></span></a></li>
 <li><a href="#objecthasexplicittint"><span><code>Object.HasExplicitTint</code></span></a></li>
 <li><a href="#objectid"><span><code>Object.ID</code></span></a></li>
-<li><a href="#objectignorescaling"><span><code>Object.IgnoreScaling</code></span></a></li>
+<li><a href="#objectmanualscaling"><span><code>Object.ManualScaling</code></span></a></li>
 <li><a href="#objectignorewalkbehinds"><span><code>Object.IgnoreWalkbehinds</code></span></a></li>
 <li><a href="#objectlightlevel"><span><code>Object.LightLevel</code></span></a></li>
 <li><a href="#objectloop"><span><code>Object.Loop</code></span></a></li>
 <li><a href="#objectmoving"><span><code>Object.Moving</code></span></a></li>
 <li><a href="#objectname"><span><code>Object.Name</code></span></a></li>
+<li><a href="#objectscaling"><span><code>Object.Scaling</code></span></a></li>
 <li><a href="#objectsolid"><span><code>Object.Solid</code></span></a></li>
 <li><a href="#objecttintblue"><span><code>Object.TintBlue</code></span></a></li>
 <li><a href="#objecttintgreen"><span><code>Object.TintGreen</code></span></a></li>
@@ -365,15 +366,19 @@ object[1].RemoveTint();
 <p><em>(Formerly known as <code>SetObjectFrame</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetObjectView</code>, which is now obsolete)</em></p>
 <pre><code>Object.SetView(int view, optional int loop, optional int frame)
 </code></pre>
-<p>Sets the object's view to VIEW, and changes the object's graphic to FRAME of LOOP in VIEW. If you do not supply the loop or frame, they will be left unchanged.</p>
+<p>Sets the object's view to VIEW, and changes the object's graphic to FRAME of LOOP in VIEW. If you do not supply the loop or frame:</p>
+<ul>
+<li>since <strong>AGS 3.6.0</strong>: the loop and/or frame are reset to 0;</li>
+<li>in earlier versions they would be left at values they had before SetView was called.</li>
+</ul>
 <p>You must use this command before calling Animate, so that AGS knows which view to animate the object with.</p>
+<p><strong>NOTE:</strong> this may be unexpected, but calling this function will play any sound linked to the given frame. This is because SetView may also be used to manually switch between frames without using <a href="Object.html#objectanimate">Animate</a> command.</p>
 <p>Example:</p>
 <pre><code>object[3].SetView(14);
-object[1].SetView(5, 2, 0);
+object[1].SetView(5, 2, 1);
 </code></pre>
-<p>will change object 3's view to view number 14, and change object 1 to view 5, loop 2, frame 0.</p>
-<p><em>Note:</em> Since <strong>AGS 3.6.0</strong> and later versions, this function will also resets loop and frame to 0 by default if you don't specify their values.</p>
-<p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
+<p>will change object 3's view to view number 14 while resetting to loop 0 and frame 0 of that view, and change object 1 to view 5, loop 2, frame 1.</p>
+<p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a> <a href="Object.html#objectframe"><code>Object.Frame</code></a> <a href="Object.html#objectloop"><code>Object.Loop</code></a> <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
 </section>
 <section id="objectstopanimating" class="level3">
@@ -555,16 +560,20 @@ while (object[2].Animating) Wait(1);
 <p>uses the obsolete MoveObject function to move the Rock object to (100, 50) at speed 5.</p>
 <hr />
 </section>
-<section id="objectignorescaling" class="level3">
-<h3><a href="#objectignorescaling"><code>Object.IgnoreScaling</code></a></h3>
-<pre><code>bool Object.IgnoreScaling
+<section id="objectmanualscaling" class="level3">
+<h3><a href="#objectmanualscaling"><code>Object.ManualScaling</code></a></h3>
+<p><em>(Formerly known as <code>Object.IgnoreScaling</code>, which is now obsolete)</em></p>
+<pre><code>bool Object.ManualScaling
 </code></pre>
-<p>Gets/sets whether the object is affected by walkable area scaling. This is equivalent, <strong>though opposite</strong>, to the "Use walkable area scaling" checkbox in the Objects pane of the editor.</p>
-<p>If this is set to true, the object will always be the same size. If it is set to false, then the object will be stretched or shrunk as appropriate on walkable areas.</p>
+<p>Gets/sets whether the object uses manually specified scaling instead of using the walkable area scaling. This is equivalent, <strong>though opposite</strong>, to the "UseRoomAreaScaling" property in the Objects pane of the editor.</p>
+<p>If it is set to false, then the object will be stretched or shrunk as appropriate on walkable areas.</p>
+<p>If this is set to true, the object scaling will instead be set by modifying it's Scaling property.</p>
 <p>Example:</p>
-<pre><code>oDoor.IgnoreScaling = true;
+<pre><code>oDoor.ManualScaling = true;
 </code></pre>
 <p>will tell the Door object not to be scaled on walkable areas.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Object.html#objectscaling"><code>Object.Scaling</code></a></p>
 <hr />
 </section>
 <section id="objectignorewalkbehinds" class="level3">
@@ -628,6 +637,16 @@ while (object[2].Moving) Wait(1);
 </code></pre>
 <p>will retrieve and then display object 0's name.</p>
 <p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
+<hr />
+</section>
+<section id="objectscaling" class="level3">
+<h3><a href="#objectscaling"><code>Object.Scaling</code></a></h3>
+<pre><code>int Object.Scaling
+</code></pre>
+<p>Gets/sets the object's current scaling level. An object that has the regular size has this property set to 100.</p>
+<p>You can only set the value of this property if ManualScaling is enabled for the object; otherwise, the scaling is determined automatically based on the walkable area that the character is on.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Object.html#objectmanualscaling"><code>Object.ManualScaling</code></a></p>
 <hr />
 </section>
 <section id="objectsolid" class="level3">
@@ -781,7 +800,10 @@ while (trans &lt; 100) {
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>

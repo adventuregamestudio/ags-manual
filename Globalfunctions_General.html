@@ -227,6 +227,7 @@
 <pre><code>DeleteSaveSlot (int slot)
 </code></pre>
 <p>Deletes the save game in save slot number SLOT. If there were no save then nothing happens.</p>
+<p><strong>IMPORTANT:</strong> for historical reasons, for slots in the range of 1 and 50 this function also moves highest slot found in that range to fill the freed slot. For example, if there were slots 1, 2, 3, 4, 5 and DeleteSaveSlot removes slot 3, then save in slot 5 will be renamed to become slot 3.</p>
 <p>Example:</p>
 <pre><code>DeleteSaveSlot (130);
 </code></pre>
@@ -509,7 +510,7 @@ int gap = spacing - h;
 <pre><code>IsKeyPressed(eKeyCode)
 </code></pre>
 <p>Tests whether the supplied key on the keyboard is currently pressed down or not. You could use this to move an object while the player holds an arrow key down, for instance.</p>
-<p>KEYCODE is one of the <a href="ASCIIcodes.html">ASCII codes</a>, with some limitations: since it tests the raw state of the key, you CANNOT pass the Ctrl+(A-Z) or Alt+(A-Z) codes (since they are key combinations). You can, however, use some extra codes which are listed at the bottom of the section.</p>
+<p>KEYCODE is one of the <a href="Keycodes.html">Key codes</a>, with some limitations: since it tests the raw state of the key, you CANNOT pass the Ctrl+(A-Z) or Alt+(A-Z) codes (since they are key combinations). You can, however, use some extra codes which are listed at the bottom of the section.</p>
 <p>Returns 1 if the key is currently pressed, 0 if not.</p>
 <p><strong>NOTE:</strong> The numeric keypad can have inconsistent keycodes between IsKeyPressed and on_key_press. With IsKeyPressed, the numeric keypad always uses keycodes in the 370-381 range. on_key_press, however, passes different values if Num Lock is on since the key presses are interpreted as the number key rather than the arrow key.</p>
 <p>Example:</p>
@@ -1059,7 +1060,10 @@ eSkipScriptOnly
 
 
   <footer>
-    <p>Build: b0abb8ac708809ef2c64f718cec467f5b943ab11</p>
+    <p>
+      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+    </p>
   </footer>
 
   <script src="js/search.js"></script>
