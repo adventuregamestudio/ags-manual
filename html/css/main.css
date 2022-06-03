@@ -67,8 +67,9 @@ h1, h2, h3 {
 }
 
 
-label.search_input {
+label.header_input {
     color: var(--text-color);
+    user-select: none;
 }
 
 img {

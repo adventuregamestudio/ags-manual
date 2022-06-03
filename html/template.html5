@@ -49,8 +49,10 @@ $endfor$
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
