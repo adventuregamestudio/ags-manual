@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Global functions (Event Handlers)</title>
+  <title>Global event handlers</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -67,7 +69,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#global-functions-event-handlers"><span>Global functions (Event Handlers)</span></a>
+<li><a href="#global-event-handlers"><span>Global event handlers</span></a>
 <ul>
 <li><a href="#dialog_request"><span><code>dialog_request</code></span></a></li>
 <li><a href="#game_start"><span><code>game_start</code></span></a></li>
@@ -75,6 +77,7 @@
 <li><a href="#on_event"><span><code>on_event</code></span></a></li>
 <li><a href="#on_key_press"><span><code>on_key_press</code></span></a></li>
 <li><a href="#on_mouse_click"><span><code>on_mouse_click</code></span></a></li>
+<li><a href="#on_text_input"><span><code>on_text_input</code></span></a></li>
 <li><a href="#repeatedly_execute"><span><code>repeatedly_execute</code></span></a></li>
 <li><a href="#repeatedly_execute_always"><span><code>repeatedly_execute_always</code></span></a></li>
 <li><a href="#late_repeatedly_execute_always"><span><code>late_repeatedly_execute_always</code></span></a></li>
@@ -85,9 +88,14 @@
   </nav>
 
   <main>
-<section id="global-functions-event-handlers" class="level2">
-<h2><a href="#global-functions-event-handlers">Global functions (Event Handlers)</a></h2>
-<p>In your global script file, some functions will have been automatically added when you created your game. These are global event handlers, and these functions are called when particular events occur. There are also some optional event handlers, which you can add if you would like specific additional events to be processed.</p>
+<section id="global-event-handlers" class="level2">
+<h2><a href="#global-event-handlers">Global event handlers</a></h2>
+<p>In the AGS game there is a number of events, like starting the game, or pressing the key, that may be handled in script by adding a function with <em>predefined name</em>. These are called "global event handlers". If you add ones to your script, they will be called automatically whenever corresponding event occurs. All of these are optional, and may be omited if you don't need them.</p>
+<p>You may you add multiple functions of the same kind to multiple <a href="ScriptModules.html">script modules</a>, in which case they will be called in the order of modules in your game project. It's possible to stop propagating the event (skip remaining modules) by using <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function (refer to its article for explanation).</p>
+<p>Some of these functions may also be added to the room scripts. These are: <code>on_event</code>, <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_text_input</code>, <code>repeatedly_execute_always</code>, <code>late_repeatedly_execute_always</code>.</p>
+<p>Some functions will only work in the room script: <code>on_call</code>.</p>
+<p><em>NOTE:</em> for historical reasons, function <code>repeatedly_execute</code> does not work in the room script, but there's a corresponding room event that may be linked to a custom function in the editor.</p>
+<hr />
 <section id="dialog_request" class="level3">
 <h3><a href="#dialog_request"><code>dialog_request</code></a></h3>
 <pre><code>dialog_request (int parameter)
@@ -105,7 +113,6 @@
 </section>
 <section id="interface_click" class="level3">
 <h3><a href="#interface_click"><code>interface_click</code></a></h3>
-<p><em>(This function is now obsolete)</em></p>
 <pre><code>interface_click (int interface, int button)
 </code></pre>
 <p>Called when the player clicks on a button on a GUI which has its action set as "Run script". INTERFACE is the number of the GUI which they clicked on. BUTTON is the object number of the button within this GUI.</p>
@@ -117,8 +124,11 @@
 </code></pre>
 <p>Called whenever certain game events occur. The value of DATA depends on which event has occurred. The possible values of event are:</p>
 <pre><code>eEventEnterRoomBeforeFadein
-      called just before the room&#39;s &#39;Player Enters Room&#39; event occurs
+      called just before the room&#39;s &#39;Enter Before Fade-in&#39; event occurs
       DATA = new room number
+eEventEnterRoomAfterFadein
+      called just before the room&#39;s &#39;Enter After Fade-in&#39; event occurs
+      DATA = room number
 eEventLeaveRoom
       called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs
       DATA = room number they are leaving
@@ -145,10 +155,30 @@ eEventRestoreGame
 </section>
 <section id="on_key_press" class="level3">
 <h3><a href="#on_key_press"><code>on_key_press</code></a></h3>
-<pre><code>on_key_press (eKeyCode keycode)
+<pre><code>on_key_press (eKeyCode keycode, optional int mod)
 </code></pre>
-<p>Called whenever a key is pressed on the keyboard. KEYCODE holds the value of the key. A list of these values is <a href="Keycodes.html">available here</a>.</p>
+<p>Called whenever a key is pressed on the keyboard. <code>keycode</code> holds the value of the key, while <code>mod</code> holds a combination of modifiers pressed alongside with that key. A list of these values is <a href="Keycodes.html">available here</a>.</p>
+<p>The <code>mod</code> argument is optional and may be omited. The <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated than keycode: as you should not use regular comparison (<code>==</code>, <code>!=</code>) with it, but a bitwise operator (<code>&amp;</code>):</p>
+<pre><code>// these two conditions check that ctrl was pressed (these commands are equivalent)
+if (mod &amp; eKeyModCtrl)
+if (mod &amp; eKeyModCtrl != 0)
+
+// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)
+if (!(mod &amp; eKeyModCtrl))
+if (mod &amp; eKeyModCtrl == 0)
+</code></pre>
 <p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
+<p>Starting with version 3.6.0 AGS supports two "key handling" modes: a new-style and old-style (backwards compatible). This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
+<p><strong>New key mode:</strong></p>
+<ul>
+<li>all keys are passed into the <code>on_key_press</code> function as-is, one by one: for example, if you press Ctrl + Z, then you get <strong>two</strong> <code>on_key_press</code> calls, one with <code>eKeyCtrlLeft</code> and another with <code>eKeyZ</code> argument.</li>
+</ul>
+<p><strong>Old (classic) key mode:</strong></p>
+<ul>
+<li>lone mod keys (Ctrl, Alt, Shift) are not passed into the <code>on_key_press</code>; you may only test if these are pressed using <a href="Globalfunctions_General.html#iskeypressed">IsKeyPressed</a>.</li>
+<li>alphabet keys + ctrl combinations are merged into one key code for the <code>on_key_press</code> callback: e.g. <code>eKeyCodeCtrlA</code> and similar key codes.</li>
+</ul>
+<p><em>Compatibility:</em> The <code>mod</code> argument is only supported since AGS 3.6.0.</p>
 <hr />
 </section>
 <section id="on_mouse_click" class="level3">
@@ -159,6 +189,20 @@ eEventRestoreGame
 <p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
 <p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
 <p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
+<hr />
+</section>
+<section id="on_text_input" class="level3">
+<h3><a href="#on_text_input"><code>on_text_input</code></a></h3>
+<pre><code>on_text_input(int ch)
+</code></pre>
+<p>Called when the player's key presses form a printable character. The difference between this and <code>on_key_press</code> is that not every key corresponds to the printable char, and some chars may be created by pressing multiple keys (which also depends on the current system language).</p>
+<p>The <code>ch</code> argument contains a unicode character code, and may be used with the <a href="String.html">String functions</a>.</p>
+<p>For example:</p>
+<pre><code>MyLabel.Text = MyLabel.Text.AppendChar(ch);
+</code></pre>
+<p>will append the new printed character to a label's text.</p>
+<p><strong>IMPORTANT:</strong> this function only works when your game uses "new-style key handling mode". This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
+<p><em>Compatibility:</em> supported since AGS 3.6.0.</p>
 <hr />
 </section>
 <section id="repeatedly_execute" class="level3">
@@ -364,8 +408,8 @@ eEventRestoreGame
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

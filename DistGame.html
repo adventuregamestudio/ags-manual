@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -90,9 +92,11 @@
 <h3><a href="#compiled-folder-structure">Compiled folder structure</a></h3>
 <p>When you choose the "Build EXE" option in the Editor, a "Compiled" directory is created in your game's folder, where more subdirectories are created in turn.</p>
 <ul>
-<li>"Compiled/Data" subfolder is always made. Here it serves as an intermediate storage, and contains the "raw" game data that cannot be used on its own, but may be run by an AGS engine executable (on any supported platform). From this folder these files will then be <em>copied into other subfolders</em>, one for each build target (platform) you selected in the project's General Settings.</li>
-<li>"Compiled/Windows" subfolder will be created if you have "Windows" enabled as target platform. The folder will contain the game data merged with the engine executable for Windows, as well as a file called "winsetup.exe" which launches an integrated setup program.</li>
-<li>"Compiled/Linux" subfolder will be created if you have "Linux" enabled as target platform. The folder will contain the game data merged with the engine executable and necessary third-party libraries for 32-bit and 64-bit Linux systems.</li>
+<li><strong>"Compiled/Data"</strong> subfolder is always made. Here it serves as an intermediate storage, and contains the "raw" game data that cannot be used on its own, but may be run by an AGS engine executable (on any supported platform). From this folder these files will then be <em>copied into other subfolders</em>, one for each build target (platform) you selected in the project's General Settings.</li>
+<li><strong>"Compiled/Windows"</strong> subfolder will be created if you have "Windows" enabled as target platform. The folder will contain the game data merged with the engine executable for Windows, as well as a file called "winsetup.exe" which launches an integrated setup program.</li>
+<li><strong>"Compiled/Linux"</strong> subfolder will be created if you have "Linux" enabled as target platform. The folder will contain the game data, the engine executable, and necessary third-party libraries for 32-bit and 64-bit Linux systems.</li>
+<li><strong>"Compiled/Web"</strong> subfolder will be created if you have "Web" enabled as target platform. The folder will contain the wasm + JS port of the engine, and the game data. You can test by serving the current directory, using some server (ex: <code>python -m http.server</code> if you have python), and opening it in a browser. Indie store websites usually accept you zip the contents of this directory and upload it as a web build.</li>
+<li><strong>"Compiled/Android"</strong> subfolder will be created if you have "Android" enabled as target platform. This build has external requirements you must comply, and they are detailed in the <a href="BuildAndroid.html">Building for Android</a> topic.</li>
 </ul>
 <p>The contents of these subfolders can be now distributed to players with the corresponding operating systems. For example, if you want to distribute the Windows version of your game, you <em>only</em> need the contents of the "Compiled/Windows" subfolder. For Linux the "Compiled/Linux" subfolder is sufficient.</p>
 <p>The "Compiled/Data" folder should usually not be distributed. It still may come in useful if you are preparing a custom distribution, but remember that the contents of this folder cannot be run on its own: you need to add one of the available engine versions to it, or warn users that they have to have the AGS engine installed on their system.</p>
@@ -166,8 +170,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

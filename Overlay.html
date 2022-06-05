@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -70,15 +72,21 @@
 <li><a href="#overlay-functions-and-properties"><span><code>Overlay</code> functions and properties</span></a>
 <ul>
 <li><a href="#overlaycreategraphical"><span><code>Overlay.CreateGraphical</code></span></a></li>
+<li><a href="#overlaycreateroomgraphical"><span><code>Overlay.CreateRoomGraphical</code></span></a></li>
+<li><a href="#overlaycreateroomtextual"><span><code>Overlay.CreateRoomTextual</code></span></a></li>
 <li><a href="#overlaycreatetextual"><span><code>Overlay.CreateTextual</code></span></a></li>
 <li><a href="#overlayremove"><span><code>Overlay.Remove</code></span></a></li>
 <li><a href="#overlaysettext"><span><code>Overlay.SetText</code></span></a></li>
+<li><a href="#overlaygraphic"><span><code>Overlay.Graphic</code></span></a></li>
+<li><a href="#overlaygraphicheight"><span><code>Overlay.GraphicHeight</code></span></a></li>
+<li><a href="#overlaygraphicwidth"><span><code>Overlay.GraphicWidth</code></span></a></li>
+<li><a href="#overlayheight"><span><code>Overlay.Height</code></span></a></li>
+<li><a href="#overlayinroom"><span><code>Overlay.InRoom</code></span></a></li>
+<li><a href="#overlaytransparency"><span><code>Overlay.Transparency</code></span></a></li>
 <li><a href="#overlayvalid"><span><code>Overlay.Valid</code></span></a></li>
+<li><a href="#overlaywidth"><span><code>Overlay.Width</code></span></a></li>
 <li><a href="#overlayx"><span><code>Overlay.X</code></span></a></li>
 <li><a href="#overlayy"><span><code>Overlay.Y</code></span></a></li>
-<li><a href="#overlaywidth"><span><code>Overlay.Width</code></span></a></li>
-<li><a href="#overlayheight"><span><code>Overlay.Height</code></span></a></li>
-<li><a href="#overlaytransparency"><span><code>Overlay.Transparency</code></span></a></li>
 <li><a href="#overlayzorder"><span><code>Overlay.ZOrder</code></span></a></li>
 </ul></li>
 </ul>
@@ -87,21 +95,54 @@
   <main>
 <section id="overlay-functions-and-properties" class="level2">
 <h2><a href="#overlay-functions-and-properties"><code>Overlay</code> functions and properties</a></h2>
+<p>The overlays are simple sprite placeholders, they are created in script, and display images on screen. They cannot be interacted with by player, nor interact with other game objects. This makes them ideal for creating temporary visual effects. But they also may be used to script a custom object from ground up; that may involve some advanced scripting though.</p>
+<p>Overlays may be created as <em>screen overlays</em> and <em>room overlays</em>. This defines the visual layer they are positioned in, and which other game objects they are visually sorted with.</p>
+<hr />
 <section id="overlaycreategraphical" class="level3">
 <h3><a href="#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a></h3>
 <p><em>(Formerly known as <code>CreateGraphicOverlay</code>, which is now obsolete)</em></p>
-<pre><code>static Overlay* Overlay.CreateGraphical(int x, int y, int slot, bool transparent)
+<pre><code>static Overlay* Overlay.CreateGraphical(int x, int y, int slot, optional bool transparent, optional bool clone)
 </code></pre>
-<p>Creates a screen overlay containing a copy of the image from SLOT in the Sprite Manager. The image is placed at (X,Y) on the screen (these are screen co-ordinates, not room co-ordinates).</p>
-<p>If <em>transparent</em> is true then the overlay will be drawn in the same way as characters/objects, if it is false then a black rectangle will be painted behind the sprite.</p>
-<p>See the description of <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a> for more on overlays.</p>
+<p>Creates a <em>screen overlay</em> using an image from SLOT sprite. The image is placed at (X,Y) in the screen coordinates.</p>
+<p>The screen overlays are positioned in the screen graphic layer, and are visually sorted among other screen overlays and GUI using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property.</p>
+<p>If <em>transparent</em> is true then the overlay will be drawn in the same way as characters/objects, if it is false then a black rectangle will be painted behind the sprite. Default value is "true". <strong>NOTE:</strong> for "historical reasons", <em>transparent</em> parameter works only in 8-bit games, and does not work in 16-bit and 32-bit games at all, so it's currently useless there.</p>
+<p>If <em>clone</em> is true then the overlay will make a copy of the SLOT image, otherwise it will create a shared reference, similar to how room objects or characters do. Default value is "false". In practice this only makes a difference if you are creating an overlay from the <a href="DynamicSprite.html">DynamicSprite</a>: if you make a copy then the original dynamic sprite is safe to discard; also any changes to dynamic sprite will be applied to overlay only if it uses shared reference (no copy). If you create alot of overlays, sharing (non copying) may improve game's perfomance and decrease the memory requirements. For the same perfomance reasons regular sprites are never copied, regardless of this parameter's value (because they cannot be deleted or edited at runtime).</p>
+<p><strong>NOTE:</strong> if you are using a <a href="DynamicSprite.html">DynamicSprite</a> when creating an overlay, and <em>not</em> copying the image, then you have to make sure the sprite is not deleted so long as overlay stays on screen, or overlay's image will reset to sprite 0.</p>
+<p><strong>NOTE:</strong> if the Overlay variable goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>Overlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
+<p><strong>NOTE:</strong> if the player goes to a different room all active overlays are removed automatically.</p>
 <p>Example:</p>
-<pre><code>Overlay* myOverlay = Overlay.CreateGraphical(100, 100, 300, true);
+<pre><code>Overlay* myOverlay = Overlay.CreateGraphical(100, 100, 300);
 Wait(40);
 myOverlay.Remove();
 </code></pre>
-<p>will create an overlay of the image stored in sprite manager's slot 300, at the coordinates 100,100. It will display for 1 second, then remove it.</p>
-<p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
+<p>will create an overlay using sprite number 300, at the coordinates 100,100. It will display for 1 second, then remove it.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a>, <a href="Overlay.html#overlaygraphic"><code>Overlay.Graphic</code></a></p>
+<hr />
+</section>
+<section id="overlaycreateroomgraphical" class="level3">
+<h3><a href="#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a></h3>
+<pre><code>static Overlay* Overlay.CreateRoomGraphical(int x, int y, int slot, optional bool transparent, optional bool clone)
+</code></pre>
+<p>Creates a <em>room overlay</em> using an image from SLOT sprite. The image is placed at (X,Y) in the screen coordinates.</p>
+<p>The room overlays are positioned in the room graphic layer, and are visually sorted among other room overlays, characters, room objects and walk-behinds using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property, similar to how other objects in rooms use <code>Baseline</code> property.</p>
+<p>All the parameters and use are identical to <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a> function, please refer to its description for more details.</p>
+<p><strong>NOTE:</strong> as overlays are a simplistic kind of object that does not have any automated behavior, it won't interact with anything inside the room, and won't change its z-order according to its Y coordinate automatically, unlike characters and room objects. If you'd like room overlay to change its "baseline" along with its vertical position, you will have to do something like this in global or room's "repeatedly execute" script function:</p>
+<pre><code>over.ZOrder = over.Y + over.Height;
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a>, <a href="Overlay.html#overlaygraphic"><code>Overlay.Graphic</code></a></p>
+<hr />
+</section>
+<section id="overlaycreateroomtextual" class="level3">
+<h3><a href="#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a></h3>
+<pre><code>static Overlay* Overlay.CreateRoomTextual(int x, int y, int width,
+                                      FontType font, int color, string text)
+</code></pre>
+<p>Creates a <em>room overlay</em> containing the text you pass at the position specified. This overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
+<p>The room overlays are positioned in the room graphic layer, and are visually sorted among other room overlays, characters, room objects and walk-behinds using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property, similar to how other objects in rooms use <code>Baseline</code> property.</p>
+<p>All the parameters and use are identical to <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a> function, please refer to its description for more details.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
 <section id="overlaycreatetextual" class="level3">
@@ -110,20 +151,20 @@ myOverlay.Remove();
 <pre><code>static Overlay* Overlay.CreateTextual(int x, int y, int width,
                                       FontType font, int color, string text)
 </code></pre>
-<p>Creates a screen overlay containing the text you pass at the position specified. A screen overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
+<p>Creates a <em>screen overlay</em> containing the text you pass at the position specified. A screen overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
+<p>The screen overlays are positioned in the screen graphic layer, and are visually sorted among other screen overlays and GUI using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property.</p>
 <p>The X and Y parameters specify the upper-left corner of where the text will be written. WIDTH is the width, in pixels, of the text area. FONT is the font number from the editor to use (0 is the normal font, 1 is the speech font). COLOR is the text color - use one of the colors from 1 to 15. Finally, TEXT is obviously the text that gets displayed.</p>
 <p>The function returns the Overlay, which you use later to reposition and remove the overlay.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
-<p><strong>NOTE:</strong> large overlays, in the same way as objects, can impact performance while displayed.</p>
-<p><strong>NOTE:</strong> there is currently a maximum of 10 overlays displayed at any one time. Some other commands such as Say and SayBackground create overlays internally, so don't rely on being able to create 10 with CreateTextual.</p>
-<p><strong>NOTE:</strong> if the Overlay object goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>Overlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
+<p><strong>NOTE:</strong> if the Overlay variable goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>Overlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
+<p><strong>NOTE:</strong> if the player goes to a different room all active overlays are removed automatically.</p>
 <p>Example:</p>
 <pre><code>Overlay* myOverlay = Overlay.CreateTextual(50,80,120, Game.SpeechFont, 15,&quot;This is a text overlay&quot;);
 Wait(40);
 myOverlay.Remove();
 </code></pre>
 <p>will display a 120 pixels text area with its upper left corner at coordinates 50,80 containing the string "This is a text overlay" using the speech font and white color. It will be displayed for 1 second, then removed.</p>
-<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a>, <a href="Overlay.html#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
 <section id="overlayremove" class="level3">
@@ -157,6 +198,60 @@ myOverlay.SetText(120,Game.SpeechFont,15,&quot;This is another text overlay&quot
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
+<section id="overlaygraphic" class="level3">
+<h3><a href="#overlaygraphic"><code>Overlay.Graphic</code></a></h3>
+<pre><code>int Overlay.Graphic;
+</code></pre>
+<p>Gets/sets the sprite slot number that the overlay is currently using. Textual overlays always return -1, as their image is generated and stored internally, and does not have a formal "number". Setting <code>Graphic</code> of a textual overlay will effectively change them to a graphical overlay.</p>
+<p><strong>NOTE:</strong> unlike <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, where you may choose whether to make an image's copy or a shared reference, setting <code>Graphic</code> will always make a shared reference to the sprite. If this is a <a href="DynamicSprite.html">DynamicSprite</a>, you have to make sure it is not deleted so long as overlay stays on screen, or overlay's image will reset to sprite 0.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
+<hr />
+</section>
+<section id="overlaygraphicheight" class="level3">
+<h3><a href="#overlaygraphicheight"><code>Overlay.GraphicHeight</code></a></h3>
+<pre><code>readonly int Overlay.GraphicHeight;
+</code></pre>
+<p>Gets the original height of the overlay's image. This property may be used to know the unscaled image's size (as <a href="Overlay.html#overlayheight"><code>Height</code></a> property scales it), which is useful if the original sprite was disposed, or for textual overlays that generate its own internal image.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaygraphicwidth"><code>Overlay.GraphicWidth</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a></p>
+<hr />
+</section>
+<section id="overlaygraphicwidth" class="level3">
+<h3><a href="#overlaygraphicwidth"><code>Overlay.GraphicWidth</code></a></h3>
+<pre><code>readonly int Overlay.GraphicWidth;
+</code></pre>
+<p>Gets the original width of the overlay's image. This property may be used to know the unscaled image's size (as <a href="Overlay.html#overlaywidth"><code>Width</code></a> property scales it), which is useful if the original sprite was disposed, or for textual overlays that generate its own internal image.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaygraphicheight"><code>Overlay.GraphicHeight</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
+<hr />
+</section>
+<section id="overlayheight" class="level3">
+<h3><a href="#overlayheight"><code>Overlay.Height</code></a></h3>
+<pre><code>int Overlay.Height;
+</code></pre>
+<p>Gets/sets the height of this overlay. Changing this property <em>will stretch or shrink</em> the overlay's image vertically. Works with both graphical and textual overlays.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a></p>
+<hr />
+</section>
+<section id="overlayinroom" class="level3">
+<h3><a href="#overlayinroom"><code>Overlay.InRoom</code></a></h3>
+<pre><code>readonly bool Overlay.InRoom;
+</code></pre>
+<p>Tells whether current overlay is a room (returns "true") or screen (if "false") overlay.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlaycreateroomgraphical"><code>Overlay.CreateRoomGraphical</code></a>, <a href="Overlay.html#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a></p>
+<hr />
+</section>
+<section id="overlaytransparency" class="level3">
+<h3><a href="#overlaytransparency"><code>Overlay.Transparency</code></a></h3>
+<pre><code>int Overlay.Transparency;
+</code></pre>
+<p>Gets/sets the transparency of this overlay.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
+<hr />
+</section>
 <section id="overlayvalid" class="level3">
 <h3><a href="#overlayvalid"><code>Overlay.Valid</code></a></h3>
 <p><em>(Formerly known as <code>IsOverlayValid</code>, which is now obsolete)</em></p>
@@ -171,6 +266,15 @@ Display(&quot;Overlay valid after: %d&quot;, myOverlay.Valid);
 </code></pre>
 <p>creates an overlay, and prints out the Valid property (which will be 1). Then, removes the overlay and prints Valid again (which will now be 0).</p>
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
+<hr />
+</section>
+<section id="overlaywidth" class="level3">
+<h3><a href="#overlaywidth"><code>Overlay.Width</code></a></h3>
+<pre><code>int Overlay.Width;
+</code></pre>
+<p>Get/sets the width of this overlay. Changing this property <em>will stretch or shrink</em> the overlay's image horizontally. Works with both graphical and textual overlays.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
 <hr />
 </section>
 <section id="overlayx" class="level3">
@@ -211,33 +315,6 @@ testOverlay.Remove();
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
-<section id="overlaywidth" class="level3">
-<h3><a href="#overlaywidth"><code>Overlay.Width</code></a></h3>
-<pre><code>readonly int Overlay.Width;
-</code></pre>
-<p>Gets the width of this overlay.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
-<hr />
-</section>
-<section id="overlayheight" class="level3">
-<h3><a href="#overlayheight"><code>Overlay.Height</code></a></h3>
-<pre><code>readonly int Overlay.Height;
-</code></pre>
-<p>Gets the height of this overlay.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlaywidth"><code>Overlay.Width</code></a></p>
-<hr />
-</section>
-<section id="overlaytransparency" class="level3">
-<h3><a href="#overlaytransparency"><code>Overlay.Transparency</code></a></h3>
-<pre><code>int Overlay.Transparency;
-</code></pre>
-<p>Gets/sets the transparency of this overlay.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
-<hr />
-</section>
 <section id="overlayzorder" class="level3">
 <h3><a href="#overlayzorder"><code>Overlay.ZOrder</code></a></h3>
 <pre><code>int Overlay.ZOrder;
@@ -253,8 +330,8 @@ testOverlay.Remove();
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

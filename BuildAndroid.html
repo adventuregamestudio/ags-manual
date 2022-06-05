@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Building for Android</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+      <label class="header_input" for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#building-for-android"><span>Building for Android</span></a>
+<ul>
+<li><a href="#installation-requirements-for-android-in-ags-editor"><span>Installation requirements for Android in AGS Editor</span></a></li>
+<li><a href="#configuring-the-ags-editor-for-android-build"><span>Configuring the AGS Editor for Android Build</span></a></li>
+<li><a href="#android-app-icons"><span>Android App icons</span></a></li>
+<li><a href="#building-the-app"><span>Building the App</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="building-for-android" class="level2">
+<h2><a href="#building-for-android">Building for Android</a></h2>
+<p>It's now possible to compile for Android directly from the Editor, this section walks through what it entails.</p>
+<section id="installation-requirements-for-android-in-ags-editor" class="level3">
+<h3><a href="#installation-requirements-for-android-in-ags-editor">Installation requirements for Android in AGS Editor</a></h3>
+<p>AGS Editor requires Android SDK, Java and additional tools to work. The supported way to set your development environment is to install Android Studio.</p>
+<hr />
+<p><img src="images/android_install_step01.png" /></p>
+<ol>
+<li>After installing Android Studio, load Android Studio and in the "more Actions" menu, select SDK Manager. If you already loaded a project, instead go into Tools, and then hit SDK Manager.</li>
+</ol>
+<p><img src="images/android_install_step02.png" /></p>
+<ol start="2">
+<li><p>In the Android SDK screen, at top, hit Edit to set a desired Android SDK Location if needed, this is usually something like <code>C:\Users\USERNAME\AppData\Local\Android\Sdk</code>.</p>
+<p>AGS requires SDK 29, select it and click OK. If instead you have only the latest API automatically selected here, it's alright.</p></li>
+</ol>
+<p><img src="images/android_install_step03.png" /></p>
+<ol start="3">
+<li>Hit next again.</li>
+</ol>
+<p><img src="images/android_install_step04.png" /></p>
+<ol start="4">
+<li><p>In this screen, note down that</p>
+<ul>
+<li>the SDK Folder here is what is set as ANDROID_HOME in the Editor preferences,</li>
+<li>the JDK Location is the JAVA_HOME on the Editor preferences.</li>
+</ul>
+<p>You can just hit next now</p></li>
+</ol>
+<p><img src="images/android_install_step05.png" /></p>
+<ol start="5">
+<li><p>And then it comes one thing you have to do, if you want to use it, you need to accept the licenses! There are two licenses you need to accept in this screen, so scroll down and hit accept, switch to the next one, scroll down again, and hit accept again.</p>
+<p>We are going to be using SDK 29 in here for now, so if something complains about it, make sure to comeback to the SDK managed and find and click in Android 10 (Q), API Level 29 and then proceed to installing it.</p>
+<p>If you don't, AGS Editor may try to download and install it anyway if needed when building your app for the first time, after ANDROID_HOME and JAVA_HOME are correctly set!</p></li>
+</ol>
+</section>
+<section id="configuring-the-ags-editor-for-android-build" class="level3">
+<h3><a href="#configuring-the-ags-editor-for-android-build">Configuring the AGS Editor for Android Build</a></h3>
+<p>You are going to need now to configure the AGS Editor, with it loaded, go into File, Preferences...</p>
+<p>Once the Editor Preferences menu is open, go into the Android tab. Here you will be able to set your JDK Path and SDK Path, which you noted down in step 4 before, right after installing Android Studio. Once these are correctly set, a small message "Found On Config!" will appear for both.</p>
+<p>Only <strong>after</strong> both are correctly set, you can now set your keystore information. If you don't set, you will get an error saying "validateSigningRelease FAILED" when attempting to build your app. If you don't have a Keystore, please generate one using the Generate Keystore button, and click OK after successfully generating one.</p>
+<p><img src="images/android_keystore_gen.png" /></p>
+</section>
+<section id="android-app-icons" class="level3">
+<h3><a href="#android-app-icons">Android App icons</a></h3>
+<p>At your project root, create a directory named icons with a directory named android inside. Then you need to add the following files:</p>
+<ul>
+<li><code>icons/android/mipmap-mdpi/ic_launcher.png</code> <strong>48x48 pixels</strong>, RGBA png icon</li>
+<li><code>icons/android/mipmap-hdpi/ic_launcher.png</code> <strong>72x72 pixels</strong>, RGBA png icon</li>
+<li><code>icons/android/mipmap-xhdpi/ic_launcher.png</code> <strong>96x96 pixels</strong>, RGBA png icon</li>
+<li><code>icons/android/mipmap-xxhdpi/ic_launcher.png</code> <strong>144x144 pixels</strong>, RGBA png icon</li>
+<li><code>icons/android/mipmap-xxxhdpi/ic_launcher.png</code> <strong>192x192 pixels</strong>, RGBA png icon</li>
+</ul>
+<p>If you want to support round icons, additionally create <code>ic_launcher_round.png</code> files in the same directories.</p>
+</section>
+<section id="building-the-app" class="level3">
+<h3><a href="#building-the-app">Building the App</a></h3>
+<p>In the Editor, go in General Settings, and in the Android category, adjust the settings for your game. Then, in the Compiler category, under <strong>Build target platforms</strong>, tick the Android platform.</p>
+<p>Now, in the Build menu on top, select Build EXE, or hit f7. A prompt will open, and once it's completed, the app will be in your game project directory under <code>Compiled/Android</code> folder.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

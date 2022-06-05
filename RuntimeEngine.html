@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -69,8 +71,6 @@
 <ul>
 <li><a href="#the-run-time-engine"><span>The run-time engine</span></a>
 <ul>
-<li><a href="#configuration-file-locations"><span>Configuration file locations</span></a></li>
-<li><a href="#configuration-file-options"><span>Configuration file options</span></a></li>
 <li><a href="#command-line"><span>Command line</span></a></li>
 </ul></li>
 </ul>
@@ -80,187 +80,16 @@
 <section id="the-run-time-engine" class="level2">
 <h2><a href="#the-run-time-engine">The run-time engine</a></h2>
 <p>The engine (also called the "interpreter") is what runs your game and is what the player will use.</p>
-<section id="configuration-file-locations" class="level3">
-<h3><a href="#configuration-file-locations">Configuration file locations</a></h3>
-<p>For historical reasons the configuration file should be called <code>acsetup.cfg</code>.</p>
-<p>The engine supports three configuration files that are read in the following order, every next overriding values from the previous one:</p>
-<ol>
-<li>Default config file, found in the game's installation directory, applied for the game loaded from that directory;</li>
-<li>Current user's global config file, applied for any AGS game.</li>
-<li>Current user's game config file, applied only for the game of particular title. This config file is also the one supposed to be written to when the engine or setup application modifies game configuration.</li>
-</ol>
-<p>Locations of two latter files differ between running platforms:</p>
-<ul>
-<li><strong>Linux</strong>:
-<ul>
-<li>user's global config: <code>$XDG_DATA_HOME/ags/acsetup.cfg</code></li>
-<li>user's game config: <code>$XDG_DATA_HOME/ags/GAMENAME/acsetup.cfg</code></li>
-<li>NOTE: if <code>$XDG_DATA_HOME</code> is not defined, then <code>$HOME/.local/share</code> is used instead.</li>
-</ul></li>
-<li><strong>Windows</strong>:
-<ul>
-<li>user's global config: <code>%USERPROFILE%/Saved Games/Adventure Game Studio/acsetup.cfg</code></li>
-<li>user's game config: <code>%USERPROFILE%/Saved Games/GAMENAME/acsetup.cfg</code></li>
-</ul></li>
-</ul>
-</section>
-<section id="configuration-file-options" class="level3">
-<h3><a href="#configuration-file-options">Configuration file options</a></h3>
-<ul>
-<li><strong>[graphics]</strong> - display mode and various graphics options
-<ul>
-<li><code>driver</code> = [string] - id of the graphics renderer to use. Supported names are:
-<ul>
-<li><code>D3D9</code> - Direct3D9 (MS Windows version only);</li>
-<li><code>OGL</code> - OpenGL;</li>
-<li><code>Software</code> - software renderer.</li>
-</ul></li>
-<li><code>windowed</code> = [0; 1] - when enabled (true), runs game in windowed mode.</li>
-<li><code>screen_def</code> = [string] - determines how the display mode is deduced:
-<ul>
-<li><code>explicit</code> - use screen_width and screen_height parameters;</li>
-<li><code>scaling</code> - sets display mode equal to scaled game size;</li>
-<li><code>max</code> - sets display mode equal to device/desktop size.</li>
-</ul></li>
-<li><code>screen_width</code> = [integer] - if screen_def is 'explicit', defines display mode width; otherwise ignored.</li>
-<li><code>screen_height</code> = [integer] - if screen_def is 'explicit', defines display mode height; otherwise ignored.</li>
-<li><code>match_device_ratio</code> = [0; 1] - when looking for appropriate fullscreen mode, prioritize ones which have the same aspect ratio as the current device/desktop mode.</li>
-<li><code>game_scale_fs</code> = [string | integer] - game scaling rule for fullscreen mode, and...</li>
-<li><code>game_scale_win</code> = [string | integer] - game scaling rule for windowed mode, where
-<ul>
-<li>any integer number - a positive number acts as upscale multiplier, a negative number acts as downscale divisor;</li>
-<li><code>max_round</code> - deduce the maximal integer multiplier that fits into the current desktop/device size;</li>
-<li><code>stretch</code> - stretch to current desktop/device size;</li>
-<li><code>proportional</code> - similar to stretch, but keep the game's aspect ratio.</li>
-</ul></li>
-<li><code>filter</code> = [string] - id of the scaling filter to use. Supported filter names are:
-<ul>
-<li><code>none</code> - run in native game size;</li>
-<li><code>stdscale</code> - nearest-neighbour scaling;</li>
-<li><code>hqx</code> - high quality scaling filter; only usable in 32-bit games with software renderer;</li>
-<li><code>linear</code> - anti-aliased scaling; only usable with hardware-accelerated renderer.</li>
-</ul></li>
-<li><code>refresh</code> = [integer] - refresh rate for the display mode.</li>
-<li><code>render_at_screenres</code> = [0; 1] - whether the sprites are transformed and rendered in the game's native or the current display resolution;</li>
-<li><code>supersampling</code> = [integer] - supersampling multiplier, default is 1, used with render_at_screenres = 0 (currently supported only by OpenGL renderer);</li>
-<li><code>vsync</code> = [0; 1] - enable or disable vertical sync.</li>
-</ul></li>
-<li><strong>[sound]</strong> - sound options
-<ul>
-<li><code>digiid</code> = [string; 0; -1] - digital driver id, '0' or 'none', '-1' or 'auto'. Driver IDs are platform-dependent.
-<ul>
-<li>For Linux:
-<ul>
-<li><code>ALSA</code>, <code>ARTS</code>, <code>ESSD</code>, <code>JACK</code>, <code>OSSD</code> (OSS digital), <code>SGIA</code>;</li>
-<li><code>SDL2</code> - if alleg-sdl2digi.so is present.</li>
-</ul></li>
-<li>For Windows:
-<ul>
-<li><code>DXA</code> - pure DirectSound driver;</li>
-<li><code>AXA</code> - Allegro mixer to DirectSound;</li>
-<li><code>WOA</code> - Allegro mixer to WaveOut;</li>
-</ul></li>
-</ul></li>
-<li><code>midiid</code> = [string; 0; -1] - MIDI driver id, '0' or 'none', '-1' or 'auto'. Driver IDs are platform-dependent.
-<ul>
-<li>For Linux:
-<ul>
-<li><code>AMID</code> (Alsa MIDI), <code>OSSM</code> (OSS MIDI);</li>
-<li><code>DIGI</code> (digital midi emulator) - if midi patches are present.</li>
-</ul></li>
-<li>For Windows:
-<ul>
-<li><code>W32M</code> - MIDI mapper;</li>
-<li><code>W32A</code> - MIDI driver.</li>
-</ul></li>
-</ul></li>
-<li><code>usespeech</code> = [0; 1] - disable or enable in-game speech (voice-overs).</li>
-<li><code>threaded</code> = [0; 1] - when enabled, the engine runs audio on a separate thread.</li>
-</ul></li>
-<li><strong>[mouse]</strong> - mouse options
-<ul>
-<li><code>auto_lock</code> = [0; 1] - enables the mouse autolock inside the game window: mouse cursor locks inside the window whenever it receives input focus.</li>
-<li><code>control_when</code> = [string] - determines when the mouse cursor speed control is allowed, acceptable values are:
-<ul>
-<li><code>never</code> - self-explanatory;</li>
-<li><code>fullscreen</code> - only when the game is run in fullscreen (this is default);</li>
-<li><code>always</code> - both in fullscreen and windowed mode.</li>
-</ul></li>
-<li><code>control_enabled</code> = [0; 1] - enables or disables mouse control. Note that this setting may be overriden by control_when.</li>
-<li><code>speed_def</code> = [string] - determines how the cursor speed value is interpreted, possible modes are:
-<ul>
-<li><code>absolute</code> - use precisely the speed value provided by config;</li>
-<li><code>current_display</code> - keep the cursor's speed relation to the screen size by increasing the actual cursor speed when running the game in low resolution and decreasing the cursor speed when running the game in a resolution higher than the current user's desktop resolution (this is default).</li>
-</ul></li>
-<li><code>speed</code> = [real] - mouse cursor speed (default is 1.0).</li>
-</ul></li>
-<li><strong>[language]</strong> - language options
-<ul>
-<li><code>translation</code> = [string] - name of the translation to use. A &lt;name&gt;.tra file should be present in the game directory.</li>
-</ul></li>
-<li><strong>[misc]</strong> - various options
-<ul>
-<li><code>datafile</code> = [string] - path to the game file.</li>
-<li><code>datadir</code> = [string] - path to the game directory.</li>
-<li><code>localuserconf</code> = [0; 1] - read and write user config in the game's directory rather than using the standard system path. The game directory must be writable for this option to work, otherwise the engine will fall back to the standard path.</li>
-<li><code>user_data_dir</code> = [string] - custom path to the savedgames location.</li>
-<li><code>shared_data_dir</code> = [string] - custom path to the shared appdata location.</li>
-<li><code>antialias</code> = [0; 1] - disable / enable anti-alias scaled sprites.</li>
-<li><code>cachemax</code> = [integer] - size of the engine's sprite cache, in kilobytes. Default size is 131072 (128 MB).</li>
-</ul></li>
-<li><strong>[log]</strong> - log options, allow to setup logging to the chosen OUTPUT with the given log groups and verbosity levels.
-<ul>
-<li><code>[outputname]</code> = GROUP[:LEVEL][,GROUP[:LEVEL]][,...];</li>
-<li><code>[outputname]</code> = +GROUPLIST[:LEVEL];<br> Groups may be defined either by name or by a LIST of one-letter IDs, preceded by '+', e.g. +ABCD:LEVEL. Verbosity may be defined either by a name or a numeric ID.
-<ul>
-<li>OUTPUTs are:
-<ul>
-<li><code>stdout</code>, <code>file</code>, <code>console</code> (where "console" is the internal engine's console);</li>
-</ul></li>
-<li>GROUPs are:
-<ul>
-<li><code>all</code>, <code>main</code> (m), <code>game</code> (g), <code>manobj</code> (o), <code>sprcache</code> (c);</li>
-</ul></li>
-<li>LEVELs are:
-<ul>
-<li><code>all</code>, <code>alert</code> (1), <code>fatal</code> (2), <code>error</code> (3), <code>warn</code> (4), <code>info</code> (5), <code>debug</code> (6);</li>
-</ul></li>
-<li>Examples:
-<ul>
-<li><code>file=all:warn</code></li>
-<li><code>stdout=+mg:debug</code></li>
-</ul></li>
-</ul></li>
-<li><code>file-path</code> = [string] - custom path to the log file.</li>
-</ul></li>
-<li><strong>[override]</strong> - special options, overriding game behavior.
-<ul>
-<li><code>multitasking</code> = [0; 1] - lock the game in the "single-tasking" or "multitasking" mode. In a nutshell, "multitasking" here means that the game will continue to run when the player switches away from the game window; otherwise it will freeze until the player switches back.</li>
-<li><code>os</code> = [string] - trick the game to think that it runs on a particular operating system. This may come in handy if the game is scripted to play differently depending on the OS. Possible choices are:
-<ul>
-<li><code>dos</code> - MS DOS;</li>
-<li><code>win</code> - Windows;</li>
-<li><code>linux</code> - Linux;</li>
-<li><code>mac</code> - MacOS.</li>
-</ul></li>
-<li><code>upscale</code> = [0; 1] - run the game in the "upscale mode". The earlier versions of AGS provided support for "upscaling" low-res games to hi-res. The script API has means for detecting if the game is running upscaled, and game the developer can use this opportunity to setup the game accordingly (e.g. assign hi-res fonts, etc). This option works <strong>only</strong> for games created with versions <em>before</em> AGS 3.1.0, with low-res native resolution, such as 320x200 or 320x240, and it may somewhat improve the game's look.</li>
-</ul></li>
-<li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or to lock some in a certain state. Ignored by the engine.
-<ul>
-<li><code>render_at_screenres</code> = [0; 1] - locks "Render sprites in screen resolution" in a default state;</li>
-<li><code>speechvox</code> = [0; 1] - locks "Use digital speech pack" in a default state;</li>
-<li><code>filters</code> = [0; 1] - locks "Graphics filter" selection in a default state;</li>
-<li>&lt;<code>filter id</code>&gt; - removes particular graphics filter from the selection list;</li>
-</ul></li>
-</ul>
-</section>
+<p>You can use any port of the AGS runtime on any available system to run an AGS game data.</p>
 <section id="command-line" class="level3">
 <h3><a href="#command-line">Command line</a></h3>
+<p><em>Note:</em> On Windows, you <strong>must</strong> use <code>--console-attach</code> when you are on the <code>cmd.exe</code> or other windows prompt and want to read the output of the ags runtime directly in the terminal, as printed in stdout.</p>
 <p>General usage: <code>ags [OPTIONS] [GAMEFILE PATH or GAME DIRECTORY]</code> (Where "ags" is the executable name)</p>
 <p>Following OPTIONS are supported when running from the command line:</p>
 <ul>
 <li><code>-? / --help</code> - prints the most useful command line arguments and quits.</li>
 <li><code>-v / --version</code> - prints the engine version and quits.</li>
+<li><code>--clear-cache-on-room-change</code> - clears sprite cache on every room change</li>
 <li><code>--conf &lt;FILEPATH&gt;</code> - specify an explicit config file to read on startup.</li>
 <li><code>--console-attach</code> - write the output to the parent process's console (Windows only).</li>
 <li><code>--fps</code> - display fps counter.</li>
@@ -285,6 +114,8 @@
 <li><code>--nospr</code> - don't draw room objects and characters (for test purposes).</li>
 <li><code>--noupdate</code> - don't run game update (for test purposes).</li>
 <li><code>--novideo</code> - don't play game videos (for test purposes).</li>
+<li><code>--rotation &lt;MODE&gt;</code> - screen rotation preferences. MODEs are: unlocked (0), portrait (1), landscape (2).</li>
+<li><code>--sdl-log=LEVEL</code> - setup SDL's own logging level (see explanation for the related config option).</li>
 <li><code>--setup</code> - run integrated setup dialog. Currently only supported by Windows version.</li>
 <li><code>--shared-data-dir &lt;DIR&gt;</code> - set the shared game data directory. Corresponds to the "shared_data_dir" config option.</li>
 <li><code>--startr &lt;room_number&gt;</code> - start the game by loading a certain room (for test purposes).</li>
@@ -299,6 +130,7 @@
 <li><code>--tell-graphicdriver</code> - print a list of supported graphic drivers.</li>
 </ul></li>
 <li><code>--test</code> - run the game in the test mode, unlocking test key combinations and console.</li>
+<li><code>--translation</code> - select the given translation on start.</li>
 <li><code>--user-data-dir &lt;DIR&gt;</code> - set the save game directory. Corresponds to "user_data_dir" config option.</li>
 <li><code>--windowed</code> - run in windowed mode.</li>
 </ul>
@@ -311,8 +143,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

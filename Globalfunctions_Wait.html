@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -71,6 +73,7 @@
 <ul>
 <li><a href="#skipwait"><span><code>SkipWait</code></span></a></li>
 <li><a href="#wait"><span><code>Wait</code></span></a></li>
+<li><a href="#waitinput"><span><code>WaitInput</code></span></a></li>
 <li><a href="#waitkey"><span><code>WaitKey</code></span></a></li>
 <li><a href="#waitmousekey"><span><code>WaitMouseKey</code></span></a></li>
 <li><a href="#waitmouse"><span><code>WaitMouse</code></span></a></li>
@@ -83,10 +86,23 @@
 <h2><a href="#global-functions-wait">Global functions (Wait)</a></h2>
 <p>Since AGS 3.6.0, All Wait related functions can return a <strong>Skip Reason</strong> on why they were skipped:</p>
 <ul>
-<li><code>0 =</code> ended by timeout or <code>SkipWait()</code>;</li>
-<li><code>&gt; 0 =</code> keycode;</li>
-<li><code>&lt; 0 =</code> negated mouse button code minus one (because of how mouse codes start with 0). In order to get mouse code do this: <code>MouseButton btn = -(result + 1)</code>;</li>
+<li><code>0</code> - ended by timeout or <code>SkipWait()</code>;</li>
+<li><code>!= 0</code> - an integer value which combines <a href="StandardEnums.html#inputtype">InputType</a> and a key or button code corresponding to that input type; that describes what input device and which button on that device were used to skip this "wait".</li>
 </ul>
+<p>If you only need to find out whether WaitX ended with a timeout or a player's input, all you need is to compare it with <code>0</code>:</p>
+<pre><code>if (WaitMouseKey(100) == 0) {
+    Display(&quot;Time out!&quot;);
+}
+
+if (WaitMouse(100) != 0) {
+    Display(&quot;Skipped by a mouse click.&quot;);
+}
+</code></pre>
+<p>If you need to determine exact details of how the "wait" was skipped, you have to split returned value into <code>InputType</code> and a button code using <a href="ScriptKeywords.html#operators">bitwise operations</a>:</p>
+<pre><code>int result = WaitMouseKey(1000);
+InputType type = result &amp; eInputAny;
+int code = result &amp; 0xFFFF; // exact key or button code
+</code></pre>
 <hr />
 <section id="skipwait" class="level3">
 <h3><a href="#skipwait"><code>SkipWait</code></a></h3>
@@ -111,18 +127,44 @@ cEgo.FaceLocation(1000,100);
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
 <hr />
 </section>
+<section id="waitinput" class="level3">
+<h3><a href="#waitinput"><code>WaitInput</code></a></h3>
+<pre><code>int WaitInput(InputType types, int timeout = -1)
+</code></pre>
+<p>Pauses the script and lets the game continue until EITHER:</p>
+<ul>
+<li><code>timeout</code> loops have elapsed, or</li>
+<li>the player presses a key or button on one of the devices listed in <code>types</code></li>
+</ul>
+<p>The <code>types</code> may contain any combined values from the <a href="StandardEnums.html#inputtype"><code>InputType</code> enum</a>.</p>
+<p>If <code>timeout</code> is -1, it will Wait forever, until a key is pressed.</p>
+<p>Returns the <strong>Skip Reason</strong> of why it was skipped (see top of this page for more details):</p>
+<ul>
+<li><code>0</code> - ended by timeout;</li>
+<li><code>!= 0</code> - ended by player input;</li>
+</ul>
+<p>Example:</p>
+<pre><code>WaitInput(eInputKeyboard + eInputMouse, 200);
+</code></pre>
+<p>will pause the script and wait until 5 seconds have passed (if game is 40 frames per second) or the player presses a key or clicks the mouse.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Wait.html#wait"><code>Wait</code></a>, <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a>, <a href="Globalfunctions_Wait.html#skipwait"><code>SkipWait</code></a></p>
+<hr />
+</section>
 <section id="waitkey" class="level3">
 <h3><a href="#waitkey"><code>WaitKey</code></a></h3>
 <pre><code>int WaitKey (int timeout = -1)
 </code></pre>
 <p>Pauses the script and lets the game continue until EITHER:</p>
-<p>(a) <code>timeout</code> loops have elapsed, or</p>
-<p>(b) the player presses a key</p>
+<ul>
+<li><code>timeout</code> loops have elapsed, or</li>
+<li>the player presses a key</li>
+</ul>
 <p>If <code>timeout</code> is -1, it will Wait forever, until a key is pressed.</p>
 <p>Returns the <strong>Skip Reason</strong> of why it was skipped (see top of this page for more details):</p>
 <ul>
-<li><code>0 =</code> ended by timeout;</li>
-<li><code>&gt; 0 =</code> keycode;</li>
+<li><code>0</code> - ended by timeout;</li>
+<li><code>!= 0</code> - ended by key keycode;</li>
 </ul>
 <p>Example:</p>
 <pre><code>WaitKey(200);
@@ -136,15 +178,16 @@ cEgo.FaceLocation(1000,100);
 <pre><code>int WaitMouseKey (int timeout = -1)
 </code></pre>
 <p>Pauses the script and lets the game continue until EITHER:</p>
-<p>(a) <code>timeout</code> loops have elapsed, or</p>
-<p>(b) the player presses a key, or</p>
-<p>(c) the player clicks a mouse button</p>
+<ul>
+<li><code>timeout</code> loops have elapsed, or</li>
+<li>the player presses a key, or</li>
+<li>the player clicks a mouse button</li>
+</ul>
 <p>If <code>timeout</code> is -1, it will Wait forever, until either a key is pressed or the mouse is clicked.</p>
 <p>Returns the <strong>Skip Reason</strong> of why it was skipped (see top of this page for more details):</p>
 <ul>
-<li><code>0 =</code> ended by timeout;</li>
-<li><code>&gt; 0 =</code> keycode;</li>
-<li><code>&lt; 0 =</code> negated mouse button code minus one (because of how mouse codes start with 0). In order to get mouse code do this: MouseButton btn = -(result + 1);</li>
+<li><code>0</code> - ended by timeout;</li>
+<li><code>!= 0</code> - ended by keycode or mouse click;</li>
 </ul>
 <p>Example:</p>
 <pre><code>WaitMouseKey(200);
@@ -158,13 +201,15 @@ cEgo.FaceLocation(1000,100);
 <pre><code>int WaitMouseKey (int timeout = -1)
 </code></pre>
 <p>Pauses the script and lets the game continue until EITHER:</p>
-<p>(a) <code>timeout</code> loops have elapsed, or</p>
-<p>(b) the player clicks a mouse button</p>
+<ul>
+<li><code>timeout</code> loops have elapsed, or</li>
+<li>the player clicks a mouse button</li>
+</ul>
 <p>If <code>timeout</code> is -1, it will Wait forever, until the mouse is clicked.</p>
 <p>Returns the <strong>Skip Reason</strong> of why it was skipped (see top of this page for more details):</p>
 <ul>
-<li>0 if the time elapsed, or</li>
-<li><code>&lt; 0 =</code> negated mouse button code minus one (because of how mouse codes start with 0). In order to get mouse code do this: MouseButton btn = -(result + 1);</li>
+<li><code>0</code> - if the time elapsed, or</li>
+<li><code>!= 0</code> - ended by mouse click;</li>
 </ul>
 <p>Example:</p>
 <pre><code>WaitMouse(200);
@@ -179,8 +224,8 @@ cEgo.FaceLocation(1000,100);
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

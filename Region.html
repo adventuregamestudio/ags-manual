@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -71,6 +73,7 @@
 <ul>
 <li><a href="#regiongetatroomxy"><span><code>Region.GetAtRoomXY</code></span></a></li>
 <li><a href="#regiongetatscreenxy"><span><code>Region.GetAtScreenXY</code></span></a></li>
+<li><a href="#regiongetdrawingsurface"><span><code>Region.GetDrawingSurface</code></span></a></li>
 <li><a href="#regionruninteraction"><span><code>Region.RunInteraction</code></span></a></li>
 <li><a href="#regiontint"><span><code>Region.Tint</code></span></a></li>
 <li><a href="#regionenabled"><span><code>Region.Enabled</code></span></a></li>
@@ -117,6 +120,24 @@ if (r != region[0]) {
 <p>will display the message if there is any region under the mouse cursor.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<hr />
+</section>
+<section id="regiongetdrawingsurface" class="level3">
+<h3><a href="#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></h3>
+<pre><code>static DrawingSurface* Region.GetDrawingSurface()
+</code></pre>
+<p>Gets a drawing surface for the current room's 8-bit regions mask, which allows you to directly draw onto that mask. Note that this function is static and relates to all regions at once (not a particular region), because all of them are painted on the same mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the region's index. Color value 0 will refer to "no region" (eraser), color value 1 to region number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<pre><code>DrawingSurface *surface = Region.GetDrawingSurface();
+surface.DrawingColor = 4;
+surface.DrawRectangle(50, 50, 100, 100);
+surface.Release();
+</code></pre>
+<p>will paint a rectangle for the region 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a>, <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a></p>
 <hr />
 </section>
 <section id="regionruninteraction" class="level3">
@@ -302,8 +323,8 @@ if (r != region[0]) {
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

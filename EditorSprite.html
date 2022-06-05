@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -70,6 +72,7 @@
 <li><a href="#sprite-manager"><span>Sprite Manager</span></a>
 <ul>
 <li><a href="#import-sprite"><span>Import Sprite</span></a></li>
+<li><a href="#sprite-storage"><span>Sprite Storage</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -93,14 +96,24 @@
 <p><strong>NOTE:</strong> if using the 'Import All' button all remaining images will be imported using the currently selected import options</p>
 <p><strong>NOTE:</strong> animated GIF frames are treated as separate images, so a 5 frame GIF imported as 2 tiles will result in 10 new sprites being created.</p>
 </section>
+<section id="sprite-storage" class="level3">
+<h3><a href="#sprite-storage">Sprite Storage</a></h3>
+<p>AGS sprite storage can be configured through <strong>Enable sprite storage optimization</strong> and <strong>Sprite file compression</strong> in <a href="GeneralSettings.html#compiler">General Settings, in Compiler category</a>.</p>
+<ul>
+<li><strong>Enable sprite storage optimization</strong>, stores sprites in a format that requires less space.</li>
+<li><strong>Sprite file compression</strong>, can be configured to no compression, RLE or LZW.</li>
+</ul>
+<p>When a sprite is imported, it gets and index number which can be used to refer to it through your game. This information, along with import settings for each sprite, are saved in your AGS game project. It will additionally, incrementally as you import sprites, add the file to your project sprite file, named <code>acsprset.spr</code>. You can at any time in your project switch your sprite file compression and storage settings and AGS will update it accordingly, so don't worry if you just realize you need compression at a later time in your project.</p>
+<p>It's recommended that all the graphic files you are importing in your project are placed in a directory inside of your AGS Game Project. By maintaining all files there, if you wish to not backup your <code>acsprset.spr</code> file, you can recreate it at any time by using the <strong>File</strong> <code>-&gt;</code> <strong>Restore all sprites from sources</strong> menu.</p>
+</section>
 </section>
   </main>
 
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

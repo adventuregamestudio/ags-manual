@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -113,7 +115,7 @@ Display(mytext);
 </section>
 <section id="stringappendchar" class="level3">
 <h3><a href="#stringappendchar"><code>String.AppendChar</code></a></h3>
-<pre><code>String.AppendChar(char extraChar)
+<pre><code>String.AppendChar(int extraChar)
 </code></pre>
 <p>Appends a single character to the end of the specified string, and returns the result.</p>
 <p><strong>IMPORTANT:</strong> The newly extended text is returned as a new string from this command. The original string will <strong>NOT</strong> be changed. For example, the following script will not do anything:<br> <code>mytext.AppendChar('o');</code><br> what you probably want instead is:<br> <code>mytext = mytext.AppendChar('o');</code></p>
@@ -123,6 +125,7 @@ mytext = mytext.AppendChar(&#39;o&#39;);
 Display(mytext);
 </code></pre>
 <p>will display "Hello".</p>
+<p><em>Compatibility:</em> This functions can take an utf-8 char as <code>int</code> since <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="String.html#stringappend"><code>String.Append</code></a></p>
 <hr />
 </section>
@@ -279,7 +282,7 @@ Display(&quot;Old: %s, new: %s&quot;, original, changed);
 <section id="stringreplacecharat" class="level3">
 <h3><a href="#stringreplacecharat"><code>String.ReplaceCharAt</code></a></h3>
 <p><em>(Formerly known as global function <code>StrSetCharAt</code>, which is now obsolete)</em></p>
-<pre><code>String.ReplaceCharAt(int index, char newChar)
+<pre><code>String.ReplaceCharAt(int index, int newChar)
 </code></pre>
 <p>Changes the character at INDEX in the string to NEWCHAR.</p>
 <p>INDEX is the character index into the string (where 0 is the first character, and the last allowable value is the string's Length minus 1).</p>
@@ -290,6 +293,7 @@ String changed = mystring.ReplaceCharAt(2, &#39;m&#39;);
 Display(&quot;Old: %s, new: %s&quot;, newstring, changed);
 </code></pre>
 <p>will display "Old: Hello, new: Hemlo".</p>
+<p><em>Compatibility:</em> This functions can take an utf-8 char as <code>int</code> since <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="String.html#stringchars"><code>String.Chars</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a></p>
 <hr />
 </section>
@@ -398,7 +402,7 @@ number2 = text2.AsInt;
 <section id="stringchars" class="level3">
 <h3><a href="#stringchars"><code>String.Chars</code></a></h3>
 <p><em>(Formerly known as global function <code>StrGetCharAt</code>, which is now obsolete)</em></p>
-<pre><code>readonly char String.Chars[position];
+<pre><code>readonly int String.Chars[position];
 </code></pre>
 <p>Returns the character at POSITION within the string.</p>
 <p>POSITION is the character index (where 0 is the first character, and the last allowable value is the Length minus 1).</p>
@@ -409,6 +413,7 @@ number2 = text2.AsInt;
 Display(&quot;The 4th character is: %c&quot;, text.Chars[3]);
 </code></pre>
 <p>will display "The 4th character is: s".</p>
+<p><em>Compatibility:</em> This attribute returns an utf-8 char as <code>int</code> since <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="String.html#stringlength"><code>String.Length</code></a>, <a href="String.html#stringreplacecharat"><code>String.ReplaceCharAt</code></a></p>
 <hr />
 </section>
@@ -430,8 +435,8 @@ Display(&quot;Length: %d&quot;, text.Length);
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

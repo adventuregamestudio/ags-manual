@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -69,8 +71,8 @@
 <ul>
 <li><a href="#button-functions-and-properties"><span><code>Button</code> functions and properties</span></a>
 <ul>
-<li><a href="#buttonclick"><span><code>Button.Click</code></span></a></li>
 <li><a href="#buttonanimate"><span><code>Button.Animate</code></span></a></li>
+<li><a href="#buttonclick"><span><code>Button.Click</code></span></a></li>
 <li><a href="#buttonanimating"><span><code>Button.Animating</code></span></a></li>
 <li><a href="#buttonframe"><span><code>Button.Frame</code></span></a></li>
 <li><a href="#buttonloop"><span><code>Button.Loop</code></span></a></li>
@@ -93,26 +95,20 @@
 <h2><a href="#button-functions-and-properties"><code>Button</code> functions and properties</a></h2>
 <p>Button is a subclass of <a href="GUIControl.html"><code>GUIControl</code></a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
 <hr />
-<section id="buttonclick" class="level3">
-<h3><a href="#buttonclick"><code>Button.Click</code></a></h3>
-<pre><code>Button.Click()
-</code></pre>
-<p>Forces Button's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="GUI.html#guiclick"><code>GUI.Click</code></a>, <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a></p>
-<hr />
-</section>
 <section id="buttonanimate" class="level3">
 <h3><a href="#buttonanimate"><code>Button.Animate</code></a></h3>
 <p><em>(Formerly known as <code>AnimateButton</code>, which is now obsolete)</em></p>
 <pre><code>Button.Animate(int view, int loop, int delay, optional RepeatStyle, 
                optional BlockingStyle, optional Direction, 
-               optional int frame)
+               optional int frame, optional int volume)
 </code></pre>
 <p>Animates a GUI button by playing the specified view loop on it. This could be useful for Sierra-style death animations and other effects.</p>
-<p>As of <strong>AGS 3.6.0</strong>, it also includes blocking style, direction and starting frame parameters. Note that the default value for BlockingStyle is eNoBlock.</p>
 <p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the <a href="Character.html#characteranimate"><code>Character.Animate</code></a> and <a href="Object.html#objectanimate"><code>Object.Animate</code></a> commands.</p>
-<p>REPEAT determines whether the animation will loop repeatedly, or just play once and stop with the last frame showing (eOnce or eRepeat are the possible values).</p>
+<p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <code>eOnce</code>, in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If <code>RepeatStyle</code> is <code>eRepeat</code>, then when the last frame is reached, it will go back to the first frame and start over again with the animation.</p>
+<p>For <em>blocking</em> you can pass either <code>eBlock</code> (in which case the function will wait for the animation to finish before returning), or <code>eNoBlock</code> (in which case the animation will start to play, but your script will continue). The default is <code>eBlock</code>.</p>
+<p><em>Direction</em> specifies which way the animation plays. You can either pass <code>eForwards</code> (the default) or <code>eBackwards</code>.</p>
+<p><em>Frame</em> lets you specify the starting frame, which should be one of the chosen loop's frame. Note that for compatibility reasons if direction is eBackwards the animation actually begins with the previous frame. If you pass frame 0 (the default) then it will begin with the last frame in the loop.</p>
+<p><em>Volume</em> lets you specify the relative volume in percents (0-100) of the frame-linked sounds for the duration of this animation. It's 100 by default (which means - unchanged).</p>
 <p>You can abort an animation at any time by setting the button's <a href="Button.html#buttonnormalgraphic">NormalGraphic property</a>, or starting a new animation on the same button.</p>
 <p><strong>NOTE:</strong> This command destroys the button's normal, pushed and mouseover images. If you want to return the button to normal usage after playing an animation, you will have to set the Graphic properties to restore the images.</p>
 <p><strong>NOTE:</strong> This command does not support flipped view frames. Any frames marked as "Flipped" will in fact be drawn normally when on a button.</p>
@@ -120,8 +116,18 @@
 <pre><code>btnDeathAnim.Animate(6, 2, 4, eRepeat);
 </code></pre>
 <p>will animate the 'btnDeathAnim' button using loop 2 of view 6, with a delay of 4 cycles per frame, and repeat the animation continually.</p>
+<p>Compatibility: Parameters <em>BlockingStyle</em>, <em>Direction</em>, <em>frame</em> and <em>volume</em> are supported only by AGS 3.6.0 and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttonanimating"><code>Button.Animating</code></a>, <a href="Button.html#buttonframe"><code>Button.Frame</code></a>, <a href="Button.html#buttonloop"><code>Button.Loop</code></a>, <a href="Button.html#buttonview"><code>Button.View</code></a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>,<br />
 <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a>,</p>
+<hr />
+</section>
+<section id="buttonclick" class="level3">
+<h3><a href="#buttonclick"><code>Button.Click</code></a></h3>
+<pre><code>Button.Click()
+</code></pre>
+<p>Forces Button's OnClick event. If there is a script function bound to that event it will be run, otherwise nothing happens.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUI.html#guiclick"><code>GUI.Click</code></a>, <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="buttonanimating" class="level3">
@@ -293,8 +299,8 @@ btnController.Text = &quot;Enable jibble&quot;;
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

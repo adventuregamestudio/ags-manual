@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -100,6 +102,7 @@ return
 <li><strong>option-off X</strong><br> Turns option X for the current topic off, meaning it won't be displayed in the list of choices next time.</li>
 <li><strong>option-off-forever X</strong><br> Turns option X off permanently. It will never again be displayed, not even if an "option-on" command is used.</li>
 <li><strong>option-on X</strong><br> Turns option X for the current topic on, including it in the list of choices to the player next time they are displayed.</li>
+<li><strong>run-script X</strong><br> Calls <a href="Globalfunctions_Event.html#dialog_request">dialog_request</a> event handler if one is present in the game script, passes <code>X</code> as an integer parameter.</li>
 <li><strong>return</strong><br> Stops the script and returns to the list of choices.</li>
 <li><strong>stop</strong><br> Stops the conversation and returns the player to the game.</li>
 </ul>
@@ -142,8 +145,8 @@ return
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

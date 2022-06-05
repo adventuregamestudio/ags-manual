@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -106,9 +108,16 @@
 <p>Example:</p>
 <pre><code>File.Open(&quot;$CONFIGFILE$&quot;, eFileRead);
 </code></pre>
-<p>Following <em>location tags</em> are supported:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below. <code>$DATA$</code>, which allows you to read files that are packaged inside the game package, originally from a directory specified in the General Settings, in the <code>Package custom data folder(s)</code> option.</p>
+<p>Following <em>location tags</em> are supported:</p>
+<ul>
+<li><code>$DATA$</code>, which allows you to read files that are packaged inside the game package, originally from a directory specified in the General Settings, in the <strong>Package custom data folder(s)</strong> option, on the Compiler category. Files stored in this way can only be opened in read mode.</li>
+<li><code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.</li>
+<li><code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.</li>
+<li><code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</li>
+</ul>
 <p>Examples:</p>
-<pre><code>File.Open(&quot;$INSTALLDIR$/game.dat&quot;, eFileRead);
+<pre><code>File.Open(&quot;$DATA$/datadir/book.txt&quot;, eFileRead);
+File.Open(&quot;$INSTALLDIR$/game.dat&quot;, eFileRead);
 File.Open(&quot;$SAVEGAMEDIR$/userinfo.txt&quot;, eFileWrite);
 File.Open(&quot;$APPDATADIR$/scoretable.dat&quot;, eFileAppend);
 </code></pre>
@@ -413,8 +422,8 @@ output.Close();
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

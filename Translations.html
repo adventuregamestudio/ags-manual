@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -109,6 +111,7 @@
 <li><strong>NormalFont</strong> - sets the font used for displaying messages on screen. This corresponds to the <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a> script property. The value may be either the font's number or <code>DEFAULT</code> for no change.</li>
 <li><strong>SpeechFont</strong> - sets the font used for character speech. This corresponds to the <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a> script property. The value may be either the font's number or <code>DEFAULT</code> for no change.</li>
 <li><strong>TextDirection</strong> - sets the direction in which the text is written. This corresponds to calling the <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a> script function with the OPT_RIGHTTOLEFT argument. The value may be <code>LEFT</code> (for left-to-right), <code>RIGHT</code> (for right-to-left) or <code>DEFAULT</code>.</li>
+<li><strong>Encoding</strong> - sets the encoding hint that matches the encoding of the file. If you use UTF-8, the file must be saved with <strong>UTF-8 without BOM</strong> encoding. Your game can be set to a different encoding, just make sure that the font used supports the encoding used.</li>
 </ul>
 <p>Example:</p>
 <pre><code>// The normal font to use - DEFAULT or font number
@@ -117,6 +120,8 @@
 //#SpeechFont=DEFAULT
 // Text direction - DEFAULT, LEFT or RIGHT
 //#TextDirection=RIGHT
+// Text encoding hint - ASCII or UTF-8
+//#Encoding=UTF-8
 </code></pre>
 <p>This would set NormalFont to font 4, leave SpeechFont unchanged, and switch text direction to Right-to-left mode.</p>
 <p><strong>NOTE:</strong> these options are applied to game properties the moment new translation is enabled. But they are not kept permanently while that translation is active. Changing any of these in script would override values set by current translation.</p>
@@ -124,7 +129,7 @@
 <section id="troubleshooting" class="level3">
 <h3><a href="#troubleshooting">Troubleshooting</a></h3>
 <p>If you have ?s displaying instead of special characters in the translated lines, make sure the <a href="Game.html#gamespeechfont">font</a> you use is imported into AGS correctly and supports the characters you want to display. In case some letters are mixed up this might be a mapping problem of the source font, you need to manually edit this fontsheet or just find a new font on the world wide web that works.</p>
-<p>When you play the game with the translation enabled and special characters of the language are replaced with ?? (2 question marks specifically), this means the encoding of the .trs files uses 2 bytes for each character, so make sure you save and encode the .trs file to ANSI and NOT in unicode or UTF-8 encoding.</p>
+<p>When you play the game with the translation enabled and special characters of the language are replaced with ?? (2 question marks specifically), this means the actual encoding of the .trs files uses 2 bytes for each character, probably because you saved the file as UTF-8 and either set the encoding to ASCII or not set at all. If you wish to use ASCII, make sure you save and encode the .trs file to ANSI and NOT in unicode or UTF-8 encoding.</p>
 <p>In some wordprocessors changing the encoding of the whole file to ANSI encoding changes the normal special characters to something even more unrecognisable, so you might have to run a search and replace function over the whole document for every special character that is used in that language (make sure to check for capitalized special characters too) after changing the encoding to ANSI. A lot of wordprocessors use Ctrl+H as hotkey for the search and replace function.</p>
 </section>
 <section id="advanced-help" class="level3">
@@ -138,8 +143,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

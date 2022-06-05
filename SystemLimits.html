@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -83,7 +85,7 @@
 <section id="system-restrictions" class="level3">
 <h3><a href="#system-restrictions">System restrictions</a></h3>
 <ul>
-<li>40 objects per room</li>
+<li>256 objects per room</li>
 <li>299 state-saving rooms per game</li>
 <li>300 inventory items</li>
 <li>90000 imported sprites</li>
@@ -122,6 +124,7 @@
 <p>AGS v3.6:</p>
 <ul>
 <li>Audio channels number increased from 8 to 16.</li>
+<li>Increased Room Objects limit to 256 (was 40).</li>
 <li>20 screen overlays at a time lifted</li>
 <li>Removed limit of simultaneous Button animations (was 15).</li>
 <li>Removed limit of Character followers (was 30).</li>
@@ -145,8 +148,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -127,20 +129,21 @@
 <h3><a href="#objectanimate"><code>Object.Animate</code></a></h3>
 <p><em>(Formerly known as <code>AnimateObject</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>AnimateObjectEx</code>, which is now obsolete)</em></p>
 <pre><code>Object.Animate(int loop, int delay, optional RepeatStyle,
-               optional BlockingStyle, optional Direction, optional int frame)
+               optional BlockingStyle, optional Direction, optional int frame, optional int volume)
 </code></pre>
 <p>Starts the object animating, using loop number LOOP of its current view, and optionally starting at FRAME. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it will go back to the first frame and start over again with the animation. If RepeatStyle is 2 then it will do the animation once, but then return the graphic to the first frame and stop (whereas repeat=0 will leave the graphic on the last frame).</p>
 <p>For <em>blocking</em> you can pass either eBlock (in which case the function will wait for the animation to finish before returning), or eNoBlock (in which case the animation will start to play, but your script will continue). The default is eBlock.</p>
 <p><em>Direction</em> specifies which way the animation plays. You can either pass eForwards (the default) or eBackwards.</p>
 <p><em>Frame</em> lets you specify the starting frame, which should be one of the chosen loop's frame.<br> Note that for compatibility reasons if direction is eBackwards the animation actually begins with the <em>previous frame</em>. If you pass frame 0 (the default) then it will begin with the last frame in the loop.</p>
+<p><em>Volume</em> lets you specify the relative volume in percents (0-100) of the frame-linked sounds for the duration of this animation. It's 100 by default (which means - unchanged).</p>
 <p>You need to use SetView at some stage before this command, in order to set up the object's current view.</p>
 <p>Example:</p>
 <pre><code>object[0].Animate(2, 5);
 object[1].Animate(1, 3, eOnce, eBlock, eBackwards);
 </code></pre>
 <p>will animate object 0 using loop 2 of its current view, at speed 5, and play the animation once only. This happens in the background. Then, object 1 will animate backwards using loop 1 of its current view, at speed 3. The function won't return until the animation is finished.</p>
-<p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.<br> Optional <em>volume</em> parameter is supported only by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectsetview"><code>Object.SetView</code></a>, <a href="Object.html#objectstopanimating"><code>Object.StopAnimating</code></a></p>
 <hr />
 </section>
@@ -801,8 +804,8 @@ while (trans &lt; 100) {
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

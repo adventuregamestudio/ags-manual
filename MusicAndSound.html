@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -69,7 +71,6 @@
 <ul>
 <li><a href="#music-and-sound"><span>Music and sound</span></a>
 <ul>
-<li><a href="#voice-speech"><span>Voice speech</span></a></li>
 <li><a href="#the-audiocache-folder"><span>The AudioCache folder</span></a></li>
 </ul></li>
 </ul>
@@ -86,7 +87,7 @@
 <p><strong>Audio in the Editor</strong></p>
 <p>Look under the "Audio" branch in the project tree. Here you'll find sub-nodes called "Speech", "Types" and two default folders called "Music" and "Sounds".</p>
 <p><strong>Speech</strong></p>
-<p>At the moment, voice speech files are not set up within the editor. See the <a href="MusicAndSound.html#voice-speech">Speech</a> help page to find out more about adding speech to your game.</p>
+<p>At the moment, voice speech files are not set up within the editor. See the <a href="VoiceSpeech.html">Voice speech</a> help page to find out more about adding speech to your game.</p>
 <p><strong>Audio Types</strong></p>
 <p>Audio Types allow you to group together similar types of audio files. The standard distinction here is between Sound and Music, whereby you usually only want one Music file to be playing at any one time; whereas you might have several simultaneous sound effects.</p>
 <p>Double-click on an Audio Type and it will open up; you can see its properties in the Property Grid. Here, the "MaxChannels" setting allows you to specify how many audio clips of this type are allowed to play at the same time. The "VolumeReductionWhenSpeechPlaying" setting allows you to have AGS automatically reduce the volume of these audio clips while speech is playing, to make it easier for the player to hear the speech over the background music.</p>
@@ -136,29 +137,6 @@ chan.Volume = 20;
 <p>The new audio system in AGS gives you much more control over your game audio. Please see the following sections for a complete list of the supported commands:</p>
 <p><a href="AudioClip.html">AudioClip reference</a>, <a href="AudioChannel.html">AudioChannel reference</a></p>
 <hr />
-<section id="voice-speech" class="level3">
-<h3><a href="#voice-speech">Voice speech</a></h3>
-<p>With AGS you can link a line of dialog to a speech file, to enable "talkie"- style games. Suppose you have a dialog script with the following:</p>
-<pre><code>ego: &quot;Hi! How are you?&quot;
-michael: &quot;I&#39;m fine.&quot;
-</code></pre>
-<p>Normally this would display the words in the speech text above the characters heads. However, you can add the special character '&amp;' to symbolize that a voice file should also be played.</p>
-<p>The file name has format XXXXY.EXT, where XXXX is made of up to <strong>first four letters</strong> of the character's script name (except the leading 'c'), the Y is the speech file number (with no leading or trailing zeroes or padding of any kind), and EXT is the file extension.</p>
-<p>For example, if you have dialog script:</p>
-<pre><code>ego: &amp;10 &quot;Hi! How are you?&quot;
-michael: &amp;7 &quot;I&#39;m fine.&quot;
-</code></pre>
-<p>or common script using Say script function:</p>
-<pre><code>cEgo.Say(&quot;&amp;10 Hi! How are you?&quot;);
-cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
-</code></pre>
-<p>Both of those examples would play EGO10.WAV with the first line, and MICH7.WAV with the second. When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
-<p><strong>NOTE:</strong> WAV, OGG and MP3 format files can be used for speech.</p>
-<p><strong>NOTE:</strong> Speech file numbers are restricted to the positive range of 1 to 2147483647 (2 billion). This is a technical limitation based on how these are handled inside the engine, but we do not think it will ever become a problem to the user.</p>
-<p>Speech is compiled into a file called SPEECH.VOX and is separate from the rest of your game data so that you can offer it as an optional extra download to the player. The game will function correctly if the file is not present.</p>
-<p><em>SeeAlso:</em> <a href="Speech.html#speechvoicemode"><code>Speech.VoiceMode</code></a></p>
-<hr />
-</section>
 <section id="the-audiocache-folder" class="level3">
 <h3><a href="#the-audiocache-folder">The AudioCache folder</a></h3>
 <p>When you import audio files into AGS, you'll probably notice that a folder inside your game folder, called AudioCache, starts to fill up with files. What is it and why is it there?</p>
@@ -173,8 +151,8 @@ cMichael.Say(&quot;&amp;7 I&#39;m fine.&quot;);
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

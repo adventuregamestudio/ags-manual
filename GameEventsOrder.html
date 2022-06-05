@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Game events order</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+      <label class="header_input" for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#game-events-order"><span>Game events order</span></a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="game-events-order" class="level2">
+<h2><a href="#game-events-order">Game events order</a></h2>
+<p>The game in AGS consists of "loops" which run repeatedly with certain speed (see <a href="Globalfunctions_General.html#setgamespeed">SetGameSpeed</a>). On each loop it runs certain events and script callbacks, updates the game and redraws the game on screen.</p>
+<p>The order of these actions within a single loop is consistent. When you start using AGS you probably won't care about that, but as you write more complex scripts, it may become important. This order may seem a bit strange in some parts, but it's a result of AGS development history.</p>
+<p>Following is a sequence of actions which happen in a normal game loop:</p>
+<ol>
+<li><a href="Globalfunctions_Event.html#repeatedly_execute_always"><code>repeatedly_execute_always</code></a> function is called (if found in script).</li>
+<li><em>Main game update:</em> almost everything in the game is updated: characters, room objects, animations, and so forth.</li>
+<li><a href="Globalfunctions_Event.html#late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a> function is called (if found in script).</li>
+<li>Non-blocking screen shaking update (see <a href="Globalfunctions_Screen.html#shakescreenbackground">ShakeScreenBackground</a>).</li>
+<li>Mouse position update.</li>
+<li>GUI updates, reacting to mouse state (movement and buttons).</li>
+<li><em>Game is drawn on screen.</em></li>
+<li>All the scheduled events are executed. Strictly speaking, the order of execution is undefined. Commonly <a href="Globalfunctions_Event.html#repeatedly_execute"><code>repeatedly_execute</code></a> goes first, but that's rather a coincidence and is not recommended to rely upon. Other events include: <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_event</code>, and so forth (see <a href="Globalfunctions_Event.html#global-event-handlers">their respective page</a> for details).</li>
+</ol>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

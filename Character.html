@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -122,6 +124,7 @@
 <li><a href="#characteractiveinventory"><span><code>Character.ActiveInventory</code></span></a></li>
 <li><a href="#characteranimating"><span><code>Character.Animating</code></span></a></li>
 <li><a href="#characteranimationspeed"><span><code>Character.AnimationSpeed</code></span></a></li>
+<li><a href="#characteranimationvolume"><span><code>Character.AnimationVolume</code></span></a></li>
 <li><a href="#characterbaseline"><span><code>Character.Baseline</code></span></a></li>
 <li><a href="#characterblinkinterval"><span><code>Character.BlinkInterval</code></span></a></li>
 <li><a href="#characterblinkview"><span><code>Character.BlinkView</code></span></a></li>
@@ -211,7 +214,7 @@ cSomeguy.AddWaypoint(50, 50);
 <h3><a href="#characteranimate"><code>Character.Animate</code></a></h3>
 <p><em>(Formerly known as <code>AnimateCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>AnimateCharacterEx</code>, which is now obsolete)</em></p>
 <pre><code>Character.Animate(int loop, int delay, optional RepeatStyle,
-                  optional BlockingStyle, optional Direction, optional int frame)
+                  optional BlockingStyle, optional Direction, optional int frame, optional int volume)
 </code></pre>
 <p>Starts the character animating, using loop number LOOP of his current view and optionally starting at FRAME. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
 <p>Before using this command, you should use <a href="Character.html#characterlockview"><code>LockView</code></a> in order to select the view you want to animate with and prevent any automatic animations (e.g. walking or idle animations) from playing.</p>
@@ -219,14 +222,14 @@ cSomeguy.AddWaypoint(50, 50);
 <p>For <em>blocking</em> you can pass either eBlock (in which case the function will wait for the animation to finish before returning), or eNoBlock (in which case the animation will start to play, but your script will continue). The default is eBlock.</p>
 <p><em>Direction</em> specifies which way the animation plays. You can either pass eForwards (the default) or eBackwards.</p>
 <p><em>Frame</em> lets you specify the starting frame, which should be one of the chosen loop's frame.<br> Note that for compatibility reasons if direction is eBackwards the animation actually begins with the <em>previous frame</em>. If you pass frame 0 (the default) then it will begin with the last frame in the loop.</p>
-<p>If the character is currently moving, it will be stopped.</p>
+<p><em>Volume</em> lets you specify the <em>relative</em> volume in percents (0-100) of the frame-linked sounds for the duration of this animation. It's 100 by default (which means - unchanged). <strong>NOTE:</strong> the <em>volume</em> parameter from <code>Character.Animate</code> does not replace <code>Character.AnimationVolume</code> property, but acts as a relative factor to it and character's scale if <a href="Character.html#characterscalevolume"><code>ScaleVolume</code></a> is also set. In other words the final frame sound's volume will be equal to <code>sound volume * AnimationVolume % * scaled volume % * volume param %</code>.</p>
 <p>Example:</p>
 <pre><code>cEgo.LockView(5);
 cEgo.Animate(3, 1, 0, eBlock, eBackwards);
 cEgo.UnlockView();
 </code></pre>
 <p>will animate the character once using loop number 3 of view 5 backwards, and wait until the animation finishes before returning.</p>
-<p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.<br> Optional <em>volume</em> parameter is supported only by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
 <hr />
 </section>
@@ -723,7 +726,7 @@ player.RemoveTint();
 <pre><code>cEgo.Say(&quot;My name is ego&quot;);
 </code></pre>
 <p>will display the message above the character's EGO head like the LEC games, whilst playing the character's talking animation.</p>
-<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Character.html#charactersayat"><code>Character.SayAt</code></a>, <a href="Character.html#charactersaybackground"><code>Character.SayBackground</code></a>, <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="MusicAndSound.html#voice-speech">Voice speech</a></p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Character.html#charactersayat"><code>Character.SayAt</code></a>, <a href="Character.html#charactersaybackground"><code>Character.SayBackground</code></a>, <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="VoiceSpeech.html">Voice speech</a></p>
 <hr />
 </section>
 <section id="charactersayat" class="level3">
@@ -1020,6 +1023,16 @@ while (cEgo.Animating) Wait(1);
 </code></pre>
 <p>will change the player character's animation speed to 4.</p>
 <p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a></p>
+<hr />
+</section>
+<section id="characteranimationvolume" class="level3">
+<h3><a href="#characteranimationvolume"><code>Character.AnimationVolume</code></a></h3>
+<pre><code>int Character.AnimationVolume
+</code></pre>
+<p>Gets/sets the character's animation sound volume, which is a <em>relative</em> volume (0-100) of frame-linked sounds that play during character's animations.</p>
+<p><strong>NOTE:</strong> all the volume properties in Character act as relative factors: these are <code>AnimationVolume</code>, "volume" parameter of <a href="Character.html#characteranimate"><code>Animate</code></a> function, and character's scale if <a href="Character.html#characterscalevolume"><code>ScaleVolume</code></a> is also set. The final frame sound's volume will be equal to <code>sound volume * AnimationVolume % * scaled volume %</code> in case of a normal view animation (walking, talking, etc), and <code>sound volume * AnimationVolume % * scaled volume % * Animate's volume param %</code> when <code>Animate</code> is called.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characterbaseline" class="level3">
@@ -1389,11 +1402,12 @@ while (cEgo.Moving) Wait(1);
 </code></pre>
 <p>Gets/sets whether the character's volume is adjusted in line with his current scaling level. This allows you to modify the "Adjust volume with scaling" option from the editor.</p>
 <p>By default, this is <em>false</em>. If you set it to <em>true</em>, then any frame-linked sounds for the character (for example, footstep sounds) will have their volume automatically adjusted in line with the character's scaling level. At the normal <code>100%</code> zoom level the sounds will be played at normal volume, but will then get quieter and louder as appropriate in scaled walkable areas.</p>
+<p><strong>NOTE:</strong> all the volume properties in Character act as relative factors: these are <code>AnimationVolume</code>, "volume" parameter of <a href="Character.html#characteranimate"><code>Animate</code></a> function, and character's scale if <a href="Character.html#characterscalevolume"><code>ScaleVolume</code></a> is also set. The final frame sound's volume will be equal to <code>sound volume * AnimationVolume % * scaled volume %</code> in case of a normal view animation (walking, talking, etc), and <code>sound volume * AnimationVolume % * scaled volume % * Animate's volume param %</code> when <code>Animate</code> is called.</p>
 <p>Example:</p>
 <pre><code>cEgo.ScaleVolume = true;
 </code></pre>
-<p>will mean that EGO's footstep sounds are adjusted in line with his scaling</p>
-<p><em>See also:</em> <a href="Character.html#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></p>
+<p>will mean that EGO's footstep sounds are adjusted in line with his scaling.</p>
+<p><em>See also:</em> <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a>, <a href="Character.html#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></p>
 <hr />
 </section>
 <section id="characterscaling" class="level3">
@@ -1676,8 +1690,8 @@ while (trans &lt; 100) {
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

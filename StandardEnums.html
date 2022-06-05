@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -69,39 +71,40 @@
 <ul>
 <li><a href="#standard-enumerated-types"><span>Standard Enumerated Types</span></a>
 <ul>
-<li><a href="#blockingstyle"><span><code>BlockingStyle</code></span></a></li>
-<li><a href="#characterdirection"><span><code>CharacterDirection</code></span></a></li>
-<li><a href="#direction"><span><code>Direction</code></span></a></li>
-<li><a href="#walkwhere"><span><code>WalkWhere</code></span></a></li>
-<li><a href="#stopmovementstyle"><span><code>StopMovementStyle</code></span></a></li>
-<li><a href="#repeatstyle"><span><code>RepeatStyle</code></span></a></li>
 <li><a href="#alignment"><span><code>Alignment</code></span></a></li>
-<li><a href="#horizontalalignment"><span><code>HorizontalAlignment</code></span></a></li>
-<li><a href="#eflipdirection"><span><code>eFlipDirection</code></span></a></li>
-<li><a href="#transitionstyle"><span><code>TransitionStyle</code></span></a></li>
-<li><a href="#mousebutton"><span><code>MouseButton</code></span></a></li>
-<li><a href="#eventtype"><span><code>EventType</code></span></a></li>
-<li><a href="#rounddirection"><span><code>RoundDirection</code></span></a></li>
-<li><a href="#espeechstyle"><span><code>eSpeechStyle</code></span></a></li>
-<li><a href="#skipspeechstyle"><span><code>SkipSpeechStyle</code></span></a></li>
-<li><a href="#evoicemode"><span><code>eVoiceMode</code></span></a></li>
-<li><a href="#dialogoptionstate"><span><code>DialogOptionState</code></span></a></li>
-<li><a href="#cutsceneskiptype"><span><code>CutsceneSkipType</code></span></a></li>
-<li><a href="#eoperatingsystem"><span><code>eOperatingSystem</code></span></a></li>
-<li><a href="#ecdaudiofunction"><span><code>eCDAudioFunction</code></span></a></li>
-<li><a href="#cursormode"><span><code>CursorMode</code></span></a></li>
-<li><a href="#fonttype"><span><code>FontType</code></span></a></li>
-<li><a href="#locationtype"><span><code>LocationType</code></span></a></li>
-<li><a href="#filemode"><span><code>FileMode</code></span></a></li>
-<li><a href="#fileseek"><span><code>FileSeek</code></span></a></li>
-<li><a href="#dialogoptionsaystyle"><span><code>DialogOptionSayStyle</code></span></a></li>
-<li><a href="#videoskipstyle"><span><code>VideoSkipStyle</code></span></a></li>
 <li><a href="#audiofiletype"><span><code>AudioFileType</code></span></a></li>
 <li><a href="#audiopriority"><span><code>AudioPriority</code></span></a></li>
+<li><a href="#blockingstyle"><span><code>BlockingStyle</code></span></a></li>
+<li><a href="#ecdaudiofunction"><span><code>eCDAudioFunction</code></span></a></li>
+<li><a href="#characterdirection"><span><code>CharacterDirection</code></span></a></li>
+<li><a href="#cursormode"><span><code>CursorMode</code></span></a></li>
+<li><a href="#cutsceneskiptype"><span><code>CutsceneSkipType</code></span></a></li>
+<li><a href="#dialogoptionsaystyle"><span><code>DialogOptionSayStyle</code></span></a></li>
+<li><a href="#dialogoptionstate"><span><code>DialogOptionState</code></span></a></li>
+<li><a href="#direction"><span><code>Direction</code></span></a></li>
+<li><a href="#eventtype"><span><code>EventType</code></span></a></li>
+<li><a href="#filemode"><span><code>FileMode</code></span></a></li>
+<li><a href="#fileseek"><span><code>FileSeek</code></span></a></li>
+<li><a href="#eflipdirection"><span><code>eFlipDirection</code></span></a></li>
+<li><a href="#fonttype"><span><code>FontType</code></span></a></li>
 <li><a href="#guipopupstyle"><span><code>GUIPopupStyle</code></span></a></li>
-<li><a href="#stringcomparestyle"><span><code>StringCompareStyle</code></span></a></li>
-<li><a href="#sortstyle"><span><code>SortStyle</code></span></a></li>
+<li><a href="#horizontalalignment"><span><code>HorizontalAlignment</code></span></a></li>
+<li><a href="#inputtype"><span><code>InputType</code></span></a></li>
+<li><a href="#locationtype"><span><code>LocationType</code></span></a></li>
 <li><a href="#loglevel"><span><code>LogLevel</code></span></a></li>
+<li><a href="#mousebutton"><span><code>MouseButton</code></span></a></li>
+<li><a href="#eoperatingsystem"><span><code>eOperatingSystem</code></span></a></li>
+<li><a href="#repeatstyle"><span><code>RepeatStyle</code></span></a></li>
+<li><a href="#rounddirection"><span><code>RoundDirection</code></span></a></li>
+<li><a href="#skipspeechstyle"><span><code>SkipSpeechStyle</code></span></a></li>
+<li><a href="#sortstyle"><span><code>SortStyle</code></span></a></li>
+<li><a href="#espeechstyle"><span><code>eSpeechStyle</code></span></a></li>
+<li><a href="#stopmovementstyle"><span><code>StopMovementStyle</code></span></a></li>
+<li><a href="#stringcomparestyle"><span><code>StringCompareStyle</code></span></a></li>
+<li><a href="#transitionstyle"><span><code>TransitionStyle</code></span></a></li>
+<li><a href="#videoskipstyle"><span><code>VideoSkipStyle</code></span></a></li>
+<li><a href="#evoicemode"><span><code>eVoiceMode</code></span></a></li>
+<li><a href="#walkwhere"><span><code>WalkWhere</code></span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -110,68 +113,6 @@
 <section id="standard-enumerated-types" class="level2">
 <h2><a href="#standard-enumerated-types">Standard Enumerated Types</a></h2>
 <p>AGS has several <a href="ScriptKeywords.html#enum">enumerated types</a> in its standard header. These are used in calls to various commands, and will usually pop up automatically in autocomplete. However, for times where autocomplete doesn't do the job, having a manual reference is invaluable:</p>
-<section id="blockingstyle" class="level3">
-<h3><a href="#blockingstyle"><code>BlockingStyle</code></a></h3>
-<pre><code>enum BlockingStyle {
-  eBlock,
-  eNoBlock
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterfaceobject"><code>Character.FaceObject</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Character.html#characterwalkstraight"><code>Character.WalkStraight</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a></p>
-</section>
-<section id="characterdirection" class="level3">
-<h3><a href="#characterdirection"><code>CharacterDirection</code></a></h3>
-<pre><code>enum CharacterDirection {
-  eDirectionDown = 0,
-  eDirectionLeft,
-  eDirectionRight,
-  eDirectionUp,
-  eDirectionDownRight,
-  eDirectionUpRight,
-  eDirectionDownLeft,
-  eDirectionUpLeft,
-  eDirectionNone = SCR_NO_VALUE
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Character.html#characterchangeroom"><code>Character.ChangeRoom</code></a>, <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a></p>
-</section>
-<section id="direction" class="level3">
-<h3><a href="#direction"><code>Direction</code></a></h3>
-<pre><code>enum Direction {
-  eForwards,
-  eBackwards
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
-</section>
-<section id="walkwhere" class="level3">
-<h3><a href="#walkwhere"><code>WalkWhere</code></a></h3>
-<pre><code>enum WalkWhere {
-  eAnywhere,
-  eWalkableAreas
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a></p>
-</section>
-<section id="stopmovementstyle" class="level3">
-<h3><a href="#stopmovementstyle"><code>StopMovementStyle</code></a></h3>
-<pre><code>enum StopMovementStyle
-{
-  eKeepMoving = 0,
-  eStopMoving = 1
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockView</code></a>, <a href="Character.html#characterlockviewoffset"><code>Character.LockViewFrame</code></a></p>
-</section>
-<section id="repeatstyle" class="level3">
-<h3><a href="#repeatstyle"><code>RepeatStyle</code></a></h3>
-<pre><code>enum RepeatStyle {
-  eOnce,
-  eRepeat
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
-</section>
 <section id="alignment" class="level3">
 <h3><a href="#alignment"><code>Alignment</code></a></h3>
 <pre><code>enum Alignment {
@@ -201,242 +142,6 @@
 <p><em>Compatibility:</em> new version of Alignment enum was introduced in AGS 3.5.0. Previous Alignment was renamed into HorizontalAlignment.</p>
 <p><em>Used by:</em> <a href="Button.html#buttontextalignment"><code>Button.TextAlignment</code></a></p>
 </section>
-<section id="horizontalalignment" class="level3">
-<h3><a href="#horizontalalignment"><code>HorizontalAlignment</code></a></h3>
-<pre><code>enum HorizontalAlignment {
-  eAlignLeft          = 1,
-  eAlignCenter        = 2,
-  eAlignRight         = 4
-};
-</code></pre>
-<p>Note that HorizontalAlignment's values match the first values of Alignment enumeration (eAlignTopLeft, eAlignTopCenter, eAlignTopRight).</p>
-<p><em>Compatibility:</em> replaced old Alignment enumeration in AGS 3.5.0.</p>
-<p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockViewAligned</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="Label.html#labeltextalignment"><code>Label.TextAlignment</code></a>, <a href="ListBox.html#listboxtextalignment"><code>ListBox.TextAlignment</code></a>, <a href="Speech.html#speechtextalignment"><code>Speech.TextAlignment</code></a></p>
-</section>
-<section id="eflipdirection" class="level3">
-<h3><a href="#eflipdirection"><code>eFlipDirection</code></a></h3>
-<pre><code>enum eFlipDirection {
-  eFlipLeftToRight,
-  eFlipUpsideDown,
-  eFlipBoth
-};
-</code></pre>
-<p><em>Used by:</em> <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a></p>
-</section>
-<section id="transitionstyle" class="level3">
-<h3><a href="#transitionstyle"><code>TransitionStyle</code></a></h3>
-<pre><code>enum TransitionStyle {
-  eTransitionFade,
-  eTransitionInstant,
-  eTransitionDissolve,
-  eTransitionBoxout,
-  eTransitionCrossfade
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a>, <a href="Globalfunctions_Screen.html#setnextscreentransition"><code>SetNextScreenTransition</code></a></p>
-</section>
-<section id="mousebutton" class="level3">
-<h3><a href="#mousebutton"><code>MouseButton</code></a></h3>
-<pre><code>enum MouseButton {
-  eMouseLeft,
-  eMouseRight,
-  eMouseMiddle,
-  eMouseLeftInv,
-  eMouseMiddleInv,
-  eMouseRightInv,
-  eMouseWheelNorth,
-  eMouseWheelSouth
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Mouse.html#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a><br> <em>Passed into:</em> on_mouse_click</p>
-</section>
-<section id="eventtype" class="level3">
-<h3><a href="#eventtype"><code>EventType</code></a></h3>
-<pre><code>enum EventType {
-  eEventLeaveRoom,
-  eEventEnterRoomBeforeFadein,
-  eEventGotScore,
-  eEventGUIMouseDown,
-  eEventGUIMouseUp,
-  eEventAddInventory,
-  eEventLoseInventory,
-  eEventRestoreGame
-};
-</code></pre>
-<p><em>Passed into:</em> on_event</p>
-</section>
-<section id="rounddirection" class="level3">
-<h3><a href="#rounddirection"><code>RoundDirection</code></a></h3>
-<pre><code>enum RoundDirection {
-  eRoundDown,
-  eRoundNearest,
-  eRoundUp
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Maths.html#floattoint"><code>FloatToInt</code></a></p>
-</section>
-<section id="espeechstyle" class="level3">
-<h3><a href="#espeechstyle"><code>eSpeechStyle</code></a></h3>
-<pre><code>enum eSpeechStyle {
-  eSpeechLucasarts,
-  eSpeechSierra,
-  eSpeechSierraWithBackground,
-  eSpeechFullScreen
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Speech.html#speechstyle"><code>Speech.Style</code></a></p>
-</section>
-<section id="skipspeechstyle" class="level3">
-<h3><a href="#skipspeechstyle"><code>SkipSpeechStyle</code></a></h3>
-<pre><code>enum SkipSpeechStyle {
-  eSkipNone         = -1,
-  eSkipKeyMouseTime = 0,
-  eSkipKeyTime      = 1,
-  eSkipTime         = 2,
-  eSkipKeyMouse     = 3,
-  eSkipMouseTime    = 4,
-  eSkipKey          = 5,
-  eSkipMouse        = 6
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
-</section>
-<section id="evoicemode" class="level3">
-<h3><a href="#evoicemode"><code>eVoiceMode</code></a></h3>
-<pre><code>enum eVoiceMode {
-  eSpeechTextOnly,
-  eSpeechVoiceAndText,
-  eSpeechVoiceOnly
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Speech.html#speechvoicemode"><code>Speech.VoiceMode</code></a></p>
-</section>
-<section id="dialogoptionstate" class="level3">
-<h3><a href="#dialogoptionstate"><code>DialogOptionState</code></a></h3>
-<pre><code>enum DialogOptionState {
-  eOptionOff,
-  eOptionOn,
-  eOptionOffForever
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
-</section>
-<section id="cutsceneskiptype" class="level3">
-<h3><a href="#cutsceneskiptype"><code>CutsceneSkipType</code></a></h3>
-<pre><code>enum CutsceneSkipType {
-  eSkipESCOnly,
-  eSkipAnyKey,
-  eSkipMouseClick,
-  eSkipAnyKeyOrMouseClick,
-  eSkipESCOrRightButton,
-  eSkipScriptOnly
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a></p>
-</section>
-<section id="eoperatingsystem" class="level3">
-<h3><a href="#eoperatingsystem"><code>eOperatingSystem</code></a></h3>
-<pre><code>enum eOperatingSystem {
-  eOSDOS,
-  eOSWindows,
-  eOSLinux,
-  eOSMacOS,
-  eOSAndroid,
-  eOSiOS,
-  eOSPSP
-};
-</code></pre>
-<p><em>Used by:</em> <a href="System.html#systemoperatingsystem"><code>System.OperatingSystem</code></a></p>
-</section>
-<section id="ecdaudiofunction" class="level3">
-<h3><a href="#ecdaudiofunction"><code>eCDAudioFunction</code></a></h3>
-<pre><code>enum eCDAudioFunction {
-  eCDIsDriverPresent,
-  eCDGetPlayingStatus,
-  eCDPlayTrack,
-  eCDPausePlayback,
-  eCDResumePlayback,
-  eCDGetNumTracks,
-  eCDEject,
-  eCDCloseTray,
-  eCDGetCDDriveCount,
-  eCDSelectActiveCDDrive
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Multimedia.html#cdaudio"><code>CDAudio</code></a></p>
-</section>
-<section id="cursormode" class="level3">
-<h3><a href="#cursormode"><code>CursorMode</code></a></h3>
-<pre><code>enum CursorMode {
-  eModeXXXX,
-  eModeXXXX,
-  ...
-};
-</code></pre>
-<p>The CursorMode enumeration is generated automatically based on your mouse cursors. The cursor mode name is taken, all its spaces are removed, and <em>eMode</em> is added to the front.<br> <em>Used by:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Mouse.html#mousechangemodegraphic"><code>Mouse.ChangeModeGraphic</code></a>, <a href="Mouse.html#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a>, <a href="Mouse.html#mousedisablemode"><code>Mouse.DisableMode</code></a>, <a href="Mouse.html#mouseenablemode"><code>Mouse.EnableMode</code></a>, <a href="Mouse.html#mouseismodeenabled"><code>Mouse.IsModeEnabled</code></a>, <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a>, <a href="Mouse.html#mousemode"><code>Mouse.Mode</code></a>, <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="InventoryItem.html#inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a>, <a href="Character.html#characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a></p>
-</section>
-<section id="fonttype" class="level3">
-<h3><a href="#fonttype"><code>FontType</code></a></h3>
-<pre><code>enum FontType {
-  eFontXXXX,
-  eFontXXXX,
-  ...
-};
-</code></pre>
-<p>The FontType enumeration is generated automatically based on your fonts. The font name is taken, all its spaces are removed, and <em>eFont</em> is added to the front.<br> <em>Used by:</em> <a href="Button.html#buttonfont"><code>Button.Font</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawingSurface.DrawMessageWrapped</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a>, <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a>, <a href="Globalfunctions_General.html#gettextheight"><code>GetTextHeight</code></a>, <a href="Globalfunctions_General.html#gettextwidth"><code>GetTextWidth</code></a>, <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="TextBox.html#textboxfont"><code>TextBox.Font</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlaysettext"><code>Overlay.SetText</code></a></p>
-</section>
-<section id="locationtype" class="level3">
-<h3><a href="#locationtype"><code>LocationType</code></a></h3>
-<pre><code>enum LocationType {
-  eLocationNothing,
-  eLocationHotspot,
-  eLocationCharacter,
-  eLocationObject
-};
-</code></pre>
-<p><em>Returned by:</em> <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
-</section>
-<section id="filemode" class="level3">
-<h3><a href="#filemode"><code>FileMode</code></a></h3>
-<pre><code>enum FileMode {
-  eFileRead,
-  eFileWrite,
-  eFileAppend
-};
-</code></pre>
-<p><em>Used by:</em> <a href="File.html#fileopen"><code>File.Open</code></a></p>
-</section>
-<section id="fileseek" class="level3">
-<h3><a href="#fileseek"><code>FileSeek</code></a></h3>
-<pre><code>enum FileSeek {
-  eSeekBegin = 0,
-  eSeekCurrent = 1,
-  eSeekEnd = 2
-};
-</code></pre>
-<p><em>Used by:</em> <a href="File.html#fileseek"><code>File.Seek</code></a></p>
-</section>
-<section id="dialogoptionsaystyle" class="level3">
-<h3><a href="#dialogoptionsaystyle"><code>DialogOptionSayStyle</code></a></h3>
-<pre><code>enum DialogOptionSayStyle {
-  eSayUseOptionSetting,
-  eSayAlways,
-  eSayNever
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></p>
-</section>
-<section id="videoskipstyle" class="level3">
-<h3><a href="#videoskipstyle"><code>VideoSkipStyle</code></a></h3>
-<pre><code>enum VideoSkipStyle {
-  eVideoSkipNotAllowed,
-  eVideoSkipEscKey,
-  eVideoSkipAnyKey,
-  eVideoSkipAnyKeyOrMouse
-};
-</code></pre>
-<p><em>Used by:</em> <a href="Multimedia.html#playvideo"><code>PlayVideo</code></a></p>
-</section>
 <section id="audiofiletype" class="level3">
 <h3><a href="#audiofiletype"><code>AudioFileType</code></a></h3>
 <pre><code>enum AudioFileType {
@@ -462,6 +167,155 @@
 </code></pre>
 <p><em>Used by:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a>, <a href="AudioClip.html#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></p>
 </section>
+<section id="blockingstyle" class="level3">
+<h3><a href="#blockingstyle"><code>BlockingStyle</code></a></h3>
+<pre><code>enum BlockingStyle {
+  eBlock,
+  eNoBlock
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterfaceobject"><code>Character.FaceObject</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Character.html#characterwalkstraight"><code>Character.WalkStraight</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a></p>
+</section>
+<section id="ecdaudiofunction" class="level3">
+<h3><a href="#ecdaudiofunction"><code>eCDAudioFunction</code></a></h3>
+<pre><code>enum eCDAudioFunction {
+  eCDIsDriverPresent,
+  eCDGetPlayingStatus,
+  eCDPlayTrack,
+  eCDPausePlayback,
+  eCDResumePlayback,
+  eCDGetNumTracks,
+  eCDEject,
+  eCDCloseTray,
+  eCDGetCDDriveCount,
+  eCDSelectActiveCDDrive
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Multimedia.html#cdaudio"><code>CDAudio</code></a></p>
+</section>
+<section id="characterdirection" class="level3">
+<h3><a href="#characterdirection"><code>CharacterDirection</code></a></h3>
+<pre><code>enum CharacterDirection {
+  eDirectionDown = 0,
+  eDirectionLeft,
+  eDirectionRight,
+  eDirectionUp,
+  eDirectionDownRight,
+  eDirectionUpRight,
+  eDirectionDownLeft,
+  eDirectionUpLeft,
+  eDirectionNone = SCR_NO_VALUE
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Character.html#characterchangeroom"><code>Character.ChangeRoom</code></a>, <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a></p>
+</section>
+<section id="cursormode" class="level3">
+<h3><a href="#cursormode"><code>CursorMode</code></a></h3>
+<pre><code>enum CursorMode {
+  eModeXXXX,
+  eModeXXXX,
+  ...
+};
+</code></pre>
+<p>The CursorMode enumeration is generated automatically based on your mouse cursors. The cursor mode name is taken, all its spaces are removed, and <em>eMode</em> is added to the front.<br> <em>Used by:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Mouse.html#mousechangemodegraphic"><code>Mouse.ChangeModeGraphic</code></a>, <a href="Mouse.html#mousechangemodehotspot"><code>Mouse.ChangeModeHotspot</code></a>, <a href="Mouse.html#mousedisablemode"><code>Mouse.DisableMode</code></a>, <a href="Mouse.html#mouseenablemode"><code>Mouse.EnableMode</code></a>, <a href="Mouse.html#mouseismodeenabled"><code>Mouse.IsModeEnabled</code></a>, <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a>, <a href="Mouse.html#mousemode"><code>Mouse.Mode</code></a>, <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="InventoryItem.html#inventoryitemruninteraction"><code>InventoryItem.RunInteraction</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a>, <a href="Character.html#characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a></p>
+</section>
+<section id="cutsceneskiptype" class="level3">
+<h3><a href="#cutsceneskiptype"><code>CutsceneSkipType</code></a></h3>
+<pre><code>enum CutsceneSkipType {
+  eSkipESCOnly,
+  eSkipAnyKey,
+  eSkipMouseClick,
+  eSkipAnyKeyOrMouseClick,
+  eSkipESCOrRightButton,
+  eSkipScriptOnly
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a></p>
+</section>
+<section id="dialogoptionsaystyle" class="level3">
+<h3><a href="#dialogoptionsaystyle"><code>DialogOptionSayStyle</code></a></h3>
+<pre><code>enum DialogOptionSayStyle {
+  eSayUseOptionSetting,
+  eSayAlways,
+  eSayNever
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></p>
+</section>
+<section id="dialogoptionstate" class="level3">
+<h3><a href="#dialogoptionstate"><code>DialogOptionState</code></a></h3>
+<pre><code>enum DialogOptionState {
+  eOptionOff,
+  eOptionOn,
+  eOptionOffForever
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+</section>
+<section id="direction" class="level3">
+<h3><a href="#direction"><code>Direction</code></a></h3>
+<pre><code>enum Direction {
+  eForwards,
+  eBackwards
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
+</section>
+<section id="eventtype" class="level3">
+<h3><a href="#eventtype"><code>EventType</code></a></h3>
+<pre><code>enum EventType {
+  eEventLeaveRoom,
+  eEventEnterRoomBeforeFadein,
+  eEventGotScore,
+  eEventGUIMouseDown,
+  eEventGUIMouseUp,
+  eEventAddInventory,
+  eEventLoseInventory,
+  eEventRestoreGame
+};
+</code></pre>
+<p><em>Passed into:</em> on_event</p>
+</section>
+<section id="filemode" class="level3">
+<h3><a href="#filemode"><code>FileMode</code></a></h3>
+<pre><code>enum FileMode {
+  eFileRead,
+  eFileWrite,
+  eFileAppend
+};
+</code></pre>
+<p><em>Used by:</em> <a href="File.html#fileopen"><code>File.Open</code></a></p>
+</section>
+<section id="fileseek" class="level3">
+<h3><a href="#fileseek"><code>FileSeek</code></a></h3>
+<pre><code>enum FileSeek {
+  eSeekBegin = 0,
+  eSeekCurrent = 1,
+  eSeekEnd = 2
+};
+</code></pre>
+<p><em>Used by:</em> <a href="File.html#fileseek"><code>File.Seek</code></a></p>
+</section>
+<section id="eflipdirection" class="level3">
+<h3><a href="#eflipdirection"><code>eFlipDirection</code></a></h3>
+<pre><code>enum eFlipDirection {
+  eFlipLeftToRight,
+  eFlipUpsideDown,
+  eFlipBoth
+};
+</code></pre>
+<p><em>Used by:</em> <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a></p>
+</section>
+<section id="fonttype" class="level3">
+<h3><a href="#fonttype"><code>FontType</code></a></h3>
+<pre><code>enum FontType {
+  eFontXXXX,
+  eFontXXXX,
+  ...
+};
+</code></pre>
+<p>The FontType enumeration is generated automatically based on your fonts. The font name is taken, all its spaces are removed, and <em>eFont</em> is added to the front.<br> <em>Used by:</em> <a href="Button.html#buttonfont"><code>Button.Font</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawingSurface.DrawMessageWrapped</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a>, <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a>, <a href="Globalfunctions_General.html#gettextheight"><code>GetTextHeight</code></a>, <a href="Globalfunctions_General.html#gettextwidth"><code>GetTextWidth</code></a>, <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="ListBox.html#listboxfont"><code>ListBox.Font</code></a>, <a href="TextBox.html#textboxfont"><code>TextBox.Font</code></a>, <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlaysettext"><code>Overlay.SetText</code></a></p>
+</section>
 <section id="guipopupstyle" class="level3">
 <h3><a href="#guipopupstyle"><code>GUIPopupStyle</code></a></h3>
 <pre><code>enum GUIPopupStyle {
@@ -474,25 +328,46 @@
 <p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
 <p><em>Used by:</em> <a href="GUI.html#guipopupstyle"><code>GUI.PopupStyle</code></a></p>
 </section>
-<section id="stringcomparestyle" class="level3">
-<h3><a href="#stringcomparestyle"><code>StringCompareStyle</code></a></h3>
-<pre><code>enum StringCompareStyle {
-  eCaseInsensitive = 0,
-  eCaseSensitive = 1
+<section id="horizontalalignment" class="level3">
+<h3><a href="#horizontalalignment"><code>HorizontalAlignment</code></a></h3>
+<pre><code>enum HorizontalAlignment {
+  eAlignLeft          = 1,
+  eAlignCenter        = 2,
+  eAlignRight         = 4
 };
 </code></pre>
-<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
-<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a>, <a href="String.html#stringcompareto"><code>String.CompareTo</code></a>, <a href="String.html#stringendswith"><code>String.EndsWith</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a>, <a href="String.html#stringstartswith"><code>String.StartsWith</code></a></p>
+<p>Note that HorizontalAlignment's values match the first values of Alignment enumeration (eAlignTopLeft, eAlignTopCenter, eAlignTopRight).</p>
+<p><em>Compatibility:</em> replaced old Alignment enumeration in AGS 3.5.0.</p>
+<p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockViewAligned</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="Label.html#labeltextalignment"><code>Label.TextAlignment</code></a>, <a href="ListBox.html#listboxtextalignment"><code>ListBox.TextAlignment</code></a>, <a href="Speech.html#speechtextalignment"><code>Speech.TextAlignment</code></a></p>
 </section>
-<section id="sortstyle" class="level3">
-<h3><a href="#sortstyle"><code>SortStyle</code></a></h3>
-<pre><code>enum SortStyle {
-  eNonSorted = 0,
-  eSorted = 1
+<section id="inputtype" class="level3">
+<h3><a href="#inputtype"><code>InputType</code></a></h3>
+<pre><code>enum InputType
+{
+    eInputNone     = 0x00000000,
+    eInputKeyboard = 0x00020000,
+    eInputMouse    = 0x00040000,
+    eInputAny      = 0xFFFF0000
 };
 </code></pre>
-<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
-<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a></p>
+<p>The InputType enumeration consists of values that could be summed up in one integer variable to form a combination of input types. This may be used to store several "types" in one integer, pass them into a function, or return from a function. You may use bitwise operation to check if a variable contains one of the distinct types, for example:</p>
+<pre><code>if (type &amp; eInputKeyboard)
+  // some code here
+</code></pre>
+<p>will execute some code if <em>type</em> variable contains <em>at least</em> "eInputKeyboard".</p>
+<p><em>Supported by:</em> AGS 3.6.0 and higher.</p>
+<p><em>Used by:</em> <a href="Globalfunctions_Wait.html">Wait functions</a></p>
+</section>
+<section id="locationtype" class="level3">
+<h3><a href="#locationtype"><code>LocationType</code></a></h3>
+<pre><code>enum LocationType {
+  eLocationNothing,
+  eLocationHotspot,
+  eLocationCharacter,
+  eLocationObject
+};
+</code></pre>
+<p><em>Returned by:</em> <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 </section>
 <section id="loglevel" class="level3">
 <h3><a href="#loglevel"><code>LogLevel</code></a></h3>
@@ -509,14 +384,162 @@
 <p><em>Supported by:</em> AGS 3.6.0 and higher.</p>
 <p><em>Used by:</em> <a href="System.html#systemlog"><code>System.Log</code></a></p>
 </section>
+<section id="mousebutton" class="level3">
+<h3><a href="#mousebutton"><code>MouseButton</code></a></h3>
+<pre><code>enum MouseButton {
+  eMouseLeft,
+  eMouseRight,
+  eMouseMiddle,
+  eMouseLeftInv,
+  eMouseMiddleInv,
+  eMouseRightInv,
+  eMouseWheelNorth,
+  eMouseWheelSouth
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Mouse.html#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a><br> <em>Passed into:</em> on_mouse_click</p>
+</section>
+<section id="eoperatingsystem" class="level3">
+<h3><a href="#eoperatingsystem"><code>eOperatingSystem</code></a></h3>
+<pre><code>enum eOperatingSystem {
+  eOSDOS,
+  eOSWindows,
+  eOSLinux,
+  eOSMacOS,
+  eOSAndroid,
+  eOSiOS,
+  eOSPSP,
+  eOSWeb,
+  eOSFreeBSD
+};
+</code></pre>
+<p><em>Used by:</em> <a href="System.html#systemoperatingsystem"><code>System.OperatingSystem</code></a></p>
+</section>
+<section id="repeatstyle" class="level3">
+<h3><a href="#repeatstyle"><code>RepeatStyle</code></a></h3>
+<pre><code>enum RepeatStyle {
+  eOnce,
+  eRepeat
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimate"><code>Object.Animate</code></a></p>
+</section>
+<section id="rounddirection" class="level3">
+<h3><a href="#rounddirection"><code>RoundDirection</code></a></h3>
+<pre><code>enum RoundDirection {
+  eRoundDown,
+  eRoundNearest,
+  eRoundUp
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Maths.html#floattoint"><code>FloatToInt</code></a></p>
+</section>
+<section id="skipspeechstyle" class="level3">
+<h3><a href="#skipspeechstyle"><code>SkipSpeechStyle</code></a></h3>
+<pre><code>enum SkipSpeechStyle {
+  eSkipNone         = -1,
+  eSkipKeyMouseTime = 0,
+  eSkipKeyTime      = 1,
+  eSkipTime         = 2,
+  eSkipKeyMouse     = 3,
+  eSkipMouseTime    = 4,
+  eSkipKey          = 5,
+  eSkipMouse        = 6
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Speech.html#speechskipstyle"><code>Speech.SkipStyle</code></a></p>
+</section>
+<section id="sortstyle" class="level3">
+<h3><a href="#sortstyle"><code>SortStyle</code></a></h3>
+<pre><code>enum SortStyle {
+  eNonSorted = 0,
+  eSorted = 1
+};
+</code></pre>
+<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
+<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a></p>
+</section>
+<section id="espeechstyle" class="level3">
+<h3><a href="#espeechstyle"><code>eSpeechStyle</code></a></h3>
+<pre><code>enum eSpeechStyle {
+  eSpeechLucasarts,
+  eSpeechSierra,
+  eSpeechSierraWithBackground,
+  eSpeechFullScreen
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Speech.html#speechstyle"><code>Speech.Style</code></a></p>
+</section>
+<section id="stopmovementstyle" class="level3">
+<h3><a href="#stopmovementstyle"><code>StopMovementStyle</code></a></h3>
+<pre><code>enum StopMovementStyle
+{
+  eKeepMoving = 0,
+  eStopMoving = 1
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Character.html#characterlockviewaligned"><code>Character.LockView</code></a>, <a href="Character.html#characterlockviewoffset"><code>Character.LockViewFrame</code></a></p>
+</section>
+<section id="stringcomparestyle" class="level3">
+<h3><a href="#stringcomparestyle"><code>StringCompareStyle</code></a></h3>
+<pre><code>enum StringCompareStyle {
+  eCaseInsensitive = 0,
+  eCaseSensitive = 1
+};
+</code></pre>
+<p><em>Supported by:</em> AGS 3.5.0 and higher.</p>
+<p><em>Used by:</em> <a href="Dictionary.html#dictionarycreate"><code>Dictionary.Create</code></a>, <a href="Set.html#setcreate"><code>Set.Create</code></a>, <a href="String.html#stringcompareto"><code>String.CompareTo</code></a>, <a href="String.html#stringendswith"><code>String.EndsWith</code></a>, <a href="String.html#stringreplace"><code>String.Replace</code></a>, <a href="String.html#stringstartswith"><code>String.StartsWith</code></a></p>
+</section>
+<section id="transitionstyle" class="level3">
+<h3><a href="#transitionstyle"><code>TransitionStyle</code></a></h3>
+<pre><code>enum TransitionStyle {
+  eTransitionFade,
+  eTransitionInstant,
+  eTransitionDissolve,
+  eTransitionBoxout,
+  eTransitionCrossfade
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a>, <a href="Globalfunctions_Screen.html#setnextscreentransition"><code>SetNextScreenTransition</code></a></p>
+</section>
+<section id="videoskipstyle" class="level3">
+<h3><a href="#videoskipstyle"><code>VideoSkipStyle</code></a></h3>
+<pre><code>enum VideoSkipStyle {
+  eVideoSkipNotAllowed,
+  eVideoSkipEscKey,
+  eVideoSkipAnyKey,
+  eVideoSkipAnyKeyOrMouse
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Multimedia.html#playvideo"><code>PlayVideo</code></a></p>
+</section>
+<section id="evoicemode" class="level3">
+<h3><a href="#evoicemode"><code>eVoiceMode</code></a></h3>
+<pre><code>enum eVoiceMode {
+  eSpeechTextOnly,
+  eSpeechVoiceAndText,
+  eSpeechVoiceOnly
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Speech.html#speechvoicemode"><code>Speech.VoiceMode</code></a></p>
+</section>
+<section id="walkwhere" class="level3">
+<h3><a href="#walkwhere"><code>WalkWhere</code></a></h3>
+<pre><code>enum WalkWhere {
+  eAnywhere,
+  eWalkableAreas
+};
+</code></pre>
+<p><em>Used by:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a></p>
+</section>
 </section>
   </main>
 
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

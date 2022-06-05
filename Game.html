@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -69,6 +71,7 @@
 <ul>
 <li><a href="#game-functions-and-properties"><span><code>Game</code> functions and properties</span></a>
 <ul>
+<li><a href="#gamechangespeechvox"><span><code>Game.ChangeSpeechVox</code></span></a></li>
 <li><a href="#gamechangetranslation"><span><code>Game.ChangeTranslation</code></span></a></li>
 <li><a href="#gamedoonceonly"><span><code>Game.DoOnceOnly</code></span></a></li>
 <li><a href="#gamegetcolorfromrgb"><span><code>Game.GetColorFromRGB</code></span></a></li>
@@ -108,6 +111,7 @@
 <li><a href="#gamenormalfont"><span><code>Game.NormalFont</code></span></a></li>
 <li><a href="#gameskippingcutscene"><span><code>Game.SkippingCutscene</code></span></a></li>
 <li><a href="#gamespeechfont"><span><code>Game.SpeechFont</code></span></a></li>
+<li><a href="#gamespeechvoxfilename"><span><code>Game.SpeechVoxFilename</code></span></a></li>
 <li><a href="#gamespriteheight"><span><code>Game.SpriteHeight</code></span></a></li>
 <li><a href="#gamespritewidth"><span><code>Game.SpriteWidth</code></span></a></li>
 <li><a href="#gametextreadingspeed"><span><code>Game.TextReadingSpeed</code></span></a></li>
@@ -122,9 +126,27 @@
   <main>
 <section id="game-functions-and-properties" class="level2">
 <h2><a href="#game-functions-and-properties"><code>Game</code> functions and properties</a></h2>
+<section id="gamechangespeechvox" class="level3">
+<h3><a href="#gamechangespeechvox"><code>Game.ChangeSpeechVox</code></a></h3>
+<pre><code>static bool Game.ChangeSpeechVox(const string newVoxName)
+</code></pre>
+<p>Changes the active voice pack to a file called <em>sp_newvoxname.vox</em>, where "newvoxname" is passed as a function argument. E.g. if you have <em>sp_francais.vox</em> in your game file, then you can do Game.ChangeSpeechVox("francais") to switch to it. Passing a blank string will revert the game to the default voice pack called <em>speech.vox</em>.</p>
+<p>Returns <em>true</em> if the voice pack was changed successfully, or <em>false</em> if there was a problem (for example, you specified an invalid filename). In case of failure this function will also try to revert to the default pack.</p>
+<p><strong>NOTE:</strong> the active voice pack is not tied to the active text translation. In your game you may have voice matching text, or separate languages for text and voices: e.g. French voice-over with English text.</p>
+<p>Example:</p>
+<pre><code>if (Game.ChangeSpeechVox(&quot;Spanish&quot;)) {
+  Display(&quot;Changed the voice-over to Spanish!&quot;);
+} else {
+  Display(&quot;Unable to change the voice-over.&quot;);
+}
+</code></pre>
+<p>will attempt to change the voice pack to <em>sp_spanish.vox</em>.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Game.html#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a>, <a href="Multimedia.html#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a>, <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Translations.html">Translations</a>, <a href="VoiceSpeech.html">Voice speech</a></p>
+</section>
 <section id="gamechangetranslation" class="level3">
 <h3><a href="#gamechangetranslation"><code>Game.ChangeTranslation</code></a></h3>
-<pre><code>static bool Game.ChangeTranslation(string newTranslationName)
+<pre><code>static bool Game.ChangeTranslation(const string newTranslationName)
 </code></pre>
 <p>Changes the active translation to <em>newTranslationName</em>. This must be the file name without the extension, for example "French" or "Spanish". It can also be a blank string, in which case the current translation will be switched off and the game will revert to the default language.</p>
 <p>Returns <em>true</em> if the translation was changed successfully, or <em>false</em> if there was a problem (for example, you specified an invalid translation).</p>
@@ -141,7 +163,7 @@ else
 </code></pre>
 <p>will attempt to change the translation to Spanish</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Game.html#gamechangespeechvox"><code>Game.ChangeSpeechVox</code></a>, <a href="Translations.html">Translations</a></p>
 <hr />
 </section>
 <section id="gamedoonceonly" class="level3">
@@ -325,12 +347,12 @@ Display(&quot;Frame 3 in loop 2 of view SWIMMING has sprite slot %d.&quot;, fram
 <pre><code>static AudioChannel* Game.PlayVoiceClip(Character* c, int cue, bool as_speech)
 </code></pre>
 <p>Plays a voice clip from the <strong>speech.vox</strong> in a non-blocking manner. It returns an AudioChannel pointer which you may use to control playback same way you control other clips, or null if it could not be started.</p>
-<p>Character and "cue" arguments are used to find actual clip, this works the same way as when you do <code>cEgo.Say("&amp;10 speech text");</code> in which case "10" is a cue number. For more information about this see: <a href="MusicAndSound.html#voice-speech">Voice speech</a>.</p>
+<p>Character and "cue" arguments are used to find actual clip, this works the same way as when you do <code>cEgo.Say("&amp;10 speech text");</code> in which case "10" is a cue number. For more information about this see: <a href="VoiceSpeech.html">Voice speech</a>.</p>
 <p>The "as_speech" argument tells whether playback has same effect on game as regular speech. At the moment this means that music volume will drop and restore after playback is finished. This parameter "as_speech" is TRUE by default and may be omitted.</p>
 <p>This command will be ignored if a regular blocking voice is currently playing. Also, both blocking and non-blocking voice will interrupt non-blocking voice-over if one was playing.</p>
 <p><strong>NOTE:</strong> because of how audiochannels work internally right now voice is always played on the same channel 0, therefore you could also get it as <code>System.AudioChannels[0]</code>, but it may not be a good idea to rely on this because channel behavior may change in future.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="MusicAndSound.html#voice-speech">Voice speech</a>, <a href="AudioChannel.html"><code>AudioChannel</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a></p>
+<p><em>See also:</em> <a href="VoiceSpeech.html">Voice speech</a>, <a href="AudioChannel.html"><code>AudioChannel</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a></p>
 <hr />
 </section>
 <section id="gamesetaudiotypespeechvolumedrop" class="level3">
@@ -710,6 +732,20 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
 <p><em>See also:</em> <a href="Game.html#gamenormalfont"><code>Game.NormalFont</code></a></p>
 <hr />
 </section>
+<section id="gamespeechvoxfilename" class="level3">
+<h3><a href="#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a></h3>
+<pre><code>readonly static String Game.SpeechVoxFilename;
+</code></pre>
+<p>Gets the name of the active voice package name. This is not equal to the full file name; assuming file is called "sp_name.vox", this function will return only the "name" part. If a default "speech.vox" is used (or no voice pack at all), a blank string is returned.</p>
+<p>Example:</p>
+<pre><code>if (Game.SpeechVoxFilename== &quot;German&quot;) {
+  Display(&quot;You are using the German voice.&quot;);
+}
+</code></pre>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Game.html#gamechangespeechvox"><code>Game.ChangeSpeechVox</code></a>, <a href="Multimedia.html#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a>, <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Translations.html">Translation</a>, <a href="VoiceSpeech.html">Voice speech</a></p>
+<hr />
+</section>
 <section id="gamespriteheight" class="level3">
 <h3><a href="#gamespriteheight"><code>Game.SpriteHeight</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
@@ -767,7 +803,7 @@ Display(&quot;Global string 15 is now: %s&quot;, Game.GlobalStrings[15]);
   Display(&quot;You are using the German translation.&quot;);
 }
 </code></pre>
-<p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
+<p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Game.html#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="gameusenativecoordinates" class="level3">
@@ -817,8 +853,8 @@ else
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

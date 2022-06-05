@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -96,7 +98,7 @@
 <h2><a href="#basic-properties">Basic properties</a></h2>
 <ul>
 <li><strong>Color Depth</strong> - the number of colors your game will use. Default is 32-bit, which lets you use all the range of colors contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of color precision. 8-bit color mode is a special feature for making palette-based games. See also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></li>
-<li><strong>Developer name</strong> - this will add the provided string to the game's executable properties, which will also be shown in <a href="IntegrationWithWindows.html#windows-game-explorer">Windows Game Explorer</a>, if you configure integration with one.</li>
+<li><strong>Developer name</strong> - this will add the provided string to the game's executable properties.</li>
 <li><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</li>
 <li><strong>Game file name</strong> - your game's executable and/or data filename. This string will be used when creating game package files on disk.</li>
 <li><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</li>
@@ -160,7 +162,7 @@
 <li><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</li>
 <li><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</li>
 <li><strong>Enable sprite storage optimization</strong> - When possible save sprites in game files in a format that requires less storage space. This may reduce the compiled game size on disk, but effect may differ depending on number of colors used in sprites, and other factors.</li>
-<li><strong>Package custom data folder(s)</strong> - A comma-separated list of folders. The contents of these folders will be added to the game resources, and you will be able to access them by using the <code>$DATA$</code> token in file paths. More details on this in <a href="File.html#fileopen"><code>File.Open</code></a>.</li>
+<li><strong>Package custom data folder(s)</strong> - A comma-separated list of folders. The contents of these folders will be added to the game resources, and you will be able to access them by using the <code>$DATA$</code> token in file paths. The top level directory name is preserved, to avoid file name collision. More details on this in <a href="File.html#fileopen"><code>File.Open</code></a>.</li>
 <li><strong>Split resource files into X MB-sized chunks</strong> - see <a href="DistGame.html#splitting-resource-files">here</a> for information.</li>
 <li><strong>Sprite file compression</strong> - when enabled the sprites will be compressed to reduce game size, at expense of performance. The performance impact in desktop platforms is usually negligible.</li>
 </ul>
@@ -230,7 +232,7 @@ function CustomSay4(this Character*, String text);
 <li><strong>Save games folder name</strong> - determines the name of folder created in the user's Saved Games location to store your game's saves. If left blank, then the game's title is used as folder's name. You might need to change this only if your game's title conflict with some other game.</li>
 <li><strong>Save screenshots in save games</strong> - Saves a mini-screenshot of the player's current position into the save game file. This will create larger save game files, but it will mean that you can use a save game thumbnails GUI to make the save/load interface more professional.</li>
 </ul>
-<p>There used to be an option for Save Game integration with Windows Vista, it was called <strong>Enhanced save games</strong>. Since this was removed in later versions of Windows, this option has been removed.</p>
+<p>There used to be an option for Save Game integration with Windows Vista, it was called <strong>Enhanced save games</strong>. Since this was removed in later versions of Windows, this option has been removed in AGS 3.6.0.</p>
 </section>
 <section id="sound" class="level2">
 <h2><a href="#sound">Sound</a></h2>
@@ -267,8 +269,8 @@ function CustomSay4(this Character*, String text);
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

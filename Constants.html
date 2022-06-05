@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -120,30 +122,34 @@
 <td>Defined if "Use old-style dialog options rendering API" is disabled</td>
 </tr>
 <tr class="even">
+<td>NEW_KEYINPUT_API</td>
+<td>Defined if "Use old-style key handling" is disabled</td>
+</tr>
+<tr class="odd">
 <td>AGS_SUPPORTS_IFVER</td>
 <td>Defined if AGS 2.72 or later (with <code>#ifver</code> support), not defined otherwise</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>AGS_MAX_INV_ITEMS</td>
 <td>The maximum number of inventory items</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>AGS_MAX_OBJECTS</td>
 <td>The maximum objects per room</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>AGS_MAX_HOTSPOTS</td>
 <td>The maximum hotspots per room</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>AGS_MAX_REGIONS</td>
 <td>The maximum regions per room</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>MAX_LISTBOX_SAVED_GAMES</td>
 <td>Limit of save files filled into ListBox when using <a href="ListBox.html#listboxfillsavegamelist"><code>FillSaveGameList</code></a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>PALETTE_SIZE</td>
 <td>Size of game palette, for 256-color mode</td>
 </tr>
@@ -184,8 +190,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

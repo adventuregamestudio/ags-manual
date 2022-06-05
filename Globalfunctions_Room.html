@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -73,6 +75,8 @@
 <li><a href="#disablegroundlevelareas"><span><code>DisableGroundLevelAreas</code></span></a></li>
 <li><a href="#enablegroundlevelareas"><span><code>EnableGroundLevelAreas</code></span></a></li>
 <li><a href="#getbackgroundframe"><span><code>GetBackgroundFrame</code></span></a></li>
+<li><a href="#getdrawingsurfaceforwalkablearea"><span><code>GetDrawingSurfaceForWalkableArea</code></span></a></li>
+<li><a href="#getdrawingsurfaceforwalkbehind"><span><code>GetDrawingSurfaceForWalkbehind</code></span></a></li>
 <li><a href="#getscalingat"><span><code>GetScalingAt</code></span></a></li>
 <li><a href="#getviewportx"><span><code>GetViewportX</code></span></a></li>
 <li><a href="#getviewporty"><span><code>GetViewportY</code></span></a></li>
@@ -152,6 +156,42 @@
 <p><em>See also:</em> <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a></p>
 <hr />
 </section>
+<section id="getdrawingsurfaceforwalkablearea" class="level3">
+<h3><a href="#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a></h3>
+<pre><code>DrawingSurface* GetDrawingSurfaceForWalkableArea()
+</code></pre>
+<p>Gets a drawing surface for the current room's 8-bit walkable mask, which allows you to directly draw onto that mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the walkable area's index. Color value 0 will refer to "no area" (erase pathways), color value 1 to area number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<pre><code>DrawingSurface *surface = GetDrawingSurfaceForWalkableArea();
+surface.DrawingColor = 4;
+surface.DrawRectangle(50, 50, 100, 100);
+surface.Release();
+</code></pre>
+<p>will paint a rectangle for the walkable area 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a>, <a href="Region.html#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></p>
+<hr />
+</section>
+<section id="getdrawingsurfaceforwalkbehind" class="level3">
+<h3><a href="#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a></h3>
+<pre><code>DrawingSurface* GetDrawingSurfaceForWalkbehind()
+</code></pre>
+<p>Gets a drawing surface for the current room's 8-bit walk-behind mask, which allows you to directly draw onto that mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the walk-behind's index. Color value 0 will refer to "no area" (erase walk-behinds), color value 1 to walk-behind number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<pre><code>DrawingSurface *surface = GetDrawingSurfaceForWalkbehind();
+surface.DrawingColor = 4;
+surface.DrawRectangle(50, 50, 100, 100);
+surface.Release();
+</code></pre>
+<p>will paint a rectangle for the walk-behind 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a>, <a href="Region.html#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></p>
+<hr />
+</section>
 <section id="getscalingat" class="level3">
 <h3><a href="#getscalingat"><code>GetScalingAt</code></a></h3>
 <pre><code>GetScalingAt (int x, int y)
@@ -196,7 +236,7 @@
 <p>Returns the ID of the walkable area at <em>room</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
 <p>This function may be useful when you need to find a walkable area relative to some other point in room, a room object or character.</p>
 <p>Example:</p>
-<pre><code>if (GetWalkableAreaAtRoom(player.x, player.y) == 0)
+<pre><code>if (GetWalkableAreaAtRoom(player.x, player.y) &gt; 0)
     Display (&quot;Player is standing on the walkable area.&quot;);
 </code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
@@ -342,8 +382,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

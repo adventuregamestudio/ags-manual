@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -75,6 +77,9 @@
 <li><a href="#multiple-speech-voxes"><span>Multiple speech voxes</span></a></li>
 <li><a href="#new-sprite-compression-options"><span>New sprite compression options</span></a></li>
 <li><a href="#multiplatform-support-extended"><span>Multiplatform support extended</span></a></li>
+<li><a href="#ttf-fonts-behavior"><span>TTF fonts behavior</span></a></li>
+<li><a href="#improvement-of-overlays"><span>Improvement of Overlays</span></a></li>
+<li><a href="#discontinued-features"><span>Discontinued features</span></a></li>
 <li><a href="#deprecated--replaced-script-functions"><span>Deprecated / replaced script functions</span></a></li>
 <li><a href="#system-limits-update"><span>System limits update</span></a></li>
 </ul></li>
@@ -90,7 +95,7 @@
 <p>Below we'll look into these and other significant changes in more detail.</p>
 <section id="unicode-support" class="level3">
 <h3><a href="#unicode-support">Unicode support</a></h3>
-<p>AGS can now work in Unicode mode, but for backward compatibility, we have to support ASCII mode too. We recommend using Unicode mode when starting new projects, regardless of the game language.</p>
+<p>AGS can now work in Unicode mode, but we also support ASCII mode for backward compatibility. We recommend using Unicode mode when starting new projects, regardless of the game language.</p>
 <p>When in Unicode mode, all game texts and text files, such as scripts, are saved in UTF-8 format.</p>
 <p>In the Editor the switch between the two modes is called <strong>"Text format"</strong> and is located in "General Settings".</p>
 <p><strong>IMPORTANT:</strong> This switch is an important choice and should not be played with at random. Whenever you change the text format the Editor will convert all your game files by loading them and saving them back using a new mode. If all your game texts were using the standard Latin alphabet (English, etc), then you should not see any difference, but if you had texts with extended Latin characters or any other non-Latin languages, - these will be converted between ANSI and UTF-8. We strongly recommend doing a full project backup before doing this though.</p>
@@ -111,7 +116,7 @@
 <li>Variable names and function names in script.</li>
 </ul>
 <p>All the above must be written strictly in the Latin alphabet.</p>
-<p>String variables and related functions should work seamlessly with Unicode texts. Functions that work with characters were changed to have arguments and return values as <code>int</code>, to be able to pass any Unicode character. This includes AppendChar(), ReplaceChar() and String.Char[] property. Also, <code>String.Format("%c", n)</code> will now be able to print Unicode characters.</p>
+<p>String variables and related functions should work seamlessly with Unicode texts. Functions that work with characters were changed to have arguments and return values as <code>int</code>, to be able to pass any Unicode character. This includes <code>AppendChar()</code>, <code>ReplaceChar()</code> and <code>String.Char[]</code> property. Also, <code>String.Format("%c", n)</code> will now be able to print Unicode characters.</p>
 <p>The Translations are not affected by the game's setting and have an individual setting of their own. When you open a TRS file made by the new version, it will have an "#Encoding" option in the file's header. This is where you may write either "UTF-8" or "ASCII" by hand to tell the translation compiler (and the engine) how this translation should be interpreted. By default this should be "UTF-8", so you only need to change this if you need the translation to be in ASCII for some reason. If you have imported an older project and the TRS file does not have this option, then you may add one yourself. Just remember that the TRS options must be preceded with a comment sign, like this:</p>
 <pre><code>//#Encoding=UTF-8
 </code></pre>
@@ -127,7 +132,7 @@
 <pre><code>function on_key_press(eKeyCode key, int mod)
 </code></pre>
 <p>The <code>mod</code> argument describes which key modifiers were enabled when this exact key was pressed. It's different from, for example, using <code>IsKeyPressed()</code> in <code>repeatedly_execute</code> callback, because the engine may receive several key-presses between two game frames, while <code>IsKeyPressed</code> only tells the last state of the key. Using <code>mod</code> argument is 100% reliable.</p>
-<p>But the <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated: as you should not use regular comparison (==, !=) with it, but a bitwise operator (&amp;):</p>
+<p>But the <code>mod</code> contains a <em>set of flags</em>, and is slightly more complicated: as you should not use regular comparison (==, !=) with it, but a bitwise operator (&amp;):</p>
 <pre><code>// these two conditions check that ctrl was pressed (these commands are equivalent)
 if (mod &amp; eKeyModCtrl)
 if (mod &amp; eKeyModCtrl != 0)
@@ -206,7 +211,7 @@ if (mod &amp; eKeyModCtrl == 0)
 <pre><code>function on_text_input(int ch)
 </code></pre>
 <p>Its argument (<code>ch</code>) contains a Unicode character's code. It may be used, for example, to append to a String, or add to the text field or label.</p>
-<p>Similarily to the above, <code>dialog_options_key_press</code> had been expanded with the third <code>mod</code> argument:</p>
+<p>Similarly to the above, <code>dialog_options_key_press</code> had been expanded with the third <code>mod</code> argument:</p>
 <pre><code>function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode keycode, int mod)
 </code></pre>
 <p>And there's now <code>dialog_options_text_input</code> callback for receiving unicode chars during the custom dialog options state:</p>
@@ -215,29 +220,55 @@ if (mod &amp; eKeyModCtrl == 0)
 </section>
 <section id="new-game-package-options" class="level3">
 <h3><a href="#new-game-package-options">New game package options</a></h3>
-<p>AGS now allows to package custom files into your game, and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html">General Settings</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
-<p>Any <a href="File.html">File functions</a> that accept file paths can now refer to the game package files using new <code>$DATA$</code> location tag. Virtually any packaged file may be queried this way, whether custom or regular game resource. These files may only be opened for reading however, never for writing.</p>
+<p>AGS now allows to package custom files into your game and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html">General Settings</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
+<p>Any <a href="File.html">File functions</a> that accept file paths can now refer to the game package files using the new <code>$DATA$</code> location tag. Virtually any packaged file may be queried this way, whether custom or regular game resource. These files may only be opened for reading however, never for writing.</p>
 <p>For example, you may read your custom file from the package as:</p>
 <pre><code>File* f = File.Open(&quot;$DATA$/UserData/myfile.dat&quot;, eFileRead);
 </code></pre>
 </section>
 <section id="multiple-speech-voxes" class="level3">
 <h3><a href="#multiple-speech-voxes">Multiple speech voxes</a></h3>
-<p>AGS now supports having multiple speech vox files. This may be useful if you, for example, would like to provide separate voice-over packs for each language (translation) in your game. Creating additional voxes is done by creating subfolders in "Speech" folder and placing sound files there. AGS will then generate a file called "sp_NAME.vox" for each such subfolder, where "NAME" is subfolder's name.</p>
-<p>In script you may switch between the speech packs using new <code>Game.ChangeSpeechVox()</code> function. Its value is not linked with the textual translation, which is set by <code>Game.ChangeTranslation()</code>. You may enable voice-over matching the language of the text, or on contrary allow player to choose different languages for the text and for the voice. For example:</p>
+<p>AGS now supports having multiple speech vox files. This may be useful if, for example, you would like to provide separate voice-over packs for each language (translation) in your game. Creating additional voxes is done by creating subfolders in the "Speech" folder and placing the sound files there. AGS will then generate a file called "sp_NAME.vox" for each existing subfolder, where "NAME" is the subfolder's name.</p>
+<p>In script you may switch between the speech packs using new <code>Game.ChangeSpeechVox()</code> function. Its value is not linked with the textual translation, which is set by <code>Game.ChangeTranslation()</code>. You may enable voice-over matching the language of the displayed text, or on contrary allow the player to choose different languages for the text and for the voice. For example:</p>
 <pre><code>Game.ChangeTranslation(&quot;Spanish&quot;);
 Game.ChangeSpeechVox(&quot;English&quot;);
 </code></pre>
-<p>Above will change textual translation to "Spanish", and voice-over to "sp_english.vox" pack.</p>
+<p>The commands above will change the textual translation to "Spanish", and the voice-over to the "sp_english.vox" pack.</p>
 </section>
 <section id="new-sprite-compression-options" class="level3">
 <h3><a href="#new-sprite-compression-options">New sprite compression options</a></h3>
-<p>First of all, the old "Compress the sprite file" option in <a href="GeneralSettings.html">General Settings</a> has been replaced with "Sprite file compression", which lets to choose one of the supported compression types. Previous common sprite compression in AGS is called "RLE"; an "LZW" compression was added for selection. It's possible that this list will be extended in the future.</p>
-<p>Secondly, there's now a "Enable sprite storage optimization" option, which is enabled by default. This option permits the Editor to repack sprites in a different storage format, reducing their disk size whenever possible. This option may be used alongside with the sprite compression. Note that this <em>does not</em> change how the sprites work in game, only how they are stored in the game files.</p>
+<p>First of all, the old "Compress the sprite file" option in <a href="GeneralSettings.html">General Settings</a> has been replaced with "Sprite file compression", which lets you choose one of the supported compression types. The previously commonly used sprite compression in AGS is called "RLE"; the "LZW" compression method is now new to the selection. It's possible that this list will be extended in the future.</p>
+<p>Secondly, there's now an "Enable sprite storage optimization" option, which is enabled by default. This option permits the Editor to repack sprites in a different storage format, reducing their disk size whenever possible. This option may be used together with the sprite compression. Note that this <em>does not</em> change how the sprites work in game, only how they are stored in the game files.</p>
 </section>
 <section id="multiplatform-support-extended" class="level3">
 <h3><a href="#multiplatform-support-extended">Multiplatform support extended</a></h3>
-<p>Editor can now produce game builds for Android and Web (using Web/Emscripten port). Both require corresponding component installed alongside with the Editor. In addition, for Android builds you'd also have to install Android Studio and configure certain settings in <a href="EditorPreferences.html">Editor's Preferences</a> and your game's <a href="GeneralSettings.html">General Settings</a>. For more information see <a href="DistGame.html">Distributing your game</a>.</p>
+<p>The AGS Editor can now produce game builds for Android and Web (using Web/Emscripten port). Both require corresponding components installed alongside with the Editor. In addition, for Android builds you also have to install Android Studio and configure certain settings in the <a href="EditorPreferences.html">Editor's Preferences</a> and your game's <a href="GeneralSettings.html">General Settings</a>. For more information see <a href="DistGame.html">Distributing your game</a> and <a href="BuildAndroid.html">Building for Android</a>.</p>
+</section>
+<section id="ttf-fonts-behavior" class="level3">
+<h3><a href="#ttf-fonts-behavior">TTF fonts behavior</a></h3>
+<p>Historically AGS applied a "fixup" to TTF fonts, that shifted letters down when drawn, which, in turn, also increased their graphical height. This behavior is now optional, available purely for backwards compatibility, both as a global and per-font setting called "TTF font adjustment". This setting has two values: "Do nothing" and "Resize ascender to the nominal font height". We recommend having it set to "Do nothing" at all times, except when using TTF fonts specifically created or adjusted for older versions of AGS.</p>
+<p>Another global setting is "TTF fonts height used in the game logic". This option sets which value to use when calculating text height, line spacing etc. Its value may be either "Nominal height" or "Full graphical height". The difference is, that due to the font library's behavior, the font's graphical height may end up differently (usually larger) than the nominal height the font is imported with. While "Nominal height" is a historical default, it's up to your preference which setting to use.</p>
+<p>A long time requested font feature that is now available is the option to set the thickness of the automatically generated outline of the text. The automatic font outline has always been drawn 1px wide, but that was not enough for high-resolution games. Now fonts have a property called "AutoOutlineThickness" which lets you set any outline width you need, and "AutoOutlineStyle" which toggles between "Squared" and "Rounded" corners.</p>
+</section>
+<section id="improvement-of-overlays" class="level3">
+<h3><a href="#improvement-of-overlays">Improvement of Overlays</a></h3>
+<p>Overlays in AGS are currently the only "game objects" that can be created dynamically in script (there are also <a href="DynamicSprite.html">Dynamic Sprites</a>, but these cannot be shown without being assigned to <em>something</em>). That, and them being a very simple kind of object not requiring extra setup, makes them useful to create temporary visual effects or to create a custom object from ground up. Previously, however, overlays had a number of restrictions, and these are now removed in AGS 3.6.0.</p>
+<ol>
+<li>Overlays are now unlimited in numbers. Previously there could only be up to 20 simultaneous overlays.</li>
+<li>You can create both screen and room overlays. Room overlays are created using <code>Overlay.CreateRoomGraphical</code> and <code>Overlay.CreateRoomTextual</code>; they are like regular overlays but are positioned inside the room, in room coordinates, among room objects.</li>
+<li>Overlays now have a ZOrder property, similar to GUIs. The z-order may be used to sort overlays among themselves and other game objects on the same layer: the screen overlays are sorted among GUIs, while room overlays are sorted among room objects, characters and walk-behinds.</li>
+<li>Overlays now have a Graphic property that lets you change the overlay's sprite after it was created.</li>
+<li>Overlays now have Width and Height properties, that let you freely scale existing Overlays, stretching or shrinking it.</li>
+<li>The new Transparency property lets you make them translucent, similar to other objects in the game.</li>
+</ol>
+<p>Please refer to the corresponding page under Scripting API documentation to learn details about these and other <a href="Overlay.html">Overlay's functions and properties</a>.</p>
+</section>
+<section id="discontinued-features" class="level3">
+<h3><a href="#discontinued-features">Discontinued features</a></h3>
+<p>There are a few engine functionalities that were either removed completely, or disabled temporarily for technical reasons.</p>
+<p>First of all, <em>"Windows Game Explorer integration"</em> <strong>has been completely removed from AGS</strong>. The Windows Game Explorer was never very popular, and it has been finally been deprecated by Microsoft in Windows 10. The "enhanced save game" feature, that allowed the Windows Explorer to display some meta-data, like screenshots for the AGS game saves, is deprecated since Windows 7. Therefore there are no good reasons to keep this functionality in the engine. Note that it's still possible to register your game in the "Windows Game Explorer" by writing a custom tool or script that does that. We won't cover how to do that in this manual though.</p>
+<p><em>Hqx graphic filters</em> are discontinued. They were previously only usable with the Software renderer, and had performance issues. In theory they may be returned later if there's a demand for them, and if implemented in a more performant way.</p>
+<p><em>Windows-only DirectMedia video playback</em> is discontinued. It allowed you to play AVI/MPEG video files, but was implemented using the DirectMedia interface, thus was supported only on Windows and required particular codecs to be installed on the system. It is probable that these video formats will be supported again at some point in the future. The OGG/OGV video format is the only working format at the moment, and we recommend using it for now.</p>
 </section>
 <section id="deprecated--replaced-script-functions" class="level3">
 <h3><a href="#deprecated--replaced-script-functions">Deprecated / replaced script functions</a></h3>
@@ -260,6 +291,7 @@ Game.ChangeSpeechVox(&quot;English&quot;);
 <h3><a href="#system-limits-update">System limits update</a></h3>
 <ul>
 <li>Max number of AudioChannels is now 16 (was 8).</li>
+<li>Max number of Room Objects per room is now 256 (was 40).</li>
 <li>Removed game Cursors limit (was 20).</li>
 <li>Removed Overlays limit (was 20).</li>
 <li>Removed limit of simultaneous Button animations (was 15).</li>
@@ -272,8 +304,8 @@ Game.ChangeSpeechVox(&quot;English&quot;);
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 

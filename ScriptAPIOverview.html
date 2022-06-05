@@ -20,8 +20,10 @@
       </label>
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="search_input" for="search_input">Search:</label>
+      <label class="header_input" for="search_input">Search:</label>
       <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
       <ul id="search_results"></ul>
     </header>
 
@@ -91,6 +93,7 @@
 <li><strong>Enforce new style strings</strong> - this is on by default, turning this off reactivates old-style string functions and also the deprecated <code>string</code> type (the contemporary type is <code>String</code> with <a href="String.html">capital S</a>) which was used differently and had a 200 character limit.</li>
 <li><strong>Enforce new-style audio scripting</strong> - this is on by default, turning this off reactivates the old-style audio functions that are deprecated since AGS 3.2. These functions rely on passing clip numbers instead of using their script names (which can be chosen freely and are based on the filename), and support strictly 1 channel per audio type. See <a href="UpgradeTo32.html">Upgrading to AGS 3.2</a> for more information.</li>
 <li><strong>Use old-style custom dialog options API</strong> - this is off by default, and enabling this switches to pre-AGS 3.4.0 custom dialog option callbacks. See <a href="UpgradeTo34.html">Upgrading to AGS 3.4</a> for more information.</li>
+<li><strong>Use old-style keyboard handling</strong> - this is off by default, and enabling this switches to old-style key input handling style. See <a href="UpgradeTo36.html#changes-to-key-input-handling">Upgrading to AGS 3.6</a> for more information.</li>
 </ul>
 <p>Each of the above switches defines a macro or a number of macros which are then used during script compilation and help detect the state of these switches. You can also use these in your script, for example if you want to provide two or more variants of code for different API versions. For more information on this and actual script examples see <a href="Constants.html">Constants</a>.</p>
 </section>
@@ -100,8 +103,8 @@
 
   <footer>
     <p>
-      <a href="/jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: bcdce9f96320023ed88020a5a809b2f4cc62bfba
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 71e20d0fd8b896a257417446b505194dec21601f
     </p>
   </footer>
 
