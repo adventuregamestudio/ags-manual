@@ -57,6 +57,22 @@ Always ensure your code snippets in the manual follow below
 - Either can run on empty game template or can run on Sierra template;
 - If it requires additional resources (like a gMyGUI, cEgo2, ...) it can be grasped from the context it's presented.
 
+### Indexing
+
+Index directives are added automatically, based on heading styles.
+
+Markdown | Indexed as
+--- | ---
+\#\# Heading | Single entry: 'Heading'
+\#\#\# Sub-heading | Paired entry: 'Heading' <-> 'Sub-heading'
+
+To create an H2 style heading without an index entry, use the alternate H2 markup:
+
+    Heading
+    -------
+    
+H1 headings are not checked, effectively reserving their use for the primary title on the contents page.
+
 ## The build system
 
 ### Introduction
