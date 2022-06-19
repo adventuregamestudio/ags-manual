@@ -5,7 +5,9 @@ http://www-personal.monash.edu.au/~myless/catnap/pamela/
 https://discord.gg/BSvN5ZF
 https://github.com/adventuregamestudio/ags
 https://github.com/adventuregamestudio/ags-manual
+https://github.com/icculus
 https://liballeg.org/
+https://libsdl.org/
 https://opensource.org/licenses/artistic-license-2.0.php
 https://sourceforge.net/projects/alleg/
 https://technet.microsoft.com/en-us/sysinternals/bb897440
