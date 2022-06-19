@@ -72,7 +72,10 @@
 <li><a href="#sprite-manager"><span>Sprite Manager</span></a>
 <ul>
 <li><a href="#import-sprite"><span>Import Sprite</span></a></li>
+<li><a href="#tiled-sprite-import"><span>Tiled sprite import</span></a></li>
+<li><a href="#alpha-blended-sprites"><span>Alpha blended sprites</span></a></li>
 <li><a href="#sprite-storage"><span>Sprite Storage</span></a></li>
+<li><a href="#project-without-a-sprite-file"><span>Project without a Sprite File</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -96,6 +99,18 @@
 <p><strong>NOTE:</strong> if using the 'Import All' button all remaining images will be imported using the currently selected import options</p>
 <p><strong>NOTE:</strong> animated GIF frames are treated as separate images, so a 5 frame GIF imported as 2 tiles will result in 10 new sprites being created.</p>
 </section>
+<section id="tiled-sprite-import" class="level3">
+<h3><a href="#tiled-sprite-import">Tiled sprite import</a></h3>
+<p>You may have noticed a checkbox called "Tiled sprite import". Some people find this a useful way of importing many frames of a character's animation at once.</p>
+<p>In order for this to work, you need to have all your sprites lined up on your source bitmap at even intervals. Then, use the "Import from file" option and import it as usual. Check the "Tiled sprite import" box, and select the upper-left frame.</p>
+<p>When you click the left mouse button, the selection rectangle will become un-filled and now you can drag the mouse to define how many frames to import - they'll all be enclosed by selection rectangles. Once you have the correct number, click the left button again and they will all be imported.</p>
+</section>
+<section id="alpha-blended-sprites" class="level3">
+<h3><a href="#alpha-blended-sprites">Alpha blended sprites</a></h3>
+<p>AGS supports alpha blended sprites if your game is 32-bit color. In this case, you need to import a PNG image with an alpha channel (you cannot paste alpha-blended images from the clipboard).</p>
+<p>When you do so, AGS will prompt you asking whether you want to use the image's alpha channel or not. If you select Yes, then the sprite will be drawn alpha blended in the game if it is used for a character, object, mouse cursor or GUI.</p>
+<p>NOTE: Currently, alpha blended sprites cannot be antialiased, so if you have the Anti Alias Sprites option turned on in Setup, it will not be applied to alpha-blended characters.</p>
+</section>
 <section id="sprite-storage" class="level3">
 <h3><a href="#sprite-storage">Sprite Storage</a></h3>
 <p>AGS sprite storage can be configured through <strong>Enable sprite storage optimization</strong> and <strong>Sprite file compression</strong> in <a href="GeneralSettings.html#compiler">General Settings, in Compiler category</a>.</p>
@@ -104,6 +119,9 @@
 <li><strong>Sprite file compression</strong>, can be configured to no compression, RLE or LZW.</li>
 </ul>
 <p>When a sprite is imported, it gets and index number which can be used to refer to it through your game. This information, along with import settings for each sprite, are saved in your AGS game project. It will additionally, incrementally as you import sprites, add the file to your project sprite file, named <code>acsprset.spr</code>. You can at any time in your project switch your sprite file compression and storage settings and AGS will update it accordingly, so don't worry if you just realize you need compression at a later time in your project.</p>
+</section>
+<section id="project-without-a-sprite-file" class="level3">
+<h3><a href="#project-without-a-sprite-file">Project without a Sprite File</a></h3>
 <p>It's recommended that all the graphic files you are importing in your project are placed in a directory inside of your AGS Game Project. By maintaining all files there, if you wish to not backup your <code>acsprset.spr</code> file, you can recreate it at any time by using the <strong>File</strong> <code>-&gt;</code> <strong>Restore all sprites from sources</strong> menu.</p>
 </section>
 </section>
@@ -113,7 +131,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: aefab1ffe036748566be226e403e22b78cc721bb
+      Build: 17be54e5571006fc7060372c248f0891a789390d
     </p>
   </footer>
 

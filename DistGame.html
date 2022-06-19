@@ -98,6 +98,7 @@
 <li><strong>"Compiled/Web"</strong> subfolder will be created if you have "Web" enabled as target platform. The folder will contain the wasm + JS port of the engine, and the game data. You can test by serving the current directory, using some server (ex: <code>python -m http.server</code> if you have python), and opening it in a browser. Indie store websites usually accept you zip the contents of this directory and upload it as a web build.</li>
 <li><strong>"Compiled/Android"</strong> subfolder will be created if you have "Android" enabled as target platform. This build has external requirements you must comply, and they are detailed in the <a href="BuildAndroid.html">Building for Android</a> topic.</li>
 </ul>
+<p><em>Note: Linux, Android and Web building require you have installed their specific components when installing the Editor, otherwise they won't be available</em></p>
 <p>The contents of these subfolders can be now distributed to players with the corresponding operating systems. For example, if you want to distribute the Windows version of your game, you <em>only</em> need the contents of the "Compiled/Windows" subfolder. For Linux the "Compiled/Linux" subfolder is sufficient.</p>
 <p>The "Compiled/Data" folder should usually not be distributed. It still may come in useful if you are preparing a custom distribution, but remember that the contents of this folder cannot be run on its own: you need to add one of the available engine versions to it, or warn users that they have to have the AGS engine installed on their system.</p>
 </section>
@@ -114,6 +115,7 @@
 <h3><a href="#customizing-game-data">Customizing game data</a></h3>
 <p>If you want to distribute custom data with your game you can simply add the necessary files where the main game data (game.ags or game.exe) is located.</p>
 <p>Note that any custom files put into the "Compiled/Data" folder will also be copied to all the final build targets (Windows, Linux, etc) when the game is built. At the moment this is the most convenient method of making sure the same custom data will be included for all target platforms. If you need the custom files to be present only with a particular distribution, like only for Windows, or only for Linux, then put the files into the corresponding platform subfolder instead.</p>
+<p>If instead you wish to pack additional files inside the game package itself, see <strong>Package custom data folder(s)</strong>, in <a href="GeneralSettings.html#compiler">General Settings - Compiler</a>.</p>
 </section>
 <section id="warning-on-de-compiling-the-built-game" class="level3">
 <h3><a href="#warning-on-de-compiling-the-built-game">Warning on de-compiling the built game</a></h3>
@@ -171,7 +173,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: aefab1ffe036748566be226e403e22b78cc721bb
+      Build: 17be54e5571006fc7060372c248f0891a789390d
     </p>
   </footer>
 

@@ -220,7 +220,7 @@ if (mod &amp; eKeyModCtrl == 0)
 </section>
 <section id="new-game-package-options" class="level3">
 <h3><a href="#new-game-package-options">New game package options</a></h3>
-<p>AGS now allows to package custom files into your game and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html">General Settings</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
+<p>AGS now allows to package custom files into your game and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html#compiler">General Settings - Compiler</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
 <p>Any <a href="File.html">File functions</a> that accept file paths can now refer to the game package files using the new <code>$DATA$</code> location tag. Virtually any packaged file may be queried this way, whether custom or regular game resource. These files may only be opened for reading however, never for writing.</p>
 <p>For example, you may read your custom file from the package as:</p>
 <pre><code>File* f = File.Open(&quot;$DATA$/UserData/myfile.dat&quot;, eFileRead);
@@ -305,7 +305,7 @@ Game.ChangeSpeechVox(&quot;English&quot;);
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: aefab1ffe036748566be226e403e22b78cc721bb
+      Build: 17be54e5571006fc7060372c248f0891a789390d
     </p>
   </footer>
 

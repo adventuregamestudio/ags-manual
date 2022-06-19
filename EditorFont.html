@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Tumbleweed Player functions</title>
+  <title>Font Preview</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -69,55 +69,25 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#tumbleweed-player-functions"><span>Tumbleweed Player functions</span></a>
-<ul>
-<li><a href="#verbsfreezeplayer"><span><code>Verbs.FreezePlayer</code></span></a></li>
-<li><a href="#verbsunfreezeplayer"><span><code>Verbs.UnfreezePlayer</code></span></a></li>
-<li><a href="#verbssetplayer"><span><code>Verbs.SetPlayer</code></span></a></li>
-<li><a href="#verbsenterroom"><span><code>Verbs.EnterRoom</code></span></a></li>
-</ul></li>
+<li><a href="#font-preview"><span>Font Preview</span></a></li>
 </ul>
   </nav>
 
   <main>
-<section id="tumbleweed-player-functions" class="level2">
-<h2><a href="#tumbleweed-player-functions">Tumbleweed Player functions</a></h2>
-<hr />
-<section id="verbsfreezeplayer" class="level3">
-<h3><a href="#verbsfreezeplayer"><code>Verbs.FreezePlayer</code></a></h3>
-<pre><code>vpod Verbs.FreezePlayer();
-</code></pre>
-<p>Use this function to prevent the player from moving by the following movement functions of the template.</p>
-<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsunfreezeplayer"><code>Verbs.UnfreezePlayer</code></a></p>
-<hr />
-</section>
-<section id="verbsunfreezeplayer" class="level3">
-<h3><a href="#verbsunfreezeplayer"><code>Verbs.UnfreezePlayer</code></a></h3>
-<pre><code>void Verbs.UnfreezePlayer();
-</code></pre>
-<p>Use this function to undo the FreezePlayer function and let the characters move again.</p>
-<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsfreezeplayer"><code>Verbs.FreezePlayer</code></a></p>
-<hr />
-</section>
-<section id="verbssetplayer" class="level3">
-<h3><a href="#verbssetplayer"><code>Verbs.SetPlayer</code></a></h3>
-<pre><code>void SetPlayer(Character*ch);
-</code></pre>
-<p>Usage:</p>
-<pre><code>cEgo.SetPlayer();
-</code></pre>
-<p>Similar to the AGS function Character.SetAsPlayer(). The difference is, that make the previous character clickable again, whereas the new character gets unclickable.</p>
-<hr />
-</section>
-<section id="verbsenterroom" class="level3">
-<h3><a href="#verbsenterroom"><code>Verbs.EnterRoom</code></a></h3>
-<pre><code>void EnterRoom(this Character*, int newRoom, int x, int y, eDirection dir, bool onWalkable);
-</code></pre>
-<p>Usage:</p>
-<pre><code>cEgo.EnterRoom(1,15,15,eDir_Left,true);
-</code></pre>
-<p>Similar to the AGS function Character.ChangeRoom. The difference is, that you can also define, it which direction the character should look. Using this function makes the character turn to the direction, mentioned above.</p>
-</section>
+<section id="font-preview" class="level2">
+<h2><a href="#font-preview">Font Preview</a></h2>
+<p>You cannot exactly <em>edit</em> fonts from within the AGS itself at the time being (unless you are using a plugin that allows that), but AGS lets you to preview the imported fonts and configure their runtime display properties.</p>
+<p>On the Explore Project panel, you can expand the Fonts node to show the fonts which are imported for your game. Right clicking on the "Fonts" node itself allows you to create a new font. When creating a new font, or double-clicking on existing font within the tree, a new preview panel will open.</p>
+<p>When a new font is created it clones the last one in the list. To overwrite an existing font, press the "Import over this font..." button.</p>
+<p>AGS supports two kinds of fonts: TrueType (TTF) and bitmap fonts, which are: SCI fonts (Sierra's font format) and WFN fonts (extended bitmap font format).</p>
+<p><strong>NOTE:</strong> On Windows you cannot import fonts directly from the Windows Fonts folder. Unfortunately there is nothing that can be done about this, you must manually copy the font to another folder and import it from there.</p>
+<p>Fonts can have outlines. For LucasArts-style speech, outlines are really a necessity since they stop the text blending into the background and becoming un-readable. To outline a font, either set the OutlineStyle to "Automatic" to have AGS do it for you, or you can use a specific font slot as the outline font (it will be drawn in black behind the main font when the main font is used).</p>
+<p>Every font have following optional properties:</p>
+<ul>
+<li><strong>LineSpacing</strong> - defines default difference (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</li>
+<li><strong>SizeMultiplier</strong> - an integer scale multiplier applied to this font. Note that it commonly makes sense to assign this for the bitmap fonts, as TTF fonts may be reimported with different font size. When set for a TTF font it will simply be initialized with a higher point-size in game.</li>
+<li><strong>VerticalOffset</strong> - defines additional vertical offset applied to every drawn line of text (when using this font). This property is mainly meant to override particular font's misbehavior.</li>
+</ul>
 </section>
   </main>
 

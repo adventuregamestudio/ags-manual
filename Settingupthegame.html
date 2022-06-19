@@ -79,7 +79,6 @@
 <li><a href="#characters"><span>Characters</span></a></li>
 <li><a href="#conversations"><span>Conversations</span></a></li>
 <li><a href="#the-general-settings-panel"><span>The General Settings panel</span></a></li>
-<li><a href="#default-setup"><span>Default setup</span></a></li>
 <li><a href="#cursors"><span>Cursors</span></a></li>
 <li><a href="#fonts"><span>Fonts</span></a></li>
 </ul></li>
@@ -98,12 +97,7 @@
 <p>All this means, use 8-bit color only when you know what you are doing or when you intentionally want to punish yourself with lots of nerdy fumbling around on settings for colormodes that were not artist's decisions but actual hardware limitations of the time and every artist is glad these restrictions are no longer in place.</p>
 <p>But you can do really cool color cycling effects only in 8-bit games, other than that this is really outdated technology, but it still works of course, and how it works is explained in the next paragraphs.</p>
 <p>You set your chosen color depth by opening the General Settings pane and adjusting the Color Depth setting near the top of the list.</p>
-<p>Now, choose the "Colors" pane. Here you will see the 256-color palette displayed in a grid. Most of the slots are marked "X" - these are the slots reserved for the background pictures, and will be different in each room. The other colors will be as they look here for the entire game. These fixed colors allow things like the main character graphics, which must be displayed on more than one screen, to work.</p>
-<p>If you want, you can assign more or less colors to the backgrounds. To toggle the background assignment on/off, click on the slot, then check the "This color is room-dependent" box to swap the slot's status.</p>
-<p><strong>IMPORTANT NOTE:</strong> <em>You must set up the palette as you want it before you start making your game - if you change it later, you will have to re-import all the sprites and background scenes.</em></p>
-<p>You can select multiple color slots by clicking on the first slot, then shift-clicking on the last slot in the range you want to select. You can then toggle the background status of all the selected slots at once.</p>
-<p>You can right-click in the palette grid to export the entire palette to a .PAL or PCX file which you can then use to read back into the Editor in a different game. If you choose to export to a pcx file, then a screen shot of the Palette Editor will be saved as the picture. This way you can see all the game-wide colors in the file.</p>
-<p>The "Replace palette" option replaces the palette entries with those entries from the PAL or PCX file you choose. It can read standard 768-byte PAL files, SCI palette resources (renamed to extension .pal) and JASC PSP palette files.</p>
+<p>After that double click the "Colours" node in the project tree, which will open a "Colours" pane and let you set up your game's palette. Please continue to the <a href="ColoursEditor.html">Colours Editor</a> topic for more information.</p>
 <hr />
 </section>
 <section id="inventory" class="level3">
@@ -131,15 +125,7 @@
 <p>NOTE: The transparent color used by AGS is palette index 0 (for 256-color sprites) and RGB (255,0,255) for hi-color. Any pixels you draw on imported sprites in these colors will be transparent.</p>
 <p>You can group imported sprites into folders. This prevents the main sprite list from becoming too long. By default, the Sprite Manager displays the Main folder, which contains some graphics and a sub-folder called "Defaults". Folders work the same way as Windows folders. Right-click on a folder in the tree to rename it or make a sub-folder.</p>
 <p>You can delete a folder by right-clicking on it and selecting the "Delete" option; beware though that <strong>this will also delete all the sprites in the folder</strong>.</p>
-<p><strong>Tiled sprite import</strong></p>
-<p>You may have noticed a checkbox called "Tiled sprite import". Some people find this a useful way of importing many frames of a character's animation at once.</p>
-<p>In order for this to work, you need to have all your sprites lined up on your source bitmap at even intervals. Then, use the "Import from file" option and import it as usual. Check the "Tiled sprite import" box, and select the upper-left frame.</p>
-<p>When you click the left mouse button, the selection rectangle will become un-filled and now you can drag the mouse to define how many frames to import - they'll all be enclosed by selection rectangles. Once you have the correct number, click the left button again and they will all be imported.</p>
-<p><strong>Alpha blended sprites</strong></p>
-<p>AGS supports alpha blended sprites if your game is 32-bit color. In this case, you need to import a PNG image with an alpha channel (you cannot paste alpha-blended images from the clipboard).</p>
-<p>When you do so, AGS will prompt you asking whether you want to use the image's alpha channel or not. If you select Yes, then the sprite will be drawn alpha blended in the game if it is used for a character, object, mouse cursor or GUI.</p>
-<p>Note that if you use alpha blending, any overall transparency that you set (such as Character.Transparency, Object.Transparency, GUI.Transparency) will be ignored.</p>
-<p>NOTE: Currently, alpha blended sprites cannot be antialiased, so if you have the Anti Alias Sprites option turned on in Setup, it will not be applied to alpha-blended characters.</p>
+<p>For more information, see <a href="EditorSprite.html">Sprite Manager</a> topic.</p>
 <hr />
 </section>
 <section id="introduction-sequences" class="level3">
@@ -223,26 +209,7 @@
 <p>The General Settings pane contains a list of all the various overall options that you can set for your game.</p>
 <p>Many of these options can be changed at runtime with the script command SetGameOption.</p>
 <p>The available settings are detailed in documentation in the <a href="GeneralSettings.html">General Settings</a> page.</p>
-<p>Some settings you may want to adjust right at the start of your game include <strong>Developer name</strong>, <strong>Game name</strong> and <strong>Resolution</strong>. Resolution is the most important option, which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have.</p>
-<hr />
-</section>
-<section id="default-setup" class="level3">
-<h3><a href="#default-setup">Default setup</a></h3>
-<p>The Default setup pane lets you create the default runtime configuration for your game. Since AGS 3.3.5 you cannot directly do that using game's setup utility (winsetup.exe) anymore, because it modifies config file in the user's personal documents folder instead of game folder. For that reason you should be doing it from this Editor's page now.</p>
-<p>Most of the options here correspond to the ones you may find in the setup utility. For their meaning please refer to <a href="Setup.html">related topic</a>.</p>
-<p>Additionally, following settings are available:</p>
-<p><strong>Setup appearance</strong></p>
-<ul>
-<li><strong>Title text</strong> - the text that will appear on the title of the setup program window.</li>
-</ul>
-<p><strong>Environment</strong></p>
-<ul>
-<li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
-<li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players will be able to modify this path in setup program.</li>
-</ul>
-<p><strong>IMPORTANT:</strong> what you set on this page is a default game configuration, but it may be overridden by a user config. If you have run your game's setup program at least once and chose to save, that created a user config file <a href="EngineConfigFile.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
-<p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
-<p><em>See also:</em> <a href="Setup.html">Run-time engine setup</a>, <a href="EngineConfigFile.html#configuration-file-locations">Config file locations</a></p>
+<p>Some settings you may want to adjust right at the start of your game include <strong>Developer name</strong>, <strong>Game name</strong> and <strong>Resolution</strong>. Resolution is the most important option, which determines the size of game area visible on screen at any given time.</p>
 <hr />
 </section>
 <section id="cursors" class="level3">
@@ -280,15 +247,8 @@
 </ul>
 <p>In general you should prefer using TTF fonts, but SCI fonts may still be useful in low-resolution games (because not all TTF fonts scale down well) and situations where you need pixel-precise looks of the drawn symbols.</p>
 <p>Go to the "Fonts" node in the main tree. Here you can see all the current fonts listed underneath. You can create a new font by right-clicking the "Fonts" node and choosing "New font". To overwrite an existing font, open it up and press the "Import over this font" button.</p>
-<p>Fonts can have outlines. For LucasArts-style speech, outlines are really a necessity since they stop the text blending into the background and becoming un-readable. To outline a font, either set the OutlineStyle to "Automatic" to have AGS do it for you, or you can use a specific font slot as the outline font (it will be drawn in black behind the main font when the main font is used).</p>
-<p>Every font have following optional properties:</p>
-<ul>
-<li><strong>LineSpacing</strong> - defines default difference (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</li>
-<li><strong>SizeMultiplier</strong> - an integer scale multiplier applied to this font. Note that it commonly makes sense to assign this for the bitmap fonts, as TTF fonts may be reimported with different font size. When set for a TTF font it will simply be initialized with a higher point-size in game.</li>
-<li><strong>VerticalOffset</strong> - defines additional vertical offset applied to every drawn line of text (when using this font). This property is mainly meant to override particular font's misbehavior.</li>
-</ul>
-<p><strong>NOTE:</strong> If you go to your Windows Fonts folder, you will not be able to select any fonts to import, since double-clicking them will open them up in the Windows Font Viewer. Unfortunately there is nothing I can do about this, you must either type the filename in manually, or copy the font to another folder and import it from there.</p>
-<p><strong>NOTE:</strong> Font 0 is used as the normal text font, and font 1 is used as the speech font. To use any additional fonts, you can set the Game.NormalFont and Game.SpeechFont properties in your script.</p>
+<p>Please refer to the <a href="EditorFont.html">Font Preview</a> topic for more information on how the font may be imported and configured for runtime.</p>
+<p><strong>NOTE:</strong> By default font 0 is used as the normal text font for in-game messages, and font 1 is used as the speech font. To use any other fonts for these purposes, you can set the <a href="Game.html#gamenormalfont">Game.NormalFont</a> and <a href="Game.html#gamespeechfont">Game.SpeechFont</a> properties in your script.</p>
 <p>Now you are ready to read more about scripting.</p>
 <p>Next Reading: <a href="ScriptingTutorialPart1.html">Scripting Tutorial 1</a></p>
 <p>Return to Tutorials Index: <a href="StartingOff.html">Tutorials Index</a></p>
@@ -300,7 +260,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: aefab1ffe036748566be226e403e22b78cc721bb
+      Build: 17be54e5571006fc7060372c248f0891a789390d
     </p>
   </footer>
 

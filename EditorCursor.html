@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Tumbleweed Player functions</title>
+  <title>Cursor Editor</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -69,55 +69,29 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#tumbleweed-player-functions"><span>Tumbleweed Player functions</span></a>
-<ul>
-<li><a href="#verbsfreezeplayer"><span><code>Verbs.FreezePlayer</code></span></a></li>
-<li><a href="#verbsunfreezeplayer"><span><code>Verbs.UnfreezePlayer</code></span></a></li>
-<li><a href="#verbssetplayer"><span><code>Verbs.SetPlayer</code></span></a></li>
-<li><a href="#verbsenterroom"><span><code>Verbs.EnterRoom</code></span></a></li>
-</ul></li>
+<li><a href="#cursor-editor"><span>Cursor Editor</span></a></li>
 </ul>
   </nav>
 
   <main>
-<section id="tumbleweed-player-functions" class="level2">
-<h2><a href="#tumbleweed-player-functions">Tumbleweed Player functions</a></h2>
-<hr />
-<section id="verbsfreezeplayer" class="level3">
-<h3><a href="#verbsfreezeplayer"><code>Verbs.FreezePlayer</code></a></h3>
-<pre><code>vpod Verbs.FreezePlayer();
-</code></pre>
-<p>Use this function to prevent the player from moving by the following movement functions of the template.</p>
-<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsunfreezeplayer"><code>Verbs.UnfreezePlayer</code></a></p>
-<hr />
-</section>
-<section id="verbsunfreezeplayer" class="level3">
-<h3><a href="#verbsunfreezeplayer"><code>Verbs.UnfreezePlayer</code></a></h3>
-<pre><code>void Verbs.UnfreezePlayer();
-</code></pre>
-<p>Use this function to undo the FreezePlayer function and let the characters move again.</p>
-<p><em>See also:</em> <a href="Tumbleweed_player.html#verbsfreezeplayer"><code>Verbs.FreezePlayer</code></a></p>
-<hr />
-</section>
-<section id="verbssetplayer" class="level3">
-<h3><a href="#verbssetplayer"><code>Verbs.SetPlayer</code></a></h3>
-<pre><code>void SetPlayer(Character*ch);
-</code></pre>
-<p>Usage:</p>
-<pre><code>cEgo.SetPlayer();
-</code></pre>
-<p>Similar to the AGS function Character.SetAsPlayer(). The difference is, that make the previous character clickable again, whereas the new character gets unclickable.</p>
-<hr />
-</section>
-<section id="verbsenterroom" class="level3">
-<h3><a href="#verbsenterroom"><code>Verbs.EnterRoom</code></a></h3>
-<pre><code>void EnterRoom(this Character*, int newRoom, int x, int y, eDirection dir, bool onWalkable);
-</code></pre>
-<p>Usage:</p>
-<pre><code>cEgo.EnterRoom(1,15,15,eDir_Left,true);
-</code></pre>
-<p>Similar to the AGS function Character.ChangeRoom. The difference is, that you can also define, it which direction the character should look. Using this function makes the character turn to the direction, mentioned above.</p>
-</section>
+<section id="cursor-editor" class="level2">
+<h2><a href="#cursor-editor">Cursor Editor</a></h2>
+<p>The Cursors node of the editor shows you the current mouse cursor modes available in the game. Each cursor mode performs a different action within the game. There's always a number of precreated cursors, which editor won't allow to remove, and you also may create more if necessary. Right clicking on the "Cursors" node itself allows you to create a new custom cursor. Creating a new cursor or double clicking an existing one will open it for edit.</p>
+<p>The Cursor editor pane allows to preview the cursor's graphic, set its "hotspot" (the point on the cursor's graphic which triggers interaction with underlying objects), as well as configure other properties.</p>
+<p>The "StandardMode" option in the property grid tells AGS that this is a "normal" cursor mode - i.e. using this cursor will fire an event on whatever is clicked on as usual. This mode applies to the standard Walk, Look, Interact and Talk modes, but you can create others too. Do not tick it for the Use Inventory mode, since this is a special mode.</p>
+<p>The "Animate" option allows you to specify that the mouse cursor will animate while it is on the screen. Choose a view number, and the cursor will animate using the first loop of that view. You can make it animate only when over something (hotspot, object or character) by enabling the "AnimateOnlyOnHotspots" option.</p>
+<p>The "AnimateOnlyWhenMoving" box allows you to do a QFG4-style cursor, where it only animates while the player is moving it around.</p>
+<p>Three of the cursor modes are hard-coded special meanings into AGS:</p>
+<ul>
+<li><strong>Mode 4 (Use Inventory)</strong>. This is special because the game decides whether to allow its use or not, depending on whether the player has an active inventory item selected.</li>
+<li><strong>Mode 6 (Pointer)</strong>. This cursor is used whenever a modal dialog is displayed (i.e. a GUI that pauses the game). Normally this is a standard arrow pointer.</li>
+<li><strong>Mode 7 (Wait)</strong>. This cursor is used whenever the player cannot control the action, for example during a scripted cutscene. For a LucasArts-style game where the cursor disappears completely in this state, simply import a blank graphic over the wait cursor.</li>
+</ul>
+<p>For the standard modes,</p>
+<ul>
+<li>Mode 0 will cause the player to walk to the mouse pointer location when clicked.</li>
+<li>Modes 1, 2, 3, 5, 8 and 9 will run the event with the same name as the cursor mode.</li>
+</ul>
 </section>
   </main>
 

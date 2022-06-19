@@ -106,6 +106,9 @@
 <pre><code>static void System.Log(LogLevel level, const string format, ...)
 </code></pre>
 <p>Prints the message string in <code>format</code> to the log, with the defined LogLevel, to the group <code>script</code>.</p>
+<p>Example:</p>
+<pre><code>System.Log(eLogInfo, &quot;Entering the Room %d&quot;, player.Room);
+</code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="RuntimeEngine.html">The run-time engine</a>, <a href="StandardEnums.html#loglevel">LogLevel Enum</a></p>
 <hr />
@@ -199,9 +202,9 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <h3><a href="#systemhardwareacceleration"><code>System.HardwareAcceleration</code></a></h3>
 <pre><code>readonly static bool System.HardwareAcceleration;
 </code></pre>
-<p>Returns whether the game is running with hardware acceleration (e.g. Direct3D or OpenGL). If this is the case then RawDrawing is likely to be slower, but alpha blending and large sprites are likely to be faster, than when the non-accelerated driver is used.</p>
+<p>Returns whether the game is running with hardware acceleration (e.g. Direct3D or OpenGL). If this is the case then changing on-screen images with <a href="DrawingSurface.html">DrawingSurface</a> functions are likely to be slower, but sprite scaling, transparency and alpha blending effects, as well as just displaying larger sprites, are likely to be faster, than when the non-accelerated driver is used.</p>
 <p><strong>Cross-Platform Support</strong></p>
-<p>Windows: <strong>Direct3D, OpenGL driver</strong><br> Linux: <strong>OpenGL driver</strong><br> MacOS: <strong>No</strong></p>
+<p>Windows: <strong>Direct3D, OpenGL driver</strong><br> Linux: <strong>OpenGL driver</strong><br> MacOS: <strong>OpenGL driver</strong><br> Android: <strong>OpenGL driver</strong><br> iOS: <strong>OpenGL driver</strong></p>
 <p>Example:</p>
 <pre><code>if (System.HardwareAcceleration) {
   Display(&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;);
@@ -259,13 +262,15 @@ Display(&quot;Channel 2&#39;s current volume is %d.&quot;, channel.Volume);
 <pre><code>readonly static eOperatingSystem System.OperatingSystem;
 </code></pre>
 <p>Returns which operating system the game is currently running under. It can be one of the following values:</p>
-<pre><code>eOSDOS
+<pre><code>eOSDOS (exists, but no longer supported)
 eOSWindows
 eOSLinux
 eOSMacOS
 eOSAndroid
 eOSiOS
-eOSPSP
+eOSPSP (exists, but no longer supported)
+eOSWeb
+eOSFreeBSD
 </code></pre>
 <p>Example:</p>
 <pre><code>if (System.OperatingSystem == eOSWindows) {
@@ -410,15 +415,16 @@ else {
 <p><em>(Formerly known as <code>system.vsync</code>, which is now obsolete)</em></p>
 <pre><code>static bool System.VSync;
 </code></pre>
-<p>Gets/sets whether AGS waits for the vertical retrace before rendering each frame. This is off by default.</p>
-<p>If you switch this on, it can help to reduce the "tearing" effect that you can get when the screen scrolls. However, doing so will lock the game frame rate to the monitor's refresh rate, which will mean you cannot reliably set a game speed higher than 60 fps.</p>
-<p><strong>NOTE:</strong> This property has no effect with the Direct3D or OpenGL driver.</p>
+<p>Gets/sets whether AGS waits for the vertical retrace before rendering each frame.</p>
+<p>When vsync is on, it can help to reduce the "tearing" effect that you can get when the screen scrolls. However, doing so will lock the game frame rate to the monitor's refresh rate, which will mean you cannot reliably set a game speed higher than 60 fps.</p>
+<p>Vertical sync is off by default. When the game starts engine reads vsync option value from the config file, if one exists.</p>
+<p>Not all renderers support changing vsync at runtime. If current one does not, then trying to change <code>System.VSync</code> will have no effect.</p>
 <p>Example:</p>
 <pre><code>if (System.VSync) {
   Display(&quot;Vertical retrace sync is enabled!&quot;);
 }
 </code></pre>
-<p>will display a message if vsync is on</p>
+<p>will display a message if vsync is on.</p>
 <hr />
 </section>
 <section id="systemwindowed" class="level3">
@@ -451,7 +457,7 @@ else {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: aefab1ffe036748566be226e403e22b78cc721bb
+      Build: 17be54e5571006fc7060372c248f0891a789390d
     </p>
   </footer>
 
