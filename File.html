@@ -83,6 +83,7 @@
 <li><a href="#fileseek"><span><code>File.Seek</code></span></a></li>
 <li><a href="#filewriteint"><span><code>File.WriteInt</code></span></a></li>
 <li><a href="#filewriterawchar"><span><code>File.WriteRawChar</code></span></a></li>
+<li><a href="#filewriterawint"><span><code>File.WriteRawInt</code></span></a></li>
 <li><a href="#filewriterawline"><span><code>File.WriteRawLine</code></span></a></li>
 <li><a href="#filewritestring"><span><code>File.WriteString</code></span></a></li>
 <li><a href="#fileeof"><span><code>File.EOF</code></span></a></li>
@@ -135,7 +136,8 @@ else {
 </code></pre>
 <p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
 <p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
-<p><em>Compatibility:</em> $CONFIGFILE$ tag supported by AGS 3.5.1 and later versions.</p>
+<p><em>Compatibility:</em></p>
+<p>$CONFIGFILE$ tag supported by AGS 3.5.1 and later versions. $DATA$ tag supported by AGS 3.6.0 and later versions.</p>
 <p><em>See also:</em> <a href="File.html#fileclose"><code>File.Close</code></a>, <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a>, <a href="GeneralSettings.html#compiler">General Settings</a></p>
 <hr />
 </section>
@@ -232,7 +234,7 @@ number = input.ReadRawInt();
 input.Close();
 </code></pre>
 <p>will read a raw integer from file stats.txt and put it into the integer number.</p>
-<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a></p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewriterawint"><code>File.WriteRawInt</code></a> <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a></p>
 <hr />
 </section>
 <section id="filereadrawlineback" class="level3">
@@ -323,6 +325,22 @@ output.Close();
 </code></pre>
 <p>will write the text "AB", followed by a carriage return character, to the file.</p>
 <p><em>See also:</em> <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
+<hr />
+</section>
+<section id="filewriterawint" class="level3">
+<h3><a href="#filewriterawint"><code>File.WriteRawInt</code></a></h3>
+<pre><code>File.WriteRawInt(int value)
+</code></pre>
+<p>Writes VALUE to the specified file, in raw mode so that other applications can read it back. If you are just creating a file for your game to read back in, use File.WriteInt instead because it offers additional protection. Only use this function if you need other applications to be able to read the file in.</p>
+<p>This command writes a single integer to the output file - therefore, VALUE can contain any value from -2147483648 to 2147483647.</p>
+<p>Example:</p>
+<pre><code>File *output = File.Open(&quot;$SAVEGAMEDIR$/stats.dat&quot;, eFileWrite);
+output.WriteRawInt(51);
+output.Close();
+</code></pre>
+<p>will open the file stats.dat and write the integer number in it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#filereadrawint"><code>File.ReadRawInt</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
 <hr />
 </section>
 <section id="filewriterawline" class="level3">
@@ -423,7 +441,7 @@ output.Close();
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

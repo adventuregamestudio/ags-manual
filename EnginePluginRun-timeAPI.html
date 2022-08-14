@@ -76,6 +76,7 @@
 <li><a href="#iagsscriptmanagedobject-interface"><span>IAGSScriptManagedObject interface</span></a></li>
 <li><a href="#iagsmanagedobjectreader-interface"><span>IAGSManagedObjectReader interface</span></a></li>
 <li><a href="#iagsfontrenderer-interface"><span>IAGSFontRenderer interface</span></a></li>
+<li><a href="#iagsfontrenderer2-interface"><span>IAGSFontRenderer2 interface</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -243,23 +244,23 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <p>Requests that the engine calls the plugin's <code>AGS_EngineOnEvent</code> function when the specified event occurs in future. Possible values are:</p>
 <section id="iagsengine-event-agse_keypress" class="level5">
 <h5>IAGSEngine event AGSE_KEYPRESS</h5>
-<p>triggered when the user presses a key on the keyboard</p>
+<p>triggered when the user presses a key on the keyboard.</p>
 <p><strong>data value:</strong> ASCII value of keystroke, as text script on_key_press (but lower case a-z are passed as 97..122)</p>
 </section>
 <section id="iagsengine-event-agse_mouseclick" class="level5">
 <h5>IAGSEngine event AGSE_MOUSECLICK</h5>
-<p>triggered when the user clicks a mouse button</p>
+<p>triggered when the user clicks a mouse button.</p>
 <p><strong>data value:</strong> mouse button pressed (1=left, 2=right, 3=middle)</p>
 </section>
 <section id="iagsengine-event-agse_postscreendraw" class="level5">
 <h5>IAGSEngine event AGSE_POSTSCREENDRAW</h5>
-<p>triggered after the virtual screen has been drawn each frame, but before the mouse cursor is painted and it gets copied to the screen</p>
+<p>triggered every frame after the entire game has been drawn each frame, but before the mouse cursor is painted on top.</p>
 <p><strong>data value:</strong> <em>** See Note 1 below</em></p>
 </section>
 <section id="iagsengine-event-agse_prescreendraw" class="level5">
 <h5>IAGSEngine event AGSE_PRESCREENDRAW</h5>
 <p><em>(version 4 and later only)</em></p>
-<p>triggered every frame after the room background has been drawn, but before anything else</p>
+<p>triggered every frame right after the room background has been drawn, but before anything else.</p>
 <p><strong>data value:</strong> <em>** See Note 1 below</em></p>
 </section>
 <section id="iagsengine-event-agse_savegame" class="level5">
@@ -277,7 +278,7 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <section id="iagsengine-event-agse_preguidraw" class="level5">
 <h5>IAGSEngine event AGSE_PREGUIDRAW</h5>
 <p><em>(version 6 and later only)</em></p>
-<p>triggered once the screen has been constructed, but before the GUIs have been drawn on.</p>
+<p>triggered every frame once the room viewports have been constructed, but before the GUIs and screen overlays have been drawn over.</p>
 <p><strong>data value:</strong> <em>** See Note 1 below</em></p>
 </section>
 <section id="iagsengine-event-agse_leaveroom" class="level5">
@@ -289,7 +290,7 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <section id="iagsengine-event-agse_enterroom" class="level5">
 <h5>IAGSEngine event AGSE_ENTERROOM</h5>
 <p><em>(version 6 and later only)</em></p>
-<p>triggered when the player enters a new room, before the screen fades in</p>
+<p>triggered when the player enters a new room, before the screen fades in.</p>
 <p><strong>data value:</strong> new room number</p>
 </section>
 <section id="iagsengine-event-agse_transitionout" class="level5">
@@ -307,7 +308,7 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <section id="iagsengine-event-agse_finalscreendraw" class="level5">
 <h5>IAGSEngine event AGSE_FINALSCREENDRAW</h5>
 <p><em>(version 12 and later only)</em></p>
-<p>triggered each frame after the mouse cursor is painted and immediately before the virtual screen is copied to the screen.</p>
+<p>triggered every frame after the mouse cursor is painted and immediately before the game is presented on the screen.</p>
 <p><strong>data value:</strong> <em>** See Note 1 below</em></p>
 </section>
 <section id="iagsengine-event-agse_translatetext" class="level5">
@@ -331,7 +332,7 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <section id="iagsengine-event-agse_prerender" class="level5">
 <h5>IAGSEngine event AGSE_PRERENDER</h5>
 <p><em>(version 21 and later only)</em></p>
-<p>triggered every frame after the game logic has run but before anything is rendered to the pre-screen sprite cache</p>
+<p>triggered every frame after the game logic has run but before anything is drawn.</p>
 <p><strong>data value:</strong> <em>(unused, currently 0)</em></p>
 </section>
 <section id="iagsengine-event-agse_presavegame" class="level5">
@@ -345,39 +346,27 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <p><em>(version 24 and later only)</em></p>
 <p>triggered after a save game has been restored. By the time this event occurs, all the game data has been restored and the script engine is operational again.</p>
 <p><strong>data value:</strong> <em>(unused, currently 0)</em></p>
+</section>
+<section id="iagsengine-event-agse_postroomdraw" class="level5">
+<h5>IAGSEngine event AGSE_POSTROOMDRAW</h5>
+<p><em>(version 26 and later only)</em></p>
+<p>triggered every frame <em>per each room camera</em> once the room contents have been drawn. This event allows to draw over whole room graphic layer.</p>
+<p><strong>data value:</strong> <em>** See Note 1 below</em></p>
 <p><em><img src="images/icon_info.png" alt="Info icon" /></em> Each frame (or <em>game loop</em>), AGS redraws the screen from scratch. The sequence is as follows:</p>
-<p><strong>DX5 driver</strong></p>
 <ol>
-<li>Call <code>AGSE_PRERENDER</code></li>
-<li>Update in-memory cache of current character and object images</li>
-<li>Draw current background scene</li>
-<li>Call <code>AGSE_PRESCREENDRAW</code></li>
-<li>Draw cached objects and characters</li>
-<li>Call <code>AGSE_PREGUIDRAW</code></li>
-<li>Draw screen overlays</li>
-<li>Draw GUIs</li>
-<li>Call <code>AGSE_POSTSCREENDRAW</code></li>
-<li>Draw mouse cursor and finalize.</li>
-<li>Call <code>AGSE_FINALSCREENDRAW</code></li>
-<li>Paste the virtual screen to the real screen</li>
+<li><p>Call <code>AGSE_PRERENDER</code></p></li>
+<li><p>Update in-memory cache of current character and object images</p></li>
+<li><p>Begin constructing scene (Direct3D renderer calls <code>BeginScene</code>)</p></li>
+<li><p>Per each room viewport-camera pair:</p>
+<p>4.1. Draw current background scene<br> 4.2. Call <code>AGSE_PRESCREENDRAW</code><br> 4.3. Draw room objects, characters and room overlays<br> 4.4 Call <code>AGSE_POSTROOMDRAW</code><br></p></li>
+<li><p>Call <code>AGSE_PREGUIDRAW</code></p></li>
+<li><p>Draw GUIs and screen overlays</p></li>
+<li><p>Call <code>AGSE_POSTSCREENDRAW</code></p></li>
+<li><p>Draw mouse cursor and finalize.</p></li>
+<li><p>Call <code>AGSE_FINALSCREENDRAW</code></p></li>
+<li><p>Ends constructing scene and presents new frame on screen (Direct3D renderer calls <code>EndScene</code>)</p></li>
 </ol>
-<p><strong>D3D9 driver</strong></p>
-<ol>
-<li>Call <code>AGSE_PRERENDER</code></li>
-<li>Update in-memory cache of current character and object images</li>
-<li><code>Direct3DDevice9-&gt;BeginScene</code></li>
-<li>Draw current background scene</li>
-<li>Call <code>AGSE_PRESCREENDRAW</code></li>
-<li>Draw cached objects and characters</li>
-<li>Call <code>AGSE_PREGUIDRAW</code></li>
-<li>Draw screen overlays</li>
-<li>Draw GUIs</li>
-<li>Call <code>AGSE_POSTSCREENDRAW</code></li>
-<li>Draw mouse cursor and finalize.</li>
-<li>Call <code>AGSE_FINALSCREENDRAW</code></li>
-<li><code>Direct3DDevice9-&gt;EndScene</code></li>
-</ol>
-<p><strong>** Note 1</strong>: The <code>data</code> parameter to these events is 0 when using the DX5 driver; when using the D3D9 driver it is a pointer to the IDirect3DDevice9 that is currently being used for rendering. You can render extra primitives by calling all the normal methods on this interface.<br />
+<p><strong>** Note 1</strong>: The <code>data</code> parameter to these events is 0 when using the Software driver; when using the D3D9 driver it is a pointer to the IDirect3DDevice9 that is currently being used for rendering. You can render extra primitives by calling all the normal methods on this interface.<br />
 (Interface version 20 and above only).</p>
 <p><em>Added in version: 2</em></p>
 </section>
@@ -1124,6 +1113,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </code></pre>
 <p>Replaces the font renderer that AGS is currently using to draw the specified font with one of your own. The old renderer is returned.</p>
 <p>This allows you to override AGS's built-in font rendering with your own system. For example, if you didn't want to use SCI or TTF fonts, this allows you to provide a custom implementation. See further down this page for a description of the <code>IAGSFontRenderer</code> interface.</p>
+<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is superceded by <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>. We recommend you use the new function, and implement the <code>IAGSFontRenderer2</code> interface instead.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsenginegetrenderstagedesc" class="level4">
@@ -1150,6 +1140,46 @@ struct AGSRenderStageDesc {
 <p><em><img src="images/icon_info.png" alt="Info icon" /></em> This function is only guaranteed to return useful data if you call it in one of the <a href="EnginePluginRun-timeAPI.html#iagsenginerequesteventhook">render stage events</a>.</p>
 <p><em><img src="images/icon_warn.png" alt="Warning" /></em> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
 <p><em>Added in version: 25</em></p>
+</section>
+<section id="iagsenginegetgameinfo" class="level4">
+<h4>IAGSEngine.GetGameInfo</h4>
+<pre><code>void GetGameInfo(AGSGameInfo* ginfo)
+</code></pre>
+<p>Fills the provided <code>AGSGameInfo</code> struct with the game's description. <code>AGSGameInfo</code> is declared as:</p>
+<pre><code>// Game info
+struct AGSGameInfo {
+  // Which version of the plugin interface the struct corresponds to;
+  // this field must be filled by a plugin before passing the struct into the engine!
+  int Version;
+  // Game title (human-readable text)
+  char GameName[50];
+  // Game&#39;s GUID
+  char Guid[40];
+  // Random key identifying the game (deprecated)
+  int UniqueId;
+};
+</code></pre>
+<p>AGSGameInfo's first field is <code>Version</code>, which must be filled by the plugin itself <em>before</em> calling this function. This field's value corresponds to the required engine's interface and tells which struct's fields should be assigned by the engine. It should be 26 or higher for this function to have any effect at all.</p>
+<p>The rest of the fields are for informational purposes. GameName is a human-readable game's title, which is displayed on the game window's caption. Its value corresponds to the <a href="Game.html#gamename"><code>Game.Name</code></a> script property. Guid is a unique string identifying the game. UniqueId is a deprecated game's identifier, which was used in the older versions of AGS. It may be refered to in case Guid is empty.</p>
+<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsenginereplacefontrenderer2" class="level4">
+<h4>IAGSEngine.ReplaceFontRenderer2</h4>
+<pre><code>IAGSFontRenderer* ReplaceFontRenderer2(int fontNumber, IAGSFontRenderer2* newRenderer)
+</code></pre>
+<p>Replaces the font renderer that AGS is currently using to draw the specified font with one of your own. The previously used renderer is returned.</p>
+<p>This allows you to override AGS's built-in font rendering with your own custom implementation.</p>
+<p>This function supercedes <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer"><code>ReplaceFontRenderer</code></a> and allows to install an extended renderer type, which implements <a href="EnginePluginRun-timeAPI.html#iagsfontrenderer2-interface"><code>IAGSFontRenderer2</code></a> interface (see further down this page for its description).</p>
+<p><em><img src="images/icon_info.png" alt="Info icon" /></em> The old renderer is still returned as a pointer to the base interface <code>IAGSFontRenderer</code>. This is to keep things compatible in case someone sets an old interface, so that this pointer could be used to set it back if necessary (in which case you need to use <code>ReplaceFontRenderer</code>). The engine is capable of detecting when the pointer refers to one of the internal renderers, and convert it as necessary. If you would like to tell if the returned pointer refers to one of the plugin's own renderers, you may do so by comparing the memory addresses, for example.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsenginenotifyfontupdated" class="level4">
+<h4>IAGSEngine.NotifyFontUpdated</h4>
+<pre><code>void NotifyFontUpdated(int fontNumber)
+</code></pre>
+<p>Notifies the engine about the certain font being modified. This is useful when you implement your own custom font loading and rendering (see <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>). When you tell the engine that the font has changed, it recalculates font metrics by quering the active font renderer about font's parameters, and forces game GUI to redraw.</p>
+<p><em>Added in version: 26</em></p>
 </section>
 </section>
 <section id="iagsscriptmanagedobject-interface" class="level3">
@@ -1256,6 +1286,46 @@ struct AGSRenderStageDesc {
 <p><em>Added in version: 23</em></p>
 </section>
 </section>
+<section id="iagsfontrenderer2-interface" class="level3">
+<h3><a href="#iagsfontrenderer2-interface">IAGSFontRenderer2 interface</a></h3>
+<p>The <code>IAGSFontRenderer2</code> interface is an extension to the <code>IAGSFontRenderer</code>, therefore contains all the parent's methods, but also adds a number of its own:</p>
+<section id="iagsfontrenderer2getversion" class="level4">
+<h4>IAGSFontRenderer2.GetVersion</h4>
+<pre><code>int GetVersion();
+</code></pre>
+<p>Tells the engine API version to which this renderer implementation corresponds to. This is a very important method, as engine will use it to know what functionality of this interface is safe to use. The return value must not be lower than 26 (as this is the first version in which this interface was introduced).</p>
+<p><em><img src="images/icon_warn.png" alt="Warning" /></em> You must make sure your renderer returns a correct version, corresponding to which version of interface you implement, otherwise engine may try calling non-existing methods and crash.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsfontrenderer2getrenderername" class="level4">
+<h4>IAGSFontRenderer2.GetRendererName</h4>
+<pre><code>const char *GetRendererName();
+</code></pre>
+<p>Returns the name of this renderer implementation. This is for informational purposes only. Engine may use this method, for example, to print current active font renderer names into the log.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsfontrenderer2getfontname" class="level4">
+<h4>IAGSFontRenderer2.GetFontName</h4>
+<pre><code>const char *GetFontName(int fontNumber);
+</code></pre>
+<p>Returns the name of the given font, if it's supported. Should return an empty string or null otherwise. This is for informational purposes only.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsfontrenderer2getfontheight" class="level4">
+<h4>IAGSFontRenderer2.GetFontHeight</h4>
+<pre><code>int GetFontHeight(int fontNumber);
+</code></pre>
+<p>Returns the font's height. This method supercedes <code>IAGSFontRenderer.GetTextHeight</code>, and does not require to pass a string. The returned height should be a maximal height the font may occupy.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+<section id="iagsfontrenderer2getlinespacing" class="level4">
+<h4>IAGSFontRenderer2.GetLineSpacing</h4>
+<pre><code>int GetLineSpacing(int fontNumber);
+</code></pre>
+<p>Returns the font's custom line spacing, if any. Return 0 to tell that the font does not have any particular line spacing set, in which case font's height will be used instead.</p>
+<p><em>Added in version: 26</em></p>
+</section>
+</section>
 </section>
   </main>
 
@@ -1263,7 +1333,7 @@ struct AGSRenderStageDesc {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

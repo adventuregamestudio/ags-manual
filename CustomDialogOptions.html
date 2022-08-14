@@ -195,8 +195,8 @@ function dialog_options_render(DialogOptionsRenderingInfo *info)
         info.Surface.DrawingColor = dlg_opt_ncolor;
 
       info.Surface.DrawStringWrapped(5, ypos, info.Width - 10,
-              eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
-      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+              eFontNormal, eAlignLeft, info.DialogToRender.GetOptionText(i));
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontNormal, info.Width - 10);
     }
   }
 }
@@ -216,7 +216,7 @@ function dialog_options_repexec(DialogOptionsRenderingInfo *info)
   {
     if (info.DialogToRender.GetOptionState(i) == eOptionOn)
     {
-      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontNormal, info.Width - 10);
       if ((mouse.y - info.Y) &lt; ypos)
       {
         info.ActiveOptionID = i;
@@ -266,8 +266,8 @@ function dialog_options_render(DialogOptionsRenderingInfo *info)
         info.Surface.DrawingColor = dlg_opt_ncolor;
 
       info.Surface.DrawStringWrapped(5, ypos, info.Width - 10,
-          eFontFont0, eAlignLeft, info.DialogToRender.GetOptionText(i));
-      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontFont0, info.Width - 10);
+          eFontNormal, eAlignLeft, info.DialogToRender.GetOptionText(i));
+      ypos += GetTextHeight(info.DialogToRender.GetOptionText(i), eFontNormal, info.Width - 10);
     }
   }
 }
@@ -312,7 +312,7 @@ function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode key
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

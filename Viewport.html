@@ -150,13 +150,13 @@ if (pt != null) {
 </section>
 <section id="viewportscreentoroompoint" class="level3">
 <h3><a href="#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a></h3>
-<pre><code>Point* Viewport.ScreenToRoomPoint(int scrx, int scry, bool clipViewport = true);
+<pre><code>Point* Viewport.ScreenToRoomPoint(int scrx, int scry, optional bool clipViewport);
 </code></pre>
 <p>Returns the point in room corresponding to the given screen coordinates if seen through this viewport. Resulting Point struct will contain room x and y coordinates.</p>
 <p>Function does the conversion from screen to room's coordinate system, correctly taking into account viewport's location on screen, camera's position in the room and its transformation (scaling etc).</p>
-<p>If <strong>clipViewport</strong> is true then this function will only return a point if given screen coordinates are over viewport and return null otherwise. If <strong>clipViewport</strong> is false then viewport's bounds will be ignored.</p>
+<p>If <strong>clipViewport</strong> is false then viewport's bounds will be ignored and this function returns valid point all the time. If it is true then this function will only return a point if given screen coordinates are inside viewport's rectangle and return null otherwise. The default is false.</p>
 <p>Example:</p>
-<pre><code>Point* pt = myViewport.ScreenToRoomPoint(mouse.x, mouse.y);
+<pre><code>Point* pt = myViewport.ScreenToRoomPoint(mouse.x, mouse.y, true);
 if (pt != null) {
   Display(&quot;Mouse cursor is over room location: (%d, %d).&quot;, pt.x, pt.y);
 } else {
@@ -228,7 +228,7 @@ if (pt != null) {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

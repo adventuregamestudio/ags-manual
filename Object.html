@@ -276,8 +276,8 @@ Display(&quot;Object 0&#39;s description: %s&quot;, description);
 <p><em>(Formerly known as <code>MergeObject</code>, which is now obsolete)</em></p>
 <pre><code>Object.MergeIntoBackground()
 </code></pre>
-<p>Merges the object into the background scene for this room. By doing this, the object becomes part of the background and so does not slow the game down. This is a 1-way operation - once the object has been merged, it cannot be changed back and the state of the room is permanently altered. Therefore you should only use this function if a game event has occurred that means the room is permanently changed.</p>
-<p><strong>NOTE:</strong> after calling this function, you cannot use the object any more and it is permanently removed from the game.</p>
+<p>Merges the object into the background scene for this room. This means that the object's image will be painted onto the room background and then object is turned off <strong>permanently</strong> (will no longer be displayed and may not be interacted with). This is a 1-way operation - once the object has been merged, it cannot be changed back. Therefore you should only use this function if a game event has occurred that means the room is permanently changed.</p>
+<p><strong>NOTE:</strong> this is an old function that was meant primarily for optimizing the game on ancient computers. Today it is not necessary. If you desire to make object not-interactable, the good solution is to make it not-clickable by setting <a href="Object.html#objectclickable"><code>Object.Clickable</code></a> property to <code>false</code>. Similar effect may be achieved by painting <a href="Object.html#objectgraphic">object's graphic</a> onto the room background using its <a href="Room.html#roomgetdrawingsurfaceforbackground">DrawingSurface</a>, and then setting <a href="Object.html#objectvisible"><code>Object.Visible</code></a> to <code>false</code>.</p>
 <p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported at the same color depth as the background graphic.</p>
 <p>Example:</p>
 <pre><code>object[3].MergeIntoBackground();
@@ -805,7 +805,7 @@ while (trans &lt; 100) {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

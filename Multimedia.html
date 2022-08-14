@@ -142,15 +142,14 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 <h3><a href="#playflic"><code>PlayFlic</code></a></h3>
 <pre><code>PlayFlic (int flic_number, int options)
 </code></pre>
-<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it.</p>
+<p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it. The game is paused while the animation plays.</p>
 <p>OPTIONS has these meanings:</p>
 <pre><code>0  player can&#39;t skip animation
 1  player can press ESC to skip animation
 2  player can press any key or click mouse to skip animation
-+10 (i.e.10,11,12) do not stretch to full-screen, just play at flc size
++10 (i.e. 10, 11, 12) do not stretch to full-screen, just play at flc size
 +100 do not clear the screen before starting playback
 </code></pre>
-<p>The game is paused while the animation plays.</p>
 <p>Example:</p>
 <pre><code>PlayFlic(2, 1);
 </code></pre>
@@ -171,32 +170,36 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 <h3><a href="#playvideo"><code>PlayVideo</code></a></h3>
 <pre><code>PlayVideo (string filename, VideoSkipStyle, int flags)
 </code></pre>
-<p>Plays an AVI, MPG or OGG Theora file, or any other file type supported by Media Player. The game is paused while the video plays.</p>
+<p>Plays a supported video file. The game is paused while the video plays.</p>
+<p><strong>As of 3.6.0</strong> AGS only supports OGG Theora videos (*.ogv). <strong>Prior to 3.6.0</strong> it also supported AVI and MPG, but only on MS Windows, and if necessary codecs are installed on player's system. Please see the notes in the end of this article for more information on this.</p>
 <p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
 <pre><code>eVideoSkipNotAllowed     player can&#39;t skip video
 eVideoSkipEscKey         player can press ESC to skip video
 eVideoSkipAnyKey         player can press any key to skip video
 eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 </code></pre>
-<p>FLAGS can be one of the following:</p>
-<pre><code>0: the video will be played at original size, with AVI audio
-1: the video will be stretched to full screen, with appropriate
-   black borders to maintain its aspect ratio and AVI audio.
-10: original size, with game audio continuing (AVI audio muted)
-11: stretched to full screen, with game audio continuing (AVI audio muted)
+<p><em>Flags</em> has these meanings:</p>
+<pre><code>0: default mode; the video is be played at original size, with its own audio; game&#39;s audio is muted.
++1: the video will be stretched to full screen, with appropriate black borders to maintain its aspect ratio.
++10 (i.e. 10, 11): video&#39;s own audio will be muted, and game audio will continuing playing.
++20 (i.e. 20, 21): both game&#39;s and video&#39;s audio will be playing.
 </code></pre>
-<p>There are two distinct type of videos that the PlayVideo function can play.</p>
-<p>The first is OGG Theora, which is a recently introduced video file format. AGS has built-in support for playing these videos, so everyone who plays your game will be able to see the video. OGG Theora videos are also built into the game EXE file when you compile the game (just make sure the file has a .OGV extension and is placed in your main game folder). A good converter for theora is <a href="https://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
-<p><strong>IMPORTANT:</strong> Because of an old mistake in AGS, OGG Theora videos may be positioned on screen with a slight negative offset, cutting few rows or columns of pixels. Until this is fixed, as a workaround, make sure that your video's frame sizes are multipliers of 16 and actual image placed aligned to the center. For example, if you want 320x200 video then increase canvas to 320x208 and place image at offset (0, 4).</p>
-<p>The second type of files that AGS can play is anything supported by Windows Media Player. This includes AVI, MPG and more. However, in order for these to work on the player's system, they will need to have the correct codecs installed. For example, if you create your video with the XVid codec, the player will need to have XVid installed to be able to view it. These types of video cannot be included into the game EXE, so you will have to place them separately in the Compiled folder for them to work.</p>
 <p><strong>NOTE:</strong> In 256-color games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic"><code>PlayFlic</code></a> command instead.</p>
 <p>Example:</p>
-<pre><code>PlayVideo(&quot;Intro.ogv&quot;, eVideoSkipEscKey, 1);
+<pre><code>PlayVideo(&quot;Intro.ogv&quot;, eVideoSkipEscKey, 11);
 </code></pre>
-<p>will play the video Intro.ogv, allowing the player to skip with ESC if they've seen it before.</p>
+<p>will play the video "Intro.ogv", allowing the player to skip with ESC if they've seen it before. The video will be stretched to fullscreen, maintaining aspect ration; but it's audio track will be muted, while game sounds will continue to play.</p>
+<p><strong>OGG Theora format</strong></p>
+<p>As of AGS 3.6.0 PlayVideo can only play OGG Theora (*.ogv). The benefit of this format is that no extra codecs or drivers have to be installed on the user's system in order to play them. OGG Theora videos are automatically included into the game package when you compile the game. For that you need to make sure that file has a .OGV extension and is <em>placed in your game project folder</em>.</p>
+<p>There are multiple tools out there that may convert another video to OGV. For instance, a good converter for Theora is <a href="https://v2v.cc/~j/ffmpeg2theora/">ffmpeg2theora</a>.</p>
+<p><strong>NOTE:</strong> <em>Prior to 3.6.0</em> there has been a mistake in AGS, because of which the OGG videos could be positioned on screen with a slight negative offset, cutting few rows or columns of pixels. If you are still using AGS 3.5.1 or lower, you have to make sure that your video's frame sizes are multipliers of 16 and actual image placed aligned to the center. For example, if you want 320x200 video then increase canvas to 320x208 and place image at offset (0, 4). This is not a problem anymore in 3.6.0 or later versions.</p>
+<p><strong>Other video formats</strong></p>
+<p>In previous versions of AGS (3.5.1 or lower), PlayVideo could also play AVI, MPG and few other formats, but only on MS Windows, because the playback was implemented through the use of the DirectShow interface. Engine also relied on the codecs installed on player's system (for example, if you created your video with the XVid codec, the player will need to have XVid installed to be able to view it).</p>
+<p>These types of video were not included into the game package. You have to place them separately near you game's exe for them to work.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>OGG Theora: supported everywhere. AVI / MPG: Windows only.</p>
-<p><em>Compatibility:</em> OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.</p>
+<p><em>Compatibility:</em></p>
+<p>OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.<br> AVI / MPG support was discontinued in <strong>AGS 3.6.0</strong> and not supported until further notice.<br> Flag +20 (play both game and video's audio) is supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Multimedia.html#playflic"><code>PlayFlic</code></a></p>
 <hr />
 </section>
@@ -218,7 +221,7 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

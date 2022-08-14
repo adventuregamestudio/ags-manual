@@ -721,76 +721,52 @@ if (keycode == eKeyPlus) Display(&quot;You pressed the Plus key&quot;);
 <tr class="header">
 <th>AGS modifier</th>
 <th>Mod</th>
-<th>Numeric value</th>
-<th>Hexadecimal value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><code>eKeyModShiftLeft</code></td>
 <td>Left Shift</td>
-<td>1</td>
-<td>0x0001</td>
 </tr>
 <tr class="even">
 <td><code>eKeyModShiftRight</code></td>
 <td>Right Shift</td>
-<td>2</td>
-<td>0x0002</td>
 </tr>
 <tr class="odd">
 <td><code>eKeyModShift</code></td>
 <td>any Shift</td>
-<td>3</td>
-<td>0x0003</td>
 </tr>
 <tr class="even">
 <td><code>eKeyModCtrlLeft</code></td>
 <td>Left Ctrl</td>
-<td>4</td>
-<td>0x0004</td>
 </tr>
 <tr class="odd">
 <td><code>eKeyModCtrlRight</code></td>
 <td>Right Ctrl</td>
-<td>8</td>
-<td>0x0008</td>
 </tr>
 <tr class="even">
 <td><code>eKeyModCtrl</code></td>
 <td>any Ctrl</td>
-<td>12</td>
-<td>0x000C</td>
 </tr>
 <tr class="odd">
 <td><code>eKeyModAltLeft</code></td>
 <td>Left Alt</td>
-<td>16</td>
-<td>0x0010</td>
 </tr>
 <tr class="even">
 <td><code>eKeyModAltRight</code></td>
 <td>Right Alt</td>
-<td>32</td>
-<td>0x0020</td>
 </tr>
 <tr class="odd">
 <td><code>eKeyModAlt</code></td>
 <td>any Alt</td>
-<td>48</td>
-<td>0x0030</td>
 </tr>
 <tr class="even">
 <td><code>eKeyModNum</code></td>
 <td>Num Lock</td>
-<td>64</td>
-<td>0x0040</td>
 </tr>
 <tr class="odd">
 <td><code>eKeyModCaps</code></td>
 <td>Caps Lock</td>
-<td>128</td>
-<td>0x0080</td>
 </tr>
 </tbody>
 </table>
@@ -805,6 +781,31 @@ if (mod &amp; eKeyModAlt == 0) {
     Display(&quot;NO Alt was pressed this time&quot;);
 }
 </code></pre>
+<p>In addition, there are two constants defining bitwise masks, one for key codes, and another for key modifiers:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Constant</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eKeyCodeMask</td>
+<td>all key codes</td>
+</tr>
+<tr class="even">
+<td>eKeyModMask</td>
+<td>all key mods</td>
+</tr>
+</tbody>
+</table>
+<p>If both key code and mods are combined in one integer variable, using bitwise operations, these masks may then be used to extract code and mods:</p>
+<pre><code>int combokey = eKeyA | eKeyModCtrlLeft;
+
+int keycode = combokey &amp; eKeyCodeMask; // keycode now contains only eKeyA
+int keymod = combokey &amp; eKeyModMask; // keymod now contains only eKeyModCtrlLeft
+</code></pre>
 </section>
 </section>
   </main>
@@ -813,7 +814,7 @@ if (mod &amp; eKeyModAlt == 0) {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 17be54e5571006fc7060372c248f0891a789390d
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
     </p>
   </footer>
 

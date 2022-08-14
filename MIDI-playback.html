@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MIDI playback</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="toggle-control" for="dark_mode_toggle">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <span class="control"></span>
+      </label>
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+      <label class="header_input" for="search_input">Search:</label>
+      <input type="search" id="search_input">
+      <label for="citoggle" class="header_input">Aa</label>
+      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <a href="index.html">
+      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+        <g shape-rendering="crispEdges">
+          <rect width="10" height="7" fill="#ffffff" />
+          <svg y="1">
+            <rect width="12" height="5" fill="#ffffff" />
+          </svg>
+          <svg x="1">
+            <rect width="8" height="8" fill="#ffffff" />
+          </svg>
+          <svg x="1" y="1">
+            <rect width="8" height="5" fill="#2a7fff" />
+          </svg>
+          <svg x="2" y="6">
+            <rect width="6" height="1" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="2">
+            <rect width="2" height="3" fill="#2a7fff" />
+          </svg>
+          <svg x="9" y="3">
+            <rect width="1" height="1" fill="#ffffff" />
+          </svg>
+          <svg x="2" y="2">
+            <rect width="6" height="3" fill="#0000d4" />
+          </svg>
+          <svg x="3" y="5">
+            <rect width="4" height="1" fill="#0000d4" />
+          </svg>
+          <svg x="2" y="1">
+            <rect width="6" height="1" fill="#ffffff" />
+          </svg>
+        </g>
+      </svg>
+    </a>
+    <h1>
+      <a href="index.html">AGS Manual</a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#midi-playback"><span>MIDI playback</span></a>
+<ul>
+<li><a href="#where-to-get-patch-files"><span>Where to get patch files</span></a></li>
+<li><a href="#how-to-install-timidity"><span>How to install Timidity</span></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="midi-playback" class="level2">
+<h2><a href="#midi-playback">MIDI playback</a></h2>
+<p>MIDI files are different from other sound formats, because they do not have actual sounds encoded, but describe the track using instruments and notes. In order to play a MIDI track the engine must have a full knowledge of how to interpret these instruments, how to convert the instrument's note into the real sound. This knowledge is got from what is known as "sound banks", or "patch files".</p>
+<p><em>Prior to <strong>AGS 3.6.0</strong></em> the Windows version of the engine would use the system interface to play MIDI file, that's why the games did not require to contain any sound banks: they would use the ones installed in the system. Other systems (Linux, and so forth), however, required user to install such banks by hand before they are able to hear the MIDI music in games.</p>
+<p><em>Since <strong>AGS 3.6.0</strong></em>, for technical reasons, the engine no longer supports using the Windows interface, so even on Windows you require to have the MIDI banks installed if you want to hear MIDI music from AGS games. Please continue the read to know how it can be done.</p>
+<p>For playing MIDI files AGS engine uses a software synthesizer known as TiMidity++ (or simply "Timidity"). Timidity transcribes MIDI using Gravis Ultrasound (GUS) patch files. The synthesizer itself is built into the engine so you don't have to worry about that, but the patch files are not. To perform an actual MIDI engine needs a Timidity configuration and patch files present where it can find them.</p>
+<section id="where-to-get-patch-files" class="level3">
+<h3><a href="#where-to-get-patch-files">Where to get patch files</a></h3>
+<p>There are numerous Timidity patch files that may be found on the internet, each has its own differences, and in theory one can even make their custom ones.</p>
+<p>Following is an example of a good collection based on the id Software's Doom 1 and 2 games (tested with few older AGS games):<br> <a href="http://www.gamers.org/pub/idgames/music/dgguspat.zip">http://www.gamers.org/pub/idgames/music/dgguspat.zip</a></p>
+</section>
+<section id="how-to-install-timidity" class="level3">
+<h3><a href="#how-to-install-timidity">How to install Timidity</a></h3>
+<p>The primary file is called "timidity.cfg" and it should be present either along with the game (or engine's) executable, or in the following system path:</p>
+<p><strong>On Windows:</strong></p>
+<ul>
+<li>C:\Timidity\Timidity.cfg</li>
+</ul>
+<p><strong>On Linux and MacOS</strong></p>
+<ul>
+<li>etc/timidity.cfg</li>
+</ul>
+<p>The patch files may be located in the same directory by default. If you prefer to place them elsewhere for organizational purposes, then you have to add a "dir" command inside timidity.cfg, right at the top of the file:</p>
+<pre><code>dir THE_PATH_TO_PATCH_FILES
+</code></pre>
+<p>for example:</p>
+<pre><code>dir C:\timidity\patches
+dir etc/tim_patches
+</code></pre>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>
