@@ -75,7 +75,6 @@
 <li><a href="#mousechangemodehotspot"><span><code>Mouse.ChangeModeHotspot</code></span></a></li>
 <li><a href="#mousechangemodeview"><span><code>Mouse.ChangeModeView</code></span></a></li>
 <li><a href="#mouseclick"><span><code>Mouse.Click</code></span></a></li>
-<li><a href="#mousecontrolenabled"><span><code>Mouse.ControlEnabled</code></span></a></li>
 <li><a href="#mousedisablemode"><span><code>Mouse.DisableMode</code></span></a></li>
 <li><a href="#mouseenablemode"><span><code>Mouse.EnableMode</code></span></a></li>
 <li><a href="#mouseismodeenabled"><span><code>Mouse.IsModeEnabled</code></span></a></li>
@@ -86,11 +85,13 @@
 <li><a href="#mouseselectpreviousmode"><span><code>Mouse.SelectPreviousMode</code></span></a></li>
 <li><a href="#mousesetbounds"><span><code>Mouse.SetBounds</code></span></a></li>
 <li><a href="#mousesetposition"><span><code>Mouse.SetPosition</code></span></a></li>
-<li><a href="#mousespeed"><span><code>Mouse.Speed</code></span></a></li>
 <li><a href="#mouseupdate"><span><code>Mouse.Update</code></span></a></li>
 <li><a href="#mouseusedefaultgraphic"><span><code>Mouse.UseDefaultGraphic</code></span></a></li>
 <li><a href="#mouseusemodegraphic"><span><code>Mouse.UseModeGraphic</code></span></a></li>
+<li><a href="#mouseautolock"><span><code>Mouse.AutoLock</code></span></a></li>
+<li><a href="#mousecontrolenabled"><span><code>Mouse.ControlEnabled</code></span></a></li>
 <li><a href="#mousemode"><span><code>Mouse.Mode</code></span></a></li>
+<li><a href="#mousespeed"><span><code>Mouse.Speed</code></span></a></li>
 <li><a href="#mousevisible"><span><code>Mouse.Visible</code></span></a></li>
 </ul></li>
 </ul>
@@ -152,20 +153,6 @@ Mouse.Click(eMouseLeft);
 <p>This will simulate user click at (100,100).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></p>
-<hr />
-</section>
-<section id="mousecontrolenabled" class="level3">
-<h3><a href="#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a></h3>
-<pre><code>static bool Mouse.ControlEnabled;
-</code></pre>
-<p>Gets/sets if the mouse cursor movement has to be controlled by AGS engine; otherwise it is controlled by operation system. Note that in practice mouse is only controlled when the game is run in fullscreen mode.</p>
-<p>This setting may be useful to know if custom mouse speed setting is applied or not.</p>
-<p>Example:</p>
-<pre><code>sldMouseSpeed.Visible = Mouse.ControlEnabled;
-</code></pre>
-<p>makes mouse speed slider visible only if the mouse is controlled by the game.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.<br> Settable since <strong>AGS 3.5.0</strong>.</p>
-<p><em>See also:</em> <a href="Mouse.html#mousespeed"><code>Mouse.Speed</code></a></p>
 <hr />
 </section>
 <section id="mousedisablemode" class="level3">
@@ -308,22 +295,6 @@ mouse.Mode = eModeTalk;
 <p><em>See also:</em> <a href="Mouse.html#mousesetbounds"><code>Mouse.SetBounds</code></a></p>
 <hr />
 </section>
-<section id="mousespeed" class="level3">
-<h3><a href="#mousespeed"><code>Mouse.Speed</code></a></h3>
-<pre><code>static float Mouse.Speed;
-</code></pre>
-<p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the range 0-1 make cursor movement slower, values higher than 1 make cursor movement faster.</p>
-<p>Mouse speed changed this way will be saved to the configuration file when player exits the game. Next time game starts it will restore the last value you applied, unless player has modified it in the setup program.</p>
-<p>The custom mouse speed is only applied if mouse cursor movement is currently being controlled by the game, which is usually true only when game is run in fullscreen mode. Setting this property has no effect otherwise. You can use <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a> to know if speed will be applied.</p>
-<p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to achieve gameplay effect (such as character's loss of coordination, and so forth).</p>
-<p>Example:</p>
-<pre><code>Mouse.Speed = IntToFloat(sldMouseSpeed.Value) / 10.0;
-</code></pre>
-<p>converts slider control's position into mouse speed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a>, <a href="Mouse.html#mousesetposition"><code>Mouse.SetPosition</code></a></p>
-<hr />
-</section>
 <section id="mouseupdate" class="level3">
 <h3><a href="#mouseupdate"><code>Mouse.Update</code></a></h3>
 <p><em>(Formerly known as <code>RefreshMouse</code>, which is now obsolete)</em></p>
@@ -360,6 +331,30 @@ Display(&quot;The mouse is now at: %d, %d.&quot;, mouse.x, mouse.y);
 <p><em>See also:</em> <a href="Mouse.html#mousechangemodegraphic"><code>Mouse.ChangeModeGraphic</code></a>, <a href="Mouse.html#mousemode"><code>Mouse.Mode</code></a>, <a href="Mouse.html#mouseusedefaultgraphic"><code>Mouse.UseDefaultGraphic</code></a></p>
 <hr />
 </section>
+<section id="mouseautolock" class="level3">
+<h3><a href="#mouseautolock"><code>Mouse.AutoLock</code></a></h3>
+<pre><code>static bool Mouse.AutoLock;
+</code></pre>
+<p>Gets/sets if the system mouse cursor is automatically locked in the game window when the player clicks in it. The "locked" cursor will not be able to leave the bounds of the window. This is useful when playing a game in a windowed mode, preventing occasional misclicks outside that could lead to switching out of the game.</p>
+<p><strong>NOTE:</strong> it is strongly advised to not set this property unconditionally, but instead make a menu option in game where player could set this to their preference.</p>
+<p><strong>NOTE:</strong> the player may toggle mouse lock on and off anytime using <strong>Ctrl + Alt</strong> key combination; but that does not disable autolock on click.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="mousecontrolenabled" class="level3">
+<h3><a href="#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a></h3>
+<pre><code>static bool Mouse.ControlEnabled;
+</code></pre>
+<p>Gets/sets if the mouse cursor movement has to be controlled by AGS engine; otherwise it is controlled by operation system. Note that in practice mouse is only controlled when the game is run in fullscreen mode.</p>
+<p>This setting may be useful to know if custom mouse speed setting is applied or not.</p>
+<p>Example:</p>
+<pre><code>sldMouseSpeed.Visible = Mouse.ControlEnabled;
+</code></pre>
+<p>makes mouse speed slider visible only if the mouse is controlled by the game.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.<br> Settable since <strong>AGS 3.5.0</strong>.</p>
+<p><em>See also:</em> <a href="Mouse.html#mousespeed"><code>Mouse.Speed</code></a></p>
+<hr />
+</section>
 <section id="mousemode" class="level3">
 <h3><a href="#mousemode"><code>Mouse.Mode</code></a></h3>
 <p><em>(Formerly known as <code>GetCursorMode</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetCursorMode</code>, which is now obsolete)</em></p>
@@ -375,6 +370,22 @@ Display(&quot;The mouse is now at: %d, %d.&quot;, mouse.x, mouse.y);
 </code></pre>
 <p>will execute the code only if the current cursor mode is MODE 0 (WALK).</p>
 <p><em>See also:</em> <a href="Mouse.html#mousesavecursoruntilitleaves"><code>Mouse.SaveCursorUntilItLeaves</code></a>, <a href="Mouse.html#mouseusemodegraphic"><code>Mouse.UseModeGraphic</code></a>, <a href="Mouse.html#mouseselectnextmode"><code>Mouse.SelectNextMode</code></a></p>
+<hr />
+</section>
+<section id="mousespeed" class="level3">
+<h3><a href="#mousespeed"><code>Mouse.Speed</code></a></h3>
+<pre><code>static float Mouse.Speed;
+</code></pre>
+<p>Gets/sets in-game mouse cursor speed. 1.0 is default, values in the range 0-1 make cursor movement slower, values higher than 1 make cursor movement faster.</p>
+<p>Mouse speed changed this way will be saved to the configuration file when player exits the game. Next time game starts it will restore the last value you applied, unless player has modified it in the setup program.</p>
+<p>The custom mouse speed is only applied if mouse cursor movement is currently being controlled by the game, which is usually true only when game is run in fullscreen mode. Setting this property has no effect otherwise. You can use <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a> to know if speed will be applied.</p>
+<p><strong>NOTE:</strong> It is strongly advised to <strong>NEVER</strong> use this parameter to achieve gameplay effect (such as character's loss of coordination, and so forth).</p>
+<p>Example:</p>
+<pre><code>Mouse.Speed = IntToFloat(sldMouseSpeed.Value) / 10.0;
+</code></pre>
+<p>converts slider control's position into mouse speed.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Mouse.html#mousecontrolenabled"><code>Mouse.ControlEnabled</code></a>, <a href="Mouse.html#mousesetposition"><code>Mouse.SetPosition</code></a></p>
 <hr />
 </section>
 <section id="mousevisible" class="level3">
@@ -399,7 +410,7 @@ mouse.Visible = true;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
+      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
     </p>
   </footer>
 

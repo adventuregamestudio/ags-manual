@@ -69,7 +69,12 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#dialog-script"><span>Dialog Script</span></a></li>
+<li><a href="#dialog-script"><span>Dialog Script</span></a>
+<ul>
+<li><a href="#dialog-commands"><span>Dialog commands</span></a></li>
+<li><a href="#substituting-dialog-speech-with-custom-functions"><span>Substituting dialog speech with custom functions</span></a></li>
+<li><a href="#using-regular-scripting-commands-in-dialogs"><span>Using regular scripting commands in dialogs</span></a></li>
+</ul></li>
 </ul>
   </nav>
 
@@ -95,6 +100,8 @@ return
 </code></pre>
 <p>"return" tells AGS to go back and display the choices again to the player. If you use "stop" instead of return, then the conversation is ended. Alternatively, you can use "goto-dialog" or "goto-previous", which abort the current dialog script and transfer control to the new dialog.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> indent these lines with spaces or tabs. Indented lines signify that AGS should interpret the line as a normal scripting command rather than a dialog scripting command (see below).</p>
+<section id="dialog-commands" class="level3">
+<h3><a href="#dialog-commands">Dialog commands</a></h3>
 <p>The dialog commands available are:</p>
 <ul>
 <li><strong>goto-dialog X</strong><br> Switches the current topic to Topic X, and displays the current list of choices for that topic.</li>
@@ -106,7 +113,9 @@ return
 <li><strong>return</strong><br> Stops the script and returns to the list of choices.</li>
 <li><strong>stop</strong><br> Stops the conversation and returns the player to the game.</li>
 </ul>
-<p><strong>Substituting dialog speech with custom functions</strong></p>
+</section>
+<section id="substituting-dialog-speech-with-custom-functions" class="level3">
+<h3><a href="#substituting-dialog-speech-with-custom-functions">Substituting dialog speech with custom functions</a></h3>
 <p>By default all of the character dialog lines are executed using the standard function Character.Say. Since AGS 3.5.0 it is possible to define a custom script function as a substitute instead. This is done using "Custom Say function in dialog scripts" option in the General Settings. Similarly, narration (which is by default done using Display script function) may be substituted with a custom one using "Custom Narrate function in dialog scripts".</p>
 <p>These custom functions should be declared as imports in one of your script headers.<br> "Custom Say" function must have one of the following two declaration forms:<br> <code>void MySay(Character* c, const string text); // use ex: MySay(player, "Hello");</code><br> or<br> <code>void MySay(this Character*, const string text); // use ex: player.MySay("Hello");</code></p>
 <p>"Custom Narrate" function must have following declaration form:<br> <code>void MyNarrate(const string text);</code></p>
@@ -115,7 +124,9 @@ return
   player.MySay(this.GetOptionText( X )); \\ where X is the actual option index
 </code></pre>
 <p>If you wonder how such function will work in dialogs, see the following topic below.</p>
-<p><strong>Using scripting commands in dialogs</strong></p>
+</section>
+<section id="using-regular-scripting-commands-in-dialogs" class="level3">
+<h3><a href="#using-regular-scripting-commands-in-dialogs">Using regular scripting commands in dialogs</a></h3>
 <p>Often the provided dialog scripting commands won't be enough for what you want to do in the dialog. You might want to give the player an inventory item or add some points to their score, for example.</p>
 <p>AGS now lets you put normal scripting commands in your dialog script, by indenting the line with spaces or tabs. For example:</p>
 <pre><code>@1
@@ -140,13 +151,14 @@ otherman: &quot;Here&#39;s a key for you.&quot;
 return
 </code></pre>
 </section>
+</section>
   </main>
 
 
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
+      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
     </p>
   </footer>
 

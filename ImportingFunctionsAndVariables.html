@@ -86,13 +86,13 @@
 <section id="exporting-and-importing-a-function" class="level3">
 <h3><a href="#exporting-and-importing-a-function">Exporting and importing a function</a></h3>
 <p>All script functions are exported automatically, so they only need an import declaration to let other scripts know that they exist. This is done by declaring a function with an <a href="ScriptKeywords.html#import"><code>import</code></a> keyword. The best practice is to place them in the owner script's header.</p>
-<p>For example, suppose you have the following function in script MyScript:</p>
+<p>For example, suppose you have the following function in script MyScript.asc:</p>
 <pre><code>function ScriptAFunction(int param1, int param2)
 {
     // some actions here
 }
 </code></pre>
-<p>Then the import declaration in the MyScript's header should looks like:</p>
+<p>Then the import declaration in the MyScript's header (MyScript.ash) should looks like:</p>
 <pre><code>import function ScriptAFunction(int param1, int param2);
 </code></pre>
 <p>The name, type and arguments of the function must be the same, otherwise there will be errors either during compilation or at runtime.</p>
@@ -100,17 +100,17 @@
 <section id="exporting-and-importing-a-variable" class="level3">
 <h3><a href="#exporting-and-importing-a-variable">Exporting and importing a variable</a></h3>
 <p>Script variables are not exported by default, so that has to be done explicitly inside the script which has them declared, using the <a href="ScriptKeywords.html#export"><code>export</code></a> keyword.</p>
-<p>Let's suppose that you have the following variable inside MyScript:</p>
+<p>Let's suppose that you have the following variable inside MyScript.asc:</p>
 <pre><code>int public_variable;
 </code></pre>
-<p>If you want to share this variable with the other scripts, you have put the <code>export</code> statement <em>inside the same script where you have declared the variable</em> (MyScript), somewhere below the declaration:</p>
+<p>If you want to share this variable with the other scripts, you have put the <code>export</code> statement <em>inside the same script where you have declared the variable</em> (MyScript.asc), somewhere below the declaration:</p>
 <pre><code>export public_variable;
 </code></pre>
 <p>The <code>export</code> statement needs <em>only the variable's name</em> and nothing else. It must <em>not</em> be put inside a function.</p>
 <p>You can export several variables in one statement if you separate their names with commas, for example:</p>
 <pre><code>export public_variable1, public_variable2;
 </code></pre>
-<p>Now, import declaration in the MyScript's header should looks like:</p>
+<p>Now, import declaration in the MyScript's header (MyScript.ash) should looks like:</p>
 <pre><code>import int public_variable;
 </code></pre>
 <p>Both <em>the name and type</em> must match the variable's own declaration exactly.<br> This bit is important. If the variable is <code>int</code> then it should be imported as <code>int</code>, if it's of the type <code>Character*</code> then the import should also be declared as <code>Character*</code>.</p>
@@ -121,15 +121,15 @@
 <p>Similar to the regular variable declaration, you can declare the import of several variables <em>of the same type</em> in one statement if you separate them by commas:</p>
 <pre><code>import int var1, var2;
 </code></pre>
-<p><strong>NOTE:</strong> Most commonly import declarations are put in the header of the same script where these variables are defined. But in theory you may not do that and instead place imports inside each particular script where you intend to use these variables.</p>
-<p>So, for a final example, you have this in MyScript.asc:</p>
+<p><strong>NOTE:</strong> Most commonly import declarations are put in the <em>header</em> of the same script where these variables are defined. But in theory you may not do that and instead place imports inside each particular script where you intend to use these variables.</p>
+<p>So, for a final example, you have this in <strong>MyScript.asc</strong>:</p>
 <pre><code>int public_int1, public_int2;
 int arr[10];
 String someString;
 Character* RandomChar;
 export public_int1, public_int2, arr, someString, RandomChar;
 </code></pre>
-<p>And in MyScript.ash:</p>
+<p>And in <strong>MyScript.ash</strong>:</p>
 <pre><code>import int public_int1, public_int2;
 import int arr[10];
 import String public_str;
@@ -146,7 +146,7 @@ import Character* RandomChar;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
+      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
     </p>
   </footer>
 

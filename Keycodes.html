@@ -81,7 +81,7 @@
 <h2><a href="#key-code-table">Key code table</a></h2>
 <p>In AGS script you have a <code>eKeyCode</code> enumeration that defines key codes. These key codes can be passed to <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a>, as well as used in calls to <a href="Globalfunctions_General.html#iskeypressed"><code>IsKeyPressed</code></a>.</p>
 <p>Historically AGS has Ctrl+X key combinations have their own distinct keycodes. At the same time, keycodes corresponding to the modifier keys (Shift, Ctrl and Alt) were never passed to the <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a> alone and were only allowed with <a href="Globalfunctions_General.html#iskeypressed"><code>IsKeyPressed</code></a>.</p>
-<p>Starting from version 3.6.0 AGS supports two <a href="UpgradeTo36.html#changes-to-key-input-handling">"key handling modes"</a>. The old mode works as described above, according to the historical behavior. The new mode actually allows modifier keycodes in <code>on_key_press</code>, and disables combined keycodes like Ctrl+X: instead these are passed as two separate keycodes.</p>
+<p>Starting from version <strong>3.6.0</strong> AGS supports two <a href="UpgradeTo36.html#changes-to-key-input-handling">"key handling modes"</a>. The old mode works as described above, according to the historical behavior. The new mode actually allows modifier keycodes in <code>on_key_press</code>, and disables combined keycodes like Ctrl+X: instead these are passed as two separate keycodes.</p>
 <p>Following section lists the members of this enum, and which keys they represent.</p>
 <table>
 <thead>
@@ -713,9 +713,10 @@
 <pre><code>if (keycode == eKeyA) Display(&quot;You pressed A&quot;);
 if (keycode == eKeyPlus) Display(&quot;You pressed the Plus key&quot;);
 </code></pre>
+<p><em>Compatibility:</em> the mod key constants (eKeyShiftLeft to eKeyAltRight) are only supported since AGS 3.6.0. In previous versions you'd have to use corresponding numeric values.</p>
 <section id="key-modifiers" class="level3">
 <h3><a href="#key-modifiers">Key modifiers</a></h3>
-<p>In addition, there's separate <code>eKeyMod</code> enumeration with modifier "flags". These values are special so that they may be combined in one variable to make a list of modifiers (like, Shift + Ctrl). This enumeration is supported since AGS 3.6.0. Following is the list of possible values:</p>
+<p>In addition, there's separate <code>eKeyMod</code> enumeration with modifier "flags". These values are special so that they may be combined in one variable to make a list of modifiers (like, Shift + Ctrl). This enumeration is supported since <strong>AGS 3.6.0</strong>. Following is the list of possible values:</p>
 <table>
 <thead>
 <tr class="header">
@@ -806,6 +807,7 @@ if (mod &amp; eKeyModAlt == 0) {
 int keycode = combokey &amp; eKeyCodeMask; // keycode now contains only eKeyA
 int keymod = combokey &amp; eKeyModMask; // keymod now contains only eKeyModCtrlLeft
 </code></pre>
+<p><em>Compatibility:</em> eKeyMod enumeration is only supported since AGS 3.6.0.</p>
 </section>
 </section>
   </main>
@@ -814,7 +816,7 @@ int keymod = combokey &amp; eKeyModMask; // keymod now contains only eKeyModCtrl
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f5673d2fa5a86f76b4e65f680f55b98a34cf637
+      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
     </p>
   </footer>
 
