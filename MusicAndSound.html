@@ -156,8 +156,8 @@ The same applies to the folder for sounds and sound effects, add subfolders to i
 </code></pre>
 <p>plays the audio clip called <em>aExplosion</em>.</p>
 <p><strong>Priorities and channels</strong></p>
-<p>AGS currently has an 8-channel audio system, which means that up to 8 sounds can be playing at the same time. One channel is always reserved for the speech voice-over and you cannot change that, so you have 7 at your disposal. By default Audio Types reserve one channel for music and one for ambient sounds; thus leaving 5 available for other types, but you can change that to your needs.</p>
-<p><strong>NOTE:</strong> Because total number of channels is a constant, AGS does not guarantee to reserve exactly as many channels as you set. Channels are reserved in the order of types in the project, so if you set "MaxChannels" to 5 for music and 5 for sounds, then at runtime the game will reserve 5 for music and only 2 remaining for sounds.</p>
+<p>AGS currently has an 16-channel audio system, which means that up to 16 sounds can be playing at the same time. One channel is always reserved for the speech voice-over and you cannot change that, so you have 15 at your disposal. By default Audio Types reserve one channel for music and one for ambient sounds; thus leaving 13 available for other types, but you can change that to your needs.</p>
+<p><strong>NOTE:</strong> Because total number of channels is a constant, AGS does not guarantee to reserve exactly as many channels as you set. Channels are reserved in the order of types in the project, so if you set "MaxChannels" to 9 for music and 9 for sounds, then at runtime the game will reserve 9 for music and only 6 remaining for sounds.</p>
 <p>If you try to play an audio clip and there are no channels available, then an existing one will be stopped and the new one will take its place. However, this will only happen if the new audio clip has an <strong>equal or higher</strong> priority than one of the currently playing sounds.</p>
 <p>Thus, the priority allows you to decide which audio clips are more important than others. For example, you might set a footstep sound as low priority, and a door opening as high priority. This can be configured at the folder level in the editor, and also by changing the properties of an individual audio clip (by default they will inherit from their containing folder).</p>
 <p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicitly specify the priority when you play it, for example:</p>
@@ -204,7 +204,7 @@ chan.Volume = 20;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
+      Build: 2ec1ee0bf2f2dbc5638831f15bfe8ea84ebbbb2b
     </p>
   </footer>
 

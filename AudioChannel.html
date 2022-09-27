@@ -275,7 +275,7 @@ Display(&quot;The Explosion sound is %d ms long.&quot;, channel.LengthMs);
 </code></pre>
 <p>Gets/sets the panning of this audio channel.</p>
 <p>Panning allows you to adjust the stereo balance of the audio. The default is 0, which is centered and will play at the same volume on both speakers. However you can adjust this between -100 (fully left) to 100 (fully right) to adjust the balance between the speakers.</p>
-<p><strong>NOTE:</strong> MIDI music files do not support panning.</p>
+<p><strong>IMPORTANT:</strong> only mono clips support panning at the moment.</p>
 <p>Example:</p>
 <pre><code>AudioChannel *channel = aExplosion.Play();
 channel.Panning = -100;
@@ -374,7 +374,7 @@ channel.Volume = 20;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
+      Build: 2ec1ee0bf2f2dbc5638831f15bfe8ea84ebbbb2b
     </p>
   </footer>
 

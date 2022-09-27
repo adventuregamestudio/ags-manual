@@ -240,9 +240,9 @@ cEgo.UnlockView();
 </code></pre>
 <p>Changes the room that the character is in.</p>
 <p>If you call this on the player character, then the game will move into the new room with them.</p>
-<p><strong>IMPORTANT:</strong> This command does not change the room immediately; instead, it will perform the actual room change once your script function has finished (This is to avoid problems with unloading the script while it is still running). This means that you should not use any other commands which rely on the new room (object positionings, and so on) after this command within the same function.</p>
-<p>If you call this on a non-player character, then they are instantly transported to the new room number.</p>
-<p>Optionally, you can include an X and Y co-ordinate (you must include either both or neither). If you do so, then the character will also be moved to the specified co-ordinates in the new room.</p>
+<p><strong>IMPORTANT:</strong> For <em>player</em> character this command does not change the room immediately; instead, it will schedule the room change, and perform it only once your script function has finished (This is to avoid problems with unloading the script while it is still running). This means that you should not use any other commands which rely on the new room (object positionings, and so on) after this command within the same function.</p>
+<p>If you call this on a <em>non-player</em> character, then they are instantly transported to the new room number.</p>
+<p>Optionally, you can include an X and Y co-ordinate (you must include either both or neither). If you do so, then the character will also be moved to the specified co-ordinates in the new room. If you do not supply these parameters, then the character's latest X and Y position will be carried over.</p>
 <p>Optionally, you can also include direction parameter, that determines which direction this character will be facing after room change.</p>
 <p>Example:</p>
 <pre><code>player.ChangeRoom(4, 100, 50, eDirectionRight);
@@ -1691,7 +1691,7 @@ while (trans &lt; 100) {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 826452ec0fbae1064b21078a69d2de4eda2a67e8
+      Build: 2ec1ee0bf2f2dbc5638831f15bfe8ea84ebbbb2b
     </p>
   </footer>
 
