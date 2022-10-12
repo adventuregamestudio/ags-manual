@@ -62,7 +62,7 @@ function citoggle_clicked()
 }
 
 function search() {
-    var query = search_input.value;
+    var query = search_input.value.replace(/[\])}[{(]/g, '');
     var is_case_sensitive = case_sensitive_checkbox.checked;
 
     if (query !== previous_query || was_case_sensitive != is_case_sensitive) {
