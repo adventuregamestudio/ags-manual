@@ -284,7 +284,10 @@ function do_highlight() {
     
     var options = {
       "caseSensitive": case_sensitive,
-      "accuracy": whole_word_checkbox.checked ? 'exactly' : 'partially'
+      "accuracy": {
+        "value": whole_word_checkbox.checked ? 'exactly' : 'partially',
+        "limiters": [",", "."]
+      }
     }
 
     if (highlight_checkbox.checked) 
