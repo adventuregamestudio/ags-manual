@@ -34,12 +34,48 @@ var previous_query;
 var ci_keywords;
 var case_sensitive_checkbox;
 var was_case_sensitive;
+var whole_word_checkbox;
+var was_whole_word;
+var highlight_checkbox;
+var during_init = true;
 
 window.onload = function() { init(); }
 
+window.addEventListener('DOMContentLoaded', () => {
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute('id');
+      if (entry.intersectionRatio > 0) {
+        document.querySelector('nav li a[href="#' + id +'"]').parentElement.classList.add('active');
+      } else {
+        document.querySelector('nav li a[href="#' + id + '"]').parentElement.classList.remove('active');
+      }
+    });
+  });
+
+  // Track all sections that have an `id` applied
+  document.querySelectorAll('section[id].level3').forEach((section) => {
+    observer.observe(section);
+  });
+  
+});
+
 function update_case_sensitive_checkbox_text()
 {
-  case_sensitive_checkbox.title = case_sensitive_checkbox.checked ? "Match case" : "Ignore case";  
+  case_sensitive_checkbox.parentElement.title = case_sensitive_checkbox.checked ? "Match case" : "Ignore case";  
+}
+
+function storage(param, value) {
+  if(typeof value == 'undefined') {
+    var retval = window.localStorage.getItem(param);
+    if (retval == 'true' || retval == 'false') return retval == 'true';
+    return retval;
+  }
+  else
+    window.localStorage.setItem(param, value);
+
+  return value;
 }
 
 function init() {
@@ -47,33 +83,67 @@ function init() {
     search_input = document.getElementById('search_input');
     search_results = document.getElementById('search_results');
     case_sensitive_checkbox = document.getElementById('citoggle');
+    case_sensitive_checkbox.checked = storage('case_sensitive') ?? false;
+    whole_word_checkbox = document.getElementById('wwtoggle');
+    whole_word_checkbox.checked = storage('whole_word') ?? true;
+    highlight_checkbox = document.getElementById('hltoggle');
+    highlight_checkbox.checked = storage('highlight') ?? true;
+    
     previous_search = search_input.value;
     search_check = setInterval(search, SEARCH_CHECK_MS);
     
     update_case_sensitive_checkbox_text();
     do_highlight();
+    during_init = false;
 }
 
 function citoggle_clicked()
 {
+  storage('case_sensitive', case_sensitive_checkbox.checked);
   update_case_sensitive_checkbox_text();
   
   search();
 }
 
+function wwtoggle_clicked()
+{
+  storage('whole_word', whole_word_checkbox.checked);
+  search();
+}
+
+function hltoggle_clicked()
+{
+  storage('highlight', highlight_checkbox.checked);
+  do_highlight();
+}
+
 function search() {
     var query = search_input.value.replace(/[\])}[{(]/g, '');
     var is_case_sensitive = case_sensitive_checkbox.checked;
+    var is_whole_word = whole_word_checkbox.checked;
 
-    if (query !== previous_query || was_case_sensitive != is_case_sensitive) {
+    if (query !== previous_query || was_case_sensitive != is_case_sensitive || was_whole_word != is_whole_word) {
         previous_query = query;
-        update_results(query.split(/\s+/), is_case_sensitive)
+        update_results(query.split(/\s+/), is_case_sensitive, is_whole_word)
     }
     
     was_case_sensitive = is_case_sensitive;
+    was_whole_word = is_whole_word;
 }
 
-function update_results(words, is_case_sensitive) {
+function search_partial_key(haystack, searchValue) {
+    if (typeof searchValue != 'undefined' && searchValue.length < 3) return [];
+    var matches = [];
+
+    for (var key in haystack) {
+        if (key.startsWith(searchValue)) {
+          matches.push(key);
+        }
+    }
+    return matches;
+};
+
+function update_results(words, is_case_sensitive, is_whole_world) {
     //remove exiting entries
     while (search_results.firstChild) {
         search_results.removeChild(search_results.firstChild);
@@ -85,26 +155,59 @@ function update_results(words, is_case_sensitive) {
 
     words.forEach(word => {
         if (!is_case_sensitive) word = word.toLowerCase();
-        if (word in keywords) {
-            var max = Object.keys(keywords[word]).length;
 
-            for (var i = 0; i < max; i ++) {
-            Object.keys(keywords[word][i]).forEach(docname => {
-                    // add counts for multiple hits
-                    if (docname in track.total) {
-                        track.total[docname] += keywords[word][i][docname];
-                    } else {
-                        track.total[docname] = keywords[word][i][docname];
-                    }
+        // naive partial matching
+        if (!is_whole_world) {
+          let matches = search_partial_key(keywords, word);
+          matches.forEach(word2 => {
+            if (word2 in keywords) {
+                var max = Object.keys(keywords[word2]).length;
 
-                    // track which search words were found
-                    if (!(docname in track.which)) {
-                        track.which[docname] = {}
-                    }
+                for (var i = 0; i < max; i ++) {
+                Object.keys(keywords[word2][i]).forEach(docname => {
+                        // add counts for multiple hits
+                        if (docname in track.total) {
+                            track.total[docname] += keywords[word2][i][docname];
+                        } else {
+                            track.total[docname] = keywords[word2][i][docname];
+                        }
 
-                    track.which[docname][word] = keywords[word][i][docname]
-               })
+                        // track which search words were found
+                        if (!(docname in track.which)) {
+                            track.which[docname] = {}
+                        }
+
+                        track.which[docname][word2] = keywords[word2][i][docname]
+                        
+                   })
+                }
             }
+          });
+          return;
+        } 
+
+
+          if (word in keywords) {
+              var max = Object.keys(keywords[word]).length;
+
+              for (var i = 0; i < max; i ++) {
+              Object.keys(keywords[word][i]).forEach(docname => {
+                      // add counts for multiple hits
+                      if (docname in track.total) {
+                          track.total[docname] += keywords[word][i][docname];
+                      } else {
+                          track.total[docname] = keywords[word][i][docname];
+                      }
+
+                      // track which search words were found
+                      if (!(docname in track.which)) {
+                          track.which[docname] = {}
+                      }
+
+                      track.which[docname][word] = keywords[word][i][docname]
+                 })
+              }
+          
         }
     });
 
@@ -118,19 +221,38 @@ function update_results(words, is_case_sensitive) {
 
     Object.keys(track.total).sort(function(a, b) {return track.total[b] - track.total[a]}).forEach(docname => {
         var found_by = Object.keys(track.which[docname])
-        var title = meta.titles[docname] + ' ' + JSON.stringify(track.which[docname])
+        var title = meta.titles[docname];
+        var labels = create_labels(track.which[docname]);
 
         var a = document.createElement('a');
-        a.appendChild(document.createTextNode(title));
         a.title = title;
         a.href = docname + '.html?highlight=' + encodeURIComponent(found_by.join(' ')) + 
                  '&case_sensitive=' + (case_sensitive_checkbox.checked ? '1' : '0')
+        a.appendChild(document.createTextNode(title));
 
         var li = document.createElement('li');
         li.appendChild(a);
+        li.appendChild(labels);
         li.className = 'search-match';
         search_results.appendChild(li);
     });
+}
+
+function create_labels(labels, max) {
+  var span = document.createElement('span');
+  span.className = "labels";
+  for (var label in labels) {
+    var spanlabel = document.createElement('span');
+    spanlabel.className = "label";
+    spanlabel.innerText = label;
+    var spancount = document.createElement('span');
+    spancount.className = "label-count";
+    spancount.innerText = labels[label];
+    spanlabel.appendChild(spancount);
+    span.appendChild(spanlabel);
+  }
+  return span;
+  
 }
 
 function build_ci_keywords() {
@@ -161,10 +283,24 @@ function do_highlight() {
     var instance = new Mark(document.querySelector("main"));
     
     var options = {
-      "caseSensitive": case_sensitive
+      "caseSensitive": case_sensitive,
+      "accuracy": whole_word_checkbox.checked ? 'exactly' : 'partially'
     }
-    
-    instance.mark(highlight, options);
+
+    if (highlight_checkbox.checked) 
+      instance.mark(highlight, options);
+    else
+      instance.unmark();
+
+    // move to first occurrence of highlighted word, if any, and only after page load
+    // there are no better alternatives at the moment, since inner page titles are not available as a match entry
+    if (during_init) {
+      // delayed call to wait for markjs
+      setTimeout(function(){
+        var mark = document.querySelector("main mark")
+        if (mark) window.scrollTo(0, mark.offsetTop);
+      },0);
+    }
 }
 
 $body$
