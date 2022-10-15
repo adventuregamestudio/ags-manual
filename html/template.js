@@ -78,7 +78,25 @@ function storage(param, value) {
   return value;
 }
 
+function upgrade_info_boxes() {
+  document.querySelectorAll('main p strong:first-child').forEach(function(item){
+    // abort if not the first thing in the block
+    if ( !/^(NOTE|IMPORTANT|TIP)\:/.test(item.parentElement.innerText) ) return; 
+    
+    var found = true;
+    switch(item.innerText) {
+      case 'NOTE:': item.parentElement.className = "block-info"; break;
+      case 'IMPORTANT:': item.parentElement.className = "block-warning"; break;
+      case 'TIP:': item.parentElement.className = "block-tip"; break;
+      
+      default: found = false; break;
+    }
+    if (found) item.innerText = item.innerText.replace(':','');
+  });
+}
+
 function init() {
+    upgrade_info_boxes();
     ci_keywords = build_ci_keywords();
     search_input = document.getElementById('search_input');
     search_results = document.getElementById('search_results');
