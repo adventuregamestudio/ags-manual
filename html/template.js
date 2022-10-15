@@ -286,7 +286,7 @@ function do_highlight() {
       "caseSensitive": case_sensitive,
       "accuracy": {
         "value": whole_word_checkbox.checked ? 'exactly' : 'partially',
-        "limiters": [",", "."]
+        "limiters": [",", ".","/"]
       }
     }
 
@@ -301,7 +301,7 @@ function do_highlight() {
       // delayed call to wait for markjs
       setTimeout(function(){
         var mark = document.querySelector("main mark")
-        if (mark) window.scrollTo(0, mark.offsetTop);
+        if (mark) window.scrollTo(0, mark.getBoundingClientRect().top);
       },0);
     }
 }
