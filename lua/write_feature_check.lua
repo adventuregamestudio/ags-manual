@@ -14,6 +14,10 @@ PANDOC_VERSION:must_be_at_least(
   '2.11',
   'Pandoc 2.11 is required for correct application of syntax highlighting')
 
+PANDOC_VERSION:must_be_at_least(
+  '2.11.1.1',
+  'Pandoc 2.11.1.1 is required for correct link parsing')
+
 -- Test Doc return of a word-split on a non-breaking space
 -- This seems to be broken for some platforms prior to Pandoc 2.10
 local nbsp_words = {}
