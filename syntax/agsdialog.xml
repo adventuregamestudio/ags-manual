@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="AGS Dialog" version="1" kateversion="5.0" section="Scripts"
+          extensions="*.agsdialog" license="MIT">
+  <highlighting>
+    <list name="controlflow">
+      <item>goto-dialog</item>
+      <item>run-script</item>
+    </list>
+    <list name="controlflow-noarg">
+      <item>goto-previous</item>
+      <item>return</item>
+      <item>stop</item>
+    </list>
+    <list name="keywords">
+      <item>option-off</item>
+      <item>option-off-forever</item>
+      <item>option-on</item>
+    </list>
+
+    <contexts>
+      <context name="Normal" attribute="Normal" lineEndContext="#stay">
+        <DetectSpaces column="0" context="AGS"/>
+        <Detect2Chars char="/" char1="/" attribute="Comment" context="Comment"/>
+        <RegExpr String="\w+:" column="0" lookAhead="true" context="DialogLine"/>
+        <RegExpr String="@([0-9]+|S)" column="0" attribute="Index" context="#stay"/>
+        <keyword String="controlflow" column="0" attribute="ControlFlow" context="Arg"/>
+        <keyword String="controlflow-noarg" column="0" attribute="ControlFlow" context="#stay"/>
+        <keyword String="keywords" column="0" attribute="Keyword" context="Arg"/>
+      </context>
+
+      <context name="AGS" lineEndContext="#pop">
+        <IncludeRules context="Normal##AGS"/>
+      </context>
+
+      <context name="Comment" attribute="Comment" lineEndContext="#pop">
+      </context>
+
+      <!-- Highlight the next integer and/or pop back -->
+      <context name="Arg" fallthroughContext="#pop" lineEndContext="#pop">
+        <DetectSpaces />
+        <Int attribute="Int" context="#pop"/>
+      </context>
+
+      <context name="DialogLine" lineEndContext="#pop">
+        <StringDetect String="narrator" column="0" attribute="CharacterAlias" context="#stay"/>
+        <StringDetect String="player" column="0" attribute="CharacterAlias" context="#stay"/>
+        <RegExpr String="[^:]+" column="0" attribute="Character" context="#stay"/>
+        <DetectChar char=":" attribute="Separator" context="#pop!PauseCheck"/>
+      </context>
+
+      <!-- Test whether the remainder of the line is valid as a pause command. -->
+      <context name="PauseCheck" fallthroughContext="#pop" lineEndContext="#pop">
+        <DetectSpaces />
+        <RegExpr String="\.+\s*(?:\/\/|$)" lookAhead="true" context="#pop!Pause"/>
+      </context>
+
+      <context name="Pause" lineEndContext="#pop">
+        <RegExpr String="\.+" attribute="Pause" context="#pop"/>
+      </context>
+    </contexts>
+
+    <itemDatas>
+      <itemData name="Normal" defStyleNum="dsNormal"/>
+      <itemData name="Index" defStyleNum="dsAttribute" spellChecking="false"/>
+      <itemData name="CharacterAlias" defStyleNum="dsSpecialString" spellChecking="false"/>
+      <itemData name="Character" defStyleNum="dsString" spellChecking="false"/>
+      <itemData name="Separator" defStyleNum="dsOperator" spellChecking="false"/>
+      <itemData name="Pause" defStyleNum="dsAttribute" spellChecking="false"/>
+      <itemData name="ControlFlow" defStyleNum="dsControlFlow" spellChecking="false"/>
+      <itemData name="Keyword" defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="Int" defStyleNum="dsDecVal" spellChecking="false"/>
+      <itemData name="Comment" defStyleNum="dsComment"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="singleLine" start="//"/>
+    </comments>
+    <keywords casesensitive="1" weakDeliminator="-"/>
+  </general>
+</language>
+<!-- kate: replace-tabs on; tab-width 2; indent-width 2; -->

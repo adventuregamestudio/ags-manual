@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="AGS" version="1" kateversion="5.0" section="Scripts"
+          extensions="*.ags" license="MIT">
+  <highlighting>
+    <list name="controlflow">
+      <item>break</item>
+      <item>case</item>
+      <item>continue</item>
+      <item>do</item>
+      <item>else</item>
+      <item>for</item>
+      <item>if</item>
+      <item>return</item>
+      <item>switch</item>
+      <item>while</item>
+    </list>
+
+    <list name="keywords">
+      <item>enum</item>
+      <item>export</item>
+      <item>function</item>
+      <item>import</item>
+      <item>managed</item>
+      <item>new</item>
+      <item>noloopcheck</item>
+      <item>protected</item>
+      <item>readonly</item>
+      <item>static</item>
+      <item>struct</item>
+      <item>this</item>
+      <item>writeprotected</item>
+    </list>
+
+    <list name="booleans">
+      <item>false</item>
+      <item>true</item>
+    </list>
+
+    <list name="types">
+      <!-- <item>String</item> -->
+      <item>bool</item>
+      <item>char</item>
+      <item>float</item>
+      <item>int</item>
+      <item>short</item>
+      <item>void</item>
+    </list>
+
+    <list name="enumtypes">
+      <item>Alignment</item>
+      <item>AudioFileType</item>
+      <item>AudioPriority</item>
+      <item>BlockingStyle</item>
+      <item>CharacterDirection</item>
+      <item>CursorMode</item>
+      <item>CutsceneSkipType</item>
+      <item>DialogOptionSayStyle</item>
+      <item>DialogOptionState</item>
+      <item>Direction</item>
+      <item>EventType</item>
+      <item>FileMode</item>
+      <item>FileSeek</item>
+      <item>FontType</item>
+      <item>GUIPopupStyle</item>
+      <item>HorizontalAlignment</item>
+      <item>InputType</item>
+      <item>LocationType</item>
+      <item>LogLevel</item>
+      <item>MouseButton</item>
+      <item>RepeatStyle</item>
+      <item>RoundDirection</item>
+      <item>SkipSpeechStyle</item>
+      <item>SortStyle</item>
+      <item>StopMovementStyle</item>
+      <item>StringCompareStyle</item>
+      <item>TransitionStyle</item>
+      <item>VideoSkipStyle</item>
+      <item>WalkWhere</item>
+      <item>eCDAudioFunction</item>
+      <item>eFlipDirection</item>
+      <item>eKeyCode</item>
+      <item>eOperatingSystem</item>
+      <item>eSpeechStyle</item>
+      <item>eVoiceMode</item>
+    </list>
+
+    <list name="enumvalues">
+      <item>eAlignBottomCenter</item>
+      <item>eAlignBottomLeft</item>
+      <item>eAlignBottomRight</item>
+      <item>eAlignCenter</item>
+      <item>eAlignHasBottom</item>
+      <item>eAlignHasHorCenter</item>
+      <item>eAlignHasLeft</item>
+      <item>eAlignHasRight</item>
+      <item>eAlignHasTop</item>
+      <item>eAlignHasVerCenter</item>
+      <item>eAlignLeft</item>
+      <item>eAlignMiddleCenter</item>
+      <item>eAlignMiddleLeft</item>
+      <item>eAlignMiddleRight</item>
+      <item>eAlignNone</item>
+      <item>eAlignRight</item>
+      <item>eAlignTopCenter</item>
+      <item>eAlignTopLeft</item>
+      <item>eAlignTopRight</item>
+      <item>eAnywhere</item>
+      <item>eAudioFileMIDI</item>
+      <item>eAudioFileMOD</item>
+      <item>eAudioFileMP3</item>
+      <item>eAudioFileOGG</item>
+      <item>eAudioFileVOC</item>
+      <item>eAudioFileWAV</item>
+      <item>eAudioPriorityHigh</item>
+      <item>eAudioPriorityLow</item>
+      <item>eAudioPriorityNormal</item>
+      <item>eAudioPriorityVeryHigh</item>
+      <item>eAudioPriorityVeryLow</item>
+      <item>eBackwards</item>
+      <item>eBlock</item>
+      <item>eCDCloseTray</item>
+      <item>eCDEject</item>
+      <item>eCDGetCDDriveCount</item>
+      <item>eCDGetNumTracks</item>
+      <item>eCDGetPlayingStatus</item>
+      <item>eCDIsDriverPresent</item>
+      <item>eCDPausePlayback</item>
+      <item>eCDPlayTrack</item>
+      <item>eCDResumePlayback</item>
+      <item>eCDSelectActiveCDDrive</item>
+      <item>eCaseInsensitive</item>
+      <item>eCaseSensitive</item>
+      <item>eDirectionDown</item>
+      <item>eDirectionDownLeft</item>
+      <item>eDirectionDownRight</item>
+      <item>eDirectionLeft</item>
+      <item>eDirectionNone</item>
+      <item>eDirectionRight</item>
+      <item>eDirectionUp</item>
+      <item>eDirectionUpLeft</item>
+      <item>eDirectionUpRight</item>
+      <item>eEventAddInventory</item>
+      <item>eEventEnterRoomBeforeFadein</item>
+      <item>eEventGUIMouseDown</item>
+      <item>eEventGUIMouseUp</item>
+      <item>eEventGotScore</item>
+      <item>eEventLeaveRoom</item>
+      <item>eEventLoseInventory</item>
+      <item>eEventRestoreGame</item>
+      <item>eFileAppend</item>
+      <item>eFileRead</item>
+      <item>eFileWrite</item>
+      <item>eFlipBoth</item>
+      <item>eFlipLeftToRight</item>
+      <item>eFlipUpsideDown</item>
+      <item>eForwards</item>
+      <item>eGUIPopupModal</item>
+      <item>eGUIPopupMouseYPos</item>
+      <item>eGUIPopupNormal</item>
+      <item>eGUIPopupPersistent</item>
+      <item>eInputAny</item>
+      <item>eInputKeyboard</item>
+      <item>eInputMouse</item>
+      <item>eInputNone</item>
+      <item>eKeepMoving</item>
+      <item>eKey0</item>
+      <item>eKey1</item>
+      <item>eKey2</item>
+      <item>eKey3</item>
+      <item>eKey4</item>
+      <item>eKey5</item>
+      <item>eKey6</item>
+      <item>eKey7</item>
+      <item>eKey8</item>
+      <item>eKey9</item>
+      <item>eKeyA</item>
+      <item>eKeyAltLeft</item>
+      <item>eKeyAltRight</item>
+      <item>eKeyAmpersand</item>
+      <item>eKeyAsterisk</item>
+      <item>eKeyAt</item>
+      <item>eKeyB</item>
+      <item>eKeyBackSlash</item>
+      <item>eKeyBackspace</item>
+      <item>eKeyC</item>
+      <item>eKeyCloseBracket</item>
+      <item>eKeyCloseParenthesis</item>
+      <item>eKeyCodeMask</item>
+      <item>eKeyColon</item>
+      <item>eKeyComma</item>
+      <item>eKeyCtrlA</item>
+      <item>eKeyCtrlB</item>
+      <item>eKeyCtrlC</item>
+      <item>eKeyCtrlD</item>
+      <item>eKeyCtrlE</item>
+      <item>eKeyCtrlF</item>
+      <item>eKeyCtrlG</item>
+      <item>eKeyCtrlH</item>
+      <item>eKeyCtrlI</item>
+      <item>eKeyCtrlJ</item>
+      <item>eKeyCtrlK</item>
+      <item>eKeyCtrlL</item>
+      <item>eKeyCtrlLeft</item>
+      <item>eKeyCtrlM</item>
+      <item>eKeyCtrlN</item>
+      <item>eKeyCtrlO</item>
+      <item>eKeyCtrlP</item>
+      <item>eKeyCtrlQ</item>
+      <item>eKeyCtrlR</item>
+      <item>eKeyCtrlRight</item>
+      <item>eKeyCtrlS</item>
+      <item>eKeyCtrlT</item>
+      <item>eKeyCtrlU</item>
+      <item>eKeyCtrlV</item>
+      <item>eKeyCtrlW</item>
+      <item>eKeyCtrlX</item>
+      <item>eKeyCtrlY</item>
+      <item>eKeyCtrlZ</item>
+      <item>eKeyD</item>
+      <item>eKeyDelete</item>
+      <item>eKeyDollar</item>
+      <item>eKeyDoubleQuote</item>
+      <item>eKeyDownArrow</item>
+      <item>eKeyE</item>
+      <item>eKeyEnd</item>
+      <item>eKeyEquals</item>
+      <item>eKeyEscape</item>
+      <item>eKeyExclamationMark</item>
+      <item>eKeyF</item>
+      <item>eKeyF1</item>
+      <item>eKeyF10</item>
+      <item>eKeyF11</item>
+      <item>eKeyF12</item>
+      <item>eKeyF2</item>
+      <item>eKeyF3</item>
+      <item>eKeyF4</item>
+      <item>eKeyF5</item>
+      <item>eKeyF6</item>
+      <item>eKeyF7</item>
+      <item>eKeyF8</item>
+      <item>eKeyF9</item>
+      <item>eKeyForwardSlash</item>
+      <item>eKeyG</item>
+      <item>eKeyGreaterThan</item>
+      <item>eKeyH</item>
+      <item>eKeyHash</item>
+      <item>eKeyHome</item>
+      <item>eKeyHyphen</item>
+      <item>eKeyI</item>
+      <item>eKeyInsert</item>
+      <item>eKeyJ</item>
+      <item>eKeyK</item>
+      <item>eKeyL</item>
+      <item>eKeyLeftArrow</item>
+      <item>eKeyLessThan</item>
+      <item>eKeyM</item>
+      <item>eKeyModAlt</item>
+      <item>eKeyModAltLeft</item>
+      <item>eKeyModAltRight</item>
+      <item>eKeyModCaps</item>
+      <item>eKeyModCtrl</item>
+      <item>eKeyModCtrlLeft</item>
+      <item>eKeyModCtrlRight</item>
+      <item>eKeyModMask</item>
+      <item>eKeyModNum</item>
+      <item>eKeyModShift</item>
+      <item>eKeyModShiftLeft</item>
+      <item>eKeyModShiftRight</item>
+      <item>eKeyN</item>
+      <item>eKeyNone</item>
+      <item>eKeyNumPad5</item>
+      <item>eKeyO</item>
+      <item>eKeyOpenBracket</item>
+      <item>eKeyOpenParenthesis</item>
+      <item>eKeyP</item>
+      <item>eKeyPageDown</item>
+      <item>eKeyPageUp</item>
+      <item>eKeyPercent</item>
+      <item>eKeyPeriod</item>
+      <item>eKeyPlus</item>
+      <item>eKeyQ</item>
+      <item>eKeyQuestionMark</item>
+      <item>eKeyR</item>
+      <item>eKeyReturn</item>
+      <item>eKeyRightArrow</item>
+      <item>eKeyS</item>
+      <item>eKeySemiColon</item>
+      <item>eKeyShiftLeft</item>
+      <item>eKeyShiftRight</item>
+      <item>eKeySingleQuote</item>
+      <item>eKeySpace</item>
+      <item>eKeyT</item>
+      <item>eKeyTab</item>
+      <item>eKeyU</item>
+      <item>eKeyUnderscore</item>
+      <item>eKeyUpArrow</item>
+      <item>eKeyV</item>
+      <item>eKeyW</item>
+      <item>eKeyX</item>
+      <item>eKeyY</item>
+      <item>eKeyZ</item>
+      <item>eLocationCharacter</item>
+      <item>eLocationHotspot</item>
+      <item>eLocationNothing</item>
+      <item>eLocationObject</item>
+      <item>eLogAlert</item>
+      <item>eLogDebug</item>
+      <item>eLogError</item>
+      <item>eLogFatal</item>
+      <item>eLogInfo</item>
+      <item>eLogWarn</item>
+      <item>eMouseLeft</item>
+      <item>eMouseLeftInv</item>
+      <item>eMouseMiddle</item>
+      <item>eMouseMiddleInv</item>
+      <item>eMouseRight</item>
+      <item>eMouseRightInv</item>
+      <item>eMouseWheelNorth</item>
+      <item>eMouseWheelSouth</item>
+      <item>eNoBlock</item>
+      <item>eNonSorted</item>
+      <item>eOSAndroid</item>
+      <item>eOSDOS</item>
+      <item>eOSFreeBSD</item>
+      <item>eOSLinux</item>
+      <item>eOSMacOS</item>
+      <item>eOSPSP</item>
+      <item>eOSWeb</item>
+      <item>eOSWindows</item>
+      <item>eOSiOS</item>
+      <item>eOnce</item>
+      <item>eOptionOff</item>
+      <item>eOptionOffForever</item>
+      <item>eOptionOn</item>
+      <item>eRepeat</item>
+      <item>eRoundDown</item>
+      <item>eRoundNearest</item>
+      <item>eRoundUp</item>
+      <item>eSayAlways</item>
+      <item>eSayNever</item>
+      <item>eSayUseOptionSetting</item>
+      <item>eSeekBegin</item>
+      <item>eSeekCurrent</item>
+      <item>eSeekEnd</item>
+      <item>eSkipAnyKey</item>
+      <item>eSkipAnyKeyOrMouseClick</item>
+      <item>eSkipESCOnly</item>
+      <item>eSkipESCOrRightButton</item>
+      <item>eSkipKey</item>
+      <item>eSkipKeyMouse</item>
+      <item>eSkipKeyMouseTime</item>
+      <item>eSkipKeyTime</item>
+      <item>eSkipMouse</item>
+      <item>eSkipMouseClick</item>
+      <item>eSkipMouseTime</item>
+      <item>eSkipNone</item>
+      <item>eSkipScriptOnly</item>
+      <item>eSkipTime</item>
+      <item>eSorted</item>
+      <item>eSpeechFullScreen</item>
+      <item>eSpeechLucasarts</item>
+      <item>eSpeechSierra</item>
+      <item>eSpeechSierraWithBackground</item>
+      <item>eSpeechTextOnly</item>
+      <item>eSpeechVoiceAndText</item>
+      <item>eSpeechVoiceOnly</item>
+      <item>eStopMoving</item>
+      <item>eTransitionBoxout</item>
+      <item>eTransitionCrossfade</item>
+      <item>eTransitionDissolve</item>
+      <item>eTransitionFade</item>
+      <item>eTransitionInstant</item>
+      <item>eVideoSkipAnyKey</item>
+      <item>eVideoSkipAnyKeyOrMouse</item>
+      <item>eVideoSkipEscKey</item>
+      <item>eVideoSkipNotAllowed</item>
+      <item>eWalkableAreas</item>
+    </list>
+
+    <list name="dialogtokens">
+      <item>DIALOG_PARSER_SELECTED</item>
+      <item>RUN_DIALOG_GOTO_PREVIOUS</item>
+      <item>RUN_DIALOG_RETURN</item>
+      <item>RUN_DIALOG_STOP_DIALOG</item>
+    </list>
+
+    <list name="globalfunctions">
+      <item>AbortGame</item>
+      <item>AreThingsOverlapping</item>
+      <item>CDAudio</item>
+      <item>CallRoomScript</item>
+      <item>ClaimEvent</item>
+      <item>CyclePalette</item>
+      <item>Debug</item>
+      <item>DeleteSaveSlot</item>
+      <item>DisableGroundLevelAreas</item>
+      <item>DisableInterface</item>
+      <item>Display</item>
+      <item>DisplayAt</item>
+      <item>DisplayAtY</item>
+      <item>DisplayMessage</item>
+      <item>DisplayMessageAtY</item>
+      <item>DisplayTopBar</item>
+      <item>EnableGroundLevelAreas</item>
+      <item>EnableInterface</item>
+      <item>EndCutscene</item>
+      <item>FadeIn</item>
+      <item>FadeOut</item>
+      <item>FlipScreen</item>
+      <item>FloatToInt</item>
+      <item>GetBackgroundFrame</item>
+      <item>GetDrawingSurfaceForWalkableArea</item>
+      <item>GetDrawingSurfaceForWalkbehind</item>
+      <item>GetFontHeight</item>
+      <item>GetFontLineSpacing</item>
+      <item>GetGameOption</item>
+      <item>GetGameParameter</item>
+      <item>GetGameSpeed</item>
+      <item>GetGlobalInt</item>
+      <item>GetGraphicalVariable</item>
+      <item>GetLocationType</item>
+      <item>GetPlayerCharacter</item>
+      <item>GetScalingAt</item>
+      <item>GetTextHeight</item>
+      <item>GetTextWidth</item>
+      <item>GetTranslation</item>
+      <item>GetViewportX</item>
+      <item>GetViewportY</item>
+      <item>GetWalkableAreaAt</item>
+      <item>GetWalkableAreaAtRoom</item>
+      <item>GetWalkableAreaAtScreen</item>
+      <item>GiveScore</item>
+      <item>HasPlayerBeenInRoom</item>
+      <item>IntToFloat</item>
+      <item>InventoryScreen</item>
+      <item>IsGamePaused</item>
+      <item>IsInteractionAvailable</item>
+      <item>IsInterfaceEnabled</item>
+      <item>IsKeyPressed</item>
+      <item>IsSpeechVoxAvailable</item>
+      <item>IsTimerExpired</item>
+      <item>IsTranslationAvailable</item>
+      <item>MoveCharacterToHotspot</item>
+      <item>MoveCharacterToObject</item>
+      <item>PauseGame</item>
+      <item>PlayFlic</item>
+      <item>PlaySilentMIDI</item>
+      <item>PlayVideo</item>
+      <item>QuitGame</item>
+      <item>Random</item>
+      <item>ReleaseViewport</item>
+      <item>RemoveWalkableArea</item>
+      <item>ResetRoom</item>
+      <item>RestartGame</item>
+      <item>RestoreGameDialog</item>
+      <item>RestoreGameSlot</item>
+      <item>RestoreWalkableArea</item>
+      <item>RunAGSGame</item>
+      <item>SaveGameDialog</item>
+      <item>SaveGameSlot</item>
+      <item>SaveScreenShot</item>
+      <item>SetAmbientLightLevel</item>
+      <item>SetAmbientTint</item>
+      <item>SetAreaScaling</item>
+      <item>SetBackgroundFrame</item>
+      <item>SetFadeColor</item>
+      <item>SetGameOption</item>
+      <item>SetGameSpeed</item>
+      <item>SetGlobalInt</item>
+      <item>SetGraphicalVariable</item>
+      <item>SetMultitaskingMode</item>
+      <item>SetNextScreenTransition</item>
+      <item>SetPalRGB</item>
+      <item>SetRestartPoint</item>
+      <item>SetScreenTransition</item>
+      <item>SetSpeechVolume</item>
+      <item>SetTextWindowGUI</item>
+      <item>SetTimer</item>
+      <item>SetViewport</item>
+      <item>SetWalkBehindBase</item>
+      <item>ShakeScreen</item>
+      <item>ShakeScreenBackground</item>
+      <item>SkipCutscene</item>
+      <item>SkipUntilCharacterStops</item>
+      <item>StartCutscene</item>
+      <item>StopDialog</item>
+      <item>TintScreen</item>
+      <item>UnPauseGame</item>
+      <item>UpdateInventory</item>
+      <item>UpdatePalette</item>
+    </list>
+
+
+    <list name="globalobjects">
+      <item>AudioChannel</item>
+      <item>AudioClip</item>
+      <item>Button</item>
+      <item>Camera</item>
+      <item>Character</item>
+      <item>DateTime</item>
+      <item>Dialog</item>
+      <item>DialogOptionsRenderingInfo</item>
+      <item>Dictionary</item>
+      <item>DrawingSurface</item>
+      <item>DynamicSprite</item>
+      <item>File</item>
+      <item>GUI</item>
+      <item>GUIControl</item>
+      <item>Game</item>
+      <item>Hotspot</item>
+      <item>InvWindow</item>
+      <item>InventoryItem</item>
+      <item>Label</item>
+      <item>ListBox</item>
+      <item>Maths</item>
+      <item>Mouse</item>
+      <item>Object</item>
+      <item>Overlay</item>
+      <item>Parser</item>
+      <item>Region</item>
+      <item>Room</item>
+      <item>Screen</item>
+      <item>Set</item>
+      <item>Slider</item>
+      <item>Speech</item>
+      <item>String</item>
+      <item>System</item>
+      <item>TextBox</item>
+      <item>TextWindowGUI</item>
+      <item>ViewFrame</item>
+      <item>Viewport</item>
+    </list>
+
+    <list name="globalarrays">
+      <item>character</item>
+      <item>dialog</item>
+      <item>gui</item>
+      <item>hotspot</item>
+      <item>inventory</item>
+      <item>object</item>
+      <item>palette</item>
+      <item>region</item>
+    </list>
+
+    <list name="globalstates">
+      <item>game</item>
+      <item>mouse</item>
+      <item>palette</item>
+      <item>player</item>
+    </list>
+
+    <contexts>
+      <context name="Normal" attribute="Normal" lineEndContext="#stay">
+        <Detect2Chars char="/" char1="/" attribute="Comment" context="LineComment"/>
+        <Detect2Chars char="/" char1="*" attribute="Comment" context="BlockComment"/>
+        <DetectChar char="#" attribute="Preprocessor" context="Preprocessor"/>
+        <DetectChar char="&quot;" attribute="String" context="DoubleQuotedString"/>
+        <DetectChar char="'" attribute="String" context="SingleQuotedString"/>
+        <Float attribute="Float" context="#stay"/>
+        <Int attribute="Decimal" context="#stay"/>
+        <RegExpr String="\.(\w+)" lookAhead="true" context="DotProperty"/>
+        <AnyChar attribute="Punctuation" String="(),.:;[]{}" context="#stay"/>
+        <RegExpr String="(?:!=|&amp;&amp;|&lt;[&amp;&lt;=]|==|>[=>]|\|\||[!%&amp;*+/&amp;&lt;>|^-])" attribute="Operator" context="#stay"/>
+        <keyword String="types" attribute="Type" context="FunctionMaybe"/>
+        <WordDetect String="function" attribute="Keyword" context="FunctionMaybe"/>
+        <WordDetect String="enum" attribute="Keyword" context="Enum"/>
+        <WordDetect String="struct" attribute="Keyword" context="Struct"/>
+        <keyword String="controlflow" attribute="ControlFlow" context="#stay"/>
+        <keyword String="keywords" attribute="Keyword" context="#stay"/>
+        <keyword String="booleans" attribute="Boolean" context="#stay"/>
+        <keyword String="enumtypes" attribute="EnumType" context="#stay"/>
+        <keyword String="enumvalues" attribute="EnumValue" context="#stay"/>
+        <RegExpr String="eMode\w+" attribute="EnumValue" context="#stay"/>
+        <RegExpr String="eFont\w+" attribute="EnumValue" context="#stay"/>
+        <keyword String="dialogtokens" attribute="Constant" context="#stay"/>
+        <keyword String="globalfunctions" attribute="GlobalFunction" context="#stay"/>
+        <keyword String="globalobjects" attribute="GlobalObject" context="#stay"/>
+        <keyword String="globalarrays" attribute="GlobalArray" context="#stay"/>
+        <keyword String="globalstates" attribute="GlobalState" context="#stay"/>
+        <WordDetect String="Point" attribute="ManagedType" context="#stay"/>
+        <StringDetect String="AGS_MAX_HOTSPOTS" attribute="Constant" context="#stay"/>
+        <StringDetect String="AGS_MAX_INV_ITEMS" attribute="Constant" context="#stay"/>
+        <StringDetect String="AGS_MAX_OBJECTS" attribute="Constant" context="#stay"/>
+        <StringDetect String="AGS_MAX_REGIONS" attribute="Constant" context="#stay"/>
+        <StringDetect String="AGS_NEW_STRINGS" attribute="Constant" context="#stay"/>
+        <StringDetect String="AGS_SUPPORTS_IFVER" attribute="Constant" context="#stay"/>
+        <StringDetect String="DEBUG" attribute="Constant" context="#stay"/>
+        <StringDetect String="LRPRECEDENCE" attribute="Constant" context="#stay"/>
+        <StringDetect String="MAX_LISTBOX_SAVED_GAMES" attribute="Constant" context="#stay"/>
+        <StringDetect String="NEW_DIALOGOPTS_API" attribute="Constant" context="#stay"/>
+        <StringDetect String="NEW_KEYINPUT_API" attribute="Constant" context="#stay"/>
+        <StringDetect String="PALETTE_SIZE" attribute="Constant" context="#stay"/>
+        <RegExpr String="SCRIPT_API_v\d+" attribute="Constant" context="#stay"/>
+        <RegExpr String="SCRIPT_COMPAT_v\d+" attribute="Constant" context="#stay"/>
+        <StringDetect String="STRICT_AUDIO" attribute="Constant" context="#stay"/>
+        <StringDetect String="STRICT_STRINGS" attribute="Constant" context="#stay"/>
+        <StringDetect String="STRICT" attribute="Constant" context="#stay"/>
+      </context>
+
+      <context name="Preprocessor" attribute="Preprocessor" lineEndContext="#pop">
+      </context>
+
+      <context name="DotProperty" lineEndContext="#stay">
+        <DetectChar char="." attribute="Punctuation" context="#stay"/>
+        <StringDetect String="%1" dynamic="true" attribute="Property" context="#pop"/>
+      </context>
+
+      <context name="FunctionMaybe" fallthroughContext="#pop" lineEndContext="#stay">
+        <Detect2Chars char="[" char1="]" attribute="Punctuation" context="#stay"/>
+        <DetectSpaces/>
+        <WordDetect String="noloopcheck" attribute="Keyword" context="#stay"/>
+        <DetectSpaces/>
+        <RegExpr String="(\w+(?:::\w+)?)\s*\(" lookAhead="true" context="#pop!FunctionName"/>
+      </context>
+
+      <context name="FunctionName" fallthroughContext="#pop" lineEndContext="#pop">
+        <StringDetect String="%1" dynamic="true" attribute="Function" context="#pop"/>
+      </context>
+
+      <context name="Enum" fallthroughContext="#pop" lineEndContext="#stay">
+        <DetectSpaces/>
+        <RegExpr String="\w+" attribute="Enum" context="#pop"/>
+      </context>
+
+      <context name="Struct" fallthroughContext="#pop" lineEndContext="#stay">
+        <DetectSpaces/>
+        <RegExpr String="\w+" attribute="Struct" context="#pop"/>
+      </context>
+
+      <context name="SpecialInString">
+        <DetectChar char="[" attribute="NewLine" context="#stay"/>
+        <RegExpr String="\\." attribute="EscapeSequence" context="#stay"/>
+      </context>
+
+      <context name="DoubleQuotedString" attribute="String" lineEndContext="#stay">
+        <IncludeRules context="SpecialInString"/>
+        <DetectChar char="&quot;" attribute="String" context="#pop"/>
+      </context>
+
+      <context name="SingleQuotedString" attribute="String" lineEndContext="#stay">
+        <IncludeRules context="SpecialInString"/>
+        <DetectChar char="'" attribute="String" context="#pop"/>
+      </context>
+
+      <context name="LineComment" attribute="Comment" lineEndContext="#pop">
+      </context>
+
+      <context name="BlockComment" attribute="Comment" lineEndContext="#stay">
+        <Detect2Chars char="*" char1="/" attribute="Comment" context="#pop"/>
+      </context>
+    </contexts>
+
+    <itemDatas>
+      <itemData name="Normal" defStyleNum="dsNormal"/>
+      <itemData name="ControlFlow" defStyleNum="dsControlFlow" spellChecking="false"/>
+      <itemData name="Keyword" defStyleNum="dsKeyword" spellChecking="false"/>
+      <itemData name="Boolean" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="Type" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="EnumType" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="EnumValue" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="GlobalFunction" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="GlobalObject" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="GlobalArray" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="GlobalState" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="ManagedType" defStyleNum="dsBuiltIn" spellChecking="false"/>
+      <itemData name="Constant" defStyleNum="dsConstant" spellChecking="false"/>
+      <itemData name="String" defStyleNum="dsString"/>
+      <itemData name="EscapeSequence" defStyleNum="dsSpecialChar" spellChecking="false"/>
+      <itemData name="NewLine" defStyleNum="dsSpecialChar" spellChecking="false"/>
+      <itemData name="Operator" defStyleNum="dsOperator" spellChecking="false"/>
+      <itemData name="Punctuation" defStyleNum="dsOperator" spellChecking="false"/>
+      <itemData name="Function" defStyleNum="dsFunction" spellChecking="false"/>
+      <itemData name="Enum" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Struct" defStyleNum="dsDataType" spellChecking="false"/>
+      <itemData name="Property" defStyleNum="dsAttribute" spellChecking="false"/>
+      <itemData name="Float" defStyleNum="dsFloat" spellChecking="false"/>
+      <itemData name="Decimal" defStyleNum="dsDecVal" spellChecking="false"/>
+      <itemData name="Preprocessor" defStyleNum="dsPreprocessor" spellChecking="false"/>
+      <itemData name="Comment" defStyleNum="dsComment"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="singleLine" start="//" position="afterwhitespace"/>
+      <comment name="multiLine" start="/*" end="*/" region="Comment"/>
+    </comments>
+    <keywords casesensitive="1"/>
+  </general>
+</language>
+<!-- kate: replace-tabs on; tab-width 2; indent-width 2; -->

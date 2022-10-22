@@ -60,6 +60,8 @@ EXTRA_DIST = \
 	$(srcdir)/lua/write_metacheck.lua \
 	$(srcdir)/lua/write_metajs.lua \
 	$(srcdir)/meta/approved_links.txt \
+	$(srcdir)/syntax/ags.xml \
+	$(srcdir)/syntax/agsdialog.xml \
 	$(srcdir)/vendor/mark.js \
 	$(srcdir)/vendor/mark.min.js \
 	$(websitecss_DATA) \
@@ -89,6 +91,9 @@ SUFFIXES: .htm .html .lua .md
 		--section-divs \
 		--css "css/normalize.css" \
 		--css "css/main.css" \
+		--syntax-definition="$(srcdir)/syntax/ags.xml" \
+		--syntax-definition="$(srcdir)/syntax/agsdialog.xml" \
+		--highlight-style=pygments \
 		--eol lf \
 		--output $@ \
 		$<

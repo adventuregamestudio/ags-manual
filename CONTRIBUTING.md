@@ -258,9 +258,9 @@ which supports VPATH builds, which facilitate configuring and building
 within a sub-directory:
 
 ```sh
-mkdir build_2.9.2
-cd build_2.9.2
-../configure PANDOC=~/pandocs/2.9.2/pandoc
+mkdir build_2.11.1.1
+cd build_2.11.1.1
+../configure PANDOC=~/pandocs/2.11.1.1/pandoc
 ```
 
 ### Spelling check

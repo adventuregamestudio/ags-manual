@@ -6,7 +6,7 @@ on:
   - workflow_dispatch
 
 env:
-  PANDOC_VERSION: 2.9.2
+  PANDOC_VERSION: 2.11.1.1
 
 jobs:
   build:

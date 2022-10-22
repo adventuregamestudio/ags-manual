@@ -19,11 +19,6 @@ $if(quotes)$
     q { quotes: "“" "”" "‘" "’"; }
   </style>
 $endif$
-$if(highlighting-css)$
-  <style>
-$highlighting-css$
-  </style>
-$endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" />
 $endfor$
