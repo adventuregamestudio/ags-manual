@@ -484,12 +484,18 @@
       <item>ShakeScreenBackground</item>
       <item>SkipCutscene</item>
       <item>SkipUntilCharacterStops</item>
+      <item>SkipWait</item>
       <item>StartCutscene</item>
       <item>StopDialog</item>
       <item>TintScreen</item>
       <item>UnPauseGame</item>
       <item>UpdateInventory</item>
       <item>UpdatePalette</item>
+      <item>Wait</item>
+      <item>WaitInput</item>
+      <item>WaitKey</item>
+      <item>WaitMouse</item>
+      <item>WaitMouseKey</item>
     </list>
 
 
