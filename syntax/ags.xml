@@ -17,6 +17,7 @@
     </list>
 
     <list name="keywords">
+      <item>attribute</item>
       <item>enum</item>
       <item>export</item>
       <item>function</item>
