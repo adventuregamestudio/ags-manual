@@ -18,13 +18,13 @@ jobs:
         shell:
           - bash
         os:
-          - macos-latest
-          - ubuntu-latest
+          - macos-12
+          - ubuntu-22.04
         include:
-          - os: windows-latest
+          - os: windows-2022
             shell: msys2 {0}
             with-feature: --with-chmcmd
-          - os: windows-latest
+          - os: windows-2022
             shell: msys2 {0}
     runs-on: ${{ matrix.os }}
     defaults:
@@ -68,27 +68,11 @@ jobs:
         run: >
           dram words=html-help-workshop '${{ github.workspace }}/CONTRIBUTING.md' | /bin/sh &&
           >> $GITHUB_ENV echo 'HHC=/c/Program Files (x86)/HTML Help Workshop/hhc.exe'
-      - name: Update Autotools
-        run: |
-          case ${{ runner.os }} in
-              macOS)
-                  brew update
-                  brew install automake
-                  ;;
-              Linux)
-                  baseurl=https://deb.debian.org/debian/pool/main/a/autoconf
-                  filename=$(curl -fLSs $baseurl | \
-                      grep --perl-regexp \
-                           --only-matching '(?<=href=")autoconf_2\.71-.+_all\.deb(?=")')
-                  (cd "${{ runner.temp }}" && curl -fLOJ "$baseurl/$filename")
-                  sudo dpkg -i "${{ runner.temp }}/$filename"
-                  ;;
-              Windows)
-                  ;;
-              *)
-                  exit 1
-                  ;;
-          esac
+      - name: Install Automake
+        if: ${{ runner.os == 'macOS' }}
+        run: >
+          brew update &&
+          brew install automake
       - name: Install Free Pascal CHM compiler
         if: ${{ matrix.with-feature != null }}
         run: |
@@ -149,7 +133,7 @@ jobs:
           path: build/destdir/usr/local/share/ags-manual/*.chm
           if-no-files-found: error
   check-and-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: build
     steps:
       - name: Checkout repository
