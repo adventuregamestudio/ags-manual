@@ -35,7 +35,8 @@ body {
    /* light theme */
   --text-color: #222222;
   --text-color-a: #006ab1;
-  --text-color-code: #e96d00;
+  --text-color-code: #000;
+  --text-color-code-a: #e96d00;
   --text-color-pre-code: #1e1e1e;
   --text-color-bold: #222222;
   --text-color-title: #222222;
@@ -61,7 +62,8 @@ body {
 body.dark-theme {
   --text-color: #a5b3ca;
   --text-color-a: #73cbff;
-  --text-color-code: #e8ce99;
+  --text-color-code: #fff;
+  --text-color-code-a: #e8ce99;
   --text-color-pre-code: #e6e7ea;
   --text-color-bold: #e5e7ec;
   --text-color-title: #e5e7ec;
@@ -123,6 +125,9 @@ code {
     background: var(--bkg-color-pre);
     padding: 1px 5px;
     border-radius: 3px;
+}
+a code {
+    color: var(--text-color-code-a);
 }
 
 pre {
