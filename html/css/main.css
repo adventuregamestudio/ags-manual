@@ -86,6 +86,7 @@ body.dark-theme {
   --code-preprocessor-color: #68d959; 
   --code-preprocessor-background: #252f40;
 }
+.dark-theme mark { background: #7f0080; color: #fff;}
 
 body {
     background: var(--bkg-color);
