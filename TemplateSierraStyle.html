@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -88,47 +103,41 @@
 <p>This template also contains the majority of examples for save game and option handling, and also demonstrates the default handling for an inventory window.</p>
 <p>One script module is included, which allows the main character to be controlled with the keyboard. This is switched on and configured with some default settings, but can be reconfigured or switched off entirely by using the defined functions.</p>
 <p>Example:</p>
-<pre><code>// configure the player for arcade action
-KeyboardMovement.Mode = eKeyboardMovementModePressing;
-KeyboardMovement.KeyUp = eKeyW;
-KeyboardMovement.KeyDown = eKeyS;
-KeyboardMovement.KeyLeft = eKeyA;
-KeyboardMovement.KeyRight = eKeyD;
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// configure the player for arcade action</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>KeyboardMovement<span class="op">.</span><span class="at">Mode</span> = eKeyboardMovementModePressing<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>KeyboardMovement<span class="op">.</span><span class="at">KeyUp</span> = <span class="bu">eKeyW</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>KeyboardMovement<span class="op">.</span><span class="at">KeyDown</span> = <span class="bu">eKeyS</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>KeyboardMovement<span class="op">.</span><span class="at">KeyLeft</span> = <span class="bu">eKeyA</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>KeyboardMovement<span class="op">.</span><span class="at">KeyRight</span> = <span class="bu">eKeyD</span><span class="op">;</span></span></code></pre></div>
 <hr />
 <section id="keyboardmovementmode" class="level3">
 <h3><a href="#keyboardmovementmode"><code>KeyboardMovement.Mode</code></a></h3>
-<pre><code>KeyboardMovementMode KeyboardMovement.Mode
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>KeyboardMovementMode KeyboardMovement<span class="op">.</span><span class="at">Mode</span></span></code></pre></div>
 <p>Sets the keyboard movement mode. Possible values are:</p>
 <p><code>eKeyboardMovementModeNone</code> (disable keyboard control)<br> <code>eKeyboardMovementModeTapping</code> (tap a direction to move)<br> <code>eKeyboardMovementModePressing</code> (hold down a direction to move)</p>
 <hr />
 </section>
 <section id="keyboardmovementkeyup" class="level3">
 <h3><a href="#keyboardmovementkeyup"><code>KeyboardMovement.KeyUp</code></a></h3>
-<pre><code>eKeyCode KeyboardMovement.KeyUp
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">eKeyCode</span> KeyboardMovement<span class="op">.</span><span class="at">KeyUp</span></span></code></pre></div>
 <p>Assigns the key used to move the player upwards.</p>
 <hr />
 </section>
 <section id="keyboardmovementkeydown" class="level3">
 <h3><a href="#keyboardmovementkeydown"><code>KeyboardMovement.KeyDown</code></a></h3>
-<pre><code>eKeyCode KeyboardMovement.KeyDown
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">eKeyCode</span> KeyboardMovement<span class="op">.</span><span class="at">KeyDown</span></span></code></pre></div>
 <p>Assigns the key used to move the player downwards.</p>
 <hr />
 </section>
 <section id="keyboardmovementkeyleft" class="level3">
 <h3><a href="#keyboardmovementkeyleft"><code>KeyboardMovement.KeyLeft</code></a></h3>
-<pre><code>eKeyCode KeyboardMovement.KeyLeft
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">eKeyCode</span> KeyboardMovement<span class="op">.</span><span class="at">KeyLeft</span></span></code></pre></div>
 <p>Assigns the key used to move the player to the left.</p>
 <hr />
 </section>
 <section id="keyboardmovementkeyright" class="level3">
 <h3><a href="#keyboardmovementkeyright"><code>KeyboardMovement.KeyRight</code></a></h3>
-<pre><code>eKeyCode KeyboardMovement.KeyRight
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">eKeyCode</span> KeyboardMovement<span class="op">.</span><span class="at">KeyRight</span></span></code></pre></div>
 <p>Assigns the key used to move the player to the right.</p>
 <p><em>See also</em>: <a href="Templates.html">Templates</a>, <a href="Settingupthegame.html">Setting up the game</a></p>
 </section>
@@ -139,7 +148,7 @@ KeyboardMovement.KeyRight = eKeyD;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

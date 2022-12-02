@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -91,174 +106,158 @@
 <section id="loops" class="level3">
 <h3><a href="#loops">Loops</a></h3>
 <p>You may find it useful to have a sequence of commands that are executed more than once. AGS supports this, using the <code>while</code> keyword. Its format is virtually identical to <code>if</code>:</p>
-<pre><code>int counter = 1;
-while (counter &lt; 10) {
-  counter ++;
-}
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> counter = <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>counter <span class="op">&lt;</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  counter <span class="op">++;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This means that the body of the <code>while</code> statement is repeatedly processed, as long as the condition is true. So, in this case, since counter starts as 1, the loop will be run 9 times, since on the tenth time counter will be 10 and therefore it will stop.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Be careful with while loops - it is possible to crash your game by using a badly written one.)</p>
+<p><strong>NOTE:</strong> Be careful with while loops - it is possible to crash your game by using a badly written one.</p>
 <p>Consider this <strong>poorly</strong> written <em>while</em> loop:</p>
-<pre><code>int counter = 1;
-while (counter &gt; 0) {
-  counter ++;
-}
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> counter = <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>counter <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  counter <span class="op">++;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Here, <em>counter</em> starts off as 1, so the loop will run. Then, it will increase to 2. Since it is still greater than 0, the loop will run again. This particular loop will run forever, since <em>counter</em> can never become less than 1, and your game will grind to a halt.</p>
 </section>
 <section id="multiple-conditions" class="level3">
 <h3><a href="#multiple-conditions">Multiple conditions</a></h3>
 <p>On several occasions, you don't just want to decide what to do based on one variable - there may be a combination of things you want to consider.</p>
 <p>For example, suppose that you want to display a message if the player has <strong>two</strong> specific inventory items. You could do this, and put <strong>two</strong> <em>if</em> statements inside each other:</p>
-<pre><code>if (player.HasInventory(iFirstItem))
-{
-  if (player.HasInventory(iSecondItem))
-  {
-    Display (&quot;You have both the items!&quot;);
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iFirstItem<span class="op">))</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iSecondItem<span class="op">))</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;You have both the items!&quot;</span><span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <section id="and-expressions" class="level4">
 <h4>AND Expressions</h4>
 <p>However, this is quite unwieldy and if you have a lot of conditions it will look rather messy. So, AGS lets you do it this way:</p>
-<pre><code>if ( (player.HasInventory(iFirstItem)) &amp;&amp;
-     (player.HasInventory(iSecondItem)) )
-{
-  Display (&quot;You have both the items!&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iFirstItem<span class="op">))</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iSecondItem<span class="op">))</span> <span class="op">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;You have both the items!&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This makes use of the <code>&amp;&amp;</code> operator.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Notice that you need an extra pair of outer parenthesis, to contain the whole expression. Each part of the expression goes inside parenthesis, as normal, and they are joined with the <code>&amp;&amp;</code> symbol.)</p>
+<p><strong>NOTE:</strong> Notice that you need an extra pair of outer parenthesis, to contain the whole expression. Each part of the expression goes inside parenthesis, as normal, and they are joined with the <code>&amp;&amp;</code> symbol.</p>
 <p>You can extend this to as many checks as you like. For example, this will display the message if the <em>openedDoor</em> variable is currently set to true, and the variable <em>timer</em> is between 5 and 10.</p>
-<pre><code>if ((openedDoor == true) &amp;&amp; (timer &gt; 5) &amp;&amp; (timer &lt; 10))
-{
-  Display (&quot;It&#39;s all working out fine.&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>openedDoor <span class="op">==</span> <span class="bu">true</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>timer <span class="op">&gt;</span> <span class="dv">5</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>timer <span class="op">&lt;</span> <span class="dv">10</span><span class="op">))</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;It&#39;s all working out fine.&quot;</span><span class="op">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 <section id="or-expressions" class="level4">
 <h4>OR Expressions</h4>
 <p>Sometimes you will want to do some processing if one <strong>or</strong> another condition is true. For example, you might want to let the player open a door if he has either the door key or a chainsaw.</p>
-<pre><code>if ((player.HasInventory(iDoorKey)) ||
-    (player.HasInventory(iChainsaw)) )
-{
-  player.ChangeRoom(10);
-}
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iDoorKey<span class="op">))</span> <span class="op">||</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iChainsaw<span class="op">))</span> <span class="op">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">player</span><span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The operator here is the double-vertical-bar <code>||</code> operator. It works similarly to the <code>&amp;&amp;</code> operator, but it will process the commands inside it if either one expression, or the other, or both, are true.</p>
 </section>
 </section>
 <section id="doing-one-thing-or-another" class="level3">
 <h3><a href="#doing-one-thing-or-another">Doing one thing or another</a></h3>
 <p>Sometimes, you want the script to take one course of action if a variable is set, and another course of action if it isn't. Initially, you might think you would do this:</p>
-<pre><code>if (timer == 5) {
- // do something
-}
-if (timer != 5) {
- // do something else
-}
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>timer <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>timer <span class="op">!=</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something else</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>That would work -- however, there is a neater way, using the <code>else</code> keyword:</p>
-<pre><code>if (timer == 5) {
- // do something
-}
-else {
- // do something else
-}
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>timer <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something else</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This also allows you to modify the variable inside the first block of code, without affecting whether the second block gets run or not.</p>
 <p>You can do as many tests as you like, using the <code>else if</code> keyword. So, a complete piece of code could look like this:</p>
-<pre><code>if (timer == 5) {
- // do something
-}
-else if (timer == 6) {
- // do something different
-}
-else {
- // do this if it&#39;s not 5 or 6
-}
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>timer <span class="op">==</span> <span class="dv">5</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>timer <span class="op">==</span> <span class="dv">6</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do something different</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// do this if it&#39;s not 5 or 6</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Relating to the <a href="acintro3.html">Home Sign Hotspot from the Tutorial</a>, we can write it slightly more efficiently by using Else statements:</p>
-<pre><code>// room script file
-int myCounter = 0;
-
-function hSignHome_Look()
-{
-  if (myCounter == 0)
-  {
-    Display(&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;);
-  }
-  else if (myCounter == 1)
-  {
-    Display(&quot;Oh it says &#39;Home&#39;.&quot;);
-  }
-  else if (myCounter &gt;=2)
-  {
-    Display(&quot;I guess that way leads towards my home.&quot;);
-  }
-
-  if (myCounter &lt; 3)
-  {
-    myCounter += 1;
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// room script file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> myCounter = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Oh it says &#39;Home&#39;.&quot;</span><span class="op">);</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&gt;=</span><span class="dv">2</span><span class="op">)</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;I guess that way leads towards my home.&quot;</span><span class="op">);</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    myCounter <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 <section id="your-own-functions" class="level3">
 <h3><a href="#your-own-functions">Your Own Functions</a></h3>
 <p>You've probably noticed in the manual, it mentioning functions such as <code>repeatedly_execute</code>, and <code>on_event</code>, and how you can add them to your global script to do cool stuff. But you may be wondering, how exactly to go about it.</p>
 <p>Remember in <a href="ScriptingTutorialPart1.html#commands-explained">Scripting Tutorial 1</a>, we learned about function <strong>parameters</strong> and how they could be <em>int</em>, <em>string</em>, etc. Well, you write your own functions like this:</p>
-<pre><code>function dialog_request(int param)
-{
- // contents of function go here
-}
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// contents of function go here</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>You start with the keyword <code>function</code>, then follow it by the function name, and then parenthesis listing the parameter types and names. For each parameter that you want, you need to write its type (<em>int</em> or <em>string</em>), followed by the name it will be known by inside the function. This name can be anything you like - it is similar to naming a variable.</p>
 <p>There are some <strong>fixed</strong> functions, such as dialog_request and on_event, which are part of AGS and therefore you <strong>MUST</strong> use the correct number and type of parameters. However, you may also add your own functions by naming them however you like, and having as many parameters as you need.</p>
 <p>Functions are useful if you have a block of script code that you need to use in two different places - putting it in a function instead means you don't have to copy &amp; paste, and that if you modify it, all other script that relies on it gets updated too.</p>
 <p>To call your function from elsewhere in the script, just do it exactly like you call a built-in function - i.e. just write its name, parameters then a semicolon.</p>
 <p>I think a couple of examples are in order. First of all, let's show a fixed function, <code>on_event</code>:</p>
-<pre><code>function on_event (EventType event, int data)
-{
- if (event == eEventGotScore)
- {
-   if (data == 5)
-   {
-     aSpecialScoreSound.Play();
-   }
-   Display(&quot;You just got %d points!&quot;, data);
- }
-}
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span> <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventGotScore</span><span class="op">)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>data <span class="op">==</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      aSpecialScoreSound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You just got %d points!&quot;</span><span class="op">,</span> data<span class="op">);</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>With this script, whenever the player scores points, they will get a message telling them so. Also, if they happen to get 5 points at once, it will play audio clip <em>aSpecialScoreSound</em>.</p>
 <p>As you can see, you use the function parameters just like any other script variables.</p>
 <p><strong>Our own function</strong></p>
 <p>Now, suppose we have a special animation of the player doing a dance, and we want to be able to play it from various points in the script. By far the easiest way to do this would be to put it in a function:</p>
-<pre><code>function do_dance()
-{
- cEgo.LockView(10);
- cEgo.Animate(2, 5);
- cEgo.UnlockView();
-}
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">do_dance</span><span class="op">()</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  cEgo<span class="op">.</span><span class="at">LockView</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  cEgo<span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This function runs view 10, loop 2, as the character's animation, waits until it finishes and then reverts to the default view.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you're wondering where to place your custom functions, just open up the <strong>"Global Script"</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and write them in there. The function must be outside all other functions.</p>
+<p><strong>NOTE:</strong> If you're wondering where to place your custom functions, just open up the <strong>"Global Script"</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and write them in there. The function must be outside all other functions.</p>
 <p>Now, elsewhere in your script, when you want the player to dance, just do:</p>
-<pre><code>do_dance();
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>do_dance<span class="op">();</span></span></code></pre></div>
 <p><strong>Returning a value</strong></p>
 <p>You may have noticed that some of the built-in functions, such as IsGamePaused, return a value to the script. You can do this from your own functions, using the <code>return</code> keyword. So:</p>
-<pre><code>function add(int a, int b)
-{
- int result;
- result = a + b;
- return result;
-}
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">add</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> result<span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  result = a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This function adds the two numbers together and returns the result (a useless function in practice since the + operator does the same thing, but it demonstrates the point).</p>
 <p>Another part of your script could then do:</p>
-<pre><code>total = add(5, 10);
-</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>total = add<span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
 <p><strong>Using functions from room scripts</strong></p>
 <p>You may notice that when you add your own function to your global script, you can call it fine from other places in the global script but attempting to use it in a room script gives a parse error. The manual explains how to solve this using the script header and "importing".</p>
 <p>You will need to edit the <strong>Global Script Header</strong> <strong>(AGS Editor -&gt; File Menu -&gt; Open GlobalScript.asc)</strong> and you can read about why within the manual. In the Index, look up "The Script Header" for more information.</p>
@@ -276,7 +275,7 @@ function hSignHome_Look()
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

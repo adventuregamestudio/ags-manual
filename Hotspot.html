@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -94,14 +109,12 @@
 <h2><a href="#hotspot-functions-and-properties"><code>Hotspot</code> functions and properties</a></h2>
 <section id="hotspotgetatroomxy" class="level3">
 <h3><a href="#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a></h3>
-<pre><code>static Hotspot* Hotspot.GetAtRoomXY(int x, int y)
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Hotspot</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Returns the hotspot at ROOM co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
 <p>Example:</p>
-<pre><code>if (Hotspot.GetAtRoomXY(player.x, player.y) == hPressurePlate) {
-  Display(&quot;As soon as adventurer stands on the pressure plate the door opens.&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> hPressurePlate<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;As soon as adventurer stands on the pressure plate the door opens.&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display the message if the player character is over the hPressurePlate hotspot.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
@@ -110,34 +123,30 @@
 <section id="hotspotgetatscreenxy" class="level3">
 <h3><a href="#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></h3>
 <p><em>(Formerly known as global function <code>GetHotspotAt</code>, which is now obsolete)</em></p>
-<pre><code>static Hotspot* Hotspot.GetAtScreenXY(int x, int y)
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Hotspot</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Returns the hotspot at SCREEN co-ordinates (X,Y). If there is no hotspot there, or if invalid co-ordinates are specified, the Hotspot* representing hotspot 0 will be returned.</p>
 <p>Example:</p>
-<pre><code>if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) == hDoor)
-  Display(&quot;Mouse on the door&quot;);
-else if (Hotspot.GetAtScreenXY(mouse.x, mouse.y) != hotspot[0])
-  Display(&quot;Mouse is on something (but not the door)!&quot;);
-else
-  Display(&quot;Mouse not on a hotspot&quot;);
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> hDoor<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse on the door&quot;</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">!=</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">0</span><span class="op">])</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse is on something (but not the door)!&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse not on a hotspot&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will display a message depending on what the mouse is on.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
 <hr />
 </section>
 <section id="hotspotgetdrawingsurface" class="level3">
 <h3><a href="#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a></h3>
-<pre><code>static DrawingSurface* Hotspot.GetDrawingSurface()
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DrawingSurface</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">()</span></span></code></pre></div>
 <p>Gets a drawing surface for the current room's 8-bit hotspot mask, which allows you to directly draw onto that mask. Note that this function is static and relates to all hotspots at once (not a particular hotspot), because all of them are painted on the same mask.</p>
 <p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the hotspot's index. Color value 0 will refer to "no hotspot" (eraser), color value 1 to hotspot number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
 <p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Hotspot.GetDrawingSurface();
-surface.DrawingColor = 4;
-surface.DrawRectangle(50, 50, 100, 100);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will paint a rectangle for the hotspot 4.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a>, <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a>, <a href="Region.html#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></p>
@@ -146,15 +155,13 @@ surface.Release();
 <section id="hotspotgetproperty" class="level3">
 <h3><a href="#hotspotgetproperty"><code>Hotspot.GetProperty</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotProperty</code>, which is now obsolete)</em></p>
-<pre><code>Hotspot.GetProperty(string property)
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetProperty</span><span class="op">(</span>string property<span class="op">)</span></span></code></pre></div>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
 <p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent GetTextProperty function to get a text property.</p>
 <p>Example:</p>
-<pre><code>if (hotspot[1].GetProperty(&quot;Value&quot;) &gt; 200)
-  Display(&quot;Hotspot 1&#39;s value is over 200!&quot;);
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">hotspot</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">GetProperty</span><span class="op">(</span><span class="st">&quot;Value&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">200</span><span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 1&#39;s value is over 200!&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will print the message if hotspot 1 has its "Value" property set to more than 200.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgettextproperty"><code>Hotspot.GetTextProperty</code></a></p>
 <hr />
@@ -162,29 +169,25 @@ surface.Release();
 <section id="hotspotgettextproperty" class="level3">
 <h3><a href="#hotspotgettextproperty"><code>Hotspot.GetTextProperty</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotPropertyText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetPropertyText</code>, which is now obsolete)</em></p>
-<pre><code>String Hotspot.GetTextProperty(string property)
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span>string property<span class="op">)</span></span></code></pre></div>
 <p>Returns the custom property setting of the PROPERTY for the hotspot.</p>
 <p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent GetProperty function to get a non-text property.</p>
 <p>Example:</p>
-<pre><code>String description = hotspot[2].GetTextProperty(&quot;Description&quot;);
-Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> description = <span class="bu">hotspot</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 2&#39;s description: %s&quot;</span><span class="op">,</span> description<span class="op">);</span></span></code></pre></div>
 <p>will retrieve hotspot 2's "description" property and display it.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetproperty"><code>Hotspot.GetProperty</code></a></p>
 <hr />
 </section>
 <section id="hotspotsetproperty" class="level3">
 <h3><a href="#hotspotsetproperty"><code>Hotspot.SetProperty</code></a></h3>
-<pre><code>bool Hotspot.SetProperty(const string property, int value)
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">SetProperty</span><span class="op">(</span>const string property<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>Sets the new <em>value</em> for the custom <em>property</em> for the specified hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
 <p>This command works with Number properties (it sets the numeric value), and with Boolean properties (sets FALSE is value is equal to 0, or TRUE otherwise).</p>
 <p>Use the equivalent SetTextProperty function to set new text property value.</p>
 <p>Example:</p>
-<pre><code>hDoor.SetProperty(&quot;LockDifficulty&quot;, 5);
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>hDoor<span class="op">.</span><span class="at">SetProperty</span><span class="op">(</span><span class="st">&quot;LockDifficulty&quot;</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>will change Door hotspot's "LockDifficulty" custom property to 5.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotsettextproperty"><code>Hotspot.SetTextProperty</code></a></p>
@@ -192,14 +195,12 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 </section>
 <section id="hotspotsettextproperty" class="level3">
 <h3><a href="#hotspotsettextproperty"><code>Hotspot.SetTextProperty</code></a></h3>
-<pre><code>bool Hotspot.SetTextProperty(const string property, const string value)
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">SetTextProperty</span><span class="op">(</span>const string property<span class="op">,</span> const string value<span class="op">)</span></span></code></pre></div>
 <p>Sets the new <em>value</em> text for the custom <em>property</em> for the specified hotspot. Returns TRUE if such property exists and FALSE on failure.</p>
 <p>This command works with Text properties only. The property's text will be changed to new value.</p>
 <p>Use the equivalent SetProperty function to set a non-text property.</p>
 <p>Example:</p>
-<pre><code>hDoor.SetTextProperty(&quot;Description&quot;, &quot;The sturdy door&quot;);
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>hDoor<span class="op">.</span><span class="at">SetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">,</span> <span class="st">&quot;The sturdy door&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will change Door's "description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotsetproperty"><code>Hotspot.SetProperty</code></a></p>
@@ -207,14 +208,12 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 </section>
 <section id="hotspotisinteractionavailable" class="level3">
 <h3><a href="#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a></h3>
-<pre><code>Hotspot.IsInteractionAvailable(CursorMode)
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Hotspot</span><span class="op">.</span><span class="at">IsInteractionAvailable</span><span class="op">(</span><span class="dt">CursorMode</span><span class="op">)</span></span></code></pre></div>
 <p>Checks whether there is an event handler defined for activating the hotspot in cursor mode MODE.</p>
 <p>This function is very similar to RunInteraction, except that rather than run the event handler script function, it simply returns <em>true</em> if something would have happened, or <em>false</em> if unhandled_event would have been run.</p>
 <p>Example:</p>
-<pre><code>if (hTable.IsInteractionAvailable(eModeLookat) == 0)
-  Display(&quot;looking on this table would not do anything.&quot;);
-</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>hTable<span class="op">.</span><span class="at">IsInteractionAvailable</span><span class="op">(</span><span class="bu">eModeLookat</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;looking on this table would not do anything.&quot;</span><span class="op">);</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
 <hr />
@@ -222,12 +221,10 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 <section id="hotspotruninteraction" class="level3">
 <h3><a href="#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></h3>
 <p><em>(Formerly known as <code>RunHotspotInteraction</code>, which is now obsolete)</em></p>
-<pre><code>Hotspot.RunInteraction(CursorMode)
-</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Hotspot</span><span class="op">.</span><span class="at">RunInteraction</span><span class="op">(</span><span class="dt">CursorMode</span><span class="op">)</span></span></code></pre></div>
 <p>Processes the event handler as if the player had clicked the mouse on the hotspot using the specified cursor mode.</p>
 <p>Example:</p>
-<pre><code>hDoor.RunInteraction(eModeLookat);
-</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>hDoor<span class="op">.</span><span class="at">RunInteraction</span><span class="op">(</span><span class="bu">eModeLookat</span><span class="op">);</span></span></code></pre></div>
 <p>will run the code defined in the "LOOK AT HOTSPOT" event for hotspot hDoor.</p>
 <p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Object.html#objectruninteraction"><code>Object.RunInteraction</code></a></p>
 <hr />
@@ -235,27 +232,23 @@ Display(&quot;Hotspot 2&#39;s description: %s&quot;, description);
 <section id="hotspotenabled" class="level3">
 <h3><a href="#hotspotenabled"><code>Hotspot.Enabled</code></a></h3>
 <p><em>(Formerly known as <code>DisableHotspot</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>EnableHotspot</code>, which is now obsolete)</em></p>
-<pre><code>bool Hotspot.Enabled
-</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
 <p>Enables/disables the specified hotspot. If you set this to false, then all areas of the screen that were previously made up of the hotspot now act as type 0 (no hotspot). You can turn the hotspot back on later by setting this back to true.</p>
 <p>This setting is persisted in-game; that is, it will not be reset when the player re-enters the room.</p>
 <p>The default value of this property is always <em>true</em>.</p>
 <p>Example:</p>
-<pre><code>hBrownTree.Enabled = false;
-</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>hBrownTree<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will disable the hBrownTree hotspot.</p>
 <p><em>See also:</em> <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
 <section id="hotspotid" class="level3">
 <h3><a href="#hotspotid"><code>Hotspot.ID</code></a></h3>
-<pre><code>readonly int Hotspot.ID
-</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the hotspot number of this hotspot. This allows you to interoperate with old script using the number-based hotspot functions.</p>
 <p>Example:</p>
-<pre><code>Display(&quot;Hotspot hDoor is hotspot number %d.&quot;, hDoor.ID);
-Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
-</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot hDoor is hotspot number %d.&quot;</span><span class="op">,</span> hDoor<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 3 is number %d.&quot;</span><span class="op">,</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
 <p>displays hDoor's hotspot number, and then displays hotspot 3's number (which will be 3).</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a></p>
 <hr />
@@ -263,13 +256,11 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <section id="hotspotname" class="level3">
 <h3><a href="#hotspotname"><code>Hotspot.Name</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetName</code>, which is now obsolete)</em></p>
-<pre><code>readonly String Hotspot.Name;
-</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the name of the hotspot.</p>
 <p>This property is read-only; it is currently not possible to change hotspot names at run-time.</p>
 <p>Example:</p>
-<pre><code>Display(&quot;Hotspot 3&#39;s name is %s.&quot;, hotspot[3].Name);
-</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 3&#39;s name is %s.&quot;</span><span class="op">,</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will retrieve and then display hotspot 3's name.</p>
 <p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
@@ -277,12 +268,10 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <section id="hotspotwalktox" class="level3">
 <h3><a href="#hotspotwalktox"><code>Hotspot.WalkToX</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotPointX</code>, which is now obsolete)</em></p>
-<pre><code>readonly int Hotspot.WalkToX
-</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">WalkToX</span></span></code></pre></div>
 <p>Gets the X room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
 <p>Example:</p>
-<pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
-</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span>hTable<span class="op">.</span><span class="at">WalkToX</span><span class="op">,</span> hTable<span class="op">.</span><span class="at">WalkToY</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eWalkableAreas</span><span class="op">);</span></span></code></pre></div>
 <p>will move the character to hotspot hTable's walk-to point.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotwalktoy"><code>Hotspot.WalkToY</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 <hr />
@@ -290,12 +279,10 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
 <section id="hotspotwalktoy" class="level3">
 <h3><a href="#hotspotwalktoy"><code>Hotspot.WalkToY</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotPointY</code>, which is now obsolete)</em></p>
-<pre><code>readonly int Hotspot.WalkToY
-</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">WalkToY</span></span></code></pre></div>
 <p>Gets the Y room co-ordinate of the hotspot's walk-to point. If the hotspot does not have a walk-to point, returns -1.</p>
 <p>Example:</p>
-<pre><code>player.Walk(hTable.WalkToX, hTable.WalkToY, eBlock, eWalkableAreas);
-</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span>hTable<span class="op">.</span><span class="at">WalkToX</span><span class="op">,</span> hTable<span class="op">.</span><span class="at">WalkToY</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eWalkableAreas</span><span class="op">);</span></span></code></pre></div>
 <p>will move the character to hotspot hTable's walk-to point.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 </section>
@@ -306,7 +293,7 @@ Display(&quot;Hotspot 3 is number %d.&quot;, hotspot[3].ID);
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

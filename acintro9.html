@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -95,7 +110,7 @@
 <li><strong>Mode 7 (Wait)</strong> - this cursor is shown whenever the player cannot interact with the game world (i.e. during a cutscene). It is automatically shown during blocking script functions.</li>
 </ul>
 <p>All the other cursors are 'normal' cursors, in that you can use them for whatever purposes you want.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you want to create a LucasArts-style game where the mouse cursor disappears during cutscenes, the easiest way to do it is simply to import a blank image over the Wait mouse cursor.)</p>
+<p><strong>NOTE:</strong> If you want to create a LucasArts-style game where the mouse cursor disappears during cutscenes, the easiest way to do it is simply to import a blank image over the Wait mouse cursor.</p>
 <p>Selecting a cursor node from the Project Tree, you will see that the Cursors editor pane and Properties Grid is fairly self-explanatory.</p>
 <ul>
 <li><strong>Appearance</strong> -&gt; <strong>Image</strong> - Set a graphic for the cursor from the Sprite Manager.</li>
@@ -108,7 +123,7 @@
 <li><strong>Appearance</strong> -&gt; <strong>AnimateOnlyWhenMoving</strong> to do a QFG4-style cursor which only animates while the player is moving it around.</li>
 <li><strong>Design</strong> -&gt; <strong>StandardMode</strong> tells AGS that this is a normal user-selectable cursor. It is used when cycling through mouse cursors, to determine whether to use the cursor or skip over it. For example, if during the game you disable the current cursor, AGS will change to the next available Standard Mode.</li>
 </ul>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: You can right-click the <strong>"Mouse cursors"</strong> tree node and choose <strong>"New Cursor"</strong> to create additional cursors to the standard 10. If you do so however, any extra cursors you create will not have events created for them, so you will have to handle their clicks using the "Any Click" events.)</p>
+<p><strong>NOTE:</strong> You can right-click the <strong>"Mouse cursors"</strong> tree node and choose <strong>"New Cursor"</strong> to create additional cursors to the standard 10. If you do so however, any extra cursors you create will not have events created for them, so you will have to handle their clicks using the "Any Click" events.</p>
 </section>
 </section>
 <section id="fonts" class="level3">
@@ -139,8 +154,8 @@
 <li>Extract the font from a Sierra game, using the SCI Decoder program available on the internet (note however that this will have copyright implications for your game).</li>
 <li>You can get a Sierra SCI Font Pack on the <a href="https://www.adventuregamestudio.co.uk/site/ags/sci_fonts/">AGS website</a>.</li>
 </ul>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you go to your Windows Fonts folder to try and import a TTF font, you will not be able to do so (double-clicking them will open them up in the Windows Font Viewer). Unfortunately this is down to how the Fonts folder is configured to act within Windows Explorer - you must either type the filename in manually, or copy the font to another folder and import it from there.)</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: By default, font 0 is used as the normal text font, and font 1 is used as the speech font. To use any additional fonts, the script properties <code>Game.NormalFont</code> and <code>Game.SpeechFont</code> can be used to change the active fonts.)</p>
+<p><strong>NOTE:</strong> If you go to your Windows Fonts folder to try and import a TTF font, you will not be able to do so (double-clicking them will open them up in the Windows Font Viewer). Unfortunately this is down to how the Fonts folder is configured to act within Windows Explorer - you must either type the filename in manually, or copy the font to another folder and import it from there.</p>
+<p><strong>NOTE:</strong> By default, font 0 is used as the normal text font, and font 1 is used as the speech font. To use any additional fonts, the script properties <code>Game.NormalFont</code> and <code>Game.SpeechFont</code> can be used to change the active fonts.</p>
 </section>
 </section>
 <section id="conclusion" class="level3">
@@ -157,7 +172,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

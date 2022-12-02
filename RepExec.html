@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -91,56 +106,52 @@
 <p>In a nutshell, if you need to do something right before game state changes, use <em>repeatedly_execute_always</em>, if you need to do something right after game state has changed, use <em>late_repeatedly_execute_always</em>.</p>
 <p><strong>How do I create them?</strong></p>
 <p>In main game scripts, you create your <em>repeatedly_execute</em> script function by just pasting it into the script as follows. In the GlobalScript.asc it is already created for you:</p>
-<pre><code>function repeatedly_execute()
-{
-  // Put your script code here
-}
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Put your script code here</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In rooms, it is slightly different. If you want to run some script that is specific to a particular room, open that room's Events Pane and you'll see a "Repeatedly execute" event. Click the "..." button and a function called something like <em>Room_RepExec</em> will be created for you.</p>
 <p>This is important to remember -- in a room script, <strong>you cannot simply paste in a repeatedly_execute function</strong>; you need to use the Events Pane to create it instead.</p>
 <p>To create <em>repeatedly_execute_always</em>, you can simply paste it into the script as above -- but you can also paste it into room scripts. Therefore the following will work in any script, whether it be a room or a global script.</p>
-<pre><code>function repeatedly_execute_always()
-{
-  // Put your script code here
-}
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Put your script code here</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Remember, of course, that RepExec or <em>repeatedly_execute_always</em> functions in a room script will only be run while the player is actually in that room!</p>
 <p><strong>Can you show me an example?</strong></p>
 <p>Let's implement the two things we just talked about. Here's our hunger checking code:</p>
-<pre><code>function repeatedly_execute()
-{
-  // increment our timer variable (we would have created this
-  // in the Global Variables editor)
-  hungerTimer++;
-
-  if (hungerTimer == 800)
-  {
-    Display(&quot;You are getting very hungry.&quot;);
-    player.LockView(RUBSTOMACH);
-    player.Animate(0, 5, eOnce, eBlock, eForwards);
-    player.UnlockView();
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// increment our timer variable (we would have created this</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// in the Global Variables editor)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  hungerTimer<span class="op">++;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>hungerTimer <span class="op">==</span> <span class="dv">800</span><span class="op">)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are getting very hungry.&quot;</span><span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>RUBSTOMACH<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eForwards</span><span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and let's put the bird flying code in the room script, because we only want it to happen in that one room:</p>
-<pre><code>function repeatedly_execute_always()
-{
-  if (!cBird.Moving)
-  {
-    if (cBird.x &lt; 100)
-    {
-      // if the bird is on the left hand side of the screen,
-      // start it moving towards the right
-      cBird.Walk(400, cBird.y, eNoBlock, eAnywhere);
-    }
-    else
-    {
-      // otherwise, move it towards the left
-      cBird.Walk(0, cBird.y, eNoBlock, eAnywhere);
-    }
-  }
-}
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>cBird<span class="op">.</span><span class="at">Moving</span><span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cBird<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="co">// if the bird is on the left hand side of the screen,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">// start it moving towards the right</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="co">// otherwise, move it towards the left</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
   </main>
 
@@ -148,7 +159,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -152,8 +167,7 @@
 The same applies to the folder for sounds and sound effects, add subfolders to it to split your sound library into "Menu sounds" for button presses and "game sounds" for in-game sounds. Sort them by chapter or by room, this will make finding, navigating and addressing the sounds so much easier.</p>
 <p><strong>Playing audio in the game</strong></p>
 <p>The script to play an audio clip in the game is very simple. For example:</p>
-<pre><code>aExplosion.Play();
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span></code></pre></div>
 <p>plays the audio clip called <em>aExplosion</em>.</p>
 <p><strong>Priorities and channels</strong></p>
 <p>AGS currently has an 16-channel audio system, which means that up to 16 sounds can be playing at the same time. One channel is always reserved for the speech voice-over and you cannot change that, so you have 15 at your disposal. By default Audio Types reserve one channel for music and one for ambient sounds; thus leaving 13 available for other types, but you can change that to your needs.</p>
@@ -161,26 +175,23 @@ The same applies to the folder for sounds and sound effects, add subfolders to i
 <p>If you try to play an audio clip and there are no channels available, then an existing one will be stopped and the new one will take its place. However, this will only happen if the new audio clip has an <strong>equal or higher</strong> priority than one of the currently playing sounds.</p>
 <p>Thus, the priority allows you to decide which audio clips are more important than others. For example, you might set a footstep sound as low priority, and a door opening as high priority. This can be configured at the folder level in the editor, and also by changing the properties of an individual audio clip (by default they will inherit from their containing folder).</p>
 <p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicitly specify the priority when you play it, for example:</p>
-<pre><code>aExplosion.Play(eAudioPriorityLow);
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">(</span><span class="bu">eAudioPriorityLow</span><span class="op">);</span></span></code></pre></div>
 <p><strong>NOTE:</strong> having only one channel reserved for an audio type and all clips having same priority by default will make any new played sound of that type replace the previous one automatically. This may be useful, for example, to ensure that only one music clip is playing at the same time in your game.</p>
 <p><em>See also:</em> <a href="AudioInScript.html">AGS Audio Channel Troubleshooting</a></p>
 <p><strong>Seeking and changing volume</strong></p>
 <p>So, how do you change a sound once it is playing? Well, there are no methods on the Audio Clip to do this, because you might be playing two copies of the same sound at once, and then AGS wouldn't know which one you wanted to access. That's where <strong>Audio Channels</strong> come to the rescue.</p>
 <p>When you use the Play() command, AGS returns to you an AudioChannel* instance representing the channel on which the sound is playing. You can store this to a global variable and access it later on. For example:</p>
-<pre><code>AudioChannel* chan = aExplosion.Play();
-chan.Volume = 20;
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> chan = aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>chan<span class="op">.</span><span class="at">Volume</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
 <p>This will start the <em>aExplosion</em> audio clip playing, and then change its volume to <code>20%</code>.</p>
 <p><strong>Using Audio Channels</strong></p>
 <p>Supposing you want to start playing a sound now, and then change its volume or panning later on. How would you do that? Well, you'd need to keep the AudioChannel around, so that you can access it later. The easiest way to do that is to make it a Global Variable; if you open the Global Variables editor, you can create a new AudioChannel* variable (let's call it <em>longWindedSound</em>). Then when you play the sound you set it like this:</p>
 <p><code>longWindedSound = aExplosion.Play();</code></p>
 <p>later on, elsewhere in the script, you can change the volume by doing:</p>
-<pre><code>if (longWindedSound != null)
-{
-  longWindedSound.Volume = 20;
-}
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>longWindedSound <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    longWindedSound<span class="op">.</span><span class="at">Volume</span> = <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Note the check for null here -- this makes sure that your game won't crash if the sound isn't playing (it might have finished, or not have been started yet).</p>
 <p><strong>Overall system volume</strong></p>
 <p>There is a property called <a href="System.html#systemvolume"><code>System.Volume</code></a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
@@ -204,7 +215,7 @@ chan.Volume = 20;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

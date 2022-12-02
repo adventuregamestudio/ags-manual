@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -86,8 +101,7 @@
 <h2><a href="#multimedia-functions">Multimedia functions</a></h2>
 <section id="cdaudio" class="level3">
 <h3><a href="#cdaudio"><code>CDAudio</code></a></h3>
-<pre><code>CDAudio (eCDAudioFunction, int param)
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">CDAudio</span> <span class="op">(</span><span class="dt">eCDAudioFunction</span><span class="op">,</span> <span class="dt">int</span> param<span class="op">)</span></span></code></pre></div>
 <p>This function allows you to play and control an audio CD in your game. Different tasks are performed, depending on the value of the AudioFunction parameter. If there is no CD-ROM drive on the system, the function does nothing.</p>
 <p>The PARAM parameter is used by some of the functions for various reasons; if it is not needed for the particular function you are calling, pass zero instead.</p>
 <p>The tasks performed are as follows depending on the COMMAND parameter:</p>
@@ -112,27 +126,23 @@ eCDGetCDDriveCount - returns the number of CD drives in the
    system, normally 1.
 eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
    where PARAM ranges from 1 to (number of CD drives). All the other
-   CD Audio functions operate on the current CD drive.
-</code></pre>
+   CD Audio functions operate on the current CD drive.</code></pre>
 <p>NOTE: These CD Audio functions are slow compared to all the other script functions. This will not be noticeable if you call them from most scripts, but using CDAudio in a repeatedly_execute script will noticeably slow down the game.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> Linux: <strong>Yes, but supports 1 CD-ROM drive only</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
-<pre><code>CDAudio(eCDPlayTrack, 3);
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">CDAudio</span><span class="op">(</span><span class="bu">eCDPlayTrack</span><span class="op">,</span> <span class="dv">3</span><span class="op">);</span></span></code></pre></div>
 <p>will play track 3 of the CD that's in the CD ROM drive.</p>
 <hr />
 </section>
 <section id="isspeechvoxavailable" class="level3">
 <h3><a href="#isspeechvoxavailable"><code>IsSpeechVoxAvailable</code></a></h3>
-<pre><code>IsSpeechVoxAvailable()
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsSpeechVoxAvailable</span><span class="op">()</span></span></code></pre></div>
 <p>Returns whether the SPEECH.VOX file is being used by the game. This could be useful if you have an optional speech download pack, and you want to know whether the player has it or not.</p>
 <p>Returns 1 if the speech files are available, 0 if not.</p>
 <p>Example:</p>
-<pre><code>if (IsSpeechVoxAvailable()==0)
-    Display (&quot;You don&#39;t have the voice pack&quot;);
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsSpeechVoxAvailable</span><span class="op">()==</span><span class="dv">0</span><span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;You don&#39;t have the voice pack&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will display a message if the voice pack is not available.</p>
 <p><strong>NOTE:</strong> This function used to be called IsVoxAvailable, but has now been renamed to avoid confusion.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipisavailable"><code>AudioClip.IsAvailable</code></a> <a href="Game.html#gamechangespeechvox"><code>Game.ChangeSpeechVox</code></a>, <a href="Game.html#gamespeechvoxfilename"><code>Game.SpeechVoxFilename</code></a>, <a href="VoiceSpeech.html">Voice speech</a></p>
@@ -140,27 +150,23 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 </section>
 <section id="playflic" class="level3">
 <h3><a href="#playflic"><code>PlayFlic</code></a></h3>
-<pre><code>PlayFlic (int flic_number, int options)
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayFlic</span> <span class="op">(</span><span class="dt">int</span> flic_number<span class="op">,</span> <span class="dt">int</span> options<span class="op">)</span></span></code></pre></div>
 <p>Plays a FLI or FLC animation. The game checks for FLICx.FLC and FLICx.FLI (where X is FLIC_NUMBER) and if it finds one, plays it. The game is paused while the animation plays.</p>
 <p>OPTIONS has these meanings:</p>
 <pre><code>0  player can&#39;t skip animation
 1  player can press ESC to skip animation
 2  player can press any key or click mouse to skip animation
 +10 (i.e. 10, 11, 12) do not stretch to full-screen, just play at flc size
-+100 do not clear the screen before starting playback
-</code></pre>
++100 do not clear the screen before starting playback</code></pre>
 <p>Example:</p>
-<pre><code>PlayFlic(2, 1);
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayFlic</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will play flic2 and the player will be able to skip the flic by pressing the ESC key.</p>
 <p><em>See also:</em> <a href="Multimedia.html#playvideo"><code>PlayVideo</code></a></p>
 <hr />
 </section>
 <section id="playsilentmidi" class="level3">
 <h3><a href="#playsilentmidi"><code>PlaySilentMIDI</code></a></h3>
-<pre><code>PlaySilentMIDI (int music_number)
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlaySilentMIDI</span> <span class="op">(</span><span class="dt">int</span> music_number<span class="op">)</span></span></code></pre></div>
 <p>This command is obsolete.</p>
 <p>Use the AudioClip.Play command and set its Volume property to 0 to simulate this effect.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a></p>
@@ -168,26 +174,22 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 </section>
 <section id="playvideo" class="level3">
 <h3><a href="#playvideo"><code>PlayVideo</code></a></h3>
-<pre><code>PlayVideo (string filename, VideoSkipStyle, int flags)
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayVideo</span> <span class="op">(</span>string filename<span class="op">,</span> <span class="dt">VideoSkipStyle</span><span class="op">,</span> <span class="dt">int</span> flags<span class="op">)</span></span></code></pre></div>
 <p>Plays a supported video file. The game is paused while the video plays.</p>
 <p><strong>As of 3.6.0</strong> AGS only supports OGG Theora videos (*.ogv). <strong>Prior to 3.6.0</strong> it also supported AVI and MPG, but only on MS Windows, and if necessary codecs are installed on player's system. Please see the notes in the end of this article for more information on this.</p>
 <p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
 <pre><code>eVideoSkipNotAllowed     player can&#39;t skip video
 eVideoSkipEscKey         player can press ESC to skip video
 eVideoSkipAnyKey         player can press any key to skip video
-eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
-</code></pre>
+eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip</code></pre>
 <p><em>Flags</em> has these meanings:</p>
 <pre><code>0: default mode; the video is be played at original size, with its own audio; game&#39;s audio is muted.
 +1: the video will be stretched to full screen, with appropriate black borders to maintain its aspect ratio.
 +10 (i.e. 10, 11): video&#39;s own audio will be muted, and game audio will continuing playing.
-+20 (i.e. 20, 21): both game&#39;s and video&#39;s audio will be playing.
-</code></pre>
++20 (i.e. 20, 21): both game&#39;s and video&#39;s audio will be playing.</code></pre>
 <p><strong>NOTE:</strong> In 256-color games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic"><code>PlayFlic</code></a> command instead.</p>
 <p>Example:</p>
-<pre><code>PlayVideo(&quot;Intro.ogv&quot;, eVideoSkipEscKey, 11);
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayVideo</span><span class="op">(</span><span class="st">&quot;Intro.ogv&quot;</span><span class="op">,</span> <span class="bu">eVideoSkipEscKey</span><span class="op">,</span> <span class="dv">11</span><span class="op">);</span></span></code></pre></div>
 <p>will play the video "Intro.ogv", allowing the player to skip with ESC if they've seen it before. The video will be stretched to fullscreen, maintaining aspect ration; but it's audio track will be muted, while game sounds will continue to play.</p>
 <p><strong>OGG Theora format</strong></p>
 <p>As of AGS 3.6.0 PlayVideo can only play OGG Theora (*.ogv). The benefit of this format is that no extra codecs or drivers have to be installed on the user's system in order to play them. OGG Theora videos are automatically included into the game package when you compile the game. For that you need to make sure that file has a .OGV extension and is <em>placed in your game project folder</em>.</p>
@@ -205,12 +207,10 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
 </section>
 <section id="setspeechvolume" class="level3">
 <h3><a href="#setspeechvolume"><code>SetSpeechVolume</code></a></h3>
-<pre><code>SetSpeechVolume (int volume)
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetSpeechVolume</span> <span class="op">(</span><span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
 <p>Sets the volume for in-game speech. VOLUME ranges from 0-255, where 255 is the loudest. The default speech volume is 255 so this function can only be used to reduce the volume.</p>
 <p>Example:</p>
-<pre><code>SetSpeechVolume(200);
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetSpeechVolume</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p>will set the speech volume to 200.</p>
 <p><em>See also:</em> <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a>, <a href="Game.html#gamesetaudiotypespeechvolumedrop"><code>Game.SetAudioTypeSpeechVolumeDrop</code></a>, <a href="Game.html#gameplayvoiceclip"><code>Game.PlayVoiceClip</code></a></p>
 </section>
@@ -221,7 +221,7 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -84,20 +99,18 @@
 <p>Dialog scripts are scripts that run when a dialog starts or one of the options is executed, for example, when player selects it in the list of available options. Dialog scripts are streamlined for conversations and use an extended variant of script syntax that simplifies several common commands.</p>
 <p>With a newly created dialog topic, all you will see in the script is a number of lines starting with an '@' symbol. In the dialog script, these signify the starting points of the script for each option. For example, when the player clicks on option 3, the script will begin on the line following "@3". There is also a special starting point, called "@S". This is run when the conversation starts, before any choices are given to the player. This could be used to display a "Hello" message or something similar.</p>
 <p>To display some speech, you begin the line with the character's SCRIPT NAME (not full name), followed by a colon, then a space, and then what you want them to say. For example, if my main character's script name is EGO, I would write</p>
-<pre><code>ego: &quot;I am very happy today because it&#39;s my birthday.&quot;
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">ego</span><span class="op">:</span> &quot;I am very happy today because it&#39;s my birthday.&quot;</span></code></pre></div>
 <p>The character name is used by the system to choose the correct color for the text.</p>
 <p><strong>IMPORTANT:</strong> Do <strong>NOT</strong> include the "c" at the start of the character's script name here.</p>
 <p>You can also use the special character name "narrator", which displays the text in the pop-up message box instead of as speech text; and the alias "player", which will say it as the current player character - useful if you don't know which character the player will be controlling when they speak the conversation.</p>
 <p>If you just use <code>...</code> as the text for a character to say, the game will pause briefly as if they are stopping to think, and nothing will be displayed.</p>
 <p>To signal the end of the script for this option, place a "return" command on the last line of it. For example,</p>
-<pre><code>@1
-ego: &quot;Hello. How are you?&quot;
-narrator: The man looks you in the eye.
-otherman: ...
-otherman: &quot;I&#39;m fine.&quot;
-return
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">@1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">ego</span><span class="op">:</span> &quot;Hello. How are you?&quot;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">narrator</span><span class="op">:</span> The man looks you in the eye.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">otherman</span><span class="op">:</span> <span class="at">...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">otherman</span><span class="op">:</span> &quot;I&#39;m fine.&quot;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span></span></code></pre></div>
 <p>"return" tells AGS to go back and display the choices again to the player. If you use "stop" instead of return, then the conversation is ended. Alternatively, you can use "goto-dialog" or "goto-previous", which abort the current dialog script and transfer control to the new dialog.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> indent these lines with spaces or tabs. Indented lines signify that AGS should interpret the line as a normal scripting command rather than a dialog scripting command (see below).</p>
 <section id="dialog-commands" class="level3">
@@ -120,36 +133,33 @@ return
 <p>These custom functions should be declared as imports in one of your script headers.<br> "Custom Say" function must have one of the following two declaration forms:<br> <code>void MySay(Character* c, const string text); // use ex: MySay(player, "Hello");</code><br> or<br> <code>void MySay(this Character*, const string text); // use ex: player.MySay("Hello");</code></p>
 <p>"Custom Narrate" function must have following declaration form:<br> <code>void MyNarrate(const string text);</code></p>
 <p><strong>IMPORTANT:</strong> There's currently a limitation that, if Say checkbox for dialog options is checked, it will use regular <code>Character.Say</code> despite defining a custom Say function.<br> If you still want to have player pronounce dialog option text, one of the solutions is to add a call to your custom speech function as the first line in every dialog option script:</p>
-<pre><code>@X
-  player.MySay(this.GetOptionText( X )); \\ where X is the actual option index
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>@X</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">MySay</span><span class="op">(</span><span class="kw">this</span><span class="op">.</span><span class="at">GetOptionText</span><span class="op">(</span> X <span class="op">));</span> \\ where X is the actual option index</span></code></pre></div>
 <p>If you wonder how such function will work in dialogs, see the following topic below.</p>
 </section>
 <section id="using-regular-scripting-commands-in-dialogs" class="level3">
 <h3><a href="#using-regular-scripting-commands-in-dialogs">Using regular scripting commands in dialogs</a></h3>
 <p>Often the provided dialog scripting commands won't be enough for what you want to do in the dialog. You might want to give the player an inventory item or add some points to their score, for example.</p>
 <p>AGS now lets you put normal scripting commands in your dialog script, by indenting the line with spaces or tabs. For example:</p>
-<pre><code>@1
-ego: &quot;Hello. How are you?&quot;
-narrator: The man looks you in the eye.
-  player.AddInventory(iKey);
-  Display(&quot;This line is displayed from a normal script command&quot;);
-otherman: &quot;I&#39;m fine.&quot;
-return
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">@1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">ego</span><span class="op">:</span> &quot;Hello. How are you?&quot;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">narrator</span><span class="op">:</span> The man looks you in the eye.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iKey<span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;This line is displayed from a normal script command&quot;</span><span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">otherman</span><span class="op">:</span> &quot;I&#39;m fine.&quot;</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span></span></code></pre></div>
 <p>Here, you can see dialog script commands being used, but also then a couple of normal scripting commands have been inserted, on indented lines.</p>
 <p>When working with dialog scripts, the <strong>this</strong> keyword allows you to access the currently running dialog.</p>
 <p>If you want to conditionally break out of the dialog script, the special tokens <code>RUN_DIALOG_GOTO_PREVIOUS</code>, <code>RUN_DIALOG_RETURN</code> and <code>RUN_DIALOG_STOP_DIALOG</code> are available which you can <code>return</code> from inside a script block. For example:</p>
-<pre><code>@1
-ego: &quot;Hello. How are you?&quot;
-narrator: The man looks you in the eye.
-  if (player.HasInventory(iKey)) {
-    player.Say(&quot;Actually, I&#39;d better go.&quot;);
-    return RUN_DIALOG_STOP_DIALOG;
-  }
-otherman: &quot;Here&#39;s a key for you.&quot;
-return
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">@1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">ego</span><span class="op">:</span> &quot;Hello. How are you?&quot;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">narrator</span><span class="op">:</span> The man looks you in the eye.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasInventory</span><span class="op">(</span>iKey<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Actually, I&#39;d better go.&quot;</span><span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="cn">RUN_DIALOG_STOP_DIALOG</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">otherman</span><span class="op">:</span> &quot;Here&#39;s a key for you.&quot;</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span></span></code></pre></div>
 </section>
 </section>
   </main>
@@ -158,7 +168,7 @@ return
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

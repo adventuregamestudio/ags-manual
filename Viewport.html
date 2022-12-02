@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -91,217 +106,201 @@
   <main>
 <section id="viewport-functions-and-properties" class="level2">
 <h2><a href="#viewport-functions-and-properties"><code>Viewport</code> functions and properties</a></h2>
-<p>Viewport struct lets you manage screen viewports. You may think of them as of "windows" through which player sees the current room. Viewport is defined by its position on the game screen, in screen coordinates, and has linked Camera which contents it displays.</p>
+<p>Viewport struct lets you manage screen viewports. Viewports are used to display contents of a <a href="Camera.html">Camera</a>. You may think that the viewport is a "TV screen" that shows the image that the camera have captured in the room. Viewport is defined by a rectangle on the game screen, in screen coordinates, and a <a href="Viewport.html#viewportcamera">Camera link</a>.</p>
 <p>By default there is a single viewport called "primary viewport". This viewport may be accessed as <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>. But you may create more using <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>.</p>
 <p>Viewport has a link to camera through a <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a> property. Same camera may be linked to multiple viewports at once. If no camera is linked then a viewport is not displayed at all. Viewports are allowed to go partially or fully offscreen, which may be useful to create transition effects, for example. Viewports may overlap, in which case their order of display is defined by <a href="Viewport.html#viewportzorder"><code>ZOrder</code></a> property.</p>
-<p>By default viewport covers whole game screen, but you may change that anytime. Camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling):</p>
+<p>By default viewport covers whole game screen, but you may change that anytime using Width and Height properties, and also <a href="Viewport.html#viewportsetposition">SetPosition</a> function. Camera's contents are stretched to fill viewport's rectangle, and because of that the difference between viewport's and camera's sizes create zoom effect (scaling):</p>
 <ul>
 <li>If the camera is larger than the viewport the displayed image will be zoomed-out (scaled down)</li>
 <li>If the camera is smaller than the viewport the displayed image will be zoomed-in (scaled up)</li>
 </ul>
-<p>Viewport's X, Y properties specify the position if its top-left corner on the game screen.</p>
+<p>Viewport's X, Y properties specify the position if its top-left corner on the game screen. You may use these to move the viewport around the screen.</p>
 <p><strong>IMPORTANT:</strong> The game starts in automatic viewport mode that snaps primary viewport and camera to the size of the game screen or size of a room background, whatever is <em>smaller</em>, each time new room is loaded. This is convenient in case you want to rely on a common behavior. If you prefer to customize viewports yourself standard behavior may be disabled using <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a> property.</p>
 <p><em>Compatibility:</em> Viewport struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Camera.html"><code>Camera</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 <section id="viewportcreate" class="level3">
 <h3><a href="#viewportcreate"><code>Viewport.Create</code></a></h3>
-<pre><code>static Viewport* Viewport.Create()
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Viewport</span><span class="op">*</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Create</span><span class="op">()</span></span></code></pre></div>
 <p>Creates a new viewport and returns a pointer which you may store in a variable (local or global one) and use to operate it. Any viewport created like this may be also accessed by <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a> by its index.</p>
 <p>The new viewport will cover whole game screen by default and does not have any camera linked initially. You may assign or reassign the camera and change any of its properties later.</p>
 <p>You may always delete previously created viewport using <a href="Viewport.html#viewportdelete"><code>Viewport.Delete</code></a> function.</p>
 <p>Example:</p>
-<pre><code>// Create a new viewport and a new camera
-Viewport* myView = Viewport.Create();
-Camera* myCam = Camera.Create();
-// Set the viewport to half the screen size, centered and camera to half the room&#39;s
-myView.SetPosition(Screen.Width / 4, Screen.Height / 4, Screen.Width / 2, Screen.Height / 2);
-myCam.SetSize(Room.Width / 2, Room.Height / 2);
-// Make sure that the new viewport is on top of the primary one
-myView.ZOrder = Screen.Viewport.ZOrder + 1;
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a new viewport and a new camera, and link them together</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Viewport</span><span class="op">*</span> myView = <span class="bu">Viewport</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Camera</span><span class="op">*</span> myCam = <span class="bu">Camera</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">Camera</span> = myCam<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Set the viewport to half the screen size, centered and camera to half the room&#39;s</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Make sure that the new viewport is on top of the primary one</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">ZOrder</span> = <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">ZOrder</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Set the camera to half of the room size, placed at the right-bottom of the room</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>myCam<span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="bu">Room</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>myCam<span class="op">.</span><span class="at">SetAt</span><span class="op">(</span><span class="bu">Room</span><span class="op">.</span><span class="at">Width</span> <span class="op">-</span> myCam<span class="op">.</span><span class="at">Width</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span> <span class="op">-</span> myCam<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Wait a little (or play a cutscene, and so on)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Delete temporary camera and viewport</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>myCam<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Viewport.html#viewportcamera"><code>Viewport.Camera</code></a>, <a href="Viewport.html#viewportdelete"><code>Viewport.Delete</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 </section>
 <section id="viewportdelete" class="level3">
 <h3><a href="#viewportdelete"><code>Viewport.Delete</code></a></h3>
-<pre><code>void Viewport.Delete();
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
 <p>Removes an existing viewport. This also removes this viewport's pointer from <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a> array.</p>
 <p>It's always safe to delete a viewport, even if it's the last viewport remaining: in such case the room will simply be not displayed on screen. You may create another viewport later and make the room show up again.</p>
 <p><strong>IMPORTANT:</strong> in <strong>Screen.Viewports</strong> array viewports are arranged in the order they were created. When you delete one in the middle all the following viewports will be shifted towards beginning of array.</p>
-<p>Example:</p>
-<pre><code>// Create and setup a temporary viewport
-Viewport* myView = Viewport.Create();
-myView.SetPosition(0, 0, Screen.Width / 4, Screen.Height / 4);
-myView.ZOrder = Screen.Viewport.ZOrder + 1;
-// Assign the existing primary camera to this viewport
-myView.Camera = Game.Camera;
-// Hide the primary viewport
-Screen.Viewport.Visible = false;
-
-// Scroll the new viewport across the screen
-while (myView.X &lt; (Screen.Width - myView.Width) ||
-       myView.Y &lt; (Screen.Height - myView.Height))
-{
-    myView.X += 1;
-    myView.Y += 1;
-    Wait(1);
-}
-
-// Delete the viewport and show the primary viewport again
-myView.Delete();
-Screen.Viewport.Visible = true;
-</code></pre>
 <p><em>See also:</em> <a href="Viewport.html#viewportcreate"><code>Viewport.Create</code></a>, <a href="Screen.html#screenviewport"><code>Screen.Viewport</code></a>, <a href="Screen.html#screenviewports"><code>Screen.Viewports</code></a></p>
 <hr />
 </section>
 <section id="viewportgetatscreenxy" class="level3">
 <h3><a href="#viewportgetatscreenxy"><code>Viewport.GetAtScreenXY</code></a></h3>
-<pre><code>static Viewport* Viewport.GetAtScreenXY(int x, int y)
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Viewport</span><span class="op">*</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Finds if there's any viewport at the specified screen coordinates and returns the topmost one. Hidden viewports will not be tested, but those without camera will still be. If no viewport was found under provided coordinates then this function returns null.</p>
 <p>Example:</p>
-<pre><code>Viewport* view = Viewport.GetAtScreenXY(mouse.x, mouse.y);
-if (view != null)
-{
-    view.Visible = false;
-    Wait(1);
-    view.Visible = true;
-}
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Viewport</span><span class="op">*</span> view = <span class="bu">Viewport</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>view <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    view<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    view<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will find a viewport under the mouse cursor, and if there's one then make it "blink".</p>
 <hr />
 </section>
 <section id="viewportroomtoscreenpoint" class="level3">
 <h3><a href="#viewportroomtoscreenpoint"><code>Viewport.RoomToScreenPoint</code></a></h3>
-<pre><code>Point* Viewport.RoomToScreenPoint(int roomx, int roomy, bool clipViewport = true);
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Point</span><span class="op">*</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">RoomToScreenPoint</span><span class="op">(</span><span class="dt">int</span> roomx<span class="op">,</span> <span class="dt">int</span> roomy<span class="op">,</span> <span class="dt">bool</span> clipViewport = <span class="bu">true</span><span class="op">);</span></span></code></pre></div>
 <p>Returns the point on screen corresponding to the given room coordinates if seen through this viewport. Resulting Point struct will contain screen x and y coordinates.</p>
 <p>Function does the conversion from room to screen's coordinate system, correctly taking into account viewport's position on screen, camera's position in the room and its transformation (scaling etc).</p>
 <p>If <strong>clipViewport</strong> is true then this function will only return a point if given room coordinates are currently seen inside viewport and return null otherwise. If <strong>clipViewport</strong> is false then viewport's bounds will be ignored.</p>
 <p>Example:</p>
-<pre><code>Point* pt = myViewport.RoomToScreenPoint(player.x, player.y);
-if (pt != null) {
-  Display(&quot;Player character is displayed at (%d, %d) on screen.&quot;, pt.x, pt.y);
-} else {
-  Display(&quot;Player character is currently offscreen.&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Point</span><span class="op">*</span> pt = myViewport<span class="op">.</span><span class="at">RoomToScreenPoint</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>pt <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player character is displayed at (%d, %d) on screen.&quot;</span><span class="op">,</span> pt<span class="op">.</span><span class="at">x</span><span class="op">,</span> pt<span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player character is currently offscreen.&quot;</span><span class="op">);</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a>, <a href="Screen.html#screenroomtoscreenpoint"><code>Screen.RoomToScreenPoint</code></a>, <a href="Screen.html#screenscreentoroompoint"><code>Screen.ScreenToRoomPoint</code></a></p>
 <hr />
 </section>
 <section id="viewportsetposition" class="level3">
 <h3><a href="#viewportsetposition"><code>Viewport.SetPosition</code></a></h3>
-<pre><code>void Viewport.SetPosition(int x, int y, int width, int height);
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">);</span></span></code></pre></div>
 <p>Changes viewport's position on the screen. Offscreen positons are valid, if a viewport is entirely offscreen it will simply not be drawn.</p>
-<p>Example:</p>
-<pre><code>Screen.Viewport.SetPosition(Screen.Width / 4, Screen.Height / 4, Screen.Width / 2, Screen.Height / 2);
-</code></pre>
-<p>will set the primary viewport to half the screen size, aligned in the center.</p>
+<p>Example 1:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Set the primary viewport to half the screen size, aligned in the center.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span></code></pre></div>
+<p>Example 2:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Shrink the viewport towards the center of the screen,</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">// and then enlarge it back, while keeping the aspect ratio.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> w = <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> h = <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">Height</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> aspect_ratio = <span class="bu">IntToFloat</span><span class="op">(</span>h<span class="op">)</span> <span class="op">/</span> <span class="bu">IntToFloat</span><span class="op">(</span>w<span class="op">);</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>h <span class="op">&gt;</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">4</span><span class="op">)</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    w <span class="op">-</span>= <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    h = <span class="bu">FloatToInt</span><span class="op">(</span><span class="bu">IntToFloat</span><span class="op">(</span>w<span class="op">)</span> <span class="op">*</span> aspect_ratio<span class="op">,</span> <span class="bu">eRoundNearest</span><span class="op">);</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">((</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">-</span> w<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">-</span> h<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> w<span class="op">,</span> h<span class="op">);</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">60</span><span class="op">);</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>h <span class="op">&lt;</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span><span class="op">)</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    w <span class="op">+</span>= <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    h = <span class="bu">FloatToInt</span><span class="op">(</span><span class="bu">IntToFloat</span><span class="op">(</span>w<span class="op">)</span> <span class="op">*</span> aspect_ratio<span class="op">,</span> <span class="bu">eRoundNearest</span><span class="op">);</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">((</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span> <span class="op">-</span> w<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span> <span class="op">-</span> h<span class="op">)</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> w<span class="op">,</span> h<span class="op">);</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportscreentoroompoint" class="level3">
 <h3><a href="#viewportscreentoroompoint"><code>Viewport.ScreenToRoomPoint</code></a></h3>
-<pre><code>Point* Viewport.ScreenToRoomPoint(int scrx, int scry, optional bool clipViewport);
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Point</span><span class="op">*</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">ScreenToRoomPoint</span><span class="op">(</span><span class="dt">int</span> scrx<span class="op">,</span> <span class="dt">int</span> scry<span class="op">,</span> optional <span class="dt">bool</span> clipViewport<span class="op">);</span></span></code></pre></div>
 <p>Returns the point in room corresponding to the given screen coordinates if seen through this viewport. Resulting Point struct will contain room x and y coordinates.</p>
 <p>Function does the conversion from screen to room's coordinate system, correctly taking into account viewport's location on screen, camera's position in the room and its transformation (scaling etc).</p>
 <p>If <strong>clipViewport</strong> is false then viewport's bounds will be ignored and this function returns valid point all the time. If it is true then this function will only return a point if given screen coordinates are inside viewport's rectangle and return null otherwise. The default is false.</p>
 <p>Example:</p>
-<pre><code>Point* pt = myViewport.ScreenToRoomPoint(mouse.x, mouse.y, true);
-if (pt != null) {
-  Display(&quot;Mouse cursor is over room location: (%d, %d).&quot;, pt.x, pt.y);
-} else {
-  Display(&quot;Mouse cursor is currently outside the viewport.&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Point</span><span class="op">*</span> pt = myViewport<span class="op">.</span><span class="at">ScreenToRoomPoint</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">true</span><span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>pt <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse cursor is over room location: (%d, %d).&quot;</span><span class="op">,</span> pt<span class="op">.</span><span class="at">x</span><span class="op">,</span> pt<span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Mouse cursor is currently outside the viewport.&quot;</span><span class="op">);</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Viewport.html#viewportscreentoroompoint"><code>Viewport.RoomToScreenPoint</code></a>, <a href="Screen.html#screenroomtoscreenpoint"><code>Screen.RoomToScreenPoint</code></a>, <a href="Screen.html#screenscreentoroompoint"><code>Screen.ScreenToRoomPoint</code></a></p>
 <hr />
 </section>
 <section id="viewportcamera" class="level3">
 <h3><a href="#viewportcamera"><code>Viewport.Camera</code></a></h3>
-<pre><code>Camera *Viewport.Camera;
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Camera</span> <span class="op">*</span><span class="bu">Viewport</span><span class="op">.</span><span class="at">Camera</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the camera to be displayed in this viewport. Changing cameras is safe anytime, and the looks inside viewport will be changed during next drawing frame.</p>
 <p>Setting Viewport.Camera to null will make an empty viewport, which does not display anything.</p>
 <p>Example:</p>
-<pre><code>Camera* myCam = Camera.Create();
-myCam.SetSize(Room.Width / 2, Room.Height / 2);
-Screen.Viewport.Camera = myCam;
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Camera</span><span class="op">*</span> myCam = <span class="bu">Camera</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>myCam<span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="bu">Room</span><span class="op">.</span><span class="at">Width</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span> <span class="op">/</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">Camera</span> = myCam<span class="op">;</span></span></code></pre></div>
 <p>Will create a new camera, half of the room's size, and assign it to the primary viewport.</p>
 <p><em>See also:</em> <a href="Camera.html#cameracreate"><code>Camera.Create</code></a>, <a href="Game.html#gamecamera"><code>Game.Camera</code></a>, <a href="Game.html#gamecameras"><code>Game.Cameras</code></a></p>
 <hr />
 </section>
 <section id="viewportheight" class="level3">
 <h3><a href="#viewportheight"><code>Viewport.Height</code></a></h3>
-<pre><code>int Viewport.Height;
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Height</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the viewport's height in screen coordinates.</p>
 <p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportvisible" class="level3">
 <h3><a href="#viewportvisible"><code>Viewport.Visible</code></a></h3>
-<pre><code>bool Viewport.Visible;
-</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Visible</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether the viewport is enabled and drawn on screen.</p>
 <hr />
 </section>
 <section id="viewportwidth" class="level3">
 <h3><a href="#viewportwidth"><code>Viewport.Width</code></a></h3>
-<pre><code>int Viewport.Width;
-</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the viewport's width in screen coordinates.</p>
 <p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportx" class="level3">
 <h3><a href="#viewportx"><code>Viewport.X</code></a></h3>
-<pre><code>int Viewport.X;
-</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">X</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the X position on the screen where this viewport is located.</p>
 <p>Example:</p>
-<pre><code>while (Screen.Viewport.X &lt; Screen.Width)
-{
-    Screen.Viewport.X += 1;
-    Wait(1);
-}
-</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">X</span> <span class="op">&lt;</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Width</span><span class="op">)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">X</span> <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will pan viewport right until it's completely offscreen.</p>
 <p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewporty" class="level3">
 <h3><a href="#viewporty"><code>Viewport.Y</code></a></h3>
-<pre><code>int Viewport.Y;
-</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the Y position on the screen where this viewport is located.</p>
 <p>Example:</p>
-<pre><code>while (Screen.Viewport.Y &lt; Screen.Height)
-{
-    Screen.Viewport.Y += 1;
-    Wait(1);
-}
-</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">Y</span> <span class="op">&lt;</span> <span class="bu">Screen</span><span class="op">.</span><span class="at">Height</span><span class="op">)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">Y</span> <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will pan viewport down until it's completely offscreen.</p>
 <p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a>, <a href="Viewport.html#viewportzorder"><code>Viewport.ZOrder</code></a>, <a href="Screen.html#screenautosizeviewportonroomload"><code>Screen.AutoSizeViewportOnRoomLoad</code></a></p>
 <hr />
 </section>
 <section id="viewportzorder" class="level3">
 <h3><a href="#viewportzorder"><code>Viewport.ZOrder</code></a></h3>
-<pre><code>int Viewport.ZOrder;
-</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the viewport's z-order relative to other viewports. This will be taken into account if multiple viewports overlap to define which should be displayed above and which below.</p>
 <p>The z-order is an arbitrary number and only have meaning in comparison with other viewport's setting. Similarly to <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a>, the lower value puts viewport to the back and higher value to the top.</p>
 <p>Example:</p>
-<pre><code>Viewport* myView = Viewport.Create();
-myView.ZOrder = Screen.Viewport.ZOrder + 1;
-</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Viewport</span><span class="op">*</span> myView = <span class="bu">Viewport</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">ZOrder</span> = <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">ZOrder</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <p>will create a new viewport and place is on top of the primary one.</p>
 <p><em>See also:</em> <a href="Viewport.html#viewportsetposition"><code>Viewport.SetPosition</code></a>, <a href="Viewport.html#viewportx"><code>Viewport.X</code></a>, <a href="Viewport.html#viewporty"><code>Viewport.Y</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 </section>
@@ -312,7 +311,7 @@ myView.ZOrder = Screen.Viewport.ZOrder + 1;
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

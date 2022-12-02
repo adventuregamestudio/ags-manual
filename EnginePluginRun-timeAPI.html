@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -88,34 +103,30 @@
 <h3><a href="#run-time-events">Run-time events</a></h3>
 <section id="ags_enginestartup" class="level4">
 <h4>AGS_EngineStartup</h4>
-<pre><code>DLLEXPORT void AGS_EngineStartup (IAGSEngine *lpGame);
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EngineStartup (IAGSEngine *lpGame);</span></code></pre></div>
 <p>Called by the game engine when the game is loading. This function is called once AGS has loaded everything it needs to into memory, but before it loads the global script.</p>
 <p>Your plugin should use this opportunity to register any text script functions that it provides, and to request hooks for any game events that it wants to handle.</p>
 <p>Once this function completes, the plugin will only regain program control when one of its text script functions is called, or when one of the hooks it registered is executed.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> This function is called before the graphics subsystem is started, so functions like GetScreenDimensions and GetGraphicsDriverID will not work if called from this event.</p>
+<p><strong>NOTE:</strong> This function is called before the graphics subsystem is started, so functions like GetScreenDimensions and GetGraphicsDriverID will not work if called from this event.</p>
 </section>
 <section id="ags_engineshutdown" class="level4">
 <h4>AGS_EngineShutdown</h4>
-<pre><code>DLLEXPORT void AGS_EngineShutdown();
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EngineShutdown();</span></code></pre></div>
 <p>Called by the game engine just before it exits. This gives you a chance to free any memory and do any cleanup that you need to do before the engine shuts down.</p>
 <p><em>(Shutdown is only called by engine interface version 13 and above.)</em></p>
 </section>
 <section id="ags_engineonevent" class="level4">
 <h4>AGS_EngineOnEvent</h4>
-<pre><code>DLLEXPORT int AGS_EngineOnEvent (int event, int data);
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EngineOnEvent (<span class="dt">int</span> event, <span class="dt">int</span> data);</span></code></pre></div>
 <p>Called by the game engine when one of the events which the plugin has requested via RequestEventHook is triggered.<br />
 <code>data</code> is an event-specific parameter - see RequestEventHook below for more information.</p>
 <p>Return 0 to tell the engine to continue processing the event as normal. Return 1 to tell the engine not to call any other handlers, whether in other plugins or the text script, for this event.</p>
 <p>For example, if you were handling a Keypress event, and you did something in response to the keystroke, you may wish to return 1 to stop anything else also dealing with the keystroke.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Only return 1 when absolutely necessary since it may interfere with other plugins operation.</p>
+<p><strong>IMPORTANT:</strong> Only return 1 when absolutely necessary since it may interfere with other plugins operation.</p>
 </section>
 <section id="ags_enginedebughook" class="level4">
 <h4>AGS_EngineDebugHook</h4>
-<pre><code>DLLEXPORT int AGS_EngineDebugHook(const char * scriptName, int lineNum, int reserved);
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EngineDebugHook(<span class="at">const</span> <span class="dt">char</span> * scriptName, <span class="dt">int</span> lineNum, <span class="dt">int</span> reserved);</span></code></pre></div>
 <p>Called by the game engine when a new line of text script is about to be executed. This will only be called if you have requested the AGSE_SCRIPTDEBUG event with the RequestEventHook function (see below).</p>
 <p><code>scriptName</code> contains which script is running (either "Global script" or "Room XX script" (where XX is the room number)). <code>lineNum</code> contains the line number that is about to be run.</p>
 <p>This callback is designed to allow you to create some form of script debugger using a plugin. Note that just having this hook enabled will cause a performance hit in the game - so if the plugin is not actively debugging, it should use <code>UnregisterEventHook</code> to unregister itself until such time as it needs to know again.</p>
@@ -125,122 +136,112 @@
 </section>
 <section id="ags_engineinitgfx" class="level4">
 <h4>AGS_EngineInitGfx</h4>
-<pre><code>DLLEXPORT void AGS_EngineInitGfx(const char *driverID, void *data);
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EngineInitGfx(<span class="at">const</span> <span class="dt">char</span> *driverID, <span class="dt">void</span> *data);</span></code></pre></div>
 <p>Called by AGS just before the graphics driver is initialized. This allows you to make changes to how the driver starts up.</p>
 <p><code>driverID</code> is the ID of the graphics driver in use. This can either be "D3D9" if the player is using the Direct3D driver, or "DX5" if they are using the standard DirectDraw driver.</p>
 <p>If <code>driverID</code> is "D3D9", then the <code>data</code> parameter is a pointer to the <code>D3DPRESENT_PARAMETERS</code> structure that AGS is about to pass into CreateDevice. If you need to enable extra features such as the Auto Depth Stencil, then you can do so by changing the member variables at this point.</p>
 <p>If <code>driverID</code> is "DX5", then the <code>data</code> parameter will currently be passed as <code>NULL</code>.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> This event is called just as the graphics subsystem is starting, so functions that like GetScreenDimensions that rely on the screen being initialized will not work if called from this event.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> This event can be called more than once. It is called every time AGS tries to initialize the screen, so if the first resolution is not supported for example then it will get called again as AGS retries.</p>
+<p><strong>NOTE:</strong> This event is called just as the graphics subsystem is starting, so functions that like GetScreenDimensions that rely on the screen being initialized will not work if called from this event.</p>
+<p><strong>NOTE:</strong> This event can be called more than once. It is called every time AGS tries to initialize the screen, so if the first resolution is not supported for example then it will get called again as AGS retries.</p>
 <p><em>(Supported by engine interface version 23 and above)</em></p>
 </section>
 </section>
 <section id="the-iagsengine-interface" class="level3">
 <h3><a href="#the-iagsengine-interface">The IAGSEngine interface</a></h3>
 <p>This interface is provided to the plugin as the way of calling back to the editor. It provides the following methods.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Very little error checking is performed on these functions for performance reasons, as they provide direct entry into AGS - therefore, mistakes in your code can crash the engine.</p>
+<p><strong>IMPORTANT:</strong> Very little error checking is performed on these functions for performance reasons, as they provide direct entry into AGS - therefore, mistakes in your code can crash the engine.</p>
 <p>The text script currently supports <code>char</code>, <code>short</code> and <code>int</code> types. These are 1, 2 and 4 byte integers respectively. Text script strings are implemented as standard C-style <code>char*</code> pointers, but with preallocated buffers of 200 bytes per string. Therefore, if you write a function which takes a string from the text script, make sure that if you add anything to it you don't write past 200 characters, or problems will result.</p>
 <section id="iagsengineversion" class="level4">
 <h4>IAGSEngine.version</h4>
-<pre><code>int version;
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> version;</span></code></pre></div>
 <p>Specifies the interface version. You should check this to determine what version of the engine is being used, because certain interface methods will have been added in later versions, and attempting to use them with an earlier version will crash the system.</p>
 <p>AGS v2.51 (the first version to support plugins) was distributed with interface version <strong>7</strong>, so you can reasonably expect that as a minimum for your plugin.</p>
 </section>
 <section id="iagsengineabortgame" class="level4">
 <h4>IAGSEngine.AbortGame</h4>
-<pre><code>void AbortGame (const char * reason);
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AbortGame (<span class="at">const</span> <span class="dt">char</span> * reason);</span></code></pre></div>
 <p>Aborts the game, presenting the standard AGS "An error has occured, please correct the problem" message box to the user, with the error description being the string supplied.</p>
 <p>To indicate that it was a user error (for example, they provided an invalid parameter to your text script function), prepend a ! to the message. For example,</p>
-<pre><code>AbortGame (&quot;!MyScriptFunction: Not a valid color&quot;);
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>AbortGame (<span class="st">&quot;!MyScriptFunction: Not a valid color&quot;</span>);</span></code></pre></div>
 <p>This will use the "Please contact the game author for support" heading message.</p>
 <p>If you need to exit the game, you should always use this instead of the standard VC++ exit() functions.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginegetengineversion" class="level4">
 <h4>IAGSEngine.GetEngineVersion</h4>
-<pre><code>const char* GetEngineVersion ();
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span>* GetEngineVersion ();</span></code></pre></div>
 <p>Returns the full build number of the engine, for example "2.51.400". You can use this with strcmp if your plugin requires a specific engine version.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsengineregisterscriptfunction" class="level4">
 <h4>IAGSEngine.RegisterScriptFunction</h4>
-<pre><code>void RegisterScriptFunction (const char *name, void *address);
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RegisterScriptFunction (<span class="at">const</span> <span class="dt">char</span> *name, <span class="dt">void</span> *address);</span></code></pre></div>
 <p>Allows you to add your own text script functions to AGS. <code>name</code> is the name of the function as the script knows it, for example "AddNumbers". <code>address</code> is a pointer to your function that implements the command. For example:</p>
-<pre><code>int AddNumbers (int a, int b) { return a + b; }
-...
-RegisterScriptFunction (&quot;AddNumbers&quot;, AddNumbers);
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> AddNumbers (<span class="dt">int</span> a, <span class="dt">int</span> b) { <span class="cf">return</span> a + b; }</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>RegisterScriptFunction (<span class="st">&quot;AddNumbers&quot;</span>, AddNumbers);</span></code></pre></div>
 <p>Note that it is possible to override the built-in functions with this command. If you do, for example,</p>
-<pre><code>RegisterScriptFunction (&quot;GetLocationType&quot;, AddNumbers);
-</code></pre>
-<p>then any calls from the script to <code>GetLocationType</code> will be intercepted by your plugin (and in this case a stupid result returned).</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you want to override built-in functions, make sure that yours have identical parameters, otherwise the stack could get messed up and crash the engine.</p>
-<p>AGS 2.7 and later support object-based scripting. In order to export an object from your plugin, you'll need to include its struct definition in the RegisterScriptHeader editor call. Then, you export functions as follows:</p>
-<pre><code>int PluginObject_DoSomething(PluginObject *obj, int a) {
-  return a + 10;
-}
-...
-RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
-                         PluginObject_DoSomething);
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>RegisterScriptFunction (<span class="st">&quot;GetLocationType&quot;</span>, AddNumbers);</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">```</span>cpp</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>then any calls from the script to <span class="er">`</span>GetLocationType<span class="er">`</span> will be intercepted by your plugin (<span class="kw">and</span> in <span class="kw">this</span> <span class="cf">case</span> a stupid result returned).</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>**IMPORTANT:** If you want to <span class="kw">override</span> built-in functions, make sure that yours have identical parameters, otherwise the stack could get messed up <span class="kw">and</span> crash the engine.</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>AGS <span class="fl">2.7</span> <span class="kw">and</span> later support object-based scripting. In order to <span class="kw">export</span> an object from your plugin, you<span class="ch">&#39;l</span><span class="er">l need to include its struct definition in the RegisterScriptHeader editor call. Then, you export functions as follows:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="er">```</span>cpp</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> PluginObject_DoSomething(PluginObject *obj, <span class="dt">int</span> a) {</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> a + <span class="dv">10</span>;</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>RegisterScriptFunction(<span class="st">&quot;PluginObject::DoSomething^1&quot;</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                         PluginObject_DoSomething);</span></code></pre></div>
 <p>In other words, the function takes the object as its first parameter. The exported name is <code>"structname::functionname^numparams"</code>, where <code>numparams</code> is the number of parameters it takes (excluding the object itself).</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginegetwindowhandle" class="level4">
 <h4>IAGSEngine.GetWindowHandle</h4>
-<pre><code>HWND GetWindowHandle ();
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>HWND GetWindowHandle ();</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns the window handle of the main game window.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginegetgraphicsdriverid" class="level4">
 <h4>IAGSEngine.GetGraphicsDriverID</h4>
-<pre><code>const char* GetGraphicsDriverID();
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span>* GetGraphicsDriverID();</span></code></pre></div>
 <p>Returns an ID string representing the current graphics driver. This can either be "D3D9" if the player is using the Direct3D driver, or "DX5" if they are using the standard DirectDraw driver.</p>
 <p>If the engine interface version is less than 19, this function is not available; however, in that case you can safely assume that the DX5 driver is in use since earlier versions of AGS only supported that driver.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Your <code>AGS_EngineStartup</code> event is called before the graphics system is initialized. Therefore, you cannot call <code>GetGraphicsDriverID</code> from within <code>AGS_EngineStartup</code> as no driver is loaded at that point.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> When the Direct3D driver is in use, the screen is redrawn each frame using 3D accelerated blits, and therefore there is no virtual screen. You can only manipulate the virtual screen when running with the DX5 driver.</p>
+<p><strong>IMPORTANT:</strong> Your <code>AGS_EngineStartup</code> event is called before the graphics system is initialized. Therefore, you cannot call <code>GetGraphicsDriverID</code> from within <code>AGS_EngineStartup</code> as no driver is loaded at that point.</p>
+<p><strong>NOTE:</strong> When the Direct3D driver is in use, the screen is redrawn each frame using 3D accelerated blits, and therefore there is no virtual screen. You can only manipulate the virtual screen when running with the DX5 driver.</p>
 <p><em>Added in version: 19</em></p>
 </section>
 <section id="iagsenginegetdirectdraw2" class="level4">
 <h4>IAGSEngine.GetDirectDraw2</h4>
-<pre><code>LPDIRECTDRAW2 GetDirectDraw2 ();
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>LPDIRECTDRAW2 GetDirectDraw2 ();</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns the main IDirectDraw2 interface that the game is using.</p>
 <p>This function is only supported if the player is using the DX5 graphics driver.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginegetbitmapsurface" class="level4">
 <h4>IAGSEngine.GetBitmapSurface</h4>
-<pre><code>LPDIRECTDRAWSURFACE2 GetBitmapSurface (BITMAP *bmp);
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>LPDIRECTDRAWSURFACE2 GetBitmapSurface (BITMAP *bmp);</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns the IDirectDrawSurface2 interface associated with the specified bitmap.</p>
 <p>This function is only supported if the player is using the DX5 graphics driver.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This is the Allegro BITMAP structure, not the Win32 GDI BITMAP. Do not try and use a win32 BITMAP with this function, as it will crash the system.</p>
+<p><strong>IMPORTANT:</strong> This is the Allegro BITMAP structure, not the Win32 GDI BITMAP. Do not try and use a win32 BITMAP with this function, as it will crash the system.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginegetscreen" class="level4">
 <h4>IAGSEngine.GetScreen</h4>
-<pre><code>BITMAP * GetScreen ();
-</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>BITMAP * GetScreen ();</span></code></pre></div>
 <p>Returns a reference to the main screen bitmap (as an <em>Allegro</em> <code>BITMAP</code>). You can use this via DDraw with the <code>GetBitmapSurface</code> method, or use the various AGS drawing functions which are documented later.</p>
 <p>This function is only supported if the player is using the DX5 graphics driver.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagsenginerequesteventhook" class="level4">
 <h4>IAGSEngine.RequestEventHook</h4>
-<pre><code>void RequestEventHook (int event);
-</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RequestEventHook (<span class="dt">int</span> event);</span></code></pre></div>
 <p>Requests that the engine calls the plugin's <code>AGS_EngineOnEvent</code> function when the specified event occurs in future. Possible values are:</p>
 <section id="iagsengine-event-agse_keypress" class="level5">
 <h5>IAGSEngine event AGSE_KEYPRESS</h5>
@@ -352,8 +353,8 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 <p><em>(version 26 and later only)</em></p>
 <p>triggered every frame <em>per each room camera</em> once the room contents have been drawn. This event allows to draw over whole room graphic layer.</p>
 <p><strong>data value:</strong> <em>** See Note 1 below</em></p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> Each frame (or <em>game loop</em>), AGS redraws the screen from scratch. The sequence is as follows:</p>
-<ol>
+<p><strong>NOTE:</strong> Each frame (or <em>game loop</em>), AGS redraws the screen from scratch. The sequence is as follows:</p>
+<ol type="1">
 <li><p>Call <code>AGSE_PRERENDER</code></p></li>
 <li><p>Update in-memory cache of current character and object images</p></li>
 <li><p>Begin constructing scene (Direct3D renderer calls <code>BeginScene</code>)</p></li>
@@ -373,132 +374,115 @@ RegisterScriptFunction(&quot;PluginObject::DoSomething^1&quot;,
 </section>
 <section id="iagsenginegetsaveddata" class="level4">
 <h4>IAGSEngine.GetSavedData</h4>
-<pre><code>int GetSavedData (char *buffer, int bufsize);
-</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetSavedData (<span class="dt">char</span> *buffer, <span class="dt">int</span> bufsize);</span></code></pre></div>
 <p>Gets the plugin data that was originally saved with AGS_EditorSaveGame. If your plugin had options that the user could set in the editor, this is how to retrieve them.</p>
 <p><code>buffer</code> is a byte array of <code>bufsize</code>, which the engine will copy the saved data into. It returns the number of bytes actually used.</p>
 <p><em>Added in version: 2</em></p>
 </section>
 <section id="iagsenginegetvirtualscreen" class="level4">
 <h4>IAGSEngine.GetVirtualScreen</h4>
-<pre><code>BITMAP * GetVirtualScreen ();
-</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>BITMAP * GetVirtualScreen ();</span></code></pre></div>
 <p>Returns a reference to the virtual screen bitmap (as an <em>Allegro</em> BITMAP). The virtual screen is what all drawing routines will draw onto, and usually points to a screen-sized memory bitmap that the engine paints on to construct each frame. Once it is finished, the whole thing is copied to the real screen. This is done to prevent the screen flickering as various things are painted on.</p>
 <p>This function is only supported if the player is using the DX5 graphics driver.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginegetrawbitmapsurface" class="level4">
 <h4>IAGSEngine.GetRawBitmapSurface</h4>
-<pre><code>unsigned char ** GetRawBitmapSurface (BITMAP *bmp);
-</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">char</span> ** GetRawBitmapSurface (BITMAP *bmp);</span></code></pre></div>
 <p>Gets a reference to the linear bank of memory that contains the surface of <code>bmp</code>. This allows you to directly plot pixels and so forth, simply by writing to the surface as an array.</p>
 <p>This function locks the surface for you, which means you <strong>must</strong> call ReleaseBitmapSurface to release it when you are done. Failure to do so will most likely hang the engine.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> If the bitmap color depth is 15/16 bit, the return value should be cast to <code>unsigned short**</code>.<br />
+<p><strong>IMPORTANT:</strong> If the bitmap color depth is 15/16 bit, the return value should be cast to <code>unsigned short**</code>.<br />
 If the bitmap color depth is 32 bit, the return value should be cast to <code>unsigned long**</code>.<br />
 If the bitmap color depth is 24 bit, the return value needs to be accessed in blocks of 3 bytes. The best method of doing this is left up to you.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you change any areas of the virtual screen bitmap via this raw surface, you should call <code>MarkRegionDirty</code> with the affected area, so that AGS redraws that part of the screen.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> <strong>Be careful</strong> when using this surface, since writing outside it will crash the engine. Make sure you use <code>GetBitmapDimensions</code> to find out how big the bitmap is.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function cannot be used with the real screen bitmap - it can only be used with the virtual screen and any other bitmaps you may have access to.</p>
+<p><strong>IMPORTANT:</strong> If you change any areas of the virtual screen bitmap via this raw surface, you should call <code>MarkRegionDirty</code> with the affected area, so that AGS redraws that part of the screen.</p>
+<p><strong>IMPORTANT:</strong> <strong>Be careful</strong> when using this surface, since writing outside it will crash the engine. Make sure you use <code>GetBitmapDimensions</code> to find out how big the bitmap is.</p>
+<p><strong>IMPORTANT:</strong> This function cannot be used with the real screen bitmap - it can only be used with the virtual screen and any other bitmaps you may have access to.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginereleasebitmapsurface" class="level4">
 <h4>IAGSEngine.ReleaseBitmapSurface</h4>
-<pre><code>void ReleaseBitmapSurface (BITMAP *bmp);
-</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> ReleaseBitmapSurface (BITMAP *bmp);</span></code></pre></div>
 <p>Releases a bitmap previously locked with <code>GetRawBitmapSurface</code>.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginegetscreendimensions" class="level4">
 <h4>IAGSEngine.GetScreenDimensions</h4>
-<pre><code>void GetScreenDimensions (int *width, int *height, int *coldepth);
-</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetScreenDimensions (<span class="dt">int</span> *width, <span class="dt">int</span> *height, <span class="dt">int</span> *coldepth);</span></code></pre></div>
 <p>Fills in the supplied variables with the current display mode that the engine is running at. You can pass any of the parameters as NULL if you don't want to know them.</p>
 <p><code>coldepth</code> is either 8, 15, 16, 24 or 32 and reflects the actual color depth that the game is running at.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginedrawtext" class="level4">
 <h4>IAGSEngine.DrawText</h4>
-<pre><code>void DrawText (int x, int y, int font, int color, char *text);
-</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DrawText (<span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> font, <span class="dt">int</span> color, <span class="dt">char</span> *text);</span></code></pre></div>
 <p>Writes the string <code>text</code> to the current virtual screen at (<code>x</code>, <code>y</code>), using game font number <code>font</code> in color <code>color</code>.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> The <code>x</code> and <code>y</code> parameters are in actual screen co-ordinates, unlike the text script commands which always use 320-scale co-ordinates. You will need to use <code>GetScreenDimensions</code> and multiply up the co-ordinates accordingly if you wish to draw to a specific location.</p>
+<p><strong>NOTE:</strong> The <code>x</code> and <code>y</code> parameters are in actual screen co-ordinates, unlike the text script commands which always use 320-scale co-ordinates. You will need to use <code>GetScreenDimensions</code> and multiply up the co-ordinates accordingly if you wish to draw to a specific location.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginegetmouseposition" class="level4">
 <h4>IAGSEngine.GetMousePosition</h4>
-<pre><code>void GetMousePosition (int *x, int *y);
-</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetMousePosition (<span class="dt">int</span> *x, <span class="dt">int</span> *y);</span></code></pre></div>
 <p>Fills the supplied variables with the current mouse cursor co-ordinates. Note that these are real screen size co-ordinates, and so at 640x480 resolution these variables can go up to 640 and 480, unlike the text script system.</p>
 <p><em>Added in version: 3</em></p>
 </section>
 <section id="iagsenginegetbitmapdimensions" class="level4">
 <h4>IAGSEngine.GetBitmapDimensions</h4>
-<pre><code>void GetBitmapDimensions (BITMAP *bmp, int *width, int *height, int *coldepth);
-</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetBitmapDimensions (BITMAP *bmp, <span class="dt">int</span> *width, <span class="dt">int</span> *height, <span class="dt">int</span> *coldepth);</span></code></pre></div>
 <p>Fills in the supplied integer variables with the properties of the specified bitmap. You can pass any of the last three parameters as NULL if you don't want to know them.</p>
 <p><code>width</code> is the width of the bitmap, in pixels. <code>height</code> is the height of the bitmap, in pixels. <code>coldepth</code> is the color depth of the bitmap. Note that this is not necessarily the same as the game color depth, since it is possible to use 256-color backgrounds in a hi-color game. Before doing any direct bitmap drawing, you should check this to make sure that you cast the pointer correctly.</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginegetnumbackgrounds" class="level4">
 <h4>IAGSEngine.GetNumBackgrounds</h4>
-<pre><code>int GetNumBackgrounds ();
-</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetNumBackgrounds ();</span></code></pre></div>
 <p>Returns the number of background frames that the current room has (a normal room will return 1).</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginegetcurrentbackground" class="level4">
 <h4>IAGSEngine.GetCurrentBackground</h4>
-<pre><code>int GetCurrentBackground ();
-</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetCurrentBackground ();</span></code></pre></div>
 <p>Returns the number of the currently displayed background frame. (0 is the default frame, 1 the first animated background, and so forth).</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginegetbackgroundscene" class="level4">
 <h4>IAGSEngine.GetBackgroundScene</h4>
-<pre><code>BITMAP * GetBackgroundScene (int frame);
-</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>BITMAP * GetBackgroundScene (<span class="dt">int</span> frame);</span></code></pre></div>
 <p>Returns a reference to the specified background frame (0 is the default frame, 1 the first animated background, and so on).</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginegetcurrentroom" class="level4">
 <h4>IAGSEngine.GetCurrentRoom</h4>
-<pre><code>int GetCurrentRoom ();
-</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetCurrentRoom ();</span></code></pre></div>
 <p>Returns the room number that the game is currently in.</p>
 <p><em>Added in version: 4</em></p>
 </section>
 <section id="iagsenginefread" class="level4">
 <h4>IAGSEngine.FRead</h4>
-<pre><code>int FRead (void *buffer, int length, int handle);
-</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> FRead (<span class="dt">void</span> *buffer, <span class="dt">int</span> length, <span class="dt">int</span> handle);</span></code></pre></div>
 <p>Similar to the C function <code>fread</code>, this reads <code>length</code> bytes of <code>buffer</code> from file <code>handle</code>, returning the number of bytes actually read. The handle you use here <strong>must</strong> have been passed to you by AGS. For any other I/O, you can simply use the standard C functions.</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsenginefwrite" class="level4">
 <h4>IAGSEngine.FWrite</h4>
-<pre><code>int FWrite (void *buffer, int length, int handle);
-</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> FWrite (<span class="dt">void</span> *buffer, <span class="dt">int</span> length, <span class="dt">int</span> handle);</span></code></pre></div>
 <p>Similar to the C function <code>fwrite</code>, this writes <code>length</code> bytes of <code>buffer</code> to file <code>handle</code>, returning the number of bytes actually written. The handle you use here <strong>must</strong> have been passed to you by AGS. For any other I/O, you can simply use the standard C functions.</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsenginesetvirtualscreen" class="level4">
 <h4>IAGSEngine.SetVirtualScreen</h4>
-<pre><code>void SetVirtualScreen (BITMAP *bmp);
-</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> SetVirtualScreen (BITMAP *bmp);</span></code></pre></div>
 <p>Sets <code>bmp</code> as the current virtual screen, so that all drawing routines will draw onto it. You should restore the virtual screen to its original setting before returning from your plugin function. (Use GetVirtualScreen first to save the old reference).</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsenginedrawtextwrapped" class="level4">
 <h4>IAGSEngine.DrawTextWrapped</h4>
-<pre><code>void DrawTextWrapped (int x, int y, int width, int font, int color, const char *text);
-</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DrawTextWrapped (<span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> width, <span class="dt">int</span> font, <span class="dt">int</span> color, <span class="at">const</span> <span class="dt">char</span> *text);</span></code></pre></div>
 <p>Prints <code>text</code> to the current virtual screen at (<code>x</code>, <code>y</code>), using <code>width</code> pixels wide to do so, wrapping the text to ensure it does not exceed the width.</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsengineblitbitmap" class="level4">
 <h4>IAGSEngine.BlitBitmap</h4>
-<pre><code>void BlitBitmap (int x, int y, BITMAP *bmp, int masked);
-</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BlitBitmap (<span class="dt">int</span> x, <span class="dt">int</span> y, BITMAP *bmp, <span class="dt">int</span> masked);</span></code></pre></div>
 <p>Draws graphic <code>bmp</code> to the current virtual screen at (<code>x</code>,<code>y</code>).<br />
 If <code>masked</code> is 0, the image is copied straight across.<br />
 If <code>masked</code> is 1, then transparent pixels are skipped.</p>
@@ -506,130 +490,114 @@ If <code>masked</code> is 1, then transparent pixels are skipped.</p>
 </section>
 <section id="iagsenginelookupparserword" class="level4">
 <h4>IAGSEngine.LookupParserWord</h4>
-<pre><code>int LookupParserWord (const char *word);
-</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> LookupParserWord (<span class="at">const</span> <span class="dt">char</span> *word);</span></code></pre></div>
 <p>Checks the text parser dictionary for <code>word</code>, and returns its word number. All synonyms of a word have the same word number, as shown in the Text Parser pane in the AGS Editor.<br />
 Returns -1 if the word was not in the dictionary.</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsenginepollsystem" class="level4">
 <h4>IAGSEngine.PollSystem</h4>
-<pre><code>void PollSystem ();
-</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> PollSystem ();</span></code></pre></div>
 <p>Updates the internally stored mouse co-ordinates, and checks for mouse clicks and keypresses (and triggers the relevant plugin events). Also runs the music decoder to make sure that there is enough data to play.</p>
 <p>Call this function if you have a long plugin function which takes more than half a second to execute, or if you need to get mouse and keypress events while still inside your function.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> AGS is single-threaded; this means that any background music has to be played by updating the buffer at regular intervals. Therefore, if your function takes a while to execute you should call this to make sure the music doesn't skip.</p>
+<p><strong>NOTE:</strong> AGS is single-threaded; this means that any background music has to be played by updating the buffer at regular intervals. Therefore, if your function takes a while to execute you should call this to make sure the music doesn't skip.</p>
 <p><em>Added in version: 5</em></p>
 </section>
 <section id="iagsenginegetnumcharacters" class="level4">
 <h4>IAGSEngine.GetNumCharacters</h4>
-<pre><code>int GetNumCharacters ();
-</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetNumCharacters ();</span></code></pre></div>
 <p>Returns the number of characters in the current game. Valid character ID's range from 0 to the return value minus 1.</p>
 <p><em>Added in version: 6</em></p>
 </section>
 <section id="iagsenginegetcharacter" class="level4">
 <h4>IAGSEngine.GetCharacter</h4>
-<pre><code>AGSCharacter * GetCharacter (int charid);
-</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>AGSCharacter * GetCharacter (<span class="dt">int</span> charid);</span></code></pre></div>
 <p>Returns the character state struct for character <code>charid</code>. This struct is documented in the header file, but is mostly identical to the <code>character[]</code> text script variable.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Beware when modifying character state structs. There are some caveats to watch out for, such as altering the X and Y values while the character is moving.<br />
+<p><strong>IMPORTANT:</strong> Beware when modifying character state structs. There are some caveats to watch out for, such as altering the X and Y values while the character is moving.<br />
 Also, remember that all view numbers stored are <strong>1 less</strong> than the numbers shown in the editor and used in the text script.</p>
 <p><em>Added in version: 6</em></p>
 </section>
 <section id="iagsenginegetgameoptions" class="level4">
 <h4>IAGSEngine.GetGameOptions</h4>
-<pre><code>AGSGameOptions * GetGameOptions ();
-</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>AGSGameOptions * GetGameOptions ();</span></code></pre></div>
 <p>Returns a reference to the game state structure. This is similar to the text script <code>game.</code> variables.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> One handy member here is the <code>AGSGameOptions.fast_forward</code> variable. This is set to 1 while a cut-scene is being skipped, so if you have any lengthy graphical effects you should not perform them if this is set. All operations which update any game state <strong>must</strong> still be performed however, or skipping the cut-scene will desync the game.</p>
+<p><strong>NOTE:</strong> One handy member here is the <code>AGSGameOptions.fast_forward</code> variable. This is set to 1 while a cut-scene is being skipped, so if you have any lengthy graphical effects you should not perform them if this is set. All operations which update any game state <strong>must</strong> still be performed however, or skipping the cut-scene will desync the game.</p>
 <p><em>Added in version: 6</em></p>
 </section>
 <section id="iagsenginegetpalette" class="level4">
 <h4>IAGSEngine.GetPalette</h4>
-<pre><code>AGSColor * GetPalette ();
-</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>AGSColor * GetPalette ();</span></code></pre></div>
 <p>Returns a reference to the current palette. This is an array of 256 elements of the <code>AGSColor</code> struct.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> In a game with animating backgrounds, the palette can change quite often, so you should generally only rely on the palette remaining consistent for the length of your function.</p>
+<p><strong>NOTE:</strong> In a game with animating backgrounds, the palette can change quite often, so you should generally only rely on the palette remaining consistent for the length of your function.</p>
 <p><em>Added in version: 6</em></p>
 </section>
 <section id="iagsenginesetpalette" class="level4">
 <h4>IAGSEngine.SetPalette</h4>
-<pre><code>void SetPalette (int start, int finish, AGSColor *palette);
-</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> SetPalette (<span class="dt">int</span> start, <span class="dt">int</span> finish, AGSColor *palette);</span></code></pre></div>
 <p>Sets the current screen palette to <code>palette</code>, which must be an array of 256 <code>AGSColor</code> structs. The elements from <code>start</code> to <code>finish</code> are updated. Pass start as 0 and finish as 255 to update the entire palette.</p>
 <p><em>Added in version: 6</em></p>
 </section>
 <section id="iagsenginegetplayercharacter" class="level4">
 <h4>IAGSEngine.GetPlayerCharacter</h4>
-<pre><code>int GetPlayerCharacter ();
-</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetPlayerCharacter ();</span></code></pre></div>
 <p>Returns the number of the current player character.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginegetnumobjects" class="level4">
 <h4>IAGSEngine.GetNumObjects</h4>
-<pre><code>int GetNumObjects ();
-</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetNumObjects ();</span></code></pre></div>
 <p>Returns the number of objects in the current room.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginegetobject" class="level4">
 <h4>IAGSEngine.GetObject</h4>
-<pre><code>AGSObject * GetObject (int number);
-</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>AGSObject * GetObject (<span class="dt">int</span> number);</span></code></pre></div>
 <p>Returns the state structure for object <code>number</code>.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Unlike the character structs, object state pointers are not constant throughout the game. Any time the room changes, these structs get reallocated. Therefore, do not keep a pointer that you get with this command after your function ends.</p>
+<p><strong>IMPORTANT:</strong> Unlike the character structs, object state pointers are not constant throughout the game. Any time the room changes, these structs get reallocated. Therefore, do not keep a pointer that you get with this command after your function ends.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsengineroomtoviewport" class="level4">
 <h4>IAGSEngine.RoomToViewport</h4>
-<pre><code>void RoomToViewport (int *x, int *y);
-</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RoomToViewport (<span class="dt">int</span> *x, <span class="dt">int</span> *y);</span></code></pre></div>
 <p>Converts the room co-ordinates (<code>x</code>, <code>y</code>) into current viewport co-ordinates. The input co-ordinates are room co-ordinates using the 320x200-style scheme that the text script uses and that object and character co-ordinates are stored as.</p>
 <p>When you call this function, the variables you pass will be converted to hold the equivalent viewport co-ordinates. These are real resolution-sized co-ordinates within the current viewable area of the screen.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> You should check the resulting co-ordinates with the screen size to determine whether they are currently visible on the screen.</p>
+<p><strong>NOTE:</strong> You should check the resulting co-ordinates with the screen size to determine whether they are currently visible on the screen.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsengineviewporttoroom" class="level4">
 <h4>IAGSEngine.ViewportToRoom</h4>
-<pre><code>void ViewportToRoom (int *x, int *y);
-</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> ViewportToRoom (<span class="dt">int</span> *x, <span class="dt">int</span> *y);</span></code></pre></div>
 <p>Converts the viewport co-ordinates (<code>x</code>, <code>y</code>) into room co-ordinates. The input co-ordinates are screen resolution scale co-ordinates within the current viewable area of the room.</p>
 <p>When you call this function, the variables you pass will be converted to hold the equivalent room co-ordinates, such as stored in the character and object structs, and used in the text script.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginegetspritegraphic" class="level4">
 <h4>IAGSEngine.GetSpriteGraphic</h4>
-<pre><code>BITMAP * GetSpriteGraphic (int slot);
-</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>BITMAP * GetSpriteGraphic (<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Returns the bitmap with the graphic for sprite slot number <code>slot</code>.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> This method will automatically load the sprite from disk into the sprite cache if it is not already present.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> The AGS Sprite Cache may destroy any sprite from memory at any time. Therefore, <strong>never</strong> keep a pointer obtained with this command. Always call this method again if you need to perform multiple operations with the bitmap.</p>
+<p><strong>NOTE:</strong> This method will automatically load the sprite from disk into the sprite cache if it is not already present.</p>
+<p><strong>IMPORTANT:</strong> The AGS Sprite Cache may destroy any sprite from memory at any time. Therefore, <strong>never</strong> keep a pointer obtained with this command. Always call this method again if you need to perform multiple operations with the bitmap.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginecreateblankbitmap" class="level4">
 <h4>IAGSEngine.CreateBlankBitmap</h4>
-<pre><code>BITMAP * CreateBlankBitmap (int width, int height, int coldepth);
-</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>BITMAP * CreateBlankBitmap (<span class="dt">int</span> width, <span class="dt">int</span> height, <span class="dt">int</span> coldepth);</span></code></pre></div>
 <p>Creates a blank bitmap sized <code>width</code> x <code>height</code> pixels at <code>coldepth</code>-bit color. The bitmap will initially be filled with the transparent color for the color depth.</p>
 <p>Returns NULL if the bitmap could not be created. You should always check the return value to avoid crashes.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> To draw onto the bitmap either use <code>GetRawBitmapSurface</code>, or the <code>SetVirtualScreen</code> command followed by one of the drawing commands such as <code>DrawText</code> or <code>BlitBitmap</code>.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> The bitmap will remain in memory until you explicitly free it with <code>FreeBitmap</code>. Use this command sparingly, as each bitmap you create eats into the engine's available memory.</p>
+<p><strong>NOTE:</strong> To draw onto the bitmap either use <code>GetRawBitmapSurface</code>, or the <code>SetVirtualScreen</code> command followed by one of the drawing commands such as <code>DrawText</code> or <code>BlitBitmap</code>.</p>
+<p><strong>IMPORTANT:</strong> The bitmap will remain in memory until you explicitly free it with <code>FreeBitmap</code>. Use this command sparingly, as each bitmap you create eats into the engine's available memory.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginefreebitmap" class="level4">
 <h4>IAGSEngine.FreeBitmap</h4>
-<pre><code>void FreeBitmap (BITMAP *bmp);
-</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FreeBitmap (BITMAP *bmp);</span></code></pre></div>
 <p>Frees the bitmap <code>bmp</code> from memory.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> <strong>Only</strong> use this command with bitmaps you created with <code>CreateBlankBitmap</code>. Using it with an AGS system bitmap, such as one obtained with <code>GetVirtualScreen</code>, <code>GetScreen</code> or <code>GetSpriteGraphic</code> will crash the engine.</p>
+<p><strong>IMPORTANT:</strong> <strong>Only</strong> use this command with bitmaps you created with <code>CreateBlankBitmap</code>. Using it with an AGS system bitmap, such as one obtained with <code>GetVirtualScreen</code>, <code>GetScreen</code> or <code>GetSpriteGraphic</code> will crash the engine.</p>
 <p><em>Added in version: 7</em></p>
 </section>
 <section id="iagsenginegetroommask" class="level4">
 <h4>IAGSEngine.GetRoomMask</h4>
-<pre><code>BITMAP * GetRoomMask (int which);
-</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>BITMAP * GetRoomMask (<span class="dt">int</span> which);</span></code></pre></div>
 <p>Returns a reference to the requested mask for the current room. <code>which</code> is one of the following values: <code>MASK_WALKABLE</code><br />
 <code>MASK_WALKBEHIND</code><br />
 <code>MASK_HOTSPOT</code><br />
@@ -637,13 +605,12 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 <p>The walk-behind mask is exactly the same size as the room, and is at the current resolution. For example, a 320x200 room, being run at 640x400 in the engine, will give you a 640x400 bitmap.</p>
 <p>The walkable area, hotspot and region masks are the size of the current room, but at the 320x200 resolution.</p>
 <p><strong>All</strong> of the masks are bitmaps with 8-bit color depth, irrespective of what color depth the game is running at.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> The area masks are re-allocated when the player changes rooms, so do <strong>not</strong> keep a pointer returned by this function longer than you need it.</p>
+<p><strong>IMPORTANT:</strong> The area masks are re-allocated when the player changes rooms, so do <strong>not</strong> keep a pointer returned by this function longer than you need it.</p>
 <p><em>Added in version: 8 (MASK_REGIONS requires version 11).</em></p>
 </section>
 <section id="iagsenginegetviewframe" class="level4">
 <h4>IAGSEngine.GetViewFrame</h4>
-<pre><code>AGSViewFrame* GetViewFrame (int view, int loop, int frame);
-</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>AGSViewFrame* GetViewFrame (<span class="dt">int</span> view, <span class="dt">int</span> loop, <span class="dt">int</span> frame);</span></code></pre></div>
 <p>Returns the view frame structure for the specified frame. <code>view</code> is the number you get from the editor (that's used in <code>SetCharacterView</code> and so forth), not the view minus 1.</p>
 <ul>
 <li><strong>Interface version 10 and later:</strong> If <code>frame</code> is not valid (e.g. there aren't that many frames in the specified loop), returns NULL.</li>
@@ -654,46 +621,53 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginegetwalkbehindbaseline" class="level4">
 <h4>IAGSEngine.GetWalkbehindBaseline</h4>
-<pre><code>int GetWalkbehindBaseline (int area);
-</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetWalkbehindBaseline (<span class="dt">int</span> area);</span></code></pre></div>
 <p>Returns the baseline for walk-behind area number <code>area</code>. This is always in character-resolution, i.e. the maximum value is 200 in all resolutions.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsenginegetscriptfunctionaddress" class="level4">
 <h4>IAGSEngine.GetScriptFunctionAddress</h4>
-<pre><code>void* GetScriptFunctionAddress (const char *funcName);
-</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span>* GetScriptFunctionAddress (<span class="at">const</span> <span class="dt">char</span> *funcName);</span></code></pre></div>
 <p>Returns the memory address of the text script exported function <code>funcName</code>. This allows you to call any of the functions which AGS makes available to the text scripts.</p>
 <p>Returns NULL if you specify a function that doesn't exist.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> You <strong>must</strong> cast the result to the correct function type in order to call it - i.e. you must know how many parameters the function expects, and call it appropriately. Failure to do so will corrupt the stack and likely crash the engine.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you specify the name of an actual function in the script, for example repeatedly_execute, it will return an address - however, this will be a script address and attempting to call it will crash the game. <strong>Only</strong> use this feature to obtain the address of AGS's script functions as documented in the manual.</p>
+<p>The <code>funcName</code> is formed using following syntax:</p>
+<ul>
+<li>For regular, global functions: <code>FunctionName^N</code>;</li>
+<li>For struct's member functions: <code>StructName::FunctionName^N</code>;</li>
+<li>For struct's attribute: <code>StructName::get_AttributeName</code>, <code>StructName::set_AttributeName</code>.</li>
+<li>For struct's indexed (array) attribute: <code>StructName::geti_AttributeName</code>, <code>StructName::seti_AttributeName</code>.</li>
+</ul>
+<p>The <code>^N</code> suffix is specifying the expected number of arguments, and is useful if there are several variants of the same function with shorter and longer argument list. It may be omitted, but that is only safe if the script function does not have variants.</p>
+<p>Attribute's getters and setters do not need <code>^N</code>, because their argument list is always exact:</p>
+<ul>
+<li>Regular attribute's getter has no args; setter has 1 arg: the new value;</li>
+<li>Indexed attribute's getter has 1 arg, which is the index; setter has 2 args: the index and the new value.</li>
+</ul>
+<p><strong>IMPORTANT:</strong> You <strong>must</strong> cast the result to the correct function type in order to call it - i.e. you must know how many parameters the function expects, and call it appropriately. Failure to do so will corrupt the stack and likely crash the engine.</p>
+<p><strong>IMPORTANT:</strong> If you specify the name of an actual function in the script, for example repeatedly_execute, it will return an address - however, this will be a script address and attempting to call it will crash the game. <strong>Only</strong> use this feature to obtain the address of AGS's script functions as documented in the manual.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsenginegetbitmaptransparentcolor" class="level4">
 <h4>IAGSEngine.GetBitmapTransparentColor</h4>
-<pre><code>int GetBitmapTransparentColor (BITMAP *bmp);
-</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetBitmapTransparentColor (BITMAP *bmp);</span></code></pre></div>
 <p>Returns the pixel color which is skipped when rendering the bitmap. This is 0 in 256-color bitmaps and RGB (255,0,255) in hi-color bitmaps, so this function returns the pixel value to check for if you need to know.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsenginegetareascaling" class="level4">
 <h4>IAGSEngine.GetAreaScaling</h4>
-<pre><code>int GetAreaScaling (int x, int y);
-</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetAreaScaling (<span class="dt">int</span> x, <span class="dt">int</span> y);</span></code></pre></div>
 <p>Returns the walkable area scaling level at the specified co-ordinates. This ranges from 5 to 200, and specifies the scaling percentage, as set in the editor. The co-ordinates are specified as room co-ordinates.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsengineisgamepaused" class="level4">
 <h4>IAGSEngine.IsGamePaused</h4>
-<pre><code>int IsGamePaused ();
-</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> IsGamePaused ();</span></code></pre></div>
 <p>Equivalent to the text script <code>IsGamePaused</code> function. This returns non-zero if the game is paused, or 0 if it is not paused.</p>
 <p><em>Added in version: 9</em></p>
 </section>
 <section id="iagsenginegetrawpixelcolor" class="level4">
 <h4>IAGSEngine.GetRawPixelColor</h4>
-<pre><code>int GetRawPixelColor (int color);
-</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetRawPixelColor (<span class="dt">int</span> color);</span></code></pre></div>
 <p>Converts <code>color</code>, as specified in the AGS Editor, to the appropriate raw pixel color for the current graphics mode.</p>
 <p>If the user is running 8-bit color, the value is returned unchanged.</p>
 <p>If the user is running 16-bit color, the value is returned unchanged <em>unless</em> it is less than 32, in which case it is converted to be the appropriate locked color from the editor.</p>
@@ -702,47 +676,41 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginegetspritewidth" class="level4">
 <h4>IAGSEngine.GetSpriteWidth</h4>
-<pre><code>int GetSpriteWidth (int slot);
-</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetSpriteWidth (<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Returns the width, in pixels, of sprite number <code>slot</code>.</p>
 <p>This is faster than using <code>GetBitmapDimensions</code> with <code>GetSpriteGraphic</code>, since the image does not need to be retrieved from the sprite cache.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsenginegetspriteheight" class="level4">
 <h4>IAGSEngine.GetSpriteHeight</h4>
-<pre><code>int GetSpriteHeight (int slot);
-</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetSpriteHeight (<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Returns the height, in pixels, of sprite number <code>slot</code>.</p>
 <p>This is faster than using <code>GetBitmapDimensions</code> with <code>GetSpriteGraphic</code>, since the image does not need to be retrieved from the sprite cache.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsenginegettextextent" class="level4">
 <h4>IAGSEngine.GetTextExtent</h4>
-<pre><code>void GetTextExtent (int font, const char *text, int *width, int *height);
-</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetTextExtent (<span class="dt">int</span> font, <span class="at">const</span> <span class="dt">char</span> *text, <span class="dt">int</span> *width, <span class="dt">int</span> *height);</span></code></pre></div>
 <p>Calculates the width and height, in pixels, of displaying <code>text</code> in game font number <code>font</code>.</p>
 <p><code>width</code> or <code>height</code> can be NULL if you only want to know the other one.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsengineprintdebugconsole" class="level4">
 <h4>IAGSEngine.PrintDebugConsole</h4>
-<pre><code>void PrintDebugConsole (const char *message);
-</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> PrintDebugConsole (<span class="at">const</span> <span class="dt">char</span> *message);</span></code></pre></div>
 <p>Prints <code>message</code> to the in-game debug console (which the user can pop up with the ~ key).</p>
 <p>The debug console is designed to help the user find problems by tracing through what's happening in the game - so do not pump messages out to this debug console too quickly or they will scroll past too fast for the user to read. Use the console to say one-off events like "Requested move character to X,Y" and so forth.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsengineischannelplaying" class="level4">
 <h4>IAGSEngine.IsChannelPlaying</h4>
-<pre><code>int IsChannelPlaying (int channel);
-</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> IsChannelPlaying (<span class="dt">int</span> channel);</span></code></pre></div>
 <p>Equivalent to the text script function of the same name, returns 1 if the channel is currently in use, 0 if not.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsengineplaysoundchannel" class="level4">
 <h4>IAGSEngine.PlaySoundChannel</h4>
-<pre><code>void PlaySoundChannel (int channel, int soundType, int volume, int loop, const char *filename);
-</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> PlaySoundChannel (<span class="dt">int</span> channel, <span class="dt">int</span> soundType, <span class="dt">int</span> volume, <span class="dt">int</span> loop, <span class="at">const</span> <span class="dt">char</span> *filename);</span></code></pre></div>
 <p>Plays a new sound on the sound channel number <code>channel</code>. <code>volume</code> can be from 0 to 255, <code>loop</code> is 0 or 1.</p>
 <p><code>soundType</code> determines which sound driver is used to load the file:</p>
 <table>
@@ -783,46 +751,41 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </tr>
 </tbody>
 </table>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> You should normally just use the PlaySound, PlaySoundEx and PlayMusic functions (via GetScriptFunctionAddress) to play sounds - only use this function in specific circumstances.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Only one MIDI file, and one MOD/XM file can be playing at a time. You should generally keep away from these two sound types unless you are sure about what you are doing.</p>
+<p><strong>NOTE:</strong> You should normally just use the PlaySound, PlaySoundEx and PlayMusic functions (via GetScriptFunctionAddress) to play sounds - only use this function in specific circumstances.</p>
+<p><strong>IMPORTANT:</strong> Only one MIDI file, and one MOD/XM file can be playing at a time. You should generally keep away from these two sound types unless you are sure about what you are doing.</p>
 <p><em>Added in version: 11</em></p>
 </section>
 <section id="iagsenginemarkregiondirty" class="level4">
 <h4>IAGSEngine.MarkRegionDirty</h4>
-<pre><code>void MarkRegionDirty(int left, int top, int right, int bottom);
-</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> MarkRegionDirty(<span class="dt">int</span> left, <span class="dt">int</span> top, <span class="dt">int</span> right, <span class="dt">int</span> bottom);</span></code></pre></div>
 <p>Marks the rectangle (<code>left</code>, <code>top</code>) - (<code>right</code>, <code>bottom</code>) on the virtual screen as dirty. Use this if you make any changes to the virtual screen via its raw bitmap surface, to tell AGS to repaint that area of the screen.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> All engine API functions such as <code>DrawText</code> and <code>BlitBitmap</code> call this automatically, so you only need to call it if you manually modify the bitmap surface.</p>
+<p><strong>NOTE:</strong> All engine API functions such as <code>DrawText</code> and <code>BlitBitmap</code> call this automatically, so you only need to call it if you manually modify the bitmap surface.</p>
 <p><em>Added in version: 12</em></p>
 </section>
 <section id="iagsenginegetmousecursor" class="level4">
 <h4>IAGSEngine.GetMouseCursor</h4>
-<pre><code>AGSMouseCursor* GetMouseCursor(int cursor);
-</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>AGSMouseCursor* GetMouseCursor(<span class="dt">int</span> cursor);</span></code></pre></div>
 <p>Returns the mouse cursor struct which AGS uses to store details about the specified cursor mode.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> The returned struct is read-only. You should not modify any members of it directly; rather, call the script functions such as <code>ChangeCursorGraphic</code> which ensure that the game state is updated properly.</p>
+<p><strong>IMPORTANT:</strong> The returned struct is read-only. You should not modify any members of it directly; rather, call the script functions such as <code>ChangeCursorGraphic</code> which ensure that the game state is updated properly.</p>
 <p><em>Added in version: 12</em></p>
 </section>
 <section id="iagsenginegetrawcolorcomponents" class="level4">
 <h4>IAGSEngine.GetRawColorComponents</h4>
-<pre><code>void GetRawColorComponents(int coldepth, int color,int *red, int *green, int *blue, int *alpha);
-</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetRawColorComponents(<span class="dt">int</span> coldepth, <span class="dt">int</span> color,<span class="dt">int</span> *red, <span class="dt">int</span> *green, <span class="dt">int</span> *blue, <span class="dt">int</span> *alpha);</span></code></pre></div>
 <p>Given a raw color (from a bitmap's raw surface, or from GetRawPixelColor) at a given color depth, returns the red, green, blue and alpha components, as values from 0-255.</p>
 <p>You can pass any of the pointers as NULL if you don't want to know that value. The <code>alpha</code> value only has meaning for 32-bit pixels; for all other color depths, it will just be returned as 0.</p>
 <p><em>Added in version: 12</em></p>
 </section>
 <section id="iagsenginemakerawcolorpixel" class="level4">
 <h4>IAGSEngine.MakeRawColorPixel</h4>
-<pre><code>int MakeRawColorPixel(int coldepth, int red, int green, int blue, int alpha);
-</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> MakeRawColorPixel(<span class="dt">int</span> coldepth, <span class="dt">int</span> red, <span class="dt">int</span> green, <span class="dt">int</span> blue, <span class="dt">int</span> alpha);</span></code></pre></div>
 <p>Given a color depth, and RGB values (from 0-255), this function returns the raw pixel value needed to display the requested color on a bitmap of <code>coldepth</code> bits per pixel.</p>
 <p>The <code>alpha</code> value is only meaningful for 32-bit color alpha channel bitmaps, and it allows you to set the alpha value for the pixel. For bitmaps without an alpha channel, pass <code>alpha</code> as 0.</p>
 <p><em>Added in version: 12</em></p>
 </section>
 <section id="iagsenginegetfonttype" class="level4">
 <h4>IAGSEngine.GetFontType</h4>
-<pre><code>int GetFontType(int fontNum);
-</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetFontType(<span class="dt">int</span> fontNum);</span></code></pre></div>
 <p>Returns what type of font <code>fontNum</code> is, as one of the following values:</p>
 <table>
 <thead>
@@ -850,8 +813,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginecreatedynamicsprite" class="level4">
 <h4>IAGSEngine.CreateDynamicSprite</h4>
-<pre><code>int CreateDynamicSprite(int coldepth, int width, int height);
-</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> CreateDynamicSprite(<span class="dt">int</span> coldepth, <span class="dt">int</span> width, <span class="dt">int</span> height);</span></code></pre></div>
 <p>Creates a new dynamic sprite with the supplied color depth, width and height. A dynamic sprite is not controlled by the AGS Sprite Cache, and so is not removed from memory until you manually call <code>DeleteDynamicSprite</code>. Thus, you can write to its bitmap surface without a problem.</p>
 <p>You must remember to free the memory when you are done with the sprite, by calling <code>DeleteDynamicSprite</code>.</p>
 <p>Returns 0 if the sprite could not be created, or the sprite slot number on success.</p>
@@ -859,15 +821,13 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginedeletedynamicsprite" class="level4">
 <h4>IAGSEngine.DeleteDynamicSprite</h4>
-<pre><code>void DeleteDynamicSprite(int slot);
-</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DeleteDynamicSprite(<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Removes the previously created dynamic sprite from memory. It can no longer be used in the game.</p>
 <p><em>Added in version: 12</em></p>
 </section>
 <section id="iagsengineisspritealphablended" class="level4">
 <h4>IAGSEngine.IsSpriteAlphaBlended</h4>
-<pre><code>int IsSpriteAlphaBlended(int slot);
-</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> IsSpriteAlphaBlended(<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Determines whether the supplied sprite has an alpha channel or not. Returns 1 if it does, 0 if it does not.</p>
 <p>This function is useful for determining whether you can ignore the alpha value when doing raw bitmap manipulations. If a sprite does have an alpha channel, you cannot ignore it since the default alpha value of 0 means totally invisible and the pixel would disappear.</p>
 <p>Only 32-bit bitmaps can have an alpha channel. For all other color depths, this function will always return 0.</p>
@@ -875,55 +835,48 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsengineunrequesteventhook" class="level4">
 <h4>IAGSEngine.UnrequestEventHook</h4>
-<pre><code>void UnrequestEventHook(int event)
-</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> UnrequestEventHook(<span class="dt">int</span> event)</span></code></pre></div>
 <p>Tells the engine not to call this plugin any longer when the specified <code>event</code> occurs. The values of <code>event</code> are the same as for <code>RequestEventHook</code>.</p>
 <p>This is useful to call for performance reasons if you no longer require notification of an event.</p>
 <p><em>Added in version: 13</em></p>
 </section>
 <section id="iagsengineblitspritetranslucent" class="level4">
 <h4>IAGSEngine.BlitSpriteTranslucent</h4>
-<pre><code>void BlitSpriteTranslucent(int x, int y, BITMAP *spr, int trans);
-</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BlitSpriteTranslucent(<span class="dt">int</span> x, <span class="dt">int</span> y, BITMAP *spr, <span class="dt">int</span> trans);</span></code></pre></div>
 <p>Draws graphic <code>spr</code> to the current virtual screen at (<code>x</code>,<code>y</code>), with translucency over the background.</p>
 <p><code>trans</code> is the translucency level, from 0 to 255 (where 0 is fully transparent, and 255 is fully opaque). Pixels in the bitmap's transparent color are skipped completely.</p>
 <p><em>Added in version: 13</em></p>
 </section>
 <section id="iagsengineblitspriterotated" class="level4">
 <h4>IAGSEngine.BlitSpriteRotated</h4>
-<pre><code>void BlitSpriteRotated(int x, int y, BITMAP *spr, int angle);
-</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BlitSpriteRotated(<span class="dt">int</span> x, <span class="dt">int</span> y, BITMAP *spr, <span class="dt">int</span> angle);</span></code></pre></div>
 <p>Draws graphic <code>spr</code> to the current virtual screen at (<code>x</code>,<code>y</code>), but rotated to <code>angle</code>. Pixels in the bitmap's transparent color are skipped completely.</p>
 <p>The sprite is positioned with its upper-left corner at (<code>x</code>,<code>y</code>), then it is rotated about its center by <code>angle</code>. The angle is specified as a number from 0 to 255, where 128 would turn it 180 degrees, and 64 would turn it 90 degrees.</p>
 <p><em>Added in version: 13</em></p>
 </section>
 <section id="iagsenginegetdirectsound" class="level4">
 <h4>IAGSEngine.GetDirectSound</h4>
-<pre><code>LPDIRECTSOUND GetDirectSound();
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>LPDIRECTSOUND GetDirectSound();</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns the main <code>IDirectSound</code> interface that the engine is using. This command does <strong>not</strong> <code>AddRef</code> the pointer it returns, so you don't need to Release it.</p>
 <p>This function returns <code>NULL</code> if sound is disabled, or if the player is using the WaveOut driver rather than the DirectSound one.</p>
 <p><em>Added in version: 14</em></p>
 </section>
 <section id="iagsenginedisablesound" class="level4">
 <h4>IAGSEngine.DisableSound</h4>
-<pre><code>void DisableSound();
-</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> DisableSound();</span></code></pre></div>
 <p>Disables AGS's sound system completely. Use this if you want your plugin to take over all audio functionality.</p>
 <p><em>Added in version: 14</em></p>
 </section>
 <section id="iagsenginecanrunscriptfunctionnow" class="level4">
 <h4>IAGSEngine.CanRunScriptFunctionNow</h4>
-<pre><code>int CanRunScriptFunctionNow();
-</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> CanRunScriptFunctionNow();</span></code></pre></div>
 <p>Determines whether a game script function can be run now. Returns 0 if there is currently a script running, or 1 if there isn't.</p>
 <p><em>Added in version: 14</em></p>
 </section>
 <section id="iagsenginecallgamescriptfunction" class="level4">
 <h4>IAGSEngine.CallGameScriptFunction</h4>
-<pre><code>int CallGameScriptFunction(const char *name, int globalScript, int numArgs, int arg1 = 0, int arg2 = 0, int arg3 = 0);
-</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> CallGameScriptFunction(<span class="at">const</span> <span class="dt">char</span> *name, <span class="dt">int</span> globalScript, <span class="dt">int</span> numArgs, <span class="dt">int</span> arg1 = <span class="dv">0</span>, <span class="dt">int</span> arg2 = <span class="dv">0</span>, <span class="dt">int</span> arg3 = <span class="dv">0</span>);</span></code></pre></div>
 <p>Runs a script function in the game's script. <code>name</code> is the name of the function to call. If <code>globalScript</code> is 1, it will call the function in the global script; if it is 0, the function will be run in the room script.</p>
 <p><code>numArgs</code> specifies how many arguments the function takes - this can be from 0 to 3. The following parameters then allow you to pass the contents of the function parameters. They are all 32-bit ints, so the user should declare their script function as taking <code>int</code> parameters.</p>
 <p>This function returns 0 on success, and a non-zero value otherwise. This will always fail when <code>CanRunScriptFunctionNow</code> returns 0.</p>
@@ -931,8 +884,7 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginequeuegamescriptfunction" class="level4">
 <h4>IAGSEngine.QueueGameScriptFunction</h4>
-<pre><code>void QueueGameScriptFunction(const char *name, int globalScript, int numArgs, int arg1 = 0, int arg2 = 0);
-</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> QueueGameScriptFunction(<span class="at">const</span> <span class="dt">char</span> *name, <span class="dt">int</span> globalScript, <span class="dt">int</span> numArgs, <span class="dt">int</span> arg1 = <span class="dv">0</span>, <span class="dt">int</span> arg2 = <span class="dv">0</span>);</span></code></pre></div>
 <p>Queues a script function to be run in the game's script. <code>name</code> is the name of the function to call. If <code>globalScript</code> is 1, it will call the function in the global script; if it is 0, the function will be run in the room script.</p>
 <p><code>numArgs</code> specifies how many arguments the function takes - this can be from 0 to 2. The following parameters then allow you to pass the contents of the function parameters. They are all 32-bit ints, so the user should declare their script function as taking <code>int</code> parameters.</p>
 <p>If no scripts are currently running, the requested script will be run straight away. If there are scripts running, however, then the requested script will be queued up to run when the current one finishes.</p>
@@ -940,23 +892,20 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginenotifyspriteupdated" class="level4">
 <h4>IAGSEngine.NotifySpriteUpdated</h4>
-<pre><code>void NotifySpriteUpdated(int slot);
-</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> NotifySpriteUpdated(<span class="dt">int</span> slot);</span></code></pre></div>
 <p>Notifies the engine that the specified sprite has been updated by the plugin. You would call this if you changed the contents of a dynamic sprite, to make sure that the screen is updated to reflect your changes.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsenginesetspritealphablended" class="level4">
 <h4>IAGSEngine.SetSpriteAlphaBlended</h4>
-<pre><code>void SetSpriteAlphaBlended(int slot, int isAlphaBlended);
-</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> SetSpriteAlphaBlended(<span class="dt">int</span> slot, <span class="dt">int</span> isAlphaBlended);</span></code></pre></div>
 <p>Allows you to specify whether the sprite is alpha blended or not. This allows you to create dynamic 32-bit RGBA sprites. Pass <code>isAlphaBlended</code> as 1 to enable the sprite's alpha channel, or pass it as 0 to disable the alpha channel.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function should only be used with 32-bit dynamic sprites. Using it with sprites of lower color depths, or of sprites created in the AGS Editor, can have unpredictable results.</p>
+<p><strong>IMPORTANT:</strong> This function should only be used with 32-bit dynamic sprites. Using it with sprites of lower color depths, or of sprites created in the AGS Editor, can have unpredictable results.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsengineregistermanagedobject" class="level4">
 <h4>IAGSEngine.RegisterManagedObject</h4>
-<pre><code>int RegisterManagedObject(const void *object, IAGSScriptManagedObject *callback);
-</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> RegisterManagedObject(<span class="at">const</span> <span class="dt">void</span> *object, IAGSScriptManagedObject *callback);</span></code></pre></div>
 <p>Registers a new managed object with the script engine. <code>object</code> points to the actual object itself, and <code>callback</code> points to the class implementing the <code>IAGSScriptManagedObject</code> interface, which will be called to perform operations on the object.</p>
 <p><code>callback</code> and <code>object</code> can, but do not have to, point to the same thing (i.e. it is possible to have the actual object implement the interface; but if you do so, beware that you should not expose any normal variables from the class due to the vtable occupying the first part of the memory).</p>
 <p>The <code>object</code> is added to the managed object pool, with a reference count of zero. Once this function has been called, <code>object</code> can be returned to the script and will be automatically picked up by the script engine.</p>
@@ -966,25 +915,22 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsengineaddmanagedobjectreader" class="level4">
 <h4>IAGSEngine.AddManagedObjectReader</h4>
-<pre><code>void AddManagedObjectReader(const char *typeName, IAGSManagedObjectReader *reader);
-</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AddManagedObjectReader(<span class="at">const</span> <span class="dt">char</span> *typeName, IAGSManagedObjectReader *reader);</span></code></pre></div>
 <p>Registers the specified managed object type with the script engine, and supplies an <code>IAGSManagedObjectReader</code>, which provides the functionality for de-serializing objects of that type. This is used when the user restores a save game, in order to recreate any managed objects that were in existence when the game was saved.</p>
 <p>See further down this page for a description of the <code>IAGSManagedObjectReader</code> interface.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> AGS only keeps a pointer to <code>typeName</code> and does not copy the string, so make sure you do not supply a temporary or local variable as the type name.</p>
+<p><strong>IMPORTANT:</strong> AGS only keeps a pointer to <code>typeName</code> and does not copy the string, so make sure you do not supply a temporary or local variable as the type name.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsengineregisterunserializedobject" class="level4">
 <h4>IAGSEngine.RegisterUnserializedObject</h4>
-<pre><code>void RegisterUnserializedObject(int key, const void *object, IAGSScriptManagedObject *callback);
-</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RegisterUnserializedObject(<span class="dt">int</span> key, <span class="at">const</span> <span class="dt">void</span> *object, IAGSScriptManagedObject *callback);</span></code></pre></div>
 <p>Used from within the <code>IAGSManagedObjectReader</code>, this function re-registers a managed object after it has been read back from disk (for example, when the player restores a save game).</p>
 <p>The <code>key</code> parameter is the object's key, supplied to the <code>ObjectReader</code>, which allows AGS to match up the object internally. You should pass the key in here exactly as it is passed to the <code>ObjectReader</code>.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsenginegetmanagedobjectkeybyaddress" class="level4">
 <h4>IAGSEngine.GetManagedObjectKeyByAddress</h4>
-<pre><code>int GetManagedObjectKeyByAddress(const char *address);
-</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetManagedObjectKeyByAddress(<span class="at">const</span> <span class="dt">char</span> *address);</span></code></pre></div>
 <p>Gets the managed pool key of the specified object address. You will not normally need to use this function, however it can be useful to link up related objects after de-serialization.</p>
 <p>Returns -1 if there is no such object in the pool.</p>
 <p>This function is quite slow so you should avoid using it wherever possible.</p>
@@ -992,100 +938,87 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginegetmanagedobjectaddressbykey" class="level4">
 <h4>IAGSEngine.GetManagedObjectAddressByKey</h4>
-<pre><code>void* GetManagedObjectAddressByKey(int key);
-</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span>* GetManagedObjectAddressByKey(<span class="dt">int</span> key);</span></code></pre></div>
 <p>Gets the memory address of the specified object from the managed pool. You will not normally need to use this function, however it can be useful to link up related objects after de-serialization.</p>
 <p>Returns <code>NULL</code> if the key is invalid.</p>
 <p><em>Added in version: 16</em></p>
 </section>
 <section id="iagsenginecreatescriptstring" class="level4">
 <h4>IAGSEngine.CreateScriptString</h4>
-<pre><code>const char * CreateScriptString(const char *fromText);
-</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> * CreateScriptString(<span class="at">const</span> <span class="dt">char</span> *fromText);</span></code></pre></div>
 <p>Creates a new script String object, containing a copy of <code>fromText</code>. This allows you to declare your plugin functions as returning a String - simply return the result of <strong>CreateScriptString</strong> to the calling script.</p>
 <p>The new string becomes part of the AGS Managed Object Pool and will be freed automatically when there are no longer any script references to it. Note that it creates a copy of <code>fromText</code>, so it is safe for you to free the contents of <code>fromText</code> after calling this function.</p>
 <p><em>Added in version: 17</em></p>
 </section>
 <section id="iagsengineincrementmanagedobjectrefcount" class="level4">
 <h4>IAGSEngine.IncrementManagedObjectRefCount</h4>
-<pre><code>int IncrementManagedObjectRefCount(const char *address);
-</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> IncrementManagedObjectRefCount(<span class="at">const</span> <span class="dt">char</span> *address);</span></code></pre></div>
 <p>Increments the reference count of the specified object in the managed object pool. This should be used if you are storing a reference to a managed object between script function calls, in order to ensure that the object does not get deleted.</p>
 <p>Returns the new reference count of the object.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Be <strong>very careful</strong> when using this function. If you adjust the reference count incorrectly, you could cause a memory leak or the game could crash.</p>
+<p><strong>IMPORTANT:</strong> Be <strong>very careful</strong> when using this function. If you adjust the reference count incorrectly, you could cause a memory leak or the game could crash.</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginedecrementmanagedobjectrefcount" class="level4">
 <h4>IAGSEngine.DecrementManagedObjectRefCount</h4>
-<pre><code>int DecrementManagedObjectRefCount(const char *address);
-</code></pre>
+<div class="sourceCode" id="cb90"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> DecrementManagedObjectRefCount(<span class="at">const</span> <span class="dt">char</span> *address);</span></code></pre></div>
 <p>Decrements the reference count of the specified object in the managed object pool. This should be used if you are storing a reference to a managed object between script function calls, in order to ensure that the object does not get deleted.</p>
 <p>Returns the new reference count of the object.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Be <strong>very careful</strong> when using this function. If you adjust the reference count incorrectly, you could cause a memory leak or the game could crash.</p>
+<p><strong>IMPORTANT:</strong> Be <strong>very careful</strong> when using this function. If you adjust the reference count incorrectly, you could cause a memory leak or the game could crash.</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginesetmouseposition" class="level4">
 <h4>IAGSEngine.SetMousePosition</h4>
-<pre><code>void SetMousePosition(int x, int y);
-</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> SetMousePosition(<span class="dt">int</span> x, <span class="dt">int</span> y);</span></code></pre></div>
 <p>Changes the mouse cursor position to (x,y). As with <em>GetMousePosition</em>, these co-ordinates are specified in real resolution units, so in a 640x480 game the co-ordinates do go up to 640,480 (unlike the script function of the same name).</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginesimulatemouseclick" class="level4">
 <h4>IAGSEngine.SimulateMouseClick</h4>
-<pre><code>void SimulateMouseClick(int button);
-</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> SimulateMouseClick(<span class="dt">int</span> button);</span></code></pre></div>
 <p>Simulates the mouse being clicked by the player. <code>button</code> is which mouse button (1=left, 2=right, 3=middle) to simulate. The effect should be identical to the user clicking the equivalent button on their mouse.</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginegetmovementpathwaypointcount" class="level4">
 <h4>IAGSEngine.GetMovementPathWaypointCount</h4>
-<pre><code>int GetMovementPathWaypointCount(int pathId);
-</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetMovementPathWaypointCount(<span class="dt">int</span> pathId);</span></code></pre></div>
 <p>Gets the number of waypoints on the specified movement path.</p>
 <p>The <code>GetMovementPath</code> family of functions allow you to access the paths for moving characters and objects in the game; and therefore allow you to anticipate where they will end up. The <code>pathId</code> is the value found in the <code>AGSCharacter.walking</code> and <code>AGSObject.moving</code> variables (but only if these variables are greater than 0; 0 or less means they are not moving).</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginegetmovementpathlastwaypoint" class="level4">
 <h4>IAGSEngine.GetMovementPathLastWaypoint</h4>
-<pre><code>int GetMovementPathLastWaypoint(int pathId);
-</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetMovementPathLastWaypoint(<span class="dt">int</span> pathId);</span></code></pre></div>
 <p>Gets the last waypoint that was passed on this movement path. The starting point is waypoint 0, and the destination is the <code>WaypointCount</code> minus 1 (though this can never be returned, since the move is marked as finished once the last waypoint is reached).</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginegetmovementpathwaypointlocation" class="level4">
 <h4>IAGSEngine.GetMovementPathWaypointLocation</h4>
-<pre><code>void GetMovementPathWaypointLocation(int32 pathId, int32 waypoint, int32 *x, int32 *y);
-</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetMovementPathWaypointLocation(int32 pathId, int32 waypoint, int32 *x, int32 *y);</span></code></pre></div>
 <p>Gets the X and Y co-ordinates of the specified waypoint on the specified path.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> No error checking is done on these functions for performance reasons, so make sure you supply a valid <code>pathId</code> and <code>waypoint</code>.</p>
+<p><strong>IMPORTANT:</strong> No error checking is done on these functions for performance reasons, so make sure you supply a valid <code>pathId</code> and <code>waypoint</code>.</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsenginegetmovementpathwaypointspeed" class="level4">
 <h4>IAGSEngine.GetMovementPathWaypointSpeed</h4>
-<pre><code>void GetMovementPathWaypointSpeed(int32 pathId, int32 waypoint, int32 *xSpeed, int32 *ySpeed);
-</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetMovementPathWaypointSpeed(int32 pathId, int32 waypoint, int32 *xSpeed, int32 *ySpeed);</span></code></pre></div>
 <p>Gets the X and Y speed at which the character/object will move from the specified waypoint to the next. The speeds are returned as 32-bit <strong>fixed point</strong> numbers. This means that the high 16 bits is the whole part of the number, and the low 16 bits is the fractional part. For example, if <code>xSpeed</code> is 0x00038000, that would represent a speed of 3.5 pixels per frame.</p>
 <p><em>Added in version: 18</em></p>
 </section>
 <section id="iagsengineisrunningunderdebugger" class="level4">
 <h4>IAGSEngine.IsRunningUnderDebugger</h4>
-<pre><code>int IsRunningUnderDebugger();
-</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> IsRunningUnderDebugger();</span></code></pre></div>
 <p>Returns whether the game is currently running under the AGS Editor's debugger. If it is, then you are able to use the <code>BreakIntoDebugger</code> command.</p>
 <p><em>Added in version: 22</em></p>
 </section>
 <section id="iagsenginebreakintodebugger" class="level4">
 <h4>IAGSEngine.BreakIntoDebugger</h4>
-<pre><code>void BreakIntoDebugger();
-</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> BreakIntoDebugger();</span></code></pre></div>
 <p>Tells AGS to stop and break out into the editor's debugger. This will not happen immediately, but will happen when the next line of script code is run. This function will only work if <code>IsRunningUnderDebugger</code> returns 1.</p>
 <p><em>Added in version: 22</em></p>
 </section>
 <section id="iagsenginegetpathtofileincompiledfolder" class="level4">
 <h4>IAGSEngine.GetPathToFileInCompiledFolder</h4>
-<pre><code>void GetPathToFileInCompiledFolder(const char *fileName, char *buffer)
-</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetPathToFileInCompiledFolder(<span class="at">const</span> <span class="dt">char</span> *fileName, <span class="dt">char</span> *buffer)</span></code></pre></div>
 <p>Fills in <code>buffer</code> with a path that you can use to open the specified file that resides in the Compiled folder.</p>
 <p>If the game is running under the debugger, <code>buffer</code> will end up containing <code>Compiled_fileName_</code> . Otherwise, <code>buffer</code> will simply be set to a copy of <code>fileName</code>.</p>
 <p>You should allocate <code>buffer</code> as <code>MAX_PATH</code> bytes long.</p>
@@ -1093,58 +1026,52 @@ Also, remember that all view numbers stored are <strong>1 less</strong> than the
 </section>
 <section id="iagsenginegetdirectinputkeyboard" class="level4">
 <h4>IAGSEngine.GetDirectInputKeyboard</h4>
-<pre><code>LPDIRECTINPUTDEVICE GetDirectInputKeyboard();
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>LPDIRECTINPUTDEVICE GetDirectInputKeyboard();</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns a pointer to the <code>IDirectInputDevice</code> interface that AGS is using to control the keyboard. This command does <strong>not</strong> <code>AddRef</code> the pointer it returns, so you don't need to Release it.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsenginegetdirectinputmouse" class="level4">
 <h4>IAGSEngine.GetDirectInputMouse</h4>
-<pre><code>LPDIRECTINPUTDEVICE GetDirectInputMouse();
-</code></pre>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is only supported on Windows.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>LPDIRECTINPUTDEVICE GetDirectInputMouse();</span></code></pre></div>
+<p><strong>IMPORTANT:</strong> This function is only supported on Windows.</p>
 <p>Returns a pointer to the <code>IDirectInputDevice</code> interface that AGS is using to control the mouse. This command does <strong>not</strong> <code>AddRef</code> the pointer it returns, so you don't need to Release it.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsenginereplacefontrenderer" class="level4">
 <h4>IAGSEngine.ReplaceFontRenderer</h4>
-<pre><code>IAGSFontRenderer* ReplaceFontRenderer(int fontNumber, IAGSFontRenderer* newRenderer)
-</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>IAGSFontRenderer* ReplaceFontRenderer(<span class="dt">int</span> fontNumber, IAGSFontRenderer* newRenderer)</span></code></pre></div>
 <p>Replaces the font renderer that AGS is currently using to draw the specified font with one of your own. The old renderer is returned.</p>
 <p>This allows you to override AGS's built-in font rendering with your own system. For example, if you didn't want to use SCI or TTF fonts, this allows you to provide a custom implementation. See further down this page for a description of the <code>IAGSFontRenderer</code> interface.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> This function is superceded by <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>. We recommend you use the new function, and implement the <code>IAGSFontRenderer2</code> interface instead.</p>
+<p><strong>IMPORTANT:</strong> This function is superceded by <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>. We recommend you use the new function, and implement the <code>IAGSFontRenderer2</code> interface instead.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsenginegetrenderstagedesc" class="level4">
 <h4>IAGSEngine.GetRenderStageDesc</h4>
-<pre><code>void GetRenderStageDesc(AGSRenderStageDesc* desc)
-</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetRenderStageDesc(AGSRenderStageDesc* desc)</span></code></pre></div>
 <p>Fills the provided <code>AGSRenderStageDesc</code> struct with the current render stage description. <code>AGSRenderStageDesc</code> is declared as:</p>
-<pre><code>struct AGSRenderMatrixes {
-  float WorldMatrix[16];
-  float ViewMatrix[16];
-  float ProjMatrix[16];
-};
-
-// Render stage description
-struct AGSRenderStageDesc {
-  int Version;
-  AGSRenderMatrixes Matrixes;
-};
-</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> AGSRenderMatrixes {</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> WorldMatrix[<span class="dv">16</span>];</span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> ViewMatrix[<span class="dv">16</span>];</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> ProjMatrix[<span class="dv">16</span>];</span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>};</span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-7"><a href="#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Render stage description</span></span>
+<span id="cb104-8"><a href="#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> AGSRenderStageDesc {</span>
+<span id="cb104-9"><a href="#cb104-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> Version;</span>
+<span id="cb104-10"><a href="#cb104-10" aria-hidden="true" tabindex="-1"></a>  AGSRenderMatrixes Matrixes;</span>
+<span id="cb104-11"><a href="#cb104-11" aria-hidden="true" tabindex="-1"></a>};</span></code></pre></div>
 <p>AGSRenderStageDesc's first field is <code>Version</code>, which must be filled by the plugin itself <em>before</em> calling this function. This field's value corresponds to the required engine's interface and tells which struct's fields should be assigned by the engine. It should be 25 or higher for this function to have any effect at all.</p>
 <p>As of interface version 25 the only other meaningful field in <code>AGSRenderStageDesc</code> is <code>Matrixes</code> of type <code>AGSRenderMatrixes</code>. This is another struct that contains three arrays, 16 floating point values each. They represent three main transformation matrixes for the current render stage: World, View and Projection. The matrix format will correspond to the <em>internal format of the current renderer</em> that engine runs (OpenGL, Direct3D, and so on). Thus, if your plugin works with the same renderer as the engine it may safely use these matrixes with that renderer's functions.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> You may know which renderer is run by the engine if you call <a href="EnginePluginRun-timeAPI.html#iagsenginegetgraphicsdriverid"><code>GetGraphicsDriverID</code></a>.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> Software renderer will always fill these matrixes with zeroes.</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> This function is only guaranteed to return useful data if you call it in one of the <a href="EnginePluginRun-timeAPI.html#iagsenginerequesteventhook">render stage events</a>.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
+<p><strong>NOTE:</strong> You may know which renderer is run by the engine if you call <a href="EnginePluginRun-timeAPI.html#iagsenginegetgraphicsdriverid"><code>GetGraphicsDriverID</code></a>.</p>
+<p><strong>NOTE:</strong> Software renderer will always fill these matrixes with zeroes.</p>
+<p><strong>NOTE:</strong> This function is only guaranteed to return useful data if you call it in one of the <a href="EnginePluginRun-timeAPI.html#iagsenginerequesteventhook">render stage events</a>.</p>
+<p><strong>IMPORTANT:</strong> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
 <p><em>Added in version: 25</em></p>
 </section>
 <section id="iagsenginegetgameinfo" class="level4">
 <h4>IAGSEngine.GetGameInfo</h4>
-<pre><code>void GetGameInfo(AGSGameInfo* ginfo)
-</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> GetGameInfo(AGSGameInfo* ginfo)</span></code></pre></div>
 <p>Fills the provided <code>AGSGameInfo</code> struct with the game's description. <code>AGSGameInfo</code> is declared as:</p>
 <pre><code>// Game info
 struct AGSGameInfo {
@@ -1157,27 +1084,24 @@ struct AGSGameInfo {
   char Guid[40];
   // Random key identifying the game (deprecated)
   int UniqueId;
-};
-</code></pre>
+};</code></pre>
 <p>AGSGameInfo's first field is <code>Version</code>, which must be filled by the plugin itself <em>before</em> calling this function. This field's value corresponds to the required engine's interface and tells which struct's fields should be assigned by the engine. It should be 26 or higher for this function to have any effect at all.</p>
 <p>The rest of the fields are for informational purposes. GameName is a human-readable game's title, which is displayed on the game window's caption. Its value corresponds to the <a href="Game.html#gamename"><code>Game.Name</code></a> script property. Guid is a unique string identifying the game. UniqueId is a deprecated game's identifier, which was used in the older versions of AGS. It may be refered to in case Guid is empty.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
+<p><strong>IMPORTANT:</strong> Plugin <em>must</em> fill the struct's Version field before passing it into the function.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsenginereplacefontrenderer2" class="level4">
 <h4>IAGSEngine.ReplaceFontRenderer2</h4>
-<pre><code>IAGSFontRenderer* ReplaceFontRenderer2(int fontNumber, IAGSFontRenderer2* newRenderer)
-</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>IAGSFontRenderer* ReplaceFontRenderer2(<span class="dt">int</span> fontNumber, IAGSFontRenderer2* newRenderer)</span></code></pre></div>
 <p>Replaces the font renderer that AGS is currently using to draw the specified font with one of your own. The previously used renderer is returned.</p>
 <p>This allows you to override AGS's built-in font rendering with your own custom implementation.</p>
 <p>This function supercedes <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer"><code>ReplaceFontRenderer</code></a> and allows to install an extended renderer type, which implements <a href="EnginePluginRun-timeAPI.html#iagsfontrenderer2-interface"><code>IAGSFontRenderer2</code></a> interface (see further down this page for its description).</p>
-<p><em><img src="images/icon_info.png" alt="Info icon" /></em> The old renderer is still returned as a pointer to the base interface <code>IAGSFontRenderer</code>. This is to keep things compatible in case someone sets an old interface, so that this pointer could be used to set it back if necessary (in which case you need to use <code>ReplaceFontRenderer</code>). The engine is capable of detecting when the pointer refers to one of the internal renderers, and convert it as necessary. If you would like to tell if the returned pointer refers to one of the plugin's own renderers, you may do so by comparing the memory addresses, for example.</p>
+<p><strong>NOTE:</strong> The old renderer is still returned as a pointer to the base interface <code>IAGSFontRenderer</code>. This is to keep things compatible in case someone sets an old interface, so that this pointer could be used to set it back if necessary (in which case you need to use <code>ReplaceFontRenderer</code>). The engine is capable of detecting when the pointer refers to one of the internal renderers, and convert it as necessary. If you would like to tell if the returned pointer refers to one of the plugin's own renderers, you may do so by comparing the memory addresses, for example.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsenginenotifyfontupdated" class="level4">
 <h4>IAGSEngine.NotifyFontUpdated</h4>
-<pre><code>void NotifyFontUpdated(int fontNumber)
-</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> NotifyFontUpdated(<span class="dt">int</span> fontNumber)</span></code></pre></div>
 <p>Notifies the engine about the certain font being modified. This is useful when you implement your own custom font loading and rendering (see <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>). When you tell the engine that the font has changed, it recalculates font metrics by quering the active font renderer about font's parameters, and forces game GUI to redraw.</p>
 <p><em>Added in version: 26</em></p>
 </section>
@@ -1187,8 +1111,7 @@ struct AGSGameInfo {
 <p>The <code>IAGSScriptManagedObject</code> interface is implemented for objects which the plugin wants to return to the game script. It allows a callback mechanism for AGS to request various operations on the object. You must implement the following:</p>
 <section id="iagsscriptmanagedobjectdispose" class="level4">
 <h4>IAGSScriptManagedObject.Dispose</h4>
-<pre><code>int Dispose(const char *address, bool force);
-</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Dispose(<span class="at">const</span> <span class="dt">char</span> *address, <span class="dt">bool</span> force);</span></code></pre></div>
 <p>Called when the reference count of the specified object reaches zero. The <code>address</code> parameter points to the particular object that is no longer referenced.</p>
 <p>If <code>force</code> is zero, then you are merely being informed that the reference count has reached zero. Either you can destroy the object (in which case you should return 1), or you can leave it (return 0). If you leave it, then this function will be called again at various intervals to give you another opportunity to destroy the object.</p>
 <p>If <code>force</code> is non-zero, then this is the object's last chance to free its memory and it will not be called again. This is the case if the player is about to restore a saved game, or is quitting the game, and so forth.</p>
@@ -1197,15 +1120,13 @@ struct AGSGameInfo {
 </section>
 <section id="iagsscriptmanagedobjectgettype" class="level4">
 <h4>IAGSScriptManagedObject.GetType</h4>
-<pre><code>const char* GetType();
-</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span>* GetType();</span></code></pre></div>
 <p>Returns the type name of the object. This must match the type name supplied to <code>AddManagedObjectReader</code> for the corresponding reader.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsscriptmanagedobjectserialize" class="level4">
 <h4>IAGSScriptManagedObject.Serialize</h4>
-<pre><code>int Serialize(const char *address, char *buffer, int bufsize);
-</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Serialize(<span class="at">const</span> <span class="dt">char</span> *address, <span class="dt">char</span> *buffer, <span class="dt">int</span> bufsize);</span></code></pre></div>
 <p>Called when the player saves the game. You must write any persistent data for the object at <code>address</code> into the supplied <code>buffer</code>. The buffer is <code>bufsize</code> bytes long, and you must not write any more data than that.</p>
 <p>You must return the number of bytes written to the buffer.</p>
 <p><em>Added in version: 15</em></p>
@@ -1216,8 +1137,7 @@ struct AGSGameInfo {
 <p>The IAGSManagedObjectReader interface is implemented for each managed object type, to enable the objects to be reconstructed after being read back from disk. You must implement the following:</p>
 <section id="iagsmanagedobjectreaderunserialize" class="level4">
 <h4>IAGSManagedObjectReader.Unserialize</h4>
-<pre><code>void Unserialize(int key, const char *serializedData, int dataSize);
-</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Unserialize(<span class="dt">int</span> key, <span class="at">const</span> <span class="dt">char</span> *serializedData, <span class="dt">int</span> dataSize);</span></code></pre></div>
 <p>Called for each managed object when a saved game is restored. <code>serializedData</code> is the buffer that you wrote to in Serialize, and <code>dataSize</code> is the length of this buffer.</p>
 <p>You should re-construct the object from the serialized data, and then re-register it using the <code>RegisterUnserializedObject</code> function. The <code>key</code> supplied to you here should be passed on unmodified to <code>RegisterUnserializedObject</code> in order for the object to be fully restored.</p>
 <p><em>Added in version: 15</em></p>
@@ -1228,59 +1148,51 @@ struct AGSGameInfo {
 <p>The <code>IAGSFontRenderer</code> interface can be implemented to override AGS's built-in text rendering with a custom system. The methods on the interface are as follows:</p>
 <section id="iagsfontrendererloadfromdisk" class="level4">
 <h4>IAGSFontRenderer.LoadFromDisk</h4>
-<pre><code>bool LoadFromDisk(int fontNumber, int fontSize);
-</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> LoadFromDisk(<span class="dt">int</span> fontNumber, <span class="dt">int</span> fontSize);</span></code></pre></div>
 <p>Used internally by AGS to load the font from disk. However, you currently cannot insert a custom renderer early enough in the process to override this method, therefore it will never be called.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererfreememory" class="level4">
 <h4>IAGSFontRenderer.FreeMemory</h4>
-<pre><code>void FreeMemory(int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FreeMemory(<span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>Called when the engine is shutting down, to free the memory associated with this font. You should perform your own clean-up here, and then call onto the <code>FreeMemory</code> method of the old renderer that you replaced.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderersupportsextendedcharacters" class="level4">
 <h4>IAGSFontRenderer.SupportsExtendedCharacters</h4>
-<pre><code>bool SupportsExtendedCharacters(int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> SupportsExtendedCharacters(<span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>AGS will call this method to determine whether the specified font supports extended characters (i.e. characters with a ASCII value of 128 or above). Return <code>true</code> or <code>false</code>, depending on your implementation.</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> If you return false from this function, AGS will not necessarily strip extended characters out of text. If you do not support extended characters, then you should implement the <code>EnsureTextValidForFont</code> method (below) to strip them out.</p>
+<p><strong>IMPORTANT:</strong> If you return false from this function, AGS will not necessarily strip extended characters out of text. If you do not support extended characters, then you should implement the <code>EnsureTextValidForFont</code> method (below) to strip them out.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderergettextwidth" class="level4">
 <h4>IAGSFontRenderer.GetTextWidth</h4>
-<pre><code>int GetTextWidth(const char *text, int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextWidth(<span class="at">const</span> <span class="dt">char</span> *text, <span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>AGS will call this method to find out the width, in pixels, of drawing the specified text in the specified font. You should return the number of pixels that this will take up (assuming the text is all on one line and does not wrap).</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderergettextheight" class="level4">
 <h4>IAGSFontRenderer.GetTextHeight</h4>
-<pre><code>int GetTextHeight(const char *text, int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextHeight(<span class="at">const</span> <span class="dt">char</span> *text, <span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>AGS will call this method to find out the height, in pixels, of drawing the specified text in the specified font. You should return the number of pixels that this will take up (assuming the text is all on one line and does not wrap).</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererrendertext" class="level4">
 <h4>IAGSFontRenderer.RenderText</h4>
-<pre><code>void RenderText(const char *text, int fontNumber, BITMAP *destination, int x, int y, int color);
-</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RenderText(<span class="at">const</span> <span class="dt">char</span> *text, <span class="dt">int</span> fontNumber, BITMAP *destination, <span class="dt">int</span> x, <span class="dt">int</span> y, <span class="dt">int</span> color);</span></code></pre></div>
 <p>AGS calls this method to render text to a bitmap. <code>destination</code> is the bitmap surface that AGS is rendering to (you can use this with other functions like <code>GetBitmapDimensions</code> and <code>GetRawBitmapSurface</code>), and you need to draw the <code>text</code> starting with its top-left position at (<code>x</code>, <code>y</code>) on this surface.</p>
 <p><code>color</code> is a raw pixel color, not an AGS color Number.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendereradjustycoordinateforfont" class="level4">
 <h4>IAGSFontRenderer.AdjustYCoordinateForFont</h4>
-<pre><code>void AdjustYCoordinateForFont(int *ycoord, int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AdjustYCoordinateForFont(<span class="dt">int</span> *ycoord, <span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>This method is a workaround introduced for TTF fonts, which allows you to adjust the Y-position of the rendered text. You should implement this method so that it does nothing unless you have problems with text positioning.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererensuretextvalidforfont" class="level4">
 <h4>IAGSFontRenderer.EnsureTextValidForFont</h4>
-<pre><code>void EnsureTextValidForFont(char *text, int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> EnsureTextValidForFont(<span class="dt">char</span> *text, <span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>AGS calls this method prior to actually rendering text, and allows you to check that all the characters in the text are supported by the font. If not, <code>text</code> is a writable buffer and you could replace them with question marks.</p>
 <p>By default, you should implement this method so that it does nothing.</p>
 <p><em>Added in version: 23</em></p>
@@ -1291,37 +1203,32 @@ struct AGSGameInfo {
 <p>The <code>IAGSFontRenderer2</code> interface is an extension to the <code>IAGSFontRenderer</code>, therefore contains all the parent's methods, but also adds a number of its own:</p>
 <section id="iagsfontrenderer2getversion" class="level4">
 <h4>IAGSFontRenderer2.GetVersion</h4>
-<pre><code>int GetVersion();
-</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetVersion();</span></code></pre></div>
 <p>Tells the engine API version to which this renderer implementation corresponds to. This is a very important method, as engine will use it to know what functionality of this interface is safe to use. The return value must not be lower than 26 (as this is the first version in which this interface was introduced).</p>
-<p><em><img src="images/icon_warn.png" alt="Warning" /></em> You must make sure your renderer returns a correct version, corresponding to which version of interface you implement, otherwise engine may try calling non-existing methods and crash.</p>
+<p><strong>IMPORTANT:</strong> You must make sure your renderer returns a correct version, corresponding to which version of interface you implement, otherwise engine may try calling non-existing methods and crash.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getrenderername" class="level4">
 <h4>IAGSFontRenderer2.GetRendererName</h4>
-<pre><code>const char *GetRendererName();
-</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> *GetRendererName();</span></code></pre></div>
 <p>Returns the name of this renderer implementation. This is for informational purposes only. Engine may use this method, for example, to print current active font renderer names into the log.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getfontname" class="level4">
 <h4>IAGSFontRenderer2.GetFontName</h4>
-<pre><code>const char *GetFontName(int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> *GetFontName(<span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>Returns the name of the given font, if it's supported. Should return an empty string or null otherwise. This is for informational purposes only.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getfontheight" class="level4">
 <h4>IAGSFontRenderer2.GetFontHeight</h4>
-<pre><code>int GetFontHeight(int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetFontHeight(<span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>Returns the font's height. This method supercedes <code>IAGSFontRenderer.GetTextHeight</code>, and does not require to pass a string. The returned height should be a maximal height the font may occupy.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getlinespacing" class="level4">
 <h4>IAGSFontRenderer2.GetLineSpacing</h4>
-<pre><code>int GetLineSpacing(int fontNumber);
-</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetLineSpacing(<span class="dt">int</span> fontNumber);</span></code></pre></div>
 <p>Returns the font's custom line spacing, if any. Return 0 to tell that the font does not have any particular line spacing set, in which case font's height will be used instead.</p>
 <p><em>Added in version: 26</em></p>
 </section>
@@ -1333,7 +1240,7 @@ struct AGSGameInfo {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

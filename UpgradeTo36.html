@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -118,8 +133,7 @@
 <p>All the above must be written strictly in the Latin alphabet.</p>
 <p>String variables and related functions should work seamlessly with Unicode texts. Functions that work with characters were changed to have arguments and return values as <code>int</code>, to be able to pass any Unicode character. This includes <code>AppendChar()</code>, <code>ReplaceChar()</code> and <code>String.Char[]</code> property. Also, <code>String.Format("%c", n)</code> will now be able to print Unicode characters.</p>
 <p>The Translations are not affected by the game's setting and have an individual setting of their own. When you open a TRS file made by the new version, it will have an "#Encoding" option in the file's header. This is where you may write either "UTF-8" or "ASCII" by hand to tell the translation compiler (and the engine) how this translation should be interpreted. By default this should be "UTF-8", so you only need to change this if you need the translation to be in ASCII for some reason. If you have imported an older project and the TRS file does not have this option, then you may add one yourself. Just remember that the TRS options must be preceded with a comment sign, like this:</p>
-<pre><code>//#Encoding=UTF-8
-</code></pre>
+<pre><code>//#Encoding=UTF-8</code></pre>
 <p>Don't forget to save the TRS in UTF-8 with whatever text editor you are using, if you want it to keep Unicode texts intact.</p>
 <p>The engine can run the game in both Unicode and ASCII modes. It uses a game setting to set up the mode on start, but when loading a translation it will switch to the translation's setting. This behavior is meant primarily to allow adding UTF-8 translations for older ASCII games.</p>
 <p><strong>NOTE:</strong> the engine cannot convert older ASCII games to Unicode at runtime, primarily because it does not know the exact codepage its texts were made in. So if you want your older game to fully work in Unicode, the proper way is to upgrade its project and compile the game anew.</p>
@@ -129,18 +143,16 @@
 <p>As a part of the Unicode support, and also to make key handling in the script more consistent, the script callbacks for key input were extended.</p>
 <p>First of all, the <code>on_key_press</code> function now supports a second optional argument <code>mod</code>. It's optional, so you don't have to declare it, but if you do then you'll get its benefits.</p>
 <p>The extended function definition now is:</p>
-<pre><code>function on_key_press(eKeyCode key, int mod)
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> key<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>The <code>mod</code> argument describes which key modifiers were enabled when this exact key was pressed. It's different from, for example, using <code>IsKeyPressed()</code> in <code>repeatedly_execute</code> callback, because the engine may receive several key-presses between two game frames, while <code>IsKeyPressed</code> only tells the last state of the key. Using <code>mod</code> argument is 100% reliable.</p>
 <p>But the <code>mod</code> contains a <em>set of flags</em>, and is slightly more complicated: as you should not use regular comparison (==, !=) with it, but a bitwise operator (&amp;):</p>
-<pre><code>// these two conditions check that ctrl was pressed (these commands are equivalent)
-if (mod &amp; eKeyModCtrl)
-if (mod &amp; eKeyModCtrl != 0)
-
-// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)
-if (!(mod &amp; eKeyModCtrl))
-if (mod &amp; eKeyModCtrl == 0)
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">))</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div>
 <p>Here's the full list of mod constants:</p>
 <table>
 <thead>
@@ -208,31 +220,26 @@ if (mod &amp; eKeyModCtrl == 0)
 <li>the new <code>on_text_input</code> script function will be active and receive <strong>printable characters</strong>;</li>
 </ul>
 <p>In the new mode each key pressed triggers <code>on_key_press</code>, and when the pressed keys form a printable character an <code>on_text_input</code> function is called. This function must look simply like this:</p>
-<pre><code>function on_text_input(int ch)
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_text_input</span><span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
 <p>Its argument (<code>ch</code>) contains a Unicode character's code. It may be used, for example, to append to a String, or add to the text field or label.</p>
 <p>Similarly to the above, <code>dialog_options_key_press</code> had been expanded with the third <code>mod</code> argument:</p>
-<pre><code>function dialog_options_key_press(DialogOptionsRenderingInfo *info, eKeyCode keycode, int mod)
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_options_key_press</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">eKeyCode</span> keycode<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>And there's now <code>dialog_options_text_input</code> callback for receiving unicode chars during the custom dialog options state:</p>
-<pre><code>function dialog_options_text_input(DialogOptionsRenderingInfo *info, int ch)
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_options_text_input</span><span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
 </section>
 <section id="new-game-package-options" class="level3">
 <h3><a href="#new-game-package-options">New game package options</a></h3>
 <p>AGS now allows to package custom files into your game and read them in script. An option called "Package custom data folder" has been added to the <a href="GeneralSettings.html#compiler">General Settings - Compiler</a>. This option accepts a comma-separated list of subfolder names, which should be found in your game project's folder. All of the files in these subfolders will be added to the game package under their relative paths (e.g. "UserData/myfile.dat").</p>
 <p>Any <a href="File.html">File functions</a> that accept file paths can now refer to the game package files using the new <code>$DATA$</code> location tag. Virtually any packaged file may be queried this way, whether custom or regular game resource. These files may only be opened for reading however, never for writing.</p>
 <p>For example, you may read your custom file from the package as:</p>
-<pre><code>File* f = File.Open(&quot;$DATA$/UserData/myfile.dat&quot;, eFileRead);
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">*</span> f = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$DATA$/UserData/myfile.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span></code></pre></div>
 </section>
 <section id="multiple-speech-voxes" class="level3">
 <h3><a href="#multiple-speech-voxes">Multiple speech voxes</a></h3>
 <p>AGS now supports having multiple speech vox files. This may be useful if, for example, you would like to provide separate voice-over packs for each language (translation) in your game. Creating additional voxes is done by creating subfolders in the "Speech" folder and placing the sound files there. AGS will then generate a file called "sp_NAME.vox" for each existing subfolder, where "NAME" is the subfolder's name.</p>
 <p>In script you may switch between the speech packs using new <code>Game.ChangeSpeechVox()</code> function. Its value is not linked with the textual translation, which is set by <code>Game.ChangeTranslation()</code>. You may enable voice-over matching the language of the displayed text, or on contrary allow the player to choose different languages for the text and for the voice. For example:</p>
-<pre><code>Game.ChangeTranslation(&quot;Spanish&quot;);
-Game.ChangeSpeechVox(&quot;English&quot;);
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">ChangeTranslation</span><span class="op">(</span><span class="st">&quot;Spanish&quot;</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">ChangeSpeechVox</span><span class="op">(</span><span class="st">&quot;English&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>The commands above will change the textual translation to "Spanish", and the voice-over to the "sp_english.vox" pack.</p>
 </section>
 <section id="new-sprite-compression-options" class="level3">
@@ -253,7 +260,7 @@ Game.ChangeSpeechVox(&quot;English&quot;);
 <section id="improvement-of-overlays" class="level3">
 <h3><a href="#improvement-of-overlays">Improvement of Overlays</a></h3>
 <p>Overlays in AGS are currently the only "game objects" that can be created dynamically in script (there are also <a href="DynamicSprite.html">Dynamic Sprites</a>, but these cannot be shown without being assigned to <em>something</em>). That, and them being a very simple kind of object not requiring extra setup, makes them useful to create temporary visual effects or to create a custom object from ground up. Previously, however, overlays had a number of restrictions, and these are now removed in AGS 3.6.0.</p>
-<ol>
+<ol type="1">
 <li>Overlays are now unlimited in numbers. Previously there could only be up to 20 simultaneous overlays.</li>
 <li>You can create both screen and room overlays. Room overlays are created using <code>Overlay.CreateRoomGraphical</code> and <code>Overlay.CreateRoomTextual</code>; they are like regular overlays but are positioned inside the room, in room coordinates, among room objects.</li>
 <li>Overlays now have a ZOrder property, similar to GUIs. The z-order may be used to sort overlays among themselves and other game objects on the same layer: the screen overlays are sorted among GUIs, while room overlays are sorted among room objects, characters and walk-behinds.</li>
@@ -305,7 +312,7 @@ Game.ChangeSpeechVox(&quot;English&quot;);
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -172,35 +187,28 @@
 <ul>
 <li><p><strong>Allow speech to be skipped by which events</strong> - determines how and whether the player can skip speech in-game. This can be set to allow the mouse and/or keyboard, or neither, to skip speech in the game.</p></li>
 <li><p><strong>Custom Narrate function in dialog scripts</strong> - determines which function will be used to substitute standard narration in dialog scripts. For example, if you have</p>
-<pre><code>narrator: The man looks you in the eye.
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ss">narrator</span><span class="op">:</span> The man looks you in the eye.</span></code></pre></div>
 <p>in a dialog script, then normally this is replaced by</p>
-<pre><code>Display(&quot;The man looks you in the eye&quot;);
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The man looks you in the eye&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>during compilation. With the above setting you can provide <em>the name</em> of your custom function that you've defined in your script. Such function must have one of the following prototype forms:</p>
-<pre><code>function CustomNarrate1(const string text);
-function CustomNarrate2(String text);
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomNarrate1</span><span class="op">(</span>const string text<span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomNarrate2</span><span class="op">(</span><span class="bu">String</span> text<span class="op">);</span></span></code></pre></div>
 <p>The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Display function is used.</p></li>
 <li><p><strong>Custom Say function in dialog scripts</strong> - determines which function will be used to substitute standard character cues in dialog scripts. For example, if you have something like</p>
-<pre><code>Roger: Hello, my name is Roger.
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">Roger</span><span class="op">:</span> Hello, my name is Roger.</span></code></pre></div>
 <p>in a dialog script, then normally this is replaced by</p>
-<pre><code>cRoger.Say(&quot;Hello, my name is Roger.&quot;);
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cRoger<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Hello, my name is Roger.&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>during compilation. With the above setting you can provide <em>the name</em> of your custom function that you've defined in your script. Such function must have one of the following prototype forms:</p>
-<pre><code>function CustomSay1(Character *c, const string text);
-function CustomSay2(Character *c, String text);
-function CustomSay3(this Character*, const string text);
-function CustomSay4(this Character*, String text);
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay1</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">,</span> const string text<span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay2</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">,</span> <span class="bu">String</span> text<span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay3</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> const string text<span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay4</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">);</span></span></code></pre></div>
 <p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
 <pre><code>1. Hello there!
-2. Goodbye
-</code></pre>
+2. Goodbye</code></pre>
 <p>This allows you to visually show the player which option the shortcut keys will choose, as well as separating the options if you don't use a bullet point.</p></li>
 <li><p><strong>Print dialog options upwards</strong> - Normally, if you select a non-textwindow GUI for the dialog options, they will be printed from the top down. However, if you select this option they will go from the bottom of the GUI upwards.</p></li>
 <li><p><strong>Run game loops while dialog options are displayed</strong> - whether to allow game animations to continue in the background while waiting for the player to select a dialog option.</p></li>
@@ -270,7 +278,7 @@ function CustomSay4(this Character*, String text);
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

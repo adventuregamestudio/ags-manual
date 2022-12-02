@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -84,52 +99,49 @@
   <main>
 <section id="global-functions-wait" class="level2">
 <h2><a href="#global-functions-wait">Global functions (Wait)</a></h2>
-<p>Since AGS 3.6.0, All Wait related functions can return a <strong>Skip Reason</strong> on why they were skipped:</p>
+<p><code>Wait*</code> functions block the execution of a current script for certain duration, and optionally let player skip the waiting with a key or mouse clicks. After wait is over, the script continues as usual. <code>Wait</code> works almost everywhere, except for <a href="Globalfunctions_Event.html#repeatedly_execute_always"><code>(late_)repeatedly_execute_always</code></a> functions.</p>
+<p><strong>Before AGS 3.6.0</strong>, Wait* functions would return '0' if the waiting ended with a timeout, or '1' if it was skipped by a player.</p>
+<p><strong>Since AGS 3.6.0</strong>, Wait* functions do return a more sophisticated <strong>Skip Reason</strong> on why they were skipped:</p>
 <ul>
 <li><code>0</code> - ended by timeout or <code>SkipWait()</code>;</li>
 <li><code>!= 0</code> - an integer value which combines <a href="StandardEnums.html#inputtype">InputType</a>, <a href="Keycodes.html#key-modifiers">KeyMod</a>, and a key or button code corresponding to that input type; that describes what input device and which button on that device were used to skip this "wait".</li>
 </ul>
 <p>If you only need to find out whether WaitX ended with a timeout or a player's input, all you need is to compare it with <code>0</code>:</p>
-<pre><code>if (WaitMouseKey(100) == 0) {
-    Display(&quot;Time out!&quot;);
-}
-
-if (WaitMouse(100) != 0) {
-    Display(&quot;Skipped by a mouse click.&quot;);
-}
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">WaitMouseKey</span><span class="op">(</span><span class="dv">100</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Time out!&quot;</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">WaitMouse</span><span class="op">(</span><span class="dv">100</span><span class="op">)</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Skipped by a mouse click.&quot;</span><span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>If you need to determine exact details of how the "wait" was skipped, you have to split returned value into <code>InputType</code>, key mod, and a button code using <a href="ScriptKeywords.html#operators">bitwise operations</a>:</p>
-<pre><code>int result = WaitMouseKey(100);
-InputType type = result &amp; eInputAny;
-int keymod = result &amp; eKeyModMask; // extract key mod flags
-int keycode = result &amp; eKeyCodeMask; // extract key or button code
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result = <span class="bu">WaitMouseKey</span><span class="op">(</span><span class="dv">100</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">InputType</span> type = result <span class="op">&amp;</span> <span class="bu">eInputAny</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> keymod = result <span class="op">&amp;</span> <span class="bu">eKeyModMask</span><span class="op">;</span> <span class="co">// extract key mod flags</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> keycode = result <span class="op">&amp;</span> <span class="bu">eKeyCodeMask</span><span class="op">;</span> <span class="co">// extract key or button code</span></span></code></pre></div>
 <p>For example, this is how you may Wait until player presses either Space key or Left Mouse button:</p>
-<pre><code>while (true) {
-    int result = WaitMouseKey(-1);
-    InputType type = result &amp; eInputAny;
-    int keycode = result &amp; eKeyCodeMask;
-    if ((type == eInputMouse &amp;&amp; keycode == eMouseLeft) ||
-        (type == eInputKeyboard &amp;&amp; keycode == eKeySpace)) {
-        break; // break the waiting loop
-    }
-}
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">true</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> result = <span class="bu">WaitMouseKey</span><span class="op">(-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">InputType</span> type = result <span class="op">&amp;</span> <span class="bu">eInputAny</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> keycode = result <span class="op">&amp;</span> <span class="bu">eKeyCodeMask</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span>type <span class="op">==</span> <span class="bu">eInputMouse</span> <span class="op">&amp;&amp;</span> keycode <span class="op">==</span> <span class="bu">eMouseLeft</span><span class="op">)</span> <span class="op">||</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">(</span>type <span class="op">==</span> <span class="bu">eInputKeyboard</span> <span class="op">&amp;&amp;</span> keycode <span class="op">==</span> <span class="bu">eKeySpace</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span> <span class="co">// break the waiting loop</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and this is how the key combinations may be tested (Ctrl + S in this case):</p>
-<pre><code>while (true) {
-    int result = WaitKey(-1);
-    int keycode = result &amp; eKeyCodeMask;
-    int keymod = result &amp; eKeyModMask;
-    if (keymod == eKeyModCtrl &amp;&amp; keycode == eKeyS) {
-        break; // break the waiting loop
-    }
-}
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">true</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> result = <span class="bu">WaitKey</span><span class="op">(-</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> keycode = result <span class="op">&amp;</span> <span class="bu">eKeyCodeMask</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> keymod = result <span class="op">&amp;</span> <span class="bu">eKeyModMask</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keymod <span class="op">==</span> <span class="bu">eKeyModCtrl</span> <span class="op">&amp;&amp;</span> keycode <span class="op">==</span> <span class="bu">eKeyS</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span> <span class="co">// break the waiting loop</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 <section id="skipwait" class="level3">
 <h3><a href="#skipwait"><code>SkipWait</code></a></h3>
-<pre><code>void SkipWait ()
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SkipWait</span> <span class="op">()</span></span></code></pre></div>
 <p>Cancels current Wait function, regardless of its type, if one was active at the moment.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
@@ -137,22 +149,19 @@ int keycode = result &amp; eKeyCodeMask; // extract key or button code
 </section>
 <section id="wait" class="level3">
 <h3><a href="#wait"><code>Wait</code></a></h3>
-<pre><code>void Wait (int time)
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">Wait</span> <span class="op">(</span><span class="dt">int</span> time<span class="op">)</span></span></code></pre></div>
 <p>Pauses the script and lets the game continue for TIME loops. There are normally 40 loops/second (unless you change it with SetGameSpeed), so using a value of 80 will wait 2 seconds. Note that no other scripts can run while the Wait function is in the background.</p>
 <p>Example:</p>
-<pre><code>cEgo.Walk(120, 140, eBlock, eWalkableAreas);
-Wait(80);
-cEgo.FaceLocation(1000,100);
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">120</span><span class="op">,</span> <span class="dv">140</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eWalkableAreas</span><span class="op">);</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">80</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceLocation</span><span class="op">(</span><span class="dv">1000</span><span class="op">,</span><span class="dv">100</span><span class="op">);</span></span></code></pre></div>
 <p>will move the character EGO to 120,140, wait until he gets there then wait for 2 seconds (80 game cycles) and then face right.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
 <hr />
 </section>
 <section id="waitinput" class="level3">
 <h3><a href="#waitinput"><code>WaitInput</code></a></h3>
-<pre><code>int WaitInput(InputType types, int timeout = -1)
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">WaitInput</span><span class="op">(</span><span class="dt">InputType</span> types<span class="op">,</span> <span class="dt">int</span> timeout = <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span></code></pre></div>
 <p>Pauses the script and lets the game continue until EITHER:</p>
 <ul>
 <li><code>timeout</code> loops have elapsed, or</li>
@@ -166,8 +175,7 @@ cEgo.FaceLocation(1000,100);
 <li><code>!= 0</code> - ended by player input;</li>
 </ul>
 <p>Example:</p>
-<pre><code>WaitInput(eInputKeyboard + eInputMouse, 200);
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">WaitInput</span><span class="op">(</span><span class="bu">eInputKeyboard</span> <span class="op">+</span> <span class="bu">eInputMouse</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p>will pause the script and wait until 5 seconds have passed (if game is 40 frames per second) or the player presses a key or clicks the mouse.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#wait"><code>Wait</code></a>, <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a>, <a href="Globalfunctions_Wait.html#skipwait"><code>SkipWait</code></a></p>
@@ -175,8 +183,7 @@ cEgo.FaceLocation(1000,100);
 </section>
 <section id="waitkey" class="level3">
 <h3><a href="#waitkey"><code>WaitKey</code></a></h3>
-<pre><code>int WaitKey (int timeout = -1)
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">WaitKey</span> <span class="op">(</span><span class="dt">int</span> timeout = <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span></code></pre></div>
 <p>Pauses the script and lets the game continue until EITHER:</p>
 <ul>
 <li><code>timeout</code> loops have elapsed, or</li>
@@ -189,16 +196,15 @@ cEgo.FaceLocation(1000,100);
 <li><code>!= 0</code> - ended by key keycode;</li>
 </ul>
 <p>Example:</p>
-<pre><code>WaitKey(200);
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">WaitKey</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p>will pause the script and wait until 5 seconds have passed or the player presses a key.</p>
+<p><em>Compatibility:</em> infinite timeout and complex skip reason are only supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#wait"><code>Wait</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
 <hr />
 </section>
 <section id="waitmousekey" class="level3">
 <h3><a href="#waitmousekey"><code>WaitMouseKey</code></a></h3>
-<pre><code>int WaitMouseKey (int timeout = -1)
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">WaitMouseKey</span> <span class="op">(</span><span class="dt">int</span> timeout = <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span></code></pre></div>
 <p>Pauses the script and lets the game continue until EITHER:</p>
 <ul>
 <li><code>timeout</code> loops have elapsed, or</li>
@@ -212,16 +218,15 @@ cEgo.FaceLocation(1000,100);
 <li><code>!= 0</code> - ended by keycode or mouse click;</li>
 </ul>
 <p>Example:</p>
-<pre><code>WaitMouseKey(200);
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">WaitMouseKey</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p>will pause the script and wait until 5 seconds have passed or the player presses a key or clicks the mouse.</p>
+<p><em>Compatibility:</em> infinite timeout and complex skip reason are only supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#wait"><code>Wait</code></a>, <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
 <hr />
 </section>
 <section id="waitmouse" class="level3">
 <h3><a href="#waitmouse"><code>WaitMouse</code></a></h3>
-<pre><code>int WaitMouseKey (int timeout = -1)
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">WaitMouseKey</span> <span class="op">(</span><span class="dt">int</span> timeout = <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span></code></pre></div>
 <p>Pauses the script and lets the game continue until EITHER:</p>
 <ul>
 <li><code>timeout</code> loops have elapsed, or</li>
@@ -234,8 +239,7 @@ cEgo.FaceLocation(1000,100);
 <li><code>!= 0</code> - ended by mouse click;</li>
 </ul>
 <p>Example:</p>
-<pre><code>WaitMouse(200);
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">WaitMouse</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span></code></pre></div>
 <p>will pause the script and wait until 5 seconds have passed (if game is 40 frames per second) or the player presses clicks the mouse.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#wait"><code>Wait</code></a>, <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a>, <a href="Globalfunctions_Wait.html#skipwait"><code>SkipWait</code></a></p>
@@ -247,7 +251,7 @@ cEgo.FaceLocation(1000,100);
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

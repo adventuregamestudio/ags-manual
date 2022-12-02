@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -96,7 +111,7 @@
 <p>The Room editor is described below and arranged like this:</p>
 <p><img src="images/acintro2_02.png" alt="The Rooms window workspace" /></p>
 <p>There are four main parts to this window:</p>
-<ol>
+<ol type="1">
 <li>The <strong>Background Selection</strong> area allows you to import and manage the room's backgrounds.</li>
 <li>The <strong>Room Parts</strong> drop-down list is the way that you add or modify different aspects of your room (Hotspots, Objects, Walkable areas, etc.), as well as, simply switch between making these aspects visible in the editor for your preview.</li>
 <li>The <strong>Room Background Preview</strong> area is where you see the room's background image, along with various things on top of it, depending on what's selected as visible in the Room Parts option.</li>
@@ -117,12 +132,12 @@
 <p><strong>Edges</strong></p>
 <p>Within the "Room Parts section" is the <strong>"Edit this room's"</strong> combobox that says <strong>"Room"</strong> in it. Select the trailing <strong>arrow</strong>, and select on the word <strong>"Edges"</strong>. Upon clicking on this you've made the "Edges" sub-section now visible and the "eye" icon within this drop-down is now <em>open</em> to designate this.</p>
 <p>Within the "Room Background Preview" area you will see four yellow lines drawn across your image in various places. These are the room <em>edges,</em> and they define how far the character needs to walk to be considered to have left the room. Click and drag them to position them appropriately.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Bear in mind that it's the character's <strong>feet</strong> that are to be considered with these lines when positioning.)</p>
+<p><strong>NOTE:</strong> Bear in mind that it's the character's <strong>feet</strong> that are to be considered with these lines when positioning.</p>
 <p><img src="images/acintro2_05.png" alt="I&#39;ve lined up the top and right edges correctly" /></p>
 <p>At the moment, walking past the edges won't actually cause anything to happen, but we'll deal with that later. In my example, the character can only walk off the top and right edges, so they're the only ones that I've dragged into position. I've left the others as they are, since we won't be needing them.</p>
 <p><strong>Walkable Areas</strong></p>
 <p>Next, we need to define the room's <em>walkable areas</em>, which define where characters are allowed to walk within the room. Open up the <strong>"Show this room's"</strong> Room drop-down list again, and select the <strong>"Walkable areas"</strong> text.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: You may still see the "Edges" of the room displaying as they were turned to "visible" when you had that section opened. Clicking on the "Show this Room's" dropdown and clicking on the "eyeball" for "Edges" will make them hidden from your Room Background Preview area.</p>
+<p><strong>NOTE:</strong> You may still see the "Edges" of the room displaying as they were turned to "visible" when you had that section opened. Clicking on the "Show this Room's" dropdown and clicking on the "eyeball" for "Edges" will make them hidden from your Room Background Preview area.</p>
 <p><img src="images/acintro2_06.png" alt="Walkable areas mode" /></p>
 <p>In the AGS Editor top toolbar you'll notice that some new buttons have appeared. These are the drawing tools, and work in a similar way to most paint packages. AGS Editor provides Line, Freehand, Rectangle and Fill tools. Alternatively, you can draw your walkable area mask in a paint package and import it <a href="AdvancedRoomFeatures.html#importing-a-file-as-the-walkable-area-mask">we'll cover that later in Advanced Room Features</a>.</p>
 <p>What we need to do is to fill in the areas of the room where the player is allowed to walk. In the game, the bottom middle of the character is checked against these areas, so it's probably wise to make the walkable areas slightly smaller than they need to be, to allow the character's feet to spill outside the area.</p>
@@ -131,7 +146,7 @@
 <p><img src="images/acintro2_07.png" alt="I&#39;ve drawn a walkable area where I want the player to be able to walk along." /></p>
 <p><strong>Walk-behind areas</strong></p>
 <p>The next job we need to do is to define the walk-behind areas. These areas (called "priorities" by some other adventure game tools) tell the game where the character needs to be drawn behind the background.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: If you are following along on the tutorial, unfortunately our example background does not have any walk-behinds to worry about. So, I will show you how you can work with walk-behinds as our previous tutorial did, using a background from Space Quest 4.)</p>
+<p><strong>NOTE:</strong> If you are following along on the tutorial, unfortunately our example background does not have any walk-behinds to worry about. So, I will show you how you can work with walk-behinds as our previous tutorial did, using a background from Space Quest 4.</p>
 <p>Open up the <strong>"Show this room's"</strong> Room drop-down list again, and select the <strong>"Walk-behinds"</strong> text. Your walkable area will disappear and you'll be back to just seeing the room background.</p>
 <p>Notice on this Space Quest 4 screen, the player needs to walk in from behind the curved wall on the right.</p>
 <p>Now, we draw on the walk-behind area in the same way as we did the walkable area - in fact, all the same drawing tools are available. My result looks like this:</p>
@@ -141,13 +156,13 @@
 <p>You normally place a baseline at the lowest point of the walk-behind area. Move the mouse cursor to the bottom of the walk-behind area, and look at the "Mouse Position" display above the room background. These are the X and Y co-ordinates of where the mouse cursor currently is. We're only interested in the Y co-ordinate, so type it in to the Baseline setting in the property grid.</p>
 <p>By default, we've been drawing blue areas onto the screen. But what if we had two pillars, in different places? We wouldn't want the same baseline to apply to both. Never fear, AGS allows you to have several different areas on each screen. Above the property grid, there's a combobox that says "Walk-behind area ID 1". You can change this to another ID to then draw in another color, and each area has its own baseline.</p>
 <p><img src="images/intro2_8.jpg" alt="Selecting a different walk-behind area" /></p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: Going forward this tutorial will return to the Space Hub background image.)</p>
+<p><strong>NOTE:</strong> Going forward this tutorial will return to the Space Hub background image.</p>
 <p><strong>Trying out the game</strong></p>
 <p>OK, we've slogged away at making our room - now it's about time to give it a go. Press F5, or click "Run" on the Build menu. This will save your work and launch the game! Once loaded, you should see your room with the character in it.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: When you use the Run command, the game will always run in a window. If you want to test the game full-screen, use the Ctrl+F5 ("Run without debugger") option.)</p>
+<p><strong>NOTE:</strong> When you use the Run command, the game will always run in a window. If you want to test the game full-screen, use the Ctrl+F5 ("Run without debugger") option.</p>
 <p>Try to move the character around. If he won't move, he probably didn't start on a walkable area. If this is the case, expand the "Characters" node in the project tree, and double-click "cEgo". Then, look in the property grid for two properties called "StartX" and "StartY". You can find out what these co-ordinates should be by going back to your room background, positioning the mouse cursor at the place where you want the character to start, and reading the "Mouse Position" display.</p>
 <p>Once you've got that working, have a play walking the character around the screen, testing out the walkable and walk-behind areas.</p>
-<p><img src="images/icon_info.png" alt="Note" /> (<strong>NOTE</strong>: The normal way of exiting the game is to press Ctrl+Q. It's possible that during development of your game, you may create a script that causes the game to lock up - in this case, the emergency break key Alt+X will exit the game for you.)</p>
+<p><strong>NOTE:</strong> The normal way of exiting the game is to press Ctrl+Q. It's possible that during development of your game, you may create a script that causes the game to lock up - in this case, the emergency break key Alt+X will exit the game for you.</p>
 <p>Next Chapter: <a href="acintro3.html">Part 3 - Adding Interaction</a></p>
 </section>
 </section>
@@ -157,7 +172,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 

@@ -14,56 +14,71 @@
 
   <div class="container">
     <header>
-      <label class="toggle-control" for="dark_mode_toggle">
-        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
-        <span class="control"></span>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
       </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
-      <label class="header_input" for="search_input">Search:</label>
-      <input type="search" id="search_input">
-      <label for="citoggle" class="header_input">Aa</label>
-      <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+
       <ul id="search_results"></ul>
     </header>
 
   <nav>
-    <a href="index.html">
-      <svg id="cup" width="72" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-        <g shape-rendering="crispEdges">
-          <rect width="10" height="7" fill="#ffffff" />
-          <svg y="1">
-            <rect width="12" height="5" fill="#ffffff" />
-          </svg>
-          <svg x="1">
-            <rect width="8" height="8" fill="#ffffff" />
-          </svg>
-          <svg x="1" y="1">
-            <rect width="8" height="5" fill="#2a7fff" />
-          </svg>
-          <svg x="2" y="6">
-            <rect width="6" height="1" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="2">
-            <rect width="2" height="3" fill="#2a7fff" />
-          </svg>
-          <svg x="9" y="3">
-            <rect width="1" height="1" fill="#ffffff" />
-          </svg>
-          <svg x="2" y="2">
-            <rect width="6" height="3" fill="#0000d4" />
-          </svg>
-          <svg x="3" y="5">
-            <rect width="4" height="1" fill="#0000d4" />
-          </svg>
-          <svg x="2" y="1">
-            <rect width="6" height="1" fill="#ffffff" />
-          </svg>
-        </g>
-      </svg>
-    </a>
     <h1>
-      <a href="index.html">AGS Manual</a>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
     </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
@@ -102,17 +117,15 @@
 <section id="drawingsurfaceclear" class="level3">
 <h3><a href="#drawingsurfaceclear"><code>DrawingSurface.Clear</code></a></h3>
 <p><em>(Formerly known as <code>RawClearScreen</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.Clear(optional int color)
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Clear</span><span class="op">(</span>optional <span class="dt">int</span> color<span class="op">)</span></span></code></pre></div>
 <p>Clears the surface to the specified COLOR (this is a number you can find in the Colors pane of the editor). The current contents of the surface will be lost.</p>
 <p>If you do not supply the COLOR parameter, or use COLOR_TRANSPARENT, the surface will be cleared to be fully transparent.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.Clear(14);
-surface.DrawingColor = 13;
-surface.DrawCircle(160,100,50);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Clear</span><span class="op">(</span><span class="dv">14</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">13</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawCircle</span><span class="op">(</span><span class="dv">160</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>clears the room background to be fully yellow, then draws a pink circle in the middle of it.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></p>
 <hr />
@@ -120,21 +133,19 @@ surface.Release();
 <section id="drawingsurfacecreatecopy" class="level3">
 <h3><a href="#drawingsurfacecreatecopy"><code>DrawingSurface.CreateCopy</code></a></h3>
 <p><em>(Formerly known as <code>RawSaveScreen</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface* DrawingSurface.CreateCopy()
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">*</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">CreateCopy</span><span class="op">()</span></span></code></pre></div>
 <p>Makes a backup copy of the current surface, in order that it can be restored later. This could be useful to back up a background scene before writing over it, or to save a certain state of your drawing to restore later.</p>
 <p>Unlike the obsolete RawSaveScreen command in previous versions of AGS, backup surfaces created with this command are not lost when the player changes room or restores a game. However, surfaces containing a copy of room backgrounds can be <strong>very large</strong>, using up a large amount of memory and can increase the save game sizes significantly. Therefore, it is <strong>strongly recommended</strong> that you Release any backup copy surfaces as soon as you are done with them.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *backup = surface.CreateCopy();
-DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawTriangle(0,0,160,100,0,200);
-surface.Release();
-Wait(80);
-surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawSurface(backup);
-surface.Release();
-backup.Release();
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>backup = surface<span class="op">.</span><span class="at">CreateCopy</span><span class="op">();</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawTriangle</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">160</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">200</span><span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">80</span><span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawSurface</span><span class="op">(</span>backup<span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>backup<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will save a copy of the room background, draw a triangle onto it, wait for a while and then restore the original background.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a></p>
 <hr />
@@ -142,15 +153,13 @@ backup.Release();
 <section id="drawingsurfacedrawcircle" class="level3">
 <h3><a href="#drawingsurfacedrawcircle"><code>DrawingSurface.DrawCircle</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawCircle</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawCircle(int x, int y, int radius)
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawCircle</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> radius<span class="op">)</span></span></code></pre></div>
 <p>Draws a filled circle of radius RADIUS with its center at (X,Y) in the current drawing color.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawCircle(160,100,50);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawCircle</span><span class="op">(</span><span class="dv">160</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span><span class="dv">50</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw a circle in the center of the screen, of 50 pixels radius.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></p>
 <hr />
@@ -158,11 +167,10 @@ surface.Release();
 <section id="drawingsurfacedrawimage" class="level3">
 <h3><a href="#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawImage</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawDrawImageResized</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawDrawImageTransparent</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawImage(int x, int y, int slot, optional int transparency,
-                         optional int width, optional int height,
-                         optional int cut_x, optional  int cut_y, 
-                         optional int cut_width, optional int cut_height)
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">int</span> transparency<span class="op">,</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> cut_x<span class="op">,</span> optional  <span class="dt">int</span> cut_y<span class="op">,</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> cut_width<span class="op">,</span> optional <span class="dt">int</span> cut_height<span class="op">)</span></span></code></pre></div>
 <p>Draws image SLOT from the sprite manager onto the surface at location (X,Y).</p>
 <p>Optionally, you can also specify the transparency of the image. This is a number from 0-100; using a <em>transparency</em> of 50 will draw the image semi-transparent; using 0 means it will not be transparent.</p>
 <p>You can also resize the image as you draw it. In order to do this, simply specify a <em>width</em> and <em>height</em> that you wish to resize the image to when it is drawn.</p>
@@ -171,10 +179,9 @@ surface.Release();
 <p><strong>NOTE:</strong> Transparency does not work in 256-color games, or with 256-color sprites.</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawImage(100, 100, oDoor.Graphic, 40);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Graphic</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw the <em>oDoor</em> object's graphic onto the room background at (100, 100), at <code>40%</code> transparency.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a>, <a href="Room.html#roomcolordepth"><code>Room.ColorDepth</code></a></p>
 <hr />
@@ -182,18 +189,16 @@ surface.Release();
 <section id="drawingsurfacedrawline" class="level3">
 <h3><a href="#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawLine</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawLine(int from_x, int from_y, int to_x, int to_y,
-                        optional int thickness)
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dt">int</span> from_x<span class="op">,</span> <span class="dt">int</span> from_y<span class="op">,</span> <span class="dt">int</span> to_x<span class="op">,</span> <span class="dt">int</span> to_y<span class="op">,</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        optional <span class="dt">int</span> thickness<span class="op">)</span></span></code></pre></div>
 <p>Draws a line from (FROM_X, FROM_Y) to (TO_X, TO_Y) in the surface's current drawing color.</p>
 <p>The <em>thickness</em> parameter allows you to specify how thick the line is, the default being 1 pixel.</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawLine(0, 0, 160, 100);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw a line from the left top of the screen (0,0) to the middle of the screen (160,100);</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawcircle"><code>DrawingSurface.DrawCircle</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawrectangle"><code>DrawingSurface.DrawRectangle</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawtriangle"><code>DrawingSurface.DrawTriangle</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></p>
 <hr />
@@ -201,34 +206,30 @@ surface.Release();
 <section id="drawingsurfacedrawmessagewrapped" class="level3">
 <h3><a href="#drawingsurfacedrawmessagewrapped"><code>DrawingSurface.DrawMessageWrapped</code></a></h3>
 <p><em>(Formerly known as <code>RawPrintMessageWrapped</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawMessageWrapped(int x, int y, int width,
-                                  FontType font, int message_number)
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawMessageWrapped</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> message_number<span class="op">)</span></span></code></pre></div>
 <p>Draws the room message MESSAGE_NUMBER onto the surface at (x,y), using the specified FONT.</p>
 <p>WIDTH is the width of the virtual textbox enclosing the text, and is the point that the text will wrap at. This command is designed for writing a long message to the screen with it wrapping normally like a standard label would do.</p>
 <p>The text will be printed using the current drawing color.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawMessageWrapped(80, 40, 160, Game.NormalFont, 10);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawMessageWrapped</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will display message 10 in the center of the screen, starting from Y = 40.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a></p>
 <hr />
 </section>
 <section id="drawingsurfacedrawpixel" class="level3">
 <h3><a href="#drawingsurfacedrawpixel"><code>DrawingSurface.DrawPixel</code></a></h3>
-<pre><code>DrawingSurface.DrawPixel(int x, int y)
-</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawPixel</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Draws a single pixel onto the surface at (X,Y) in the current color. The pixel thickness respects the <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>UseHighResCoordinates</code></a> property.</p>
 <p><strong>NOTE:</strong> This command is not fast enough to use repeatedly to build up an image. Only use it for single pixel adjustments.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawPixel(50, 50);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawPixel</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>draws a yellow pixel in the top left of the room background</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacegetpixel"><code>DrawingSurface.GetPixel</code></a>, <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></p>
 <hr />
@@ -236,16 +237,14 @@ surface.Release();
 <section id="drawingsurfacedrawrectangle" class="level3">
 <h3><a href="#drawingsurfacedrawrectangle"><code>DrawingSurface.DrawRectangle</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawRectangle</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawRectangle(int x1, int y1, int x2, int y2)
-</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dt">int</span> x1<span class="op">,</span> <span class="dt">int</span> y1<span class="op">,</span> <span class="dt">int</span> x2<span class="op">,</span> <span class="dt">int</span> y2<span class="op">)</span></span></code></pre></div>
 <p>Draws a filled rectangle in the current color with its top-left corner at (x1,y1) and its bottom right corner at (x2, y2)</p>
 <p><strong>NOTE:</strong> The X and Y co-ordinates given are ROOM co-ordinates, not SCREEN co-ordinates. This means that in a scrolling room you can draw outside the current visible area.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawRectangle(0, 0, 160, 100);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw a rectangle over the top left hand quarter of the screen.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a></p>
 <hr />
@@ -253,35 +252,31 @@ surface.Release();
 <section id="drawingsurfacedrawstring" class="level3">
 <h3><a href="#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a></h3>
 <p><em>(Formerly known as <code>RawPrint</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawString(int x, int y, FontType font, string text, ...)
-</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawString</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">FontType</span> font<span class="op">,</span> string text<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Draws the <em>text</em> onto the surface at (x, y), using the supplied font number. The text will be drawn in the current drawing color.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawString(0, 100, Game.NormalFont, &quot;Text written into the background!&quot;);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawString</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="st">&quot;Text written into the background!&quot;</span><span class="op">);</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will write some text onto the middle-left of the room background</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#gettextwidth"><code>GetTextWidth</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></p>
 <hr />
 </section>
 <section id="drawingsurfacedrawstringwrapped" class="level3">
 <h3><a href="#drawingsurfacedrawstringwrapped"><code>DrawingSurface.DrawStringWrapped</code></a></h3>
-<pre><code>DrawingSurface.DrawStringWrapped(int x, int y, int width,
-                                 FontType font, Alignment,
-                                 const string text)
-</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawStringWrapped</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">Alignment</span><span class="op">,</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                                    const string text<span class="op">)</span></span></code></pre></div>
 <p>Draws the <em>text</em> onto the surface at (x,y), using the specified FONT.</p>
 <p><em>width</em> is the width of the virtual textbox enclosing the text, and is the point that the text will wrap at. You can use the <em>alignment</em> parameter to determine how the text is horizontally aligned.</p>
 <p>The text will be printed using the current drawing color.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawStringWrapped(80, 40, 160, Game.NormalFont, eAlignCentre, &quot;Hello, my name is Bob.&quot;);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawStringWrapped</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> eAlignCentre<span class="op">,</span> <span class="st">&quot;Hello, my name is Bob.&quot;</span><span class="op">);</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will display the text in the center of the screen, starting from Y = 40.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawingSurface.DrawMessageWrapped</code></a></p>
@@ -290,24 +285,22 @@ surface.Release();
 <section id="drawingsurfacedrawsurface" class="level3">
 <h3><a href="#drawingsurfacedrawsurface"><code>DrawingSurface.DrawSurface</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawFrameTransparent</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>RawRestoreScreen</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawSurface(DrawingSurface* source, optional int transparency,
-                          optional int x, optional int y, 
-                          optional int width, optional int height,
-                          optional int cut_x, optional  int cut_y, 
-                          optional int cut_width, optional int cut_height)
-</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawSurface</span><span class="op">(</span><span class="bu">DrawingSurface</span><span class="op">*</span> source<span class="op">,</span> optional <span class="dt">int</span> transparency<span class="op">,</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> x<span class="op">,</span> optional <span class="dt">int</span> y<span class="op">,</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> cut_x<span class="op">,</span> optional  <span class="dt">int</span> cut_y<span class="op">,</span> </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> cut_width<span class="op">,</span> optional <span class="dt">int</span> cut_height<span class="op">)</span></span></code></pre></div>
 <p>Draws the specified surface on top of this surface, optionally using <em>transparency</em> percent transparency. As of <strong>AGS 3.6.0</strong>, it also supports additional parameters to draw a piece of the surface onto a specific area in the destination surface.</p>
 <p>This allows you to perform day-to-night fading and other special effects.</p>
 <p><strong>NOTE:</strong> You cannot use the <em>transparency</em> parameter with 256-color surfaces.</p>
 <p><strong>NOTE:</strong> This command can be a bit on the slow side, so don't call it from repeatedly_execute.</p>
 <p><strong>TIP:</strong> If you want to gradually fade in a second background, create a copy of the original surface and then restore it after each iteration, otherwise the backgrounds will converge too quickly.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *mainBackground = Room.GetDrawingSurfaceForBackground(0);
-DrawingSurface *nightBackground = Room.GetDrawingSurfaceForBackground(1);
-mainBackground.DrawSurface(nightBackground, 50);
-mainBackground.Release();
-nightBackground.Release();
-</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>mainBackground = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>nightBackground = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>mainBackground<span class="op">.</span><span class="at">DrawSurface</span><span class="op">(</span>nightBackground<span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>mainBackground<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>nightBackground<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>this will draw background frame 1 onto frame 0 at 50<code>%</code> opacity.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
@@ -315,32 +308,28 @@ nightBackground.Release();
 <section id="drawingsurfacedrawtriangle" class="level3">
 <h3><a href="#drawingsurfacedrawtriangle"><code>DrawingSurface.DrawTriangle</code></a></h3>
 <p><em>(Formerly known as <code>RawDrawTriangle</code>, which is now obsolete)</em></p>
-<pre><code>DrawingSurface.DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
-</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawTriangle</span><span class="op">(</span><span class="dt">int</span> x1<span class="op">,</span> <span class="dt">int</span> y1<span class="op">,</span> <span class="dt">int</span> x2<span class="op">,</span> <span class="dt">int</span> y2<span class="op">,</span> <span class="dt">int</span> x3<span class="op">,</span> <span class="dt">int</span> y3<span class="op">)</span></span></code></pre></div>
 <p>Draws a filled triangle in the current color with corners at the points (x1,y1), (x2,y2) and (x3,y3).</p>
 <p>Well, don't look at me, you might find it useful for something :-)</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawTriangle(0,0,160,100,0,200);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawTriangle</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">160</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">200</span><span class="op">);</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw a triangle with corners at the points (0,0),(160,100),(0,200).</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawrectangle"><code>DrawingSurface.DrawRectangle</code></a></p>
 <hr />
 </section>
 <section id="drawingsurfacerelease" class="level3">
 <h3><a href="#drawingsurfacerelease"><code>DrawingSurface.Release</code></a></h3>
-<pre><code>DrawingSurface.Release()
-</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Release</span><span class="op">()</span></span></code></pre></div>
 <p>Tells AGS that you have finished drawing onto this surface, and that AGS can now upload the changed image into video memory.</p>
 <p>After calling this method, you can no longer use the DrawingSurface instance. To do any further drawing, you need to get the surface again.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawLine(0, 0, 50, 50);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>draws a yellow diagonal line across the top-left of the current room background, then releases the image.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritegetdrawingsurface"><code>DynamicSprite.GetDrawingSurface</code></a>, <a href="Room.html#roomgetdrawingsurfaceforbackground"><code>Room.GetDrawingSurfaceForBackground</code></a></p>
 <hr />
@@ -348,34 +337,30 @@ surface.Release();
 <section id="drawingsurfacedrawingcolor" class="level3">
 <h3><a href="#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a></h3>
 <p><em>(Formerly known as <code>RawSetColor</code>, which is now obsolete)</em></p>
-<pre><code>int DrawingSurface.DrawingColor
-</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">DrawingColor</span></span></code></pre></div>
 <p>Gets/sets the current drawing color on this surface. Set this before using commands like <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawLine</code></a>, which use this color for their drawing.</p>
 <p>You can set this either to an AGS Color Number (as you'd get from the Colors pane in the editor) or to the special constant COLOR_TRANSPARENT, which allows you to draw transparent areas onto the surface.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-surface.DrawingColor = 14;
-surface.DrawLine(0, 0, 160, 100);
-surface.DrawingColor = Game.GetColorFromRGB(255, 255, 255);
-surface.DrawLine(0, 199, 160, 100);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">);</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">199</span><span class="op">,</span> <span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will draw a yellow line from the left top of the screen (0,0) to the middle of the screen (160,100), and a white line from the bottom left to the middle.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawcircle"><code>DrawingSurface.DrawCircle</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawrectangle"><code>DrawingSurface.DrawRectangle</code></a>, <a href="Game.html#gamegetcolorfromrgb"><code>Game.GetColorFromRGB</code></a></p>
 <hr />
 </section>
 <section id="drawingsurfacegetpixel" class="level3">
 <h3><a href="#drawingsurfacegetpixel"><code>DrawingSurface.GetPixel</code></a></h3>
-<pre><code>int DrawingSurface.GetPixel(int x, int y)
-</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">GetPixel</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Returns the AGS Color Number of the pixel at (X,Y) on the surface.</p>
 <p><strong>NOTE:</strong> In high-color games, the first 32 color numbers have a special meaning due to an AGS feature which maintains compatibility with 8-bit games. Therefore, if you draw onto the surface using a blue color number 0-31 you will get a different number when you GetPixel -- and in fact the color drawn may not be what you expect. To get around this, add 1 Red or Green component to adjust the color number out of this range.</p>
 <p><strong>NOTE:</strong> This command is relatively slow. Don't use it to try and process an entire image.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-Display(&quot;The color of the middle pixel is %d.&quot;, surface.GetPixel(160, 100));
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The color of the middle pixel is %d.&quot;</span><span class="op">,</span> surface<span class="op">.</span><span class="at">GetPixel</span><span class="op">(</span><span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">));</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>displays the pixel color of the center pixel on the screen.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawingcolor"><code>DrawingSurface.DrawingColor</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawpixel"><code>DrawingSurface.DrawPixel</code></a>, <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></p>
@@ -383,14 +368,12 @@ surface.Release();
 </section>
 <section id="drawingsurfaceheight" class="level3">
 <h3><a href="#drawingsurfaceheight"><code>DrawingSurface.Height</code></a></h3>
-<pre><code>readonly int DrawingSurface.Height
-</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Height</span></span></code></pre></div>
 <p>Gets the height of the surface.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-Display(&quot;The background is %d x %d!&quot;, surface.Width, surface.Height);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The background is %d x %d!&quot;</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Width</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>displays the size of the surface to the player</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a>, <a href="DrawingSurface.html#drawingsurfacewidth"><code>DrawingSurface.Width</code></a></p>
 <hr />
@@ -398,8 +381,7 @@ surface.Release();
 <section id="drawingsurfaceusehighrescoordinates" class="level3">
 <h3><a href="#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
-<pre><code>bool DrawingSurface.UseHighResCoordinates
-</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">UseHighResCoordinates</span></span></code></pre></div>
 <p>Gets/sets whether you want to use high-resolution co-ordinates with this surface.</p>
 <p>By default, this property will be set such that drawing surface co-ordinates use the same co-ordinate system as the rest of the game, as per the "Use low-res co-ordinates in script" game setting. However, if your game is 640x400 or higher you can customize whether this drawing surface uses native co-ordinates or the low-res 320x200 co-ordinates by changing this property.</p>
 <p>Setting this property affects <strong>ALL</strong> other commands performed on this drawing surface, including the <a href="DrawingSurface.html#drawingsurfacewidth"><code>Width</code></a> and <a href="DrawingSurface.html#drawingsurfaceheight"><code>Height</code></a> properties.</p>
@@ -408,14 +390,12 @@ surface.Release();
 </section>
 <section id="drawingsurfacewidth" class="level3">
 <h3><a href="#drawingsurfacewidth"><code>DrawingSurface.Width</code></a></h3>
-<pre><code>readonly int DrawingSurface.Width
-</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DrawingSurface</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
 <p>Gets the width of the surface.</p>
 <p>Example:</p>
-<pre><code>DrawingSurface *surface = Room.GetDrawingSurfaceForBackground();
-Display(&quot;The background is %d x %d!&quot;, surface.Width, surface.Height);
-surface.Release();
-</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The background is %d x %d!&quot;</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Width</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>displays the size of the surface to the player</p>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfaceheight"><code>DrawingSurface.Height</code></a>, <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></p>
 </section>
@@ -426,7 +406,7 @@ surface.Release();
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d240fea194fd0e37a56ed52e0f40f67f1f57c94a
+      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
     </p>
   </footer>
 
