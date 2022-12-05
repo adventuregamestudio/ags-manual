@@ -51,9 +51,9 @@ jobs:
       - name: Setup tangling
         run: >
           cd /tmp &&
-          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          curl -fL https://git.sr.ht/~mew/dram/refs/download/v1.1/dram-1.1.tar.gz |
           tar -xvzf - &&
-          cd dram-1.0 &&
+          cd dram-1.1 &&
           ./configure &&
           make &&
           make install
@@ -141,9 +141,9 @@ jobs:
       - name: Setup tangling
         run: >
           cd /tmp &&
-          curl -fL https://github.com/morganwillcock/dram/releases/download/v1.0/dram-1.0.tar.gz |
+          curl -fL https://git.sr.ht/~mew/dram/refs/download/v1.1/dram-1.1.tar.gz |
           tar -xvzf - &&
-          cd dram-1.0 &&
+          cd dram-1.1 &&
           ./configure &&
           make &&
           make install
