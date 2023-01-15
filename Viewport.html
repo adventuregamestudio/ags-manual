@@ -297,7 +297,8 @@
 <h3><a href="#viewportzorder"><code>Viewport.ZOrder</code></a></h3>
 <div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Viewport</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the viewport's z-order relative to other viewports. This will be taken into account if multiple viewports overlap to define which should be displayed above and which below.</p>
-<p>The z-order is an arbitrary number and only have meaning in comparison with other viewport's setting. Similarly to <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a>, the lower value puts viewport to the back and higher value to the top.</p>
+<p>The z-order is an arbitrary number and only have meaning in comparison with other viewport's setting. The lower value puts viewport to the back and higher value to the top.</p>
+<p><strong>IMPORTANT:</strong> If two or more Viewports have equal ZOrder, their draw order is <strong>undefined</strong>, and should not be relied upon. This is because of how draw sort is done in the engine.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Viewport</span><span class="op">*</span> myView = <span class="bu">Viewport</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>myView<span class="op">.</span><span class="at">ZOrder</span> = <span class="bu">Screen</span><span class="op">.</span><span class="at">Viewport</span><span class="op">.</span><span class="at">ZOrder</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
@@ -311,7 +312,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

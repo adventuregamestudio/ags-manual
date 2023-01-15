@@ -347,7 +347,7 @@
 <p>Gets/sets the control's Z-order relative to other controls within the same owning GUI. This allows you to precisely arrange the display order of controls at runtime and to know which position the control had at certain moment in time.</p>
 <p>For AGS GUI Z-order means the order in which controls are displayed from bottom to top. That means that control at the bottom has Z-order equal to 0, and control at the top has highest Z-order, equal to (number of controls - 1).</p>
 <p>Setting <code>GUIControl.ZOrder = 0;</code> will do same thing as calling <code>GUIControl.SendToBack()</code>, and setting <code>GUIControl.ZOrder = GUIControl.OwningGUI.ControlCount - 1;</code> will do same thing as calling <code>GUIControl.BringToFront()</code>.</p>
-<p>If you try to set inappropriate ZOrder, the nearest acceptable one will be applied instead.</p>
+<p>If you try to set inappropriate ZOrder, the nearest acceptable one will be applied instead. This also means that two controls cannot have equal ZOrder.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
@@ -360,7 +360,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

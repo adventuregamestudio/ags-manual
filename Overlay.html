@@ -309,10 +309,13 @@
 <section id="overlayzorder" class="level3">
 <h3><a href="#overlayzorder"><code>Overlay.ZOrder</code></a></h3>
 <div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the overlay's z-order relative to other overlays and on-screen objects.</p>
-<p>The Z-order setting is an arbitrary integer number that can be positive or negative. AGS draws the Overlays and GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
+<p>Gets/sets the Overlay's drawing z-order. This allows you to dynamically change the ordering of Overlays on the screen.</p>
+<p>Z-order setting is an arbitrary integer number that can be positive or negative. It tells how the overlapping objects should be sorted. Those with lower z-order are drawn at the back, and those with higher z-order are drawn at the front.</p>
+<p>The <em>screen</em> Overlays are sorted among themselves and GUI, and thus their ZOrder is relative to other screen Overlays z-orders and GUIs z-order values.</p>
+<p>The <em>room</em> Overlays are sorted among themselves and other in-room elements, such as: room objects, characters and walk-behinds. Their ZOrder is relative to Character's and Object's Baseline setting (or Y coordinate, if Baseline is 0).</p>
+<p><strong>IMPORTANT:</strong> If two or more Overlays (or other objects) have equal ZOrder, their draw order is <strong>undefined</strong>, and should not be relied upon. This is because of how sprite sorting is done in the engine.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a></p>
+<p><em>See also:</em> <a href="GUI.html#guizorder"><code>GUI.ZOrder</code></a>, <a href="Character.html#characterbaseline"><code>Character.Baseline</code></a>, <a href="Object.html#objectbaseline"><code>Object.Baseline</code></a></p>
 </section>
 </section>
   </main>
@@ -321,7 +324,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

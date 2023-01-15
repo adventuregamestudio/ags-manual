@@ -429,6 +429,7 @@
 <p>Gets/sets the object's baseline. This allows you to modify the line you can set in the editor. You can disable the baseline (and revert to using the base of the object's image on the screen) by setting it to 0.</p>
 <p>Otherwise, set it to the Y screen co-ordinate you want to use, normally from 1 to 200 unless you have a taller than usual room.</p>
 <p>If you want to get the baseline and it returns 0, then the baseline is the object's Y co-ordinate.</p>
+<p><strong>IMPORTANT:</strong> If two or more Objects (or Characters, and so on) have equal Baseline, their draw order is <strong>undefined</strong>, and should not be relied upon. This is because of how sprite sorting is done in the engine.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">Baseline</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
 <p>will change object's 4 baseline to a line positioned at y coordinate 100.</p>
@@ -736,7 +737,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

@@ -417,8 +417,10 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <h3><a href="#guizorder"><code>GUI.ZOrder</code></a></h3>
 <p><em>(Formerly known as <code>SetGUIZOrder</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ZOrder</span></span></code></pre></div>
-<p>Gets/sets the z-order of the GUI. This allows you to dynamically change the ordering of GUIs on the screen.</p>
-<p>The Z-order setting is an arbitrary integer number that can be positive or negative. AGS draws the GUIs in order, from the lowest numbered at the back to the highest numbered at the front.</p>
+<p>Gets/sets the drawing z-order of the GUI. This allows you to dynamically change the ordering of GUIs on the screen.</p>
+<p>Z-order setting is an arbitrary integer number that can be positive or negative. It tells how the overlapping objects should be sorted. Those with lower z-order are drawn at the back, and those with higher z-order are drawn at the front.</p>
+<p>The GUIs are sorted among themselves and screen Overlays, and thus their ZOrder is relative to other GUIs z-order and Overlays z-order values.</p>
+<p><strong>NOTE:</strong> If two or more GUIs have equal ZOrder, their relative order is then defined by their IDs: lower IDs are drawn at the back and higher IDs at the front. <em>This is different from other kinds of game objects</em> which do not depend on their IDs at all when being sorted on screen. Normally we don't recommend relying on this though, and suggest setting explicit ZOrder for the scenes where multiple GUIs may overlap each other.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gStatusline<span class="op">.</span><span class="at">ZOrder</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
@@ -431,7 +433,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

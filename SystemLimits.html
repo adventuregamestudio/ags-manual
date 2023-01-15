@@ -87,8 +87,8 @@
 <li><a href="#system-limits"><span>System limits</span></a>
 <ul>
 <li><a href="#system-restrictions"><span>System restrictions</span></a></li>
+<li><a href="#integers-and-floats-limits"><span>Integers and Floats limits</span></a></li>
 <li><a href="#additional-considerations"><span>Additional considerations</span></a></li>
-<li><a href="#changelog-of-lifted-limits"><span>Changelog of lifted limits</span></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -99,63 +99,187 @@
 <p>This section tells you the maximums for various parts of the system. If you have been wondering "How many rooms can I have?" or something similar, chances are this section will answer it.</p>
 <section id="system-restrictions" class="level3">
 <h3><a href="#system-restrictions">System restrictions</a></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>3.5.0</th>
+<th>3.5.1</th>
+<th>3.6.0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Imported sprites</td>
+<td>90000</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Dynamic sprites (at runtime)</td>
+<td>2+ billion</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Characters</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Cursors</td>
+<td>20</td>
+<td>20</td>
+<td><strong>unlimited</strong></td>
+</tr>
+<tr class="odd">
+<td>Fonts</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>GUI</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Controls per GUI</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Inventory items</td>
+<td>300</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Overlays (at runtime)</td>
+<td>20</td>
+<td>20</td>
+<td><strong>unlimited</strong></td>
+</tr>
+<tr class="even">
+<td>Views (animation sets)</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Total rooms per game</td>
+<td>1000</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>State-saving rooms per game</td>
+<td>300</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Background frames per room</td>
+<td>5</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Room Objects per room</td>
+<td>40</td>
+<td>40</td>
+<td><strong>256</strong></td>
+</tr>
+<tr class="odd">
+<td>Hotspots per room</td>
+<td>49</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Walkable areas per room</td>
+<td>15</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Walk-behinds per room</td>
+<td>15</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Regions per room</td>
+<td>15</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Dialog topics</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Options per dialog topic</td>
+<td>30</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Custom properties</td>
+<td>unlimited</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="even">
+<td>Runtime timers</td>
+<td>20</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Audio channels</td>
+<td>8</td>
+<td>8</td>
+<td><strong>16</strong></td>
+</tr>
+<tr class="even">
+<td>Script modules (limited by the bytecode format)</td>
+<td>126</td>
+<td>&lt;</td>
+<td>&lt;</td>
+</tr>
+<tr class="odd">
+<td>Dynamic array size</td>
+<td>1 million</td>
+<td><strong>2+ billion</strong></td>
+<td><strong>2+ billion</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="integers-and-floats-limits" class="level3">
+<h3><a href="#integers-and-floats-limits">Integers and Floats limits</a></h3>
+<p>In AGS integers and floats are 32-bit.</p>
 <ul>
-<li>256 objects per room</li>
-<li>299 state-saving rooms per game</li>
-<li>300 inventory items</li>
-<li>90000 imported sprites</li>
-<li>30 options per dialog topic</li>
-<li>20 timers</li>
-<li>5 background frames per room</li>
-<li>20 mouse cursors</li>
-<li>16 audio channels</li>
-<li>126 different script modules due to bytecode format</li>
-<li>unlimited words in the text parser dictionary</li>
-<li>unlimited fonts</li>
-<li>unlimited characters</li>
-<li>unlimited dialog topics</li>
-<li>unlimited views</li>
-<li>unlimited GUIs</li>
-<li>unlimited controls on each GUI</li>
-<li>unlimited loops per view</li>
-<li>unlimited frames per loop</li>
-<li>unlimited custom properties</li>
-<li>unlimited screen overlays at a time</li>
+<li>Integers are signed and can be from -2147483648 to +2147483647 (from <code>-2^31</code> to <code>2^31-1</code>)</li>
+<li>Floats are <a href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format">a bit more complicated</a>: an <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> 32-bit base-2 floating-point variable has a maximum value of <code>2 − 2^(-23) × 2^127 ≈ 3.4028235 × 10^38</code>.</li>
+<li>A float should then be able to reliably represent integer values between -16777216 and 16777216 (from <code>-2^24</code> to <code>2^24</code>).</li>
 </ul>
 </section>
 <section id="additional-considerations" class="level3">
 <h3><a href="#additional-considerations">Additional considerations</a></h3>
 <ul>
-<li><p>In AGS integers and floats are 32-bit. Integers can be from -2147483648 to +2147483647, and floats are a bit more complicated, so it's better to test them.</p></li>
 <li><p>You should be able to have up to 15 parameters to a function.</p></li>
 <li><p>To ensure the pathfinder always works, your walkable areas should always be at least 3 pixels wide.</p></li>
 <li><p>AGS currently allows the call stack to be 50 levels deep, so if you have a recursive function that calls itself more often you'll get the "call stack overflow" error. Additionally, the stack size is set at 4 KB so if the recursive function declares a lot of local variables you could reach the limit that way, too.</p></li>
 <li><p>There is a total overall limit on the number of functions that can be exported by all plugins added together, which in theory it would be possible for a single plugin to exceed. It's in the region of a couple of hundred though, so it shouldn't be an issue. It wouldn't be too difficult to increase, if the need arose.</p></li>
 </ul>
 <p>We are working on removing existing limitations in the AGS, so some of the remaining restrictions might be loosened or eliminated in the following updates.</p>
-</section>
-<section id="changelog-of-lifted-limits" class="level3">
-<h3><a href="#changelog-of-lifted-limits">Changelog of lifted limits</a></h3>
-<p>AGS v3.6:</p>
-<ul>
-<li>Audio channels number increased from 8 to 16.</li>
-<li>Increased Room Objects limit to 256 (was 40).</li>
-<li>20 screen overlays at a time lifted</li>
-<li>Removed limit of simultaneous Button animations (was 15).</li>
-<li>Removed limit of Character followers (was 30).</li>
-</ul>
-<p>AGS v3.5</p>
-<ul>
-<li>packed sprites file (acsprset.spr) lifted from 2 GB limit</li>
-<li>Imported sprites count limit raised from 30000 to 90000</li>
-<li>Total number of sprites in game (includes both imported and Dynamic Sprites) lifted to around 2 billions of dynamic sprites</li>
-<li>Font count limit of 30 removed</li>
-<li>length limit on the Button lifted from 50 character</li>
-<li>length limit on TextBox lifted from 200 lines</li>
-<li>ListBox item count limit lifted from 200</li>
-<li>hidden limit for DoOnceOnly token length lifted from 200 characters</li>
-<li>local messages per room limit lifted from 100 (excluding script)</li>
-</ul>
 </section>
 </section>
   </main>
@@ -164,7 +288,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 

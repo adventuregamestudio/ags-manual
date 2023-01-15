@@ -956,6 +956,7 @@
 <div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Baseline</span></span></code></pre></div>
 <p>Gets/sets the character's baseline. This allows you to set a specific base line for the character, which works similarly to walk-behind area and object baselines.</p>
 <p>The baseline can be from 1 to the height of the room. Setting it to 0 will make character go back to using its y coordinate as the baseline.</p>
+<p><strong>IMPORTANT:</strong> If two or more Character (or other objects) have equal Baseline, their draw order is <strong>undefined</strong>, and should not be relied upon. This is because of how sprite sorting is done in the engine.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Baseline</span> = <span class="dv">120</span><span class="op">;</span></span></code></pre></div>
 <p>will move the character's baseline (which can be used for testing collisions, or for walk-behinds) to a line positioned at y coordinate = 120.</p>
@@ -1518,7 +1519,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 7d972a74a9f1a9a90441f6df85dbbf83b11c9235
+      Build: 782ced08df82d0e0c5f97668cd81ee7a60f70434
     </p>
   </footer>
 
