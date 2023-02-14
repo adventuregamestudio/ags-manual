@@ -93,7 +93,6 @@ SUFFIXES: .htm .html .lua .md
 		--css "css/main.css" \
 		--syntax-definition="$(srcdir)/syntax/ags.xml" \
 		--syntax-definition="$(srcdir)/syntax/agsdialog.xml" \
-		--highlight-style=pygments \
 		--eol lf \
 		--output $@ \
 		$<
