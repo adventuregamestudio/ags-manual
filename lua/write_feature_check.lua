@@ -18,6 +18,10 @@ PANDOC_VERSION:must_be_at_least(
   '2.11.1.1',
   'Pandoc 2.11.1.1 is required for correct link parsing')
 
+PANDOC_VERSION:must_be_at_least(
+  '3.0',
+  'Pandoc 3.0 is required for new style Lua writers and use as a Lua interpreter')
+
 -- Test Doc return of a word-split on a non-breaking space
 -- This seems to be broken for some platforms prior to Pandoc 2.10
 local nbsp_words = {}
