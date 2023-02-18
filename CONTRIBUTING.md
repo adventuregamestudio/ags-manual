@@ -322,6 +322,15 @@ done
   Set the metadata value for the page title based on the text of the
   first level 2 heading which appears in the document.
 
+#### Scripts
+
+- lua/metacheck.lua
+
+  Reads the page metadata table and cross-references information to
+  look for broken links or index problems. If any issues are found
+  they are written to stderr and the script will fail through a
+  negative assertion.
+
 #### Writers
 
 - lua/write_feature_check.lua
@@ -353,13 +362,6 @@ done
 - lua/write_metablock.lua
 
   Writes page metadata as a serialized Lua table.
-
-- lua/write_metacheck.lua
-
-  Reads the Lua metadata tables and cross-references information
-  between them to look for broken links or index problems. If any
-  issues are found they are written to stderr and the writer will fail
-  through a negative assertion.
 
 - lua/write_metajs.lua
 

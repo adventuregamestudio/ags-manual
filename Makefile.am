@@ -50,6 +50,7 @@ EXTRA_DIST = \
 	$(srcdir)/lua/agsman.lua \
 	$(srcdir)/lua/insert_anchors.lua \
 	$(srcdir)/lua/insert_toc.lua \
+	$(srcdir)/lua/metacheck.lua \
 	$(srcdir)/lua/rewrite_links.lua \
 	$(srcdir)/lua/set_title.lua \
 	$(srcdir)/lua/write_feature_check.lua \
@@ -58,7 +59,6 @@ EXTRA_DIST = \
 	$(srcdir)/lua/write_hhk.lua \
 	$(srcdir)/lua/write_hhp.lua \
 	$(srcdir)/lua/write_metablock.lua \
-	$(srcdir)/lua/write_metacheck.lua \
 	$(srcdir)/lua/write_metajs.lua \
 	$(srcdir)/meta/approved_links.txt \
 	$(srcdir)/syntax/ags.xml \
@@ -179,5 +179,5 @@ endif
 
 check: metadata.lua
 	$(AM_V_GEN)"$(PANDOC)" lua \
-		"$(srcdir)/lua/write_metacheck.lua" \
+		"$(srcdir)/lua/metacheck.lua" \
 		"$(srcdir)/meta/approved_links.txt"
