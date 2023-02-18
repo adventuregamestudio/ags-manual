@@ -4,20 +4,16 @@
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
+local pagemeta = require('metadata').pages
 
-function Doc(body, metadata, variables)
+function Writer(doc, opts)
   local buffer = {}
   local format = [[<LI> <OBJECT type="text/sitemap">
 <param name="Keyword" value="%s">
 <param name="Local" value="%s">
 </OBJECT>]]
-  local pagemeta = {}
   local toplevel = {}
   local sections = {}
-
-  for file in metadata._metafiles:gmatch('%S+') do
-    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
-  end
 
   -- get all of the heading info into a table
   for k, v in pairs(pagemeta) do
@@ -65,10 +61,3 @@ function Doc(body, metadata, variables)
 
   return '<UL>' .. table.concat(buffer, '\n') .. '</UL>'
 end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)

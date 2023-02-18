@@ -25,13 +25,6 @@ for w in ("\u{160}"):gmatch('%w+') do
   nbsp_words[w] = 1
 end
 
-function Doc(body, metadata, variables)
+function Writer(doc, opts)
   return serialize(nbsp_words)
 end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)

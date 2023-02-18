@@ -4,19 +4,17 @@
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
+local pagemeta = require('metadata').pages
 
-function Doc(body, metadata, variables)
+Writer = pandoc.scaffolding.Writer
+
+Writer.Pandoc = function(doc)
   local buffer = {}
   local header_format = '<h3 id="%s">%s</h3>'
   local indices = {}
   local link_format = '<a href="%s">%s</a>'
   local menu = {}
   local section
-  local pagemeta = {}
-
-  for file in metadata._metafiles:gmatch('%S+') do
-    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
-  end
 
   -- get all of the heading info into a table
   for k, v in pairs(pagemeta) do
@@ -51,10 +49,3 @@ function Doc(body, metadata, variables)
 
   return table.concat(menu, '&nbsp;\n') .. '\n' .. table.concat(buffer, '\n')
 end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)

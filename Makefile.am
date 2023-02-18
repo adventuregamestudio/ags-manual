@@ -31,6 +31,7 @@ CLEANFILES = \
 	$(METADATA_FILES) \
 	$(pkgdata_DATA) \
 	genindex.html \
+	metadata.lua \
 	search.js \
 	source/ags-help.hhc \
 	source/ags-help.hhk \
@@ -75,8 +76,14 @@ SUFFIXES: .htm .html .lua .md
 		--to "$(srcdir)/lua/write_metablock.lua" \
 		--lua-filter "$(srcdir)/lua/set_title.lua" \
 		--metadata docname=$(*F) \
+		--eol lf \
 		--output $@ \
 		$<
+
+metadata.lua: $(METADATA_FILES)
+	$(AM_V_GEN)(printf 'return { pages = {\n'; \
+		cat $(METADATA_FILES); \
+		printf '}}\n') > $@.tmp && mv $@.tmp $@
 
 .md.html:
 	$(AM_V_GEN)"$(PANDOC)" --from gfm \
@@ -97,22 +104,20 @@ SUFFIXES: .htm .html .lua .md
 		--output $@ \
 		$<
 
-genindex.html: $(METADATA_FILES)
+genindex.html: metadata.lua
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_genindex.lua" \
 		--template "$(srcdir)/html/template.html5" \
 		--variable footer="$(FOOTER)" \
 		--css "css/normalize.css" \
 		--css "css/main.css" \
-		--metadata _metafiles="$(METADATA_FILES)" \
 		--eol lf \
 		--output $@
 
-search.js: $(METADATA_FILES)
+search.js: metadata.lua
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_metajs.lua" \
 		--template "$(srcdir)/html/template.js" \
-		--metadata _metafiles="$(METADATA_FILES)" \
 		--eol lf \
 		--output $@
 
@@ -139,10 +144,9 @@ source/index.htm: source/index.md
 		--output $@ \
 		$<
 
-source/ags-help.hhk: $(METADATA_FILES)
+source/ags-help.hhk: metadata.lua
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_hhk.lua" \
-		--metadata _metafiles="$(METADATA_FILES)" \
 		--eol crlf \
 		--output $@
 
@@ -173,8 +177,7 @@ if BUILD_CHM_WITH_CHMCMD
 	$(AM_V_GEN)cd source && "$(CHMCMD)" ags-help.hhp
 endif
 
-check: $(METADATA_FILES)
-	$(AM_V_GEN)echo | "$(PANDOC)" \
-		--to "$(srcdir)/lua/write_metacheck.lua" \
-		--metadata _approved_links="$(srcdir)/meta/approved_links.txt" \
-		--metadata _metafiles="$(METADATA_FILES)"
+check: metadata.lua
+	$(AM_V_GEN)"$(PANDOC)" lua \
+		"$(srcdir)/lua/write_metacheck.lua" \
+		"$(srcdir)/meta/approved_links.txt"

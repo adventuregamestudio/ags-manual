@@ -3,64 +3,42 @@
 
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
-local agsman = require('agsman')
-local header = nil
-local format = [[<OBJECT type="text/sitemap">
+local escape = require('agsman').escape
+local stringify = (require 'pandoc.utils').stringify
+local format = [[<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="%s">
 <param name="%s" value="%s">
 </OBJECT>]]
 
-function Doc(body, metadata, variables)
-  return body
+Writer = pandoc.scaffolding.Writer
+
+Writer.Pandoc = function(doc)
+  buffer = {}
+
+  doc:walk {
+    traverse = 'topdown',
+    Header = function(header)
+      if header.level > 1 then
+        local name = escape(stringify(header.content))
+        local id = header.identifier
+        table.insert(buffer,
+                     '<UL>\n' ..
+                     string.format(format, name, 'Comment', id)
+                     .. '\n<UL>\n')
+      end
+    end,
+    BulletList = function(bulletlist)
+      bulletlist:walk {
+        Link = function(link)
+          local name = escape(stringify(link.content))
+          local target = escape(link.target)
+          table.insert(buffer,
+                       string.format(format, name, 'Local', target))
+        end
+      }
+      table.insert(buffer, '</UL>\n</UL>')
+    end
+  }
+
+  return table.concat(buffer, '\n')
 end
-
-function Blocksep()
-  return ''
-end
-
-function Plain(s)
-  return s
-end
-
-function Space()
-  return ' '
-end
-
-function Str(s)
-  return agsman.escape(s)
-end
-
-function Header(lev, s, attr)
-  if lev ~= 1 then
-    header = { [attr.id] = s }
-  end
-
-  return ''
-end
-
-function BulletList(items)
-  assert(header)
-  local buffer = {}
-
-  for id, name in pairs(header) do
-    table.insert(buffer, '<LI> ' .. string.format(format, name, 'Comment', id) .. '\n<UL>\n')
-  end
-
-  for _, item in pairs(items) do
-    table.insert(buffer, '<LI> ' .. item)
-  end
-
-  return '<UL>\n' .. table.concat(buffer, '\n') .. '\n</UL>\n</UL>\n'
-end
-
-function Link(s, src, tit, attr)
-  return string.format(format, s, 'Local', agsman.escape(src))
-end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    io.stderr:write(string.format("WARNING: Dropping contents element '%s'\n", key))
-    return function() return '' end
-  end
-setmetatable(_G, meta)

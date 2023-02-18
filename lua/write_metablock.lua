@@ -43,39 +43,7 @@ local skipwords = {
   ['with'] = true
 }
 
-local keywords = {}
-local links = {}
-
-function Link(s, src, title)
-  -- track all link targets
-  links[src] = (links[src] or 0) + 1
-  return ''
-end
-
-function Space()
-  return ' '
-end
-
-function Str(s)
-  add_word(s)
-  return s
-end
-
-function Code(s, attr)
-  for word in s:gmatch('%S+') do
-    add_word(word)
-  end
-  return s
-end
-
-function CodeBlock(s, attr)
-  for word in s:gmatch('%S+') do
-    add_word(word)
-  end
-  return s
-end
-
-function add_word(word)
+function add_word(keywords, word)
   local chars = '%w'
   local first = word:sub(1, 1)
   local last = word:sub(-1)
@@ -85,7 +53,7 @@ function add_word(word)
     chars = chars .. "'"
   end
 
-   -- preserve - in the middle of the word
+  -- preserve - in the middle of the word
   if first ~= '-' and last ~= '-' then
     chars = chars .. '-'
   end
@@ -100,51 +68,66 @@ function add_word(word)
   end
 end
 
-function Doc(body, metadata, variables)
-  local pagemeta = {
-    links = links,
-    keywords = keywords,
-    title = (metadata.title or metadata.docname),
-    index = {}
-  }
+function Writer(doc)
+  local index = {}
+  local key = nil
+  local keywords = {}
+  local links = {}
+  local title = nil
 
-  for i, block in ipairs(PANDOC_DOCUMENT.blocks) do
-    -- check each header for inline code
-    if block.t == "Header" then
-      local header = nil
+  doc:walk {
+    Meta = function(meta)
+      key = meta.docname
+      title = meta.title or meta.docname
+    end,
+    Header = function(header)
+      local name = nil
       local itemtype = nil
 
-      for i, child in ipairs(block.content) do
-        -- take the first match and stop checking
-        if child.t == "Code" then
-          header = child.text
-          break
+      header:walk {
+        Code = function(code)
+          name = name or code.text
         end
-      end
+      }
 
-      if header then
+      if name then
         -- heading was describing some code
         itemtype = 'script'
       else
         -- if no code matched just convert to a string
         itemtype = 'editorial'
-        header = stringify(block)
+        name = stringify(header.content)
       end
 
-      assert(header:len() > 0)
-      table.insert(pagemeta["index"],
-                   { header = header,
+      assert(name:len() > 0)
+      table.insert(index,
+                   { header = name,
                      itemtype = itemtype,
-                     id = block.attr.identifier })
+                     id = header.identifier })
+    end,
+    Code = function(code)
+      for word in code.text:gmatch('%S+') do
+        add_word(keywords, word)
+      end
+    end,
+    CodeBlock = function(codeblock)
+      for word in codeblock.text:gmatch('%S+') do
+        add_word(keywords, word)
+      end
+    end,
+    Str = function(str)
+      add_word(keywords, str.text)
+    end,
+    Link = function(link)
+      links[link.target] = (links[link.target] or 0) + 1
     end
-  end
+  }
 
-  return string.format('-- %s\n\nreturn %s', metadata.docname, serialize(pagemeta))
+  assert(key:len() > 0)
+  return string.format('["%s"] = %s,',
+                       key,
+                       serialize({ index = index,
+                                   keywords = keywords,
+                                   links = links,
+                                   title = title }))
 end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)

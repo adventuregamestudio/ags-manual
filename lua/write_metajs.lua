@@ -4,6 +4,7 @@
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local agsman = require('agsman')
+local pagemeta = require('metadata').pages
 
 function render_keywords(keywords)
   local buffer = {}
@@ -42,14 +43,11 @@ function render_titles(titles)
   return '  "titles": {\n' .. table.concat(buffer, ',\n') .. '\n  }'
 end
 
-function Doc(body, metadata, variables)
+Writer = pandoc.scaffolding.Writer
+
+Writer.Pandoc = function(doc)
   local titles = {}
   local keywords = {}
-  local pagemeta = {}
-
-  for file in metadata._metafiles:gmatch('%S+') do
-    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
-  end
 
   for k, v in pairs(pagemeta) do
     -- get all of the document titles
@@ -72,10 +70,3 @@ function Doc(body, metadata, variables)
   return 'var meta = {\n' .. render_titles(titles) ..
     ',\n' .. render_keywords(keywords) .. '\n}'
 end
-
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)

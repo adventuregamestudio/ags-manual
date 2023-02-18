@@ -1,9 +1,8 @@
--- invoke as Pandoc writer
+-- invoke as Lua script
 -- write metablock check errors to stderr and then cause a failure
 
-package.path = package.path .. ';' ..
-  string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
-local agsman = require('agsman')
+local pagemeta = require('metadata').pages
+local approved_links_file = arg[1]
 
 function get_valid_links(pagemeta, filepath)
   local valid = {}
@@ -114,35 +113,19 @@ function get_toplevel_collisions(pagemeta)
   return count
 end
 
-function Doc(body, metadata, variables)
-  local pagemeta = {}
+local bad_links = get_bad_links(
+  pagemeta,
+  get_valid_links(pagemeta, approved_links_file))
 
-  for file in metadata._metafiles:gmatch('%S+') do
-    pagemeta[file:match('([^/]+)%.lua$')] = dofile(file)
-  end
+local collisions = get_toplevel_collisions(pagemeta) +
+  get_editorial_collisions(pagemeta)
 
-  local bad_links = get_bad_links(
-    pagemeta,
-    get_valid_links(pagemeta, metadata._approved_links))
-
-  local collisions = get_toplevel_collisions(pagemeta) +
-    get_editorial_collisions(pagemeta)
-
-  if bad_links > 0 then
-    io.stderr:write(string.format("Broken links: %d\n", bad_links))
-  end
-
-  if collisions > 0 then
-    io.stderr:write(string.format("Heading errors: %d\n", collisions))
-  end
-
-  assert (bad_links == 0 and collisions == 0)
-  return ''
+if bad_links > 0 then
+  io.stderr:write(string.format("Broken links: %d\n", bad_links))
 end
 
-local meta = {}
-meta.__index =
-  function(_, key)
-    return function() return '' end
-  end
-setmetatable(_G, meta)
+if collisions > 0 then
+  io.stderr:write(string.format("Heading errors: %d\n", collisions))
+end
+
+assert (bad_links == 0 and collisions == 0)
