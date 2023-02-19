@@ -101,6 +101,7 @@ metadata.lua: $(METADATA_FILES)
 		--syntax-definition="$(srcdir)/syntax/ags.xml" \
 		--syntax-definition="$(srcdir)/syntax/agsdialog.xml" \
 		--eol lf \
+		--wrap=none \
 		--output $@ \
 		$<
 
@@ -112,6 +113,7 @@ genindex.html: metadata.lua
 		--css "css/normalize.css" \
 		--css "css/main.css" \
 		--eol lf \
+		--wrap=none \
 		--output $@
 
 search.js: metadata.lua
@@ -130,6 +132,7 @@ search.js: metadata.lua
 		--lua-filter "$(srcdir)/lua/insert_toc.lua" \
 		--template "$(srcdir)/htmlhelp/template.html4" \
 		--eol crlf \
+		--wrap=none \
 		--output $@ \
 		$<
 
@@ -141,6 +144,7 @@ source/index.htm: source/index.md
 		--lua-filter "$(srcdir)/lua/rewrite_links.lua" \
 		--template "$(srcdir)/htmlhelp/template.html4" \
 		--eol crlf \
+		--wrap=none \
 		--output $@ \
 		$<
 
@@ -156,6 +160,7 @@ source/ags-help.hhc:
 		--lua-filter "$(srcdir)/lua/rewrite_links.lua" \
 		--template "$(srcdir)/htmlhelp/template.hhc" \
 		--eol crlf \
+		--wrap=none \
 		--output $@ \
 		source/index.md
 
