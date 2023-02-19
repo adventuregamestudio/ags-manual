@@ -72,7 +72,7 @@ EXTRA_DIST = \
 SUFFIXES: .htm .html .lua .md
 
 .md.lua:
-	$(AM_V_GEN)"$(PANDOC)" --from gfm \
+	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to "$(srcdir)/lua/write_metablock.lua" \
 		--lua-filter "$(srcdir)/lua/set_title.lua" \
 		--metadata docname=$(*F) \
@@ -86,7 +86,7 @@ metadata.lua: $(METADATA_FILES)
 		printf '}}\n') > $@.tmp && mv $@.tmp $@
 
 .md.html:
-	$(AM_V_GEN)"$(PANDOC)" --from gfm \
+	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to html5 \
 		--metadata title=$(*F) \
 		--lua-filter "$(srcdir)/lua/set_title.lua" \
@@ -124,7 +124,7 @@ search.js: metadata.lua
 		--output $@
 
 .md.htm:
-	$(AM_V_GEN)"$(PANDOC)" --from gfm \
+	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to html4 \
 		--metadata title=$(*F) \
 		--lua-filter "$(srcdir)/lua/set_title.lua" \
@@ -137,7 +137,7 @@ search.js: metadata.lua
 		$<
 
 source/index.htm: source/index.md
-	$(AM_V_GEN)"$(PANDOC)" --from gfm \
+	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to html4 \
 		--metadata title=$(*F) \
 		--lua-filter "$(srcdir)/lua/set_title.lua" \
@@ -155,7 +155,7 @@ source/ags-help.hhk: metadata.lua
 		--output $@
 
 source/ags-help.hhc:
-	$(AM_V_GEN)"$(PANDOC)" --from gfm \
+	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to "$(srcdir)/lua/write_hhc.lua" \
 		--lua-filter "$(srcdir)/lua/rewrite_links.lua" \
 		--template "$(srcdir)/htmlhelp/template.hhc" \
