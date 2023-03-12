@@ -135,9 +135,9 @@ will be skipped.
 
 #### Installing Pandoc
 
-Pandoc can be downloaded from its GitHub release assets. A recommended
-minimum version is 2.10. The following commands will download a Pandoc
-binary into the current directory:
+Pandoc can be downloaded from its GitHub release assets. The minimum
+version required by the build process is 3.0. The following commands
+will download a Pandoc binary into the current directory:
 
 ```sh pandoc Linux
 # Download the Linux binary for Pandoc $PANDOC_VERSION into the current directory
