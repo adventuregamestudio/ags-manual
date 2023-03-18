@@ -84,21 +84,21 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#general-settings"><span>General settings</span></a>
+<li><a href="#general-settings" id="toc-general-settings">General settings</a>
 <ul>
-<li><a href="#basic-properties"><span>Basic properties</span></a></li>
-<li><a href="#information"><span>Information</span></a></li>
-<li><a href="#android"><span>Android</span></a></li>
-<li><a href="#backwards-compatibility"><span>Backwards compatibility</span></a></li>
-<li><a href="#character-movement"><span>Character movement</span></a></li>
-<li><a href="#compiler"><span>Compiler</span></a></li>
-<li><a href="#dialog"><span>Dialog</span></a></li>
-<li><a href="#inventory"><span>Inventory</span></a></li>
-<li><a href="#rooms"><span>Rooms</span></a></li>
-<li><a href="#saved-games"><span>Saved Games</span></a></li>
-<li><a href="#sound"><span>Sound</span></a></li>
-<li><a href="#text-output"><span>Text output</span></a></li>
-<li><a href="#visual"><span>Visual</span></a></li>
+<li><a href="#basic-properties" id="toc-basic-properties">Basic properties</a></li>
+<li><a href="#information" id="toc-information">Information</a></li>
+<li><a href="#android" id="toc-android">Android</a></li>
+<li><a href="#backwards-compatibility" id="toc-backwards-compatibility">Backwards compatibility</a></li>
+<li><a href="#character-movement" id="toc-character-movement">Character movement</a></li>
+<li><a href="#compiler" id="toc-compiler">Compiler</a></li>
+<li><a href="#dialog" id="toc-dialog">Dialog</a></li>
+<li><a href="#inventory" id="toc-inventory">Inventory</a></li>
+<li><a href="#rooms" id="toc-rooms">Rooms</a></li>
+<li><a href="#saved-games" id="toc-saved-games">Saved Games</a></li>
+<li><a href="#sound" id="toc-sound">Sound</a></li>
+<li><a href="#text-output" id="toc-text-output">Text output</a></li>
+<li><a href="#visual" id="toc-visual">Visual</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -203,7 +203,8 @@
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay2</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">,</span> <span class="bu">String</span> text<span class="op">);</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay3</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> const string text<span class="op">);</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomSay4</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">);</span></span></code></pre></div>
-<p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p></li>
+<p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p>
+<p><strong>IMPORTANT</strong>: this setting currently does not work with the "Say" checkbox in the dialog options list. The workaround is to duplicate option's text as a first cue in the dialog script.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
@@ -278,7 +279,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

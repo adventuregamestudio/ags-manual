@@ -84,7 +84,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#understanding-blocking-scripts"><span>Understanding blocking scripts</span></a></li>
+<li><a href="#understanding-blocking-scripts" id="toc-understanding-blocking-scripts">Understanding blocking scripts</a></li>
 </ul>
   </nav>
 
@@ -99,7 +99,7 @@
 <p>So, on the first game loop, your global scripts' repeatedly_execute will be run:</p>
 <p><img src="images/threads2.gif" /></p>
 <p>That's fine, and when it finishes running the thread becomes idle again.</p>
-<p>But, suppose that within repeatedly_execute, you make a call to the Character.Say command. Say (or <em>DisplaySpeech</em> in old-style scripting) is a blocking command and does not return until the character finishes talking:</p>
+<p>But, suppose that within repeatedly_execute, you make a call to the Character.Say command. Say is a blocking command and does not return until the character finishes talking:</p>
 <p><img src="images/threads3.gif" /></p>
 <p>The global thread is now <strong>blocked</strong>, waiting for the character to finish talking. This means that none of your global script functions such as repeatedly_execute, on_event and on_key_press will be run while the character is talking, since the thread is busy.</p>
 <p>Now, AGS does queue up to 5 script functions to be run on the thread as soon as it is free; but if you have a lot of things happening within your script, it's possible that you will lose some events such as on_events and keypresses if you script is blocked for a long time.</p>
@@ -122,7 +122,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

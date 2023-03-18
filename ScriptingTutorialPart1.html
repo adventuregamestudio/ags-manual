@@ -84,17 +84,17 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#scripting-tutorial---part-1"><span>Scripting Tutorial - Part 1</span></a>
+<li><a href="#scripting-tutorial---part-1" id="toc-scripting-tutorial---part-1">Scripting Tutorial - Part 1</a>
 <ul>
-<li><a href="#the-basics"><span>The Basics</span></a></li>
-<li><a href="#commands-explained"><span>Commands Explained</span></a></li>
-<li><a href="#instances"><span>Instances</span></a></li>
-<li><a href="#command-sequences"><span>Command Sequences</span></a></li>
-<li><a href="#recap"><span>Recap</span></a></li>
-<li><a href="#variables"><span>Variables</span></a></li>
-<li><a href="#functions-that-return-a-value"><span>Functions that return a value</span></a></li>
-<li><a href="#common-shortcuts"><span>Common Shortcuts</span></a></li>
-<li><a href="#summary"><span>Summary</span></a></li>
+<li><a href="#the-basics" id="toc-the-basics">The Basics</a></li>
+<li><a href="#commands-explained" id="toc-commands-explained">Commands Explained</a></li>
+<li><a href="#instances" id="toc-instances">Instances</a></li>
+<li><a href="#command-sequences" id="toc-command-sequences">Command Sequences</a></li>
+<li><a href="#recap" id="toc-recap">Recap</a></li>
+<li><a href="#variables" id="toc-variables">Variables</a></li>
+<li><a href="#functions-that-return-a-value" id="toc-functions-that-return-a-value">Functions that return a value</a></li>
+<li><a href="#common-shortcuts" id="toc-common-shortcuts">Common Shortcuts</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -273,7 +273,7 @@
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>myCounter</em> starts off set to 0, so the first time this script is called it will run the first Display command, but not the others. Then, since 0 is less than 3, it will increase <em>myCounter</em> by 1, and since 0+1 = 1 it now holds the value 1.<br> Once the player has seen all the messages (<em>myCounter</em> == 2), it no longer increases the value so if they click again they will keep getting the final message.</p>
 <p><strong>Global variables made easy</strong></p>
-<p>Sometimes, you may want to set a variable value that can be shared between a room script and your global script. There are two ways to do this -- you can export the variable from the global script and then import it in the script header, but that's a bit advanced for this tutorial. A simpler way is to use one of the 300 GlobalInts, which use the script functions SetGlobalInt and GetGlobalInt to access them. See their manual descriptions for more information.</p>
+<p>Sometimes, you may want to set a variable value that can be shared between a room script and your global script. There are two ways to do this -- you can export the variable from the global script and then import it in the script header, but that's a bit advanced for this tutorial (see the article about <a href="ImportingFunctionsAndVariables.html#exporting-and-importing-a-variable">importing and exporting variables</a> for that). A simpler way is to use <a href="GlobalVariables.html">Global Variables pane</a> in the Editor, where you may add variables of any built-in types.</p>
 </section>
 <section id="functions-that-return-a-value" class="level3">
 <h3><a href="#functions-that-return-a-value">Functions that return a value</a></h3>
@@ -323,7 +323,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

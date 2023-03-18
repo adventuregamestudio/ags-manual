@@ -84,22 +84,22 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#region-functions-and-properties"><span><code>Region</code> functions and properties</span></a>
+<li><a href="#region-functions-and-properties" id="toc-region-functions-and-properties"><code>Region</code> functions and properties</a>
 <ul>
-<li><a href="#regiongetatroomxy"><span><code>Region.GetAtRoomXY</code></span></a></li>
-<li><a href="#regiongetatscreenxy"><span><code>Region.GetAtScreenXY</code></span></a></li>
-<li><a href="#regiongetdrawingsurface"><span><code>Region.GetDrawingSurface</code></span></a></li>
-<li><a href="#regionruninteraction"><span><code>Region.RunInteraction</code></span></a></li>
-<li><a href="#regiontint"><span><code>Region.Tint</code></span></a></li>
-<li><a href="#regionenabled"><span><code>Region.Enabled</code></span></a></li>
-<li><a href="#regionid"><span><code>Region.ID</code></span></a></li>
-<li><a href="#regionlightlevel"><span><code>Region.LightLevel</code></span></a></li>
-<li><a href="#regiontintenabled"><span><code>Region.TintEnabled</code></span></a></li>
-<li><a href="#regiontintblue"><span><code>Region.TintBlue</code></span></a></li>
-<li><a href="#regiontintgreen"><span><code>Region.TintGreen</code></span></a></li>
-<li><a href="#regiontintred"><span><code>Region.TintRed</code></span></a></li>
-<li><a href="#regiontintsaturation"><span><code>Region.TintSaturation</code></span></a></li>
-<li><a href="#regiontintluminance"><span><code>Region.TintLuminance</code></span></a></li>
+<li><a href="#regiongetatroomxy" id="toc-regiongetatroomxy"><code>Region.GetAtRoomXY</code></a></li>
+<li><a href="#regiongetatscreenxy" id="toc-regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a></li>
+<li><a href="#regiongetdrawingsurface" id="toc-regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></li>
+<li><a href="#regionruninteraction" id="toc-regionruninteraction"><code>Region.RunInteraction</code></a></li>
+<li><a href="#regiontint" id="toc-regiontint"><code>Region.Tint</code></a></li>
+<li><a href="#regionenabled" id="toc-regionenabled"><code>Region.Enabled</code></a></li>
+<li><a href="#regionid" id="toc-regionid"><code>Region.ID</code></a></li>
+<li><a href="#regionlightlevel" id="toc-regionlightlevel"><code>Region.LightLevel</code></a></li>
+<li><a href="#regiontintenabled" id="toc-regiontintenabled"><code>Region.TintEnabled</code></a></li>
+<li><a href="#regiontintblue" id="toc-regiontintblue"><code>Region.TintBlue</code></a></li>
+<li><a href="#regiontintgreen" id="toc-regiontintgreen"><code>Region.TintGreen</code></a></li>
+<li><a href="#regiontintred" id="toc-regiontintred"><code>Region.TintRed</code></a></li>
+<li><a href="#regiontintsaturation" id="toc-regiontintsaturation"><code>Region.TintSaturation</code></a></li>
+<li><a href="#regiontintluminance" id="toc-regiontintluminance"><code>Region.TintLuminance</code></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -213,9 +213,8 @@
 <p><strong>NOTE:</strong> Setting a light level will disable any RGB tint set for the region.</p>
 <p><strong>NOTE:</strong> Region's light level does NOT override individual character and object light levels.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">10</span><span class="op">)==</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">region</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">LightLevel</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
-<p>will set region 2's level light to 100 if the Global Integer 10 is 1.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">region</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">LightLevel</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
+<p>will set region 2's level light to 100.</p>
 <p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a></p>
 <hr />
 </section>
@@ -312,7 +311,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

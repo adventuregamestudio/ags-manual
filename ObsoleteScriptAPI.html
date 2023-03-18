@@ -84,7 +84,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#obsolete-script-api"><span>Obsolete Script API</span></a></li>
+<li><a href="#obsolete-script-api" id="toc-obsolete-script-api">Obsolete Script API</a></li>
 </ul>
   </nav>
 
@@ -313,7 +313,7 @@
 </tr>
 <tr class="odd">
 <td><a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>DrawingSurface.UseHighResCoordinates</code></a></td>
-<td>This property was used to multiply by 2 the coordinates in 640x400 resolution games.</td>
+<td>This property was used to multiply the coordinates by 2 in 640x400/480 resolution games.</td>
 <td>3.5.0</td>
 </tr>
 <tr class="even">
@@ -528,67 +528,67 @@
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_FRAMExxx)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetViewFrame</code></a></td>
+<td><a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_ISFRAMEFLIPPED)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetViewFrame</code></a></td>
+<td><a href="Game.html#gamegetviewframe"><code>Game.GetViewFrame</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_NUMCHARACTERS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.CharacterCount</code></a></td>
+<td><a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_NUMFRAMES)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetFrameCountForLoop</code></a></td>
+<td><a href="Game.html#gamegetframecountforloop"><code>Game.GetFrameCountForLoop</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(gp_numguis)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GUICount</code></a></td>
+<td><a href="Game.html#gameguicount"><code>Game.GUICount</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(GP_NUMINVITEMS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.InventoryItemCount</code></a></td>
+<td><a href="Game.html#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(GP_NUMLOOPS)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.GetLoopCountForView</code></a></td>
+<td><a href="Game.html#gamegetloopcountforview"><code>Game.GetLoopCountForView</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(gp_numobjects)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Room.ObjectCount</code></a></td>
+<td><a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGameParameter(gp_spriteheight)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.SpriteHeight</code></a></td>
+<td><a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGameParameter(gp_spritewidth)</code></td>
-<td><a href="Globalfunctions_General.html#getgameparameter"><code>Game.SpriteWidth</code></a></td>
+<td><a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGlobalInt</code></td>
-<td><a href="Globalfunctions_General.html#getglobalint"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetGlobalString</code></td>
-<td><a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetGraphicalVariable</code></td>
-<td><a href="Globalfunctions_General.html#getgraphicalvariable"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -723,7 +723,7 @@
 </tr>
 <tr class="odd">
 <td><code>GetPlayerCharacter</code></td>
-<td><a href="Globalfunctions_General.html#getplayercharacter"><code>player.ID</code></a></td>
+<td>Use <code>player</code> pointer</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -773,17 +773,17 @@
 </tr>
 <tr class="odd">
 <td><code>GetViewportX</code></td>
-<td><a href="Globalfunctions_Room.html#getviewportx"><code>Game.Camera.X</code></a></td>
+<td><a href="Camera.html#camerax"><code>Game.Camera.X</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>GetViewportY</code></td>
-<td><a href="Globalfunctions_Room.html#getviewporty"><code>Game.Camera.Y</code></a></td>
+<td><a href="Camera.html#cameray"><code>Game.Camera.Y</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>GetWalkableAreaAt</code></td>
-<td><a href="Globalfunctions_Room.html#getwalkableareaat"><code>GetWalkableAreaAtScreen</code></a></td>
+<td><a href="Globalfunctions_Room.html#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -843,7 +843,7 @@
 </tr>
 <tr class="odd">
 <td><code>InventoryScreen</code></td>
-<td><a href="Globalfunctions_General.html#inventoryscreen"><code>create your own Inventory GUI</code></a></td>
+<td><a href="EditorGUI.html">create your own Inventory GUI</a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1023,12 +1023,12 @@
 </tr>
 <tr class="odd">
 <td><code>MoveCharacterToHotspot</code></td>
-<td><a href="Globalfunctions_General.html#movecharactertohotspot"><code>Character.Walk</code></a></td>
+<td><a href="Character.html#characterwalk"><code>Character.Walk</code></a> and <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX/Y</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>MoveCharacterToObject</code></td>
-<td><a href="Globalfunctions_General.html#movecharactertoobject"><code>Character.Walk</code></a></td>
+<td><a href="Character.html#characterwalk"><code>Character.Walk</code></a> and <a href="Object.html#objectx"><code>Object.X/Y</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1223,7 +1223,7 @@
 </tr>
 <tr class="odd">
 <td><code>ReleaseViewport</code></td>
-<td><a href="Globalfunctions_Room.html#releaseviewport"><code>Game.Camera.AutoTracking</code></a></td>
+<td><a href="Camera.html#cameraautotracking"><code>Game.Camera.AutoTracking</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -1448,17 +1448,17 @@
 </tr>
 <tr class="even">
 <td><code>SetGlobalInt</code></td>
-<td><a href="Globalfunctions_General.html#setglobalint"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>SetGlobalString</code></td>
-<td><a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="even">
 <td><code>SetGraphicalVariable</code></td>
-<td><a href="Globalfunctions_General.html#setgraphicalvariable"><code>Global Variables</code></a></td>
+<td><a href="GlobalVariables.html"><code>Global Variables</code></a></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1678,7 +1678,7 @@
 </tr>
 <tr class="even">
 <td><a href="Globalfunctions_Room.html#setviewport"><code>SetViewport</code></a></td>
-<td><a href="Game.html#gamecamera"><code>Game.Camera.SetAt</code></a></td>
+<td><a href="Camera.html#camerasetat"><code>Game.Camera.SetAt</code></a></td>
 <td>3.5.0</td>
 </tr>
 <tr class="odd">
@@ -1850,7 +1850,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

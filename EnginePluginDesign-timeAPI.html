@@ -84,11 +84,11 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#engine-plugin-design-time-api"><span>Engine Plugin Design-time API</span></a>
+<li><a href="#engine-plugin-design-time-api" id="toc-engine-plugin-design-time-api">Engine Plugin Design-time API</a>
 <ul>
-<li><a href="#dllmain"><span>DllMain</span></a></li>
-<li><a href="#design-time-events"><span>Design-time events</span></a></li>
-<li><a href="#the-iagseditor-interface"><span>The IAGSEditor interface</span></a></li>
+<li><a href="#dllmain" id="toc-dllmain">DllMain</a></li>
+<li><a href="#design-time-events" id="toc-design-time-events">Design-time events</a></li>
+<li><a href="#the-iagseditor-interface" id="toc-the-iagseditor-interface">The IAGSEditor interface</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -107,13 +107,13 @@
 <h3><a href="#design-time-events">Design-time events</a></h3>
 <section id="ags_getpluginname" class="level4">
 <h4>AGS_GetPluginName</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT LPCSTR AGS_GetPluginName ();</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT LPCSTR AGS_GetPluginName <span class="op">();</span></span></code></pre></div>
 <p>Called by the editor to retrieve a user-friendly name for the plugin. This is the very first function the editor calls as soon as it starts up, in order to build its list of plugins.</p>
 <p>Normally, you will implement this as a simple one-line function that returns a static string with the plugin description.</p>
 </section>
 <section id="ags_editorstartup" class="level4">
 <h4>AGS_EditorStartup</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EditorStartup (IAGSEditor *lpEditor);</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EditorStartup <span class="op">(</span>IAGSEditor <span class="op">*</span>lpEditor<span class="op">);</span></span></code></pre></div>
 <p>Called by the editor when the user selects to add the plugin to their game. This function should perform any initialization necessary for design-time operation.</p>
 <p>The parameter passed to the function is a pointer to the editor interface, which your plugin can execute various methods on to communicate with the editor.</p>
 <p>In particular, this function should register any additions to the script header files that it uses.</p>
@@ -121,19 +121,19 @@
 </section>
 <section id="ags_editorshutdown" class="level4">
 <h4>AGS_EditorShutdown</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorShutdown ();</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorShutdown <span class="op">();</span></span></code></pre></div>
 <p>Called by the editor when the user elects to remove the plugin from their game. The plugin should un-register anything that it registered at startup, since if the user later decides to add the plugin again, the Startup function will be run again.</p>
 </section>
 <section id="ags_editorproperties" class="level4">
 <h4>AGS_EditorProperties</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorProperties (HWND parent);</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorProperties <span class="op">(</span>HWND parent<span class="op">);</span></span></code></pre></div>
 <p><em>(Optional - plugin does not have to have this function)</em></p>
 <p>Called by the editor when the user highlights the plugin and clicks the Properties button. You can use this to display a copyright message, or allow the user to set options for your plugin, for instance. This will only be called when the plugin is selected (i.e. <code>EditorStartup</code> has been called).</p>
 <p>The parameter gives you the parent window handle you should use if you want to pop up a dialog. You should make any dialogs modal so that this function does not return until they are dismissed.</p>
 </section>
 <section id="ags_editorsavegame" class="level4">
 <h4>AGS_EditorSaveGame</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EditorSaveGame (<span class="dt">char</span> *buffer, <span class="dt">int</span> bufsize);</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_EditorSaveGame <span class="op">(</span><span class="dt">char</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">int</span> bufsize<span class="op">);</span></span></code></pre></div>
 <p><em>(Optional - plugin does not have to have this function)</em></p>
 <p>Called by the editor when the current game is saved to disk. This will only be called if your plugin is selected into the current game.</p>
 <p><code>buffer</code> is a byte array of size <code>bufsize</code>, which you can write any data to as you see fit. The buffer will then be written into the user's game file. You must return the number of bytes actually used, which can be up to and including <code>bufsize</code>.</p>
@@ -143,14 +143,14 @@
 </section>
 <section id="ags_editorloadgame" class="level4">
 <h4>AGS_EditorLoadGame</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorLoadGame (<span class="dt">char</span> *buffer, <span class="dt">int</span> bufsize);</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">void</span> AGS_EditorLoadGame <span class="op">(</span><span class="dt">char</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">int</span> bufsize<span class="op">);</span></span></code></pre></div>
 <p><em>(Optional - plugin does not have to have this function)</em></p>
 <p>Called by the editor when a game is loaded from disk. This will only be called if your plugin is selected into the new game.</p>
 <p><code>buffer</code> is a byte array of size <code>bufsize</code>, which contains any data you wrote out in a previous session with <code>AGS_EditorSaveGame</code>. Note that the buffer is not persistent - when your function returns, the buffer is freed, so you should copy any important data you need to elsewhere.</p>
 </section>
 <section id="ags_pluginv2" class="level4">
 <h4>AGS_PluginV2</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_PluginV2 ();</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DLLEXPORT <span class="dt">int</span> AGS_PluginV2 <span class="op">();</span></span></code></pre></div>
 <p>This entry point is never called by AGS, but it must be present and exported from your DLL in order to let AGS know that it is a valid plugin that supports version 5 and later of the engine interface. If you don't export this, AGS won't load the plugin.</p>
 </section>
 </section>
@@ -159,35 +159,35 @@
 <p>This interface is provided to the plugin as the way of calling back to the editor. It provides these members:</p>
 <section id="iagseditorversion" class="level4">
 <h4>IAGSEditor.version</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> version;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> version<span class="op">;</span></span></code></pre></div>
 <p>Specifies the interface version. You should check this to determine what version of the editor is being used, because certain interface methods will have been added in later versions, and attempting to use them with an earlier version will crash the system.</p>
 <p>The current version number for the latest version of AGS is <strong>1</strong>.</p>
 </section>
 <section id="iagseditorgeteditorhandle" class="level4">
 <h4>IAGSEditor.GetEditorHandle</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>HWND GetEditorHandle ();</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>HWND GetEditorHandle <span class="op">();</span></span></code></pre></div>
 <p>Returns the window handle to the AGS Editor's main frame. This might be useful if you wanted to add extra menu options to the editor, for example.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagseditorgetwindowhandle" class="level4">
 <h4>IAGSEditor.GetWindowHandle</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>HWND GetWindowHandle ();</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>HWND GetWindowHandle <span class="op">();</span></span></code></pre></div>
 <p>Returns the window handle to the current active window. If you want to pop up a messagebox, for instance, you should always use this handle as the parent, because using the main frame's handle would un-modal any dialog boxes currently displayed.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagseditorregisterscriptheader" class="level4">
 <h4>IAGSEditor.RegisterScriptHeader</h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RegisterScriptHeader (<span class="at">const</span> <span class="dt">char</span> * header);</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RegisterScriptHeader <span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span> header<span class="op">);</span></span></code></pre></div>
 <p>Adds the contents of <code>header</code> to the built-in script header, which is compiled into every script in the game. The idea here is that you would use this to register your text script functions, for example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> *header = <span class="st">&quot;import int Add (int, int);</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                <span class="kw">import</span> <span class="dt">int</span> Substract(<span class="dt">int</span>, <span class="dt">int</span>); <span class="st">&quot;;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>RegisterScriptHeader (header);</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> <span class="op">*</span>header <span class="op">=</span> <span class="st">&quot;import int Add (int, int);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                <span class="kw">import</span> <span class="dt">int</span> Substract<span class="op">(</span><span class="dt">int</span><span class="op">,</span> <span class="dt">int</span><span class="op">);</span> <span class="st">&quot;;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>RegisterScriptHeader <span class="op">(</span>header<span class="op">);</span></span></code></pre></div>
 <p>Note that the editor only keeps a reference to this string rather than a copy, so do not overwrite or destroy the string after calling this function.</p>
 <p><em>Added in version: 1</em></p>
 </section>
 <section id="iagseditorunregisterscriptheader" class="level4">
 <h4>IAGSEditor.UnregisterScriptHeader</h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> UnregisterScriptHeader (<span class="at">const</span> <span class="dt">char</span> *header);</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> UnregisterScriptHeader <span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>header<span class="op">);</span></span></code></pre></div>
 <p>Unregisters the specified script header, which you earlier used with <code>RegisterScriptHeader</code>.</p>
 <p><em>Added in version: 1</em></p>
 </section>
@@ -199,7 +199,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

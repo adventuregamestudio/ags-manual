@@ -84,15 +84,15 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#room-editor"><span>Room Editor</span></a>
+<li><a href="#room-editor" id="toc-room-editor">Room Editor</a>
 <ul>
-<li><a href="#background"><span>Background</span></a></li>
-<li><a href="#edit-this-rooms-control"><span>Edit this room's control</span></a></li>
-<li><a href="#properties-control"><span>Properties control</span></a></li>
-<li><a href="#edges"><span>Edges</span></a></li>
-<li><a href="#objects"><span>Objects</span></a></li>
-<li><a href="#characters"><span>Characters</span></a></li>
-<li><a href="#room-masks-hotspot-walkable-areas-walk-behinds-and-regions"><span>Room masks (Hotspot, Walkable areas, Walk-behinds and Regions)</span></a></li>
+<li><a href="#background" id="toc-background">Background</a></li>
+<li><a href="#edit-this-rooms-control" id="toc-edit-this-rooms-control">Edit this room's control</a></li>
+<li><a href="#properties-control" id="toc-properties-control">Properties control</a></li>
+<li><a href="#edges" id="toc-edges">Edges</a></li>
+<li><a href="#objects" id="toc-objects">Objects</a></li>
+<li><a href="#characters" id="toc-characters">Characters</a></li>
+<li><a href="#room-masks-hotspot-walkable-areas-walk-behinds-and-regions" id="toc-room-masks-hotspot-walkable-areas-walk-behinds-and-regions">Room masks (Hotspot, Walkable areas, Walk-behinds and Regions)</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -113,7 +113,7 @@
 <p><img src="images/EditorRoom_1.png" alt="Editor Room" /></p>
 <section id="background" class="level3">
 <h3><a href="#background">Background</a></h3>
-<p>By selecting a background on the <code>Display Background</code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code>Change...</code> button to replace the background image with a new image. If a room has more than one background, by default, they are animated.</p>
+<p>By selecting a background on the <code>Display Background</code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code>Change...</code> button to replace the background image with a new image. If a room has more than one background, by default, they are animated. To prevent that assign "BackgroundAnimtionEnabled" to "False" in the room properties. Also, you may lock background to a particular frame in script using <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a> command.</p>
 <p><strong>NOTE:</strong> If the background images are replaced with ones of a different size this will clear all of the mask (hotspot, walkbehind, region, and walkable) areas which have been are defined so far.</p>
 </section>
 <section id="edit-this-rooms-control" class="level3">
@@ -164,7 +164,7 @@
 <p>AGS offers a simple drawing editor when one of these layers is selected, so that you can directly edit these mask areas. The tools offered include a picker, a line tool, a freehand tool, a rectangle tool, and an area fill tool.</p>
 <p>Also available is a way to import and export all mask areas as a bitmap image. These options are offered in-case you prefer to draw these areas in your preferred external image editor.</p>
 <p><strong>NOTE:</strong> Mask images must be using a 16-color (4-bit) or 256-color (8-bit) indexed color palette, where color 0 signifies transparency and colors 1-15 are used as the respective hotspot/walk-behind/walkable area numbers</p>
-<p><em>See also:</em> <a href="Room.html"><code>Room</code></a></p>
+<p><em>See also:</em> <a href="Room.html"><code>Room</code></a>, <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
 </section>
 </section>
   </main>
@@ -173,7 +173,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

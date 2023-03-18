@@ -84,32 +84,32 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#script-language-keywords"><span>Script language keywords</span></a>
+<li><a href="#script-language-keywords" id="toc-script-language-keywords">Script language keywords</a>
 <ul>
-<li><a href="#data-types"><span>Data types</span></a></li>
-<li><a href="#arrays"><span>Arrays</span></a></li>
-<li><a href="#operators"><span>Operators</span></a></li>
-<li><a href="#version-checking"><span>Version checking</span></a></li>
-<li><a href="#if-else-statements"><span>if, else statements</span></a></li>
-<li><a href="#switch-case-statements"><span>switch, case statements</span></a></li>
-<li><a href="#while"><span>while</span></a></li>
-<li><a href="#dowhile"><span>do..while</span></a></li>
-<li><a href="#for"><span>for</span></a></li>
-<li><a href="#break"><span>break</span></a></li>
-<li><a href="#continue"><span>continue</span></a></li>
-<li><a href="#function"><span>function</span></a></li>
-<li><a href="#return"><span>return</span></a></li>
-<li><a href="#struct"><span>struct</span></a></li>
-<li><a href="#managed"><span>managed</span></a></li>
-<li><a href="#new"><span>new</span></a></li>
-<li><a href="#enum"><span>enum</span></a></li>
-<li><a href="#this"><span>this</span></a></li>
-<li><a href="#import"><span>import</span></a></li>
-<li><a href="#export"><span>export</span></a></li>
-<li><a href="#readonly"><span>readonly</span></a></li>
-<li><a href="#writeprotected"><span>writeprotected</span></a></li>
-<li><a href="#protected"><span>protected</span></a></li>
-<li><a href="#noloopcheck"><span>noloopcheck</span></a></li>
+<li><a href="#data-types" id="toc-data-types">Data types</a></li>
+<li><a href="#arrays" id="toc-arrays">Arrays</a></li>
+<li><a href="#operators" id="toc-operators">Operators</a></li>
+<li><a href="#version-checking" id="toc-version-checking">Version checking</a></li>
+<li><a href="#if-else-statements" id="toc-if-else-statements">if, else statements</a></li>
+<li><a href="#switch-case-statements" id="toc-switch-case-statements">switch, case statements</a></li>
+<li><a href="#while" id="toc-while">while</a></li>
+<li><a href="#dowhile" id="toc-dowhile">do..while</a></li>
+<li><a href="#for" id="toc-for">for</a></li>
+<li><a href="#break" id="toc-break">break</a></li>
+<li><a href="#continue" id="toc-continue">continue</a></li>
+<li><a href="#function" id="toc-function">function</a></li>
+<li><a href="#return" id="toc-return">return</a></li>
+<li><a href="#struct" id="toc-struct">struct</a></li>
+<li><a href="#managed" id="toc-managed">managed</a></li>
+<li><a href="#new" id="toc-new">new</a></li>
+<li><a href="#enum" id="toc-enum">enum</a></li>
+<li><a href="#this" id="toc-this">this</a></li>
+<li><a href="#import" id="toc-import">import</a></li>
+<li><a href="#export" id="toc-export">export</a></li>
+<li><a href="#readonly" id="toc-readonly">readonly</a></li>
+<li><a href="#writeprotected" id="toc-writeprotected">writeprotected</a></li>
+<li><a href="#protected" id="toc-protected">protected</a></li>
+<li><a href="#noloopcheck" id="toc-noloopcheck">noloopcheck</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -327,22 +327,22 @@ You need to do this inside a function.</p>
 <p>If <em>expression</em> is true, then <em>statements1</em> are run.</p>
 <p>If <em>expression</em> is not true, and there is an <strong>else</strong> clause present, then <em>statements2</em> are run instead.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span> <span class="op">==</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Globalint 5 is 10.&quot;</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 10.&quot;</span><span class="op">);</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Globalint 5 is not 10.&quot;</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is NOT in the room 10.&quot;</span><span class="op">);</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>In this example, the first message will be displayed if the return value from <code>GetGlobalInt(5)</code> is 10, and the second message will be displayed if it is not.</p>
+<p>In this example, the first message will be displayed if the return value from <code>player.Room</code> is 10, and the second message will be displayed if it is not.</p>
 <p><strong>if</strong> statements can be nested inside <strong>else</strong> statements to produce an "else if" effect. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Globalint 5 is 1.&quot;</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 1.&quot;</span><span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">5</span><span class="op">)</span> <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Globalint 5 is 2.&quot;</span><span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 2.&quot;</span><span class="op">);</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Globalint 5 is not 1 or 2.&quot;</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player in neither in room 1 nor room 2.&quot;</span><span class="op">);</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 </section>
@@ -754,7 +754,7 @@ You need to do this inside a function.</p>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

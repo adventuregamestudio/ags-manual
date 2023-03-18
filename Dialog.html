@@ -84,19 +84,19 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#dialog-functions-and-properties"><span><code>Dialog</code> functions and properties</span></a>
+<li><a href="#dialog-functions-and-properties" id="toc-dialog-functions-and-properties"><code>Dialog</code> functions and properties</a>
 <ul>
-<li><a href="#dialogdisplayoptions"><span><code>Dialog.DisplayOptions</code></span></a></li>
-<li><a href="#dialoggetoptionstate"><span><code>Dialog.GetOptionState</code></span></a></li>
-<li><a href="#dialoggetoptiontext"><span><code>Dialog.GetOptionText</code></span></a></li>
-<li><a href="#dialoghasoptionbeenchosen"><span><code>Dialog.HasOptionBeenChosen</code></span></a></li>
-<li><a href="#dialogid"><span><code>Dialog.ID</code></span></a></li>
-<li><a href="#dialogoptioncount"><span><code>Dialog.OptionCount</code></span></a></li>
-<li><a href="#dialogsethasoptionbeenchosen"><span><code>Dialog.SetHasOptionBeenChosen</code></span></a></li>
-<li><a href="#dialogsetoptionstate"><span><code>Dialog.SetOptionState</code></span></a></li>
-<li><a href="#dialogshowtextparser"><span><code>Dialog.ShowTextParser</code></span></a></li>
-<li><a href="#dialogstart"><span><code>Dialog.Start</code></span></a></li>
-<li><a href="#stopdialog"><span><code>StopDialog</code></span></a></li>
+<li><a href="#dialogdisplayoptions" id="toc-dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></li>
+<li><a href="#dialoggetoptionstate" id="toc-dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></li>
+<li><a href="#dialoggetoptiontext" id="toc-dialoggetoptiontext"><code>Dialog.GetOptionText</code></a></li>
+<li><a href="#dialoghasoptionbeenchosen" id="toc-dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a></li>
+<li><a href="#dialogid" id="toc-dialogid"><code>Dialog.ID</code></a></li>
+<li><a href="#dialogoptioncount" id="toc-dialogoptioncount"><code>Dialog.OptionCount</code></a></li>
+<li><a href="#dialogsethasoptionbeenchosen" id="toc-dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></li>
+<li><a href="#dialogsetoptionstate" id="toc-dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></li>
+<li><a href="#dialogshowtextparser" id="toc-dialogshowtextparser"><code>Dialog.ShowTextParser</code></a></li>
+<li><a href="#dialogstart" id="toc-dialogstart"><code>Dialog.Start</code></a></li>
+<li><a href="#stopdialog" id="toc-stopdialog"><code>StopDialog</code></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -227,9 +227,8 @@ eOptionOffForever
   it back on again.</code></pre>
 <p>These are equivalent to the option-off, option-on, and option-off-forever dialog commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">10</span><span class="op">)==</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dialog</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eOptionOn</span><span class="op">);</span></span></code></pre></div>
-<p>will enable option 2 of topic number 4 if the Global Integer 10 is 1.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dFriend1<span class="op">.</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eOptionOn</span><span class="op">);</span></span></code></pre></div>
+<p>will enable option 2 of topic number 4.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#stopdialog"><code>StopDialog</code></a></p>
 <hr />
 </section>
@@ -281,7 +280,7 @@ eOptionOffForever
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

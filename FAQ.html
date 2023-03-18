@@ -84,7 +84,7 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#frequently-asked-questions"><span>Frequently Asked Questions</span></a></li>
+<li><a href="#frequently-asked-questions" id="toc-frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
   </nav>
 
@@ -108,8 +108,9 @@
 <p><strong>Q. On my screen, I can't move the main character. Wherever I click to move him, he just stands there.</strong></p>
 <p>A. If the main character isn't on a walkable area, he will not be able to move. Load the room in the editor, and check that the location where the character starts is on a walkable area.</p>
 <hr />
-<p><strong>Q. I am looking/interacting with an object but nothing happens, but I have it on the script file.</strong></p>
-<p>A. In the AGS Room Editor, under the object properties, in events, the field should be filled with the function to execute, wiring the room element to the script. If it's empty, clicking on the three dots button (...) the respective script will be open with the a new function for you to fill the details. If it has a value, clicking on the same button will direct you to it on the respective script file. This is true for all events, so for example a 'room_Load' script function won't trigger if it's not wired on the room events. It's usually easier to click on the three dots button of the event you want to develop in the Room Editor, which will generate the function on the script file for you to fill up.</p>
+<p><strong>Q. I have a function for a Room event or an object interaction, but commands inside do not work.</strong></p>
+<p>A. In AGS the Room events and Object (Character, GUI, and so on) interactions must be "wired" to the script using the event grid. This is true for all events, so for example a 'room_Load' script function won't trigger if it's not wired on the room events.</p>
+<p>Open the Editor, load the room or select the object, then under the object properties, in events, the field should be filled with the function to execute. If it's empty, clicking on the three dots button (...) the respective script will be open with the a new function for you to fill the details. If it has a value, clicking on the same button will direct you to it on the respective script file. Optionally, you may type or copy the existing function's name into the field. But it's usually easier to click on the three dots button of the event you want to implement, which will generate the function in the script file for you.</p>
 <hr />
 <p><strong>Q. I click on a GUI button, but nothing happens. It doesn't seem to register clicks!</strong></p>
 <p>A. There are some different immediate suspects here.</p>
@@ -175,7 +176,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

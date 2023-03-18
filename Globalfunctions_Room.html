@@ -84,29 +84,29 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#global-functions-room-actions"><span>Global functions (room actions)</span></a>
+<li><a href="#global-functions-room-actions" id="toc-global-functions-room-actions">Global functions (room actions)</a>
 <ul>
-<li><a href="#arethingsoverlapping"><span><code>AreThingsOverlapping</code></span></a></li>
-<li><a href="#disablegroundlevelareas"><span><code>DisableGroundLevelAreas</code></span></a></li>
-<li><a href="#enablegroundlevelareas"><span><code>EnableGroundLevelAreas</code></span></a></li>
-<li><a href="#getbackgroundframe"><span><code>GetBackgroundFrame</code></span></a></li>
-<li><a href="#getdrawingsurfaceforwalkablearea"><span><code>GetDrawingSurfaceForWalkableArea</code></span></a></li>
-<li><a href="#getdrawingsurfaceforwalkbehind"><span><code>GetDrawingSurfaceForWalkbehind</code></span></a></li>
-<li><a href="#getscalingat"><span><code>GetScalingAt</code></span></a></li>
-<li><a href="#getviewportx"><span><code>GetViewportX</code></span></a></li>
-<li><a href="#getviewporty"><span><code>GetViewportY</code></span></a></li>
-<li><a href="#getwalkableareaat"><span><code>GetWalkableAreaAt</code></span></a></li>
-<li><a href="#getwalkableareaatroom"><span><code>GetWalkableAreaAtRoom</code></span></a></li>
-<li><a href="#getwalkableareaatscreen"><span><code>GetWalkableAreaAtScreen</code></span></a></li>
-<li><a href="#hasplayerbeeninroom"><span><code>HasPlayerBeenInRoom</code></span></a></li>
-<li><a href="#releaseviewport"><span><code>ReleaseViewport</code></span></a></li>
-<li><a href="#removewalkablearea"><span><code>RemoveWalkableArea</code></span></a></li>
-<li><a href="#resetroom"><span><code>ResetRoom</code></span></a></li>
-<li><a href="#restorewalkablearea"><span><code>RestoreWalkableArea</code></span></a></li>
-<li><a href="#setareascaling"><span><code>SetAreaScaling</code></span></a></li>
-<li><a href="#setbackgroundframe"><span><code>SetBackgroundFrame</code></span></a></li>
-<li><a href="#setviewport"><span><code>SetViewport</code></span></a></li>
-<li><a href="#setwalkbehindbase"><span><code>SetWalkBehindBase</code></span></a></li>
+<li><a href="#arethingsoverlapping" id="toc-arethingsoverlapping"><code>AreThingsOverlapping</code></a></li>
+<li><a href="#disablegroundlevelareas" id="toc-disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></li>
+<li><a href="#enablegroundlevelareas" id="toc-enablegroundlevelareas"><code>EnableGroundLevelAreas</code></a></li>
+<li><a href="#getbackgroundframe" id="toc-getbackgroundframe"><code>GetBackgroundFrame</code></a></li>
+<li><a href="#getdrawingsurfaceforwalkablearea" id="toc-getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a></li>
+<li><a href="#getdrawingsurfaceforwalkbehind" id="toc-getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a></li>
+<li><a href="#getscalingat" id="toc-getscalingat"><code>GetScalingAt</code></a></li>
+<li><a href="#getviewportx" id="toc-getviewportx"><code>GetViewportX</code></a></li>
+<li><a href="#getviewporty" id="toc-getviewporty"><code>GetViewportY</code></a></li>
+<li><a href="#getwalkableareaat" id="toc-getwalkableareaat"><code>GetWalkableAreaAt</code></a></li>
+<li><a href="#getwalkableareaatroom" id="toc-getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></li>
+<li><a href="#getwalkableareaatscreen" id="toc-getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></li>
+<li><a href="#hasplayerbeeninroom" id="toc-hasplayerbeeninroom"><code>HasPlayerBeenInRoom</code></a></li>
+<li><a href="#releaseviewport" id="toc-releaseviewport"><code>ReleaseViewport</code></a></li>
+<li><a href="#removewalkablearea" id="toc-removewalkablearea"><code>RemoveWalkableArea</code></a></li>
+<li><a href="#resetroom" id="toc-resetroom"><code>ResetRoom</code></a></li>
+<li><a href="#restorewalkablearea" id="toc-restorewalkablearea"><code>RestoreWalkableArea</code></a></li>
+<li><a href="#setareascaling" id="toc-setareascaling"><code>SetAreaScaling</code></a></li>
+<li><a href="#setbackgroundframe" id="toc-setbackgroundframe"><code>SetBackgroundFrame</code></a></li>
+<li><a href="#setviewport" id="toc-setviewport"><code>SetViewport</code></a></li>
+<li><a href="#setwalkbehindbase" id="toc-setwalkbehindbase"><code>SetWalkBehindBase</code></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -329,9 +329,8 @@
 <p>Pass the <em>frame</em> as -1 to return to the default behavior of automatically cycling through all the background frames.</p>
 <p>The frame lock is released when the game changes rooms.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">20</span><span class="op">)==</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SetBackgroundFrame</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
-<p>will change the current room's background frame to 4 if the global integer 20 is 1.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetBackgroundFrame</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
+<p>will change the current room's background frame to 4.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Room.html#getbackgroundframe"><code>GetBackgroundFrame</code></a></p>
 <hr />
 </section>
@@ -361,7 +360,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 

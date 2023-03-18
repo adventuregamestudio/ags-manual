@@ -84,20 +84,20 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#global-event-handlers"><span>Global event handlers</span></a>
+<li><a href="#global-event-handlers" id="toc-global-event-handlers">Global event handlers</a>
 <ul>
-<li><a href="#dialog_request"><span><code>dialog_request</code></span></a></li>
-<li><a href="#game_start"><span><code>game_start</code></span></a></li>
-<li><a href="#interface_click"><span><code>interface_click</code></span></a></li>
-<li><a href="#on_event"><span><code>on_event</code></span></a></li>
-<li><a href="#on_key_press"><span><code>on_key_press</code></span></a></li>
-<li><a href="#on_mouse_click"><span><code>on_mouse_click</code></span></a></li>
-<li><a href="#on_text_input"><span><code>on_text_input</code></span></a></li>
-<li><a href="#repeatedly_execute"><span><code>repeatedly_execute</code></span></a></li>
-<li><a href="#repeatedly_execute_always"><span><code>repeatedly_execute_always</code></span></a></li>
-<li><a href="#late_repeatedly_execute_always"><span><code>late_repeatedly_execute_always</code></span></a></li>
-<li><a href="#unhandled_event"><span><code>unhandled_event</code></span></a></li>
-<li><a href="#on_call"><span><code>on_call</code></span></a></li>
+<li><a href="#dialog_request" id="toc-dialog_request"><code>dialog_request</code></a></li>
+<li><a href="#game_start" id="toc-game_start"><code>game_start</code></a></li>
+<li><a href="#interface_click" id="toc-interface_click"><code>interface_click</code></a></li>
+<li><a href="#on_event" id="toc-on_event"><code>on_event</code></a></li>
+<li><a href="#on_key_press" id="toc-on_key_press"><code>on_key_press</code></a></li>
+<li><a href="#on_mouse_click" id="toc-on_mouse_click"><code>on_mouse_click</code></a></li>
+<li><a href="#on_text_input" id="toc-on_text_input"><code>on_text_input</code></a></li>
+<li><a href="#repeatedly_execute" id="toc-repeatedly_execute"><code>repeatedly_execute</code></a></li>
+<li><a href="#repeatedly_execute_always" id="toc-repeatedly_execute_always"><code>repeatedly_execute_always</code></a></li>
+<li><a href="#late_repeatedly_execute_always" id="toc-late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a></li>
+<li><a href="#unhandled_event" id="toc-unhandled_event"><code>unhandled_event</code></a></li>
+<li><a href="#on_call" id="toc-on_call"><code>on_call</code></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -161,22 +161,34 @@ eEventLoseInventory
 eEventRestoreGame
         called after a saved game has been restored
         DATA = save slot number</code></pre>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something on each room enter, before screen fades in</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventRestoreGame</span><span class="op">)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something each time right after a save was restored</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em> <code>eEventEnterRoomAfterFadein</code> event type is only supported since AGS 3.6.0.</p>
 <hr />
 </section>
 <section id="on_key_press" class="level3">
 <h3><a href="#on_key_press"><code>on_key_press</code></a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>on_key_press <span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">,</span> optional <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>on_key_press <span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">,</span> optional <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>Called whenever a key is pressed on the keyboard. <code>keycode</code> holds the value of the key, while <code>mod</code> holds a combination of modifiers pressed alongside with that key. A list of these values is <a href="Keycodes.html">available here</a>.</p>
 <p>The <code>mod</code> argument is optional and may be omited. The <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated than keycode: as you should not use regular comparison (<code>==</code>, <code>!=</code>) with it, but a bitwise operator (<code>&amp;</code>):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">))</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was NOT pressed (again, two variants of the same check)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">))</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>on_key_press</code> function can also be defined in individual room scripts. This allows the room script to intercept a key-press first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
 <p>Starting with version 3.6.0 AGS supports two "key handling" modes: a new-style and old-style (backwards compatible). This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
 <p><strong>New key mode:</strong></p>
@@ -193,7 +205,7 @@ eEventRestoreGame
 </section>
 <section id="on_mouse_click" class="level3">
 <h3><a href="#on_mouse_click"><code>on_mouse_click</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">)</span></span></code></pre></div>
 <p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mouse.x</code> and <code>mouse.y</code> global variables contain the mouse's position.</p>
 <p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
 <p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
@@ -202,11 +214,11 @@ eEventRestoreGame
 </section>
 <section id="on_text_input" class="level3">
 <h3><a href="#on_text_input"><code>on_text_input</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_text_input<span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>on_text_input<span class="op">(</span><span class="dt">int</span> ch<span class="op">)</span></span></code></pre></div>
 <p>Called when the player's key presses form a printable character. The difference between this and <code>on_key_press</code> is that not every key corresponds to the printable char, and some chars may be created by pressing multiple keys (which also depends on the current system language).</p>
 <p>The <code>ch</code> argument contains a unicode character code, and may be used with the <a href="String.html">String functions</a>.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>MyLabel<span class="op">.</span><span class="at">Text</span> = MyLabel<span class="op">.</span><span class="at">Text</span><span class="op">.</span><span class="at">AppendChar</span><span class="op">(</span>ch<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>MyLabel<span class="op">.</span><span class="at">Text</span> = MyLabel<span class="op">.</span><span class="at">Text</span><span class="op">.</span><span class="at">AppendChar</span><span class="op">(</span>ch<span class="op">);</span></span></code></pre></div>
 <p>will append the new printed character to a label's text.</p>
 <p><strong>IMPORTANT:</strong> this function only works when your game uses "new-style key handling mode". This mode is selected in the <a href="GeneralSettings.html#backwards-compatibility">General Settings</a> with "Use old-style key handling" option in the "Backwards compatibility" group.</p>
 <p><em>Compatibility:</em> supported since AGS 3.6.0.</p>
@@ -214,25 +226,25 @@ eEventRestoreGame
 </section>
 <section id="repeatedly_execute" class="level3">
 <h3><a href="#repeatedly_execute"><code>repeatedly_execute</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute<span class="op">()</span></span></code></pre></div>
 <p>Called every game cycle (normally 40 times per second). Additional information is <a href="RepExec.html">available here</a>.</p>
 <hr />
 </section>
 <section id="repeatedly_execute_always" class="level3">
 <h3><a href="#repeatedly_execute_always"><code>repeatedly_execute_always</code></a></h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
 <p>Called every game cycle, even when a blocking routine (e.g speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>repeatedly_execute_always</code> is called <strong>before</strong> the game entities (characters, rooms, etc) get updated. Additional information is <a href="RepExec.html">available here</a>.</p>
 <hr />
 </section>
 <section id="late_repeatedly_execute_always" class="level3">
 <h3><a href="#late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>late_repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>late_repeatedly_execute_always<span class="op">()</span></span></code></pre></div>
 <p>Called every game cycle, even when a blocking routine (e.g. speech or cutscene) is in progress. You <strong>cannot</strong> call any blocking functions from this event handler. <code>late_repeatedly_execute_always</code> is called <strong>after</strong> the game entities (characters, rooms, etc) have been updated, but before the game screen is redrawn.</p>
 <hr />
 </section>
 <section id="unhandled_event" class="level3">
 <h3><a href="#unhandled_event"><code>unhandled_event</code></a></h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>unhandled_event <span class="op">(</span><span class="dt">int</span> what<span class="op">,</span> <span class="dt">int</span> type<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>unhandled_event <span class="op">(</span><span class="dt">int</span> what<span class="op">,</span> <span class="dt">int</span> type<span class="op">)</span></span></code></pre></div>
 <p>Called when an event occurs, but no corresponding event handler has been configured. This is typically used to display a default "I can't do that" type response in-order to avoid having to add unique messages for all in-game interactions. The values of WHAT and TYPE tell you what the player did. The possible values are listed below:</p>
 <table>
 <thead>
@@ -400,7 +412,7 @@ eEventRestoreGame
 </section>
 <section id="on_call" class="level3">
 <h3><a href="#on_call"><code>on_call</code></a></h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>on_call <span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>on_call <span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>This callback can only be declared on Room Script.</p>
 <p>It's called after the function <code>CallRoomScript(value)</code> is executed, but not immediately. You can read an arbitrary integer value passed from <code>CallRoomScript</code>. Additional information is <a href="Globalfunctions_General.html#callroomscript">available here</a>.</p>
 </section>
@@ -411,7 +423,7 @@ eEventRestoreGame
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: e9932e8eb08bccf76048790b256bf492158a0b7b
+      Build: e419da9ecc494ee9cc17032951bb8048e4b62635
     </p>
   </footer>
 
