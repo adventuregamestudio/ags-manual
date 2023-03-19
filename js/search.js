@@ -2558,7 +2558,7 @@ var meta = {
       "31": { "InvWindow": 1 },
       "32": { "MultipleScripts": 1 },
       "33": { "Object": 11 },
-      "34": { "ObsoleteScriptAPI": 77 },
+      "34": { "ObsoleteScriptAPI": 76 },
       "35": { "Overlay": 2 },
       "36": { "Pointers": 8 },
       "37": { "Region": 4 },
@@ -8533,7 +8533,7 @@ var meta = {
       "2": { "Game": 1 },
       "3": { "GUIControl": 16 },
       "4": { "ListBox": 109 },
-      "5": { "ObsoleteScriptAPI": 23 },
+      "5": { "ObsoleteScriptAPI": 19 },
       "6": { "StandardEnums": 2 },
       "7": { "UpgradeTo33": 5 },
       "8": { "UpgradeTo35": 1 }
@@ -14559,7 +14559,7 @@ var meta = {
       "19": { "Label": 1 },
       "20": { "ListBox": 5 },
       "21": { "Object": 3 },
-      "22": { "ObsoleteScriptAPI": 15 },
+      "22": { "ObsoleteScriptAPI": 14 },
       "23": { "OOProgramming": 7 },
       "24": { "Parser": 4 },
       "25": { "Room": 4 },
@@ -23548,9 +23548,6 @@ var meta = {
     },
     "characterHealth": {
       "0": { "DynamicArrays": 3 }
-    },
-    "characterinventoryquantity": {
-      "0": { "ObsoleteScriptAPI": 1 }
     },
     "characters": {
       "0": { "acintro": 1 },
@@ -40833,12 +40830,6 @@ var meta = {
     "listbox's": {
       "0": { "ListBox": 2 }
     },
-    "listboxitems": {
-      "0": { "ObsoleteScriptAPI": 3 }
-    },
-    "listboxsavegameslots": {
-      "0": { "ObsoleteScriptAPI": 1 }
-    },
     "listed": {
       "0": { "acintro3": 1 },
       "1": { "acintro5": 1 },
@@ -56896,9 +56887,6 @@ var meta = {
     },
     "stringToCheck": {
       "0": { "String": 3 }
-    },
-    "stringchars": {
-      "0": { "ObsoleteScriptAPI": 1 }
     },
     "strings": {
       "0": { "Constants": 1 },
