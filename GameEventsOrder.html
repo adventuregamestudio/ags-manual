@@ -96,11 +96,12 @@
 <p>Following is a sequence of actions which happen in a normal game loop:</p>
 <ol type="1">
 <li><a href="Globalfunctions_Event.html#repeatedly_execute_always"><code>repeatedly_execute_always</code></a> function is called (if found in script).</li>
+<li>(since AGS 3.6.0) Game cursor position update; GUI focus is updated, depending on a new cursor position.</li>
+<li>Reaction to player's input (keyboard, mouse, and so on); not every action is immediate though, some things will be scheduled and put into the event queue, which is processed much later.</li>
 <li><em>Main game update:</em> almost everything in the game is updated: characters, room objects, animations, and so forth.</li>
 <li><a href="Globalfunctions_Event.html#late_repeatedly_execute_always"><code>late_repeatedly_execute_always</code></a> function is called (if found in script).</li>
 <li>Non-blocking screen shaking update (see <a href="Globalfunctions_Screen.html#shakescreenbackground">ShakeScreenBackground</a>).</li>
-<li>Mouse position update.</li>
-<li>GUI updates, reacting to mouse state (movement and buttons).</li>
+<li>(prior to AGS 3.6.0) Game cursor position update; GUI focus is updated, depending on a new cursor position.</li>
 <li><em>Game is drawn on screen.</em></li>
 <li>All the scheduled events are executed. Strictly speaking, the order of execution is undefined. Commonly <a href="Globalfunctions_Event.html#repeatedly_execute"><code>repeatedly_execute</code></a> goes first, but that's rather a coincidence and is not recommended to rely upon. Other events include: <code>on_key_press</code>, <code>on_mouse_click</code>, <code>on_event</code>, and so forth (see <a href="Globalfunctions_Event.html#global-event-handlers">their respective page</a> for details).</li>
 </ol>
@@ -111,7 +112,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: a7d88699bc2314914b68a65ad40c80aa2b9b132b
+      Build: d56773b739fbabcf2e971bdc04beb342725aedd1
     </p>
   </footer>
 
