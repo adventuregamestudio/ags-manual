@@ -626,6 +626,8 @@
 <div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">PlaceOnWalkableArea</span><span class="op">()</span></span></code></pre></div>
 <p>Places the character in the nearest walkable area to its current location. If the character is already on a walkable area, nothing happens.</p>
 <p>This is useful for example in the Player Enters Room event of a room, to make sure the character can move if a ChangeRoom with co-ordinates has been issued to get there. You could also use this in on_event for eEventEnterRoomBeforeFadein to use whenever a player enters a room.</p>
+<p><strong>NOTE:</strong> <code>PlaceOnWalkableArea</code> ignores any parts of the room beyond room Edges. This was done so, because Edges usually serve like an area boundaries and may trigger player leaving the room.</p>
+<p><strong>NOTE:</strong> <code>PlaceOnWalkableArea</code> is searching for valid walkable areas not pixel by pixel, but in intervals of 5 pixels. This was originally done for performance reasons. Because of that it may fail if walkable areas are too thin.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">x</span> = <span class="bu">Random</span><span class="op">(</span><span class="dv">320</span><span class="op">);</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">y</span> = <span class="bu">Random</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span>
@@ -1305,6 +1307,7 @@
 <div class="sourceCode" id="cb157"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Speaking</span></span></code></pre></div>
 <p>Returns true if the character is currently talking, or false if not.</p>
 <p>This property is read-only. It will <strong>only</strong> return true for the active talking character; that is, it will not return true for any characters talking with the SayBackground command.</p>
+<p><strong>IMPORTANT:</strong> Character.Speaking will only return a valid value if the character has a SpeechView set. It will always return <code>false</code> otherwise, even while the speech text is displayed.</p>
 <p>Since this property will only be true while the character is speaking, and speaking is a blocking command, this property will probably only be useful to access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(!</span>cEgo<span class="op">.</span><span class="at">Animating</span><span class="op">))</span> <span class="op">{</span></span>
@@ -1520,7 +1523,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d56773b739fbabcf2e971bdc04beb342725aedd1
+      Build: 8842af997e46675154aee5309cb1411a9399fb6c
     </p>
   </footer>
 
