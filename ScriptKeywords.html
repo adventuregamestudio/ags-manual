@@ -399,8 +399,8 @@ You need to do this inside a function.</p>
 </section>
 <section id="while" class="level3">
 <h3><a href="#while">while</a></h3>
-<p><strong>while (</strong> <em>expression</em> <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
-<p>Runs <em>statements</em> continuously, while <em>expression</em> is true.</p>
+<p><strong>while (</strong> <em>condition</em> <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
+<p>Runs <em>statements</em> continuously, while <em>condition</em> is true.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
@@ -410,8 +410,8 @@ You need to do this inside a function.</p>
 </section>
 <section id="dowhile" class="level3">
 <h3><a href="#dowhile">do..while</a></h3>
-<p><strong>do</strong> <code>{</code><br> <em>statements</em><br> <code>}</code> <strong>while (</strong> <em>expression</em> <strong>);</strong></p>
-<p>Similarly to <a href="ScriptKeywords.html#while"><code>while</code></a> runs <em>statements</em> continuously, so long as <em>expression</em> is true, but unlike <strong>while</strong> it checks the expression AFTER executing statements, not before. This also means that the statements will be executed at least once.</p>
+<p><strong>do</strong> <code>{</code><br> <em>statements</em><br> <code>}</code> <strong>while (</strong> <em>condition</em> <strong>);</strong></p>
+<p>Similarly to <a href="ScriptKeywords.html#while"><code>while</code></a> runs <em>statements</em> continuously, so long as <em>condition</em> is true, but unlike <strong>while</strong> it checks the condition AFTER executing statements, not before. This also means that the statements will be executed at least once.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -423,9 +423,9 @@ You need to do this inside a function.</p>
 </section>
 <section id="for" class="level3">
 <h3><a href="#for">for</a></h3>
-<p><strong>for (</strong> [<em>initialization</em>]<strong>;</strong> [<em>expression</em>]<strong>;</strong> [<em>iteration</em>] <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
-<p>This loop command first performs <em>initialization</em> statements, then runs <em>statements</em> inside curved brackets continuously. Each time before executing these statements it checks whether <em>expression</em> is true, and if not - ends the loop. Each time after statements were executed it additionally runs <em>iteration</em> statements.</p>
-<p><em>Initialization</em> is commonly used to declare variables or setting up existing variable values. If a new variable is declared in <em>initialization</em> - such variable will exist and may be used only inside the loop. <em>Iteration</em> step is usually meant to "move" to the next step, by changing some variable value. Every part of the command header - <em>initialization</em>, <em>expression</em> and <em>iteration</em> - is optional: there may be <strong>for</strong> command without initialization, or without iteration, or even without conditional expression (in which case loop should be ended with either <a href="ScriptKeywords.html#break"><code>break</code></a> or <a href="ScriptKeywords.html#return"><code>return</code></a>.</p>
+<p><strong>for (</strong> [<em>initialization</em>]<strong>;</strong> [<em>condition</em>]<strong>;</strong> [<em>iteration</em>] <strong>)</strong> <code>{</code><br> <em>statements</em><br> <code>}</code></p>
+<p>This loop command first performs <em>initialization</em> statements, then runs <em>statements</em> inside curved brackets continuously. Each time before executing these statements it checks whether <em>condition</em> is true, and if not - ends the loop. Each time after statements were executed it additionally runs <em>iteration</em> statements.</p>
+<p><em>Initialization</em> is commonly used to declare variables or setting up existing variable values. If a new variable is declared in <em>initialization</em> - such variable will exist and may be used only inside the loop. <em>Iteration</em> step is usually meant to "move" to the next step, by changing some variable value. Every part of the command header - <em>initialization</em>, <em>condition</em> and <em>iteration</em> - is optional: there may be <strong>for</strong> command without initialization, or without iteration, or even without conditional expression (in which case loop should be ended with either <a href="ScriptKeywords.html#break"><code>break</code></a> or <a href="ScriptKeywords.html#return"><code>return</code></a>.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -754,7 +754,7 @@ You need to do this inside a function.</p>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

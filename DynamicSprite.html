@@ -114,6 +114,11 @@
   <main>
 <section id="dynamicsprite-functions-and-properties" class="level2">
 <h2><a href="#dynamicsprite-functions-and-properties"><code>DynamicSprite</code> functions and properties</a></h2>
+<p>DynamicSprite lets you create a new sprite dynamically at runtime, either a new blank sprite, a copy of the existing one, or load one from a file. DynamicSprites may be modified in various ways, and drawn upon. The latter is done by retrieving a <a href="DrawingSurface.html"><code>DrawingSurface</code></a> with <a href="DynamicSprite.html#dynamicspritegetdrawingsurface"><code>GetDrawingSurface()</code></a> function.</p>
+<p>Each new DynamicSprite is assigned an arbitrary ID, which may be read with <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property. This ID lets you assign DynamicSprite to any property that normally accepts a sprite number, or pass into any function that accepts a sprite number as a parameter.</p>
+<p><strong>IMPORTANT:</strong> DynamicSprite exist so long as it is assigned to at least one <code>DynamicSprite*</code> variable in your script. As soon as there's no variable that has a reference to it, the sprite is disposed. This also means that if you only have a local <code>DynamicSprite*</code> variable, then the sprite will be disposed when the function ends. If you want to keep the sprite, then you should store it in a global variable for as long as you need it.</p>
+<p>You may also call <a href="DynamicSprite.html#dynamicspritedelete"><code>Delete</code></a> function anytime to explicitly remove the sprite's image from memory.</p>
+<p><strong>IMPORTANT:</strong> Assigning DynamicSprite's ID to another object (such as <code>Button.NormalGraphic</code>, for example) does not count as a reference. If DynamicSprite is deleted while its ID is assigned to another object's property, that property will be reset to 0 for safety reasons.</p>
 <section id="dynamicspritecreate" class="level3">
 <h3><a href="#dynamicspritecreate"><code>DynamicSprite.Create</code></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span></span>
@@ -121,16 +126,19 @@
 <p>Creates a new blank dynamic sprite of the specified size. It will initially be fully transparent, and can optionally have an alpha channel. This command is useful if you just want to create a new sprite and then use the DrawingSurface commands to draw onto it.</p>
 <p>If the game color depth is lower than 32-bit, then the <em>hasAlphaChannel</em> parameter will be ignored.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">30</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = sprite<span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawPixel</span><span class="op">(</span><span class="dv">25</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>creates a 50x30 sprite, draws a white dot in the middle, then deletes the sprite.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Declare a variable in a global scope (outside of any function)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> globalSprite<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Then in a function...</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">30</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = sprite<span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawPixel</span><span class="op">(</span><span class="dv">25</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>oMyObject<span class="op">.</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>globalSprite = sprite<span class="op">;</span> <span class="co">// keep the sprite in a global variable</span></span></code></pre></div>
+<p>creates a 50x30 sprite, draws a white dot in the middle, then assigns to a global variable to keep the sprite, and sets this sprite's ID to an Object.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a>, <a href="DynamicSprite.html#dynamicspritegetdrawingsurface"><code>DynamicSprite.GetDrawingSurface</code></a></p>
 <hr />
 </section>
@@ -144,15 +152,13 @@
 <p>If you want, you can supply the <em>frame</em> only, in which case you will get a complete copy of that background frame number from the current room.</p>
 <p>Optionally, you can specify a portion of the background to grab. You must either supply all or none of the x, y, width and height parameters; if you do supply them, this allows you to just get a small portion of the background image into the new sprite. All co-ordinates are room co-ordinates.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromBackground</span><span class="op">(</span><span class="bu">GetBackgroundFrame</span><span class="op">(),</span> <span class="dv">130</span><span class="op">,</span> <span class="dv">70</span><span class="op">,</span> <span class="dv">60</span><span class="op">,</span> <span class="dv">60</span><span class="op">);</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>creates a copy of the center 60x60 area on the background, and draws it onto the top left corner of the background image.</p>
+<p>creates a copy of the center 60x60 area of the current room's background, and draws it onto the top left corner of the background image. Then disposes the temporary sprite.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
 </section>
@@ -164,16 +170,19 @@
 <p>Creates a new dynamic sprite containing a copy of the specified portion of the drawing surface. This allows you to easily create new sprites from portions of other sprites.</p>
 <p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>UseHighResCoordinates</code></a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">);</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = sprite<span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>newSprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromDrawingSurface</span><span class="op">(</span>surface<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span> = newSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
-<p>changes object 0's image to be just the top-left corner of what it previously was.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Declare a variable in a global scope (outside of any function)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> globalSprite<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Then in a function...</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>oMyObject<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = sprite<span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>newSprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromDrawingSurface</span><span class="op">(</span>surface<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>oMyObject<span class="op">.</span><span class="at">Graphic</span> = newSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>globalSprite = newSprite<span class="op">;</span> <span class="co">// keep the sprite in a global variable</span></span></code></pre></div>
+<p>changes object's image to be just the top-left corner of what it previously was.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
@@ -186,16 +195,19 @@
 <p>Returns the DynamicSprite instance representing the new sprite. This function is useful as it effectively allows you to apply transformations such as resizing to any sprite in the game.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><em>preserveAlphaChannel</em> determines whether the sprite's alpha channel will also be copied across. It is false by default for backwards compatibility reasons, and is useful because it allows you to strip the alpha channel in order to do whole image transparency. This parameter has no effect with sprites that do not have an alpha channel.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Resize</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>creates a copy of object 0's current sprite, resizes it down to 20x20, and then draws the result onto the background.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Declare a variable in a global scope (outside of any function)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> globalSprite<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>myObject<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Width</span><span class="op">,</span> surface<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>oMyObject<span class="op">.</span><span class="at">Graphic</span> = newSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>globalSprite = newSprite<span class="op">;</span> <span class="co">// keep the sprite in a global variable</span></span></code></pre></div>
+<p>creates a copy of object's current sprite, draws a line across, and assigns back to the same object.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="DynamicSprite.html#dynamicspriteresize"><code>DynamicSprite.Resize</code></a></p>
 <hr />
 </section>
@@ -208,8 +220,7 @@
 <p>Only BMP and PCX files can be loaded with this command.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen"><code>File.Open</code></a> and similar commands.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromFile</span><span class="op">(</span><span class="st">&quot;CustomAvatar.bmp&quot;</span><span class="op">);</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>sprite <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
@@ -218,7 +229,7 @@
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will load the file "CustomAvatar.bmp" and if successful draw the image near the middle of the screen.</p>
+<p>will load the file "CustomAvatar.bmp" and if successful draw the image near the middle of the background.</p>
 <p>Once the image is finished with, Delete should be called on it.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenshot</code></a>, <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
@@ -231,8 +242,7 @@
 <p>Loads the screenshot for save game SAVESLOT into memory, resizing it to WIDTH x HEIGHT.</p>
 <p>Returns the DynamicSprite instance of the image if successful, or returns <em>null</em> if the screenshot could not be loaded (perhaps the save game didn't include one).</p>
 <p>In order for this to work, the "Save screenshots in save games" option must be ticked in the main Game Settings pane.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// at top of script, outside event functions</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>buttonSprite<span class="op">;</span></span>
@@ -254,19 +264,14 @@
 <p>Creates a new DynamicSprite instance with a copy of the current screen in it, resized to WIDTH x HEIGHT. If you do not supply the width or height, then a full screen sized sprite will be created.</p>
 <p>This command can be useful if you're creating a save game screenshots GUI, in order to display the current game position as well as the saved slot positions.</p>
 <p><strong>NOTE:</strong> This command can be slow when using the Direct3D graphics driver.</p>
-<p><strong>IMPORTANT:</strong> This command loads an extra sprite into memory which is not controlled by the normal AGS sprite cache and will not be automatically disposed of. Therefore, when you are finished with the image you <strong>MUST</strong> call Delete on it to free its memory.</p>
-<p><strong>IMPORTANT:</strong> If the DynamicSprite instance is released from memory (i.e. there is no longer a DynamicSprite* variable pointing to it), then the sprite will also be removed from memory. Make sure that you keep a global variable pointer to the sprite until you are finished with it, and at that point call Delete.</p>
+<p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// at top of script, outside event functions</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>buttonSprite<span class="op">;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">// inside an event function</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>buttonSprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>buttonSprite <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    btnScrnshot<span class="op">.</span><span class="at">NormalGraphic</span> = buttonSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>places a screen grab of the current game session onto btnScrnshot.</p>
-<p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> ds = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> ds<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ds<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
+<p>takes a screen shot, and draws it onto the background scene at (100,100).</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a>, <a href="Game.html#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a> <a href="DynamicSprite.html#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a>, <a href="DynamicSprite.html#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a></p>
 <hr />
 </section>
@@ -459,12 +464,16 @@
 <div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the sprite slot number in which this dynamic sprite is stored. This value can then be passed to other functions and properties, such as <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> ds = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> ds<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>ds<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>takes a screen shot, and draws it onto the background scene at (100,100).</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// at top of script, outside event functions</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>buttonSprite<span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">// inside an event function</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>buttonSprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span><span class="op">(</span><span class="dv">80</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>buttonSprite <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    btnScrnshot<span class="op">.</span><span class="at">NormalGraphic</span> = buttonSprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>places a screen grab of the current game session onto btnScrnshot.</p>
+<p>Once the GUI is disposed of, Delete should be called on the sprite.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a>, <a href="DynamicSprite.html#dynamicspritedelete"><code>DynamicSprite.Delete</code></a></p>
 <hr />
 </section>
@@ -502,7 +511,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

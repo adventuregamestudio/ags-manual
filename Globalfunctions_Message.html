@@ -104,6 +104,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span> <span class="op">(</span>string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Displays a message to the screen. It will be displayed in the standard message box, and centered in the middle of the screen.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p><code>Display</code> supports playing a voice file. For that you need to precede the text with <code>&amp;N</code>, where N is a voice clip's number. You may choose which character's clips will be played by assigning character's ID to <code>game.narrator_speech</code> variable. Alternatively, you may assign <code>NARRATOR</code> constant, which will tell it to use clips named "NARR*". For more information, see the <a href="VoiceSpeech.html">Voice speech</a> section.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> my_counter<span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;The counter is currently set to %d.&quot;</span><span class="op">,</span> my_counter<span class="op">);</span></span></code></pre></div>
@@ -179,7 +180,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

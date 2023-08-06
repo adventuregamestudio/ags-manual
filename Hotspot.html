@@ -256,9 +256,9 @@
 <section id="hotspotname" class="level3">
 <h3><a href="#hotspotname"><code>Hotspot.Name</code></a></h3>
 <p><em>(Formerly known as <code>GetHotspotName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Hotspot.GetName</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the name of the hotspot.</p>
-<p>This property is read-only; it is currently not possible to change hotspot names at run-time.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the name of the hotspot.</p>
+<p><strong>NOTE:</strong> This property may be changed only in AGS versions 3.6.0 or higher. It is read-only in earlier versions.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Hotspot 3&#39;s name is %s.&quot;</span><span class="op">,</span> <span class="bu">hotspot</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will retrieve and then display hotspot 3's name.</p>
@@ -293,7 +293,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

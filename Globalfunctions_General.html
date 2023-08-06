@@ -459,7 +459,7 @@ eLocationObject     an object</code></pre>
 <p>Example:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>will unpause the game if it's paused.</p>
-<p><em>See also:</em> <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a>, <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="isinterfaceenabled" class="level3">
@@ -548,16 +548,26 @@ eLocationObject     an object</code></pre>
 <section id="pausegame" class="level3">
 <h3><a href="#pausegame"><code>PauseGame</code></a></h3>
 <div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PauseGame</span> <span class="op">()</span></span></code></pre></div>
-<p>Stops AGS processing character movement and animations. This has the same effect on the game as happens when a modal GUI is popped up. <code>PauseGame()</code> works as a counter, so if you call it twice, you will need to call <code>UnPauseGame()</code> game twice too to resume game.</p>
-<p>To avoid this behavior make sure to only pause once:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
+<p>Stops AGS processing movement and animations. This has the same effect on the game as happens when a modal GUI is popped up.</p>
+<p>When the game is paused, game cycles will continue to run but no animations or movement will be performed, and timers will not count down. Apart from that, your scripts will continue to run as normal.</p>
+<p>To be precise, following is paused by this function:</p>
+<ul>
+<li>Timers (ones set by <a href="Globalfunctions_General.html#settimer">SetTimer</a>),</li>
+<li>Character walking and animating, idle view timing,</li>
+<li>Object moving and animating,</li>
+<li>Overlay timing (for auto removal),</li>
+<li>Speech timing and animation.</li>
+</ul>
+<p>As you may notice, GUI and Audio are not paused at all. PauseGame was historically purposed to pause the Room, while having some kind of the GUI menus and background music running. If you want to also suspend (and later unsuspend) these, you would have to script that yourself.</p>
+<p><strong>NOTE:</strong> <code>PauseGame()</code> works as a counter, so if you call it twice, you will need to call <code>UnPauseGame()</code> game twice too to resume game. To avoid this behavior make sure to only pause once:</p>
+<pre><code>```ags
+if (!IsGamePaused()) PauseGame();
+```</code></pre>
 <p>Game processing will not resume until you call the UnPauseGame function as needed.</p>
-<p><strong>NOTE:</strong> When the game is paused, game cycles will continue to run but no animations or movement will be performed, and timers will not count down. Apart from that, your scripts will continue to run as normal.</p>
-<p><strong>NOTE:</strong> GUI button animations will not be paused by this command, so that you can run animations on a pop-up GUI while the rest of the game is paused.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">32</span><span class="op">))</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>will pause the game if the player presses the space bar</p>
-<p><em>See also:</em> <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 <hr />
 </section>
 <section id="quitgame" class="level3">
@@ -973,7 +983,7 @@ eSkipScriptOnly
 <p>will unpause the game if it is paused.</p>
 <p><strong>NOTE:</strong> Because PauseGame works as a counter, if you called it more than once, this won't work. To ignore this behavior, unpause as much as needed with the below snippet.</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
-<p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a></p>
+<p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 </section>
 </section>
   </main>
@@ -982,7 +992,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

@@ -84,40 +84,60 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#extender-functions" id="toc-extender-functions">Extender functions</a></li>
+<li><a href="#extender-functions" id="toc-extender-functions">Extender functions</a>
+<ul>
+<li><a href="#static-extenders" id="toc-static-extenders">Static extenders</a></li>
+</ul></li>
 </ul>
   </nav>
 
   <main>
 <section id="extender-functions" class="level2">
 <h2><a href="#extender-functions">Extender functions</a></h2>
-<p>Suppose that you wanted to add a new function, "Scream", to characters which would make them cry out "AARRRGGGHHH". Because the Character type is defined within AGS, it's not possible for you to just add a method to it.</p>
-<p>That's where Extender Functions come in. Here's an example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
+<p>Extender functions allow you to "add" new functions to existing types, including built-in AGS types, which lets you call them as if they were part of that type.</p>
+<p>Let's look at the following example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="bu">Character</span> <span class="op">*</span>c<span class="op">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>This adds a new "Scream" function to the Character type, so that in your script code elsewhere you can do things like:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Scream</span><span class="op">();</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">character</span><span class="op">[</span>EGO<span class="op">].</span><span class="at">Scream</span><span class="op">();</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cJohn<span class="op">.</span><span class="at">Scream</span><span class="op">();</span></span></code></pre></div>
-<p>and so on.</p>
-<p><strong>Where do I put this code?</strong></p>
-<p>In the script header, you'd put:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*);</span></span></code></pre></div>
-<p>and then put the main function in the script file. This will then allow it to be used by other scripts.</p>
-<p><strong>Static extenders</strong></p>
-<p>Since AGS 3.4.0 you may also create static extender functions, that is functions that are called from type, rather than an actual object. Static extender declaration is a bit different, for example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">AbsInt</span><span class="op">(</span><span class="kw">static</span> <span class="bu">Maths</span><span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>value<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>You declare the function's import in the script header:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">int</span> <span class="fu">AbsInt</span><span class="op">(</span><span class="kw">static</span> <span class="bu">Maths</span><span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span></code></pre></div>
+<p>This is a regular function that accepts a Character as a parameter, and makes it say something. You would call this function as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    Scream<span class="op">(</span>cEgo<span class="op">);</span> <span class="co">// pass cEgo character as a function parameter</span></span></code></pre></div>
+<p>Now, the <em>extender function</em> would instead be declared like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Notice the <a href="ScriptKeywords.html#this"><code>this</code></a> keyword. It means that we are addressing a character, <em>from which</em> we called this function.</p>
+<p>The extender function may now be called as:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Scream</span><span class="op">();</span> <span class="co">// call the function Scream from character cEgo</span></span></code></pre></div>
+<p>Extender functions exist purely for convenience (in programming this is called "syntax sugar"). They do not add any new abilities, rather than to be able to call the function from an object instead of passing this object as a parameter. They use <code>this</code> keyword to address the object they were called from. Besides that, extender functions are just like ordinary functions: they may have multiple parameters, and return some value.</p>
+<p>The common use-case for extender functions is writing custom behavior for built-in types. Consider following, more sophisticated example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">SayAndAnimate</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">,</span> <span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>view<span class="op">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span>loop<span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Overlay</span> <span class="op">*</span>bg_speech = <span class="kw">this</span><span class="op">.</span><span class="at">SayBackground</span><span class="op">(</span>text<span class="op">);</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>bg_speech<span class="op">.</span><span class="at">IsValid</span><span class="op">)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span> <span class="co">// keep updating the game</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">SayAndAnimate</span><span class="op">(</span><span class="st">&quot;Hello, my name is Roger.&quot;</span><span class="op">,</span> VROGERANIMS<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<p>Above will make character run a custom animation and display a speech (using Background speech to keep animation going in this example, but there may be other solutions to this).</p>
+<p><strong>NOTE:</strong> just like with any other functions that your write, remember to declare the function as <em>import</em> in the script header, if you like it to be usable in other scripts throughout your game. See <a href="ImportingFunctionsAndVariables.html#exporting-and-importing-a-function">"Importing a function"</a> for more details.</p>
+<section id="static-extenders" class="level3">
+<h3><a href="#static-extenders">Static extenders</a></h3>
+<p>Since AGS 3.4.0 you may also create static extender functions, that is functions that are called directly from a <em>type</em>, rather than an actual <em>object</em> of that type. Static extender declaration is a bit different, for example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">AbsInt</span><span class="op">(</span><span class="kw">static</span> <span class="bu">Maths</span><span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>value<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and you use such function as:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="bu">Maths</span><span class="op">.</span><span class="at">AbsInt</span><span class="op">(-</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="bu">Maths</span><span class="op">.</span><span class="at">AbsInt</span><span class="op">(-</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+</section>
 </section>
   </main>
 
@@ -125,7 +145,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 

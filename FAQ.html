@@ -153,10 +153,11 @@
 <p>A. In repeatedly_execute function test whether an object is <a href="Object.html#objectanimating"><code>animating</code></a>, and what it's current View, Loop and Frame properties (Characters and Buttons have similar values). Execute an action when these properties match your condition.</p>
 <hr />
 <p><strong>Q. How do I put a variable on a GUI label?</strong></p>
-<p>A. <a href="String.html#stringformat"><code>String.Format</code></a> script function allows to create a string with variable printed in it. You may then use that string anywhere, for example, assign to a label's Text property.</p>
+<p>A. <a href="String.html#stringformat"><code>String.Format</code></a> script function allows to create a string with variable printed in it. You may then use that string anywhere, such as assign it to a label's Text property, for example:</p>
+<pre><code>myLabel.Text = String.Format(&quot;Coins: %d / %d&quot;, current_coins, total_coins);</code></pre>
 <hr />
 <p><strong>Q. My game EXE file seems to have disappeared.</strong></p>
-<p>A. Because this file is your entire game, including the room files, when you save a room in the Room Editor it will delete the exe file (because the room contained in the exe is out of date). To get it back, simply build the game again by using the "Build EXE" command on the Build menu.</p>
+<p>A. For some reasons AGS Editor deletes a game exe from Compiled/Windows folder each time when you make a test run (F5). To get this compiled exe back, simply build the game again by using the "Build EXE" command on the Build menu.</p>
 <hr />
 <p><strong>Q. I change settings in Default Setup pane in the Editor, but in game nothing changes.</strong></p>
 <p>A. Default Setup affects only default configuration. If you ran game's own setup program at least once and saved, there's already personal configuration written in your user documents, which overrides defaults. Also some of the settings are written by the game itself on exit. Change the setting by running setup program as well, or delete user config file to reset everything to defaults.</p>
@@ -176,7 +177,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 8842af997e46675154aee5309cb1411a9399fb6c
+      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
     </p>
   </footer>
 
