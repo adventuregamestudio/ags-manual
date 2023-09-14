@@ -272,6 +272,8 @@
 <li><code>linux</code> - Linux;</li>
 <li><code>mac</code> - MacOS.</li>
 </ul></li>
+<li><code>legacysave_assume_dataver = [integer]</code> - when restoring a save of a legacy format, lets engine assume certain game data version ID. This may be necessary because of a mistake in pre-3.5.0 save formats, where contents depended on a game data version rather than a save version.</li>
+<li><code>legacysave_let_gui_diff = [0; 1]</code> - when restoring a save of a legacy format, lets engine read less gui elements than are registered by the current game. This was a (possibly unintended) effect in pre-3.5.0 save format.</li>
 <li><code>restore_game_key = [integer]</code> - key for calling built-in restore game dialog. Key value corresponds to the <a href="Keycodes.html">AGS script keycode</a>.</li>
 <li><code>save_game_key = [integer]</code> - key for calling built-in save game dialog.</li>
 <li><code>upscale = [0; 1]</code> - run game in the "upscale mode". The earlier versions of AGS provided support for "upscaling" low-res games to hi-res. The script API has means for detecting if the game is running upscaled, and game developer could use this opportunity to setup game accordingly (e.g. assign hi-res fonts, etc). This options works <strong>only</strong> for games created before AGS 3.1.0 with low-res native resolution, such as 320x200 or 320x240, and it may somewhat improve game looks.</li>
@@ -292,7 +294,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
+      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
     </p>
   </footer>
 

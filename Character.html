@@ -796,10 +796,10 @@
 <p><em>(Formerly known as <code>DisplayThought</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">Think</span><span class="op">(</span>string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Displays the text MESSAGE as a thought above the specified character's head. The text will remain on screen for a limited time, and the user may or may not be able to click it away depending on the setting of "Player can't skip speech text".</p>
-<p>How this function displays the text depends on a few things: the Speech Style setting, the 'Thought uses bubble GUI' setting, and whether the character has a thinking animation or not.</p>
-<p>If the "Thought uses bubble GUI" setting is not checked, then the thought will be displayed in the same way as normal speech - the difference being that the character's thinking animation will play (or no animation if they don't have one).</p>
+<p>How this function displays the text depends on a few things: the Speech Style setting, the "Custom thought bubble GUI" setting, and whether the character has a thinking animation or not.</p>
+<p>If the "Custom thought bubble GUI" setting is not set, then the thought will be displayed in the same way as normal speech - the difference being that the character's thinking animation will play (or no animation if they don't have one).</p>
 <p>If you are using Sierra-style speech and the character doesn't have a thinking animation, the thought bubble will be displayed in LucasArts-style.</p>
-<p>If the "Thought uses bubble GUI" setting has been set, then the thought will be displayed like normal speech, except that the bubble GUI will be used for the window background. In LucasArts-style speech this means above the character's head, in Sierra-style it will be done along the top of the screen as normal.</p>
+<p>If the "Custom thought bubble GUI" setting has been set, then the thought will be displayed like normal speech, except that the bubble GUI will be used for the window background. In LucasArts-style speech this means above the character's head, in Sierra-style it will be done along the top of the screen as normal.</p>
 <p>If the character has a thinking animation, it will just loop through once (it won't repeat).</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
@@ -1536,7 +1536,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c634ef5b5223b006e403e3a6640a435610bff2f1
+      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
     </p>
   </footer>
 
