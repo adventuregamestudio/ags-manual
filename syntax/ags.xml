@@ -600,6 +600,7 @@
         <StringDetect String="PALETTE_SIZE" attribute="Constant" context="#stay"/>
         <RegExpr String="SCRIPT_API_v\d+" attribute="Constant" context="#stay"/>
         <RegExpr String="SCRIPT_COMPAT_v\d+" attribute="Constant" context="#stay"/>
+        <StringDetect String="SCR_NO_VALUE" attribute="Constant" context="#stay"/>
         <StringDetect String="STRICT_AUDIO" attribute="Constant" context="#stay"/>
         <StringDetect String="STRICT_STRINGS" attribute="Constant" context="#stay"/>
         <StringDetect String="STRICT" attribute="Constant" context="#stay"/>
