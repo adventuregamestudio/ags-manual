@@ -108,49 +108,49 @@
 <p>In main game scripts, you create your <em>repeatedly_execute</em> script function by just pasting it into the script as follows. In the GlobalScript.asc it is already created for you:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Put your script code here</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Put your script code here</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In rooms, it is slightly different. If you want to run some script that is specific to a particular room, open that room's Events Pane and you'll see a "Repeatedly execute" event. Click the "..." button and a function called something like <em>Room_RepExec</em> will be created for you.</p>
 <p>This is important to remember -- in a room script, <strong>you cannot simply paste in a repeatedly_execute function</strong>; you need to use the Events Pane to create it instead.</p>
 <p>To create <em>repeatedly_execute_always</em>, you can simply paste it into the script as above -- but you can also paste it into room scripts. Therefore the following will work in any script, whether it be a room or a global script.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Put your script code here</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Put your script code here</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Remember, of course, that RepExec or <em>repeatedly_execute_always</em> functions in a room script will only be run while the player is actually in that room!</p>
 <p><strong>Can you show me an example?</strong></p>
 <p>Let's implement the two things we just talked about. Here's our hunger checking code:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// increment our timer variable (we would have created this</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// in the Global Variables editor)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  hungerTimer<span class="op">++;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// increment our timer variable (we would have created this</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// in the Global Variables editor)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    hungerTimer<span class="op">++;</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>hungerTimer <span class="op">==</span> <span class="dv">800</span><span class="op">)</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are getting very hungry.&quot;</span><span class="op">);</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>RUBSTOMACH<span class="op">);</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eForwards</span><span class="op">);</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>hungerTimer <span class="op">==</span> <span class="dv">800</span><span class="op">)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are getting very hungry.&quot;</span><span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>RUBSTOMACH<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eForwards</span><span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and let's put the bird flying code in the room script, because we only want it to happen in that one room:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>cBird<span class="op">.</span><span class="at">Moving</span><span class="op">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cBird<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="co">// if the bird is on the left hand side of the screen,</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">// start it moving towards the right</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="co">// otherwise, move it towards the left</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>cBird<span class="op">.</span><span class="at">Moving</span><span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>cBird<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="co">// if the bird is on the left hand side of the screen,</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="co">// start it moving towards the right</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">400</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="co">// otherwise, move it towards the left</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            cBird<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> cBird<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
   </main>
@@ -159,7 +159,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

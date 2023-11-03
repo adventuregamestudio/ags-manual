@@ -277,11 +277,11 @@
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> new_vars<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>GAME_VER_002_LENGTH<span class="op">];</span></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            <span class="co">// copy restored array with old data into our new array</span></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> GAME_VER_001_LENGTH<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                 new_vars<span class="op">[</span>i<span class="op">]</span> = MyVariables<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                new_vars<span class="op">[</span>i<span class="op">]</span> = MyVariables<span class="op">[</span>i<span class="op">];</span></span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>            <span class="co">// set default values for the rest (replace with your code as appropriate)</span></span>
 <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = GAME_VER_001_LENGTH<span class="op">;</span> i <span class="op">&lt;</span> GAME_VER_002_LENGTH<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                 new_vars<span class="op">[</span>i<span class="op">]</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                new_vars<span class="op">[</span>i<span class="op">]</span> = <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// finally replace pointer and version number</span></span>
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>            MyVariables = new_vars<span class="op">;</span></span>
@@ -333,7 +333,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

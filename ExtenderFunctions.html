@@ -101,15 +101,15 @@
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    c<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This is a regular function that accepts a Character as a parameter, and makes it say something. You would call this function as:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    Scream<span class="op">(</span>cEgo<span class="op">);</span> <span class="co">// pass cEgo character as a function parameter</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Scream<span class="op">(</span>cEgo<span class="op">);</span> <span class="co">// pass cEgo character as a function parameter</span></span></code></pre></div>
 <p>Now, the <em>extender function</em> would instead be declared like:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Scream</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;AAAAARRRRGGGGHHHHHH!!!!&quot;</span><span class="op">);</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Notice the <a href="ScriptKeywords.html#this"><code>this</code></a> keyword. It means that we are addressing a character, <em>from which</em> we called this function.</p>
 <p>The extender function may now be called as:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Scream</span><span class="op">();</span> <span class="co">// call the function Scream from character cEgo</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scream</span><span class="op">();</span> <span class="co">// call the function Scream from character cEgo</span></span></code></pre></div>
 <p>Extender functions exist purely for convenience (in programming this is called "syntax sugar"). They do not add any new abilities, rather than to be able to call the function from an object instead of passing this object as a parameter. They use <code>this</code> keyword to address the object they were called from. Besides that, extender functions are just like ordinary functions: they may have multiple parameters, and return some value.</p>
 <p>The common use-case for extender functions is writing custom behavior for built-in types. Consider following, more sophisticated example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">SayAndAnimate</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Character</span><span class="op">*,</span> <span class="bu">String</span> text<span class="op">,</span> <span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">)</span></span>
@@ -123,7 +123,7 @@
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">SayAndAnimate</span><span class="op">(</span><span class="st">&quot;Hello, my name is Roger.&quot;</span><span class="op">,</span> VROGERANIMS<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">SayAndAnimate</span><span class="op">(</span><span class="st">&quot;Hello, my name is Roger.&quot;</span><span class="op">,</span> VROGERANIMS<span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>Above will make character run a custom animation and display a speech (using Background speech to keep animation going in this example, but there may be other solutions to this).</p>
 <p><strong>NOTE:</strong> just like with any other functions that your write, remember to declare the function as <em>import</em> in the script header, if you like it to be usable in other scripts throughout your game. See <a href="ImportingFunctionsAndVariables.html#exporting-and-importing-a-function">"Importing a function"</a> for more details.</p>
 <section id="static-extenders" class="level3">
@@ -131,9 +131,9 @@
 <p>Since AGS 3.4.0 you may also create static extender functions, that is functions that are called directly from a <em>type</em>, rather than an actual <em>object</em> of that type. Static extender declaration is a bit different, for example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">AbsInt</span><span class="op">(</span><span class="kw">static</span> <span class="bu">Maths</span><span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>value<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> value<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>value<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value<span class="op">;</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and you use such function as:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="bu">Maths</span><span class="op">.</span><span class="at">AbsInt</span><span class="op">(-</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
@@ -145,7 +145,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

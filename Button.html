@@ -114,8 +114,8 @@
 <h3><a href="#buttonanimate"><code>Button.Animate</code></a></h3>
 <p><em>(Formerly known as <code>AnimateButton</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dt">int</span> view<span class="op">,</span> <span class="dt">int</span> loop<span class="op">,</span> <span class="dt">int</span> delay<span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">,</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">,</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">,</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>               optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
 <p>Animates a GUI button by playing the specified view loop on it. This could be useful for Sierra-style death animations and other effects.</p>
 <p>LOOP from VIEW will be played on the button. The DELAY specifies the speed of the animation - larger numbers are slower. This has the same values you use with the <a href="Character.html#characteranimate"><code>Character.Animate</code></a> and <a href="Object.html#objectanimate"><code>Object.Animate</code></a> commands.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <code>eOnce</code>, in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If <code>RepeatStyle</code> is <code>eRepeat</code>, then when the last frame is reached, it will go back to the first frame and start over again with the animation.</p>
@@ -290,7 +290,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

@@ -160,12 +160,12 @@
 <p><strong>WARNING:</strong> When using the <em>float</em> data type, you may find that the == and != operators don't seem to work properly. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> result = <span class="fl">2.0</span> <span class="op">*</span> <span class="fl">3.0</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">==</span> <span class="fl">6.0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Result is 6!&quot;</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Result is 6!&quot;</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>may not always work. This is due to the nature of floating point variables, and the solution is to code like this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> result = <span class="fl">2.0</span> <span class="op">*</span> <span class="fl">3.0</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>result <span class="op">&gt;</span> <span class="fl">5.99</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(</span>result <span class="op">&lt;</span> <span class="fl">6.01</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Result is 6!&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Result is 6!&quot;</span><span class="op">);</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The way floating point numbers are stored means that 6 might actually be stored as 6.000001 or 5.999999; this is a common gotcha to all programming languages so just be aware of it if you use any floating point arithmetic.</p>
 <hr />
@@ -328,21 +328,21 @@ You need to do this inside a function.</p>
 <p>If <em>expression</em> is not true, and there is an <strong>else</strong> clause present, then <em>statements2</em> are run instead.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 10.&quot;</span><span class="op">);</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 10.&quot;</span><span class="op">);</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is NOT in the room 10.&quot;</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is NOT in the room 10.&quot;</span><span class="op">);</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In this example, the first message will be displayed if the return value from <code>player.Room</code> is 10, and the second message will be displayed if it is not.</p>
 <p><strong>if</strong> statements can be nested inside <strong>else</strong> statements to produce an "else if" effect. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 1.&quot;</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 1.&quot;</span><span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 2.&quot;</span><span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player is in the room 2.&quot;</span><span class="op">);</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player in neither in room 1 nor room 2.&quot;</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Player in neither in room 1 nor room 2.&quot;</span><span class="op">);</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 </section>
@@ -403,7 +403,7 @@ You need to do this inside a function.</p>
 <p>Runs <em>statements</em> continuously, while <em>condition</em> is true.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will run the script <code>Wait(1);</code> repeatedly, as long as <code>cEgo.Moving</code> is not zero. Once it is zero, the <strong>while</strong> statement will exit at the end of the loop.</p>
 <hr />
@@ -415,7 +415,7 @@ You need to do this inside a function.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  cEgo<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyRightArrow</span><span class="op">));</span></span></code></pre></div>
 <p>will run the script <code>cEgo.Move(cEgo.x + 1, cEgo.y);</code> once, and then continue run it repeatedly, as long as the right arrow key is pressed by player.</p>
@@ -429,13 +429,13 @@ You need to do this inside a function.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;My name is %s&quot;</span><span class="op">,</span> <span class="bu">character</span><span class="op">[</span>i<span class="op">].</span><span class="at">Name</span><span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;My name is %s&quot;</span><span class="op">,</span> <span class="bu">character</span><span class="op">[</span>i<span class="op">].</span><span class="at">Name</span><span class="op">);</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will look over every character in game and display their names.</p>
 <p>Another example (note missing initialization and iteration):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(;</span> cEgo<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;)</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This will repeat <code>Wait(1);</code> until cEgo character does not move beyond coordinate x = 100.</p>
 <hr />
@@ -446,10 +446,10 @@ You need to do this inside a function.</p>
 <p><code>break</code> statement ends the execution of most inner loop or <a href="ScriptKeywords.html#switch-case-statements"><code>switch</code></a> immediately. After this script continues running from the next line after loop or switch.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyEscape</span><span class="op">))</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyEscape</span><span class="op">))</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will run the script <code>Wait(1);</code> repeatedly, as long as <code>cEgo.Moving</code> is not zero. If player presses Escape key, the loop is terminated immediately.</p>
 <hr />
@@ -461,12 +461,12 @@ You need to do this inside a function.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// multiple statements here</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// multiple statements here</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>i <span class="op">&gt;</span> <span class="dv">50</span><span class="op">)</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>i <span class="op">&gt;</span> <span class="dv">50</span><span class="op">)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span><span class="op">;</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// more statements following</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// more statements following</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will run first part of the loop statements always, and second part only when <code>i &lt;= 50</code>.</p>
 <hr />
@@ -477,8 +477,8 @@ You need to do this inside a function.</p>
 <p>Declares a custom function in your script. A function is a way in which you can separate out commonly used code into its own place, and thus avoid duplicating code.</p>
 <p>For example, suppose that you quite often want to play a sound and add an inventory item at the same time. You could write both commands each time, or you could define a custom function:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">AddInvAndPlaySound</span><span class="op">(</span><span class="bu">InventoryItem</span><span class="op">*</span> item<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">player</span><span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>item<span class="op">);</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  aInventorySound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>item<span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    aInventorySound<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>then, elsewhere in your code you can simply call:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>AddInvAndPlaySound<span class="op">(</span>iKey<span class="op">);</span></span></code></pre></div>
@@ -497,16 +497,16 @@ You need to do this inside a function.</p>
 <p>Immediately quits currently run function and returns to the previous script function current one was called from, if there was any, otherwise passes execution to engine. <strong>return</strong> can be put in any place in the the function, no matter if it is inside the if/else statement group, loop or switch - it will still work as immediate function exit.</p>
 <p>If the function is declared with return type other than <strong>void</strong> (or simply like <code>function</code>), then the <strong>return</strong> statement <strong>has</strong> to specify <strong>return value</strong>.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">GetHowManyTradeGoodsShopkeeperHas</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Alternatively, when function is not supposed to have any return value, sometimes you may want to break out of current function before it ends naturally:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DoThisAndOptionallyThat</span><span class="op">(</span><span class="dt">bool</span> do_all<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// multiple statements here</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// multiple statements here</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>do_all<span class="op">)</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span> <span class="co">// quit the function prematurely</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>do_all<span class="op">)</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span> <span class="co">// quit the function prematurely</span></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// more statements following</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// more statements following</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 </section>
@@ -519,9 +519,9 @@ You need to do this inside a function.</p>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> swordName<span class="op">;</span></span></code></pre></div>
 <p>but that quickly gets out of hand and leaves you with tons of variables to keep track of. This is where structs come in:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">Weapon</span> <span class="op">{</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> damage<span class="op">;</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> price<span class="op">;</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">String</span> name<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> damage<span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> price<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> name<span class="op">;</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>Now, you can declare a struct in one go, like so:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Weapon sword<span class="op">;</span></span>
@@ -550,8 +550,8 @@ You need to do this inside a function.</p>
 <p><strong>IMPORTANT:</strong> there is a big limitation for user-defined managed structs now, it is that they themselves cannot have members of pointer types (or dynamic arrays).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">Apple</span> <span class="op">{</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> color<span class="op">;</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> freshness<span class="op">;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> color<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> freshness<span class="op">;</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>This declares managed struct. To declare a pointer to such struct you do:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Apple<span class="op">*</span> my_apple<span class="op">;</span></span></code></pre></div>
@@ -566,17 +566,17 @@ You need to do this inside a function.</p>
 <p>This does <strong>not</strong> copy object itself, only its address in dynamic pool, meaning both variables - <code>my_apple</code> and <code>apple2</code> - point to same object!</p>
 <p>You may write a function that take such pointer as parameter:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">DisplayAppleDescription</span><span class="op">(</span>Apple<span class="op">*</span> apple<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">String</span> s = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Apple has color %d and freshness %d&quot;</span><span class="op">,</span> apple<span class="op">.</span><span class="at">color</span><span class="op">,</span> apple<span class="op">.</span><span class="at">freshness</span><span class="op">);</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span>s<span class="op">);</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> s = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Apple has color %d and freshness %d&quot;</span><span class="op">,</span> apple<span class="op">.</span><span class="at">color</span><span class="op">,</span> apple<span class="op">.</span><span class="at">freshness</span><span class="op">);</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span>s<span class="op">);</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and then call it like:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>DisplayAppleDescription<span class="op">(</span>my_apple<span class="op">);</span></span></code></pre></div>
 <p>You may write a function that returns pointer to apple:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Apple<span class="op">*</span> CreateYellowApple<span class="op">(</span><span class="dt">int</span> fresh<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  Apple<span class="op">*</span> apple = <span class="kw">new</span> Apple<span class="op">;</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  apple<span class="op">.</span><span class="at">color</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">255</span><span class="op">);</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  apple<span class="op">.</span><span class="at">freshness</span> = fresh<span class="op">;</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> apple<span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    Apple<span class="op">*</span> apple = <span class="kw">new</span> Apple<span class="op">;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    apple<span class="op">.</span><span class="at">color</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetColorFromRGB</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">255</span><span class="op">);</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    apple<span class="op">.</span><span class="at">freshness</span> = fresh<span class="op">;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> apple<span class="op">;</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and then use such function just like:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Apple <span class="op">*</span>my_apple = CreateYellowApple<span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div>
@@ -591,8 +591,8 @@ You need to do this inside a function.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Here we declare a managed struct for Apple</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">Apple</span> <span class="op">{</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> color<span class="op">;</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> freshness<span class="op">;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> color<span class="op">;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> freshness<span class="op">;</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ...and declare a global pointer to Apple</span></span>
@@ -602,7 +602,7 @@ You need to do this inside a function.</p>
 <span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co">// and assign its address to the pointer variable</span></span>
 <span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span></span>
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  SomeApple = <span class="kw">new</span> Apple<span class="op">;</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    SomeApple = <span class="kw">new</span> Apple<span class="op">;</span></span>
 <span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>See also:</em> <a href="ScriptKeywords.html#managed"><code>managed</code></a>, <a href="Pointers.html">Pointers in AGS</a></p>
 <hr />
@@ -613,28 +613,28 @@ You need to do this inside a function.</p>
 <p>Declares an enumeration type. An enumeration allows you to group together a set of related options, where only one will be true at any one time -- a bit like the contents of a list box.</p>
 <p>For example, if you have a script function, <em>doStuff</em>, that can perform 3 different operations, you could do this:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doStuff</span><span class="op">(</span><span class="dt">int</span> param<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something else</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// etc</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something else</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// etc</span></span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>but it's hard to read, and when calling the function from elsewhere in your script, it's not clear what 1 or 2 means. That's where enums come in:</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">enum</span> <span class="dt">DoStuffOption</span> <span class="op">{</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  BakeCake<span class="op">,</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  DoLaundry</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    BakeCake<span class="op">,</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    DoLaundry</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doStuff</span><span class="op">(</span>DoStuffOption param<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> BakeCake<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> DoLaundry<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something else</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// etc</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> BakeCake<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>param <span class="op">==</span> DoLaundry<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something else</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// etc</span></span>
 <span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>and then the calling code looks like:<br> <code>doStuff(BakeCake);</code><br> thus making it perfectly clear what the command will do.</p>
 <p>Normally, you would put the enum definition into the script header.</p>
@@ -649,14 +649,14 @@ You need to do this inside a function.</p>
 <p>When you are creating custom <a href="ScriptKeywords.html#struct">structs</a>, you use the "this" keyword inside member functions to refer to the current struct. For example:</p>
 <p>Suppose you had this in your script header:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> myValue<span class="op">;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> myValue<span class="op">;</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">import</span> <span class="kw">function</span> <span class="fu">MyMethod</span><span class="op">();</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">function</span> <span class="fu">MyMethod</span><span class="op">();</span></span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 <p>Then, in your main script, you could put this:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyStruct::MyMethod</span><span class="op">()</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">myValue</span> = <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">myValue</span> = <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The <code>MyStruct::MyMethod</code> tells AGS that you are defining the function <em>MyMethod</em> which belongs to the struct <em>MyStruct</em> (the <code>::</code> operator means "belongs to").</p>
 <p>The code above will mean that when the MyMethod function is called, it sets the <code>myValue</code> variable to 5.</p>
@@ -738,12 +738,12 @@ You need to do this inside a function.</p>
 <p><strong>NOTE:</strong> If AGS gives you a script iterations error, <strong>DO NOT</strong> just automatically add this keyword as a way to fix the problem -- more often than not, it is a fault in your scripting and using this keyword will mean that the game will hang rather than abort.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="kw">noloopcheck</span> <span class="fu">initialize_array</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> bigarray<span class="op">[</span><span class="dv">200000</span><span class="op">];</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> a = <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(</span>a <span class="op">&lt;</span> <span class="dv">200000</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    bigarray<span class="op">[</span>a<span class="op">]</span> = <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    a<span class="op">++;</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> bigarray<span class="op">[</span><span class="dv">200000</span><span class="op">];</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>a <span class="op">&lt;</span> <span class="dv">200000</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>        bigarray<span class="op">[</span>a<span class="op">]</span> = <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>        a<span class="op">++;</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>without the "noloopcheck" keyword here, AGS would abort that script.</p>
 </section>
@@ -754,7 +754,7 @@ You need to do this inside a function.</p>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

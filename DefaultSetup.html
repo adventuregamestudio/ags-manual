@@ -84,28 +84,124 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#default-setup" id="toc-default-setup">Default Setup</a></li>
+<li><a href="#default-setup" id="toc-default-setup">Default Setup</a>
+<ul>
+<li><a href="#setup-appearance" id="toc-setup-appearance">Setup appearance</a></li>
+<li><a href="#audio" id="toc-audio">Audio</a></li>
+<li><a href="#environment" id="toc-environment">Environment</a></li>
+<li><a href="#gameplay" id="toc-gameplay">Gameplay</a></li>
+<li><a href="#graphics" id="toc-graphics">Graphics</a></li>
+<li><a href="#misc" id="toc-misc">Misc</a></li>
+<li><a href="#performance" id="toc-performance">Performance</a></li>
+<li><a href="#touch" id="toc-touch">Touch</a></li>
+<li><a href="#mouse" id="toc-mouse">Mouse</a></li>
+</ul></li>
 </ul>
   </nav>
 
   <main>
 <section id="default-setup" class="level2">
 <h2><a href="#default-setup">Default Setup</a></h2>
-<p>The Default setup pane lets you create the default runtime configuration for your game. Since AGS 3.3.5 you cannot directly do that using game's setup utility (winsetup.exe) anymore, because it modifies config file in the user's personal documents folder instead of game folder. For that reason you should be doing it from this Editor's page now.</p>
-<p>Most of the options here correspond to the ones you may find in the setup utility. For their meaning please refer to <a href="Setup.html">related topic</a>.</p>
-<p>Additionally, following settings are available:</p>
-<p><strong>Setup appearance</strong></p>
+<p>The Default Setup pane lets you create the default runtime configuration for your game. This configuration is saved as "acsetup.cfg" into the Compiled folder.</p>
+<p>Since <em>AGS 3.6.0</em> the config file in the Compiled folder is created by merging "Default Setup" properties with an optional "acsetup.cfg" file found in the game project's folder, if one is present. This is done to allow game developers provide their own custom settings. In such case the custom file also overrides any options matching ones in Default Setup pane.</p>
+<p>For information on possible "acsetup.cfg" contents please refer to the <a href="EngineConfigFile.html">related topic</a>.</p>
+<p><strong>NOTE:</strong> please be aware that the default game's config cannot be modified using game's <a href="Setup.html">setup utility</a> (aka "winsetup.exe"), because that program modifies config file in the user's personal documents folder instead. The setup utility may be useful to quickly test various options, but config file for your game's distribution will be created from "Default Setup" pane anyway.</p>
+<p><strong>IMPORTANT:</strong> what you set on this pane is a default game configuration, but it may be overridden by a user config. If you have run your game's setup utility at least once and saved, that created a user config file <a href="EngineConfigFile.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
+<p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
+<section id="setup-appearance" class="level3">
+<h3><a href="#setup-appearance">Setup appearance</a></h3>
 <ul>
 <li><strong>Title text</strong> - the text that will appear on the title of the setup program window.</li>
 </ul>
-<p><strong>Environment</strong></p>
+</section>
+<section id="audio" class="level3">
+<h3><a href="#audio">Audio</a></h3>
 <ul>
+<li><strong>Audio driver</strong> - which audio driver to use. Unfortunately, as the driver depends on the player's system, there's no way to list them here. Instead, there are only two available choices: "Default" and "Disable".</li>
+<li><strong>Use voice pack if available</strong> - this option enables voice speech in game, if it's available.</li>
+</ul>
+</section>
+<section id="environment" class="level3">
+<h3><a href="#environment">Environment</a></h3>
+<ul>
+<li><strong>Use custom game saves path</strong> - enables <strong>Custom game saves path</strong> option.</li>
 <li><strong>Custom game saves path</strong> - defines where game will store its saves and individual user's files (e.g. achievements). This path will be used to substitute default value of <code>$SAVEGAMEDIR$</code> token in scripts. Note that when being set up in the Editor, this option only accepts relative paths (when used they will be relative to the game's location). This has to be done this way to prevent setting absolute path that does not exist on the player's machine, so typically you have to set this if you want to have saves stored locally within the game's folder. Players will be able to modify this path in setup program (where they are actually allowed to put absolute paths too).</li>
+<li><strong>Use custom shared data path</strong> - enables <strong>Custom shared data path</strong> option.</li>
 <li><strong>Custom shared data path</strong> - defines where game will store its shared data files (e.g. hi-score tables). This path will be used to substitute default value of <code>$APPDATADIR$</code> token in scripts. Note that this option only accepts relative paths, so typically you have to set this if you want to have data files created locally within the game's folder. Players will be able to modify this path in setup program.</li>
 </ul>
-<p><strong>IMPORTANT:</strong> what you set on this page is a default game configuration, but it may be overridden by a user config. If you have run your game's setup program at least once and chose to save, that created a user config file <a href="EngineConfigFile.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
-<p><strong>IMPORTANT:</strong> the configuration file will only be recreated during next game compilation, so if you change these settings you will need to rebuild your game one more time to apply them.</p>
+</section>
+<section id="gameplay" class="level3">
+<h3><a href="#gameplay">Gameplay</a></h3>
+<ul>
+<li><strong>Game language</strong> - which translation to use. The list depends on translations added to your game project.</li>
+</ul>
+</section>
+<section id="graphics" class="level3">
+<h3><a href="#graphics">Graphics</a></h3>
+<ul>
+<li><p><strong>Anti-alias scaled sprites</strong> - this option will apply anti-aliasing to scaled game objects, such as Characters, Room Objects and Overlays, in order to give them a smoother look after the resizing. This is <em>NOT</em> applied to DynamicSprite's operations though.</p></li>
+<li><p><strong>Fullscreen as borderless window</strong> - if enabled, then in fullscreen mode the game will create a borderless window covering whole desktop, instead of changing display resolution. This is preferred on modern systems.</p></li>
+<li><p><strong>Fullscreen scaling style</strong> - this option determines the way the game will be scaled when in fullscreen mode. Available options are:</p>
+<ul>
+<li><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the window.</li>
+<li><strong>Fill whole screen</strong>. The game will be stretched to fill the whole window. Note that if the game's native aspect ratio is different from the screen's aspect ratio, the game graphics will appear deformed and indeed stretched.</li>
+<li><strong>Stretch, preserving aspect ratio</strong>. The game will be stretched to fill most of the window while respecting the game's native aspect ratio (width/height proportions). This ensures that the game graphics will always look proportional, but the option can lead to black borders at the left &amp; right or top &amp; bottom sides of the screen.</li>
+</ul></li>
+<li><p><strong>Graphics driver</strong> - lets choose a graphics driver. Currently supported are:</p>
+<ul>
+<li><strong>Software</strong>. The classic and slower option, but the only driver that fully supports 8-bit games with palette effects.</li>
+<li><strong>Direct3D 9</strong>.</li>
+<li><strong>OpenGL</strong>.</li>
+</ul></li>
+<li><p><strong>Render sprites at screen resolution</strong> - when enabled, any scaled game objects will be scaled in screen pixels rather than game pixels. What this means is that when a low-resolution game is run in a larger window, the sprites will take advantage of this higher resolution and look less pixelated when scaled up or down, especially when scaled to a non-round multiplier.</p>
+<p><strong>NOTE:</strong> this option may be locked to a certain state in <a href="GeneralSettings.html">General Settings</a>, in which the game config won't affect it.</p></li>
+<li><p><strong>Rotation mode</strong> - instruct the mobile device which rotation mode to use when running your game. Available choices are:</p>
+<ul>
+<li><strong>Unlocked</strong>. Will depend on physical device's orientation.</li>
+<li><strong>Portrait</strong>. Always run in the "portrait" mode.</li>
+<li><strong>Landscape</strong>. Always run in the "landscape" mode.</li>
+</ul></li>
+<li><p><strong>Scaling filter</strong> - tells which algorithm to use when scaling the game up (or down) inside the window. The list of filters depend on "Graphics driver" but two common choices are: "Nearest-neighbour" and "Linear interpolation".</p></li>
+<li><p><strong>Start in windowed mode</strong> - when enabled starts the game in windowed mode, as opposed to fullscreen.</p></li>
+<li><p><strong>Vertical sync</strong> - enables or disables vertical sync.</p></li>
+<li><p><strong>Windowed scaling style</strong> - this option determines the way the game will be scaled when in windowed mode. Available options are matching those of "Fullscreen scaling style", and there's one extra one:</p>
+<ul>
+<li><strong>Custom round multiplier</strong> - lets you input an explicit game scaling multiplier.</li>
+</ul></li>
+</ul>
+</section>
+<section id="misc" class="level3">
+<h3><a href="#misc">Misc</a></h3>
+<ul>
+<li><strong>Display FPS on screen</strong> - when enabled, the engine will draw FPS counter on screen while running the game.</li>
+</ul>
+</section>
+<section id="performance" class="level3">
+<h3><a href="#performance">Performance</a></h3>
+<ul>
+<li><strong>Sprite cache size (in megabytes)</strong> - this option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</li>
+</ul>
+</section>
+<section id="touch" class="level3">
+<h3><a href="#touch">Touch</a></h3>
+<ul>
+<li><p><strong>Touch to Mouse Emulation</strong> - defines the touch control scheme for devices with touch screen. Available options are:</p>
+<ul>
+<li><strong>Off</strong>. Completely disabled.</li>
+<li><strong>One finger</strong>. In this mode only one finger is detected at once, and touch directly corresponds to holding LMB down.</li>
+<li><strong>Two fingers</strong>. In this mode up to 2 fingers are detected. One finger tap is treated as LMB click; one finger held and second finger tap is treated as RMB click. Dragging a finger is treated as mouse move without pressing any buttons. Double tap + drag simulates moving mouse with LMB held down.</li>
+</ul></li>
+<li><p><strong>Touch to Mouse Motion mode</strong> - tells whether finger motion is interpreted as "Direct", where game cursor will be positioned at a finger, or "Relative", where game cursor will move from its last position proportionally to the finger's move.</p></li>
+</ul>
+</section>
+<section id="mouse" class="level3">
+<h3><a href="#mouse">Mouse</a></h3>
+<ul>
+<li><strong>Auto-lock mouse to window</strong> - if enabled, the mouse will be locked inside game window whenever the player clicks on it or switches into game. The locked mouse cannot leave the game window, making it impossible to accidentally jump out of the game by mistake (by clicking on the desktop, for example).</li>
+<li><strong>Mouse cursor speed</strong> - lets to set up the mouse cursor speed in game. This parameter is only applied in fullscreen mode.</li>
+</ul>
 <p><em>See also:</em> <a href="Setup.html">Run-time engine setup</a>, <a href="EngineConfigFile.html#configuration-file-locations">Config file locations</a></p>
+</section>
 </section>
   </main>
 
@@ -113,7 +209,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

@@ -108,7 +108,7 @@
 <p>Right, we'll start off by doing something very simple - displaying a message to the player when they click the <strong>"Look"</strong> icon on a hotspot. Assuming that you've done the main <a href="acintro1.html">AGS Tutorial</a>, you should already have created a script that looks like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Let's look at this in detail. "<em>function</em>" tells AGS that this is a block of script code that will run when an event occurs. "<em>hSignHome_Look</em>" is the name of that event. The empty parentheses <em>( )</em> tell AGS that this function takes no parameters (we'll come to them later). Finally, the curly brackets <em>{</em> and <em>}</em> define where this block of code starts and ends. Anything that you put between the { and the } will be run when this event is triggered.</p>
 <p><em>Display</em> is the name of the built-in command that we're going to run. Then, in parenthesis we put the <em>parameters</em> to that command. Parameters are extra pieces of information that the command needs to run -- in this case, it needs the message that we want to display.</p>
@@ -119,10 +119,10 @@
 <h3><a href="#commands-explained">Commands Explained</a></h3>
 <p>Each different command you can use in the script is also called a <strong>function</strong>. All the available commands are listed in the Scripting part of the manual, which also tells you how to use them.</p>
 <p>We want to display a message to the player, so we used the <em>Display</em> function. Looking this up in the manual gives us the definition:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span> <span class="op">(</span>string message<span class="op">,</span> <span class="op">...)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Displays a message to the screen<span class="op">.</span> It will be displayed in</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  the standard message box<span class="op">,</span> and centered in the middle of</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  the screen<span class="op">.</span> <span class="op">(</span>description continues<span class="op">...)</span></span></code></pre></div>
+<pre><code>Display (string message, ...)
+  Displays a message to the screen. It will be displayed in
+  the standard message box, and centered in the middle of
+  the screen. (description continues...)</code></pre>
 <p>The key point here is the part of the first line inside the parentheses. This is called the <strong>parameter list</strong> and defines what parameters you give to the function. A parameter is some information that the function uses to decide what to do.</p>
 <p>Each parameter is listed, separated by commas, and different between functions. They can be <em>one</em> of the following:</p>
 <ul>
@@ -192,7 +192,7 @@
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">//...(rest of file follows)</span></span></code></pre></div>
@@ -207,7 +207,7 @@
 <p>Obviously we need a way to find out what value our variable contains, otherwise it's useless. We do this using conditional statements, called <em>if</em> statements. An if statement looks like this:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">5</span><span class="op">)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  myCounter = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    myCounter = <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>what this means is that if <em>myCounter</em> contains the value 5, then the script inside the { } brackets will be run (which in this case changes the value of <em>myCounter</em> to zero).<br> If <em>myCounter</em> does not equal 5, the script inside the brackets is not run and execution carries on from after the } .</p>
 <p><strong>Note the double-equals in the if statement</strong>. In an "if" statement, you ALWAYS use the double-equals operator, which compares the two values. If you used a single equals it would set the value instead, which will yield some strange results.</p>
@@ -253,23 +253,23 @@
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Oh it says &#39;Home&#39;.&quot;</span><span class="op">);</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&gt;=</span><span class="dv">2</span><span class="op">)</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;I guess that way leads towards my home.&quot;</span><span class="op">);</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Oh it says &#39;Home&#39;.&quot;</span><span class="op">);</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&gt;=</span><span class="dv">2</span><span class="op">)</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;I guess that way leads towards my home.&quot;</span><span class="op">);</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    myCounter <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        myCounter <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>myCounter</em> starts off set to 0, so the first time this script is called it will run the first Display command, but not the others. Then, since 0 is less than 3, it will increase <em>myCounter</em> by 1, and since 0+1 = 1 it now holds the value 1.<br> Once the player has seen all the messages (<em>myCounter</em> == 2), it no longer increases the value so if they click again they will keep getting the final message.</p>
 <p><strong>Global variables made easy</strong></p>
@@ -278,8 +278,8 @@
 <section id="functions-that-return-a-value" class="level3">
 <h3><a href="#functions-that-return-a-value">Functions that return a value</a></h3>
 <p>When reading function descriptions in the manual, you will notice that some of them say they return a value. For example,</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsGamePaused</span> <span class="op">()</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  Returns <span class="dv">1</span> <span class="cf">if</span> the <span class="bu">game</span> is currently paused<span class="op">,</span> or <span class="dv">0</span> otherwise<span class="op">.</span></span></code></pre></div>
+<pre><code>IsGamePaused ()
+  Returns 1 if the game is currently paused, or 0 otherwise.</code></pre>
 <p>You use these much as you would use a literal value such as "9". For example, you can do:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Put the return value into our variable</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>myCounter = <span class="bu">IsGamePaused</span><span class="op">();</span></span></code></pre></div>
@@ -287,7 +287,7 @@
 <div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Test the return value directly</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  myCounter <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    myCounter <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Be sure to remember the parenthesis () after the function name.</p>
 </section>
@@ -297,18 +297,18 @@
 <p>Firstly, the ++ and -- operators increase and decrease the variable by 1, respectively. So, the last part of our previous script could have been written:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  myCounter<span class="op">++;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    myCounter<span class="op">++;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Also, the { } braces are only needed if you are using more than one command inside them. Since we have only one command, the "my_counter++;" line, we can remove the { } completely and just be left with:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  myCounter<span class="op">++;</span></span></code></pre></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    myCounter<span class="op">++;</span></span></code></pre></div>
 <p>However, this can lead to mistakes in scripts that are hard to spot, so I would advise always using braces just to be safe.</p>
 <p>Finally, if you want to test whether a value is zero or not, you can just write it as follows:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter<span class="op">)</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>which is equivalent to:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
 </section>
 <section id="summary" class="level3">
 <h3><a href="#summary">Summary</a></h3>
@@ -323,7 +323,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

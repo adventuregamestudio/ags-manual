@@ -86,6 +86,7 @@
 <ul>
 <li><a href="#audioclip-functions-and-properties" id="toc-audioclip-functions-and-properties"><code>AudioClip</code> functions and properties</a>
 <ul>
+<li><a href="#audioclipgetbyname" id="toc-audioclipgetbyname"><code>AudioClip.GetByName</code></a></li>
 <li><a href="#audioclipplay" id="toc-audioclipplay"><code>AudioClip.Play</code></a></li>
 <li><a href="#audioclipplayfrom" id="toc-audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></li>
 <li><a href="#audioclipplayqueued" id="toc-audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></li>
@@ -94,6 +95,7 @@
 <li><a href="#audioclipid" id="toc-audioclipid"><code>AudioClip.ID</code></a></li>
 <li><a href="#audioclipfiletype" id="toc-audioclipfiletype"><code>AudioClip.FileType</code></a></li>
 <li><a href="#audioclipisavailable" id="toc-audioclipisavailable"><code>AudioClip.IsAvailable</code></a></li>
+<li><a href="#audioclipscriptname" id="toc-audioclipscriptname"><code>AudioClip.ScriptName</code></a></li>
 <li><a href="#audiocliptype" id="toc-audiocliptype"><code>AudioClip.Type</code></a></li>
 </ul></li>
 </ul>
@@ -104,10 +106,25 @@
 <h2><a href="#audioclip-functions-and-properties"><code>AudioClip</code> functions and properties</a></h2>
 <p>AudioClips are created when you import files in the AGS Editor. The commands in this section allow to play them.</p>
 <hr />
+<section id="audioclipgetbyname" class="level3">
+<h3><a href="#audioclipgetbyname"><code>AudioClip.GetByName</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">AudioClip</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p>Retrieves an audio clip by its script name (e.g.: <code>"aExplosion"</code>), which is a unique identifier for audio clips. Returns a pointer to the audio clip with the specified script name, or null if it does not exist.</p>
+<p>This is useful for accessing audio clips based on their script names, if these are retrieved from text files, custom text properties, or from player input for some debug purpose.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioClip</span><span class="op">*</span> explosionClip = <span class="bu">AudioClip</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span><span class="st">&quot;aExplosion&quot;</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>explosionClip <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    explosionClip<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Retrieves the audio clip with the script name "aExplosion" and play it if it exists.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipscriptname"><code>AudioClip.ScriptName</code></a>, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
+<hr />
+</section>
 <section id="audioclipplay" class="level3">
 <h3><a href="#audioclipplay"><code>AudioClip.Play</code></a></h3>
 <p><em>(Formerly known as <code>PlayAmbientSound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlayMP3File</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlayMusic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlaySound</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>PlaySoundEx</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetMusicRepeat</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">Play</span><span class="op">(</span>optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">Play</span><span class="op">(</span>optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
 <p>Plays the audio clip.</p>
 <p>Optionally you can supply a priority and Repeat setting; if you do not supply these, the defaults set for the audio clip in the editor will be used.</p>
 <p>This command searches through all the available audio channels to find one that is available for this type of audio. If no spare channels are found, it will try to find one that is playing a clip with a lower or equal priority, and interrupt it to replace it with this new sound.</p>
@@ -115,7 +132,7 @@
 <p>This command returns the AudioChannel instance that the new sound is playing on, or <em>null</em> if it did not play for any reason.</p>
 <p><strong>NOTE:</strong> AGS can only play one MIDI file at a time.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span></code></pre></div>
 <p>plays the <em>aExplosion</em> audio clip.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a>, <a href="AudioClip.html#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a>, <a href="AudioClip.html#audioclipstop"><code>AudioClip.Stop</code></a>, <a href="ViewFrame.html#viewframelinkedaudio"><code>ViewFrame.LinkedAudio</code></a></p>
@@ -123,12 +140,12 @@
 </section>
 <section id="audioclipplayfrom" class="level3">
 <h3><a href="#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayFrom</span><span class="op">(</span><span class="dt">int</span> position<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                    optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayFrom</span><span class="op">(</span><span class="dt">int</span> position<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                 optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
 <p>Plays the audio clip, starting from <em>position</em>. For the meaning of the position, see the <a href="AudioChannel.html#audiochannelseek"><code>AudioChannel.Seek</code></a> help page.</p>
 <p>Otherwise, this command behaves identically to <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>. Please see that help page for more information.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">PlayFrom</span><span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">PlayFrom</span><span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span></code></pre></div>
 <p>plays the <em>aExplosion</em> audio clip, starting from a 1 second offset (if it is OGG/MP3).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
@@ -137,14 +154,14 @@
 <section id="audioclipplayqueued" class="level3">
 <h3><a href="#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a></h3>
 <p><em>(Formerly known as <code>PlayMusicQueued</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayQueued</span><span class="op">(</span>optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayQueued</span><span class="op">(</span>optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
 <p>Plays the audio clip, or queues it to be played later if it cannot be played now.</p>
 <p>This command behaves identically to <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, except that if there are no available audio channels, it will queue this audio clip to be played when a channel becomes available.</p>
 <p>Additionally, unlike the Play command, using PlayQueued will not interrupt an existing audio clip with an equal priority; it will only interrupt clips with a lower priority.</p>
 <p>You can queue up to 10 tracks in the audio queue. Note that if you queue audio clips to be played after a repeating audio clip, they will never be played.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>aAftermath<span class="op">.</span><span class="at">PlayQueued</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>aAftermath<span class="op">.</span><span class="at">PlayQueued</span><span class="op">();</span></span></code></pre></div>
 <p>plays the <em>aExplosion</em> audio clip, and queues the <em>aAftermath</em> sound to be played afterwards.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
@@ -152,13 +169,13 @@
 </section>
 <section id="audioclipplayonchannel" class="level3">
 <h3><a href="#audioclipplayonchannel"><code>AudioClip.PlayOnChannel</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayOnChannel</span><span class="op">(</span><span class="dt">int</span> channel<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">PlayOnChannel</span><span class="op">(</span><span class="dt">int</span> channel<span class="op">,</span> optional <span class="dt">AudioPriority</span><span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">)</span></span></code></pre></div>
 <p>Plays this audio clip, explicitly putting it on the particular channel, starting with 1 (as channel 0 is reserved for Speech). The maximal number of channels may be found on a <a href="SystemLimits.html">System limits</a> page, or using <a href="System.html#systemaudiochannelcount"><code>System.AudioChannelCount</code></a> at runtime.</p>
 <p>This function disregards any audio type rules, so you may script your own channel logic.</p>
 <p>If the selected audio channel is busy playing higher priority sounds, then this new audio clip will not be played.</p>
 <p>This command returns the AudioChannel instance that the new sound is playing on, or <em>null</em> if it did not play for any reason.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aBeep<span class="op">.</span><span class="at">PlayOnChannel</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eAudioPriorityHigh</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aBeep<span class="op">.</span><span class="at">PlayOnChannel</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eAudioPriorityHigh</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">);</span></span></code></pre></div>
 <p>plays the <em>aBeep</em> audio clip on channel 2.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a>, <a href="AudioClip.html#audioclipplayqueued"><code>AudioClip.PlayQueued</code></a>, <a href="AudioClip.html#audioclipstop"><code>AudioClip.Stop</code></a></p>
@@ -166,12 +183,12 @@
 </section>
 <section id="audioclipstop" class="level3">
 <h3><a href="#audioclipstop"><code>AudioClip.Stop</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioClip</span><span class="op">.</span><span class="at">Stop</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioClip</span><span class="op">.</span><span class="at">Stop</span><span class="op">()</span></span></code></pre></div>
 <p>Stops all currently playing instances of this audio clip.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Stop</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Stop</span><span class="op">();</span></span></code></pre></div>
 <p>plays the <em>aExplosion</em> audio clip, waits 1 second and then stops it again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
@@ -179,16 +196,16 @@
 </section>
 <section id="audioclipid" class="level3">
 <h3><a href="#audioclipid"><code>AudioClip.ID</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the ID of this audio clip. This could be used for diagnostic purposes as well to find same clip in the Game.AudioClips[] array.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannelCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">AudioClip</span> <span class="op">*</span>clip = <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannels</span><span class="op">[</span>i<span class="op">].</span><span class="at">PlayingClip</span><span class="op">;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>clip <span class="op">!=</span> null<span class="op">)</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Channel %d has clip %d playing&quot;</span><span class="op">,</span> i<span class="op">,</span> clip<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Channel %d has no clip on it at the moment&quot;</span><span class="op">,</span> i<span class="op">);</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannelCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">AudioClip</span> <span class="op">*</span>clip = <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannels</span><span class="op">[</span>i<span class="op">].</span><span class="at">PlayingClip</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>clip <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Channel %d has clip %d playing&quot;</span><span class="op">,</span> i<span class="op">,</span> clip<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Channel %d has no clip on it at the moment&quot;</span><span class="op">,</span> i<span class="op">);</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display information about clips playing on each audio channel.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
@@ -196,13 +213,13 @@
 </section>
 <section id="audioclipfiletype" class="level3">
 <h3><a href="#audioclipfiletype"><code>AudioClip.FileType</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">AudioFileType</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">FileType</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">AudioFileType</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">FileType</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the file type of this audio clip. This is useful in conjunction with the PlayFrom and Seek commands to determine what the position offset represents.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">FileType</span> <span class="op">==</span> <span class="bu">eAudioFileMIDI</span><span class="op">)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Explosion is a MIDI file!&quot;</span><span class="op">);</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">FileType</span> <span class="op">==</span> <span class="bu">eAudioFileMIDI</span><span class="op">)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Explosion is a MIDI file!&quot;</span><span class="op">);</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>displays a message if aExplosion is a MIDI file</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioChannel.html#audiochannelseek"><code>AudioChannel.Seek</code></a>, <a href="AudioChannel.html#audiochannelposition"><code>AudioChannel.Position</code></a>, <a href="AudioClip.html#audioclipplayfrom"><code>AudioClip.PlayFrom</code></a></p>
@@ -211,30 +228,47 @@
 <section id="audioclipisavailable" class="level3">
 <h3><a href="#audioclipisavailable"><code>AudioClip.IsAvailable</code></a></h3>
 <p><em>(Formerly known as <code>IsMusicVoxAvailable</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">IsAvailable</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">IsAvailable</span><span class="op">;</span></span></code></pre></div>
 <p>Gets whether this audio clip is available on the player's system.</p>
 <p>This will normally be <em>true</em>, unless the clip was bundled in the external AUDIO.VOX file and the player does not have the file on their system.</p>
 <p>You do not normally need to check this property, since the Play command will silently fail if it cannot find the audio clip to play.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">IsAvailable</span><span class="op">)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">IsAvailable</span><span class="op">)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>checks if the aExplosion audio clip is available, and if so plays it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a></p>
 <hr />
 </section>
+<section id="audioclipscriptname" class="level3">
+<h3><a href="#audioclipscriptname"><code>AudioClip.ScriptName</code></a></h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">AudioClip</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
+<p>Gets the script name of the audio clip, a unique identifier for audio clips.</p>
+<p>This can be used for debugging or referencing specific audio clips in text properties or text files.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomPlay</span><span class="op">(</span><span class="kw">this</span> <span class="bu">AudioClip</span><span class="op">*)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">String</span> clipName = <span class="kw">this</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Playing audio clip: %s&quot;</span><span class="op">,</span> clipName<span class="op">);</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Playing a clip using the <code>CustomPlay()</code> method, like <code>aExampleClip.CustomPlay()</code>, will log it's script name for debugging purposes.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="AudioClip.html#audioclipgetbyname"><code>AudioClip.GetByName</code></a>, <a href="Game.html#gameaudioclips"><code>Game.AudioClips</code></a></p>
+<hr />
+</section>
 <section id="audiocliptype" class="level3">
 <h3><a href="#audiocliptype"><code>AudioClip.Type</code></a></h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> AudioType <span class="bu">AudioClip</span><span class="op">.</span><span class="at">Type</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> AudioType <span class="bu">AudioClip</span><span class="op">.</span><span class="at">Type</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the type of this audio clip, as initially set in the editor.</p>
 <p>The AudioType allows you to group audio clips into areas such as Sound and Music.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">Type</span> <span class="op">==</span> eAudioTypeMusic<span class="op">)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Explosion is music!&quot;</span><span class="op">);</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>aExplosion<span class="op">.</span><span class="at">Type</span> <span class="op">==</span> eAudioTypeMusic<span class="op">)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Explosion is music!&quot;</span><span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>displays a message if the <em>aExplosion</em> clip is music.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>, <a href="Game.html#gameisaudioplaying"><code>Game.IsAudioPlaying</code></a></p>
@@ -246,7 +280,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

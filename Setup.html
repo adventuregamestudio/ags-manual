@@ -108,16 +108,20 @@
 <p>Lets the player choose a graphics driver. Currently supported are Software renderer (the old and slower option, but the only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
 <p><strong>Start in a windowed mode</strong></p>
 <p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
-<p><strong>Mode</strong></p>
-<p>Lets the player choose a fullscreen display mode (otherwise shows the approximate size of window the game will be running in). The list of modes depends on the graphic card and the system's capabilities.</p>
-<p><strong>Fullscreen scale</strong> <strong>Windowed scale</strong></p>
+<p><strong>Fullscreen as borderless window</strong></p>
+<p>If checked, fullscreen will use a borderless window, keeping the current display resolution. This is preferred in modern systems.</p>
+<p><strong>Fullscreen mode</strong></p>
+<p>If <em>Fullscreen as borderless window</em> is unchecked, it will instead use exclusive fullscreen, and this options will let you select which resolution the display will adjust to. The list of modes depends on the graphic card and the system's capabilities.</p>
+<p><strong>Fullscreen scale</strong> and <strong>Windowed scale</strong></p>
 <p>These two options determine the way the game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
-<p><strong>None</strong>. The game will be shown in its native resolution. Note that low-resolution games will be running in a tiny window on modern monitors, so this choice is more suitable for high-resolution games.</p>
-<p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p>
-<p><strong>Stretch to fit screen</strong>. The game will be stretched to fill the whole screen. Note that if the game's native aspect ratio is different from the screen's aspect ratio, the game graphics will appear deformed and indeed stretched.</p>
-<p><strong>Stretch to fit screen (preserve aspect ratio)</strong>. The game will be stretched to screen borders while respecting the game's native aspect ratio (width/height proportions). This ensures that the game graphics will always look correct, but the option can lead to black borders at the left &amp; right or top &amp; bottom sides of the screen.</p>
+<ul>
+<li><p><strong>None</strong>. (Windowed only) The game will be shown in its native resolution. Note that low-resolution games will be running in a tiny window on modern monitors, so this choice is more suitable for high-resolution games.</p></li>
+<li><p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p></li>
+<li><p><strong>Fill whole screen</strong>. The game will be stretched to fill the whole screen. Note that if the game's native aspect ratio is different from the screen's aspect ratio, the game graphics will appear deformed and indeed stretched.</p></li>
+<li><p><strong>Stretch, preserving aspect ratio</strong>. The game will be stretched to screen borders while respecting the game's native aspect ratio (width/height proportions). This ensures that the game graphics will always look correct, but the option can lead to black borders at the left &amp; right or top &amp; bottom sides of the screen.</p></li>
+</ul>
 <p><strong>Scaling method</strong></p>
-<p>Here the player can choose a game scaling algorithm (nearest-neighbor is the simplest one). Some of the methods (notably Hqx) are restricted to which scaling multiplier the player selected; if the multiplier is not enough to resize the game on its own, the nearest-neighbor method will be applied additionally. The list of available filters depend on graphics driver selection.</p>
+<p>Here the player can choose a game scaling algorithm, and the list of available filters depend on graphics driver selection. Currently OpenGL and Direct3D 9 both supports Nearest Neighbour (used more often in pixelart games) and Linear interpolation (used more often with high resolution games).</p>
 </section>
 <section id="gameplay-settings" class="level3">
 <h3><a href="#gameplay-settings">Gameplay settings</a></h3>
@@ -129,22 +133,20 @@
 <p><strong>Vertical sync</strong></p>
 <p>This option enables vertical synchronization mode, which reduces the "tearing" effect on the game graphics, but the option may decrease the game running speed.</p>
 <p><strong>Use 85 Hz display</strong></p>
-<p>This option sets the monitor refresh rate to 85 Hz to run the game, which eliminates flickering. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
+<p>This is a legacy option that sets the monitor refresh rate to 85 Hz to run the game, which eliminates flickering. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
 <p><strong>Smooth scaled sprites</strong></p>
-<p>This option will apply anti-aliasing to scaled characters, in order to give them a smoother look after the resizing. This can slow down the game though, so it is off by default.</p>
+<p>This option will apply anti-aliasing to scaled game objects, such as , in order to give them a smoother look after the resizing. This may affect game aesthetics, and also can slow the game down when using "Software" graphics driver, so it is off by default.</p>
 <p><strong>Render sprites at screen resolution</strong></p>
 <p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when a low-resolution game is run in a larger window, the sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to a certain state by the game itself (according to author's choice), in which case the player will not be able to change it.</p>
 </section>
 <section id="sound-options" class="level3">
 <h3><a href="#sound-options">Sound options</a></h3>
-<p><strong>Digital sound</strong></p>
+<p><strong>Audio Driver</strong></p>
 <p>Here the player may choose the digital audio driver, or disable digital sound completely.</p>
-<p><strong>MIDI music</strong></p>
-<p>Here the player may choose the MIDI music playback method, or disable MIDI music completely.</p>
-<p><strong>Enable threaded audio</strong></p>
-<p>When enabled, the engine will process audio on a separate thread. This results in a much smoother playback, but may potentially break the game's synchronization with the music (if it had one).</p>
 <p><strong>Use voice pack if available</strong></p>
 <p>When checked, this option enables voice speech in game (where available).</p>
+<p><strong>Sound cache (RAM)</strong></p>
+<p>This is a cache for small sounds, to reduce disk access in sounds that are reused in game.</p>
 </section>
 <section id="mouse-options" class="level3">
 <h3><a href="#mouse-options">Mouse options</a></h3>
@@ -155,8 +157,11 @@
 </section>
 <section id="other-advanced-settings" class="level3">
 <h3><a href="#other-advanced-settings">Other advanced settings</a></h3>
-<p><strong>Sprite cache max size</strong></p>
+<p><strong>Sprite cache (RAM) max size</strong></p>
 <p>This option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
+<p><strong>Texture cache (VRAM) max size</strong></p>
+<p><em>Available since AGS 3.6.1.</em></p>
+<p>This option limits the maximum amount of video memory that the game will use for its texture cache. The texture cache is used to keep sprites that are pushed to the GPU in video memory, and reduce the need to convert images from the sprite cache to the video memory to present them on screen. The limits here may be affected by other things in the computer that are using video memory, and GPU available memory.</p>
 <p><strong>Custom game saves path</strong></p>
 <p>When unchecked, the game will store its saved games in the default Windows folder: <code>C:/Users/&lt;Username&gt;/Saved Games/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store game saves.</p>
 <p><strong>Custom game shared data path</strong></p>
@@ -170,7 +175,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

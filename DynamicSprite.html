@@ -122,7 +122,7 @@
 <section id="dynamicspritecreate" class="level3">
 <h3><a href="#dynamicspritecreate"><code>DynamicSprite.Create</code></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                            optional <span class="dt">bool</span> hasAlphaChannel<span class="op">)</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                           optional <span class="dt">bool</span> hasAlphaChannel<span class="op">)</span></span></code></pre></div>
 <p>Creates a new blank dynamic sprite of the specified size. It will initially be fully transparent, and can optionally have an alpha channel. This command is useful if you just want to create a new sprite and then use the DrawingSurface commands to draw onto it.</p>
 <p>If the game color depth is lower than 32-bit, then the <em>hasAlphaChannel</em> parameter will be ignored.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
@@ -144,9 +144,9 @@
 </section>
 <section id="dynamicspritecreatefrombackground" class="level3">
 <h3><a href="#dynamicspritecreatefrombackground"><code>DynamicSprite.CreateFromBackground</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromBackground</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="op">(</span>optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> x<span class="op">,</span> optional <span class="dt">int</span> y<span class="op">,</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromBackground</span><span class="op">(</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> x<span class="op">,</span> optional <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
 <p>Creates a new dynamic sprite containing a copy of the specified room background.</p>
 <p>The most basic use of this function is to supply no parameters, in which case the sprite will contain an exact copy of the current room background.</p>
 <p>If you want, you can supply the <em>frame</em> only, in which case you will get a complete copy of that background frame number from the current room.</p>
@@ -165,8 +165,8 @@
 <section id="dynamicspritecreatefromdrawingsurface" class="level3">
 <h3><a href="#dynamicspritecreatefromdrawingsurface"><code>DynamicSprite.CreateFromDrawingSurface</code></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromDrawingSurface</span><span class="op">(</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">DrawingSurface</span><span class="op">*</span> surface<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">DrawingSurface</span><span class="op">*</span> surface<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
 <p>Creates a new dynamic sprite containing a copy of the specified portion of the drawing surface. This allows you to easily create new sprites from portions of other sprites.</p>
 <p><strong>NOTE:</strong> The <em>x</em>, <em>y</em>, <em>width</em> and <em>height</em> parameters respect the DrawingSurface's <a href="DrawingSurface.html#drawingsurfaceusehighrescoordinates"><code>UseHighResCoordinates</code></a> setting, so make sure that the type of co-ordinates that you are using match up with what the drawing surface expects.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
@@ -190,7 +190,7 @@
 <section id="dynamicspritecreatefromexistingsprite" class="level3">
 <h3><a href="#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a></h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                        <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">bool</span> preserveAlphaChannel<span class="op">)</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> slot<span class="op">,</span> optional <span class="dt">bool</span> preserveAlphaChannel<span class="op">)</span></span></code></pre></div>
 <p>Creates a new dynamic sprite containing a copy of the specified sprite <em>slot</em>.</p>
 <p>Returns the DynamicSprite instance representing the new sprite. This function is useful as it effectively allows you to apply transformations such as resizing to any sprite in the game.</p>
 <p>Use the <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property of the DynamicSprite to interface with other commands and to use the new sprite in the game.</p>
@@ -237,8 +237,8 @@
 <section id="dynamicspritecreatefromsavegame" class="level3">
 <h3><a href="#dynamicspritecreatefromsavegame"><code>DynamicSprite.CreateFromSaveGame</code></a></h3>
 <p><em>(Formerly known as <code>LoadSaveSlotScreenshot</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromSaveGame</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="op">(</span><span class="dt">int</span> saveSlot<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromSaveGame</span><span class="op">(</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> saveSlot<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
 <p>Loads the screenshot for save game SAVESLOT into memory, resizing it to WIDTH x HEIGHT.</p>
 <p>Returns the DynamicSprite instance of the image if successful, or returns <em>null</em> if the screenshot could not be loaded (perhaps the save game didn't include one).</p>
 <p>In order for this to work, the "Save screenshots in save games" option must be ticked in the main Game Settings pane.</p>
@@ -259,8 +259,8 @@
 </section>
 <section id="dynamicspritecreatefromscreenshot" class="level3">
 <h3><a href="#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                        <span class="op">(</span>optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromScreenShot</span><span class="op">(</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
 <p>Creates a new DynamicSprite instance with a copy of the current screen in it, resized to WIDTH x HEIGHT. If you do not supply the width or height, then a full screen sized sprite will be created.</p>
 <p>This command can be useful if you're creating a save game screenshots GUI, in order to display the current game position as well as the saved slot positions.</p>
 <p><strong>NOTE:</strong> This command can be slow when using the Direct3D graphics driver.</p>
@@ -511,7 +511,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

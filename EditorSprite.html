@@ -89,8 +89,8 @@
 <li><a href="#import-sprite" id="toc-import-sprite">Import Sprite</a></li>
 <li><a href="#tiled-sprite-import" id="toc-tiled-sprite-import">Tiled sprite import</a></li>
 <li><a href="#alpha-blended-sprites" id="toc-alpha-blended-sprites">Alpha blended sprites</a></li>
+<li><a href="#updating-sprites" id="toc-updating-sprites">Updating sprites</a></li>
 <li><a href="#sprite-storage" id="toc-sprite-storage">Sprite Storage</a></li>
-<li><a href="#project-without-a-sprite-file" id="toc-project-without-a-sprite-file">Project without a Sprite File</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -126,18 +126,23 @@
 <p>When you do so, AGS will prompt you asking whether you want to use the image's alpha channel or not. If you select Yes, then the sprite will be drawn alpha blended in the game if it is used for a character, object, mouse cursor or GUI.</p>
 <p>NOTE: Currently, alpha blended sprites cannot be antialiased, so if you have the Anti Alias Sprites option turned on in Setup, it will not be applied to alpha-blended characters.</p>
 </section>
+<section id="updating-sprites" class="level3">
+<h3><a href="#updating-sprites">Updating sprites</a></h3>
+<p>When you import a sprite all the import settings are saved as sprite's properties. This includes the path to the source image file (if you imported from a file; no path is saved if you imported from a clipboard, for instance). It's strongly recommended to keep the source files along with the game, as they will let you to update your sprites easily, and also let fully restore the sprites in game (see the explanation below). Another thing that we recommend is to store the source images inside the project folder, for example, in a subfolder called "Sprites", or any other convenient name. That is because AGS can remember these paths as relative, and if you move your project elsewhere (onto another PC), or share it with your team members, these paths will be kept relative and so sprites may be still updated and restored from these files. If the image files are located outside of the project folder, then they will be remembered using absolute paths, which may become inconvenient.</p>
+<p>All the import settings (including source path!) may be edited by hand at any later time by selecting a sprite and refering to the "Properties" panel. The import settings are found in the "Import" category. Multiple sprites may be adjusted at once too, although in that case the "Properties" grid will display only those values that match in all selected sprites, and blank field for the rest.</p>
+<p>In order to update the sprite(s) open a context menu and select command "Replace sprite(s) from source". That will reload the images from the source files using latest Import settings.</p>
+<p>It is also possible to fully reimport all sprites at once using existing settings, would the sprite images be missing, or corrupted for any reason. This is done by either using "File" <code>-&gt;</code> "Restore all sprites from sources" menu command, or a "Restore all sprites from sources" command from the Sprite Manager's context menu.</p>
+</section>
 <section id="sprite-storage" class="level3">
 <h3><a href="#sprite-storage">Sprite Storage</a></h3>
-<p>AGS sprite storage can be configured through <strong>Enable sprite storage optimization</strong> and <strong>Sprite file compression</strong> in <a href="GeneralSettings.html#compiler">General Settings, in Compiler category</a>.</p>
+<p>In AGS project sprites are stored in two separate parts. The sprite's properties, including import settings, are saved in the project's main document (<code>Game.agf</code>), while the images themselves are saved in a file called <code>acsprset.spr</code> (also called "spritefile").</p>
+<p>Sprite storage can be configured through <strong>Enable sprite storage optimization</strong> and <strong>Sprite file compression</strong> in <a href="GeneralSettings.html#compiler">General Settings, in Compiler category</a>.</p>
 <ul>
 <li><strong>Enable sprite storage optimization</strong>, stores sprites in a format that requires less space.</li>
-<li><strong>Sprite file compression</strong>, can be configured to no compression, RLE or LZW.</li>
+<li><strong>Sprite file compression</strong>, can be set to no compression, RLE or LZW.</li>
 </ul>
-<p>When a sprite is imported, it gets and index number which can be used to refer to it through your game. This information, along with import settings for each sprite, are saved in your AGS game project. It will additionally, incrementally as you import sprites, add the file to your project sprite file, named <code>acsprset.spr</code>. You can at any time in your project switch your sprite file compression and storage settings and AGS will update it accordingly, so don't worry if you just realize you need compression at a later time in your project.</p>
-</section>
-<section id="project-without-a-sprite-file" class="level3">
-<h3><a href="#project-without-a-sprite-file">Project without a Sprite File</a></h3>
-<p>It's recommended that all the graphic files you are importing in your project are placed in a directory inside of your AGS Game Project. By maintaining all files there, if you wish to not backup your <code>acsprset.spr</code> file, you can recreate it at any time by using the <strong>File</strong> <code>-&gt;</code> <strong>Restore all sprites from sources</strong> menu.</p>
+<p>All of these options <em>do not</em> affect how sprites look in game, and may be changed or reverted anytime, so don't worry if you realized that you need sprite compression at a later time.</p>
+<p>If you have all the source files for your sprites available along with your project, then it is possible to fully recreate <code>acsprset.spr</code> as described in a section above ("File" <code>-&gt;</code> "Restore all sprites from sources" menu command). This also means that you might exclude <code>acsprset.spr</code> file when copying or moving your project elsewhere, like sharing with your team, or putting the project under source control. Remember: this is a good option only if you have sources available. Sprites imported from a clipboard do not have file source and cannot be restored like that.</p>
 </section>
 </section>
   </main>
@@ -146,7 +151,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

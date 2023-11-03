@@ -147,7 +147,7 @@
 <section id="overlaycreateroomtextual" class="level3">
 <h3><a href="#overlaycreateroomtextual"><code>Overlay.CreateRoomTextual</code></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateRoomTextual</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> color<span class="op">,</span> string text<span class="op">)</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> color<span class="op">,</span> string text<span class="op">)</span></span></code></pre></div>
 <p>Creates a <em>room overlay</em> containing the text you pass at the position specified. This overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
 <p>The room overlays are positioned in the room graphic layer, and are visually sorted among other room overlays, characters, room objects and walk-behinds using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property, similar to how other objects in rooms use <code>Baseline</code> property.</p>
 <p>All the parameters and use are identical to <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a> function, please refer to its description for more details.</p>
@@ -159,7 +159,7 @@
 <h3><a href="#overlaycreatetextual"><code>Overlay.CreateTextual</code></a></h3>
 <p><em>(Formerly known as <code>CreateTextOverlay</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateTextual</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> color<span class="op">,</span> string text<span class="op">)</span></span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> color<span class="op">,</span> string text<span class="op">)</span></span></code></pre></div>
 <p>Creates a <em>screen overlay</em> containing the text you pass at the position specified. A screen overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
 <p>The screen overlays are positioned in the screen graphic layer, and are visually sorted among other screen overlays and GUI using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property.</p>
 <p>The X and Y parameters specify the upper-left corner of where the text will be written. WIDTH is the width, in pixels, of the text area. FONT is the font number from the editor to use (0 is the normal font, 1 is the speech font). COLOR is the text color - use one of the colors from 1 to 15. Finally, TEXT is obviously the text that gets displayed.</p>
@@ -324,7 +324,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

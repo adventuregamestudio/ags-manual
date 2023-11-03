@@ -171,16 +171,20 @@
 <td>PALETTE_SIZE</td>
 <td>Size of game palette, for 256-color mode</td>
 </tr>
+<tr class="even">
+<td>SCR_NO_VALUE</td>
+<td>Used as a parameter by some functions to specify "no value" or "use default value"</td>
+</tr>
 </tbody>
 </table>
 <p>You can check for whether a macro is defined or not by using the <code>#ifdef</code> and <code>#ifndef</code> keywords:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef STRICT</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// only compile the MoveCharacter command if not using object-based scripting</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    MoveCharacter<span class="op">(</span>EGO<span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// only compile the MoveCharacter command if not using object-based scripting</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MoveCharacter<span class="op">(</span>EGO<span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef DEBUG</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// only display this when the game is compiled in debug mode</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Debugging information&quot;</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// only display this when the game is compiled in debug mode</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Debugging information&quot;</span><span class="op">);</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <p>There is also an <code>#error</code> directive you can use to stop the script compiling:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef AGS_NEW_STRINGS</span></span>
@@ -269,7 +273,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

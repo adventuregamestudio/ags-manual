@@ -119,25 +119,25 @@
 <p>Let's take a look at the event handling, or in other words: stuff that happens after you have clicked on something. Normally you create a function for each event of an object, a hotspot etc. Functions like cup_Interact() or cup_Look(). Using this template you only need one the any click event. Inside these functions you distinguish between the different interactions. So a typical any_click function looks like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">cup_AnyClick</span><span class="op">()</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// LOOK AT</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span><span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_LookAt<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;It&#39;s a blue cup.&quot;</span><span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// USE</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_Use<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I&#39;d rather pick it up.&quot;</span><span class="op">);</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// PICKUP</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_PickUp<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Okay.&quot;</span><span class="op">);</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                Verbs<span class="op">.</span><span class="at">AnyClickWalkLookPick</span><span class="op">(</span><span class="dv">108</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eDir_Up<span class="op">,</span> <span class="st">&quot;You are now mine.&quot;</span><span class="op">,</span>oCup<span class="op">.</span><span class="at">ID</span><span class="op">,</span> iCup<span class="op">);</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">//USE INV</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span><span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_UseInv<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// don&#39;t forget this</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// LOOK AT</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_LookAt<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;It&#39;s a blue cup.&quot;</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// USE</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_Use<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I&#39;d rather pick it up.&quot;</span><span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// PICKUP</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_PickUp<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Okay.&quot;</span><span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        Verbs<span class="op">.</span><span class="at">AnyClickWalkLookPick</span><span class="op">(</span><span class="dv">108</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eDir_Up<span class="op">,</span> <span class="st">&quot;You are now mine.&quot;</span><span class="op">,</span>oCup<span class="op">.</span><span class="at">ID</span><span class="op">,</span> iCup<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">//USE INV</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_UseInv<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// don&#39;t forget this</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The function "AnyClickWalkLookPick" is explained in the scripting reference. AnyClickWalkLookPick</p>
 <p>So you see, everything is inside a single function, instead 4 separate functions. Also instead of checking the cursor modes, the function <code>Verbs.UsedAction</code> is called to determine the event/action. The current defined actions are:</p>
@@ -163,17 +163,17 @@
 <p>The last thing you should know about, is the global variable "ItemGiven". If you like to give an item to a character, use this variable to check, which item has been given. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_GiveTo<span class="op">))</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iCup<span class="op">)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Do you want this Cup?&quot;</span><span class="op">);</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;No, thank you.&quot;</span><span class="op">);</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iKey<span class="op">)</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Is that your key?&quot;</span><span class="op">);</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Of course. You have it from me.&quot;</span><span class="op">);</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iCup<span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Do you want this Cup?&quot;</span><span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;No, thank you.&quot;</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iKey<span class="op">)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Is that your key?&quot;</span><span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Of course. You have it from me.&quot;</span><span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span></code></pre></div>
 <p>If you need to use "ItemGiven" in other scripts than the global one, you need to import it manually. It's not defined via global variable pane inside the AGS editor.</p>
@@ -238,7 +238,7 @@ DE</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

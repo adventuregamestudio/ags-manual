@@ -112,15 +112,17 @@
 <section id="basic-properties" class="level3">
 <h3><a href="#basic-properties">Basic properties</a></h3>
 <ul>
-<li><strong>Color Depth</strong> - the number of colors your game will use. Default is 32-bit, which lets you use all the range of colors contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of color precision. 8-bit color mode is a special feature for making palette-based games. See also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></li>
-<li><strong>Developer name</strong> - this will add the provided string to the game's executable properties.</li>
-<li><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</li>
-<li><strong>Game file name</strong> - your game's executable and/or data filename. This string will be used when creating game package files on disk.</li>
-<li><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</li>
-<li><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Globalfunctions_General.html#givescore"><code>GiveScore</code></a> script function.</li>
-<li><strong>Put sound and sprite files in source control</strong> - whether game resources, such as sprites and audio, are put under source control. For more information see <a href="SourceControl.html">Source Control integration</a>.</li>
-<li><strong>Render sprites at screen resolution</strong> - whether characters and objects should be scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. If you prefer to keep your game looks in particular style, this option may be locked to always "Enabled" or "Disabled"; otherwise setting it to "User defined" will let your players toggle it in game setup program to their own liking.</li>
-<li><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Color Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrunk accordingly.</li>
+<li><p><strong>Color Depth</strong> - the number of colors your game will use. Default is 32-bit, which lets you use all the range of colors contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of color precision. 8-bit color mode is a special feature for making palette-based games. See also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></p></li>
+<li><p><strong>Developer name</strong> - this will add the provided string to the game's executable properties.</p></li>
+<li><p><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</p></li>
+<li><p><strong>Game file name</strong> - your game's executable and/or data filename. This string will be used when creating game package files on disk.</p></li>
+<li><p><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</p></li>
+<li><p><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Globalfunctions_General.html#givescore"><code>GiveScore</code></a> script function.</p></li>
+<li><p><strong>Put sound and sprite files in source control</strong> - whether game resources, such as sprites and audio, are put under source control. For more information see <a href="SourceControl.html">Source Control integration</a>.</p></li>
+<li><p><strong>Render sprites at screen resolution</strong> - whether characters and objects should be scaled in screen pixels rather than game pixels. What this means is that when low-resolution game is run in larger window, sprites will take advantage of this higher resolution and look less pixelated when scaled down. If you prefer to keep your game looks in particular style, this option may be locked to always "Enabled" or "Disabled"; otherwise setting it to "User defined" will let your players toggle it in game setup program to their own liking.</p></li>
+<li><p><strong>Resolution</strong> - the native resolution of your game. This is the most important option (on par with Color Depth), which determines the size of game area visible on screen at any given time. This is also the minimal size that game rooms may have. The window your game runs in may still be larger or smaller, depending on choices player made in setup program, and in that case game's image will be stretched or shrunk accordingly.</p></li>
+<li><p><strong>Text format</strong> - the format your game texts will be in. The contemporary default is "Unicode", which lets you have practically any language in the game. Another choice is "ASCII / ANSI" mode, but this is left strictly for backwards compatibility, e.g. for when upgrading old projects, and not recommended to be used in new projects at all, as that will make multi-language support in your game much more complicated.</p>
+<p><strong>NOTE:</strong> please be aware that when switching <strong>Text format</strong> the Editor will convert all the game files (scripts, etc) to a new text encoding and re-save them. Normally this should be safe, but probably a good idea to make a project backup before doing this.</p></li>
 </ul>
 </section>
 <section id="information" class="level3">
@@ -279,7 +281,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

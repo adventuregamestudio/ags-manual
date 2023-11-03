@@ -105,6 +105,7 @@
 <p>When you have your game project opened right-click the "Translations" node in the tree, and choose "New translation". Once you've named it, AGS will ask if you want to populate the file now. Say yes.</p>
 <p>A new file will be created in the game folder, called NAME.TRS, where NAME is the name you gave to the translation in the editor. This file is simply a text file by format and a .trs suffix, and will be generated with each original line of text separated by a blank line. That blank line is where you enter the translated text.</p>
 <p>You can now work on translating these texts yourself or give this file to your translators. The idea is to fill in each blank line with the corresponding translation of the original line above it. If this empty line is left blank, it will simply not be translated and display the original line in the game.</p>
+<p><strong>IMPORTANT:</strong> make sure that the TRS file is saved in a correct encoding. If you want to have Unicode texts in your game then save it as UTF-8 (specifically: UTF-8 without BOM). Otherwise save it as ASCII. You would also have to add a Encoding hint to the translation options, see the <a href="Translations.html#additional-options">"Additional options"</a> section about this.</p>
 <p><strong>IMPORTANT:</strong> there are few ways to break your translation file and make it unusable for AGS. The following points are essential to keep in mind:</p>
 <ul>
 <li>DO NOT remove or replace original text lines, they are necessary to find matches.</li>
@@ -158,7 +159,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

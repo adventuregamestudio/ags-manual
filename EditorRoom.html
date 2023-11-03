@@ -86,6 +86,7 @@
 <ul>
 <li><a href="#room-editor" id="toc-room-editor">Room Editor</a>
 <ul>
+<li><a href="#controls" id="toc-controls">Controls</a></li>
 <li><a href="#background" id="toc-background">Background</a></li>
 <li><a href="#edit-this-rooms-control" id="toc-edit-this-rooms-control">Edit this room's control</a></li>
 <li><a href="#properties-control" id="toc-properties-control">Properties control</a></li>
@@ -110,7 +111,16 @@
 <li>...and more!</li>
 </ul>
 <p><strong>NOTE:</strong> Currently only one room can be open for editing at a time</p>
-<p><img src="images/EditorRoom_1.png" alt="Editor Room" /></p>
+<p>![Editor Room](images/EditorRoom_1.png</p>
+<section id="controls" class="level3">
+<h3><a href="#controls">Controls</a></h3>
+<p><strong>Pan</strong></p>
+<p>If your room is large enough that scrollbars are shown and required to move around in the room, you can also pan by either holding spacebar and left-click dragging the room background, or alternatively holding your mouse middle click button.</p>
+<p><strong>Zoom</strong></p>
+<p>In the upper top of the room bar there is a zoom slider than can be used to adjust the zoom, but alternatively holding ctrl and using the mouse scrollwheel (or scroll gesture in some touchpads) will also adjust zoom.</p>
+<p><strong>Context Menu</strong></p>
+<p>Right clicking should bring the context menu. There is a special case for area editing modes (Hotspots, Walkable areas, and alike) in which right click works as a "eraser"; in these modes context menu is called by a Shift + RMB combination. The context menu will usually contain the "Copy mouse coordinates to clipboard" command, but it can contain additional options depending on active layer or what is right clicked - like a character or an object.</p>
+</section>
 <section id="background" class="level3">
 <h3><a href="#background">Background</a></h3>
 <p>By selecting a background on the <code>Display Background</code> combo box, you can select which background of a room to display: Main Background, frame 2, 3, 4, 5. With one background selected, click <code>Change...</code> button to replace the background image with a new image. If a room has more than one background, by default, they are animated. To prevent that assign "BackgroundAnimtionEnabled" to "False" in the room properties. Also, you may lock background to a particular frame in script using <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a> command.</p>
@@ -173,7 +183,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

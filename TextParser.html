@@ -101,14 +101,14 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = txtUserInput<span class="op">.</span><span class="at">Text</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>input<span class="op">);</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;look fence&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;It&#39;s an old wooden fence.&quot;</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;It&#39;s an old wooden fence.&quot;</span><span class="op">);</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat apple&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>There are a couple of special words you can use with the Said command. "anyword" will match any word that the user types in. For example, Said("throw anyword away") will match if they type "throw dagger away", or "throw trash away". "rol" (short for Rest-of-Line) will match the rest of the user's input. So, you might want to do:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;kill rol&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;re not a violent person.&quot;</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;re not a violent person.&quot;</span><span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This way if they try to kill anything they will get the generic response.</p>
 <p>Sometimes, you want to accept two different words that are not synonyms as the same thing. For example, the words "take" and "eat" normally have totally different meanings, so you wouldn't make them synonyms of each other. However, if the player has a headache tablet, for instance, then "take tablet" and "eat tablet" would both be valid. This is where the comma "," comes in - if you include a comma in your input, all synonyms of all words separated by the comma will match. So:</p>
@@ -124,13 +124,12 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>input<span class="op">);</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> badWord = <span class="bu">Parser</span><span class="op">.</span><span class="at">SaidUnknownWord</span><span class="op">();</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>badWord <span class="op">!=</span> null<span class="op">)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;</span><span class="op">,</span> badWord<span class="op">);</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat apple&quot;</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">...</span> <span class="co">// other game-wide commands</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">CallRoomScript</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;</span><span class="op">,</span> badWord<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;eat apple&quot;</span><span class="op">))</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You&#39;d love to, but you don&#39;t have one.&quot;</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// other game-wide commands</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">CallRoomScript</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>Then, the room script can check for things that the player can do in the current room. See the <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a> description for more information.</p>
 </section>
   </main>
@@ -139,7 +138,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

@@ -138,7 +138,7 @@
 <section id="systemaudiochannelcount" class="level3">
 <h3><a href="#systemaudiochannelcount"><code>System.AudioChannelCount</code></a></h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannelCount</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the number of Audio Channels available to the game (in the current version of AGS this is 8).</p>
+<p>Gets the number of Audio Channels available to the game (in the current version of AGS this is 16).</p>
 <p>This is useful if you want to loop through all the audio channels and check what is playing on them.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;There are %d audio channels.&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">AudioChannelCount</span><span class="op">);</span></span></code></pre></div>
@@ -181,7 +181,7 @@
 <p>Returns the color depth at which the game is running. This is the overall game color depth setting, and it is possible for individual sprites or backgrounds to be different.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Game is running at: %d x %d, %d-bit color&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenWidth</span><span class="op">,</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="bu">System</span><span class="op">.</span><span class="at">ScreenHeight</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">);</span></span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">ScreenHeight</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">);</span></span></code></pre></div>
 <p>will display the current resolution and color depth</p>
 <p><em>See also:</em> <a href="System.html#systemscreenheight"><code>System.ScreenHeight</code></a>, <a href="System.html#systemscreenwidth"><code>System.ScreenWidth</code></a></p>
 <hr />
@@ -226,9 +226,9 @@
 <div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">PauseGame</span><span class="op">();</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">PauseGame</span><span class="op">();</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">UnPauseGame</span><span class="op">();</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">UnPauseGame</span><span class="op">();</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>pauses game when player switches out, and unpauses it when player switches back to game.</p>
@@ -292,8 +292,9 @@ eOSFreeBSD</code></pre>
 <p>Example:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyCtrlV</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">);</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">);</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#debug"><code>Debug</code></a></p>
 <hr />
@@ -416,7 +417,7 @@ eOSFreeBSD</code></pre>
 <p>Example:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyEscape</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span> = <span class="op">!</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span> = <span class="op">!</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will switch from windowed to fullscreen mode and vice-versa whenever player presses Escape key.</p>
@@ -429,7 +430,7 @@ eOSFreeBSD</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

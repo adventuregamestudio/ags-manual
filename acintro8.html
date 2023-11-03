@@ -135,7 +135,8 @@
 <p><img src="images/acintro8_03.png" alt="We&#39;ve inserted three options for topic 0" /></p>
 <p>While we're at it, let's create the next set of options too. Right-click the <strong>"Dialogs"</strong> node in the Project Tree, and select <strong>"New Dialog"</strong>. A new blank <em>dDialog1</em> is created and should be automatically opened for you. Create three new options and type them in. In the Properties Grid, change the Name from "dDialog1" to <strong>"dWares"</strong>.</p>
 <p><img src="images/acintro8_04.png" alt="Our second dialog choices" /></p>
-<p>Now, go back to the first dialog <strong>"dMerchant"</strong> tab (select it in the Editor Tab bar), and let's have a look at the script. This is <strong>not</strong> the same type of script that we've used for our Events like picking up the key. It's a much simpler dialog-only scripting language.</p>
+<p>Now, go back to the first dialog <strong>"dMerchant"</strong> tab (select it in the Editor Tab bar), and let's have a look at the script.</p>
+<p>This is <strong>not</strong> the same type of script that we've used for our Events like picking up the key. It's a much simpler dialog-only scripting language. It's still possible to use regular AGS Script code, you just have to make sure the line starts with at least one space character.</p>
 <p>Each of the <strong>"@"</strong> lines is an <strong>entry point</strong>. These define the different places where your script can start. The "@S" entry point happens when the topic is first started - and so this is where we want our "Greetings" text to be displayed.</p>
 <p>Dialog scripting is very simple. It takes the form:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="st">SCRIPTNAME</span><span class="op">:</span> &quot;Text to say&quot;</span></code></pre></div>
@@ -209,7 +210,7 @@
 </section>
 <section id="sierra-style-system-dialogs" class="level4">
 <h4>Sierra-style system dialogs</h4>
-<p>As mentioned earlier, there is a simple way to have Sierra-style dialogs. Iif there is only one option enabled for a topic, then the game selects it automatically. You can use this to make Sierra-style conversations, because the options will never be shown to the player in this case.</p>
+<p>As mentioned earlier, there is a simple way to have Sierra-style dialogs. If there is only one option enabled for a topic, then the game selects it automatically. You can use this to make Sierra-style conversations, because the options will never be shown to the player in this case.</p>
 <p>Next Chapter: <a href="acintro9.html">Part 9 - Cursors and Fonts</a></p>
 </section>
 </section>
@@ -220,7 +221,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

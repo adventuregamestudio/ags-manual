@@ -225,7 +225,7 @@
 <h3><a href="#characteranimate"><code>Character.Animate</code></a></h3>
 <p><em>(Formerly known as <code>AnimateCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>AnimateCharacterEx</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dt">int</span> loop<span class="op">,</span> <span class="dt">int</span> delay<span class="op">,</span> optional <span class="dt">RepeatStyle</span><span class="op">,</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">,</span> optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                  optional <span class="dt">BlockingStyle</span><span class="op">,</span> optional <span class="dt">Direction</span><span class="op">,</span> optional <span class="dt">int</span> frame<span class="op">,</span> optional <span class="dt">int</span> volume<span class="op">)</span></span></code></pre></div>
 <p>Starts the character animating, using loop number LOOP of his current view and optionally starting at FRAME. The overall speed of the animation is set with DELAY, where 0 is the fastest, and increasing numbers mean slower. The delay for each frame is worked out as DELAY + FRAME SPD, so the individual frame speeds are relative to this overall speed.</p>
 <p>Before using this command, you should use <a href="Character.html#characterlockview"><code>LockView</code></a> in order to select the view you want to animate with and prevent any automatic animations (e.g. walking or idle animations) from playing.</p>
 <p>The <em>RepeatStyle</em> parameter sets whether the animation will continuously repeat the cycling through the frames. This can be <em>eOnce</em> (or zero), in which case the animation will start from the first frame of LOOP, and go through each frame in turn until the last frame, where it will stop. If RepeatStyle is <em>eRepeat</em> (or 1), then when the last frame is reached, it will go back to the first frame and start over again with the animation.</p>
@@ -340,7 +340,7 @@
 <h3><a href="#characterfollowcharacter"><code>Character.FollowCharacter</code></a></h3>
 <p><em>(Formerly known as global function <code>FollowCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as global function <code>FollowCharacterEx</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">FollowCharacter</span><span class="op">(</span><span class="bu">Character</span><span class="op">*</span> chartofollow<span class="op">,</span> optional <span class="dt">int</span> dist<span class="op">,</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                            optional <span class="dt">int</span> eagerness<span class="op">)</span></span></code></pre></div>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                          optional <span class="dt">int</span> eagerness<span class="op">)</span></span></code></pre></div>
 <p>Tells the character to follow CHARTOFOLLOW around, wherever he goes. You could use this command to have a group of main characters who go around together, or for example when the hero has rescued someone from the bad guy, they can follow the hero home.</p>
 <p>Pass CHARTOFOLLOW as <em>null</em> to stop the character following.</p>
 <p>There are a couple of extra optional parameters:</p>
@@ -472,7 +472,9 @@
 <p>Returns 1 if the characters feet are touching, 0 otherwise.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">IsCollidingWithChar</span><span class="op">(</span>cMan<span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span> colliding code here <span class="op">}</span></span></code></pre></div>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Colliding code goes here.</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will execute the colliding code only if the characters EGO and MAN are colliding.</p>
 <p><em>See also:</em> <a href="Character.html#characteriscollidingwithobject"><code>Character.IsCollidingWithObject</code></a>, <a href="Object.html#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a>, <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
@@ -609,7 +611,7 @@
 <section id="charactermove" class="level3">
 <h3><a href="#charactermove"><code>Character.Move</code></a></h3>
 <div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">Move</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">,</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>                                optional <span class="dt">WalkWhere</span><span class="op">);</span></span></code></pre></div>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>               optional <span class="dt">WalkWhere</span><span class="op">);</span></span></code></pre></div>
 <p>Starts the character moving from its current location to (X,Y), but does not play the character's walking animation.</p>
 <p>The parameters to this command are identical to the <a href="Character.html#characterwalk"><code>Character.Walk</code></a> command -- see that page for more details. The only difference is that <em>Walk</em> plays the walking animation whereas <em>Move</em> does not.</p>
 <p>In the vast majority of cases, you will use <strong>Character.Walk</strong> instead.</p>
@@ -698,9 +700,10 @@
 <section id="charactersayat" class="level3">
 <h3><a href="#charactersayat"><code>Character.SayAt</code></a></h3>
 <p><em>(Formerly known as <code>DisplaySpeechAt</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>SayAt<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> string message<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>SayAt<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Similar to <a href="Character.html#charactersay"><code>Say</code></a>, except that the text is displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
 <p>You can use this function to write the character's speech text anywhere you like, and AGS will still play the character's talking animation and so on if appropriate.</p>
+<p>As of <strong>AGS 3.6.1</strong>, you can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p><strong>NOTE:</strong> This function does not support Whole-Screen speech.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SayAt</span><span class="op">(</span><span class="dv">220</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="st">&quot;My name is ego&quot;</span><span class="op">);</span></span></code></pre></div>
@@ -711,11 +714,12 @@
 <section id="charactersaybackground" class="level3">
 <h3><a href="#charactersaybackground"><code>Character.SayBackground</code></a></h3>
 <p><em>(Formerly known as <code>DisplaySpeechBackground</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SayBackground</span><span class="op">(</span>string message<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SayBackground</span><span class="op">(</span>string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Similar to Say, except that this function returns immediately and the game continues while the character is talking. This allows you to have characters talking in the background while the player does other things. Note that the character's talking animation is not played if this function is used.</p>
 <p>This command works by creating a text overlay with an automatic removal time delay. The overlay is returned by this command, so you can save it for use later with Overlay.IsValid and Overlay.Remove, if you want to remove the text prematurely.</p>
 <p>If background speech is already on-screen for the character, it will be removed and replaced with the new MESSAGE.</p>
 <p>All background speech is automatically removed when a normal Say command is used (unless you set the global variable <a href="Gamevariables.html"><code>game.bgspeech_stay_on_display</code></a> to 1).</p>
+<p>As of <strong>AGS 3.6.1</strong>, you can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>cMan<span class="op">.</span><span class="at">SayBackground</span><span class="op">(</span><span class="st">&quot;Hey, why won&#39;t you talk to me?&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will display the message above character MAN's head without pausing the game.</p>
@@ -811,7 +815,7 @@
 <section id="charactertint" class="level3">
 <h3><a href="#charactertint"><code>Character.Tint</code></a></h3>
 <div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">,</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>                <span class="dt">int</span> saturation<span class="op">,</span> <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>               <span class="dt">int</span> saturation<span class="op">,</span> <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
 <p>Tints the character on the screen to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
 <p>This function applies a tint to a specific character. For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
 <p>The tint set by this function overrides any ambient tint set for the room. For this reason, passing the SATURATION as 0 to this function does not turn it off - rather, it ensures that no tint is applied to the character (even if an ambient tint is set).</p>
@@ -892,7 +896,7 @@
 <h3><a href="#characterwalk"><code>Character.Walk</code></a></h3>
 <p><em>(Formerly known as <code>MoveCharacter</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>MoveCharacterBlocking</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>MoveCharacterDirect</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">,</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>                                optional <span class="dt">WalkWhere</span><span class="op">);</span></span></code></pre></div>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>               optional <span class="dt">WalkWhere</span><span class="op">);</span></span></code></pre></div>
 <p>Starts the character moving from its current location to (X,Y), whilst playing his walking animation.</p>
 <p>If <em>blocking</em> is eNoBlock (the default) then control returns to the script immediately, and the character will move in the background.</p>
 <p>If <em>blocking</em> is eBlock then this command will wait for the character to finish moving before your script resumes.</p>
@@ -984,6 +988,7 @@
 <div class="sourceCode" id="cb105"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">BlinkInterval</span></span></code></pre></div>
 <p>Gets/sets the character's blinking interval, which specifies how long the game waits between playing the blinking animation. This is specified in game loops - an interval of 80 would play the blinking animation about every 2 seconds.</p>
 <p>This property has no effect if no <a href="Character.html#characterblinkview"><code>BlinkView</code></a> has been set.</p>
+<p><strong>NOTE:</strong> blinking animation works only for Sierra-style or QFG4-style speech, when the SpeechView is displaying a character's portrait.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">BlinkView</span> = <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">BlinkInterval</span> = <span class="dv">160</span><span class="op">;</span></span></code></pre></div>
@@ -997,6 +1002,7 @@
 <div class="sourceCode" id="cb107"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">BlinkView</span></span></code></pre></div>
 <p>Gets/sets the character's blinking view. To stop the character from blinking, set this to -1.</p>
 <p>The <a href="Character.html#characterblinkinterval"><code>BlinkInterval</code></a> property sets how often the blinking animation is played.</p>
+<p><strong>NOTE:</strong> blinking animation works only for Sierra-style or QFG4-style speech, when the SpeechView is displaying a character's portrait.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">BlinkView</span> = <span class="dv">10</span><span class="op">;</span></span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">BlinkInterval</span> = <span class="dv">160</span><span class="op">;</span></span></code></pre></div>
@@ -1008,6 +1014,7 @@
 <h3><a href="#characterblinkwhilethinking"><code>Character.BlinkWhileThinking</code></a></h3>
 <div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">BlinkWhileThinking</span></span></code></pre></div>
 <p>Gets/sets whether the character can blink while thinking. By default this is set to true, but if your blinking animation only goes with the talking animation and not the thinking one, you can stop the character from blinking while Thinking by setting this to false.</p>
+<p><strong>NOTE:</strong> blinking animation works only for Sierra-style or QFG4-style speech, when the ThinkView is displaying a character's portrait.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">BlinkWhileThinking</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will stop EGO from blinking while his thinking animation is playing.</p>
@@ -1339,7 +1346,7 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">SpeakingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>    cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
 <span id="cb162-4"><a href="#cb162-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb162-5"><a href="#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will move cMan to the right every time the talking animation loops back to Frame 0.</p>
@@ -1392,10 +1399,10 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
 <span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span></span>
+<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">50</span><span class="op">;</span></span>
 <span id="cb170-5"><a href="#cb170-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb170-6"><a href="#cb170-6" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb170-6"><a href="#cb170-6" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb170-7"><a href="#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>this will keep character semi-transparent while he is thinking.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
@@ -1411,7 +1418,7 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">ThinkingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a>    cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
 <span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will move cMan to the right every time the thinking animation loops back to Frame 0.</p>
@@ -1536,7 +1543,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

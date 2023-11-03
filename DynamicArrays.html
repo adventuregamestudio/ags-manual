@@ -167,7 +167,7 @@
 <p>Note that if you store a dynamic array in a local function variable, that variable will get removed as soon as function ends, and if array was not reassigned to any global pointer, then it also gets deleted automatically.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">func</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arrOfInts<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;...&gt;</span> <span class="co">// do something with this array</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something with this array</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// as soon as function ends the array gets deleted</span></span></code></pre></div>
 <p>The array will not be deleted if you <em>return</em> it from the function; so long as the returned array is assigned to a pointer of course:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> <span class="fu">func_makearr</span><span class="op">(</span><span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
@@ -186,7 +186,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

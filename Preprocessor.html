@@ -120,10 +120,10 @@
 <section id="ifdef-ifndef-endif" class="level3">
 <h3><a href="#ifdef-ifndef-endif">ifdef, ifndef, endif</a></h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef &lt;macro&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// script</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">// script</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef &lt;macro&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// script</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// script</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <p><strong>#ifdef</strong> means "if defined", and it tests if macro of this name exists, and if it is, then the following part of script between <strong>#ifdef</strong> and <strong>#endif</strong> will be enabled. If such macro does not exist, then this part of script will be disabled and not compiled at all. It does not at all matter whether macro has a value and what it is.</p>
 <p><strong>#ifndef</strong> means "if not defined", and it does inverse test: script underneath will be enabled if there's no such macro, and enabled if there is.</p>
@@ -132,16 +132,16 @@
 <section id="ifver-ifnver" class="level3">
 <h3><a href="#ifver-ifnver">ifver, ifnver</a></h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifver &lt;editor-version&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// script</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// script</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifnver &lt;version&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// script</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// script</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <p><strong>#ifver</strong> does AGS editor version test. If the version of AGS Editor you are building your game in is <em>at least as high</em> as this number, then the part of the script between #ifver and #endif will be enabled, if it's not then it will be disabled and not compiled at all.</p>
 <p><strong>#ifnver</strong> does the opposite test: it enables the script if the version of AGS Editor is below the given number.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifver 3.5.0</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;This script was compiled in AGS 3.5.0 or higher&quot;</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;This script was compiled in AGS 3.5.0 or higher&quot;</span><span class="op">);</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <p>This keyword was introduced primarily to let script module authors to be able to keep different variants of code supported by older and newer versions of AGS. For example, if you were writing a script module, you may need to check which version of AGS the user of your module is using, for example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifver 2.72</span></span>
@@ -162,7 +162,7 @@
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define AWESOME_MODULE</span></span></code></pre></div>
 <p>Then you could do this in your module's script:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef AWESOME_MODULE</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="pp">#error This script requires &quot;Awesome Module&quot;, please include it in the game</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#error This script requires &quot;Awesome Module&quot;, please include it in the game</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
 <hr />
 </section>
@@ -187,7 +187,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

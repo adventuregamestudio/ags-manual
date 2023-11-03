@@ -142,6 +142,7 @@
 <a href="ScriptAPIOverview.html#api-switches">API switches (Script API Overview)</a><br>
 <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a><br>
 <a href="ScriptKeywords.html#arrays">Arrays (Script language keywords)</a><br>
+<a href="DefaultSetup.html#audio">Audio (Default Setup)</a><br>
 <a href="AudioInScript.html#audio-in-script">Audio in script</a><br>
 <a href="MusicAndSound.html#audio-in-the-editor">Audio in the Editor (Music and sound)</a><br>
 <a href="AudioChannel.html#audiochannel-functions-and-properties">AudioChannel</a><br>
@@ -163,12 +164,14 @@
 <a href="AudioChannel.html#audiochannelvolume">AudioChannel.Volume</a><br>
 <a href="AudioClip.html#audioclip-functions-and-properties">AudioClip</a><br>
 <a href="AudioClip.html#audioclipfiletype">AudioClip.FileType</a><br>
+<a href="AudioClip.html#audioclipgetbyname">AudioClip.GetByName</a><br>
 <a href="AudioClip.html#audioclipid">AudioClip.ID</a><br>
 <a href="AudioClip.html#audioclipisavailable">AudioClip.IsAvailable</a><br>
 <a href="AudioClip.html#audioclipplay">AudioClip.Play</a><br>
 <a href="AudioClip.html#audioclipplayfrom">AudioClip.PlayFrom</a><br>
 <a href="AudioClip.html#audioclipplayonchannel">AudioClip.PlayOnChannel</a><br>
 <a href="AudioClip.html#audioclipplayqueued">AudioClip.PlayQueued</a><br>
+<a href="AudioClip.html#audioclipscriptname">AudioClip.ScriptName</a><br>
 <a href="AudioClip.html#audioclipstop">AudioClip.Stop</a><br>
 <a href="AudioClip.html#audiocliptype">AudioClip.Type</a><br>
 <a href="StandardEnums.html#audiofiletype">AudioFileType</a><br>
@@ -346,6 +349,7 @@
 <a href="Constants.html#constants">Constants</a><br>
 <a href="ContactingTheDevelopers.html#contacting-the-developers">Contacting the developers</a><br>
 <a href="ScriptKeywords.html#continue">continue (Script language keywords)</a><br>
+<a href="EditorRoom.html#controls">Controls (Room Editor)</a><br>
 <a href="acintro8.html#conversations">Conversations (Getting Started with AGS - Part 8)</a><br>
 <a href="Settingupthegame.html#conversations">Conversations (Setting up the game)</a><br>
 <a href="Copyright.html#copyright-and-terms-of-use">Copyright and terms of use</a><br>
@@ -385,6 +389,7 @@
 <a href="DateTime.html#datetimesecond">DateTime.Second</a><br>
 <a href="DateTime.html#datetimeyear">DateTime.Year</a><br>
 <a href="Globalfunctions_General.html#debug">Debug</a><br>
+<a href="EditorPreferences.html#debug-log">Debug Log (Editor Preferences)</a><br>
 <a href="Debuggingfeatures.html#debugging-features">Debugging features</a><br>
 <a href="DefaultSetup.html#default-setup">Default Setup</a><br>
 <a href="Preprocessor.html#define">define (Preprocessor)</a><br>
@@ -523,6 +528,7 @@
 <a href="EnginePluginRun-timeAPI.html#engine-plugin-run-time-api">Engine Plugin Run-time API</a><br>
 <a href="EnginePlugins.html#engine-plugins">Engine Plugins</a><br>
 <a href="ScriptKeywords.html#enum">enum (Script language keywords)</a><br>
+<a href="DefaultSetup.html#environment">Environment (Default Setup)</a><br>
 <a href="StandardEnums.html#eoperatingsystem">eOperatingSystem</a><br>
 <a href="Preprocessor.html#error">error (Preprocessor)</a><br>
 <a href="StandardEnums.html#espeechstyle">eSpeechStyle</a><br>
@@ -547,12 +553,14 @@
 <a href="File.html#fileerror">File.Error</a><br>
 <a href="File.html#fileexists">File.Exists</a><br>
 <a href="File.html#fileopen">File.Open</a><br>
+<a href="File.html#filepath">File.Path</a><br>
 <a href="File.html#fileposition">File.Position</a><br>
 <a href="File.html#filereadint">File.ReadInt</a><br>
 <a href="File.html#filereadrawchar">File.ReadRawChar</a><br>
 <a href="File.html#filereadrawint">File.ReadRawInt</a><br>
 <a href="File.html#filereadrawlineback">File.ReadRawLineBack</a><br>
 <a href="File.html#filereadstringback">File.ReadStringBack</a><br>
+<a href="File.html#fileresolvepath">File.ResolvePath</a><br>
 <a href="File.html#fileseek">File.Seek</a><br>
 <a href="File.html#filewriteint">File.WriteInt</a><br>
 <a href="File.html#filewriterawchar">File.WriteRawChar</a><br>
@@ -567,6 +575,7 @@
 <a href="EditorFont.html#font-preview">Font Preview</a><br>
 <a href="acintro9.html#fonts">Fonts (Getting Started with AGS - Part 9)</a><br>
 <a href="Settingupthegame.html#fonts">Fonts (Setting up the game)</a><br>
+<a href="UnicodeSupport.html#fonts">Fonts (Unicode Support)</a><br>
 <a href="StandardEnums.html#fonttype">FontType</a><br>
 <a href="ScriptKeywords.html#for">for (Script language keywords)</a><br>
 <a href="FAQ.html#frequently-asked-questions">Frequently Asked Questions</a><br>
@@ -613,6 +622,7 @@
 <a href="Game.html#gamename">Game.Name</a><br>
 <a href="Game.html#gamenormalfont">Game.NormalFont</a><br>
 <a href="Game.html#gameplayvoiceclip">Game.PlayVoiceClip</a><br>
+<a href="Game.html#gameresetdoonceonly">Game.ResetDoOnceOnly</a><br>
 <a href="Game.html#gamesetaudiotypespeechvolumedrop">Game.SetAudioTypeSpeechVolumeDrop</a><br>
 <a href="Game.html#gamesetaudiotypevolume">Game.SetAudioTypeVolume</a><br>
 <a href="Game.html#gamesetsavegamedirectory">Game.SetSaveGameDirectory</a><br>
@@ -627,6 +637,7 @@
 <a href="Game.html#gametranslationfilename">Game.TranslationFilename</a><br>
 <a href="Game.html#gameusenativecoordinates">Game.UseNativeCoordinates</a><br>
 <a href="Game.html#gameviewcount">Game.ViewCount</a><br>
+<a href="DefaultSetup.html#gameplay">Gameplay (Default Setup)</a><br>
 <a href="Setup.html#gameplay-settings">Gameplay settings (Run-time engine setup)</a><br>
 <a href="Globalfunctions_Event.html#game_start">game_start</a><br>
 <a href="GeneralSettings.html#general-settings">General settings</a><br>
@@ -670,6 +681,7 @@
 <a href="Globalfunctions_Screen.html#global-functions-screen-effects">Global functions (Screen Effects)</a><br>
 <a href="Globalfunctions_Wait.html#global-functions-wait">Global functions (Wait)</a><br>
 <a href="GlobalVariables.html#global-variables">Global variables</a><br>
+<a href="DefaultSetup.html#graphics">Graphics (Default Setup)</a><br>
 <a href="GraphicsDriver.html#graphics-driver-selection">Graphics driver selection</a><br>
 <a href="Setup.html#graphics-settings">Graphics settings (Run-time engine setup)</a><br>
 <a href="GUI.html#gui-functions-and-properties">GUI</a><br>
@@ -741,6 +753,7 @@
 <a href="EditorInventoryItems.html#hotspotx">HotspotX (Inventory Items Editor)</a><br>
 <a href="EditorInventoryItems.html#hotspoty">HotspotY (Inventory Items Editor)</a><br>
 <a href="TroubleshootingWindowsZoneID.html#how-do-i-clean-my-ags-editor-files-of-alternate-data-streams">How do I clean my AGS editor files of "alternate data streams"? (Troubleshooting Windows Zone Identifier)</a><br>
+<a href="RuntimeEngine.html#how-the-engine-finds-the-game-data">How the engine finds the game data (The run-time engine)</a><br>
 <a href="MIDI-playback.html#how-to-configure-timidity">How to configure Timidity (MIDI playback)</a><br>
 <h3 id="i">I</h3>
 <a href="EnginePluginDesign-timeAPI.html#iagseditorgeteditorhandle">IAGSEditor.GetEditorHandle (Engine Plugin Design-time API)</a><br>
@@ -1003,6 +1016,7 @@
 <a href="ListBox.html#listboxtopitem">ListBox.TopItem</a><br>
 <a href="ListBox.html#listboxtranslated">ListBox.Translated</a><br>
 <a href="StandardEnums.html#locationtype">LocationType</a><br>
+<a href="EditorLogPanel.html#log-panel">Log Panel</a><br>
 <a href="StandardEnums.html#loglevel">LogLevel</a><br>
 <a href="ScriptingTutorialPart2.html#loops">Loops (Scripting Tutorial - Part 2)</a><br>
 <h3 id="m">M</h3>
@@ -1031,9 +1045,11 @@
 <a href="Maths.html#mathstan">Maths.Tan</a><br>
 <a href="Maths.html#mathstanh">Maths.Tanh</a><br>
 <a href="MIDI-playback.html#midi-playback">MIDI playback</a><br>
+<a href="DefaultSetup.html#misc">Misc (Default Setup)</a><br>
 <a href="EditorPreferences.html#misc">Misc (Editor Preferences)</a><br>
 <a href="acintro8.html#more-on-conversations">More on conversations (Getting Started with AGS - Part 8)</a><br>
 <a href="Mouse.html#mouse-functions-and-properties">Mouse</a><br>
+<a href="DefaultSetup.html#mouse">Mouse (Default Setup)</a><br>
 <a href="acintro5.html#mouse-cursor-on-inventory-item">Mouse Cursor on Inventory Item (Getting Started with AGS - Part 5)</a><br>
 <a href="Setup.html#mouse-options">Mouse options (Run-time engine setup)</a><br>
 <a href="Mouse.html#mouseautolock">Mouse.AutoLock</a><br>
@@ -1083,6 +1099,7 @@
 <a href="OOProgramming.html#object-oriented-programming">Object Oriented Programming</a><br>
 <a href="Object.html#objectanimate">Object.Animate</a><br>
 <a href="Object.html#objectanimating">Object.Animating</a><br>
+<a href="Object.html#objectanimationvolume">Object.AnimationVolume</a><br>
 <a href="Object.html#objectbaseline">Object.Baseline</a><br>
 <a href="Object.html#objectblockingheight">Object.BlockingHeight</a><br>
 <a href="Object.html#objectblockingwidth">Object.BlockingWidth</a><br>
@@ -1090,6 +1107,7 @@
 <a href="Object.html#objectframe">Object.Frame</a><br>
 <a href="Object.html#objectgetatroomxy">Object.GetAtRoomXY</a><br>
 <a href="Object.html#objectgetatscreenxy">Object.GetAtScreenXY</a><br>
+<a href="Object.html#objectgetbyname">Object.GetByName</a><br>
 <a href="Object.html#objectgetproperty">Object.GetProperty</a><br>
 <a href="Object.html#objectgettextproperty">Object.GetTextProperty</a><br>
 <a href="Object.html#objectgraphic">Object.Graphic</a><br>
@@ -1109,6 +1127,7 @@
 <a href="Object.html#objectremovetint">Object.RemoveTint</a><br>
 <a href="Object.html#objectruninteraction">Object.RunInteraction</a><br>
 <a href="Object.html#objectscaling">Object.Scaling</a><br>
+<a href="Object.html#objectscriptname">Object.ScriptName</a><br>
 <a href="Object.html#objectsetlightlevel">Object.SetLightLevel</a><br>
 <a href="Object.html#objectsetposition">Object.SetPosition</a><br>
 <a href="Object.html#objectsetproperty">Object.SetProperty</a><br>
@@ -1171,6 +1190,7 @@
 <a href="Parser.html#parsersaid">Parser.Said</a><br>
 <a href="Parser.html#parsersaidunknownword">Parser.SaidUnknownWord</a><br>
 <a href="Globalfunctions_General.html#pausegame">PauseGame</a><br>
+<a href="DefaultSetup.html#performance">Performance (Default Setup)</a><br>
 <a href="EditorInventoryItems.html#playerstartswithitem">PlayerStartsWithItem (Inventory Items Editor)</a><br>
 <a href="Multimedia.html#playflic">PlayFlic</a><br>
 <a href="Multimedia.html#playsilentmidi">PlaySilentMIDI</a><br>
@@ -1183,7 +1203,6 @@
 <a href="Pointers.html#pointers-for-programming-newbies">Pointers for programming newbies (Pointers in AGS)</a><br>
 <a href="Pointers.html#pointers-in-ags">Pointers in AGS</a><br>
 <a href="Preprocessor.html#preprocessor">Preprocessor</a><br>
-<a href="EditorSprite.html#project-without-a-sprite-file">Project without a Sprite File (Sprite Manager)</a><br>
 <a href="EditorInventoryItems.html#properties">Properties (Inventory Items Editor)</a><br>
 <a href="EditorView.html#properties">Properties (View Editor)</a><br>
 <a href="EditorRoom.html#properties-control">Properties control (Room Editor)</a><br>
@@ -1312,6 +1331,7 @@
 <a href="Globalfunctions_General.html#settextwindowgui">SetTextWindowGUI</a><br>
 <a href="Globalfunctions_General.html#settimer">SetTimer</a><br>
 <a href="Settingupthegame.html#setting-up-the-game">Setting up the game</a><br>
+<a href="DefaultSetup.html#setup-appearance">Setup appearance (Default Setup)</a><br>
 <a href="Globalfunctions_Room.html#setviewport">SetViewport</a><br>
 <a href="Globalfunctions_Room.html#setwalkbehindbase">SetWalkBehindBase</a><br>
 <a href="Globalfunctions_Screen.html#shakescreen">ShakeScreen</a><br>
@@ -1463,8 +1483,10 @@
 <a href="acintro6.html#tiled-sprite-import">Tiled sprite import (Getting Started with AGS - Part 6)</a><br>
 <a href="EditorSprite.html#tiled-sprite-import">Tiled sprite import (Sprite Manager)</a><br>
 <a href="Globalfunctions_Screen.html#tintscreen">TintScreen</a><br>
+<a href="DefaultSetup.html#touch">Touch (Default Setup)</a><br>
 <a href="StandardEnums.html#transitionstyle">TransitionStyle</a><br>
 <a href="Translations.html#translations">Translations</a><br>
+<a href="UnicodeSupport.html#translations">Translations (Unicode Support)</a><br>
 <a href="Translations.html#troubleshooting">Troubleshooting (Translations)</a><br>
 <a href="TroubleshootingWindowsZoneID.html#troubleshooting-windows-zone-identifier">Troubleshooting Windows Zone Identifier</a><br>
 <a href="UpgradeTo36.html#ttf-fonts-behavior">TTF fonts behavior (Upgrading to AGS 3.6)</a><br>
@@ -1487,11 +1509,14 @@
 <h3 id="u">U</h3>
 <a href="BlockingScripts.html#understanding-blocking-scripts">Understanding blocking scripts</a><br>
 <a href="Globalfunctions_Event.html#unhandled_event">unhandled_event</a><br>
+<a href="UnicodeSupport.html#unicode-support">Unicode Support</a><br>
 <a href="UpgradeTo36.html#unicode-support">Unicode support (Upgrading to AGS 3.6)</a><br>
 <a href="Globalfunctions_General.html#unpausegame">UnPauseGame</a><br>
 <a href="Globalfunctions_General.html#updateinventory">UpdateInventory</a><br>
 <a href="Globalfunctions_Palette.html#updatepalette">UpdatePalette</a><br>
+<a href="EditorSprite.html#updating-sprites">Updating sprites (Sprite Manager)</a><br>
 <a href="UpgradingFromPreviousVersion.html#upgrading-from-a-previous-version">Upgrading from a previous version</a><br>
+<a href="UnicodeSupport.html#upgrading-older-projects">Upgrading older projects (Unicode Support)</a><br>
 <a href="UpgradingTo27.html#upgrading-to-ags-27">Upgrading to AGS 2.7</a><br>
 <a href="UpgradingTo271.html#upgrading-to-ags-271">Upgrading to AGS 2.71</a><br>
 <a href="UpgradeTo30.html#upgrading-to-ags-30">Upgrading to AGS 3.0</a><br>
@@ -1503,6 +1528,7 @@
 <a href="UpgradeTo341.html#upgrading-to-ags-341">Upgrading to AGS 3.4.1</a><br>
 <a href="UpgradeTo35.html#upgrading-to-ags-35">Upgrading to AGS 3.5</a><br>
 <a href="UpgradeTo36.html#upgrading-to-ags-36">Upgrading to AGS 3.6</a><br>
+<a href="UnicodeSupport.html#using-ascii-mode">Using ASCII mode (Unicode Support)</a><br>
 <a href="Templates.html#using-downloaded-templates">Using downloaded templates (New Game templates)</a><br>
 <a href="Tumbleweed.html#using-inventory-items">Using Inventory Items (Tumbleweed)</a><br>
 <a href="DialogScript.html#using-regular-scripting-commands-in-dialogs">Using regular scripting commands in dialogs (Dialog Script)</a><br>
@@ -1631,7 +1657,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 

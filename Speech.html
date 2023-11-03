@@ -157,11 +157,11 @@
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> pmove = <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span> <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>plast <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> = plast<span class="op">;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">+</span>= pmove<span class="op">;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">&lt;</span> PORTRAIT_YMIN<span class="op">)</span> pmove = <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">&gt;</span> PORTRAIT_YMAX<span class="op">)</span> pmove = <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    plast = <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>plast <span class="op">&gt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> = plast<span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">+</span>= pmove<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">&lt;</span> PORTRAIT_YMIN<span class="op">)</span> pmove = <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span> <span class="op">&gt;</span> PORTRAIT_YMAX<span class="op">)</span> pmove = <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        plast = <span class="bu">Speech</span><span class="op">.</span><span class="at">PortraitOverlay</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Waves a speech portrait up and down</p>
@@ -262,11 +262,11 @@ eAlignRight</code></pre>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">late_repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Overlay</span><span class="op">*</span> curSpeech = <span class="bu">Speech</span><span class="op">.</span><span class="at">TextOverlay</span><span class="op">;</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">==</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// speech has started</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech has started</span></span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// speech is over</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech is over</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> lastSpeech<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// speech changed to the next line</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech changed to the next line</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    lastSpeech = curSpeech<span class="op">;</span></span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -309,7 +309,7 @@ eSpeechVoiceOnly     voice only, no text</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6b7d076840f4584303a930ca00e2cca036d404f8
+      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
     </p>
   </footer>
 
