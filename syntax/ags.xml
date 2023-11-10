@@ -607,6 +607,8 @@
       </context>
 
       <context name="Preprocessor" attribute="Preprocessor" lineEndContext="#pop">
+        <Detect2Chars char="/" char1="/" attribute="Comment" context="#pop!LineComment"/>
+        <Detect2Chars char="/" char1="*" attribute="Comment" context="#pop!BlockComment"/>
       </context>
 
       <context name="DotProperty" lineEndContext="#stay">
