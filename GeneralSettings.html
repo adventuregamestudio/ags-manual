@@ -114,8 +114,7 @@
 <ul>
 <li><p><strong>Color Depth</strong> - the number of colors your game will use. Default is 32-bit, which lets you use all the range of colors contemporary devices support. 16-bit is rather a compatibility setting, that will reduce the size of your game resources at the cost of color precision. 8-bit color mode is a special feature for making palette-based games. See also: <a href="Settingupthegame.html#palette-setup">Palette setup</a>, <a href="Globalfunctions_Palette.html">Palette functions</a></p></li>
 <li><p><strong>Developer name</strong> - this will add the provided string to the game's executable properties.</p></li>
-<li><p><strong>Enable letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is rather a compatibility option for importing old projects, because AGS does not have proper support for custom viewport size.</p></li>
-<li><p><strong>Game file name</strong> - your game's executable and/or data filename. This string will be used when creating game package files on disk.</p></li>
+<li><p><strong>Game file name</strong> - your game's executable and/or data filename. This name will be used when creating game package files on disk.</p></li>
 <li><p><strong>Game name</strong> - your game's title. This string will be displayed at the window title, and also added to the game's executable properties.</p></li>
 <li><p><strong>Maximum possible score</strong> - the maximum score your game has, if you are using score mechanics, such as <a href="Globalfunctions_General.html#givescore"><code>GiveScore</code></a> script function.</p></li>
 <li><p><strong>Put sound and sprite files in source control</strong> - whether game resources, such as sprites and audio, are put under source control. For more information see <a href="SourceControl.html">Source Control integration</a>.</p></li>
@@ -155,6 +154,7 @@
 <li><p><strong>Enforce new style strings</strong> - Puts the script compiler into strict mode, where it will not accept the old-style (pre-AGS 2.7) fixed-length strings.</p></li>
 <li><p><strong>Enforce post-2.62 scripting</strong> - Puts the script compiler into strict mode, where it will not accept the old-style (pre-AGS 2.7) script commands. This should preferably be ticked, since you should no longer be using the old commands.</p></li>
 <li><p><strong>Left-to-right operator precedence</strong> - if this is enabled, then operators of equal precedence in the script will be evaluated left to right. For example, 5 - 4 - 3 could be interpreted as (5 - 4) - 3 or as 5 - (4 - 3), thus giving different results. You should always use parenthesis to clarify expressions like this, so that the operator precedence doesn't affect the result.</p></li>
+<li><p><strong>Old-style letterbox mode</strong> - only available if your game's resolution is 320x200 or 640x400. If you enable it, your game will run as 320x240 and 640x480 game correspondingly, while keeping room viewport size at 320x200 or 640x400, and adding black horizontal borders above and below. Today this is strictly a compatibility option for importing old projects, because since v3.5.0 AGS supports custom room viewports in script.</p></li>
 <li><p><strong>Script API version</strong> - defines the topmost level of built-in script content that you want to enable for your project. It is suggested to leave this at the "Highest" value, unless you are importing an older project and newest built-in script functions conflict with some of your own scripts. In such case you may decide between fixing your script or lowering AGS API version. The latter will let you compile game scripts without any changes, at the price of not being able to use newer built-in functions. You may still change it to "Highest" anytime later.</p></li>
 <li><p><strong>Script compatibility level</strong> - defines the lowest level of built-in content. It is useful if you wish to keep using some of the old functions that were declared obsolete by newer version of AGS. You do so by setting this switch to version that still had those functions non-deprecated.</p></li>
 <li><p><strong>Use low-resolution coordinates in script</strong> - always use 320x200 coordinate space when scripting your game, regardless of its actual resolution. Basically, your game will be treated as if it were 320x200, but pixels are of larger size. Normally this option should be off; it may only be useful when importing really old game project where such setting was a norm.</p></li>
@@ -169,19 +169,26 @@
 <li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
 <li><strong>Characters turn before walking</strong> - specifies that when a character starts to walk somewhere, it will first turn round to face the correct direction using available animation frames, rather than just suddenly switching to face the right way.</li>
 <li><strong>Characters turn to face direction</strong> - if set, then when a character turns round with the <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a> or <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a> script commands, they will visibly turn around using their available loops. If this option is not set, they will immediately appear facing their new direction.</li>
+<li><strong>Scale Character sprite offsets</strong> - if set, then visual character's offsets will be scaled in proportion to the current character's scaling. This refers to values of <a href="Character.html#characterz"><code>Character.z</code></a> property and parameters of <a href="Character.html#characterlockviewoffset"><code>Character.LockViewOffset</code></a>.</li>
 <li><strong>Scale movement speed with room's mask resolution</strong> - Character walking and object movement speeds will scale inversely in proportion to the current room's Mask Resolution. For example, having 1:2 mask resolution will multiply speed by 2. This is a backward compatible setting that should not be enabled without real need.</li>
 </ul>
 </section>
 <section id="compiler" class="level3">
 <h3><a href="#compiler">Compiler</a></h3>
 <ul>
-<li><strong>Attach game data to exe</strong> (Windows only) - when enabled the main game data will be appended to "gamename.exe" file. This is how AGS games were packed traditionally, and is on by default. When disabled game data will be packed into the separate "gamename.ags" file and placed alongside with the game exe. Disabling this option will make the game file structure more transparent and, for example, may help to prevent false positive reports from antiviruses that often don't like it when AGS engine reads data from exe.</li>
-<li><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</li>
-<li><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</li>
-<li><strong>Enable sprite storage optimization</strong> - When possible save sprites in game files in a format that requires less storage space. This may reduce the compiled game size on disk, but effect may differ depending on number of colors used in sprites, and other factors.</li>
-<li><strong>Package custom data folder(s)</strong> - A comma-separated list of folders. The contents of these folders will be added to the game resources, and you will be able to access them by using the <code>$DATA$</code> token in file paths. The top level directory name is preserved, to avoid file name collision. More details on this in <a href="File.html#fileopen"><code>File.Open</code></a>.</li>
-<li><strong>Split resource files into X MB-sized chunks</strong> - see <a href="DistGame.html#splitting-resource-files">here</a> for information.</li>
-<li><strong>Sprite file compression</strong> - when enabled the sprites will be compressed to reduce game size, at expense of performance. The performance impact in desktop platforms is usually negligible.</li>
+<li><p><strong>Attach game data to exe</strong> (Windows only) - when enabled the main game data will be appended to "gamename.exe" file. This is how AGS games were packed traditionally, and is on by default. When disabled game data will be packed into the separate "gamename.ags" file and placed alongside with the game exe. Disabling this option will make the game file structure more transparent and, for example, may help to prevent false positive reports from antiviruses that often don't like it when AGS engine reads data from exe.</p></li>
+<li><p><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</p></li>
+<li><p><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</p></li>
+<li><p><strong>Enable sprite storage optimization</strong> - When possible save sprites in game files in a format that requires less storage space. This may reduce the compiled game size on disk, but effect may differ depending on number of colors used in sprites, and other factors.</p></li>
+<li><p><strong>Package custom data folder(s)</strong> - A comma-separated list of folders. The contents of these folders will be added to the game resources, and you will be able to access them by using the <code>$DATA$</code> token in file paths. The top level directory name is preserved, to avoid file name collision. More details on this in <a href="File.html#fileopen"><code>File.Open</code></a>.</p></li>
+<li><p><strong>Split resource files into X MB-sized chunks</strong> - see <a href="DistGame.html#splitting-resource-files">here</a> for information.</p></li>
+<li><p><strong>Sprite file compression</strong> - when enabled the sprites will be compressed to reduce game size. In theory this may affect runtime performance (sprite loading times), but the actual effect depends on multiple factors including specifics of the system the game is running on, so not easy to predict. On desktop platforms the difference in speed is usually negligible. AGS provides few compression types, and the best choice may depend on the sort of sprites you are using in your game on average.</p>
+<ul>
+<li><strong>None</strong> - no compression will be used. This setting is not recommended for the game release.</li>
+<li><strong>RLE</strong> - this compression type is best suited for low-resolution and low-detailed graphics with limited number of colors.</li>
+<li><strong>LZW</strong> - this compression type is better suited for high-resolution and highly detailed graphics.</li>
+<li><strong>Deflate</strong> - high level compression, also used in PNG and ZIP formats.</li>
+</ul></li>
 </ul>
 </section>
 <section id="dialog" class="level3">
@@ -208,6 +215,7 @@
 <p>Last two variants are <a href="ExtenderFunctions.html">extender functions</a> for Character struct.<br> The return value is actually not essential and may be any type.<br> If the field is left empty then the standard Character.Say function is used.</p>
 <p><strong>IMPORTANT</strong>: this setting currently does not work with the "Say" checkbox in the dialog options list. The workaround is to duplicate option's text as a first cue in the dialog script.</p></li>
 <li><p><strong>Dialog bullet point image</strong> - defines the number of sprite to use as a bullet image before each dialog option.</p></li>
+<li><p><strong>Game-wide speech animation delay</strong> - defines a game-wide speech animation delay to use instead of individual character settings. This setting is only available if <strong>"Use game-wide speech animation delay"</strong> is enabled.</p></li>
 <li><p><strong>Gap between dialog options</strong> - defines the gap between the options displayed to the player in a conversation. Normally this is 0, which means the options are right below each other. Changing it to 1 or 2 can make the option display look less cluttered; it's a matter of personal preference.</p></li>
 <li><p><strong>Number dialog options</strong> - enables keyboard shortcuts to choose dialog options (keys 1-9) and adds an index number before each dialog option when they are displayed to the player. For example,</p>
 <pre><code>1. Hello there!
@@ -226,6 +234,9 @@
 <ul>
 <li><strong>Display multiple icons for multiple items</strong> - normally, if the player has two of an inventory item, the item will still only be shown once in the Inventory window. If you check this option, however, then all the copies of the item that the player has will be displayed. Useful for RPG-style inventories.</li>
 <li><strong>Inventory item cursor hotspot marker</strong> - whether AGS should automatically add a marker to inventory item cursors to help the player see where the active hotspot is on the cursor. May either draw simple crosshair using told colors, or use specified sprite.</li>
+<li><strong>Inventory item cursor hotspot marker crosshair color</strong> - the primary color of the item cursor hotspot marker.</li>
+<li><strong>Inventory item cursor hotspot marker dot color</strong> - the secondary color of the item cursor hotspot marker.</li>
+<li><strong>Inventory item cursor hotspot marker sprite</strong> - the sprite number to use for the item cursor hotspot marker.</li>
 <li><strong>Override built-in inventory window click handling</strong> - AGS has some built-in processing of Inventory Window GUI controls, whereby a right-click will Look at the item, and a left click will select it if the cursor mode is Interact. However, if you enable this option, then clicking on an inventory item in an Inventory Window will call your <code>on_mouse_click</code> function with eMouseLeftInv, eMouseMiddleInv or eMouseRightInv, and you then need to process it yourself. You can use the <code>game.inv_activated</code> variable to find out what they clicked on.</li>
 <li><strong>Use selected inventory graphics for cursors</strong> - normally, when you select an inventory item the mouse cursor is changed into that item. However, if you want to create a LucasArts-style game (where the inventory cursor is always a cross-hair), disable this option and it won't be changed.</li>
 </ul>
@@ -243,12 +254,12 @@
 <li><strong>Save games folder name</strong> - determines the name of folder created in the user's Saved Games location to store your game's saves. If left blank, then the game's title is used as folder's name. You might need to change this only if your game's title conflict with some other game.</li>
 <li><strong>Save screenshots in save games</strong> - Saves a mini-screenshot of the player's current position into the save game file. This will create larger save game files, but it will mean that you can use a save game thumbnails GUI to make the save/load interface more professional.</li>
 </ul>
-<p>There used to be an option for Save Game integration with Windows Vista, it was called <strong>Enhanced save games</strong>. Since this was removed in later versions of Windows, this option has been removed in AGS 3.6.0.</p>
+<p>There used to be an option for Save Game integration with Windows Vista, it was called <strong>Enhanced save games</strong>. Since this feature support was removed in modern versions of Windows, this option has been removed since AGS 3.6.0 as well.</p>
 </section>
 <section id="sound" class="level3">
 <h3><a href="#sound">Sound</a></h3>
 <ul>
-<li><strong>Play sound when the player gets points</strong> - controls whether a sound effect is played when the player scores points. If so, you can set the sound number, which will play SOUNDx.WAV (or SOUNDx.MP3), where X is the number you set.</li>
+<li><strong>Play sound when the player gets points</strong> - controls whether a sound effect is played when the player scores points. If so, you can select an audio clip here (but you have to have some imported in your game before doing this).</li>
 </ul>
 </section>
 <section id="text-output" class="level3">
@@ -267,11 +278,18 @@
 <section id="visual" class="level3">
 <h3><a href="#visual">Visual</a></h3>
 <ul>
-<li><strong>Default transition when changing rooms</strong> - defines what type of screen transition is used when moving from one room to another. Various options are available.</li>
-<li><strong>GUI alpha rendering style</strong> - determines which rendering method to use in 32-bit games when a GUI Control is drawn over GUI. The "Proper alpha blending" choice is meant for full alpha blending support, other options exist for compatibility with older versions of AGS only.</li>
-<li><strong>Pixel-perfect click detection</strong> - normally, when the player clicks the mouse, AGS just checks to see if the cursor is within the rectangular area of each character and object on the screen. However, if this option is checked, then it will further check whether the player clicked on an actual pixel of the object graphic, or whether it was a transparent part of the graphic. If this option is enabled and they click on a transparent pixel, then the hotspot behind the object will be activated instead.</li>
-<li><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurface.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</li>
-<li><strong>When player interface is disabled, GUI should</strong> - determines what happens to buttons on your GUIs while the game interface is disabled (e.g. during a cutscene).</li>
+<li><p><strong>Default transition when changing rooms</strong> - defines what type of screen transition is used when moving from one room to another. Various options are available.</p></li>
+<li><p><strong>GUI alpha rendering style</strong> - determines which rendering method to use in 32-bit games when a GUI Control is drawn over GUI. The "Proper alpha blending" choice is meant for full alpha blending support, other options exist for compatibility with older versions of AGS only.</p></li>
+<li><p><strong>GUI controls clip their contents</strong> - determines whether the GUI controls will clip their graphical content, such as text, preventing it from being drawn outside of their rectangle. This setting has few exceptions, please see notes below.</p>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>Button images are clipped using individual button's property called "ClipImage".</li>
+<li>Label with a wrapped text will only ever display next line if there's at least 1 extra pixel of height available past the line spacing.</li>
+<li>Sliders DO NOT clip as of AGS 3.6.0. This is left so for the time being, because the positions of their elements historically are calculated to be outside of their bounds.</li>
+</ul></li>
+<li><p><strong>Pixel-perfect click detection</strong> - normally, when the player clicks the mouse, AGS just checks to see if the cursor is within the rectangular area of each character and object on the screen. However, if this option is checked, then it will further check whether the player clicked on an actual pixel of the object graphic, or whether it was a transparent part of the graphic. If this option is enabled and they click on a transparent pixel, then the hotspot behind the object will be activated instead.</p></li>
+<li><p><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurface.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</p></li>
+<li><p><strong>When player interface is disabled, GUI should</strong> - determines what happens to buttons on your GUIs while the game interface is disabled (e.g. during a cutscene).</p></li>
 </ul>
 </section>
 </section>
@@ -281,7 +299,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

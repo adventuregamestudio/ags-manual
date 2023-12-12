@@ -242,9 +242,14 @@
 <h3><a href="#gamegetlocationname"><code>Game.GetLocationName</code></a></h3>
 <p><em>(Formerly known as global function <code>GetLocationName</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Game</span><span class="op">.</span><span class="at">GetLocationName</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
-<p>Returns the name of whatever is seen in the room under the given screen coordinates (x, y).</p>
-<p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return a blank string.</p>
-<p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return blank string if one is found under these screen coordinates.</p>
+<p>Returns the name of whatever is seen in the room under the given screen coordinates (x, y). This includes following:</p>
+<ul>
+<li>Characters,</li>
+<li>Hotspots,</li>
+<li>Room Objects,</li>
+<li>Inventory Items.</li>
+</ul>
+<p>If there are multiple suitable objects under these coordinates, this function will select the one that is drawn topmost. If there is no suitable object, then function will return a blank string.</p>
 <p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p>This function may allow you, for instance, to create the LucasArts-style status lines reading "Look at xxx" as the player moves the cursor over them.</p>
 <p>Example:</p>
@@ -797,7 +802,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

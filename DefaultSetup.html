@@ -103,7 +103,7 @@
 <section id="default-setup" class="level2">
 <h2><a href="#default-setup">Default Setup</a></h2>
 <p>The Default Setup pane lets you create the default runtime configuration for your game. This configuration is saved as "acsetup.cfg" into the Compiled folder.</p>
-<p>Since <em>AGS 3.6.0</em> the config file in the Compiled folder is created by merging "Default Setup" properties with an optional "acsetup.cfg" file found in the game project's folder, if one is present. This is done to allow game developers provide their own custom settings. In such case the custom file also overrides any options matching ones in Default Setup pane.</p>
+<p>Since <em>AGS 3.6.0</em> the config file in the Compiled folder is created by merging "Default Setup" properties with an optional "acsetup.cfg" file found in the game project's folder, if one is present. This is done to allow game developers provide their own custom settings. In such case the values from "Default Setup" have higher priority, but it does not delete other, custom settings.</p>
 <p>For information on possible "acsetup.cfg" contents please refer to the <a href="EngineConfigFile.html">related topic</a>.</p>
 <p><strong>NOTE:</strong> please be aware that the default game's config cannot be modified using game's <a href="Setup.html">setup utility</a> (aka "winsetup.exe"), because that program modifies config file in the user's personal documents folder instead. The setup utility may be useful to quickly test various options, but config file for your game's distribution will be created from "Default Setup" pane anyway.</p>
 <p><strong>IMPORTANT:</strong> what you set on this pane is a default game configuration, but it may be overridden by a user config. If you have run your game's setup utility at least once and saved, that created a user config file <a href="EngineConfigFile.html#configuration-file-locations">in its own location</a>. Since then changing Default Setup won't be enough to affect your game, you'd also have to change user config by running setup program again. You may also delete user config file (that is safe thing to do), which will reset settings back to default config and let you test it out.</p>
@@ -179,7 +179,9 @@
 <section id="performance" class="level3">
 <h3><a href="#performance">Performance</a></h3>
 <ul>
-<li><strong>Sprite cache size (in megabytes)</strong> - this option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</li>
+<li><strong>Sound cache size (in megabytes)</strong> - this option defines the maximum amount of memory that the game will use for caching sounds. Engine has a rule to cache only "small" sound files, typically ones below 1 MB in size, so this cache is mostly meant for small frequent sound effects, such as footsteps and similar.</li>
+<li><strong>Sprite cache size (in megabytes)</strong> - this option defines the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</li>
+<li><strong>Texture cache size (in megabytes)</strong> - this option defines the maximum amount of <strong>video memory</strong> (of the player's graphics card) that will be used by the texture cache. The texture cache keeps frequently used textures created from sprites by non-Software graphics drivers (Direct3D, OpenGL), and may significantly improve performance in high-resolution games.</li>
 </ul>
 </section>
 <section id="touch" class="level3">
@@ -209,7 +211,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

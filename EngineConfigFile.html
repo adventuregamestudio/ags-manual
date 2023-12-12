@@ -134,16 +134,21 @@
 <ul>
 <li><code>direct3d</code>, <code>opengl</code>, <code>opengles</code>, <code>opengles2</code>, <code>metal</code>, <code>software</code>.</li>
 </ul></li>
-<li><code>windowed = [0; 1]</code> - when enabled, runs game in windowed mode.</li>
-<li><code>screen_def = [string]</code> - determines how display mode is deduced:
+<li><code>fullscreen = [string]</code> - a fullscreen mode definition, which may be one of the following:
 <ul>
-<li><code>explicit</code> - use screen_width and screen_height parameters;</li>
-<li><code>scaling</code> - sets display mode equal to scaled game size;</li>
-<li><code>max</code> - sets display mode equal to device/desktop size.</li>
+<li><code>WxH</code> - explicit window size (e.g. <code>1280x720</code>);</li>
+<li><code>xS</code> - integer game scaling factor (e.g. <code>x4</code>);</li>
+<li><code>desktop</code> - use current system's desktop resolution;</li>
+<li><code>native</code> - use game's native resolution;</li>
+<li><code>full_window</code> - a borderless window covering whole desktop, as opposed to the exclusive fullscreen mode;</li>
+<li><code>default</code> - use engine defaults, which is <code>full_window</code>.</li>
 </ul></li>
-<li><code>screen_width = [integer]</code> - if screen_def is 'explicit', defines display mode width; otherwise ignored.</li>
-<li><code>screen_height = [integer]</code> - if screen_def is 'explicit', defines display mode height; otherwise ignored.</li>
-<li><code>match_device_ratio = [0; 1]</code> - when looking for appropriate fullscreen mode, prioritize ones which have the same aspect ratio as the current device/desktop mode.</li>
+<li><code>window = [string]</code> - a windowed mode definition; the options are same as for the <code>fullscreen</code>, except for <code>full_window</code>, and following differences:
+<ul>
+<li><code>desktop</code> - will try to create largest possible resizing window, while keeping game scaling style (see <code>game_scale_win</code>);</li>
+<li><code>default</code> - use engine defaults, which is <code>desktop</code>.</li>
+</ul></li>
+<li><code>windowed = [0; 1]</code> - when enabled, runs game in windowed mode.</li>
 <li><code>game_scale_fs = [string]</code> - game scaling rule for fullscreen mode, and...</li>
 <li><code>game_scale_win = [string]</code> - game scaling rule for windowed mode, where
 <ul>
@@ -153,7 +158,6 @@
 </ul></li>
 <li><code>filter = [string]</code> - id of the scaling filter to use. Supported filter names are:
 <ul>
-<li><code>none</code> - run in native game size;</li>
 <li><code>stdscale</code> - nearest-neighbour scaling;</li>
 <li><code>linear</code> - anti-aliased scaling; not usable with software renderer.</li>
 </ul></li>
@@ -169,6 +173,8 @@
 <li><code>landscape</code> (2) - locks the screen in landscape orientation.</li>
 </ul></li>
 </ul></li>
+<li><code>sprite_cache_size = [integer]</code> - max size the engine will allocate for the sprite cache, in kilobytes of RAM. Default is 131072 (128 MB).</li>
+<li><code>texture_cache_size = [integer]</code> - max size the engine will allocate for the texture cache, in kilobytes of VRAM (video memory). Default is 131072 (128 MB).</li>
 </ul></li>
 <li><strong>[sound]</strong> - sound options
 <ul>
@@ -184,7 +190,7 @@
 <li><code>wasapi</code>, <code>directsound</code>, <code>winmm</code>, <code>disk</code>, <code>dummy</code></li>
 </ul></li>
 </ul></li>
-<li><code>cache_size = [integer]</code> - size of the engine's sound cache, in kilobytes. Default is 32768 (32 MB).</li>
+<li><code>cache_size = [integer]</code> - max size the engine will allocate for sound cache, in kilobytes. Default is 32768 (32 MB).</li>
 <li><code>stream_threshold = [integer]</code> - max size of the sound clip that engine is allowed to load in memory at once, as opposed to continuously streaming one. In the current implementation this also defines the max size of a clip that may be put into the sound cache. Default is 1024 (1 MB).</li>
 <li><code>usespeech = [0; 1]</code> - enable or disable in-game speech (voice-overs).</li>
 </ul></li>
@@ -207,13 +213,13 @@
 </ul></li>
 <li><strong>[touch]</strong> - touch input options
 <ul>
-<li>emul_mouse_mode = [string | integer] - touch-to-mouse emulation (whether touch input should emulate the mouse input and how):
+<li><code>emul_mouse_mode = [string | integer]</code> - touch-to-mouse emulation (whether touch input should emulate the mouse input and how):
 <ul>
-<li>off (0) - disabled;</li>
-<li>one_finger (1) - one finger maps directly to left click;</li>
-<li>two_fingers (2) - tap 1 finger for left click, hold 1st finger and tap 2nd for right click, double tap 1 finger for drag mode.</li>
+<li><code>off</code> (0) - disabled;</li>
+<li><code>one_finger</code> (1) - one finger maps directly to left click;</li>
+<li><code>two_fingers</code> (2) - tap 1 finger for left click, hold 1st finger and tap 2nd for right click, double tap 1 finger for drag mode.</li>
 </ul></li>
-<li>emul_mouse_relative = [0; 1] - enable or disable relative emulated mouse movement.</li>
+<li><code>emul_mouse_relative = [0; 1]</code> - enable or disable relative emulated mouse movement.</li>
 </ul></li>
 <li><strong>[language]</strong> - language options
 <ul>
@@ -227,10 +233,11 @@
 <li><code>user_data_dir = [string]</code> - custom path to savedgames location.</li>
 <li><code>shared_data_dir = [string]</code> - custom path to shared appdata location.</li>
 <li><code>antialias = [0; 1]</code> - anti-alias scaled sprites.</li>
-<li><code>cachemax = [integer]</code> - size of the engine's sprite cache, in kilobytes. Default is 131072 (128 MB).</li>
-<li><code>clear_cache_on_room_change = [0; 1]</code> - whether to clear sprite cache on every room change.</li>
+<li><code>clear_cache_on_room_change = [0; 1]</code> - whether to clear all resource caches (sprite, texture, sound) on every room change.</li>
 <li><code>load_latest_save = [0; 1]</code> - whether to load latest save on game launch.</li>
+<li><code>background = [0; 1]</code> - whether the game should continue to run in background, when the window does not have an input focus (does not work in exclusive fullscreen mode).</li>
 <li><code>show_fps = [0; 1]</code> - whether to display fps counter on screen.</li>
+<li><code>titletext = [string]</code> - the title of the winsetup window.</li>
 </ul></li>
 <li><strong>[log]</strong> - log options, allow to setup logging to the chosen OUTPUT with given log groups and verbosity levels.
 <ul>
@@ -280,10 +287,12 @@
 </ul></li>
 <li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or lock some in the certain state. Ignored by the engine.
 <ul>
-<li><code>render_at_screenres = [0; 1]</code> - tells to lock "Render sprites in screen resolution" in a default state;</li>
-<li><code>speechvox = [0; 1]</code> - tells to lock "Use digital speech pack" in a default state;</li>
-<li><code>filters = [0; 1]</code> - tells to lock "Graphics filter" selection in a default state;</li>
-<li>&lt;filter id&gt; - tells to remove particular graphics filter from the selection list;</li>
+<li><code>filters = [0; 1]</code> - tells to lock "Graphics filter" selection at the value set in the config file;</li>
+<li><code>&lt;filter id&gt;</code> - tells to remove particular graphics filter from the selection list;</li>
+<li><code>antialias = [0; 1]</code> - tells to lock "Smooth scaled sprites" selection at the value set in the config file;</li>
+<li><code>render_at_screenres = [0; 1]</code> - tells to lock "Render sprites in screen resolution" selection at the value set in the config file;</li>
+<li><code>speechvox = [0; 1]</code> - tells to lock "Use digital speech pack" selection at the value set in the config file;</li>
+<li><code>translation = [0; 1]</code> - tells to lock "Game language" selection at the value set in the config file;</li>
 </ul></li>
 </ul>
 </section>
@@ -294,7 +303,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

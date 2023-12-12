@@ -87,6 +87,7 @@
 <li><a href="#guicontrol-functions-and-properties" id="toc-guicontrol-functions-and-properties"><code>GUIControl</code> functions and properties</a>
 <ul>
 <li><a href="#guicontrolgetatscreenxy" id="toc-guicontrolgetatscreenxy"><code>GUIControl.GetAtScreenXY</code></a></li>
+<li><a href="#guicontrolgetbyname" id="toc-guicontrolgetbyname"><code>GUIControl.GetByName</code></a></li>
 <li><a href="#guicontrolastype" id="toc-guicontrolastype"><code>GUIControl.AsType</code></a></li>
 <li><a href="#guicontrolbringtofront" id="toc-guicontrolbringtofront"><code>GUIControl.BringToFront</code></a></li>
 <li><a href="#guicontrolclickable" id="toc-guicontrolclickable"><code>GUIControl.Clickable</code></a></li>
@@ -102,6 +103,7 @@
 <li><a href="#guicontrolwidth" id="toc-guicontrolwidth"><code>GUIControl.Width</code></a></li>
 <li><a href="#guicontrolx" id="toc-guicontrolx"><code>GUIControl.X</code></a></li>
 <li><a href="#guicontroly" id="toc-guicontroly"><code>GUIControl.Y</code></a></li>
+<li><a href="#guicontrolscriptname" id="toc-guicontrolscriptname"><code>GUIControl.ScriptName</code></a></li>
 <li><a href="#guicontrolzorder" id="toc-guicontrolzorder"><code>GUIControl.ZOrder</code></a></li>
 </ul></li>
 </ul>
@@ -133,42 +135,73 @@
 <p><em>See also:</em> <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></p>
 <hr />
 </section>
+<section id="guicontrolgetbyname" class="level3">
+<h3><a href="#guicontrolgetbyname"><code>GUIControl.GetByName</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUIControl</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
+<p>Returns a pointer to the GUI control with the specified script name, or null if it does not exist.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ReadAndUpdateGUIControl</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/guicontrol_info.txt&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>input <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Error opening file.&quot;</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> controlName = input<span class="op">.</span><span class="at">ReadStringBack</span><span class="op">();</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> controlX = input<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> controlY = input<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span> <span class="op">*</span>controlToUpdate = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>controlName<span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>controlToUpdate <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        controlToUpdate<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span>controlX<span class="op">,</span> controlY<span class="op">);</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;GUI control &#39;%s&#39; updated.&quot;</span><span class="op">,</span> controlName<span class="op">);</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;GUI control &#39;%s&#39; not found.&quot;</span><span class="op">,</span> controlName<span class="op">);</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This is an example of a function to read the control information from a file previously created by AGS. The file contains the name of a control and it's position, the function reads it and updates the control.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolscriptname"><code>GUIControl.ScriptName</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a></p>
+<hr />
+</section>
 <section id="guicontrolastype" class="level3">
 <h3><a href="#guicontrolastype"><code>GUIControl.AsType</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span><span class="op">*</span>  <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsButton</span><span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">InvWindow</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsInvWindow</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Label</span><span class="op">*</span>   <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsLabel</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">ListBox</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsListBox</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Slider</span><span class="op">*</span>  <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsSlider</span><span class="op">;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">TextBox</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsTextBox</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span><span class="op">*</span>  <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsButton</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">InvWindow</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsInvWindow</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Label</span><span class="op">*</span>   <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsLabel</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">ListBox</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsListBox</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Slider</span><span class="op">*</span>  <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsSlider</span><span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">TextBox</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">AsTextBox</span><span class="op">;</span></span></code></pre></div>
 <p>Converts a generic GUIControl* pointer into a variable of the correct type, and returns it. If the control is not of the requested type, returns <em>null</em>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span> <span class="op">*</span>theButton = gIconbar<span class="op">.</span><span class="at">Controls</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">AsButton</span><span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>theButton <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Control 2 is not a button!!!!&quot;</span><span class="op">);</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    theButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">44</span><span class="op">;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span> <span class="op">*</span>theButton = gIconbar<span class="op">.</span><span class="at">Controls</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">AsButton</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>theButton <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Control 2 is not a button!!!!&quot;</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    theButton<span class="op">.</span><span class="at">NormalGraphic</span> = <span class="dv">44</span><span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>attempts to set Button 2 on GUI ICONBAR to have NormalGraphic 44, but if that control is not a button, prints a message.</p>
 <p><em>See also:</em> <a href="GUI.html#guicontrols"><code>GUI.Controls</code></a></p>
 <hr />
 </section>
 <section id="guicontrolbringtofront" class="level3">
 <h3><a href="#guicontrolbringtofront"><code>GUIControl.BringToFront</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">BringToFront</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">BringToFront</span><span class="op">()</span></span></code></pre></div>
 <p>Brings this control to the front of the Z-order. This allows you to rearrange the display order of controls within the GUI.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>btnBigButton<span class="op">.</span><span class="at">BringToFront</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>btnBigButton<span class="op">.</span><span class="at">BringToFront</span><span class="op">();</span></span></code></pre></div>
 <p>will move the <em>btnBigButton</em> button to be in front of all other controls on the GUI.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolsendtoback"><code>GUIControl.SendToBack</code></a>, <a href="GUIControl.html#guicontrolzorder"><code>GUIControl.ZOrder</code></a></p>
 <hr />
 </section>
 <section id="guicontrolclickable" class="level3">
 <h3><a href="#guicontrolclickable"><code>GUIControl.Clickable</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Clickable</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Clickable</span></span></code></pre></div>
 <p>Gets/sets whether the GUI control is clickable.</p>
 <p>This property determines whether the player can click the mouse on the control. If it is set to <em>false</em>, then any mouse clicks will go straight through the control onto whatever is behind it. Unlike the Enabled property though, setting Clickable to false does not alter the appearance of the control.</p>
 <p>Note that disabling the control by setting Enabled to false overrides this setting -- that is, if Enabled is false then the control will not be clickable, regardless of the <em>Clickable</em> setting.</p>
@@ -176,7 +209,7 @@
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Clickable</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Clickable</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will make the <em>btnSaveGame</em> button non-clickable.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a></p>
 <hr />
@@ -184,7 +217,7 @@
 <section id="guicontrolenabled" class="level3">
 <h3><a href="#guicontrolenabled"><code>GUIControl.Enabled</code></a></h3>
 <p><em>(Formerly known as <code>SetGUIObjectEnabled</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
 <p>Enables or disables a GUI control.</p>
 <p>Normally, all your GUI controls (such as buttons, sliders, etc) are enabled at all times except during a cutscene, when they are disabled. This command allows you to explicitly disable a control at your script's discretion.</p>
 <p>If you set this to true, the control will be enabled; set to false to disable it.</p>
@@ -193,60 +226,60 @@
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will disable the <em>btnSaveGame</em> button.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolclickable"><code>GUIControl.Clickable</code></a>, <a href="GUIControl.html#guicontrolvisible"><code>GUIControl.Visible</code></a></p>
 <hr />
 </section>
 <section id="guicontrolheight" class="level3">
 <h3><a href="#guicontrolheight"><code>GUIControl.Height</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Height</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Height</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the height of the GUI control. This allows you to dynamically resize GUI controls while the game is running.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Height</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Height</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
 <p>makes the <em>btnConfirm</em> button 20 pixels high.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a>, <a href="GUIControl.html#guicontrolwidth"><code>GUIControl.Width</code></a></p>
 <hr />
 </section>
 <section id="guicontrolid" class="level3">
 <h3><a href="#guicontrolid"><code>GUIControl.ID</code></a></h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the GUI control's ID number. This is the control's object number from the GUI editor, and is useful if you need to interoperate with legacy code that uses the control's number rather than object name.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>SetGUIObjectEnabled<span class="op">(</span>lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">.</span><span class="at">ID</span><span class="op">,</span> lstSaves<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lstSaves<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>SetGUIObjectEnabled<span class="op">(</span>lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">.</span><span class="at">ID</span><span class="op">,</span> lstSaves<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lstSaves<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>uses the obsolete SetGUIObjectEnabled function to enable the lstSaves list box, and then uses the equivalent modern property to disable it.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolowninggui"><code>GUIControl.OwningGUI</code></a>, <a href="GUI.html#guiid"><code>GUI.ID</code></a></p>
 <hr />
 </section>
 <section id="guicontrolowninggui" class="level3">
 <h3><a href="#guicontrolowninggui"><code>GUIControl.OwningGUI</code></a></h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">OwningGUI</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">OwningGUI</span></span></code></pre></div>
 <p>Gets the GUI control's owning GUI, which is the GUI that contains the control.</p>
 <p>Returns a GUI, which allows you to use all the usual <a href="GUI.html">GUI functions and properties</a>.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUI</span> <span class="op">*</span>thegui = lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>thegui<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUI</span> <span class="op">*</span>thegui = lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>thegui<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>lstSaves<span class="op">.</span><span class="at">OwningGUI</span><span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>turns off the GUI that contains the lstSaves list box, then turns it on again using the niftier full pathing approach.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolid"><code>GUIControl.ID</code></a>, <a href="GUI.html#guiid"><code>GUI.ID</code></a></p>
 <hr />
 </section>
 <section id="guicontrolsendtoback" class="level3">
 <h3><a href="#guicontrolsendtoback"><code>GUIControl.SendToBack</code></a></h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SendToBack</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SendToBack</span><span class="op">()</span></span></code></pre></div>
 <p>Sends this control to the back of the Z-order. This allows you to rearrange the display order of controls within the GUI.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>btnBigButton<span class="op">.</span><span class="at">SendToBack</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>btnBigButton<span class="op">.</span><span class="at">SendToBack</span><span class="op">();</span></span></code></pre></div>
 <p>will move the <em>btnBigButton</em> button to be behind all other controls on the GUI.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolbringtofront"><code>GUIControl.BringToFront</code></a>, <a href="GUIControl.html#guicontrolzorder"><code>GUIControl.ZOrder</code></a></p>
 <hr />
@@ -254,13 +287,13 @@
 <section id="guicontrolsetposition" class="level3">
 <h3><a href="#guicontrolsetposition"><code>GUIControl.SetPosition</code></a></h3>
 <p><em>(Formerly known as <code>SetGUIObjectPosition</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Moves the top-left corner of the GUI control to be at (X,Y). These co-ordinates are relative to the GUI which contains the control.</p>
 <p>This allows you to dynamically move GUI controls around on the screen while the game is running, and this may well be useful in conjunction with GUI.SetSize if you want to create dynamically resizable GUIs.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">40</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">40</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
 <p>will move the <em>btnConfirm</em> button to be positioned at (40,10) within the GUI.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a>, <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a>, <a href="GUIControl.html#guicontrolx"><code>GUIControl.X</code></a>, <a href="GUIControl.html#guicontroly"><code>GUIControl.Y</code></a></p>
 <hr />
@@ -268,20 +301,20 @@
 <section id="guicontrolsetsize" class="level3">
 <h3><a href="#guicontrolsetsize"><code>GUIControl.SetSize</code></a></h3>
 <p><em>(Formerly known as <code>SetGUIObjectSize</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">)</span></span></code></pre></div>
 <p>Adjusts the specified GUI control to have the new size WIDTH x HEIGHT.</p>
 <p>This allows you to dynamically resize GUI controls on the screen while the game is running, and this may well be useful in conjunction with GUI.SetSize and GUIControl.SetPosition if you want to create dynamically resizable GUIs.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">SetSize</span><span class="op">(</span><span class="dv">160</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
 <p>will resize the <em>invMain</em> control to have a size of 160 x 100.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolheight"><code>GUIControl.Height</code></a>, <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUIControl.html#guicontrolwidth"><code>GUIControl.Width</code></a>,</p>
 <hr />
 </section>
 <section id="guicontroltransparency" class="level3">
 <h3><a href="#guicontroltransparency"><code>GUIControl.Transparency</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
 <p>Gets/sets the GUIControl translucency, in percent.</p>
 <p>Setting this to 100 means the GUI is totally invisible, and lower values represent varying levels of translucency. Set it to 0 to stop the GUI being translucent.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
@@ -292,58 +325,76 @@
 </section>
 <section id="guicontrolvisible" class="level3">
 <h3><a href="#guicontrolvisible"><code>GUIControl.Visible</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Visible</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Visible</span></span></code></pre></div>
 <p>Gets/sets whether the GUI control is visible. This is <em>true</em> by default, but you can set it to <em>false</em> in order to temporarily remove the GUI control from the GUI.</p>
 <p>While the control is invisible, it will not be drawn on the screen, and will not register clicks or otherwise respond to any user input.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>btnSaveGame<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>will make the <em>btnSaveGame</em> button invisible.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolenabled"><code>GUIControl.Enabled</code></a></p>
 <hr />
 </section>
 <section id="guicontrolwidth" class="level3">
 <h3><a href="#guicontrolwidth"><code>GUIControl.Width</code></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the width of the GUI control. This allows you to dynamically resize GUI controls while the game is running.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Width</span> = <span class="dv">110</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Width</span> = <span class="dv">110</span><span class="op">;</span></span></code></pre></div>
 <p>makes the <em>btnConfirm</em> button 110 pixels wide.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolheight"><code>GUIControl.Height</code></a>, <a href="GUIControl.html#guicontrolsetsize"><code>GUIControl.SetSize</code></a></p>
 <hr />
 </section>
 <section id="guicontrolx" class="level3">
 <h3><a href="#guicontrolx"><code>GUIControl.X</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">X</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">X</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the X position of the GUI control. This specifies its left edge, and is relative to the GUI which contains the control.</p>
 <p>This allows you to dynamically move GUI controls around on their parent GUI while the game is running.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">X</span> = <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">X</span> = <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
 <p>will move the <em>btnConfirm</em> button to be positioned 10 pixels from the left of its GUI.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUIControl.html#guicontroly"><code>GUIControl.Y</code></a></p>
 <hr />
 </section>
 <section id="guicontroly" class="level3">
 <h3><a href="#guicontroly"><code>GUIControl.Y</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the Y position of the GUI control. This specifies its top edge, and is relative to the GUI which contains the control.</p>
 <p>This allows you to dynamically move GUI controls around on their parent GUI while the game is running.</p>
 <p><strong>Applies To</strong></p>
 <p>Inherited by the Button, InvWindow, Label, ListBox, Slider and TextBox.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Y</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>btnConfirm<span class="op">.</span><span class="at">Y</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
 <p>will move the <em>btnConfirm</em> button to be positioned 20 pixels from the top of its GUI.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolsetposition"><code>GUIControl.SetPosition</code></a>, <a href="GUIControl.html#guicontrolx"><code>GUIControl.X</code></a></p>
 <hr />
 </section>
+<section id="guicontrolscriptname" class="level3">
+<h3><a href="#guicontrolscriptname"><code>GUIControl.ScriptName</code></a></h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
+<p>Gets the script name of the GUI control, a unique identifier for GUI controls.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ActivateControl</span><span class="op">(</span>const string controlName<span class="op">)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">GUIControl</span><span class="op">*</span> control = <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>controlName<span class="op">);</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>control <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        control<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Activated control: %s&quot;</span><span class="op">,</span> control<span class="op">.</span><span class="at">ScriptName</span><span class="op">);</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Activating a control by calling <code>ActivateControl("btnOptions")</code> will log its script name for debugging purposes and make it visible if it exists.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="GUIControl.html#guicontrolgetbyname"><code>GUIControl.GetByName</code></a>, <a href="GUIControl.html#guicontrolvisible"><code>GUIControl.Visible</code></a></p>
+<hr />
+</section>
 <section id="guicontrolzorder" class="level3">
 <h3><a href="#guicontrolzorder"><code>GUIControl.ZOrder</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the control's Z-order relative to other controls within the same owning GUI. This allows you to precisely arrange the display order of controls at runtime and to know which position the control had at certain moment in time.</p>
 <p>For AGS GUI Z-order means the order in which controls are displayed from bottom to top. That means that control at the bottom has Z-order equal to 0, and control at the top has highest Z-order, equal to (number of controls - 1).</p>
 <p>Setting <code>GUIControl.ZOrder = 0;</code> will do same thing as calling <code>GUIControl.SendToBack()</code>, and setting <code>GUIControl.ZOrder = GUIControl.OwningGUI.ControlCount - 1;</code> will do same thing as calling <code>GUIControl.BringToFront()</code>.</p>
@@ -360,7 +411,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

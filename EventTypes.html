@@ -150,8 +150,10 @@
 <p>occurs repeatedly on every interpreter cycle. The normal game speed is 40 cycles per second, so this event occurs about every 25 milliseconds.</p>
 <p>Player enters room (after fade-in)</p>
 <p>occurs every time the player enters the room, AFTER the screen has faded-in. Suitable for displaying text descriptions and so on, that you want the player to see.</p>
-<p>Player leaves room</p>
+<p>Player leaves room (before fade out)</p>
 <p>occurs when the player leaves the screen, just before the screen fades out.</p>
+<p>Player leaves room (after fade out)</p>
+<p>occurs when the player leaves the screen, AFTER the screen has faded-out.</p>
 <hr />
 </section>
 <section id="inventory-item-events" class="level3">
@@ -198,7 +200,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 

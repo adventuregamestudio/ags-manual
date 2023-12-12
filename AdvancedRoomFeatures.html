@@ -104,8 +104,8 @@
 <h3><a href="#character-scaling">Character scaling</a></h3>
 <p>AGS supports scaling of characters, where the character can appear to get smaller as he walks away from the screen. Character scaling is supported as part of the walkable areas in a room.</p>
 <p>The reason why you have multiple colors available for the walkable areas is because you can set a zoom level for each color, which defines how large the character will be while he is in that area. The default for all walkable areas is <code>100%</code>, i.e. full size. However, you can adjust it using the "Walkable Areas" mode to anywhere from <code>10%</code> (one-tenth size) to <code>200%</code> (double size).</p>
-<p>The scaling settings can affect all characters and objects in the game. For characters, it is on by default but you can disable the scaling for an individual character by setting the "UseRoomAreaScaling" option in that character's properties.</p>
-<p>For objects, it is off by default but you can make a specific object obey scaling levels by setting its "UseRoomAreaScaling" option.</p>
+<p>The scaling settings can affect all characters and objects in the game. For characters, it is on by default, but you can disable the scaling for an individual character by setting the "UseRoomAreaScaling" option in that character's properties.</p>
+<p>For objects, it is off by default, but you can make a specific object obey scaling levels by setting its "UseRoomAreaScaling" option.</p>
 <p>If you set the "UseContinuousScaling" option, then rather than just specifying a zoom level for the whole walkable area, you specify a min and max zoom level. These specify the scaling at the top and bottom of the walkable area. When the game is run, AGS will interpolate these values to make the character smoothly scale down from one value to another as he walks towards the back or front of the screen.</p>
 <hr />
 </section>
@@ -138,13 +138,13 @@
 <p>To delete a background, select it then click the "Delete" button.</p>
 <p>You define the speed at which the backgrounds will animate by setting the "BackgroundAnimationDelay" option in the property grid for the room. The default is 5, which cycles background every 5 frames.</p>
 <p><strong>NOTE:</strong> All the background scenes must be the same size.</p>
-<p><strong>NOTE:</strong> <strong>(256-color only)</strong> The backgrounds frames each have their own palette (unless you select "Share palette with main background" before importing). This means that when the current frame switches in-game, the palette will get reset - therefore you can't use special palette effects such as CyclePalette or SetPalRGB on screens with animating backgrounds.)</p>
+<p><strong>NOTE:</strong> <strong>(256-color only)</strong> The backgrounds frames each have their own palette (unless you select "Share palette with main background" before importing). This means that when the current frame switches in-game, the palette will get reset - therefore you can't use special palette effects such as CyclePalette or SetPalRGB on screens with animating backgrounds.</p>
 <hr />
 </section>
 <section id="lighting-effects" class="level3">
 <h3><a href="#lighting-effects">Lighting effects</a></h3>
 <p>You can control the brightness of your characters, courtesy of the "LightLevel" setting for room Regions.</p>
-<p>By default this is <code>100%</code>, but you can change it from <code>0% to 200%</code>. This number is the light level in the current walkable area. Smaller numbers are darker, so that <code>0%</code> is pitch black and <code>200%</code> is very bright.</p>
+<p>By default, this is <code>100%</code>, but you can change it from <code>0% to 200%</code>. This number is the light level in the current walkable area. Smaller numbers are darker, so that <code>0%</code> is pitch black and <code>200%</code> is very bright.</p>
 <p>This feature could be useful if, for example, you have a street lamp on your scene so when the character walks under it they get brighter, or if a wall is shading the character from the light they can get darker.</p>
 <p>You can alternatively use a color tint for the region. If you select this, then you can enter Red, Green and Blue values as numbers from 0-255, which reflect the color you want the area to be tinted to. The Amount setting determines to what extent characters will be tinted, and is from 0-100.</p>
 <p><strong>NOTE:</strong> Light levels only work when the character's graphic is at the same color depth as the background (i.e. a 256-color character in a hi-color game won't get lightened).</p>
@@ -161,7 +161,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: d749fa39e20675ca8aa43ba1163e2ab8af3e7939
+      Build: c18b279d6495c3dc0983a320320e34212ec4410f
     </p>
   </footer>
 
