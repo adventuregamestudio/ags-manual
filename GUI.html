@@ -164,12 +164,11 @@
 </section>
 <section id="guiprocessclick" class="level3">
 <h3><a href="#guiprocessclick"><code>GUI.ProcessClick</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ProcessClick</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">CursorMode</span><span class="op">)</span></span></code></pre></div>
-<p>Simulates clicking the mouse on the location (X,Y) on the screen, in the specified cursor mode. This "click" has special behavior in that it <strong>only affects GUI and GUI controls</strong> under given coordinates. Any conditions attached to the first interface elements on given coordinates will be executed. Other game elements (room objects, hotspots, characters) will be <strong>ignored</strong>.</p>
-<p>The available cursor modes are the ones you define on your Cursors tab (but with eMode prepended to them). Usually these are eModeWalkto, eModeLookat, etc.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ProcessClick</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">MouseButton</span><span class="op">)</span></span></code></pre></div>
+<p>Simulates clicking the mouse on GUI on the location (X,Y) using the specified mouse button. This "click" has special behavior in that it <strong>only affects GUI and GUI controls</strong>. The click will be received by a topmost control or parent GUI under given coordinates. If that control or GUI has functions attached to their events, these will be executed as in case of a normal player's click. If there's no GUIs under the coordinates, then nothing will happen. Any other game elements (room objects, hotspots, characters) are not affected by this.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ProcessClick<span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eModePointer</span><span class="op">);</span></span></code></pre></div>
-<p>will simulate clicking the mouse on co-ordinates (100, 50) in the Pointer mode, which will ignore anything but interface.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ProcessClick<span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eMouseLeft</span><span class="op">);</span></span></code></pre></div>
+<p>will simulate clicking the mouse on co-ordinates (100, 50) with the left mouse button. Only GUIs will receive this click.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Mouse.html#mouseclick"><code>Mouse.Click</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></p>
 <hr />
@@ -255,61 +254,57 @@
 <section id="guicontrolcount" class="level3">
 <h3><a href="#guicontrolcount"><code>GUI.ControlCount</code></a></h3>
 <div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ControlCount</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the number of controls on the GUI. You won't normally need to use this property, but in some circumstances you may wish to iterate through all the GUI's controls, and this allows you to determine where to stop.</p>
+<p>Gets the number of controls on the GUI. This is useful if you wish to iterate through all the GUI's controls, then this property would allow you to determine where to stop.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>i <span class="op">&lt;</span> gInventory<span class="op">.</span><span class="at">ControlCount</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    gInventory<span class="op">.</span><span class="at">Controls</span><span class="op">[</span>i<span class="op">].</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    i<span class="op">++;</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>disables all controls on the INVENTORY GUI.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> gMyGUI<span class="op">.</span><span class="at">ControlCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    gMyGUI<span class="op">.</span><span class="at">Controls</span><span class="op">[</span>i<span class="op">].</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>disables all controls on the gMyGUI GUI.</p>
 <p><em>See also:</em> <a href="GUI.html#guicontrols"><code>GUI.Controls</code></a></p>
 <hr />
 </section>
 <section id="guicontrols" class="level3">
 <h3><a href="#guicontrols"><code>GUI.Controls</code></a></h3>
 <div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span><span class="op">*</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Controls</span><span class="op">[</span>index<span class="op">]</span></span></code></pre></div>
-<p>Provides an array which allows you to access controls on the GUI by their index. You should not normally need to do this, since accessing the controls by their name is far easier; however, if you need to interoperate with legacy code that uses the control number, this can come in useful.</p>
+<p>Provides an array which allows you to access controls on the GUI by their index. This may be useful when you need to iterate through all the GUI's controls. And also if, for some reason, you cannot use actual control's name or GUIControl* pointer, and have to use a numeric ID instead.</p>
 <p>Returns the GUIControl object for the specified control index, or <em>null</em> if you give an invalid control index.</p>
-<p>You can cast the GUIControl to the appropriate type using the AsButton, AsListBox, etc methods on it.</p>
+<p>You can cast the GUIControl to the appropriate type using the AsButton, AsLabel, etc methods on it.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GUIControl</span> <span class="op">*</span>control = gInventory<span class="op">.</span><span class="at">Controls</span><span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>control <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The inventory GUI doesn&#39;t have a control number 4.&quot;</span><span class="op">);</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    control<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    control<span class="op">.</span><span class="at">AsListBox</span><span class="op">.</span><span class="at">AddItem</span><span class="op">(</span><span class="st">&quot;New item!!&quot;</span><span class="op">);</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>gets list box number 4 from the INVENTORY GUI, and then adds an item to it. If control 4 isn't a listbox, you will get a Null Reference error.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> gMyGUI<span class="op">.</span><span class="at">ControlCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    gMyGUI<span class="op">.</span><span class="at">Controls</span><span class="op">[</span>i<span class="op">].</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>disables all controls on the gMyGUI GUI.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> control_number = <span class="bu">Random</span><span class="op">(</span>gMyGUI<span class="op">.</span><span class="at">ControlCount</span> <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>gMyGUI<span class="op">.</span><span class="at">Controls</span><span class="op">[</span>control_number<span class="op">].</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<p>Makes a random control on gMyGUI invisible.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolastype"><code>GUIControl.As\*</code></a>, <a href="GUI.html#guicontrolcount"><code>GUI.ControlCount</code></a></p>
 <hr />
 </section>
 <section id="guiheight" class="level3">
 <h3><a href="#guiheight"><code>GUI.Height</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Height</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Height</span></span></code></pre></div>
 <p>Gets/sets the height of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
 <p>The height is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The icon bar GUI is %d pixels high.&quot;</span><span class="op">,</span> gIconbar<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The icon bar GUI is %d pixels high.&quot;</span><span class="op">,</span> gIconbar<span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
 <p>displays the height of the ICONBAR GUI.</p>
 <p><em>See also:</em> <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a>, <a href="GUI.html#guiwidth"><code>GUI.Width</code></a></p>
 <hr />
 </section>
 <section id="guiid" class="level3">
 <h3><a href="#guiid"><code>GUI.ID</code></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the GUI's ID number. This is the GUI's number from the editor, and is useful if you need to interoperate with legacy code that uses the GUI's number rather than object name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>SetGUIClickable<span class="op">(</span>gIconbar<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>gIconbar<span class="op">.</span><span class="at">Clickable</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>SetGUIClickable<span class="op">(</span>gIconbar<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>gIconbar<span class="op">.</span><span class="at">Clickable</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>uses the obsolete SetGUIClickable function to make the ICONBAR GUI clickable, and then uses the equivalent modern property to stop it being clickable.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontrolid"><code>GUIControl.ID</code></a></p>
 <hr />
 </section>
 <section id="guipopupstyle" class="level3">
 <h3><a href="#guipopupstyle"><code>GUI.PopupStyle</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">GUIPopupStyle</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupStyle</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">GUIPopupStyle</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupStyle</span></span></code></pre></div>
 <p>Gets the style of GUI behavior on screen. Possible values are:</p>
 <pre><code>eGUIPopupNormal       no special behavior
 eGUIPopupMouseYPos    shown when the mouse cursor moves to the top of the screen, past GUI.PopupYPos, and hidden at all other times
@@ -328,7 +323,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 </section>
 <section id="guipopupypos" class="level3">
 <h3><a href="#guipopupypos"><code>GUI.PopupYPos</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupYPos</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">PopupYPos</span></span></code></pre></div>
 <p>Gets/sets the Y co-ordinate at which the GUI will appear when using MouseYPos popup style. The GUI will be automatically shown when the mouse cursor's Y coordinate is <em>equal or lower</em> than GUI.PopupYPos (closer to the screen top) and hidden when it is <em>greater</em>.</p>
 <p>This property is ignored if GUI has a different style.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
@@ -337,7 +332,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 </section>
 <section id="guishown" class="level3">
 <h3><a href="#guishown"><code>GUI.Shown</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Shown</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Shown</span></span></code></pre></div>
 <p>Tells whether GUI is currently active on screen.</p>
 <p>In the common circumstances this property's value is equivalent to checking <a href="GUI.html#guivisible"><code>GUI.Visible</code></a>. But for GUIs with "Mouse Ypos" popup style the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. In such case it is Shown property that would tell if the GUI is actually displayed on screen at this moment.</p>
 <p><strong>NOTE:</strong> Shown property only reports a logical state, it does not test whether GUI may be seen by the player or not (overlapped by other objects, moved offscreen or fully transparent).</p>
@@ -348,19 +343,19 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <section id="guitransparency" class="level3">
 <h3><a href="#guitransparency"><code>GUI.Transparency</code></a></h3>
 <p><em>(Formerly known as <code>SetGUITransparency</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
 <p>Gets/sets the GUI translucency, in percent.</p>
 <p>Setting this to 100 means the GUI is totally invisible, and lower values represent varying levels of translucency. Set it to 0 to stop the GUI being translucent.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>gInventory.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade a GUI in/out, the best approach is shown in the example below:</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = gInventory<span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>trans <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    trans<span class="op">++;</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    gInventory<span class="op">.</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = gInventory<span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>trans <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    trans<span class="op">++;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    gInventory<span class="op">.</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will gradually fade the INVENTORY GUI out until it is invisible.</p>
 <p><em>See also:</em> <a href="GUIControl.html#guicontroltransparency"><code>GUIControl.Transparency</code></a>, <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
 <hr />
@@ -368,47 +363,47 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <section id="guivisible" class="level3">
 <h3><a href="#guivisible"><code>GUI.Visible</code></a></h3>
 <p><em>(Formerly known as <code>GUIOff</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>GUIOn</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InterfaceOff</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InterfaceOn</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>IsGUIOn</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Visible</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Visible</span></span></code></pre></div>
 <p>Gets/sets whether the GUI is visible or not. This property has behaves differently depending on the GUI popup style.</p>
 <p>For "Normal" and "Persistent" GUIs, this property simply switches the GUI on and off, and has no further effects.</p>
 <p>For "Popup modal" GUIs, setting Visible to true causes the game to become paused until the GUI is removed by setting Visible back to false (e.g. when the user presses an OK button or something similar).</p>
 <p>For "Mouse Ypos" GUIs, the Visible property does not actually determine whether the GUI is displayed, but instead it controls whether the GUI <strong>is allowed to</strong> pop up. If Visible is <em>false</em>, then moving the mouse to the top of the screen will not activate the GUI; if it is <em>true</em>, then the GUI will be allowed to be popped up.</p>
 <p><strong>NOTE:</strong> for "Mouse Ypos" style GUIs the way to actually know if GUI is displayed or not is <a href="GUI.html#guishown"><code>GUI.Shown</code></a> property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>gSettings<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>gSettings<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will turn on the SETTINGS GUI.</p>
 <p><em>See also:</em> <a href="GUI.html#guishown"><code>GUI.Shown</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 <hr />
 </section>
 <section id="guiwidth" class="level3">
 <h3><a href="#guiwidth"><code>GUI.Width</code></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
 <p>Gets/sets the width of the GUI. This allows you to dynamically change the size of the GUI on the screen.</p>
 <p>The width is specified in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>gInventory<span class="op">.</span><span class="at">Width</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>gInventory<span class="op">.</span><span class="at">Width</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
 <p>makes the INVENTORY GUI 5 pixels wider.</p>
 <p><em>See also:</em> <a href="GUI.html#guiheight"><code>GUI.Height</code></a>, <a href="GUI.html#guisetsize"><code>GUI.SetSize</code></a></p>
 <hr />
 </section>
 <section id="guix" class="level3">
 <h3><a href="#guix"><code>GUI.X</code></a></h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">X</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">X</span></span></code></pre></div>
 <p>Gets/sets the X position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
 <p>The X position is the left-hand side of the GUI, and can be between 0 and 320. The co-ordinates used are screen co-ordinates, not room co-ordinates, and are in the normal 320-resolution style.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gMyGui<span class="op">.</span><span class="at">X</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gMyGui<span class="op">.</span><span class="at">X</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
 <p>moves the GUI right 5 pixels.</p>
 <p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUI.html#guiy"><code>GUI.Y</code></a></p>
 <hr />
 </section>
 <section id="guiy" class="level3">
 <h3><a href="#guiy"><code>GUI.Y</code></a></h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Y</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">Y</span></span></code></pre></div>
 <p>Gets/sets the Y position of the GUI. This allows you to dynamically change the position of the GUI on the screen.</p>
 <p>The Y position is the top edge of the GUI, and can be between 0 and 200 (or 240, depending on room height). The co-ordinates used are screen co-ordinates, not room co-ordinates, and are in the normal 320x200-resolution style.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>gMyGui<span class="op">.</span><span class="at">Y</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>gMyGui<span class="op">.</span><span class="at">Y</span> <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
 <p>moves the GUI down 5 pixels.</p>
 <p><em>See also:</em> <a href="GUI.html#guisetposition"><code>GUI.SetPosition</code></a>, <a href="GUI.html#guix"><code>GUI.X</code></a></p>
 <hr />
@@ -416,13 +411,13 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
 <section id="guizorder" class="level3">
 <h3><a href="#guizorder"><code>GUI.ZOrder</code></a></h3>
 <p><em>(Formerly known as <code>SetGUIZOrder</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ZOrder</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">GUI</span><span class="op">.</span><span class="at">ZOrder</span></span></code></pre></div>
 <p>Gets/sets the drawing z-order of the GUI. This allows you to dynamically change the ordering of GUIs on the screen.</p>
 <p>Z-order setting is an arbitrary integer number that can be positive or negative. It tells how the overlapping objects should be sorted. Those with lower z-order are drawn at the back, and those with higher z-order are drawn at the front.</p>
 <p>The GUIs are sorted among themselves and screen Overlays, and thus their ZOrder is relative to other GUIs z-order and Overlays z-order values.</p>
 <p><strong>NOTE:</strong> If two or more GUIs have equal ZOrder, their relative order is then defined by their IDs: lower IDs are drawn at the back and higher IDs at the front. <em>This is different from other kinds of game objects</em> which do not depend on their IDs at all when being sorted on screen. Normally we don't recommend relying on this though, and suggest setting explicit ZOrder for the scenes where multiple GUIs may overlap each other.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gStatusline<span class="op">.</span><span class="at">ZOrder</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gStatusline<span class="op">.</span><span class="at">ZOrder</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>sets the STATUSLINE GUI to be behind all other GUIs.</p>
 <p><em>See also:</em> <a href="GUI.html#guigetatscreenxy"><code>GUI.GetAtScreenXY</code></a></p>
 </section>
@@ -433,7 +428,7 @@ eGUIPopupPersistent   like normal, but not removed when the game&#39;s user inte
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c18b279d6495c3dc0983a320320e34212ec4410f
+      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
     </p>
   </footer>
 

@@ -160,11 +160,11 @@
 <section id="dictionarygetkeysasarray" class="level3">
 <h3><a href="#dictionarygetkeysasarray"><code>Dictionary.GetKeysAsArray</code></a></h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">GetKeysAsArray</span><span class="op">()</span></span></code></pre></div>
-<p>Creates a dynamic array filled with keys in the same order as they are stored in the Dictionary.</p>
+<p>Creates a dynamic array filled with keys in the same order as they are stored in the Dictionary, set by <code>SortStyle</code> when the Dictionary is created.</p>
 <p><strong>IMPORTANT:</strong> this returns a <em>copy</em> of Dictionary contents existing at the time of function call. If you change Dictionary later, that won't affect previously created key array and you would have to call this function again.</p>
 <p>Returns null if this Dictionary is empty.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key1&quot;</span><span class="op">,</span><span class="st">&quot;my-value1&quot;</span><span class="op">);</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key2&quot;</span><span class="op">,</span><span class="st">&quot;my-value2&quot;</span><span class="op">);</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> keys<span class="op">[]</span> = myDictionary<span class="op">.</span><span class="at">GetKeysAsArray</span><span class="op">();</span></span>
@@ -177,11 +177,11 @@
 <section id="dictionarygetvaluesasarray" class="level3">
 <h3><a href="#dictionarygetvaluesasarray"><code>Dictionary.GetValuesAsArray</code></a></h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">GetValuesAsArray</span><span class="op">()</span></span></code></pre></div>
-<p>Creates a dynamic array filled with values in the same order as they are stored in the Dictionary.</p>
+<p>Creates a dynamic array filled with values in the same order as they are stored in the Dictionary, set by <code>SortStyle</code> when the Dictionary is created.</p>
 <p><strong>IMPORTANT:</strong> this returns a <em>copy</em> of Dictionary contents existing at the time of function call. If you change Dictionary later, that won't affect previously created values array and you would have to call this function again.</p>
 <p>Returns null if this Dictionary is empty.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key1&quot;</span><span class="op">,</span><span class="st">&quot;my-value1&quot;</span><span class="op">);</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key2&quot;</span><span class="op">,</span><span class="st">&quot;my-value2&quot;</span><span class="op">);</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> values<span class="op">[]</span> = myDictionary<span class="op">.</span><span class="at">GetValuesAsArray</span><span class="op">();</span></span>
@@ -231,7 +231,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c18b279d6495c3dc0983a320320e34212ec4410f
+      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
     </p>
   </footer>
 

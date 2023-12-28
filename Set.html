@@ -155,10 +155,10 @@
 <section id="setgetitemsasarray" class="level3">
 <h3><a href="#setgetitemsasarray"><code>Set.GetItemsAsArray</code></a></h3>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> GetItemsAsArray<span class="op">()</span></span></code></pre></div>
-<p>Creates a dynamic array filled with items in same order as they are stored in the Set.</p>
+<p>Creates a dynamic array filled with items in same order as they are stored in the Set, set by <code>SortStyle</code> when the Set is created.</p>
 <p>Returns null if this Set is empty.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">*</span> mySet = <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">*</span> mySet = <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;test&quot;</span><span class="op">);</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;test2&quot;</span><span class="op">);</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> items<span class="op">[]</span> = mySet<span class="op">.</span><span class="at">GetItemsAsArray</span><span class="op">();</span></span>
@@ -201,7 +201,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c18b279d6495c3dc0983a320320e34212ec4410f
+      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
     </p>
   </footer>
 
