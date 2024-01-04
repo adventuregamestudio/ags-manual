@@ -189,7 +189,7 @@
 <section id="mathsarctan" class="level3">
 <h3><a href="#mathsarctan"><code>Maths.ArcTan</code></a></h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">ArcTan</span><span class="op">(</span><span class="dt">float</span> value<span class="op">)</span></span></code></pre></div>
-<p>Calculates the arc-tan, in radians, of the specified value.</p>
+<p>Calculates the arc-tan, in radians, of the specified value. Return value is in range -PI/2 to +PI/2.</p>
 <p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees"><code>Maths.RadiansToDegrees</code></a>.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> angle = <span class="bu">Maths</span><span class="op">.</span><span class="at">ArcTan</span><span class="op">(</span><span class="fl">0.5</span><span class="op">);</span></span></code></pre></div>
@@ -200,7 +200,7 @@
 <section id="mathsarctan2" class="level3">
 <h3><a href="#mathsarctan2"><code>Maths.ArcTan2</code></a></h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> <span class="bu">Maths</span><span class="op">.</span><span class="at">ArcTan2</span><span class="op">(</span><span class="dt">float</span> y<span class="op">,</span> <span class="dt">float</span> x<span class="op">)</span></span></code></pre></div>
-<p>Calculates the arctangent of y/x. This is well defined for every point other than the origin, even if x equals 0 and y does not equal 0. The result is returned in radians.</p>
+<p>Calculates the arctangent of y/x. This is well defined for every point other than the origin, even if x equals 0 and y does not equal 0. The result is returned in radians. Return value is in range -PI to +PI.</p>
 <p>To convert an angle in radians to degrees, use <a href="Maths.html#mathsradianstodegrees"><code>Maths.RadiansToDegrees</code></a>.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> angle = <span class="bu">Maths</span><span class="op">.</span><span class="at">ArcTan2</span><span class="op">(-</span><span class="fl">862.42</span><span class="op">,</span> <span class="fl">78.5149</span><span class="op">);</span></span></code></pre></div>
@@ -373,7 +373,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

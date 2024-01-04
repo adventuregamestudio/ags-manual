@@ -139,9 +139,10 @@
 <h3><a href="#guicontrolgetbyname"><code>GUIControl.GetByName</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">GUIControl</span><span class="op">*</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
 <p>Returns a pointer to the GUI control with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each control which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ReadAndUpdateGUIControl</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/guicontrol_info.txt&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/guicontrol_info.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>input <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Error opening file.&quot;</span><span class="op">);</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
@@ -377,7 +378,8 @@
 <section id="guicontrolscriptname" class="level3">
 <h3><a href="#guicontrolscriptname"><code>GUIControl.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">GUIControl</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
-<p>Gets the script name of the GUI control, a unique identifier for GUI controls.</p>
+<p>Gets the script name of the GUI Control, which serves as a unique identifier, as set in the AGS Editor.</p>
+<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each control in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="GUIControl.html#guicontrolgetbyname">GUIControl.GetByName</a> function to retrieve the control by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ActivateControl</span><span class="op">(</span>const string controlName<span class="op">)</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -411,7 +413,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

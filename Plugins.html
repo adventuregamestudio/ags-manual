@@ -86,6 +86,7 @@
 <ul>
 <li><a href="#plugins" id="toc-plugins">Plugins</a>
 <ul>
+<li><a href="#engine-plugins-and-other-platforms" id="toc-engine-plugins-and-other-platforms">Engine Plugins and other platforms</a></li>
 <li><a href="#creating-plugins" id="toc-creating-plugins">Creating Plugins</a></li>
 </ul></li>
 </ul>
@@ -96,15 +97,27 @@
 <h2><a href="#plugins">Plugins</a></h2>
 <p>AGS supports user-written plugins in order to provide functionality to your game that AGS itself does not support.</p>
 <p>The plugin developer's guide is available from the Resources section of the AGS website.</p>
-<p>Plugins come as DLL files with the names AGS*.DLL, for example agscircle.dll might be a plugin providing a DrawCircle script function.</p>
+<p>Windows plugins come as DLL files with the names <code>AGS*.DLL</code>, for example <code>agscircle.dll</code> might be a plugin providing a DrawCircle script function.</p>
 <p><strong>How to use a plugin</strong></p>
 <p>So, you've downloaded a plugin for AGS. What do you do with it? Well, firstly read any readme file that the plugin author has included. But to get any plugin to work you must do the following:</p>
 <p>1. Place a copy of the plugin files in the <code>AGSEditor.exe</code> directory - not your game folder.</p>
 <p>Ex: <code>C:\Program Files\Adventure Game Studio 3.5.0\</code></p>
 <p><img src="images/Plugins_img1.png" alt="Right click Use plugin" /></p>
 <p>2. Start the AGS Editor up, and load your game. Go to the Plugins node in the main tree. Open it up, and you should see all available plugins listed. To use one in your game, right-click it and choose "Use plugin". The plugin developer should provide instructions on what to do next. Save your game to make sure that AGS remembers that you want to use the plugin.</p>
-<p>If you have a Linux version of an Engine plugin (ex: <code>libagsdrawcircle.so</code>), place it in the corresponding <code>Linux/lib64</code> and <code>Linux/lib32</code> directories in the folder containing AGS Editor.</p>
+<p>For other platforms, check <a href="Plugins.html#engine-plugins-and-other-platforms">Engine Plugins and other platforms</a> below.</p>
 <p><strong>NOTE:</strong> If you hit a "there was an error loading this plugin" message, there is a chance the problem is with the file Security Zone Identifier, check the <a href="TroubleshootingWindowsZoneID.html">Troubleshooting Windows Zone Identifier</a> section. If this doesn't solve your problem, please post in the respective plugin page on the <a href="https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0">Modules &amp; Plugins board</a> in the forums.</p>
+<section id="engine-plugins-and-other-platforms" class="level3">
+<h3><a href="#engine-plugins-and-other-platforms">Engine Plugins and other platforms</a></h3>
+<p>While Windows plugins are named <code>ags*.dll</code>, other platforms that the AGS Editor supports will use the <code>libags*.so</code> convention (ex: <code>libagsdrawcircle.so</code>). Once you have your plugins ported, here are the places to put them.</p>
+<p>Below directories are mentioned related to the folder containing AGS Editor (<code>AGSEditor.exe</code>)</p>
+<ul>
+<li>Windows x86 plugins are placed in the same dir as <code>AGSEditor.exe</code></li>
+<li>Linux plugins can be built for x64 (amd64) and x86 architectures, place them in the corresponding <code>Linux/lib64</code> and <code>Linux/lib32</code> directories.</li>
+<li>Android plugins should be placed in <code>Android\plugins</code>, under a directory for each architecture (ex: <code>Android\plugins\arm64-v8a\libagsdrawcircle.so</code>)</li>
+<li>Web port doesn't support plugins currently</li>
+</ul>
+<p>Non Windows platforms may support a known set of plugins as stubs, meaning they won't error for the lack of the plugin alone, but you should detect this if you are not adding the plugin and handle accordingly.</p>
+</section>
 <section id="creating-plugins" class="level3">
 <h3><a href="#creating-plugins">Creating Plugins</a></h3>
 <p>If you want to create your own plugin to extend the functionality of either the AGS Editor or what's possible with the AGS Engine, read on the respective links below.</p>
@@ -124,7 +137,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

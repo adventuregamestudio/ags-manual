@@ -128,8 +128,8 @@
 <section id="inventoryitemgetbyname" class="level3">
 <h3><a href="#inventoryitemgetbyname"><code>InventoryItem.GetByName</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">InventoryItem</span><span class="op">*</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
-<p>Retrieves a pointer to an inventory item that has a matching script name, or null if it does not exist. The script name is a unique identifier for the inventory item.</p>
-<p>This is useful if the inventory item has to be retrieved from text files, custom text properties, or from player input for some debug purpose.</p>
+<p>Returns a pointer to the InventoryItem with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each InventoryItem which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> invItemName = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Script Name of the item&quot;</span><span class="op">);</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryItem</span><span class="op">*</span> item = <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>invItemName<span class="op">);</span></span>
@@ -271,8 +271,8 @@
 <section id="inventoryitemscriptname" class="level3">
 <h3><a href="#inventoryitemscriptname"><code>InventoryItem.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the script name of the inventory item.</p>
-<p>This is a unique identifier for inventory items and can be used for debugging or referencing specific inventory items in text properties or text files.</p>
+<p>Gets the script name of the inventory item, which serves as a unique identifier, as set in the AGS Editor.</p>
+<p>This may be useful if you have a pointer to some item stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each item in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="InventoryItem.html#inventoryitemgetbyname">InventoryItem.GetByName</a> function to retrieve the item by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryItem</span><span class="op">*</span> activeItem = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">;</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>activeItem <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
@@ -289,7 +289,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

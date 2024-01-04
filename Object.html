@@ -193,8 +193,8 @@
 <section id="objectgetbyname" class="level3">
 <h3><a href="#objectgetbyname"><code>Object.GetByName</code></a></h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Object</span><span class="op">*</span> <span class="bu">Object</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
-<p>Retrieves an object by its script name (e.g.: <code>"oBlueCup"</code>), which is a unique identifier for objects. Returns the pointer to the object with the specified script name, if it exists in the current room, or null otherwise.</p>
-<p>This can be useful when you can't save a pointer and an ID may not be interesting, as when saving something that references an object by scriptname in a text file or a custom property.</p>
+<p>Returns a pointer to the Object with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Object which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span> <span class="op">{</span></span>
@@ -211,7 +211,7 @@
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In this example, the player has a custom property that stores the script name of room objects it's haunted by, and if a room has said object, that object becomes haunted - in the example it just becomes "ghostly": non-clickable and transparent.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
+<p><em>See also:</em> <a href="Object.html#objectscriptname"><code>Object.ScriptName</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="objectgetproperty" class="level3">
@@ -631,8 +631,8 @@
 <section id="objectscriptname" class="level3">
 <h3><a href="#objectscriptname"><code>Object.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Object</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the script name of the object. This is useful for debugging, and for printing in the log.</p>
-<p>Additionally, if you need to store the object in some text form, so it can be retrieved later, by using <code>Object.GetByName()</code>.</p>
+<p>Gets the script name of the Object, which serves as a unique identifier, as set in the AGS Editor.</p>
+<p>This may be useful if you have a pointer to some object stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each object in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Object.html#objectgetbyname">Object.GetByName</a> function to retrieve the object by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Touch</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Object</span><span class="op">*)</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -790,7 +790,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

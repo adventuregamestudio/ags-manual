@@ -141,14 +141,19 @@
 <section id="hotspotgetbyname" class="level3">
 <h3><a href="#hotspotgetbyname"><code>Hotspot.GetByName</code></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Hotspot</span><span class="op">*</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
-<p>Returns a pointer to the hotspot with the specified script name, or null if it does not exist.</p>
-<p>This function is useful for accessing hotspots based on their script names, which can be useful for dynamically referencing hotspots in your game.</p>
+<p>Returns a pointer to the Hotspot with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Hotspot which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Hotspot</span><span class="op">*</span> pressurePlateHotspot = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span><span class="st">&quot;hPressurePlate&quot;</span><span class="op">);</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>pressurePlateHotspot <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Do something with the pressure plate hotspot</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Retrieves the hotspot with the script name "hPressurePlate" and performs an action with it if it exists.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">OpenDoor</span><span class="op">(</span><span class="bu">Object</span> <span class="op">*</span>obj<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">SetView</span><span class="op">(</span>VDOORANIMATION<span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    obj<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">String</span> exitName = obj<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;LinkedExit&quot;</span><span class="op">);</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Hotspot</span><span class="op">*</span> exitHotspot = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>exitName<span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>exitHotspot <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        exitHotspot<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Animates a "door" object, retrieves "exit" hotspot related to that door, and enables it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotscriptname"><code>Hotspot.ScriptName</code></a></p>
 <hr />
@@ -285,14 +290,13 @@
 <section id="hotspotscriptname" class="level3">
 <h3><a href="#hotspotscriptname"><code>Hotspot.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Hotspot</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
-<p>Gets the script name of the hotspot, which serves as a unique identifier for hotspots.</p>
-<p>This can be useful for debugging or referencing specific hotspots in text properties or text files.</p>
+<p>Gets the script name of the hotspot, which serves as a unique identifier, as set in the AGS Editor.</p>
+<p>This may be useful if you have a pointer to some hotspot stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each hotspot in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Hotspot.html#hotspotgetbyname">Hotspot.GetByName</a> function to retrieve the hotspot by the previously saved script name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Hotspot</span><span class="op">*</span> hspot = <span class="bu">Hotspot</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>hspot <span class="op">!=</span> null <span class="op">&amp;&amp;</span> hspot<span class="op">.</span><span class="at">ScriptName</span> <span class="op">==</span> <span class="st">&quot;hOcean&quot;</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;I can&#39;t swim, better stay away from the ocean&quot;</span><span class="op">);</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Here, we do a check that can be performed in a global script instead, so any room with an <code>hOcean</code> gets the same response.</p>
+<pre><code>function InteractHotspot(Hotspot *h) {
+    System.Log(eLogInfo, &quot;Interacted with hotspot %s&quot;, h.ScriptName);
+    h.RunInteraction(eModeInteract);
+}</code></pre>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetbyname"><code>Hotspot.GetByName</code></a></p>
 <hr />
@@ -325,7 +329,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

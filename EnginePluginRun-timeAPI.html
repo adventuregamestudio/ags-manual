@@ -92,6 +92,7 @@
 <li><a href="#iagsmanagedobjectreader-interface" id="toc-iagsmanagedobjectreader-interface">IAGSManagedObjectReader interface</a></li>
 <li><a href="#iagsfontrenderer-interface" id="toc-iagsfontrenderer-interface">IAGSFontRenderer interface</a></li>
 <li><a href="#iagsfontrenderer2-interface" id="toc-iagsfontrenderer2-interface">IAGSFontRenderer2 interface</a></li>
+<li><a href="#iagsstream-interface" id="toc-iagsstream-interface">IAGSStream interface</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -1104,13 +1105,46 @@ struct AGSGameInfo {
 <p>Notifies the engine about the certain font being modified. This is useful when you implement your own custom font loading and rendering (see <a href="EnginePluginRun-timeAPI.html#iagsenginereplacefontrenderer2"><code>ReplaceFontRenderer2</code></a>). When you tell the engine that the font has changed, it recalculates font metrics by quering the active font renderer about font's parameters, and forces game GUI to redraw.</p>
 <p><em>Added in version: 26</em></p>
 </section>
+<section id="iagsengineresolvefilepath" class="level4">
+<h4>IAGSEngine.ResolveFilePath</h4>
+<div class="sourceCode" id="cb109"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="dt">size_t</span> ResolveFilePath<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>script_path<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>buf<span class="op">,</span> <span class="dt">size_t</span> buf_len<span class="op">);</span></span></code></pre></div>
+<p>Resolves a script path to a system filepath, same way as script command File.Open does. Caller should provide an output buffer and buffer's length in bytes. Returns a number of bytes written into the buffer, or 0 on failure. Passing NULL instead of a buffer pointer will make function calculate and return length necessary to store a resulting path (in bytes).</p>
+<p><em>Added in version: 27</em></p>
+</section>
+<section id="iagsengineopenfilestream" class="level4">
+<h4>IAGSEngine.OpenFileStream</h4>
+<div class="sourceCode" id="cb110"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>IAGSStream<span class="op">*</span> OpenFileStream<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>script_path<span class="op">,</span> <span class="dt">int</span> file_mode<span class="op">,</span> <span class="dt">int</span> work_mode<span class="op">);</span></span></code></pre></div>
+<p>Opens a data stream, resolving a script path and returns IAGSStream object pointer, or NULL on failure. Script path may contain same location tokens as script command File.Open. File mode should contain one of the AGSSTREAM_FILE_* values, work mode should contain flag set of the AGSSTREAM_MODE_* values. The returned stream object is owned by the caller, and must be deleted by calling its Dispose() method.</p>
+<p><strong>IMPORTANT:</strong> Plugin <em>must</em> call IAGSStream.Dispose() for streams returned by OpenFileStream() when these are no longer needed, otherwise stream objects will remain in memory undeleted.</p>
+<p>File mode may be one of the following values:</p>
+<ul>
+<li><code>AGSSTREAM_FILE_OPEN</code> - Opens existing file, fails if there's no such file.</li>
+<li><code>AGSSTREAM_FILE_CREATE</code> - Opens existing file, but creates one if it did not exist.</li>
+<li><code>AGSSTREAM_FILE_CREATEALWAYS</code> - Always creates a new blank file.</li>
+</ul>
+<p>Work mode is a combination of following values:</p>
+<ul>
+<li><code>AGSSTREAM_MODE_READ</code> - Stream supports reading data.</li>
+<li><code>AGSSTREAM_MODE_WRITE</code> - Stream supports writing data.</li>
+<li><code>AGSSTREAM_MODE_SEEK</code> - Stream supports seeking (that is - changing cursor position).</li>
+</ul>
+<p><strong>NOTE:</strong> only <code>AGSSTREAM_MODE_READ</code> and <code>AGSSTREAM_MODE_WRITE</code> are essential to be used with the <code>OpenFileStream()</code>. <code>AGSSTREAM_MODE_SEEK</code> value is ignored, and only used by <a href="EnginePluginRun-timeAPI.html#iagsstreamgetmode"><code>IAGSStream::GetMode()</code></a> to indicate seekable streams.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsenginegetfilestreambyhandle" class="level4">
+<h4>IAGSEngine.GetFileStreamByHandle</h4>
+<div class="sourceCode" id="cb111"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>IAGSStream<span class="op">*</span> GetFileStreamByHandle<span class="op">(</span>int32 fhandle<span class="op">);</span></span></code></pre></div>
+<p>Returns IAGSStream object identified by the given stream handle, or NULL if handle is invalid. This lets to retrieve IAGSStream object from a handle received in a event callback, such as AGSE_SAVEGAME and AGSE_RESTOREGAME. The returned stream's ownership is NOT passed to the caller, and should be kept and used only in the duration of the event callback.</p>
+<p><strong>IMPORTANT:</strong>: A stream received from GetFileStreamByHandle() should NOT be closed or disposed, doing so will lead to errors in the engine.</p>
+<p><em>Added in version: 28</em></p>
+</section>
 </section>
 <section id="iagsscriptmanagedobject-interface" class="level3">
 <h3><a href="#iagsscriptmanagedobject-interface">IAGSScriptManagedObject interface</a></h3>
 <p>The <code>IAGSScriptManagedObject</code> interface is implemented for objects which the plugin wants to return to the game script. It allows a callback mechanism for AGS to request various operations on the object. You must implement the following:</p>
 <section id="iagsscriptmanagedobjectdispose" class="level4">
 <h4>IAGSScriptManagedObject.Dispose</h4>
-<div class="sourceCode" id="cb109"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Dispose<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>address<span class="op">,</span> <span class="dt">bool</span> force<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Dispose<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>address<span class="op">,</span> <span class="dt">bool</span> force<span class="op">);</span></span></code></pre></div>
 <p>Called when the reference count of the specified object reaches zero. The <code>address</code> parameter points to the particular object that is no longer referenced.</p>
 <p>If <code>force</code> is zero, then you are merely being informed that the reference count has reached zero. Either you can destroy the object (in which case you should return 1), or you can leave it (return 0). If you leave it, then this function will be called again at various intervals to give you another opportunity to destroy the object.</p>
 <p>If <code>force</code> is non-zero, then this is the object's last chance to free its memory and it will not be called again. This is the case if the player is about to restore a saved game, or is quitting the game, and so forth.</p>
@@ -1119,13 +1153,13 @@ struct AGSGameInfo {
 </section>
 <section id="iagsscriptmanagedobjectgettype" class="level4">
 <h4>IAGSScriptManagedObject.GetType</h4>
-<div class="sourceCode" id="cb110"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span><span class="op">*</span> GetType<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span><span class="op">*</span> GetType<span class="op">();</span></span></code></pre></div>
 <p>Returns the type name of the object. This must match the type name supplied to <code>AddManagedObjectReader</code> for the corresponding reader.</p>
 <p><em>Added in version: 15</em></p>
 </section>
 <section id="iagsscriptmanagedobjectserialize" class="level4">
 <h4>IAGSScriptManagedObject.Serialize</h4>
-<div class="sourceCode" id="cb111"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Serialize<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>address<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">int</span> bufsize<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Serialize<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>address<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">int</span> bufsize<span class="op">);</span></span></code></pre></div>
 <p>Called when the player saves the game. You must write any persistent data for the object at <code>address</code> into the supplied <code>buffer</code>. The buffer is <code>bufsize</code> bytes long, and you must not write any more data than that.</p>
 <p>You must return the number of bytes written to the buffer.</p>
 <p><em>Added in version: 15</em></p>
@@ -1136,7 +1170,7 @@ struct AGSGameInfo {
 <p>The IAGSManagedObjectReader interface is implemented for each managed object type, to enable the objects to be reconstructed after being read back from disk. You must implement the following:</p>
 <section id="iagsmanagedobjectreaderunserialize" class="level4">
 <h4>IAGSManagedObjectReader.Unserialize</h4>
-<div class="sourceCode" id="cb112"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Unserialize<span class="op">(</span><span class="dt">int</span> key<span class="op">,</span> <span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>serializedData<span class="op">,</span> <span class="dt">int</span> dataSize<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Unserialize<span class="op">(</span><span class="dt">int</span> key<span class="op">,</span> <span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>serializedData<span class="op">,</span> <span class="dt">int</span> dataSize<span class="op">);</span></span></code></pre></div>
 <p>Called for each managed object when a saved game is restored. <code>serializedData</code> is the buffer that you wrote to in Serialize, and <code>dataSize</code> is the length of this buffer.</p>
 <p>You should re-construct the object from the serialized data, and then re-register it using the <code>RegisterUnserializedObject</code> function. The <code>key</code> supplied to you here should be passed on unmodified to <code>RegisterUnserializedObject</code> in order for the object to be fully restored.</p>
 <p><em>Added in version: 15</em></p>
@@ -1147,51 +1181,51 @@ struct AGSGameInfo {
 <p>The <code>IAGSFontRenderer</code> interface can be implemented to override AGS's built-in text rendering with a custom system. The methods on the interface are as follows:</p>
 <section id="iagsfontrendererloadfromdisk" class="level4">
 <h4>IAGSFontRenderer.LoadFromDisk</h4>
-<div class="sourceCode" id="cb113"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> LoadFromDisk<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">,</span> <span class="dt">int</span> fontSize<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> LoadFromDisk<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">,</span> <span class="dt">int</span> fontSize<span class="op">);</span></span></code></pre></div>
 <p>Used internally by AGS to load the font from disk. However, you currently cannot insert a custom renderer early enough in the process to override this method, therefore it will never be called.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererfreememory" class="level4">
 <h4>IAGSFontRenderer.FreeMemory</h4>
-<div class="sourceCode" id="cb114"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FreeMemory<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FreeMemory<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>Called when the engine is shutting down, to free the memory associated with this font. You should perform your own clean-up here, and then call onto the <code>FreeMemory</code> method of the old renderer that you replaced.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderersupportsextendedcharacters" class="level4">
 <h4>IAGSFontRenderer.SupportsExtendedCharacters</h4>
-<div class="sourceCode" id="cb115"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> SupportsExtendedCharacters<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> SupportsExtendedCharacters<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>AGS will call this method to determine whether the specified font supports extended characters (i.e. characters with a ASCII value of 128 or above). Return <code>true</code> or <code>false</code>, depending on your implementation.</p>
 <p><strong>IMPORTANT:</strong> If you return false from this function, AGS will not necessarily strip extended characters out of text. If you do not support extended characters, then you should implement the <code>EnsureTextValidForFont</code> method (below) to strip them out.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderergettextwidth" class="level4">
 <h4>IAGSFontRenderer.GetTextWidth</h4>
-<div class="sourceCode" id="cb116"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextWidth<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextWidth<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>AGS will call this method to find out the width, in pixels, of drawing the specified text in the specified font. You should return the number of pixels that this will take up (assuming the text is all on one line and does not wrap).</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrenderergettextheight" class="level4">
 <h4>IAGSFontRenderer.GetTextHeight</h4>
-<div class="sourceCode" id="cb117"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextHeight<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetTextHeight<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>AGS will call this method to find out the height, in pixels, of drawing the specified text in the specified font. You should return the number of pixels that this will take up (assuming the text is all on one line and does not wrap).</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererrendertext" class="level4">
 <h4>IAGSFontRenderer.RenderText</h4>
-<div class="sourceCode" id="cb118"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RenderText<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">,</span> BITMAP <span class="op">*</span>destination<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> color<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> RenderText<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">,</span> BITMAP <span class="op">*</span>destination<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> color<span class="op">);</span></span></code></pre></div>
 <p>AGS calls this method to render text to a bitmap. <code>destination</code> is the bitmap surface that AGS is rendering to (you can use this with other functions like <code>GetBitmapDimensions</code> and <code>GetRawBitmapSurface</code>), and you need to draw the <code>text</code> starting with its top-left position at (<code>x</code>, <code>y</code>) on this surface.</p>
 <p><code>color</code> is a raw pixel color, not an AGS color Number.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendereradjustycoordinateforfont" class="level4">
 <h4>IAGSFontRenderer.AdjustYCoordinateForFont</h4>
-<div class="sourceCode" id="cb119"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AdjustYCoordinateForFont<span class="op">(</span><span class="dt">int</span> <span class="op">*</span>ycoord<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> AdjustYCoordinateForFont<span class="op">(</span><span class="dt">int</span> <span class="op">*</span>ycoord<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>This method is a workaround introduced for TTF fonts, which allows you to adjust the Y-position of the rendered text. You should implement this method so that it does nothing unless you have problems with text positioning.</p>
 <p><em>Added in version: 23</em></p>
 </section>
 <section id="iagsfontrendererensuretextvalidforfont" class="level4">
 <h4>IAGSFontRenderer.EnsureTextValidForFont</h4>
-<div class="sourceCode" id="cb120"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> EnsureTextValidForFont<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> EnsureTextValidForFont<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>text<span class="op">,</span> <span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>AGS calls this method prior to actually rendering text, and allows you to check that all the characters in the text are supported by the font. If not, <code>text</code> is a writable buffer and you could replace them with question marks.</p>
 <p>By default, you should implement this method so that it does nothing.</p>
 <p><em>Added in version: 23</em></p>
@@ -1202,34 +1236,135 @@ struct AGSGameInfo {
 <p>The <code>IAGSFontRenderer2</code> interface is an extension to the <code>IAGSFontRenderer</code>, therefore contains all the parent's methods, but also adds a number of its own:</p>
 <section id="iagsfontrenderer2getversion" class="level4">
 <h4>IAGSFontRenderer2.GetVersion</h4>
-<div class="sourceCode" id="cb121"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetVersion<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetVersion<span class="op">();</span></span></code></pre></div>
 <p>Tells the engine API version to which this renderer implementation corresponds to. This is a very important method, as engine will use it to know what functionality of this interface is safe to use. The return value must not be lower than 26 (as this is the first version in which this interface was introduced).</p>
 <p><strong>IMPORTANT:</strong> You must make sure your renderer returns a correct version, corresponding to which version of interface you implement, otherwise engine may try calling non-existing methods and crash.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getrenderername" class="level4">
 <h4>IAGSFontRenderer2.GetRendererName</h4>
-<div class="sourceCode" id="cb122"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>GetRendererName<span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>GetRendererName<span class="op">();</span></span></code></pre></div>
 <p>Returns the name of this renderer implementation. This is for informational purposes only. Engine may use this method, for example, to print current active font renderer names into the log.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getfontname" class="level4">
 <h4>IAGSFontRenderer2.GetFontName</h4>
-<div class="sourceCode" id="cb123"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>GetFontName<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>GetFontName<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>Returns the name of the given font, if it's supported. Should return an empty string or null otherwise. This is for informational purposes only.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getfontheight" class="level4">
 <h4>IAGSFontRenderer2.GetFontHeight</h4>
-<div class="sourceCode" id="cb124"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetFontHeight<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetFontHeight<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>Returns the font's height. This method supercedes <code>IAGSFontRenderer.GetTextHeight</code>, and does not require to pass a string. The returned height should be a maximal height the font may occupy.</p>
 <p><em>Added in version: 26</em></p>
 </section>
 <section id="iagsfontrenderer2getlinespacing" class="level4">
 <h4>IAGSFontRenderer2.GetLineSpacing</h4>
-<div class="sourceCode" id="cb125"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetLineSpacing<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetLineSpacing<span class="op">(</span><span class="dt">int</span> fontNumber<span class="op">);</span></span></code></pre></div>
 <p>Returns the font's custom line spacing, if any. Return 0 to tell that the font does not have any particular line spacing set, in which case font's height will be used instead.</p>
 <p><em>Added in version: 26</em></p>
+</section>
+</section>
+<section id="iagsstream-interface" class="level3">
+<h3><a href="#iagsstream-interface">IAGSStream interface</a></h3>
+<p>The <code>IAGSStream</code> interface represents an open stream for reading or writing data. This interface may be implemented by the engine or plugin. The interface has following methods:</p>
+<section id="iagsstreamgetmode" class="level4">
+<h4>IAGSStream.GetMode</h4>
+<div class="sourceCode" id="cb129"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GetMode<span class="op">();</span></span></code></pre></div>
+<p>Tells which mode the stream is working in. The mode defines supported i/o operations, such as reading, writing, seeking. Returns combination of AGSSTREAM_MODE_* flags. Invalid or non-functional streams return 0.</p>
+<p>See <a href="EnginePluginRun-timeAPI.html#iagsengineopenfilestream"><code>IAGSEngine.OpenFileStream</code></a> for the list of potential mode values.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamgetpath" class="level4">
+<h4>IAGSStream.GetPath</h4>
+<div class="sourceCode" id="cb130"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> <span class="dt">char</span> <span class="op">*</span>GetPath<span class="op">();</span></span></code></pre></div>
+<p>Returns an optional stream's source description. This may be a file path, or a resource name, or anything of that kind, and is meant purely for diagnostic purposes.</p>
+<p><strong>NOTE:</strong> you should not rely on this method to return anything in particular. It is allowed to return empty string, or NULL pointer.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreameos" class="level4">
+<h4>IAGSStream.EOS</h4>
+<div class="sourceCode" id="cb131"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> EOS<span class="op">();</span></span></code></pre></div>
+<p>Tells whether this stream's position is at its end. Unlike standard C <code>feof</code> this does not wait for a read attempt past the stream end, and reports positive when stream's position = length.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamgeterror" class="level4">
+<h4>IAGSStream.GetError</h4>
+<div class="sourceCode" id="cb132"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> GetError<span class="op">();</span></span></code></pre></div>
+<p>Tells if there were errors during previous i/o operation(s). The call to GetError() <em>resets</em> the error record, so if there are two consecutive GetError() calls, the second will always return "no error".</p>
+<p><strong>NOTE:</strong> this method is mostly intended for the cases when the stream is being used to read many chunks of data in a loop, or read data periodically with waits in between. In such case you may call GetError periodically too, to find out whether stream operations are still being successful.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamgetlength" class="level4">
+<h4>IAGSStream.GetLength</h4>
+<div class="sourceCode" id="cb133"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int64_t</span> GetLength<span class="op">();</span></span></code></pre></div>
+<p>Returns the total stream's length in bytes.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamgetposition" class="level4">
+<h4>IAGSStream.GetPosition</h4>
+<div class="sourceCode" id="cb134"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int64_t</span> GetPosition<span class="op">();</span></span></code></pre></div>
+<p>Returns stream's position. Position is valid in range 0 to (length-1).</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamread" class="level4">
+<h4>IAGSStream.Read</h4>
+<div class="sourceCode" id="cb135"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="dt">size_t</span> Read<span class="op">(</span><span class="dt">void</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">size_t</span> len<span class="op">)</span></span></code></pre></div>
+<p>Reads number of bytes into the provided buffer. Returns number of bytes that were actually copied. If return value is less than <code>len</code> parameter, that means that either end of stream is reached, or there has been an error.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamreadbyte" class="level4">
+<h4>IAGSStream.ReadByte</h4>
+<div class="sourceCode" id="cb136"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int32_t</span> ReadByte<span class="op">()</span></span></code></pre></div>
+<p>Reads a single byte and returns either its value (0-255), or -1 on end of stream or error. This method is intended for getting data byte-by-byte.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamwrite" class="level4">
+<h4>IAGSStream.Write</h4>
+<div class="sourceCode" id="cb137"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="dt">size_t</span> Write<span class="op">(</span><span class="at">const</span> <span class="dt">void</span> <span class="op">*</span>buffer<span class="op">,</span> <span class="dt">size_t</span> len<span class="op">)</span></span></code></pre></div>
+<p>Writes number of bytes, copying them from the provided buffer. Returns number of bytes that were actually written. If return value is less than <code>len</code> parameter, that means that there has been an error.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamwritebyte" class="level4">
+<h4>IAGSStream.WriteByte</h4>
+<div class="sourceCode" id="cb138"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int32_t</span> WriteByte<span class="op">(</span><span class="dt">uint8_t</span> b<span class="op">)</span></span></code></pre></div>
+<p>Writes a single byte (0-255) and returns either its value, or -1 on error. This method is intended for putting data byte-by-byte.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamseek" class="level4">
+<h4>IAGSStream.Seek</h4>
+<div class="sourceCode" id="cb139"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int64_t</span> Seek<span class="op">(</span><span class="dt">int64_t</span> offset<span class="op">,</span> <span class="dt">int</span> origin<span class="op">)</span></span></code></pre></div>
+<p>Moves stream cursor to the requested offset, counting from the "origin", where "origin" defined by AGSSTREAM_SEEK_* constants:</p>
+<ul>
+<li><code>AGSSTREAM_SEEK_SET</code> - offset from beginning of the stream, basically, from 0. Offset must be strictly positive.</li>
+<li><code>AGSSTREAM_SEEK_CUR</code> - offset relative to the current position. Offset may be either positive (go forward) or negative (go backward).</li>
+<li><code>AGSSTREAM_SEEK_END</code> - offset from end of stream. Offset must be strictly negative.</li>
+</ul>
+<p>Returns new stream position, or -1 on error.</p>
+<p><strong>NOTE:</strong> seeking to forbidden positions (outside of valid stream range) is not counted as error. In such case the stream will simply clamp the destination offset to the valid range and return the actual position it ended on. Error is only reported if there was a failure to seek at all. Stream's implementation guarantees that stream's position remains unchanged in case of error.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamflush" class="level4">
+<h4>IAGSStream.Flush</h4>
+<div class="sourceCode" id="cb140"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> Flush<span class="op">()</span></span></code></pre></div>
+<p>Flushes stream, forcing it to write any buffered data to the underlying device. Does nothing in read-only mode. Returns if operation was successful.</p>
+<p>Some streams may have a internal memory buffer where they keep recently written data instead of passing them to the device (file, etc) right away. This is done for performance reasons. In such case the written data may not get to the device until the internal buffer is full. There are situations where you may want to force the stream to write to device at once. For example, if you are writing a log, you would like the log messages to appear in the file instantly, so that you could read them. This is where you need to use Flush().</p>
+<p><strong>NOTE:</strong> when stream is being closed, it is also flushed automatically, so you don't have to call it yourself then.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamclose" class="level4">
+<h4>IAGSStream.Close</h4>
+<div class="sourceCode" id="cb141"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Close<span class="op">()</span></span></code></pre></div>
+<p>Flushes and closes the stream, but does not delete the stream object just yet. Usually you do not have to call this, and should use Dispose() to close and delete stream object instead.</p>
+<p><em>Added in version: 28</em></p>
+</section>
+<section id="iagsstreamdispose" class="level4">
+<h4>IAGSStream.Dispose</h4>
+<div class="sourceCode" id="cb142"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Dispose<span class="op">()</span></span></code></pre></div>
+<p>Flushes, closes the stream, and deletes the stream object, freeing all the associated memory.</p>
+<p>After calling this the IAGSStream pointer becomes INVALID and should not be used (unless assigned a new stream object later on).</p>
+<p><em>Added in version: 28</em></p>
 </section>
 </section>
 </section>
@@ -1239,7 +1374,7 @@ struct AGSGameInfo {
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 

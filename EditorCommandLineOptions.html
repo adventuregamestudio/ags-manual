@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Engine Plugins</title>
+  <title>Editor Command Line Options</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
@@ -84,29 +84,36 @@
       <li><a href="genindex.html">Index</a></li>
     </ul>
 <ul>
-<li><a href="#engine-plugins" id="toc-engine-plugins">Engine Plugins</a></li>
+<li><a href="#editor-command-line-options" id="toc-editor-command-line-options">Editor Command Line Options</a>
+<ul>
+<li><a href="#opening-the-editor" id="toc-opening-the-editor">Opening the Editor</a></li>
+<li><a href="#compile-flag" id="toc-compile-flag">Compile Flag</a></li>
+</ul></li>
 </ul>
   </nav>
 
   <main>
-<section id="engine-plugins" class="level2">
-<h2><a href="#engine-plugins">Engine Plugins</a></h2>
-<p>AGS supports a plugin interface, whereby you can write your own add-ons if AGS doesn't support all the features you need.</p>
-<p>AGS supports two different types of plugins - plain API plugins, for writing plugins that add extra functionality to games and need to be included with the games at runtime; and .NET plugins, for enhancing the editor. Editor .NET plugins are explained on <a href="EditorPlugins.html">this separate page</a>; here we will continue talking about the plain API.</p>
-<p><strong>IMPORTANT:</strong> Plugins are <strong>non-portable</strong>. This means that if you write a plugin, you will not be able to compile a Linux version of any game that uses the plugin, unless you supply a Linux version of it yourself, and same for other platforms.</p>
-<p><strong>Supported compiler per platform</strong> These follows the compilers used for the binaries of the Engine:</p>
-<ul>
-<li>MSVC on Windows</li>
-<li>GCC on Linux</li>
-<li>Other platforms don't have binaries provided with the editor, but currently are built with Clang.</li>
-</ul>
-<p>Now, if you want to continue, on to the technical details.</p>
-<p>AGS plugins are implemented as Windows DLL files, which must have filenames beginning with "AGS". Therefore, you will need to create your plugin as a standard Windows DLL project. When the editor starts up, it reads through all the <code>ags*.dll</code> files in the editor directory, and adds them to its plugin list. More information <a href="Plugins.html">about <em>using</em> plugins in this page</a>.</p>
-<p>The plugin can be started in two modes - design-time and run-time. Design-time mode is used when the plugin is loaded by the AGS Editor, and Run-time mode is used when the game is actually run.</p>
-<ul>
-<li><a href="EnginePluginDesign-timeAPI.html">Engine Plugin Design-time API</a></li>
-<li><a href="EnginePluginRun-timeAPI.html">Engine Plugin Run-time API</a></li>
-</ul>
+<section id="editor-command-line-options" class="level2">
+<h2><a href="#editor-command-line-options">Editor Command Line Options</a></h2>
+<p>Running AGS Editor from the command line can be useful for automation purposes.</p>
+<p>We will use <code>cmd.exe</code> here, but you can call AGS Editor from other command lines, though they may require special handling.</p>
+<p><strong>NOTE:</strong> If you are using the MSYS2 bash prompt on Windows, remember that <code>/</code> command flags need two slashes. (e.g. use <code>AGSEditor.exe //compile my-project/Game.agf</code>).</p>
+<section id="opening-the-editor" class="level3">
+<h3><a href="#opening-the-editor">Opening the Editor</a></h3>
+<p>You can open the Editor in the command line by simply calling its executable and passing the path to it.</p>
+<pre class="cmd"><code>C:\path\to\AGSEditor.exe</code></pre>
+<p>We won't use the full path in the rest of the text, but you still need to either pass it, put your AGS Editor folder in your system PATH, or change the directory to it before.</p>
+<p>You can also open the editor in a specific project by passing your project's <code>Game.agf</code> location.</p>
+<pre class="cmd"><code>AGSEditor.exe path\to\Game.agf</code></pre>
+<p>As an example, in Windows, you can create a shortcut for the AGS Editor and edit its properties to put your <code>Game.agf</code> there so you can create a shortcut that opens AGS Editor in your project.</p>
+</section>
+<section id="compile-flag" class="level3">
+<h3><a href="#compile-flag">Compile Flag</a></h3>
+<p>This flag will load the AGS Editor in your project, compile it, and exit.</p>
+<pre class="cmd"><code>AGSEditor.exe /compile path\to\Game.agf</code></pre>
+<p>Outputs that would normally be a message box or in the output panel will instead be printed in the command line. A successful compilation will have exit code 0, and any error will give a non-zero exit code.</p>
+<p>This option can be used for automation purposes, you could use it to build your AGS Game in a Continuous Integration pipeline.</p>
+</section>
 </section>
   </main>
 

@@ -109,14 +109,15 @@
 <section id="dialoggetbyname" class="level3">
 <h3><a href="#dialoggetbyname"><code>Dialog.GetByName</code></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>string scriptName<span class="op">)</span></span></code></pre></div>
-<p>Retrieves a pointer to the dialog by its script name (e.g.: <code>"dDogDialog"</code>), or null if it does not exist.</p>
-<p>This function is useful for accessing dialogs based on their script names, like when they are obtained from external sources.</p>
+<p>Returns a pointer to the Dialog with the specified script name, or null if it does not exist.</p>
+<p>Normally you do not need to use this, as there will be a automatically created global script variable for each Dialog which got a script name. Where GetByName() function may come useful is situation in which you a) do not know exact name, b) had to store object's reference in a string for some reason. Good examples of this are saving object's name in a <a href="CustomProperties.html">custom property</a>, or a <a href="File.html">file</a>, then reading it back.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">*</span> dogDialog = <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span><span class="st">&quot;dDogDialog&quot;</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dogDialog <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    dogDialog<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Retrieves the dialog with the script name "dDogDialog" and starts the conversation if it exists.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> dialogName = cNPC<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;MyDialog&quot;</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">*</span> dlg = <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetByName</span><span class="op">(</span>dialogName<span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dlg <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    dlg<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Retrieves a dialog name from the character's custom property, and gets a pointer to an actual Dialog using that name, then runs it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialogscriptname"><code>Dialog.ScriptName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
 <hr />
@@ -219,7 +220,7 @@ eOptionOffForever
 <h3><a href="#dialogscriptname"><code>Dialog.ScriptName</code></a></h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the script name of the dialog, which serves as a unique identifier.</p>
-<p>This property is useful for debugging or referencing specific dialogs in text properties or text files.</p>
+<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each dialog in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Dialog.html#dialoggetbyname">Dialog.GetByName</a> function to retrieve the dialog by the previously saved script name.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomDialogStart</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Dialog</span><span class="op">*)</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -315,7 +316,7 @@ eOptionOffForever
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6f53bb63d610657b14f3ce4b2e1b445859dca66a
+      Build: 9af74983e074681400b24f26b45ef5d235bae053
     </p>
   </footer>
 
