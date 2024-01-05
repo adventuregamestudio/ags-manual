@@ -86,11 +86,11 @@
 <ul>
 <li><a href="#event-types" id="toc-event-types">Event Types</a>
 <ul>
-<li><a href="#hotspot-events" id="toc-hotspot-events">Hotspot events</a></li>
-<li><a href="#object-events" id="toc-object-events">Object events</a></li>
 <li><a href="#room-events" id="toc-room-events">Room events</a></li>
-<li><a href="#inventory-item-events" id="toc-inventory-item-events">Inventory item events</a></li>
 <li><a href="#character-events" id="toc-character-events">Character events</a></li>
+<li><a href="#object-events" id="toc-object-events">Object events</a></li>
+<li><a href="#hotspot-events" id="toc-hotspot-events">Hotspot events</a></li>
+<li><a href="#inventory-item-events" id="toc-inventory-item-events">Inventory item events</a></li>
 <li><a href="#region-events" id="toc-region-events">Region events</a></li>
 </ul></li>
 </ul>
@@ -99,99 +99,170 @@
   <main>
 <section id="event-types" class="level2">
 <h2><a href="#event-types">Event Types</a></h2>
-<p>The following events are available in the "Events" section of the Properties Window (when clicking the lightning bolt icon).</p>
+<p>In AGS certain types of game objects may have individual events, that is - events that are run for a <em>particular object</em> when something happens to it. These events do not have predefined functions, unlike <a href="Globalfunctions_Event.html">Global event handlers</a>. Instead each object has an event table, where you may connect a script function to some event.</p>
+<p>In the Editor the event tables may be found in the "Events" section of the Properties Window (when clicking the lightning bolt icon).</p>
+<p>It's important to note that each event type corresponds to its own function type, which defines function arguments. To give an example, Button's OnClick event demands a function that looks like:</p>
+<pre><code>function ButtonName_Click(GUIControl *control, MouseButton button)</code></pre>
+<p>If two or more events have same function type, then it is also possible to connect one function to all of them. Similarily, it is possible to connect one function to events from multiple objects. This may be useful in case you prefer to have a generic behavior for them. In such case the function arguments may usually be used to tell which object and which event called the function.</p>
+<p>For example, if multiple Buttons are connected to the same Click function, mentioned above, then you may use <code>control</code> argument to refer to the button that was clicked, and <code>button</code> argument to know which mouse button performed the click.</p>
+<p>Following is a list of events per game object type.</p>
 <hr />
-<section id="hotspot-events" class="level3">
-<h3><a href="#hotspot-events">Hotspot events</a></h3>
-<p>Player stands on hotspot</p>
-<p>occurs repeatedly while the player character is standing on the hotspot.</p>
-<p>Look at hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the "Look" mode (cursor mode 1).</p>
-<p>Interact with hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the "Interact" mode (cursor mode 2).</p>
-<p>Use inventory on hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the "Use inventory" mode (cursor mode 4). You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.</p>
-<p>Speak to hotspot</p>
-<p>occurs when the player clicks on the hotspot while in the "Talk" mode (cursor mode 3).</p>
-<p>Any click on hotspot</p>
-<p>occurs when the player clicks on the hotspot in any cursor mode (except Walk). This allows you to add extra modes like smell, taste, push, pull, and so on. This event also occurs as well as the other event for the Look, Interact and Talk modes.</p>
-<p>Mouse moves over hotspot</p>
-<p>occurs repeatedly while the mouse cursor is over the hotspot. You can use this to highlight the cursor, and for other various effects.</p>
-<hr />
-</section>
-<section id="object-events" class="level3">
-<h3><a href="#object-events">Object events</a></h3>
-<p>Look at object</p>
-<p>occurs when the player clicks on the object while in the "Look" mode (cursor mode 1).</p>
-<p>Interact with object</p>
-<p>occurs when the player clicks on the object in the "Interact" mode (cursor mode 2).</p>
-<p>Speak to object</p>
-<p>occurs when the player clicks on the object in the "Talk" mode (cursor mode 3).</p>
-<p>Use inventory on object</p>
-<p>works like "Use inventory on hotspot" - see that description (above) for more information.</p>
-<hr />
-</section>
 <section id="room-events" class="level3">
 <h3><a href="#room-events">Room events</a></h3>
-<p>Walk off left</p>
-<p>occurs when the player character walks off the left edge of the screen.</p>
-<p>Walk off right</p>
-<p>occurs when the player walks off the right edge of the screen.</p>
-<p>Walk off bottom</p>
-<p>occurs when the player character walks off the bottom edge of the screen.</p>
-<p>Walk off top</p>
-<p>occurs when the player character walks off the top edge of the screen.</p>
-<p>First time enters room</p>
-<p>occurs the first time the player enters the room. This event occurs AFTER the screen has faded in, so it allows you to display a message describing the scene.</p>
-<p>Player enters room (before fade-in)</p>
-<p>occurs just after the room is loaded into memory. This event occurs every time the player enters the screen, and it happens BEFORE the screen has faded in, which allows you to change object graphics and do other things to the screen which the player won't notice.</p>
-<p><em>NOTE: This event is ONLY meant for adjusting things such as object and character placement. Do NOT use this event for any sort of automated intro to the room - use the "Enters Room After Fade In" event for that instead.</em></p>
-<p>Repeatedly execute</p>
-<p>occurs repeatedly on every interpreter cycle. The normal game speed is 40 cycles per second, so this event occurs about every 25 milliseconds.</p>
-<p>Player enters room (after fade-in)</p>
-<p>occurs every time the player enters the room, AFTER the screen has faded-in. Suitable for displaying text descriptions and so on, that you want the player to see.</p>
-<p>Player leaves room (before fade out)</p>
-<p>occurs when the player leaves the screen, just before the screen fades out.</p>
-<p>Player leaves room (after fade out)</p>
-<p>occurs when the player leaves the screen, AFTER the screen has faded-out.</p>
-<hr />
-</section>
-<section id="inventory-item-events" class="level3">
-<h3><a href="#inventory-item-events">Inventory item events</a></h3>
-<p>Look at inventory</p>
-<p>occurs when the player clicks on the inventory item while in the "look" mode.</p>
-<p>Interact with inventory</p>
-<p>currently, because the Interact mode selects the inventory item, this event can only be triggered by manually calling the InventoryItem.RunInteraction script function (i.e. you have to use the Handle Inv Clicks in Script option).</p>
-<p>Speak to inventory</p>
-<p>only applies to the LucasArts-style inventory, occurs when the player clicks the Talk icon on the inventory item.</p>
-<p>Use inventory on inv</p>
-<p>occurs when the player uses another inventory object on this one. You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.<br> This event allows the player to combine items, and so on. For example, if they had picked up a laptop computer and a battery separately, then you could use this to allow them to insert the battery into the computer.</p>
-<p>Other click on inventory</p>
-<p>only applies to the LucasArts-style inventory, occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the item.</p>
+<p><strong>Enters room before fade-in</strong></p>
+<pre><code>function room_Load()</code></pre>
+<p>Occurs just after the room is loaded into memory. This event occurs every time the player enters the screen, and it happens BEFORE the screen has faded in, which allows you to change object graphics and do other things to the screen which the player won't notice.</p>
+<p><strong>NOTE:</strong> This event is ONLY meant for adjusting things such as object and character placement. Do NOT use this event for any sort of automated intro to the room - use the "Enters Room After Fade In" event for that instead.</p>
+<p><strong>Enters room after fade-in</strong></p>
+<pre><code>function room_AfterFadeIn()</code></pre>
+<p>Occurs every time the player enters the room, AFTER the screen has faded-in. Suitable for playing cutscenes.</p>
+<p><strong>First time enters room</strong></p>
+<pre><code>function room_FirstLoad()</code></pre>
+<p>Occurs the first time the player enters the room. This event occurs AFTER the screen has faded in, and right before the "Player enters room (after fade-in)" event.</p>
+<p><strong>Leaves room before fade out</strong></p>
+<pre><code>function room_Leave()</code></pre>
+<p>Occurs when the player leaves the screen, just BEFORE the screen fades out.</p>
+<p><strong>Leaves room after fade out</strong></p>
+<pre><code>function room_Unload()</code></pre>
+<p>Occurs when the player leaves the screen, AFTER the screen has faded-out. This event is suitable for stopping room music and deleting temporary resources, such as Dynamic Sprites.</p>
+<p><strong>Repeatedly execute</strong></p>
+<pre><code>function room_RepExec()</code></pre>
+<p>Occurs repeatedly on every game cycle, at a frequency defined by the game speed (for example if game speed is 40, then this event will occur 40 times per second, about every 25 milliseconds). This event is a equivalent of a global <code>repeatedly_execute</code> callback, as <code>repeatedly_execute</code> is not run in room scripts.</p>
+<p><strong>Walk off left edge</strong></p>
+<pre><code>function room_LeaveLeft()</code></pre>
+<p>occurs when the player character walks off the left Room Edge.</p>
+<p><strong>Walk off right edge</strong></p>
+<pre><code>function room_LeaveRight()</code></pre>
+<p>occurs when the player walks off the right Room Edge.</p>
+<p><strong>Walk off bottom edge</strong></p>
+<pre><code>function room_LeaveBottom()</code></pre>
+<p>occurs when the player character walks off the bottom Room Edge.</p>
+<p><strong>Walk off top edge</strong></p>
+<pre><code>function room_LeaveTop()</code></pre>
+<p>occurs when the player character walks off the top Room Edge.</p>
 <hr />
 </section>
 <section id="character-events" class="level3">
 <h3><a href="#character-events">Character events</a></h3>
-<p>Look at character</p>
-<p>occurs when the player clicks on a character while in the "look" mode.</p>
-<p>Interact with character</p>
-<p>occurs when the player clicks on a character while in the "interact" mode.</p>
-<p>Speak to character</p>
-<p>occurs when the player clicks on a character while in the "talk" mode.</p>
-<p>Use inventory on character</p>
-<p>occurs when the player uses an inventory object on a character. This event could be used to allow the player to give items to characters.</p>
-<p>Any click on character</p>
-<p>occurs when the player clicks any other cursor mode (apart from look, talk and use_inv) on the character.</p>
+<p><strong>Look at character</strong></p>
+<pre><code>function cChar_Look(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "look" mode.</p>
+<p><strong>Interact character</strong></p>
+<pre><code>function cChar_Look(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "interact" mode.</p>
+<p><strong>Talk to character</strong></p>
+<pre><code>function cChar_Talk(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "talk" mode.</p>
+<p><strong>Pick up character</strong></p>
+<pre><code>function cChar_PickUp(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "pick up" mode.</p>
+<p><strong>Use inventory on character</strong></p>
+<pre><code>function cChar_UseInv(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player uses an inventory object on a character. This event could be used to allow the player to give items to characters. You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.</p>
+<p><strong>Usermode1 character</strong></p>
+<pre><code>function cChar_Mode8(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "usermode1" mode.</p>
+<p><strong>Usermode2 character</strong></p>
+<pre><code>function cChar_Mode9(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a character while in the "usermode2" mode.</p>
+<p><strong>Any click on character</strong></p>
+<pre><code>function cChar_AnyClick(Character *theCharacter, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on the character in any mode. It's run right after the specific mode event, except if there was a room change command. This allows you to process custom modes like smell, taste, push, pull, and so on.</p>
+<hr />
+</section>
+<section id="object-events" class="level3">
+<h3><a href="#object-events">Object events</a></h3>
+<p><strong>Look at object</strong></p>
+<pre><code>function cObject_Look(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "look" mode.</p>
+<p><strong>Interact object</strong></p>
+<pre><code>function cObject_Look(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "interact" mode.</p>
+<p><strong>Talk to object</strong></p>
+<pre><code>function cObject_Talk(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "talk" mode.</p>
+<p><strong>Pick up object</strong></p>
+<pre><code>function cObject_PickUp(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "pick up" mode.</p>
+<p><strong>Use inventory on object</strong></p>
+<pre><code>function cObject_UseInv(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player uses an inventory object on a object. You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.</p>
+<p><strong>Usermode1 object</strong></p>
+<pre><code>function cObject_Mode8(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "usermode1" mode.</p>
+<p><strong>Usermode2 object</strong></p>
+<pre><code>function cObject_Mode9(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a object while in the "usermode2" mode.</p>
+<p><strong>Any click on object</strong></p>
+<pre><code>function cObject_AnyClick(Object *theObject, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on the object in any mode. It's run right after the specific mode event, except if there was a room change command. This allows you to process custom modes like smell, taste, push, pull, and so on.</p>
+<hr />
+</section>
+<section id="hotspot-events" class="level3">
+<h3><a href="#hotspot-events">Hotspot events</a></h3>
+<p><strong>Look at hotspot</strong></p>
+<pre><code>function cHotspot_Look(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "look" mode.</p>
+<p><strong>Interact hotspot</strong></p>
+<pre><code>function cHotspot_Look(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "interact" mode.</p>
+<p><strong>Talk to hotspot</strong></p>
+<pre><code>function cHotspot_Talk(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "talk" mode.</p>
+<p><strong>Pick up hotspot</strong></p>
+<pre><code>function cHotspot_PickUp(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "pick up" mode.</p>
+<p><strong>Use inventory on hotspot</strong></p>
+<pre><code>function cHotspot_UseInv(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player uses an inventory hotspot on a hotspot. You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.</p>
+<p><strong>Usermode1 hotspot</strong></p>
+<pre><code>function cHotspot_Mode8(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "usermode1" mode.</p>
+<p><strong>Usermode2 hotspot</strong></p>
+<pre><code>function cHotspot_Mode9(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on a hotspot while in the "usermode2" mode.</p>
+<p><strong>Any click on hotspot</strong></p>
+<pre><code>function cHotspot_AnyClick(Hotspot *theHotspot, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on the hotspot in any mode. It's run right after the specific mode event, except if there was a room change command. This allows you to process custom modes like smell, taste, push, pull, and so on.</p>
+<p><strong>Stands on hotspot</strong></p>
+<pre><code>function hHotspot_WalkOn(Hotspot *theHotspot)</code></pre>
+<p>Occurs repeatedly while the player character is standing on the hotspot.</p>
+<p><strong>Mouse moves over hotspot</strong></p>
+<pre><code>function hHotspot_MouseMove(Hotspot *theHotspot)</code></pre>
+<p>Pccurs repeatedly while the mouse cursor is over the hotspot. You can use this to highlight the cursor, and for other various effects.</p>
+<hr />
+</section>
+<section id="inventory-item-events" class="level3">
+<h3><a href="#inventory-item-events">Inventory item events</a></h3>
+<p><strong>Look at inventory item</strong></p>
+<pre><code>function iInvItem_Look(InventoryItem *theItem, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks on the inventory item while in the "look" mode.</p>
+<p><strong>Interact inventory item</strong></p>
+<pre><code>function iInvItem_Interact(InventoryItem *theItem, CursorMode mode)</code></pre>
+<p>Currently, because the Interact mode selects the inventory item, this event can only be triggered by manually calling the InventoryItem.RunInteraction script function (i.e. you have to use the Handle Inv Clicks in Script option).</p>
+<p><strong>Talk to inventory item</strong></p>
+<pre><code>function iInvItem_Talk(InventoryItem *theItem, CursorMode mode)</code></pre>
+<p>Only applies to the LucasArts-style inventory, occurs when the player clicks the Talk icon on the inventory item.</p>
+<p><strong>Use inventory on this item</strong></p>
+<pre><code>function iInvItem_UseInv(InventoryItem *theItem, CursorMode mode)</code></pre>
+<p>Occurs when the player uses another inventory object on this one. You can use the <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a> property to distinguish which item they used.</p>
+<p>This event allows the player to combine items, and so on. For example, if they had picked up a laptop computer and a battery separately, then you could use this to allow them to insert the battery into the computer.</p>
+<p><strong>Other click on inventory</strong></p>
+<pre><code>function iInvItem_OtherClick(InventoryItem *theItem, CursorMode mode)</code></pre>
+<p>Occurs when the player clicks <em>any other</em> cursor mode (apart from the ones listed above) on the item.</p>
 <hr />
 </section>
 <section id="region-events" class="level3">
 <h3><a href="#region-events">Region events</a></h3>
-<p>While player stands on region</p>
-<p>occurs repeatedly while the player character stands on this region</p>
-<p>Player walks onto region</p>
-<p>occurs when the player moves from another region onto this one. Will also activate on whichever region they start on when they enter the screen.</p>
-<p>Player walks off region</p>
-<p>occurs when the player leaves the current region. Does not occur if they go to a different room.</p>
+<p><strong>Walks onto region</strong></p>
+<pre><code>function region_WalksOff(Region *theRegion)</code></pre>
+<p>Occurs when the player moves from another region onto this one. Will also activate on whichever region they start on when they enter the screen.</p>
+<p><strong>Walks off region</strong></p>
+<pre><code>function region_WalksOnto(Region *theRegion)</code></pre>
+<p>Occurs when the player leaves the current region. Does not occur if they go to a different room.</p>
+<p><strong>While standing on region</strong></p>
+<pre><code>function region_Standing(Region *theRegion)</code></pre>
+<p>Occurs repeatedly while the player character stands on this region.</p>
 </section>
 </section>
   </main>
@@ -200,7 +271,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 9af74983e074681400b24f26b45ef5d235bae053
+      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
     </p>
   </footer>
 

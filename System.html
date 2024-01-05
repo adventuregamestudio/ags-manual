@@ -178,11 +178,13 @@
 <h3><a href="#systemcolordepth"><code>System.ColorDepth</code></a></h3>
 <p><em>(Formerly known as <code>system.color_depth</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">;</span></span></code></pre></div>
-<p>Returns the color depth at which the game is running. This is the overall game color depth setting, and it is possible for individual sprites or backgrounds to be different.</p>
+<p>Returns the <strong>native</strong> game's color depth. This is the overall game color depth setting, and it is possible for individual sprites or backgrounds to be different (although not recommended).</p>
+<p><strong>NOTE:</strong> Be aware that for historical reasons, and similar to <a href="System.html#systemscreenheight"><code>System.ScreenHeight</code></a> and <a href="System.html#systemscreenwidth"><code>System.ScreenWidth</code></a>, this is NOT the final color depth of a display mode, but the internal color depth of a game. For instance, a game may have a 8-bit or 16-bit native color depth, but be displayed in a 32-bit mode.</p>
+<p>The native color depth may be useful to know, for example, when you are writing a script module performing raw drawing: then you'd know which ranges of colors will work.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Game is running at: %d x %d, %d-bit color&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenWidth</span><span class="op">,</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Game&#39;s native resolution is: %d x %d, %d-bit color&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenWidth</span><span class="op">,</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">ScreenHeight</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">);</span></span></code></pre></div>
-<p>will display the current resolution and color depth</p>
+<p>will display the game's native resolution and color depth.</p>
 <p><em>See also:</em> <a href="System.html#systemscreenheight"><code>System.ScreenHeight</code></a>, <a href="System.html#systemscreenwidth"><code>System.ScreenWidth</code></a></p>
 <hr />
 </section>
@@ -430,7 +432,7 @@ eOSFreeBSD</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 9af74983e074681400b24f26b45ef5d235bae053
+      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
     </p>
   </footer>
 
