@@ -141,7 +141,10 @@ eEventEnterRoomAfterFadein
         called just before the room&#39;s &#39;Enter After Fade-in&#39; event occurs
         DATA = room number
 eEventLeaveRoom
-        called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs
+        called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs, before the fade-out
+        DATA = room number they are leaving
+eEventLeaveRoomAfterFadeout
+        called when leaving a room, right after fade-out, but while room is still in memory
         DATA = room number they are leaving
 eEventGotScore
         called whenever the player&#39;s score changes
@@ -160,6 +163,9 @@ eEventLoseInventory
         DATA = inventory item number that was lost
 eEventRestoreGame
         called after a saved game has been restored
+        DATA = save slot number
+eEventGameSaved
+        called after a game was saved
         DATA = save slot number</code></pre>
 <p>For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
@@ -173,7 +179,12 @@ eEventRestoreGame
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// do something each time right after a save was restored</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><em>Compatibility:</em> <code>eEventEnterRoomAfterFadein</code> event type is only supported since AGS 3.6.0.</p>
+<p><em>Compatibility:</em></p>
+<ul>
+<li><code>eEventEnterRoomAfterFadein</code> event type is only supported since AGS 3.6.0.</li>
+<li><code>eEventLeaveRoomAfterFadeout</code> event type is only supported since AGS 3.6.1.</li>
+<li><code>eEventGameSaved</code> event type is only supported since AGS 3.6.1.</li>
+</ul>
 <hr />
 </section>
 <section id="on_key_press" class="level3">
@@ -423,7 +434,7 @@ eEventRestoreGame
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 

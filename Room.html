@@ -203,6 +203,7 @@
 <p>Simulates clicking the mouse on the location (X,Y) on the screen, in the specified cursor mode. This "click" has special behavior in that it <strong>only affects Room elements and characters</strong> under given coordinates. Any interactions attached to the first object found on given coordinates and matching the given cursor mode will be executed. Any non-room objects (GUI) will be <strong>ignored</strong>. Even if the coordinates happen to lie on a button, the simulated click will "pass through" that button as if it was not present.</p>
 <p>Please note that this function accepts <em>screen</em> coordinates and not <em>room</em> coordinates. If there's no room viewport on screen at this location the function will fail.</p>
 <p>The available cursor modes are the ones you define on your Cursors tab (but with eMode prepended to them). Usually these are eModeWalkto, eModeLookat, etc.</p>
+<p><strong>NOTE:</strong> When looking up for an object under coordinates, ProcessClick is affected by the game setting <a href="GeneralSettings.html#visual">"Pixel-perfect click detection"</a>. It's possible to change this behavior in script by changing OPT_PIXELPERFECT option (see <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Room</span><span class="op">.</span><span class="at">ProcessClick</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="bu">eModeLookat</span><span class="op">);</span></span></code></pre></div>
 <p>will simulate a click in the Look mode on screen co-ordinates (100, 50).</p>
@@ -310,7 +311,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 

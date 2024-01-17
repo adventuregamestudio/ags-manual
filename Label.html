@@ -116,16 +116,53 @@
 <h3><a href="#labeltext"><code>Label.Text</code></a></h3>
 <p><em>(Formerly known as <code>SetLabelText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Label.GetText</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Label.SetText</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Label</span><span class="op">.</span><span class="at">Text</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the text displayed in the specified label. This allows you to change the text during the game, for example to create a LucasArts-style status line.</p>
+<p>Gets/sets the text displayed in the specified label.</p>
+<p>Examples:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lblGameChapter<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Chapter 2&quot;</span><span class="op">;</span></span></code></pre></div>
+<p>will display "Chapter 2" text on label 'lblGameChapter'.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lblHotspotName<span class="op">.</span><span class="at">Text</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetLocationName</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<p>will display the name of the location the cursor is over on label 'lblHotspotName'</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lblScore<span class="op">.</span><span class="at">Text</span> = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;Game score: %d out of %d&quot;</span><span class="op">,</span> cur_score<span class="op">,</span> total_score<span class="op">);</span></span></code></pre></div>
+<p>will display a <a href="StringFormats.html">formatted string</a> with game score variable values on label 'lblScore'.</p>
+<p>Besides a regular text, or text formatted with String.Format, you can add some special values called "tokens" which will be replaced and automatically updated during the game. Multiple tokens may be present on a single label. The following tokens are currently supported, and will be substituted by actual values at runtime:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Token</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@GAMENAME@</code></td>
+<td>The game's name, from General Settings or Game.Name property</td>
+</tr>
+<tr class="even">
+<td><code>@OVERHOTSPOT@</code></td>
+<td>The name of the location (hotspot, object, etc) which the cursor is over</td>
+</tr>
+<tr class="odd">
+<td><code>@SCORE@</code></td>
+<td>The player's current score</td>
+</tr>
+<tr class="even">
+<td><code>@SCORETEXT@</code></td>
+<td>The text "Score: X of XX" with the relevant numbers filled in</td>
+</tr>
+<tr class="odd">
+<td><code>@TOTALSCORE@</code></td>
+<td>The maximum possible score, specified on the General Settings pane</td>
+</tr>
+</tbody>
+</table>
 <p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lblStatus<span class="op">.</span><span class="at">Text</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetLocationName</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
-<p>will display the name of the location the cursor is over on label 'lblStatus'</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lblStatus<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;You have @SCORE@ out of @TOTALSCORE@ points.&quot;</span><span class="op">;</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Button.html#buttontext"><code>Button.Text</code></a>, <a href="Label.html#labeltextcolor"><code>Label.TextColor</code></a>, <a href="Label.html#labelfont"><code>Label.Font</code></a></p>
 <hr />
 </section>
 <section id="labeltextalignment" class="level3">
 <h3><a href="#labeltextalignment"><code>Label.TextAlignment</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HorizontalAlignment</span> <span class="bu">Label</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">HorizontalAlignment</span> <span class="bu">Label</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets how the text is aligned relative to the label's rectangle. Note that currently label supports only horizontal alignment which could be eAlignLeft, eAlignRight and eAlignCenter.</p>
 <p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
@@ -134,10 +171,10 @@
 <section id="labeltextcolor" class="level3">
 <h3><a href="#labeltextcolor"><code>Label.TextColor</code></a></h3>
 <p><em>(Formerly known as <code>SetLabelColor</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Label</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Label</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the text color used to display the label's text.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lblStatus<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lblStatus<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
 <p>will change label 'lblStatus' to have yellow text.</p>
 <p><em>See also:</em> <a href="Label.html#labelfont"><code>Label.Font</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 </section>
@@ -148,7 +185,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 

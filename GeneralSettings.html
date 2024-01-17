@@ -287,7 +287,8 @@
 <li>Label with a wrapped text will only ever display next line if there's at least 1 extra pixel of height available past the line spacing.</li>
 <li>Sliders DO NOT clip as of AGS 3.6.0. This is left so for the time being, because the positions of their elements historically are calculated to be outside of their bounds.</li>
 </ul></li>
-<li><p><strong>Pixel-perfect click detection</strong> - normally, when the player clicks the mouse, AGS just checks to see if the cursor is within the rectangular area of each character and object on the screen. However, if this option is checked, then it will further check whether the player clicked on an actual pixel of the object graphic, or whether it was a transparent part of the graphic. If this option is enabled and they click on a transparent pixel, then the hotspot behind the object will be activated instead.</p></li>
+<li><p><strong>Pixel-perfect click detection</strong> - tells how the AGS should detect when there's an object or character under cursor, or when you run a script command that looks for an object under certain coordinates. By default AGS checks if the coordinates are within a rectangular area of each character and object on the screen (this is also called "bounding box"). However, if this option is enabled, then it will further check whether the coordinates are on an actual non-transparent pixel of the object graphic. With Pixel-perfect mode the fully transparent pixels will be ignored (sort of "clicked through").</p>
+<p><strong>NOTE:</strong> currently Pixel-perfect mode works only for objects and characters, and nothing else in game.</p></li>
 <li><p><strong>Sprite alpha rendering style</strong> - determines which rendering method to use in 32-bit games when an image is drawn over <a href="DrawingSurface.html">drawing surface</a>. The "Proper alpha blending" choice is meant for full alpha blending support, "Classic" style exists for compatibility with older versions of AGS only.</p></li>
 <li><p><strong>When player interface is disabled, GUI should</strong> - determines what happens to buttons on your GUIs while the game interface is disabled (e.g. during a cutscene).</p></li>
 </ul>
@@ -299,7 +300,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 

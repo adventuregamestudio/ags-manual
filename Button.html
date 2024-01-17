@@ -258,15 +258,41 @@
 <div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Button</span><span class="op">.</span><span class="at">Text</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the text displayed on the button.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Button displayed: %s&quot;</span><span class="op">,</span> btnController<span class="op">.</span><span class="at">Text</span><span class="op">);</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>btnController<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Enable jibble&quot;</span><span class="op">;</span></span></code></pre></div>
-<p>will display the old text, then change button btnController to read 'Enable jibble'.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>btnController<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Enable jibble&quot;</span><span class="op">;</span></span></code></pre></div>
+<p>Will change button btnController to read "Enable jibble".</p>
+<p>Besides a regular text, there are few special text values, called "tokens". If you assign any of these to the Button, it will update its looks automatically during the game. Currently supported are 3 tokens, that make button display selected inventory item's graphic (that is - inventory item assigned as <a href="Character.html#characteractiveinventory"><code>player.ActiveInventory</code></a>). They differ in a way item's graphic is aligned:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Token</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>(INV)</code></td>
+<td>Stretch to fit the button</td>
+</tr>
+<tr class="even">
+<td><code>(INVNS)</code></td>
+<td>Draw centered at actual size</td>
+</tr>
+<tr class="odd">
+<td><code>(INVSHR)</code></td>
+<td>Stretch if too big, draw in actual size if not</td>
+</tr>
+</tbody>
+</table>
+<p>Please note that any of these work only if you assign some normal graphic to the button, in which case the inventory item is drawn on top of it.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>btnSelectedInv<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;(INVNS)&quot;</span><span class="op">;</span></span></code></pre></div>
+<p>Will make button btnSelectedInv display active inventory item's graphic, or just its normal graphic when no inventory item is selected.</p>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a>, <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
 <hr />
 </section>
 <section id="buttontextalignment" class="level3">
 <h3><a href="#buttontextalignment"><code>Button.TextAlignment</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Alignment</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Alignment</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextAlignment</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets how the text is aligned relative to the button's rectangle.</p>
 <p>If the button is displaying an image rather than text, then this property has no effect.</p>
 <p><em>See also:</em> <a href="StandardEnums.html">Standard Enumerated Types</a>, <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
@@ -275,11 +301,11 @@
 </section>
 <section id="buttontextcolor" class="level3">
 <h3><a href="#buttontextcolor"><code>Button.TextColor</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextColor</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the text color used to display the button's text.</p>
 <p>If the button is displaying an image rather than text, then this property has no effect.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>btnRestart<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">15</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>btnRestart<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">15</span><span class="op">;</span></span></code></pre></div>
 <p>will change button 'btnRestart' to have white text.</p>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
 </section>
@@ -290,7 +316,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 

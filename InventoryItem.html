@@ -259,12 +259,12 @@
 <h3><a href="#inventoryitemname"><code>InventoryItem.Name</code></a></h3>
 <p><em>(Formerly known as <code>GetInvName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.GetName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>InventoryItem.SetName</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the name of the inventory item. This is the name which is initially set under the Game tab, Inventory mode of the AGS Editor.</p>
+<p>Gets/sets the name of the inventory item. This is the name which is initially set in Inventory item's properties in the AGS Editor.</p>
 <p>You can change this property if for example you want to change a 'bowl' to a 'bowl with water in' but want to use the same inventory item for it.</p>
-<p>Note that the maximum length for the name of an inventory item is 24 characters - if the name you set is longer than this, it will be truncated.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Active inventory: %s&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will display the name of the player's current inventory item.</p>
+<p><em>Compatibility:</em> inventory item's name was limited to 24 characters prior to <strong>AGS 3.6.1</strong>.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetatscreenxy"><code>InventoryItem.GetAtScreenXY</code></a>, <a href="InventoryItem.html#inventoryitemgraphic"><code>InventoryItem.Graphic</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
@@ -289,7 +289,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ed6bfaafd1d9677661bad698d22714266bf079fb
+      Build: 2c4b00e82cfca1bf216d90a238577d0c4f027946
     </p>
   </footer>
 
