@@ -2,7 +2,7 @@ AC_PREREQ([2.71])
 AC_INIT([ags-manual], [0.9.12])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([-Werror -Wall foreign subdir-objects])
+AM_INIT_AUTOMAKE([-Werror -Wall foreign])
 AM_SILENT_RULES([yes])
 
 AGS_PROG_PANDOC([$srcdir/lua/write_feature_check.lua])
