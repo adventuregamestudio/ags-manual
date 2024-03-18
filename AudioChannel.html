@@ -194,12 +194,12 @@
 <section id="audiochannelspeed" class="level3">
 <h3><a href="#audiochannelspeed"><code>AudioChannel.Speed</code></a></h3>
 <div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">AudioChannel</span><span class="op">.</span><span class="at">Speed</span></span></code></pre></div>
-<p>Gets/sets the playing audio clip's playback speed. The value is defined in clip's milliseconds per second: 1000 is default, meaning 1000 of clip's ms in 1 real second (scale 1:1). Set &lt; 1000 for slower play and &gt; 1000 for faster play. <strong>NOTE:</strong> currently works for MP3 and OGG audio clips only.</p>
+<p>Gets/sets the playing audio clip's playback speed. The value is defined in clip's milliseconds per second: 1000 is default, meaning 1000 of clip's ms in 1 real second (scale 1:1). Set &lt; 1000 for slower play and &gt; 1000 for faster play.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span> <span class="op">*</span>channel = aFunnyTalk<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>channel<span class="op">.</span><span class="at">Speed</span> = <span class="dv">2000</span><span class="op">;</span></span></code></pre></div>
 <p>plays <em>aFunnyTalk</em> clip at the double speed.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions. Prior to <strong>AGS 3.6.0</strong> was working only for MP3 and OGG clips.</p>
 <hr />
 </section>
 <section id="audiochannelstop" class="level3">
@@ -360,7 +360,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ca76d03a2b97b7d9ce195cbd84709bc52571db7d
+      Build: 4398a3c37c2246b5cdd9c839989b262cd2d6b40b
     </p>
   </footer>
 

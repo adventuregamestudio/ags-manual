@@ -90,6 +90,7 @@
 <li><a href="#background" id="toc-background">Background</a></li>
 <li><a href="#edit-this-rooms-control" id="toc-edit-this-rooms-control">Edit this room's control</a></li>
 <li><a href="#properties-control" id="toc-properties-control">Properties control</a></li>
+<li><a href="#room-properties" id="toc-room-properties">Room Properties</a></li>
 <li><a href="#edges" id="toc-edges">Edges</a></li>
 <li><a href="#objects" id="toc-objects">Objects</a></li>
 <li><a href="#characters" id="toc-characters">Characters</a></li>
@@ -111,7 +112,7 @@
 <li>...and more!</li>
 </ul>
 <p><strong>NOTE:</strong> Currently only one room can be open for editing at a time</p>
-<p>![Editor Room](images/EditorRoom_1.png</p>
+<p><img src="images/EditorRoom_1.png" alt="Editor Room" /></p>
 <section id="controls" class="level3">
 <h3><a href="#controls">Controls</a></h3>
 <p><strong>Pan</strong></p>
@@ -151,6 +152,19 @@
 <p>The list button switches the control to show <strong>Properties</strong> and the button with a lighting bolt on it switches the control to show <strong>Events</strong>. Both can be navigated either in categorical order or alphabetical order.</p>
 <p>Positional changes on the properties of an element (e.g. its x or y position) will instantly be updated in the room area, which is useful for pixel positioning.</p>
 </section>
+<section id="room-properties" class="level3">
+<h3><a href="#room-properties">Room Properties</a></h3>
+<ul>
+<li><strong>Description</strong> - this is an optional room description, which may also serve as a room's name.</li>
+<li><strong>Number</strong> - room's number is it's ID. Changing this property will renumber the room and rename its files.</li>
+<li><strong>BackgroundAnimationDelay</strong> - the delay between room background frames switch, in game ticks. This value only has a meaning when room has multiple backgrounds, and <strong>BackgroundAnimationEnabled</strong> is turned on.</li>
+<li><strong>BackgroundAnimationEnabled</strong> - whether the background frames will switch automatically over time. This value only has a meaning when room has multiple backgrounds.</li>
+<li><strong>MaskResolution</strong> - defines the ratio of masks (walkable, hotspot and region) vs room background size. Default is 1:1, but few other choice are available, like 1:2, 1:3 and 1:4. The higher the last number is, the less precise the mask is. This setting exists mostly for the backwards compatibility, or for exotic scenarios where you may want to have hotspot or walkable area to have lower resolution than the room itself. Note that walk-behind mask is not affected by this, and always has 1:1 ratio with the room background.</li>
+<li><strong>PlayerCharacterView</strong> - when set to a non-zero value, the player character will be changed to this View when the room is loaded. Note that you may also use script command <a href="Character.html#characterchangeview">"ChangeView"</a> for the same purpose.</li>
+<li><strong>Properties</strong> - lets you configure room's Custom Properties. Please see <a href="CustomProperties.html">respective topic</a> for more information on this subject.</li>
+<li><strong>ShowPlayerCharacter</strong> - if set to FALSE, then the player character will be disabled (turned invisible and immobile) when the room is loaded. Also the standard "WalkTo" cursor mode will be disabled. Note that you may achieve similar effect using property <a href="Character.html#characteron">"Character.on"</a> and function <a href="Mouse.html#mousedisablemode">"Mouse.DisableMode"</a> in script.</li>
+</ul>
+</section>
 <section id="edges" class="level3">
 <h3><a href="#edges">Edges</a></h3>
 <p>Edges are moved by clicking and dragging them, once their layer is selected. If you have trouble locating them, the properties which correspond to each edge's position are:</p>
@@ -183,7 +197,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: ca76d03a2b97b7d9ce195cbd84709bc52571db7d
+      Build: 4398a3c37c2246b5cdd9c839989b262cd2d6b40b
     </p>
   </footer>
 
