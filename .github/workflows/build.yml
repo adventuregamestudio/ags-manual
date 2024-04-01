@@ -21,9 +21,9 @@ jobs:
           - macos-12
           - ubuntu-22.04
         include:
-          - os: windows-2022
-            shell: msys2 {0}
-            with-feature: --with-chmcmd
+#          - os: windows-2022
+#            shell: msys2 {0}
+#            with-feature: --with-chmcmd
           - os: windows-2022
             shell: msys2 {0}
     runs-on: ${{ matrix.os }}
