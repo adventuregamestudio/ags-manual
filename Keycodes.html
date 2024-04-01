@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Key code table</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#key-code-table" id="toc-key-code-table">Key code table</a>
+<ul>
+<li><a href="#key-modifiers" id="toc-key-modifiers">Key modifiers</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="key-code-table" class="level2">
+<h2><a href="#key-code-table">Key code table</a></h2>
+<p>In AGS script you have a <code>eKeyCode</code> enumeration that defines key codes. These key codes can be passed to <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a>, as well as used in calls to <a href="Globalfunctions_General.html#iskeypressed"><code>IsKeyPressed</code></a>.</p>
+<p>Historically AGS has Ctrl+X key combinations have their own distinct keycodes. At the same time, keycodes corresponding to the modifier keys (Shift, Ctrl and Alt) were never passed to the <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a> alone and were only allowed with <a href="Globalfunctions_General.html#iskeypressed"><code>IsKeyPressed</code></a>.</p>
+<p>Starting from version <strong>3.6.0</strong> AGS supports two <a href="UpgradeTo36.html#changes-to-key-input-handling">"key handling modes"</a>. The old mode works as described above, according to the historical behavior. The new mode actually allows modifier keycodes in <code>on_key_press</code>, and disables combined keycodes like Ctrl+X: instead these are passed as two separate keycodes.</p>
+<p>Following section lists the members of this enum, and which keys they represent.</p>
+<table>
+<thead>
+<tr class="header">
+<th>AGS keycode</th>
+<th>Key</th>
+<th>Numeric value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eKeyNone</code></td>
+<td>none</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlA</code></td>
+<td>Ctrl+A</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlB</code></td>
+<td>Ctrl+B</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlC</code></td>
+<td>Ctrl+C</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlD</code></td>
+<td>Ctrl+D</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlE</code></td>
+<td>Ctrl+E</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlF</code></td>
+<td>Ctrl+F</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlG</code></td>
+<td>Ctrl+G</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlH</code></td>
+<td>Ctrl+H</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlI</code></td>
+<td>Ctrl+I</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlJ</code></td>
+<td>Ctrl+J</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlK</code></td>
+<td>Ctrl+K</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlL</code></td>
+<td>Ctrl+L</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlM</code></td>
+<td>Ctrl+M</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlN</code></td>
+<td>Ctrl+N</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlO</code></td>
+<td>Ctrl+O</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlP</code></td>
+<td>Ctrl+P</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlQ</code></td>
+<td>Ctrl+Q</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlR</code></td>
+<td>Ctrl+R</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlS</code></td>
+<td>Ctrl+S</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlT</code></td>
+<td>Ctrl+T</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlU</code></td>
+<td>Ctrl+U</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlV</code></td>
+<td>Ctrl+V</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlW</code></td>
+<td>Ctrl+W</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlX</code></td>
+<td>Ctrl+X</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlY</code></td>
+<td>Ctrl+Y</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlZ</code></td>
+<td>Ctrl+Z</td>
+<td>26</td>
+</tr>
+<tr class="even">
+<td><code>eKey0</code></td>
+<td>0</td>
+<td>48</td>
+</tr>
+<tr class="odd">
+<td><code>eKey1</code></td>
+<td>1</td>
+<td>49</td>
+</tr>
+<tr class="even">
+<td><code>eKey2</code></td>
+<td>2</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td><code>eKey3</code></td>
+<td>3</td>
+<td>51</td>
+</tr>
+<tr class="even">
+<td><code>eKey4</code></td>
+<td>4</td>
+<td>52</td>
+</tr>
+<tr class="odd">
+<td><code>eKey5</code></td>
+<td>5</td>
+<td>53</td>
+</tr>
+<tr class="even">
+<td><code>eKey6</code></td>
+<td>6</td>
+<td>54</td>
+</tr>
+<tr class="odd">
+<td><code>eKey7</code></td>
+<td>7</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<td><code>eKey8</code></td>
+<td>8</td>
+<td>56</td>
+</tr>
+<tr class="odd">
+<td><code>eKey9</code></td>
+<td>9</td>
+<td>57</td>
+</tr>
+<tr class="even">
+<td><code>eKeyA</code></td>
+<td>A</td>
+<td>65</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyB</code></td>
+<td>B</td>
+<td>66</td>
+</tr>
+<tr class="even">
+<td><code>eKeyC</code></td>
+<td>C</td>
+<td>67</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyD</code></td>
+<td>D</td>
+<td>68</td>
+</tr>
+<tr class="even">
+<td><code>eKeyE</code></td>
+<td>E</td>
+<td>69</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF</code></td>
+<td>F</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td><code>eKeyG</code></td>
+<td>G</td>
+<td>71</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyH</code></td>
+<td>H</td>
+<td>72</td>
+</tr>
+<tr class="even">
+<td><code>eKeyI</code></td>
+<td>I</td>
+<td>73</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyJ</code></td>
+<td>J</td>
+<td>74</td>
+</tr>
+<tr class="even">
+<td><code>eKeyK</code></td>
+<td>K</td>
+<td>75</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyL</code></td>
+<td>L</td>
+<td>76</td>
+</tr>
+<tr class="even">
+<td><code>eKeyM</code></td>
+<td>M</td>
+<td>77</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyN</code></td>
+<td>N</td>
+<td>78</td>
+</tr>
+<tr class="even">
+<td><code>eKeyO</code></td>
+<td>O</td>
+<td>79</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyP</code></td>
+<td>P</td>
+<td>80</td>
+</tr>
+<tr class="even">
+<td><code>eKeyQ</code></td>
+<td>Q</td>
+<td>81</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyR</code></td>
+<td>R</td>
+<td>82</td>
+</tr>
+<tr class="even">
+<td><code>eKeyS</code></td>
+<td>S</td>
+<td>83</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyT</code></td>
+<td>T</td>
+<td>84</td>
+</tr>
+<tr class="even">
+<td><code>eKeyU</code></td>
+<td>U</td>
+<td>85</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyV</code></td>
+<td>V</td>
+<td>86</td>
+</tr>
+<tr class="even">
+<td><code>eKeyW</code></td>
+<td>W</td>
+<td>87</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyX</code></td>
+<td>X</td>
+<td>88</td>
+</tr>
+<tr class="even">
+<td><code>eKeyY</code></td>
+<td>Y</td>
+<td>89</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyZ</code></td>
+<td>Z</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td><code>eKeyAmpersand</code></td>
+<td>&amp;</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyAsterisk</code></td>
+<td>*</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td><code>eKeyAt</code></td>
+<td>@</td>
+<td>64</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyBackSlash</code></td>
+<td>\</td>
+<td>92</td>
+</tr>
+<tr class="even">
+<td><code>eKeyBackspace</code></td>
+<td>Backspace</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCloseBracket</code></td>
+<td>]</td>
+<td>93</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCloseParenthesis</code></td>
+<td>)</td>
+<td>41</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyColon</code></td>
+<td>:</td>
+<td>58</td>
+</tr>
+<tr class="even">
+<td><code>eKeyComma</code></td>
+<td>,</td>
+<td>44</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyDelete</code></td>
+<td>Delete</td>
+<td>383</td>
+</tr>
+<tr class="even">
+<td><code>eKeyDollar</code></td>
+<td>$</td>
+<td>36</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyDoubleQuote</code></td>
+<td>"</td>
+<td>34</td>
+</tr>
+<tr class="even">
+<td><code>eKeyEquals</code></td>
+<td>=</td>
+<td>61</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyEscape</code></td>
+<td>Escape</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td><code>eKeyExclamationMark</code></td>
+<td>!</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyForwardSlash</code></td>
+<td>/</td>
+<td>47</td>
+</tr>
+<tr class="even">
+<td><code>eKeyGreaterThan</code></td>
+<td>&gt;</td>
+<td>62</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyHash</code></td>
+<td>#</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td><code>eKeyHyphen</code></td>
+<td>-</td>
+<td>45</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyInsert</code></td>
+<td>Insert</td>
+<td>382</td>
+</tr>
+<tr class="even">
+<td><code>eKeyLessThan</code></td>
+<td>&lt;</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyOpenBracket</code></td>
+<td>[</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td><code>eKeyOpenParenthesis</code></td>
+<td>(</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyPercent</code></td>
+<td>%</td>
+<td>37</td>
+</tr>
+<tr class="even">
+<td><code>eKeyPeriod</code></td>
+<td>.</td>
+<td>46</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyPlus</code></td>
+<td>+</td>
+<td>43</td>
+</tr>
+<tr class="even">
+<td><code>eKeyQuestionMark</code></td>
+<td>?</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyReturn</code></td>
+<td>Return</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td><code>eKeySemiColon</code></td>
+<td>;</td>
+<td>59</td>
+</tr>
+<tr class="odd">
+<td><code>eKeySingleQuote</code></td>
+<td>'</td>
+<td>39</td>
+</tr>
+<tr class="even">
+<td><code>eKeySpace</code></td>
+<td>Space</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyTab</code></td>
+<td>Tab</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><code>eKeyUnderscore</code></td>
+<td>_</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF1</code></td>
+<td>F1</td>
+<td>359</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF2</code></td>
+<td>F2</td>
+<td>360</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF3</code></td>
+<td>F3</td>
+<td>361</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF4</code></td>
+<td>F4</td>
+<td>362</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF5</code></td>
+<td>F5</td>
+<td>363</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF6</code></td>
+<td>F6</td>
+<td>364</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF7</code></td>
+<td>F7</td>
+<td>365</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF8</code></td>
+<td>F8</td>
+<td>366</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF9</code></td>
+<td>F9</td>
+<td>367</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF10</code></td>
+<td>F10</td>
+<td>368</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyF11</code></td>
+<td>F11</td>
+<td>433</td>
+</tr>
+<tr class="even">
+<td><code>eKeyF12</code></td>
+<td>F12</td>
+<td>434</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyHome</code></td>
+<td>Home</td>
+<td>371</td>
+</tr>
+<tr class="even">
+<td><code>eKeyUpArrow</code></td>
+<td>Up arrow</td>
+<td>372</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyPageUp</code></td>
+<td>Page up</td>
+<td>373</td>
+</tr>
+<tr class="even">
+<td><code>eKeyLeftArrow</code></td>
+<td>Left arrow</td>
+<td>375</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyNumPad5</code></td>
+<td>Numeric keypad 5</td>
+<td>376</td>
+</tr>
+<tr class="even">
+<td><code>eKeyRightArrow</code></td>
+<td>Right arrow</td>
+<td>377</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyEnd</code></td>
+<td>End</td>
+<td>379</td>
+</tr>
+<tr class="even">
+<td><code>eKeyDownArrow</code></td>
+<td>Down arrow</td>
+<td>380</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyPageDown</code></td>
+<td>Page down</td>
+<td>381</td>
+</tr>
+<tr class="even">
+<td><code>eKeyShiftLeft</code></td>
+<td>Left Shift</td>
+<td>403</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyShiftRight</code></td>
+<td>Right Shift</td>
+<td>404</td>
+</tr>
+<tr class="even">
+<td><code>eKeyCtrlLeft</code></td>
+<td>Left Ctrl</td>
+<td>405</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyCtrlRight</code></td>
+<td>Right Ctrl</td>
+<td>406</td>
+</tr>
+<tr class="even">
+<td><code>eKeyAltLeft</code></td>
+<td>Left Alt</td>
+<td>407</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyAltRight</code></td>
+<td>Right Alt</td>
+<td>420</td>
+</tr>
+</tbody>
+</table>
+<p>Use these keycodes in your <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a> function to process player input. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyA</span><span class="op">)</span> <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You pressed A&quot;</span><span class="op">);</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyPlus</span><span class="op">)</span> <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You pressed the Plus key&quot;</span><span class="op">);</span></span></code></pre></div>
+<p><em>Compatibility:</em> the mod key constants (eKeyShiftLeft to eKeyAltRight) are only supported since AGS 3.6.0. In previous versions you'd have to use corresponding numeric values.</p>
+<section id="key-modifiers" class="level3">
+<h3><a href="#key-modifiers">Key modifiers</a></h3>
+<p>In addition, there's separate <code>eKeyMod</code> enumeration with modifier "flags". These values are special so that they may be combined in one variable to make a list of modifiers (like, Shift + Ctrl). This enumeration is supported since <strong>AGS 3.6.0</strong>. Following is the list of possible values:</p>
+<table>
+<thead>
+<tr class="header">
+<th>AGS modifier</th>
+<th>Mod</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eKeyModShiftLeft</code></td>
+<td>Left Shift</td>
+</tr>
+<tr class="even">
+<td><code>eKeyModShiftRight</code></td>
+<td>Right Shift</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyModShift</code></td>
+<td>any Shift</td>
+</tr>
+<tr class="even">
+<td><code>eKeyModCtrlLeft</code></td>
+<td>Left Ctrl</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyModCtrlRight</code></td>
+<td>Right Ctrl</td>
+</tr>
+<tr class="even">
+<td><code>eKeyModCtrl</code></td>
+<td>any Ctrl</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyModAltLeft</code></td>
+<td>Left Alt</td>
+</tr>
+<tr class="even">
+<td><code>eKeyModAltRight</code></td>
+<td>Right Alt</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyModAlt</code></td>
+<td>any Alt</td>
+</tr>
+<tr class="even">
+<td><code>eKeyModNum</code></td>
+<td>Num Lock</td>
+</tr>
+<tr class="odd">
+<td><code>eKeyModCaps</code></td>
+<td>Caps Lock</td>
+</tr>
+</tbody>
+</table>
+<p>You may use these mod codes in the extended variant of <a href="Globalfunctions_Event.html#on_key_press"><code>on_key_press</code></a> function to check which mod keys were pressed along with the primary key. Remember that since these mods are "flags", they should be tested using not the regular "comparison" operator <code>==</code>, but bitwise operators. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyA</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Pressed Ctrl+A&quot;</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModAlt</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;NO Alt was pressed this time&quot;</span><span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In addition, there are two constants defining bitwise masks, one for key codes, and another for key modifiers:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Constant</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eKeyCodeMask</td>
+<td>all key codes</td>
+</tr>
+<tr class="even">
+<td>eKeyModMask</td>
+<td>all key mods</td>
+</tr>
+</tbody>
+</table>
+<p>If both key code and mods are combined in one integer variable, using bitwise operations, these masks may then be used to extract code and mods:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> combokey = <span class="bu">eKeyA</span> <span class="op">|</span> <span class="bu">eKeyModCtrlLeft</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> keycode = combokey <span class="op">&amp;</span> <span class="bu">eKeyCodeMask</span><span class="op">;</span> <span class="co">// keycode now contains only eKeyA</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> keymod = combokey <span class="op">&amp;</span> <span class="bu">eKeyModMask</span><span class="op">;</span> <span class="co">// keymod now contains only eKeyModCtrlLeft</span></span></code></pre></div>
+<p><em>Compatibility:</em> eKeyMod enumeration is only supported since AGS 3.6.0.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

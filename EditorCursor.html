@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cursor Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#cursor-editor" id="toc-cursor-editor">Cursor Editor</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="cursor-editor" class="level2">
+<h2><a href="#cursor-editor">Cursor Editor</a></h2>
+<p>The Cursors node of the editor shows you the current mouse cursor modes available in the game. Each cursor mode performs a different action within the game. There's always a number of precreated cursors, which editor won't allow to remove, and you also may create more if necessary. Right clicking on the "Cursors" node itself allows you to create a new custom cursor. Creating a new cursor or double clicking an existing one will open it for edit.</p>
+<p>The Cursor editor pane allows to preview the cursor's graphic, set its "hotspot" (the point on the cursor's graphic which triggers interaction with underlying objects), as well as configure other properties.</p>
+<p>The "StandardMode" option in the property grid tells AGS that this is a "normal" cursor mode - i.e. using this cursor will fire an event on whatever is clicked on as usual. This mode applies to the standard Walk, Look, Interact and Talk modes, but you can create others too. Do not tick it for the Use Inventory mode, since this is a special mode.</p>
+<p>The "Animate" option allows you to specify that the mouse cursor will animate while it is on the screen. Choose a view number, and the cursor will animate using the first loop of that view. You can make it animate only when over something (hotspot, object or character) by enabling the "AnimateOnlyOnHotspots" option.</p>
+<p>The "AnimateOnlyWhenMoving" box allows you to do a QFG4-style cursor, where it only animates while the player is moving it around.</p>
+<p>Three of the cursor modes are hard-coded special meanings into AGS:</p>
+<ul>
+<li><strong>Mode 4 (Use Inventory)</strong>. This is special because the game decides whether to allow its use or not, depending on whether the player has an active inventory item selected.</li>
+<li><strong>Mode 6 (Pointer)</strong>. This cursor is used whenever a modal dialog is displayed (i.e. a GUI that pauses the game). Normally this is a standard arrow pointer.</li>
+<li><strong>Mode 7 (Wait)</strong>. This cursor is used whenever the player cannot control the action, for example during a scripted cutscene. For a LucasArts-style game where the cursor disappears completely in this state, simply import a blank graphic over the wait cursor.</li>
+</ul>
+<p>For the standard modes,</p>
+<ul>
+<li>Mode 0 will cause the player to walk to the mouse pointer location when clicked.</li>
+<li>Modes 1, 2, 3, 5, 8 and 9 will run the event with the same name as the cursor mode.</li>
+</ul>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

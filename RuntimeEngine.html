@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The run-time engine</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#the-run-time-engine" id="toc-the-run-time-engine">The run-time engine</a>
+<ul>
+<li><a href="#how-the-engine-finds-the-game-data" id="toc-how-the-engine-finds-the-game-data">How the engine finds the game data</a></li>
+<li><a href="#command-line" id="toc-command-line">Command line</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="the-run-time-engine" class="level2">
+<h2><a href="#the-run-time-engine">The run-time engine</a></h2>
+<p>The engine (also called the "interpreter") is what runs your game and is what the player will use.</p>
+<p>You can use any port of the AGS runtime on any available system to run an AGS game data.</p>
+<p>Desktop systems, like Windows, Linux and MacOS offer a command line interface.</p>
+<p>On Android, there's a special version of the runtime called AGS Player, and it's available with AGS releases. The web version of AGS, also can be used as a runtime, but currently it offers no graphical setup options.</p>
+<section id="how-the-engine-finds-the-game-data" class="level3">
+<h3><a href="#how-the-engine-finds-the-game-data">How the engine finds the game data</a></h3>
+<p>The engine will look for game data in the following order if no specific game path is specified through command line.</p>
+<ol type="1">
+<li>Game data attached to exe.</li>
+<li>If nothing is attached to exe, then the search is made over the directory.</li>
+<li>If there are multiple game files in the directory, usually the first in alphabetical order will get hooked up. This includes both <code>.ags</code> game files and game files attached to other exe files.</li>
+</ol>
+<p>This search order means, if you are shipping a game, make sure that only one game file is in the same directory as the engine.</p>
+</section>
+<section id="command-line" class="level3">
+<h3><a href="#command-line">Command line</a></h3>
+<p><em>Note:</em> On Windows, you <strong>must</strong> use <code>--console-attach</code> when you are on the <code>cmd.exe</code> or other windows prompt and want to read the output of the ags runtime directly in the terminal, as printed in stdout.</p>
+<p>General usage: <code>ags [OPTIONS] [GAMEFILE PATH or GAME DIRECTORY]</code> (Where "ags" is the executable name)</p>
+<p>Following OPTIONS are supported when running from the command line:</p>
+<ul>
+<li><code>-? / --help</code> - prints the most useful command line arguments and quits.</li>
+<li><code>-v / --version</code> - prints the engine version and quits.</li>
+<li><code>--clear-cache-on-room-change</code> - clears sprite cache on every room change</li>
+<li><code>--conf &lt;FILEPATH&gt;</code> - specify an explicit config file to read on startup.</li>
+<li><code>--console-attach</code> - write the output to the parent process's console (Windows only).</li>
+<li><code>--fps</code> - display fps counter.</li>
+<li><code>--fullscreen</code> - run in fullscreen mode.</li>
+<li><code>--gfxdriver &lt;name&gt;</code> - use specified graphics driver:
+<ul>
+<li>d3d9 - Direct3D9 (MS Windows only)</li>
+<li>ogl - OpenGL</li>
+<li>software - software renderer.</li>
+</ul></li>
+<li><code>--gfxfilter &lt;name&gt; [&lt;game_scaling&gt;]</code> - use specified graphics filter and scaling factor.
+<ul>
+<li>filter names:
+<ul>
+<li>none - run in native game size</li>
+<li>stdscale - nearest-neighbour scaling</li>
+<li>linear - anti-aliased scaling; not usable with software renderer.</li>
+</ul></li>
+<li>game scaling:
+<ul>
+<li>proportional, round, stretch,</li>
+<li>or an explicit integer multiplier (applied only to the windowed mode).</li>
+</ul></li>
+<li>Examples:
+<ul>
+<li><code>--gfxfilter stdscale 2</code> - applies round x2 scaling (window twice the size of the game)</li>
+<li><code>--gfxfilter stdscale round</code> - applies max round scaling</li>
+<li><code>--gfxfilter stdscale proportional</code> - applies max stretch while keeping aspect ratio.</li>
+</ul></li>
+</ul></li>
+<li><code>--loadsavedgame &lt;filepath&gt;</code> - load savegame on startup.</li>
+<li><code>--localuserconf</code> - read and write the user config in the game's directory rather than using the standard system path. The game directory must be writable.</li>
+<li><code>--log-OUTPUT=GROUP[:LEVEL][,GROUP[:LEVEL]][,...]</code></li>
+<li><code>--log-OUTPUT=+GROUPLIST[:LEVEL]</code> - setup logging to the chosen OUTPUT with the given log groups and verbosity levels Groups may be defined either by name or by a LIST of one-letter IDs, preceded by '+', e.g. +ABCD:LEVEL. Verbosity may be defined either by name or a numeric ID.
+<ul>
+<li><code>OUTPUTs</code> are:
+<ul>
+<li><code>stdout</code>, <code>file</code>, <code>console</code> (where "console" is internal engine's console)</li>
+</ul></li>
+<li><code>GROUPs</code> are:
+<ul>
+<li><code>all</code>, <code>main</code> (m), <code>game</code> (g), <code>manobj</code> (o), <code>sdl</code> (l), <code>script</code> (s), <code>sprcache</code> (c)</li>
+</ul></li>
+<li><code>LEVELs</code> are:
+<ul>
+<li><code>all</code>, <code>alert</code> (1), <code>fatal</code> (2), <code>error</code> (3), <code>warn</code> (4), <code>info</code> (5), <code>debug</code> (6)</li>
+</ul></li>
+<li>Examples:
+<ul>
+<li><code>--log-file=all:warn</code></li>
+<li><code>--log-file=main:warn,game:all</code></li>
+<li><code>--log-stdout=+mg:debug</code></li>
+</ul></li>
+</ul></li>
+<li><code>--log-file-path=PATH</code> - define a custom path for the log file.</li>
+<li><code>--no-message-box</code> - disable alerts as modal message boxes (Windows only).</li>
+<li><code>--noiface</code> - don't draw game GUI (for test purposes).</li>
+<li><code>--noscript</code> - don't run room scripts (for test purposes); <em>WARNING:</em> unreliable.</li>
+<li><code>--nospr</code> - don't draw room objects and characters (for test purposes).</li>
+<li><code>--noupdate</code> - don't run game update (for test purposes).</li>
+<li><code>--novideo</code> - don't play game videos (for test purposes).</li>
+<li><code>--rotation &lt;MODE&gt;</code> - screen rotation preferences. MODEs are: unlocked (0), portrait (1), landscape (2).</li>
+<li><code>--sdl-log=LEVEL</code> - setup SDL's own logging level (see explanation for the related config option).</li>
+<li><code>--setup</code> - run integrated setup dialog. Currently only supported by Windows version.</li>
+<li><code>--shared-data-dir &lt;DIR&gt;</code> - set the shared game data directory. Corresponds to the "shared_data_dir" config option.</li>
+<li><code>--startr &lt;room_number&gt;</code> - start the game by loading a certain room (for test purposes).</li>
+<li><code>--tell</code> - print various information concerning engine and the game, and quit. Output is done in INI format.
+<ul>
+<li><code>--tell-config</code> - print contents of a merged game config.</li>
+<li><code>--tell-configpath</code> - print paths to available config files.</li>
+<li><code>--tell-data</code> - print information on game data and its location.</li>
+<li><code>--tell-gameproperties</code> - print information on game general settings.</li>
+<li><code>--tell-engine</code> - print the engine name and version.</li>
+<li><code>--tell-filepath</code> - print all filepaths the engine uses for the game.</li>
+<li><code>--tell-graphicdriver</code> - print a list of supported graphic drivers.</li>
+</ul></li>
+<li><code>--test</code> - run the game in the test mode, unlocking test key combinations and console.</li>
+<li><code>--translation</code> - select the given translation on start.</li>
+<li><code>--user-data-dir &lt;DIR&gt;</code> - set the save game directory. Corresponds to "user_data_dir" config option.</li>
+<li><code>--windowed</code> - run in windowed mode.</li>
+</ul>
+<p>Command line arguments override options from either configuration file where applicable.</p>
+<p><em>See also:</em> <a href="DefaultSetup.html">Default setup (Editor Pane)</a>, <a href="Setup.html">Run-time engine setup</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

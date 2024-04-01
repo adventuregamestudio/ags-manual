@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dictionary Functions and Properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#dictionary-functions-and-properties" id="toc-dictionary-functions-and-properties"><code>Dictionary</code> Functions and Properties</a>
+<ul>
+<li><a href="#dictionarycreate" id="toc-dictionarycreate"><code>Dictionary.Create</code></a></li>
+<li><a href="#dictionaryclear" id="toc-dictionaryclear"><code>Dictionary.Clear</code></a></li>
+<li><a href="#dictionarycontains" id="toc-dictionarycontains"><code>Dictionary.Contains</code></a></li>
+<li><a href="#dictionaryget" id="toc-dictionaryget"><code>Dictionary.Get</code></a></li>
+<li><a href="#dictionarygetkeysasarray" id="toc-dictionarygetkeysasarray"><code>Dictionary.GetKeysAsArray</code></a></li>
+<li><a href="#dictionarygetvaluesasarray" id="toc-dictionarygetvaluesasarray"><code>Dictionary.GetValuesAsArray</code></a></li>
+<li><a href="#dictionaryremove" id="toc-dictionaryremove"><code>Dictionary.Remove</code></a></li>
+<li><a href="#dictionaryset" id="toc-dictionaryset"><code>Dictionary.Set</code></a></li>
+<li><a href="#dictionarycomparestyle" id="toc-dictionarycomparestyle"><code>Dictionary.CompareStyle</code></a></li>
+<li><a href="#dictionaryitemcount" id="toc-dictionaryitemcount"><code>Dictionary.ItemCount</code></a></li>
+<li><a href="#dictionarysortstyle" id="toc-dictionarysortstyle"><code>Dictionary.SortStyle</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="dictionary-functions-and-properties" class="level2">
+<h2><a href="#dictionary-functions-and-properties"><code>Dictionary</code> Functions and Properties</a></h2>
+<p>A Dictionary allows you to store key/value string pairs and look up values be referencing their associated key. Within the dictionary each key must be unique, but the value does not have to be. This means that you may have the same value assigned for multiple keys, but not a single key with multiple values.</p>
+<p>Because of how dictionaries work internally, searching for a key in dictionary is faster than you'd search for it in a regular array. The advantage increases with the number of items searched. They are also fast to add or remove items.</p>
+<p>A Dictionary has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
+<p><strong>Sort style</strong> defines whether items are stored sorted or unsorted, based on their keys. The unsorted containers are commonly somewhat faster to search in, but the items will be stored in an undefined order.</p>
+<p><strong>Compare style</strong> determines whether string keys are compared as case sensitive or case insensitive. For example, in a case-sensitive dictionary the strings "Parameter" and "parameter" will be seen as two different keys, but in a case-insensitive dictionary they will be seen as the same key. Compare style defines both key uniqueness and sorting.</p>
+<p>At the moment a dictionary does not let you directly access all of its internal data, but has <a href="Dictionary.html#dictionarygetkeysasarray"><code>GetKeysAsArray</code></a> and <a href="Dictionary.html#dictionarygetvaluesasarray"><code>GetValuesAsArray</code></a> functions that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in these arrays will match their order within the dictionary, hence if the dictionary was sorted the array will be sorted as well.</p>
+<p>To summarize, dictionaries make convenient storage for key/value pairs. If you do not need pairs but rather a sequence of unique values, you may wish to use a <a href="Set.html"><code>Set</code></a> instead.</p>
+<p><em>Compatibility:</em> Dictionary struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<hr />
+<section id="dictionarycreate" class="level3">
+<h3><a href="#dictionarycreate"><code>Dictionary.Create</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Dictionary</span><span class="op">*</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">SortStyle</span> sortStyle<span class="op">,</span> <span class="dt">StringCompareStyle</span> compareStyle<span class="op">)</span></span></code></pre></div>
+<p>Creates a new empty Dictionary of the given properties. If you don't pass any options the Dictionary is unsorted and case-insensitive. Note that you cannot change sorting style and case sensitivity later, you would have to create another Dictionary and then re-add the values there.</p>
+<ul>
+<li>Possible values for sortStyle: <code>eNonSorted</code>, <code>eSorted</code>.</li>
+<li>Possible values for compareStyle: <code>eCaseInsensitive</code>, <code>eCaseSensitive</code>.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span></code></pre></div>
+<hr />
+</section>
+<section id="dictionaryclear" class="level3">
+<h3><a href="#dictionaryclear"><code>Dictionary.Clear</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Clear</span><span class="op">()</span></span></code></pre></div>
+<p>Removes all items from the dictionary.</p>
+<hr />
+</section>
+<section id="dictionarycontains" class="level3">
+<h3><a href="#dictionarycontains"><code>Dictionary.Contains</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Contains</span><span class="op">(</span><span class="bu">String</span> key<span class="op">)</span></span></code></pre></div>
+<p>Returns true if the key is in the dictionary, otherwise - false.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key&quot;</span><span class="op">,</span><span class="st">&quot;my-value&quot;</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>myDictionary<span class="op">.</span><span class="at">Contains</span><span class="op">(</span><span class="st">&quot;my-key&quot;</span><span class="op">)){</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;has my key!&quot;</span><span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This will add "my-key" key, assign "my-value" to that key and then test whether that key was added successfully.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryget"><code>Dictionary.Get</code></a>, <a href="Dictionary.html#dictionaryset"><code>Dictionary.Set</code></a></p>
+<hr />
+</section>
+<section id="dictionaryget" class="level3">
+<h3><a href="#dictionaryget"><code>Dictionary.Get</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Get</span><span class="op">(</span><span class="bu">String</span> key<span class="op">)</span></span></code></pre></div>
+<p>Gets the value for the given key. Returns null if such a key does not exist.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;a-key&quot;</span><span class="op">,</span><span class="st">&quot;a-value&quot;</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> myValue = myDictionary<span class="op">.</span><span class="at">Get</span><span class="op">(</span><span class="st">&quot;a-key&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Here <em>myValue</em> variable will be assigned "a-value" from the dictionary.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryset"><code>Dictionary.Set</code></a></p>
+<hr />
+</section>
+<section id="dictionarygetkeysasarray" class="level3">
+<h3><a href="#dictionarygetkeysasarray"><code>Dictionary.GetKeysAsArray</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">GetKeysAsArray</span><span class="op">()</span></span></code></pre></div>
+<p>Creates a dynamic array filled with keys in the same order as they are stored in the Dictionary, set by <code>SortStyle</code> when the Dictionary is created.</p>
+<p><strong>IMPORTANT:</strong> this returns a <em>copy</em> of Dictionary contents existing at the time of function call. If you change Dictionary later, that won't affect previously created key array and you would have to call this function again.</p>
+<p>Returns null if this Dictionary is empty.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key1&quot;</span><span class="op">,</span><span class="st">&quot;my-value1&quot;</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key2&quot;</span><span class="op">,</span><span class="st">&quot;my-value2&quot;</span><span class="op">);</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> keys<span class="op">[]</span> = myDictionary<span class="op">.</span><span class="at">GetKeysAsArray</span><span class="op">();</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> myDictionary<span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;#%d: %s&quot;</span><span class="op">,</span> i<span class="op">,</span> keys<span class="op">[</span>i<span class="op">]);</span></span></code></pre></div>
+<p>In the above example the keys will be displayed on screen one by one, preceded by their index.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryitemcount"><code>Dictionary.ItemCount</code></a></p>
+<hr />
+</section>
+<section id="dictionarygetvaluesasarray" class="level3">
+<h3><a href="#dictionarygetvaluesasarray"><code>Dictionary.GetValuesAsArray</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">GetValuesAsArray</span><span class="op">()</span></span></code></pre></div>
+<p>Creates a dynamic array filled with values in the same order as they are stored in the Dictionary, set by <code>SortStyle</code> when the Dictionary is created.</p>
+<p><strong>IMPORTANT:</strong> this returns a <em>copy</em> of Dictionary contents existing at the time of function call. If you change Dictionary later, that won't affect previously created values array and you would have to call this function again.</p>
+<p>Returns null if this Dictionary is empty.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dictionary</span><span class="op">*</span> myDictionary = <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key1&quot;</span><span class="op">,</span><span class="st">&quot;my-value1&quot;</span><span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>myDictionary<span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="st">&quot;my-key2&quot;</span><span class="op">,</span><span class="st">&quot;my-value2&quot;</span><span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> values<span class="op">[]</span> = myDictionary<span class="op">.</span><span class="at">GetValuesAsArray</span><span class="op">();</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> myDictionary<span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;#%d: %s&quot;</span><span class="op">,</span> i<span class="op">,</span> values<span class="op">[</span>i<span class="op">]);</span></span></code></pre></div>
+<p>In the above example the values will be displayed on screen one by one, preceded by their index.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryitemcount"><code>Dictionary.ItemCount</code></a></p>
+<hr />
+</section>
+<section id="dictionaryremove" class="level3">
+<h3><a href="#dictionaryremove"><code>Dictionary.Remove</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Remove</span><span class="op">(</span><span class="bu">String</span> key<span class="op">)</span></span></code></pre></div>
+<p>Removes a key/value pair from the dictionary, returns true on success and false if there was no such key.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryset"><code>Dictionary.Set</code></a></p>
+<hr />
+</section>
+<section id="dictionaryset" class="level3">
+<h3><a href="#dictionaryset"><code>Dictionary.Set</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">Set</span><span class="op">(</span><span class="bu">String</span> key<span class="op">,</span> <span class="bu">String</span> value<span class="op">)</span></span></code></pre></div>
+<p>Assigns a value to the given key. If the key did not exist then it will be created, otherwise the old value for this key will be overwritten with a new one.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionaryget"><code>Dictionary.Get</code></a>, <a href="Dictionary.html#dictionaryremove"><code>Dictionary.Remove</code></a></p>
+<hr />
+</section>
+<section id="dictionarycomparestyle" class="level3">
+<h3><a href="#dictionarycomparestyle"><code>Dictionary.CompareStyle</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">StringCompareStyle</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">CompareStyle</span></span></code></pre></div>
+<p>Returns the string comparison method for this dictionary, which determines whether its keys are case-sensitive.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionarysortstyle"><code>Dictionary.SortStyle</code></a></p>
+<hr />
+</section>
+<section id="dictionaryitemcount" class="level3">
+<h3><a href="#dictionaryitemcount"><code>Dictionary.ItemCount</code></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">ItemCount</span></span></code></pre></div>
+<p>Gets the number of key/value pairs currently in the dictionary.</p>
+<hr />
+</section>
+<section id="dictionarysortstyle" class="level3">
+<h3><a href="#dictionarysortstyle"><code>Dictionary.SortStyle</code></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SortStyle</span> <span class="bu">Dictionary</span><span class="op">.</span><span class="at">SortStyle</span></span></code></pre></div>
+<p>Returns the key sorting method for this dictionary.</p>
+<p><em>See also:</em> <a href="Dictionary.html#dictionarycomparestyle"><code>Dictionary.CompareStyle</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

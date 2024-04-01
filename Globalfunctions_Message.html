@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (Message Display)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-message-display" id="toc-global-functions-message-display">Global functions (Message Display)</a>
+<ul>
+<li><a href="#display" id="toc-display"><code>Display</code></a></li>
+<li><a href="#displayat" id="toc-displayat"><code>DisplayAt</code></a></li>
+<li><a href="#displayaty" id="toc-displayaty"><code>DisplayAtY</code></a></li>
+<li><a href="#displaymessage" id="toc-displaymessage"><code>DisplayMessage</code></a></li>
+<li><a href="#displaymessageaty" id="toc-displaymessageaty"><code>DisplayMessageAtY</code></a></li>
+<li><a href="#displaytopbar" id="toc-displaytopbar"><code>DisplayTopBar</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-message-display" class="level2">
+<h2><a href="#global-functions-message-display">Global functions (Message Display)</a></h2>
+<section id="display" class="level3">
+<h3><a href="#display"><code>Display</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span> <span class="op">(</span>string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
+<p>Displays a message to the screen. It will be displayed in the standard message box, and centered in the middle of the screen.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p><code>Display</code> supports playing a voice file. For that you need to precede the text with <code>&amp;N</code>, where N is a voice clip's number. You may choose which character's clips will be played by assigning character's ID to <code>game.narrator_speech</code> variable. Alternatively, you may assign <code>NARRATOR</code> constant, which will tell it to use clips named "NARR*". For more information, see the <a href="VoiceSpeech.html">Voice speech</a> section.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> my_counter<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;The counter is currently set to %d.&quot;</span><span class="op">,</span> my_counter<span class="op">);</span></span></code></pre></div>
+<p>will replace the '<code>%d</code>' with the value of the variable "my_counter".</p>
+<p>NOTE: Display is a blocking function - that is, control will not return to the script until the player has removed the text window (by pressing a key or clicking the mouse). While the window is displayed, all other processing, like animations and interface display, are disabled. This is usually used for responses to the player looking at things.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#displayat"><code>DisplayAt</code></a>, <a href="Globalfunctions_Message.html#displaymessage"><code>DisplayMessage</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Globalfunctions_Message.html#displaytopbar"><code>DisplayTopBar</code></a>, <a href="String.html#stringformat"><code>String.Format</code></a></p>
+<hr />
+</section>
+<section id="displayat" class="level3">
+<h3><a href="#displayat"><code>DisplayAt</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayAt</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
+<p>Identical to the "Display" function, only this allows you to define the position and size of the window where the text is displayed. The X and Y variables define the co-ordinates of the upper-left corner of the window.</p>
+<p>The WIDTH variable defines the maximum width of the window. The height is then automatically calculated so that the message fits into the window.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>Note: This is a blocking call. See the "Display" help for more information.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayAt</span> <span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">50</span><span class="op">,</span><span class="dv">100</span><span class="op">,</span> <span class="st">&quot;This is a message&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will display the message at coordinates 50,50 in a box 100 pixels wide.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Globalfunctions_Message.html#displayaty"><code>DisplayAtY</code></a></p>
+<hr />
+</section>
+<section id="displayaty" class="level3">
+<h3><a href="#displayaty"><code>DisplayAtY</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayAtY</span> <span class="op">(</span><span class="dt">int</span> y<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
+<p>Similar to the Display function, except that this will display the message box at the specified Y location on the screen. The Y defines the co-ordinate of the top of the message box. The horizontal positioning will be automatically calculated as usual.</p>
+<p>As of <strong>AGS 3.6.1</strong>, you can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayAt</span> <span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="st">&quot;This is a message&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will display the message at y coordinate 50.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Globalfunctions_Message.html#displayat"><code>DisplayAt</code></a></p>
+<hr />
+</section>
+<section id="displaymessage" class="level3">
+<h3><a href="#displaymessage"><code>DisplayMessage</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayMessage</span> <span class="op">(</span><span class="dt">int</span> message_number<span class="op">)</span></span></code></pre></div>
+<p>Identical to the Display function, but this uses a message text defined in the AGS Editor rather than in the script. It will either use a message from the current room, or a global message (if message_number &gt;= 500).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayMessage</span><span class="op">(</span><span class="dv">220</span><span class="op">);</span></span></code></pre></div>
+<p>will display the message 220 of the Room message editor.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Globalfunctions_Message.html#displaymessageaty"><code>DisplayMessageAtY</code></a></p>
+<hr />
+</section>
+<section id="displaymessageaty" class="level3">
+<h3><a href="#displaymessageaty"><code>DisplayMessageAtY</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayMessageAtY</span> <span class="op">(</span><span class="dt">int</span> message_number<span class="op">,</span> <span class="dt">int</span> yposition<span class="op">)</span></span></code></pre></div>
+<p>Identical to the DisplayMessage function, except that the text box is positioned with its top at YPOSITION, the same way as DisplayAtY works.</p>
+<p>This is useful if you have an important graphic in the middle of the screen that the text box would normally cover up - with this function you can place the message above or below it.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayMessageAtY</span><span class="op">(</span><span class="dv">527</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span></code></pre></div>
+<p>will display global message 527, in the lower half of the screen.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#displayaty"><code>DisplayAtY</code></a>, <a href="Globalfunctions_Message.html#displaymessage"><code>DisplayMessage</code></a></p>
+<hr />
+</section>
+<section id="displaytopbar" class="level3">
+<h3><a href="#displaytopbar"><code>DisplayTopBar</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayTopBar</span><span class="op">(</span><span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> text_color<span class="op">,</span> <span class="dt">int</span> back_color<span class="op">,</span> string titleText<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
+<p>Displays a message in a text window, with a caption bar on top of it.</p>
+<p>This displays MESSAGE in a similar way to the normal Display command, but above the text window a caption bar will be displayed with TITLETEXT in it. This method was used in some early Sierra games to indicate who was talking by having their name in the caption, and can be handy if you don't want to draw a talking view for a character.</p>
+<p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
+<p>The Y parameter specifies the Y location on the screen where the message box will appear. The default is 25.</p>
+<p>The TEXT_COLOR parameter specifies the text color of the top bar, and the BACK_COLOR specifies the background color of the top bar.</p>
+<p>You can pass 0 for Y, TEXT_COLOR or BACK_COLOR - if you do, it will use the setting you used last time.</p>
+<p>There are a couple of game variables available which can further customize the look of the bar. You can change these before calling DisplayTopBar.</p>
+<p><strong>game.top_bar_bordercolor</strong> sets the color used for the bar's border (set to the same color as the backcolor if you don't want a border)<br> <strong>game.top_bar_borderwidth</strong> sets the width of the bar's border, in pixels (default 1)<br> <strong>game.top_bar_font</strong> sets the font to use for the top bar. The default is -1, which means that the current Normal font is used. Set it to a specific number to use that font instead.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayTopBar</span><span class="op">(</span><span class="dv">25</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="st">&quot;Evil wizard&quot;</span><span class="op">,</span> <span class="st">&quot;Get out of my house and never return!&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will display "Get out of my house and never return!" in the message box, with the caption bar reading "Evil wizard". The message box will have dark grey text on a light grey background.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Message.html#display"><code>Display</code></a>, <a href="Globalfunctions_Message.html#displayat"><code>DisplayAt</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

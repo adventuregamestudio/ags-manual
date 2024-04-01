@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 3</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#getting-started-with-ags---part-3" id="toc-getting-started-with-ags---part-3">Getting Started with AGS - Part 3</a>
+<ul>
+<li><a href="#adding-some-interaction" id="toc-adding-some-interaction">Adding some interaction</a></li>
+<li><a href="#testing-your-work" id="toc-testing-your-work">Testing Your Work</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="getting-started-with-ags---part-3" class="level2">
+<h2><a href="#getting-started-with-ags---part-3">Getting Started with AGS - Part 3</a></h2>
+<section id="adding-some-interaction" class="level3">
+<h3><a href="#adding-some-interaction">Adding some interaction</a></h3>
+<p>OK, so we now have a working room. The player can walk around it as much as they like. However, our game so far is pretty boring - the player can't actually do anything of value yet!</p>
+<p>AGS provides you with three types of things that the player can interact with - <em>hotspots</em>, <em>objects</em> and <em>characters</em>:</p>
+<ul>
+<li>A <strong>hotspot</strong> is an area of the background image that the player can look at and interact with. Hotspots are generally used for parts of the screen such as a tree or the grass which won't change as the game progresses.</li>
+<li>An <strong>object</strong> is an item in the room that can move around the screen, and be switched on and off at will. Objects must stay within the room that they are created in.</li>
+<li>A <strong>character</strong> is like an object, except that it can move between rooms and therefore appear all over the game. Characters also have special properties such as talking animations, inventory, and so forth, which means you will usually use one to represent each NPC (non-player character) in the game.</li>
+</ul>
+<section id="hotspots" class="level4">
+<h4>Hotspots</h4>
+<p>The easiest thing to start off with is hotspots. Make sure you've got the room editor open, and select <strong>"Hotspots"</strong> from the "Room Parts" drop-down list box (the same place where we selected "Walkable areas" earlier).</p>
+<p>Hotspots are drawn in exactly the same way as walk-behind and walkable areas. You'll probably want to use several different Hotspots for different areas of the screen.</p>
+<ul>
+<li>If you are following this tutorial, then the first Hotspot is drawn for you, with a description of "Glowing Orb".</li>
+</ul>
+<p>To create a second hotspot, change the "Selected Hotspot" to <strong>"hHotspot2 (Hotspot; ID 2)"</strong> using the Hotspot selection drop-down list above the Properties Grid -- OR -- by using the Room Parts drop-down and selecting the Hotspot text, and then the desired Hotspot, and you can now draw a second hotspot and it will appear in a different color than the first. For this tutorial, let's draw a hotspot over the wooden sign along the bottom of the background image. You may notice that all the other hotspots will be greyed out (See Note below).</p>
+<p><img src="images/acintro3_01.png" alt="I&#39;ve drawn four types of hotspot onto my screen" /></p>
+<p>Once you've drawn a hotspot, there are two Properties Grid fields to set for this hotspot:</p>
+<ul>
+<li><p><strong>Appearance</strong> -&gt; <strong>Description</strong>. This sets a player-friendly name for the hotspot, which is vital if you are going to use a LucasArts-style interface where the player can move the mouse over the screen to see what's where. If you're using a Sierra-style interface then this name will never be displayed to the player, but it's useful to fill it in anyway for your own benefit. By default this is "Hotspot 1", "Hotspot 2", etc.</p></li>
+<li><p><strong>Design</strong> -&gt; <strong>Name</strong> This is a name by which the hotspot can be referred to in the room script. This name cannot have any spaces or special characters -- just the letters <em>a</em> to <em>z</em>. The convention in AGS is to start the script names for hotspots with an <em>h</em>, for example <em>hDoor</em>. The name must be unique within the room.</p></li>
+</ul>
+<p><strong>NOTE:</strong> In the Room Background Preview editor, all the hotspots except the currently selected one are drawn in grey. This is to emphasize which hotspot you currently have selected to edit. You can change this behavior by toggling the "Show non-selected masks greyed out" button at the right-hand end of the AGS Editor toolbar.</p>
+</section>
+<section id="interactions" class="level4">
+<h4>Interactions</h4>
+<p>Right, now it's time to make something happen! Make sure the second hotspot is selected, and click the Events button:</p>
+<p><img src="images/acintro3_02.png" alt="The events list" /></p>
+<p>You'll see that the property grid changes to list all the events for this hotspot. Events occur when the player does certain things in the game. At the moment, nothing is set to happen in response to any of the events, so whatever the player does to the hotspot, they will get no reply.</p>
+<p>Right, let's start with something simple. When the player looks at my hotspot, I want to display a message telling them what they can see. Click on the "Look at hotspot" row, and a "..." button will appear.</p>
+<p><img src="images/acintro3_03.png" alt="The &quot;...&quot; button" /></p>
+<p>Click the "..." button. This will create an entry in the script for this event, and you'll find yourself taken to the script editor. If instead you get a message telling you that the hotspot needs a name, read back up for how to set a name for the hotspot, earlier in this article.</p>
+<p>So, you are now in the script editor. It all looks a bit bare and intimidating, but you should have something like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// room script file</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The "<em>function hSignHome_Look</em>" line defines that the script underneath will be run when this event occurs. In AGS, the curly brackets <strong>{</strong> and <strong>}</strong> are used to mark the start and end of a block of script. Anything that you type in between them will be run as part of this event.</p>
+<p>There's a separate <a href="ScriptingTutorialPart1.html">Scripting Tutorial</a> giving you an introduction to the scripting language, so I won't attempt to explain it here. But we can start with something very simple, using the <em>Display</em> command, which displays a message to the player. Type in something like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// room script file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Once you're done, you may want to "Save" your work on the Script Editor, and then click on the "Room 1" tab to return to the main room editor.</p>
+</section>
+<section id="walk-to-points" class="level4">
+<h4>Walk-to points</h4>
+<p>OK, since we're back editing hotspots, click the let me quickly explain the "Walk-to point" option in the Property Grid. This allows you to set a position for each hotspot that the character will walk to whenever the player interacts with the hotspot - just like the way the LucasArts games like Monkey Island worked.</p>
+<p><img src="images/acintro3_04.png" alt="Setting a Walk To Point" /></p>
+<p>Select the "Properties" button on the Properties Grid. Hover your mouse over where you want the player to walk-to when interacting with the hotspot. Notice the "Mouse Position" of your cursor is given below the "Room Parts" drop-down. You'll now need to remember those coordinates and write them down in the Properties Grid -&gt; WalkToPoint. When completed, you should see a marker at those coordinates referencing the hotspot. In this case a <strong>"X 2"</strong> marker is shown, indicating that HotSpot "2" has a walk-to point at that "X".</p>
+<p>If you set a walk-to point, then whenever the player clicks interact or talk on the hotspot, the main character will first walk to the walk-to point before the relevant event is triggered. If you want, the character can also walk there when the LOOK mode is used - this option is configurable in the game General Settings pane.</p>
+<p><strong>NOTE:</strong> To remove a walk-to point, simply set it to 0,0.</p>
+</section>
+<section id="edges-revisited" class="level4">
+<h4>Edges revisited</h4>
+<p>OK, so we've covered the basics of creating a room. However, there's one thing that we did a while back that we need to clear up - yes, the edges.</p>
+<p>Select "Edges" again in the list box. Now, click the Events button in the property grid and this time we'll see the events for the room itself. Among the events listed, you'll see "Walks off left edge", "Walks off right edge", and so on. These are fired when the player character crosses the edges that we defined back in part 2. We won't be doing this for this tutorial, but normally you will use the <em>player.ChangeRoom</em> script command for these events, to take the player to a different room.</p>
+<p><img src="images/acintro3_05.png" alt="Looking at Edges Interactions Properties" /></p>
+</section>
+</section>
+<section id="testing-your-work" class="level3">
+<h3><a href="#testing-your-work">Testing Your Work</a></h3>
+<p>Now, hit F5 to try out our latest additions! Make sure that when you look at hotspot 2 the game displays the message that you typed into the script and that the character walks to your walk-to point.</p>
+<section id="scripting-tutorial" class="level4">
+<h4>Scripting tutorial</h4>
+<p>Now might be a good time to check out the <a href="ScriptingTutorialPart1.html">Scripting Tutorial</a> to get a better understanding of what your script code is doing. Alternatively, finish off this tutorial first and then check out the scripting tutorial.</p>
+<p>Next Chapter: <a href="acintro4.html">Part 4 - Objects and Inventory</a></p>
+</section>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

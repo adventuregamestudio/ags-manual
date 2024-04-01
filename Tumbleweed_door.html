@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tumbleweed Door functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#tumbleweed-door-functions" id="toc-tumbleweed-door-functions">Tumbleweed Door functions</a>
+<ul>
+<li><a href="#verbssetdoorstate" id="toc-verbssetdoorstate"><code>Verbs.SetDoorState</code></a></li>
+<li><a href="#verbsgetdoorstate" id="toc-verbsgetdoorstate"><code>Verbs.GetDoorState</code></a></li>
+<li><a href="#verbsinitobject" id="toc-verbsinitobject"><code>Verbs.InitObject</code></a></li>
+<li><a href="#verbsanyclick" id="toc-verbsanyclick"><code>Verbs.AnyClick</code></a></li>
+<li><a href="#verbsanyclickspecial" id="toc-verbsanyclickspecial"><code>Verbs.AnyClickSpecial</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="tumbleweed-door-functions" class="level2">
+<h2><a href="#tumbleweed-door-functions">Tumbleweed Door functions</a></h2>
+<p>This template implements a clever door scripting system, which is a real time-saver if you use a lot of doors. It uses a hotspot for the closed door and a non-clickable object, to show the opened door. If you enter a room the first time, you have to set up its containing doors:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_FirstLoad</span><span class="op">()</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Lock door on startup when entering the room</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    Doors<span class="op">.</span><span class="at">SetDoorState</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    Doors<span class="op">.</span><span class="at">InitObject</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This will set up a door with the id 20 to the state 2, locked. With "Doors.InitObject", you connect the object, displaying a sprite of an opened door, with the door ID. Now let's take a look at your hotspot's function:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hDoor_AnyClick</span><span class="op">()</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>Doors<span class="op">.</span><span class="at">AnyClick</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">61</span><span class="op">,</span> <span class="dv">104</span><span class="op">,</span> eDir_Left<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">115</span><span class="op">,</span> <span class="dv">135</span><span class="op">,</span> eDir_Down<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This function is explained in detail later in this document. But for starters, this is all you have to do in the room script. And looks much harder than it is, just take a look at the sample room, supplied with this template.</p>
+<p>If you want to have the script to show the correct default actions, you also need to change a line in the gui-script: so look for a function, called VariableExtensions. In Verbs.VariableExtensions, look at this line:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>r <span class="op">==</span> <span class="dv">1</span> <span class="op">&amp;&amp;</span> h <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    Verbs<span class="op">.</span><span class="at">OpenCloseExtension</span><span class="op">(</span><span class="dv">20</span><span class="op">);</span></span></code></pre></div>
+<p>This tells the script, that Room 1 contains a hotspot with the id 1. This is connected to a door a door with the id 20. So now, the right-click should suggest open/close, depending on the door's state.</p>
+<p>To define the messages, the player character says, when approaching a door, you can access the array holding those messages anytime. Initially they are setup in the TemplateSettings.asc module.</p>
+<hr />
+<section id="verbssetdoorstate" class="level3">
+<h3><a href="#verbssetdoorstate"><code>Verbs.SetDoorState</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Doors<span class="op">.</span><span class="at">SetDoorState</span><span class="op">(</span><span class="dt">int</span> door_id<span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span></code></pre></div>
+<p>Call this function to set a door state for the given door_id. A door can have 3 different states:</p>
+<ul>
+<li><code>0</code> = The door is closed</li>
+<li><code>1</code> = The door is open</li>
+<li><code>2</code> = The door is closed and locked</li>
+</ul>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsgetdoorstate"><code>Verbs.GetDoorState</code></a>, <a href="Tumbleweed_door.html#verbsinitobject"><code>Verbs.InitObject</code></a></p>
+<hr />
+</section>
+<section id="verbsgetdoorstate" class="level3">
+<h3><a href="#verbsgetdoorstate"><code>Verbs.GetDoorState</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Doors<span class="op">.</span><span class="at">GetDoorState</span><span class="op">(</span><span class="dt">int</span> door_id<span class="op">);</span></span></code></pre></div>
+<p>Returns the current state of a door.</p>
+<ul>
+<li><code>0</code> = The door is closed</li>
+<li><code>1</code> = The door is open</li>
+<li><code>2</code> = The door is closed and locked</li>
+</ul>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate"><code>Verbs.SetDoorState</code></a>, <a href="Tumbleweed_door.html#verbsinitobject"><code>Verbs.InitObject</code></a></p>
+<hr />
+</section>
+<section id="verbsinitobject" class="level3">
+<h3><a href="#verbsinitobject"><code>Verbs.InitObject</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Doors<span class="op">.</span><span class="at">InitObject</span><span class="op">(</span><span class="dt">int</span> door_id<span class="op">,</span> <span class="dt">int</span> act_object<span class="op">);</span></span></code></pre></div>
+<p>Used to set up the corresponding object, used by the door with the given id. If the state of the door is closed, the object will be invisible. Otherwise, the object will be shown. The object stays unclickable all the time.</p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbssetdoorstate"><code>Verbs.SetDoorState</code></a></p>
+<hr />
+</section>
+<section id="verbsanyclick" class="level3">
+<h3><a href="#verbsanyclick"><code>Verbs.AnyClick</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Doors<span class="op">.</span><span class="at">AnyClick</span><span class="op">(</span><span class="dt">int</span> door_id<span class="op">,</span> <span class="dt">int</span> act_object<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> eDirection dir<span class="op">,</span> <span class="dt">int</span> nr_room<span class="op">,</span> <span class="dt">int</span> nr_x<span class="op">,</span> <span class="dt">int</span> nr_y<span class="op">,</span> eDirection nr_dir<span class="op">);</span></span></code></pre></div>
+<p>This function is used in the room script in combination with the door hotspot. Parameters:</p>
+<ul>
+<li>door_id: The door id, you have defined</li>
+<li>act_object: The object, containing the open sprite</li>
+<li>x,y: the walk-to point of the door (please don't use the built in "walk-to coordinates" feature of the room editor.</li>
+<li>dir: the direction, the player's character should face, after it reached x,y</li>
+<li>nr_room: if the door is opened and walking through it, the player is being send to this room</li>
+<li>nr_x,nr_y: the x,y coordinates of inside of the new room</li>
+<li>nr_dir: after the room change, the player faces this direction</li>
+</ul>
+<p>This is the main function of the door scripts. With this you connect the hotspot with the door and the player's action. If you have defined default door sounds, these are also being called in this function. Also you can't unlock a door with this function. You need Doors.AnyClickSpecial for that.</p>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclickspecial"><code>Verbs.AnyClickSpecial</code></a></p>
+<hr />
+</section>
+<section id="verbsanyclickspecial" class="level3">
+<h3><a href="#verbsanyclickspecial"><code>Verbs.AnyClickSpecial</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Doors<span class="op">.</span><span class="at">AnyClickSpecial</span><span class="op">(</span><span class="dt">int</span> door_id<span class="op">,</span> <span class="dt">int</span> act_object<span class="op">,</span> <span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> eDirection dir<span class="op">,</span> <span class="dt">int</span> nr_room<span class="op">,</span> <span class="dt">int</span> nr_x<span class="op">,</span> <span class="dt">int</span> nr_y<span class="op">,</span> eDirection nr_dir<span class="op">,</span> <span class="bu">AudioClip</span> <span class="op">*</span>opensound<span class="op">,</span> <span class="bu">AudioClip</span> <span class="op">*</span>closesound<span class="op">,</span> <span class="dt">int</span> key<span class="op">,</span> <span class="dt">int</span> closevalue<span class="op">);</span></span></code></pre></div>
+<p>This function extends any_click_door with the following parameters:</p>
+<ul>
+<li>opensound: custom sound to be played, when the door is being opened</li>
+<li>closesound: custom sound to be played, when the door is being closed</li>
+<li>key: the id of the inventory item, that can unlock the door, -1 masterkey, -2 if the door cannot be unlocked</li>
+<li>closevalue: default 0 (closed), but you can also set 2 (locked).</li>
+</ul>
+<p><em>See also:</em> <a href="Tumbleweed_door.html#verbsanyclick"><code>Verbs.AnyClick</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

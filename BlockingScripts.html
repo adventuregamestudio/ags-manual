@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Understanding blocking scripts</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#understanding-blocking-scripts" id="toc-understanding-blocking-scripts">Understanding blocking scripts</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="understanding-blocking-scripts" class="level2">
+<h2><a href="#understanding-blocking-scripts">Understanding blocking scripts</a></h2>
+<p>You will see some commands listed as "blocking", where control does not return to the script until the command finishes. But what does this mean, exactly?</p>
+<p>In order to better understand this, we need to explore a little about the way that the AGS script engine works. In an AGS game, there are three script <strong>threads</strong> that can be running at once. Think of a thread as a mini-CPU that executes your scripts.</p>
+<p>At the start of the game, the threads are all idle (not running any scripts):</p>
+<p><img src="images/threads1.gif" /></p>
+<p>Now, as and when your scripts need to be run, AGS will try to run them on the appropriate thread (the Room thread for local scripts, and the Global thread for global scripts).</p>
+<p>So, on the first game loop, your global scripts' repeatedly_execute will be run:</p>
+<p><img src="images/threads2.gif" /></p>
+<p>That's fine, and when it finishes running the thread becomes idle again.</p>
+<p>But, suppose that within repeatedly_execute, you make a call to the Character.Say command. Say is a blocking command and does not return until the character finishes talking:</p>
+<p><img src="images/threads3.gif" /></p>
+<p>The global thread is now <strong>blocked</strong>, waiting for the character to finish talking. This means that none of your global script functions such as repeatedly_execute, on_event and on_key_press will be run while the character is talking, since the thread is busy.</p>
+<p>Now, AGS does queue up to 5 script functions to be run on the thread as soon as it is free; but if you have a lot of things happening within your script, it's possible that you will lose some events such as on_events and keypresses if you script is blocked for a long time.</p>
+<p>Let's explore the most common situation in which this causes confusion. Suppose you have a <em>Player looks at inventory</em> event on a Key inventory item, which runs a script to display a message.</p>
+<p>Let's also suppose that you have some code at the end of your on_mouse_click function to make the character stand still after running mouse click events.</p>
+<p>What you'll find is that the code at the end of on_mouse_click actually gets called <em>before</em> the inventory item's event. Let's look at why:</p>
+<p><img src="images/threads4.gif" /></p>
+<p>Remember that AGS does not run events automatically; rather, the on_mouse_click script function handles the mouse click and calls ProcessClick to run the appropriate event. When it does so, it finds that the key's Look At Item event has a script function associated with it.</p>
+<p>But oh no! Inventory item scripts are in the global script, and the global thread is already blocked because of the mouse click. Therefore, the inventory event script gets added to the thread's queue, and on_mouse_click then finishes running. The inventory event script will follow on afterwards.</p>
+<p>Now you might think that this means that object and hotspot events can run within on_mouse_click, since they use the room thread, like this:</p>
+<p><img src="images/threads5.gif" /></p>
+<p>However, this is not the case. It is still the global thread that is calling ProcessClick, so the room script will actually be run on the global thread once it is free.</p>
+<p>Finally, we come onto the No-Block thread. This thread is only used to run the <em>repeatedly_execute_always</em> and <em>late_repeatedly_execute_always</em> functions. Because these two are not allowed to run any blocking functions, this ensures that the thread never gets blocked and so it will always run, even when the other threads are busy:</p>
+<p><img src="images/threads6.gif" /></p>
+<p>I hope that helps explain blocking in terms of AGS scripting. If there's anything that you don't think is clear, please suggest amendments on the Technical forum.</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

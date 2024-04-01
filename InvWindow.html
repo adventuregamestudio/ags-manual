@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>InvWindow functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#invwindow-functions-and-properties" id="toc-invwindow-functions-and-properties"><code>InvWindow</code> functions and properties</a>
+<ul>
+<li><a href="#invwindowscrolldown" id="toc-invwindowscrolldown"><code>InvWindow.ScrollDown</code></a></li>
+<li><a href="#invwindowscrollup" id="toc-invwindowscrollup"><code>InvWindow.ScrollUp</code></a></li>
+<li><a href="#invwindowcharactertouse" id="toc-invwindowcharactertouse"><code>InvWindow.CharacterToUse</code></a></li>
+<li><a href="#invwindowitematindex" id="toc-invwindowitematindex"><code>InvWindow.ItemAtIndex</code></a></li>
+<li><a href="#invwindowitemcount" id="toc-invwindowitemcount"><code>InvWindow.ItemCount</code></a></li>
+<li><a href="#invwindowitemheight" id="toc-invwindowitemheight"><code>InvWindow.ItemHeight</code></a></li>
+<li><a href="#invwindowitemwidth" id="toc-invwindowitemwidth"><code>InvWindow.ItemWidth</code></a></li>
+<li><a href="#invwindowitemsperrow" id="toc-invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a></li>
+<li><a href="#invwindowrowcount" id="toc-invwindowrowcount"><code>InvWindow.RowCount</code></a></li>
+<li><a href="#invwindowtopitem" id="toc-invwindowtopitem"><code>InvWindow.TopItem</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="invwindow-functions-and-properties" class="level2">
+<h2><a href="#invwindow-functions-and-properties"><code>InvWindow</code> functions and properties</a></h2>
+<p>InvWindow is a subclass of <a href="GUIControl.html"><code>GUIControl</code></a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<hr />
+<section id="invwindowscrolldown" class="level3">
+<h3><a href="#invwindowscrolldown"><code>InvWindow.ScrollDown</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InvWindow</span><span class="op">.</span><span class="at">ScrollDown</span><span class="op">()</span></span></code></pre></div>
+<p>Scrolls the inventory window down one line, if there are more items to display. If the inventory window is already at the bottom, then nothing happens.</p>
+<p>You would usually use this in response to a GUI button press on a Down arrow button on your GUI.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ScrollDown</span><span class="op">();</span></span></code></pre></div>
+<p>will scroll the <em>invMain</em> inv window down one row.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowscrollup"><code>InvWindow.ScrollUp</code></a>, <a href="InvWindow.html#invwindowtopitem"><code>InvWindow.TopItem</code></a></p>
+<hr />
+</section>
+<section id="invwindowscrollup" class="level3">
+<h3><a href="#invwindowscrollup"><code>InvWindow.ScrollUp</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InvWindow</span><span class="op">.</span><span class="at">ScrollUp</span><span class="op">()</span></span></code></pre></div>
+<p>Scrolls the inventory window up one line, if there are more items to display. If the inventory window is already at the top, then nothing happens.</p>
+<p>You would usually use this in response to a GUI button press on an Up arrow button on your GUI.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ScrollUp</span><span class="op">();</span></span></code></pre></div>
+<p>will scroll the <em>invMain</em> inv window up one row.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowscrolldown"><code>InvWindow.ScrollDown</code></a>, <a href="InvWindow.html#invwindowtopitem"><code>InvWindow.TopItem</code></a></p>
+<hr />
+</section>
+<section id="invwindowcharactertouse" class="level3">
+<h3><a href="#invwindowcharactertouse"><code>InvWindow.CharacterToUse</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">*</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">CharacterToUse</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets which character the inventory window is currently displaying the inventory for. This is either set to a specific character, or it can be set to <em>null</em>, in which case the inventory window will track the current player character (this is the default).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">CharacterToUse</span> = cJack<span class="op">;</span></span></code></pre></div>
+<p>will change the <em>invMain</em> inventory window to display character JACK's inventory.</p>
+<hr />
+</section>
+<section id="invwindowitematindex" class="level3">
+<h3><a href="#invwindowitematindex"><code>InvWindow.ItemAtIndex</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">InventoryItem</span><span class="op">*</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">ItemAtIndex</span><span class="op">[];</span></span></code></pre></div>
+<p>Gets the inventory item that is currently displayed at the specified index in this inventory window. The number of items in the window can be retrieved with the <a href="InvWindow.html#invwindowitemcount"><code>ItemCount</code></a> property. Indexes range from 0 to ItemCount - 1.</p>
+<p>If an invalid index is supplied, <em>null</em> is returned.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> firstOne = invMain<span class="op">.</span><span class="at">ItemAtIndex</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Name</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;First item is %s.&quot;</span><span class="op">,</span> firstOne<span class="op">);</span></span></code></pre></div>
+<p>will display the name of the first item displayed in the <em>invMain</em> inventory window.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemcount"><code>InvWindow.ItemCount</code></a></p>
+<hr />
+</section>
+<section id="invwindowitemcount" class="level3">
+<h3><a href="#invwindowitemcount"><code>InvWindow.ItemCount</code></a></h3>
+<p><em>(Formerly known as <code>game.num_inv_items</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the total number of items contained in the inventory window. This will tend to equal the total number of items that the character has (though it may not if the "Display multiple items multiple times" game setting is not checked).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>invMain<span class="op">.</span><span class="at">ItemCount</span> <span class="op">&gt;</span> <span class="op">(</span>invMain<span class="op">.</span><span class="at">ItemsPerRow</span> <span class="op">*</span> invMain<span class="op">.</span><span class="at">RowCount</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    btnInvUp<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    btnInvDown<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are more inventory items than will fit in the inventory window.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitematindex"><code>InvWindow.ItemAtIndex</code></a>, <a href="InvWindow.html#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a>, <a href="InvWindow.html#invwindowrowcount"><code>InvWindow.RowCount</code></a></p>
+<hr />
+</section>
+<section id="invwindowitemheight" class="level3">
+<h3><a href="#invwindowitemheight"><code>InvWindow.ItemHeight</code></a></h3>
+<p><em>(Formerly known as <code>SetInvDimensions</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">ItemHeight</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the height of the rows in the inventory window. You should generally set this up in game_start to the height of your largest inventory item. The default is 22.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ItemWidth</span> = <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ItemHeight</span> = <span class="dv">30</span><span class="op">;</span></span></code></pre></div>
+<p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemwidth"><code>InvWindow.ItemWidth</code></a>, <a href="InvWindow.html#invwindowrowcount"><code>InvWindow.RowCount</code></a></p>
+<hr />
+</section>
+<section id="invwindowitemwidth" class="level3">
+<h3><a href="#invwindowitemwidth"><code>InvWindow.ItemWidth</code></a></h3>
+<p><em>(Formerly known as <code>SetInvDimensions</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">ItemWidth</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the width of the items in the inventory window. You should generally set this up in game_start to the width of your largest inventory item. The default is 40.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ItemWidth</span> = <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>invMain<span class="op">.</span><span class="at">ItemHeight</span> = <span class="dv">30</span><span class="op">;</span></span></code></pre></div>
+<p>sets the <em>invMain</em> inventory window to use item cells 50x30 large.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemheight"><code>InvWindow.ItemHeight</code></a>, <a href="InvWindow.html#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a></p>
+<hr />
+</section>
+<section id="invwindowitemsperrow" class="level3">
+<h3><a href="#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a></h3>
+<p><em>(Formerly known as <code>game.items_per_line</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">ItemsPerRow</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the number of items that can be displayed in each row of the inventory window. This is calculated by the width of the inventory window divided by the individual ItemWidth.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The inventory window can show %d items at a time&quot;</span><span class="op">,</span> invMain<span class="op">.</span><span class="at">ItemsPerRow</span> <span class="op">*</span> invMain<span class="op">.</span><span class="at">RowCount</span><span class="op">);</span></span></code></pre></div>
+<p>displays how many items can be visible in the invMain window at once.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemwidth"><code>InvWindow.ItemWidth</code></a>, <a href="InvWindow.html#invwindowrowcount"><code>InvWindow.RowCount</code></a></p>
+<hr />
+</section>
+<section id="invwindowrowcount" class="level3">
+<h3><a href="#invwindowrowcount"><code>InvWindow.RowCount</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">RowCount</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the number of rows that can be displayed within the inventory window. This is calculated by dividing the height of the window by the individual ItemHeight.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The inventory window can show %d items at a time&quot;</span><span class="op">,</span> invMain<span class="op">.</span><span class="at">ItemsPerRow</span> <span class="op">*</span> invMain<span class="op">.</span><span class="at">RowCount</span><span class="op">);</span></span></code></pre></div>
+<p>displays how many items can be visible in the invMain window at once.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemheight"><code>InvWindow.ItemHeight</code></a>, <a href="InvWindow.html#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a></p>
+<hr />
+</section>
+<section id="invwindowtopitem" class="level3">
+<h3><a href="#invwindowtopitem"><code>InvWindow.TopItem</code></a></h3>
+<p><em>(Formerly known as <code>game.top_inv_item</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InvWindow</span><span class="op">.</span><span class="at">TopItem</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the index of the first item currently displayed in the inventory window. The first item is represented by 0, and the last item is has an index of <a href="InvWindow.html#invwindowitemcount"><code>ItemCount</code></a> - 1.</p>
+<p>You can use this to work out whether to display scroll arrows or not.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>invMain<span class="op">.</span><span class="at">TopItem</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    btnScrollUp<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    btnScrollUp<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>makes the <em>btnScrollUp</em> button visible or invisible depending on whether the inventory list can be scrolled up.</p>
+<p><em>See also:</em> <a href="InvWindow.html#invwindowitemcount"><code>InvWindow.ItemCount</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

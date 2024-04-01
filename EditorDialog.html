@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Dialog Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#dialog-editor" id="toc-dialog-editor">Dialog Editor</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="dialog-editor" class="level2">
+<h2><a href="#dialog-editor">Dialog Editor</a></h2>
+<p>In AGS conversations between characters are done using Dialogs or "dialog topics" (not to be confused with GUI dialogs).</p>
+<p>On the Explore Project panel, you can expand the Dialogs node to show the dialogs which are created in your game. Right clicking on the "Dialogs" node itself allows you to create a new dialog, or create a folder to help you organize them.</p>
+<p>When creating a new dialog, or double-clicking on existing dialog within the tree, a new editor panel will open.</p>
+<p>The dialog editor consists of two parts: the list of options and dialog script window. At the options list use "Create new option" and "Delete last option" buttons to make as many options for this dialog topic as you need. The "Option text" field represents an option's name that will be displayed in game. "Show" checkbox to the right determines whether the option is enabled on start, while "Say" checkbox determines whether the option's text will be said by the player's character when chosen in game.</p>
+<p><strong>NOTE:</strong> The options may be enabled or disabled at runtime in script using both <a href="DialogScript.html">special dialog script's syntax</a> (<code>option-on</code>, <code>option-off</code>, <code>option-off-forever</code>) or regular script command <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a>.</p>
+<p>The dialog script window is where you can write the actual conversation script, would that be what characters say, or performing any other actions. This script consists of parts each starting with a <code>@</code> label. The <code>@S</code> label defines a dialog's entry point, this part will be executed immediately as a dialog starts and before any options were shown. For each existing option there's a <code>@X</code> label, where X is a option's number. These define "jump points", and this is where the script will continue to execute whenever corresponding option is chosen. Thus you may think of options as of "table of contents" for this conversation.</p>
+<p>Please refer to the <a href="DialogScript.html">Dialog Script</a> topic for more detailed information on how to write dialog scripts.</p>
+<p><strong>NOTE:</strong> conversation lines from the dialog script are played in game using standard <a href="Character.html#charactersay"><code>Character.Say</code></a> command by default. If you prefer to script your custom speech system in your game, you may tell the dialog system to use your own script function instead. Go to <a href="GeneralSettings.html#dialog">General Settings</a> and look for the "Custom Say function in dialog scripts" option.</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

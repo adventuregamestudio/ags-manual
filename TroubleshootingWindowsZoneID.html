@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Troubleshooting Windows Zone Identifier</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#troubleshooting-windows-zone-identifier" id="toc-troubleshooting-windows-zone-identifier">Troubleshooting Windows Zone Identifier</a>
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#what-are-alternate-data-streams" id="toc-what-are-alternate-data-streams">What are "alternate data streams"?</a></li>
+<li><a href="#how-do-i-clean-my-ags-editor-files-of-alternate-data-streams" id="toc-how-do-i-clean-my-ags-editor-files-of-alternate-data-streams">How do I clean my AGS editor files of "alternate data streams"?</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="troubleshooting-windows-zone-identifier" class="level2">
+<h2><a href="#troubleshooting-windows-zone-identifier">Troubleshooting Windows Zone Identifier</a></h2>
+<section id="introduction" class="level3">
+<h3><a href="#introduction">Introduction</a></h3>
+<p>With the move to a more open source style of development for the AGS engine, game developers may use AGS builds that don't correspond to an official release. These are usually downloaded and extracted manually rather than installed with an installer and this can cause some problems with Windows security settings. Specifically, attempts to access the help file (ags-help.chm) from inside or outside the AGS editor may be blocked (renders a blank page or error). Additionally, when you download an AGS Editor plugin, it may error when the game project is loaded or the plugin is activated.</p>
+<p>This is caused by something called "alternate data streams", and usually right-clicking on the file and selecting unblock will fix your problem. Sometimes this doesn't work, so keep reading.</p>
+</section>
+<section id="what-are-alternate-data-streams" class="level3">
+<h3><a href="#what-are-alternate-data-streams">What are "alternate data streams"?</a></h3>
+<p>When a file is stored on a computer by the Operating System it's written in a particular way. In order to read a file back there is a need to know where it begins and ends on the disk, so a File System is used to store data. On Windows the most popular File System is NTFS which supports the use of alternate data streams. Normally the contents of a file will be saved into the NTFS $DATA attribute in the default stream, but it is also possible to specify an alternate stream name and store data in a different location within the same file. One common alternate stream name is named "Zone.Identifier" which is used to indicate the Windows Security Zone that a file originates from. This is commonly used to indicate that a file originates from another computer, the origin being indicated by a zone number. The zone numbers are defined by Zone Security settings in Internet Options.</p>
+<p>It's typically up to individual web browsers and download utilities running on Windows as to whether they write to the "Zone.Identifier" stream when a file is downloaded, and equally any application could choose to check the "Zone.Identifier" stream of a file when it is being opened. The help file viewer is one such application and will, by default, refuse to open a file if the "Zone.Identifier" indicates it originated from a different computer (i.e. it is potentially unsafe).</p>
+<p>When looking at a file's properties, if a restrictive zone number is present in the "Zone.Identifier" stream the file will be listed as "blocked". Choosing to unblock the file will re-write the "Zone.Identifier" stream to indicate the file should no longer be restricted (i.e. programs shouldn't be able to identify the origin of the file)</p>
+</section>
+<section id="how-do-i-clean-my-ags-editor-files-of-alternate-data-streams" class="level3">
+<h3><a href="#how-do-i-clean-my-ags-editor-files-of-alternate-data-streams">How do I clean my AGS editor files of "alternate data streams"?</a></h3>
+<p>Usually it's just the single "Zone.Identifier" alternate stream on the help file that causes a problem.</p>
+<ul>
+<li>Right-click the <code>ags-help.chm</code> file in Windows Explorer and press the unblock button.</li>
+</ul>
+<p>If the unblock button doesn't work this is usually because the AGS folder has been located somewhere where the user attempting to unblock does not have write permission (if this is the case it's likely that the user extracting the AGS Editor would have encountered a UAC prompt when extracting to the AGS Editor files and approved the process to run with elevated permissions). The easiest solution is to run the Windows program "streams.exe" with elevated permissions. It can be downloaded from <a href="https://technet.microsoft.com/en-us/sysinternals/bb897440">here</a>.</p>
+<ul>
+<li>Download the zip file and extract it to any temporary directory, e.g. the Desktop.</li>
+<li>Open a Windows Command prompt using "run-as administrator"</li>
+<li>In the command prompt, change to the directory where the files were extracted:<br> <code>cd "&lt;EXTRACTION FOLDER&gt;"</code><br> (where "&lt;EXTRACTION FOLDER&gt;" is the path to where streams.exe was extracted)</li>
+<li>Run the following command to recursively remove any alternate data streams:<br> <code>streams.exe -s -d "&lt;AGS EDITOR FOLDER&gt;"</code><br> (where "&lt;AGS EDITOR FOLDER&gt;" is the path to where the AGS Editor folder was extracted)</li>
+</ul>
+<p>An alternate solution is to move the AGS Editor files to a location that doesn't use an NTFS file system, and then move the files back to the computer again. Most USB memory sticks will be formatted with the FAT32 File System instead of NTFS. FAT32 does not support alternate data streams, so they cannot exist on the memory stick.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Tumbleweed</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#tumbleweed" id="toc-tumbleweed">Tumbleweed</a>
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#using-inventory-items" id="toc-using-inventory-items">Using Inventory Items</a></li>
+<li><a href="#exit-extensions" id="toc-exit-extensions">Exit Extensions</a></li>
+<li><a href="#language--translation" id="toc-language--translation">Language &amp; Translation</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="tumbleweed" class="level2">
+<h2><a href="#tumbleweed">Tumbleweed</a></h2>
+<p>Tumbleweed template and this manual page is created by Abstauber, and released with MIT License.</p>
+<hr />
+<ul>
+<li><a href="Tumbleweed_helper.html">Math and Helper Functions</a></li>
+<li><a href="Tumbleweed_unhandled.html">Unhandled Events</a></li>
+<li><a href="Tumbleweed_actions.html">Action Functions</a></li>
+<li><a href="Tumbleweed_player.html">Player functions</a></li>
+<li><a href="Tumbleweed_movement.html">Semi-blocking movement functions</a></li>
+<li><a href="Tumbleweed_door.html">Door functions</a></li>
+<li><a href="Tumbleweed_translation.html">Translation</a></li>
+<li><a href="Tumbleweed_extensions.html">Extensions</a></li>
+</ul>
+<hr />
+<section id="introduction" class="level3">
+<h3><a href="#introduction">Introduction</a></h3>
+<p><em>Tumbleweed Verbs</em> is a template that allows you to recreate those classic SCUMM games, as well as the modern iteration Thimbleweed Park (TM) by Terrible Toybox, Inc.</p>
+<p>Setting up the template with all your custom graphics and colors has been simplified a lot. All settings are grouped in the submodule TemplateSettings.asc. There is no need anymore for digging around in the single modules. The messages for unhandled events are defined in the TemplateSettings modules as well.</p>
+<p>If you like to create a game with this template, you have to re-think some concepts you use when creating a game with AGS.</p>
+<p>The two new concepts are: event handling and default actions, using extensions.</p>
+<p>Let's take a look at the event handling, or in other words: stuff that happens after you have clicked on something. Normally you create a function for each event of an object, a hotspot etc. Functions like cup_Interact() or cup_Look(). Using this template you only need one the any click event. Inside these functions you distinguish between the different interactions. So a typical any_click function looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">cup_AnyClick</span><span class="op">()</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// LOOK AT</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_LookAt<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;It&#39;s a blue cup.&quot;</span><span class="op">);</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// USE</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_Use<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I&#39;d rather pick it up.&quot;</span><span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// PICKUP</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_PickUp<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Okay.&quot;</span><span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        Verbs<span class="op">.</span><span class="at">AnyClickWalkLookPick</span><span class="op">(</span><span class="dv">108</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eDir_Up<span class="op">,</span> <span class="st">&quot;You are now mine.&quot;</span><span class="op">,</span>oCup<span class="op">.</span><span class="at">ID</span><span class="op">,</span> iCup<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">//USE INV</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_UseInv<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// don&#39;t forget this</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>The function "AnyClickWalkLookPick" is explained in the scripting reference. AnyClickWalkLookPick</p>
+<p>So you see, everything is inside a single function, instead 4 separate functions. Also instead of checking the cursor modes, the function <code>Verbs.UsedAction</code> is called to determine the event/action. The current defined actions are:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>eGA_LookAt<span class="op">,</span> eGA_TalkTo<span class="op">,</span> eGA_GiveTo<span class="op">,</span> eGA_PickUp<span class="op">,</span> eGA_Use<span class="op">,</span> eGA_Open<span class="op">,</span> eGA_Close<span class="op">,</span> eGA_Push<span class="op">,</span> eGA_Pull<span class="op">,</span>eGA_UseInv<span class="op">,</span> eGA_Default and eMG_WalkTo</span></code></pre></div>
+<p>For inventory items, it's a little bit different, because there is no any_click event in the room editor. So you first start with "other click on inventory item", which creates the function <code>iCup_OtherClick</code> (in case you have an item, called <code>iCup</code>). Now copy this function name and paste it at other events, like interact, look, talk and so on. In the end, you only have one function name in all five events. You can also take a look at the sample items.</p>
+<p>The second main aspect of the GUI are the extensions. You add an extension to a location (Hotspots, Objects etc.) by editing its description.</p>
+<p>For example, let's take an object. In the sample room, the object is called <code>oCup</code> and the description is simply "Cup". When move the cursor over this cup and no extension is defined, the default action will be "look at". Also the corresponding verb button in the gui starts to highlight. Now we can change this behavior with adding an angled bracket, followed by one of the following letters:</p>
+<ul>
+<li><code>n</code>: nothing / default</li>
+<li><code>g</code>: give to</li>
+<li><code>p</code>: pick up</li>
+<li><code>u</code>: use</li>
+<li><code>o</code>: open</li>
+<li><code>l</code>: look at</li>
+<li><code>s</code>: push</li>
+<li><code>c</code>: close</li>
+<li><code>t</code>: talk to</li>
+<li><code>y</code>: pull</li>
+<li><code>v</code>: variable extension</li>
+<li><code>e</code>: exit</li>
+</ul>
+<p>Let's give <code>oCup</code> the description "<code>Cup&gt;p</code>". Now the right-click action has changed. If you now move the mouse on the cup, the verb button "Pick Up" is highlighted. If you right-click the object, the any_click function from above is called. It checks for the used action and will perform the chosen action. Extensions are also explained in the function reference.</p>
+<p>The last thing you should know about, is the global variable "ItemGiven". If you like to give an item to a character, use this variable to check, which item has been given. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>Verbs<span class="op">.</span><span class="at">UsedAction</span><span class="op">(</span>eGA_GiveTo<span class="op">))</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iCup<span class="op">)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Do you want this Cup?&quot;</span><span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;No, thank you.&quot;</span><span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>ItemGiven <span class="op">==</span> iKey<span class="op">)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Is that your key?&quot;</span><span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        cBman<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;Of course. You have it from me.&quot;</span><span class="op">);</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> Verbs<span class="op">.</span><span class="at">Unhandled</span><span class="op">();</span></span></code></pre></div>
+<p>If you need to use "ItemGiven" in other scripts than the global one, you need to import it manually. It's not defined via global variable pane inside the AGS editor.</p>
+<hr />
+</section>
+<section id="using-inventory-items" class="level3">
+<h3><a href="#using-inventory-items">Using Inventory Items</a></h3>
+<p>There are currently three ways of using an inventory item, you can choose from.</p>
+<ol type="1">
+<li><p>"Use" only</p>
+<p>For this, you need to add the use-extension "&gt;u" to the description of the item and an event function for "Interact inventory item". If you have followed the instructions in this manual you probably already have it there. This option might come handy for a watch. Clicking on it always gives you the current time. You can not give it away or use it with different items.</p></li>
+<li><p>"Use" and "Use with"</p>
+<p>Here you need to remove the use-extension from the description, but still keep the event function. This allows the player to directly use the item by clicking on the "use"-verb first. Directly clicking the items results in "use-with". Sticking to the watch-example: using the watch with the verb-button sets an alarm. Clicking directly on it in the inventory results in "use with", so you can use the watch with a shelf to hide it there. But please note that it might be hard for the player to understand, that using the verb button and using the inventory directly are two different things.</p></li>
+<li><p>"Use with" only</p>
+<p>For the last option, you need to remove the use-extension and remove the event function. Yep, that's right: on the right side of "Interact inventory item" is no function at all. If you then use the item, whether it's via the verb-button or a direct click, the action always stays "use with".</p></li>
+</ol>
+<hr />
+</section>
+<section id="exit-extensions" class="level3">
+<h3><a href="#exit-extensions">Exit Extensions</a></h3>
+<p>You can add an exit extension to hotspots and objects. Clicking on such a hotspot will make the player walk to it and change the room afterwards. There are several advantages compared to the usual methods like 'screen edges' or stand-on hotspot functions:</p>
+<ul>
+<li>works with objects and vertical hotspots (like cave entrances)</li>
+<li>supports double click to skip the walking</li>
+<li>optional walking off the screen: if you set the exit hotspot towards a screen edge, you can make the player leave the screen and change the room after that.</li>
+</ul>
+<p>This is how it works:</p>
+<p>First of all create your hotspot and let it have the "<code>&gt;e</code>" extension. Now switch over to the events (that little flash) and add the <code>Usermode_1</code> hotspot event. Eventually you'll end in the room script with a function called <code>hExit_Mode8</code>. In that function, all you have to do is to script the room change. e.g.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">EnterRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">76</span><span class="op">,</span> <span class="dv">111</span><span class="op">,</span> eDir_Right<span class="op">,</span> <span class="bu">true</span><span class="op">);</span></span></code></pre></div>
+<p>This function is almost similar to the AGS function player.ChangeRoom, you can look it up in the function reference below. If you want the player to leave the screen, you have to change the extension of the hotspot. These ones are possible:</p>
+<ul>
+<li><code>el</code>: left</li>
+<li><code>er</code>: right</li>
+<li><code>eu</code>: up</li>
+<li><code>ed</code>: down</li>
+</ul>
+<p>If you have an exit on the right side of your screen and want the player to leave the screen on that side, your hotspot description should be called:</p>
+<pre><code>Exit&gt;er</code></pre>
+<p>Now the character will walk to the clicked location and keeps on walking for another 30 extra pixels. That offset can be changed in the script header. If you simply call your hotspot:</p>
+<pre><code>Exit&gt;e</code></pre>
+<p>No additional walking will occur. This is useful for exits not being at the screen border. There's also an example in the second room of the demo template.</p>
+<hr />
+</section>
+<section id="language--translation" class="level3">
+<h3><a href="#language--translation">Language &amp; Translation</a></h3>
+<p>Currently the GUI supports German, French, Spanish, Italian, Portuguese and Dutch. If you like to help translating this template, please drop me a PM at the AGS Forums.</p>
+<p>If you like to create your game in a different language than English, you need to setup a different default language. In the TemplateSettings.asc module you'll find the line:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Verbs<span class="op">.</span><span class="at">VerbGuiOptions</span><span class="op">[</span>eVerbGuiTemplateLanguage<span class="op">]</span> = eLangEN<span class="op">;</span></span></code></pre></div>
+<p>At the time of writing, valid values are: <code>eLangEN</code>, <code>eLangDE</code>, <code>eLangES</code>, <code>eLangFR</code>, <code>eLangIT</code>, <code>eLangPT</code>, <code>eLangNL</code>. Setting this variable to one of these values will translate all your GUIs, including all provided dialogs, unhandled events and verb actions.</p>
+<p>If you are providing a multi-language game, which default language is English instead, you will probably create one or more AGS translation files. Sadly AGS won't automatically change GUI graphics by the language preference set by running the game setup, but we got you covered with this: after generating a new language, tell your translators to look out for the line.</p>
+<pre><code>GUI_LANGUAGE</code></pre>
+<p>Now simply put a translation for that line choosing between <em><code>EN</code>, <code>DE</code>, <code>ES</code>, <code>FR</code>, <code>IT</code>, <code>PT</code> or <code>NL</code></em>. For example:</p>
+<pre><code>GUI_LANGUAGE
+DE</code></pre>
+<p>Now the GUI will be set to the corresponding language when the user selects a different language by running game setup.</p>
+<p><em>See also</em>: <a href="Templates.html">Templates</a>, <a href="Settingupthegame.html">Setting up the game</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

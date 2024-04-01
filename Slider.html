@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Slider properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#slider-properties" id="toc-slider-properties"><code>Slider</code> properties</a>
+<ul>
+<li><a href="#sliderbackgroundgraphic" id="toc-sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a></li>
+<li><a href="#sliderhandlegraphic" id="toc-sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></li>
+<li><a href="#sliderhandleoffset" id="toc-sliderhandleoffset"><code>Slider.HandleOffset</code></a></li>
+<li><a href="#slidermax" id="toc-slidermax"><code>Slider.Max</code></a></li>
+<li><a href="#slidermin" id="toc-slidermin"><code>Slider.Min</code></a></li>
+<li><a href="#slidervalue" id="toc-slidervalue"><code>Slider.Value</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="slider-properties" class="level2">
+<h2><a href="#slider-properties"><code>Slider</code> properties</a></h2>
+<p>Slider is a subclass of <a href="GUIControl.html"><code>GUIControl</code></a> and therefore inherits all GUIControl's functions and properties in addition to its own, which are listed below.</p>
+<p><em>See also:</em> <a href="EditorGUI.html#sliders">Editing GUI Sliders</a></p>
+<hr />
+<section id="sliderbackgroundgraphic" class="level3">
+<h3><a href="#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">BackgroundGraphic</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the sprite used to draw the slider background. This image is tiled along the length of the slider.</p>
+<p>The background graphic can be set to 0, which will draw the default grey slider background.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;sldHealth&#39;s background is sprite %d&quot;</span><span class="op">,</span> sldHealth<span class="op">.</span><span class="at">BackgroundGraphic</span><span class="op">);</span></span></code></pre></div>
+<p>displays the <em>sldHealth</em> slider's background image</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
+<hr />
+</section>
+<section id="sliderhandlegraphic" class="level3">
+<h3><a href="#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleGraphic</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the sprite used to draw the handle on the slider. The handle represents the slider's current position, and can be dragged around by the player.</p>
+<p>The handle graphic can be set to 0, which will draw the default grey handle.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;sldHealth&#39;s handle is sprite %d&quot;</span><span class="op">,</span> sldHealth<span class="op">.</span><span class="at">HandleGraphic</span><span class="op">);</span></span></code></pre></div>
+<p>displays the <em>sldHealth</em> slider's handle image</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Slider.html#sliderbackgroundgraphic"><code>Slider.BackgroundGraphic</code></a>, <a href="Slider.html#sliderhandleoffset"><code>Slider.HandleOffset</code></a></p>
+<hr />
+</section>
+<section id="sliderhandleoffset" class="level3">
+<h3><a href="#sliderhandleoffset"><code>Slider.HandleOffset</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">HandleOffset</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the offset at which the handle image is drawn. This value is initially set up in the editor.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">HandleOffset</span> = <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<p>sets the <em>sldHealth</em> slider's handle to be drawn an extra 2 pixels to the right.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Slider.html#sliderhandlegraphic"><code>Slider.HandleGraphic</code></a></p>
+<hr />
+</section>
+<section id="slidermax" class="level3">
+<h3><a href="#slidermax"><code>Slider.Max</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Max</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the maximum value of the specified GUI slider.</p>
+<p>When changing the maximum, the slider's Value will be adjusted if necessary so that it lies within the Min - Max range.</p>
+<p>An error occurs if you try to set the Max to a lower value than the Min.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Max</span> = <span class="dv">200</span><span class="op">;</span></span></code></pre></div>
+<p>sets the maximum value of the <em>sldHealth</em> slider to 200.</p>
+<p><em>See also:</em> <a href="Slider.html#slidermin"><code>Slider.Min</code></a>, <a href="Slider.html#slidervalue"><code>Slider.Value</code></a></p>
+<hr />
+</section>
+<section id="slidermin" class="level3">
+<h3><a href="#slidermin"><code>Slider.Min</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Min</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the minimum value of the specified GUI slider.</p>
+<p>When changing the minimum, the slider's Value will be adjusted if necessary so that it lies within the Min - Max range.</p>
+<p>An error occurs if you try to set the Min to a higher value than the Max.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sldHealth<span class="op">.</span><span class="at">Min</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<p>sets the minimum value of the <em>sldHealth</em> slider to 0.</p>
+<p><em>See also:</em> <a href="Slider.html#slidermax"><code>Slider.Max</code></a>, <a href="Slider.html#slidervalue"><code>Slider.Value</code></a></p>
+<hr />
+</section>
+<section id="slidervalue" class="level3">
+<h3><a href="#slidervalue"><code>Slider.Value</code></a></h3>
+<p><em>(Formerly known as <code>GetSliderValue</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetSliderValue</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Slider</span><span class="op">.</span><span class="at">Value</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets the value of the specified GUI slider. You would usually use this in the slider's OnChange event handler to find out what value the player has changed the slider to, in order to process their command.</p>
+<p>When setting the value, the new value must lie between the MIN and MAX settings for the slider, as set up in the GUI editor.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="at">Volume</span> = sldVolume<span class="op">.</span><span class="at">Value</span><span class="op">;</span></span></code></pre></div>
+<p>will set the audio volume to the value of the slider <em>sldVolume</em>.</p>
+<p><em>See also:</em> <a href="Label.html#labeltext"><code>Label.Text</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

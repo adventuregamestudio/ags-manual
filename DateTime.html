@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DateTime functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#datetime-functions-and-properties" id="toc-datetime-functions-and-properties"><code>DateTime</code> functions and properties</a>
+<ul>
+<li><a href="#datetimenow" id="toc-datetimenow"><code>DateTime.Now</code></a></li>
+<li><a href="#datetimedayofmonth" id="toc-datetimedayofmonth"><code>DateTime.DayOfMonth</code></a></li>
+<li><a href="#datetimehour" id="toc-datetimehour"><code>DateTime.Hour</code></a></li>
+<li><a href="#datetimeminute" id="toc-datetimeminute"><code>DateTime.Minute</code></a></li>
+<li><a href="#datetimemonth" id="toc-datetimemonth"><code>DateTime.Month</code></a></li>
+<li><a href="#datetimerawtime" id="toc-datetimerawtime"><code>DateTime.RawTime</code></a></li>
+<li><a href="#datetimesecond" id="toc-datetimesecond"><code>DateTime.Second</code></a></li>
+<li><a href="#datetimeyear" id="toc-datetimeyear"><code>DateTime.Year</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="datetime-functions-and-properties" class="level2">
+<h2><a href="#datetime-functions-and-properties"><code>DateTime</code> functions and properties</a></h2>
+<section id="datetimenow" class="level3">
+<h3><a href="#datetimenow"><code>DateTime.Now</code></a></h3>
+<p><em>(Formerly known as <code>GetTime</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">DateTime</span><span class="op">*</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the current system time. You could use this for timing a loop, or for effects like telling the player to go to bed, and so on.</p>
+<p>A <em>DateTime</em> object is returned, which contains various properties that you can use.</p>
+<p>Note that the DateTime object that you get will not be kept up to date with the current time; it will remain static with the time at which you called DateTime.Now.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span> <span class="op">*</span>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The date is: %02d/%02d/%04d&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">DayOfMonth</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Month</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Year</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The time is: %02d:%02d:%02d&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Hour</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Minute</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Second</span><span class="op">);</span></span></code></pre></div>
+<p>will display the current date and time in 24-hour format</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimedayofmonth"><code>DateTime.DayOfMonth</code></a>, <a href="DateTime.html#datetimehour"><code>DateTime.Hour</code></a>, <a href="DateTime.html#datetimeminute"><code>DateTime.Minute</code></a>, <a href="DateTime.html#datetimemonth"><code>DateTime.Month</code></a>, <a href="DateTime.html#datetimerawtime"><code>DateTime.RawTime</code></a>, <a href="DateTime.html#datetimesecond"><code>DateTime.Second</code></a>, <a href="DateTime.html#datetimeyear"><code>DateTime.Year</code></a></p>
+<hr />
+</section>
+<section id="datetimedayofmonth" class="level3">
+<h3><a href="#datetimedayofmonth"><code>DateTime.DayOfMonth</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">DayOfMonth</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the day of the month represented by the DateTime object. This will be from 1 to 31, representing the current day within the month.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+<hr />
+</section>
+<section id="datetimehour" class="level3">
+<h3><a href="#datetimehour"><code>DateTime.Hour</code></a></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Hour</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the hour represented by the DateTime object. This will be from 0 to 23, representing the hour in 24-hour format.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+<hr />
+</section>
+<section id="datetimeminute" class="level3">
+<h3><a href="#datetimeminute"><code>DateTime.Minute</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Minute</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the minute represented by the DateTime object. This will be from 0 to 59, representing the minute in 24-hour format.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+<hr />
+</section>
+<section id="datetimemonth" class="level3">
+<h3><a href="#datetimemonth"><code>DateTime.Month</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Month</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the month represented by the DateTime object. This will be from 1 to 12, representing the month of the year.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+<hr />
+</section>
+<section id="datetimerawtime" class="level3">
+<h3><a href="#datetimerawtime"><code>DateTime.RawTime</code></a></h3>
+<p><em>(Formerly known as <code>GetRawTime</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span></code></pre></div>
+<p>This function returns the raw system time, as the number of seconds since January 1970. While this value is not useful in itself, you can use it to calculate time differences by getting the value at the start of the game, for example, and then getting the value later on, and the difference between the two is how much time has elapsed.</p>
+<p><strong>NOTE:</strong> Because this accesses the real-time clock on the users' system, it is not a good idea to use this for long term timing tasks, since if the user saves the game and then restores it later, the Time value returned by this function will obviously include the difference when they were not playing.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span> <span class="op">*</span>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> start_time = dt<span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;After the wait it is now %d seconds later.&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">RawTime</span> <span class="op">-</span> start_time<span class="op">);</span></span></code></pre></div>
+<p>should display that 3 seconds have elapsed.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>, <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a></p>
+<hr />
+</section>
+<section id="datetimesecond" class="level3">
+<h3><a href="#datetimesecond"><code>DateTime.Second</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Second</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the second represented by the DateTime object. This will be from 0 to 59, representing the second.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+<hr />
+</section>
+<section id="datetimeyear" class="level3">
+<h3><a href="#datetimeyear"><code>DateTime.Year</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Year</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the year represented by the DateTime object. This is the full year, for example <em>2005</em>.</p>
+<p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inventory Items Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#inventory-items-editor" id="toc-inventory-items-editor">Inventory Items Editor</a>
+<ul>
+<li><a href="#cursor-image" id="toc-cursor-image">Cursor Image</a></li>
+<li><a href="#description" id="toc-description">Description</a></li>
+<li><a href="#image" id="toc-image">Image</a></li>
+<li><a href="#hotspotx" id="toc-hotspotx">HotspotX</a></li>
+<li><a href="#hotspoty" id="toc-hotspoty">HotspotY</a></li>
+<li><a href="#id" id="toc-id">ID</a></li>
+<li><a href="#name" id="toc-name">Name</a></li>
+<li><a href="#playerstartswithitem" id="toc-playerstartswithitem">PlayerStartsWithItem</a></li>
+<li><a href="#properties" id="toc-properties">Properties</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="inventory-items-editor" class="level2">
+<h2><a href="#inventory-items-editor">Inventory Items Editor</a></h2>
+<p>A place to edit Items that can be added to a character's <a href="Settingupthegame.html#inventory">inventory</a> by the player.</p>
+<p><img src="images/EditorInventoryItems_img1.png" alt="Screenshot Inventory Item Editor" /></p>
+<section id="cursor-image" class="level3">
+<h3><a href="#cursor-image">Cursor Image</a></h3>
+<p>The image number from the <a href="EditorSprite.html">Sprite Manager</a> that is displayed as the active cursor image when selecting this inventory item from the inventory. This could be to use it on another inventory item or to use it somewhere inside your room. You can also set the active hotspot of the mouse-cursor image, which is where the click from the mouse cursor will be registered when using this image. This can be done by left clicking on the mouse-cursor image itself, or by entering the appropriate into the HotspotX and HotspotY properties (see below).</p>
+<p>It is generally good practice to add some kind of crosshair or a single pixel marker in an easy to spot color to the image and align the click hotspot to this. This way the player should be able to tell exactly where they are pointing. Figuring out bad controls is no puzzle!</p>
+</section>
+<section id="description" class="level3">
+<h3><a href="#description">Description</a></h3>
+<p>The name of the item. This is also the value used by the <code>@OVERHOTSPOT@</code> token when the mouse cursor is hovering over this item, whilst still in the inventory.</p>
+</section>
+<section id="image" class="level3">
+<h3><a href="#image">Image</a></h3>
+<p>The image displayed for the inventory item within the character's inventory. This is typically larger than the mouse cursor image of the inventory item, depending on how the GUI that is used for the inventory window has been configured.</p>
+</section>
+<section id="hotspotx" class="level3">
+<h3><a href="#hotspotx">HotspotX</a></h3>
+<p>Select the X value for the hotspot of the active cursor image. It's the distance from the left edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+</section>
+<section id="hotspoty" class="level3">
+<h3><a href="#hotspoty">HotspotY</a></h3>
+<p>Select the Y value for the hotspot of the active cursor image. It's the distance from the top edge of the sprite, measured in pixels. You can also set this value by clicking on the "Mouse cursor image" display.</p>
+</section>
+<section id="id" class="level3">
+<h3><a href="#id">ID</a></h3>
+<p>The internal ID of this inventory Item. This value cannot be changed, it can be read only by the script property <a href="InventoryItem.html#inventoryitemid"><code>InventoryItem.ID</code></a>.</p>
+</section>
+<section id="name" class="level3">
+<h3><a href="#name">Name</a></h3>
+<p>The script name of the inventory item. Usually the convention is to start inventory item names with an 'i', so a key might be named <code>iKey</code>. This convention sure gets tricky when you give your game characters some Apple products...</p>
+</section>
+<section id="playerstartswithitem" class="level3">
+<h3><a href="#playerstartswithitem">PlayerStartsWithItem</a></h3>
+<p>This is a boolean value which sets whether the player character starts with this inventory item in their inventory or not. In the majority of cases, where items are collected during gameplay, the default setting of no is probably the one to use.</p>
+</section>
+<section id="properties" class="level3">
+<h3><a href="#properties">Properties</a></h3>
+<p>Configure any <a href="CustomProperties.html">custom properties</a> for this inventory item. A common use is to use an additional boolean flag to indicate that an inventory item should be 'used' by itself, without needing to combine it with another inventory item.</p>
+<hr>
+
+<p>Within the game the player can pick up and store inventory items into his inventory by interacting with the scene or other characters. You add a new inventory item to his inventory with the <a href="Character.html#characteraddinventory"><code>cChar.AddInventory(iInvItem)</code></a> function. When the player uses or gives away the item you remove it from the character's inventory with the <a href="Character.html#characterloseinventory"><code>cChar.LoseInventory(iInvItem)</code></a> function. Make sure you check the <a href="Mouse.html#mousemode"><code>Mouse.Mode</code></a> afterwards, especially when the active cursor is the inventory item the player just lost.</p>
+<p><em>See also:</em> <a href="InventoryItem.html"><code>InventoryItem</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

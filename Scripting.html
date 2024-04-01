@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Scripting API</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#scripting-api" id="toc-scripting-api">Scripting API</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="scripting-api" class="level2">
+<h2><a href="#scripting-api">Scripting API</a></h2>
+<ul>
+<li><a href="ScriptAPIOverview.html">Script API Overview</a></li>
+<li><a href="Constants.html">Standard Constants</a></li>
+<li><a href="StandardEnums.html">Standard Enumerated Types</a></li>
+<li><a href="StandardTypes.html">Standard Types</a></li>
+<li><a href="Gamevariables.html">Game variables</a></li>
+<li><a href="GlobalArrays.html">Global arrays</a></li>
+<li><a href="Globalfunctions_Event.html">Global event handlers</a></li>
+<li><a href="RepExec.html">repeatedly_execute / repeatedly_execute_always</a></li>
+<li><a href="CustomDialogOptions.html">Custom dialog options rendering</a></li>
+<li><a href="Globalfunctions_General.html">Global functions: general</a></li>
+<li><a href="Globalfunctions_Message.html">Global functions: message display</a></li>
+<li><a href="Multimedia.html">Global functions: multimedia actions</a></li>
+<li><a href="Globalfunctions_Palette.html">Global functions: palette operations</a></li>
+<li><a href="Globalfunctions_Room.html">Global functions: room actions</a></li>
+<li><a href="Globalfunctions_Screen.html">Global functions: screen effects</a></li>
+<li><a href="Globalfunctions_Wait.html">Global functions: wait</a></li>
+<li><a href="AudioChannel.html">AudioChannel functions and properties</a></li>
+<li><a href="AudioClip.html">AudioClip functions and properties</a></li>
+<li><a href="Camera.html">Camera functions and properties</a></li>
+<li><a href="Character.html">Character functions and properties</a></li>
+<li><a href="DateTime.html">DateTime functions and properties</a></li>
+<li><a href="Dialog.html">Dialog functions and properties</a></li>
+<li><a href="DialogOptionsRenderingInfo.html">DialogOptionsRenderingInfo functions and properties</a></li>
+<li><a href="Dictionary.html">Dictionary functions and properties</a></li>
+<li><a href="DrawingSurface.html">DrawingSurface functions and properties</a></li>
+<li><a href="DynamicSprite.html">DynamicSprite functions and properties</a></li>
+<li><a href="File.html">File functions and properties</a></li>
+<li><a href="Game.html">Game functions and properties</a></li>
+<li><a href="GUI.html">GUI functions and properties</a></li>
+<li><a href="GUIControl.html">GUI control functions and properties</a></li>
+<li><a href="Button.html">GUI Button functions and properties</a></li>
+<li><a href="InvWindow.html">GUI InvWindow functions and properties</a></li>
+<li><a href="Label.html">GUI Label functions and properties</a></li>
+<li><a href="ListBox.html">GUI List Box functions and properties</a></li>
+<li><a href="Slider.html">GUI Slider properties</a></li>
+<li><a href="TextBox.html">GUI Text Box functions and properties</a></li>
+<li><a href="Hotspot.html">Hotspot functions and properties</a></li>
+<li><a href="InventoryItem.html">Inventory item functions and properties</a></li>
+<li><a href="Maths.html">Maths functions and properties</a></li>
+<li><a href="Mouse.html">Mouse functions and properties</a></li>
+<li><a href="Object.html">Object functions and properties</a></li>
+<li><a href="Overlay.html">Overlay functions and properties</a></li>
+<li><a href="Parser.html">Parser functions</a></li>
+<li><a href="Region.html">Region functions and properties</a></li>
+<li><a href="Room.html">Room functions and properties</a></li>
+<li><a href="Screen.html">Screen functions and properties</a></li>
+<li><a href="Set.html">Set functions and properties</a></li>
+<li><a href="Speech.html">Speech functions and properties</a></li>
+<li><a href="String.html">String functions</a></li>
+<li><a href="System.html">System functions and properties</a></li>
+<li><a href="TextWindowGUI.html">TextWindowGUI functions and properties</a></li>
+<li><a href="ViewFrame.html">ViewFrame functions and properties</a></li>
+<li><a href="Viewport.html">Viewport functions and properties</a></li>
+</ul>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

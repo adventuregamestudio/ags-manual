@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Colours Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#colours-editor" id="toc-colours-editor">Colours Editor</a>
+<ul>
+<li><a href="#palette-setup" id="toc-palette-setup">Palette setup</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="colours-editor" class="level2">
+<h2><a href="#colours-editor">Colours Editor</a></h2>
+<p>The Colours pane is primarily meant for the game Palette setup, but also contains a Colour Finder control that lets you find a single-number representation of a particular color.</p>
+<p>The Palette is very important for 8-bit games, but is not useful for others.</p>
+<p>The Colour Finder may come useful when you need to assign a color number to a game property or in a script. Although many game properties allow to open a colour picker for this purpose, while in script it's recommended to use a <a href="Game.html#gamegetcolorfromrgb"><code>Game.GetColorFromRGB</code></a> command.</p>
+<section id="palette-setup" class="level3">
+<h3><a href="#palette-setup">Palette setup</a></h3>
+<p>As said above, Palette is only for <em>real 8-bit</em> games (not simulated by restricting yourself to limited colour range). If you made a decision to make a 8-bit game you first need to set game's Color Depth to 8-bit in <a href="GeneralSettings.html#basic-properties">General Settings</a>. After that the Palette control becomes actually used in your project.</p>
+<p>Here you will see the 256-color palette displayed in a grid. Most of the slots are marked "X" - these are the slots reserved for the background pictures, and will be different in each room. The other colors will be as they look here for the entire game. These fixed colors allow things like the main character graphics, which must be displayed on more than one screen, to work.</p>
+<p>If you want, you can assign more or less colors to the backgrounds. To toggle the background assignment on/off, click on the slot, then check the "This color is room-dependent" box to swap the slot's status.</p>
+<p><strong>IMPORTANT NOTE:</strong> <em>You must set up the palette as you want it before you start making your game - if you change it later, you will have to re-import all the sprites and background scenes.</em></p>
+<p>You can select multiple color slots by clicking on the first slot, then shift-clicking on the last slot in the range you want to select. You can then toggle the background status of all the selected slots at once.</p>
+<p>You can right-click in the palette grid to export the entire palette to a .PAL or BMP file which you can then use to read back into the Editor in a different game. If you choose to export to a bmp file, then a screen shot of the Palette Editor will be saved as the picture. This way you can see all the game-wide colors in the file.</p>
+<p>The "Replace palette" option replaces the palette entries with those entries from the PAL or BMP file you choose. It can read standard 768-byte PAL files, SCI palette resources (renamed to extension .pal) and JASC PSP palette files.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

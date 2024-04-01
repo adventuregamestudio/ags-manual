@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (room actions)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-room-actions" id="toc-global-functions-room-actions">Global functions (room actions)</a>
+<ul>
+<li><a href="#arethingsoverlapping" id="toc-arethingsoverlapping"><code>AreThingsOverlapping</code></a></li>
+<li><a href="#disablegroundlevelareas" id="toc-disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></li>
+<li><a href="#enablegroundlevelareas" id="toc-enablegroundlevelareas"><code>EnableGroundLevelAreas</code></a></li>
+<li><a href="#getbackgroundframe" id="toc-getbackgroundframe"><code>GetBackgroundFrame</code></a></li>
+<li><a href="#getdrawingsurfaceforwalkablearea" id="toc-getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a></li>
+<li><a href="#getdrawingsurfaceforwalkbehind" id="toc-getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a></li>
+<li><a href="#getscalingat" id="toc-getscalingat"><code>GetScalingAt</code></a></li>
+<li><a href="#getviewportx" id="toc-getviewportx"><code>GetViewportX</code></a></li>
+<li><a href="#getviewporty" id="toc-getviewporty"><code>GetViewportY</code></a></li>
+<li><a href="#getwalkableareaat" id="toc-getwalkableareaat"><code>GetWalkableAreaAt</code></a></li>
+<li><a href="#getwalkableareaatroom" id="toc-getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></li>
+<li><a href="#getwalkableareaatscreen" id="toc-getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></li>
+<li><a href="#hasplayerbeeninroom" id="toc-hasplayerbeeninroom"><code>HasPlayerBeenInRoom</code></a></li>
+<li><a href="#releaseviewport" id="toc-releaseviewport"><code>ReleaseViewport</code></a></li>
+<li><a href="#removewalkablearea" id="toc-removewalkablearea"><code>RemoveWalkableArea</code></a></li>
+<li><a href="#resetroom" id="toc-resetroom"><code>ResetRoom</code></a></li>
+<li><a href="#restorewalkablearea" id="toc-restorewalkablearea"><code>RestoreWalkableArea</code></a></li>
+<li><a href="#setareascaling" id="toc-setareascaling"><code>SetAreaScaling</code></a></li>
+<li><a href="#setbackgroundframe" id="toc-setbackgroundframe"><code>SetBackgroundFrame</code></a></li>
+<li><a href="#setviewport" id="toc-setviewport"><code>SetViewport</code></a></li>
+<li><a href="#setwalkbehindbase" id="toc-setwalkbehindbase"><code>SetWalkBehindBase</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-room-actions" class="level2">
+<h2><a href="#global-functions-room-actions">Global functions (room actions)</a></h2>
+<section id="arethingsoverlapping" class="level3">
+<h3><a href="#arethingsoverlapping"><code>AreThingsOverlapping</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AreThingsOverlapping</span><span class="op">(</span><span class="dt">int</span> thing1<span class="op">,</span> <span class="dt">int</span> thing2<span class="op">)</span></span></code></pre></div>
+<p>Checks whether two characters or objects are overlapping each other on screen. This simply carries out a quick rectangular check on the two things to decide - so if they have large transparent regions around the edges, it may seem to be overlapping too soon.</p>
+<p>THING1 and THING2 can either be a CHARID, or can be an object number PLUS 1000. So for example, passing EGO as THING1, and 1004 as THING2, will compare the character EGO with Object 4 in the current room.</p>
+<p>Returns 0 if they are not overlapping, or the overlapping amount if they are. This amount is an arbitrary scale, but 1 means they are just about touching, with higher numbers representing an increasing degree of overlap.</p>
+<p>Calling this function with both the parameters as objects is the same as calling Object.IsCollidingWithObject.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">AreThingsOverlapping</span><span class="op">(</span><span class="dv">1002</span><span class="op">,</span> EGO<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// code here</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will run the code if object 2 is overlapping EGO. This could be useful if object 2 was a bullet, for instance.</p>
+<p><em>See also:</em> <a href="Character.html#characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a>, <a href="Object.html#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a></p>
+<hr />
+</section>
+<section id="disablegroundlevelareas" class="level3">
+<h3><a href="#disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisableGroundLevelAreas</span><span class="op">(</span><span class="dt">int</span> disableTints<span class="op">)</span></span></code></pre></div>
+<p>Disables all ground-level events. This means that all Region events, the Player Stands On Hotspot event, and the room edges become disabled.</p>
+<p>This command is useful in conjunction with the <code>character[].z</code> variable, if you want the player to be able to temporarily fly or levitate, for example. It allows you to stop the character from triggering Player Stands On events while they are in the air.</p>
+<p>This command is also useful during some cutscenes, if you don't want the player to trigger events as they walk around the room while in the cutscene.</p>
+<p>The DISABLETINTS parameter specifies whether the visual effects of the regions (i.e. light levels and tints) are also disabled. If you pass this as 0, then just the events will be turned off.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisableGroundLevelAreas</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>will disable all ground-level events, but leave light levels working</p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#enablegroundlevelareas"><code>EnableGroundLevelAreas</code></a></p>
+<hr />
+</section>
+<section id="enablegroundlevelareas" class="level3">
+<h3><a href="#enablegroundlevelareas"><code>EnableGroundLevelAreas</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">EnableGroundLevelAreas</span><span class="op">()</span></span></code></pre></div>
+<p>Re-enables all ground-level events. This is used to reverse the effects of using the DisableGroundLevelAreas command, and will return things to normal.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">EnableGroundLevelAreas</span><span class="op">();</span></span></code></pre></div>
+<p>will re-enable all ground-level events.</p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></p>
+<hr />
+</section>
+<section id="getbackgroundframe" class="level3">
+<h3><a href="#getbackgroundframe"><code>GetBackgroundFrame</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetBackgroundFrame</span><span class="op">()</span></span></code></pre></div>
+<p>Returns the number of the current background being displayed. In a room without animating backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to 4.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetBackgroundFrame</span><span class="op">()==</span><span class="dv">4</span><span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<p>will turn on object 2 if the background frame of the room is frame 4.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a></p>
+<hr />
+</section>
+<section id="getdrawingsurfaceforwalkablearea" class="level3">
+<h3><a href="#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">*</span> <span class="bu">GetDrawingSurfaceForWalkableArea</span><span class="op">()</span></span></code></pre></div>
+<p>Gets a drawing surface for the current room's 8-bit walkable mask, which allows you to directly draw onto that mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the walkable area's index. Color value 0 will refer to "no area" (erase pathways), color value 1 to area number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">GetDrawingSurfaceForWalkableArea</span><span class="op">();</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
+<p>will paint a rectangle for the walkable area 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a>, <a href="Region.html#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></p>
+<hr />
+</section>
+<section id="getdrawingsurfaceforwalkbehind" class="level3">
+<h3><a href="#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span><span class="op">*</span> <span class="bu">GetDrawingSurfaceForWalkbehind</span><span class="op">()</span></span></code></pre></div>
+<p>Gets a drawing surface for the current room's 8-bit walk-behind mask, which allows you to directly draw onto that mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the walk-behind's index. Color value 0 will refer to "no area" (erase walk-behinds), color value 1 to walk-behind number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">GetDrawingSurfaceForWalkbehind</span><span class="op">();</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
+<p>will paint a rectangle for the walk-behind 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a>, <a href="Region.html#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></p>
+<hr />
+</section>
+<section id="getscalingat" class="level3">
+<h3><a href="#getscalingat"><code>GetScalingAt</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetScalingAt</span> <span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the room area scaling at room co-ordinates (X,Y).</p>
+<p>The value returned is from 1 to 200, with 100 being the normal un-scaled setting.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetScalingAt</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;The player is currently at normal size.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getwalkableareaat"><code>GetWalkableAreaAt</code></a>, <a href="Globalfunctions_Room.html#setareascaling"><code>SetAreaScaling</code></a></p>
+<hr />
+</section>
+<section id="getviewportx" class="level3">
+<h3><a href="#getviewportx"><code>GetViewportX</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera"><code>Game</code></a>.<a href="Camera.html#camerax"><code>Camera.X</code></a> instead.</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetViewportX</span><span class="op">()</span></span></code></pre></div>
+<p>Returns the X-position of the main camera's rectangle in a room. This allows you to find out what part of the room the player is looking at.</p>
+<hr />
+</section>
+<section id="getviewporty" class="level3">
+<h3><a href="#getviewporty"><code>GetViewportY</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera"><code>Game</code></a>.<a href="Camera.html#cameray"><code>Camera.Y</code></a> instead.</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetViewportY</span><span class="op">()</span></span></code></pre></div>
+<p>Returns the Y-position of the main camera's rectangle in a room. This allows you to find out what part of the room the player is looking at.</p>
+<hr />
+</section>
+<section id="getwalkableareaat" class="level3">
+<h3><a href="#getwalkableareaat"><code>GetWalkableAreaAt</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use equivalent <a href="Globalfunctions_Room.html#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a> instead.</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">GetWalkableAreaAt</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the ID of the walkable area at <em>screen</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
+<hr />
+</section>
+<section id="getwalkableareaatroom" class="level3">
+<h3><a href="#getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">GetWalkableAreaAtRoom</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the ID of the walkable area at <em>room</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
+<p>This function may be useful when you need to find a walkable area relative to some other point in room, a room object or character.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetWalkableAreaAtRoom</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;Player is standing on the walkable area.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Globalfunctions_Room.html#getscalingat"><code>GetScalingAt</code></a></p>
+<hr />
+</section>
+<section id="getwalkableareaatscreen" class="level3">
+<h3><a href="#getwalkableareaatscreen"><code>GetWalkableAreaAtScreen</code></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">GetWalkableAreaAtScreen</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the ID of the walkable area at <em>screen</em> co-ordinates (X, Y). If there is no walkable area there, or if invalid co-ordinates are specified, returns 0.</p>
+<p>There has to be an active room viewport at the specified screen location for this function to succeed, otherwise it also returns 0.</p>
+<p>This function is convenient when you need to find a walkable area relative to some screen point, such as mouse cursor's position.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetWalkableAreaAtScreen</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span> <span class="op">(</span><span class="st">&quot;You can&#39;t walk there.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Globalfunctions_Room.html#getscalingat"><code>GetScalingAt</code></a></p>
+<hr />
+</section>
+<section id="hasplayerbeeninroom" class="level3">
+<h3><a href="#hasplayerbeeninroom"><code>HasPlayerBeenInRoom</code></a></h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">HasPlayerBeenInRoom</span><span class="op">(</span><span class="dt">int</span> room_number<span class="op">)</span></span></code></pre></div>
+<p>Checks whether the player has ever been in ROOM_NUMBER (i.e. has the 'First Time Player Enters Room' event there ever been run). Returns 1 if they have, and 0 if they haven't.</p>
+<p>You can use this function to determine whether the player has been to a particular location previously. If you reset the room with ResetRoom, then this command will return 0 until they enter the room again.</p>
+<p>This command will always return 1 if you ask it about the current room; and it will always return 0 if you ask it about a non-state saving room (i.e. rooms numbered &gt; 300).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">HasPlayerBeenInRoom</span><span class="op">(</span><span class="dv">14</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player has been to room 14 before.&quot;</span><span class="op">);</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message if the player has been to room 14.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#resetroom"><code>ResetRoom</code></a></p>
+<hr />
+</section>
+<section id="releaseviewport" class="level3">
+<h3><a href="#releaseviewport"><code>ReleaseViewport</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera"><code>Game</code></a>.<a href="Camera.html#cameraautotracking"><code>Camera.AutoTracking</code></a> instead.</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ReleaseViewport</span><span class="op">()</span></span></code></pre></div>
+<p>Releases the lock on the main camera, allowing it to automatically scroll around following the player character as normal.</p>
+<hr />
+</section>
+<section id="removewalkablearea" class="level3">
+<h3><a href="#removewalkablearea"><code>RemoveWalkableArea</code></a></h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RemoveWalkableArea</span> <span class="op">(</span><span class="dt">int</span> areanum<span class="op">)</span></span></code></pre></div>
+<p>Removes the walkable areas in color AREANUM from the current room. You can put the area back with RestoreWalkableArea.</p>
+<p>NOTE: When the player leaves the screen, all the walkable areas are reset. Therefore, if you want an area to remain off when they leave the screen, you will need to set a flag, then run the RemoveWalkableArea command in the "Player enters room" event when they return.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RemoveWalkableArea</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<p>will make the walking area 5 unwalkable.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
+<hr />
+</section>
+<section id="resetroom" class="level3">
+<h3><a href="#resetroom"><code>ResetRoom</code></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ResetRoom</span> <span class="op">(</span><span class="dt">int</span> room_number<span class="op">)</span></span></code></pre></div>
+<p>Discards all the data that the engine has in memory about when the player last visited ROOM_NUMBER, and resets it as if they'd never been there. The next time the player goes to that room, all the objects and scripts will be in their initial state (as set up in the editor), and not how they were when the player left the room. The "First time enters room" event will be run when they enter this room again.</p>
+<p>This function is useful if you want to have a "View intro" option to allow the player to watch an intro again - this function can reset all the objects in the intro rooms to their starting positions.</p>
+<p>NOTE: You cannot reset the current room (i.e. the room that the player is in).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ResetRoom</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>will reset the intro room so it can be played again if the player wants to.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#hasplayerbeeninroom"><code>HasPlayerBeenInRoom</code></a></p>
+<hr />
+</section>
+<section id="restorewalkablearea" class="level3">
+<h3><a href="#restorewalkablearea"><code>RestoreWalkableArea</code></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreWalkableArea</span> <span class="op">(</span><span class="dt">int</span> areanum<span class="op">)</span></span></code></pre></div>
+<p>Makes the area AREANUM walkable again.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreWalkableArea</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
+<p>will make the walking area 4 walkable again.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a></p>
+<hr />
+</section>
+<section id="setareascaling" class="level3">
+<h3><a href="#setareascaling"><code>SetAreaScaling</code></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAreaScaling</span><span class="op">(</span><span class="dt">int</span> area<span class="op">,</span> <span class="dt">int</span> min<span class="op">,</span> <span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
+<p>Changes walkable area number AREA's scaling.</p>
+<p>There are two ways to use this command:<br></p>
+<ol type="1">
+<li>Pass the same value for MIN and MAX. This will give the walkable area fixed scaling (same as setting it in the editor with "Use continuous scaling" un-ticked).<br></li>
+<li>Pass different values for MIN and MAX. In this case, continuous scaling is enabled for the walkable area, and will go from MIN at the top to MAX at the bottom.</li>
+</ol>
+<p>MIN and MAX have ranges from 5 to 200, the same as in the editor. Pass 100 for both values to revert to the normal zoom level (100<code>%</code>) for that area.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAreaScaling</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">120</span><span class="op">,</span> <span class="dv">170</span><span class="op">);</span></span></code></pre></div>
+<p>will set walkable area 5 to use continuous scaling from 120 to 170 percent.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getscalingat"><code>GetScalingAt</code></a>, <a href="Globalfunctions_Room.html#getwalkableareaat"><code>GetWalkableAreaAt</code></a></p>
+<hr />
+</section>
+<section id="setbackgroundframe" class="level3">
+<h3><a href="#setbackgroundframe"><code>SetBackgroundFrame</code></a></h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetBackgroundFrame</span> <span class="op">(</span><span class="dt">int</span> frame<span class="op">)</span></span></code></pre></div>
+<p>Locks the background to frame number FRAME of an animating-background screen. (Values for FRAME are from 0 to 4). This allows you to use the animating backgrounds feature for another purpose - you can have two frames of the background, one for example with a spaceship crashed on it. Then, once the right event has happened, call SetBackgroundFrame in the Player Enters Room event to set the background before the screen fades in.</p>
+<p>Pass the <em>frame</em> as -1 to return to the default behavior of automatically cycling through all the background frames.</p>
+<p>The frame lock is released when the game changes rooms.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetBackgroundFrame</span><span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
+<p>will change the current room's background frame to 4.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getbackgroundframe"><code>GetBackgroundFrame</code></a></p>
+<hr />
+</section>
+<section id="setviewport" class="level3">
+<h3><a href="#setviewport"><code>SetViewport</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.5.0. Use <a href="Game.html#gamecamera"><code>Game</code></a>.<a href="Camera.html#camerasetat"><code>Camera.SetAt</code></a> instead.</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetViewport</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Locks the main camera to having the top-left hand corner at (X,Y) in a scrolling room. This allows you to manually pan across a scrolling room or to have the camera follow a non-player character.</p>
+<p>The lock is released when you either call <a href="Globalfunctions_Room.html#releaseviewport"><code>ReleaseViewport</code></a> or the player changes rooms.</p>
+<hr />
+</section>
+<section id="setwalkbehindbase" class="level3">
+<h3><a href="#setwalkbehindbase"><code>SetWalkBehindBase</code></a></h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetWalkBehindBase</span> <span class="op">(</span><span class="dt">int</span> area<span class="op">,</span> <span class="dt">int</span> baseline<span class="op">)</span></span></code></pre></div>
+<p>Changes the walk-behind AREA to have new BASELINE. This effectively allows you to turn walk-behinds on and off, although you can do other tricks with it as well. BASELINE is from 1 to the height of the room (normally 200) and moves the line which you set originally in the editor.</p>
+<p>Passing BASELINE as 0 disables the walk-behind area, so that the player will always walk in front of it.</p>
+<p>Basically, if the character's feet are below BASELINE, he will be drawn in front of it, otherwise he will be drawn behind it.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetWalkBehindBase</span> <span class="op">(</span><span class="dv">3</span><span class="op">,</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>will disable the walkbehind area number 3.</p>
+<p><em>See also:</em> <a href="Object.html#objectbaseline"><code>Object.Baseline</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

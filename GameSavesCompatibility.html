@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Game saves compatibility</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#game-saves-compatibility" id="toc-game-saves-compatibility">Game saves compatibility</a>
+<ul>
+<li><a href="#changes-in-the-game-project-that-break-saves" id="toc-changes-in-the-game-project-that-break-saves">Changes in the game project that break saves</a></li>
+<li><a href="#changes-that-dont-break-saves-but-are-not-safe" id="toc-changes-that-dont-break-saves-but-are-not-safe">Changes that DON'T break saves but are NOT SAFE</a></li>
+<li><a href="#changes-that-dont-break-saves-and-are-safe" id="toc-changes-that-dont-break-saves-and-are-safe">Changes that DON'T break saves and ARE SAFE</a></li>
+<li><a href="#an-issue-of-dynamic-objects" id="toc-an-issue-of-dynamic-objects">An issue of dynamic objects</a></li>
+<li><a href="#solution-0-code-your-own-save-system" id="toc-solution-0-code-your-own-save-system">Solution 0: Code your own save system</a></li>
+<li><a href="#solution-1-reusing-game-objects" id="toc-solution-1-reusing-game-objects">Solution 1: Reusing game objects</a></li>
+<li><a href="#solution-2-dummy-object-reserve" id="toc-solution-2-dummy-object-reserve">Solution 2: Dummy object reserve</a></li>
+<li><a href="#solution-3-new-rooms" id="toc-solution-3-new-rooms">Solution 3: New rooms</a></li>
+<li><a href="#solution-4-string-dictionary-and-set" id="toc-solution-4-string-dictionary-and-set">Solution 4: String, Dictionary and Set</a></li>
+<li><a href="#solution-5-extending-dynamic-arrays-and-managed-structs" id="toc-solution-5-extending-dynamic-arrays-and-managed-structs">Solution 5: Extending dynamic arrays and managed structs</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="game-saves-compatibility" class="level2">
+<h2><a href="#game-saves-compatibility">Game saves compatibility</a></h2>
+<p>AGS games have a built-in save system that is very convenient most of the time as it automatically writes down states of the game and all objects in it, allowing to restore saved game to exactly same condition it was saved in.</p>
+<p>But it has one serious flaw. When game data is written to a save file the game objects and variables are written as lists, where separate items are not identified in any way rather than order in that list. Because of that, <strong>if you</strong>, the author of the game, <strong>update your game adding or removing any objects, <em>all the saves made with a previous version of the game will become unusable</em></strong>. Simply changing the IDs of game objects in the project tree or changing the order of the variables in script will cause previous saves to glitch, as old data will be restored into wrong objects or variables.</p>
+<p>This may not be the biggest issue while the game is in development, as you have multiple ways to make the game "teleport" the player character to the desired scene instead of using a save state. But it becomes a problem after you released your game to the public, as any update or patch that involves adding new objects or variables will render the player's saves unusable.</p>
+<p>Following article explores which changes to your game are safe and which are not in terms of keeping your game compatible with older saves, and which known methods exist to work around this problem.</p>
+<section id="changes-in-the-game-project-that-break-saves" class="level3">
+<h3><a href="#changes-in-the-game-project-that-break-saves">Changes in the game project that break saves</a></h3>
+<p>Changing the number (adding or removing) of almost all game objects will break previous saved states. Following types of objects contribute to this:</p>
+<ul>
+<li>Audio Types,</li>
+<li>Characters,</li>
+<li>Dialogs (but not options in existing Dialog, for technical reasons),</li>
+<li>Global Variables,</li>
+<li>GUIs and controls on existing GUIs,</li>
+<li>Inventory items,</li>
+<li>Mouse cursor types,</li>
+<li>Views, loops and frames in them (because frames may be changed in script and their properties are added to the save state),</li>
+<li>Script modules (when changing the number of them by adding or removing scripts)</li>
+</ul>
+<p>In addition to that, changing the <em>total size</em> of variables declared in the global scope of each script (<em>NOT</em> local function variables) will break older save states.<br> To elaborate on what "total size" is, imagine you have this declared in a script:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> b<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> c<span class="op">;</span></span></code></pre></div>
+<p>This adds up to make the total size of script variables 3 integers (or 3 * 4 bytes = 12 bytes). Now, if you change this to</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> vars<span class="op">[</span><span class="dv">3</span><span class="op">];</span></span></code></pre></div>
+<p>even though there's now only one variable, this also gives a total size of 3 integers, and won't break save states. (Here we omit the question whether it will still make sense to restore older save with such a change in the script.)</p>
+</section>
+<section id="changes-that-dont-break-saves-but-are-not-safe" class="level3">
+<h3><a href="#changes-that-dont-break-saves-but-are-not-safe">Changes that DON'T break saves but are NOT SAFE</a></h3>
+<p>Changing the number of Room Objects in existing rooms, while technically not preventing the compiled game to restore old saves, still may lead to bugs. Because their real number is stored in saves, players may end up having more or less objects in a room than there are supposed to be. And because currently you cannot create or delete Room Objects with a script command you won't be able to fix this, you can only detect this happening by checking <a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a>.</p>
+<p>Changing the size of the dynamic arrays and managed structs won't break saves, but may cause the game to crash if a script tries to access newer elements or variables in these arrays and structs after restoring older saves.<br> Still this may be worked around and can actually be used to your advantage: see the <a href="GameSavesCompatibility.html#an-issue-of-dynamic-objects">dedicated section below</a> for more information.</p>
+</section>
+<section id="changes-that-dont-break-saves-and-are-safe" class="level3">
+<h3><a href="#changes-that-dont-break-saves-and-are-safe">Changes that DON'T break saves and ARE SAFE</a></h3>
+<p>Parts of the game which may be safely added or removed:</p>
+<ul>
+<li>Dialog options in existing Dialogs.</li>
+<li>Rooms, adding new ones. Removing a room is <em>not</em> safe, as loading a state saved in a no longer existing room will crash the game.</li>
+<li>Adding more background frames to existing rooms, but probably not removing them (<em>needs to be checked</em>).</li>
+<li>Editing room backgrounds or area masks is fully safe; even if you draw areas of different ID (color).</li>
+<li>Custom properties. If you remove existing ones, their values may still load from the older save but will not be accessible.</li>
+</ul>
+<p>Adding or removing any kind of plain resources, such as</p>
+<ul>
+<li>Sprites</li>
+<li>Fonts,</li>
+<li>Audio clips,</li>
+<li>Voice-over clips,</li>
+<li>Video files,</li>
+<li>Translations</li>
+</ul>
+<p><strong>IMPORTANT:</strong> Removing sprites is only safe if you fix all objects that could have them assigned upon restoring a save. The same goes for clips assigned to View Frames, and fonts used on GUIs.</p>
+<p>In scripts:</p>
+<ul>
+<li>User types (structs) may be added; but if you change the size of a regular struct while having variables of that type in your script - that would also change the size of these variables, and may break saves. Managed structs <em>may</em> be changed in size without breaking a save, but this requires a special approach (<a href="GameSavesCompatibility.html#an-issue-of-dynamic-objects">see below</a>).</li>
+<li>Macros,</li>
+<li>Functions and attributes, and generally - function code itself,</li>
+<li>For the same reasons - changing existing dialog scripts,</li>
+<li>Local variables (inside functions) may be added and removed freely because they are not saved, because AGS does not allow the game to save while it is inside a script function</li>
+</ul>
+</section>
+<section id="an-issue-of-dynamic-objects" class="level3">
+<h3><a href="#an-issue-of-dynamic-objects">An issue of dynamic objects</a></h3>
+<p>The pointers which are global variables are part of script's total variable size, so adding or removing them in script will result in the save breaking. The <em>managed objects themselves</em> are not stored in the script's variable memory, but in their own memory pool. They are also completely written to the save file, and loading this save will restore the original managed object with its original size. Therefore, changing their sizes in a new version of the game doesn't break previous saves. However, there's a number of potential problems with that and these have to be resolved if you want to maintain save compatibility.</p>
+<p>Consider a simple dynamic array:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dyn_arr<span class="op">[];</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    dyn_arr = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Let's assume you had this in game version 1, made a save, then increased the dynamic array's size in script to 200:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dyn_arr = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">200</span><span class="op">];</span></span></code></pre></div>
+<p>What will happen if you now compile game version 2 and then restore the old save? The game will restore the dynamic array with the previous size of 100. This means that if your new script will now try to access elements in the array beyond 100 (thinking that this array has 200 elements now), that will result in an "index out of range" error. Unfortunately at the time of writing this AGS manual page, you can't access the length of a dynamic arrays directly in script. But you can store their length somewhere else, for example, in a variable:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> dyn_arr<span class="op">[];</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr_size<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    dyn_arr = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    arr_size = <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>There are other ways of fixing this, for example you could store the array length in its first element. You just will have to remember it's there when working with the array; but that's a different topic. In any case, having the array length stored, if you ever change that array's size and restore an older save, that length variable will also be restored and will tell you the correct size of the array. If you still need the array to be exactly 200 elements in size in the new version of the game you may resize it after restoring a save. This is explained further in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
+<p>Less likely, but if you instead reduce the array's size, then the array restored from the older save will be bigger in size than necessary, but that's much less of a problem and may be ignored.</p>
+<p>This is what happens with changes in dynamic arrays, but what about <em>changes in custom managed structs</em>? Assume in game version 1 you have:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>MyStruct<span class="op">*</span> var<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    var = <span class="kw">new</span> MyStruct<span class="op">;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Then in game version 2 you decided to add another variable:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> c<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>If you load an older save from version 1 while running version 2, created objects of this type will load but will be one variable less in size. Trying to use the additional variable in script will result in an error. This is similar to the array case. The solution here is similar to the array solution: upon restoring the older save recreate all managed objects (they will be of the correct size), copy valid content from restored objects into them, and reassign pointers to these recreated objects. Again, this is explained more in the <a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">"Solutions" section</a>.</p>
+<p>And again, if you remove a variable instead:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>in this case the older save will be restored, and the old variants of MyStruct will also be loaded. They will contain all the removed variables, but you no longer will be able to access them in script because they are no longer declared so the script is not aware of their existence.</p>
+<p>Finally, there's another potential problem. Let's look at this variant:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// int b;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> c<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>The <code>b</code> variable was removed, so variable <code>c</code> now follows <code>a</code>. If you load an older save however, the old MyStruct objects contain variable <code>b</code>, and its value will be assigned to <code>c</code> instead of <code>b</code>, as it took its place in the struct.</p>
+<p>For that reason, if save compatibility is essential, it is recommended to only <em>extend</em> managed types and not cut out existing data.</p>
+<hr />
+</section>
+<section id="solution-0-code-your-own-save-system" class="level3">
+<h3><a href="#solution-0-code-your-own-save-system">Solution 0: Code your own save system</a></h3>
+<p>Yes, this may sound like a crazy suggestion, but it's a real possibility. Depending on your requirements this solution may range from almost trivial to nearly impossible to accomplish in script. This is a whole separate topic though, so we won't go into much detail here. But if you want to experiment here are some points to get you started:</p>
+<ul>
+<li>AGS supports writing and reading custom files. See <a href="File.html">File functions</a> for reference.</li>
+<li>Consider using simpler save states, more like checkpoints. If you can live without restoring literally everything to the smallest bit, maybe you can only save the most important game variables, items that the player possesses, the state of the accessible puzzles.</li>
+<li>Learn to describe the game state using just a few variables and restore the game and rooms from these. For example, if your variable says that "puzzle A is solved", you may know that Room Objects A and B are invisible, item C is in the player's inventory, and non-player character D moved to room 2. This approach allows you to rebuild the game state in script just from a few variables the game reads from a custom file. But of course you have to plan this ahead well.</li>
+</ul>
+</section>
+<section id="solution-1-reusing-game-objects" class="level3">
+<h3><a href="#solution-1-reusing-game-objects">Solution 1: Reusing game objects</a></h3>
+<p>If you need to urgently patch your released game but realize you are going to break previous saves by doing that, you may try reusing existing game objects.</p>
+<p>Characters may switch Views and play different roles in other rooms. Unused Room Objects are perhaps more rare, but their Graphic or View may be switched too and can act as something else. Characters may be used as room elements too, except they cannot be simply assigned a sprite, but require a View. GUIs may be reconfigured on the fly, if you have enough suitable controls on them. View Frames may be assigned different sprites, even <a href="DynamicSprite.html">Dynamic Sprites</a>, which you can paint upon with script functions to display something completely different.</p>
+<p>Global variables may be reused for other purposes if you find a way to indicate what meaning they have at the moment and how they should be used in your script in various circumstances.</p>
+</section>
+<section id="solution-2-dummy-object-reserve" class="level3">
+<h3><a href="#solution-2-dummy-object-reserve">Solution 2: Dummy object reserve</a></h3>
+<p>If you are planning changes after your game's release, there's one very straightforward yet ugly solution: create a number of extra objects of every type (Characters, GUIs, and so on) that you don't use right now but which could be used in case of emergency for patching the game.</p>
+<p>In your script, you can allocate big global arrays of ints and other types as a reserve for future fixes and updates, then use elements of those arrays whenever you need an extra variable.</p>
+</section>
+<section id="solution-3-new-rooms" class="level3">
+<h3><a href="#solution-3-new-rooms">Solution 3: New rooms</a></h3>
+<p>If you must change the content of a room but do not want to break saves at all costs you may create a duplicate room with a new number and updated contents, then script changing to this new room if the player restores a save made in the old room.</p>
+<p>This is done like this, for example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> <span class="bu">eEventRestoreGame</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Room</span> <span class="op">==</span> OLD_ROOM_NUMBER<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">player</span><span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span>NEW_ROOM_NUMBER<span class="op">);</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+<section id="solution-4-string-dictionary-and-set" class="level3">
+<h3><a href="#solution-4-string-dictionary-and-set">Solution 4: String, Dictionary and Set</a></h3>
+<p>You may use String variables (or even one String) to store almost any amount of additional data without adding new variables. Strings may be <a href="StringFormats.html">formatted</a> to include numbers too. You may create for example a comma-separated list of values, then parse it back by iterating over characters, cutting it into substrings and converting it back to the wanted types. That will involve some advanced scripting but can be used as a last resort.</p>
+<p>Since AGS 3.5.0 there's also a <a href="Dictionary.html"><code>Dictionary</code></a> type and a <a href="Set.html"><code>Set</code></a> type available. Those types may serve as an easier alternative in this solution. It's easy to check which variables (keys) they contain. You can even store the "game version" inside them as one of the elements and check for that value after restoring a save to know which version of your game saved it. They may be used as a universal global storage, for example, for story variables, expanding them between game updates.</p>
+</section>
+<section id="solution-5-extending-dynamic-arrays-and-managed-structs" class="level3">
+<h3><a href="#solution-5-extending-dynamic-arrays-and-managed-structs">Solution 5: Extending dynamic arrays and managed structs</a></h3>
+<p>As mentioned earlier in this article, any managed object is not restricted to change because its full content is read from the save. This allows you to use managed structs and dynamic arrays as infinite reserve for variables. Upon loading an old save you would need to test the length or another kind of "version" of that array and resize it: create a new one, copy the old restored contents, fill up the rest with default values, replace the pointer variable.</p>
+<p>Consider following example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GAME_VER_001_LENGTH 10</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define GAME_VER_002_LENGTH 20</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GameVersion<span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> MyVariables<span class="op">[];</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    GameVersion = <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    MyVariables = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>GAME_VER_002_LENGTH<span class="op">];</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> <span class="bu">eEventRestoreGame</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// detect old save</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>GameVersion <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            <span class="co">// allocate bigger array suited for latest version of the game</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> new_vars<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>GAME_VER_002_LENGTH<span class="op">];</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            <span class="co">// copy restored array with old data into our new array</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> GAME_VER_001_LENGTH<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                new_vars<span class="op">[</span>i<span class="op">]</span> = MyVariables<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>            <span class="co">// set default values for the rest (replace with your code as appropriate)</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = GAME_VER_001_LENGTH<span class="op">;</span> i <span class="op">&lt;</span> GAME_VER_002_LENGTH<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>                new_vars<span class="op">[</span>i<span class="op">]</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// finally replace pointer and version number</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>            MyVariables = new_vars<span class="op">;</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>            GameVersion = <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>A similar solution may be used for managed structs, although it may be bit more complicated to script but essentially it is the same thing.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">MyStruct</span> <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// variables from version 1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// variables from version 2</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> c<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> d<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> GameVersion<span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>MyStruct MyObj<span class="op">;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    GameVersion = <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    MyObj = <span class="kw">new</span> MyStruct<span class="op">;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> <span class="bu">eEventRestoreGame</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// detect old save</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>GameVersion <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>            <span class="co">// allocate new managed object suited for latest version of the game</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>            MyStruct new_obj = <span class="kw">new</span> MyStruct<span class="op">;</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            <span class="co">// copy restored object with old data into our new object</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>            new_obj<span class="op">.</span><span class="at">a</span> = MyObj<span class="op">.</span><span class="at">a</span><span class="op">;</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>            new_obj<span class="op">.</span><span class="at">b</span> = MyObj<span class="op">.</span><span class="at">b</span><span class="op">;</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>            <span class="co">// set default values for the rest (replace with your code as appropriate)</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>            new_obj<span class="op">.</span><span class="at">c</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>            new_obj<span class="op">.</span><span class="at">d</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>            <span class="co">// finally replace pointer and version number</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>            MyObj = new_obj<span class="op">;</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>            GameVersion = <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

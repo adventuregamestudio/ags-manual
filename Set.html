@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Set Functions and Properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#set-functions-and-properties" id="toc-set-functions-and-properties"><code>Set</code> Functions and Properties</a>
+<ul>
+<li><a href="#setcreate" id="toc-setcreate"><code>Set.Create</code></a></li>
+<li><a href="#setadd" id="toc-setadd"><code>Set.Add</code></a></li>
+<li><a href="#setclear" id="toc-setclear"><code>Set.Clear</code></a></li>
+<li><a href="#setcontains" id="toc-setcontains"><code>Set.Contains</code></a></li>
+<li><a href="#setgetitemsasarray" id="toc-setgetitemsasarray"><code>Set.GetItemsAsArray</code></a></li>
+<li><a href="#setremove" id="toc-setremove"><code>Set.Remove</code></a></li>
+<li><a href="#setcomparestyle" id="toc-setcomparestyle"><code>Set.CompareStyle</code></a></li>
+<li><a href="#setitemcount" id="toc-setitemcount"><code>Set.ItemCount</code></a></li>
+<li><a href="#setsortstyle" id="toc-setsortstyle"><code>Set.SortStyle</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="set-functions-and-properties" class="level2">
+<h2><a href="#set-functions-and-properties"><code>Set</code> Functions and Properties</a></h2>
+<p>A Set allows you to store a sequence of unique strings and look them up efficiently. When adding a string a Set will automatically test whether such string is already contained and won't make a duplicate.</p>
+<p>Because of how a Set work internally, searching for a string in a Set is faster than searching for it in a plain array. Its advantage increases with the number of items. They are also fast in adding and removing items dynamically.</p>
+<p>Similar to <a href="Dictionary.html"><code>Dictionary</code></a>, Set has two general properties: <strong>sort style</strong> and <strong>compare style</strong>.</p>
+<p><strong>Sort style</strong> defines whether items are stored sorted or unsorted. The unsorted containers are typically faster to search in, but the items will be stored in an undefined order.</p>
+<p><strong>Compare style</strong> determines whether strings are compared as case sensitive or case insensitive. For example, in a case-sensitive Set the strings "Parameter" and "parameter" will be seen as two different items, but in a case-insensitive Set they will be seen as identical. Compare style defines both string uniqueness and sorting.</p>
+<p>At the moment a Set does not let you directly access all of its internal data at once, but it does have the <a href="Set.html#setgetitemsasarray"><code>GetItemsAsArray</code></a> function that will write all items to a dynamic array, which you may parse, print, and otherwise use as you see fit. The order of items in this array will be match the order within the Set, hence if the Set was sorted the array will be sorted as well.</p>
+<p><em>Compatibility:</em> Set struct is supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dictionary.html"><code>Dictionary</code></a></p>
+<hr />
+<section id="setcreate" class="level3">
+<h3><a href="#setcreate"><code>Set.Create</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Set</span><span class="op">*</span> <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">SortStyle</span> sortStyle<span class="op">,</span> <span class="dt">StringCompareStyle</span> compareStyle<span class="op">)</span></span></code></pre></div>
+<p>Creates a new empty Set of the given properties. If you don't pass any options the Set is unsorted and case-insensitive. Note that you cannot change sorting style and case sensitivity later, you would have to create another Set and move values there.</p>
+<ul>
+<li>Possible values for sortStyle: <code>eNonSorted</code>, <code>eSorted</code>.</li>
+<li>Possible values for compareStyle: <code>eCaseInsensitive</code>, <code>eCaseSensitive</code>.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">*</span> mySet = <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span></code></pre></div>
+<hr />
+</section>
+<section id="setadd" class="level3">
+<h3><a href="#setadd"><code>Set.Add</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Set</span><span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="bu">String</span> item<span class="op">)</span></span></code></pre></div>
+<p>Adds an item to the Set. Returns false if the Set already contained the item, otherwise returns true.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;item1&quot;</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> wasAdded = mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;item1&quot;</span><span class="op">);</span> <span class="co">// wasAdded will be false</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Set.html#setcontains"><code>Contains</code></a>, <a href="Set.html#setremove"><code>Remove</code></a></p>
+<hr />
+</section>
+<section id="setclear" class="level3">
+<h3><a href="#setclear"><code>Set.Clear</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">Set</span><span class="op">.</span><span class="at">Clear</span><span class="op">()</span></span></code></pre></div>
+<p>Removes all items from the Set.</p>
+<hr />
+</section>
+<section id="setcontains" class="level3">
+<h3><a href="#setcontains"><code>Set.Contains</code></a></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Set</span><span class="op">.</span><span class="at">Contains</span><span class="op">(</span><span class="bu">String</span> item<span class="op">)</span></span></code></pre></div>
+<p>Returns whether an item is already in a Set.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">*</span> mySet = <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">();</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;test&quot;</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mySet<span class="op">.</span><span class="at">Contains</span><span class="op">(</span><span class="st">&quot;test&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Test passed!&quot;</span><span class="op">);</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Set.html#setadd"><code>Add</code></a>, <a href="Set.html#setremove"><code>Remove</code></a></p>
+<hr />
+</section>
+<section id="setgetitemsasarray" class="level3">
+<h3><a href="#setgetitemsasarray"><code>Set.GetItemsAsArray</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span><span class="op">[]</span> GetItemsAsArray<span class="op">()</span></span></code></pre></div>
+<p>Creates a dynamic array filled with items in same order as they are stored in the Set, set by <code>SortStyle</code> when the Set is created.</p>
+<p>Returns null if this Set is empty.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Set</span><span class="op">*</span> mySet = <span class="bu">Set</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="bu">eSorted</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;test&quot;</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>mySet<span class="op">.</span><span class="at">Add</span><span class="op">(</span><span class="st">&quot;test2&quot;</span><span class="op">);</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> items<span class="op">[]</span> = mySet<span class="op">.</span><span class="at">GetItemsAsArray</span><span class="op">();</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> mySet<span class="op">.</span><span class="at">ItemCount</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;#%d: %s&quot;</span><span class="op">,</span> i<span class="op">,</span> items<span class="op">[</span>i<span class="op">]);</span></span></code></pre></div>
+<p>In the above example the items will be displayed on screen one by one, preceded by their index.</p>
+<p><em>See also:</em> <a href="Set.html#setitemcount"><code>Set.ItemCount</code></a></p>
+<hr />
+</section>
+<section id="setremove" class="level3">
+<h3><a href="#setremove"><code>Set.Remove</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Set</span><span class="op">.</span><span class="at">Remove</span><span class="op">(</span><span class="bu">String</span> item<span class="op">)</span></span></code></pre></div>
+<p>Removes an item from the Set. Returns false if there was no such item, otherwise returns true.</p>
+<p><em>See also:</em> <a href="Set.html#setadd"><code>Add</code></a>, <a href="Set.html#setcontains"><code>Contains</code></a></p>
+<hr />
+</section>
+<section id="setcomparestyle" class="level3">
+<h3><a href="#setcomparestyle"><code>Set.CompareStyle</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">StringCompareStyle</span> <span class="bu">Set</span><span class="op">.</span><span class="at">CompareStyle</span></span></code></pre></div>
+<p>Returns the string comparison method for this Set.</p>
+<p><em>See also:</em> <a href="Set.html#setsortstyle"><code>SortStyle</code></a></p>
+<hr />
+</section>
+<section id="setitemcount" class="level3">
+<h3><a href="#setitemcount"><code>Set.ItemCount</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Set</span><span class="op">.</span><span class="at">ItemCount</span></span></code></pre></div>
+<p>Returns the number of items currently in the Set.</p>
+<hr />
+</section>
+<section id="setsortstyle" class="level3">
+<h3><a href="#setsortstyle"><code>Set.SortStyle</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">SortStyle</span> <span class="bu">Set</span><span class="op">.</span><span class="at">SortStyle</span></span></code></pre></div>
+<p>Returns the sorting method for this Set.</p>
+<p><em>See also:</em> <a href="Set.html#setcomparestyle"><code>CompareStyle</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

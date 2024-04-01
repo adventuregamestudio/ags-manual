@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Upgrading to AGS 3.2</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#upgrading-to-ags-32" id="toc-upgrading-to-ags-32">Upgrading to AGS 3.2</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="upgrading-to-ags-32" class="level2">
+<h2><a href="#upgrading-to-ags-32">Upgrading to AGS 3.2</a></h2>
+<p>AGS 3.2 contains some major changes, the main one being a completely new way of scripting the game audio.</p>
+<p><strong>Why a new audio system?</strong></p>
+<p>In previous versions of AGS, sound and music was a pain to use. Although it was very simple to script using commands like PlayMusic(5) and PlaySound(10), the fact that it was so basic became a limitation.</p>
+<p>What is music 5? Which sound effect is Sound 10? How are you supposed to remember? It was all a bit chaotic and old-fashioned. Furthermore, controlling the volume involved several different commands, making it something of a black art.</p>
+<p><strong>So what's changed?</strong></p>
+<p>The old commands like PlayMusic and PlaySound have been obsoleted now, and replaced with a new object-based audio system. This means that audio files are now represented by script instances in the game.</p>
+<p>For example, in AGS 3.1.2, you might have done this:</p>
+<p><code>PlaySound(10); // this is an explosion</code></p>
+<p>Now, with AGS 3.2 you would do it like this instead:</p>
+<p><code>aExplosion.Play();</code></p>
+<p><strong>So how do I name my audio files?</strong></p>
+<p>There is a new "Audio" item in the project tree, which you now use to manage your audio. By default, when you import your game from a previous version of AGS, it will create audio clips with names like "aMusic5" and "aSound30", corresponding to their old names.</p>
+<p>If you want the old-style commands like PlayMusic and PlaySound to continue working, then <strong>you must not rename these audio clips</strong>. AGS maintains a backwards compatibility layer by mapping the PlayMusic(X) command to play an audio clip called "aMusicX", and the PlaySound(X) command to play a clip called "aSoundX".</p>
+<p>Otherwise, if you want to convert your scripts to the new audio system, you can simply right-click and rename these audio clips as you see fit.</p>
+<p><strong>There is now an AudioCache folder, do I still need the Sound and Music folders?</strong></p>
+<p>When you import an audio file into AGS, it makes a copy of it in the AudioCache folder, but it also remembers where the file came from originally. If the original file changes, AGS will automatically copy the updated file into the AudioCache folder.</p>
+<p>When you upgrade an old game, the original file location for where AGS thinks your audio files came from is set to the "Sound" and "Music" folders. Therefore, keeping these folders is advisable initially as it allows you to continue to update the existing files in the same way you always have done, and AGS will automatically pick up the changes.</p>
+<p>But going forward, as you import new audio files, there's no need to have them in the Sound or Music folders; import them from wherever you like.</p>
+<p><strong>What about controlling the volume?</strong></p>
+<p>Glad you asked! Instead of all those old commands like SetMusicVolume, SetDigitalMasterVolume, etc, there is now simply one overall system volume (<a href="System.html#systemvolume"><code>System.Volume</code></a>), and then each sound that is playing has its own volume control as well. This is controlled by the <a href="AudioChannel.html#audiochannelvolume">Volume property</a> on the audio channel (see the <a href="MusicAndSound.html">Audio page</a> for details on this).</p>
+<p>Finally, you can update the volume of one particular type of audio (e.g. sound, music) by using the <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a> command.</p>
+<p><strong>Wait, what's an audio channel?</strong></p>
+<p>AGS uses two new concepts -- Audio Clips (which represent a particular sound file), and Audio Channels (which represent a currently playing piece of audio). The reason for this distinction is that you might have the same sound effect playing two or more times simultaneously, and having Audio Channels allows you to control each one individually. The <a href="MusicAndSound.html">Audio page</a> describes this further.</p>
+<p><strong>PlayAmbientSound is obsolete! How do I do ambient sounds?</strong></p>
+<p>Ambient Sounds were a bit of an oddity in AGS, caused by the fact that you couldn't tell a PlaySound command to loop the sound. With the new audio system, the <a href="AudioClip.html#audioclipplay">Play command</a> has an optional Repeat parameter, allowing you to specify whether it loops or not.</p>
+<p>The X/Y directional aspect of PlayAmbientSound is supported by the <a href="AudioChannel.html#audiochannelsetroomlocation"><code>SetRoomLocation</code></a> command on the audio channel.</p>
+<p><strong>Is there any new cool stuff that I can do?</strong></p>
+<p>You can now adjust the left-right panning of audio, using the <a href="AudioChannel.html#audiochannelpanning"><code>AudioChannel.Panning</code></a> property. You also have finer control over syncing up different pieces of audio, through the ability to get and seek offsets more accurately.</p>
+<p><strong>Has voice speech changed?</strong></p>
+<p>No, speech is still handled the same way as in previous versions of AGS. You still need the Speech folder within your game folder, and name the files within it using the same naming convention as you always have done.</p>
+<p><strong>Where should I look for more info?</strong></p>
+<p>See the <a href="MusicAndSound.html">Audio help</a> for more information.</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

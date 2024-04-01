@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 6</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#getting-started-with-ags---part-6" id="toc-getting-started-with-ags---part-6">Getting Started with AGS - Part 6</a>
+<ul>
+<li><a href="#using-your-own-graphics" id="toc-using-your-own-graphics">Using your own graphics</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="getting-started-with-ags---part-6" class="level2">
+<h2><a href="#getting-started-with-ags---part-6">Getting Started with AGS - Part 6</a></h2>
+<section id="using-your-own-graphics" class="level3">
+<h3><a href="#using-your-own-graphics">Using your own graphics</a></h3>
+<p>Although the default Sierra-style template has changed over the years within AGS the images available may not be what you are looking to use. This is no problem, because you can import your own graphics using the Sprite Manager.</p>
+<p>Double-click <strong>"Sprites"</strong> near the top of the Project Tree. This opens up the <em>Sprite</em> tab (also referred to as the <em>Sprite Manager</em>), where you can see the complete sprite set for the game. There is the "Sprite Tree View" on the left and to the right of that is the "Sprite Preview Window".</p>
+<p><img src="images/acintro6_01.png" alt="Sprite manager tab explained" /></p>
+<p>AGS uses these sprites for all game graphics, except room backgrounds. The Sprite Manager is the central place where you do all your graphics importing. Whenever you want to use images in the game (for mouse cursors, views, objects, etc.), you select an image to use from here.</p>
+<p><strong>NOTE:</strong> You can create and rename folders and sub-folders within the Sprite Tree View (by right-clicking on the existing folders) to better organize your sprites instead of having EVERY sprite of your game within one folder.</p>
+<p>There are three ways to import your graphics; all by right-clicking within the Sprite Preview Window and choosing a context menu choice:</p>
+<ol type="1">
+<li><strong>Import a new sprite</strong> - right-click on the background of the Sprite Preview Window and choose <em>"Import new sprite from file"</em>.</li>
+<li><strong>Paste new sprite from Clipboard</strong> - If your game is hi-color, you'll have an option to paste from your clipboard memory.</li>
+<li><strong>Replace Sprite From File</strong> - Allows you to overwrite an existing sprite with a new one. Perhaps you have finalized graphics to replace a temporary graphic.</li>
+</ol>
+<p><strong>NOTE:</strong> The sprite graphics you import should not exceed the maximum number of colors that the game supports - i.e. if you have a 256-color game, you must import 256-color sprites.</p>
+<section id="import-a-new-sprite" class="level4">
+<h4>Import A New Sprite</h4>
+<p>You may remember that we covered importing a new sprite previously when importing a key image to use as an object on one of our backgrounds in <a href="acintro4.html#import-a-sprite">Tutorial 4 - Import a Sprite</a>.</p>
+</section>
+<section id="replace-sprite-from-file" class="level4">
+<h4>Replace Sprite From File</h4>
+<p>The key image we imported back in Tutorial 4 doesn't look so at home in this Space Hub background. So, let's replace that key image with a new key image that looks more alien. Save the following alien key image to your computer. We'll be importing it into AGS Editor in a moment.</p>
+<ul>
+<li><img src="images/acintro6_02.png" alt="New alien key image" /></li>
+</ul>
+<p>Within the Sprite Manager, navigate the "Sprite Tree View" and "Sprite Preview Window" until you can find where you imported the key earlier. Right-click on it and choose <strong>"Replace sprite from file..."</strong>.</p>
+<p><img src="images/acintro6_03.png" alt="Right-clicking to replace existing sprite" /></p>
+<p>Navigate to and select the new alien key image in the dialog box, and then you'll be presented with this:</p>
+<p><img src="images/acintro6_04.png" alt="The &quot;Import Sprite&quot; window" /></p>
+<p>This is the <strong>Import Sprite</strong> window. You'll see the image from the file that you chose, along with various options. The <strong>"Zoom"</strong> slider on the right allows you to zoom in on the image (very useful for low resolution graphics), and the <strong>"Transparent color"</strong> section options allow you to choose how AGS decides which color is the image's transparent color. <strong>"Tiled Sprite Import"</strong> will be discussed later in this tutorial.</p>
+<p>Now, you have two choices:</p>
+<ul>
+<li>If you want to import the whole image, just click the <strong>"Import"</strong> button, and you're done.</li>
+<li>If on the other hand you only want to import a portion of the image, then you need to right-drag the mouse within the image to select the area that you want to import. You will see a pink grid appear over the image to help you track your selection. (Don't forget, you can zoom in on the image!) Once you've got it, click the <strong>"Import"</strong> button and the selected area of the image will be imported.</li>
+</ul>
+<p><strong>NOTE:</strong> For character graphics, make sure you import graphics that are a suitable size for the game backgrounds. For example, don't import a 320x200-sized image for your character if your game resolution is 320x200. A good size for games with this size of screen resolution would be about 20x50 pixels.</p>
+<p><strong>NOTE:</strong> <strong>(256-color only)</strong>: You may well find that the colors on your graphic look slightly strange once you've imported the image. This is because by default only the first 41 of the palette colors are allocated to sprites, so your graphic will be remapped to this much smaller palette. If you find that many of your imported sprites look strange, you can increase the number of colors assigned to sprites, at the expense of background colors (see the earlier part of the tutorial for palette setup).</p>
+</section>
+<section id="tiled-sprite-import" class="level4">
+<h4>Tiled sprite import</h4>
+<p>This feature allows you to import a grid of sprites into separate slots</p>
+<ul>
+<li>for example, if you have several frames of a character animation side by side in the source bitmap. To do this, simply check the <strong>"Tiled sprite import"</strong> box, and align your rectangle on the top left sprite. When you click the left mouse button, you will get an extra step which allows you to size the grid:</li>
+</ul>
+<p>Click the left button again once you are happy with the grid. Each of the cells will be imported as a separate sprite.</p>
+<p><strong>NOTE:</strong> Tiled sprite import only works if you selected <strong>"Import new sprite from file"</strong>. If you used the <strong>"Replace sprite"</strong> option, only the first tile will be imported.</p>
+<p>Next Chapter: <a href="acintro7.html">Part 7 - Animations</a></p>
+</section>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

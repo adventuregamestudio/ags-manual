@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Audio in script</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#audio-in-script" id="toc-audio-in-script">Audio in script</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="audio-in-script" class="level2">
+<h2><a href="#audio-in-script">Audio in script</a></h2>
+<p>Quite often there is misunderstanding of how the audio system works in AGS and how can you control it in script. Unfortunately it has certain design flaws and limitations to what you can do. Here we'll cover the most important bits.</p>
+<p>Let's begin with <strong>audio channel</strong>. Audio channels are essentially <em>slots</em> in which the sound clip is put for playback. A channel may play one <em>instance</em> of one audio clip at a time.</p>
+<p><strong>Audio clips</strong> are playable resources. When you command them to play (for example, <a href="AudioClip.html#audioclipplay"><code>AudioClip.Play</code></a>) their <em>instance</em>, essentially a <em>copy</em> is inserted into one of the audio channels and is played. You may then use a command to play the same audio clip again and another <em>instance</em> (copy) will be inserted into the second channel and will be played separately.</p>
+<p>Now, it is very important to understand that audio channels are static <em>permanent</em> objects, they are created by the engine at startup and are kept throughout the game. There's a fixed number of 16 audio channels (8 before AGS 3.6.0). This cannot be changed. You cannot create new channels or remove existing ones neither in the editor nor in script. All of these channels are present and available for access at all times regardless of whether anything is played on them or not. This is done using the <a href="System.html#systemaudiochannels"><code>System.AudioChannels</code></a> array. You can find out the size of this array with <a href="System.html#systemaudiochannelcount"><code>System.AudioChannelCount</code></a>.</p>
+<p>When AudioClip.Play() is called it searches for an available channel, among reserved channels for the given audio type or among all of the channels, and checks audio clip priorities if no channel is free. When it successfully inserted a clip instance into a channel it returns an AudioChannel* pointer. That pointer always points to one of the channels from the System.AudioChannels array, and <em>does not</em> create a new channel (this is an often erroneous assumption by users).</p>
+<p>When audio ends playing whether on its own or by calling AudioChannel.Stop() or AudioClip.Stop(), the clip instance is removed from the channel but the channel itself remains and does <em>not</em> get deleted.</p>
+<p>The consequence of all the above is that if you keep the AudioChannel* pointer returned by AudioClip.Play, for example store it in a global variable, that pointer will always be valid, but because the same channel can be used to play a new and different clip, you can use the same stored pointer to adjust the new clip's playback properties.</p>
+<p>This effect can be demonstrated by the following example. Make sure that your sound type has "MaxChannels" set to "1", then add the following script to the first room's "after fade-in event":</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_AfterFadeIn</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">AudioChannel</span><span class="op">*</span> chan = aSound1<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    aSound2<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    chan<span class="op">.</span><span class="at">Volume</span> = <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Notice that <code>chan</code> is assigned to <code>aSound1.Play()</code>, and not to <code>aSound2.Play()</code>. But because we set "MaxChannels" of the sound type to "1" there is only 1 channel reserved for sounds, so aSound2 will replace aSound1. And because the <code>chan</code> pointer is already pointing to the only reserved channel, setting the volume will actually change aSound2's volume, as it is the audio clip playing on the channel now.</p>
+<p>This effect may either be wanted or unwanted and can lead to bugs depending on how you script your game, so keep this in mind.</p>
+<p><em>See also:</em> <a href="MusicAndSound.html">Music and Sound</a>, <a href="AudioChannel.html">Audio Channel</a>, <a href="AudioClip.html">Audio Clip</a></p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

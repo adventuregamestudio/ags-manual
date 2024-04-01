@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>File functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#file-functions-and-properties" id="toc-file-functions-and-properties"><code>File</code> functions and properties</a>
+<ul>
+<li><a href="#fileopen" id="toc-fileopen"><code>File.Open</code></a></li>
+<li><a href="#fileresolvepath" id="toc-fileresolvepath"><code>File.ResolvePath</code></a></li>
+<li><a href="#fileclose" id="toc-fileclose"><code>File.Close</code></a></li>
+<li><a href="#filedelete" id="toc-filedelete"><code>File.Delete</code></a></li>
+<li><a href="#fileexists" id="toc-fileexists"><code>File.Exists</code></a></li>
+<li><a href="#filereadint" id="toc-filereadint"><code>File.ReadInt</code></a></li>
+<li><a href="#filereadrawchar" id="toc-filereadrawchar"><code>File.ReadRawChar</code></a></li>
+<li><a href="#filereadrawint" id="toc-filereadrawint"><code>File.ReadRawInt</code></a></li>
+<li><a href="#filereadrawlineback" id="toc-filereadrawlineback"><code>File.ReadRawLineBack</code></a></li>
+<li><a href="#filereadstringback" id="toc-filereadstringback"><code>File.ReadStringBack</code></a></li>
+<li><a href="#fileseek" id="toc-fileseek"><code>File.Seek</code></a></li>
+<li><a href="#filewriteint" id="toc-filewriteint"><code>File.WriteInt</code></a></li>
+<li><a href="#filewriterawchar" id="toc-filewriterawchar"><code>File.WriteRawChar</code></a></li>
+<li><a href="#filewriterawint" id="toc-filewriterawint"><code>File.WriteRawInt</code></a></li>
+<li><a href="#filewriterawline" id="toc-filewriterawline"><code>File.WriteRawLine</code></a></li>
+<li><a href="#filewritestring" id="toc-filewritestring"><code>File.WriteString</code></a></li>
+<li><a href="#fileeof" id="toc-fileeof"><code>File.EOF</code></a></li>
+<li><a href="#fileerror" id="toc-fileerror"><code>File.Error</code></a></li>
+<li><a href="#filepath" id="toc-filepath"><code>File.Path</code></a></li>
+<li><a href="#fileposition" id="toc-fileposition"><code>File.Position</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="file-functions-and-properties" class="level2">
+<h2><a href="#file-functions-and-properties"><code>File</code> functions and properties</a></h2>
+<section id="fileopen" class="level3">
+<h3><a href="#fileopen"><code>File.Open</code></a></h3>
+<p><em>(Formerly known as <code>FileOpen</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">File</span><span class="op">*</span> <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span>string filename<span class="op">,</span> <span class="dt">FileMode</span><span class="op">)</span></span></code></pre></div>
+<p>Opens a disk file for reading or writing, and returns a <code>File</code> object pointer which you may use to perform operations on this file, or <em>null</em> if engine failed to open a file for whatever reasons.</p>
+<p>MODE is either <code>eFileRead</code>, <code>eFileWrite</code> or <code>FileAppend</code>, depending on whether you want to write to or read from the file. If you pass <code>eFileWrite</code> and a file called FILENAME already exists, it will be overwritten.</p>
+<p><code>eFileAppend</code> opens an existing file for writing and starts adding information at the end (i.e. the existing contents are not deleted).</p>
+<p>When specifying a file path you may use tags that define either a special file or location.</p>
+<p>Following <em>file tags</em> are supported:<br> <code>$CONFIGFILE$</code>, which allows you to open player's configuration file for reading or writing. This is recommended to be used instead of telling exact path, because config file may be found in different places depending on game settings or personal player's setup.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$CONFIGFILE$&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span></code></pre></div>
+<p>Following <em>location tags</em> are supported:</p>
+<ul>
+<li><code>$DATA$</code>, which allows you to read files that are packaged inside the game package, originally from a directory specified in the General Settings, in the <strong>Package custom data folder(s)</strong> option, on the Compiler category. Files stored in this way can only be opened in read mode.</li>
+<li><code>$INSTALLDIR$</code>, which allows you to explicitly read files in the game installation directory.</li>
+<li><code>$SAVEGAMEDIR$</code>, which allows you to write/read files in the save game directory.</li>
+<li><code>$APPDATADIR$</code>, which allows you to write/read files to a folder on the system which is accessible by and shared by all users. The example of their use is below.</li>
+</ul>
+<p>Examples:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$DATA$/datadir/book.txt&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$INSTALLDIR$/game.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/userinfo.txt&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$APPDATADIR$/scoretable.dat&quot;</span><span class="op">,</span> <span class="bu">eFileAppend</span><span class="op">);</span></span></code></pre></div>
+<p><strong>IMPORTANT:</strong> For security reasons, if you open the file for writing, then you can ONLY work with files in either <code>$SAVEGAMEDIR$</code> or <code>$APPDATADIR$</code> locations. An attempt to write file in <code>$INSTALLDIR$</code> will result in failure, and <em>null</em> is returned. Similarily, if you try to open a file for writing using an absolute path, or relative path that points to location outside of the game directory, it will be automatically rejected, and <em>null</em> is returned.</p>
+<p><strong>IMPORTANT:</strong> An attempt to write file into relative path <em>without specifying any location tag</em> will make AGS automatically remap such path into <code>$APPDATADIR$</code>. This is done for backward compatibility. To ensure that your script does exactly what you want, please use location tags.</p>
+<p><strong>NOTE:</strong> You are allowed to have subdirectories in the path. If the file is opened for writing, AGS will be responsible for creating these subdirectories. If it fails to do so for any reason, the the file won't be opened.</p>
+<p><code>File.Open</code> returns a File* pointer, which you should store in a variable of that type. You may then use that pointer to perform reading or writing operations. After finishing work you should close the file with the <code>Close</code> function. There are only a limited number of file handles, and forgetting to close the file can lead to problems later on.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/temp.tmp&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>output <span class="op">==</span> null<span class="op">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Error opening file.&quot;</span><span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">WriteString</span><span class="op">(</span><span class="st">&quot;test string&quot;</span><span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will open the file temp.tmp in the save game folder for writing. An error message is displayed if the file could not be created. Otherwise, it will write the string "test string" to the file and close it.</p>
+<p><strong>NOTE:</strong> Open file pointers are not persisted across save games. That is, if you open a file, then save the game; then when you restore the game, the File will not be usable and you'll have to open it again to continue any I/O. The safest practice is not to declare any global File variables.</p>
+<p><em>Compatibility:</em></p>
+<p>Subdirectories are created when opening a file for writing by AGS 3.5.0 and later versions. $CONFIGFILE$ tag supported by AGS 3.5.1 and later versions. $DATA$ tag supported by AGS 3.6.0 and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileclose"><code>File.Close</code></a>, <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a>, <a href="GeneralSettings.html#compiler">General Settings</a></p>
+<hr />
+</section>
+<section id="fileresolvepath" class="level3">
+<h3><a href="#fileresolvepath"><code>File.ResolvePath</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">File</span><span class="op">.</span><span class="at">ResolvePath</span><span class="op">(</span>string filename<span class="op">)</span></span></code></pre></div>
+<p>Resolves the script path into the system filepath, this should be used only for diagnostic purposes.</p>
+<p>This will process all tokens and all rules described in <code>File.Open</code> and return the resulting path, which can be helpful when debugging or when you want to present this information somewhere to help debugging some problem in the game. This resolved path should not be re-used in subsequent <code>File.Open</code> calls.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filepath"><code>File.Path</code></a></p>
+<hr />
+</section>
+<section id="fileclose" class="level3">
+<h3><a href="#fileclose"><code>File.Close</code></a></h3>
+<p><em>(Formerly known as <code>FileClose</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Close</span><span class="op">()</span></span></code></pre></div>
+<p>Closes the file, and commits all changes to disk. You <strong>must</strong> call this function when you have finished reading/writing the file.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteString</span><span class="op">(</span><span class="st">&quot;test string&quot;</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file test.dat, write the string "test string", and close it.</p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a></p>
+<hr />
+</section>
+<section id="filedelete" class="level3">
+<h3><a href="#filedelete"><code>File.Delete</code></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">File</span><span class="op">.</span><span class="at">Delete</span><span class="op">(</span>string filename<span class="op">)</span></span></code></pre></div>
+<p>Deletes the specified file from the disk.</p>
+<p>For security reasons this command only works with files in the <code>$SAVEGAMEDIR$</code> and <code>$APPDATADIR$</code> directories.</p>
+<p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">Delete</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/temp.tmp&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will delete the file "temp.tmp" from the app data directory, if it exists.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileexists"><code>File.Exists</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a></p>
+<hr />
+</section>
+<section id="fileexists" class="level3">
+<h3><a href="#fileexists"><code>File.Exists</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">File</span><span class="op">.</span><span class="at">Exists</span><span class="op">(</span>string filename<span class="op">)</span></span></code></pre></div>
+<p>Checks if the specified file exists on the file system.</p>
+<p><strong>NOTE:</strong> This is a static function, therefore you don't need an open File pointer to use it. See the example below.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">File</span><span class="op">.</span><span class="at">Exists</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/temp.tmp&quot;</span><span class="op">))</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/temp.tmp&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">WriteString</span><span class="op">(</span><span class="st">&quot;some text&quot;</span><span class="op">);</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will create the file "temp.tmp" if it doesn't exist</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#filedelete"><code>File.Delete</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a></p>
+<hr />
+</section>
+<section id="filereadint" class="level3">
+<h3><a href="#filereadint"><code>File.ReadInt</code></a></h3>
+<p><em>(Formerly known as <code>FileReadInt</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">ReadInt</span><span class="op">()</span></span></code></pre></div>
+<p>Reads an integer from the file, and returns it to the script. Only integers written with File.WriteInt can be read back.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/stats.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>number = input<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file stats.dat, read an integer into number and then close the file.</p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
+<hr />
+</section>
+<section id="filereadrawchar" class="level3">
+<h3><a href="#filereadrawchar"><code>File.ReadRawChar</code></a></h3>
+<p><em>(Formerly known as <code>FileReadRawChar</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">ReadRawChar</span><span class="op">()</span></span></code></pre></div>
+<p>Reads a raw character from the input file and returns it. This function allows you to read from files that weren't created by your game, however it is recommended for expert users only.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/stats.txt&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> buffer = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;%c&quot;</span><span class="op">,</span> input<span class="op">.</span><span class="at">ReadRawChar</span><span class="op">());</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will read a raw character from file stats.txt and writes it to the string 'buffer'.</p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filereadrawint"><code>File.ReadRawInt</code></a>, <a href="File.html#filewriterawchar"><code>File.WriteRawChar</code></a></p>
+<hr />
+</section>
+<section id="filereadrawint" class="level3">
+<h3><a href="#filereadrawint"><code>File.ReadRawInt</code></a></h3>
+<p><em>(Formerly known as <code>FileReadRawInt</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">ReadRawInt</span><span class="op">()</span></span></code></pre></div>
+<p>Reads a raw 32-bit integer from the input file and returns it to the script. This allows you to read from files created by other programs - however, it should only be used by experts as no error-checking is performed.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number<span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/stats.txt&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>number = input<span class="op">.</span><span class="at">ReadRawInt</span><span class="op">();</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will read a raw integer from file stats.txt and put it into the integer number.</p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#filewriterawint"><code>File.WriteRawInt</code></a> <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a></p>
+<hr />
+</section>
+<section id="filereadrawlineback" class="level3">
+<h3><a href="#filereadrawlineback"><code>File.ReadRawLineBack</code></a></h3>
+<p><em>(Formerly known as <code>File.ReadRawLine</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">File</span><span class="op">.</span><span class="at">ReadRawLineBack</span><span class="op">()</span></span></code></pre></div>
+<p>Reads a line of text back in from the file and returns it. This enables you to read in lines from text files and use them in your game.</p>
+<p><strong>NOTE:</strong> this command can only read back plain text lines from text files. If you attempt to use it with binary files or files written with commands like WriteString, WriteInt, etc then the results are unpredictable.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/error.log&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>input <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(!</span>input<span class="op">.</span><span class="at">EOF</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">String</span> line = input<span class="op">.</span><span class="at">ReadRawLineBack</span><span class="op">();</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;%s&quot;</span><span class="op">,</span> line<span class="op">);</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display the contents of the 'error.log' file, if it exists</p>
+<p><em>See also:</em> <a href="File.html#filewriterawline"><code>File.WriteRawLine</code></a></p>
+<hr />
+</section>
+<section id="filereadstringback" class="level3">
+<h3><a href="#filereadstringback"><code>File.ReadStringBack</code></a></h3>
+<p><em>(Formerly known as <code>FileRead</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>File.ReadString</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">File</span><span class="op">.</span><span class="at">ReadStringBack</span><span class="op">()</span></span></code></pre></div>
+<p>Reads a string back in from a file previously opened with File.Open, and returns it. You should only use this with files which you previously wrote out with File.WriteString. Do NOT use this function with any other files, even text files.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> buffer = input<span class="op">.</span><span class="at">ReadStringBack</span><span class="op">();</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file test.dat (which you have previously written with File.WriteString) and read a string into the buffer. Then close the file.</p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
+<hr />
+</section>
+<section id="fileseek" class="level3">
+<h3><a href="#fileseek"><code>File.Seek</code></a></h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">Seek</span><span class="op">(</span><span class="dt">int</span> offset<span class="op">,</span> optional <span class="dt">FileSeek</span> origin<span class="op">);</span></span></code></pre></div>
+<p>Moves read/write position by <em>offset</em> bytes related to <em>origin</em>. Returns new read/write position. This is usually used when you are reading file and want to skip over some data, or writing a file and want to move back and overwrite a piece of data in the previous section for some reason.</p>
+<p>The <em>origin</em> is determined by one of the FileSeek types: eSeekBegin - counts <em>offset</em> bytes starting from the file's beginning; <em>offset</em> must be positive.<br> eSeekCurrent - counts <em>offset</em> bytes starting from the current position; <em>offset</em> may be either positive or negative.<br> eSeekEnd - counts <em>offset</em> bytes starting from the file's end, going backwards; <em>offset</em> must be positive.</p>
+<p>If optional <em>origin</em> parameter is not specified, eSeekCurrent type is used by default.</p>
+<p><strong>IMPORTANT:</strong> Do not use Seek on files which you have written with safe data writing functions, such as WriteInt and WriteString. These functions add additional data for the purpose of protection against incorrect reading, and Seek ignores that protection. If you use Seek and then try to ReadIntBack, for example, most probably you will receive a reading error. Only use it on files that contain "raw" data, or when you know written format precisely.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>input = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> first_value = input<span class="op">.</span><span class="at">ReadRawInt</span><span class="op">();</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Seek</span><span class="op">(</span><span class="dv">256</span><span class="op">);</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> second_value = input<span class="op">.</span><span class="at">ReadRawInt</span><span class="op">();</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>input<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file test.dat, read <code>first_value</code>, skip 256 bytes, read <code>second_value</code>, and close the file.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileposition"><code>File.Position</code></a></p>
+<hr />
+</section>
+<section id="filewriteint" class="level3">
+<h3><a href="#filewriteint"><code>File.WriteInt</code></a></h3>
+<p><em>(Formerly known as <code>FileWriteInt</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<p>Writes VALUE to the file. This allows you to save the contents of variables to disk. The file must have been previously opened with File.Open, and you can read the value back later with File.ReadInt.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> number = <span class="dv">6</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/stats.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span>number<span class="op">);</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file stats.dat and write the integer number in it.</p>
+<p><em>See also:</em> <a href="File.html#filereadint"><code>File.ReadInt</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
+<hr />
+</section>
+<section id="filewriterawchar" class="level3">
+<h3><a href="#filewriterawchar"><code>File.WriteRawChar</code></a></h3>
+<p><em>(Formerly known as <code>FileWriteRawChar</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">WriteRawChar</span><span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<p>Writes a single character to the specified file, in raw mode so that other applications can read it back. If you are just creating a file for your game to read back in, use File.WriteInt instead because it offers additional protection. Only use this function if you need other applications to be able to read the file in.</p>
+<p>This command writes a single byte to the output file - therefore, VALUE can contain any value from 0 to 255.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/output.txt&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteRawChar</span><span class="op">(</span><span class="st">&#39;A&#39;</span><span class="op">);</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteRawChar</span><span class="op">(</span><span class="st">&#39;B&#39;</span><span class="op">);</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteRawChar</span><span class="op">(</span><span class="dv">13</span><span class="op">);</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will write the text "AB", followed by a carriage return character, to the file.</p>
+<p><em>See also:</em> <a href="File.html#filereadrawchar"><code>File.ReadRawChar</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
+<hr />
+</section>
+<section id="filewriterawint" class="level3">
+<h3><a href="#filewriterawint"><code>File.WriteRawInt</code></a></h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">WriteRawInt</span><span class="op">(</span><span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<p>Writes VALUE to the specified file, in raw mode so that other applications can read it back. If you are just creating a file for your game to read back in, use File.WriteInt instead because it offers additional protection. Only use this function if you need other applications to be able to read the file in.</p>
+<p>This command writes a single integer to the output file - therefore, VALUE can contain any value from -2147483648 to 2147483647.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/stats.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteRawInt</span><span class="op">(</span><span class="dv">51</span><span class="op">);</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open the file stats.dat and write the integer number in it.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#filereadrawint"><code>File.ReadRawInt</code></a>, <a href="File.html#filewriteint"><code>File.WriteInt</code></a></p>
+<hr />
+</section>
+<section id="filewriterawline" class="level3">
+<h3><a href="#filewriterawline"><code>File.WriteRawLine</code></a></h3>
+<p><em>(Formerly known as <code>FileWriteRawLine</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">WriteRawLine</span><span class="op">(</span>string text<span class="op">)</span></span></code></pre></div>
+<p>Writes a string of text to the file in plain text format. This enables you to read it back in Notepad or any text editor. This is useful for generating logs and such like.</p>
+<p>The TEXT will be printed to the file, followed by the standard newline characters.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/error.log&quot;</span><span class="op">,</span> <span class="bu">eFileAppend</span><span class="op">);</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteRawLine</span><span class="op">(</span><span class="st">&quot;There was an error playing sound1.wav&quot;</span><span class="op">);</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will write an error line in the file error.log.</p>
+<p><em>See also:</em> <a href="File.html#filereadrawlineback"><code>File.ReadRawLineBack</code></a>, <a href="File.html#filewritestring"><code>File.WriteString</code></a></p>
+<hr />
+</section>
+<section id="filewritestring" class="level3">
+<h3><a href="#filewritestring"><code>File.WriteString</code></a></h3>
+<p><em>(Formerly known as <code>FileWrite</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">.</span><span class="at">WriteString</span><span class="op">(</span>string text<span class="op">)</span></span></code></pre></div>
+<p>Writes TEXT to the file, which must have been previously opened with File.Open for writing. The string is written using a custom format to the file, which can only be read back by using File.ReadStringBack.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/temp.tmp&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>output <span class="op">==</span> null<span class="op">)</span> <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Error opening file.&quot;</span><span class="op">);</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">WriteString</span><span class="op">(</span><span class="st">&quot;test string&quot;</span><span class="op">);</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will open the file temp.tmp for writing. If it cannot create the file, it will display an error message. Otherwise, it will write the string "test string" and close it.</p>
+<p><em>See also:</em> <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filewriterawline"><code>File.WriteRawLine</code></a></p>
+<hr />
+</section>
+<section id="fileeof" class="level3">
+<h3><a href="#fileeof"><code>File.EOF</code></a></h3>
+<p><em>(Formerly known as <code>FileIsEOF</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">File</span><span class="op">.</span><span class="at">EOF</span></span></code></pre></div>
+<p>Checks whether the specified file has had all its data read. This is only useful with files opened for <strong>reading</strong>. It returns 1 if the entire contents of the file has now been read, or 0 if not.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(!</span>output<span class="op">.</span><span class="at">EOF</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> temp = output<span class="op">.</span><span class="at">ReadRawChar</span><span class="op">();</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;%c&quot;</span><span class="op">,</span> temp<span class="op">);</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will display every character in the file test.dat, one by one, to the screen.</p>
+<p><em>See also:</em> <a href="File.html#fileerror"><code>File.Error</code></a>, <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a></p>
+<hr />
+</section>
+<section id="fileerror" class="level3">
+<h3><a href="#fileerror"><code>File.Error</code></a></h3>
+<p><em>(Formerly known as <code>FileIsError</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">File</span><span class="op">.</span><span class="at">Error</span></span></code></pre></div>
+<p>Checks whether an error has occurred reading from or writing to the specified file.</p>
+<p>An error can occur if, for example, you run out of disk space or the user removes the disk that is being read from.</p>
+<p>This function only checks for errors while actually reading/writing data. The File.Open function will return null if there was an error actually opening or creating the file.</p>
+<p>To find out whether all data has been read from a file, use <a href="File.html#fileeof"><code>EOF</code></a> instead.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span><span class="dv">51</span><span class="op">);</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>output<span class="op">.</span><span class="at">Error</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Error writing the data!&quot;</span><span class="op">);</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will write a number to the file 'test.dat', and display a message if there was a problem.</p>
+<p><em>See also:</em> <a href="File.html#fileeof"><code>File.EOF</code></a>, <a href="File.html#filereadstringback"><code>File.ReadStringBack</code></a></p>
+<hr />
+</section>
+<section id="filepath" class="level3">
+<h3><a href="#filepath"><code>File.Path</code></a></h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">File</span><span class="op">.</span><span class="at">Path</span></span></code></pre></div>
+<p>Gets the path to opened file.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/custom_save.txt&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span><span class="op">(</span>output<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Opened </span><span class="sc">\&quot;</span><span class="st">%s</span><span class="sc">\&quot;</span><span class="st"> for writing.&quot;</span><span class="op">,</span> output<span class="op">.</span><span class="at">Path</span><span class="op">);</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  output<span class="op">.</span><span class="at">WriteRawLine</span><span class="op">(</span><span class="st">&quot;won=false&quot;</span><span class="op">);</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Will write the full absolute path of the file in the debug log.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileopen"><code>File.Open</code></a>, <a href="File.html#fileresolvepath"><code>File.ResolvePath</code></a></p>
+<hr />
+</section>
+<section id="fileposition" class="level3">
+<h3><a href="#fileposition"><code>File.Position</code></a></h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">File</span><span class="op">.</span><span class="at">Position</span></span></code></pre></div>
+<p>Gets current File's reading or writing position. This value means number of bytes between file's beginning and current place you are reading from or writing to.</p>
+<p>This may be useful, for example, if you are passing the file pointer to another script module function and want to know how much data that function has read or written.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span> <span class="op">*</span>output = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/test.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> old_pos = output<span class="op">.</span><span class="at">Position</span><span class="op">;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>WriteCustomModuleData<span class="op">(</span>output<span class="op">);</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> new_pos = output<span class="op">.</span><span class="at">Position</span><span class="op">;</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Custom module has written %d bytes&quot;</span><span class="op">,</span> new_pos <span class="op">-</span> old_pos<span class="op">);</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<p>will open file, pass the file pointer to some custom function, then display amount of data that function wrote.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="File.html#fileseek"><code>File.Seek</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Unicode Support</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#unicode-support" id="toc-unicode-support">Unicode Support</a>
+<ul>
+<li><a href="#fonts" id="toc-fonts">Fonts</a></li>
+<li><a href="#translations" id="toc-translations">Translations</a></li>
+<li><a href="#upgrading-older-projects" id="toc-upgrading-older-projects">Upgrading older projects</a></li>
+<li><a href="#using-ascii-mode" id="toc-using-ascii-mode">Using ASCII mode</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="unicode-support" class="level2">
+<h2><a href="#unicode-support">Unicode Support</a></h2>
+<p>Starting with v3.6.0 AGS has a full Unicode support, which means that it may have texts virtually in any language in the game, and even texts in multiple languages displayed simultaneously, so long as you provide appropriate fonts.</p>
+<p><strong>NOTE:</strong> AGS still has a ASCII mode for backwards compatibility, but it's recommended to not use it without a very good reason. See a <a href="UnicodeSupport.html#using-ascii-mode">corresponding section</a> below for details.</p>
+<p>When in Unicode mode, all game texts and text files, such as scripts, are saved in UTF-8 format (to be technically precise: it's UTF-8 without BOM).</p>
+<p>When in Unicode mode you may type your game texts in any language whatsoever. This refers to the following:</p>
+<ul>
+<li>Human-readable texts in-game options: such as character's "real names", object descriptions, and so on;</li>
+<li>Values of String Custom properties and Global Variables;</li>
+<li>String literals in scripts (any text in double-quotes);</li>
+<li>Character literals in a script (a character in single quotes);</li>
+<li>Speech lines in dialog scripts;</li>
+<li>Translations.</li>
+</ul>
+<p>Mixing multiple languages, <em>even in the same string</em>, is fine (but requires having fonts that can display all of these languages altogether).</p>
+<p>Where Unicode won't work (and is not supposed to):</p>
+<ul>
+<li>Script names of game objects: characters, guis, views, and so on;</li>
+<li>Names of Custom properties and Global Variables;</li>
+<li>Variable names and function names in script.</li>
+</ul>
+<p>All the above must be written strictly in the Latin alphabet.</p>
+<p><code>String</code> variables and related functions should work seamlessly with Unicode texts. Functions that work with characters accept Unicode characters (this refers to <code>AppendChar()</code>, <code>ReplaceChar()</code> and <code>String.Char[]</code> property). Also, <code>String.Format("%c", n)</code> kind of statement is able to print Unicode characters.</p>
+<p><strong>IMPORTANT:</strong> The <code>char</code> type in AGS script remains a 8-bit number and represents a single byte (which may have values 0-255). But Unicode characters may theoretically be of almost any positive integer value. Because of that you would require <code>int</code> variables to store and pass Unicode characters into functions. To put it simply: use <code>int</code> when you need a Unicode character, and use <code>char</code> when you know it's a ASCII character or just any small value for which a single byte is enough.</p>
+<section id="fonts" class="level3">
+<h3><a href="#fonts">Fonts</a></h3>
+<p>For your game you will have to find fonts compatible to the chosen mode. If you're using strictly standard Latin character set in your game (like with English language), then you likely won't see any difference, but the correct font choice is essential for languages that use "extended" Latin (like letters with accents) or non-Latin alphabets. With these languages, if fonts don't match then you will usually see "garbage" instead of a real text.</p>
+<p>If you are using a Unicode mode, then the fonts should be Unicode compatible. Most of the TTF fonts around are probably that, but some of them could have been made specifically for ASCII/ANSI games, so just keep that in mind in case they display incorrectly.</p>
+<p>WFN (bitmap) fonts in theory can support Unicode, but it's likely there were none or very little made. In order to make a Unicode bitmap font you'd have to find and use a font editor which supports making letters with index &gt;255.</p>
+<p>Another thing to keep in mind is that even Unicode compatible font may not include all wanted languages (alphabets) in it. In such case your options are either to find a more complete single font, or use more fonts for different languages in your game.</p>
+</section>
+<section id="translations" class="level3">
+<h3><a href="#translations">Translations</a></h3>
+<p>The Translations are not affected by the game's setting and have an individual setting of their own. This lets to have Unicode translations in ASCII-mode games, or even ASCII translations in Unicode-mode games (if really necessary). For more information please check the <a href="Translations.html">Translations</a> article.</p>
+</section>
+<section id="upgrading-older-projects" class="level3">
+<h3><a href="#upgrading-older-projects">Upgrading older projects</a></h3>
+<p>All the new game projects start in Unicode mode by default, but if you're upgrading an older project and wish to turn to Unicode mode then you may have to go to <a href="GeneralSettings.html">General Settings</a> and switch "Text format". But you might have to replace fonts with Unicode compatible ones after this.</p>
+</section>
+<section id="using-ascii-mode" class="level3">
+<h3><a href="#using-ascii-mode">Using ASCII mode</a></h3>
+<p>Because of the backward compatibility there's still an option to switch back to ASCII mode, but it's not recommended without a good reason. This option is located in <a href="GeneralSettings.html">General Settings</a> and is called "Text format". This option will let you to switch between ASCII and Unicode and back. Please be aware that when doing so the Editor will convert all the game files (scripts, etc) to a new text encoding and re-save them. Normally this should be safe, but probably a good idea to make a project backup before doing so.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

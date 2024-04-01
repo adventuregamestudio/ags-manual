@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Parser functions</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#parser-functions" id="toc-parser-functions"><code>Parser</code> functions</a>
+<ul>
+<li><a href="#parserfindwordid" id="toc-parserfindwordid"><code>Parser.FindWordID</code></a></li>
+<li><a href="#parserparsetext" id="toc-parserparsetext"><code>Parser.ParseText</code></a></li>
+<li><a href="#parsersaid" id="toc-parsersaid"><code>Parser.Said</code></a></li>
+<li><a href="#parsersaidunknownword" id="toc-parsersaidunknownword"><code>Parser.SaidUnknownWord</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="parser-functions" class="level2">
+<h2><a href="#parser-functions"><code>Parser</code> functions</a></h2>
+<p>You can look into <a href="TextParser.html">TextParser</a> for additional help on using the parser in your games.</p>
+<section id="parserfindwordid" class="level3">
+<h3><a href="#parserfindwordid"><code>Parser.FindWordID</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">Parser</span><span class="op">.</span><span class="at">FindWordID</span><span class="op">(</span>string wordToFind<span class="op">)</span></span></code></pre></div>
+<p>Looks up <em>wordToFind</em> in the text parser dictionary, and returns the ID number.</p>
+<p>If the word is not found, returns -1.<br> Otherwise, the Word Group number is returned, as seen in the Text Parser tab in the editor.</p>
+<p>You can determine if two words are synonyms by looking them both up and seeing if the returned IDs are the same.</p>
+<p>Ignore words are returned as ID 0.</p>
+<p>This function is useful if you want to use the AGS Text Parser dictionary, but implement some custom parsing functionality instead of using the standard ParseText function.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">FindWordID</span><span class="op">(</span><span class="st">&quot;machine&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;machine is in the game dictionary&quot;</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message if the game dictionary includes "machine"</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a></p>
+<hr />
+</section>
+<section id="parserparsetext" class="level3">
+<h3><a href="#parserparsetext"><code>Parser.ParseText</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>string text<span class="op">)</span></span></code></pre></div>
+<p>Stores the supplied user text string for later use by Said. You need to call this command first with the user's input before using the Said command. You would usually call this inside the text box's OnActivate event handler.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> command = txtParser<span class="op">.</span><span class="at">Text</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>command<span class="op">);</span></span></code></pre></div>
+<p>will get the players input and store it in string "command" for use with the said command.</p>
+<p><em>See also:</em> <a href="Parser.html#parserfindwordid"><code>Parser.FindWordID</code></a>, <a href="Parser.html#parsersaid"><code>Parser.Said</code></a></p>
+<hr />
+</section>
+<section id="parsersaid" class="level3">
+<h3><a href="#parsersaid"><code>Parser.Said</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span>string text<span class="op">)</span></span></code></pre></div>
+<p>Checks whether the player typed in TEXT in their input passed to ParseText. Returns <em>true</em> if it matches, <em>false</em> otherwise.</p>
+<p>See <a href="TextParser.html">the text parser documentation</a> for a more detailed description.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = txtParserInput<span class="op">.</span><span class="at">Text</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Parser</span><span class="op">.</span><span class="at">ParseText</span><span class="op">(</span>input<span class="op">);</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Parser</span><span class="op">.</span><span class="at">Said</span><span class="op">(</span><span class="st">&quot;load&quot;</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    txtParserInput<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;&quot;</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestoreGameDialog</span><span class="op">();</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will bring up the restore game dialogue if the player types "load" in the text parser.</p>
+<p><em>See also:</em> <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a>, <a href="Parser.html#parsersaidunknownword"><code>Parser.SaidUnknownWord</code></a></p>
+<hr />
+</section>
+<section id="parsersaidunknownword" class="level3">
+<h3><a href="#parsersaidunknownword"><code>Parser.SaidUnknownWord</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">String</span> <span class="bu">Parser</span><span class="op">.</span><span class="at">SaidUnknownWord</span><span class="op">()</span></span></code></pre></div>
+<p>If a word not in the game dictionary was submitted to the last ParseText call, then the word is returned by this command. This allows you to display a message like "Sorry, this game doesn't recognize 'XXXX'."</p>
+<p>If all the words were recognized, this returns null.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> badWord = <span class="bu">Parser</span><span class="op">.</span><span class="at">SaidUnknownWord</span><span class="op">();</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>badWord <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You can&#39;t use &#39;%s&#39; in this game.&quot;</span><span class="op">,</span> badWord<span class="op">);</span></span></code></pre></div>
+<p>will display the message if the player types a word that's not in the vocabulary.</p>
+<p><em>See also:</em> <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a>, <a href="Parser.html#parsersaid"><code>Parser.Said</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

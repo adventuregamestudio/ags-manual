@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>View Editor</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#view-editor" id="toc-view-editor">View Editor</a>
+<ul>
+<li><a href="#views" id="toc-views">Views</a></li>
+<li><a href="#right-click-context-menu" id="toc-right-click-context-menu">Right Click Context Menu</a></li>
+<li><a href="#show-preview" id="toc-show-preview">Show Preview</a></li>
+<li><a href="#properties" id="toc-properties">Properties</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="view-editor" class="level2">
+<h2><a href="#view-editor">View Editor</a></h2>
+<section id="views" class="level3">
+<h3><a href="#views">Views</a></h3>
+<p>In the view editor you add sprites from the <a href="EditorSprite.html">Sprite Manager</a> to animation strips called <em>Loops</em>. This is the way that you create the walkcycles for your <a href="EditorCharacter.html">Characters</a> as well as all other in-game animations.</p>
+<p><img src="images/EditorView_1.png" /></p>
+<p>For walking views you will typically have 4 or 8 Loops, to represent the different directions for walking in. If your character will only be walking left, right, up, and down , then you probably just want 4 Loops. If a character needs separate animations for diagonal movement then you might need 8 Loops. You assign the 4 or 8 walking animations per character in the <a href="EditorCharacter.html">Character Editor</a>.</p>
+<p>It is good practice to use a new loop for every character and also for special character animations. For object animations, you could add a lot of animation Loops to one single View - sometimes this can be useful for organisation purposes (e.g. one Object animation View for every chapter of your game). You can name the View by right-clicking it in the project explorer.</p>
+<p>Newer versions of AGS can have unlimited Views, unlimited Loops per view and unlimited Frames per loop. Still, there is some overhead with the way the AGS Editor previews them, so when you have a lot of large Frames you should consider using a new View for each animation.</p>
+</section>
+<section id="right-click-context-menu" class="level3">
+<h3><a href="#right-click-context-menu">Right Click Context Menu</a></h3>
+<p><img src="images/EditorView_2.png" /></p>
+<p>When you right-click on a single frame in a loop you get the following options:</p>
+<ul>
+<li><p><em>Flip frame</em></p>
+<p>Flips a single frame.</p></li>
+<li><p><em>Delete frame</em></p>
+<p>Remove that single frame</p></li>
+<li><p><em>Insert frame before this</em></p>
+<p>Useful when you added your animation but forgot that first frame is the idle frame.</p></li>
+<li><p><em>Insert frame after this</em></p>
+<p>Inserts a frame after the one you right clicked.</p></li>
+<li><p><em>Cut loop</em></p>
+<p>Good for moving things around when you did everything right but in the wrong loop.</p></li>
+<li><p><em>Copy loop</em></p>
+<p>Copies an entire loop!</p></li>
+<li><p><em>Paste over this loop</em></p>
+<p>You need this to place the loop after you cut or copied it.</p></li>
+<li><p><em>Paste over this loop flipped</em></p>
+<p>If you have copied the loop with the character going right, this will make him go to left!</p></li>
+<li><p><em>Flip all frames in loop</em></p>
+<p>You already did the character going right and copied this loop and want to flip the sprites in the whole loop, then use this option! This is a good timesaver.</p></li>
+<li><p><em>Add all sprites from folder</em></p>
+<p>Put all the sprites to be used in a loop, in a folder in the sprite manager, ordered (probably with a consecutive number sequence at the end), then you can use this option to quickly add all image files from that folder to the loop in the order they are in the folder. This is useful when you have many frames for a loop.</p></li>
+</ul>
+</section>
+<section id="show-preview" class="level3">
+<h3><a href="#show-preview">Show Preview</a></h3>
+<p>When you tick the checkbox above the Loops called <strong>Show Preview</strong> you will see an extra panel appear where the animation can be previewed. You can either manually browse through all the frames of the Loop or you check the <strong>animate</strong> checkbox to see it in motion.</p>
+<p>The <strong>Skip Frame 0 (standing Frame)</strong> checkbox does exactly that, it skips Frame 0 for the preview animation. This is only important for previews of views that are used as walking views for a character.</p>
+<p>When you animate a <a href="Object.html#objectanimate">game object</a> or you want the <a href="Character.html#characteranimate">character to animate</a> for something other than walking (like picking up an <a href="EditorInventoryItems.html">Inventory Item</a>) Frame 0 is always included in the animation. When the view is used as a walking view Frame 0 is skipped for the animation until the character reaches the endpoint of the walk and stops there. Then Frame 0 is displayed for the direction that the character is currently facing.</p>
+<p><img src="images/EditorView_3.png" /></p>
+</section>
+<section id="properties" class="level3">
+<h3><a href="#properties">Properties</a></h3>
+<p><img src="images/EditorView_4.png" /></p>
+<p><em>Delay</em><br />
+With the delay setting you delay the displaytime of the selected <em>frame</em> by a set amount. This delay is in game frames, so how long the delay is in time depends on how many frames per second your game is running at. You can check the game-speed with the <a href="Globalfunctions_General.html#getgamespeed"><code>GetGameSpeed</code></a> function. By default AGS games run at 40 FPS, but this can be configured by setting the desired frame rate using the <a href="Globalfunctions_General.html#setgamespeed"><code>SetGameSpeed</code></a> function. This delay value is specific to this single frame only. To add delay to an entire animation, use the delay parameter of the <a href="Object.html#objectanimate"><code>Animate</code></a> function instead. This frame delay is added to the overall loop delay.</p>
+<p><em>Flipped</em><br />
+You can flip a single frame with this property. This is very useful for mirrored animations, such as walkcycles, where a flipped version of the walk-left animation and be used to walk right, for example. Note that instead of flipping just a single frame you can also flip the whole loop by using the <a href="EditorView.html#right-click-context-menu">Right Click Context Menu</a>.</p>
+<p><em>Image</em><br />
+The sprite number for this frame's image, as displayed in the <a href="EditorSprite.html">Sprite Manager</a>.</p>
+<p><em>ID</em><br />
+The will display the frame number within the loop, for the selected frame. This value is not directly editable.</p>
+<p><em>Sound</em><br />
+Play a sound when this frame is displayed. This is typically used to add footsteps to character walkcycles.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

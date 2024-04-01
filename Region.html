@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Region functions and properties</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#region-functions-and-properties" id="toc-region-functions-and-properties"><code>Region</code> functions and properties</a>
+<ul>
+<li><a href="#regiongetatroomxy" id="toc-regiongetatroomxy"><code>Region.GetAtRoomXY</code></a></li>
+<li><a href="#regiongetatscreenxy" id="toc-regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a></li>
+<li><a href="#regiongetdrawingsurface" id="toc-regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></li>
+<li><a href="#regionruninteraction" id="toc-regionruninteraction"><code>Region.RunInteraction</code></a></li>
+<li><a href="#regiontint" id="toc-regiontint"><code>Region.Tint</code></a></li>
+<li><a href="#regionenabled" id="toc-regionenabled"><code>Region.Enabled</code></a></li>
+<li><a href="#regionid" id="toc-regionid"><code>Region.ID</code></a></li>
+<li><a href="#regionlightlevel" id="toc-regionlightlevel"><code>Region.LightLevel</code></a></li>
+<li><a href="#regiontintenabled" id="toc-regiontintenabled"><code>Region.TintEnabled</code></a></li>
+<li><a href="#regiontintblue" id="toc-regiontintblue"><code>Region.TintBlue</code></a></li>
+<li><a href="#regiontintgreen" id="toc-regiontintgreen"><code>Region.TintGreen</code></a></li>
+<li><a href="#regiontintred" id="toc-regiontintred"><code>Region.TintRed</code></a></li>
+<li><a href="#regiontintsaturation" id="toc-regiontintsaturation"><code>Region.TintSaturation</code></a></li>
+<li><a href="#regiontintluminance" id="toc-regiontintluminance"><code>Region.TintLuminance</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="region-functions-and-properties" class="level2">
+<h2><a href="#region-functions-and-properties"><code>Region</code> functions and properties</a></h2>
+<section id="regiongetatroomxy" class="level3">
+<h3><a href="#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a></h3>
+<p><em>(Formerly known as global function <code>GetRegionAt</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the region at ROOM co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Region</span><span class="op">.</span><span class="at">GetAtRoomXY</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="bu">region</span><span class="op">[</span><span class="dv">0</span><span class="op">])</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is not currently standing on a region.&quot;</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Region.html#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a>, <a href="Character.html#charactergetatroomxy"><code>Character.GetAtRoomXY</code></a>, <a href="Hotspot.html#hotspotgetatroomxy"><code>Hotspot.GetAtRoomXY</code></a>, <a href="Object.html#objectgetatroomxy"><code>Object.GetAtRoomXY</code></a>, <a href="Globalfunctions_Room.html#getwalkableareaatroom"><code>GetWalkableAreaAtRoom</code></a></p>
+<hr />
+</section>
+<section id="regiongetatscreenxy" class="level3">
+<h3><a href="#regiongetatscreenxy"><code>Region.GetAtScreenXY</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Region</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<p>Returns the region at SCREEN co-ordinates (X,Y). If there is no region there, or if invalid co-ordinates are specified, the Region* representing region 0 will be returned.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Region</span><span class="op">*</span> r = <span class="bu">Region</span><span class="op">.</span><span class="at">GetAtScreenXY</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>r <span class="op">!=</span> <span class="bu">region</span><span class="op">[</span><span class="dv">0</span><span class="op">])</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The mouse is over region %d&quot;</span><span class="op">,</span> r<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display the message if there is any region under the mouse cursor.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a>, <a href="Character.html#charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a>, <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Globalfunctions_General.html#getlocationtype"><code>GetLocationType</code></a></p>
+<hr />
+</section>
+<section id="regiongetdrawingsurface" class="level3">
+<h3><a href="#regiongetdrawingsurface"><code>Region.GetDrawingSurface</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DrawingSurface</span><span class="op">*</span> <span class="bu">Region</span><span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">()</span></span></code></pre></div>
+<p>Gets a drawing surface for the current room's 8-bit regions mask, which allows you to directly draw onto that mask. Note that this function is static and relates to all regions at once (not a particular region), because all of them are painted on the same mask.</p>
+<p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the mask. Since this is a 8-bit mask, DrawingColor will match the region's index. Color value 0 will refer to "no region" (eraser), color value 1 to region number 1, and so forth. Don't forget to call <code>Release()</code> on the surface when you are finished to update the room's state.</p>
+<p>Any changes you make will only last until the player leaves the room, at which point they will be lost. If you need to make long-lasting changes, you can use this method in the Player Enters Room event, which will recreate these changes whenever player returns back.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Region</span><span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawRectangle</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
+<p>will paint a rectangle for the region 4.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkbehind"><code>GetDrawingSurfaceForWalkbehind</code></a>, <a href="Globalfunctions_Room.html#getdrawingsurfaceforwalkablearea"><code>GetDrawingSurfaceForWalkableArea</code></a>, <a href="Hotspot.html#hotspotgetdrawingsurface"><code>Hotspot.GetDrawingSurface</code></a></p>
+<hr />
+</section>
+<section id="regionruninteraction" class="level3">
+<h3><a href="#regionruninteraction"><code>Region.RunInteraction</code></a></h3>
+<p><em>(Formerly known as <code>RunRegionInteraction</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Region</span><span class="op">.</span><span class="at">RunInteraction</span><span class="op">(</span><span class="dt">int</span> event<span class="op">)</span></span></code></pre></div>
+<p>Runs the event handler as if the EVENT for the region had been activated.</p>
+<p><strong>NOTE:</strong> Unlike the other RunInteraction commands, this one does not take a cursor mode. Instead, it uses an event type as follows:</p>
+<p>0 While player stands on region<br> 1 Player walks onto region<br> 2 Player walks off region</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">RunInteraction</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>will run the actions defined in the event handler script for "Player walks onto region" for region 4.</p>
+<p><em>See also:</em> <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
+<hr />
+</section>
+<section id="regiontint" class="level3">
+<h3><a href="#regiontint"><code>Region.Tint</code></a></h3>
+<p><em>(Formerly known as <code>SetRegionTint</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Region</span><span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">,</span> <span class="dt">int</span> amount<span class="op">,</span> optional <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
+<p>Changes the region to have RGB tint (RED, GREEN, BLUE) with AMOUNT percent saturation.</p>
+<p>The red, green and blue values are between 0 and 255, and you supply the same values that you would use in the editor.</p>
+<p>For the meaning of all the parameters, see <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>.</p>
+<p><strong>NOTE:</strong> The tint will be reset when the player leaves the room, so you need to use it in Player Enters Room if you want a permanent change.</p>
+<p><strong>NOTE:</strong> This function only works in hi-color games.</p>
+<p><strong>NOTE:</strong> To remove the region tint, set the LightLevel property to 0.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">region</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Tint</span><span class="op">(</span><span class="dv">180</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<p>will set region 2's RGB tint to (180, 20, 20) with 50<code>%</code> opacity.</p>
+<p><em>Compatibility:</em> Optional <em>luminance</em> parameter is supported only by <strong>AGS 3.4.0</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Region.html#regionlightlevel"><code>Region.LightLevel</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
+<hr />
+</section>
+<section id="regionenabled" class="level3">
+<h3><a href="#regionenabled"><code>Region.Enabled</code></a></h3>
+<p><em>(Formerly known as <code>DisableRegion</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>EnableRegion</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Region</span><span class="op">.</span><span class="at">Enabled</span></span></code></pre></div>
+<p>Enables/disables the specified region. If you set this to false, then all areas of the screen that were previously part of the region now act as type 0 (no region). You can turn the region back on later by setting this to true.</p>
+<p>While a region is disabled, it will not be returned by Region.GetAtRoomXY, and if the character walks onto the region then its events will not get run.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">region</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<p>will disable region number 3.</p>
+<p><em>See also:</em> <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
+<hr />
+</section>
+<section id="regionid" class="level3">
+<h3><a href="#regionid"><code>Region.ID</code></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<p>Gets the region number of this region. This allows you to interoperate with old script using the number-based region functions.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 3 is number %d.&quot;</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
+<p>displays region 3's number (which will be 3).</p>
+<p><em>See also:</em> <a href="Region.html#regiongetatroomxy"><code>Region.GetAtRoomXY</code></a></p>
+<hr />
+</section>
+<section id="regionlightlevel" class="level3">
+<h3><a href="#regionlightlevel"><code>Region.LightLevel</code></a></h3>
+<p><em>(Formerly known as <code>SetAreaLightLevel</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">LightLevel</span></span></code></pre></div>
+<p>Gets/sets the region's light level. This does the same thing as the Light Level textbox in the editor, but allows you to change it at run-time.</p>
+<p>The light level is from <strong>-100 to 100</strong>. This is different from the editor, which takes values from 0 to 200. Subtract 100 from the value you would use in the editor when calling this function. The reason for this discrepancy is legacy reasons from the DOS editor days.</p>
+<p>In 8-bit games you cannot use positive light level for brightening effect, but you may still use negative values to produce darkening effect.</p>
+<p>To disable region lighting and tinting effects, set LightLevel to 0.</p>
+<p><strong>NOTE:</strong> The light level will be reset to the editor settings when the player leaves the room, so you need to use it in Player Enters Room if you want a permanent change.</p>
+<p><strong>NOTE:</strong> Setting a light level will disable any RGB tint set for the region.</p>
+<p><strong>NOTE:</strong> Region's light level does NOT override individual character and object light levels.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">region</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">LightLevel</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
+<p>will set region 2's level light to 100.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a></p>
+<hr />
+</section>
+<section id="regiontintenabled" class="level3">
+<h3><a href="#regiontintenabled"><code>Region.TintEnabled</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintEnabled</span></span></code></pre></div>
+<p>Gets whether the region currently has an RGB tint enabled for it.</p>
+<p>Returns <em>true</em> if it does, and <em>false</em> if it does not. If it does not, then the LightLevel property reflects the region lighting.</p>
+<p>If this property is <em>false</em>, then the TintRed, TintGreen, TintBlue, TintSaturation and TintLuminance properties are invalid.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintEnabled</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 4 is tinted!!&quot;</span><span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message if region 4 is tinted</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a></p>
+<hr />
+</section>
+<section id="regiontintblue" class="level3">
+<h3><a href="#regiontintblue"><code>Region.TintBlue</code></a></h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintBlue</span></span></code></pre></div>
+<p>Gets the <em>Blue</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#regiontint"><code>Region.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a> property is false, then this value is meaningless.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintEnabled</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;</span><span class="op">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintRed</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintGreen</span><span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintBlue</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintSaturation</span><span class="op">);</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message with the region's tints.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a>, <a href="Region.html#regiontintgreen"><code>Region.TintGreen</code></a>, <a href="Region.html#regiontintred"><code>Region.TintRed</code></a>, <a href="Region.html#regiontintluminance"><code>Region.TintLuminance</code></a></p>
+<hr />
+</section>
+<section id="regiontintgreen" class="level3">
+<h3><a href="#regiontintgreen"><code>Region.TintGreen</code></a></h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintGreen</span></span></code></pre></div>
+<p>Gets the <em>Green</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#regiontint"><code>Region.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a> property is false, then this value is meaningless.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintEnabled</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;</span><span class="op">,</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintRed</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintGreen</span><span class="op">,</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintBlue</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintSaturation</span><span class="op">);</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message with the region's tints.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a>, <a href="Region.html#regiontintblue"><code>Region.TintBlue</code></a>, <a href="Region.html#regiontintred"><code>Region.TintRed</code></a>, <a href="Region.html#regiontintsaturation"><code>Region.TintSaturation</code></a>, <a href="Region.html#regiontintluminance"><code>Region.TintLuminance</code></a></p>
+<hr />
+</section>
+<section id="regiontintred" class="level3">
+<h3><a href="#regiontintred"><code>Region.TintRed</code></a></h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintRed</span></span></code></pre></div>
+<p>Gets the <em>Red</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#regiontint"><code>Region.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a> property is false, then this value is meaningless.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintEnabled</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;</span><span class="op">,</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintRed</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintGreen</span><span class="op">,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintBlue</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintSaturation</span><span class="op">);</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message with the region's tints.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a>, <a href="Region.html#regiontintblue"><code>Region.TintBlue</code></a>, <a href="Region.html#regiontintgreen"><code>Region.TintGreen</code></a>, <a href="Region.html#regiontintsaturation"><code>Region.TintSaturation</code></a>, <a href="Region.html#regiontintluminance"><code>Region.TintLuminance</code></a></p>
+<hr />
+</section>
+<section id="regiontintsaturation" class="level3">
+<h3><a href="#regiontintsaturation"><code>Region.TintSaturation</code></a></h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintSaturation</span></span></code></pre></div>
+<p>Gets the <em>saturation</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#regiontint"><code>Region.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a> property is false, then this value is meaningless.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintEnabled</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Region 4 is tinted RGB (%d,%d,%d) Saturation %d.&quot;</span><span class="op">,</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintRed</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintGreen</span><span class="op">,</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintBlue</span><span class="op">,</span> <span class="bu">region</span><span class="op">[</span><span class="dv">4</span><span class="op">].</span><span class="at">TintSaturation</span><span class="op">);</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message with the region's tints.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a>, <a href="Region.html#regiontintblue"><code>Region.TintBlue</code></a>, <a href="Region.html#regiontintgreen"><code>Region.TintGreen</code></a>, <a href="Region.html#regiontintred"><code>Region.TintRed</code></a>, <a href="Region.html#regiontintluminance"><code>Region.TintLuminance</code></a></p>
+<hr />
+</section>
+<section id="regiontintluminance" class="level3">
+<h3><a href="#regiontintluminance"><code>Region.TintLuminance</code></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Region</span><span class="op">.</span><span class="at">TintLuminance</span></span></code></pre></div>
+<p>Gets the <em>luminance</em> setting for the region's current tint.</p>
+<p>This property is read-only; to change it, use the <a href="Region.html#regiontint"><code>Region.Tint</code></a> command.</p>
+<p><strong>NOTE:</strong> If the <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a> property is false, then this value is meaningless.</p>
+<p><em>See also:</em> <a href="Region.html#regiontint"><code>Region.Tint</code></a>, <a href="Region.html#regiontintenabled"><code>Region.TintEnabled</code></a>, <a href="Region.html#regiontintblue"><code>Region.TintBlue</code></a>, <a href="Region.html#regiontintgreen"><code>Region.TintGreen</code></a>, <a href="Region.html#regiontintred"><code>Region.TintRed</code></a>, <a href="Region.html#regiontintsaturation"><code>Region.TintSaturation</code></a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

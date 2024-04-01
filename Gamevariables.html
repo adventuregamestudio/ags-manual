@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Game variables</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#game-variables" id="toc-game-variables">Game variables</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="game-variables" class="level2">
+<h2><a href="#game-variables">Game variables</a></h2>
+<p>The following variables are available to your script. They allow you to do various tweaks to the engine at run-time.</p>
+<p>Names in <strong>bold</strong> are <strong>read-only variables</strong> and should NOT be modified by the script.</p>
+<p>All the following variables are <code>int</code> variables.</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>variable</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>game.abort_key</td>
+<td>The keycode for Abort Game, which allows the you to quit even if your script is stuck. Default 324 (Alt+X).</td>
+</tr>
+<tr class="even">
+<td>game.ambient_sounds_persist</td>
+<td>If 0 (default), ambient sounds are stopped on room change. Set to 1 to tell AGS to leave ambient sounds playing when going to a new room.</td>
+</tr>
+<tr class="odd">
+<td>game.anim_background_speed</td>
+<td>The current room's animating background speed - same values as in editor.</td>
+</tr>
+<tr class="even">
+<td>game.auto_use_walkto_points</td>
+<td>Default 1; set to 0 to stop AGS automatically using hotspot walk-to points.</td>
+</tr>
+<tr class="odd">
+<td>game.bgspeech_game_speed</td>
+<td>If 0 (default), background speech stays on the screen for the same amount of time, no matter what the game speed. If 1, the amount of time it stays is relative to the game speed.</td>
+</tr>
+<tr class="even">
+<td>game.bgspeech_stay_on_display</td>
+<td>If 0 (default), background speech is removed when a Say command happens; if 1, it isn't.</td>
+</tr>
+<tr class="odd">
+<td>game.close_mouth_end_speech_time</td>
+<td>OBSOLETE, see <a href="Speech.html#speechanimationstoptimemargin"><code>Speech.AnimationStopTimeMargin</code></a> instead.</td>
+</tr>
+<tr class="even">
+<td>game.debug_mode</td>
+<td>Whether we are in debug mode or not.</td>
+</tr>
+<tr class="odd">
+<td>game.dialog_options_highlight_color</td>
+<td>Color used to draw the active (selected) dialog option</td>
+</tr>
+<tr class="even">
+<td>game.dialog_options_x</td>
+<td>Offset into dialog options GUI to compensate for borders</td>
+</tr>
+<tr class="odd">
+<td>game.dialog_options_y</td>
+<td>Offset into dialog options GUI to compensate for borders</td>
+</tr>
+<tr class="even">
+<td>game.disable_antialiasing</td>
+<td>Set to 1 to disable smoothing of scaled characters, overriding the user's choice in Setup. Default 0.</td>
+</tr>
+<tr class="odd">
+<td>game.following_room_timer</td>
+<td>How long to wait before following char emerges in new room, default 150. (higher is longer).</td>
+</tr>
+<tr class="even">
+<td>game.keep_screen_during_instant_transition</td>
+<td>Normally the Instant transition blacks the screen in 8-bit color modes, to avoid strange palette effects. However you can set this to 1 to prevent it doing so.</td>
+</tr>
+<tr class="odd">
+<td><strong>game.inv_activated</strong></td>
+<td>Inventory item that the player last clicked on. Useful for unhandled_event.</td>
+</tr>
+<tr class="even">
+<td>game.inventory_greys_out</td>
+<td>Set to 1 to make inventory controls grey out when GUI disabled is set to "GUIs Grey Out"</td>
+</tr>
+<tr class="odd">
+<td>game.lipsync_speed</td>
+<td>Similar to Game.TextReadingSpeed, but this determines how quickly the text is 'read' out by the mouth moving. You should normally only set this faster than text_speed, otherwise the reading will get cut off when the text times out. Default 15.</td>
+</tr>
+<tr class="even">
+<td>game.max_dialogoption_width</td>
+<td>Maximum width of textwindow-based dialog options box. Default 180.</td>
+</tr>
+<tr class="odd">
+<td>game.min_dialogoption_width</td>
+<td>Minimum width of textwindow-based dialog options box. Default 0.</td>
+</tr>
+<tr class="even">
+<td>game.narrator_speech</td>
+<td>Which character ID to use for voice speech within Display() command. Default initial player character. You can also use NARRATOR which uses 'NARR' prefix - special narrator character.</td>
+</tr>
+<tr class="odd">
+<td>game.no_textbg_when_voice</td>
+<td>Normally 0. If 1, and the Sierra-style With Background speech style is in use, will change to the Sierra-style (no background) if a voice speech line is present.</td>
+</tr>
+<tr class="even">
+<td>game.read_dialog_option_color</td>
+<td>By default, -1. You can set this to a color number, in which case dialog options that the player has selected before will be displayed in this color.</td>
+</tr>
+<tr class="odd">
+<td>game.roomscript_finished</td>
+<td>The on_call function has completed executing. (See <a href="Globalfunctions_General.html#callroomscript"><code>CallRoomScript</code></a>)</td>
+</tr>
+<tr class="even">
+<td><strong>game.score</strong></td>
+<td>The player's score. To modify the score, use the GiveScore script function.</td>
+</tr>
+<tr class="odd">
+<td>game.score_sound</td>
+<td>Sound effect to play when the player gets points, originally set in the editor.</td>
+</tr>
+<tr class="even">
+<td>game.screenshot_height</td>
+<td>The height of screenshot images when saved into save games. The largest you can have is the full screen size (game's native resolution), which gives the highest quality but the largest size for save game files. The default size for Screenshots is 160x100, so the default value for game.screenshot_height is 100. The minimal supported value for screenshot size is 16x16.</td>
+</tr>
+<tr class="odd">
+<td>game.screenshot_width</td>
+<td>The width of screenshot images when saved into save games. As mentioned above, the default size for Screenshots is 160x100, so the default value for game.screenshot_width is 160.</td>
+</tr>
+<tr class="even">
+<td>game.show_single_dialog_option</td>
+<td>If only a single dialog option is available, show it anyway (default=0)</td>
+</tr>
+<tr class="odd">
+<td>game.sierra_inv_color</td>
+<td>The background color of the sierra-style inventory.</td>
+</tr>
+<tr class="even">
+<td>game.skip_display</td>
+<td>Setting for how Display() messages are skipped; valid values are same as for Speech.SkipStyle (default 3).</td>
+</tr>
+<tr class="odd">
+<td>game.skip_speech_specific_key</td>
+<td>OBSOLETE, see <a href="Speech.html#speechskipkey"><code>Speech.SkipKey</code></a> instead.</td>
+</tr>
+<tr class="even">
+<td>game.speech_bubble_width</td>
+<td>Maximum width of the thought bubble text window (default 100)</td>
+</tr>
+<tr class="odd">
+<td>game.speech_text_align</td>
+<td>OBSOLETE, see <a href="Speech.html#speechtextalignment"><code>Speech.TextAlignment</code></a> instead.</td>
+</tr>
+<tr class="even">
+<td>game.speech_text_gui</td>
+<td>The textwindow GUI number used for sierra-style speech.</td>
+</tr>
+<tr class="odd">
+<td>game.text_align</td>
+<td>Sets how text in message boxes and Sierra-style speech is aligned:<br>eAlignLeft: text aligned to left within message box (default)<br>eAlignCentre: text is centered within the message box<br>eAlignRight: text is right-aligned within the message box<br>These options do not affect LucasArts-style speech, which is always centered.</td>
+</tr>
+<tr class="even">
+<td>game.text_shadow_color</td>
+<td>Color used for speech text shadow (default 16).</td>
+</tr>
+<tr class="odd">
+<td>game.top_bar_XXXX</td>
+<td>Customizations for <a href="Globalfunctions_Message.html#displaytopbar"><code>DisplayTopBar</code></a>, see link for details</td>
+</tr>
+<tr class="even">
+<td>game.total_score</td>
+<td>Maximum possible score, initially set in the editor.</td>
+</tr>
+<tr class="odd">
+<td>game.used_mode</td>
+<td>Cursor mode used with last click (use with "any click" events to find out which mode was used)</td>
+</tr>
+<tr class="even">
+<td><strong>mouse.x</strong></td>
+<td>Mouse X co-ordinate when the last game loop was run</td>
+</tr>
+<tr class="odd">
+<td><strong>mouse.y</strong></td>
+<td>Mouse Y co-ordinate when the last game loop was run</td>
+</tr>
+<tr class="even">
+<td>palette[SLOT].r</td>
+<td>The red component (0-63) of palette slot SLOT</td>
+</tr>
+<tr class="odd">
+<td>palette[SLOT].g</td>
+<td>The green component (0-63) of palette slot SLOT</td>
+</tr>
+<tr class="even">
+<td>palette[SLOT].b</td>
+<td>The blue component (0-63) of palette slot SLOT</td>
+</tr>
+<tr class="odd">
+<td>player.[x,y,name,...]</td>
+<td>Alias to the current player character.</td>
+</tr>
+</tbody>
+</table>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

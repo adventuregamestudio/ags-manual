@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Music and sound</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#music-and-sound" id="toc-music-and-sound">Music and sound</a>
+<ul>
+<li><a href="#file-formats" id="toc-file-formats">File formats</a></li>
+<li><a href="#audio-in-the-editor" id="toc-audio-in-the-editor">Audio in the Editor</a></li>
+<li><a href="#the-audiocache-folder" id="toc-the-audiocache-folder">The AudioCache folder</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="music-and-sound" class="level2">
+<h2><a href="#music-and-sound">Music and sound</a></h2>
+<p>Sound and music are an essential part of any gameplay experience, and AGS 3.2 and higher provides a re-written audio system giving you full control over your game audio.</p>
+<section id="file-formats" class="level3">
+<h3><a href="#file-formats">File formats</a></h3>
+<p>AGS is able to play the following types of audio file:</p>
+<table>
+<thead>
+<tr class="header">
+<th>extension</th>
+<th>Sound Format</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.ogg</code></td>
+<td>Ogg Vorbis</td>
+</tr>
+<tr class="even">
+<td><code>.wav</code></td>
+<td>Wave (8, 16, 24 and 32 bit)</td>
+</tr>
+<tr class="odd">
+<td><code>.mp3</code></td>
+<td>MPEG-1 Audio Layer III</td>
+</tr>
+<tr class="even">
+<td><code>.voc</code></td>
+<td>Creative Labs Voice</td>
+</tr>
+<tr class="odd">
+<td><code>.mid</code></td>
+<td>MIDI (requires Soundfont)</td>
+</tr>
+<tr class="even">
+<td><code>.mod</code></td>
+<td>ProTracker / NoiseTracker MOD</td>
+</tr>
+<tr class="odd">
+<td><code>.xm</code></td>
+<td>FastTracker II</td>
+</tr>
+<tr class="even">
+<td><code>.s3m</code></td>
+<td>ScreamTracker file</td>
+</tr>
+<tr class="odd">
+<td><code>.it</code></td>
+<td>Impulse Tracker</td>
+</tr>
+</tbody>
+</table>
+<p>OGG is a digital music format similar to MP3, but achieving better compression and higher quality. For more information and programs to encode your music to OGG, see <a href="https://www.vorbis.org/">https://www.vorbis.org/</a></p>
+<p>If you use MIDI, your players will have to install a Soundfont and a Timidity config file to be able to play the music. Please see <a href="MIDI-playback.html">MIDI playback</a> for details.</p>
+</section>
+<section id="audio-in-the-editor" class="level3">
+<h3><a href="#audio-in-the-editor">Audio in the Editor</a></h3>
+<p>Look under the "Audio" branch in the project tree. Here you'll find sub-nodes called "Speech", "Types" and two default folders called "Music" and "Sounds".</p>
+<p><strong>Speech</strong></p>
+<p>At the moment, voice speech files are not set up within the editor. See the <a href="VoiceSpeech.html">Voice speech</a> help page to find out more about adding speech to your game.</p>
+<p><strong>Audio Types</strong></p>
+<p>Audio Types allow you to group together similar types of audio files. The standard distinction here is between Sound and Music, whereby you usually only want one Music file to be playing at any one time; whereas you might have several simultaneous sound effects.</p>
+<p>Double-click on an Audio Type and it will open up; you can see its properties in the Property Grid. Here, the "MaxChannels" setting allows you to specify how many audio clips of this type are allowed to play at the same time. The "VolumeReductionWhenSpeechPlaying" setting allows you to have AGS automatically reduce the volume of these audio clips while speech is playing, to make it easier for the player to hear the speech over the background music.</p>
+<p>You'll probably find that the default settings here are fine, and in many games you won't need to change them.</p>
+<p><strong>Importing audio files</strong></p>
+<p>Now let's get on to the important question -- how do you add sound and music to your game? Well, if you right-click on the "Sound" or "Music" folders (or any other folders that you create yourself), you'll see an option called "Add Audio Files".</p>
+<p>Select this option, and you'll be given a dialog box to find the audio files that you want to import. Once imported, they'll be assigned script names automatically. If you already name the sound files you create and want to use in a short and descriptive way you don't have to rename them in the game project and save a lot of time and keep both your game project and the assets organized.</p>
+<p>Double-click an audio file in the project tree to open a window where you can preview it, as well as change its properties in the Property Grid.</p>
+<p><strong>Using folders to organize sounds</strong></p>
+<p>Rightclick on the main music node, on one of the subordinate type folders or any user-created subfolder to these to create a subfolder to that node. It is good practice to add some new subfolders when you start a new project or you will have to drag and drop a lot of files later (as you can not drag and drop them in droves but only one at a time). You could split your music into Chapter 1 music, Chapter 2 music, etc or split it to "music calm" and "music battle" or whatever you need.<br />
+The same applies to the folder for sounds and sound effects, add subfolders to it to split your sound library into "Menu sounds" for button presses and "game sounds" for in-game sounds. Sort them by chapter or by room, this will make finding, navigating and addressing the sounds so much easier.</p>
+<p><strong>Playing audio in the game</strong></p>
+<p>The script to play an audio clip in the game is very simple. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span></code></pre></div>
+<p>plays the audio clip called <em>aExplosion</em>.</p>
+<p><strong>Priorities and channels</strong></p>
+<p>AGS currently has an 16-channel audio system, which means that up to 16 sounds can be playing at the same time. One channel is always reserved for the speech voice-over and you cannot change that, so you have 15 at your disposal. By default Audio Types reserve one channel for music and one for ambient sounds; thus leaving 13 available for other types, but you can change that to your needs.</p>
+<p><strong>NOTE:</strong> Because total number of channels is a constant, AGS does not guarantee to reserve exactly as many channels as you set. Channels are reserved in the order of types in the project, so if you set "MaxChannels" to 9 for music and 9 for sounds, then at runtime the game will reserve 9 for music and only 6 remaining for sounds.</p>
+<p>If you try to play an audio clip and there are no channels available, then an existing one will be stopped and the new one will take its place. However, this will only happen if the new audio clip has an <strong>equal or higher</strong> priority than one of the currently playing sounds.</p>
+<p>Thus, the priority allows you to decide which audio clips are more important than others. For example, you might set a footstep sound as low priority, and a door opening as high priority. This can be configured at the folder level in the editor, and also by changing the properties of an individual audio clip (by default they will inherit from their containing folder).</p>
+<p>Sometimes you might not want the priority of the sound to be fixed in the editor -- you might want to decide it at run-time in the script. For this reason the <em>Play</em> command has an optional parameter which allows you to explicitly specify the priority when you play it, for example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">(</span><span class="bu">eAudioPriorityLow</span><span class="op">);</span></span></code></pre></div>
+<p><strong>NOTE:</strong> having only one channel reserved for an audio type and all clips having same priority by default will make any new played sound of that type replace the previous one automatically. This may be useful, for example, to ensure that only one music clip is playing at the same time in your game.</p>
+<p><em>See also:</em> <a href="AudioInScript.html">AGS Audio Channel Troubleshooting</a></p>
+<p><strong>Seeking and changing volume</strong></p>
+<p>So, how do you change a sound once it is playing? Well, there are no methods on the Audio Clip to do this, because you might be playing two copies of the same sound at once, and then AGS wouldn't know which one you wanted to access. That's where <strong>Audio Channels</strong> come to the rescue.</p>
+<p>When you use the Play() command, AGS returns to you an AudioChannel* instance representing the channel on which the sound is playing. You can store this to a global variable and access it later on. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">AudioChannel</span><span class="op">*</span> chan = aExplosion<span class="op">.</span><span class="at">Play</span><span class="op">();</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>chan<span class="op">.</span><span class="at">Volume</span> = <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
+<p>This will start the <em>aExplosion</em> audio clip playing, and then change its volume to <code>20%</code>.</p>
+<p><strong>Using Audio Channels</strong></p>
+<p>Supposing you want to start playing a sound now, and then change its volume or panning later on. How would you do that? Well, you'd need to keep the AudioChannel around, so that you can access it later. The easiest way to do that is to make it a Global Variable; if you open the Global Variables editor, you can create a new AudioChannel* variable (let's call it <em>longWindedSound</em>). Then when you play the sound you set it like this:</p>
+<p><code>longWindedSound = aExplosion.Play();</code></p>
+<p>later on, elsewhere in the script, you can change the volume by doing:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>longWindedSound <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    longWindedSound<span class="op">.</span><span class="at">Volume</span> = <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Note the check for null here -- this makes sure that your game won't crash if the sound isn't playing (it might have finished, or not have been started yet).</p>
+<p><strong>Overall system volume</strong></p>
+<p>There is a property called <a href="System.html#systemvolume"><code>System.Volume</code></a> that controls the overall game volume, which you can use with some sort of volume control slider for the player. All individual sound volumes work within the overall system volume.</p>
+<p><strong>Conclusion</strong></p>
+<p>The new audio system in AGS gives you much more control over your game audio. Please see the following sections for a complete list of the supported commands:</p>
+<p><a href="AudioClip.html">AudioClip reference</a>, <a href="AudioChannel.html">AudioChannel reference</a></p>
+<hr />
+</section>
+<section id="the-audiocache-folder" class="level3">
+<h3><a href="#the-audiocache-folder">The AudioCache folder</a></h3>
+<p>When you import audio files into AGS, you'll probably notice that a folder inside your game folder, called AudioCache, starts to fill up with files. What is it and why is it there?</p>
+<p>Well, when you import audio into AGS, you might be importing it from anywhere -- it could be off your hard drive, but it might also be off a USB stick or a CD. AGS can't rely on the audio files always being there because you might remove the USB stick or delete the files on it.</p>
+<p>Therefore, when you import audio into AGS it makes a copy of the file in the AudioCache folder. AGS also remembers where the file came from, and when you compile your game it will check if the file has been updated in its original location -- if so it will copy the latest version to the AudioCache.</p>
+<p>But if the source file no longer exists, your game will continue to build just fine because AGS has its own copy of the file.</p>
+<p>This allows AGS to stick to one of its core principles, that all the files you need to build your game are within the game's folder. That way, you have complete security in knowing that by backing up your game folder, your game will be safe if the worst happens.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

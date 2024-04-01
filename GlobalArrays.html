@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global Arrays</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-arrays" id="toc-global-arrays">Global Arrays</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-arrays" class="level2">
+<h2><a href="#global-arrays">Global Arrays</a></h2>
+<p>There's a number of global arrays declared for you to access certain game objects. For historical reasons some of them have their length defined as a constant, others have their length provided as a property.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Array</th>
+<th>Length</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Character character[]</td>
+<td><a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a></td>
+<td>All game's Characters</td>
+</tr>
+<tr class="even">
+<td>Dialog dialog[]</td>
+<td><a href="Game.html#gamedialogcount"><code>Game.DialogCount</code></a></td>
+<td>All game's dialogs</td>
+</tr>
+<tr class="odd">
+<td>GUI gui[]</td>
+<td><a href="Game.html#gameguicount"><code>Game.GUICount</code></a></td>
+<td>All game's GUI</td>
+</tr>
+<tr class="even">
+<td>InventoryItem inventory[]</td>
+<td><a href="Game.html#gameinventoryitemcount"><code>Game.InventoryItemCount</code></a></td>
+<td>All game's InventoryItems</td>
+</tr>
+<tr class="odd">
+<td>Hotspot hotspot[]</td>
+<td>AGS_MAX_HOTSPOTS</td>
+<td>Current room's Hotspots</td>
+</tr>
+<tr class="even">
+<td>Object object[]</td>
+<td><a href="Room.html#roomobjectcount"><code>Room.ObjectCount</code></a></td>
+<td>Current room's Room Objects</td>
+</tr>
+<tr class="odd">
+<td>Region region[]</td>
+<td>AGS_MAX_REGIONS</td>
+<td>Current room's Regions</td>
+</tr>
+<tr class="even">
+<td>ColorType palette[]</td>
+<td>PALETTE_SIZE</td>
+<td>Game's palette, for 256-color mode</td>
+</tr>
+</tbody>
+</table>
+<p>Arrays that contain game objects contain them in the order of their respective ID. For example, if you have a character with the script name "cChar", then <code>cChar.ID</code> would tell you the index at which this character is in the <code>character</code> array. This may be useful if you have to store its numeric ID in an integer variable for later use and then find the Character by this number.</p>
+<p>Abstract example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> saved_id<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>saved_id = cChar<span class="op">.</span><span class="at">ID</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">...</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">*</span> found_char = <span class="bu">character</span><span class="op">[</span>saved_id<span class="op">];</span></span></code></pre></div>
+<p>Naturally, when you know the array's size it's possible to iterate over it, for example when you want to perform an action on all of these objects, or when you want to find one of the objects in the game array by certain rules:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Character</span><span class="op">*</span> c = <span class="bu">character</span><span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Character number %d got name %s&quot;</span><span class="op">,</span> i<span class="op">,</span> c<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>IMPORTANT:</strong> there is a known issue that if the game script mentions one of those arrays anywhere, then your game must have at least one object of that type. This is because AGS script cannot have zero-sized arrays and does not declare those that won't have any elements.<br> This is essential to remember if you're using a game template or script module that works with <code>dialog[]</code>, <code>gui[]</code> or <code>inventory[]</code> arrays: to make your game compile in this case you have to create at least one dummy Dialog, GUI or Inventory item (even if you don't use it).</p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

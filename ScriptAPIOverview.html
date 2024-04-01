@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Script API Overview</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#script-api-overview" id="toc-script-api-overview">Script API Overview</a>
+<ul>
+<li><a href="#api-switches" id="toc-api-switches">API switches</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="script-api-overview" class="level2">
+<h2><a href="#script-api-overview">Script API Overview</a></h2>
+<p>AGS provides a scripting system, where engine functionalities are exposed through the AGS Script API, allowing you to write a mini-program, giving you great control over your game. You can read and modify room elements by using the structs <a href="Room.html"><code>Room</code></a>, <a href="Object.html"><code>Object</code></a>, <a href="Hotspot.html"><code>Hotspot</code></a>, <a href="Region.html"><code>Region</code></a>, and the <em>Global functions for Room</em>. If you need your character to <em>say</em> things, <em>receive or lose an inventory item</em>, or <em>walk</em> somewhere, you can find these in the Character struct. The AGS camera system is available through the use of <a href="Viewport.html"><code>Viewport</code></a>, <a href="Camera.html"><code>Camera</code></a>, and <a href="Screen.html"><code>Screen</code></a>. You can also draw directly with <a href="DynamicSprite.html">Dynamic Sprites</a>, <a href="DrawingSurface.html">Drawing Surface</a> and use <a href="Overlay.html">Overlays</a> to have these sprites shown on screen. Browse around the <a href="Scripting.html">API topics</a>, as there's much more available to you.</p>
+<p><strong>NOTE:</strong> API stands for "Application Programming Interface". This is a common term, it defines all the means a program (such as the AGS engine) provides for the user to control it programmatically.</p>
+<section id="api-switches" class="level3">
+<h3><a href="#api-switches">API switches</a></h3>
+<p>When a new version of AGS is released and comes with new API entries for additional functionality these changes can possibly cause conflicts with previously made scripts. Sometimes a function gets deprecated (outdated) and disabled, or replaced by a different and better one. Sometimes a new function is added that uses a descriptive name which you already used in your script, which can obviously lead to conflicts. Usually it's a good idea to adjust your script and resolve these problems by hand. But if you do not want to or do not have the time to do so just yet - there are API switches.</p>
+<p>In a nutshell, API switches let you control which parts of the API are active in your game.</p>
+<p>In the editor the API switches are found in the <a href="GeneralSettings.html">General Settings</a>, in the "Backwards Compatibility" category. The relevant settings are:</p>
+<ul>
+<li><strong>Script API version</strong> - defines the <em>topmost level</em> of the API. Default is the "Highest" level, which uses the topmost supported API by this version of AGS. Setting it to any version will lock the API at that level, disabling any additions (functions and properties) that were introduced to AGS Script later.</li>
+<li><strong>Script compatibility level</strong> - defines the <em>lowest level</em> of the API. Default is the "Highest" level, which again uses only functionality officially supported by the current version of AGS. Setting it to a lower version enables older functions that now are deprecated.</li>
+<li><strong>Enforce post-2.62 scripting</strong> - this is on by default, turning this off brings back a huge number of obsolete global functions from the era before AGS 2.7. Most of these functions were replaced by the introduction of <a href="ScriptKeywords.html#struct">object structs</a> and properties. See <a href="UpgradingTo27.html">Upgrading to AGS 2.7</a> for more information.</li>
+<li><strong>Enforce new style strings</strong> - this is on by default, turning this off reactivates old-style string functions and also the deprecated <code>string</code> type (the contemporary type is <code>String</code> with <a href="String.html">capital S</a>) which was used differently and had a 200 character limit.</li>
+<li><strong>Enforce new-style audio scripting</strong> - this is on by default, turning this off reactivates the old-style audio functions that are deprecated since AGS 3.2. These functions rely on passing clip numbers instead of using their script names (which can be chosen freely and are based on the filename), and support strictly 1 channel per audio type. See <a href="UpgradeTo32.html">Upgrading to AGS 3.2</a> for more information.</li>
+<li><strong>Use old-style custom dialog options API</strong> - this is off by default, and enabling this switches to pre-AGS 3.4.0 custom dialog option callbacks. See <a href="UpgradeTo34.html">Upgrading to AGS 3.4</a> for more information.</li>
+<li><strong>Use old-style keyboard handling</strong> - this is off by default, and enabling this switches to old-style key input handling style. See <a href="UpgradeTo36.html#changes-to-key-input-handling">Upgrading to AGS 3.6</a> for more information.</li>
+</ul>
+<p>Each of the above switches defines a macro or a number of macros which are then used during script compilation and help detect the state of these switches. You can also use these in your script, for example if you want to provide two or more variants of code for different API versions. For more information on this and actual script examples see <a href="Constants.html">Constants</a>.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

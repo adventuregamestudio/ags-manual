@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Constants</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#constants" id="toc-constants">Constants</a>
+<ul>
+<li><a href="#script-api-levels" id="toc-script-api-levels">Script API levels</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="constants" class="level2">
+<h2><a href="#constants">Constants</a></h2>
+<p>The following predefined macros and constants are available in your scripts:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DEBUG</td>
+<td>Defined if the game is being compiled in debug mode, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>SCRIPT_API_vXXX</td>
+<td>Defined if corresponding version of script API is enabled (see the <a href="Constants.html#script-api-levels">list</a>)</td>
+</tr>
+<tr class="odd">
+<td>SCRIPT_COMPAT_vXXX</td>
+<td>Defined if certain compatibility level is enabled (see the <a href="Constants.html#script-api-levels">list</a>)</td>
+</tr>
+<tr class="even">
+<td>STRICT</td>
+<td>Defined if "Enforce Object Based Scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>STRICT_STRINGS</td>
+<td>Defined if "Enforce new-style strings" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>STRICT_AUDIO</td>
+<td>Defined if "Enforce new-style audio scripting" is enabled, not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>LRPRECEDENCE</td>
+<td>Defined if "Left-to-right operator precedence" is enabled, not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>AGS_NEW_STRINGS</td>
+<td>Defined if AGS 2.71 or later (with new-String support), not defined otherwise</td>
+</tr>
+<tr class="odd">
+<td>NEW_DIALOGOPTS_API</td>
+<td>Defined if "Use old-style dialog options rendering API" is disabled</td>
+</tr>
+<tr class="even">
+<td>NEW_KEYINPUT_API</td>
+<td>Defined if "Use old-style key handling" is disabled</td>
+</tr>
+<tr class="odd">
+<td>AGS_SUPPORTS_IFVER</td>
+<td>Defined if AGS 2.72 or later (with <code>#ifver</code> support), not defined otherwise</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_INV_ITEMS</td>
+<td>The maximum number of inventory items</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_OBJECTS</td>
+<td>The maximum objects per room</td>
+</tr>
+<tr class="even">
+<td>AGS_MAX_HOTSPOTS</td>
+<td>The maximum hotspots per room</td>
+</tr>
+<tr class="odd">
+<td>AGS_MAX_REGIONS</td>
+<td>The maximum regions per room</td>
+</tr>
+<tr class="even">
+<td>MAX_LISTBOX_SAVED_GAMES</td>
+<td>Limit of save files filled into ListBox when using <a href="ListBox.html#listboxfillsavegamelist"><code>FillSaveGameList</code></a></td>
+</tr>
+<tr class="odd">
+<td>PALETTE_SIZE</td>
+<td>Size of game palette, for 256-color mode</td>
+</tr>
+<tr class="even">
+<td>SCR_NO_VALUE</td>
+<td>Used as a parameter by some functions to specify "no value" or "use default value"</td>
+</tr>
+</tbody>
+</table>
+<p>You can check for whether a macro is defined or not by using the <code>#ifdef</code> and <code>#ifndef</code> keywords:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef STRICT</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// only compile the MoveCharacter command if not using object-based scripting</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>MoveCharacter<span class="op">(</span>EGO<span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef DEBUG</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">// only display this when the game is compiled in debug mode</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Debugging information&quot;</span><span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
+<p>There is also an <code>#error</code> directive you can use to stop the script compiling:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifndef AGS_NEW_STRINGS</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#error This script requires at least AGS 2.71</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
+<p>If you'd like to know if a new API is available, test for the corresponding SCRIPT_API_vXXX constant:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef SCRIPT_API_v360</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// can use new code added in 3.6.0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
+<p>If on contrary you need to know if a deprecated API is enabled, test for the corresponding SCRIPT_COMPAT_vXXX constant:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#ifdef SCRIPT_COMPAT_v320</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">// can use old code, deprecated after 3.2.0</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#endif</span></span></code></pre></div>
+<p>The other constants <code>AGS_MAX_*</code> are useful if you are writing some script code that you want to be portable to different versions of AGS, and to pick up the limits from the user's AGS version. For example, if you wanted to store some extra information on all the inventory items, you could do:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> invWeights<span class="op">[</span><span class="cn">AGS_MAX_INV_ITEMS</span><span class="op">];</span></span></code></pre></div>
+<p>To get the actual number of things in the game rather than the AGS limit, use the <a href="Game.html#gamecharactercount"><code>Game.CharacterCount</code></a>-style properties.</p>
+<section id="script-api-levels" class="level3">
+<h3><a href="#script-api-levels">Script API levels</a></h3>
+<p>Following is the list of supported values for SCRIPT_API_vXXX and SCRIPT_COMPAT_vXXX. Normally they are called after the main 3-digit version (e.g. SCRIPT_API_v350), but some refer to a later update (e.g. SCRIPT_API_v3507). Some versions of AGS do not have any distinct API level, because there were no additions or changes to script API in them.</p>
+<table>
+<thead>
+<tr class="header">
+<th>API version</th>
+<th>API level</th>
+<th>Compatibility level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3.3.0</td>
+<td>SCRIPT_API_v330</td>
+<td>SCRIPT_COMPAT_v330</td>
+</tr>
+<tr class="even">
+<td>3.3.4</td>
+<td>SCRIPT_API_v334</td>
+<td>SCRIPT_COMPAT_v334</td>
+</tr>
+<tr class="odd">
+<td>3.3.5</td>
+<td>SCRIPT_API_v335</td>
+<td>SCRIPT_COMPAT_v335</td>
+</tr>
+<tr class="even">
+<td>3.4.0</td>
+<td>SCRIPT_API_v340</td>
+<td>SCRIPT_COMPAT_v340</td>
+</tr>
+<tr class="odd">
+<td>3.4.1</td>
+<td>SCRIPT_API_v341</td>
+<td>SCRIPT_COMPAT_v341</td>
+</tr>
+<tr class="even">
+<td>3.5.0 Alpha</td>
+<td>SCRIPT_API_v350</td>
+<td>SCRIPT_COMPAT_v350</td>
+</tr>
+<tr class="odd">
+<td>3.5.0 Final</td>
+<td>SCRIPT_API_v3507</td>
+<td>SCRIPT_COMPAT_v3507</td>
+</tr>
+<tr class="even">
+<td>3.5.1</td>
+<td>SCRIPT_API_v351</td>
+<td>SCRIPT_COMPAT_v351</td>
+</tr>
+<tr class="odd">
+<td>3.6.0 Alpha</td>
+<td>SCRIPT_API_v360</td>
+<td>SCRIPT_COMPAT_v360</td>
+</tr>
+<tr class="even">
+<td>3.6.0 Final</td>
+<td>SCRIPT_API_v36026</td>
+<td>SCRIPT_COMPAT_v36026</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

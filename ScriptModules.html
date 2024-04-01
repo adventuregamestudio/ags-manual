@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Managing modules</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#script-modules" id="toc-script-modules">Script Modules</a>
+<ul>
+<li><a href="#managing-modules" id="toc-managing-modules">Managing modules</a></li>
+<li><a href="#writing-script-modules" id="toc-writing-script-modules">Writing Script Modules</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="script-modules" class="level1">
+<h1>Script Modules</h1>
+<p>AGS script modules are a way for AGS script code to be reused and shared. They are written in AGS script code entirely, and thus are independent of the platform on which a game is run.</p>
+<p>A Script Module is a pair of an AGS Script file and an AGS Script Header file, with an additional metadata.</p>
+<section id="managing-modules" class="level2">
+<h2><a href="#managing-modules">Managing modules</a></h2>
+<p>You can manage them by expanding the Script entry in the tree of Explore Project panel.</p>
+<p>You can right click on Scripts to show options:</p>
+<ul>
+<li><strong>New script</strong>
+<ul>
+<li>create a new module from scratch</li>
+</ul></li>
+<li><strong>Import script...</strong>
+<ul>
+<li>load a module from a <code>.scm</code> file that you have downloaded</li>
+</ul></li>
+<li><strong>New folder</strong>
+<ul>
+<li>creates folder, which can be used to organize script modules in groups</li>
+</ul></li>
+</ul>
+<p>Right clicking on a folder of Script Modules should give the above options and additionally:</p>
+<ul>
+<li><strong>Move up</strong>
+<ul>
+<li>The order of modules can be important, as it reflects the order in which they are compiled and run, so this option and the next let you change their ordering.</li>
+</ul></li>
+<li><strong>Move down</strong>
+<ul>
+<li>moves the script module up in the order</li>
+</ul></li>
+</ul>
+<p>Right clicking the module should give you the options:</p>
+<ul>
+<li><strong>Rename</strong>
+<ul>
+<li>Give the module another name</li>
+</ul></li>
+<li><strong>Delete</strong>
+<ul>
+<li>Removes an existing module from the game</li>
+</ul></li>
+<li><strong>Export...</strong>
+<ul>
+<li>save your own module as a <code>.scm</code> file that you can share with others</li>
+</ul></li>
+</ul>
+</section>
+<section id="writing-script-modules" class="level2">
+<h2><a href="#writing-script-modules">Writing Script Modules</a></h2>
+<p>When you click a module directly, you can use the properties panel to enter a brief description of the module, a version number and authorship details in the module manager when you create a module. Double clicking will expand and revel both the script and the header files.</p>
+<p>As when writing scripts, you need to reference a function that was previously declared above, script modules should be ordered so that modules below only reference functions that are import declared in the headers of the modules above them in the Script listing in the Explore Project.</p>
+<p>You can find useful script modules from others in the <a href="https://www.adventuregamestudio.co.uk/forums/index.php?board=10.0">Modules &amp; Plugins board</a> in the ags forums.</p>
+<p><em>See also:</em> <a href="MultipleScripts.html">More on handling multiple scripts</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

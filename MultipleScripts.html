@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Multiple Scripts</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#multiple-scripts" id="toc-multiple-scripts">Multiple Scripts</a></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="multiple-scripts" class="level2">
+<h2><a href="#multiple-scripts">Multiple Scripts</a></h2>
+<p>If you're working on a fairly large game, you'll find that your global script can quickly become rather large and unwieldy. AGS allows you to create extra scripts (also known as Script Modules) in order to split up your code and easily import scripts written by other people.</p>
+<p>The main global script still has to contain all the event functions (Look At Character scripts, Interact With Inventory scripts and so forth) and all the GUI handlers (btnSave_Click, etc).</p>
+<p>But if you have any custom functions then you can put them in a separate script in order to divide up your code. Scripts have the added advantage that they can be easily exported and imported, if you want to share some of your code with other people, or even just move it from one game to another.</p>
+<p>The scripts for the game can be seen under the "Scripts" node in the project tree. Each script has its own header, which is where you place the <a href="ScriptKeywords.html#import"><code>import</code></a> definitions for that script to allow the rest of your game to access its functionality.</p>
+<p>The order of the scripts is important. A script can only use functionality from other scripts that come before it in the list, so the Move Up and Move Down options allow you to adjust the order. The global script is always at the bottom so that it can access all other scripts, and room scripts are automatically provided with access to all the scripts.</p>
+<p>As an example, suppose you want to have a special <em>AddNumbers</em> function in a module. You'd create a new script, then put this in its header file (.ASH):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">function</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">);</span></span></code></pre></div>
+<p>Then, in the script file (.ASC) you could put:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">AddNumbers</span><span class="op">(</span><span class="dt">int</span> a<span class="op">,</span> <span class="dt">int</span> b<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>That's the basic principle behind using multiple scripts!</p>
+<p><strong>Special functions</strong></p>
+<p>Can extra scripts use special functions like <code>game_start</code> and <code>repeatedly_execute</code>? Well, yes and no. They can contain the following functions, and they will be called at the appropriate times just before the global script's function is:</p>
+<ul>
+<li>function game_start()</li>
+<li>function on_event(EventType event, int data)</li>
+<li>function on_key_press(eKeyCode keycode)</li>
+<li>function on_mouse_click(MouseButton button)</li>
+<li>function repeatedly_execute()</li>
+<li>function repeatedly_execute_always()</li>
+<li>function late_repeatedly_execute_always()</li>
+</ul>
+<p>All other special functions, such as <code>dialog_request</code>, will only be called in the Global Script, even if they exist in another script. If you need other scripts to handle any of this functionality, you can simply create a custom function in the script and then call it from the global script.</p>
+<p>The <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> command is supported for on_key_press, on_mouse_click and on_event. Calling it prevents the rest of the scripts (including the global script) from being called.</p>
+<p><em>See also:</em> <a href="ImportingFunctionsAndVariables.html">Importing functions and variables in other scripts</a></p>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

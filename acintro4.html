@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting Started with AGS - Part 4</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#getting-started-with-ags---part-4" id="toc-getting-started-with-ags---part-4">Getting Started with AGS - Part 4</a>
+<ul>
+<li><a href="#objects" id="toc-objects">Objects</a></li>
+<li><a href="#inventory" id="toc-inventory">Inventory</a></li>
+<li><a href="#testing-your-work" id="toc-testing-your-work">Testing Your Work</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="getting-started-with-ags---part-4" class="level2">
+<h2><a href="#getting-started-with-ags---part-4">Getting Started with AGS - Part 4</a></h2>
+<section id="objects" class="level3">
+<h3><a href="#objects">Objects</a></h3>
+<p>Objects are items on the screen which, unlike hotspots, can move, change, and disappear. You use objects for things in the room that the player can take (since they can disappear), and for things which need to animate.</p>
+<p>So, let's revisit the age-old "key" inventory item. Let's say we will have a locked door on another screen, and the player can pick up a key from this room to open the door with. Please don't use this puzzle when you're making a proper game, it's been done far too many times. ;-)</p>
+<section id="import-a-sprite" class="level4">
+<h4>Import a Sprite</h4>
+<p>For this tutorial we will need to import a sprite of a key to be used later as an object on the background. Right-click on the following key image, save it to your computer, and we will import it into the Sprite Manager of the AGS Editor soon.</p>
+<ul>
+<li><img src="images/acintro4_01.png" alt="The image of a key to be used" /></li>
+</ul>
+<p>Within the AGS Editor, choose "Sprites" from the Project Tree, in the upper-right of the editor. Making sure you have "Main" selected in the left-side tree, you should have a screen that look like this:v</p>
+<p><img src="images/acintro4_02.png" alt="A view of the Sprite viewer" /></p>
+<p>Right-click to the right of the "blue cup" image # 0, and you should get a context window drop-down of actions. Choose <strong>"Import new sprite(s) from files..."</strong>. Navigate to where you saved the key image on your computer and select that image file. Next, you will see the "Import Sprite" window. The window should look like this:</p>
+<p><img src="images/acintro4_03.png" alt="Importing a sprite view" /></p>
+<p>Go ahead and select the "Import" button. You will now be able to see your new key graphic next to the blue cup graphic. It is now ready to be chosen as a graphic within your game.</p>
+<p>Now that we've got our key sprite ready to be used, let's get back to discussing Objects.</p>
+<p>From the same Room Parts drop-down list as we chose "Walkable areas" and "Hotspots" earlier, let's return there and select <strong>"Objects"</strong>. Now, to add an object to the room, simply right-click on the background where you want to add it, and choose <strong>"Place New Object Here"</strong> from the menu which appears.</p>
+<p>As if by magic, a blue cup appears! This is the default sprite in AGS, and will appear anywhere that you haven't selected a proper image yet. Notice that the Properties Grid has changed to display the details of this new object -- one of which is a property called Image. Select this property, and a "..." button appears.</p>
+<p><img src="images/acintro4_04.png" alt="Adding an object to the room" /></p>
+<p>Click the "..." button, and you'll be presented with the <em>Sprite Manager</em>. We'll explain this in even more detail later, but basically it is the focal point in AGS where you import and export all your graphics except for room backgrounds. For this tutorial, ensure that the <strong>"Main"</strong> tree choice in the left-side tree is selected, and you should see your small key picture that we imported earlier. Double-click that <strong>"Key"</strong> image.</p>
+<p><img src="images/acintro4_05.png" alt="Selecting the Key in the Sprite Manager" /></p>
+<p>You should now see that the blue cup graphic has changed into a key. You can move it around by left-clicking and dragging the sprite within the background image. Place it somewhere sensible on your screen. I placed it further to the right of the walkable area.</p>
+<p>The next thing we should do is give the object a name. Similar to what we did with hotspots, since the object will be referred to in the script it will need a name that we can call it by. Scroll down the Properties Grid and find the <strong>"Name"</strong> property, and set it to something sensible. The convention in AGS is to have object names start with an "o", for example <em>oKey</em>.</p>
+<p><img src="images/acintro4_06.png" alt="I&#39;ve placed the key cunningly in the middle of the walkway ;-)" /></p>
+<p>Before we enable the key to be taken by the player, let me quickly go over a couple of properties in the Properties Grid:</p>
+<ul>
+<li><strong>Baseline</strong> - normally, the baseline for an object is set to the bottom of the object graphic (baselines are used to calculate which items on the screen are drawn in front and which are drawn at the back). However, in some cases you might want to override this.<br> What you'll notice with our key is that if the player walks just behind it, the key will appear in front of his feet. This is not what we want, since the key is supposed to be lying flat on the ground. To correct this, change the Baseline property to 5 (this means that it will be drawn behind everything that has a baseline lower down the screen than Y=5). This will make sure that the player is always drawn in front of the key.</li>
+<li><strong>Visible</strong> - this toggles whether the object is switched on at the beginning of the game or not. For our key we want it to be True, but sometimes you'll have objects which you don't want the player to see until they've done something else in the game.</li>
+</ul>
+<p><strong>NOTE:</strong> Having a large number of large objects on-screen can potentially cause the game to slow down. AGS imposes a limit of 40 objects per room.</p>
+<p>Right, now back to the pressing matter at hand - letting the player pick up the key.</p>
+</section>
+</section>
+<section id="inventory" class="level3">
+<h3><a href="#inventory">Inventory</a></h3>
+<p>Now wait, there's one more step we need to do first. At the moment we could let the player pick up the key, but then what would happen to it? Where would it go? We need to define the player's <em>inventory</em>.</p>
+<p>Expand the <strong>"Inventory Items"</strong> node in the upper-right Project Tree. You'll see that there are already two items defined - "iBlueCup" and "iKey". These are just defaults to help you get started. Double click "2: iKey", and you should see a window open with a slightly different key image than the key image you imported earlier. This inventory item "key" has already been setup for you with a different image that looks better on an inventory screen. This is because an object for a background can appear of a different size and image than when it is shown in the player's inventory (if you want it that way). Remember, objects are separate entities than inventory items.</p>
+<ul>
+<li>For this tutorial, update the field in the Properties Grid of <strong>"PlayerStartsWithItem"</strong> to be <strong>"False"</strong> for this iKey inventory object!</li>
+</ul>
+<p><img src="images/acintro4_07.png" alt="Inventory Screen of Key" /></p>
+<p>To view where this inventory image of a key is being linked to, find the <strong>"Image"</strong> property in the Properties Grid, select it, and then click the <strong>"..."</strong> button. The sprite manager re-appears, and you will find the sprite to represent the inventory object in the larger format.</p>
+<p><img src="images/acintro4_08.png" alt="Sprite manager view of the larger key" /></p>
+<p>OK, there are a few other settings on this screen, but let's return to our objective - letting the player pick up the key. Remember that the script name is <em>iKey</em>, as we'll need it later.</p>
+<section id="back-to-the-events" class="level4">
+<h4>Back to the events</h4>
+<p>Go back to the <strong>Objects</strong> pane of the "Room" tab, ensure that you still have the "key" object selected, and then click on, yes you've guessed it, the <strong>Events</strong> button. The events here are very similar to the ones we had for the hotspot:</p>
+<p><img src="images/acintro4_09.png" alt="The events list for the object" /></p>
+<p>Notice there are two obvious possibilities here: "Interact object" and "Pick up object". We actually want to use the "Interact object" event, because we are using the default Sierra-style interface which doesn't have a specific Pick Up mode. The "Pick up", "Usermode1" and "Usermode2" events are useful if you go for a LucasArts-style interface which has more verb types available to the player.</p>
+<p>So, select <strong>"Interact object"</strong> and click the <strong>"..."</strong> button. When the player picks up the key we want two things to happen - firstly, the object on-screen needs to disappear, and secondly, the inventory item needs to be added to the player's inventory.</p>
+<p>Here's my script solution. As an added bonus, I've also given the player 5 points for their trouble, but you don't need to have that third command:</p>
+<p><img src="images/acintro4_10.png" alt="Script for taking the key" /></p>
+<p>Note that our solution is not perfect - the player can click the hand icon on the key from anywhere in the room and it will disappear. We are also not displaying a message informing the player of what happened. But, the functionality is there, and this will do fine for now.</p>
+</section>
+</section>
+<section id="testing-your-work" class="level3">
+<h3><a href="#testing-your-work">Testing Your Work</a></h3>
+<p>OK, so we now have a fully-working first room. Test the game as before (F5) , and try it out. View your inventory first, and you should only have a "Blue Cup". Once the player has taken the key, call up their inventory and you should see the large key picture there.</p>
+<p>Next Chapter: <a href="acintro5.html">Part 5 - Managing Inventory</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

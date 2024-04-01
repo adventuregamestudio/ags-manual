@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Scripting Tutorial - Part 1</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#scripting-tutorial---part-1" id="toc-scripting-tutorial---part-1">Scripting Tutorial - Part 1</a>
+<ul>
+<li><a href="#the-basics" id="toc-the-basics">The Basics</a></li>
+<li><a href="#commands-explained" id="toc-commands-explained">Commands Explained</a></li>
+<li><a href="#instances" id="toc-instances">Instances</a></li>
+<li><a href="#command-sequences" id="toc-command-sequences">Command Sequences</a></li>
+<li><a href="#recap" id="toc-recap">Recap</a></li>
+<li><a href="#variables" id="toc-variables">Variables</a></li>
+<li><a href="#functions-that-return-a-value" id="toc-functions-that-return-a-value">Functions that return a value</a></li>
+<li><a href="#common-shortcuts" id="toc-common-shortcuts">Common Shortcuts</a></li>
+<li><a href="#summary" id="toc-summary">Summary</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="scripting-tutorial---part-1" class="level2">
+<h2><a href="#scripting-tutorial---part-1">Scripting Tutorial - Part 1</a></h2>
+<p>In AGS, all the interactivity in the game is handled using scripts. They're an essential part of game-making, so it's important that we go through how to use them.</p>
+<section id="the-basics" class="level3">
+<h3><a href="#the-basics">The Basics</a></h3>
+<p>Right, we'll start off by doing something very simple - displaying a message to the player when they click the <strong>"Look"</strong> icon on a hotspot. Assuming that you've done the main <a href="acintro1.html">AGS Tutorial</a>, you should already have created a script that looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Let's look at this in detail. "<em>function</em>" tells AGS that this is a block of script code that will run when an event occurs. "<em>hSignHome_Look</em>" is the name of that event. The empty parentheses <em>( )</em> tell AGS that this function takes no parameters (we'll come to them later). Finally, the curly brackets <em>{</em> and <em>}</em> define where this block of code starts and ends. Anything that you put between the { and the } will be run when this event is triggered.</p>
+<p><em>Display</em> is the name of the built-in command that we're going to run. Then, in parenthesis we put the <em>parameters</em> to that command. Parameters are extra pieces of information that the command needs to run -- in this case, it needs the message that we want to display.</p>
+<p>Finally, we end the line with a semicolon. You use semicolons to tell AGS that it's the end of the command. Anything that you put after the semicolon becomes a separate command, and you'll usually do this on a new line.</p>
+<p>It's important to mention here that lines beginning with a double-slash <code>//</code> are <strong>comments</strong> - AGS will ignore them, they are just there to help you remember what your script is doing. You can add comments to your script simply by starting the line with the <code>//</code> symbol.</p>
+</section>
+<section id="commands-explained" class="level3">
+<h3><a href="#commands-explained">Commands Explained</a></h3>
+<p>Each different command you can use in the script is also called a <strong>function</strong>. All the available commands are listed in the Scripting part of the manual, which also tells you how to use them.</p>
+<p>We want to display a message to the player, so we used the <em>Display</em> function. Looking this up in the manual gives us the definition:</p>
+<pre><code>Display (string message, ...)
+  Displays a message to the screen. It will be displayed in
+  the standard message box, and centered in the middle of
+  the screen. (description continues...)</code></pre>
+<p>The key point here is the part of the first line inside the parentheses. This is called the <strong>parameter list</strong> and defines what parameters you give to the function. A parameter is some information that the function uses to decide what to do.</p>
+<p>Each parameter is listed, separated by commas, and different between functions. They can be <em>one</em> of the following:</p>
+<ul>
+<li><p>string <em>name</em> <br>This parameter is a string, i.e. a piece of text. This means that for this parameter you supply text, surrounded by double-quotes. For example, <code>"My text"</code>.<br><em>name</em> is the name by which the parameter is referred to in the function description, it is not relevant for writing your script.</p></li>
+<li><p>int <em>name</em> <br>This parameter is an integer, i.e. a numerical value. This means that for this parameter you supply a number, for example <code>65</code>.</p></li>
+<li><p>CHARID <br>This parameter is a character script name. You need to supply the script name of one of the game characters.</p></li>
+<li><p>InventoryItem <br>This parameter is an inventory item. You need to supply the inventory item you want to use.</p></li>
+<li><p>... <br>This parameter is optional, and can be of any type. You do not have to supply it at all, but if you do the function description will tell you what type of value to use.</p></li>
+</ul>
+<p>So, we know that our <em>Display</em> function needs a string and an optional parameter. The description goes on to explain that the optional parameter is used for advanced things like displaying variable values, so we can ignore it for now.</p>
+<p>To make our script call the function we write its name, then the parameters inside brackets, and finally a semicolon. This is very important, as without the semicolon the script won't compile. Also, note that we DO NOT write the parameter type (e.g. "string" or "int"). So, we can add this line to our script:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>This is what we already did in the main tutorial, but having examined it in more detail it should now make more sense why we've done it this way.</p>
+</section>
+<section id="instances" class="level3">
+<h3><a href="#instances">Instances</a></h3>
+<p>The AGS script language is object-based. What this means is that many commands are operated <strong>on</strong> something in the game. You should not confuse <em>object-based</em> with room <em>objects</em>, they are entirely different things. There is a script <strong>instance</strong> for each character in the game, each object in the room, each hotspot, and so on.</p>
+<p>The name by which you access an instance in the script is given in the editor as the item's <em>Script Name</em>. For example, assuming our main character's script name is cEgo, then his instance name will be <code>cEgo</code>.</p>
+<p>To perform a command on something, you type its Script Name followed by a dot, followed by the command name. When you type the dot, the AGS Editor will automatically pop up a list of the available commands:</p>
+<p><img src="images/tut3.gif" alt="The script editor&#39;s auto-complete" /></p>
+<p>You then choose the appropriate command, and place any parameters in brackets, like we did above with the Display command. For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iKey<span class="op">);</span></span></code></pre></div>
+<p>This will add the Key to the EGO character's inventory. If you look up <em>AddInventory</em> in the manual, you'll find it takes two parameters, an <em>InventoryItem</em> and an <em>optional int</em>. The <em>InventoryItem</em> means that you need to supply the Script Name of the inventory item; this is something you can set in the script editor.</p>
+<p>The <em>optional int</em> means that there is an extra parameter which you can supply if you want to, but you don't have to. In this case it allows you to specify where in the character's inventory list the new item should be added, but we're not concerned with that right now.</p>
+<p>As well as all the individual character instances such as <em>cEgo</em>, there is a special instance called <em>player</em>. This always corresponds to the current player character, so if you just want to perform a command on the player character (especially useful in games where the player can control different characters) then you can use the <em>player</em> instance to do so.</p>
+</section>
+<section id="command-sequences" class="level3">
+<h3><a href="#command-sequences">Command Sequences</a></h3>
+<p>Suppose we want the player to be given a pink poster when they look at the hotspot, as well as displaying the message. Assuming we have an inventory item set up to be the poster with the Script Name of <em>iPoster</em>, the script enables us to easily make this happen.</p>
+<p>Our final script will look like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iPoster<span class="op">);</span></span></code></pre></div>
+<p>Note that the script system is case sensitive, so writing for example <code>addinventory(iposter);</code> will not work.</p>
+<p>The script commands are processed from top to bottom in the order that you write them, so writing something like:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Why did the chicken cross the road?&quot;</span><span class="op">);</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Because he was bored.&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will mean that the player gets the two messages in the order you specified.</p>
+</section>
+<section id="recap" class="level3">
+<h3><a href="#recap">Recap</a></h3>
+<p>So, did you remember these vital points:</p>
+<ul>
+<li>Strings are surrounded by double-quote marks.</li>
+<li>Semicolon after the closing bracket on each line.</li>
+<li>The script is case sensitive.</li>
+<li>To use an instance-based command, type the Script Name followed by a dot, followed by the command name.</li>
+<li>The <em>player</em> instance corresponds to the current player character.</li>
+</ul>
+</section>
+<section id="variables" class="level3">
+<h3><a href="#variables">Variables</a></h3>
+<p>Scripts in AGS can use variables. A variable is an area of memory storage that contains a value, which you can check and change with your script.</p>
+<p>To declare a variable, you write the variable type, followed by the variable name, then a semicolon. The type is either "int", "String" (note the capital S) or "float", and the name can be anything you like - it is what you will use to refer to it later. For example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> myCounter<span class="op">;</span></span></code></pre></div>
+<p>The variable name can only contain letters A-Z, a-z and the underscore _ character.</p>
+<p>You need to declare a variable before you can use it, so that the compiler can spot any mistakes and knows what type of things you can store in it.</p>
+<p>Initially, your variable will have the value 0. Optionally, you can set the starting value within the declaration, like this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> myCounter = <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<p>which would set it to contain the value 5 initially instead.</p>
+<p><strong>Variable Scope</strong></p>
+<p>An unfortunate side effect of the script's attempt to emulate the 'C' language is variable scope. In short, this means that you need to place your variable definitions OUTSIDE all the event handlers, otherwise their values will keep getting reset.</p>
+<p>So, to declare a variable for use by one of the room interaction scripts, you need to place the definition <strong>above</strong> the main function body. So, it should look something like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// room script file</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> myCounter<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">//...(other event scripts)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">//...(rest of file follows)</span></span></code></pre></div>
+<p>No script commands can be used outside functions (or AGS wouldn't know when to run them!) - only variable declarations are allowed there.</p>
+<p><strong>Changing variables</strong></p>
+<p>You can change the value of a variable very easily in the script - simply write the variable name, the equals sign, then the new value, followed by the semicolon. So:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>myCounter = <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
+<p>will change the value of our variable to be 10.</p>
+<p>You can add to and subtract from a variable using the += and -= operators. So, to add 3 to the current value of myCounter, do the following:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>myCounter <span class="op">+</span>= <span class="dv">3</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Checking variables</strong></p>
+<p>Obviously we need a way to find out what value our variable contains, otherwise it's useless. We do this using conditional statements, called <em>if</em> statements. An if statement looks like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">5</span><span class="op">)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    myCounter = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>what this means is that if <em>myCounter</em> contains the value 5, then the script inside the { } brackets will be run (which in this case changes the value of <em>myCounter</em> to zero).<br> If <em>myCounter</em> does not equal 5, the script inside the brackets is not run and execution carries on from after the } .</p>
+<p><strong>Note the double-equals in the if statement</strong>. In an "if" statement, you ALWAYS use the double-equals operator, which compares the two values. If you used a single equals it would set the value instead, which will yield some strange results.</p>
+<p>The <code>==</code> is called an operator, because it performs an operation on the two values. The following basic operators are available:</p>
+<table>
+<thead>
+<tr class="header">
+<th>operator</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>==</td>
+<td>compares the two values, and proceeds if they are the same</td>
+</tr>
+<tr class="even">
+<td>!=</td>
+<td>compares the two values, and proceeds if they are <strong>not</strong> the same</td>
+</tr>
+<tr class="odd">
+<td>&lt;</td>
+<td>compares the two values, and proceeds if the left hand value is less than the right hand value</td>
+</tr>
+<tr class="even">
+<td>&gt;</td>
+<td>compares the two values, and proceeds if the left hand value is bigger than the right hand value</td>
+</tr>
+<tr class="odd">
+<td>&lt;=</td>
+<td>proceeds if the left hand value is equal to or less than the right hand value</td>
+</tr>
+<tr class="even">
+<td>&gt;=</td>
+<td>proceeds if the left hand value is equal to or bigger than the right hand value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Putting it into practice</strong></p>
+<p>Now let's do something useful with our variable. Suppose that we want to have different messages every time the player looks at the hotspot. So, the first time they look it will describe it, then if they look again they get a different message describing something in more detail. Our code will want to look something like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// room script file</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> myCounter = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">hSignHome_Look</span><span class="op">()</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The sign says &#39;EWOH&#39;. I have no idea what that could mean.&quot;</span><span class="op">);</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Oh it says &#39;Home&#39;.&quot;</span><span class="op">);</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&gt;=</span><span class="dv">2</span><span class="op">)</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;I guess that way leads towards my home.&quot;</span><span class="op">);</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        myCounter <span class="op">+</span>= <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>myCounter</em> starts off set to 0, so the first time this script is called it will run the first Display command, but not the others. Then, since 0 is less than 3, it will increase <em>myCounter</em> by 1, and since 0+1 = 1 it now holds the value 1.<br> Once the player has seen all the messages (<em>myCounter</em> == 2), it no longer increases the value so if they click again they will keep getting the final message.</p>
+<p><strong>Global variables made easy</strong></p>
+<p>Sometimes, you may want to set a variable value that can be shared between a room script and your global script. There are two ways to do this -- you can export the variable from the global script and then import it in the script header, but that's a bit advanced for this tutorial (see the article about <a href="ImportingFunctionsAndVariables.html#exporting-and-importing-a-variable">importing and exporting variables</a> for that). A simpler way is to use <a href="GlobalVariables.html">Global Variables pane</a> in the Editor, where you may add variables of any built-in types.</p>
+</section>
+<section id="functions-that-return-a-value" class="level3">
+<h3><a href="#functions-that-return-a-value">Functions that return a value</a></h3>
+<p>When reading function descriptions in the manual, you will notice that some of them say they return a value. For example,</p>
+<pre><code>IsGamePaused ()
+  Returns 1 if the game is currently paused, or 0 otherwise.</code></pre>
+<p>You use these much as you would use a literal value such as "9". For example, you can do:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Put the return value into our variable</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>myCounter = <span class="bu">IsGamePaused</span><span class="op">();</span></span></code></pre></div>
+<p>(OR)</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Test the return value directly</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    myCounter <span class="op">+</span>= <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Be sure to remember the parenthesis () after the function name.</p>
+</section>
+<section id="common-shortcuts" class="level3">
+<h3><a href="#common-shortcuts">Common Shortcuts</a></h3>
+<p>The script system has a few nice shortcuts for common tasks which you will find yourself using regularly.</p>
+<p>Firstly, the ++ and -- operators increase and decrease the variable by 1, respectively. So, the last part of our previous script could have been written:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    myCounter<span class="op">++;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Also, the { } braces are only needed if you are using more than one command inside them. Since we have only one command, the "my_counter++;" line, we can remove the { } completely and just be left with:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">&lt;</span> <span class="dv">3</span><span class="op">)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    myCounter<span class="op">++;</span></span></code></pre></div>
+<p>However, this can lead to mistakes in scripts that are hard to spot, so I would advise always using braces just to be safe.</p>
+<p>Finally, if you want to test whether a value is zero or not, you can just write it as follows:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter<span class="op">)</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>which is equivalent to:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>myCounter <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;counter is non-zero&quot;</span><span class="op">);</span></span></code></pre></div>
+</section>
+<section id="summary" class="level3">
+<h3><a href="#summary">Summary</a></h3>
+<p>We've covered the basics, so that hopefully you can now write a script of your own. There are many more advanced features that the system can do, but this should be enough to get you started.</p>
+<p>When you're ready, feel free to proceed to the <a href="ScriptingTutorialPart2.html">Tutorial Chapter 2 - The Patronizing Text Returns</a> which covers more advanced topics.</p>
+<p>Enjoy AGS!</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

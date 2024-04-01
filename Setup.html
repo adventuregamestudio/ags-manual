@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Run-time engine setup</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#run-time-engine-setup" id="toc-run-time-engine-setup">Run-time engine setup</a>
+<ul>
+<li><a href="#graphics-settings" id="toc-graphics-settings">Graphics settings</a></li>
+<li><a href="#gameplay-settings" id="toc-gameplay-settings">Gameplay settings</a></li>
+<li><a href="#advanced-graphics-options" id="toc-advanced-graphics-options">Advanced graphics options</a></li>
+<li><a href="#sound-options" id="toc-sound-options">Sound options</a></li>
+<li><a href="#mouse-options" id="toc-mouse-options">Mouse options</a></li>
+<li><a href="#other-advanced-settings" id="toc-other-advanced-settings">Other advanced settings</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="run-time-engine-setup" class="level2">
+<h2><a href="#run-time-engine-setup">Run-time engine setup</a></h2>
+<p>The engine Setup program allows the player to customize certain game settings.</p>
+<p><strong>NOTE:</strong> currently a setup program is only available for Windows.</p>
+<p>The options in the setup program are divided into two parts: <em>common</em> and <em>advanced</em>. The advanced options can be accessed by clicking the "Advanced" button.</p>
+<section id="graphics-settings" class="level3">
+<h3><a href="#graphics-settings">Graphics settings</a></h3>
+<p><strong>Driver</strong></p>
+<p>Lets the player choose a graphics driver. Currently supported are Software renderer (the old and slower option, but the only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
+<p><strong>Start in a windowed mode</strong></p>
+<p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
+<p><strong>Fullscreen as borderless window</strong></p>
+<p>If checked, fullscreen will use a borderless window, keeping the current display resolution. This is preferred in modern systems.</p>
+<p><strong>Fullscreen mode</strong></p>
+<p>If <em>Fullscreen as borderless window</em> is unchecked, it will instead use exclusive fullscreen, and this options will let you select which resolution the display will adjust to. The list of modes depends on the graphic card and the system's capabilities.</p>
+<p><strong>Fullscreen scale</strong> and <strong>Windowed scale</strong></p>
+<p>These two options determine the way the game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
+<ul>
+<li><p><strong>None</strong>. (Windowed only) The game will be shown in its native resolution. Note that low-resolution games will be running in a tiny window on modern monitors, so this choice is more suitable for high-resolution games.</p></li>
+<li><p><strong>Max round multiplier</strong>. The game will be scaled up using a maximal round integer (2, 3, 4, etc) multiplier with which it still fits inside the screen.</p></li>
+<li><p><strong>Fill whole screen</strong>. The game will be stretched to fill the whole screen. Note that if the game's native aspect ratio is different from the screen's aspect ratio, the game graphics will appear deformed and indeed stretched.</p></li>
+<li><p><strong>Stretch, preserving aspect ratio</strong>. The game will be stretched to screen borders while respecting the game's native aspect ratio (width/height proportions). This ensures that the game graphics will always look correct, but the option can lead to black borders at the left &amp; right or top &amp; bottom sides of the screen.</p></li>
+</ul>
+<p><strong>Scaling method</strong></p>
+<p>Here the player can choose a game scaling algorithm, and the list of available filters depend on graphics driver selection. Currently OpenGL and Direct3D 9 both supports Nearest Neighbour (used more often in pixelart games) and Linear interpolation (used more often with high resolution games).</p>
+</section>
+<section id="gameplay-settings" class="level3">
+<h3><a href="#gameplay-settings">Gameplay settings</a></h3>
+<p><strong>Game language</strong></p>
+<p>Here the player selects one of the available game translations.</p>
+</section>
+<section id="advanced-graphics-options" class="level3">
+<h3><a href="#advanced-graphics-options">Advanced graphics options</a></h3>
+<p><strong>Vertical sync</strong></p>
+<p>This option enables vertical synchronization mode, which reduces the "tearing" effect on the game graphics, but the option may decrease the game running speed.</p>
+<p><strong>Use 85 Hz display</strong></p>
+<p>This is a legacy option that sets the monitor refresh rate to 85 Hz to run the game, which eliminates flickering. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
+<p><strong>Smooth scaled sprites</strong></p>
+<p>This option will apply anti-aliasing to scaled game objects, such as , in order to give them a smoother look after the resizing. This may affect game aesthetics, and also can slow the game down when using "Software" graphics driver, so it is off by default.</p>
+<p><strong>Render sprites at screen resolution</strong></p>
+<p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when a low-resolution game is run in a larger window, the sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to a certain state by the game itself (according to author's choice), in which case the player will not be able to change it.</p>
+</section>
+<section id="sound-options" class="level3">
+<h3><a href="#sound-options">Sound options</a></h3>
+<p><strong>Audio Driver</strong></p>
+<p>Here the player may choose the digital audio driver, or disable digital sound completely.</p>
+<p><strong>Use voice pack if available</strong></p>
+<p>When checked, this option enables voice speech in game (where available).</p>
+<p><strong>Sound cache (RAM)</strong></p>
+<p>This is a cache for small sounds, to reduce disk access in sounds that are reused in game.</p>
+</section>
+<section id="mouse-options" class="level3">
+<h3><a href="#mouse-options">Mouse options</a></h3>
+<p><strong>Auto lock to window</strong></p>
+<p>If this option is enabled, the mouse will be locked inside game window whenever the player clicks on it or switches into game. The locked mouse cannot leave the game window, making it impossible to accidentally jump out of the game by mistake (by clicking on the desktop, for example). Naturally, this option is only important if the game is run in windowed mode; when the game runs in fullscreen mode, the mouse is always locked.</p>
+<p><strong>Mouse speed</strong></p>
+<p>This slider allows the player to set up the mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
+</section>
+<section id="other-advanced-settings" class="level3">
+<h3><a href="#other-advanced-settings">Other advanced settings</a></h3>
+<p><strong>Sprite cache (RAM) max size</strong></p>
+<p>This option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
+<p><strong>Texture cache (VRAM) max size</strong></p>
+<p><em>Available since AGS 3.6.1.</em></p>
+<p>This option limits the maximum amount of video memory that the game will use for its texture cache. The texture cache is used to keep sprites that are pushed to the GPU in video memory, and reduce the need to convert images from the sprite cache to the video memory to present them on screen. The limits here may be affected by other things in the computer that are using video memory, and GPU available memory.</p>
+<p><strong>Custom game saves path</strong></p>
+<p>When unchecked, the game will store its saved games in the default Windows folder: <code>C:/Users/&lt;Username&gt;/Saved Games/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store game saves.</p>
+<p><strong>Custom game shared data path</strong></p>
+<p>When unchecked, the game will store its shared files - custom runtime data shared among all the users of this computer - in the default Windows folder: <code>C:/Program Data/Adventure Game Studio/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store these game files.</p>
+<p><em>See also:</em> <a href="DefaultSetup.html">Default setup (Editor Pane)</a>, <a href="RuntimeEngine.html">Location of the configuration file on the system and options</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

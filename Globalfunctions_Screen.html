@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Global functions (Screen Effects)</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#global-functions-screen-effects" id="toc-global-functions-screen-effects">Global functions (Screen Effects)</a>
+<ul>
+<li><a href="#fadein" id="toc-fadein"><code>FadeIn</code></a></li>
+<li><a href="#fadeout" id="toc-fadeout"><code>FadeOut</code></a></li>
+<li><a href="#flipscreen" id="toc-flipscreen"><code>FlipScreen</code></a></li>
+<li><a href="#setfadecolor" id="toc-setfadecolor"><code>SetFadeColor</code></a></li>
+<li><a href="#setnextscreentransition" id="toc-setnextscreentransition"><code>SetNextScreenTransition</code></a></li>
+<li><a href="#setscreentransition" id="toc-setscreentransition"><code>SetScreenTransition</code></a></li>
+<li><a href="#shakescreen" id="toc-shakescreen"><code>ShakeScreen</code></a></li>
+<li><a href="#shakescreenbackground" id="toc-shakescreenbackground"><code>ShakeScreenBackground</code></a></li>
+<li><a href="#tintscreen" id="toc-tintscreen"><code>TintScreen</code></a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="global-functions-screen-effects" class="level2">
+<h2><a href="#global-functions-screen-effects">Global functions (Screen Effects)</a></h2>
+<section id="fadein" class="level3">
+<h3><a href="#fadein"><code>FadeIn</code></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeIn</span> <span class="op">(</span><span class="dt">int</span> speed<span class="op">)</span></span></code></pre></div>
+<p>Fades in from a black screen to the current palette. This is used to restore the screen after a FadeOut call. SPEED is from 1 (slowest) to 64 (fastest).</p>
+<p><em>NOTE: This is a blocking function.</em></p>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeOut</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeIn</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Palette.html#cyclepalette"><code>CyclePalette</code></a>, <a href="Globalfunctions_Screen.html#fadeout"><code>FadeOut</code></a>, <a href="Globalfunctions_Screen.html#setfadecolor"><code>SetFadeColor</code></a></p>
+<hr />
+</section>
+<section id="fadeout" class="level3">
+<h3><a href="#fadeout"><code>FadeOut</code></a></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeOut</span> <span class="op">(</span><span class="dt">int</span> speed<span class="op">)</span></span></code></pre></div>
+<p>Fades the screen out to black. SPEED is the speed of the fade, from 1 (slowest) to 64 (instant). You can restore the screen with FadeIn.</p>
+<p><em>NOTE: This is a blocking function.</em></p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeOut</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">FadeIn</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>will fade the screen to black, wait 1 sec (40 game cycles) and then fade in again.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Palette.html#cyclepalette"><code>CyclePalette</code></a>, <a href="Globalfunctions_Screen.html#fadein"><code>FadeIn</code></a>, <a href="Globalfunctions_Screen.html#setfadecolor"><code>SetFadeColor</code></a></p>
+<hr />
+</section>
+<section id="flipscreen" class="level3">
+<h3><a href="#flipscreen"><code>FlipScreen</code></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FlipScreen</span> <span class="op">(</span><span class="dt">int</span> way<span class="op">)</span></span></code></pre></div>
+<p>Flips the screen round either the horizontal or vertical axis, or both. This function is for special effects only - all co-ordinates remain the same and it doesn't effect any other script functions.</p>
+<table>
+<thead>
+<tr class="header">
+<th>way value</th>
+<th>flip direction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>normal</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>horizontal-flip (upside-down)</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>vertical-flip (left-to-right)</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>both (upside-down and backwards)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> This function is still a bit buggy - black parts of the screen may show up wrong, and and pop-up messages will flip the screen back to normal.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">FlipScreen</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>will flip the screen upside down.</p>
+<hr />
+</section>
+<section id="setfadecolor" class="level3">
+<h3><a href="#setfadecolor"><code>SetFadeColor</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetFadeColor</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">)</span></span></code></pre></div>
+<p>Changes the color which the screen fades out to, to have the specified RGB value. Each of the parameters can range from 0-255. The default is black, i.e. (0, 0, 0)</p>
+<p>The color that you set here will be used in all future calls to FadeIn/FadeOut, and also for the screen transition if it is set to Fade In/Out.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetFadeColor</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>will mean that next time the screen fades out, it fades to red instead of black.</p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#fadein"><code>FadeIn</code></a>, <a href="Globalfunctions_Screen.html#fadeout"><code>FadeOut</code></a>, <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a></p>
+<hr />
+</section>
+<section id="setnextscreentransition" class="level3">
+<h3><a href="#setnextscreentransition"><code>SetNextScreenTransition</code></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetNextScreenTransition</span><span class="op">(</span><span class="dt">TransitionStyle</span><span class="op">)</span></span></code></pre></div>
+<p>Sets the room transition type to <em>TransitionStyle</em>, but ONLY for the next room change. After that, it will revert back to the normal transition type specified in the editor or with SetScreenTransition.</p>
+<p>For the possible values for TransitionStyle, see <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a>.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetNextScreenTransition</span><span class="op">(</span><span class="bu">eTransitionBoxout</span><span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<p>will go to room 10 with a box-out effect, but then return to the normal transition type from then on.</p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#setscreentransition"><code>SetScreenTransition</code></a></p>
+<hr />
+</section>
+<section id="setscreentransition" class="level3">
+<h3><a href="#setscreentransition"><code>SetScreenTransition</code></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetScreenTransition</span><span class="op">(</span><span class="dt">TransitionStyle</span><span class="op">)</span></span></code></pre></div>
+<p>Changes the default screen transition. TransitionStyle can be one of the following:</p>
+<pre><code>eTransitionFade
+eTransitionInstant
+eTransitionDissolve
+eTransitionBoxout
+eTransitionCrossfade</code></pre>
+<p>All future transitions will be done as specified until you call this function again.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetScreenTransition</span><span class="op">(</span><span class="bu">eTransitionFade</span><span class="op">);</span></span></code></pre></div>
+<p>will change the room transitions to Fade.</p>
+<p>SeeAlso: <a href="Globalfunctions_Screen.html#setnextscreentransition"><code>SetNextScreenTransition</code></a></p>
+<hr />
+</section>
+<section id="shakescreen" class="level3">
+<h3><a href="#shakescreen"><code>ShakeScreen</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ShakeScreen</span> <span class="op">(</span><span class="dt">int</span> amount<span class="op">)</span></span></code></pre></div>
+<p>Shakes the screen to simulate, for example, an earthquake. AMOUNT is how much the screen shakes: 1 is hardly anything, and 25 is a lot.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ShakeScreen</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<p>will shake the screen a little.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Screen.html#shakescreenbackground"><code>ShakeScreenBackground</code></a></p>
+<hr />
+</section>
+<section id="shakescreenbackground" class="level3">
+<h3><a href="#shakescreenbackground"><code>ShakeScreenBackground</code></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ShakeScreenBackground</span> <span class="op">(</span><span class="dt">int</span> delay<span class="op">,</span> <span class="dt">int</span> amount<span class="op">,</span> <span class="dt">int</span> length<span class="op">)</span></span></code></pre></div>
+<p>Shakes the screen to simulate, for example, an earthquake. The game is not paused while the screen shakes - it will continue in the background.</p>
+<p>DELAY specifies the 'shakiness' of the shake - 2 is the lowest you can pass for this, and will create the most shaky screen.</p>
+<p>AMOUNT specifies the ferociousness of the shake - i.e. how much the screen moves by when it does shake. Here, 1 is a very tiny shake, up to about 30 for a ferocious shake.</p>
+<p>LENGTH specifies how long the shake lasts for, in game loops. For example, 80 would be equivalent to 2 seconds at the default game speed.</p>
+<p>You can abort any current background shake that is in progress by calling this command with the LENGTH parameter as zero.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ShakeScreenBackground</span> <span class="op">(</span><span class="dv">4</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">80</span><span class="op">);</span></span></code></pre></div>
+<p>will shake the screen a little for 2 seconds.</p>
+<p><em>See also:</em> <a href="Globalfunctions_Screen.html#shakescreen"><code>ShakeScreen</code></a></p>
+<hr />
+</section>
+<section id="tintscreen" class="level3">
+<h3><a href="#tintscreen"><code>TintScreen</code></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">TintScreen</span> <span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">)</span></span></code></pre></div>
+<p>Tints the screen with the specified RGB values. RED, GREEN and BLUE range from 1 to 100.</p>
+<p>Pass (0, 0, 0) to turn off the tinting and go back to how the screen normally looks.</p>
+<p>For historical reasons, the tint works by applying a 50<code>%</code>-transparent layer of the specified color to the screen after everything else has been drawn. Therefore, it may not lead to the sort of results you might expect.</p>
+<p><strong>NOTE:</strong> This command is currently experimental, since it causes a massive slowdown in the engine, especially at high resolutions. If you use it, you should provide an option for the player to turn it off.</p>
+<p><strong>NOTE:</strong> This feature does not work in 256-color games.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">TintScreen</span> <span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<p>will tint a heavy dose of red.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>
