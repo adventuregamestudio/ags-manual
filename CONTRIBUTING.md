@@ -220,7 +220,7 @@ installer and run it without requiring any user interaction:
 ```sh chmcmd Windows
 # Download and install the Windows build of Free Pascal
 url=https://sourceforge.net/projects/freepascal/files/Win32/3.2.2/fpc-3.2.2.i386-win32.exe/download
-(cd /tmp && curl -fLOJ "$url")
+(cd /tmp && curl -fLo fpc-3.2.2.i386-win32.exe "$url")
 /tmp/fpc-3.2.2.i386-win32.exe //sp- //verysilent //norestart
 ```
 
