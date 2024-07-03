@@ -58,6 +58,11 @@ function add_word(keywords, word)
     chars = chars .. '%-'
   end
 
+  -- preserve . in the middle of the word
+  if first ~= '.' and last ~= '.' then
+    chars = chars .. '%.'
+  end
+
   -- preserve _ in the middle of the word
   if first ~= '_' and last ~= '_' then
     chars = chars .. '_'
