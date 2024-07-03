@@ -55,7 +55,7 @@ function add_word(keywords, word)
 
   -- preserve - in the middle of the word
   if first ~= '-' and last ~= '-' then
-    chars = chars .. '-'
+    chars = chars .. '%-'
   end
 
   -- preserve _ in the middle of the word
