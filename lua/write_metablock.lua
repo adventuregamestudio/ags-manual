@@ -43,6 +43,10 @@ local skipwords = {
   ['with'] = true
 }
 
+function trimkeyword(keyword)
+   return keyword:gsub("^['%-%._]+", ""):gsub("['%-%._]+$", "")
+end
+
 function add_word(keywords, word)
   local chars = '%w'
   local first = word:sub(1, 1)
@@ -72,7 +76,8 @@ function add_word(keywords, word)
   for w in word:gmatch('[' .. chars .. ']+') do
     if w:len() > 1 and not w:match('%d') then
       if skipwords[w:lower()] == nil then
-        keywords[w] = (keywords[w] or 0) + 1
+        local wtrim = trimkeyword(w)
+        keywords[wtrim] = (keywords[wtrim] or 0) + 1
       end
     end
   end
