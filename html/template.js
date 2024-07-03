@@ -154,12 +154,35 @@ function search_partial_key(haystack, searchValue) {
     var matches = [];
 
     for (var key in haystack) {
-        if (key.startsWith(searchValue)) {
+        if (key.startsWith(searchValue) || key.indexOf('.'+searchValue)>0) {
           matches.push(key);
         }
     }
     return matches;
 };
+
+function addResults(track, keywords, word) {
+    var max = Object.keys(keywords[word]).length;
+
+    for (var i = 0; i < max; i ++) {
+        Object.keys(keywords[word][i]).forEach(docname => {
+            // add counts for multiple hits
+            if (docname in track.total) {
+                track.total[docname] += keywords[word][i][docname];
+            } else {
+                track.total[docname] = keywords[word][i][docname];
+            }
+
+            // track which search words were found
+            if (!(docname in track.which)) {
+                track.which[docname] = {}
+            }
+
+            track.which[docname][word] = keywords[word][i][docname]
+            
+       })
+    }
+}
 
 function update_results(words, is_case_sensitive, is_whole_world) {
     //remove exiting entries
@@ -172,6 +195,7 @@ function update_results(words, is_case_sensitive, is_whole_world) {
     var keywords =  is_case_sensitive ? meta.keywords : ci_keywords;
 
     words.forEach(word => {
+        if (word == "") return;
         if (!is_case_sensitive) word = word.toLowerCase();
 
         // naive partial matching
@@ -179,54 +203,27 @@ function update_results(words, is_case_sensitive, is_whole_world) {
           let matches = search_partial_key(keywords, word);
           matches.forEach(word2 => {
             if (word2 in keywords) {
-                var max = Object.keys(keywords[word2]).length;
-
-                for (var i = 0; i < max; i ++) {
-                Object.keys(keywords[word2][i]).forEach(docname => {
-                        // add counts for multiple hits
-                        if (docname in track.total) {
-                            track.total[docname] += keywords[word2][i][docname];
-                        } else {
-                            track.total[docname] = keywords[word2][i][docname];
-                        }
-
-                        // track which search words were found
-                        if (!(docname in track.which)) {
-                            track.which[docname] = {}
-                        }
-
-                        track.which[docname][word2] = keywords[word2][i][docname]
-                        
-                   })
-                }
+                addResults(track, keywords, word2)
             }
           });
           return;
         } 
 
-
-          if (word in keywords) {
-              var max = Object.keys(keywords[word]).length;
-
-              for (var i = 0; i < max; i ++) {
-              Object.keys(keywords[word][i]).forEach(docname => {
-                      // add counts for multiple hits
-                      if (docname in track.total) {
-                          track.total[docname] += keywords[word][i][docname];
-                      } else {
-                          track.total[docname] = keywords[word][i][docname];
-                      }
-
-                      // track which search words were found
-                      if (!(docname in track.which)) {
-                          track.which[docname] = {}
-                      }
-
-                      track.which[docname][word] = keywords[word][i][docname]
-                 })
-              }
-          
+        // 1:1 match
+        if (word in keywords) {
+            addResults(track, keywords, word)
         }
+        
+        // let's try to match a whole word part like "ClipImage" from "Graphics.ClipImage" entry
+        // but only if the word itself does not contain a period (impossible match)
+        if (word.indexOf('.') == -1) Object.keys(keywords).forEach(keyword => {
+            if (keyword.indexOf('.') == -1) return;
+            let parts = keyword.split('.');
+            if (parts.indexOf(word) != -1) {
+                addResults(track, keywords, keyword)
+            }
+            
+        })
     });
 
     if (Object.keys(track.total).length === 0 && words[0] !== '') {
