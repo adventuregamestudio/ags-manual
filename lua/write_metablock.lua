@@ -58,6 +58,11 @@ function add_word(keywords, word)
     chars = chars .. '-'
   end
 
+  -- preserve _ in the middle of the word
+  if first ~= '_' and last ~= '_' then
+    chars = chars .. '_'
+  end
+
   -- split on non-word characters
   for w in word:gmatch('[' .. chars .. ']+') do
     if w:len() > 1 and not w:match('%d') then
