@@ -180,7 +180,7 @@
 <li><p><strong>Build target platforms</strong> - a checklist of platforms for which the game will be compiled.</p></li>
 <li><p><strong>Enabled Debug Mode</strong> - whether the debug keys are active. When debug mode is on, you can press Ctrl-X to teleport to any room, Ctrl-S to give all inventory items, Ctrl-A to display walkable areas on the screen, and Ctrl-D to display statistics about the current room. When debug mode is off, these do nothing. See the <a href="Debuggingfeatures.html">Debugging features</a> section for more.</p></li>
 <li><p><strong>Enable sprite storage optimization</strong> - When possible save sprites in game files in a format that requires less storage space. This may reduce the compiled game size on disk, but effect may differ depending on number of colors used in sprites, and other factors.</p></li>
-<li><p><strong>Package custom data folder(s)</strong> - A comma-separated list of folders. The contents of these folders will be added to the game resources, and you will be able to access them by using the <code>$DATA$</code> token in file paths. The top level directory name is preserved, to avoid file name collision. More details on this in <a href="File.html#fileopen"><code>File.Open</code></a>.</p></li>
+<li><p><strong>Package custom data folder(s)</strong> - A comma-separated list of folders, relative to the game project folder. These folders, <em>including their subfolders</em>, and all the files in them will be added to the game package when the game is compiled, and you will be able to refer them in script commands using the <code>$DATA$</code> location tag.<br> For instance, if you'd like to add files from a subfolder "MyData", then insert "MyData" in this field, and access these as <code>"$DATA$/MyData/somefile.dat"</code> in script. If you'd like to have three subfolders "MyData1", "MyData2" and "MyData3" added, then insert a string "MyData1, MyData2, MyData3" into this property.<br> For further details on see <a href="File.html#fileopen"><code>File.Open</code></a>.</p></li>
 <li><p><strong>Split resource files into X MB-sized chunks</strong> - see <a href="DistGame.html#splitting-resource-files">here</a> for information.</p></li>
 <li><p><strong>Sprite file compression</strong> - when enabled the sprites will be compressed to reduce game size. In theory this may affect runtime performance (sprite loading times), but the actual effect depends on multiple factors including specifics of the system the game is running on, so not easy to predict. On desktop platforms the difference in speed is usually negligible. AGS provides few compression types, and the best choice may depend on the sort of sprites you are using in your game on average.</p>
 <ul>
@@ -300,7 +300,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
     </p>
   </footer>
 

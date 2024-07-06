@@ -291,7 +291,66 @@
 <div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGameOption</span> <span class="op">(</span>option<span class="op">)</span></span></code></pre></div>
 <p>Gets the current setting of one of the game options, originally set in the AGS Editor Game Settings pane.</p>
 <p>OPTION specifies which option to get, and its current value is returned.</p>
-<p>The valid values for OPTION are listed in <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a>.</p>
+<p>The valid values for settable OPTIONs are listed in <a href="Globalfunctions_General.html#setgameoption"><code>SetGameOption</code></a>.</p>
+<p>Following is the list of <strong>READ-ONLY</strong> options:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OPT_DEBUGMODE</td>
+<td>Tells if the game was compiled in Debug mode (0 or 1). See also: <a href="Gamevariables.html"><code>game.debug_mode</code></a>.</td>
+</tr>
+<tr class="even">
+<td>OPT_TWCUSTOM</td>
+<td>Which GUI number to use when displaying text windows. For changing this option use <a href="Globalfunctions_General.html#settextwindowgui"><code>SetTextWindowGUI</code></a>.</td>
+</tr>
+<tr class="odd">
+<td>OPT_LETTERBOX</td>
+<td>Tells if the game is run in deprecated "letterbox" mode.</td>
+</tr>
+<tr class="even">
+<td>OPT_GUIALPHABLEND</td>
+<td>Tells which blending algorithm is used when drawing translucent GUI and controls over each other (0=classic, 1=additive, 2=proper).</td>
+</tr>
+<tr class="odd">
+<td>OPT_NATIVECOORDINATES</td>
+<td>Tells if the game uses coordinates in its true resolution (1), or low-res coordinates (0). <strong>OBSOLETE</strong>, and for diagnostic purposes only.</td>
+</tr>
+<tr class="even">
+<td>OPT_SPRITEALPHABLEND</td>
+<td>Tells which blending algorithm is used when drawing images on DrawingSurface (0=classic, 1=proper).</td>
+</tr>
+<tr class="odd">
+<td>OPT_DIALOGOPTIONSAPI</td>
+<td>Tells the API version of <a href="CustomDialogOptions.html">Custom Dialog options Rendering</a>.</td>
+</tr>
+<tr class="even">
+<td>OPT_BASESCRIPTAPI</td>
+<td>Tells the Script API version this game was compiled with.</td>
+</tr>
+<tr class="odd">
+<td>OPT_SCRIPTCOMPATLEV</td>
+<td>Tells the Script Compatibility level this game was compiled with.</td>
+</tr>
+<tr class="even">
+<td>OPT_CLIPGUICONTROLS</td>
+<td>Tells if the GUI controls clip their contents when drawn.</td>
+</tr>
+<tr class="odd">
+<td>OPT_GAMETEXTENCODING</td>
+<td>Tells the text encoding the game was compiled in. Value corresponds to the code page number (65001=utf-8, other=ASCII or ANSI mode).</td>
+</tr>
+<tr class="even">
+<td>OPT_KEYHANDLEAPI</td>
+<td>Tells the API version of the key handling this game was compiled with.</td>
+</tr>
+</tbody>
+</table>
 <p>Example:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGameOption</span><span class="op">(</span>OPT_PIXELPERFECT<span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;pixel-perfect click detection is on!&quot;</span><span class="op">);</span></span>
@@ -380,6 +439,7 @@ eLocationObject     an object</code></pre>
 <p>Calculates the height on the screen that drawing TEXT in FONT within an area of WIDTH would take up.</p>
 <p>This allows you to work out how tall a message displayed with a command like <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawMessageWrapped</code></a> will be. WIDTH is the width of the area in which the text will be displayed.</p>
 <p>The height is returned in screen pixels, so it can be used with the screen display commands.</p>
+<p><strong>NOTE:</strong> There's a historical mistake in this function, which was kept for backwards compatibility until today. When GetTextHeight calculates line wrapping within a given width, it reduces "width" parameter by 1. For a correct result, pass "width + 1" instead (where "width" is the value that you like to have).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> height = <span class="bu">GetTextHeight</span><span class="op">(</span><span class="st">&quot;The message on the GUI!&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>gBottomLine<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">200</span> <span class="op">-</span> height<span class="op">);</span></span></code></pre></div>
@@ -728,7 +788,8 @@ eLocationObject     an object</code></pre>
 <h3><a href="#setgameoption"><code>SetGameOption</code></a></h3>
 <div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>option<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>Changes one of the game options, originally set in the AGS Editor Game Settings pane.</p>
-<p>OPTION specifies which option to change, and VALUE is its new value. Valid OPTIONs are listed below:</p>
+<p>OPTION specifies which option to change, and VALUE is its new value.</p>
+<p>Valid <em>modifiable</em> OPTIONs are listed below:</p>
 <table>
 <thead>
 <tr class="header">
@@ -770,68 +831,77 @@ eLocationObject     an object</code></pre>
 <td>Don't use inventory graphics as cursors (0 or 1)</td>
 </tr>
 <tr class="odd">
-<td>OPT_DONTLOSEINV</td>
-<td>Don't automatically lose inventory items (0 or 1)</td>
-</tr>
-<tr class="even">
 <td>OPT_TURNBEFOREWALK</td>
 <td>Characters turn before walking (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_HANDLEINVCLICKS</td>
 <td>Handle inventory clicks in script (0 or 1)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OPT_MOUSEWHEEL</td>
 <td>Enable mouse wheel support (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_DIALOGNUMBERED</td>
 <td>Number dialog options (-1=disabled, 0=shortcuts only, 1=drawn numbers)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OPT_DIALOGUPWARDS</td>
 <td>Dialog options go upwards on GUI (0 or 1)</td>
 </tr>
-<tr class="odd">
-<td>OPT_CROSSFADEMUSIC</td>
-<td>Crossfade music tracks (0=no, 1=slow, 2=slow-ish, 3=medium, 4=fast)</td>
-</tr>
 <tr class="even">
+<td>OPT_CROSSFADEMUSIC</td>
+<td>Crossfade music tracks (0=no, 1=slow, 2=slow-ish, 3=medium, 4=fast). <strong>OBSOLETE</strong>, reliably affects only old-style audio functions, such as <code>PlayMusic</code>. Configure <a href="MusicAndSound.html#audio-in-the-editor">Audio Types</a> instead.</td>
+</tr>
+<tr class="odd">
 <td>OPT_ANTIALIASFONTS</td>
 <td>Anti-alias rendering of TTF fonts (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_THOUGHTGUI</td>
 <td>Thought uses bubble GUI (GUI name/number)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OPT_TURNWHENFACING</td>
 <td>Characters turn to face direction (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_LIPSYNCTEXT</td>
 <td>Whether lip-sync text reading is enabled (0 or 1)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OPT_RIGHTTOLEFT</td>
 <td>Right-to-left text writing (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_MULTIPLEINV</td>
 <td>Display multiple inv items multiple times (0 or 1)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>OPT_SAVEGAMESCREENSHOTS</td>
 <td>Save screenshots into save games (0 or 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OPT_PORTRAITPOSITION</td>
 <td>Speech portrait side (0=left, 1=right, 2=alternate, 3=xpos)</td>
 </tr>
+<tr class="odd">
+<td>OPT_RUNGAMEINDLGOPTS</td>
+<td>Run game loops while dialog options are displayed (0 or 1)</td>
+</tr>
+<tr class="even">
+<td>OPT_WALKSPEEDABSOLUTE</td>
+<td>Whether character and object moving speeds depend on relative walkable mask's resolution (0=scale with mask resolution, 1=always in room resolution).</td>
+</tr>
+<tr class="odd">
+<td>OPT_SCALECHAROFFSETS</td>
+<td>Character's offset properties (such as <a href="Character.html#characterz"><code>Character.z</code></a>) are scaled with the character's Scaling (0 or 1).</td>
+</tr>
 </tbody>
 </table>
-<p>The game settings which are not listed here either have a separate command to change them (such as Speech.Style), or simply cannot be changed at run-time.</p>
+<p>The game settings which are not listed here either are read-only, deprecated and have a separate command to change them (such as Speech.Style), or unusable in the contemporary engine.</p>
+<p>For the list of read-only options see <a href="Globalfunctions_General.html#getgameoption"><code>GetGameOption</code></a>.</p>
 <p>This command returns the old value of the setting.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>OPT_PIXELPERFECT<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
@@ -1004,7 +1074,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
     </p>
   </footer>
 

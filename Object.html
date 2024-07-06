@@ -387,7 +387,7 @@
 <li>in earlier versions they would be left at values they had before SetView was called.</li>
 </ul>
 <p>You must use this command before calling Animate, so that AGS knows which view to animate the object with.</p>
-<p><strong>NOTE:</strong> this may be unexpected, but calling this function will play any sound linked to the given frame. This is because SetView may also be used to manually switch between frames without using <a href="Object.html#objectanimate">Animate</a> command.</p>
+<p><strong>NOTE:</strong> prior to <strong>AGS 3.6.1</strong> calling this function would play any sound linked to the given frame. This behavior is disabled in <strong>3.6.1</strong>, because it's causing a duplicate sound playback when SetView is followed by Animate.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">SetView</span><span class="op">(</span><span class="dv">14</span><span class="op">);</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">SetView</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
@@ -791,7 +791,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: a6570bbd7ecd4b1241b2a3c5330cfef36cac29b2
+      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
     </p>
   </footer>
 
