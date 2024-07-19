@@ -508,6 +508,13 @@ header li {
     margin-bottom: 4px;
 }
 
+/* edit this page link */
+.edit-link {
+  display: inline-flex;
+  margin-top: 2.5em;
+  gap:10px;
+}
+
 /* code highlighting */
 main {min-width:0;} /* trick to avoid code blocks expanding main area */
 pre > code.sourceCode { white-space: pre; position: relative; }
