@@ -183,6 +183,6 @@ if BUILD_CHM_WITH_CHMCMD
 endif
 
 check: metadata.lua
-	$(AM_V_GEN)"$(PANDOC)" lua \
+	$(AM_V_at)"$(PANDOC)" lua \
 		"$(srcdir)/lua/metacheck.lua" \
 		"$(srcdir)/meta/approved_links.txt"
