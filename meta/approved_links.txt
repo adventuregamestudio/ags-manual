@@ -13,7 +13,8 @@ https://libsdl.org/
 https://opensource.org/licenses/artistic-license-2.0.php
 https://sourceforge.net/projects/alleg/
 https://technet.microsoft.com/en-us/sysinternals/bb897440
-https://v2v.cc/~j/ffmpeg2theora/
+https://ffmpeg.org/
+https://trac.ffmpeg.org/wiki/TheoraVorbisEncodingGuide
 https://www-personal.monash.edu.au/~myless/catnap/pamela/
 https://www.adventuregamestudio.co.uk/
 https://www.adventuregamestudio.co.uk/AGS.Plugin.Sample.zip
