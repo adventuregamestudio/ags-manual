@@ -1,5 +1,5 @@
 AC_PREREQ([2.71])
-AC_INIT([ags-manual], [0.9.15])
+AC_INIT([ags-manual], [0.9.16])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([-Werror -Wall foreign])
