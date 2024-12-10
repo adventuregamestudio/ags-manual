@@ -183,7 +183,7 @@
  Loop 7 - walking diagonally up-left</code></pre>
 <p>To change the rate at which the character animates, change the Animation Speed box. Here, a smaller number means faster animation. Note that this does NOT effect the speed at which the character actually moves when walking.</p>
 <p><strong>NOTE:</strong> The first frame in each loop is the standing still frame. When walking, the game will cycle through the rest of the frames in the loop.</p>
-<p>The "MovementSpeed" option allows you to control how fast the character moves when walking. Here, a larger number means he walks faster. If you find that a movement speed of 1 is still too fast, you can use negative numbers (e.g. -3) which will move even more slowly. The lower you go, the slower the movement speed.</p>
+<p>The "MovementSpeed" option allows you to control how fast the character moves when walking. This value is in pixels per a single game update. A larger number would make a character walk faster, a lower number makes it slower. If you find that a movement speed of 1 is still too fast, you can use negative numbers (e.g. -3) which is interpreted as 1/N pixels per a game update (or N game updates to pass a single pixel).</p>
 <p>The "SpeechColor" option specifies which color is used for the text when this character is talking. It effects all messages that are said by this character. You can find out the color for each number by going to the "Colors" pane.</p>
 <p>The "IdleView" option allows you to set an idle animation for the character. To do this, create a new view, with one or more loops of the character idle (e.g. smoking, reading a book, etc). Then, set the "Idle view" to this view number. If the player stands still for 20 seconds (you can change the timeout with the Character.SetIdleView script function), then the current loop from the idle view will be played.</p>
 <p>The "ScriptName" property sets the name by which the character will be referred to in scripts and in conversation scripting. The difference from the RealName of the character is that the script name may only contain letters A-Z and numbers 0-9 (the first character must be a letter, however). The convention in AGS is that character script names start with a lower case "c".</p>
@@ -274,7 +274,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
+      Build: 872a822d31bee55a5477dd355434cd4f75eda25b
     </p>
   </footer>
 

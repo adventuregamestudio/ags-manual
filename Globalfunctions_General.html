@@ -679,12 +679,14 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="restoregamedialog" class="level3">
 <h3><a href="#restoregamedialog"><code>RestoreGameDialog</code></a></h3>
-<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameDialog</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
 <p>Displays the restore game dialog, where the player can select a previously saved game position to restore.</p>
+<p>You can also pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that will be shown in the dialog.</p>
 <p>The dialog is not displayed immediately; instead, it will be displayed when the script function finishes executing.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">363</span><span class="op">))</span> <span class="bu">RestoreGameDialog</span><span class="op">();</span></span></code></pre></div>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
+<p><em>Compatibility:</em> Optional <em>min_slot</em> and <em>max_slot</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
 <hr />
 </section>
@@ -718,23 +720,27 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="savegamedialog" class="level3">
 <h3><a href="#savegamedialog"><code>SaveGameDialog</code></a></h3>
-<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameDialog</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
 <p>Displays the save game dialog, where the player can save their current game position. If they select to save, then the game position will be saved.</p>
+<p>You can also pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that will be shown in the dialog.</p>
 <p><strong>NOTE:</strong> The dialog will not be displayed immediately; instead, it will be shown when the script function finishes executing.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="dv">361</span><span class="op">)</span> <span class="bu">SaveGameDialog</span><span class="op">();</span></span></code></pre></div>
 <p>will bring up the save game dialog if the player presses the F3 key.</p>
+<p><em>Compatibility:</em> Optional <em>min_slot</em> and <em>max_slot</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="savegameslot" class="level3">
 <h3><a href="#savegameslot"><code>SaveGameSlot</code></a></h3>
-<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">,</span> string description<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">,</span> string description<span class="op">,</span> optional <span class="dt">int</span> sprite<span class="op">)</span></span></code></pre></div>
 <p>Saves the current game position to the save game number specified by SLOT, using DESCRIPTION as the textual description of the save position. Be careful using this function, because you could overwrite one of the player's save slots if you aren't careful.</p>
+<p>You can optionally pass a number of an arbitrary sprite to write into this save, instead of a standard screenshot.</p>
 <p><strong>NOTE:</strong> The game will not be saved immediately; instead, it will be saved when the script function finishes executing.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span><span class="op">(</span><span class="dv">30</span><span class="op">,</span> <span class="st">&quot;save game&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will save the current game position to slot 30 with the description "Save game".</p>
+<p><em>Compatibility:</em> Optional <em>sprite</em> parameter is supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#deletesaveslot"><code>DeleteSaveSlot</code></a>, <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
 <hr />
 </section>
@@ -1074,7 +1080,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
+      Build: 872a822d31bee55a5477dd355434cd4f75eda25b
     </p>
   </footer>
 

@@ -95,6 +95,7 @@
 <li><a href="#speechportraity" id="toc-speechportraity"><code>Speech.PortraitY</code></a></li>
 <li><a href="#speechskipkey" id="toc-speechskipkey"><code>Speech.SkipKey</code></a></li>
 <li><a href="#speechskipstyle" id="toc-speechskipstyle"><code>Speech.SkipStyle</code></a></li>
+<li><a href="#speechspeakingcharacter" id="toc-speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a></li>
 <li><a href="#speechstyle" id="toc-speechstyle"><code>Speech.Style</code></a></li>
 <li><a href="#speechtextalignment" id="toc-speechtextalignment"><code>Speech.TextAlignment</code></a></li>
 <li><a href="#speechtextoverlay" id="toc-speechtextoverlay"><code>Speech.TextOverlay</code></a></li>
@@ -218,10 +219,19 @@ eSkipMouse         text does not time-out; player can skip text by clicking mous
 <p><em>See also:</em> <a href="Game.html#gameignoreuserinputaftertexttimeoutms"><code>Game.IgnoreUserInputAfterTextTimeoutMs</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechskipkey"><code>Speech.SkipKey</code></a></p>
 <hr />
 </section>
+<section id="speechspeakingcharacter" class="level3">
+<h3><a href="#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="bu">Character</span><span class="op">*</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">SpeakingCharacter</span></span></code></pre></div>
+<p>Gets the currently speaking Character (only works for blocking speech). It returns null if no character is speaking in a blocking speech.</p>
+<p>Differently from checking any character speaking using <code>Speech.TextOverlay</code>, this also works for a blocking voice only speech, and it tells which character is speaking.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Speech.html#speechtextoverlay"><code>Speech.TextOverlay</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a></p>
+<hr />
+</section>
 <section id="speechstyle" class="level3">
 <h3><a href="#speechstyle"><code>Speech.Style</code></a></h3>
 <p><em>(Formerly known as <code>SetSpeechStyle</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">eSpeechStyle</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">Style</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">eSpeechStyle</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">Style</span></span></code></pre></div>
 <p>Gets/sets the way in which speech text is displayed. This modifies the setting originally set in the editor. SpeechStyle can be:</p>
 <pre><code>eSpeechLucasarts
   speech text over character&#39;s head
@@ -232,14 +242,14 @@ eSpeechSierraWithBackground
 eSpeechFullScreen
   QFG4-style full screen dialog pictures</code></pre>
 <p>Example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">Style</span> = <span class="bu">eSpeechSierra</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">Style</span> = <span class="bu">eSpeechSierra</span><span class="op">;</span></span></code></pre></div>
 <p>will change the speech style to a close up portrait of the character.</p>
 <hr />
 </section>
 <section id="speechtextalignment" class="level3">
 <h3><a href="#speechtextalignment"><code>Speech.TextAlignment</code></a></h3>
 <p><em>(Formerly known as <code>game.speech_text_align</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">Alignment</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">TextAlignment</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">Alignment</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">TextAlignment</span></span></code></pre></div>
 <p>Sets how text in LucasArts-style speech is aligned.</p>
 <p>The accepted values are</p>
 <pre><code>eAlignLeft
@@ -247,29 +257,29 @@ eAlignCentre
 eAlignRight</code></pre>
 <p>The default is eAlignCentre.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">TextAlignment</span> = <span class="bu">eAlignRight</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">TextAlignment</span> = <span class="bu">eAlignRight</span><span class="op">;</span></span></code></pre></div>
 <p>will align the speech text at the right side.</p>
 <hr />
 </section>
 <section id="speechtextoverlay" class="level3">
 <h3><a href="#speechtextoverlay"><code>Speech.TextOverlay</code></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">TextOverlay</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">TextOverlay</span></span></code></pre></div>
 <p>Retrieves the text overlay of a current blocking speech. It's currently only available in eihter a <code>repeatedly_execute_always</code> or <code>late_repeatedly_execute_always</code>. It will return null if no text overlay is currently being shown.</p>
 <p>It allows to detect appearance, removal, and change of the blocking speech. Additionally, calling Speech.TextOverlay.Remove() will work as a speech interrupt.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> lastSpeech<span class="op">;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">late_repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Overlay</span><span class="op">*</span> curSpeech = <span class="bu">Speech</span><span class="op">.</span><span class="at">TextOverlay</span><span class="op">;</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">==</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech has started</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech is over</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> lastSpeech<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech changed to the next line</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    lastSpeech = curSpeech<span class="op">;</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> lastSpeech<span class="op">;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">late_repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Overlay</span><span class="op">*</span> curSpeech = <span class="bu">Speech</span><span class="op">.</span><span class="at">TextOverlay</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">==</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech has started</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">==</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech is over</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>lastSpeech <span class="op">!=</span> null <span class="op">&amp;&amp;</span> curSpeech <span class="op">!=</span> lastSpeech<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// speech changed to the next line</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    lastSpeech = curSpeech<span class="op">;</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Detects when the blocking speech has begun, changed to the next line or is over.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Speech.html#speechportraitoverlay"><code>Speech.PortraitOverlay</code></a></p>
@@ -277,10 +287,10 @@ eAlignRight</code></pre>
 </section>
 <section id="speechuseglobalspeechanimationdelay" class="level3">
 <h3><a href="#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">UseGlobalSpeechAnimationDelay</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">UseGlobalSpeechAnimationDelay</span></span></code></pre></div>
 <p>Gets/sets whether speech animation delay should use global setting, as opposed to individual character's setting. The actual global delay value is specified with <strong>Speech.GlobalSpeechAnimationDelay</strong>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">UseGlobalSpeechAnimationDelay</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Speech</span><span class="op">.</span><span class="at">UseGlobalSpeechAnimationDelay</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will make the game use global speech animation delay.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Speech.html#speechglobalspeechanimationdelay"><code>Speech.GlobalSpeechAnimationDelay</code></a></p>
@@ -289,7 +299,7 @@ eAlignRight</code></pre>
 <section id="speechvoicemode" class="level3">
 <h3><a href="#speechvoicemode"><code>Speech.VoiceMode</code></a></h3>
 <p><em>(Formerly known as <code>SetVoiceMode</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">eVoiceMode</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">VoiceMode</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">eVoiceMode</span> <span class="bu">Speech</span><span class="op">.</span><span class="at">VoiceMode</span></span></code></pre></div>
 <p>Gets/sets whether voice and/or text captions are used in the game.</p>
 <p>Valid values for VoiceMode are:</p>
 <pre><code>eSpeechTextOnly      no voice, text only
@@ -298,8 +308,8 @@ eSpeechVoiceOnly     voice only, no text</code></pre>
 <p>The default is <em>eSpeechVoiceAndText</em> if in-game speech is enabled, and <em>eSpeechTextOnly</em> if it is not. Changing this setting changes the behavior of all <a href="Character.html#charactersay"><code>Say</code></a> and <a href="Globalfunctions_Message.html#display"><code>Display</code></a> commands which have a speech file assigned to them.</p>
 <p><strong>WARNING:</strong> you should only ever use <em>eSpeechVoiceOnly</em> at the player's request to do so, because there is no guarantee that they even have a sound card and so may not understand what is going on.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsSpeechVoxAvailable</span><span class="op">()==</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Speech</span><span class="op">.</span><span class="at">VoiceMode</span> = <span class="bu">eSpeechVoiceAndText</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsSpeechVoxAvailable</span><span class="op">()==</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Speech</span><span class="op">.</span><span class="at">VoiceMode</span> = <span class="bu">eSpeechVoiceAndText</span><span class="op">;</span></span></code></pre></div>
 <p>will set the voice mode to voice and text if the voice pack is available.</p>
 </section>
 </section>
@@ -309,7 +319,7 @@ eSpeechVoiceOnly     voice only, no text</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
+      Build: 872a822d31bee55a5477dd355434cd4f75eda25b
     </p>
   </footer>
 

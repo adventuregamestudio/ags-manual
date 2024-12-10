@@ -125,11 +125,11 @@
 <p><em>(Formerly known as <code>ListBoxAdd</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ListBox</span><span class="op">.</span><span class="at">AddItem</span><span class="op">(</span>string newitem<span class="op">)</span></span></code></pre></div>
 <p>Adds NEWITEM to the specified list box. The item will be appended to the end of the list.</p>
-<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more than that, this function will return <em>false</em> and the item will not be added.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = txtUserInput<span class="op">.</span><span class="at">Text</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lstChoices<span class="op">.</span><span class="at">AddItem</span><span class="op">(</span>input<span class="op">);</span></span></code></pre></div>
 <p>will take the input from the user and add it to the listbox.</p>
+<p><em>Compatibility:</em> prior to <strong>AGS 3.5.0</strong> ListBox had a limit of 200 items; they are not limited anymore.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxclear"><code>ListBox.Clear</code></a>, <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxinsertitemat"><code>ListBox.InsertItemAt</code></a>, <a href="ListBox.html#listboxitems"><code>ListBox.Items</code></a>, <a href="ListBox.html#listboxremoveitem"><code>ListBox.RemoveItem</code></a></p>
 <hr />
 </section>
@@ -195,12 +195,12 @@
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ListBox</span><span class="op">.</span><span class="at">InsertItemAt</span><span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> string newitem<span class="op">)</span></span></code></pre></div>
 <p>Inserts NEWITEM into the specified list box. The item will be inserted <strong>before</strong> the specified index.</p>
 <p>Listbox indexes go from 0 (the first item) to ItemCount - 1 (the last item). The new item will be inserted before the index you specify.</p>
-<p><strong>NOTE:</strong> List boxes have a limit of 200 items. If you try to add more than that, this function will return <em>false</em> and the item will not be added.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>lstChoices<span class="op">.</span><span class="at">AddItem</span><span class="op">(</span><span class="st">&quot;First item&quot;</span><span class="op">);</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>lstChoices<span class="op">.</span><span class="at">AddItem</span><span class="op">(</span><span class="st">&quot;Second item&quot;</span><span class="op">);</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>lstChoices<span class="op">.</span><span class="at">InsertItemAt</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="st">&quot;Third item&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will insert the Third Item in between the First and Second items.</p>
+<p><em>Compatibility:</em> prior to <strong>AGS 3.5.0</strong> ListBox had a limit of 200 items; they are not limited anymore.</p>
 <p><em>See also:</em> <a href="ListBox.html#listboxadditem"><code>ListBox.AddItem</code></a>, <a href="ListBox.html#listboxremoveitem"><code>ListBox.RemoveItem</code></a></p>
 <hr />
 </section>
@@ -409,7 +409,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6fff3e869435b6b4246fd1d25ce28c87defeb77e
+      Build: 872a822d31bee55a5477dd355434cd4f75eda25b
     </p>
   </footer>
 
