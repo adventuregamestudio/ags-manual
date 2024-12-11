@@ -101,6 +101,9 @@
 <li><a href="#buttontext" id="toc-buttontext"><code>Button.Text</code></a></li>
 <li><a href="#buttontextalignment" id="toc-buttontextalignment"><code>Button.TextAlignment</code></a></li>
 <li><a href="#buttontextcolor" id="toc-buttontextcolor"><code>Button.TextColor</code></a></li>
+<li><a href="#buttontextpaddinghorizontal" id="toc-buttontextpaddinghorizontal"><code>Button.TextPaddingHorizontal</code></a></li>
+<li><a href="#buttontextpaddingvertical" id="toc-buttontextpaddingvertical"><code>Button.TextPaddingVertical</code></a></li>
+<li><a href="#buttonwraptext" id="toc-buttonwraptext"><code>Button.WrapText</code></a></li>
 </ul></li>
 </ul>
   </nav>
@@ -308,6 +311,38 @@
 <div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>btnRestart<span class="op">.</span><span class="at">TextColor</span> = <span class="dv">15</span><span class="op">;</span></span></code></pre></div>
 <p>will change button 'btnRestart' to have white text.</p>
 <p><em>See also:</em> <a href="Button.html#buttonnormalgraphic"><code>Button.NormalGraphic</code></a></p>
+<hr />
+</section>
+<section id="buttontextpaddinghorizontal" class="level3">
+<h3><a href="#buttontextpaddinghorizontal"><code>Button.TextPaddingHorizontal</code></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingHorizontal</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets amount of padding, restricting the text from left and right. This property helps to position the text within the button.</p>
+<p>Padding here is the space in pixels between the text and the edges of the button.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>btnSettings<span class="op">.</span><span class="at">TextPaddingHorizontal</span> = <span class="dv">5</span><span class="op">;</span></span></code></pre></div>
+<p>will ensure there is 5 pixels of space on both sides of the text within the button.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Button.html#buttontextpaddingvertical"><code>Button.TextPaddingVertical</code></a></p>
+<hr />
+</section>
+<section id="buttontextpaddingvertical" class="level3">
+<h3><a href="#buttontextpaddingvertical"><code>Button.TextPaddingVertical</code></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Button</span><span class="op">.</span><span class="at">TextPaddingVertical</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets amount of padding, restricting the text from top and bottom.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Button.html#buttontextpaddinghorizontal"><code>Button.TextPaddingHorizontal</code></a></p>
+<hr />
+</section>
+<section id="buttonwraptext" class="level3">
+<h3><a href="#buttonwraptext"><code>Button.WrapText</code></a></h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Button</span><span class="op">.</span><span class="at">WrapText</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets whether the button will wrap its text.</p>
+<p><strong>NOTE:</strong> If the text contains linebreaks (e.g., <code>\n</code>), set this property to <code>true</code> to honor those breaks.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">Text</span> = <span class="st">&quot;Click me for a hint</span><span class="sc">\n</span><span class="st">What has keys but can&#39;t open locks?&quot;</span><span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>btnRiddle<span class="op">.</span><span class="at">WrapText</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<p>Here the button btnRiddle has a text that requires wrap set to true to display correctly. We can imagine clicking it gives a piano sound.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 </section>
 </section>
   </main>
@@ -316,7 +351,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 153b1cd89095b754082f1f2a712f31c03874982e
+      Build: c000a16745dcb01adbe84abdd80ad072cb4ba110
     </p>
   </footer>
 
