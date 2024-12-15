@@ -574,7 +574,7 @@ var meta = {
       "16": { "BuildAndroid": 7 },
       "17": { "Button": 11 },
       "18": { "Camera": 2 },
-      "19": { "Character": 54 },
+      "19": { "Character": 55 },
       "20": { "Constants": 7 },
       "21": { "ContactingTheDevelopers": 8 },
       "22": { "Copyright": 6 },
@@ -616,7 +616,7 @@ var meta = {
       "58": { "GeneralSettings": 16 },
       "59": { "GlobalArrays": 1 },
       "60": { "Globalfunctions_Event": 7 },
-      "61": { "Globalfunctions_General": 23 },
+      "61": { "Globalfunctions_General": 24 },
       "62": { "Globalfunctions_Message": 2 },
       "63": { "Globalfunctions_Palette": 1 },
       "64": { "Globalfunctions_Room": 9 },
@@ -1420,6 +1420,9 @@ var meta = {
       "6": { "Keycodes": 7 },
       "7": { "Mouse": 1 },
       "8": { "UpgradeTo36": 1 }
+    },
+    "Alter": {
+      "0": { "Character": 1 }
     },
     "Alternatively": {
       "0": { "acintro2": 1 },
@@ -2771,7 +2774,7 @@ var meta = {
       "1": { "acintro7": 2 },
       "2": { "acintro8": 4 },
       "3": { "AdvancedRoomFeatures": 2 },
-      "4": { "Character": 17 },
+      "4": { "Character": 18 },
       "5": { "DialogScript": 3 },
       "6": { "DynamicArrays": 3 },
       "7": { "EditorCharacter": 1 },
@@ -2914,8 +2917,11 @@ var meta = {
       "1": { "StandardEnums": 1 }
     },
     "Character.FollowCharacter": {
-      "0": { "Character": 2 },
+      "0": { "Character": 3 },
       "1": { "ObsoleteScriptAPI": 2 }
+    },
+    "Character.Following": {
+      "0": { "Character": 3 }
     },
     "Character.Frame": {
       "0": { "Character": 4 },
@@ -3544,7 +3550,7 @@ var meta = {
       "1": { "AudioClip": 11 },
       "2": { "Button": 10 },
       "3": { "Camera": 1 },
-      "4": { "Character": 38 },
+      "4": { "Character": 39 },
       "5": { "Constants": 1 },
       "6": { "CustomDialogOptions": 4 },
       "7": { "DateTime": 2 },
@@ -3556,7 +3562,7 @@ var meta = {
       "13": { "File": 8 },
       "14": { "Game": 25 },
       "15": { "Globalfunctions_Event": 3 },
-      "16": { "Globalfunctions_General": 10 },
+      "16": { "Globalfunctions_General": 11 },
       "17": { "Globalfunctions_Room": 4 },
       "18": { "Globalfunctions_Wait": 5 },
       "19": { "GUI": 10 },
@@ -5605,7 +5611,7 @@ var meta = {
       "1": { "AudioClip": 11 },
       "2": { "Button": 13 },
       "3": { "Camera": 7 },
-      "4": { "Character": 91 },
+      "4": { "Character": 92 },
       "5": { "CustomDialogOptions": 2 },
       "6": { "DateTime": 8 },
       "7": { "Dialog": 16 },
@@ -5616,7 +5622,7 @@ var meta = {
       "12": { "EditorGUI": 1 },
       "13": { "File": 20 },
       "14": { "Game": 44 },
-      "15": { "Globalfunctions_General": 48 },
+      "15": { "Globalfunctions_General": 49 },
       "16": { "Globalfunctions_Message": 6 },
       "17": { "Globalfunctions_Palette": 3 },
       "18": { "Globalfunctions_Room": 16 },
@@ -7779,6 +7785,9 @@ var meta = {
       "0": { "DateTime": 1 },
       "1": { "ObsoleteScriptAPI": 1 }
     },
+    "GetTimerPos": {
+      "0": { "Globalfunctions_General": 5 }
+    },
     "GetTranslation": {
       "0": { "Game": 2 },
       "1": { "Globalfunctions_General": 4 },
@@ -7839,7 +7848,7 @@ var meta = {
       "1": { "AudioClip": 5 },
       "2": { "Button": 15 },
       "3": { "Camera": 5 },
-      "4": { "Character": 50 },
+      "4": { "Character": 51 },
       "5": { "DateTime": 7 },
       "6": { "Dialog": 6 },
       "7": { "DialogOptionsRenderingInfo": 11 },
@@ -9684,7 +9693,7 @@ var meta = {
       "0": { "EnginePluginRun-timeAPI": 1 }
     },
     "IsTimerExpired": {
-      "0": { "Globalfunctions_General": 5 }
+      "0": { "Globalfunctions_General": 8 }
     },
     "IsTranslationAvailable": {
       "0": { "Game": 2 },
@@ -11535,7 +11544,7 @@ var meta = {
       "41": { "Game": 18 },
       "42": { "GeneralSettings": 4 },
       "43": { "Globalfunctions_Event": 2 },
-      "44": { "Globalfunctions_General": 31 },
+      "44": { "Globalfunctions_General": 32 },
       "45": { "Globalfunctions_Message": 1 },
       "46": { "Globalfunctions_Palette": 2 },
       "47": { "Globalfunctions_Room": 2 },
@@ -14398,7 +14407,7 @@ var meta = {
       "11": { "EnginePluginRun-timeAPI": 58 },
       "12": { "File": 1 },
       "13": { "Game": 25 },
-      "14": { "Globalfunctions_General": 13 },
+      "14": { "Globalfunctions_General": 14 },
       "15": { "Globalfunctions_Room": 9 },
       "16": { "Globalfunctions_Wait": 4 },
       "17": { "GUI": 2 },
@@ -14491,8 +14500,9 @@ var meta = {
     "Roger": {
       "0": { "acintro7": 3 },
       "1": { "acintro8": 1 },
-      "2": { "ExtenderFunctions": 1 },
-      "3": { "GeneralSettings": 3 }
+      "2": { "Character": 1 },
+      "3": { "ExtenderFunctions": 1 },
+      "4": { "GeneralSettings": 3 }
     },
     "Roger's": {
       "0": { "acintro1": 2 },
@@ -15295,7 +15305,7 @@ var meta = {
       "5": { "AudioInScript": 1 },
       "6": { "Button": 17 },
       "7": { "Camera": 10 },
-      "8": { "Character": 83 },
+      "8": { "Character": 97 },
       "9": { "CustomProperties": 1 },
       "10": { "DateTime": 10 },
       "11": { "DefaultSetup": 1 },
@@ -15319,7 +15329,7 @@ var meta = {
       "29": { "Gamevariables": 1 },
       "30": { "GeneralSettings": 3 },
       "31": { "Globalfunctions_Event": 2 },
-      "32": { "Globalfunctions_General": 45 },
+      "32": { "Globalfunctions_General": 46 },
       "33": { "Globalfunctions_Message": 7 },
       "34": { "Globalfunctions_Palette": 3 },
       "35": { "Globalfunctions_Room": 16 },
@@ -15384,11 +15394,10 @@ var meta = {
       "94": { "Viewport": 12 }
     },
     "SeeAlso": {
-      "0": { "Character": 13 },
-      "1": { "Globalfunctions_General": 5 },
-      "2": { "Globalfunctions_Screen": 3 },
-      "3": { "Object": 7 },
-      "4": { "VoiceSpeech": 1 }
+      "0": { "Globalfunctions_General": 5 },
+      "1": { "Globalfunctions_Screen": 3 },
+      "2": { "Object": 7 },
+      "3": { "VoiceSpeech": 1 }
     },
     "Seek": {
       "0": { "AudioClip": 1 },
@@ -15941,7 +15950,7 @@ var meta = {
     },
     "SetTimer": {
       "0": { "DateTime": 1 },
-      "1": { "Globalfunctions_General": 7 }
+      "1": { "Globalfunctions_General": 10 }
     },
     "SetView": {
       "0": { "Object": 6 }
@@ -17180,7 +17189,7 @@ var meta = {
       "0": { "AudioChannel": 16 },
       "1": { "AudioClip": 11 },
       "2": { "Button": 9 },
-      "3": { "Character": 28 },
+      "3": { "Character": 29 },
       "4": { "CustomDialogOptions": 2 },
       "5": { "DateTime": 2 },
       "6": { "Dialog": 12 },
@@ -17192,7 +17201,7 @@ var meta = {
       "12": { "EnginePlugins": 1 },
       "13": { "File": 7 },
       "14": { "Game": 25 },
-      "15": { "Globalfunctions_General": 4 },
+      "15": { "Globalfunctions_General": 5 },
       "16": { "Globalfunctions_Room": 4 },
       "17": { "Globalfunctions_Wait": 3 },
       "18": { "GUI": 10 },
@@ -17298,12 +17307,13 @@ var meta = {
       "1": { "Dialog": 4 },
       "2": { "EditorLogPanel": 2 },
       "3": { "File": 1 },
-      "4": { "GUIControl": 1 },
-      "5": { "Hotspot": 1 },
-      "6": { "Object": 1 },
-      "7": { "StandardEnums": 1 },
-      "8": { "System": 3 },
-      "9": { "UpgradeTo361": 1 }
+      "4": { "Globalfunctions_General": 2 },
+      "5": { "GUIControl": 1 },
+      "6": { "Hotspot": 1 },
+      "7": { "Object": 1 },
+      "8": { "StandardEnums": 1 },
+      "9": { "System": 3 },
+      "10": { "UpgradeTo361": 1 }
     },
     "System.NumLock": {
       "0": { "System": 5 }
@@ -17406,7 +17416,7 @@ var meta = {
       "0": { "Globalfunctions_General": 2 }
     },
     "TIMER_ID": {
-      "0": { "Globalfunctions_General": 2 }
+      "0": { "Globalfunctions_General": 8 }
     },
     "TIMER_IDs": {
       "0": { "Globalfunctions_General": 1 }
@@ -17664,8 +17674,9 @@ var meta = {
       "0": { "Game": 1 }
     },
     "TextWindow": {
-      "0": { "GUI": 2 },
-      "1": { "TextWindowGUI": 1 }
+      "0": { "Globalfunctions_General": 1 },
+      "1": { "GUI": 2 },
+      "2": { "TextWindowGUI": 1 }
     },
     "TextWindowGUI": {
       "0": { "GUI": 4 },
@@ -17684,9 +17695,6 @@ var meta = {
     "Texture": {
       "0": { "DefaultSetup": 1 },
       "1": { "Setup": 1 }
-    },
-    "Textwindow": {
-      "0": { "Globalfunctions_General": 1 }
     },
     "Th": {
       "0": { "Lipsync": 2 }
@@ -17829,7 +17837,7 @@ var meta = {
       "2": { "Globalfunctions_Wait": 1 }
     },
     "Timer": {
-      "0": { "Globalfunctions_General": 1 }
+      "0": { "Globalfunctions_General": 3 }
     },
     "Timers": {
       "0": { "Globalfunctions_General": 1 },
@@ -20139,7 +20147,7 @@ var meta = {
       "22": { "GameEventsOrder": 1 },
       "23": { "GameSavesCompatibility": 1 },
       "24": { "GeneralSettings": 1 },
-      "25": { "Globalfunctions_General": 1 },
+      "25": { "Globalfunctions_General": 3 },
       "26": { "Globalfunctions_Room": 4 },
       "27": { "Globalfunctions_Screen": 1 },
       "28": { "GlobalVariables": 1 },
@@ -21727,7 +21735,7 @@ var meta = {
       "11": { "BuildAndroid": 1 },
       "12": { "Button": 17 },
       "13": { "Camera": 18 },
-      "14": { "Character": 99 },
+      "14": { "Character": 114 },
       "15": { "ColoursEditor": 1 },
       "16": { "Constants": 1 },
       "17": { "CustomDialogOptions": 2 },
@@ -21764,7 +21772,7 @@ var meta = {
       "48": { "Gamevariables": 1 },
       "49": { "GeneralSettings": 7 },
       "50": { "Globalfunctions_Event": 6 },
-      "51": { "Globalfunctions_General": 52 },
+      "51": { "Globalfunctions_General": 53 },
       "52": { "Globalfunctions_Message": 6 },
       "53": { "Globalfunctions_Palette": 3 },
       "54": { "Globalfunctions_Room": 19 },
@@ -21875,7 +21883,8 @@ var meta = {
       "0": { "AdvancedRoomFeatures": 1 },
       "1": { "Dialog": 1 },
       "2": { "EditorRoom": 2 },
-      "3": { "Settingupthegame": 1 }
+      "3": { "Globalfunctions_General": 1 },
+      "4": { "Settingupthegame": 1 }
     },
     "alternatives": {
       "0": { "TextParser": 1 }
@@ -21955,7 +21964,7 @@ var meta = {
       "57": { "Viewport": 2 }
     },
     "am": {
-      "0": { "Character": 1 },
+      "0": { "Character": 3 },
       "1": { "DialogScript": 1 },
       "2": { "FAQ": 1 },
       "3": { "ScriptKeywords": 4 }
@@ -22056,7 +22065,7 @@ var meta = {
       "52": { "GeneralSettings": 14 },
       "53": { "GlobalArrays": 2 },
       "54": { "Globalfunctions_Event": 7 },
-      "55": { "Globalfunctions_General": 19 },
+      "55": { "Globalfunctions_General": 20 },
       "56": { "Globalfunctions_Message": 1 },
       "57": { "Globalfunctions_Room": 7 },
       "58": { "Globalfunctions_Screen": 3 },
@@ -25583,6 +25592,15 @@ var meta = {
     "c.Say": {
       "0": { "ExtenderFunctions": 1 }
     },
+    "cAlter.FollowCharacter": {
+      "0": { "Character": 1 }
+    },
+    "cAlter.Following": {
+      "0": { "Character": 1 }
+    },
+    "cAlter.Say": {
+      "0": { "Character": 1 }
+    },
     "cBird.Moving": {
       "0": { "RepExec": 1 }
     },
@@ -25629,7 +25647,7 @@ var meta = {
     "cEgo": {
       "0": { "acintro2": 1 },
       "1": { "acintro7": 2 },
-      "2": { "Character": 2 },
+      "2": { "Character": 5 },
       "3": { "ExtenderFunctions": 3 },
       "4": { "ScriptingTutorialPart1": 3 },
       "5": { "ScriptKeywords": 5 },
@@ -25750,6 +25768,9 @@ var meta = {
     },
     "cEgo.MySay": {
       "0": { "TextWindowGUI": 1 }
+    },
+    "cEgo.Name": {
+      "0": { "Character": 1 }
     },
     "cEgo.NormalView": {
       "0": { "Character": 1 }
@@ -26066,7 +26087,7 @@ var meta = {
       "17": { "File": 1 },
       "18": { "GeneralSettings": 1 },
       "19": { "Globalfunctions_Event": 2 },
-      "20": { "Globalfunctions_General": 13 },
+      "20": { "Globalfunctions_General": 15 },
       "21": { "Globalfunctions_Message": 1 },
       "22": { "Globalfunctions_Palette": 1 },
       "23": { "Globalfunctions_Room": 4 },
@@ -27172,7 +27193,7 @@ var meta = {
       "9": { "AudioChannel": 1 },
       "10": { "BlockingScripts": 4 },
       "11": { "Camera": 5 },
-      "12": { "Character": 286 },
+      "12": { "Character": 288 },
       "13": { "ColoursEditor": 1 },
       "14": { "CustomDialogOptions": 1 },
       "15": { "Dialog": 3 },
@@ -30270,7 +30291,7 @@ var meta = {
       "27": { "Gamevariables": 2 },
       "28": { "GeneralSettings": 5 },
       "29": { "Globalfunctions_Event": 1 },
-      "30": { "Globalfunctions_General": 21 },
+      "30": { "Globalfunctions_General": 22 },
       "31": { "Globalfunctions_Message": 2 },
       "32": { "Globalfunctions_Room": 9 },
       "33": { "Globalfunctions_Screen": 2 },
@@ -31128,7 +31149,7 @@ var meta = {
       "9": { "FAQ": 2 },
       "10": { "File": 1 },
       "11": { "GameSavesCompatibility": 2 },
-      "12": { "Globalfunctions_General": 1 },
+      "12": { "Globalfunctions_General": 2 },
       "13": { "Globalfunctions_Message": 2 },
       "14": { "OOProgramming": 3 },
       "15": { "Pointers": 2 },
@@ -32995,7 +33016,7 @@ var meta = {
       "29": { "GeneralSettings": 4 },
       "30": { "GlobalArrays": 1 },
       "31": { "Globalfunctions_Event": 1 },
-      "32": { "Globalfunctions_General": 2 },
+      "32": { "Globalfunctions_General": 3 },
       "33": { "Globalfunctions_Message": 2 },
       "34": { "Globalfunctions_Room": 1 },
       "35": { "GraphicsDriver": 1 },
@@ -33055,30 +33076,31 @@ var meta = {
       "23": { "File": 1 },
       "24": { "Game": 1 },
       "25": { "GameSavesCompatibility": 1 },
-      "26": { "Globalfunctions_Screen": 1 },
-      "27": { "GraphicsDriver": 1 },
-      "28": { "GUI": 1 },
-      "29": { "GUIControl": 1 },
-      "30": { "ImportingFunctionsAndVariables": 2 },
-      "31": { "KeyboardShortcuts": 1 },
-      "32": { "Object": 2 },
-      "33": { "Overlay": 2 },
-      "34": { "Pointers": 3 },
-      "35": { "RuntimeEngine": 1 },
-      "36": { "Screen": 2 },
-      "37": { "ScriptingTutorialPart1": 2 },
-      "38": { "Settingupthegame": 1 },
-      "39": { "TemplateVerbcoin": 1 },
-      "40": { "TextParser": 1 },
-      "41": { "Translations": 1 },
-      "42": { "UpgradeTo32": 3 },
-      "43": { "UpgradeTo33": 1 },
-      "44": { "UpgradeTo335": 2 },
-      "45": { "UpgradeTo35": 3 },
-      "46": { "UpgradeTo36": 1 },
-      "47": { "UpgradeTo361": 2 },
-      "48": { "UpgradingTo27": 1 },
-      "49": { "Viewport": 1 }
+      "26": { "Globalfunctions_General": 1 },
+      "27": { "Globalfunctions_Screen": 1 },
+      "28": { "GraphicsDriver": 1 },
+      "29": { "GUI": 1 },
+      "30": { "GUIControl": 1 },
+      "31": { "ImportingFunctionsAndVariables": 2 },
+      "32": { "KeyboardShortcuts": 1 },
+      "33": { "Object": 2 },
+      "34": { "Overlay": 2 },
+      "35": { "Pointers": 3 },
+      "36": { "RuntimeEngine": 1 },
+      "37": { "Screen": 2 },
+      "38": { "ScriptingTutorialPart1": 2 },
+      "39": { "Settingupthegame": 1 },
+      "40": { "TemplateVerbcoin": 1 },
+      "41": { "TextParser": 1 },
+      "42": { "Translations": 1 },
+      "43": { "UpgradeTo32": 3 },
+      "44": { "UpgradeTo33": 1 },
+      "45": { "UpgradeTo335": 2 },
+      "46": { "UpgradeTo35": 3 },
+      "47": { "UpgradeTo36": 1 },
+      "48": { "UpgradeTo361": 2 },
+      "49": { "UpgradingTo27": 1 },
+      "50": { "Viewport": 1 }
     },
     "door": {
       "0": { "acintro4": 2 },
@@ -34527,11 +34549,12 @@ var meta = {
       "0": { "AudioClip": 1 },
       "1": { "Dialog": 4 },
       "2": { "File": 1 },
-      "3": { "GUIControl": 1 },
-      "4": { "Hotspot": 1 },
-      "5": { "Object": 1 },
-      "6": { "StandardEnums": 1 },
-      "7": { "System": 1 }
+      "3": { "Globalfunctions_General": 2 },
+      "4": { "GUIControl": 1 },
+      "5": { "Hotspot": 1 },
+      "6": { "Object": 1 },
+      "7": { "StandardEnums": 1 },
+      "8": { "System": 1 }
     },
     "eLogWarn": {
       "0": { "StandardEnums": 1 }
@@ -35511,7 +35534,7 @@ var meta = {
       "13": { "GameSavesCompatibility": 2 },
       "14": { "GeneralSettings": 1 },
       "15": { "Globalfunctions_Event": 2 },
-      "16": { "Globalfunctions_General": 2 },
+      "16": { "Globalfunctions_General": 3 },
       "17": { "Globalfunctions_Screen": 1 },
       "18": { "GraphicsDriver": 2 },
       "19": { "GUI": 2 },
@@ -36133,7 +36156,7 @@ var meta = {
       "8": { "File": 9 },
       "9": { "Game": 1 },
       "10": { "GameSavesCompatibility": 2 },
-      "11": { "Globalfunctions_General": 4 },
+      "11": { "Globalfunctions_General": 5 },
       "12": { "Plugins": 2 },
       "13": { "Pointers": 4 },
       "14": { "Preprocessor": 5 },
@@ -36955,12 +36978,15 @@ var meta = {
       "0": { "File": 1 }
     },
     "expire": {
-      "0": { "Globalfunctions_General": 2 }
+      "0": { "Globalfunctions_General": 4 }
     },
     "expired": {
       "0": { "Globalfunctions_General": 2 }
     },
     "expires": {
+      "0": { "Globalfunctions_General": 1 }
+    },
+    "expiring": {
       "0": { "Globalfunctions_General": 1 }
     },
     "explain": {
@@ -38374,7 +38400,7 @@ var meta = {
       "2": { "AdvancedRoomFeatures": 2 },
       "3": { "BlockingScripts": 1 },
       "4": { "Camera": 2 },
-      "5": { "Character": 3 },
+      "5": { "Character": 4 },
       "6": { "Debuggingfeatures": 1 },
       "7": { "Globalfunctions_Room": 1 },
       "8": { "ScriptingTutorialPart2": 1 }
@@ -38407,7 +38433,7 @@ var meta = {
       "7": { "AudioInScript": 2 },
       "8": { "AutonumberSpeechFiles": 1 },
       "9": { "BuildAndroid": 1 },
-      "10": { "Character": 4 },
+      "10": { "Character": 7 },
       "11": { "Constants": 1 },
       "12": { "ContactingTheDevelopers": 1 },
       "13": { "Credits": 1 },
@@ -39236,7 +39262,7 @@ var meta = {
       "34": { "Gamevariables": 2 },
       "35": { "GeneralSettings": 20 },
       "36": { "Globalfunctions_Event": 16 },
-      "37": { "Globalfunctions_General": 50 },
+      "37": { "Globalfunctions_General": 53 },
       "38": { "Globalfunctions_Message": 6 },
       "39": { "Globalfunctions_Palette": 5 },
       "40": { "Globalfunctions_Room": 12 },
@@ -39664,7 +39690,7 @@ var meta = {
       "62": { "GeneralSettings": 70 },
       "63": { "GlobalArrays": 7 },
       "64": { "Globalfunctions_Event": 15 },
-      "65": { "Globalfunctions_General": 102 },
+      "65": { "Globalfunctions_General": 103 },
       "66": { "Globalfunctions_Message": 1 },
       "67": { "Globalfunctions_Palette": 3 },
       "68": { "Globalfunctions_Room": 1 },
@@ -40789,10 +40815,11 @@ var meta = {
       "0": { "Character": 1 },
       "1": { "CustomDialogOptions": 1 },
       "2": { "EnginePluginRun-timeAPI": 1 },
-      "3": { "GUI": 1 },
-      "4": { "ScriptingTutorialPart2": 1 },
-      "5": { "ScriptKeywords": 2 },
-      "6": { "String": 1 }
+      "3": { "Globalfunctions_General": 1 },
+      "4": { "GUI": 1 },
+      "5": { "ScriptingTutorialPart2": 1 },
+      "6": { "ScriptKeywords": 2 },
+      "7": { "String": 1 }
     },
     "green": {
       "0": { "Character": 3 },
@@ -41468,7 +41495,7 @@ var meta = {
       "13": { "BuildAndroid": 3 },
       "14": { "Button": 4 },
       "15": { "Camera": 2 },
-      "16": { "Character": 30 },
+      "16": { "Character": 31 },
       "17": { "ColoursEditor": 1 },
       "18": { "Constants": 1 },
       "19": { "ContactingTheDevelopers": 1 },
@@ -42005,7 +42032,7 @@ var meta = {
       "1": { "acintro2": 1 },
       "2": { "acintro7": 3 },
       "3": { "acintro8": 3 },
-      "4": { "Character": 9 },
+      "4": { "Character": 10 },
       "5": { "EditorView": 1 },
       "6": { "FAQ": 2 },
       "7": { "Settingupthegame": 3 }
@@ -42368,6 +42395,9 @@ var meta = {
       "0": { "Maths": 6 }
     },
     "i": {
+      "0": { "Globalfunctions_General": 1 }
+    },
+    "i.e": {
       "0": { "Globalfunctions_General": 1 }
     },
     "iBall": {
@@ -43782,7 +43812,7 @@ var meta = {
       "20": { "Gamevariables": 1 },
       "21": { "GlobalArrays": 2 },
       "22": { "Globalfunctions_Event": 11 },
-      "23": { "Globalfunctions_General": 58 },
+      "23": { "Globalfunctions_General": 61 },
       "24": { "Globalfunctions_Message": 11 },
       "25": { "Globalfunctions_Palette": 6 },
       "26": { "Globalfunctions_Room": 26 },
@@ -44213,7 +44243,7 @@ var meta = {
       "0": { "DateTime": 3 },
       "1": { "EnginePluginRun-timeAPI": 7 },
       "2": { "Game": 5 },
-      "3": { "Globalfunctions_General": 1 },
+      "3": { "Globalfunctions_General": 2 },
       "4": { "Globalfunctions_Room": 3 },
       "5": { "GUI": 1 },
       "6": { "Hotspot": 2 },
@@ -44397,7 +44427,7 @@ var meta = {
       "25": { "GameSavesCompatibility": 2 },
       "26": { "GeneralSettings": 4 },
       "27": { "GlobalArrays": 1 },
-      "28": { "Globalfunctions_General": 2 },
+      "28": { "Globalfunctions_General": 3 },
       "29": { "GlobalVariables": 1 },
       "30": { "GUIControl": 1 },
       "31": { "ImportingFunctionsAndVariables": 1 },
@@ -44814,7 +44844,7 @@ var meta = {
       "13": { "ExtenderFunctions": 2 },
       "14": { "FAQ": 1 },
       "15": { "GeneralSettings": 2 },
-      "16": { "Globalfunctions_General": 2 },
+      "16": { "Globalfunctions_General": 3 },
       "17": { "GUI": 1 },
       "18": { "GUIControl": 1 },
       "19": { "Hotspot": 1 },
@@ -44870,7 +44900,7 @@ var meta = {
       "5": { "EditorSprite": 1 },
       "6": { "EnginePluginDesign-timeAPI": 1 },
       "7": { "EnginePluginRun-timeAPI": 1 },
-      "8": { "Globalfunctions_General": 1 },
+      "8": { "Globalfunctions_General": 2 },
       "9": { "RepExec": 1 },
       "10": { "Translations": 1 },
       "11": { "UpgradeTo35": 1 },
@@ -45358,7 +45388,7 @@ var meta = {
       "8": { "AudioClip": 13 },
       "9": { "Button": 10 },
       "10": { "Camera": 2 },
-      "11": { "Character": 42 },
+      "11": { "Character": 43 },
       "12": { "ColoursEditor": 1 },
       "13": { "Constants": 3 },
       "14": { "CustomDialogOptions": 1 },
@@ -45378,7 +45408,7 @@ var meta = {
       "28": { "GameEventsOrder": 1 },
       "29": { "GeneralSettings": 4 },
       "30": { "GlobalArrays": 1 },
-      "31": { "Globalfunctions_General": 11 },
+      "31": { "Globalfunctions_General": 12 },
       "32": { "Globalfunctions_Palette": 1 },
       "33": { "Globalfunctions_Room": 4 },
       "34": { "Globalfunctions_Wait": 5 },
@@ -45658,7 +45688,7 @@ var meta = {
       "22": { "Gamevariables": 1 },
       "23": { "GeneralSettings": 8 },
       "24": { "Globalfunctions_Event": 1 },
-      "25": { "Globalfunctions_General": 1 },
+      "25": { "Globalfunctions_General": 2 },
       "26": { "Globalfunctions_Room": 1 },
       "27": { "GUI": 1 },
       "28": { "GUIControl": 2 },
@@ -45775,7 +45805,7 @@ var meta = {
       "7": { "EnginePluginRun-timeAPI": 6 },
       "8": { "GameSavesCompatibility": 3 },
       "9": { "GeneralSettings": 5 },
-      "10": { "Globalfunctions_General": 1 },
+      "10": { "Globalfunctions_General": 2 },
       "11": { "ScriptingTutorialPart1": 3 },
       "12": { "ScriptingTutorialPart2": 1 },
       "13": { "ScriptKeywords": 3 },
@@ -46677,10 +46707,11 @@ var meta = {
       "4": { "EngineConfigFile": 4 },
       "5": { "EnginePluginRun-timeAPI": 3 },
       "6": { "File": 2 },
-      "7": { "GUIControl": 1 },
-      "8": { "Object": 1 },
-      "9": { "RuntimeEngine": 9 },
-      "10": { "System": 1 }
+      "7": { "Globalfunctions_General": 1 },
+      "8": { "GUIControl": 1 },
+      "9": { "Object": 1 },
+      "10": { "RuntimeEngine": 9 },
+      "11": { "System": 1 }
     },
     "logVal": {
       "0": { "Maths": 2 }
@@ -46690,7 +46721,8 @@ var meta = {
     },
     "logging": {
       "0": { "EngineConfigFile": 2 },
-      "1": { "RuntimeEngine": 2 }
+      "1": { "Globalfunctions_General": 1 },
+      "2": { "RuntimeEngine": 2 }
     },
     "logic": {
       "0": { "AudioClip": 1 },
@@ -49851,7 +49883,7 @@ var meta = {
       "4": { "acintro7": 5 },
       "5": { "acintro8": 5 },
       "6": { "AudioClip": 10 },
-      "7": { "Character": 19 },
+      "7": { "Character": 20 },
       "8": { "CustomProperties": 1 },
       "9": { "Dialog": 11 },
       "10": { "DialogScript": 5 },
@@ -53968,11 +54000,11 @@ var meta = {
     },
     "patch": {
       "0": { "GameSavesCompatibility": 2 },
-      "1": { "MIDI-playback": 11 }
+      "1": { "MIDI-playback": 12 }
     },
     "patches": {
       "0": { "DistGame": 1 },
-      "1": { "MIDI-playback": 2 }
+      "1": { "MIDI-playback": 1 }
     },
     "patching": {
       "0": { "DistGame": 2 },
@@ -57192,7 +57224,7 @@ var meta = {
       "0": { "AudioChannel": 7 },
       "1": { "AudioClip": 5 },
       "2": { "Button": 5 },
-      "3": { "Character": 25 },
+      "3": { "Character": 26 },
       "4": { "DateTime": 8 },
       "5": { "Dialog": 7 },
       "6": { "DrawingSurface": 2 },
@@ -58919,7 +58951,7 @@ var meta = {
       "19": { "File": 3 },
       "20": { "Game": 3 },
       "21": { "GeneralSettings": 2 },
-      "22": { "Globalfunctions_General": 8 },
+      "22": { "Globalfunctions_General": 10 },
       "23": { "Globalfunctions_Message": 3 },
       "24": { "Globalfunctions_Room": 7 },
       "25": { "Globalfunctions_Screen": 1 },
@@ -59334,7 +59366,9 @@ var meta = {
     },
     "room_AfterFadeIn": {
       "0": { "AudioInScript": 1 },
-      "1": { "EventTypes": 1 }
+      "1": { "Character": 1 },
+      "2": { "EventTypes": 1 },
+      "3": { "Globalfunctions_General": 1 }
     },
     "room_FirstLoad": {
       "0": { "EventTypes": 1 },
@@ -59360,7 +59394,8 @@ var meta = {
       "1": { "FAQ": 1 }
     },
     "room_RepExec": {
-      "0": { "EventTypes": 1 }
+      "0": { "EventTypes": 1 },
+      "1": { "Globalfunctions_General": 1 }
     },
     "room_Unload": {
       "0": { "EventTypes": 1 }
@@ -59610,7 +59645,7 @@ var meta = {
       "14": { "Game": 4 },
       "15": { "GameSavesCompatibility": 1 },
       "16": { "GeneralSettings": 1 },
-      "17": { "Globalfunctions_General": 6 },
+      "17": { "Globalfunctions_General": 9 },
       "18": { "GraphicsDriver": 1 },
       "19": { "GUI": 1 },
       "20": { "GUIControl": 6 },
@@ -59764,7 +59799,7 @@ var meta = {
       "31": { "Gamevariables": 3 },
       "32": { "GeneralSettings": 1 },
       "33": { "Globalfunctions_Event": 2 },
-      "34": { "Globalfunctions_General": 8 },
+      "34": { "Globalfunctions_General": 9 },
       "35": { "Globalfunctions_Message": 2 },
       "36": { "Globalfunctions_Room": 4 },
       "37": { "Globalfunctions_Screen": 1 },
@@ -59979,7 +60014,8 @@ var meta = {
     },
     "saying": {
       "0": { "BuildAndroid": 1 },
-      "1": { "Lipsync": 1 }
+      "1": { "Character": 1 },
+      "2": { "Lipsync": 1 }
     },
     "says": {
       "0": { "acintro2": 2 },
@@ -63297,7 +63333,7 @@ var meta = {
       "11": { "File": 8 },
       "12": { "Game": 20 },
       "13": { "GeneralSettings": 2 },
-      "14": { "Globalfunctions_General": 7 },
+      "14": { "Globalfunctions_General": 8 },
       "15": { "Globalfunctions_Message": 1 },
       "16": { "Globalfunctions_Room": 4 },
       "17": { "Globalfunctions_Screen": 5 },
@@ -64148,7 +64184,7 @@ var meta = {
       "12": { "Game": 2 },
       "13": { "Gamevariables": 1 },
       "14": { "Globalfunctions_Event": 1 },
-      "15": { "Globalfunctions_General": 1 },
+      "15": { "Globalfunctions_General": 2 },
       "16": { "Globalfunctions_Room": 1 },
       "17": { "GUI": 3 },
       "18": { "GUIControl": 1 },
@@ -66083,7 +66119,7 @@ var meta = {
       "29": { "Gamevariables": 1 },
       "30": { "GeneralSettings": 6 },
       "31": { "Globalfunctions_Event": 1 },
-      "32": { "Globalfunctions_General": 9 },
+      "32": { "Globalfunctions_General": 11 },
       "33": { "Globalfunctions_Message": 1 },
       "34": { "Globalfunctions_Palette": 1 },
       "35": { "GraphicsDriver": 1 },
@@ -66764,9 +66800,10 @@ var meta = {
       "5": { "UpgradeTo361": 1 }
     },
     "throw": {
-      "0": { "Pointers": 1 },
-      "1": { "TextParser": 3 },
-      "2": { "UpgradingTo27": 1 }
+      "0": { "Globalfunctions_General": 1 },
+      "1": { "Pointers": 1 },
+      "2": { "TextParser": 3 },
+      "3": { "UpgradingTo27": 1 }
     },
     "throws": {
       "0": { "FAQ": 1 },
@@ -66795,7 +66832,7 @@ var meta = {
       "1": { "DistGame": 1 },
       "2": { "EditorCursor": 1 },
       "3": { "EditorView": 1 },
-      "4": { "Globalfunctions_General": 2 },
+      "4": { "Globalfunctions_General": 3 },
       "5": { "Pointers": 1 },
       "6": { "Settingupthegame": 1 }
     },
@@ -66813,7 +66850,8 @@ var meta = {
     },
     "ticks": {
       "0": { "AudioChannel": 2 },
-      "1": { "EditorRoom": 1 }
+      "1": { "EditorRoom": 1 },
+      "2": { "Globalfunctions_General": 1 }
     },
     "tied": {
       "0": { "Game": 1 },
@@ -66865,7 +66903,7 @@ var meta = {
       "28": { "Gamevariables": 2 },
       "29": { "GeneralSettings": 2 },
       "30": { "Globalfunctions_Event": 1 },
-      "31": { "Globalfunctions_General": 4 },
+      "31": { "Globalfunctions_General": 6 },
       "32": { "Globalfunctions_Message": 1 },
       "33": { "Globalfunctions_Room": 2 },
       "34": { "Globalfunctions_Screen": 1 },
@@ -66904,6 +66942,9 @@ var meta = {
     "time-saver": {
       "0": { "Tumbleweed_door": 1 }
     },
+    "timeLeft": {
+      "0": { "Globalfunctions_General": 3 }
+    },
     "timed": {
       "0": { "CustomDialogOptions": 1 },
       "1": { "TemplateVerbcoin": 1 }
@@ -66915,10 +66956,13 @@ var meta = {
       "3": { "Settingupthegame": 1 }
     },
     "timer": {
-      "0": { "Globalfunctions_General": 9 },
+      "0": { "Globalfunctions_General": 15 },
       "1": { "Mouse": 4 },
       "2": { "RepExec": 1 },
       "3": { "ScriptingTutorialPart2": 8 }
+    },
+    "timerID": {
+      "0": { "Globalfunctions_General": 5 }
     },
     "timer_id": {
       "0": { "Globalfunctions_General": 2 }
@@ -68418,7 +68462,7 @@ var meta = {
       "11": { "EngineConfigFile": 1 },
       "12": { "EnginePluginDesign-timeAPI": 1 },
       "13": { "EnginePluginRun-timeAPI": 4 },
-      "14": { "Globalfunctions_General": 9 },
+      "14": { "Globalfunctions_General": 10 },
       "15": { "Globalfunctions_Message": 1 },
       "16": { "Globalfunctions_Palette": 1 },
       "17": { "Globalfunctions_Room": 3 },
@@ -68953,7 +68997,7 @@ var meta = {
       "44": { "Gamevariables": 5 },
       "45": { "GeneralSettings": 23 },
       "46": { "Globalfunctions_Event": 2 },
-      "47": { "Globalfunctions_General": 11 },
+      "47": { "Globalfunctions_General": 12 },
       "48": { "Globalfunctions_Message": 5 },
       "49": { "Globalfunctions_Palette": 2 },
       "50": { "Globalfunctions_Room": 1 },
@@ -69481,7 +69525,7 @@ var meta = {
       "28": { "Gamevariables": 3 },
       "29": { "GeneralSettings": 5 },
       "30": { "Globalfunctions_Event": 6 },
-      "31": { "Globalfunctions_General": 24 },
+      "31": { "Globalfunctions_General": 26 },
       "32": { "Globalfunctions_Message": 5 },
       "33": { "Globalfunctions_Room": 6 },
       "34": { "Globalfunctions_Screen": 2 },
@@ -69864,7 +69908,7 @@ var meta = {
       "4": { "BuildAndroid": 1 },
       "5": { "Button": 10 },
       "6": { "Camera": 1 },
-      "7": { "Character": 39 },
+      "7": { "Character": 40 },
       "8": { "Constants": 2 },
       "9": { "Credits": 1 },
       "10": { "CustomDialogOptions": 1 },
@@ -69884,7 +69928,7 @@ var meta = {
       "24": { "File": 10 },
       "25": { "Game": 25 },
       "26": { "GeneralSettings": 4 },
-      "27": { "Globalfunctions_General": 10 },
+      "27": { "Globalfunctions_General": 11 },
       "28": { "Globalfunctions_Room": 4 },
       "29": { "Globalfunctions_Wait": 5 },
       "30": { "GlobalVariables": 2 },
@@ -70227,7 +70271,7 @@ var meta = {
     },
     "void": {
       "0": { "Camera": 3 },
-      "1": { "Character": 1 },
+      "1": { "Character": 2 },
       "2": { "Dialog": 3 },
       "3": { "DialogOptionsRenderingInfo": 1 },
       "4": { "DialogScript": 3 },
@@ -70319,7 +70363,7 @@ var meta = {
       "11": { "EnginePluginRun-timeAPI": 1 },
       "12": { "Game": 1 },
       "13": { "Gamevariables": 1 },
-      "14": { "Globalfunctions_General": 1 },
+      "14": { "Globalfunctions_General": 2 },
       "15": { "Globalfunctions_Screen": 2 },
       "16": { "Globalfunctions_Wait": 10 },
       "17": { "Mouse": 2 },
@@ -70773,7 +70817,7 @@ var meta = {
       "18": { "Game": 1 },
       "19": { "GameSavesCompatibility": 2 },
       "20": { "Gamevariables": 1 },
-      "21": { "Globalfunctions_General": 1 },
+      "21": { "Globalfunctions_General": 2 },
       "22": { "GUI": 1 },
       "23": { "InventoryItem": 1 },
       "24": { "OOProgramming": 5 },
@@ -71047,7 +71091,7 @@ var meta = {
       "1": { "acintro3": 1 },
       "2": { "acintro7": 3 },
       "3": { "acintro9": 1 },
-      "4": { "Character": 1 },
+      "4": { "Character": 2 },
       "5": { "Dialog": 5 },
       "6": { "EditorCursor": 1 },
       "7": { "EditorGUI": 1 },

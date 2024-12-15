@@ -152,6 +152,7 @@
 <li><a href="#characterdestinationx" id="toc-characterdestinationx"><code>Character.DestinationX</code></a></li>
 <li><a href="#characterdestinationy" id="toc-characterdestinationy"><code>Character.DestinationY</code></a></li>
 <li><a href="#characterdiagonalloops" id="toc-characterdiagonalloops"><code>Character.DiagonalLoops</code></a></li>
+<li><a href="#characterfollowing" id="toc-characterfollowing"><code>Character.Following</code></a></li>
 <li><a href="#characterframe" id="toc-characterframe"><code>Character.Frame</code></a></li>
 <li><a href="#characterhasexplicittint" id="toc-characterhasexplicittint"><code>Character.HasExplicitTint</code></a></li>
 <li><a href="#characterid" id="toc-characterid"><code>Character.ID</code></a></li>
@@ -359,7 +360,7 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cMan<span class="op">.</span><span class="at">FollowCharacter</span><span class="op">(</span>cEgo<span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">80</span><span class="op">);</span></span></code></pre></div>
 <p>will make character MAN follow character EGO standing about 5 pixels near him and waiting for a while before he makes his move.</p>
-<p><em>See also:</em> <a href="Gamevariables.html"><code>game.following_room_timer</code></a></p>
+<p><em>See also:</em> <a href="Gamevariables.html"><code>game.following_room_timer</code></a>, <a href="Character.html#characterfollowing"><code>Character.Following</code></a></p>
 <hr />
 </section>
 <section id="charactergetatroomxy" class="level3">
@@ -465,7 +466,7 @@
 <p>Returns <em>true</em> if the character has a light set explicitly with the <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit light level, but it may still be lighted by <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a> or a region light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a></p>
 <hr />
 </section>
 <section id="characterhasinventory" class="level3">
@@ -518,7 +519,7 @@
 <p>If the character has an individual light set explicitly with the <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a> command, this property returns the light level value. Otherwise it returns 0.</p>
 <p><strong>NOTE:</strong> without individual light level set, Character.LightLevel returns 0 even if the character is affected by the ambient or region's light.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.1</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a></p>
 <hr />
 </section>
 <section id="characterlockview" class="level3">
@@ -998,7 +999,7 @@
 <p>Gets/sets the character's animation sound volume, which is a <em>relative</em> volume (0-100) of frame-linked sounds that play during character's animations.</p>
 <p><strong>NOTE:</strong> all the volume properties in Character act as relative factors: these are <code>AnimationVolume</code>, "volume" parameter of <a href="Character.html#characteranimate"><code>Animate</code></a> function, and character's scale if <a href="Character.html#characterscalevolume"><code>ScaleVolume</code></a> is also set. The final frame sound's volume will be equal to <code>sound volume * AnimationVolume % * scaled volume %</code> in case of a normal view animation (walking, talking, etc), and <code>sound volume * AnimationVolume % * scaled volume % * Animate's volume param %</code> when <code>Animate</code> is called.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characterbaseline" class="level3">
@@ -1123,67 +1124,85 @@
 <p>will enable diagonal walking loops for character EGO.</p>
 <hr />
 </section>
+<section id="characterfollowing" class="level3">
+<h3><a href="#characterfollowing"><code>Character.Following</code></a></h3>
+<div class="sourceCode" id="cb126"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">Character</span><span class="op">*</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Following</span></span></code></pre></div>
+<p>Gets the character this character is following.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">room_AfterFadeIn</span><span class="op">()</span></span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  cAlter<span class="op">.</span><span class="at">FollowCharacter</span><span class="op">(</span>cEgo<span class="op">);</span></span>
+<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>cAlter<span class="op">.</span><span class="at">Following</span> <span class="op">==</span> cEgo<span class="op">)</span></span>
+<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
+<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>    cAlter<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I am following %s!&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span>
+<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Will have Alter saying "I am following Roger!", or whatever is <code>cEgo</code>'s name, and also follow him.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Character.html#characterfollowcharacter"><code>Character.FollowCharacter</code></a></p>
+<hr />
+</section>
 <section id="characterframe" class="level3">
 <h3><a href="#characterframe"><code>Character.Frame</code></a></h3>
 <p><em>(Formerly known as <code>character[].frame</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Frame</span></span></code></pre></div>
 <p>Gets/sets the character's current frame number. Usually you won't change this directly, but will use the Animate command to play an animation.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO currently using frame %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Frame</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO currently using frame %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Frame</span><span class="op">);</span></span></code></pre></div>
 <p>displays EGO's current frame number within his view.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characterhasexplicittint" class="level3">
 <h3><a href="#characterhasexplicittint"><code>Character.HasExplicitTint</code></a></h3>
-<div class="sourceCode" id="cb128"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">HasExplicitTint</span></span></code></pre></div>
 <p>Returns <em>true</em> if the character has a tint set explicitly with the <a href="Character.html#charactertint"><code>Character.Tint</code></a> command.</p>
 <p>Returns <em>false</em> if the character has no explicit tint, but it may still be tinted by <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a> or a region tint.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasExplicitTint</span><span class="op">)</span></span>
-<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">RemoveTint</span><span class="op">();</span></span>
-<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">HasExplicitTint</span><span class="op">)</span></span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">RemoveTint</span><span class="op">();</span></span>
+<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>removes the player's tint if it currently has one.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#characterremovetint"><code>Character.RemoveTint</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Character.html#characterremovetint"><code>Character.RemoveTint</code></a></p>
 <hr />
 </section>
 <section id="characterid" class="level3">
 <h3><a href="#characterid"><code>Character.ID</code></a></h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ID</span></span></code></pre></div>
 <p>Gets the character's ID number. This is the character's number from the editor, and is useful if you need to interoperate with legacy code that uses the character's number rather than name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>MoveCharacter<span class="op">(</span>cEgo<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>MoveCharacter<span class="op">(</span>cEgo<span class="op">.</span><span class="at">ID</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
 <p>uses the obsolete MoveCharacter function to move EGO to (100, 50)</p>
 <hr />
 </section>
 <section id="characteridleanimationdelay" class="level3">
 <h3><a href="#characteridleanimationdelay"><code>Character.IdleAnimationDelay</code></a></h3>
-<div class="sourceCode" id="cb132"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IdleAnimationDelay</span></span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IdleAnimationDelay</span></span></code></pre></div>
 <p>Gets/sets the character's idle animation delay</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteridleview"><code>Character.IdleView</code></a>, <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characteridleview"><code>Character.IdleView</code></a>, <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
 <hr />
 </section>
 <section id="characteridleview" class="level3">
 <h3><a href="#characteridleview"><code>Character.IdleView</code></a></h3>
-<div class="sourceCode" id="cb133"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IdleView</span></span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IdleView</span></span></code></pre></div>
 <p>Gets the character's current idle view. If the character doesn't have one, returns -1.</p>
 <p>This property is read-only; to change the view, use the <a href="Character.html#charactersetidleview"><code>SetIdleView</code></a> function.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s idle view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">IdleView</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s idle view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">IdleView</span><span class="op">);</span></span></code></pre></div>
 <p>will display EGO's current idle view number.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactersetidleview"><code>Character.SetIdleView</code></a></p>
 <hr />
 </section>
 <section id="characterignorelighting" class="level3">
 <h3><a href="#characterignorelighting"><code>Character.IgnoreLighting</code></a></h3>
 <p><em>(Formerly known as <code>SetCharacterIgnoreLight</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IgnoreLighting</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IgnoreLighting</span></span></code></pre></div>
 <p>Allows you to dynamically modify the "ignore lighting" checkbox for the character. If this is set to 0, the character will be affected by region light levels and tints; if this is set to 1, then the character will ignore all region lighting.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">IgnoreLighting</span> = <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">IgnoreLighting</span> = <span class="dv">1</span><span class="op">;</span></span></code></pre></div>
 <p>will make the character look the same no matter if he stands on regions with different light levels.</p>
 <hr />
 </section>
@@ -1191,7 +1210,7 @@
 <h3><a href="#characterignorewalkbehinds"><code>Character.IgnoreWalkbehinds</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0 and not recommended for use at all.</strong></p>
 <p><em>(Formerly known as <code>SetCharacterIgnoreWalkbehinds</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IgnoreWalkbehinds</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">IgnoreWalkbehinds</span></span></code></pre></div>
 <p>Gets/sets whether the character is affected by walkbehind areas. Passing <em>false</em> (the default setting) means that the character will be placed behind walk- behind areas according to the relevant baselines.</p>
 <p>Passing <em>true</em> means that the character will never be placed behind a walk-behind area. This is useful if for example you want to use the character as an overlay to display rain or snow onto a scene.</p>
 <p><strong>IMPORTANT:</strong> This property is a "dirty hack" and not recommended for use at all. It breaks the logic of drawing order for room elements, and only works as intended if your game is run using Software graphics driver. We strongly suggest to design your rooms without it and rely on <a href="Character.html#characterbaseline"><code>Baseline</code></a> property instead.</p>
@@ -1200,13 +1219,13 @@
 <section id="characterinventoryquantity" class="level3">
 <h3><a href="#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></h3>
 <p><em>(Formerly known as <code>character[].inv</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">InventoryQuantity</span><span class="op">[]</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">InventoryQuantity</span><span class="op">[]</span></span></code></pre></div>
 <p>Gets/sets the quantity of the specified inventory item that the character currently has. The array index is the inventory item number, from the Inventory pane in the editor.</p>
 <p>Usually, you should use the AddInventory and LoseInventory functions to modify the character's inventory; however, if you need to add or remove a large number of items in one go, directly changing this array can be an easier method.</p>
 <p>If you change this array directly, the on-screen inventory will not be updated. In this case, you must call UpdateInventory to see any new or removed items.</p>
 <p>If you just want to quickly check whether the character has a particular item or not, use the <a href="Character.html#characterhasinventory"><code>HasInventory</code></a> function instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player has $%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">InventoryQuantity</span><span class="op">[</span>iCash<span class="op">.</span><span class="at">ID</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player has $%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">InventoryQuantity</span><span class="op">[</span>iCash<span class="op">.</span><span class="at">ID</span><span class="op">]);</span></span></code></pre></div>
 <p>will display how many inventory items of type iCash the player has.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#updateinventory"><code>UpdateInventory</code></a>, <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterhasinventory"><code>Character.HasInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a></p>
 <hr />
@@ -1214,37 +1233,37 @@
 <section id="characterloop" class="level3">
 <h3><a href="#characterloop"><code>Character.Loop</code></a></h3>
 <p><em>(Formerly known as <code>character[].loop</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Loop</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Loop</span></span></code></pre></div>
 <p>Gets/sets the character's current loop number. Usually you won't change this directly, but will use the Animate command to play an animation.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO currently using loop %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Loop</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO currently using loop %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Loop</span><span class="op">);</span></span></code></pre></div>
 <p>displays EGO's current loop number within his view.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="charactermanualscaling" class="level3">
 <h3><a href="#charactermanualscaling"><code>Character.ManualScaling</code></a></h3>
 <p><em>(Formerly known as <code>Character.IgnoreScaling</code>, which is now obsolete)</em><br> <em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ManualScaling</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ManualScaling</span></span></code></pre></div>
 <p>Gets/sets whether the character's scaling level is determined by the walkable area that he is walking on, or whether it is set manually by the script. This is equivalent, though opposite, to the "UseRoomAreaScaling" property in the Character pane of the editor.</p>
 <p>If this is set to <em>true</em>, then the character's scaling level is set manually by the <a href="Character.html#characterscaling"><code>Scaling</code></a> property (by default this is <code>100%</code>). If it is set to <em>false</em>, then the character will be stretched or shrunk automatically as appropriate on walkable areas.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scaling</span> = <span class="dv">50</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scaling</span> = <span class="dv">50</span><span class="op">;</span></span></code></pre></div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to <code>50%</code> zoom level.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterscaling"><code>Character.Scaling</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characterscaling"><code>Character.Scaling</code></a></p>
 <hr />
 </section>
 <section id="charactermovementlinkedtoanimation" class="level3">
 <h3><a href="#charactermovementlinkedtoanimation"><code>Character.MovementLinkedToAnimation</code></a></h3>
-<div class="sourceCode" id="cb144"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span></span></code></pre></div>
 <p>Gets/sets whether the character's movement is linked to their animation. By default this is <em>true</em>, which means that when the character is walking their movement across the screen will be kept in sync with their animation frame changing. Without this, the character can appear to "glide" across the screen.</p>
 <p>In some special cases you may wish to turn this off though, and to do so you can set this property to <em>false</em>.</p>
 <p>In previous versions of AGS, this setting was known as "Anti-glide mode" and was a game-wide setting.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
-<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">MovementLinkedToAnimation</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will turn off movement-linked animation for the player character, walk him to (50,100), then turn it back on again.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
@@ -1253,12 +1272,12 @@
 <section id="charactermoving" class="level3">
 <h3><a href="#charactermoving"><code>Character.Moving</code></a></h3>
 <p><em>(Formerly known as <code>character[].walking</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Moving</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Moving</span></span></code></pre></div>
 <p>Returns <em>true</em> if the character is currently moving, or <em>false</em> if not.</p>
 <p>This property is read-only; to change the character's movement, use the <a href="Character.html#characterwalk"><code>Walk</code></a>, <a href="Character.html#charactermove"><code>Move</code></a> and <a href="Character.html#characterstopmoving"><code>StopMoving</code></a> commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
-<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will move EGO to 125,40 and return control to the player when he gets there.</p>
 <p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
@@ -1266,10 +1285,10 @@
 <section id="charactername" class="level3">
 <h3><a href="#charactername"><code>Character.Name</code></a></h3>
 <p><em>(Formerly known as <code>character[].name</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Name</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Name</span></span></code></pre></div>
 <p>Gets/sets the name of the character, as set in the AGS Editor. This is the full name, not the script name.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are controlling %s.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;You are controlling %s.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
 <p>will display the name of the player character.</p>
 <p><em>Compatibility:</em> character's name was limited to 40 characters prior to <strong>AGS 3.6.1</strong>.</p>
 <p><em>See also:</em> <a href="Character.html#characterscriptname"><code>Character.ScriptName</code></a></p>
@@ -1278,20 +1297,20 @@
 <section id="characternormalview" class="level3">
 <h3><a href="#characternormalview"><code>Character.NormalView</code></a></h3>
 <p><em>(Formerly known as <code>character[].defview</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">NormalView</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">NormalView</span></span></code></pre></div>
 <p>Gets the character's normal view. This is the character's standard walking view, that is used when his view is not locked to something else.</p>
 <p>This property is read-only; to change it, use the <a href="Character.html#characterchangeview"><code>ChangeView</code></a> command.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">View</span> <span class="op">==</span> cEgo<span class="op">.</span><span class="at">NormalView</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO is not animating, not talking and not idle.&quot;</span><span class="op">);</span></span>
-<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">View</span> <span class="op">==</span> cEgo<span class="op">.</span><span class="at">NormalView</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO is not animating, not talking and not idle.&quot;</span><span class="op">);</span></span>
+<span id="cb153-3"><a href="#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if EGO is currently displayed using his normal view.</p>
 <p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterview"><code>Character.View</code></a></p>
 <hr />
 </section>
 <section id="characteron" class="level3">
 <h3><a href="#characteron"><code>Character.on</code></a></h3>
-<div class="sourceCode" id="cb152"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">on</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">on</span></span></code></pre></div>
 <p>Gets/sets whether the character is enabled and visible. This lets you disable any character anytime, including player character. When disabled a character will not be drawn on screen and not updated (not animating, not moving, etc). Disabled characters may still be modified and have their coordinates changed by setting their corresponding properties directly, and also moved to another room with <a href="Character.html#characterchangeroom">ChangeRoom</a> function.</p>
 <p>Rooms have a property called "ShowPlayerCharacter", which is enabled by default. If this property is disabled, then player character will have their <code>on</code> property set to 0 when such room is loaded, and restored it to 1 when leaving that room.</p>
 <hr />
@@ -1299,67 +1318,67 @@
 <section id="characterpreviousroom" class="level3">
 <h3><a href="#characterpreviousroom"><code>Character.PreviousRoom</code></a></h3>
 <p><em>(Formerly known as <code>character[].prevroom</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">PreviousRoom</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">PreviousRoom</span></span></code></pre></div>
 <p>Gets the room number that the character was previously in. If the character is still in the room that they started in, this will be -1. Otherwise, it will be the room number of the room that they were last in.</p>
 <p>This is a read-only property. It is set automatically by <a href="Character.html#characterchangeroom"><code>ChangeRoom</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s previous room was %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">PreviousRoom</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s previous room was %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">PreviousRoom</span><span class="op">);</span></span></code></pre></div>
 <p>will display the EGO character's previous room.</p>
 <hr />
 </section>
 <section id="characterroom" class="level3">
 <h3><a href="#characterroom"><code>Character.Room</code></a></h3>
 <p><em>(Formerly known as <code>character[].room</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Room</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Room</span></span></code></pre></div>
 <p>Gets the room number that the character is currently in.</p>
 <p>This is a read-only property. It is set by <a href="Character.html#characterchangeroom"><code>ChangeRoom</code></a>.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO is in room %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Room</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO is in room %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Room</span><span class="op">);</span></span></code></pre></div>
 <p>will display the EGO character's current room.</p>
 <hr />
 </section>
 <section id="characterscalemovespeed" class="level3">
 <h3><a href="#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></h3>
 <p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScaleMoveSpeed</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScaleMoveSpeed</span></span></code></pre></div>
 <p>Gets/sets whether the character's movement speed is adjusted in line with his current scaling level. This allows you to modify the "Adjust speed with scaling" option from the editor.</p>
 <p>If you set this to <em>true</em>, the character's movement speed will be adjusted so that he walks at a speed relative to his current scaling level. If you set this to <em>false</em>, the character will always just move at his normal speed.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ScaleMoveSpeed</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ScaleMoveSpeed</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will mean that EGO's speed is adjusted in line with his scaling</p>
 <p><em>See also:</em> <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a></p>
 <hr />
 </section>
 <section id="characterscalevolume" class="level3">
 <h3><a href="#characterscalevolume"><code>Character.ScaleVolume</code></a></h3>
-<div class="sourceCode" id="cb159"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScaleVolume</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScaleVolume</span></span></code></pre></div>
 <p>Gets/sets whether the character's volume is adjusted in line with his current scaling level. This allows you to modify the "Adjust volume with scaling" option from the editor.</p>
 <p>By default, this is <em>false</em>. If you set it to <em>true</em>, then any frame-linked sounds for the character (for example, footstep sounds) will have their volume automatically adjusted in line with the character's scaling level. At the normal <code>100%</code> zoom level the sounds will be played at normal volume, but will then get quieter and louder as appropriate in scaled walkable areas.</p>
 <p><strong>NOTE:</strong> all the volume properties in Character act as relative factors: these are <code>AnimationVolume</code>, "volume" parameter of <a href="Character.html#characteranimate"><code>Animate</code></a> function, and character's scale if <a href="Character.html#characterscalevolume"><code>ScaleVolume</code></a> is also set. The final frame sound's volume will be equal to <code>sound volume * AnimationVolume % * scaled volume %</code> in case of a normal view animation (walking, talking, etc), and <code>sound volume * AnimationVolume % * scaled volume % * Animate's volume param %</code> when <code>Animate</code> is called.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ScaleVolume</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ScaleVolume</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will mean that EGO's footstep sounds are adjusted in line with his scaling.</p>
 <p><em>See also:</em> <a href="Character.html#characterscalevolume"><code>Character.ScaleVolume</code></a>, <a href="Character.html#characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></p>
 <hr />
 </section>
 <section id="characterscaling" class="level3">
 <h3><a href="#characterscaling"><code>Character.Scaling</code></a></h3>
-<div class="sourceCode" id="cb161"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Scaling</span></span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Scaling</span></span></code></pre></div>
 <p>Gets/sets the character's current scaling level, in percents. The permitted value range is 1 to 32767. A character that has the regular size has this property set to 100.</p>
 <p>You can only set the value of this property if <a href="Character.html#charactermanualscaling"><code>ManualScaling</code></a> is enabled for the character; otherwise, the scaling is determined automatically based on the walkable area that the character is on.</p>
 <p>This property returns the actual current scaling at any given moment, whether it was set by you or acquired from the walkable area.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scaling</span> = <span class="dv">50</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ManualScaling</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Scaling</span> = <span class="dv">50</span><span class="op">;</span></span></code></pre></div>
 <p>will tell EGO to ignore walkable area scaling levels and be fixed to <code>50%</code> zoom level.</p>
 <p><em>Compatibility:</em> Since <strong>AGS 3.6.0</strong> this property's value can be in the range between 1 and 32767. In the previous versions this property could only have values in the range between 5 and 200.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#charactermanualscaling"><code>Character.ManualScaling</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactermanualscaling"><code>Character.ManualScaling</code></a></p>
 <hr />
 </section>
 <section id="characterscriptname" class="level3">
 <h3><a href="#characterscriptname"><code>Character.ScriptName</code></a></h3>
 <p><em>(Formerly known as <code>character[].scrname</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ScriptName</span></span></code></pre></div>
 <p>Gets the script name of the character, which serves as a unique identifier, as set in the AGS Editor.</p>
 <p>This may be useful if you have a pointer to some character stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each character in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Character.html#charactergetbyname">Character.GetByName</a> function to retrieve the character by the previously saved script name.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
@@ -1369,25 +1388,25 @@
 <section id="charactersolid" class="level3">
 <h3><a href="#charactersolid"><code>Character.Solid</code></a></h3>
 <p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Solid</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Solid</span></span></code></pre></div>
 <p>Gets/sets whether the character can be walked through by other characters.</p>
 <p>If this is set to <em>true</em>, then the character is solid and will block the path of other characters. If this is set to <em>false</em>, then the character acts like a hologram, and other characters can walk straight through him.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Solid</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Solid</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will mean that EGO blocks the path other characters.</p>
 <p><em>See also:</em> <a href="Character.html#characterblockingheight"><code>Character.BlockingHeight</code></a>, <a href="Character.html#characterblockingwidth"><code>Character.BlockingWidth</code></a></p>
 <hr />
 </section>
 <section id="characterspeaking" class="level3">
 <h3><a href="#characterspeaking"><code>Character.Speaking</code></a></h3>
-<div class="sourceCode" id="cb166"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Speaking</span></span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Speaking</span></span></code></pre></div>
 <p>Returns true if the character is currently talking, or false if not.</p>
 <p>This property is read-only. It will <strong>only</strong> return true for the active talking character; that is, it will not return true for any characters talking with the SayBackground command.</p>
 <p>Since this property will only be true while the character is speaking, and speaking is a blocking command, this property will probably only be useful to access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(!</span>cEgo<span class="op">.</span><span class="at">Animating</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
-<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">((</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">&amp;&amp;</span> <span class="op">(!</span>cEgo<span class="op">.</span><span class="at">Animating</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will animate the character using loop 3 while they are talking (only useful with Sierra-style speech).</p>
 <p><em>Compatibility</em>: Character.Speaking used to always return <code>false</code> if the character had no SpeechView set prior to <strong>AGS 3.6.2</strong>.</p>
 <p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterspeakingframe"><code>Character.SpeakingFrame</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
@@ -1395,28 +1414,28 @@
 </section>
 <section id="characterspeakingframe" class="level3">
 <h3><a href="#characterspeakingframe"><code>Character.SpeakingFrame</code></a></h3>
-<div class="sourceCode" id="cb168"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeakingFrame</span></span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeakingFrame</span></span></code></pre></div>
 <p>Returns the current frame number of the character's talking animation. This is useful when using Sierra-style speech, if you want to synchronize events with the progress of the close-up face talking animation.</p>
 <p>This property is read-only. It is only accessible while the character is speaking; if you attempt to call it when <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a> is <em>false</em> then it will raise an error.</p>
 <p>Since speaking is a blocking command, this property will probably only be useful access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">SpeakingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
-<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb169-5"><a href="#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Speaking</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">SpeakingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will move cMan to the right every time the talking animation loops back to Frame 0.</p>
 <p><em>See also:</em> <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a></p>
 <hr />
 </section>
 <section id="characterspeechanimationdelay" class="level3">
 <h3><a href="#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a></h3>
-<div class="sourceCode" id="cb170"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechAnimationDelay</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechAnimationDelay</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's speech animation delay, as set in the editor. This specifies how many game loops each frame of the character's speech animation is shown for.</p>
 <p><strong>NOTE:</strong> This property is ignored if lip sync is enabled.</p>
 <p><strong>NOTE:</strong> This property <strong>cannot</strong> be used if the Speech.UseGlobalSpeechAnimationDelay is set to <strong>true</strong>. In that case, the Speech.GlobalSpeechAnimationDelay property value is used instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">SpeechAnimationDelay</span> = <span class="dv">4</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">SpeechAnimationDelay</span> = <span class="dv">4</span><span class="op">;</span></span></code></pre></div>
 <p>will change the player character's speech animation speed to 4.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.1.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characteranimationspeed"><code>Character.AnimationSpeed</code></a>, <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a>, <a href="Game.html#gametextreadingspeed"><code>Game.TextReadingSpeed</code></a>, <a href="Speech.html#speechglobalspeechanimationdelay"><code>Speech.GlobalSpeechAnimationDelay</code></a>, <a href="Speech.html#speechuseglobalspeechanimationdelay"><code>Speech.UseGlobalSpeechAnimationDelay</code></a>,</p>
@@ -1425,11 +1444,11 @@
 <section id="characterspeechcolor" class="level3">
 <h3><a href="#characterspeechcolor"><code>Character.SpeechColor</code></a></h3>
 <p><em>(Formerly known as <code>SetTalkingColor</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechColor</span></span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechColor</span></span></code></pre></div>
 <p>Gets/sets the character's speech text color. This is set by default in the editor.</p>
 <p>NEWCOLOR is the color slot index from the Palette Editor. This can be 0-255 for a 256-color game, or one of the hi-color indexes available from the Palette Editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SpeechColor</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SpeechColor</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
 <p>will change the character's EGO talking color to yellow.</p>
 <p><em>See also:</em> <a href="Character.html#characterspeechview"><code>Character.SpeechView</code></a></p>
 <hr />
@@ -1437,29 +1456,29 @@
 <section id="characterspeechview" class="level3">
 <h3><a href="#characterspeechview"><code>Character.SpeechView</code></a></h3>
 <p><em>(Formerly known as <code>SetCharacterSpeechView</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>character[].talkview</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechView</span></span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">SpeechView</span></span></code></pre></div>
 <p>Gets/sets the character's talking view. If you change it, the new view number will be used as the character's talking view in all future conversations.</p>
 <p>You can set this to -1 to disable the character's speech view.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SpeechView</span> = <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SpeechView</span> = <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
 <p>will change the character EGO's speech view to view 10.</p>
 <p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterblinkview"><code>Character.BlinkView</code></a>, <a href="Character.html#characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a>, <a href="Character.html#characterspeechcolor"><code>Character.SpeechColor</code></a></p>
 <hr />
 </section>
 <section id="characterthinking" class="level3">
 <h3><a href="#characterthinking"><code>Character.Thinking</code></a></h3>
-<div class="sourceCode" id="cb176"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Thinking</span></span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Thinking</span></span></code></pre></div>
 <p>Returns true if the character is currently thinking, or false if not.</p>
 <p>This property is read-only. It will <strong>only</strong> return true for the active thinking character.</p>
 <p>Since this property will only be true while the character is thinking, and thinking is a blocking command, this property will probably only be useful to access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb177-2"><a href="#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb177-3"><a href="#cb177-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span></span>
-<span id="cb177-4"><a href="#cb177-4" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">50</span><span class="op">;</span></span>
-<span id="cb177-5"><a href="#cb177-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb177-6"><a href="#cb177-6" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb177-7"><a href="#cb177-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span></span>
+<span id="cb179-4"><a href="#cb179-4" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">50</span><span class="op">;</span></span>
+<span id="cb179-5"><a href="#cb179-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb179-6"><a href="#cb179-6" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">Transparency</span> = <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb179-7"><a href="#cb179-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>this will keep character semi-transparent while he is thinking.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a> <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="Character.html#characterthinkingframe"><code>Character.ThinkingFrame</code></a>,</p>
@@ -1467,16 +1486,16 @@
 </section>
 <section id="characterthinkingframe" class="level3">
 <h3><a href="#characterthinkingframe"><code>Character.ThinkingFrame</code></a></h3>
-<div class="sourceCode" id="cb178"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ThinkingFrame</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ThinkingFrame</span></span></code></pre></div>
 <p>Returns the current frame number of the character's thinking animation. This is useful when using Sierra-style speech, if you want to synchronize events with the progress of the close-up face talking animation.</p>
 <p>This property is read-only. It is only accessible while the character is thinking; if you attempt to call it when <a href="Character.html#characterthinking"><code>Character.Thinking</code></a> is <em>false</em> then it will raise an error.</p>
 <p>Since thinking is a blocking command, this property will probably only be useful access from the repeatedly_execute_always or late_repeatedly_execute_always handlers.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">ThinkingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
-<span id="cb179-4"><a href="#cb179-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb179-5"><a href="#cb179-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">Thinking</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">ThinkingFrame</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a>        cMan<span class="op">.</span><span class="at">Move</span><span class="op">(</span>cMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb181-4"><a href="#cb181-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb181-5"><a href="#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will move cMan to the right every time the thinking animation loops back to Frame 0.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.4</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterthink"><code>Character.Think</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
@@ -1485,10 +1504,10 @@
 <section id="characterthinkview" class="level3">
 <h3><a href="#characterthinkview"><code>Character.ThinkView</code></a></h3>
 <p><em>(Formerly known as <code>character[].thinkview</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ThinkView</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">ThinkView</span></span></code></pre></div>
 <p>Gets/sets the character's thinking view. This is used to animate the character when a thought is being displayed.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ThinkView</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">ThinkView</span> = <span class="dv">14</span><span class="op">;</span></span></code></pre></div>
 <p>will change the character EGO's thinking view to 14.</p>
 <p><em>See also:</em> <a href="Character.html#characterthink"><code>Character.Think</code></a></p>
 <hr />
@@ -1496,19 +1515,19 @@
 <section id="charactertransparency" class="level3">
 <h3><a href="#charactertransparency"><code>Character.Transparency</code></a></h3>
 <p><em>(Formerly known as <code>SetCharacterTransparency</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">Transparency</span></span></code></pre></div>
 <p>Gets/sets the character's transparency. This is specified as a percentage, from 0 to 100. 100 means fully transparent (i.e. invisible), and 0 is totally opaque (fully visible). Numbers in between represent varying levels of transparency.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
 <p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent character can significantly slow down AGS.</p>
 <p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>cEgo.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade a character in, the best approach is shown in the example below:</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = cEgo<span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span>
-<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>trans <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a>    trans<span class="op">++;</span></span>
-<span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
-<span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb183-6"><a href="#cb183-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = cEgo<span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span>
+<span id="cb185-2"><a href="#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>trans <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb185-3"><a href="#cb185-3" aria-hidden="true" tabindex="-1"></a>    trans<span class="op">++;</span></span>
+<span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
+<span id="cb185-5"><a href="#cb185-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb185-6"><a href="#cb185-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will gradually fade out the character from its current transparency level to being fully invisible.</p>
 <p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a></p>
 <hr />
@@ -1516,94 +1535,94 @@
 <section id="characterturnbeforewalking" class="level3">
 <h3><a href="#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></h3>
 <p><em>(Formerly part of <code>SetCharacterProperty</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnBeforeWalking</span></span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnBeforeWalking</span></span></code></pre></div>
 <p>Gets/sets whether the character turns to face his new direction before walking. This is equivalent (though opposite) to the editor "Do not turn before walking" tick-box.</p>
 <p>If you set this to <code>true</code>, the character will turn on the spot to face his new direction before setting off on a walk. If you set this to <code>false</code>, the character will instantly face in the correct direction and start walking.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnBeforeWalking</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnBeforeWalking</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
 <p>will tell EGO to turn to face his new direction before setting off, whenever he walks.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></p>
 <hr />
 </section>
 <section id="characterturnwhenfacing" class="level3">
 <h3><a href="#characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></h3>
-<div class="sourceCode" id="cb186"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnWhenFacing</span></span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Character</span><span class="op">.</span><span class="at">TurnWhenFacing</span></span></code></pre></div>
 <p>Gets/sets whether the character turns on the spot when ordered to face the new standing direction.</p>
 <p>If you set this to <code>true</code>, any time you tell the the character to face other direction, they will turn on the spot to face this new direction. If you set this to <code>false</code>, the character will instantly face in the set direction.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnWhenFacing</span>= <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb187-2"><a href="#cb187-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionLeft</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
-<span id="cb187-3"><a href="#cb187-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionRight</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">TurnWhenFacing</span>= <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb189-2"><a href="#cb189-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionLeft</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span>
+<span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">FaceDirection</span><span class="op">(</span><span class="bu">eDirectionRight</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
 <p>will tell EGO to turn to face left, and then turn again until they face right.</p>
 <p><em>Compatibility</em>: Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></p>
 <hr />
 </section>
 <section id="characterview" class="level3">
 <h3><a href="#characterview"><code>Character.View</code></a></h3>
-<div class="sourceCode" id="cb188"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">View</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">View</span></span></code></pre></div>
 <p>Gets the view that the character is currently displayed using.</p>
 <p>This property is read-only; to change the view, use the ChangeView and LockView functions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">View</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;EGO&#39;s view is currently view %d.&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">View</span><span class="op">);</span></span></code></pre></div>
 <p>will display EGO's current view number.</p>
-<p><em>SeeAlso:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characternormalview"><code>Character.NormalView</code></a></p>
+<p><em>See also:</em> <a href="Character.html#characterchangeview"><code>Character.ChangeView</code></a>, <a href="Character.html#characterframe"><code>Character.Frame</code></a>, <a href="Character.html#characterlockview"><code>Character.LockView</code></a>, <a href="Character.html#characterloop"><code>Character.Loop</code></a>, <a href="Character.html#characternormalview"><code>Character.NormalView</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedx" class="level3">
 <h3><a href="#characterwalkspeedx"><code>Character.WalkSpeedX</code></a></h3>
-<div class="sourceCode" id="cb190"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the character's walking speed in the X direction. If using uniform movement, this will be the same as the Y walking speed.</p>
 <p>This property is read-only. To change the walking speed, use the SetWalkSpeed function.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s x speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s x speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedX</span><span class="op">);</span></span></code></pre></div>
 <p>will display the player's X speed.</p>
 <p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></p>
 <hr />
 </section>
 <section id="characterwalkspeedy" class="level3">
 <h3><a href="#characterwalkspeedy"><code>Character.WalkSpeedY</code></a></h3>
-<div class="sourceCode" id="cb192"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the character's walking speed in the Y direction. If using uniform movement, this will be the same as the X walking speed.</p>
 <p>This property is read-only. To change the walking speed, use the SetWalkSpeed function.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s y speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;player&#39;s y speed: %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">WalkSpeedY</span><span class="op">);</span></span></code></pre></div>
 <p>will display the player's Y speed.</p>
 <p><em>See also:</em> <a href="Character.html#charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a>, <a href="Character.html#characterwalkspeedx"><code>Character.WalkSpeedX</code></a></p>
 <hr />
 </section>
 <section id="characterx" class="level3">
 <h3><a href="#characterx"><code>Character.x</code></a></h3>
-<div class="sourceCode" id="cb194"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">x</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">x</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current X co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
 <p>displays the player character's current coordinates.</p>
 <p><em>See also:</em> <a href="Character.html#charactery"><code>Character.y</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="charactery" class="level3">
 <h3><a href="#charactery"><code>Character.y</code></a></h3>
-<div class="sourceCode" id="cb196"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">y</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">y</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current Y co-ordinate. This is expressed in normal room co-ordinates, and specifies the bottom-center of the character's sprite.</p>
 <p><strong>NOTE:</strong> Do <strong>NOT</strong> change this property while the character is moving. Make sure the character is standing still before changing his co-ordinates.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player is at %d,%d.&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">y</span><span class="op">);</span></span></code></pre></div>
 <p>displays the player character's current coordinates.</p>
 <p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#characterz"><code>Character.z</code></a></p>
 <hr />
 </section>
 <section id="characterz" class="level3">
 <h3><a href="#characterz"><code>Character.z</code></a></h3>
-<div class="sourceCode" id="cb198"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">z</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Character</span><span class="op">.</span><span class="at">z</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the character's current Z position. This allows the character to levitate off the ground, whilst still retaining its normal Y co-ordinate for baseline calculations and regions.</p>
 <p>Normally this is set to 0 (ground-level), but you can increase it to make the character float.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">z</span> <span class="op">&lt;</span> <span class="dv">20</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb199-2"><a href="#cb199-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">z</span><span class="op">++;</span></span>
-<span id="cb199-3"><a href="#cb199-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb199-4"><a href="#cb199-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">z</span> <span class="op">&lt;</span> <span class="dv">20</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb201-2"><a href="#cb201-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">player</span><span class="op">.</span><span class="at">z</span><span class="op">++;</span></span>
+<span id="cb201-3"><a href="#cb201-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb201-4"><a href="#cb201-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>gradually levitates the character up to 20 pixels.</p>
 <p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#charactery"><code>Character.y</code></a></p>
 </section>
@@ -1614,7 +1633,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: c000a16745dcb01adbe84abdd80ad072cb4ba110
+      Build: d6ac03de16d4d23d1b1a81692a695ab79003ee37
     </p>
   </footer>
 
