@@ -484,6 +484,7 @@ var meta = {
     "UpgradeTo35": "Upgrading to AGS 3.5",
     "UpgradeTo36": "Upgrading to AGS 3.6",
     "UpgradeTo361": "Upgrading to AGS 3.6.1",
+    "UpgradeTo362": "Upgrading to AGS 3.6.2",
     "UpgradingFromPreviousVersion": "Upgrading from a previous version",
     "UpgradingTo27": "Upgrading to AGS 2.7",
     "UpgradingTo271": "Upgrading to AGS 2.71",
@@ -504,7 +505,8 @@ var meta = {
       "8": { "RepExec": 1 },
       "9": { "RuntimeEngine": 1 },
       "10": { "ScriptingTutorialPart1": 2 },
-      "11": { "Settingupthegame": 2 }
+      "11": { "Settingupthegame": 2 },
+      "12": { "UpgradeTo362": 1 }
     },
     "A": {
       "0": { "File": 1 }
@@ -633,7 +635,7 @@ var meta = {
       "75": { "Keycodes": 8 },
       "76": { "Label": 3 },
       "77": { "Lipsync": 9 },
-      "78": { "ListBox": 11 },
+      "78": { "ListBox": 14 },
       "79": { "Maths": 6 },
       "80": { "MIDI-playback": 4 },
       "81": { "Mouse": 7 },
@@ -665,11 +667,11 @@ var meta = {
       "107": { "Slider": 3 },
       "108": { "SourceControl": 7 },
       "109": { "Speech": 8 },
-      "110": { "StandardEnums": 10 },
+      "110": { "StandardEnums": 16 },
       "111": { "StandardTypes": 1 },
       "112": { "String": 7 },
       "113": { "StringFormats": 2 },
-      "114": { "System": 25 },
+      "114": { "System": 26 },
       "115": { "SystemLimits": 3 },
       "116": { "Templates": 9 },
       "117": { "TemplateSierraStyle": 1 },
@@ -695,12 +697,13 @@ var meta = {
       "137": { "UpgradeTo35": 11 },
       "138": { "UpgradeTo36": 16 },
       "139": { "UpgradeTo361": 6 },
-      "140": { "UpgradingFromPreviousVersion": 12 },
-      "141": { "UpgradingTo27": 5 },
-      "142": { "UpgradingTo271": 3 },
-      "143": { "ViewFrame": 2 },
-      "144": { "Viewport": 1 },
-      "145": { "VoiceSpeech": 6 }
+      "140": { "UpgradeTo362": 3 },
+      "141": { "UpgradingFromPreviousVersion": 13 },
+      "142": { "UpgradingTo27": 5 },
+      "143": { "UpgradingTo271": 3 },
+      "144": { "ViewFrame": 2 },
+      "145": { "Viewport": 1 },
+      "146": { "VoiceSpeech": 6 }
     },
     "AGS's": {
       "0": { "EnginePluginRun-timeAPI": 5 }
@@ -1001,7 +1004,8 @@ var meta = {
       "17": { "UpgradeTo34": 5 },
       "18": { "UpgradeTo341": 4 },
       "19": { "UpgradeTo35": 1 },
-      "20": { "UpgradeTo36": 1 }
+      "20": { "UpgradeTo36": 1 },
+      "21": { "UpgradeTo362": 1 }
     },
     "APIs": {
       "0": { "GeneralSettings": 1 }
@@ -1100,7 +1104,8 @@ var meta = {
       "2": { "ExtenderFunctions": 1 },
       "3": { "GUI": 1 },
       "4": { "Pointers": 2 },
-      "5": { "Screen": 1 }
+      "5": { "Screen": 1 },
+      "6": { "UpgradeTo362": 1 }
     },
     "AbsInt": {
       "0": { "ExtenderFunctions": 1 }
@@ -1361,7 +1366,8 @@ var meta = {
       "30": { "UnicodeSupport": 2 },
       "31": { "UpgradeTo36": 2 },
       "32": { "UpgradeTo361": 1 },
-      "33": { "UpgradingTo271": 1 }
+      "33": { "UpgradeTo362": 1 },
+      "34": { "UpgradingTo271": 1 }
     },
     "Allegro": {
       "0": { "Copyright": 1 },
@@ -1483,7 +1489,8 @@ var meta = {
       "12": { "Slider": 2 },
       "13": { "TroubleshootingWindowsZoneID": 1 },
       "14": { "UpgradeTo36": 1 },
-      "15": { "UpgradingTo271": 1 }
+      "15": { "UpgradeTo362": 2 },
+      "16": { "UpgradingTo271": 1 }
     },
     "Android": {
       "0": { "BuildAndroid": 20 },
@@ -1776,7 +1783,8 @@ var meta = {
       "9": { "Setup": 1 },
       "10": { "System": 2 },
       "11": { "SystemLimits": 1 },
-      "12": { "UpgradeTo32": 7 }
+      "12": { "UpgradeTo32": 7 },
+      "13": { "UpgradeTo362": 1 }
     },
     "AudioCache": {
       "0": { "MusicAndSound": 4 },
@@ -2087,7 +2095,8 @@ var meta = {
       "4": { "UpgradeTo33": 1 },
       "5": { "UpgradeTo34": 1 },
       "6": { "UpgradeTo36": 1 },
-      "7": { "UpgradingTo271": 1 }
+      "7": { "UpgradeTo362": 1 },
+      "8": { "UpgradingTo271": 1 }
     },
     "BakeCake": {
       "0": { "ScriptKeywords": 3 }
@@ -2650,7 +2659,8 @@ var meta = {
       "0": { "EnginePluginRun-timeAPI": 2 }
     },
     "Cancel": {
-      "0": { "Game": 3 }
+      "0": { "Game": 3 },
+      "1": { "UpgradeTo362": 2 }
     },
     "Cancels": {
       "0": { "Globalfunctions_Wait": 1 }
@@ -2809,7 +2819,8 @@ var meta = {
     "Character's": {
       "0": { "Character": 1 },
       "1": { "Globalfunctions_General": 1 },
-      "2": { "Overlay": 1 }
+      "2": { "Overlay": 1 },
+      "3": { "UpgradeTo362": 2 }
     },
     "Character.ActiveInventory": {
       "0": { "Character": 2 },
@@ -3307,7 +3318,8 @@ var meta = {
       "19": { "Settingupthegame": 4 },
       "20": { "SystemLimits": 1 },
       "21": { "Tumbleweed_extensions": 1 },
-      "22": { "UpgradeTo361": 1 }
+      "22": { "UpgradeTo361": 1 },
+      "23": { "UpgradeTo362": 2 }
     },
     "Chars": {
       "0": { "String": 1 }
@@ -3571,7 +3583,7 @@ var meta = {
       "22": { "InventoryItem": 6 },
       "23": { "Keycodes": 2 },
       "24": { "Label": 2 },
-      "25": { "ListBox": 9 },
+      "25": { "ListBox": 12 },
       "26": { "Maths": 6 },
       "27": { "Mouse": 5 },
       "28": { "Multimedia": 1 },
@@ -3585,16 +3597,17 @@ var meta = {
       "36": { "Set": 1 },
       "37": { "Slider": 3 },
       "38": { "Speech": 8 },
-      "39": { "StandardEnums": 3 },
+      "39": { "StandardEnums": 14 },
       "40": { "String": 7 },
-      "41": { "System": 12 },
+      "41": { "System": 13 },
       "42": { "TextBox": 2 },
       "43": { "TextWindowGUI": 1 },
       "44": { "UpgradeTo34": 3 },
       "45": { "UpgradeTo341": 1 },
       "46": { "UpgradeTo35": 1 },
-      "47": { "ViewFrame": 1 },
-      "48": { "Viewport": 1 }
+      "47": { "UpgradeTo362": 1 },
+      "48": { "ViewFrame": 1 },
+      "49": { "Viewport": 1 }
     },
     "Competition": {
       "0": { "acintro2": 1 }
@@ -3707,7 +3720,8 @@ var meta = {
       "0": { "EditorRoom": 1 },
       "1": { "SystemLimits": 1 },
       "2": { "UpgradeTo33": 1 },
-      "3": { "UpgradeTo34": 1 }
+      "3": { "UpgradeTo34": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "Conversations": {
       "0": { "acintro": 1 },
@@ -3788,6 +3802,9 @@ var meta = {
     },
     "CreateScriptString": {
       "0": { "EnginePluginRun-timeAPI": 2 }
+    },
+    "CreateSomeArray": {
+      "0": { "UpgradeTo362": 2 }
     },
     "CreateTextOverlay": {
       "0": { "ObsoleteScriptAPI": 1 },
@@ -4151,7 +4168,7 @@ var meta = {
       "2": { "EditorPreferences": 1 },
       "3": { "GeneralSettings": 1 },
       "4": { "Globalfunctions_General": 6 },
-      "5": { "System": 2 }
+      "5": { "System": 3 }
     },
     "Debugger": {
       "0": { "KeyboardShortcuts": 2 },
@@ -4480,7 +4497,8 @@ var meta = {
       "2": { "GameSavesCompatibility": 2 },
       "3": { "Settingupthegame": 1 },
       "4": { "UpgradeTo341": 1 },
-      "5": { "UpgradeTo35": 1 }
+      "5": { "UpgradeTo35": 1 },
+      "6": { "UpgradeTo362": 1 }
     },
     "Dictionary": {
       "0": { "Dictionary": 23 },
@@ -4677,9 +4695,10 @@ var meta = {
       "58": { "Tumbleweed_movement": 1 },
       "59": { "UpgradeTo30": 1 },
       "60": { "UpgradeTo35": 1 },
-      "61": { "ViewFrame": 8 },
-      "62": { "Viewport": 4 },
-      "63": { "VoiceSpeech": 2 }
+      "61": { "UpgradeTo362": 1 },
+      "62": { "ViewFrame": 8 },
+      "63": { "Viewport": 4 },
+      "64": { "VoiceSpeech": 2 }
     },
     "Display-style": {
       "0": { "Globalfunctions_General": 1 }
@@ -5043,6 +5062,9 @@ var meta = {
     "Dutch": {
       "0": { "Tumbleweed": 1 }
     },
+    "DyanmicSprite.CreateFromScreenShot": {
+      "0": { "StandardEnums": 1 }
+    },
     "Dynamic": {
       "0": { "DistGame": 1 },
       "1": { "DynamicArrays": 3 },
@@ -5053,7 +5075,8 @@ var meta = {
       "6": { "ScriptKeywords": 1 },
       "7": { "SystemLimits": 1 },
       "8": { "UpgradeTo35": 1 },
-      "9": { "UpgradeTo36": 1 }
+      "9": { "UpgradeTo36": 1 },
+      "10": { "UpgradeTo362": 3 }
     },
     "DynamicSprite": {
       "0": { "DynamicArrays": 2 },
@@ -5142,7 +5165,8 @@ var meta = {
       "0": { "DynamicSprite": 9 }
     },
     "DynamicSprites": {
-      "0": { "DynamicSprite": 1 }
+      "0": { "DynamicSprite": 1 },
+      "1": { "UpgradeTo362": 2 }
     },
     "EAGERNESS": {
       "0": { "Character": 5 }
@@ -5174,6 +5198,60 @@ var meta = {
     },
     "END": {
       "0": { "Globalfunctions_Palette": 2 }
+    },
+    "ENGINE_VALUE": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_FPS": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_FPS_MAX": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_SPRCACHE_EXTERNAL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_SPRCACHE_LOCKED": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_SPRCACHE_MAXNORMAL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_SPRCACHE_NORMAL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_TEXCACHE_MAXNORMAL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_I_TEXCACHE_NORMAL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_LAST": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_SI_VALUENAME": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_DISPLAY_MODE_STR": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_ENGINE_NAME": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_ENGINE_VERSION": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_ENGINE_VERSION_FULL": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_GFXFILTER": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_S_GFXRENDERER": {
+      "0": { "StandardEnums": 1 }
+    },
+    "ENGINE_VALUE_UNDEFINED": {
+      "0": { "StandardEnums": 1 }
     },
     "EOF": {
       "0": { "File": 1 }
@@ -5480,10 +5558,15 @@ var meta = {
       "7": { "FAQ": 1 },
       "8": { "Multimedia": 1 },
       "9": { "Plugins": 6 },
-      "10": { "UpgradeTo36": 1 }
+      "10": { "StandardEnums": 1 },
+      "11": { "UpgradeTo36": 1 },
+      "12": { "UpgradeTo362": 3 }
     },
     "EngineDebugHook": {
       "0": { "EnginePluginRun-timeAPI": 1 }
+    },
+    "EngineValueID": {
+      "0": { "StandardEnums": 3 }
     },
     "English": {
       "0": { "acintro9": 1 },
@@ -5561,7 +5644,8 @@ var meta = {
     },
     "Event": {
       "0": { "acintro7": 1 },
-      "1": { "EventTypes": 1 }
+      "1": { "EventTypes": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "EventType": {
       "0": { "GameSavesCompatibility": 3 },
@@ -5582,7 +5666,8 @@ var meta = {
       "7": { "RepExec": 2 },
       "8": { "Settingupthegame": 2 },
       "9": { "Tumbleweed": 1 },
-      "10": { "Tumbleweed_unhandled": 1 }
+      "10": { "Tumbleweed_unhandled": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "Eventually": {
       "0": { "Tumbleweed": 1 }
@@ -5688,7 +5773,8 @@ var meta = {
       "2": { "acintro7": 2 }
     },
     "Expanded": {
-      "0": { "UpgradeTo361": 1 }
+      "0": { "UpgradeTo361": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "Experiment": {
       "0": { "FAQ": 1 }
@@ -5818,7 +5904,8 @@ var meta = {
       "1": { "DefaultSetup": 2 },
       "2": { "EditorView": 1 },
       "3": { "Globalfunctions_General": 1 },
-      "4": { "Settingupthegame": 1 }
+      "4": { "Settingupthegame": 1 },
+      "5": { "StandardEnums": 1 }
     },
     "FR": {
       "0": { "Tumbleweed": 1 }
@@ -6052,6 +6139,10 @@ var meta = {
       "0": { "File": 2 },
       "1": { "StandardEnums": 2 }
     },
+    "FileSortStyle": {
+      "0": { "ListBox": 2 },
+      "1": { "StandardEnums": 2 }
+    },
     "FileType": {
       "0": { "AudioChannel": 2 }
     },
@@ -6095,7 +6186,7 @@ var meta = {
     },
     "Fills": {
       "0": { "EnginePluginRun-timeAPI": 6 },
-      "1": { "ListBox": 2 }
+      "1": { "ListBox": 3 }
     },
     "Final": {
       "0": { "Constants": 2 }
@@ -6583,21 +6674,23 @@ var meta = {
       "35": { "Scripting": 8 },
       "36": { "Settingupthegame": 3 },
       "37": { "Slider": 5 },
-      "38": { "System": 3 },
-      "39": { "SystemLimits": 3 },
-      "40": { "TemplateBASS": 14 },
-      "41": { "TemplateVerbcoin": 8 },
-      "42": { "TextParser": 1 },
-      "43": { "TextWindowGUI": 3 },
-      "44": { "Translations": 1 },
-      "45": { "Tumbleweed": 4 },
-      "46": { "Tumbleweed_helper": 4 },
-      "47": { "Tumbleweed_translation": 4 },
-      "48": { "UpgradeTo33": 2 },
-      "49": { "UpgradeTo34": 3 },
-      "50": { "UpgradeTo35": 1 },
-      "51": { "UpgradeTo361": 1 },
-      "52": { "UpgradingTo27": 4 }
+      "38": { "StandardEnums": 1 },
+      "39": { "System": 3 },
+      "40": { "SystemLimits": 3 },
+      "41": { "TemplateBASS": 14 },
+      "42": { "TemplateVerbcoin": 8 },
+      "43": { "TextParser": 1 },
+      "44": { "TextWindowGUI": 3 },
+      "45": { "Translations": 1 },
+      "46": { "Tumbleweed": 4 },
+      "47": { "Tumbleweed_helper": 4 },
+      "48": { "Tumbleweed_translation": 4 },
+      "49": { "UpgradeTo33": 2 },
+      "50": { "UpgradeTo34": 3 },
+      "51": { "UpgradeTo35": 1 },
+      "52": { "UpgradeTo361": 1 },
+      "53": { "UpgradeTo362": 5 },
+      "54": { "UpgradingTo27": 4 }
     },
     "GUI's": {
       "0": { "FAQ": 1 },
@@ -6864,7 +6957,8 @@ var meta = {
       "15": { "Translations": 1 },
       "16": { "Tumbleweed": 1 },
       "17": { "UpgradeTo35": 1 },
-      "18": { "UpgradeTo36": 2 }
+      "18": { "UpgradeTo36": 2 },
+      "19": { "UpgradeTo362": 1 }
     },
     "GUS": {
       "0": { "MIDI-playback": 1 }
@@ -6915,7 +7009,8 @@ var meta = {
       "36": { "Templates": 5 },
       "37": { "UpgradeTo30": 1 },
       "38": { "UpgradeTo36": 3 },
-      "39": { "UpgradingTo271": 1 }
+      "39": { "UpgradeTo362": 1 },
+      "40": { "UpgradingTo271": 1 }
     },
     "Game's": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -7147,6 +7242,9 @@ var meta = {
     "Game.ResetDoOnceOnly": {
       "0": { "Game": 4 }
     },
+    "Game.ScanSaveSlots": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "Game.SetAudioTypeSpeechVolumeDrop": {
       "0": { "Game": 4 },
       "1": { "Multimedia": 1 },
@@ -7299,7 +7397,8 @@ var meta = {
       "33": { "UpgradeTo34": 3 },
       "34": { "UpgradeTo341": 3 },
       "35": { "UpgradeTo35": 3 },
-      "36": { "UpgradeTo36": 4 }
+      "36": { "UpgradeTo36": 4 },
+      "37": { "UpgradeTo362": 1 }
     },
     "Generally": {
       "0": { "acintro8": 1 },
@@ -7876,7 +7975,7 @@ var meta = {
       "29": { "Screen": 5 },
       "30": { "Slider": 6 },
       "31": { "Speech": 11 },
-      "32": { "System": 11 },
+      "32": { "System": 12 },
       "33": { "TextBox": 4 },
       "34": { "TextWindowGUI": 2 },
       "35": { "ViewFrame": 4 },
@@ -7965,7 +8064,8 @@ var meta = {
       "1": { "GlobalVariables": 2 }
     },
     "GlobalScript": {
-      "0": { "UpgradeTo361": 1 }
+      "0": { "UpgradeTo361": 1 },
+      "1": { "UpgradeTo362": 2 }
     },
     "GlobalScript.asc": {
       "0": { "KeyboardShortcuts": 1 },
@@ -8025,7 +8125,8 @@ var meta = {
       "6": { "Hotspot": 1 },
       "7": { "InventoryItem": 1 },
       "8": { "Object": 1 },
-      "9": { "Pointers": 1 }
+      "9": { "Pointers": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "Goodbye": {
       "0": { "GeneralSettings": 1 }
@@ -8093,7 +8194,8 @@ var meta = {
       "5": { "acintro7": 3 },
       "6": { "acintro8": 3 },
       "7": { "acintro9": 1 },
-      "8": { "MusicAndSound": 2 }
+      "8": { "MusicAndSound": 2 },
+      "9": { "UpgradeTo362": 1 }
     },
     "Group": {
       "0": { "Parser": 1 }
@@ -9057,7 +9159,8 @@ var meta = {
       "1": { "GameSavesCompatibility": 1 },
       "2": { "GUI": 4 },
       "3": { "Parser": 1 },
-      "4": { "RuntimeEngine": 1 }
+      "4": { "RuntimeEngine": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "IEEE": {
       "0": { "SystemLimits": 1 }
@@ -9066,7 +9169,8 @@ var meta = {
       "0": { "EditorPlugins": 1 }
     },
     "II": {
-      "0": { "MusicAndSound": 1 }
+      "0": { "MusicAndSound": 1 },
+      "1": { "StandardEnums": 1 }
     },
     "III": {
       "0": { "MusicAndSound": 1 }
@@ -9347,7 +9451,8 @@ var meta = {
       "5": { "UpgradeTo30": 1 },
       "6": { "UpgradeTo32": 1 },
       "7": { "UpgradeTo35": 1 },
-      "8": { "UpgradeTo361": 1 }
+      "8": { "UpgradeTo361": 1 },
+      "9": { "UpgradeTo362": 1 }
     },
     "IntToFloat": {
       "0": { "Camera": 4 },
@@ -9505,7 +9610,8 @@ var meta = {
       "25": { "TemplateVerbcoin": 1 },
       "26": { "Tumbleweed": 1 },
       "27": { "Tumbleweed_extensions": 1 },
-      "28": { "UpgradeTo361": 1 }
+      "28": { "UpgradeTo361": 1 },
+      "29": { "UpgradeTo362": 1 }
     },
     "InventoryItem": {
       "0": { "Character": 4 },
@@ -9748,8 +9854,9 @@ var meta = {
       "36": { "UpgradeTo31": 1 },
       "37": { "UpgradeTo35": 1 },
       "38": { "UpgradeTo36": 3 },
-      "39": { "UpgradingTo27": 2 },
-      "40": { "Viewport": 1 }
+      "39": { "UpgradeTo362": 1 },
+      "40": { "UpgradingTo27": 2 },
+      "41": { "Viewport": 1 }
     },
     "Italian": {
       "0": { "Tumbleweed": 1 }
@@ -9881,7 +9988,8 @@ var meta = {
       "5": { "UpgradingTo27": 3 }
     },
     "KB": {
-      "0": { "SystemLimits": 1 }
+      "0": { "StandardEnums": 6 },
+      "1": { "SystemLimits": 1 }
     },
     "KEYCODE": {
       "0": { "Globalfunctions_General": 1 }
@@ -10136,7 +10244,8 @@ var meta = {
     },
     "Length": {
       "0": { "GlobalArrays": 1 },
-      "1": { "String": 5 }
+      "1": { "String": 5 },
+      "2": { "UpgradeTo362": 2 }
     },
     "Less": {
       "0": { "GameSavesCompatibility": 1 }
@@ -10280,13 +10389,19 @@ var meta = {
       "1": { "ObsoleteScriptAPI": 1 }
     },
     "ListBox.FillDirList": {
-      "0": { "ListBox": 5 },
-      "1": { "ObsoleteScriptAPI": 1 }
+      "0": { "ListBox": 6 },
+      "1": { "ObsoleteScriptAPI": 1 },
+      "2": { "StandardEnums": 2 }
     },
     "ListBox.FillSaveGameList": {
       "0": { "Game": 1 },
-      "1": { "ListBox": 4 },
-      "2": { "ObsoleteScriptAPI": 1 }
+      "1": { "ListBox": 5 },
+      "2": { "ObsoleteScriptAPI": 1 },
+      "3": { "StandardEnums": 2 }
+    },
+    "ListBox.FillSaveGameSlots": {
+      "0": { "ListBox": 2 },
+      "1": { "StandardEnums": 2 }
     },
     "ListBox.Font": {
       "0": { "ListBox": 6 },
@@ -10311,7 +10426,7 @@ var meta = {
       "0": { "ListBox": 3 }
     },
     "ListBox.ItemCount": {
-      "0": { "ListBox": 6 },
+      "0": { "ListBox": 7 },
       "1": { "ObsoleteScriptAPI": 1 }
     },
     "ListBox.Items": {
@@ -10434,7 +10549,8 @@ var meta = {
     },
     "Loading": {
       "0": { "DistGame": 1 },
-      "1": { "Game": 1 }
+      "1": { "Game": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "Loads": {
       "0": { "DynamicSprite": 2 },
@@ -11055,7 +11171,8 @@ var meta = {
     },
     "Module": {
       "0": { "Preprocessor": 1 },
-      "1": { "ScriptModules": 1 }
+      "1": { "ScriptModules": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "Modules": {
       "0": { "MultipleScripts": 1 },
@@ -11376,7 +11493,8 @@ var meta = {
       "5": { "Game": 5 },
       "6": { "ScriptingTutorialPart1": 1 },
       "7": { "ScriptKeywords": 1 },
-      "8": { "TextWindowGUI": 1 }
+      "8": { "TextWindowGUI": 1 },
+      "9": { "UpgradeTo362": 1 }
     },
     "MyData": {
       "0": { "GeneralSettings": 3 }
@@ -11439,11 +11557,15 @@ var meta = {
     "MyVariables": {
       "0": { "GameSavesCompatibility": 4 }
     },
+    "N.N.N.N": {
+      "0": { "StandardEnums": 1 }
+    },
     "NAME": {
       "0": { "DialogScript": 1 },
       "1": { "Game": 2 },
-      "2": { "Translations": 1 },
-      "3": { "UpgradeTo36": 1 }
+      "2": { "StandardEnums": 1 },
+      "3": { "Translations": 1 },
+      "4": { "UpgradeTo36": 1 }
     },
     "NAME.TRS": {
       "0": { "Translations": 1 }
@@ -11576,7 +11698,7 @@ var meta = {
       "73": { "Speech": 7 },
       "74": { "String": 11 },
       "75": { "StringFormats": 1 },
-      "76": { "System": 2 },
+      "76": { "System": 3 },
       "77": { "Templates": 2 },
       "78": { "Translations": 1 },
       "79": { "UnicodeSupport": 1 },
@@ -11856,8 +11978,9 @@ var meta = {
       "44": { "UpgradeTo35": 2 },
       "45": { "UpgradeTo36": 2 },
       "46": { "UpgradeTo361": 1 },
-      "47": { "UpgradingTo271": 1 },
-      "48": { "VoiceSpeech": 1 }
+      "47": { "UpgradeTo362": 1 },
+      "48": { "UpgradingTo271": 1 },
+      "49": { "VoiceSpeech": 1 }
     },
     "Notepad": {
       "0": { "File": 1 }
@@ -12104,6 +12227,9 @@ var meta = {
     },
     "OPT_RUNGAMEINDLGOPTS": {
       "0": { "Globalfunctions_General": 1 }
+    },
+    "OPT_SAVECOMPONENTSIGNORE": {
+      "0": { "UpgradeTo362": 2 }
     },
     "OPT_SAVEGAMESCREENSHOTS": {
       "0": { "Globalfunctions_General": 1 }
@@ -12576,7 +12702,8 @@ var meta = {
       "8": { "UpgradeTo31": 1 },
       "9": { "UpgradeTo34": 2 },
       "10": { "UpgradeTo341": 1 },
-      "11": { "UpgradeTo35": 1 }
+      "11": { "UpgradeTo35": 1 },
+      "12": { "UpgradeTo362": 1 }
     },
     "Only": {
       "0": { "BuildAndroid": 1 },
@@ -12657,9 +12784,10 @@ var meta = {
       "0": { "Character": 8 },
       "1": { "EnginePluginDesign-timeAPI": 3 },
       "2": { "Globalfunctions_General": 3 },
-      "3": { "Object": 2 },
-      "4": { "Region": 1 },
-      "5": { "ScriptKeywords": 1 }
+      "3": { "ListBox": 2 },
+      "4": { "Object": 2 },
+      "5": { "Region": 1 },
+      "6": { "ScriptKeywords": 1 }
     },
     "Optionally": {
       "0": { "AudioClip": 1 },
@@ -13382,7 +13510,8 @@ var meta = {
       "15": { "Settingupthegame": 2 },
       "16": { "Translations": 1 },
       "17": { "UnicodeSupport": 1 },
-      "18": { "UpgradeTo36": 2 }
+      "18": { "UpgradeTo36": 2 },
+      "19": { "UpgradeTo362": 3 }
     },
     "Plugin": {
       "0": { "Copyright": 1 },
@@ -13519,6 +13648,9 @@ var meta = {
       "1": { "ScriptingLanguage": 1 },
       "2": { "ScriptKeywords": 1 }
     },
+    "Prescanning": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "Presents": {
       "0": { "Dialog": 1 }
     },
@@ -13549,7 +13681,8 @@ var meta = {
       "1": { "UpgradeTo35": 1 },
       "2": { "UpgradeTo36": 2 },
       "3": { "UpgradeTo361": 1 },
-      "4": { "UpgradingTo27": 1 }
+      "4": { "UpgradeTo362": 2 },
+      "5": { "UpgradingTo27": 1 }
     },
     "Print": {
       "0": { "GeneralSettings": 1 }
@@ -13658,7 +13791,8 @@ var meta = {
       "0": { "acintro3": 1 },
       "1": { "acintro7": 1 },
       "2": { "CustomProperties": 1 },
-      "3": { "MusicAndSound": 2 }
+      "3": { "MusicAndSound": 2 },
+      "4": { "UpgradeTo362": 1 }
     },
     "Protection": {
       "0": { "OOProgramming": 1 }
@@ -13994,7 +14128,11 @@ var meta = {
       "0": { "KeyboardShortcuts": 1 }
     },
     "Reduce": {
-      "0": { "KeyboardShortcuts": 1 }
+      "0": { "KeyboardShortcuts": 1 },
+      "1": { "UpgradeTo362": 1 }
+    },
+    "Reducing": {
+      "0": { "UpgradeTo362": 1 }
     },
     "Reed": {
       "0": { "Credits": 1 }
@@ -14224,6 +14362,9 @@ var meta = {
       "4": { "GeneralSettings": 1 },
       "5": { "Setup": 1 }
     },
+    "RenderLayer": {
+      "0": { "StandardEnums": 4 }
+    },
     "RenderText": {
       "0": { "EnginePluginRun-timeAPI": 1 }
     },
@@ -14353,8 +14494,14 @@ var meta = {
       "2": { "Object": 1 },
       "3": { "Region": 1 }
     },
+    "RestoredSaveInfo": {
+      "0": { "UpgradeTo362": 3 }
+    },
     "Restores": {
       "0": { "Globalfunctions_General": 1 }
+    },
+    "Restricting": {
+      "0": { "UpgradeTo362": 2 }
     },
     "Restricts": {
       "0": { "Mouse": 1 }
@@ -14888,6 +15035,9 @@ var meta = {
     "SHALL": {
       "0": { "Copyright": 1 }
     },
+    "SI": {
+      "0": { "StandardEnums": 2 }
+    },
     "SLOT": {
       "0": { "DrawingSurface": 1 },
       "1": { "Game": 1 },
@@ -14981,6 +15131,9 @@ var meta = {
       "9": { "Plugins": 1 },
       "10": { "UpgradeTo30": 2 }
     },
+    "SaveComponentSelection": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "SaveCursorForLocationChange": {
       "0": { "Mouse": 1 },
       "1": { "ObsoleteScriptAPI": 1 }
@@ -14995,6 +15148,10 @@ var meta = {
     },
     "SaveGameSlots": {
       "0": { "ListBox": 1 }
+    },
+    "SaveGameSortStyle": {
+      "0": { "ListBox": 4 },
+      "1": { "StandardEnums": 2 }
     },
     "SaveScreenShot": {
       "0": { "DynamicSprite": 1 },
@@ -15059,6 +15216,9 @@ var meta = {
     },
     "ScalingMultiplier": {
       "0": { "UpgradeTo35": 1 }
+    },
+    "Scanning": {
+      "0": { "UpgradeTo362": 1 }
     },
     "Schema": {
       "0": { "CustomProperties": 2 }
@@ -15214,8 +15374,9 @@ var meta = {
       "39": { "UpgradeTo341": 3 },
       "40": { "UpgradeTo35": 2 },
       "41": { "UpgradeTo36": 1 },
-      "42": { "UpgradingTo27": 1 },
-      "43": { "VoiceSpeech": 1 }
+      "42": { "UpgradeTo362": 2 },
+      "43": { "UpgradingTo27": 1 },
+      "44": { "VoiceSpeech": 1 }
     },
     "Script.asc": {
       "0": { "OOProgramming": 1 }
@@ -15344,7 +15505,7 @@ var meta = {
       "44": { "InventoryItem": 13 },
       "45": { "InvWindow": 9 },
       "46": { "Label": 4 },
-      "47": { "ListBox": 20 },
+      "47": { "ListBox": 21 },
       "48": { "Maths": 20 },
       "49": { "Mouse": 20 },
       "50": { "Multimedia": 5 },
@@ -15367,7 +15528,7 @@ var meta = {
       "67": { "Slider": 7 },
       "68": { "Speech": 12 },
       "69": { "String": 16 },
-      "70": { "System": 18 },
+      "70": { "System": 19 },
       "71": { "SystemLimits": 1 },
       "72": { "TemplateBASS": 1 },
       "73": { "Templates": 1 },
@@ -15706,13 +15867,16 @@ var meta = {
       "4": { "Object": 2 },
       "5": { "Room": 1 },
       "6": { "Settingupthegame": 1 },
-      "7": { "Translations": 1 }
+      "7": { "StandardEnums": 1 },
+      "8": { "Translations": 1 },
+      "9": { "UpgradeTo362": 2 }
     },
     "SetGameSpeed": {
       "0": { "EditorView": 1 },
       "1": { "GameEventsOrder": 1 },
       "2": { "Globalfunctions_General": 5 },
-      "3": { "Globalfunctions_Wait": 1 }
+      "3": { "Globalfunctions_Wait": 1 },
+      "4": { "StandardEnums": 1 }
     },
     "SetGlobalInt": {
       "0": { "Game": 1 },
@@ -16064,7 +16228,8 @@ var meta = {
       "35": { "UpgradeTo34": 3 },
       "36": { "UpgradeTo341": 3 },
       "37": { "UpgradeTo35": 3 },
-      "38": { "UpgradeTo36": 4 }
+      "38": { "UpgradeTo36": 4 },
+      "39": { "UpgradeTo362": 1 }
     },
     "Setup": {
       "0": { "DefaultSetup": 7 },
@@ -16282,7 +16447,8 @@ var meta = {
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo341": 1 },
       "28": { "UpgradeTo35": 2 },
-      "29": { "VoiceSpeech": 3 }
+      "29": { "UpgradeTo362": 1 },
+      "30": { "VoiceSpeech": 3 }
     },
     "Single": {
       "0": { "ScriptKeywords": 1 }
@@ -16472,6 +16638,10 @@ var meta = {
       "1": { "MusicAndSound": 1 },
       "2": { "Set": 1 },
       "3": { "UpgradeTo33": 1 }
+    },
+    "SortDirection": {
+      "0": { "ListBox": 6 },
+      "1": { "StandardEnums": 2 }
     },
     "SortStyle": {
       "0": { "Dictionary": 4 },
@@ -16717,7 +16887,8 @@ var meta = {
       "7": { "Settingupthegame": 1 },
       "8": { "SystemLimits": 2 },
       "9": { "UpgradeTo35": 2 },
-      "10": { "UpgradeTo36": 1 }
+      "10": { "UpgradeTo36": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "Spriteslot": {
       "0": { "Tumbleweed_translation": 1 }
@@ -16789,7 +16960,8 @@ var meta = {
       "6": { "StartingOff": 1 },
       "7": { "Tutorial": 1 },
       "8": { "UnicodeSupport": 1 },
-      "9": { "UpgradeTo361": 1 }
+      "9": { "UpgradeTo361": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "StartingRoom": {
       "0": { "acintro7": 1 },
@@ -17183,7 +17355,8 @@ var meta = {
       "3": { "System": 2 },
       "4": { "UnicodeSupport": 1 },
       "5": { "UpgradeTo30": 1 },
-      "6": { "UpgradeTo35": 1 }
+      "6": { "UpgradeTo35": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "Supported": {
       "0": { "AudioChannel": 16 },
@@ -17209,7 +17382,7 @@ var meta = {
       "20": { "Hotspot": 7 },
       "21": { "InventoryItem": 5 },
       "22": { "Label": 1 },
-      "23": { "ListBox": 7 },
+      "23": { "ListBox": 8 },
       "24": { "Maths": 6 },
       "25": { "Mouse": 4 },
       "26": { "Object": 18 },
@@ -17219,11 +17392,10 @@ var meta = {
       "30": { "Room": 3 },
       "31": { "Slider": 3 },
       "32": { "Speech": 8 },
-      "33": { "StandardEnums": 5 },
-      "34": { "String": 4 },
-      "35": { "System": 11 },
-      "36": { "TextBox": 2 },
-      "37": { "ViewFrame": 1 }
+      "33": { "String": 4 },
+      "34": { "System": 12 },
+      "35": { "TextBox": 2 },
+      "36": { "ViewFrame": 1 }
     },
     "SupportsExtendedCharacters": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -17291,6 +17463,10 @@ var meta = {
     "System.ColorDepth": {
       "0": { "ObsoleteScriptAPI": 1 },
       "1": { "System": 5 }
+    },
+    "System.DisplayFPS": {
+      "0": { "Globalfunctions_General": 1 },
+      "1": { "System": 2 }
     },
     "System.Gamma": {
       "0": { "System": 5 }
@@ -18307,9 +18483,10 @@ var meta = {
       "10": { "UpgradeTo35": 1 },
       "11": { "UpgradeTo36": 1 },
       "12": { "UpgradeTo361": 1 },
-      "13": { "UpgradingFromPreviousVersion": 13 },
-      "14": { "UpgradingTo27": 1 },
-      "15": { "UpgradingTo271": 1 }
+      "13": { "UpgradeTo362": 1 },
+      "14": { "UpgradingFromPreviousVersion": 14 },
+      "15": { "UpgradingTo27": 1 },
+      "16": { "UpgradingTo271": 1 }
     },
     "Upon": {
       "0": { "acintro2": 1 },
@@ -18393,7 +18570,7 @@ var meta = {
     "Used": {
       "0": { "Constants": 1 },
       "1": { "EnginePluginRun-timeAPI": 2 },
-      "2": { "StandardEnums": 32 },
+      "2": { "StandardEnums": 36 },
       "3": { "Tumbleweed_actions": 3 },
       "4": { "Tumbleweed_door": 1 },
       "5": { "Tumbleweed_extensions": 3 },
@@ -18509,6 +18686,9 @@ var meta = {
       "3": { "ListBox": 1 },
       "4": { "Overlay": 2 },
       "5": { "Speech": 1 }
+    },
+    "Validating": {
+      "0": { "UpgradeTo362": 1 }
     },
     "Value": {
       "0": { "Character": 2 },
@@ -18978,7 +19158,8 @@ var meta = {
       "2": { "EditorView": 2 },
       "3": { "GameSavesCompatibility": 2 },
       "4": { "Settingupthegame": 2 },
-      "5": { "SystemLimits": 1 }
+      "5": { "SystemLimits": 1 },
+      "6": { "UpgradeTo362": 1 }
     },
     "Virtually": {
       "0": { "UpgradeTo36": 1 }
@@ -19430,14 +19611,16 @@ var meta = {
       "75": { "UpgradeTo35": 3 },
       "76": { "UpgradeTo36": 3 },
       "77": { "UpgradeTo361": 1 },
-      "78": { "Viewport": 1 },
-      "79": { "VoiceSpeech": 1 }
+      "78": { "UpgradeTo362": 2 },
+      "79": { "Viewport": 1 },
+      "80": { "VoiceSpeech": 1 }
     },
     "Whenever": {
       "0": { "acintro6": 1 },
       "1": { "EditorGUI": 1 },
       "2": { "Preprocessor": 1 },
-      "3": { "UpgradeTo36": 1 }
+      "3": { "UpgradeTo36": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "Where": {
       "0": { "acintro4": 1 },
@@ -19821,7 +20004,7 @@ var meta = {
       "66": { "Keycodes": 3 },
       "67": { "Label": 1 },
       "68": { "Lipsync": 2 },
-      "69": { "ListBox": 4 },
+      "69": { "ListBox": 8 },
       "70": { "Mouse": 5 },
       "71": { "Multimedia": 2 },
       "72": { "MusicAndSound": 2 },
@@ -20105,7 +20288,8 @@ var meta = {
       "40": { "UpgradeTo31": 1 },
       "41": { "UpgradeTo34": 1 },
       "42": { "UpgradeTo36": 2 },
-      "43": { "UpgradingTo271": 1 }
+      "43": { "UpgradeTo362": 2 },
+      "44": { "UpgradingTo271": 1 }
     },
     "abort": {
       "0": { "Button": 1 },
@@ -20725,7 +20909,8 @@ var meta = {
       "47": { "UpgradeTo335": 1 },
       "48": { "UpgradeTo36": 2 },
       "49": { "UpgradeTo361": 2 },
-      "50": { "VoiceSpeech": 1 }
+      "50": { "UpgradeTo362": 1 },
+      "51": { "VoiceSpeech": 1 }
     },
     "add-ons": {
       "0": { "EnginePlugins": 1 }
@@ -20759,26 +20944,27 @@ var meta = {
       "19": { "GeneralSettings": 3 },
       "20": { "Globalfunctions_Event": 3 },
       "21": { "Label": 1 },
-      "22": { "MultipleScripts": 1 },
-      "23": { "Preprocessor": 1 },
-      "24": { "ScriptAPIOverview": 1 },
-      "25": { "ScriptingTutorialPart1": 1 },
-      "26": { "ScriptKeywords": 2 },
-      "27": { "SourceControl": 1 },
-      "28": { "StandardEnums": 2 },
-      "29": { "SystemLimits": 1 },
-      "30": { "Translations": 1 },
-      "31": { "Tumbleweed_extensions": 1 },
-      "32": { "Tumbleweed_movement": 1 },
-      "33": { "UpgradeTo30": 2 },
-      "34": { "UpgradeTo33": 2 },
-      "35": { "UpgradeTo34": 2 },
-      "36": { "UpgradeTo341": 2 },
-      "37": { "UpgradeTo35": 1 },
-      "38": { "UpgradeTo36": 2 },
-      "39": { "UpgradeTo361": 1 },
-      "40": { "UpgradingTo27": 1 },
-      "41": { "UpgradingTo271": 1 }
+      "22": { "ListBox": 1 },
+      "23": { "MultipleScripts": 1 },
+      "24": { "Preprocessor": 1 },
+      "25": { "ScriptAPIOverview": 1 },
+      "26": { "ScriptingTutorialPart1": 1 },
+      "27": { "ScriptKeywords": 2 },
+      "28": { "SourceControl": 1 },
+      "29": { "StandardEnums": 2 },
+      "30": { "SystemLimits": 1 },
+      "31": { "Translations": 1 },
+      "32": { "Tumbleweed_extensions": 1 },
+      "33": { "Tumbleweed_movement": 1 },
+      "34": { "UpgradeTo30": 2 },
+      "35": { "UpgradeTo33": 2 },
+      "36": { "UpgradeTo34": 2 },
+      "37": { "UpgradeTo341": 2 },
+      "38": { "UpgradeTo35": 1 },
+      "39": { "UpgradeTo36": 2 },
+      "40": { "UpgradeTo361": 1 },
+      "41": { "UpgradingTo27": 1 },
+      "42": { "UpgradingTo271": 1 }
     },
     "adding": {
       "0": { "AutonumberSpeechFiles": 1 },
@@ -20795,7 +20981,8 @@ var meta = {
       "11": { "TextParser": 1 },
       "12": { "Tumbleweed": 1 },
       "13": { "UpgradeTo31": 1 },
-      "14": { "UpgradeTo36": 1 }
+      "14": { "UpgradeTo36": 1 },
+      "15": { "UpgradeTo362": 1 }
     },
     "addinventory": {
       "0": { "ScriptingTutorialPart1": 1 }
@@ -20815,7 +21002,8 @@ var meta = {
       "11": { "Tumbleweed_extensions": 1 },
       "12": { "UpgradeTo34": 1 },
       "13": { "UpgradeTo35": 1 },
-      "14": { "UpgradeTo36": 1 }
+      "14": { "UpgradeTo36": 1 },
+      "15": { "UpgradeTo362": 2 }
     },
     "additional": {
       "0": { "acintro9": 2 },
@@ -21113,7 +21301,8 @@ var meta = {
       "46": { "UpgradeTo34": 1 },
       "47": { "UpgradeTo35": 1 },
       "48": { "UpgradeTo36": 1 },
-      "49": { "UpgradeTo361": 2 }
+      "49": { "UpgradeTo361": 2 },
+      "50": { "UpgradeTo362": 4 }
     },
     "afterwards": {
       "0": { "AudioClip": 1 },
@@ -21371,7 +21560,7 @@ var meta = {
       "66": { "Keycodes": 2 },
       "67": { "Label": 1 },
       "68": { "Lipsync": 1 },
-      "69": { "ListBox": 6 },
+      "69": { "ListBox": 7 },
       "70": { "MIDI-playback": 2 },
       "71": { "Mouse": 2 },
       "72": { "Multimedia": 1 },
@@ -21416,9 +21605,10 @@ var meta = {
       "111": { "UpgradeTo35": 5 },
       "112": { "UpgradeTo36": 10 },
       "113": { "UpgradeTo361": 1 },
-      "114": { "UpgradingTo27": 12 },
-      "115": { "UpgradingTo271": 1 },
-      "116": { "Viewport": 3 }
+      "114": { "UpgradeTo362": 2 },
+      "115": { "UpgradingTo27": 12 },
+      "116": { "UpgradingTo271": 1 },
+      "117": { "Viewport": 3 }
     },
     "all-users": {
       "0": { "UpgradeTo335": 1 }
@@ -21508,8 +21698,9 @@ var meta = {
       "14": { "UpgradeTo35": 2 },
       "15": { "UpgradeTo36": 2 },
       "16": { "UpgradeTo361": 1 },
-      "17": { "UpgradingTo271": 1 },
-      "18": { "Viewport": 1 }
+      "17": { "UpgradeTo362": 2 },
+      "18": { "UpgradingTo271": 1 },
+      "19": { "Viewport": 1 }
     },
     "allowing": {
       "0": { "Dialog": 1 },
@@ -21586,18 +21777,20 @@ var meta = {
       "61": { "Setup": 2 },
       "62": { "SourceControl": 1 },
       "63": { "Speech": 1 },
-      "64": { "System": 1 },
-      "65": { "SystemLimits": 1 },
-      "66": { "TemplateSierraStyle": 1 },
-      "67": { "TheScriptHeader": 1 },
-      "68": { "Tumbleweed": 2 },
-      "69": { "UpgradeTo30": 1 },
-      "70": { "UpgradeTo32": 2 },
-      "71": { "UpgradeTo33": 1 },
-      "72": { "UpgradeTo35": 1 },
-      "73": { "UpgradeTo36": 1 },
-      "74": { "UpgradingTo27": 1 },
-      "75": { "UpgradingTo271": 1 }
+      "64": { "StandardEnums": 2 },
+      "65": { "System": 1 },
+      "66": { "SystemLimits": 1 },
+      "67": { "TemplateSierraStyle": 1 },
+      "68": { "TheScriptHeader": 1 },
+      "69": { "Tumbleweed": 2 },
+      "70": { "UpgradeTo30": 1 },
+      "71": { "UpgradeTo32": 2 },
+      "72": { "UpgradeTo33": 1 },
+      "73": { "UpgradeTo35": 1 },
+      "74": { "UpgradeTo36": 1 },
+      "75": { "UpgradeTo362": 4 },
+      "76": { "UpgradingTo27": 1 },
+      "77": { "UpgradingTo271": 1 }
     },
     "almost": {
       "0": { "acintro8": 1 },
@@ -21634,8 +21827,9 @@ var meta = {
       "11": { "Keycodes": 1 },
       "12": { "Overlay": 1 },
       "13": { "Slider": 1 },
-      "14": { "UpgradeTo34": 1 },
-      "15": { "VoiceSpeech": 1 }
+      "14": { "StandardEnums": 1 },
+      "15": { "UpgradeTo34": 1 },
+      "16": { "VoiceSpeech": 1 }
     },
     "alongside": {
       "0": { "GeneralSettings": 1 },
@@ -21643,7 +21837,8 @@ var meta = {
       "2": { "UpgradeTo36": 1 }
     },
     "alot": {
-      "0": { "Overlay": 1 }
+      "0": { "Overlay": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "alpha": {
       "0": { "acintro1": 1 },
@@ -21788,7 +21983,7 @@ var meta = {
       "64": { "InventoryItem": 13 },
       "65": { "InvWindow": 9 },
       "66": { "Label": 4 },
-      "67": { "ListBox": 23 },
+      "67": { "ListBox": 25 },
       "68": { "Maths": 20 },
       "69": { "MIDI-playback": 3 },
       "70": { "Mouse": 24 },
@@ -21817,7 +22012,7 @@ var meta = {
       "93": { "Speech": 13 },
       "94": { "StandardTypes": 1 },
       "95": { "String": 15 },
-      "96": { "System": 21 },
+      "96": { "System": 22 },
       "97": { "SystemLimits": 1 },
       "98": { "TemplateBASS": 2 },
       "99": { "Templates": 3 },
@@ -21842,10 +22037,11 @@ var meta = {
       "118": { "UpgradeTo35": 4 },
       "119": { "UpgradeTo36": 6 },
       "120": { "UpgradeTo361": 1 },
-      "121": { "UpgradingTo27": 1 },
-      "122": { "ViewFrame": 7 },
-      "123": { "Viewport": 15 },
-      "124": { "VoiceSpeech": 1 }
+      "121": { "UpgradeTo362": 2 },
+      "122": { "UpgradingTo27": 1 },
+      "123": { "ViewFrame": 7 },
+      "124": { "Viewport": 15 },
+      "125": { "VoiceSpeech": 1 }
     },
     "alt": {
       "0": { "UpgradeTo36": 3 }
@@ -21949,19 +22145,21 @@ var meta = {
       "42": { "ScriptKeywords": 3 },
       "43": { "Settingupthegame": 3 },
       "44": { "Setup": 2 },
-      "45": { "SystemLimits": 2 },
-      "46": { "TextParser": 2 },
-      "47": { "Tumbleweed": 2 },
-      "48": { "Tumbleweed_extensions": 1 },
-      "49": { "UpgradeTo30": 1 },
-      "50": { "UpgradeTo31": 1 },
-      "51": { "UpgradeTo32": 2 },
-      "52": { "UpgradeTo34": 2 },
-      "53": { "UpgradeTo35": 2 },
-      "54": { "UpgradeTo36": 1 },
-      "55": { "UpgradeTo361": 1 },
-      "56": { "UpgradingTo27": 1 },
-      "57": { "Viewport": 2 }
+      "45": { "System": 1 },
+      "46": { "SystemLimits": 2 },
+      "47": { "TextParser": 2 },
+      "48": { "Tumbleweed": 2 },
+      "49": { "Tumbleweed_extensions": 1 },
+      "50": { "UpgradeTo30": 1 },
+      "51": { "UpgradeTo31": 1 },
+      "52": { "UpgradeTo32": 2 },
+      "53": { "UpgradeTo34": 2 },
+      "54": { "UpgradeTo35": 2 },
+      "55": { "UpgradeTo36": 1 },
+      "56": { "UpgradeTo361": 1 },
+      "57": { "UpgradeTo362": 1 },
+      "58": { "UpgradingTo27": 1 },
+      "59": { "Viewport": 2 }
     },
     "am": {
       "0": { "Character": 3 },
@@ -22007,7 +22205,8 @@ var meta = {
       "11": { "Globalfunctions_Screen": 2 },
       "12": { "Region": 1 },
       "13": { "Setup": 2 },
-      "14": { "TextWindowGUI": 1 }
+      "14": { "StandardEnums": 2 },
+      "15": { "TextWindowGUI": 1 }
     },
     "an": {
       "0": { "acintro1": 1 },
@@ -22106,31 +22305,33 @@ var meta = {
       "93": { "Settingupthegame": 18 },
       "94": { "Slider": 1 },
       "95": { "SourceControl": 2 },
-      "96": { "StandardTypes": 2 },
-      "97": { "String": 10 },
-      "98": { "SystemLimits": 2 },
-      "99": { "Templates": 3 },
-      "100": { "TemplateSierraStyle": 1 },
-      "101": { "TemplateVerbcoin": 1 },
-      "102": { "TextParser": 6 },
-      "103": { "Translations": 2 },
-      "104": { "TroubleshootingWindowsZoneID": 5 },
-      "105": { "Tumbleweed": 12 },
-      "106": { "Tumbleweed_actions": 2 },
-      "107": { "Tumbleweed_door": 1 },
-      "108": { "Tumbleweed_extensions": 8 },
-      "109": { "Tumbleweed_movement": 4 },
-      "110": { "UnicodeSupport": 3 },
-      "111": { "UpgradeTo30": 1 },
-      "112": { "UpgradeTo31": 2 },
-      "113": { "UpgradeTo32": 8 },
-      "114": { "UpgradeTo34": 3 },
-      "115": { "UpgradeTo35": 4 },
-      "116": { "UpgradeTo36": 6 },
-      "117": { "UpgradeTo361": 1 },
-      "118": { "UpgradingTo27": 9 },
-      "119": { "Viewport": 3 },
-      "120": { "VoiceSpeech": 1 }
+      "96": { "StandardEnums": 3 },
+      "97": { "StandardTypes": 2 },
+      "98": { "String": 10 },
+      "99": { "SystemLimits": 2 },
+      "100": { "Templates": 3 },
+      "101": { "TemplateSierraStyle": 1 },
+      "102": { "TemplateVerbcoin": 1 },
+      "103": { "TextParser": 6 },
+      "104": { "Translations": 2 },
+      "105": { "TroubleshootingWindowsZoneID": 5 },
+      "106": { "Tumbleweed": 12 },
+      "107": { "Tumbleweed_actions": 2 },
+      "108": { "Tumbleweed_door": 1 },
+      "109": { "Tumbleweed_extensions": 8 },
+      "110": { "Tumbleweed_movement": 4 },
+      "111": { "UnicodeSupport": 3 },
+      "112": { "UpgradeTo30": 1 },
+      "113": { "UpgradeTo31": 2 },
+      "114": { "UpgradeTo32": 8 },
+      "115": { "UpgradeTo34": 3 },
+      "116": { "UpgradeTo35": 4 },
+      "117": { "UpgradeTo36": 6 },
+      "118": { "UpgradeTo361": 1 },
+      "119": { "UpgradeTo362": 5 },
+      "120": { "UpgradingTo27": 9 },
+      "121": { "Viewport": 3 },
+      "122": { "VoiceSpeech": 1 }
     },
     "analogue": {
       "0": { "System": 1 },
@@ -22316,7 +22517,8 @@ var meta = {
       "43": { "UpgradeTo34": 1 },
       "44": { "UpgradeTo35": 1 },
       "45": { "UpgradeTo36": 2 },
-      "46": { "Viewport": 1 }
+      "46": { "UpgradeTo362": 2 },
+      "47": { "Viewport": 1 }
     },
     "answer": {
       "0": { "ContactingTheDevelopers": 1 },
@@ -22444,7 +22646,7 @@ var meta = {
       "80": { "Settingupthegame": 6 },
       "81": { "SourceControl": 1 },
       "82": { "Speech": 3 },
-      "83": { "StandardEnums": 1 },
+      "83": { "StandardEnums": 3 },
       "84": { "String": 1 },
       "85": { "System": 3 },
       "86": { "TemplateBASS": 1 },
@@ -22465,10 +22667,11 @@ var meta = {
       "101": { "UpgradeTo35": 5 },
       "102": { "UpgradeTo36": 11 },
       "103": { "UpgradeTo361": 2 },
-      "104": { "UpgradingTo27": 3 },
-      "105": { "UpgradingTo271": 2 },
-      "106": { "Viewport": 3 },
-      "107": { "VoiceSpeech": 2 }
+      "104": { "UpgradeTo362": 5 },
+      "105": { "UpgradingTo27": 3 },
+      "106": { "UpgradingTo271": 2 },
+      "107": { "Viewport": 3 },
+      "108": { "VoiceSpeech": 2 }
     },
     "any_click": {
       "0": { "Tumbleweed": 3 },
@@ -22486,7 +22689,8 @@ var meta = {
       "2": { "Pointers": 1 },
       "3": { "TextParser": 1 },
       "4": { "Tumbleweed": 1 },
-      "5": { "UpgradeTo34": 1 }
+      "5": { "UpgradeTo34": 1 },
+      "6": { "UpgradeTo362": 1 }
     },
     "anything": {
       "0": { "acintro2": 1 },
@@ -22519,8 +22723,9 @@ var meta = {
       "27": { "Translations": 1 },
       "28": { "UpgradeTo335": 1 },
       "29": { "UpgradeTo34": 1 },
-      "30": { "UpgradingTo27": 2 },
-      "31": { "Viewport": 1 }
+      "30": { "UpgradeTo362": 3 },
+      "31": { "UpgradingTo27": 2 },
+      "32": { "Viewport": 1 }
     },
     "anytime": {
       "0": { "Character": 1 },
@@ -22711,7 +22916,8 @@ var meta = {
       "6": { "MIDI-playback": 1 },
       "7": { "ScriptKeywords": 1 },
       "8": { "Setup": 1 },
-      "9": { "UpgradeTo35": 1 }
+      "9": { "UpgradeTo35": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "applying": {
       "0": { "Globalfunctions_Screen": 1 }
@@ -22729,6 +22935,9 @@ var meta = {
       "6": { "Settingupthegame": 1 },
       "7": { "UpgradeTo35": 1 },
       "8": { "UpgradingTo27": 1 }
+    },
+    "approaches": {
+      "0": { "System": 1 }
     },
     "approaching": {
       "0": { "Tumbleweed_door": 1 }
@@ -22976,7 +23185,7 @@ var meta = {
       "10": { "GlobalArrays": 2 },
       "11": { "Globalfunctions_General": 1 },
       "12": { "GUI": 1 },
-      "13": { "ListBox": 3 },
+      "13": { "ListBox": 5 },
       "14": { "ObsoleteScriptAPI": 2 },
       "15": { "OOProgramming": 1 },
       "16": { "Pointers": 7 },
@@ -22986,13 +23195,18 @@ var meta = {
       "20": { "String": 1 },
       "21": { "SystemLimits": 1 },
       "22": { "Tumbleweed_door": 1 },
-      "23": { "UpgradingTo27": 3 },
-      "24": { "Viewport": 3 }
+      "23": { "UpgradeTo362": 3 },
+      "24": { "UpgradingTo27": 3 },
+      "25": { "Viewport": 3 }
     },
     "array's": {
       "0": { "GameSavesCompatibility": 3 },
       "1": { "GlobalArrays": 1 },
-      "2": { "ScriptKeywords": 1 }
+      "2": { "ScriptKeywords": 1 },
+      "3": { "UpgradeTo362": 1 }
+    },
+    "array.Length": {
+      "0": { "UpgradeTo362": 1 }
     },
     "arrays": {
       "0": { "Dictionary": 1 },
@@ -23007,7 +23221,8 @@ var meta = {
       "9": { "ScriptKeywords": 7 },
       "10": { "UpgradeTo30": 1 },
       "11": { "UpgradeTo34": 1 },
-      "12": { "UpgradingTo27": 1 }
+      "12": { "UpgradeTo362": 2 },
+      "13": { "UpgradingTo27": 1 }
     },
     "arrives": {
       "0": { "Debuggingfeatures": 1 }
@@ -23042,7 +23257,8 @@ var meta = {
       "3": { "Multimedia": 1 },
       "4": { "ScriptingTutorialPart1": 1 },
       "5": { "UnicodeSupport": 1 },
-      "6": { "UpgradeTo36": 1 }
+      "6": { "UpgradeTo36": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "artist": {
       "0": { "Settingupthegame": 1 }
@@ -23289,7 +23505,8 @@ var meta = {
       "5": { "ScriptKeywords": 3 },
       "6": { "Speech": 1 },
       "7": { "String": 1 },
-      "8": { "TroubleshootingWindowsZoneID": 1 }
+      "8": { "TroubleshootingWindowsZoneID": 1 },
+      "9": { "UpgradeTo362": 1 }
     },
     "attribute's": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -23325,8 +23542,9 @@ var meta = {
       "19": { "Slider": 1 },
       "20": { "System": 5 },
       "21": { "UpgradeTo32": 22 },
-      "22": { "ViewFrame": 3 },
-      "23": { "VoiceSpeech": 1 }
+      "22": { "UpgradeTo362": 1 },
+      "23": { "ViewFrame": 3 },
+      "24": { "VoiceSpeech": 1 }
     },
     "audio-related": {
       "0": { "GeneralSettings": 1 }
@@ -23484,7 +23702,8 @@ var meta = {
       "57": { "UpgradeTo35": 2 },
       "58": { "UpgradeTo36": 1 },
       "59": { "UpgradeTo361": 1 },
-      "60": { "UpgradingTo27": 3 }
+      "60": { "UpgradeTo362": 2 },
+      "61": { "UpgradingTo27": 3 }
     },
     "automation": {
       "0": { "EditorCommandLineOptions": 2 }
@@ -23548,11 +23767,13 @@ var meta = {
       "52": { "Templates": 1 },
       "53": { "UpgradeTo34": 1 },
       "54": { "UpgradeTo36": 2 },
-      "55": { "UpgradingTo27": 1 }
+      "55": { "UpgradeTo362": 1 },
+      "56": { "UpgradingTo27": 1 }
     },
     "average": {
       "0": { "Character": 1 },
-      "1": { "GeneralSettings": 1 }
+      "1": { "GeneralSettings": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "avoid": {
       "0": { "AudioChannel": 2 },
@@ -23564,7 +23785,8 @@ var meta = {
       "6": { "Globalfunctions_General": 2 },
       "7": { "Multimedia": 1 },
       "8": { "ScriptKeywords": 1 },
-      "9": { "TextParser": 1 }
+      "9": { "TextParser": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "awarding": {
       "0": { "Game": 1 }
@@ -23577,7 +23799,8 @@ var meta = {
       "4": { "ScriptKeywords": 1 },
       "5": { "System": 1 },
       "6": { "UnicodeSupport": 1 },
-      "7": { "UpgradeTo30": 1 }
+      "7": { "UpgradeTo30": 1 },
+      "8": { "UpgradeTo362": 2 }
     },
     "away": {
       "0": { "acintro1": 1 },
@@ -23662,7 +23885,8 @@ var meta = {
       "50": { "TroubleshootingWindowsZoneID": 2 },
       "51": { "UnicodeSupport": 2 },
       "52": { "UpgradeTo36": 1 },
-      "53": { "Viewport": 2 }
+      "53": { "UpgradeTo362": 1 },
+      "54": { "Viewport": 2 }
     },
     "back_color": {
       "0": { "Globalfunctions_Message": 1 }
@@ -24021,8 +24245,9 @@ var meta = {
       "9": { "ScriptingTutorialPart2": 1 },
       "10": { "UpgradeTo30": 1 },
       "11": { "UpgradeTo31": 1 },
-      "12": { "UpgradingTo27": 1 },
-      "13": { "VoiceSpeech": 1 }
+      "12": { "UpgradeTo362": 2 },
+      "13": { "UpgradingTo27": 1 },
+      "14": { "VoiceSpeech": 1 }
     },
     "becomes": {
       "0": { "AudioClip": 1 },
@@ -24094,9 +24319,10 @@ var meta = {
       "46": { "UpgradeTo34": 1 },
       "47": { "UpgradeTo36": 7 },
       "48": { "UpgradeTo361": 1 },
-      "49": { "UpgradingTo27": 5 },
-      "50": { "UpgradingTo271": 4 },
-      "51": { "ViewFrame": 1 }
+      "49": { "UpgradeTo362": 1 },
+      "50": { "UpgradingTo27": 5 },
+      "51": { "UpgradingTo271": 4 },
+      "52": { "ViewFrame": 1 }
     },
     "before": {
       "0": { "acintro1": 3 },
@@ -24163,7 +24389,8 @@ var meta = {
       "61": { "UpgradeTo31": 2 },
       "62": { "UpgradeTo34": 2 },
       "63": { "UpgradeTo36": 1 },
-      "64": { "UpgradingTo27": 3 }
+      "64": { "UpgradeTo362": 1 },
+      "65": { "UpgradingTo27": 3 }
     },
     "begin": {
       "0": { "acintro1": 1 },
@@ -24179,7 +24406,8 @@ var meta = {
       "10": { "Preprocessor": 1 },
       "11": { "StringFormats": 1 },
       "12": { "SystemLimits": 1 },
-      "13": { "Translations": 2 }
+      "13": { "Translations": 2 },
+      "14": { "UpgradeTo362": 1 }
     },
     "beginner": {
       "0": { "FAQ": 1 }
@@ -24210,7 +24438,8 @@ var meta = {
       "1": { "Character": 1 },
       "2": { "Game": 1 },
       "3": { "Object": 1 },
-      "4": { "TroubleshootingWindowsZoneID": 1 }
+      "4": { "TroubleshootingWindowsZoneID": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "begun": {
       "0": { "Speech": 1 }
@@ -24258,7 +24487,8 @@ var meta = {
       "29": { "UpgradeTo35": 1 },
       "30": { "UpgradeTo36": 4 },
       "31": { "UpgradeTo361": 1 },
-      "32": { "Viewport": 2 }
+      "32": { "UpgradeTo362": 1 },
+      "33": { "Viewport": 2 }
     },
     "behaviors": {
       "0": { "EditorGUI": 2 },
@@ -24394,7 +24624,8 @@ var meta = {
       "43": { "UpgradeTo30": 1 },
       "44": { "UpgradeTo33": 1 },
       "45": { "UpgradeTo35": 2 },
-      "46": { "Viewport": 1 }
+      "46": { "UpgradeTo362": 3 },
+      "47": { "Viewport": 1 }
     },
     "bending": {
       "0": { "acintro7": 1 },
@@ -24523,7 +24754,8 @@ var meta = {
       "55": { "UpgradeTo34": 1 },
       "56": { "UpgradeTo35": 3 },
       "57": { "UpgradeTo36": 6 },
-      "58": { "Viewport": 1 }
+      "58": { "UpgradeTo362": 1 },
+      "59": { "Viewport": 1 }
     },
     "beware": {
       "0": { "CustomDialogOptions": 1 },
@@ -24554,7 +24786,8 @@ var meta = {
       "8": { "UpgradeTo34": 1 },
       "9": { "UpgradeTo341": 1 },
       "10": { "UpgradeTo35": 1 },
-      "11": { "UpgradeTo36": 1 }
+      "11": { "UpgradeTo36": 1 },
+      "12": { "UpgradeTo362": 1 }
     },
     "bigarray": {
       "0": { "ScriptKeywords": 2 }
@@ -24634,6 +24867,9 @@ var meta = {
     "bitmaps": {
       "0": { "EnginePluginRun-timeAPI": 8 }
     },
+    "bitness": {
+      "0": { "StandardEnums": 1 }
+    },
     "bits": {
       "0": { "AudioInScript": 1 },
       "1": { "EnginePluginRun-timeAPI": 4 },
@@ -24643,7 +24879,7 @@ var meta = {
       "0": { "Globalfunctions_Event": 1 },
       "1": { "Globalfunctions_Wait": 1 },
       "2": { "Keycodes": 3 },
-      "3": { "StandardEnums": 2 },
+      "3": { "StandardEnums": 3 },
       "4": { "UpgradeTo36": 1 }
     },
     "black": {
@@ -24836,7 +25072,7 @@ var meta = {
       "15": { "GUIControl": 3 },
       "16": { "Hotspot": 3 },
       "17": { "InventoryItem": 2 },
-      "18": { "ListBox": 5 },
+      "18": { "ListBox": 6 },
       "19": { "Mouse": 4 },
       "20": { "Object": 11 },
       "21": { "Overlay": 6 },
@@ -24848,7 +25084,7 @@ var meta = {
       "27": { "Set": 4 },
       "28": { "Speech": 2 },
       "29": { "String": 7 },
-      "30": { "System": 9 },
+      "30": { "System": 10 },
       "31": { "TemplateBASS": 1 },
       "32": { "TemplateVerbcoin": 1 },
       "33": { "TextBox": 1 },
@@ -24861,7 +25097,8 @@ var meta = {
     },
     "boolean": {
       "0": { "EditorInventoryItems": 2 },
-      "1": { "ScriptKeywords": 1 }
+      "1": { "ScriptKeywords": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "border": {
       "0": { "Camera": 1 },
@@ -24939,6 +25176,9 @@ var meta = {
       "39": { "TextParser": 3 },
       "40": { "UpgradeTo35": 6 },
       "41": { "UpgradeTo36": 4 }
+    },
+    "bother": {
+      "0": { "UpgradeTo362": 1 }
     },
     "bothered": {
       "0": { "acintro2": 1 }
@@ -25040,7 +25280,7 @@ var meta = {
       "24": { "Hotspot": 1 },
       "25": { "InventoryItem": 1 },
       "26": { "Lipsync": 3 },
-      "27": { "ListBox": 26 },
+      "27": { "ListBox": 31 },
       "28": { "Mouse": 1 },
       "29": { "MusicAndSound": 1 },
       "30": { "Object": 1 },
@@ -25110,7 +25350,8 @@ var meta = {
       "1": { "GameSavesCompatibility": 2 },
       "2": { "UpgradeTo30": 1 },
       "3": { "UpgradeTo341": 1 },
-      "4": { "UpgradeTo361": 1 }
+      "4": { "UpgradeTo361": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "breakpoint": {
       "0": { "Debuggingfeatures": 2 }
@@ -25129,7 +25370,8 @@ var meta = {
     },
     "brief": {
       "0": { "ScriptModules": 1 },
-      "1": { "SystemLimits": 1 }
+      "1": { "SystemLimits": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "briefly": {
       "0": { "acintro1": 1 },
@@ -25530,7 +25772,8 @@ var meta = {
       "49": { "Tumbleweed_extensions": 2 },
       "50": { "Tumbleweed_helper": 1 },
       "51": { "Tumbleweed_movement": 1 },
-      "52": { "Tumbleweed_translation": 4 }
+      "52": { "Tumbleweed_translation": 4 },
+      "53": { "UpgradeTo362": 1 }
     },
     "button's": {
       "0": { "Button": 18 },
@@ -26000,7 +26243,8 @@ var meta = {
       "0": { "Pointers": 2 }
     },
     "cRoger": {
-      "0": { "DynamicArrays": 1 }
+      "0": { "DynamicArrays": 1 },
+      "1": { "UpgradeTo362": 2 }
     },
     "cRoger.Say": {
       "0": { "GeneralSettings": 1 }
@@ -26014,6 +26258,9 @@ var meta = {
     "cThomas": {
       "0": { "DynamicArrays": 1 }
     },
+    "cVeryLongCharacterName": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "cVillager": {
       "0": { "DynamicArrays": 1 }
     },
@@ -26023,7 +26270,8 @@ var meta = {
       "2": { "EnginePluginRun-timeAPI": 6 },
       "3": { "Game": 7 },
       "4": { "RuntimeEngine": 2 },
-      "5": { "Setup": 9 }
+      "5": { "Setup": 9 },
+      "6": { "StandardEnums": 4 }
     },
     "cache_size": {
       "0": { "EngineConfigFile": 1 }
@@ -26202,9 +26450,10 @@ var meta = {
       "67": { "UpgradeTo35": 3 },
       "68": { "UpgradeTo36": 8 },
       "69": { "UpgradeTo361": 1 },
-      "70": { "UpgradingTo27": 3 },
-      "71": { "UpgradingTo271": 1 },
-      "72": { "Viewport": 1 }
+      "70": { "UpgradeTo362": 6 },
+      "71": { "UpgradingTo27": 3 },
+      "72": { "UpgradingTo271": 1 },
+      "73": { "Viewport": 1 }
     },
     "caller": {
       "0": { "EnginePluginRun-timeAPI": 2 },
@@ -26238,7 +26487,8 @@ var meta = {
       "24": { "TextWindowGUI": 1 },
       "25": { "Translations": 1 },
       "26": { "Tumbleweed_translation": 1 },
-      "27": { "UpgradeTo30": 1 }
+      "27": { "UpgradeTo30": 1 },
+      "28": { "UpgradeTo362": 1 }
     },
     "calls": {
       "0": { "BlockingScripts": 1 },
@@ -26370,7 +26620,7 @@ var meta = {
       "76": { "Keycodes": 1 },
       "77": { "Label": 1 },
       "78": { "Lipsync": 7 },
-      "79": { "ListBox": 9 },
+      "79": { "ListBox": 14 },
       "80": { "Maths": 1 },
       "81": { "MIDI-playback": 3 },
       "82": { "Mouse": 4 },
@@ -26398,36 +26648,38 @@ var meta = {
       "104": { "Slider": 3 },
       "105": { "SourceControl": 4 },
       "106": { "Speech": 9 },
-      "107": { "StandardTypes": 1 },
-      "108": { "String": 10 },
-      "109": { "StringFormats": 2 },
-      "110": { "System": 8 },
-      "111": { "SystemLimits": 3 },
-      "112": { "Templates": 3 },
-      "113": { "TemplateSierraStyle": 1 },
-      "114": { "TemplateVerbcoin": 1 },
-      "115": { "TextParser": 9 },
-      "116": { "Translations": 8 },
-      "117": { "TroubleshootingWindowsZoneID": 2 },
-      "118": { "Tumbleweed": 9 },
-      "119": { "Tumbleweed_door": 4 },
-      "120": { "Tumbleweed_extensions": 5 },
-      "121": { "Tumbleweed_movement": 2 },
-      "122": { "Tumbleweed_player": 1 },
-      "123": { "Tumbleweed_translation": 6 },
-      "124": { "Tumbleweed_unhandled": 1 },
-      "125": { "UnicodeSupport": 2 },
-      "126": { "UpgradeTo30": 4 },
-      "127": { "UpgradeTo31": 1 },
-      "128": { "UpgradeTo32": 4 },
-      "129": { "UpgradeTo34": 10 },
-      "130": { "UpgradeTo341": 2 },
-      "131": { "UpgradeTo35": 5 },
-      "132": { "UpgradeTo36": 8 },
-      "133": { "UpgradeTo361": 1 },
-      "134": { "UpgradingTo27": 7 },
-      "135": { "UpgradingTo271": 5 },
-      "136": { "VoiceSpeech": 4 }
+      "107": { "StandardEnums": 2 },
+      "108": { "StandardTypes": 1 },
+      "109": { "String": 10 },
+      "110": { "StringFormats": 2 },
+      "111": { "System": 8 },
+      "112": { "SystemLimits": 3 },
+      "113": { "Templates": 3 },
+      "114": { "TemplateSierraStyle": 1 },
+      "115": { "TemplateVerbcoin": 1 },
+      "116": { "TextParser": 9 },
+      "117": { "Translations": 8 },
+      "118": { "TroubleshootingWindowsZoneID": 2 },
+      "119": { "Tumbleweed": 9 },
+      "120": { "Tumbleweed_door": 4 },
+      "121": { "Tumbleweed_extensions": 5 },
+      "122": { "Tumbleweed_movement": 2 },
+      "123": { "Tumbleweed_player": 1 },
+      "124": { "Tumbleweed_translation": 6 },
+      "125": { "Tumbleweed_unhandled": 1 },
+      "126": { "UnicodeSupport": 2 },
+      "127": { "UpgradeTo30": 4 },
+      "128": { "UpgradeTo31": 1 },
+      "129": { "UpgradeTo32": 4 },
+      "130": { "UpgradeTo34": 10 },
+      "131": { "UpgradeTo341": 2 },
+      "132": { "UpgradeTo35": 5 },
+      "133": { "UpgradeTo36": 8 },
+      "134": { "UpgradeTo361": 1 },
+      "135": { "UpgradeTo362": 6 },
+      "136": { "UpgradingTo27": 7 },
+      "137": { "UpgradingTo271": 5 },
+      "138": { "VoiceSpeech": 4 }
     },
     "can't": {
       "0": { "acintro3": 1 },
@@ -26454,7 +26706,8 @@ var meta = {
       "21": { "UpgradingTo27": 1 }
     },
     "cancel": {
-      "0": { "Tumbleweed_movement": 2 }
+      "0": { "Tumbleweed_movement": 2 },
+      "1": { "UpgradeTo362": 2 }
     },
     "canceled": {
       "0": { "Game": 1 },
@@ -26510,7 +26763,8 @@ var meta = {
       "46": { "UpgradeTo34": 1 },
       "47": { "UpgradeTo35": 1 },
       "48": { "UpgradeTo36": 2 },
-      "49": { "UpgradingTo271": 1 }
+      "49": { "UpgradeTo362": 2 },
+      "50": { "UpgradingTo271": 1 }
     },
     "canvas": {
       "0": { "DynamicSprite": 1 },
@@ -26524,6 +26778,9 @@ var meta = {
     "capable": {
       "0": { "EnginePluginRun-timeAPI": 1 },
       "1": { "UpgradeTo34": 1 }
+    },
+    "capacity": {
+      "0": { "StandardEnums": 4 }
     },
     "capital": {
       "0": { "ScriptAPIOverview": 1 },
@@ -26548,7 +26805,8 @@ var meta = {
     },
     "capture": {
       "0": { "Camera": 4 },
-      "1": { "Globalfunctions_General": 1 }
+      "1": { "Globalfunctions_General": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "captured": {
       "0": { "Camera": 1 },
@@ -26649,23 +26907,25 @@ var meta = {
       "41": { "Settingupthegame": 1 },
       "42": { "Setup": 1 },
       "43": { "Speech": 2 },
-      "44": { "String": 10 },
-      "45": { "System": 2 },
-      "46": { "Templates": 1 },
-      "47": { "Translations": 1 },
-      "48": { "TroubleshootingWindowsZoneID": 1 },
-      "49": { "Tumbleweed": 1 },
-      "50": { "Tumbleweed_actions": 1 },
-      "51": { "Tumbleweed_extensions": 1 },
-      "52": { "Tumbleweed_translation": 1 },
-      "53": { "UnicodeSupport": 2 },
-      "54": { "UpgradeTo30": 1 },
-      "55": { "UpgradeTo35": 2 },
-      "56": { "UpgradeTo361": 1 },
-      "57": { "UpgradingTo27": 1 },
-      "58": { "UpgradingTo271": 1 },
-      "59": { "Viewport": 3 },
-      "60": { "VoiceSpeech": 1 }
+      "44": { "StandardEnums": 1 },
+      "45": { "String": 10 },
+      "46": { "System": 2 },
+      "47": { "Templates": 1 },
+      "48": { "Translations": 1 },
+      "49": { "TroubleshootingWindowsZoneID": 1 },
+      "50": { "Tumbleweed": 1 },
+      "51": { "Tumbleweed_actions": 1 },
+      "52": { "Tumbleweed_extensions": 1 },
+      "53": { "Tumbleweed_translation": 1 },
+      "54": { "UnicodeSupport": 2 },
+      "55": { "UpgradeTo30": 1 },
+      "56": { "UpgradeTo35": 2 },
+      "57": { "UpgradeTo361": 1 },
+      "58": { "UpgradeTo362": 4 },
+      "59": { "UpgradingTo27": 1 },
+      "60": { "UpgradingTo271": 1 },
+      "61": { "Viewport": 3 },
+      "62": { "VoiceSpeech": 1 }
     },
     "case-insensitive": {
       "0": { "Dictionary": 2 },
@@ -26833,7 +27093,8 @@ var meta = {
       "28": { "Tumbleweed_extensions": 1 },
       "29": { "Tumbleweed_movement": 1 },
       "30": { "UpgradeTo35": 1 },
-      "31": { "UpgradeTo36": 1 }
+      "31": { "UpgradeTo36": 1 },
+      "32": { "UpgradeTo362": 3 }
     },
     "certainly": {
       "0": { "GraphicsDriver": 1 },
@@ -26873,7 +27134,8 @@ var meta = {
     },
     "chance": {
       "0": { "EnginePluginRun-timeAPI": 2 },
-      "1": { "Plugins": 1 }
+      "1": { "Plugins": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "chances": {
       "0": { "SystemLimits": 1 }
@@ -26960,9 +27222,10 @@ var meta = {
       "78": { "UpgradeTo341": 1 },
       "79": { "UpgradeTo35": 3 },
       "80": { "UpgradeTo36": 6 },
-      "81": { "UpgradingTo27": 1 },
-      "82": { "UpgradingTo271": 3 },
-      "83": { "Viewport": 2 }
+      "81": { "UpgradeTo362": 2 },
+      "82": { "UpgradingTo27": 1 },
+      "83": { "UpgradingTo271": 3 },
+      "84": { "Viewport": 2 }
     },
     "changed": {
       "0": { "acintro2": 1 },
@@ -27054,7 +27317,8 @@ var meta = {
       "42": { "UpgradeTo35": 1 },
       "43": { "UpgradeTo36": 1 },
       "44": { "UpgradeTo361": 1 },
-      "45": { "UpgradingTo27": 1 }
+      "45": { "UpgradeTo362": 2 },
+      "46": { "UpgradingTo27": 1 }
     },
     "changing": {
       "0": { "acintro1": 1 },
@@ -27078,7 +27342,8 @@ var meta = {
       "18": { "Slider": 2 },
       "19": { "SourceControl": 1 },
       "20": { "System": 4 },
-      "21": { "Translations": 2 }
+      "21": { "Translations": 2 },
+      "22": { "UpgradeTo362": 2 }
     },
     "channel": {
       "0": { "AudioChannel": 40 },
@@ -27250,9 +27515,10 @@ var meta = {
       "66": { "Tumbleweed_player": 4 },
       "67": { "UnicodeSupport": 4 },
       "68": { "UpgradeTo36": 3 },
-      "69": { "UpgradingTo27": 13 },
-      "70": { "Viewport": 2 },
-      "71": { "VoiceSpeech": 1 }
+      "69": { "UpgradeTo362": 1 },
+      "70": { "UpgradingTo27": 13 },
+      "71": { "Viewport": 2 },
+      "72": { "VoiceSpeech": 1 }
     },
     "character's": {
       "0": { "acintro2": 2 },
@@ -27282,8 +27548,9 @@ var meta = {
       "24": { "String": 1 },
       "25": { "UnicodeSupport": 1 },
       "26": { "UpgradeTo36": 1 },
-      "27": { "UpgradingTo27": 1 },
-      "28": { "VoiceSpeech": 2 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "UpgradingTo27": 1 },
+      "29": { "VoiceSpeech": 2 }
     },
     "character-resolution": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -27353,8 +27620,9 @@ var meta = {
       "55": { "UpgradeTo34": 2 },
       "56": { "UpgradeTo35": 4 },
       "57": { "UpgradeTo36": 6 },
-      "58": { "UpgradingTo27": 1 },
-      "59": { "VoiceSpeech": 1 }
+      "58": { "UpgradeTo362": 1 },
+      "59": { "UpgradingTo27": 1 },
+      "60": { "VoiceSpeech": 1 }
     },
     "charid": {
       "0": { "EnginePluginRun-timeAPI": 2 },
@@ -27433,7 +27701,8 @@ var meta = {
       "46": { "Tumbleweed_helper": 2 },
       "47": { "Tumbleweed_movement": 2 },
       "48": { "UnicodeSupport": 1 },
-      "49": { "UpgradeTo36": 3 }
+      "49": { "UpgradeTo36": 3 },
+      "50": { "UpgradeTo362": 1 }
     },
     "check-box": {
       "0": { "Settingupthegame": 1 }
@@ -27490,7 +27759,8 @@ var meta = {
       "8": { "Tumbleweed": 1 },
       "9": { "Tumbleweed_actions": 1 },
       "10": { "UpgradeTo34": 1 },
-      "11": { "UpgradingTo27": 1 }
+      "11": { "UpgradeTo362": 1 },
+      "12": { "UpgradingTo27": 1 }
     },
     "checklist": {
       "0": { "GeneralSettings": 1 }
@@ -27513,7 +27783,8 @@ var meta = {
       "11": { "ScriptKeywords": 3 },
       "12": { "Tumbleweed": 1 },
       "13": { "Tumbleweed_actions": 2 },
-      "14": { "ViewFrame": 1 }
+      "14": { "UpgradeTo362": 1 },
+      "15": { "ViewFrame": 1 }
     },
     "chicken": {
       "0": { "ScriptingTutorialPart1": 1 }
@@ -27683,7 +27954,8 @@ var meta = {
       "6": { "ScriptKeywords": 1 },
       "7": { "Tumbleweed": 1 },
       "8": { "Tumbleweed_actions": 1 },
-      "9": { "UpgradeTo36": 1 }
+      "9": { "UpgradeTo36": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "classics": {
       "0": { "Introduction": 1 }
@@ -27857,7 +28129,8 @@ var meta = {
       "28": { "TemplateVerbcoin": 1 },
       "29": { "Tumbleweed": 2 },
       "30": { "Tumbleweed_actions": 1 },
-      "31": { "VoiceSpeech": 1 }
+      "31": { "UpgradeTo362": 1 },
+      "32": { "VoiceSpeech": 1 }
     },
     "clicks": {
       "0": { "acintro3": 1 },
@@ -27907,7 +28180,8 @@ var meta = {
       "10": { "ScriptingTutorialPart2": 1 },
       "11": { "Speech": 1 },
       "12": { "UpgradeTo32": 2 },
-      "13": { "ViewFrame": 2 }
+      "13": { "UpgradeTo362": 3 },
+      "14": { "ViewFrame": 2 }
     },
     "clip's": {
       "0": { "AudioChannel": 3 },
@@ -27947,7 +28221,8 @@ var meta = {
       "9": { "MusicAndSound": 4 },
       "10": { "UpgradeTo32": 3 },
       "11": { "UpgradeTo341": 2 },
-      "12": { "VoiceSpeech": 3 }
+      "12": { "UpgradeTo362": 4 },
+      "13": { "VoiceSpeech": 3 }
     },
     "clock": {
       "0": { "DateTime": 1 }
@@ -28006,6 +28281,9 @@ var meta = {
     },
     "clothes": {
       "0": { "Character": 1 }
+    },
+    "clutter": {
+      "0": { "UpgradeTo362": 1 }
     },
     "cluttered": {
       "0": { "GeneralSettings": 1 }
@@ -28273,7 +28551,9 @@ var meta = {
       "0": { "DistGame": 1 },
       "1": { "Globalfunctions_Wait": 1 },
       "2": { "Keycodes": 3 },
-      "3": { "UpgradeTo33": 1 }
+      "3": { "StandardEnums": 1 },
+      "4": { "UpgradeTo33": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "combines": {
       "0": { "Globalfunctions_Wait": 1 }
@@ -28414,7 +28694,7 @@ var meta = {
       "62": { "Settingupthegame": 3 },
       "63": { "Slider": 1 },
       "64": { "String": 4 },
-      "65": { "System": 1 },
+      "65": { "System": 2 },
       "66": { "TextParser": 4 },
       "67": { "TroubleshootingWindowsZoneID": 2 },
       "68": { "UpgradeTo30": 9 },
@@ -28422,7 +28702,8 @@ var meta = {
       "70": { "UpgradeTo33": 1 },
       "71": { "UpgradeTo34": 2 },
       "72": { "UpgradeTo361": 1 },
-      "73": { "UpgradingTo27": 5 }
+      "73": { "UpgradeTo362": 2 },
+      "74": { "UpgradingTo27": 5 }
     },
     "command-line": {
       "0": { "BuildAndroid": 1 }
@@ -28580,7 +28861,8 @@ var meta = {
       "1": { "Multimedia": 1 },
       "2": { "Pointers": 1 },
       "3": { "Set": 1 },
-      "4": { "Tumbleweed": 1 }
+      "4": { "Tumbleweed": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "compares": {
       "0": { "Pointers": 1 },
@@ -28631,7 +28913,8 @@ var meta = {
       "25": { "UpgradeTo34": 1 },
       "26": { "UpgradeTo35": 1 },
       "27": { "UpgradeTo36": 3 },
-      "28": { "UpgradingTo271": 2 }
+      "28": { "UpgradeTo362": 2 },
+      "29": { "UpgradingTo271": 2 }
     },
     "compatible": {
       "0": { "EditorSprite": 1 },
@@ -28641,10 +28924,12 @@ var meta = {
       "4": { "Globalfunctions_Event": 1 },
       "5": { "MIDI-playback": 4 },
       "6": { "UnicodeSupport": 4 },
-      "7": { "UpgradingTo27": 1 }
+      "7": { "UpgradeTo362": 1 },
+      "8": { "UpgradingTo27": 1 }
     },
     "compensate": {
-      "0": { "Gamevariables": 2 }
+      "0": { "Gamevariables": 2 },
+      "1": { "UpgradeTo362": 1 }
     },
     "compilation": {
       "0": { "DefaultSetup": 1 },
@@ -28963,7 +29248,8 @@ var meta = {
     },
     "confirm": {
       "0": { "Globalfunctions_General": 1 },
-      "1": { "MIDI-playback": 1 }
+      "1": { "MIDI-playback": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "conflict": {
       "0": { "GeneralSettings": 2 },
@@ -29169,7 +29455,8 @@ var meta = {
       "22": { "String": 2 },
       "23": { "TextParser": 1 },
       "24": { "Translations": 1 },
-      "25": { "Viewport": 2 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "Viewport": 2 }
     },
     "contained": {
       "0": { "InvWindow": 1 },
@@ -29228,7 +29515,8 @@ var meta = {
       "26": { "UpgradeTo33": 2 },
       "27": { "UpgradeTo35": 1 },
       "28": { "UpgradeTo36": 2 },
-      "29": { "UpgradingTo271": 1 }
+      "29": { "UpgradeTo362": 1 },
+      "30": { "UpgradingTo271": 1 }
     },
     "contemporary": {
       "0": { "GeneralSettings": 2 },
@@ -29240,7 +29528,8 @@ var meta = {
       "0": { "GameSavesCompatibility": 3 },
       "1": { "GeneralSettings": 3 },
       "2": { "UpgradeTo34": 2 },
-      "3": { "VoiceSpeech": 1 }
+      "3": { "UpgradeTo362": 1 },
+      "4": { "VoiceSpeech": 1 }
     },
     "contents": {
       "0": { "Camera": 1 },
@@ -29313,7 +29602,8 @@ var meta = {
       "22": { "UpgradeTo31": 4 },
       "23": { "UpgradeTo32": 2 },
       "24": { "UpgradeTo34": 1 },
-      "25": { "UpgradingTo27": 1 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "UpgradingTo27": 1 }
     },
     "continues": {
       "0": { "Character": 5 },
@@ -29464,12 +29754,14 @@ var meta = {
       "16": { "MusicAndSound": 1 },
       "17": { "Templates": 1 },
       "18": { "TemplateVerbcoin": 1 },
-      "19": { "UpgradingTo27": 3 }
+      "19": { "UpgradeTo362": 1 },
+      "20": { "UpgradingTo27": 3 }
     },
     "convenience": {
       "0": { "ExtenderFunctions": 1 },
       "1": { "Screen": 1 },
-      "2": { "UpgradeTo361": 1 }
+      "2": { "UpgradeTo361": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "convenient": {
       "0": { "Camera": 1 },
@@ -29730,6 +30022,9 @@ var meta = {
     "corrected": {
       "0": { "EditorLogPanel": 1 }
     },
+    "correcting": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "correctly": {
       "0": { "acintro2": 1 },
       "1": { "BuildAndroid": 3 },
@@ -29742,8 +30037,9 @@ var meta = {
       "8": { "Screen": 2 },
       "9": { "SystemLimits": 1 },
       "10": { "Translations": 1 },
-      "11": { "Viewport": 2 },
-      "12": { "VoiceSpeech": 1 }
+      "11": { "UpgradeTo362": 1 },
+      "12": { "Viewport": 2 },
+      "13": { "VoiceSpeech": 1 }
     },
     "correspond": {
       "0": { "Button": 1 },
@@ -29780,7 +30076,8 @@ var meta = {
       "22": { "UpgradeTo35": 1 },
       "23": { "UpgradeTo36": 2 },
       "24": { "UpgradeTo361": 1 },
-      "25": { "Viewport": 2 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "Viewport": 2 }
     },
     "correspondingly": {
       "0": { "GeneralSettings": 1 }
@@ -29876,7 +30173,8 @@ var meta = {
       "57": { "UpgradeTo34": 1 },
       "58": { "UpgradeTo35": 2 },
       "59": { "UpgradeTo36": 1 },
-      "60": { "UpgradingTo271": 2 }
+      "60": { "UpgradeTo362": 2 },
+      "61": { "UpgradingTo271": 2 }
     },
     "couldn't": {
       "0": { "UpgradeTo31": 1 },
@@ -29902,7 +30200,8 @@ var meta = {
       "5": { "RuntimeEngine": 1 },
       "6": { "ScriptingTutorialPart1": 2 },
       "7": { "ScriptingTutorialPart2": 10 },
-      "8": { "ScriptKeywords": 5 }
+      "8": { "ScriptKeywords": 5 },
+      "9": { "StandardEnums": 1 }
     },
     "counter-clockwise": {
       "0": { "DynamicSprite": 1 }
@@ -30004,7 +30303,8 @@ var meta = {
       "0": { "Globalfunctions_Room": 1 }
     },
     "crashes": {
-      "0": { "EnginePluginRun-timeAPI": 1 }
+      "0": { "EnginePluginRun-timeAPI": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "crazy": {
       "0": { "GameSavesCompatibility": 1 }
@@ -30070,23 +30370,25 @@ var meta = {
       "57": { "ScriptModules": 2 },
       "58": { "Set": 1 },
       "59": { "Settingupthegame": 14 },
-      "60": { "String": 3 },
-      "61": { "StringFormats": 1 },
-      "62": { "SystemRequirements": 2 },
-      "63": { "Templates": 4 },
-      "64": { "TheScriptHeader": 1 },
-      "65": { "Tumbleweed": 5 },
-      "66": { "Tutorial": 1 },
-      "67": { "UpgradeTo30": 2 },
-      "68": { "UpgradeTo32": 1 },
-      "69": { "UpgradeTo33": 1 },
-      "70": { "UpgradeTo34": 2 },
-      "71": { "UpgradeTo341": 1 },
-      "72": { "UpgradeTo35": 2 },
-      "73": { "UpgradeTo36": 3 },
-      "74": { "UpgradingTo27": 2 },
-      "75": { "Viewport": 6 },
-      "76": { "VoiceSpeech": 1 }
+      "60": { "StandardEnums": 1 },
+      "61": { "String": 3 },
+      "62": { "StringFormats": 1 },
+      "63": { "SystemRequirements": 2 },
+      "64": { "Templates": 4 },
+      "65": { "TheScriptHeader": 1 },
+      "66": { "Tumbleweed": 5 },
+      "67": { "Tutorial": 1 },
+      "68": { "UpgradeTo30": 2 },
+      "69": { "UpgradeTo32": 1 },
+      "70": { "UpgradeTo33": 1 },
+      "71": { "UpgradeTo34": 2 },
+      "72": { "UpgradeTo341": 1 },
+      "73": { "UpgradeTo35": 2 },
+      "74": { "UpgradeTo36": 3 },
+      "75": { "UpgradeTo362": 1 },
+      "76": { "UpgradingTo27": 2 },
+      "77": { "Viewport": 6 },
+      "78": { "VoiceSpeech": 1 }
     },
     "created": {
       "0": { "acintro": 1 },
@@ -30144,8 +30446,9 @@ var meta = {
       "52": { "UpgradeTo341": 1 },
       "53": { "UpgradeTo35": 2 },
       "54": { "UpgradeTo36": 4 },
-      "55": { "UpgradingTo271": 1 },
-      "56": { "Viewport": 3 }
+      "55": { "UpgradeTo362": 1 },
+      "56": { "UpgradingTo271": 1 },
+      "57": { "Viewport": 3 }
     },
     "creates": {
       "0": { "DialogOptionsRenderingInfo": 5 },
@@ -30300,7 +30603,7 @@ var meta = {
       "36": { "InventoryItem": 5 },
       "37": { "InvWindow": 1 },
       "38": { "Label": 1 },
-      "39": { "ListBox": 1 },
+      "39": { "ListBox": 2 },
       "40": { "Mouse": 12 },
       "41": { "Multimedia": 2 },
       "42": { "Object": 22 },
@@ -30317,7 +30620,7 @@ var meta = {
       "53": { "Setup": 1 },
       "54": { "Slider": 1 },
       "55": { "Speech": 2 },
-      "56": { "System": 6 },
+      "56": { "System": 7 },
       "57": { "TemplateSierraStyle": 1 },
       "58": { "TextParser": 2 },
       "59": { "Translations": 1 },
@@ -30326,7 +30629,8 @@ var meta = {
       "62": { "Tumbleweed_door": 1 },
       "63": { "Tumbleweed_movement": 1 },
       "64": { "UpgradeTo31": 1 },
-      "65": { "UpgradingTo27": 1 }
+      "65": { "UpgradeTo362": 1 },
+      "66": { "UpgradingTo27": 1 }
     },
     "current_coins": {
       "0": { "FAQ": 1 }
@@ -30398,7 +30702,8 @@ var meta = {
       "60": { "UpgradeTo32": 1 },
       "61": { "UpgradeTo35": 2 },
       "62": { "UpgradeTo36": 1 },
-      "63": { "Viewport": 3 }
+      "63": { "UpgradeTo362": 1 },
+      "64": { "Viewport": 3 }
     },
     "cursor": {
       "0": { "acintro2": 3 },
@@ -30433,7 +30738,7 @@ var meta = {
       "29": { "Screen": 3 },
       "30": { "Settingupthegame": 15 },
       "31": { "Setup": 1 },
-      "32": { "StandardEnums": 1 },
+      "32": { "StandardEnums": 2 },
       "33": { "TemplateBASS": 4 },
       "34": { "TemplateSierraStyle": 4 },
       "35": { "TemplateVerbcoin": 2 },
@@ -30513,15 +30818,16 @@ var meta = {
       "42": { "Settingupthegame": 3 },
       "43": { "Setup": 1 },
       "44": { "Speech": 1 },
-      "45": { "TextWindowGUI": 2 },
-      "46": { "Tumbleweed": 1 },
-      "47": { "Tumbleweed_door": 2 },
-      "48": { "UpgradeTo335": 2 },
-      "49": { "UpgradeTo34": 5 },
-      "50": { "UpgradeTo35": 4 },
-      "51": { "UpgradeTo36": 8 },
-      "52": { "UpgradeTo361": 2 },
-      "53": { "UpgradingTo271": 1 }
+      "45": { "StandardEnums": 1 },
+      "46": { "TextWindowGUI": 2 },
+      "47": { "Tumbleweed": 1 },
+      "48": { "Tumbleweed_door": 2 },
+      "49": { "UpgradeTo335": 2 },
+      "50": { "UpgradeTo34": 5 },
+      "51": { "UpgradeTo35": 4 },
+      "52": { "UpgradeTo36": 8 },
+      "53": { "UpgradeTo361": 2 },
+      "54": { "UpgradingTo271": 1 }
     },
     "custom_save.txt": {
       "0": { "File": 1 }
@@ -30778,8 +31084,9 @@ var meta = {
       "33": { "UpgradeTo335": 2 },
       "34": { "UpgradeTo35": 1 },
       "35": { "UpgradeTo36": 1 },
-      "36": { "UpgradingTo27": 1 },
-      "37": { "UpgradingTo271": 1 }
+      "36": { "UpgradeTo362": 10 },
+      "37": { "UpgradingTo27": 1 },
+      "38": { "UpgradingTo271": 1 }
     },
     "dataSize": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -30813,7 +31120,8 @@ var meta = {
     },
     "days": {
       "0": { "EditorPreferences": 1 },
-      "1": { "Region": 1 }
+      "1": { "Region": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "de-compiling": {
       "0": { "DistGame": 1 }
@@ -30877,7 +31185,8 @@ var meta = {
       "6": { "File": 2 },
       "7": { "Game": 1 },
       "8": { "Globalfunctions_General": 1 },
-      "9": { "GUIControl": 1 }
+      "9": { "GUIControl": 1 },
+      "10": { "System": 1 }
     },
     "decade": {
       "0": { "UpgradeTo361": 1 }
@@ -30902,7 +31211,8 @@ var meta = {
       "10": { "ScriptingTutorialPart2": 1 },
       "11": { "Settingupthegame": 2 },
       "12": { "UpgradeTo31": 1 },
-      "13": { "UpgradeTo34": 1 }
+      "13": { "UpgradeTo34": 1 },
+      "14": { "UpgradeTo362": 1 }
     },
     "decided": {
       "0": { "acintro1": 1 },
@@ -31017,7 +31327,8 @@ var meta = {
     },
     "dedicated": {
       "0": { "FAQ": 1 },
-      "1": { "GameSavesCompatibility": 1 }
+      "1": { "GameSavesCompatibility": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "deduce": {
       "0": { "EngineConfigFile": 1 }
@@ -31120,10 +31431,11 @@ var meta = {
       "88": { "UpgradeTo35": 4 },
       "89": { "UpgradeTo36": 4 },
       "90": { "UpgradeTo361": 1 },
-      "91": { "UpgradingTo27": 1 },
-      "92": { "ViewFrame": 1 },
-      "93": { "Viewport": 4 },
-      "94": { "VoiceSpeech": 1 }
+      "91": { "UpgradeTo362": 1 },
+      "92": { "UpgradingTo27": 1 },
+      "93": { "ViewFrame": 1 },
+      "94": { "Viewport": 4 },
+      "95": { "VoiceSpeech": 1 }
     },
     "default-sound": {
       "0": { "AudioClip": 1 }
@@ -31212,8 +31524,9 @@ var meta = {
       "36": { "Tumbleweed_movement": 2 },
       "37": { "Tumbleweed_unhandled": 1 },
       "38": { "UpgradeTo35": 3 },
-      "39": { "UpgradingTo27": 1 },
-      "40": { "Viewport": 2 }
+      "39": { "UpgradeTo362": 2 },
+      "40": { "UpgradingTo27": 1 },
+      "41": { "Viewport": 2 }
     },
     "defines": {
       "0": { "acintro3": 1 },
@@ -31535,8 +31848,9 @@ var meta = {
       "24": { "TextParser": 1 },
       "25": { "Tumbleweed": 6 },
       "26": { "Tumbleweed_extensions": 1 },
-      "27": { "UpgradingTo27": 1 },
-      "28": { "UpgradingTo271": 1 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "UpgradingTo27": 1 },
+      "29": { "UpgradingTo271": 1 }
     },
     "descriptions": {
       "0": { "CustomProperties": 1 },
@@ -31564,7 +31878,8 @@ var meta = {
       "4": { "FAQ": 1 },
       "5": { "Object": 1 },
       "6": { "ObsoleteScriptAPI": 4 },
-      "7": { "TemplateVerbcoin": 1 }
+      "7": { "TemplateVerbcoin": 1 },
+      "8": { "UpgradeTo362": 1 }
     },
     "design-time": {
       "0": { "EnginePluginDesign-timeAPI": 2 },
@@ -31687,7 +32002,8 @@ var meta = {
       "3": { "Plugins": 1 },
       "4": { "Preprocessor": 1 },
       "5": { "ScriptAPIOverview": 1 },
-      "6": { "Speech": 1 }
+      "6": { "Speech": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "detected": {
       "0": { "DefaultSetup": 2 }
@@ -31785,7 +32101,8 @@ var meta = {
       "0": { "acintro1": 1 },
       "1": { "acintro7": 1 },
       "2": { "Introduction": 1 },
-      "3": { "UpgradeTo31": 1 }
+      "3": { "UpgradeTo31": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "development": {
       "0": { "acintro2": 1 },
@@ -32082,7 +32399,7 @@ var meta = {
       "51": { "Set": 1 },
       "52": { "Settingupthegame": 4 },
       "53": { "Setup": 1 },
-      "54": { "System": 2 },
+      "54": { "System": 3 },
       "55": { "SystemRequirements": 1 },
       "56": { "Templates": 1 },
       "57": { "TextBox": 1 },
@@ -32237,9 +32554,10 @@ var meta = {
       "29": { "UpgradeTo30": 1 },
       "30": { "UpgradeTo341": 1 },
       "31": { "UpgradeTo36": 1 },
-      "32": { "UpgradingTo27": 2 },
-      "33": { "UpgradingTo271": 1 },
-      "34": { "VoiceSpeech": 1 }
+      "32": { "UpgradeTo362": 1 },
+      "33": { "UpgradingTo27": 2 },
+      "34": { "UpgradingTo271": 1 },
+      "35": { "VoiceSpeech": 1 }
     },
     "directories": {
       "0": { "BuildAndroid": 1 },
@@ -32405,7 +32723,8 @@ var meta = {
     "discussed": {
       "0": { "acintro1": 1 },
       "1": { "acintro6": 1 },
-      "2": { "MIDI-playback": 1 }
+      "2": { "MIDI-playback": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "discussing": {
       "0": { "acintro4": 1 }
@@ -32422,7 +32741,8 @@ var meta = {
       "8": { "Setup": 1 },
       "9": { "TroubleshootingWindowsZoneID": 1 },
       "10": { "UpgradeTo36": 1 },
-      "11": { "UpgradeTo361": 1 }
+      "11": { "UpgradeTo361": 1 },
+      "12": { "UpgradeTo362": 1 }
     },
     "dismissed": {
       "0": { "EnginePluginDesign-timeAPI": 1 }
@@ -32554,7 +32874,7 @@ var meta = {
       "40": { "Set": 1 },
       "41": { "Settingupthegame": 6 },
       "42": { "Speech": 4 },
-      "43": { "System": 1 },
+      "43": { "System": 2 },
       "44": { "Templates": 1 },
       "45": { "Translations": 1 },
       "46": { "Tumbleweed_extensions": 1 },
@@ -32582,10 +32902,11 @@ var meta = {
       "12": { "InvWindow": 1 },
       "13": { "Mouse": 1 },
       "14": { "ScriptingTutorialPart1": 3 },
-      "15": { "System": 1 },
+      "15": { "System": 2 },
       "16": { "TemplateVerbcoin": 1 },
       "17": { "Translations": 2 },
-      "18": { "Tumbleweed_door": 1 }
+      "18": { "Tumbleweed_door": 1 },
+      "19": { "UpgradeTo362": 1 }
     },
     "displays": {
       "0": { "acintro3": 2 },
@@ -32658,7 +32979,8 @@ var meta = {
     "distinguish": {
       "0": { "EventTypes": 4 },
       "1": { "Globalfunctions_General": 1 },
-      "2": { "Tumbleweed": 1 }
+      "2": { "Tumbleweed": 1 },
+      "3": { "UpgradeTo362": 2 }
     },
     "distribute": {
       "0": { "DistGame": 4 },
@@ -32815,9 +33137,10 @@ var meta = {
       "96": { "UpgradeTo35": 5 },
       "97": { "UpgradeTo36": 2 },
       "98": { "UpgradeTo361": 3 },
-      "99": { "UpgradingTo27": 3 },
-      "100": { "UpgradingTo271": 2 },
-      "101": { "VoiceSpeech": 2 }
+      "99": { "UpgradeTo362": 7 },
+      "100": { "UpgradingTo27": 3 },
+      "101": { "UpgradingTo271": 2 },
+      "102": { "VoiceSpeech": 2 }
     },
     "do..while": {
       "0": { "ScriptKeywords": 1 },
@@ -32928,8 +33251,9 @@ var meta = {
       "62": { "UpgradeTo30": 2 },
       "63": { "UpgradeTo335": 1 },
       "64": { "UpgradeTo36": 4 },
-      "65": { "UpgradingTo27": 3 },
-      "66": { "Viewport": 4 }
+      "65": { "UpgradeTo362": 1 },
+      "66": { "UpgradingTo27": 3 },
+      "67": { "Viewport": 4 }
     },
     "doesn't": {
       "0": { "acintro4": 1 },
@@ -32981,7 +33305,8 @@ var meta = {
       "15": { "Settingupthegame": 1 },
       "16": { "System": 1 },
       "17": { "UnicodeSupport": 2 },
-      "18": { "UpgradeTo36": 2 }
+      "18": { "UpgradeTo36": 2 },
+      "19": { "UpgradeTo362": 1 }
     },
     "don't": {
       "0": { "acintro1": 2 },
@@ -33047,7 +33372,8 @@ var meta = {
       "60": { "UpgradeTo30": 1 },
       "61": { "UpgradeTo36": 1 },
       "62": { "UpgradeTo361": 2 },
-      "63": { "UpgradingTo27": 5 }
+      "63": { "UpgradeTo362": 2 },
+      "64": { "UpgradingTo27": 5 }
     },
     "done": {
       "0": { "acintro1": 2 },
@@ -33099,8 +33425,9 @@ var meta = {
       "46": { "UpgradeTo35": 3 },
       "47": { "UpgradeTo36": 1 },
       "48": { "UpgradeTo361": 2 },
-      "49": { "UpgradingTo27": 1 },
-      "50": { "Viewport": 1 }
+      "49": { "UpgradeTo362": 2 },
+      "50": { "UpgradingTo27": 1 },
+      "51": { "Viewport": 1 }
     },
     "door": {
       "0": { "acintro4": 2 },
@@ -33140,7 +33467,8 @@ var meta = {
       "1": { "GeneralSettings": 1 },
       "2": { "Pointers": 1 },
       "3": { "ScriptingTutorialPart1": 3 },
-      "4": { "Settingupthegame": 2 }
+      "4": { "Settingupthegame": 2 },
+      "5": { "UpgradeTo362": 3 }
     },
     "dots": {
       "0": { "FAQ": 2 },
@@ -33346,12 +33674,13 @@ var meta = {
       "26": { "ScriptAPIOverview": 1 },
       "27": { "Settingupthegame": 2 },
       "28": { "Slider": 4 },
-      "29": { "System": 2 },
-      "30": { "TextBox": 1 },
-      "31": { "UpgradeTo30": 2 },
-      "32": { "UpgradeTo34": 1 },
-      "33": { "UpgradeTo35": 1 },
-      "34": { "Viewport": 2 }
+      "29": { "StandardEnums": 1 },
+      "30": { "System": 2 },
+      "31": { "TextBox": 1 },
+      "32": { "UpgradeTo30": 2 },
+      "33": { "UpgradeTo34": 1 },
+      "34": { "UpgradeTo35": 1 },
+      "35": { "Viewport": 2 }
     },
     "drawbacks": {
       "0": { "GeneralSettings": 1 }
@@ -33484,7 +33813,8 @@ var meta = {
       "5": { "UpgradeTo35": 1 }
     },
     "dropdown": {
-      "0": { "acintro2": 1 }
+      "0": { "acintro2": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "dropping": {
       "0": { "InventoryItem": 1 },
@@ -33622,11 +33952,13 @@ var meta = {
       "9": { "Overlay": 2 },
       "10": { "ScriptKeywords": 11 },
       "11": { "Set": 2 },
-      "12": { "SystemLimits": 1 },
-      "13": { "TemplateVerbcoin": 2 },
-      "14": { "UpgradeTo30": 2 },
-      "15": { "UpgradeTo34": 1 },
-      "16": { "UpgradeTo35": 1 }
+      "12": { "StandardEnums": 1 },
+      "13": { "SystemLimits": 1 },
+      "14": { "TemplateVerbcoin": 2 },
+      "15": { "UpgradeTo30": 2 },
+      "16": { "UpgradeTo34": 1 },
+      "17": { "UpgradeTo35": 1 },
+      "18": { "UpgradeTo362": 2 }
     },
     "dynamically": {
       "0": { "AudioChannel": 2 },
@@ -33944,7 +34276,8 @@ var meta = {
     "eEventRestoreGame": {
       "0": { "GameSavesCompatibility": 3 },
       "1": { "Globalfunctions_Event": 2 },
-      "2": { "StandardEnums": 1 }
+      "2": { "StandardEnums": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "eFileAppend": {
       "0": { "File": 3 },
@@ -33956,6 +34289,15 @@ var meta = {
       "2": { "GUIControl": 1 },
       "3": { "StandardEnums": 1 },
       "4": { "UpgradeTo36": 1 }
+    },
+    "eFileSort_Name": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eFileSort_None": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eFileSort_Time": {
+      "0": { "StandardEnums": 1 }
     },
     "eFileWrite": {
       "0": { "File": 13 },
@@ -34660,6 +35002,9 @@ var meta = {
       "1": { "Set": 1 },
       "2": { "StandardEnums": 1 }
     },
+    "eNullFont": {
+      "0": { "StandardEnums": 3 }
+    },
     "eOSAndroid": {
       "0": { "StandardEnums": 1 },
       "1": { "System": 1 }
@@ -34723,6 +35068,24 @@ var meta = {
       "1": { "Dialog": 4 },
       "2": { "StandardEnums": 1 }
     },
+    "eRenderLayerAll": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eRenderLayerCursor": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eRenderLayerEngine": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eRenderLayerNone": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eRenderLayerRoom": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eRenderLayerUI": {
+      "0": { "StandardEnums": 1 }
+    },
     "eRepeat": {
       "0": { "Button": 3 },
       "1": { "Character": 2 },
@@ -34743,6 +35106,39 @@ var meta = {
     "eRoundUp": {
       "0": { "Maths": 3 },
       "1": { "StandardEnums": 1 }
+    },
+    "eSaveCmp_Audio": {
+      "0": { "UpgradeTo362": 2 }
+    },
+    "eSaveCmp_Cursors": {
+      "0": { "UpgradeTo362": 1 }
+    },
+    "eSaveCmp_Dialogs": {
+      "0": { "UpgradeTo362": 1 }
+    },
+    "eSaveCmp_DynamicSprites": {
+      "0": { "UpgradeTo362": 2 }
+    },
+    "eSaveCmp_GUI": {
+      "0": { "UpgradeTo362": 2 }
+    },
+    "eSaveCmp_Plugins": {
+      "0": { "UpgradeTo362": 1 }
+    },
+    "eSaveCmp_Views": {
+      "0": { "UpgradeTo362": 1 }
+    },
+    "eSaveGameSort_Description": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eSaveGameSort_None": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eSaveGameSort_Number": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eSaveGameSort_Time": {
+      "0": { "StandardEnums": 1 }
     },
     "eSayAlways": {
       "0": { "Dialog": 1 },
@@ -34822,6 +35218,15 @@ var meta = {
     "eSkipTime": {
       "0": { "Speech": 2 },
       "1": { "StandardEnums": 1 }
+    },
+    "eSortAscending": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eSortDescending": {
+      "0": { "StandardEnums": 1 }
+    },
+    "eSortNoDirection": {
+      "0": { "StandardEnums": 1 }
     },
     "eSorted": {
       "0": { "Dictionary": 3 },
@@ -35001,8 +35406,9 @@ var meta = {
       "59": { "UpgradeTo32": 2 },
       "60": { "UpgradeTo35": 9 },
       "61": { "UpgradeTo36": 3 },
-      "62": { "UpgradingTo27": 1 },
-      "63": { "Viewport": 1 }
+      "62": { "UpgradeTo362": 1 },
+      "63": { "UpgradingTo27": 1 },
+      "64": { "Viewport": 1 }
     },
     "eagerness": {
       "0": { "Character": 1 }
@@ -35033,7 +35439,8 @@ var meta = {
       "1": { "Globalfunctions_Event": 1 },
       "2": { "Globalfunctions_Message": 1 },
       "3": { "Pointers": 1 },
-      "4": { "UpgradeTo36": 1 }
+      "4": { "UpgradeTo36": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "earthquake": {
       "0": { "Globalfunctions_Screen": 2 }
@@ -35446,7 +35853,8 @@ var meta = {
       "51": { "UpgradeTo35": 2 },
       "52": { "UpgradeTo36": 4 },
       "53": { "UpgradeTo361": 1 },
-      "54": { "UpgradingTo27": 1 }
+      "54": { "UpgradeTo362": 1 },
+      "55": { "UpgradingTo27": 1 }
     },
     "ejected": {
       "0": { "Multimedia": 1 }
@@ -35501,8 +35909,10 @@ var meta = {
       "15": { "Room": 1 },
       "16": { "ScriptAPIOverview": 1 },
       "17": { "ScriptKeywords": 3 },
-      "18": { "SystemLimits": 1 },
-      "19": { "UpgradeTo35": 1 }
+      "18": { "StandardEnums": 1 },
+      "19": { "SystemLimits": 1 },
+      "20": { "UpgradeTo35": 1 },
+      "21": { "UpgradeTo362": 1 }
     },
     "elevated": {
       "0": { "TroubleshootingWindowsZoneID": 2 }
@@ -35610,7 +36020,8 @@ var meta = {
       "15": { "String": 2 },
       "16": { "Templates": 2 },
       "17": { "Translations": 2 },
-      "18": { "Viewport": 1 }
+      "18": { "UpgradeTo362": 1 },
+      "19": { "Viewport": 1 }
     },
     "emul_mouse_mode": {
       "0": { "EngineConfigFile": 1 }
@@ -35796,7 +36207,8 @@ var meta = {
       "31": { "UpgradeTo30": 1 },
       "32": { "UpgradeTo34": 2 },
       "33": { "UpgradeTo36": 1 },
-      "34": { "UpgradeTo361": 1 }
+      "34": { "UpgradeTo361": 1 },
+      "35": { "UpgradeTo362": 1 }
     },
     "end-condition": {
       "0": { "ScriptKeywords": 1 }
@@ -35806,6 +36218,9 @@ var meta = {
       "1": { "EnginePluginRun-timeAPI": 1 },
       "2": { "Globalfunctions_Wait": 10 },
       "3": { "ScriptKeywords": 2 }
+    },
+    "endianess": {
+      "0": { "StandardEnums": 1 }
     },
     "endif": {
       "0": { "Constants": 5 },
@@ -35876,17 +36291,19 @@ var meta = {
       "29": { "ScriptKeywords": 2 },
       "30": { "Settingupthegame": 1 },
       "31": { "Setup": 2 },
-      "32": { "System": 7 },
-      "33": { "TemplateSierraStyle": 1 },
-      "34": { "Translations": 1 },
-      "35": { "TroubleshootingWindowsZoneID": 1 },
-      "36": { "UpgradeTo33": 1 },
-      "37": { "UpgradeTo335": 1 },
-      "38": { "UpgradeTo34": 1 },
-      "39": { "UpgradeTo36": 12 },
-      "40": { "UpgradeTo361": 2 },
-      "41": { "Viewport": 1 },
-      "42": { "VoiceSpeech": 2 }
+      "32": { "StandardEnums": 1 },
+      "33": { "System": 7 },
+      "34": { "TemplateSierraStyle": 1 },
+      "35": { "Translations": 1 },
+      "36": { "TroubleshootingWindowsZoneID": 1 },
+      "37": { "UpgradeTo33": 1 },
+      "38": { "UpgradeTo335": 1 },
+      "39": { "UpgradeTo34": 1 },
+      "40": { "UpgradeTo36": 12 },
+      "41": { "UpgradeTo361": 2 },
+      "42": { "UpgradeTo362": 8 },
+      "43": { "Viewport": 1 },
+      "44": { "VoiceSpeech": 2 }
     },
     "engine's": {
       "0": { "EditorLogPanel": 1 },
@@ -36010,7 +36427,8 @@ var meta = {
       "0": { "ScriptingTutorialPart1": 1 },
       "1": { "ScriptModules": 1 },
       "2": { "TemplateSierraStyle": 1 },
-      "3": { "Viewport": 1 }
+      "3": { "UpgradeTo362": 1 },
+      "4": { "Viewport": 1 }
     },
     "entities": {
       "0": { "acintro4": 1 },
@@ -36038,8 +36456,9 @@ var meta = {
       "0": { "Globalfunctions_Wait": 1 },
       "1": { "Keycodes": 1 },
       "2": { "ScriptKeywords": 8 },
-      "3": { "StandardEnums": 35 },
-      "4": { "UpgradingTo27": 3 }
+      "3": { "StandardEnums": 42 },
+      "4": { "UpgradeTo362": 1 },
+      "5": { "UpgradingTo27": 3 }
     },
     "enumerated": {
       "0": { "StandardEnums": 1 },
@@ -36048,7 +36467,8 @@ var meta = {
     "enumeration": {
       "0": { "Keycodes": 4 },
       "1": { "ScriptKeywords": 2 },
-      "2": { "StandardEnums": 6 }
+      "2": { "StandardEnums": 6 },
+      "3": { "UpgradeTo362": 1 }
     },
     "enums": {
       "0": { "ScriptKeywords": 2 },
@@ -36080,7 +36500,8 @@ var meta = {
       "16": { "ScriptingTutorialPart1": 3 },
       "17": { "ScriptKeywords": 6 },
       "18": { "UpgradeTo35": 1 },
-      "19": { "Viewport": 1 }
+      "19": { "UpgradeTo362": 1 },
+      "20": { "Viewport": 1 }
     },
     "equality": {
       "0": { "UpgradingTo271": 1 }
@@ -36251,7 +36672,8 @@ var meta = {
       "30": { "UnicodeSupport": 1 },
       "31": { "UpgradeTo32": 1 },
       "32": { "UpgradeTo36": 2 },
-      "33": { "Viewport": 2 }
+      "33": { "UpgradeTo362": 1 },
+      "34": { "Viewport": 2 }
     },
     "eu": {
       "0": { "Tumbleweed": 1 }
@@ -36299,8 +36721,9 @@ var meta = {
       "30": { "UpgradeTo35": 2 },
       "31": { "UpgradeTo36": 1 },
       "32": { "UpgradeTo361": 2 },
-      "33": { "Viewport": 1 },
-      "34": { "VoiceSpeech": 1 }
+      "33": { "UpgradeTo362": 2 },
+      "34": { "Viewport": 1 },
+      "35": { "VoiceSpeech": 1 }
     },
     "event": {
       "0": { "acintro3": 4 },
@@ -36346,7 +36769,8 @@ var meta = {
       "40": { "Tumbleweed": 10 },
       "41": { "Tumbleweed_movement": 1 },
       "42": { "UpgradeTo30": 1 },
-      "43": { "UpgradeTo361": 3 }
+      "43": { "UpgradeTo361": 3 },
+      "44": { "UpgradeTo362": 3 }
     },
     "event-specific": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -36382,7 +36806,8 @@ var meta = {
       "27": { "TemplateVerbcoin": 1 },
       "28": { "Tumbleweed": 5 },
       "29": { "Tumbleweed_unhandled": 1 },
-      "30": { "UpgradeTo361": 2 }
+      "30": { "UpgradeTo361": 2 },
+      "31": { "UpgradeTo362": 1 }
     },
     "eventually": {
       "0": { "DialogOptionsRenderingInfo": 1 },
@@ -36460,7 +36885,8 @@ var meta = {
       "12": { "Tumbleweed_movement": 1 },
       "13": { "Tumbleweed_translation": 1 },
       "14": { "Tumbleweed_unhandled": 1 },
-      "15": { "UpgradeTo31": 1 }
+      "15": { "UpgradeTo31": 1 },
+      "16": { "UpgradeTo362": 1 }
     },
     "everywhere": {
       "0": { "FAQ": 1 },
@@ -36606,7 +37032,7 @@ var meta = {
       "73": { "Set": 2 },
       "74": { "Settingupthegame": 2 },
       "75": { "Setup": 1 },
-      "76": { "StandardEnums": 2 },
+      "76": { "StandardEnums": 3 },
       "77": { "String": 3 },
       "78": { "System": 5 },
       "79": { "TemplateBASS": 1 },
@@ -36624,10 +37050,11 @@ var meta = {
       "91": { "UpgradeTo35": 5 },
       "92": { "UpgradeTo36": 6 },
       "93": { "UpgradeTo361": 1 },
-      "94": { "UpgradingTo27": 8 },
-      "95": { "UpgradingTo271": 2 },
-      "96": { "Viewport": 1 },
-      "97": { "VoiceSpeech": 2 }
+      "94": { "UpgradeTo362": 5 },
+      "95": { "UpgradingTo27": 8 },
+      "96": { "UpgradingTo271": 2 },
+      "97": { "Viewport": 1 },
+      "98": { "VoiceSpeech": 2 }
     },
     "examples": {
       "0": { "AnonymousUsageInfo": 1 },
@@ -36692,7 +37119,8 @@ var meta = {
       "24": { "Templates": 1 },
       "25": { "UpgradeTo35": 1 },
       "26": { "UpgradeTo36": 1 },
-      "27": { "VoiceSpeech": 1 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "VoiceSpeech": 1 }
     },
     "exception": {
       "0": { "Pointers": 1 },
@@ -36701,10 +37129,15 @@ var meta = {
     "exceptions": {
       "0": { "GeneralSettings": 1 },
       "1": { "Translations": 1 },
-      "2": { "UpgradeTo361": 1 }
+      "2": { "UpgradeTo361": 1 },
+      "3": { "UpgradeTo362": 1 }
+    },
+    "excess": {
+      "0": { "UpgradeTo362": 1 }
     },
     "exclude": {
-      "0": { "EditorSprite": 1 }
+      "0": { "EditorSprite": 1 },
+      "1": { "UpgradeTo362": 2 }
     },
     "excluding": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -36842,16 +37275,18 @@ var meta = {
       "25": { "ScriptKeywords": 1 },
       "26": { "ScriptModules": 1 },
       "27": { "Settingupthegame": 4 },
-      "28": { "String": 2 },
-      "29": { "SystemLimits": 1 },
-      "30": { "TextParser": 2 },
-      "31": { "UpgradeTo30": 1 },
-      "32": { "UpgradeTo32": 1 },
-      "33": { "UpgradeTo34": 2 },
-      "34": { "UpgradeTo36": 2 },
-      "35": { "UpgradeTo361": 2 },
-      "36": { "UpgradingTo27": 1 },
-      "37": { "Viewport": 1 }
+      "28": { "StandardEnums": 1 },
+      "29": { "String": 2 },
+      "30": { "SystemLimits": 1 },
+      "31": { "TextParser": 2 },
+      "32": { "UpgradeTo30": 1 },
+      "33": { "UpgradeTo32": 1 },
+      "34": { "UpgradeTo34": 2 },
+      "35": { "UpgradeTo36": 2 },
+      "36": { "UpgradeTo361": 2 },
+      "37": { "UpgradeTo362": 2 },
+      "38": { "UpgradingTo27": 1 },
+      "39": { "Viewport": 1 }
     },
     "exists": {
       "0": { "Character": 2 },
@@ -37023,7 +37458,8 @@ var meta = {
     "explanation": {
       "0": { "EditorSprite": 1 },
       "1": { "Globalfunctions_Event": 1 },
-      "2": { "RuntimeEngine": 1 }
+      "2": { "RuntimeEngine": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "explicit": {
       "0": { "Character": 2 },
@@ -37194,7 +37630,8 @@ var meta = {
       "4": { "EditorPlugins": 1 },
       "5": { "EditorRoom": 1 },
       "6": { "EngineConfigFile": 1 },
-      "7": { "ScriptKeywords": 2 }
+      "7": { "ScriptKeywords": 2 },
+      "8": { "StandardEnums": 1 }
     },
     "externally": {
       "0": { "EditorPreferences": 1 }
@@ -37231,7 +37668,8 @@ var meta = {
       "28": { "Tumbleweed": 1 },
       "29": { "UpgradeTo31": 2 },
       "30": { "UpgradeTo36": 1 },
-      "31": { "VoiceSpeech": 1 }
+      "31": { "UpgradeTo362": 3 },
+      "32": { "VoiceSpeech": 1 }
     },
     "extraChar": {
       "0": { "String": 1 }
@@ -37373,7 +37811,8 @@ var meta = {
       "0": { "Debuggingfeatures": 1 },
       "1": { "EnginePluginRun-timeAPI": 1 },
       "2": { "File": 1 },
-      "3": { "System": 1 }
+      "3": { "System": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "failure": {
       "0": { "Character": 2 },
@@ -37548,7 +37987,8 @@ var meta = {
       "20": { "UpgradeTo33": 1 },
       "21": { "UpgradeTo34": 1 },
       "22": { "UpgradeTo36": 2 },
-      "23": { "UpgradeTo361": 2 }
+      "23": { "UpgradeTo361": 2 },
+      "24": { "UpgradeTo362": 2 }
     },
     "features": {
       "0": { "acintro1": 2 },
@@ -37721,8 +38161,9 @@ var meta = {
       "66": { "UpgradeTo35": 4 },
       "67": { "UpgradeTo36": 8 },
       "68": { "UpgradeTo361": 1 },
-      "69": { "UpgradingTo27": 1 },
-      "70": { "VoiceSpeech": 8 }
+      "69": { "UpgradeTo362": 2 },
+      "70": { "UpgradingTo27": 1 },
+      "71": { "VoiceSpeech": 8 }
     },
     "file's": {
       "0": { "File": 3 },
@@ -37751,6 +38192,9 @@ var meta = {
     },
     "fileName": {
       "0": { "EnginePluginRun-timeAPI": 3 }
+    },
+    "fileSortStyle": {
+      "0": { "ListBox": 3 }
     },
     "file_mode": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -37810,7 +38254,7 @@ var meta = {
       "24": { "GeneralSettings": 9 },
       "25": { "Globalfunctions_General": 1 },
       "26": { "Lipsync": 1 },
-      "27": { "ListBox": 4 },
+      "27": { "ListBox": 5 },
       "28": { "MIDI-playback": 13 },
       "29": { "Multimedia": 1 },
       "30": { "MusicAndSound": 11 },
@@ -37870,7 +38314,11 @@ var meta = {
       "5": { "EnginePluginRun-timeAPI": 5 },
       "6": { "FAQ": 2 },
       "7": { "Label": 1 },
-      "8": { "Set": 1 }
+      "8": { "Set": 1 },
+      "9": { "StandardEnums": 2 }
+    },
+    "filling": {
+      "0": { "UpgradeTo362": 1 }
     },
     "fills": {
       "0": { "EditorGUI": 1 },
@@ -38128,7 +38576,8 @@ var meta = {
       "56": { "UpgradeTo33": 1 },
       "57": { "UpgradeTo335": 1 },
       "58": { "UpgradeTo35": 1 },
-      "59": { "VoiceSpeech": 2 }
+      "59": { "UpgradeTo362": 1 },
+      "60": { "VoiceSpeech": 2 }
     },
     "firstOne": {
       "0": { "InvWindow": 2 }
@@ -38202,7 +38651,8 @@ var meta = {
       "3": { "UpgradingTo27": 1 }
     },
     "fixup": {
-      "0": { "UpgradeTo36": 1 }
+      "0": { "UpgradeTo36": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "flag": {
       "0": { "acintro7": 1 },
@@ -38211,7 +38661,8 @@ var meta = {
       "3": { "EnginePluginRun-timeAPI": 1 },
       "4": { "Globalfunctions_Room": 1 },
       "5": { "GlobalVariables": 1 },
-      "6": { "Settingupthegame": 1 }
+      "6": { "Settingupthegame": 1 },
+      "7": { "System": 1 }
     },
     "flags": {
       "0": { "EditorCommandLineOptions": 1 },
@@ -38221,7 +38672,8 @@ var meta = {
       "4": { "Globalfunctions_Wait": 1 },
       "5": { "Keycodes": 2 },
       "6": { "Multimedia": 1 },
-      "7": { "UpgradeTo36": 1 }
+      "7": { "StandardEnums": 1 },
+      "8": { "UpgradeTo36": 1 }
     },
     "flash": {
       "0": { "Tumbleweed": 1 }
@@ -38334,6 +38786,9 @@ var meta = {
       "0": { "EngineConfigFile": 2 },
       "1": { "GameEventsOrder": 2 },
       "2": { "System": 1 }
+    },
+    "focuses": {
+      "0": { "UpgradeTo362": 1 }
     },
     "focusing": {
       "0": { "UpgradeTo361": 1 }
@@ -38490,9 +38945,10 @@ var meta = {
       "64": { "UpgradeTo34": 1 },
       "65": { "UpgradeTo35": 3 },
       "66": { "UpgradeTo36": 1 },
-      "67": { "UpgradingTo27": 1 },
-      "68": { "Viewport": 1 },
-      "69": { "VoiceSpeech": 2 }
+      "67": { "UpgradeTo362": 1 },
+      "68": { "UpgradingTo27": 1 },
+      "69": { "Viewport": 1 },
+      "70": { "VoiceSpeech": 2 }
     },
     "follows": {
       "0": { "acintro1": 1 },
@@ -38507,8 +38963,9 @@ var meta = {
       "9": { "RepExec": 1 },
       "10": { "ScriptingTutorialPart1": 2 },
       "11": { "Settingupthegame": 1 },
-      "12": { "StringFormats": 1 },
-      "13": { "UpgradeTo30": 1 }
+      "12": { "StandardEnums": 1 },
+      "13": { "StringFormats": 1 },
+      "14": { "UpgradeTo30": 1 }
     },
     "font": {
       "0": { "acintro9": 21 },
@@ -38530,7 +38987,7 @@ var meta = {
       "16": { "ListBox": 1 },
       "17": { "Overlay": 8 },
       "18": { "Settingupthegame": 17 },
-      "19": { "StandardEnums": 1 },
+      "19": { "StandardEnums": 2 },
       "20": { "TextBox": 2 },
       "21": { "Translations": 13 },
       "22": { "UnicodeSupport": 5 },
@@ -38603,8 +39060,9 @@ var meta = {
     },
     "forces": {
       "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "UpgradeTo33": 1 },
-      "2": { "UpgradeTo34": 1 }
+      "1": { "System": 1 },
+      "2": { "UpgradeTo33": 1 },
+      "3": { "UpgradeTo34": 1 }
     },
     "forcing": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -38652,6 +39110,9 @@ var meta = {
     },
     "formal": {
       "0": { "Overlay": 1 }
+    },
+    "formality": {
+      "0": { "StandardEnums": 1 }
     },
     "format": {
       "0": { "acintro4": 1 },
@@ -38742,7 +39203,8 @@ var meta = {
       "17": { "Settingupthegame": 1 },
       "18": { "UpgradeTo35": 2 },
       "19": { "UpgradeTo361": 1 },
-      "20": { "VoiceSpeech": 1 }
+      "20": { "UpgradeTo362": 1 },
+      "21": { "VoiceSpeech": 1 }
     },
     "forum": {
       "0": { "BlockingScripts": 1 },
@@ -38796,7 +39258,8 @@ var meta = {
       "26": { "UpgradeTo33": 1 },
       "27": { "UpgradeTo335": 1 },
       "28": { "UpgradeTo36": 1 },
-      "29": { "Viewport": 1 }
+      "29": { "UpgradeTo362": 3 },
+      "30": { "Viewport": 1 }
     },
     "found_char": {
       "0": { "GlobalArrays": 1 }
@@ -38813,7 +39276,8 @@ var meta = {
       "0": { "EngineConfigFile": 1 },
       "1": { "Globalfunctions_General": 3 },
       "2": { "RuntimeEngine": 2 },
-      "3": { "System": 1 }
+      "3": { "StandardEnums": 2 },
+      "4": { "System": 2 }
     },
     "fractional": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -38911,8 +39375,9 @@ var meta = {
       "17": { "Object": 2 },
       "18": { "RepExec": 1 },
       "19": { "Settingupthegame": 4 },
-      "20": { "SystemLimits": 1 },
-      "21": { "UpgradeTo36": 1 }
+      "20": { "System": 1 },
+      "21": { "SystemLimits": 1 },
+      "22": { "UpgradeTo36": 1 }
     },
     "francais": {
       "0": { "Game": 1 }
@@ -39079,7 +39544,7 @@ var meta = {
       "99": { "Speech": 1 },
       "100": { "StandardEnums": 1 },
       "101": { "String": 16 },
-      "102": { "System": 8 },
+      "102": { "System": 9 },
       "103": { "SystemLimits": 4 },
       "104": { "Templates": 7 },
       "105": { "TemplateVerbcoin": 1 },
@@ -39101,11 +39566,12 @@ var meta = {
       "121": { "UpgradeTo35": 6 },
       "122": { "UpgradeTo36": 4 },
       "123": { "UpgradeTo361": 3 },
-      "124": { "UpgradingFromPreviousVersion": 1 },
-      "125": { "UpgradingTo27": 6 },
-      "126": { "UpgradingTo271": 1 },
-      "127": { "Viewport": 3 },
-      "128": { "VoiceSpeech": 6 }
+      "124": { "UpgradeTo362": 13 },
+      "125": { "UpgradingFromPreviousVersion": 1 },
+      "126": { "UpgradingTo27": 6 },
+      "127": { "UpgradingTo271": 1 },
+      "128": { "Viewport": 3 },
+      "129": { "VoiceSpeech": 6 }
     },
     "fromSpriteSlot": {
       "0": { "DynamicSprite": 1 }
@@ -39135,6 +39601,9 @@ var meta = {
     "front-most": {
       "0": { "GUI": 1 }
     },
+    "frustrating": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "full": {
       "0": { "acintro1": 1 },
       "1": { "acintro7": 1 },
@@ -39157,11 +39626,13 @@ var meta = {
       "18": { "Multimedia": 1 },
       "19": { "MusicAndSound": 1 },
       "20": { "Speech": 1 },
-      "21": { "System": 3 },
-      "22": { "UnicodeSupport": 1 },
-      "23": { "UpgradeTo34": 1 },
-      "24": { "UpgradeTo35": 1 },
-      "25": { "UpgradeTo36": 3 }
+      "21": { "StandardEnums": 1 },
+      "22": { "System": 3 },
+      "23": { "UnicodeSupport": 1 },
+      "24": { "UpgradeTo34": 1 },
+      "25": { "UpgradeTo35": 1 },
+      "26": { "UpgradeTo36": 3 },
+      "27": { "UpgradeTo362": 1 }
     },
     "full-screen": {
       "0": { "acintro2": 1 },
@@ -39274,7 +39745,7 @@ var meta = {
       "46": { "ImportingFunctionsAndVariables": 8 },
       "47": { "InventoryItem": 13 },
       "48": { "Keycodes": 2 },
-      "49": { "ListBox": 1 },
+      "49": { "ListBox": 2 },
       "50": { "Maths": 5 },
       "51": { "Mouse": 11 },
       "52": { "Multimedia": 5 },
@@ -39324,10 +39795,11 @@ var meta = {
       "96": { "UpgradeTo35": 10 },
       "97": { "UpgradeTo36": 13 },
       "98": { "UpgradeTo361": 7 },
-      "99": { "UpgradingTo27": 7 },
-      "100": { "UpgradingTo271": 3 },
-      "101": { "Viewport": 6 },
-      "102": { "VoiceSpeech": 4 }
+      "99": { "UpgradeTo362": 15 },
+      "100": { "UpgradingTo27": 7 },
+      "101": { "UpgradingTo271": 3 },
+      "102": { "Viewport": 6 },
+      "103": { "VoiceSpeech": 4 }
     },
     "function's": {
       "0": { "FAQ": 1 },
@@ -39459,11 +39931,12 @@ var meta = {
       "91": { "UpgradeTo35": 8 },
       "92": { "UpgradeTo36": 4 },
       "93": { "UpgradeTo361": 1 },
-      "94": { "UpgradingTo27": 5 },
-      "95": { "UpgradingTo271": 7 },
-      "96": { "ViewFrame": 1 },
-      "97": { "Viewport": 1 },
-      "98": { "VoiceSpeech": 2 }
+      "94": { "UpgradeTo362": 4 },
+      "95": { "UpgradingTo27": 5 },
+      "96": { "UpgradingTo271": 7 },
+      "97": { "ViewFrame": 1 },
+      "98": { "Viewport": 1 },
+      "99": { "VoiceSpeech": 2 }
     },
     "fundamental": {
       "0": { "UpgradeTo31": 1 }
@@ -39492,7 +39965,8 @@ var meta = {
       "17": { "Preprocessor": 2 },
       "18": { "UpgradeTo32": 1 },
       "19": { "UpgradeTo36": 1 },
-      "20": { "VoiceSpeech": 1 }
+      "20": { "UpgradeTo362": 1 },
+      "21": { "VoiceSpeech": 1 }
     },
     "future": {
       "0": { "AnonymousUsageInfo": 1 },
@@ -39733,35 +40207,37 @@ var meta = {
       "105": { "Setup": 41 },
       "106": { "SourceControl": 3 },
       "107": { "Speech": 7 },
-      "108": { "StartingOff": 1 },
-      "109": { "StringFormats": 2 },
-      "110": { "System": 31 },
-      "111": { "SystemRequirements": 1 },
-      "112": { "TemplateBASS": 1 },
-      "113": { "Templates": 22 },
-      "114": { "TemplateSierraStyle": 2 },
-      "115": { "TemplateVerbcoin": 2 },
-      "116": { "TextParser": 1 },
-      "117": { "Translations": 19 },
-      "118": { "TroubleshootingWindowsZoneID": 2 },
-      "119": { "Tumbleweed": 7 },
-      "120": { "Tumbleweed_translation": 2 },
-      "121": { "Tumbleweed_unhandled": 1 },
-      "122": { "Tutorial": 2 },
-      "123": { "UnicodeSupport": 9 },
-      "124": { "UpgradeTo30": 10 },
-      "125": { "UpgradeTo31": 15 },
-      "126": { "UpgradeTo32": 5 },
-      "127": { "UpgradeTo33": 2 },
-      "128": { "UpgradeTo335": 10 },
-      "129": { "UpgradeTo34": 12 },
-      "130": { "UpgradeTo341": 16 },
-      "131": { "UpgradeTo35": 15 },
-      "132": { "UpgradeTo36": 31 },
-      "133": { "UpgradeTo361": 6 },
-      "134": { "UpgradingTo27": 1 },
-      "135": { "Viewport": 6 },
-      "136": { "VoiceSpeech": 7 }
+      "108": { "StandardEnums": 1 },
+      "109": { "StartingOff": 1 },
+      "110": { "StringFormats": 2 },
+      "111": { "System": 31 },
+      "112": { "SystemRequirements": 1 },
+      "113": { "TemplateBASS": 1 },
+      "114": { "Templates": 22 },
+      "115": { "TemplateSierraStyle": 2 },
+      "116": { "TemplateVerbcoin": 2 },
+      "117": { "TextParser": 1 },
+      "118": { "Translations": 19 },
+      "119": { "TroubleshootingWindowsZoneID": 2 },
+      "120": { "Tumbleweed": 7 },
+      "121": { "Tumbleweed_translation": 2 },
+      "122": { "Tumbleweed_unhandled": 1 },
+      "123": { "Tutorial": 2 },
+      "124": { "UnicodeSupport": 9 },
+      "125": { "UpgradeTo30": 10 },
+      "126": { "UpgradeTo31": 15 },
+      "127": { "UpgradeTo32": 5 },
+      "128": { "UpgradeTo33": 2 },
+      "129": { "UpgradeTo335": 10 },
+      "130": { "UpgradeTo34": 12 },
+      "131": { "UpgradeTo341": 16 },
+      "132": { "UpgradeTo35": 15 },
+      "133": { "UpgradeTo36": 31 },
+      "134": { "UpgradeTo361": 6 },
+      "135": { "UpgradeTo362": 21 },
+      "136": { "UpgradingTo27": 1 },
+      "137": { "Viewport": 6 },
+      "138": { "VoiceSpeech": 7 }
     },
     "game's": {
       "0": { "acintro1": 1 },
@@ -40032,7 +40508,8 @@ var meta = {
       "6": { "MultipleScripts": 2 },
       "7": { "ScriptKeywords": 1 },
       "8": { "Tumbleweed_translation": 2 },
-      "9": { "UpgradeTo361": 2 }
+      "9": { "UpgradeTo361": 2 },
+      "10": { "UpgradeTo362": 2 }
     },
     "gamename.ags": {
       "0": { "GeneralSettings": 1 }
@@ -40089,7 +40566,7 @@ var meta = {
       "33": { "GUI": 1 },
       "34": { "GUIControl": 1 },
       "35": { "Introduction": 1 },
-      "36": { "ListBox": 5 },
+      "36": { "ListBox": 8 },
       "37": { "Multimedia": 1 },
       "38": { "MusicAndSound": 1 },
       "39": { "Object": 3 },
@@ -40121,6 +40598,9 @@ var meta = {
       "1": { "GeneralSettings": 1 },
       "2": { "Globalfunctions_General": 4 }
     },
+    "gaps": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "garbage": {
       "0": { "UnicodeSupport": 1 }
     },
@@ -40141,7 +40621,8 @@ var meta = {
       "9": { "Settingupthegame": 1 },
       "10": { "TemplateSierraStyle": 1 },
       "11": { "TemplateVerbcoin": 1 },
-      "12": { "UpgradeTo33": 1 }
+      "12": { "UpgradeTo33": 1 },
+      "13": { "UpgradeTo362": 1 }
     },
     "generally": {
       "0": { "acintro3": 1 },
@@ -40166,7 +40647,8 @@ var meta = {
       "3": { "Preprocessor": 1 },
       "4": { "StandardEnums": 2 },
       "5": { "Translations": 1 },
-      "6": { "UpgradeTo36": 1 }
+      "6": { "UpgradeTo36": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "generates": {
       "0": { "Pointers": 1 }
@@ -40245,21 +40727,23 @@ var meta = {
       "49": { "ScriptingTutorialPart2": 2 },
       "50": { "ScriptKeywords": 2 },
       "51": { "Settingupthegame": 2 },
-      "52": { "System": 1 },
-      "53": { "SystemLimits": 2 },
-      "54": { "Templates": 1 },
-      "55": { "TextParser": 2 },
-      "56": { "Translations": 1 },
-      "57": { "Tumbleweed_extensions": 1 },
-      "58": { "Tumbleweed_translation": 2 },
-      "59": { "Tumbleweed_unhandled": 1 },
-      "60": { "UpgradeTo30": 3 },
-      "61": { "UpgradeTo31": 1 },
-      "62": { "UpgradeTo32": 1 },
-      "63": { "UpgradeTo33": 1 },
-      "64": { "UpgradeTo35": 2 },
-      "65": { "UpgradeTo36": 2 },
-      "66": { "UpgradingTo27": 3 }
+      "52": { "StandardEnums": 1 },
+      "53": { "System": 1 },
+      "54": { "SystemLimits": 2 },
+      "55": { "Templates": 1 },
+      "56": { "TextParser": 2 },
+      "57": { "Translations": 1 },
+      "58": { "Tumbleweed_extensions": 1 },
+      "59": { "Tumbleweed_translation": 2 },
+      "60": { "Tumbleweed_unhandled": 1 },
+      "61": { "UpgradeTo30": 3 },
+      "62": { "UpgradeTo31": 1 },
+      "63": { "UpgradeTo32": 1 },
+      "64": { "UpgradeTo33": 1 },
+      "65": { "UpgradeTo35": 2 },
+      "66": { "UpgradeTo36": 2 },
+      "67": { "UpgradeTo362": 1 },
+      "68": { "UpgradingTo27": 3 }
     },
     "get's": {
       "0": { "ScriptKeywords": 1 }
@@ -40424,7 +40908,8 @@ var meta = {
       "29": { "Tumbleweed_extensions": 2 },
       "30": { "Tumbleweed_helper": 1 },
       "31": { "Tumbleweed_movement": 8 },
-      "32": { "Viewport": 4 }
+      "32": { "UpgradeTo362": 2 },
+      "33": { "Viewport": 4 }
     },
     "gives": {
       "0": { "acintro1": 1 },
@@ -40521,8 +41006,9 @@ var meta = {
       "49": { "UpgradeTo30": 2 },
       "50": { "UpgradeTo33": 1 },
       "51": { "UpgradeTo36": 2 },
-      "52": { "UpgradingTo27": 3 },
-      "53": { "Viewport": 1 }
+      "52": { "UpgradeTo362": 1 },
+      "53": { "UpgradingTo27": 3 },
+      "54": { "Viewport": 1 }
     },
     "globalScript": {
       "0": { "EnginePluginRun-timeAPI": 4 }
@@ -40615,7 +41101,8 @@ var meta = {
       "19": { "Templates": 1 },
       "20": { "Translations": 1 },
       "21": { "Tumbleweed_movement": 1 },
-      "22": { "UpgradeTo32": 1 }
+      "22": { "UpgradeTo32": 1 },
+      "23": { "UpgradeTo362": 1 }
     },
     "gone": {
       "0": { "UpgradeTo30": 2 },
@@ -40651,7 +41138,8 @@ var meta = {
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo35": 1 },
       "28": { "UpgradeTo36": 1 },
-      "29": { "UpgradeTo361": 1 }
+      "29": { "UpgradeTo361": 1 },
+      "30": { "UpgradeTo362": 1 }
     },
     "goodbye": {
       "0": { "String": 2 }
@@ -41081,8 +41569,9 @@ var meta = {
       "28": { "UpgradeTo34": 2 },
       "29": { "UpgradeTo35": 3 },
       "30": { "UpgradeTo36": 4 },
-      "31": { "UpgradingTo27": 2 },
-      "32": { "UpgradingTo271": 1 }
+      "31": { "UpgradeTo362": 1 },
+      "32": { "UpgradingTo27": 2 },
+      "33": { "UpgradingTo271": 1 }
     },
     "half": {
       "0": { "Camera": 4 },
@@ -41135,7 +41624,8 @@ var meta = {
       "21": { "TheScriptHeader": 1 },
       "22": { "UpgradeTo34": 1 },
       "23": { "UpgradeTo341": 1 },
-      "24": { "UpgradeTo36": 1 }
+      "24": { "UpgradeTo36": 1 },
+      "25": { "UpgradeTo362": 1 }
     },
     "hand-made": {
       "0": { "acintro8": 1 }
@@ -41180,7 +41670,8 @@ var meta = {
       "6": { "Parser": 1 },
       "7": { "Region": 2 },
       "8": { "Slider": 1 },
-      "9": { "Templates": 1 }
+      "9": { "Templates": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "handlers": {
       "0": { "Character": 4 },
@@ -41303,7 +41794,8 @@ var meta = {
       "19": { "MusicAndSound": 1 },
       "20": { "Object": 1 },
       "21": { "Settingupthegame": 3 },
-      "22": { "Tumbleweed": 1 }
+      "22": { "Tumbleweed": 1 },
+      "23": { "UpgradeTo362": 1 }
     },
     "happy": {
       "0": { "acintro6": 1 },
@@ -41442,11 +41934,12 @@ var meta = {
       "97": { "UpgradeTo35": 8 },
       "98": { "UpgradeTo36": 6 },
       "99": { "UpgradeTo361": 1 },
-      "100": { "UpgradingTo27": 7 },
-      "101": { "UpgradingTo271": 1 },
-      "102": { "ViewFrame": 3 },
-      "103": { "Viewport": 1 },
-      "104": { "VoiceSpeech": 3 }
+      "100": { "UpgradeTo362": 6 },
+      "101": { "UpgradingTo27": 7 },
+      "102": { "UpgradingTo271": 1 },
+      "103": { "ViewFrame": 3 },
+      "104": { "Viewport": 1 },
+      "105": { "VoiceSpeech": 3 }
     },
     "hasAlphaChannel": {
       "0": { "DynamicSprite": 2 }
@@ -41593,11 +42086,12 @@ var meta = {
       "111": { "UpgradeTo35": 10 },
       "112": { "UpgradeTo36": 14 },
       "113": { "UpgradeTo361": 7 },
-      "114": { "UpgradingTo27": 10 },
-      "115": { "UpgradingTo271": 5 },
-      "116": { "ViewFrame": 1 },
-      "117": { "Viewport": 4 },
-      "118": { "VoiceSpeech": 4 }
+      "114": { "UpgradeTo362": 12 },
+      "115": { "UpgradingTo27": 10 },
+      "116": { "UpgradingTo271": 5 },
+      "117": { "ViewFrame": 1 },
+      "118": { "Viewport": 4 },
+      "119": { "VoiceSpeech": 4 }
     },
     "haven't": {
       "0": { "acintro2": 1 },
@@ -41945,7 +42439,8 @@ var meta = {
       "9": { "Setup": 1 },
       "10": { "System": 1 },
       "11": { "SystemLimits": 1 },
-      "12": { "UpgradeTo35": 2 }
+      "12": { "UpgradeTo35": 2 },
+      "13": { "UpgradeTo362": 1 }
     },
     "high-color": {
       "0": { "DrawingSurface": 1 }
@@ -41990,7 +42485,7 @@ var meta = {
       "23": { "ScriptKeywords": 1 },
       "24": { "Setup": 2 },
       "25": { "Slider": 1 },
-      "26": { "StandardEnums": 5 },
+      "26": { "StandardEnums": 10 },
       "27": { "System": 3 },
       "28": { "SystemRequirements": 2 },
       "29": { "TemplateBASS": 1 },
@@ -42236,7 +42731,8 @@ var meta = {
       "16": { "Tumbleweed_actions": 1 },
       "17": { "Tumbleweed_extensions": 1 },
       "18": { "Tumbleweed_movement": 1 },
-      "19": { "UpgradeTo35": 4 }
+      "19": { "UpgradeTo35": 4 },
+      "20": { "UpgradeTo362": 1 }
     },
     "hour": {
       "0": { "DateTime": 3 }
@@ -42294,7 +42790,7 @@ var meta = {
       "37": { "InvWindow": 2 },
       "38": { "Label": 1 },
       "39": { "Lipsync": 1 },
-      "40": { "ListBox": 1 },
+      "40": { "ListBox": 4 },
       "41": { "Multimedia": 1 },
       "42": { "MusicAndSound": 3 },
       "43": { "Object": 3 },
@@ -42325,6 +42821,9 @@ var meta = {
       "68": { "UpgradingTo27": 2 },
       "69": { "Viewport": 1 },
       "70": { "VoiceSpeech": 1 }
+    },
+    "how_long": {
+      "0": { "UpgradeTo362": 2 }
     },
     "however": {
       "0": { "acintro8": 1 },
@@ -42524,7 +43023,8 @@ var meta = {
     "id": {
       "0": { "EngineConfigFile": 6 },
       "1": { "Tumbleweed_door": 6 },
-      "2": { "Tumbleweed_extensions": 1 }
+      "2": { "Tumbleweed_extensions": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "idea": {
       "0": { "acintro3": 1 },
@@ -42575,7 +43075,8 @@ var meta = {
     },
     "identified": {
       "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "GameSavesCompatibility": 1 }
+      "1": { "GameSavesCompatibility": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "identifier": {
       "0": { "AudioClip": 1 },
@@ -42660,9 +43161,10 @@ var meta = {
       "11": { "Room": 1 },
       "12": { "ScriptKeywords": 1 },
       "13": { "Speech": 2 },
-      "14": { "Translations": 1 },
-      "15": { "Viewport": 2 },
-      "16": { "VoiceSpeech": 1 }
+      "14": { "System": 1 },
+      "15": { "Translations": 1 },
+      "16": { "Viewport": 2 },
+      "17": { "VoiceSpeech": 1 }
     },
     "ignores": {
       "0": { "Character": 2 },
@@ -42757,6 +43259,9 @@ var meta = {
     },
     "immobile": {
       "0": { "EditorRoom": 1 }
+    },
+    "impacts": {
+      "0": { "System": 1 }
     },
     "implement": {
       "0": { "acintro8": 1 },
@@ -42953,6 +43458,9 @@ var meta = {
     "in-depth": {
       "0": { "AdvancedRoomFeatures": 1 }
     },
+    "in-engine": {
+      "0": { "StandardEnums": 1 }
+    },
     "in-game": {
       "0": { "acintro7": 1 },
       "1": { "acintro8": 1 },
@@ -43011,12 +43519,13 @@ var meta = {
       "14": { "Preprocessor": 2 },
       "15": { "ScriptKeywords": 1 },
       "16": { "Settingupthegame": 2 },
-      "17": { "Templates": 3 },
-      "18": { "TextParser": 1 },
-      "19": { "TheScriptHeader": 1 },
-      "20": { "UnicodeSupport": 1 },
-      "21": { "UpgradeTo30": 1 },
-      "22": { "UpgradeTo361": 2 }
+      "17": { "StandardEnums": 1 },
+      "18": { "Templates": 3 },
+      "19": { "TextParser": 1 },
+      "20": { "TheScriptHeader": 1 },
+      "21": { "UnicodeSupport": 1 },
+      "22": { "UpgradeTo30": 1 },
+      "23": { "UpgradeTo361": 2 }
     },
     "included": {
       "0": { "Copyright": 1 },
@@ -43043,7 +43552,8 @@ var meta = {
       "6": { "RuntimeEngine": 1 },
       "7": { "Translations": 1 },
       "8": { "UpgradeTo35": 1 },
-      "9": { "UpgradeTo36": 2 }
+      "9": { "UpgradeTo36": 2 },
+      "10": { "UpgradeTo362": 1 }
     },
     "including": {
       "0": { "Character": 1 },
@@ -43071,6 +43581,9 @@ var meta = {
       "0": { "Game": 1 },
       "1": { "Globalfunctions_General": 1 },
       "2": { "ScriptKeywords": 1 }
+    },
+    "incompatible": {
+      "0": { "UpgradeTo362": 5 }
     },
     "incomplete": {
       "0": { "Templates": 1 }
@@ -43184,15 +43697,17 @@ var meta = {
       "19": { "ScriptKeywords": 5 },
       "20": { "Set": 1 },
       "21": { "Settingupthegame": 1 },
-      "22": { "String": 7 },
-      "23": { "Tumbleweed_extensions": 1 },
-      "24": { "UnicodeSupport": 1 },
-      "25": { "UpgradingTo27": 2 },
-      "26": { "Viewport": 1 }
+      "22": { "StandardEnums": 1 },
+      "23": { "String": 7 },
+      "24": { "Tumbleweed_extensions": 1 },
+      "25": { "UnicodeSupport": 1 },
+      "26": { "UpgradingTo27": 2 },
+      "27": { "Viewport": 1 }
     },
     "indexed": {
       "0": { "EditorRoom": 1 },
-      "1": { "EnginePluginRun-timeAPI": 1 }
+      "1": { "EnginePluginRun-timeAPI": 1 },
+      "2": { "StandardEnums": 1 }
     },
     "indexes": {
       "0": { "AdvancedRoomFeatures": 1 },
@@ -43200,7 +43715,7 @@ var meta = {
       "2": { "DynamicArrays": 2 },
       "3": { "Game": 1 },
       "4": { "Globalfunctions_Palette": 2 },
-      "5": { "ListBox": 3 },
+      "5": { "ListBox": 4 },
       "6": { "Screen": 1 },
       "7": { "ScriptKeywords": 2 }
     },
@@ -43405,7 +43920,8 @@ var meta = {
       "0": { "Copyright": 1 }
     },
     "inherit": {
-      "0": { "MusicAndSound": 1 }
+      "0": { "MusicAndSound": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "inherits": {
       "0": { "Button": 1 },
@@ -43426,7 +43942,8 @@ var meta = {
       "7": { "GlobalVariables": 1 },
       "8": { "GraphicsDriver": 1 },
       "9": { "String": 1 },
-      "10": { "Templates": 1 }
+      "10": { "Templates": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "initialization": {
       "0": { "EnginePluginDesign-timeAPI": 1 },
@@ -43448,7 +43965,8 @@ var meta = {
       "4": { "Tumbleweed_translation": 1 }
     },
     "initializing": {
-      "0": { "ScriptKeywords": 1 }
+      "0": { "ScriptKeywords": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "initially": {
       "0": { "acintro7": 1 },
@@ -43610,8 +44128,9 @@ var meta = {
       "34": { "Tumbleweed_translation": 2 },
       "35": { "UpgradeTo35": 3 },
       "36": { "UpgradeTo36": 1 },
-      "37": { "Viewport": 3 },
-      "38": { "VoiceSpeech": 2 }
+      "37": { "UpgradeTo362": 1 },
+      "38": { "Viewport": 3 },
+      "39": { "VoiceSpeech": 2 }
     },
     "inspect": {
       "0": { "EditorCharacter": 1 }
@@ -43682,7 +44201,8 @@ var meta = {
       "19": { "Screen": 1 },
       "20": { "ScriptingTutorialPart1": 6 },
       "21": { "System": 2 },
-      "22": { "TextParser": 1 }
+      "22": { "TextParser": 1 },
+      "23": { "UpgradeTo362": 1 }
     },
     "instance-based": {
       "0": { "ScriptingTutorialPart1": 1 }
@@ -43760,22 +44280,23 @@ var meta = {
       "51": { "ScriptKeywords": 4 },
       "52": { "Setup": 1 },
       "53": { "Speech": 1 },
-      "54": { "String": 4 },
-      "55": { "System": 4 },
-      "56": { "SystemLimits": 1 },
-      "57": { "TextParser": 1 },
-      "58": { "TheScriptHeader": 1 },
-      "59": { "Translations": 1 },
-      "60": { "TroubleshootingWindowsZoneID": 1 },
-      "61": { "Tumbleweed": 3 },
-      "62": { "UnicodeSupport": 1 },
-      "63": { "UpgradeTo30": 2 },
-      "64": { "UpgradeTo31": 1 },
-      "65": { "UpgradeTo32": 1 },
-      "66": { "UpgradeTo341": 3 },
-      "67": { "UpgradeTo35": 2 },
-      "68": { "UpgradingTo27": 1 },
-      "69": { "UpgradingTo271": 2 }
+      "54": { "StandardEnums": 1 },
+      "55": { "String": 4 },
+      "56": { "System": 4 },
+      "57": { "SystemLimits": 1 },
+      "58": { "TextParser": 1 },
+      "59": { "TheScriptHeader": 1 },
+      "60": { "Translations": 1 },
+      "61": { "TroubleshootingWindowsZoneID": 1 },
+      "62": { "Tumbleweed": 3 },
+      "63": { "UnicodeSupport": 1 },
+      "64": { "UpgradeTo30": 2 },
+      "65": { "UpgradeTo31": 1 },
+      "66": { "UpgradeTo32": 1 },
+      "67": { "UpgradeTo341": 3 },
+      "68": { "UpgradeTo35": 2 },
+      "69": { "UpgradingTo27": 1 },
+      "70": { "UpgradingTo271": 2 }
     },
     "instruct": {
       "0": { "DefaultSetup": 1 }
@@ -43827,7 +44348,7 @@ var meta = {
       "35": { "InvWindow": 6 },
       "36": { "Keycodes": 3 },
       "37": { "Label": 1 },
-      "38": { "ListBox": 17 },
+      "38": { "ListBox": 20 },
       "39": { "Maths": 2 },
       "40": { "Mouse": 16 },
       "41": { "Multimedia": 6 },
@@ -43865,8 +44386,9 @@ var meta = {
       "73": { "UnicodeSupport": 2 },
       "74": { "UpgradeTo35": 4 },
       "75": { "UpgradeTo36": 5 },
-      "76": { "ViewFrame": 5 },
-      "77": { "Viewport": 17 }
+      "76": { "UpgradeTo362": 4 },
+      "77": { "ViewFrame": 5 },
+      "78": { "Viewport": 17 }
     },
     "intact": {
       "0": { "UpgradeTo36": 1 }
@@ -43892,7 +44414,7 @@ var meta = {
       "17": { "ScriptingTutorialPart1": 1 },
       "18": { "ScriptKeywords": 5 },
       "19": { "Setup": 1 },
-      "20": { "StandardEnums": 3 },
+      "20": { "StandardEnums": 4 },
       "21": { "String": 2 },
       "22": { "SystemLimits": 2 },
       "23": { "UnicodeSupport": 1 }
@@ -44027,7 +44549,8 @@ var meta = {
       "19": { "SourceControl": 1 },
       "20": { "TemplateVerbcoin": 8 },
       "21": { "UpgradeTo33": 1 },
-      "22": { "UpgradeTo36": 1 }
+      "22": { "UpgradeTo36": 1 },
+      "23": { "UpgradeTo362": 1 }
     },
     "interface_click": {
       "0": { "Globalfunctions_Event": 2 }
@@ -44167,7 +44690,8 @@ var meta = {
     },
     "introduces": {
       "0": { "UpgradeTo34": 1 },
-      "1": { "UpgradingTo27": 1 }
+      "1": { "UpgradeTo362": 1 },
+      "2": { "UpgradingTo27": 1 }
     },
     "introducing": {
       "0": { "UpgradeTo341": 1 }
@@ -44252,7 +44776,8 @@ var meta = {
       "9": { "OOProgramming": 2 },
       "10": { "Region": 3 },
       "11": { "Room": 1 },
-      "12": { "ScriptKeywords": 1 }
+      "12": { "ScriptKeywords": 1 },
+      "13": { "UpgradeTo362": 2 }
     },
     "invaluable": {
       "0": { "StandardEnums": 1 }
@@ -44381,7 +44906,8 @@ var meta = {
     "issue": {
       "0": { "GameSavesCompatibility": 2 },
       "1": { "GlobalArrays": 1 },
-      "2": { "SystemLimits": 1 }
+      "2": { "SystemLimits": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "issued": {
       "0": { "Character": 1 },
@@ -44390,7 +44916,8 @@ var meta = {
     "issues": {
       "0": { "EditorLogPanel": 1 },
       "1": { "UpgradeTo30": 1 },
-      "2": { "UpgradeTo36": 1 }
+      "2": { "UpgradeTo36": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "it": {
       "0": { "acintro1": 1 }
@@ -44557,14 +45084,16 @@ var meta = {
       "30": { "Tumbleweed_extensions": 2 },
       "31": { "Tumbleweed_movement": 1 },
       "32": { "UpgradeTo33": 4 },
-      "33": { "UpgradeTo35": 1 }
+      "33": { "UpgradeTo35": 1 },
+      "34": { "UpgradeTo362": 4 }
     },
     "iterate": {
       "0": { "Dialog": 1 },
       "1": { "Game": 7 },
       "2": { "GlobalArrays": 1 },
       "3": { "GUI": 2 },
-      "4": { "ScriptKeywords": 1 }
+      "4": { "ScriptKeywords": 1 },
+      "5": { "StandardEnums": 1 }
     },
     "iterating": {
       "0": { "GameSavesCompatibility": 1 }
@@ -44652,7 +45181,7 @@ var meta = {
       "70": { "Setup": 5 },
       "71": { "Slider": 1 },
       "72": { "Speech": 1 },
-      "73": { "StandardEnums": 3 },
+      "73": { "StandardEnums": 4 },
       "74": { "TemplateBASS": 1 },
       "75": { "Templates": 3 },
       "76": { "TemplateVerbcoin": 2 },
@@ -44666,8 +45195,9 @@ var meta = {
       "84": { "UpgradeTo341": 1 },
       "85": { "UpgradeTo35": 3 },
       "86": { "UpgradeTo36": 3 },
-      "87": { "UpgradingTo27": 1 },
-      "88": { "Viewport": 5 }
+      "87": { "UpgradeTo362": 1 },
+      "88": { "UpgradingTo27": 1 },
+      "89": { "Viewport": 5 }
     },
     "itself": {
       "0": { "acintro3": 1 },
@@ -44703,7 +45233,8 @@ var meta = {
       "30": { "UpgradeTo34": 1 },
       "31": { "UpgradeTo341": 1 },
       "32": { "UpgradeTo35": 1 },
-      "33": { "VoiceSpeech": 1 }
+      "33": { "UpgradeTo362": 1 },
+      "34": { "VoiceSpeech": 1 }
     },
     "jack": {
       "0": { "EngineConfigFile": 1 }
@@ -44823,9 +45354,10 @@ var meta = {
       "61": { "UpgradeTo341": 2 },
       "62": { "UpgradeTo35": 1 },
       "63": { "UpgradeTo361": 1 },
-      "64": { "UpgradingTo27": 4 },
-      "65": { "UpgradingTo271": 1 },
-      "66": { "VoiceSpeech": 1 }
+      "64": { "UpgradeTo362": 1 },
+      "65": { "UpgradingTo27": 4 },
+      "66": { "UpgradingTo271": 1 },
+      "67": { "VoiceSpeech": 1 }
     },
     "keep": {
       "0": { "AudioChannel": 1 },
@@ -45072,7 +45604,8 @@ var meta = {
       "12": { "UnicodeSupport": 1 },
       "13": { "UpgradeTo34": 1 },
       "14": { "UpgradeTo36": 1 },
-      "15": { "VoiceSpeech": 1 }
+      "15": { "UpgradeTo362": 1 },
+      "16": { "VoiceSpeech": 1 }
     },
     "kinds": {
       "0": { "EditorFont": 1 },
@@ -45418,7 +45951,7 @@ var meta = {
       "38": { "InventoryItem": 6 },
       "39": { "Label": 1 },
       "40": { "Lipsync": 1 },
-      "41": { "ListBox": 7 },
+      "41": { "ListBox": 10 },
       "42": { "Maths": 6 },
       "43": { "Mouse": 5 },
       "44": { "Multimedia": 3 },
@@ -45435,9 +45968,9 @@ var meta = {
       "55": { "Settingupthegame": 3 },
       "56": { "Slider": 3 },
       "57": { "Speech": 8 },
-      "58": { "StandardEnums": 2 },
+      "58": { "StandardEnums": 3 },
       "59": { "String": 8 },
-      "60": { "System": 12 },
+      "60": { "System": 13 },
       "61": { "TextBox": 2 },
       "62": { "TextParser": 1 },
       "63": { "TextWindowGUI": 1 },
@@ -45482,7 +46015,8 @@ var meta = {
       "0": { "DistGame": 1 }
     },
     "launches": {
-      "0": { "DistGame": 1 }
+      "0": { "DistGame": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "launching": {
       "0": { "Globalfunctions_General": 1 },
@@ -45496,8 +46030,9 @@ var meta = {
       "1": { "EnginePluginRun-timeAPI": 1 },
       "2": { "Globalfunctions_Screen": 1 },
       "3": { "Overlay": 5 },
-      "4": { "UpgradeTo32": 1 },
-      "5": { "UpgradeTo36": 1 }
+      "4": { "StandardEnums": 2 },
+      "5": { "UpgradeTo32": 1 },
+      "6": { "UpgradeTo36": 1 }
     },
     "layers": {
       "0": { "EditorRoom": 2 },
@@ -45620,7 +46155,8 @@ var meta = {
       "20": { "SystemLimits": 1 },
       "21": { "UpgradeTo34": 1 },
       "22": { "UpgradeTo341": 1 },
-      "23": { "UpgradeTo35": 1 }
+      "23": { "UpgradeTo35": 1 },
+      "24": { "UpgradeTo362": 1 }
     },
     "leather": {
       "0": { "acintro8": 1 }
@@ -45785,7 +46321,8 @@ var meta = {
       "9": { "Speech": 2 },
       "10": { "String": 6 },
       "11": { "TextParser": 1 },
-      "12": { "UpgradeTo35": 2 }
+      "12": { "UpgradeTo35": 2 },
+      "13": { "UpgradeTo362": 3 }
     },
     "lengths": {
       "0": { "Character": 1 }
@@ -45815,7 +46352,8 @@ var meta = {
       "17": { "TemplateBASS": 3 },
       "18": { "TheScriptHeader": 1 },
       "19": { "UpgradeTo35": 2 },
-      "20": { "UpgradingTo27": 1 }
+      "20": { "UpgradeTo362": 3 },
+      "21": { "UpgradingTo27": 1 }
     },
     "let": {
       "0": { "acintro3": 1 },
@@ -45844,7 +46382,8 @@ var meta = {
       "23": { "UnicodeSupport": 1 },
       "24": { "UpgradeTo34": 1 },
       "25": { "UpgradeTo36": 1 },
-      "26": { "UpgradeTo361": 3 }
+      "26": { "UpgradeTo361": 3 },
+      "27": { "UpgradeTo362": 2 }
     },
     "let's": {
       "0": { "acintro1": 2 },
@@ -45893,7 +46432,8 @@ var meta = {
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo35": 3 },
       "28": { "UpgradeTo36": 5 },
-      "29": { "Viewport": 1 }
+      "29": { "UpgradeTo362": 1 },
+      "30": { "Viewport": 1 }
     },
     "letter": {
       "0": { "EditorGUI": 1 },
@@ -45919,7 +46459,8 @@ var meta = {
       "7": { "Tumbleweed_actions": 1 },
       "8": { "UnicodeSupport": 2 },
       "9": { "UpgradeTo36": 1 },
-      "10": { "VoiceSpeech": 1 }
+      "10": { "UpgradeTo362": 2 },
+      "11": { "VoiceSpeech": 1 }
     },
     "letting": {
       "0": { "acintro4": 2 },
@@ -46128,26 +46669,28 @@ var meta = {
       "58": { "ScriptKeywords": 20 },
       "59": { "Settingupthegame": 4 },
       "60": { "SourceControl": 3 },
-      "61": { "StringFormats": 2 },
-      "62": { "Templates": 1 },
-      "63": { "TextParser": 2 },
-      "64": { "TheScriptHeader": 1 },
-      "65": { "Translations": 3 },
-      "66": { "Tumbleweed": 9 },
-      "67": { "Tumbleweed_actions": 1 },
-      "68": { "Tumbleweed_extensions": 1 },
-      "69": { "Tumbleweed_translation": 1 },
-      "70": { "Tumbleweed_unhandled": 2 },
-      "71": { "UnicodeSupport": 2 },
-      "72": { "UpgradeTo31": 2 },
-      "73": { "UpgradeTo32": 7 },
-      "74": { "UpgradeTo34": 1 },
-      "75": { "UpgradeTo35": 6 },
-      "76": { "UpgradeTo36": 6 },
-      "77": { "UpgradeTo361": 3 },
-      "78": { "UpgradingTo27": 6 },
-      "79": { "UpgradingTo271": 5 },
-      "80": { "Viewport": 1 }
+      "61": { "StandardEnums": 2 },
+      "62": { "StringFormats": 2 },
+      "63": { "Templates": 1 },
+      "64": { "TextParser": 2 },
+      "65": { "TheScriptHeader": 1 },
+      "66": { "Translations": 3 },
+      "67": { "Tumbleweed": 9 },
+      "68": { "Tumbleweed_actions": 1 },
+      "69": { "Tumbleweed_extensions": 1 },
+      "70": { "Tumbleweed_translation": 1 },
+      "71": { "Tumbleweed_unhandled": 2 },
+      "72": { "UnicodeSupport": 2 },
+      "73": { "UpgradeTo31": 2 },
+      "74": { "UpgradeTo32": 7 },
+      "75": { "UpgradeTo34": 1 },
+      "76": { "UpgradeTo35": 6 },
+      "77": { "UpgradeTo36": 6 },
+      "78": { "UpgradeTo361": 3 },
+      "79": { "UpgradeTo362": 3 },
+      "80": { "UpgradingTo27": 6 },
+      "81": { "UpgradingTo271": 5 },
+      "82": { "Viewport": 1 }
     },
     "likely": {
       "0": { "acintro1": 1 },
@@ -46175,9 +46718,10 @@ var meta = {
       "4": { "Game": 2 },
       "5": { "ListBox": 2 },
       "6": { "ScriptAPIOverview": 1 },
-      "7": { "SystemLimits": 4 },
-      "8": { "UpgradeTo35": 6 },
-      "9": { "UpgradeTo36": 4 }
+      "7": { "StandardEnums": 2 },
+      "8": { "SystemLimits": 4 },
+      "9": { "UpgradeTo35": 6 },
+      "10": { "UpgradeTo36": 4 }
     },
     "limitation": {
       "0": { "DialogScript": 1 },
@@ -46260,16 +46804,17 @@ var meta = {
       "35": { "Settingupthegame": 1 },
       "36": { "Speech": 2 },
       "37": { "StringFormats": 2 },
-      "38": { "TextParser": 1 },
-      "39": { "Translations": 13 },
-      "40": { "Tumbleweed": 3 },
-      "41": { "Tumbleweed_door": 2 },
-      "42": { "Tumbleweed_translation": 1 },
-      "43": { "UpgradeTo31": 1 },
-      "44": { "UpgradeTo36": 1 },
-      "45": { "UpgradeTo361": 1 },
-      "46": { "UpgradingTo27": 2 },
-      "47": { "VoiceSpeech": 3 }
+      "38": { "System": 1 },
+      "39": { "TextParser": 1 },
+      "40": { "Translations": 13 },
+      "41": { "Tumbleweed": 3 },
+      "42": { "Tumbleweed_door": 2 },
+      "43": { "Tumbleweed_translation": 1 },
+      "44": { "UpgradeTo31": 1 },
+      "45": { "UpgradeTo36": 1 },
+      "46": { "UpgradeTo361": 1 },
+      "47": { "UpgradingTo27": 2 },
+      "48": { "VoiceSpeech": 3 }
     },
     "lineNum": {
       "0": { "EnginePluginRun-timeAPI": 3 }
@@ -46390,7 +46935,7 @@ var meta = {
       "30": { "ImportingFunctionsAndVariables": 1 },
       "31": { "InvWindow": 1 },
       "32": { "Keycodes": 2 },
-      "33": { "ListBox": 47 },
+      "33": { "ListBox": 55 },
       "34": { "MultipleScripts": 1 },
       "35": { "MusicAndSound": 1 },
       "36": { "Preprocessor": 1 },
@@ -46399,13 +46944,15 @@ var meta = {
       "39": { "ScriptKeywords": 2 },
       "40": { "Settingupthegame": 10 },
       "41": { "Setup": 2 },
-      "42": { "Templates": 1 },
-      "43": { "TextParser": 4 },
-      "44": { "UpgradeTo34": 1 },
-      "45": { "UpgradeTo35": 2 },
-      "46": { "UpgradeTo36": 4 },
-      "47": { "UpgradeTo361": 1 },
-      "48": { "UpgradingTo27": 4 }
+      "42": { "StandardEnums": 1 },
+      "43": { "Templates": 1 },
+      "44": { "TextParser": 4 },
+      "45": { "UpgradeTo34": 1 },
+      "46": { "UpgradeTo35": 2 },
+      "47": { "UpgradeTo36": 4 },
+      "48": { "UpgradeTo361": 1 },
+      "49": { "UpgradeTo362": 2 },
+      "50": { "UpgradingTo27": 4 }
     },
     "listbox": {
       "0": { "ListBox": 10 }
@@ -46510,7 +47057,8 @@ var meta = {
       "19": { "Settingupthegame": 1 },
       "20": { "UpgradeTo34": 1 },
       "21": { "UpgradeTo341": 1 },
-      "22": { "UpgradeTo361": 1 }
+      "22": { "UpgradeTo361": 1 },
+      "23": { "UpgradeTo362": 5 }
     },
     "load-unloads": {
       "0": { "EnginePluginDesign-timeAPI": 1 }
@@ -46544,7 +47092,8 @@ var meta = {
       "22": { "TroubleshootingWindowsZoneID": 1 },
       "23": { "UpgradeTo341": 1 },
       "24": { "UpgradeTo361": 1 },
-      "25": { "Viewport": 1 }
+      "25": { "UpgradeTo362": 2 },
+      "26": { "Viewport": 1 }
     },
     "loading": {
       "0": { "Credits": 1 },
@@ -46558,7 +47107,8 @@ var meta = {
       "8": { "Plugins": 1 },
       "9": { "RuntimeEngine": 1 },
       "10": { "Setup": 1 },
-      "11": { "UpgradeTo36": 2 }
+      "11": { "UpgradeTo36": 2 },
+      "12": { "UpgradeTo362": 6 }
     },
     "loads": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -46608,7 +47158,8 @@ var meta = {
       "7": { "UnicodeSupport": 1 },
       "8": { "UpgradeTo341": 1 },
       "9": { "UpgradeTo36": 1 },
-      "10": { "Viewport": 2 }
+      "10": { "UpgradeTo362": 1 },
+      "11": { "Viewport": 2 }
     },
     "locating": {
       "0": { "EditorRoom": 1 }
@@ -46685,9 +47236,10 @@ var meta = {
       "6": { "Globalfunctions_Palette": 1 },
       "7": { "Mouse": 2 },
       "8": { "Setup": 4 },
-      "9": { "System": 1 },
-      "10": { "Tumbleweed_door": 4 },
-      "11": { "UpgradeTo35": 3 }
+      "9": { "StandardEnums": 1 },
+      "10": { "System": 1 },
+      "11": { "Tumbleweed_door": 4 },
+      "12": { "UpgradeTo35": 3 }
     },
     "locking": {
       "0": { "AudioChannel": 2 },
@@ -46782,7 +47334,8 @@ var meta = {
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo35": 1 },
       "28": { "UpgradeTo36": 2 },
-      "29": { "UpgradingTo271": 1 }
+      "29": { "UpgradeTo362": 1 },
+      "30": { "UpgradingTo271": 1 }
     },
     "long-lasting": {
       "0": { "Globalfunctions_Room": 2 },
@@ -47321,7 +47874,8 @@ var meta = {
       "20": { "UpgradeTo31": 1 },
       "21": { "UpgradeTo341": 2 },
       "22": { "UpgradeTo35": 3 },
-      "23": { "UpgradeTo36": 2 }
+      "23": { "UpgradeTo36": 2 },
+      "24": { "UpgradeTo362": 4 }
     },
     "magic": {
       "0": { "acintro4": 1 }
@@ -47411,7 +47965,8 @@ var meta = {
     "major": {
       "0": { "UpgradeTo31": 2 },
       "1": { "UpgradeTo32": 1 },
-      "2": { "UpgradeTo33": 1 }
+      "2": { "UpgradeTo33": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "majority": {
       "0": { "Character": 1 },
@@ -47508,8 +48063,9 @@ var meta = {
       "84": { "UpgradeTo341": 1 },
       "85": { "UpgradeTo35": 5 },
       "86": { "UpgradeTo36": 2 },
-      "87": { "UpgradingTo27": 1 },
-      "88": { "Viewport": 3 }
+      "87": { "UpgradeTo362": 3 },
+      "88": { "UpgradingTo27": 1 },
+      "89": { "Viewport": 3 }
     },
     "makes": {
       "0": { "acintro7": 2 },
@@ -47541,7 +48097,8 @@ var meta = {
       "26": { "UpgradeTo32": 1 },
       "27": { "UpgradeTo35": 1 },
       "28": { "UpgradeTo36": 1 },
-      "29": { "VoiceSpeech": 1 }
+      "29": { "UpgradeTo362": 2 },
+      "30": { "VoiceSpeech": 1 }
     },
     "making": {
       "0": { "acintro1": 2 },
@@ -47860,7 +48417,8 @@ var meta = {
       "3": { "String": 1 },
       "4": { "TextParser": 1 },
       "5": { "Translations": 2 },
-      "6": { "UpgradeTo35": 1 }
+      "6": { "UpgradeTo35": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "matching": {
       "0": { "DefaultSetup": 1 },
@@ -47905,13 +48463,15 @@ var meta = {
       "4": { "OOProgramming": 1 },
       "5": { "RuntimeEngine": 2 },
       "6": { "Setup": 2 },
-      "7": { "SystemLimits": 1 }
+      "7": { "StandardEnums": 1 },
+      "8": { "SystemLimits": 1 }
     },
     "max_health": {
       "0": { "String": 2 }
     },
     "max_slot": {
-      "0": { "Globalfunctions_General": 6 }
+      "0": { "Globalfunctions_General": 6 },
+      "1": { "ListBox": 3 }
     },
     "max_value": {
       "0": { "ScriptKeywords": 3 }
@@ -48049,10 +48609,11 @@ var meta = {
       "98": { "UpgradeTo35": 18 },
       "99": { "UpgradeTo36": 17 },
       "100": { "UpgradeTo361": 4 },
-      "101": { "UpgradingTo27": 1 },
-      "102": { "UpgradingTo271": 1 },
-      "103": { "ViewFrame": 1 },
-      "104": { "Viewport": 14 }
+      "101": { "UpgradeTo362": 10 },
+      "102": { "UpgradingTo27": 1 },
+      "103": { "UpgradingTo271": 1 },
+      "104": { "ViewFrame": 1 },
+      "105": { "Viewport": 14 }
     },
     "maybe": {
       "0": { "GameSavesCompatibility": 1 }
@@ -48105,7 +48666,8 @@ var meta = {
       "14": { "StringFormats": 4 },
       "15": { "System": 1 },
       "16": { "UpgradeTo36": 3 },
-      "17": { "Viewport": 1 }
+      "17": { "UpgradeTo362": 1 },
+      "18": { "Viewport": 1 }
     },
     "meaningful": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -48168,21 +48730,23 @@ var meta = {
       "43": { "ScriptKeywords": 4 },
       "44": { "Settingupthegame": 5 },
       "45": { "Setup": 1 },
-      "46": { "String": 2 },
-      "47": { "StringFormats": 1 },
-      "48": { "TemplateBASS": 1 },
-      "49": { "TheScriptHeader": 1 },
-      "50": { "Translations": 1 },
-      "51": { "Tumbleweed_movement": 1 },
-      "52": { "Tumbleweed_translation": 1 },
-      "53": { "UnicodeSupport": 1 },
-      "54": { "UpgradeTo30": 1 },
-      "55": { "UpgradeTo31": 2 },
-      "56": { "UpgradeTo32": 1 },
-      "57": { "UpgradeTo35": 3 },
-      "58": { "UpgradeTo36": 1 },
-      "59": { "UpgradingTo27": 1 },
-      "60": { "UpgradingTo271": 1 }
+      "46": { "StandardEnums": 1 },
+      "47": { "String": 2 },
+      "48": { "StringFormats": 1 },
+      "49": { "TemplateBASS": 1 },
+      "50": { "TheScriptHeader": 1 },
+      "51": { "Translations": 1 },
+      "52": { "Tumbleweed_movement": 1 },
+      "53": { "Tumbleweed_translation": 1 },
+      "54": { "UnicodeSupport": 1 },
+      "55": { "UpgradeTo30": 1 },
+      "56": { "UpgradeTo31": 2 },
+      "57": { "UpgradeTo32": 1 },
+      "58": { "UpgradeTo35": 3 },
+      "59": { "UpgradeTo36": 1 },
+      "60": { "UpgradeTo362": 2 },
+      "61": { "UpgradingTo27": 1 },
+      "62": { "UpgradingTo271": 1 }
     },
     "meant": {
       "0": { "ColoursEditor": 1 },
@@ -48221,7 +48785,8 @@ var meta = {
       "0": { "Globalfunctions_General": 1 }
     },
     "meets": {
-      "0": { "ContactingTheDevelopers": 1 }
+      "0": { "ContactingTheDevelopers": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "megabytes": {
       "0": { "DefaultSetup": 3 }
@@ -48314,7 +48879,8 @@ var meta = {
       "18": { "UpgradeTo361": 1 }
     },
     "menus": {
-      "0": { "Globalfunctions_General": 1 }
+      "0": { "Globalfunctions_General": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "merchant": {
       "0": { "acintro8": 1 }
@@ -48595,7 +49161,8 @@ var meta = {
       "2": { "SystemLimits": 1 }
     },
     "min_slot": {
-      "0": { "Globalfunctions_General": 6 }
+      "0": { "Globalfunctions_General": 6 },
+      "1": { "ListBox": 3 }
     },
     "min_value": {
       "0": { "ScriptKeywords": 4 }
@@ -48637,7 +49204,8 @@ var meta = {
     },
     "minimal": {
       "0": { "Gamevariables": 1 },
-      "1": { "GeneralSettings": 1 }
+      "1": { "GeneralSettings": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "minimum": {
       "0": { "AnonymousUsageInfo": 1 },
@@ -48937,7 +49505,8 @@ var meta = {
       "11": { "TemplateVerbcoin": 2 },
       "12": { "Tumbleweed": 1 },
       "13": { "Tumbleweed_door": 1 },
-      "14": { "UpgradeTo30": 1 }
+      "14": { "UpgradeTo30": 1 },
+      "15": { "UpgradeTo362": 6 }
     },
     "module's": {
       "0": { "Globalfunctions_General": 1 },
@@ -48954,7 +49523,8 @@ var meta = {
       "7": { "System": 1 },
       "8": { "SystemLimits": 1 },
       "9": { "Tumbleweed": 2 },
-      "10": { "UpgradeTo34": 1 }
+      "10": { "UpgradeTo34": 1 },
+      "11": { "UpgradeTo362": 2 }
     },
     "moment": {
       "0": { "acintro2": 2 },
@@ -48978,7 +49548,8 @@ var meta = {
       "18": { "Set": 1 },
       "19": { "Translations": 1 },
       "20": { "UpgradeTo35": 1 },
-      "21": { "UpgradeTo36": 1 }
+      "21": { "UpgradeTo36": 1 },
+      "22": { "UpgradeTo362": 1 }
     },
     "monitor": {
       "0": { "Setup": 1 },
@@ -49351,8 +49922,9 @@ var meta = {
       "32": { "Tumbleweed_player": 1 },
       "33": { "UpgradeTo33": 1 },
       "34": { "UpgradeTo35": 1 },
-      "35": { "UpgradingTo271": 1 },
-      "36": { "Viewport": 1 }
+      "35": { "UpgradeTo362": 2 },
+      "36": { "UpgradingTo271": 1 },
+      "37": { "Viewport": 1 }
     },
     "movePlayer": {
       "0": { "Tumbleweed_movement": 1 }
@@ -49460,8 +50032,9 @@ var meta = {
       "24": { "UpgradeTo30": 1 },
       "25": { "UpgradeTo34": 1 },
       "26": { "UpgradeTo35": 1 },
-      "27": { "UpgradingTo27": 3 },
-      "28": { "UpgradingTo271": 1 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "UpgradingTo27": 3 },
+      "29": { "UpgradingTo271": 1 }
     },
     "multi-character": {
       "0": { "UpgradingTo27": 1 }
@@ -49604,7 +50177,7 @@ var meta = {
       "30": { "GlobalArrays": 1 },
       "31": { "Globalfunctions_General": 10 },
       "32": { "ImportingFunctionsAndVariables": 5 },
-      "33": { "ListBox": 1 },
+      "33": { "ListBox": 2 },
       "34": { "Maths": 2 },
       "35": { "Mouse": 2 },
       "36": { "Object": 1 },
@@ -49626,7 +50199,8 @@ var meta = {
       "52": { "UpgradeTo33": 1 },
       "53": { "UpgradeTo35": 4 },
       "54": { "UpgradeTo36": 3 },
-      "55": { "VoiceSpeech": 2 }
+      "55": { "UpgradeTo362": 3 },
+      "56": { "VoiceSpeech": 2 }
     },
     "mute": {
       "0": { "Game": 1 }
@@ -49931,7 +50505,7 @@ var meta = {
       "52": { "ScriptKeywords": 13 },
       "53": { "ScriptModules": 1 },
       "54": { "Settingupthegame": 7 },
-      "55": { "StandardEnums": 2 },
+      "55": { "StandardEnums": 3 },
       "56": { "String": 2 },
       "57": { "TemplateBASS": 1 },
       "58": { "Templates": 1 },
@@ -49943,8 +50517,9 @@ var meta = {
       "64": { "UpgradeTo32": 2 },
       "65": { "UpgradeTo36": 1 },
       "66": { "UpgradeTo361": 2 },
-      "67": { "UpgradingTo27": 6 },
-      "68": { "VoiceSpeech": 3 }
+      "67": { "UpgradeTo362": 9 },
+      "68": { "UpgradingTo27": 6 },
+      "69": { "VoiceSpeech": 3 }
     },
     "named": {
       "0": { "BuildAndroid": 2 },
@@ -49959,7 +50534,8 @@ var meta = {
       "9": { "Pointers": 1 },
       "10": { "Translations": 1 },
       "11": { "TroubleshootingWindowsZoneID": 1 },
-      "12": { "VoiceSpeech": 2 }
+      "12": { "UpgradeTo362": 3 },
+      "13": { "VoiceSpeech": 2 }
     },
     "names": {
       "0": { "acintro3": 1 },
@@ -49985,8 +50561,9 @@ var meta = {
       "20": { "UpgradeTo32": 2 },
       "21": { "UpgradeTo34": 2 },
       "22": { "UpgradeTo36": 4 },
-      "23": { "UpgradingTo27": 2 },
-      "24": { "VoiceSpeech": 1 }
+      "23": { "UpgradeTo362": 2 },
+      "24": { "UpgradingTo27": 2 },
+      "25": { "VoiceSpeech": 1 }
     },
     "naming": {
       "0": { "DistGame": 1 },
@@ -50073,6 +50650,9 @@ var meta = {
     "neater": {
       "0": { "ScriptingTutorialPart2": 1 },
       "1": { "ScriptKeywords": 1 }
+    },
+    "neatly": {
+      "0": { "UpgradeTo362": 1 }
     },
     "necessarily": {
       "0": { "acintro8": 1 },
@@ -50414,10 +50994,11 @@ var meta = {
       "94": { "UpgradeTo35": 11 },
       "95": { "UpgradeTo36": 13 },
       "96": { "UpgradeTo361": 2 },
-      "97": { "UpgradingTo27": 14 },
-      "98": { "UpgradingTo271": 9 },
-      "99": { "Viewport": 8 },
-      "100": { "VoiceSpeech": 1 }
+      "97": { "UpgradeTo362": 3 },
+      "98": { "UpgradingTo27": 14 },
+      "99": { "UpgradingTo271": 9 },
+      "100": { "Viewport": 8 },
+      "101": { "VoiceSpeech": 1 }
     },
     "new-String": {
       "0": { "Constants": 1 }
@@ -50638,6 +51219,9 @@ var meta = {
     "non-deprecated": {
       "0": { "GeneralSettings": 1 }
     },
+    "non-empty": {
+      "0": { "ListBox": 1 }
+    },
     "non-existing": {
       "0": { "EnginePluginRun-timeAPI": 1 }
     },
@@ -50822,11 +51406,13 @@ var meta = {
       "10": { "ScriptKeywords": 1 },
       "11": { "Translations": 1 },
       "12": { "Tumbleweed": 1 },
-      "13": { "UpgradeTo35": 1 }
+      "13": { "UpgradeTo35": 1 },
+      "14": { "UpgradeTo362": 1 }
     },
     "noted": {
       "0": { "BuildAndroid": 1 },
-      "1": { "Setup": 1 }
+      "1": { "Setup": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "notes": {
       "0": { "GeneralSettings": 1 },
@@ -50886,7 +51472,8 @@ var meta = {
       "20": { "TextParser": 2 },
       "21": { "Tumbleweed_translation": 1 },
       "22": { "UpgradeTo31": 2 },
-      "23": { "UpgradeTo35": 1 }
+      "23": { "UpgradeTo35": 1 },
+      "24": { "UpgradeTo362": 1 }
     },
     "noticeable": {
       "0": { "Multimedia": 1 }
@@ -51000,9 +51587,10 @@ var meta = {
       "82": { "UpgradeTo35": 9 },
       "83": { "UpgradeTo36": 24 },
       "84": { "UpgradeTo361": 4 },
-      "85": { "UpgradingTo27": 12 },
-      "86": { "UpgradingTo271": 5 },
-      "87": { "ViewFrame": 9 }
+      "85": { "UpgradeTo362": 3 },
+      "86": { "UpgradingTo27": 12 },
+      "87": { "UpgradingTo271": 5 },
+      "88": { "ViewFrame": 9 }
     },
     "nr_dir": {
       "0": { "Tumbleweed_door": 3 }
@@ -51046,8 +51634,9 @@ var meta = {
       "26": { "Speech": 9 },
       "27": { "String": 3 },
       "28": { "TextParser": 1 },
-      "29": { "ViewFrame": 2 },
-      "30": { "Viewport": 7 }
+      "29": { "UpgradeTo362": 2 },
+      "30": { "ViewFrame": 2 },
+      "31": { "Viewport": 7 }
     },
     "nullptr": {
       "0": { "Pointers": 1 }
@@ -51150,10 +51739,11 @@ var meta = {
       "82": { "UpgradeTo341": 1 },
       "83": { "UpgradeTo35": 3 },
       "84": { "UpgradeTo36": 3 },
-      "85": { "UpgradingTo27": 2 },
-      "86": { "ViewFrame": 4 },
-      "87": { "Viewport": 1 },
-      "88": { "VoiceSpeech": 1 }
+      "85": { "UpgradeTo362": 4 },
+      "86": { "UpgradingTo27": 2 },
+      "87": { "ViewFrame": 4 },
+      "88": { "Viewport": 1 },
+      "89": { "VoiceSpeech": 1 }
     },
     "number-based": {
       "0": { "Hotspot": 1 },
@@ -51195,8 +51785,9 @@ var meta = {
       "25": { "SystemLimits": 1 },
       "26": { "TroubleshootingWindowsZoneID": 1 },
       "27": { "UpgradeTo36": 1 },
-      "28": { "UpgradingTo27": 1 },
-      "29": { "VoiceSpeech": 2 }
+      "28": { "UpgradeTo362": 3 },
+      "29": { "UpgradingTo27": 1 },
+      "30": { "VoiceSpeech": 2 }
     },
     "numeric": {
       "0": { "Character": 1 },
@@ -51419,8 +52010,9 @@ var meta = {
       "56": { "UpgradeTo35": 1 },
       "57": { "UpgradeTo36": 4 },
       "58": { "UpgradeTo361": 3 },
-      "59": { "UpgradingTo27": 3 },
-      "60": { "UpgradingTo271": 1 }
+      "59": { "UpgradeTo362": 3 },
+      "60": { "UpgradingTo27": 3 },
+      "61": { "UpgradingTo271": 1 }
     },
     "object's": {
       "0": { "AudioClip": 3 },
@@ -51516,7 +52108,8 @@ var meta = {
       "47": { "UpgradeTo34": 2 },
       "48": { "UpgradeTo35": 4 },
       "49": { "UpgradeTo36": 6 },
-      "50": { "UpgradeTo361": 1 }
+      "50": { "UpgradeTo361": 1 },
+      "51": { "UpgradeTo362": 5 }
     },
     "obsolete": {
       "0": { "AudioChannel": 13 },
@@ -51590,6 +52183,9 @@ var meta = {
     "occasions": {
       "0": { "Mouse": 1 },
       "1": { "ScriptingTutorialPart2": 1 }
+    },
+    "occupied": {
+      "0": { "ListBox": 1 }
     },
     "occupy": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -51746,7 +52342,8 @@ var meta = {
       "7": { "ScriptKeywords": 2 },
       "8": { "Setup": 2 },
       "9": { "SystemLimits": 1 },
-      "10": { "UpgradingTo27": 1 }
+      "10": { "UpgradeTo362": 1 },
+      "11": { "UpgradingTo27": 1 }
     },
     "ogg": {
       "0": { "DistGame": 3 },
@@ -51795,8 +52392,9 @@ var meta = {
       "30": { "UpgradeTo35": 4 },
       "31": { "UpgradeTo36": 4 },
       "32": { "UpgradeTo361": 1 },
-      "33": { "UpgradingTo27": 4 },
-      "34": { "UpgradingTo271": 1 }
+      "33": { "UpgradeTo362": 2 },
+      "34": { "UpgradingTo27": 4 },
+      "35": { "UpgradingTo271": 1 }
     },
     "old-fashioned": {
       "0": { "UpgradeTo32": 1 }
@@ -51837,7 +52435,8 @@ var meta = {
       "11": { "UpgradeTo34": 1 },
       "12": { "UpgradeTo35": 4 },
       "13": { "UpgradeTo36": 6 },
-      "14": { "UpgradeTo361": 1 }
+      "14": { "UpgradeTo361": 1 },
+      "15": { "UpgradeTo362": 3 }
     },
     "omit": {
       "0": { "GameSavesCompatibility": 1 }
@@ -51887,7 +52486,8 @@ var meta = {
       "6": { "MultipleScripts": 2 },
       "7": { "Object": 1 },
       "8": { "ScriptingTutorialPart2": 4 },
-      "9": { "StandardEnums": 1 }
+      "9": { "StandardEnums": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "on_events": {
       "0": { "BlockingScripts": 1 }
@@ -52069,8 +52669,9 @@ var meta = {
       "101": { "UpgradeTo35": 4 },
       "102": { "UpgradeTo36": 6 },
       "103": { "UpgradeTo361": 1 },
-      "104": { "UpgradingTo27": 3 },
-      "105": { "Viewport": 6 }
+      "104": { "UpgradeTo362": 6 },
+      "105": { "UpgradingTo27": 3 },
+      "106": { "Viewport": 6 }
     },
     "one-letter": {
       "0": { "EngineConfigFile": 1 },
@@ -52113,8 +52714,9 @@ var meta = {
       "18": { "Tumbleweed_translation": 1 },
       "19": { "UnicodeSupport": 1 },
       "20": { "UpgradeTo30": 1 },
-      "21": { "UpgradingTo27": 1 },
-      "22": { "UpgradingTo271": 2 }
+      "21": { "UpgradeTo362": 2 },
+      "22": { "UpgradingTo27": 1 },
+      "23": { "UpgradingTo271": 2 }
     },
     "online": {
       "0": { "Introduction": 1 }
@@ -52184,7 +52786,7 @@ var meta = {
       "61": { "InventoryItem": 4 },
       "62": { "Keycodes": 5 },
       "63": { "Lipsync": 2 },
-      "64": { "ListBox": 4 },
+      "64": { "ListBox": 6 },
       "65": { "Mouse": 7 },
       "66": { "Multimedia": 8 },
       "67": { "MultipleScripts": 2 },
@@ -52205,27 +52807,29 @@ var meta = {
       "82": { "Settingupthegame": 12 },
       "83": { "Setup": 6 },
       "84": { "Speech": 16 },
-      "85": { "StandardTypes": 1 },
-      "86": { "String": 4 },
-      "87": { "System": 2 },
-      "88": { "TemplateBASS": 1 },
-      "89": { "TemplateVerbcoin": 2 },
-      "90": { "TextParser": 1 },
-      "91": { "Tumbleweed": 4 },
-      "92": { "Tumbleweed_movement": 3 },
-      "93": { "Tumbleweed_unhandled": 1 },
-      "94": { "UpgradeTo30": 2 },
-      "95": { "UpgradeTo31": 2 },
-      "96": { "UpgradeTo335": 3 },
-      "97": { "UpgradeTo34": 2 },
-      "98": { "UpgradeTo341": 1 },
-      "99": { "UpgradeTo35": 9 },
-      "100": { "UpgradeTo36": 9 },
-      "101": { "UpgradeTo361": 2 },
-      "102": { "UpgradingTo27": 1 },
-      "103": { "UpgradingTo271": 2 },
-      "104": { "Viewport": 3 },
-      "105": { "VoiceSpeech": 2 }
+      "85": { "StandardEnums": 1 },
+      "86": { "StandardTypes": 1 },
+      "87": { "String": 4 },
+      "88": { "System": 2 },
+      "89": { "TemplateBASS": 1 },
+      "90": { "TemplateVerbcoin": 2 },
+      "91": { "TextParser": 1 },
+      "92": { "Tumbleweed": 4 },
+      "93": { "Tumbleweed_movement": 3 },
+      "94": { "Tumbleweed_unhandled": 1 },
+      "95": { "UpgradeTo30": 2 },
+      "96": { "UpgradeTo31": 2 },
+      "97": { "UpgradeTo335": 3 },
+      "98": { "UpgradeTo34": 2 },
+      "99": { "UpgradeTo341": 1 },
+      "100": { "UpgradeTo35": 9 },
+      "101": { "UpgradeTo36": 9 },
+      "102": { "UpgradeTo361": 2 },
+      "103": { "UpgradeTo362": 5 },
+      "104": { "UpgradingTo27": 1 },
+      "105": { "UpgradingTo271": 2 },
+      "106": { "Viewport": 3 },
+      "107": { "VoiceSpeech": 2 }
     },
     "onto": {
       "0": { "acintro2": 1 },
@@ -52410,7 +53014,8 @@ var meta = {
       "1": { "Keycodes": 1 },
       "2": { "ScriptingTutorialPart1": 3 },
       "3": { "ScriptKeywords": 3 },
-      "4": { "UpgradingTo271": 1 }
+      "4": { "StandardEnums": 1 },
+      "5": { "UpgradingTo271": 1 }
     },
     "opportunity": {
       "0": { "EngineConfigFile": 1 },
@@ -52512,7 +53117,8 @@ var meta = {
       "62": { "UpgradeTo35": 2 },
       "63": { "UpgradeTo36": 11 },
       "64": { "UpgradeTo361": 3 },
-      "65": { "UpgradingTo27": 1 }
+      "65": { "UpgradeTo362": 1 },
+      "66": { "UpgradingTo27": 1 }
     },
     "option's": {
       "0": { "Dialog": 1 },
@@ -52557,26 +53163,28 @@ var meta = {
       "14": { "Game": 2 },
       "15": { "Globalfunctions_Event": 3 },
       "16": { "Globalfunctions_General": 1 },
-      "17": { "Maths": 1 },
-      "18": { "Multimedia": 1 },
-      "19": { "MusicAndSound": 1 },
-      "20": { "Object": 9 },
-      "21": { "Overlay": 4 },
-      "22": { "Region": 1 },
-      "23": { "Room": 1 },
-      "24": { "Screen": 1 },
-      "25": { "ScriptingTutorialPart1": 5 },
-      "26": { "ScriptKeywords": 5 },
-      "27": { "Settingupthegame": 1 },
-      "28": { "String": 4 },
-      "29": { "TextParser": 2 },
-      "30": { "Tumbleweed": 1 },
-      "31": { "Tumbleweed_unhandled": 1 },
-      "32": { "UpgradeTo32": 1 },
-      "33": { "UpgradeTo36": 3 },
-      "34": { "UpgradingTo27": 2 },
-      "35": { "Viewport": 1 },
-      "36": { "VoiceSpeech": 2 }
+      "17": { "ListBox": 8 },
+      "18": { "Maths": 1 },
+      "19": { "Multimedia": 1 },
+      "20": { "MusicAndSound": 1 },
+      "21": { "Object": 9 },
+      "22": { "Overlay": 4 },
+      "23": { "Region": 1 },
+      "24": { "Room": 1 },
+      "25": { "Screen": 1 },
+      "26": { "ScriptingTutorialPart1": 5 },
+      "27": { "ScriptKeywords": 5 },
+      "28": { "Settingupthegame": 1 },
+      "29": { "StandardEnums": 1 },
+      "30": { "String": 4 },
+      "31": { "TextParser": 2 },
+      "32": { "Tumbleweed": 1 },
+      "33": { "Tumbleweed_unhandled": 1 },
+      "34": { "UpgradeTo32": 1 },
+      "35": { "UpgradeTo36": 3 },
+      "36": { "UpgradingTo27": 2 },
+      "37": { "Viewport": 1 },
+      "38": { "VoiceSpeech": 2 }
     },
     "optionally": {
       "0": { "Character": 1 },
@@ -52584,10 +53192,11 @@ var meta = {
       "2": { "DynamicSprite": 1 },
       "3": { "Globalfunctions_General": 1 },
       "4": { "Globalfunctions_Wait": 1 },
-      "5": { "Object": 1 },
-      "6": { "Overlay": 1 },
-      "7": { "String": 1 },
-      "8": { "UpgradeTo33": 1 }
+      "5": { "ListBox": 4 },
+      "6": { "Object": 1 },
+      "7": { "Overlay": 1 },
+      "8": { "String": 1 },
+      "9": { "UpgradeTo33": 1 }
     },
     "options": {
       "0": { "acintro": 1 },
@@ -52644,7 +53253,8 @@ var meta = {
       "51": { "UpgradeTo341": 1 },
       "52": { "UpgradeTo35": 2 },
       "53": { "UpgradeTo36": 5 },
-      "54": { "UpgradingTo27": 3 }
+      "54": { "UpgradeTo362": 1 },
+      "55": { "UpgradingTo27": 3 }
     },
     "options's": {
       "0": { "DialogOptionsRenderingInfo": 1 }
@@ -52717,9 +53327,10 @@ var meta = {
       "58": { "UpgradeTo33": 1 },
       "59": { "UpgradeTo341": 1 },
       "60": { "UpgradeTo35": 1 },
-      "61": { "UpgradingTo27": 1 },
-      "62": { "UpgradingTo271": 1 },
-      "63": { "Viewport": 3 }
+      "61": { "UpgradeTo362": 5 },
+      "62": { "UpgradingTo27": 1 },
+      "63": { "UpgradingTo271": 1 },
+      "64": { "Viewport": 3 }
     },
     "ordered": {
       "0": { "Character": 1 },
@@ -52747,7 +53358,8 @@ var meta = {
       "3": { "EditorSprite": 1 },
       "4": { "FAQ": 1 },
       "5": { "MusicAndSound": 1 },
-      "6": { "ScriptModules": 1 }
+      "6": { "ScriptModules": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "organized": {
       "0": { "MusicAndSound": 1 },
@@ -52909,8 +53521,9 @@ var meta = {
       "91": { "UpgradeTo34": 2 },
       "92": { "UpgradeTo35": 1 },
       "93": { "UpgradeTo36": 5 },
-      "94": { "UpgradingTo271": 1 },
-      "95": { "Viewport": 2 }
+      "94": { "UpgradeTo362": 1 },
+      "95": { "UpgradingTo271": 1 },
+      "96": { "Viewport": 2 }
     },
     "otherChar": {
       "0": { "Character": 1 }
@@ -53049,9 +53662,10 @@ var meta = {
       "58": { "Tumbleweed": 1 },
       "59": { "UpgradeTo30": 1 },
       "60": { "UpgradeTo35": 1 },
-      "61": { "UpgradingTo27": 5 },
-      "62": { "UpgradingTo271": 1 },
-      "63": { "VoiceSpeech": 1 }
+      "61": { "UpgradeTo362": 1 },
+      "62": { "UpgradingTo27": 5 },
+      "63": { "UpgradingTo271": 1 },
+      "64": { "VoiceSpeech": 1 }
     },
     "outdated": {
       "0": { "FAQ": 1 },
@@ -53388,18 +54002,19 @@ var meta = {
       "50": { "Settingupthegame": 10 },
       "51": { "Setup": 2 },
       "52": { "Slider": 1 },
-      "53": { "StartingOff": 1 },
-      "54": { "Templates": 2 },
-      "55": { "TextBox": 1 },
-      "56": { "Tumbleweed_extensions": 2 },
-      "57": { "UnicodeSupport": 1 },
-      "58": { "UpgradeTo32": 1 },
-      "59": { "UpgradeTo33": 1 },
-      "60": { "UpgradeTo335": 1 },
-      "61": { "UpgradeTo34": 1 },
-      "62": { "UpgradeTo36": 1 },
-      "63": { "UpgradeTo361": 1 },
-      "64": { "UpgradingTo27": 2 }
+      "53": { "StandardEnums": 1 },
+      "54": { "StartingOff": 1 },
+      "55": { "Templates": 2 },
+      "56": { "TextBox": 1 },
+      "57": { "Tumbleweed_extensions": 2 },
+      "58": { "UnicodeSupport": 1 },
+      "59": { "UpgradeTo32": 1 },
+      "60": { "UpgradeTo33": 1 },
+      "61": { "UpgradeTo335": 1 },
+      "62": { "UpgradeTo34": 1 },
+      "63": { "UpgradeTo36": 1 },
+      "64": { "UpgradeTo361": 1 },
+      "65": { "UpgradingTo27": 2 }
     },
     "owned": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -53698,8 +54313,9 @@ var meta = {
       "41": { "Tumbleweed_unhandled": 1 },
       "42": { "UpgradeTo32": 1 },
       "43": { "UpgradeTo361": 2 },
-      "44": { "UpgradingTo27": 2 },
-      "45": { "UpgradingTo271": 3 }
+      "44": { "UpgradeTo362": 1 },
+      "45": { "UpgradingTo27": 2 },
+      "46": { "UpgradingTo271": 3 }
     },
     "parameter's": {
       "0": { "Overlay": 1 }
@@ -53716,21 +54332,22 @@ var meta = {
       "8": { "Globalfunctions_Palette": 1 },
       "9": { "Globalfunctions_Room": 1 },
       "10": { "Globalfunctions_Screen": 1 },
-      "11": { "Mouse": 1 },
-      "12": { "Object": 1 },
-      "13": { "Overlay": 3 },
-      "14": { "Region": 1 },
-      "15": { "ScriptingTutorialPart1": 6 },
-      "16": { "ScriptingTutorialPart2": 5 },
-      "17": { "ScriptKeywords": 4 },
-      "18": { "SystemLimits": 1 },
-      "19": { "Tumbleweed_door": 1 },
-      "20": { "Tumbleweed_movement": 2 },
-      "21": { "Tumbleweed_translation": 1 },
-      "22": { "UpgradeTo34": 1 },
-      "23": { "UpgradeTo35": 1 },
-      "24": { "UpgradeTo361": 2 },
-      "25": { "UpgradingTo27": 2 }
+      "11": { "ListBox": 2 },
+      "12": { "Mouse": 1 },
+      "13": { "Object": 1 },
+      "14": { "Overlay": 3 },
+      "15": { "Region": 1 },
+      "16": { "ScriptingTutorialPart1": 6 },
+      "17": { "ScriptingTutorialPart2": 5 },
+      "18": { "ScriptKeywords": 4 },
+      "19": { "SystemLimits": 1 },
+      "20": { "Tumbleweed_door": 1 },
+      "21": { "Tumbleweed_movement": 2 },
+      "22": { "Tumbleweed_translation": 1 },
+      "23": { "UpgradeTo34": 1 },
+      "24": { "UpgradeTo35": 1 },
+      "25": { "UpgradeTo361": 2 },
+      "26": { "UpgradingTo27": 2 }
     },
     "parent": {
       "0": { "acintro7": 1 },
@@ -53739,7 +54356,8 @@ var meta = {
       "3": { "Globalfunctions_General": 1 },
       "4": { "GUI": 1 },
       "5": { "GUIControl": 2 },
-      "6": { "RuntimeEngine": 1 }
+      "6": { "RuntimeEngine": 1 },
+      "7": { "UpgradeTo362": 1 }
     },
     "parent's": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -53810,14 +54428,16 @@ var meta = {
       "32": { "UpgradeTo31": 1 },
       "33": { "UpgradeTo35": 4 },
       "34": { "UpgradeTo36": 1 },
-      "35": { "UpgradingTo271": 1 },
-      "36": { "ViewFrame": 7 }
+      "35": { "UpgradeTo362": 1 },
+      "36": { "UpgradingTo271": 1 },
+      "37": { "ViewFrame": 7 }
     },
     "partially": {
       "0": { "EditorFont": 1 },
       "1": { "Globalfunctions_General": 1 },
       "2": { "Screen": 1 },
-      "3": { "Viewport": 1 }
+      "3": { "UpgradeTo362": 1 },
+      "4": { "Viewport": 1 }
     },
     "participate": {
       "0": { "Introduction": 1 }
@@ -53861,8 +54481,9 @@ var meta = {
       "35": { "UpgradeTo341": 1 },
       "36": { "UpgradeTo35": 1 },
       "37": { "UpgradeTo36": 1 },
-      "38": { "UpgradingTo27": 1 },
-      "39": { "VoiceSpeech": 1 }
+      "38": { "UpgradeTo362": 1 },
+      "39": { "UpgradingTo27": 1 },
+      "40": { "VoiceSpeech": 1 }
     },
     "particularly": {
       "0": { "Character": 1 },
@@ -53915,7 +54536,7 @@ var meta = {
       "14": { "Globalfunctions_Room": 1 },
       "15": { "Globalfunctions_Screen": 1 },
       "16": { "InventoryItem": 1 },
-      "17": { "ListBox": 1 },
+      "17": { "ListBox": 2 },
       "18": { "Mouse": 2 },
       "19": { "Multimedia": 1 },
       "20": { "Object": 3 },
@@ -53944,12 +54565,14 @@ var meta = {
       "7": { "Globalfunctions_Event": 3 },
       "8": { "Globalfunctions_Wait": 4 },
       "9": { "Keycodes": 3 },
-      "10": { "MIDI-playback": 2 },
-      "11": { "Parser": 1 },
-      "12": { "Preprocessor": 1 },
-      "13": { "Set": 1 },
-      "14": { "UpgradeTo36": 2 },
-      "15": { "UpgradingTo271": 2 }
+      "10": { "ListBox": 1 },
+      "11": { "MIDI-playback": 2 },
+      "12": { "Parser": 1 },
+      "13": { "Preprocessor": 1 },
+      "14": { "Set": 1 },
+      "15": { "System": 1 },
+      "16": { "UpgradeTo36": 2 },
+      "17": { "UpgradingTo271": 2 }
     },
     "passes": {
       "0": { "DialogScript": 1 },
@@ -54000,7 +54623,8 @@ var meta = {
     },
     "patch": {
       "0": { "GameSavesCompatibility": 2 },
-      "1": { "MIDI-playback": 12 }
+      "1": { "MIDI-playback": 12 },
+      "2": { "UpgradeTo362": 1 }
     },
     "patches": {
       "0": { "DistGame": 1 },
@@ -54057,7 +54681,8 @@ var meta = {
       "0": { "Globalfunctions_Room": 1 }
     },
     "pattern": {
-      "0": { "AudioChannel": 2 }
+      "0": { "AudioChannel": 2 },
+      "1": { "StandardEnums": 1 }
     },
     "pause": {
       "0": { "AudioChannel": 3 },
@@ -54134,11 +54759,12 @@ var meta = {
       "17": { "RepExec": 1 },
       "18": { "ScriptAPIOverview": 1 },
       "19": { "Settingupthegame": 2 },
-      "20": { "SystemLimits": 8 },
-      "21": { "TemplateVerbcoin": 1 },
-      "22": { "UpgradeTo34": 1 },
-      "23": { "UpgradeTo35": 2 },
-      "24": { "UpgradeTo36": 1 }
+      "20": { "System": 1 },
+      "21": { "SystemLimits": 8 },
+      "22": { "TemplateVerbcoin": 1 },
+      "23": { "UpgradeTo34": 1 },
+      "24": { "UpgradeTo35": 2 },
+      "25": { "UpgradeTo36": 1 }
     },
     "per-font": {
       "0": { "UpgradeTo36": 1 }
@@ -54202,8 +54828,9 @@ var meta = {
       "3": { "EnginePluginRun-timeAPI": 5 },
       "4": { "GeneralSettings": 2 },
       "5": { "GraphicsDriver": 2 },
-      "6": { "UpgradeTo36": 1 },
-      "7": { "UpgradeTo361": 1 }
+      "6": { "System": 1 },
+      "7": { "UpgradeTo36": 1 },
+      "8": { "UpgradeTo361": 1 }
     },
     "performant": {
       "0": { "UpgradeTo36": 1 }
@@ -54511,13 +55138,15 @@ var meta = {
       "28": { "ScriptingTutorialPart2": 1 },
       "29": { "ScriptKeywords": 4 },
       "30": { "Settingupthegame": 2 },
-      "31": { "TheScriptHeader": 2 },
-      "32": { "Tumbleweed_movement": 1 },
-      "33": { "UpgradeTo30": 1 },
-      "34": { "UpgradeTo31": 1 },
-      "35": { "UpgradeTo33": 1 },
-      "36": { "UpgradeTo35": 1 },
-      "37": { "Viewport": 1 }
+      "31": { "StandardEnums": 1 },
+      "32": { "TheScriptHeader": 2 },
+      "33": { "Tumbleweed_movement": 1 },
+      "34": { "UpgradeTo30": 1 },
+      "35": { "UpgradeTo31": 1 },
+      "36": { "UpgradeTo33": 1 },
+      "37": { "UpgradeTo35": 1 },
+      "38": { "UpgradeTo362": 1 },
+      "39": { "Viewport": 1 }
     },
     "placed": {
       "0": { "acintro4": 2 },
@@ -54664,8 +55293,9 @@ var meta = {
       "27": { "Tumbleweed_unhandled": 1 },
       "28": { "UpgradeTo32": 2 },
       "29": { "UpgradeTo36": 1 },
-      "30": { "Viewport": 1 },
-      "31": { "VoiceSpeech": 2 }
+      "30": { "UpgradeTo362": 1 },
+      "31": { "Viewport": 1 },
+      "32": { "VoiceSpeech": 2 }
     },
     "playability": {
       "0": { "acintro1": 1 }
@@ -54684,7 +55314,8 @@ var meta = {
       "5": { "Multimedia": 3 },
       "6": { "MusicAndSound": 1 },
       "7": { "Object": 1 },
-      "8": { "UpgradeTo36": 2 }
+      "8": { "UpgradeTo36": 2 },
+      "9": { "UpgradeTo362": 1 }
     },
     "played": {
       "0": { "acintro7": 2 },
@@ -54794,8 +55425,9 @@ var meta = {
       "80": { "UpgradeTo34": 1 },
       "81": { "UpgradeTo35": 2 },
       "82": { "UpgradeTo36": 1 },
-      "83": { "UpgradingTo27": 2 },
-      "84": { "VoiceSpeech": 1 }
+      "83": { "UpgradeTo362": 2 },
+      "84": { "UpgradingTo27": 2 },
+      "85": { "VoiceSpeech": 1 }
     },
     "player's": {
       "0": { "acintro4": 3 },
@@ -54984,7 +55616,8 @@ var meta = {
       "6": { "Speech": 1 },
       "7": { "System": 1 },
       "8": { "UpgradeTo36": 1 },
-      "9": { "VoiceSpeech": 1 }
+      "9": { "UpgradeTo362": 1 },
+      "10": { "VoiceSpeech": 1 }
     },
     "playing": {
       "0": { "AudioChannel": 39 },
@@ -55007,7 +55640,8 @@ var meta = {
       "17": { "System": 2 },
       "18": { "SystemRequirements": 1 },
       "19": { "UpgradeTo32": 3 },
-      "20": { "VoiceSpeech": 2 }
+      "20": { "UpgradeTo362": 1 },
+      "21": { "VoiceSpeech": 2 }
     },
     "plays": {
       "0": { "AudioChannel": 1 },
@@ -55040,7 +55674,8 @@ var meta = {
       "14": { "Tumbleweed": 2 },
       "15": { "Tumbleweed_door": 1 },
       "16": { "UnicodeSupport": 1 },
-      "17": { "UpgradeTo361": 1 }
+      "17": { "UpgradeTo361": 1 },
+      "18": { "UpgradeTo362": 1 }
     },
     "plot": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -55059,7 +55694,8 @@ var meta = {
       "7": { "SystemLimits": 1 },
       "8": { "TroubleshootingWindowsZoneID": 2 },
       "9": { "UpgradeTo34": 1 },
-      "10": { "UpgradeTo361": 1 }
+      "10": { "UpgradeTo361": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "plugin's": {
       "0": { "EditorPlugins": 1 },
@@ -55072,7 +55708,8 @@ var meta = {
       "3": { "EnginePlugins": 7 },
       "4": { "Game": 1 },
       "5": { "Plugins": 12 },
-      "6": { "SystemLimits": 1 }
+      "6": { "SystemLimits": 1 },
+      "7": { "UpgradeTo362": 2 }
     },
     "plumbing": {
       "0": { "EditorPlugins": 1 }
@@ -55166,7 +55803,8 @@ var meta = {
       "24": { "Settingupthegame": 2 },
       "25": { "UpgradeTo34": 1 },
       "26": { "UpgradeTo361": 3 },
-      "27": { "Viewport": 2 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "Viewport": 2 }
     },
     "pointer_variable": {
       "0": { "ScriptKeywords": 2 }
@@ -55386,7 +56024,8 @@ var meta = {
       "6": { "Globalfunctions_Event": 1 },
       "7": { "Globalfunctions_Room": 1 },
       "8": { "GUI": 1 },
-      "9": { "TemplateVerbcoin": 1 }
+      "9": { "TemplateVerbcoin": 1 },
+      "10": { "UpgradeTo362": 1 }
     },
     "positive": {
       "0": { "Character": 2 },
@@ -55547,6 +56186,9 @@ var meta = {
     "precaching": {
       "0": { "Game": 2 }
     },
+    "precaution": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "precede": {
       "0": { "Character": 1 },
       "1": { "FAQ": 1 },
@@ -55563,6 +56205,9 @@ var meta = {
       "0": { "Constants": 1 },
       "1": { "GeneralSettings": 3 },
       "2": { "ScriptKeywords": 5 }
+    },
+    "preceding": {
+      "0": { "UpgradeTo362": 1 }
     },
     "precise": {
       "0": { "EditorRoom": 1 },
@@ -55670,6 +56315,9 @@ var meta = {
     "preprocessor": {
       "0": { "Preprocessor": 2 }
     },
+    "prescanning": {
+      "0": { "UpgradeTo362": 2 }
+    },
     "presence": {
       "0": { "MIDI-playback": 1 }
     },
@@ -55694,7 +56342,8 @@ var meta = {
       "17": { "String": 1 },
       "18": { "Templates": 1 },
       "19": { "TroubleshootingWindowsZoneID": 1 },
-      "20": { "UpgradeTo335": 1 }
+      "20": { "UpgradeTo335": 1 },
+      "21": { "UpgradeTo362": 2 }
     },
     "presented": {
       "0": { "acintro1": 2 },
@@ -55905,8 +56554,9 @@ var meta = {
       "27": { "UpgradeTo34": 2 },
       "28": { "UpgradeTo35": 2 },
       "29": { "UpgradeTo36": 2 },
-      "30": { "UpgradingTo27": 1 },
-      "31": { "Viewport": 1 }
+      "30": { "UpgradeTo362": 1 },
+      "31": { "UpgradingTo27": 1 },
+      "32": { "Viewport": 1 }
     },
     "prevroom": {
       "0": { "Character": 1 },
@@ -56065,7 +56715,8 @@ var meta = {
       "16": { "TheScriptHeader": 1 },
       "17": { "Translations": 1 },
       "18": { "TroubleshootingWindowsZoneID": 2 },
-      "19": { "VoiceSpeech": 1 }
+      "19": { "UpgradeTo362": 4 },
+      "20": { "VoiceSpeech": 1 }
     },
     "problems": {
       "0": { "AdvancedRoomFeatures": 2 },
@@ -56259,7 +56910,8 @@ var meta = {
       "31": { "UpgradeTo341": 1 },
       "32": { "UpgradeTo35": 3 },
       "33": { "UpgradeTo36": 3 },
-      "34": { "VoiceSpeech": 1 }
+      "34": { "UpgradeTo362": 2 },
+      "35": { "VoiceSpeech": 1 }
     },
     "project's": {
       "0": { "DefaultSetup": 1 },
@@ -56462,7 +57114,7 @@ var meta = {
       "51": { "ScriptKeywords": 3 },
       "52": { "Settingupthegame": 13 },
       "53": { "Speech": 13 },
-      "54": { "System": 12 },
+      "54": { "System": 13 },
       "55": { "TextBox": 1 },
       "56": { "Translations": 3 },
       "57": { "UnicodeSupport": 1 },
@@ -56471,8 +57123,9 @@ var meta = {
       "60": { "UpgradeTo34": 1 },
       "61": { "UpgradeTo35": 3 },
       "62": { "UpgradeTo36": 5 },
-      "63": { "UpgradingTo271": 1 },
-      "64": { "Viewport": 3 }
+      "63": { "UpgradeTo362": 1 },
+      "64": { "UpgradingTo271": 1 },
+      "65": { "Viewport": 3 }
     },
     "property's": {
       "0": { "Character": 3 },
@@ -56601,6 +57254,9 @@ var meta = {
       "2": { "Plugins": 1 },
       "3": { "Tumbleweed": 1 }
     },
+    "pseudo-attribute": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "pt": {
       "0": { "Screen": 2 },
       "1": { "Viewport": 4 }
@@ -56661,7 +57317,8 @@ var meta = {
       "7": { "Pointers": 1 },
       "8": { "ScriptKeywords": 1 },
       "9": { "System": 1 },
-      "10": { "UpgradeTo361": 1 }
+      "10": { "UpgradeTo361": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "purposed": {
       "0": { "Globalfunctions_General": 1 }
@@ -56690,7 +57347,7 @@ var meta = {
       "20": { "RuntimeEngine": 6 },
       "21": { "Settingupthegame": 2 },
       "22": { "String": 1 },
-      "23": { "System": 1 }
+      "23": { "System": 2 }
     },
     "push": {
       "0": { "EventTypes": 3 },
@@ -56732,7 +57389,8 @@ var meta = {
       "26": { "SourceControl": 1 },
       "27": { "Tumbleweed": 1 },
       "28": { "UnicodeSupport": 1 },
-      "29": { "UpgradeTo361": 1 }
+      "29": { "UpgradeTo361": 1 },
+      "30": { "UpgradeTo362": 1 }
     },
     "puts": {
       "0": { "SourceControl": 1 },
@@ -56771,7 +57429,8 @@ var meta = {
       "4": { "MusicAndSound": 1 }
     },
     "quantity": {
-      "0": { "Character": 4 }
+      "0": { "Character": 4 },
+      "1": { "UpgradeTo362": 1 }
     },
     "quarter": {
       "0": { "DrawingSurface": 1 },
@@ -56833,7 +57492,8 @@ var meta = {
       "14": { "MultipleScripts": 1 },
       "15": { "Object": 1 },
       "16": { "Pointers": 1 },
-      "17": { "ScriptKeywords": 2 }
+      "17": { "ScriptKeywords": 2 },
+      "18": { "System": 1 }
     },
     "quieter": {
       "0": { "Character": 1 }
@@ -56861,7 +57521,8 @@ var meta = {
       "10": { "Templates": 1 },
       "11": { "TextParser": 1 },
       "12": { "UpgradeTo361": 1 },
-      "13": { "UpgradingTo27": 1 }
+      "13": { "UpgradeTo362": 1 },
+      "14": { "UpgradingTo27": 1 }
     },
     "quits": {
       "0": { "RuntimeEngine": 2 },
@@ -56934,13 +57595,14 @@ var meta = {
       "9": { "Globalfunctions_Palette": 2 },
       "10": { "Globalfunctions_Screen": 2 },
       "11": { "InvWindow": 1 },
-      "12": { "ListBox": 1 },
+      "12": { "ListBox": 4 },
       "13": { "Maths": 2 },
       "14": { "Mouse": 3 },
       "15": { "Object": 1 },
       "16": { "ScriptKeywords": 2 },
       "17": { "Slider": 2 },
-      "18": { "VoiceSpeech": 1 }
+      "18": { "UpgradeTo362": 1 },
+      "19": { "VoiceSpeech": 1 }
     },
     "ranges": {
       "0": { "acintro1": 1 },
@@ -57014,7 +57676,8 @@ var meta = {
       "36": { "TroubleshootingWindowsZoneID": 1 },
       "37": { "Tumbleweed": 1 },
       "38": { "UpgradeTo335": 3 },
-      "39": { "UpgradingTo27": 1 }
+      "39": { "UpgradeTo362": 1 },
+      "40": { "UpgradingTo27": 1 }
     },
     "ratio": {
       "0": { "Camera": 1 },
@@ -57063,6 +57726,9 @@ var meta = {
     },
     "re-enable": {
       "0": { "Globalfunctions_Room": 1 }
+    },
+    "re-enabled": {
+      "0": { "UpgradeTo362": 1 }
     },
     "re-enters": {
       "0": { "Hotspot": 1 }
@@ -57169,7 +57835,8 @@ var meta = {
       "29": { "Templates": 1 },
       "30": { "TroubleshootingWindowsZoneID": 1 },
       "31": { "UpgradeTo36": 2 },
-      "32": { "UpgradingTo27": 2 }
+      "32": { "UpgradeTo362": 3 },
+      "33": { "UpgradingTo27": 2 }
     },
     "read-only": {
       "0": { "AudioChannel": 2 },
@@ -57279,11 +57946,12 @@ var meta = {
       "7": { "GeneralSettings": 2 },
       "8": { "Multimedia": 1 },
       "9": { "Pointers": 1 },
-      "10": { "TextParser": 1 },
-      "11": { "Tumbleweed_door": 1 },
-      "12": { "UnicodeSupport": 2 },
-      "13": { "UpgradeTo35": 2 },
-      "14": { "UpgradeTo361": 1 }
+      "10": { "StandardEnums": 1 },
+      "11": { "TextParser": 1 },
+      "12": { "Tumbleweed_door": 1 },
+      "13": { "UnicodeSupport": 2 },
+      "14": { "UpgradeTo35": 2 },
+      "15": { "UpgradeTo361": 1 }
     },
     "real-time": {
       "0": { "DateTime": 1 }
@@ -57405,7 +58073,8 @@ var meta = {
       "4": { "UpgradeTo34": 1 }
     },
     "receives": {
-      "0": { "EngineConfigFile": 1 }
+      "0": { "EngineConfigFile": 1 },
+      "1": { "UpgradeTo362": 1 }
     },
     "receiving": {
       "0": { "ContactingTheDevelopers": 1 },
@@ -57494,7 +58163,8 @@ var meta = {
     },
     "recreated": {
       "0": { "DefaultSetup": 1 },
-      "1": { "GameSavesCompatibility": 1 }
+      "1": { "GameSavesCompatibility": 1 },
+      "2": { "UpgradeTo362": 2 }
     },
     "rectangle": {
       "0": { "acintro6": 1 },
@@ -57592,7 +58262,8 @@ var meta = {
       "7": { "MusicAndSound": 1 },
       "8": { "Setup": 2 },
       "9": { "System": 1 },
-      "10": { "UpgradeTo35": 1 }
+      "10": { "UpgradeTo35": 1 },
+      "11": { "UpgradeTo362": 1 }
     },
     "reduced": {
       "0": { "Game": 1 }
@@ -57731,7 +58402,8 @@ var meta = {
       "4": { "Globalfunctions_Wait": 1 },
       "5": { "GUIControl": 1 },
       "6": { "Overlay": 1 },
-      "7": { "UpgradeTo36": 1 }
+      "7": { "UpgradeTo36": 1 },
+      "8": { "UpgradeTo362": 1 }
     },
     "region": {
       "0": { "AdvancedRoomFeatures": 1 },
@@ -57831,6 +58503,12 @@ var meta = {
     "reimported": {
       "0": { "EditorFont": 1 }
     },
+    "reinitialized": {
+      "0": { "UpgradeTo362": 1 }
+    },
+    "reject": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "rejected": {
       "0": { "File": 1 },
       "1": { "GeneralSettings": 1 }
@@ -57850,7 +58528,8 @@ var meta = {
       "11": { "UnicodeSupport": 1 },
       "12": { "UpgradeTo34": 1 },
       "13": { "UpgradeTo35": 2 },
-      "14": { "UpgradeTo36": 1 }
+      "14": { "UpgradeTo36": 1 },
+      "15": { "UpgradeTo362": 1 }
     },
     "relates": {
       "0": { "Hotspot": 1 },
@@ -57910,7 +58589,8 @@ var meta = {
       "9": { "TroubleshootingWindowsZoneID": 1 },
       "10": { "UpgradeTo34": 1 },
       "11": { "UpgradeTo36": 1 },
-      "12": { "UpgradeTo361": 1 }
+      "12": { "UpgradeTo361": 1 },
+      "13": { "UpgradeTo362": 1 }
     },
     "released": {
       "0": { "GameSavesCompatibility": 2 },
@@ -58053,7 +58733,8 @@ var meta = {
       "19": { "UpgradeTo32": 1 },
       "20": { "UpgradeTo35": 1 },
       "21": { "UpgradeTo36": 1 },
-      "22": { "UpgradingTo27": 1 }
+      "22": { "UpgradeTo362": 1 },
+      "23": { "UpgradingTo27": 1 }
     },
     "remembered": {
       "0": { "EditorSprite": 1 }
@@ -58155,7 +58836,8 @@ var meta = {
       "4": { "Settingupthegame": 1 },
       "5": { "UpgradeTo30": 1 },
       "6": { "UpgradeTo32": 2 },
-      "7": { "UpgradeTo34": 1 }
+      "7": { "UpgradeTo34": 1 },
+      "8": { "UpgradeTo362": 1 }
     },
     "renamed": {
       "0": { "ColoursEditor": 1 },
@@ -58182,7 +58864,8 @@ var meta = {
       "4": { "Globalfunctions_General": 1 },
       "5": { "GraphicsDriver": 1 },
       "6": { "Settingupthegame": 1 },
-      "7": { "System": 1 }
+      "7": { "StandardEnums": 1 },
+      "8": { "System": 1 }
     },
     "renderer": {
       "0": { "EngineConfigFile": 4 },
@@ -58470,7 +59153,8 @@ var meta = {
       "9": { "Setup": 1 },
       "10": { "TemplateVerbcoin": 1 },
       "11": { "UpgradeTo34": 1 },
-      "12": { "UpgradeTo36": 1 }
+      "12": { "UpgradeTo36": 1 },
+      "13": { "UpgradeTo362": 1 }
     },
     "requirement": {
       "0": { "EditorPlugins": 1 }
@@ -58543,7 +59227,8 @@ var meta = {
       "14": { "ScriptingTutorialPart1": 1 },
       "15": { "ScriptKeywords": 1 },
       "16": { "TextBox": 1 },
-      "17": { "UpgradeTo35": 1 }
+      "17": { "UpgradeTo35": 1 },
+      "18": { "UpgradeTo362": 2 }
     },
     "resets": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -58770,7 +59455,8 @@ var meta = {
       "3": { "EnginePluginRun-timeAPI": 4 },
       "4": { "GameSavesCompatibility": 8 },
       "5": { "Globalfunctions_Event": 2 },
-      "6": { "Globalfunctions_General": 2 }
+      "6": { "Globalfunctions_General": 2 },
+      "7": { "UpgradeTo362": 6 }
     },
     "restores": {
       "0": { "DateTime": 1 },
@@ -58782,7 +59468,8 @@ var meta = {
     "restoring": {
       "0": { "EngineConfigFile": 2 },
       "1": { "GameSavesCompatibility": 6 },
-      "2": { "Globalfunctions_General": 1 }
+      "2": { "Globalfunctions_General": 1 },
+      "3": { "UpgradeTo362": 4 }
     },
     "restrained": {
       "0": { "Button": 1 }
@@ -58967,15 +59654,16 @@ var meta = {
       "35": { "ScriptingTutorialPart2": 3 },
       "36": { "ScriptKeywords": 14 },
       "37": { "Speech": 2 },
-      "38": { "StandardEnums": 1 },
+      "38": { "StandardEnums": 2 },
       "39": { "String": 2 },
       "40": { "System": 4 },
       "41": { "Tumbleweed_movement": 1 },
       "42": { "UpgradeTo31": 1 },
       "43": { "UpgradeTo34": 2 },
       "44": { "UpgradeTo36": 1 },
-      "45": { "UpgradingTo271": 2 },
-      "46": { "Viewport": 4 }
+      "45": { "UpgradeTo362": 4 },
+      "46": { "UpgradingTo271": 2 },
+      "47": { "Viewport": 4 }
     },
     "returned": {
       "0": { "AudioChannel": 1 },
@@ -59038,7 +59726,7 @@ var meta = {
       "18": { "GUIControl": 2 },
       "19": { "Hotspot": 6 },
       "20": { "InventoryItem": 4 },
-      "21": { "ListBox": 1 },
+      "21": { "ListBox": 2 },
       "22": { "Maths": 2 },
       "23": { "Multimedia": 3 },
       "24": { "MusicAndSound": 1 },
@@ -59315,22 +60003,24 @@ var meta = {
       "57": { "ScriptingTutorialPart2": 3 },
       "58": { "ScriptKeywords": 8 },
       "59": { "Settingupthegame": 14 },
-      "60": { "StandardTypes": 1 },
-      "61": { "StartingOff": 1 },
-      "62": { "System": 2 },
-      "63": { "SystemLimits": 6 },
-      "64": { "Templates": 1 },
-      "65": { "TextParser": 3 },
-      "66": { "Tumbleweed": 7 },
-      "67": { "Tumbleweed_door": 9 },
-      "68": { "Tumbleweed_extensions": 3 },
-      "69": { "Tutorial": 1 },
-      "70": { "UpgradeTo30": 5 },
-      "71": { "UpgradeTo33": 3 },
-      "72": { "UpgradeTo35": 31 },
-      "73": { "UpgradeTo36": 7 },
-      "74": { "UpgradeTo361": 1 },
-      "75": { "Viewport": 15 }
+      "60": { "StandardEnums": 1 },
+      "61": { "StandardTypes": 1 },
+      "62": { "StartingOff": 1 },
+      "63": { "System": 2 },
+      "64": { "SystemLimits": 6 },
+      "65": { "Templates": 1 },
+      "66": { "TextParser": 3 },
+      "67": { "Tumbleweed": 7 },
+      "68": { "Tumbleweed_door": 9 },
+      "69": { "Tumbleweed_extensions": 3 },
+      "70": { "Tutorial": 1 },
+      "71": { "UpgradeTo30": 5 },
+      "72": { "UpgradeTo33": 3 },
+      "73": { "UpgradeTo35": 31 },
+      "74": { "UpgradeTo36": 7 },
+      "75": { "UpgradeTo361": 1 },
+      "76": { "UpgradeTo362": 4 },
+      "77": { "Viewport": 15 }
     },
     "room's": {
       "0": { "acintro2": 6 },
@@ -59537,7 +60227,8 @@ var meta = {
     "rule": {
       "0": { "DefaultSetup": 1 },
       "1": { "EngineConfigFile": 2 },
-      "2": { "Translations": 1 }
+      "2": { "Translations": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "rules": {
       "0": { "AudioClip": 1 },
@@ -59597,16 +60288,18 @@ var meta = {
       "49": { "ScriptModules": 2 },
       "50": { "Settingupthegame": 5 },
       "51": { "Setup": 5 },
-      "52": { "System": 2 },
-      "53": { "Templates": 1 },
-      "54": { "Translations": 3 },
-      "55": { "TroubleshootingWindowsZoneID": 2 },
-      "56": { "UpgradeTo30": 2 },
-      "57": { "UpgradeTo31": 3 },
-      "58": { "UpgradeTo34": 1 },
-      "59": { "UpgradeTo35": 1 },
-      "60": { "UpgradeTo36": 1 },
-      "61": { "UpgradeTo361": 2 }
+      "52": { "StandardEnums": 1 },
+      "53": { "System": 2 },
+      "54": { "Templates": 1 },
+      "55": { "Translations": 3 },
+      "56": { "TroubleshootingWindowsZoneID": 2 },
+      "57": { "UpgradeTo30": 2 },
+      "58": { "UpgradeTo31": 3 },
+      "59": { "UpgradeTo34": 1 },
+      "60": { "UpgradeTo35": 1 },
+      "61": { "UpgradeTo36": 1 },
+      "62": { "UpgradeTo361": 2 },
+      "63": { "UpgradeTo362": 1 }
     },
     "run-as": {
       "0": { "TroubleshootingWindowsZoneID": 1 }
@@ -59703,7 +60396,8 @@ var meta = {
       "20": { "SystemLimits": 2 },
       "21": { "Tumbleweed_movement": 1 },
       "22": { "UpgradeTo34": 1 },
-      "23": { "UpgradeTo36": 1 }
+      "23": { "UpgradeTo36": 1 },
+      "24": { "UpgradeTo362": 1 }
     },
     "rusty": {
       "0": { "InventoryItem": 1 }
@@ -59839,7 +60533,8 @@ var meta = {
       "71": { "UpgradeTo35": 7 },
       "72": { "UpgradeTo36": 3 },
       "73": { "UpgradeTo361": 1 },
-      "74": { "VoiceSpeech": 1 }
+      "74": { "UpgradeTo362": 2 },
+      "75": { "VoiceSpeech": 1 }
     },
     "sample": {
       "0": { "AudioChannel": 2 },
@@ -59889,7 +60584,7 @@ var meta = {
       "27": { "Hotspot": 1 },
       "28": { "InventoryItem": 1 },
       "29": { "Lipsync": 3 },
-      "30": { "ListBox": 8 },
+      "30": { "ListBox": 11 },
       "31": { "MusicAndSound": 1 },
       "32": { "Object": 1 },
       "33": { "Pointers": 1 },
@@ -59901,13 +60596,23 @@ var meta = {
       "39": { "Tumbleweed_translation": 1 },
       "40": { "UpgradeTo30": 1 },
       "41": { "UpgradeTo36": 2 },
-      "42": { "UpgradeTo361": 4 }
+      "42": { "UpgradeTo361": 4 },
+      "43": { "UpgradeTo362": 20 }
+    },
+    "saveInfo": {
+      "0": { "UpgradeTo362": 1 }
     },
     "saveSlot": {
       "0": { "DynamicSprite": 1 }
     },
+    "saveSortStyle": {
+      "0": { "ListBox": 5 }
+    },
     "save_game_key": {
       "0": { "EngineConfigFile": 1 }
+    },
+    "save_slots": {
+      "0": { "ListBox": 1 }
     },
     "saved": {
       "0": { "acintro4": 1 },
@@ -59931,7 +60636,7 @@ var meta = {
       "18": { "GUIControl": 1 },
       "19": { "Hotspot": 1 },
       "20": { "InventoryItem": 1 },
-      "21": { "ListBox": 3 },
+      "21": { "ListBox": 4 },
       "22": { "Mouse": 2 },
       "23": { "Object": 1 },
       "24": { "Setup": 1 },
@@ -59939,7 +60644,8 @@ var meta = {
       "26": { "TroubleshootingWindowsZoneID": 1 },
       "27": { "UnicodeSupport": 1 },
       "28": { "UpgradeTo36": 1 },
-      "29": { "UpgradeTo361": 1 }
+      "29": { "UpgradeTo361": 1 },
+      "30": { "UpgradeTo362": 3 }
     },
     "saved_id": {
       "0": { "GlobalArrays": 3 }
@@ -59972,7 +60678,8 @@ var meta = {
       "10": { "UpgradeTo335": 4 },
       "11": { "UpgradeTo341": 1 },
       "12": { "UpgradeTo35": 1 },
-      "13": { "UpgradeTo36": 1 }
+      "13": { "UpgradeTo36": 1 },
+      "14": { "UpgradeTo362": 20 }
     },
     "savestate": {
       "0": { "DistGame": 1 }
@@ -60237,21 +60944,22 @@ var meta = {
       "60": { "Settingupthegame": 8 },
       "61": { "Setup": 8 },
       "62": { "Speech": 9 },
-      "63": { "StandardTypes": 1 },
-      "64": { "System": 10 },
-      "65": { "SystemRequirements": 1 },
-      "66": { "TemplateBASS": 1 },
-      "67": { "TextParser": 1 },
-      "68": { "Translations": 1 },
-      "69": { "Tumbleweed": 8 },
-      "70": { "Tumbleweed_actions": 1 },
-      "71": { "UpgradeTo33": 1 },
-      "72": { "UpgradeTo34": 1 },
-      "73": { "UpgradeTo35": 13 },
-      "74": { "UpgradeTo36": 2 },
-      "75": { "UpgradingTo27": 1 },
-      "76": { "Viewport": 28 },
-      "77": { "VoiceSpeech": 2 }
+      "63": { "StandardEnums": 1 },
+      "64": { "StandardTypes": 1 },
+      "65": { "System": 11 },
+      "66": { "SystemRequirements": 1 },
+      "67": { "TemplateBASS": 1 },
+      "68": { "TextParser": 1 },
+      "69": { "Translations": 1 },
+      "70": { "Tumbleweed": 8 },
+      "71": { "Tumbleweed_actions": 1 },
+      "72": { "UpgradeTo33": 1 },
+      "73": { "UpgradeTo34": 1 },
+      "74": { "UpgradeTo35": 13 },
+      "75": { "UpgradeTo36": 2 },
+      "76": { "UpgradingTo27": 1 },
+      "77": { "Viewport": 28 },
+      "78": { "VoiceSpeech": 2 }
     },
     "screen's": {
       "0": { "DefaultSetup": 1 },
@@ -60272,7 +60980,8 @@ var meta = {
       "0": { "acintro1": 1 },
       "1": { "DynamicSprite": 3 },
       "2": { "Gamevariables": 3 },
-      "3": { "Globalfunctions_General": 3 }
+      "3": { "Globalfunctions_General": 3 },
+      "4": { "StandardEnums": 1 }
     },
     "screenshots": {
       "0": { "acintro1": 1 },
@@ -60400,8 +61109,9 @@ var meta = {
       "109": { "UpgradeTo35": 4 },
       "110": { "UpgradeTo36": 11 },
       "111": { "UpgradeTo361": 6 },
-      "112": { "UpgradingTo27": 18 },
-      "113": { "VoiceSpeech": 6 }
+      "112": { "UpgradeTo362": 21 },
+      "113": { "UpgradingTo27": 18 },
+      "114": { "VoiceSpeech": 6 }
     },
     "script's": {
       "0": { "EditorDialog": 1 },
@@ -60461,13 +61171,15 @@ var meta = {
       "18": { "ScriptingTutorialPart2": 2 },
       "19": { "ScriptKeywords": 5 },
       "20": { "Settingupthegame": 2 },
-      "21": { "Tumbleweed": 1 },
-      "22": { "Tumbleweed_door": 1 },
-      "23": { "UpgradeTo30": 3 },
-      "24": { "UpgradeTo32": 1 },
-      "25": { "UpgradeTo35": 1 },
-      "26": { "UpgradingTo27": 2 },
-      "27": { "UpgradingTo271": 1 }
+      "21": { "System": 1 },
+      "22": { "Tumbleweed": 1 },
+      "23": { "Tumbleweed_door": 1 },
+      "24": { "UpgradeTo30": 3 },
+      "25": { "UpgradeTo32": 1 },
+      "26": { "UpgradeTo35": 1 },
+      "27": { "UpgradeTo362": 1 },
+      "28": { "UpgradingTo27": 2 },
+      "29": { "UpgradingTo271": 1 }
     },
     "scripts": {
       "0": { "acintro7": 1 },
@@ -60529,7 +61241,8 @@ var meta = {
       "56": { "UpgradeTo34": 2 },
       "57": { "UpgradeTo35": 2 },
       "58": { "UpgradeTo36": 4 },
-      "59": { "UpgradingTo27": 4 }
+      "59": { "UpgradeTo362": 3 },
+      "60": { "UpgradingTo27": 4 }
     },
     "scrname": {
       "0": { "Character": 1 }
@@ -60651,12 +61364,14 @@ var meta = {
       "26": { "ScriptKeywords": 3 },
       "27": { "Settingupthegame": 1 },
       "28": { "Speech": 1 },
-      "29": { "Tumbleweed": 2 },
-      "30": { "Tumbleweed_translation": 1 },
-      "31": { "UpgradeTo33": 1 },
-      "32": { "UpgradeTo34": 1 },
-      "33": { "UpgradeTo36": 1 },
-      "34": { "VoiceSpeech": 1 }
+      "29": { "System": 1 },
+      "30": { "Tumbleweed": 2 },
+      "31": { "Tumbleweed_translation": 1 },
+      "32": { "UpgradeTo33": 1 },
+      "33": { "UpgradeTo34": 1 },
+      "34": { "UpgradeTo36": 1 },
+      "35": { "UpgradeTo362": 1 },
+      "36": { "VoiceSpeech": 1 }
     },
     "second_value": {
       "0": { "File": 2 }
@@ -60721,7 +61436,8 @@ var meta = {
       "36": { "UpgradeTo31": 1 },
       "37": { "UpgradeTo33": 3 },
       "38": { "UpgradeTo34": 2 },
-      "39": { "UpgradingTo27": 1 }
+      "39": { "UpgradeTo362": 2 },
+      "40": { "UpgradingTo27": 1 }
     },
     "sectionend": {
       "0": { "Preprocessor": 1 }
@@ -60818,8 +61534,9 @@ var meta = {
       "76": { "UpgradeTo34": 1 },
       "77": { "UpgradeTo35": 4 },
       "78": { "UpgradeTo36": 2 },
-      "79": { "UpgradingTo27": 3 },
-      "80": { "ViewFrame": 1 }
+      "79": { "UpgradeTo362": 2 },
+      "80": { "UpgradingTo27": 3 },
+      "81": { "ViewFrame": 1 }
     },
     "see-through": {
       "0": { "acintro7": 2 }
@@ -60831,7 +61548,8 @@ var meta = {
     "seek": {
       "0": { "AudioChannel": 2 },
       "1": { "EnginePluginRun-timeAPI": 1 },
-      "2": { "UpgradeTo32": 1 }
+      "2": { "UpgradeTo32": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "seekable": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -60900,16 +61618,18 @@ var meta = {
       "20": { "Game": 1 },
       "21": { "GeneralSettings": 7 },
       "22": { "Globalfunctions_General": 5 },
-      "23": { "RuntimeEngine": 1 },
-      "24": { "Settingupthegame": 5 },
-      "25": { "Setup": 1 },
-      "26": { "TemplateBASS": 1 },
-      "27": { "Templates": 1 },
-      "28": { "TemplateVerbcoin": 1 },
-      "29": { "TextParser": 1 },
-      "30": { "Translations": 2 },
-      "31": { "UpgradeTo31": 1 },
-      "32": { "UpgradeTo35": 2 }
+      "23": { "ListBox": 1 },
+      "24": { "RuntimeEngine": 1 },
+      "25": { "Settingupthegame": 5 },
+      "26": { "Setup": 1 },
+      "27": { "TemplateBASS": 1 },
+      "28": { "Templates": 1 },
+      "29": { "TemplateVerbcoin": 1 },
+      "30": { "TextParser": 1 },
+      "31": { "Translations": 2 },
+      "32": { "UpgradeTo31": 1 },
+      "33": { "UpgradeTo35": 2 },
+      "34": { "UpgradeTo362": 1 }
     },
     "selected": {
       "0": { "acintro1": 5 },
@@ -60944,7 +61664,8 @@ var meta = {
       "29": { "Tumbleweed_actions": 1 },
       "30": { "Tumbleweed_helper": 1 },
       "31": { "UpgradeTo35": 1 },
-      "32": { "UpgradingTo27": 1 }
+      "32": { "UpgradeTo362": 1 },
+      "33": { "UpgradingTo27": 1 }
     },
     "selectedItem": {
       "0": { "ListBox": 2 }
@@ -60979,7 +61700,8 @@ var meta = {
       "10": { "Settingupthegame": 2 },
       "11": { "Setup": 1 },
       "12": { "UpgradeTo341": 1 },
-      "13": { "UpgradeTo36": 1 }
+      "13": { "UpgradeTo36": 1 },
+      "14": { "UpgradeTo362": 2 }
     },
     "selector": {
       "0": { "Settingupthegame": 1 },
@@ -61266,7 +61988,7 @@ var meta = {
       "58": { "InventoryItem": 5 },
       "59": { "InvWindow": 4 },
       "60": { "Lipsync": 3 },
-      "61": { "ListBox": 2 },
+      "61": { "ListBox": 9 },
       "62": { "MIDI-playback": 1 },
       "63": { "Mouse": 5 },
       "64": { "Multimedia": 2 },
@@ -61290,7 +62012,7 @@ var meta = {
       "82": { "Setup": 1 },
       "83": { "Slider": 7 },
       "84": { "Speech": 10 },
-      "85": { "StandardEnums": 1 },
+      "85": { "StandardEnums": 2 },
       "86": { "String": 6 },
       "87": { "System": 5 },
       "88": { "SystemLimits": 1 },
@@ -61310,8 +62032,9 @@ var meta = {
       "102": { "UpgradeTo341": 1 },
       "103": { "UpgradeTo35": 1 },
       "104": { "UpgradeTo36": 6 },
-      "105": { "UpgradingTo27": 2 },
-      "106": { "ViewFrame": 1 }
+      "105": { "UpgradeTo362": 2 },
+      "106": { "UpgradingTo27": 2 },
+      "107": { "ViewFrame": 1 }
     },
     "set_AttributeName": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -61369,7 +62092,7 @@ var meta = {
       "31": { "Setup": 1 },
       "32": { "Slider": 9 },
       "33": { "Speech": 10 },
-      "34": { "System": 5 },
+      "34": { "System": 6 },
       "35": { "SystemLimits": 1 },
       "36": { "TextBox": 4 },
       "37": { "TextWindowGUI": 2 },
@@ -61441,7 +62164,7 @@ var meta = {
       "46": { "Slider": 1 },
       "47": { "SourceControl": 1 },
       "48": { "Speech": 4 },
-      "49": { "System": 1 },
+      "49": { "System": 2 },
       "50": { "UnicodeSupport": 2 },
       "51": { "UpgradeTo31": 1 },
       "52": { "UpgradeTo33": 2 },
@@ -61481,7 +62204,8 @@ var meta = {
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo35": 1 },
       "28": { "UpgradeTo36": 1 },
-      "29": { "UpgradeTo361": 1 }
+      "29": { "UpgradeTo361": 1 },
+      "30": { "UpgradeTo362": 1 }
     },
     "setup": {
       "0": { "acintro": 1 },
@@ -61535,7 +62259,8 @@ var meta = {
       "18": { "UpgradeTo341": 1 },
       "19": { "UpgradeTo35": 1 },
       "20": { "UpgradeTo36": 1 },
-      "21": { "UpgradingTo27": 1 }
+      "21": { "UpgradeTo362": 1 },
+      "22": { "UpgradingTo27": 1 }
     },
     "severily": {
       "0": { "EditorPreferences": 1 }
@@ -61717,46 +62442,49 @@ var meta = {
       "44": { "InvWindow": 2 },
       "45": { "Keycodes": 1 },
       "46": { "Lipsync": 2 },
-      "47": { "Maths": 3 },
-      "48": { "MIDI-playback": 2 },
-      "49": { "Mouse": 1 },
-      "50": { "Object": 3 },
-      "51": { "Overlay": 2 },
-      "52": { "Plugins": 4 },
-      "53": { "Pointers": 1 },
-      "54": { "Screen": 1 },
-      "55": { "ScriptingTutorialPart1": 6 },
-      "56": { "ScriptKeywords": 1 },
-      "57": { "ScriptModules": 3 },
-      "58": { "Settingupthegame": 3 },
-      "59": { "Setup": 1 },
-      "60": { "Speech": 3 },
-      "61": { "String": 1 },
-      "62": { "System": 1 },
-      "63": { "SystemLimits": 3 },
-      "64": { "Templates": 3 },
-      "65": { "TemplateVerbcoin": 1 },
-      "66": { "TextParser": 3 },
-      "67": { "TheScriptHeader": 1 },
-      "68": { "Translations": 2 },
-      "69": { "TroubleshootingWindowsZoneID": 1 },
-      "70": { "Tumbleweed": 2 },
-      "71": { "Tumbleweed_door": 2 },
-      "72": { "Tumbleweed_player": 1 },
-      "73": { "UnicodeSupport": 3 },
-      "74": { "UpgradeTo30": 4 },
-      "75": { "UpgradeTo31": 1 },
-      "76": { "UpgradeTo32": 1 },
-      "77": { "UpgradeTo335": 1 },
-      "78": { "UpgradeTo341": 1 },
-      "79": { "UpgradeTo35": 1 },
-      "80": { "UpgradeTo36": 7 },
-      "81": { "UpgradeTo361": 2 },
-      "82": { "UpgradingTo27": 3 },
-      "83": { "UpgradingTo271": 2 },
-      "84": { "ViewFrame": 1 },
-      "85": { "Viewport": 2 },
-      "86": { "VoiceSpeech": 1 }
+      "47": { "ListBox": 3 },
+      "48": { "Maths": 3 },
+      "49": { "MIDI-playback": 2 },
+      "50": { "Mouse": 1 },
+      "51": { "Object": 3 },
+      "52": { "Overlay": 2 },
+      "53": { "Plugins": 4 },
+      "54": { "Pointers": 1 },
+      "55": { "Screen": 1 },
+      "56": { "ScriptingTutorialPart1": 6 },
+      "57": { "ScriptKeywords": 1 },
+      "58": { "ScriptModules": 3 },
+      "59": { "Settingupthegame": 3 },
+      "60": { "Setup": 1 },
+      "61": { "Speech": 3 },
+      "62": { "StandardEnums": 1 },
+      "63": { "String": 1 },
+      "64": { "System": 1 },
+      "65": { "SystemLimits": 3 },
+      "66": { "Templates": 3 },
+      "67": { "TemplateVerbcoin": 1 },
+      "68": { "TextParser": 3 },
+      "69": { "TheScriptHeader": 1 },
+      "70": { "Translations": 2 },
+      "71": { "TroubleshootingWindowsZoneID": 1 },
+      "72": { "Tumbleweed": 2 },
+      "73": { "Tumbleweed_door": 2 },
+      "74": { "Tumbleweed_player": 1 },
+      "75": { "UnicodeSupport": 3 },
+      "76": { "UpgradeTo30": 4 },
+      "77": { "UpgradeTo31": 1 },
+      "78": { "UpgradeTo32": 1 },
+      "79": { "UpgradeTo335": 1 },
+      "80": { "UpgradeTo341": 1 },
+      "81": { "UpgradeTo35": 1 },
+      "82": { "UpgradeTo36": 7 },
+      "83": { "UpgradeTo361": 2 },
+      "84": { "UpgradeTo362": 3 },
+      "85": { "UpgradingTo27": 3 },
+      "86": { "UpgradingTo271": 2 },
+      "87": { "ViewFrame": 1 },
+      "88": { "Viewport": 2 },
+      "89": { "VoiceSpeech": 1 }
     },
     "shouldn't": {
       "0": { "Debuggingfeatures": 1 },
@@ -62036,7 +62764,8 @@ var meta = {
       "22": { "UpgradeTo34": 1 },
       "23": { "UpgradeTo35": 1 },
       "24": { "UpgradeTo36": 1 },
-      "25": { "UpgradingTo271": 1 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "UpgradingTo271": 1 }
     },
     "simpler": {
       "0": { "acintro7": 1 },
@@ -62044,6 +62773,9 @@ var meta = {
       "2": { "GameSavesCompatibility": 1 },
       "3": { "ScriptingTutorialPart1": 1 },
       "4": { "TemplateVerbcoin": 1 }
+    },
+    "simplest": {
+      "0": { "UpgradeTo362": 1 }
     },
     "simplified": {
       "0": { "GlobalVariables": 1 },
@@ -62186,8 +62918,9 @@ var meta = {
       "46": { "UpgradeTo31": 1 },
       "47": { "UpgradeTo341": 1 },
       "48": { "UpgradeTo36": 1 },
-      "49": { "UpgradingTo27": 1 },
-      "50": { "UpgradingTo271": 1 }
+      "49": { "UpgradeTo362": 1 },
+      "50": { "UpgradingTo27": 1 },
+      "51": { "UpgradingTo271": 1 }
     },
     "sine": {
       "0": { "Maths": 6 }
@@ -62307,12 +63040,14 @@ var meta = {
       "42": { "ScriptKeywords": 3 },
       "43": { "Settingupthegame": 6 },
       "44": { "Setup": 2 },
-      "45": { "System": 2 },
-      "46": { "SystemLimits": 1 },
-      "47": { "UpgradeTo33": 1 },
-      "48": { "UpgradeTo35": 9 },
-      "49": { "UpgradeTo36": 1 },
-      "50": { "Viewport": 6 }
+      "45": { "StandardEnums": 1 },
+      "46": { "System": 2 },
+      "47": { "SystemLimits": 1 },
+      "48": { "UpgradeTo33": 1 },
+      "49": { "UpgradeTo35": 9 },
+      "50": { "UpgradeTo36": 1 },
+      "51": { "UpgradeTo362": 1 },
+      "52": { "Viewport": 6 }
     },
     "size_t": {
       "0": { "EnginePluginRun-timeAPI": 6 }
@@ -62354,7 +63089,8 @@ var meta = {
       "10": { "Multimedia": 10 },
       "11": { "ScriptKeywords": 1 },
       "12": { "Speech": 14 },
-      "13": { "Tumbleweed": 1 }
+      "13": { "Tumbleweed": 1 },
+      "14": { "UpgradeTo362": 1 }
     },
     "skippable": {
       "0": { "Game": 1 }
@@ -62380,7 +63116,8 @@ var meta = {
     "skips": {
       "0": { "EditorView": 1 },
       "1": { "Globalfunctions_General": 1 },
-      "2": { "System": 1 }
+      "2": { "System": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "slashes": {
       "0": { "EditorCommandLineOptions": 1 },
@@ -62476,7 +63213,7 @@ var meta = {
       "11": { "Globalfunctions_General": 16 },
       "12": { "Globalfunctions_Palette": 6 },
       "13": { "InventoryItem": 4 },
-      "14": { "ListBox": 3 },
+      "14": { "ListBox": 4 },
       "15": { "Mouse": 4 },
       "16": { "Object": 4 },
       "17": { "Overlay": 3 },
@@ -62496,8 +63233,9 @@ var meta = {
       "4": { "EditorPreferences": 1 },
       "5": { "Globalfunctions_General": 7 },
       "6": { "Globalfunctions_Palette": 1 },
-      "7": { "ListBox": 1 },
-      "8": { "Tumbleweed_translation": 1 }
+      "7": { "ListBox": 3 },
+      "8": { "Tumbleweed_translation": 1 },
+      "9": { "UpgradeTo362": 1 }
     },
     "slow": {
       "0": { "acintro4": 1 },
@@ -62720,11 +63458,12 @@ var meta = {
       "99": { "UpgradeTo35": 2 },
       "100": { "UpgradeTo36": 6 },
       "101": { "UpgradeTo361": 3 },
-      "102": { "UpgradingTo27": 10 },
-      "103": { "UpgradingTo271": 2 },
-      "104": { "ViewFrame": 1 },
-      "105": { "Viewport": 1 },
-      "106": { "VoiceSpeech": 2 }
+      "102": { "UpgradeTo362": 4 },
+      "103": { "UpgradingTo27": 10 },
+      "104": { "UpgradingTo271": 2 },
+      "105": { "ViewFrame": 1 },
+      "106": { "Viewport": 1 },
+      "107": { "VoiceSpeech": 2 }
     },
     "software": {
       "0": { "Copyright": 2 },
@@ -62765,7 +63504,8 @@ var meta = {
       "1": { "FAQ": 1 },
       "2": { "Plugins": 1 },
       "3": { "ScriptingTutorialPart2": 1 },
-      "4": { "Settingupthegame": 1 }
+      "4": { "Settingupthegame": 1 },
+      "5": { "UpgradeTo362": 1 }
     },
     "solved": {
       "0": { "GameSavesCompatibility": 1 }
@@ -62924,7 +63664,8 @@ var meta = {
       "49": { "UpgradeTo32": 1 },
       "50": { "UpgradeTo35": 1 },
       "51": { "UpgradeTo36": 1 },
-      "52": { "UpgradingTo27": 2 }
+      "52": { "UpgradeTo362": 2 },
+      "53": { "UpgradingTo27": 2 }
     },
     "sometime": {
       "0": { "acintro8": 1 }
@@ -63011,7 +63752,11 @@ var meta = {
       "8": { "Settingupthegame": 1 },
       "9": { "System": 1 },
       "10": { "UpgradeTo36": 1 },
-      "11": { "Viewport": 1 }
+      "11": { "UpgradeTo362": 1 },
+      "12": { "Viewport": 1 }
+    },
+    "sortDirection": {
+      "0": { "ListBox": 8 }
     },
     "sortStyle": {
       "0": { "Dictionary": 2 },
@@ -63020,7 +63765,7 @@ var meta = {
     "sorted": {
       "0": { "Dictionary": 3 },
       "1": { "GUI": 3 },
-      "2": { "ListBox": 1 },
+      "2": { "ListBox": 4 },
       "3": { "Overlay": 8 },
       "4": { "Set": 3 },
       "5": { "UpgradeTo36": 2 }
@@ -63171,7 +63916,8 @@ var meta = {
       "12": { "Lipsync": 1 },
       "13": { "Speech": 1 },
       "14": { "Tumbleweed_translation": 2 },
-      "15": { "UpgradeTo361": 1 }
+      "15": { "UpgradeTo361": 1 },
+      "16": { "UpgradeTo362": 1 }
     },
     "spacebar": {
       "0": { "EditorRoom": 1 }
@@ -63266,10 +64012,11 @@ var meta = {
       "40": { "ScriptKeywords": 2 },
       "41": { "Settingupthegame": 3 },
       "42": { "Speech": 1 },
-      "43": { "StringFormats": 3 },
-      "44": { "TextParser": 2 },
-      "45": { "Translations": 5 },
-      "46": { "VoiceSpeech": 1 }
+      "43": { "StandardEnums": 1 },
+      "44": { "StringFormats": 3 },
+      "45": { "TextParser": 2 },
+      "46": { "Translations": 5 },
+      "47": { "VoiceSpeech": 1 }
     },
     "specialize": {
       "0": { "acintro8": 1 }
@@ -63304,8 +64051,9 @@ var meta = {
       "23": { "ScriptingTutorialPart2": 1 },
       "24": { "ScriptKeywords": 1 },
       "25": { "Settingupthegame": 1 },
-      "26": { "UpgradeTo31": 1 },
-      "27": { "UpgradeTo35": 1 }
+      "26": { "StandardEnums": 1 },
+      "27": { "UpgradeTo31": 1 },
+      "28": { "UpgradeTo35": 1 }
     },
     "specifically": {
       "0": { "acintro7": 1 },
@@ -63410,7 +64158,8 @@ var meta = {
       "22": { "StringFormats": 1 },
       "23": { "TroubleshootingWindowsZoneID": 1 },
       "24": { "UpgradeTo32": 1 },
-      "25": { "Viewport": 1 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "Viewport": 1 }
     },
     "specifying": {
       "0": { "AdvancedRoomFeatures": 1 },
@@ -63587,15 +64336,16 @@ var meta = {
       "28": { "Settingupthegame": 12 },
       "29": { "Setup": 3 },
       "30": { "Slider": 4 },
-      "31": { "System": 1 },
-      "32": { "TemplateVerbcoin": 1 },
-      "33": { "Tumbleweed_actions": 1 },
-      "34": { "Tumbleweed_door": 2 },
-      "35": { "UpgradeTo31": 1 },
-      "36": { "UpgradeTo35": 2 },
-      "37": { "UpgradeTo36": 6 },
-      "38": { "UpgradeTo361": 2 },
-      "39": { "ViewFrame": 2 }
+      "31": { "StandardEnums": 2 },
+      "32": { "System": 1 },
+      "33": { "TemplateVerbcoin": 1 },
+      "34": { "Tumbleweed_actions": 1 },
+      "35": { "Tumbleweed_door": 2 },
+      "36": { "UpgradeTo31": 1 },
+      "37": { "UpgradeTo35": 2 },
+      "38": { "UpgradeTo36": 6 },
+      "39": { "UpgradeTo361": 2 },
+      "40": { "ViewFrame": 2 }
     },
     "sprite's": {
       "0": { "DynamicSprite": 5 },
@@ -63686,12 +64436,14 @@ var meta = {
       "25": { "Settingupthegame": 11 },
       "26": { "Setup": 5 },
       "27": { "SourceControl": 1 },
-      "28": { "System": 4 },
-      "29": { "TemplateVerbcoin": 1 },
-      "30": { "Tumbleweed_helper": 2 },
-      "31": { "UpgradeTo30": 1 },
-      "32": { "UpgradeTo35": 8 },
-      "33": { "UpgradeTo36": 2 }
+      "28": { "StandardEnums": 3 },
+      "29": { "System": 4 },
+      "30": { "TemplateVerbcoin": 1 },
+      "31": { "Tumbleweed_helper": 2 },
+      "32": { "UpgradeTo30": 1 },
+      "33": { "UpgradeTo35": 8 },
+      "34": { "UpgradeTo36": 2 },
+      "35": { "UpgradeTo362": 1 }
     },
     "sprnum": {
       "0": { "Game": 1 }
@@ -63719,7 +64471,8 @@ var meta = {
     "stand": {
       "0": { "AnonymousUsageInfo": 1 },
       "1": { "BlockingScripts": 1 },
-      "2": { "Character": 4 }
+      "2": { "Character": 4 },
+      "3": { "UpgradeTo362": 1 }
     },
     "stand-on": {
       "0": { "Tumbleweed": 1 }
@@ -63969,7 +64722,8 @@ var meta = {
       "21": { "Setup": 1 },
       "22": { "Tumbleweed_door": 5 },
       "23": { "UpgradeTo35": 1 },
-      "24": { "UpgradeTo36": 2 }
+      "24": { "UpgradeTo36": 2 },
+      "25": { "UpgradeTo362": 2 }
     },
     "state-saving": {
       "0": { "SystemLimits": 1 }
@@ -63992,7 +64746,8 @@ var meta = {
       "1": { "GameSavesCompatibility": 5 },
       "2": { "RepExec": 1 },
       "3": { "Tumbleweed_door": 1 },
-      "4": { "UpgradeTo35": 1 }
+      "4": { "UpgradeTo35": 1 },
+      "5": { "UpgradeTo362": 2 }
     },
     "static": {
       "0": { "AudioClip": 1 },
@@ -64025,7 +64780,7 @@ var meta = {
       "27": { "Set": 1 },
       "28": { "Speech": 15 },
       "29": { "String": 4 },
-      "30": { "System": 23 },
+      "30": { "System": 24 },
       "31": { "UpgradingTo27": 1 },
       "32": { "Viewport": 2 }
     },
@@ -64159,8 +64914,9 @@ var meta = {
       "45": { "UpgradeTo341": 1 },
       "46": { "UpgradeTo35": 7 },
       "47": { "UpgradeTo36": 2 },
-      "48": { "UpgradingTo27": 1 },
-      "49": { "Viewport": 1 }
+      "48": { "UpgradeTo362": 2 },
+      "49": { "UpgradingTo27": 1 },
+      "50": { "Viewport": 1 }
     },
     "stomach": {
       "0": { "RepExec": 1 }
@@ -64194,8 +64950,9 @@ var meta = {
       "22": { "ScriptingTutorialPart2": 1 },
       "23": { "ScriptKeywords": 1 },
       "24": { "Speech": 2 },
-      "25": { "UpgradingTo27": 3 },
-      "26": { "UpgradingTo271": 1 }
+      "25": { "UpgradeTo362": 1 },
+      "26": { "UpgradingTo27": 3 },
+      "27": { "UpgradingTo271": 1 }
     },
     "stopped": {
       "0": { "Debuggingfeatures": 1 },
@@ -64310,7 +65067,8 @@ var meta = {
     "storing": {
       "0": { "AdvancedRoomFeatures": 1 },
       "1": { "EnginePluginRun-timeAPI": 2 },
-      "2": { "OOProgramming": 1 }
+      "2": { "OOProgramming": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "story": {
       "0": { "GameSavesCompatibility": 1 }
@@ -64452,19 +65210,20 @@ var meta = {
       "31": { "ScriptingTutorialPart2": 2 },
       "32": { "ScriptKeywords": 3 },
       "33": { "Set": 5 },
-      "34": { "String": 75 },
-      "35": { "StringFormats": 6 },
-      "36": { "System": 4 },
-      "37": { "TextParser": 2 },
-      "38": { "TextWindowGUI": 1 },
-      "39": { "Translations": 3 },
-      "40": { "Tumbleweed_extensions": 1 },
-      "41": { "Tumbleweed_movement": 1 },
-      "42": { "UnicodeSupport": 1 },
-      "43": { "UpgradeTo30": 1 },
-      "44": { "UpgradeTo35": 3 },
-      "45": { "UpgradeTo36": 1 },
-      "46": { "UpgradingTo271": 11 }
+      "34": { "StandardEnums": 2 },
+      "35": { "String": 75 },
+      "36": { "StringFormats": 6 },
+      "37": { "System": 4 },
+      "38": { "TextParser": 2 },
+      "39": { "TextWindowGUI": 1 },
+      "40": { "Translations": 3 },
+      "41": { "Tumbleweed_extensions": 1 },
+      "42": { "Tumbleweed_movement": 1 },
+      "43": { "UnicodeSupport": 1 },
+      "44": { "UpgradeTo30": 1 },
+      "45": { "UpgradeTo35": 3 },
+      "46": { "UpgradeTo36": 1 },
+      "47": { "UpgradingTo271": 11 }
     },
     "string's": {
       "0": { "String": 1 },
@@ -64815,7 +65574,8 @@ var meta = {
     },
     "summary": {
       "0": { "AutonumberSpeechFiles": 1 },
-      "1": { "ScriptKeywords": 1 }
+      "1": { "ScriptKeywords": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "summed": {
       "0": { "StandardEnums": 2 }
@@ -64906,9 +65666,10 @@ var meta = {
       "27": { "UpgradeTo31": 3 },
       "28": { "UpgradeTo33": 1 },
       "29": { "UpgradeTo36": 5 },
-      "30": { "UpgradingTo27": 1 },
-      "31": { "UpgradingTo271": 1 },
-      "32": { "VoiceSpeech": 1 }
+      "30": { "UpgradeTo362": 1 },
+      "31": { "UpgradingTo27": 1 },
+      "32": { "UpgradingTo271": 1 },
+      "33": { "VoiceSpeech": 1 }
     },
     "supported": {
       "0": { "acintro1": 1 },
@@ -64935,7 +65696,7 @@ var meta = {
       "21": { "Keycodes": 3 },
       "22": { "Label": 1 },
       "23": { "Lipsync": 1 },
-      "24": { "ListBox": 1 },
+      "24": { "ListBox": 3 },
       "25": { "Maths": 2 },
       "26": { "Mouse": 2 },
       "27": { "Multimedia": 7 },
@@ -64952,7 +65713,7 @@ var meta = {
       "38": { "Settingupthegame": 1 },
       "39": { "Setup": 1 },
       "40": { "SourceControl": 1 },
-      "41": { "StandardEnums": 2 },
+      "41": { "StandardEnums": 13 },
       "42": { "System": 3 },
       "43": { "TextWindowGUI": 1 },
       "44": { "Translations": 1 },
@@ -65227,7 +65988,8 @@ var meta = {
       "18": { "UnicodeSupport": 3 },
       "19": { "UpgradeTo34": 7 },
       "20": { "UpgradeTo35": 1 },
-      "21": { "UpgradeTo36": 4 }
+      "21": { "UpgradeTo36": 4 },
+      "22": { "UpgradeTo362": 1 }
     },
     "switched": {
       "0": { "acintro3": 1 },
@@ -65294,7 +66056,8 @@ var meta = {
       "0": { "DialogScript": 1 },
       "1": { "Pointers": 1 },
       "2": { "ScriptingTutorialPart1": 1 },
-      "3": { "ScriptingTutorialPart2": 1 }
+      "3": { "ScriptingTutorialPart2": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "symbolize": {
       "0": { "VoiceSpeech": 1 }
@@ -65463,7 +66226,8 @@ var meta = {
       "13": { "Lipsync": 1 },
       "14": { "Mouse": 3 },
       "15": { "Parser": 1 },
-      "16": { "Room": 1 }
+      "16": { "Room": 1 },
+      "17": { "UpgradeTo362": 1 }
     },
     "table": {
       "0": { "acintro2": 2 },
@@ -65497,9 +66261,10 @@ var meta = {
       "0": { "File": 3 },
       "1": { "Game": 1 },
       "2": { "GeneralSettings": 1 },
-      "3": { "UpgradeTo335": 4 },
-      "4": { "UpgradeTo35": 3 },
-      "5": { "UpgradeTo36": 1 }
+      "3": { "StandardEnums": 2 },
+      "4": { "UpgradeTo335": 4 },
+      "5": { "UpgradeTo35": 3 },
+      "6": { "UpgradeTo36": 1 }
     },
     "tagged": {
       "0": { "GeneralSettings": 2 },
@@ -65539,8 +66304,9 @@ var meta = {
       "23": { "Tumbleweed_extensions": 2 },
       "24": { "Tumbleweed_translation": 4 },
       "25": { "UpgradeTo35": 1 },
-      "26": { "UpgradingTo27": 1 },
-      "27": { "UpgradingTo271": 1 }
+      "26": { "UpgradeTo362": 1 },
+      "27": { "UpgradingTo27": 1 },
+      "28": { "UpgradingTo271": 1 }
     },
     "taken": {
       "0": { "acintro3": 1 },
@@ -65739,7 +66505,8 @@ var meta = {
       "24": { "UpgradeTo32": 1 },
       "25": { "UpgradeTo335": 1 },
       "26": { "UpgradeTo36": 1 },
-      "27": { "UpgradingTo27": 1 }
+      "27": { "UpgradeTo362": 1 },
+      "28": { "UpgradingTo27": 1 }
     },
     "telling": {
       "0": { "acintro3": 2 },
@@ -66004,20 +66771,21 @@ var meta = {
       "46": { "ScriptingTutorialPart1": 3 },
       "47": { "Settingupthegame": 6 },
       "48": { "Speech": 26 },
-      "49": { "String": 14 },
-      "50": { "StringFormats": 2 },
-      "51": { "TemplateBASS": 2 },
-      "52": { "TemplateVerbcoin": 2 },
-      "53": { "TextBox": 14 },
-      "54": { "TextParser": 6 },
-      "55": { "TextWindowGUI": 6 },
-      "56": { "Translations": 17 },
-      "57": { "Tumbleweed_translation": 2 },
-      "58": { "UnicodeSupport": 4 },
-      "59": { "UpgradeTo35": 5 },
-      "60": { "UpgradeTo36": 9 },
-      "61": { "UpgradingTo271": 10 },
-      "62": { "VoiceSpeech": 7 }
+      "49": { "StandardEnums": 2 },
+      "50": { "String": 14 },
+      "51": { "StringFormats": 2 },
+      "52": { "TemplateBASS": 2 },
+      "53": { "TemplateVerbcoin": 2 },
+      "54": { "TextBox": 14 },
+      "55": { "TextParser": 6 },
+      "56": { "TextWindowGUI": 6 },
+      "57": { "Translations": 17 },
+      "58": { "Tumbleweed_translation": 2 },
+      "59": { "UnicodeSupport": 4 },
+      "60": { "UpgradeTo35": 5 },
+      "61": { "UpgradeTo36": 9 },
+      "62": { "UpgradingTo271": 10 },
+      "63": { "VoiceSpeech": 7 }
     },
     "text-boxes": {
       "0": { "EditorGUI": 1 }
@@ -66063,7 +66831,8 @@ var meta = {
       "2": { "EnginePluginRun-timeAPI": 1 },
       "3": { "Game": 3 },
       "4": { "GraphicsDriver": 2 },
-      "5": { "Setup": 2 }
+      "5": { "Setup": 2 },
+      "6": { "StandardEnums": 2 }
     },
     "texture-based": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -66162,9 +66931,10 @@ var meta = {
       "72": { "UpgradeTo35": 5 },
       "73": { "UpgradeTo36": 1 },
       "74": { "UpgradeTo361": 1 },
-      "75": { "UpgradingTo27": 3 },
-      "76": { "UpgradingTo271": 1 },
-      "77": { "Viewport": 2 }
+      "75": { "UpgradeTo362": 1 },
+      "76": { "UpgradingTo27": 3 },
+      "77": { "UpgradingTo271": 1 },
+      "78": { "Viewport": 2 }
     },
     "thank": {
       "0": { "acintro8": 1 },
@@ -66314,7 +67084,7 @@ var meta = {
       "69": { "Settingupthegame": 5 },
       "70": { "Setup": 2 },
       "71": { "Speech": 1 },
-      "72": { "StandardEnums": 1 },
+      "72": { "StandardEnums": 2 },
       "73": { "StandardTypes": 1 },
       "74": { "System": 1 },
       "75": { "SystemLimits": 1 },
@@ -66332,10 +67102,11 @@ var meta = {
       "87": { "UpgradeTo35": 2 },
       "88": { "UpgradeTo36": 8 },
       "89": { "UpgradeTo361": 1 },
-      "90": { "UpgradingTo27": 1 },
-      "91": { "UpgradingTo271": 3 },
-      "92": { "Viewport": 1 },
-      "93": { "VoiceSpeech": 1 }
+      "90": { "UpgradeTo362": 6 },
+      "91": { "UpgradingTo27": 1 },
+      "92": { "UpgradingTo271": 3 },
+      "93": { "Viewport": 1 },
+      "94": { "VoiceSpeech": 1 }
     },
     "theme": {
       "0": { "EditorPreferences": 1 }
@@ -66401,9 +67172,10 @@ var meta = {
       "31": { "UpgradeTo35": 1 },
       "32": { "UpgradeTo36": 3 },
       "33": { "UpgradeTo361": 1 },
-      "34": { "UpgradingTo27": 2 },
-      "35": { "Viewport": 2 },
-      "36": { "VoiceSpeech": 1 }
+      "34": { "UpgradeTo362": 2 },
+      "35": { "UpgradingTo27": 2 },
+      "36": { "Viewport": 2 },
+      "37": { "VoiceSpeech": 1 }
     },
     "thereafter": {
       "0": { "Game": 1 }
@@ -66537,20 +67309,22 @@ var meta = {
       "37": { "Settingupthegame": 3 },
       "38": { "Setup": 1 },
       "39": { "SourceControl": 1 },
-      "40": { "TemplateBASS": 4 },
-      "41": { "TemplateVerbcoin": 1 },
-      "42": { "TextParser": 1 },
-      "43": { "TheScriptHeader": 1 },
-      "44": { "Translations": 1 },
-      "45": { "Tumbleweed": 1 },
-      "46": { "Tumbleweed_actions": 1 },
-      "47": { "Tumbleweed_extensions": 1 },
-      "48": { "UpgradeTo30": 1 },
-      "49": { "UpgradeTo341": 1 },
-      "50": { "UpgradeTo35": 1 },
-      "51": { "UpgradeTo361": 1 },
-      "52": { "UpgradingTo27": 4 },
-      "53": { "UpgradingTo271": 1 }
+      "40": { "StandardEnums": 1 },
+      "41": { "TemplateBASS": 4 },
+      "42": { "TemplateVerbcoin": 1 },
+      "43": { "TextParser": 1 },
+      "44": { "TheScriptHeader": 1 },
+      "45": { "Translations": 1 },
+      "46": { "Tumbleweed": 1 },
+      "47": { "Tumbleweed_actions": 1 },
+      "48": { "Tumbleweed_extensions": 1 },
+      "49": { "UpgradeTo30": 1 },
+      "50": { "UpgradeTo341": 1 },
+      "51": { "UpgradeTo35": 1 },
+      "52": { "UpgradeTo361": 1 },
+      "53": { "UpgradeTo362": 4 },
+      "54": { "UpgradingTo27": 4 },
+      "55": { "UpgradingTo271": 1 }
     },
     "think": {
       "0": { "acintro7": 1 },
@@ -66640,6 +67414,9 @@ var meta = {
     "thisObject": {
       "0": { "UpgradeTo361": 1 }
     },
+    "thoroughly": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "those": {
       "0": { "acintro1": 1 },
       "1": { "acintro3": 2 },
@@ -66667,8 +67444,9 @@ var meta = {
       "23": { "Tumbleweed_translation": 1 },
       "24": { "UpgradeTo32": 1 },
       "25": { "UpgradeTo34": 2 },
-      "26": { "Viewport": 1 },
-      "27": { "VoiceSpeech": 1 }
+      "26": { "UpgradeTo362": 1 },
+      "27": { "Viewport": 1 },
+      "28": { "VoiceSpeech": 1 }
     },
     "though": {
       "0": { "Character": 4 },
@@ -66689,7 +67467,8 @@ var meta = {
       "15": { "SystemLimits": 1 },
       "16": { "UpgradeTo31": 1 },
       "17": { "UpgradeTo34": 1 },
-      "18": { "UpgradeTo36": 2 }
+      "18": { "UpgradeTo36": 2 },
+      "19": { "UpgradeTo362": 1 }
     },
     "thought": {
       "0": { "AutonumberSpeechFiles": 1 },
@@ -66855,7 +67634,8 @@ var meta = {
     },
     "tied": {
       "0": { "Game": 1 },
-      "1": { "UpgradeTo34": 1 }
+      "1": { "UpgradeTo34": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "tightly": {
       "0": { "ScriptKeywords": 1 }
@@ -66933,8 +67713,9 @@ var meta = {
       "58": { "UpgradeTo341": 3 },
       "59": { "UpgradeTo35": 2 },
       "60": { "UpgradeTo36": 1 },
-      "61": { "UpgradingTo27": 3 },
-      "62": { "Viewport": 2 }
+      "61": { "UpgradeTo362": 1 },
+      "62": { "UpgradingTo27": 3 },
+      "63": { "Viewport": 2 }
     },
     "time-out": {
       "0": { "Speech": 3 }
@@ -67097,7 +67878,8 @@ var meta = {
       "7": { "String": 1 },
       "8": { "SystemLimits": 1 },
       "9": { "UpgradeTo36": 1 },
-      "10": { "Viewport": 1 }
+      "10": { "UpgradeTo362": 1 },
+      "11": { "Viewport": 1 }
     },
     "toggle": {
       "0": { "ColoursEditor": 2 },
@@ -67139,7 +67921,8 @@ var meta = {
     },
     "told": {
       "0": { "GeneralSettings": 1 },
-      "1": { "Pointers": 1 }
+      "1": { "Pointers": 1 },
+      "2": { "UpgradeTo362": 1 }
     },
     "tons": {
       "0": { "ScriptKeywords": 1 }
@@ -67248,11 +68031,12 @@ var meta = {
       "37": { "ScriptKeywords": 3 },
       "38": { "Settingupthegame": 5 },
       "39": { "Setup": 1 },
-      "40": { "TemplateBASS": 1 },
-      "41": { "TemplateVerbcoin": 1 },
-      "42": { "UpgradeTo31": 1 },
-      "43": { "UpgradeTo35": 1 },
-      "44": { "Viewport": 3 }
+      "40": { "StandardEnums": 1 },
+      "41": { "TemplateBASS": 1 },
+      "42": { "TemplateVerbcoin": 1 },
+      "43": { "UpgradeTo31": 1 },
+      "44": { "UpgradeTo35": 1 },
+      "45": { "Viewport": 3 }
     },
     "top-left": {
       "0": { "Camera": 1 },
@@ -67651,7 +68435,8 @@ var meta = {
       "4": { "Globalfunctions_Event": 1 },
       "5": { "Globalfunctions_General": 1 },
       "6": { "ScriptingTutorialPart1": 1 },
-      "7": { "UpgradeTo361": 1 }
+      "7": { "UpgradeTo361": 1 },
+      "8": { "UpgradeTo362": 1 }
     },
     "triggering": {
       "0": { "Globalfunctions_Room": 1 }
@@ -67706,27 +68491,29 @@ var meta = {
       "19": { "Hotspot": 4 },
       "20": { "InventoryItem": 1 },
       "21": { "InvWindow": 2 },
-      "22": { "Mouse": 4 },
-      "23": { "Object": 12 },
-      "24": { "Overlay": 4 },
-      "25": { "Parser": 1 },
-      "26": { "Region": 2 },
-      "27": { "Room": 1 },
-      "28": { "Screen": 1 },
-      "29": { "ScriptingTutorialPart2": 5 },
-      "30": { "ScriptKeywords": 10 },
-      "31": { "Set": 2 },
-      "32": { "Speech": 5 },
-      "33": { "String": 7 },
-      "34": { "System": 4 },
-      "35": { "TemplateBASS": 2 },
-      "36": { "TemplateVerbcoin": 3 },
-      "37": { "Tumbleweed": 1 },
-      "38": { "Tumbleweed_helper": 2 },
-      "39": { "Tumbleweed_movement": 1 },
-      "40": { "Tumbleweed_player": 1 },
-      "41": { "UpgradeTo35": 1 },
-      "42": { "Viewport": 5 }
+      "22": { "ListBox": 1 },
+      "23": { "Mouse": 4 },
+      "24": { "Object": 12 },
+      "25": { "Overlay": 4 },
+      "26": { "Parser": 1 },
+      "27": { "Region": 2 },
+      "28": { "Room": 1 },
+      "29": { "Screen": 1 },
+      "30": { "ScriptingTutorialPart2": 5 },
+      "31": { "ScriptKeywords": 10 },
+      "32": { "Set": 2 },
+      "33": { "Speech": 5 },
+      "34": { "String": 7 },
+      "35": { "System": 5 },
+      "36": { "TemplateBASS": 2 },
+      "37": { "TemplateVerbcoin": 3 },
+      "38": { "Tumbleweed": 1 },
+      "39": { "Tumbleweed_helper": 2 },
+      "40": { "Tumbleweed_movement": 1 },
+      "41": { "Tumbleweed_player": 1 },
+      "42": { "UpgradeTo35": 1 },
+      "43": { "UpgradeTo362": 1 },
+      "44": { "Viewport": 5 }
     },
     "true-color": {
       "0": { "Settingupthegame": 2 }
@@ -67772,7 +68559,8 @@ var meta = {
       "31": { "System": 2 },
       "32": { "Templates": 1 },
       "33": { "TextParser": 1 },
-      "34": { "UpgradeTo335": 2 }
+      "34": { "UpgradeTo335": 2 },
+      "35": { "UpgradeTo362": 2 }
     },
     "trying": {
       "0": { "Character": 1 },
@@ -67938,8 +68726,9 @@ var meta = {
       "63": { "UpgradeTo341": 1 },
       "64": { "UpgradeTo35": 2 },
       "65": { "UpgradeTo36": 8 },
-      "66": { "UpgradingTo27": 1 },
-      "67": { "Viewport": 1 }
+      "66": { "UpgradeTo362": 1 },
+      "67": { "UpgradingTo27": 1 },
+      "68": { "Viewport": 1 }
     },
     "twoPi": {
       "0": { "StringFormats": 4 }
@@ -68026,8 +68815,9 @@ var meta = {
       "51": { "UpgradeTo35": 2 },
       "52": { "UpgradeTo36": 1 },
       "53": { "UpgradeTo361": 1 },
-      "54": { "UpgradingTo27": 5 },
-      "55": { "UpgradingTo271": 1 }
+      "54": { "UpgradeTo362": 1 },
+      "55": { "UpgradingTo27": 5 },
+      "56": { "UpgradingTo271": 1 }
     },
     "typeName": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -68259,7 +69049,8 @@ var meta = {
     "understanding": {
       "0": { "acintro3": 1 },
       "1": { "EditorLogPanel": 2 },
-      "2": { "Pointers": 1 }
+      "2": { "Pointers": 1 },
+      "3": { "System": 1 }
     },
     "undo": {
       "0": { "Tumbleweed_player": 1 }
@@ -68602,9 +69393,10 @@ var meta = {
       "95": { "UpgradeTo341": 1 },
       "96": { "UpgradeTo35": 3 },
       "97": { "UpgradeTo36": 5 },
-      "98": { "UpgradingTo27": 6 },
-      "99": { "UpgradingTo271": 1 },
-      "100": { "Viewport": 2 }
+      "98": { "UpgradeTo362": 2 },
+      "99": { "UpgradingTo27": 6 },
+      "100": { "UpgradingTo271": 1 },
+      "101": { "Viewport": 2 }
     },
     "up-left": {
       "0": { "Settingupthegame": 1 }
@@ -68649,7 +69441,8 @@ var meta = {
       "29": { "UpgradeTo35": 2 },
       "30": { "UpgradeTo36": 1 },
       "31": { "UpgradeTo361": 1 },
-      "32": { "UpgradingTo271": 1 }
+      "32": { "UpgradeTo362": 2 },
+      "33": { "UpgradingTo271": 1 }
     },
     "updated": {
       "0": { "acintro2": 1 },
@@ -68686,8 +69479,9 @@ var meta = {
       "4": { "GUIControl": 1 },
       "5": { "RepExec": 1 },
       "6": { "Settingupthegame": 1 },
-      "7": { "SystemLimits": 1 },
-      "8": { "UpgradeTo34": 2 }
+      "7": { "StandardEnums": 1 },
+      "8": { "SystemLimits": 1 },
+      "9": { "UpgradeTo34": 2 }
     },
     "updating": {
       "0": { "EnginePluginRun-timeAPI": 1 },
@@ -68701,7 +69495,8 @@ var meta = {
     "upgrading": {
       "0": { "GeneralSettings": 1 },
       "1": { "UnicodeSupport": 1 },
-      "2": { "UpgradeTo35": 1 }
+      "2": { "UpgradeTo35": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "upload": {
       "0": { "DistGame": 1 },
@@ -68795,7 +69590,8 @@ var meta = {
       "2": { "EditorPreferences": 1 },
       "3": { "MIDI-playback": 1 },
       "4": { "RuntimeEngine": 1 },
-      "5": { "Tumbleweed_movement": 1 }
+      "5": { "Tumbleweed_movement": 1 },
+      "6": { "UpgradeTo362": 1 }
     },
     "use": {
       "0": { "acintro1": 9 },
@@ -68872,7 +69668,7 @@ var meta = {
       "71": { "Keycodes": 2 },
       "72": { "Label": 3 },
       "73": { "Lipsync": 3 },
-      "74": { "ListBox": 10 },
+      "74": { "ListBox": 13 },
       "75": { "Maths": 10 },
       "76": { "MIDI-playback": 5 },
       "77": { "Mouse": 6 },
@@ -68931,10 +69727,11 @@ var meta = {
       "130": { "UpgradeTo35": 7 },
       "131": { "UpgradeTo36": 5 },
       "132": { "UpgradeTo361": 5 },
-      "133": { "UpgradingTo27": 4 },
-      "134": { "UpgradingTo271": 2 },
-      "135": { "Viewport": 2 },
-      "136": { "VoiceSpeech": 2 }
+      "133": { "UpgradeTo362": 5 },
+      "134": { "UpgradingTo27": 4 },
+      "135": { "UpgradingTo271": 2 },
+      "136": { "Viewport": 2 },
+      "137": { "VoiceSpeech": 2 }
     },
     "use-case": {
       "0": { "ExtenderFunctions": 1 }
@@ -69031,7 +69828,7 @@ var meta = {
       "78": { "Setup": 4 },
       "79": { "Slider": 2 },
       "80": { "Speech": 8 },
-      "81": { "StandardEnums": 3 },
+      "81": { "StandardEnums": 4 },
       "82": { "StandardTypes": 1 },
       "83": { "StringFormats": 1 },
       "84": { "System": 1 },
@@ -69058,10 +69855,11 @@ var meta = {
       "105": { "UpgradeTo35": 4 },
       "106": { "UpgradeTo36": 5 },
       "107": { "UpgradeTo361": 4 },
-      "108": { "UpgradingTo27": 3 },
-      "109": { "UpgradingTo271": 1 },
-      "110": { "Viewport": 1 },
-      "111": { "VoiceSpeech": 2 }
+      "108": { "UpgradeTo362": 1 },
+      "109": { "UpgradingTo27": 3 },
+      "110": { "UpgradingTo271": 1 },
+      "111": { "Viewport": 1 },
+      "112": { "VoiceSpeech": 2 }
     },
     "useful": {
       "0": { "acintro3": 1 },
@@ -69119,7 +69917,7 @@ var meta = {
       "52": { "Settingupthegame": 3 },
       "53": { "StandardTypes": 1 },
       "54": { "String": 2 },
-      "55": { "System": 3 },
+      "55": { "System": 4 },
       "56": { "TextBox": 2 },
       "57": { "Translations": 1 },
       "58": { "Tumbleweed": 1 },
@@ -69127,8 +69925,9 @@ var meta = {
       "60": { "UpgradeTo35": 1 },
       "61": { "UpgradeTo36": 2 },
       "62": { "UpgradeTo361": 1 },
-      "63": { "UpgradingTo27": 1 },
-      "64": { "Viewport": 1 }
+      "63": { "UpgradeTo362": 2 },
+      "64": { "UpgradingTo27": 1 },
+      "65": { "Viewport": 1 }
     },
     "useless": {
       "0": { "Overlay": 1 },
@@ -69164,21 +69963,23 @@ var meta = {
       "25": { "RuntimeEngine": 2 },
       "26": { "ScriptAPIOverview": 1 },
       "27": { "ScriptKeywords": 2 },
-      "28": { "String": 2 },
-      "29": { "System": 1 },
-      "30": { "Templates": 3 },
-      "31": { "TemplateVerbcoin": 1 },
-      "32": { "TextBox": 1 },
-      "33": { "TextParser": 3 },
-      "34": { "Translations": 1 },
-      "35": { "TroubleshootingWindowsZoneID": 2 },
-      "36": { "Tumbleweed": 1 },
-      "37": { "UpgradeTo33": 1 },
-      "38": { "UpgradeTo335": 1 },
-      "39": { "UpgradeTo34": 1 },
-      "40": { "UpgradeTo341": 1 },
-      "41": { "UpgradeTo35": 1 },
-      "42": { "VoiceSpeech": 1 }
+      "28": { "StandardEnums": 1 },
+      "29": { "String": 2 },
+      "30": { "System": 1 },
+      "31": { "Templates": 3 },
+      "32": { "TemplateVerbcoin": 1 },
+      "33": { "TextBox": 1 },
+      "34": { "TextParser": 3 },
+      "35": { "Translations": 1 },
+      "36": { "TroubleshootingWindowsZoneID": 2 },
+      "37": { "Tumbleweed": 1 },
+      "38": { "UpgradeTo33": 1 },
+      "39": { "UpgradeTo335": 1 },
+      "40": { "UpgradeTo34": 1 },
+      "41": { "UpgradeTo341": 1 },
+      "42": { "UpgradeTo35": 1 },
+      "43": { "UpgradeTo362": 1 },
+      "44": { "VoiceSpeech": 1 }
     },
     "user's": {
       "0": { "Constants": 1 },
@@ -69190,9 +69991,10 @@ var meta = {
       "6": { "GeneralSettings": 1 },
       "7": { "Globalfunctions_General": 3 },
       "8": { "GraphicsDriver": 1 },
-      "9": { "Multimedia": 1 },
-      "10": { "Parser": 1 },
-      "11": { "TextParser": 3 }
+      "9": { "ListBox": 1 },
+      "10": { "Multimedia": 1 },
+      "11": { "Parser": 1 },
+      "12": { "TextParser": 3 }
     },
     "user-created": {
       "0": { "MusicAndSound": 1 }
@@ -69278,9 +70080,10 @@ var meta = {
       "36": { "UpgradeTo32": 1 },
       "37": { "UpgradeTo34": 1 },
       "38": { "UpgradeTo36": 1 },
-      "39": { "UpgradingTo27": 2 },
-      "40": { "ViewFrame": 1 },
-      "41": { "VoiceSpeech": 1 }
+      "39": { "UpgradeTo362": 2 },
+      "40": { "UpgradingTo27": 2 },
+      "41": { "ViewFrame": 1 },
+      "42": { "VoiceSpeech": 1 }
     },
     "usespeech": {
       "0": { "EngineConfigFile": 1 }
@@ -69355,7 +70158,7 @@ var meta = {
       "66": { "ImportingFunctionsAndVariables": 1 },
       "67": { "InventoryItem": 1 },
       "68": { "Keycodes": 2 },
-      "69": { "ListBox": 5 },
+      "69": { "ListBox": 6 },
       "70": { "Mouse": 3 },
       "71": { "Multimedia": 2 },
       "72": { "MultipleScripts": 1 },
@@ -69377,29 +70180,31 @@ var meta = {
       "88": { "Setup": 3 },
       "89": { "SourceControl": 1 },
       "90": { "Speech": 1 },
-      "91": { "String": 1 },
-      "92": { "System": 1 },
-      "93": { "Templates": 1 },
-      "94": { "TemplateSierraStyle": 1 },
-      "95": { "TemplateVerbcoin": 2 },
-      "96": { "TextBox": 1 },
-      "97": { "TextParser": 1 },
-      "98": { "TroubleshootingWindowsZoneID": 1 },
-      "99": { "Tumbleweed": 5 },
-      "100": { "UnicodeSupport": 2 },
-      "101": { "UpgradeTo31": 2 },
-      "102": { "UpgradeTo32": 4 },
-      "103": { "UpgradeTo33": 3 },
-      "104": { "UpgradeTo335": 4 },
-      "105": { "UpgradeTo34": 2 },
-      "106": { "UpgradeTo341": 1 },
-      "107": { "UpgradeTo35": 5 },
-      "108": { "UpgradeTo36": 13 },
-      "109": { "UpgradeTo361": 3 },
-      "110": { "UpgradingTo27": 1 },
-      "111": { "UpgradingTo271": 2 },
-      "112": { "Viewport": 4 },
-      "113": { "VoiceSpeech": 4 }
+      "91": { "StandardEnums": 1 },
+      "92": { "String": 1 },
+      "93": { "System": 1 },
+      "94": { "Templates": 1 },
+      "95": { "TemplateSierraStyle": 1 },
+      "96": { "TemplateVerbcoin": 2 },
+      "97": { "TextBox": 1 },
+      "98": { "TextParser": 1 },
+      "99": { "TroubleshootingWindowsZoneID": 1 },
+      "100": { "Tumbleweed": 5 },
+      "101": { "UnicodeSupport": 2 },
+      "102": { "UpgradeTo31": 2 },
+      "103": { "UpgradeTo32": 4 },
+      "104": { "UpgradeTo33": 3 },
+      "105": { "UpgradeTo335": 4 },
+      "106": { "UpgradeTo34": 2 },
+      "107": { "UpgradeTo341": 1 },
+      "108": { "UpgradeTo35": 5 },
+      "109": { "UpgradeTo36": 13 },
+      "110": { "UpgradeTo361": 3 },
+      "111": { "UpgradeTo362": 2 },
+      "112": { "UpgradingTo27": 1 },
+      "113": { "UpgradingTo271": 2 },
+      "114": { "Viewport": 4 },
+      "115": { "VoiceSpeech": 4 }
     },
     "usr": {
       "0": { "MIDI-playback": 1 }
@@ -69453,7 +70258,8 @@ var meta = {
       "29": { "TroubleshootingWindowsZoneID": 3 },
       "30": { "Tumbleweed_extensions": 1 },
       "31": { "UnicodeSupport": 1 },
-      "32": { "UpgradeTo36": 1 }
+      "32": { "UpgradeTo36": 1 },
+      "33": { "UpgradeTo362": 1 }
     },
     "utilities": {
       "0": { "EditorPlugins": 1 },
@@ -69490,8 +70296,17 @@ var meta = {
       "19": { "UpgradingTo27": 1 },
       "20": { "Viewport": 2 }
     },
+    "validate": {
+      "0": { "UpgradeTo362": 1 }
+    },
     "validateSigningRelease": {
       "0": { "BuildAndroid": 1 }
+    },
+    "validate_restored_save": {
+      "0": { "UpgradeTo362": 4 }
+    },
+    "validated": {
+      "0": { "UpgradeTo362": 1 }
     },
     "value": {
       "0": { "acintro3": 1 },
@@ -69555,22 +70370,26 @@ var meta = {
       "58": { "Setup": 1 },
       "59": { "Slider": 12 },
       "60": { "Speech": 1 },
-      "61": { "StandardTypes": 1 },
-      "62": { "String": 9 },
-      "63": { "StringFormats": 3 },
-      "64": { "System": 2 },
-      "65": { "SystemLimits": 1 },
-      "66": { "TemplateBASS": 7 },
-      "67": { "TextBox": 1 },
-      "68": { "Translations": 3 },
-      "69": { "Tumbleweed_door": 1 },
-      "70": { "UnicodeSupport": 2 },
-      "71": { "UpgradeTo30": 1 },
-      "72": { "UpgradeTo33": 2 },
-      "73": { "UpgradeTo34": 1 },
-      "74": { "UpgradeTo35": 1 },
-      "75": { "UpgradeTo36": 3 },
-      "76": { "Viewport": 2 }
+      "61": { "StandardEnums": 1 },
+      "62": { "StandardTypes": 1 },
+      "63": { "String": 9 },
+      "64": { "StringFormats": 3 },
+      "65": { "System": 2 },
+      "66": { "SystemLimits": 1 },
+      "67": { "TemplateBASS": 7 },
+      "68": { "TextBox": 1 },
+      "69": { "Translations": 3 },
+      "70": { "Tumbleweed_door": 1 },
+      "71": { "UnicodeSupport": 2 },
+      "72": { "UpgradeTo30": 1 },
+      "73": { "UpgradeTo33": 2 },
+      "74": { "UpgradeTo34": 1 },
+      "75": { "UpgradeTo35": 1 },
+      "76": { "UpgradeTo36": 3 },
+      "77": { "Viewport": 2 }
+    },
+    "value's": {
+      "0": { "StandardEnums": 1 }
     },
     "values": {
       "0": { "acintro1": 1 },
@@ -69628,7 +70447,8 @@ var meta = {
       "52": { "UpgradeTo33": 1 },
       "53": { "UpgradeTo34": 2 },
       "54": { "UpgradeTo341": 1 },
-      "55": { "UpgradeTo36": 2 }
+      "55": { "UpgradeTo36": 2 },
+      "56": { "UpgradeTo362": 1 }
     },
     "var": {
       "0": { "DynamicArrays": 1 },
@@ -69687,10 +70507,11 @@ var meta = {
       "49": { "UpgradeTo30": 1 },
       "50": { "UpgradeTo33": 1 },
       "51": { "UpgradeTo34": 2 },
-      "52": { "UpgradingTo27": 2 },
-      "53": { "UpgradingTo271": 1 },
-      "54": { "Viewport": 1 },
-      "55": { "VoiceSpeech": 1 }
+      "52": { "UpgradeTo362": 1 },
+      "53": { "UpgradingTo27": 2 },
+      "54": { "UpgradingTo271": 1 },
+      "55": { "Viewport": 1 },
+      "56": { "VoiceSpeech": 1 }
     },
     "variable's": {
       "0": { "ImportingFunctionsAndVariables": 2 },
@@ -69732,7 +70553,8 @@ var meta = {
       "29": { "UpgradeTo30": 2 },
       "30": { "UpgradeTo33": 1 },
       "31": { "UpgradeTo36": 1 },
-      "32": { "UpgradingTo27": 1 }
+      "32": { "UpgradeTo362": 2 },
+      "33": { "UpgradingTo27": 1 }
     },
     "variant": {
       "0": { "DialogScript": 1 },
@@ -69895,10 +70717,11 @@ var meta = {
       "35": { "UpgradeTo341": 1 },
       "36": { "UpgradeTo35": 1 },
       "37": { "UpgradeTo36": 2 },
-      "38": { "UpgradingFromPreviousVersion": 1 },
-      "39": { "UpgradingTo27": 1 },
-      "40": { "UpgradingTo271": 1 },
-      "41": { "VoiceSpeech": 1 }
+      "38": { "UpgradeTo362": 3 },
+      "39": { "UpgradingFromPreviousVersion": 1 },
+      "40": { "UpgradingTo27": 1 },
+      "41": { "UpgradingTo271": 1 },
+      "42": { "VoiceSpeech": 1 }
     },
     "versions": {
       "0": { "acintro5": 1 },
@@ -69938,7 +70761,7 @@ var meta = {
       "34": { "InventoryItem": 5 },
       "35": { "Keycodes": 1 },
       "36": { "Label": 2 },
-      "37": { "ListBox": 7 },
+      "37": { "ListBox": 10 },
       "38": { "Maths": 6 },
       "39": { "Mouse": 6 },
       "40": { "Multimedia": 4 },
@@ -69956,9 +70779,9 @@ var meta = {
       "52": { "Slider": 3 },
       "53": { "SourceControl": 2 },
       "54": { "Speech": 8 },
-      "55": { "StandardEnums": 2 },
+      "55": { "StandardEnums": 3 },
       "56": { "String": 7 },
-      "57": { "System": 12 },
+      "57": { "System": 13 },
       "58": { "SystemRequirements": 1 },
       "59": { "Templates": 2 },
       "60": { "TextBox": 2 },
@@ -69969,10 +70792,11 @@ var meta = {
       "65": { "UpgradeTo33": 2 },
       "66": { "UpgradeTo341": 3 },
       "67": { "UpgradeTo36": 1 },
-      "68": { "UpgradingTo27": 2 },
-      "69": { "UpgradingTo271": 1 },
-      "70": { "ViewFrame": 1 },
-      "71": { "Viewport": 1 }
+      "68": { "UpgradeTo362": 1 },
+      "69": { "UpgradingTo27": 2 },
+      "70": { "UpgradingTo271": 1 },
+      "71": { "ViewFrame": 1 },
+      "72": { "Viewport": 1 }
     },
     "vertical": {
       "0": { "Character": 1 },
@@ -70252,7 +71076,8 @@ var meta = {
       "12": { "UpgradeTo32": 1 },
       "13": { "UpgradeTo341": 2 },
       "14": { "UpgradeTo36": 1 },
-      "15": { "VoiceSpeech": 15 }
+      "15": { "UpgradeTo362": 5 },
+      "16": { "VoiceSpeech": 15 }
     },
     "voice-over": {
       "0": { "DistGame": 1 },
@@ -70282,23 +71107,24 @@ var meta = {
       "9": { "Globalfunctions_General": 1 },
       "10": { "Globalfunctions_Wait": 2 },
       "11": { "GUI": 1 },
-      "12": { "Mouse": 1 },
-      "13": { "Object": 3 },
-      "14": { "OOProgramming": 10 },
-      "15": { "Room": 1 },
-      "16": { "ScriptKeywords": 4 },
-      "17": { "Set": 1 },
-      "18": { "System": 2 },
-      "19": { "Tumbleweed_actions": 8 },
-      "20": { "Tumbleweed_door": 2 },
-      "21": { "Tumbleweed_extensions": 4 },
-      "22": { "Tumbleweed_helper": 5 },
-      "23": { "Tumbleweed_movement": 2 },
-      "24": { "Tumbleweed_player": 3 },
-      "25": { "Tumbleweed_translation": 3 },
-      "26": { "Tumbleweed_unhandled": 1 },
-      "27": { "UpgradeTo35": 3 },
-      "28": { "Viewport": 2 }
+      "12": { "ListBox": 2 },
+      "13": { "Mouse": 1 },
+      "14": { "Object": 3 },
+      "15": { "OOProgramming": 10 },
+      "16": { "Room": 1 },
+      "17": { "ScriptKeywords": 4 },
+      "18": { "Set": 1 },
+      "19": { "System": 2 },
+      "20": { "Tumbleweed_actions": 8 },
+      "21": { "Tumbleweed_door": 2 },
+      "22": { "Tumbleweed_extensions": 4 },
+      "23": { "Tumbleweed_helper": 5 },
+      "24": { "Tumbleweed_movement": 2 },
+      "25": { "Tumbleweed_player": 3 },
+      "26": { "Tumbleweed_translation": 3 },
+      "27": { "Tumbleweed_unhandled": 1 },
+      "28": { "UpgradeTo35": 3 },
+      "29": { "Viewport": 2 }
     },
     "volatile": {
       "0": { "DistGame": 1 }
@@ -70628,8 +71454,9 @@ var meta = {
       "94": { "UpgradeTo34": 1 },
       "95": { "UpgradeTo35": 1 },
       "96": { "UpgradeTo36": 3 },
-      "97": { "UpgradingTo27": 2 },
-      "98": { "Viewport": 1 }
+      "97": { "UpgradeTo362": 3 },
+      "98": { "UpgradingTo27": 2 },
+      "99": { "Viewport": 1 }
     },
     "wanted": {
       "0": { "AudioInScript": 1 },
@@ -70646,7 +71473,8 @@ var meta = {
     "wants": {
       "0": { "acintro7": 1 },
       "1": { "EnginePluginRun-timeAPI": 2 },
-      "2": { "Globalfunctions_Room": 1 }
+      "2": { "Globalfunctions_Room": 1 },
+      "3": { "StandardEnums": 1 }
     },
     "wares": {
       "0": { "acintro8": 4 }
@@ -70771,8 +71599,9 @@ var meta = {
       "58": { "UpgradeTo35": 1 },
       "59": { "UpgradeTo36": 3 },
       "60": { "UpgradeTo361": 1 },
-      "61": { "UpgradingTo27": 2 },
-      "62": { "UpgradingTo271": 1 }
+      "61": { "UpgradeTo362": 1 },
+      "62": { "UpgradingTo27": 2 },
+      "63": { "UpgradingTo271": 1 }
     },
     "waypoint": {
       "0": { "EnginePluginRun-timeAPI": 8 }
@@ -70938,9 +71767,10 @@ var meta = {
       "40": { "UpgradeTo33": 1 },
       "41": { "UpgradeTo34": 1 },
       "42": { "UpgradeTo36": 1 },
-      "43": { "UpgradingTo27": 2 },
-      "44": { "UpgradingTo271": 1 },
-      "45": { "VoiceSpeech": 1 }
+      "43": { "UpgradeTo362": 2 },
+      "44": { "UpgradingTo27": 2 },
+      "45": { "UpgradingTo271": 1 },
+      "46": { "VoiceSpeech": 1 }
     },
     "went": {
       "0": { "Templates": 1 },
@@ -70990,8 +71820,9 @@ var meta = {
       "40": { "UpgradeTo341": 3 },
       "41": { "UpgradeTo35": 7 },
       "42": { "UpgradeTo36": 7 },
-      "43": { "UpgradingTo27": 1 },
-      "44": { "Viewport": 1 }
+      "43": { "UpgradeTo362": 2 },
+      "44": { "UpgradingTo27": 1 },
+      "45": { "Viewport": 1 }
     },
     "weren't": {
       "0": { "File": 1 }
@@ -71061,17 +71892,19 @@ var meta = {
       "61": { "Slider": 1 },
       "62": { "SourceControl": 1 },
       "63": { "Speech": 1 },
-      "64": { "String": 2 },
-      "65": { "System": 2 },
-      "66": { "TemplateBASS": 1 },
-      "67": { "Templates": 2 },
-      "68": { "TextParser": 3 },
-      "69": { "Tumbleweed_actions": 1 },
-      "70": { "Tumbleweed_extensions": 1 },
-      "71": { "Tumbleweed_movement": 1 },
-      "72": { "UpgradeTo30": 1 },
-      "73": { "UpgradeTo35": 2 },
-      "74": { "UpgradingTo27": 9 }
+      "64": { "StandardEnums": 1 },
+      "65": { "String": 2 },
+      "66": { "System": 2 },
+      "67": { "TemplateBASS": 1 },
+      "68": { "Templates": 2 },
+      "69": { "TextParser": 3 },
+      "70": { "Tumbleweed_actions": 1 },
+      "71": { "Tumbleweed_extensions": 1 },
+      "72": { "Tumbleweed_movement": 1 },
+      "73": { "UpgradeTo30": 1 },
+      "74": { "UpgradeTo35": 2 },
+      "75": { "UpgradeTo362": 1 },
+      "76": { "UpgradingTo27": 9 }
     },
     "what's": {
       "0": { "acintro1": 1 },
@@ -71235,8 +72068,9 @@ var meta = {
       "110": { "UpgradeTo35": 4 },
       "111": { "UpgradeTo36": 8 },
       "112": { "UpgradeTo361": 2 },
-      "113": { "UpgradingTo27": 2 },
-      "114": { "ViewFrame": 1 }
+      "113": { "UpgradeTo362": 6 },
+      "114": { "UpgradingTo27": 2 },
+      "115": { "ViewFrame": 1 }
     },
     "whenever": {
       "0": { "acintro3": 2 },
@@ -71265,7 +72099,8 @@ var meta = {
       "23": { "System": 1 },
       "24": { "UpgradeTo34": 1 },
       "25": { "UpgradeTo341": 1 },
-      "26": { "UpgradeTo36": 1 }
+      "26": { "UpgradeTo36": 1 },
+      "27": { "UpgradeTo362": 1 }
     },
     "where": {
       "0": { "acintro1": 5 },
@@ -71331,7 +72166,7 @@ var meta = {
       "60": { "ScriptKeywords": 4 },
       "61": { "Settingupthegame": 11 },
       "62": { "Setup": 1 },
-      "63": { "StandardEnums": 1 },
+      "63": { "StandardEnums": 2 },
       "64": { "String": 3 },
       "65": { "TemplateBASS": 1 },
       "66": { "TemplateVerbcoin": 1 },
@@ -71346,9 +72181,10 @@ var meta = {
       "75": { "UpgradeTo341": 1 },
       "76": { "UpgradeTo35": 5 },
       "77": { "UpgradeTo36": 2 },
-      "78": { "UpgradingTo27": 2 },
-      "79": { "Viewport": 2 },
-      "80": { "VoiceSpeech": 2 }
+      "78": { "UpgradeTo362": 1 },
+      "79": { "UpgradingTo27": 2 },
+      "80": { "Viewport": 2 },
+      "81": { "VoiceSpeech": 2 }
     },
     "whereas": {
       "0": { "acintro7": 1 },
@@ -71432,7 +72268,7 @@ var meta = {
       "57": { "Settingupthegame": 10 },
       "58": { "Speech": 3 },
       "59": { "String": 3 },
-      "60": { "System": 9 },
+      "60": { "System": 10 },
       "61": { "SystemRequirements": 1 },
       "62": { "TemplateVerbcoin": 1 },
       "63": { "TextBox": 1 },
@@ -71442,8 +72278,9 @@ var meta = {
       "67": { "UpgradeTo32": 1 },
       "68": { "UpgradeTo36": 1 },
       "69": { "UpgradeTo361": 1 },
-      "70": { "ViewFrame": 1 },
-      "71": { "Viewport": 1 }
+      "70": { "UpgradeTo362": 3 },
+      "71": { "ViewFrame": 1 },
+      "72": { "Viewport": 1 }
     },
     "which": {
       "0": { "acintro": 1 },
@@ -71579,11 +72416,12 @@ var meta = {
       "130": { "UpgradeTo35": 15 },
       "131": { "UpgradeTo36": 11 },
       "132": { "UpgradeTo361": 3 },
-      "133": { "UpgradingTo27": 4 },
-      "134": { "UpgradingTo271": 2 },
-      "135": { "ViewFrame": 9 },
-      "136": { "Viewport": 6 },
-      "137": { "VoiceSpeech": 1 }
+      "133": { "UpgradeTo362": 7 },
+      "134": { "UpgradingTo27": 4 },
+      "135": { "UpgradingTo271": 2 },
+      "136": { "ViewFrame": 9 },
+      "137": { "Viewport": 6 },
+      "138": { "VoiceSpeech": 1 }
     },
     "whichever": {
       "0": { "acintro8": 1 },
@@ -71645,7 +72483,8 @@ var meta = {
       "50": { "UpgradeTo34": 2 },
       "51": { "UpgradeTo35": 2 },
       "52": { "UpgradeTo36": 2 },
-      "53": { "Viewport": 5 }
+      "53": { "UpgradeTo362": 1 },
+      "54": { "Viewport": 5 }
     },
     "whilst": {
       "0": { "Character": 3 },
@@ -71869,7 +72708,8 @@ var meta = {
       "11": { "TextParser": 1 },
       "12": { "Translations": 1 },
       "13": { "UnicodeSupport": 1 },
-      "14": { "UpgradeTo34": 1 }
+      "14": { "UpgradeTo34": 1 },
+      "15": { "UpgradeTo362": 1 }
     },
     "within": {
       "0": { "acintro2": 3 },
@@ -71969,8 +72809,9 @@ var meta = {
       "34": { "UpgradeTo341": 1 },
       "35": { "UpgradeTo36": 1 },
       "36": { "UpgradeTo361": 2 },
-      "37": { "Viewport": 1 },
-      "38": { "VoiceSpeech": 1 }
+      "37": { "UpgradeTo362": 1 },
+      "38": { "Viewport": 1 },
+      "39": { "VoiceSpeech": 1 }
     },
     "wizard": {
       "0": { "acintro1": 1 },
@@ -72017,7 +72858,8 @@ var meta = {
       "34": { "UpgradeTo34": 2 },
       "35": { "UpgradeTo341": 1 },
       "36": { "UpgradeTo36": 2 },
-      "37": { "UpgradingTo271": 1 }
+      "37": { "UpgradeTo362": 1 },
+      "38": { "UpgradingTo271": 1 }
     },
     "wonder": {
       "0": { "Character": 1 },
@@ -72144,7 +72986,8 @@ var meta = {
     "workaround": {
       "0": { "EnginePluginRun-timeAPI": 1 },
       "1": { "Game": 1 },
-      "2": { "GeneralSettings": 1 }
+      "2": { "GeneralSettings": 1 },
+      "3": { "UpgradeTo362": 1 }
     },
     "worked": {
       "0": { "acintro3": 1 },
@@ -72398,7 +73241,8 @@ var meta = {
       "25": { "UpgradeTo335": 2 },
       "26": { "UpgradeTo34": 1 },
       "27": { "UpgradeTo36": 1 },
-      "28": { "UpgradingTo27": 4 }
+      "28": { "UpgradeTo362": 1 },
+      "29": { "UpgradingTo27": 4 }
     },
     "writeable": {
       "0": { "EngineConfigFile": 1 }
@@ -72459,13 +73303,15 @@ var meta = {
       "21": { "UpgradeTo335": 1 },
       "22": { "UpgradeTo341": 1 },
       "23": { "UpgradeTo36": 1 },
-      "24": { "UpgradeTo361": 1 }
+      "24": { "UpgradeTo361": 1 },
+      "25": { "UpgradeTo362": 1 }
     },
     "wrong": {
       "0": { "EditorView": 1 },
       "1": { "GameSavesCompatibility": 1 },
       "2": { "Globalfunctions_Screen": 1 },
-      "3": { "Templates": 1 }
+      "3": { "Templates": 1 },
+      "4": { "UpgradeTo362": 1 }
     },
     "wrongly": {
       "0": { "ScriptKeywords": 1 }
@@ -72709,41 +73555,43 @@ var meta = {
       "112": { "Slider": 2 },
       "113": { "SourceControl": 6 },
       "114": { "Speech": 1 },
-      "115": { "String": 11 },
-      "116": { "StringFormats": 9 },
-      "117": { "System": 13 },
-      "118": { "SystemLimits": 4 },
-      "119": { "SystemRequirements": 4 },
-      "120": { "Templates": 22 },
-      "121": { "TextBox": 1 },
-      "122": { "TextParser": 23 },
-      "123": { "TheScriptHeader": 2 },
-      "124": { "Translations": 26 },
-      "125": { "TroubleshootingWindowsZoneID": 1 },
-      "126": { "Tumbleweed": 43 },
-      "127": { "Tumbleweed_actions": 1 },
-      "128": { "Tumbleweed_door": 13 },
-      "129": { "Tumbleweed_extensions": 7 },
-      "130": { "Tumbleweed_movement": 1 },
-      "131": { "Tumbleweed_player": 1 },
-      "132": { "Tumbleweed_translation": 22 },
-      "133": { "Tumbleweed_unhandled": 2 },
-      "134": { "Tutorial": 2 },
-      "135": { "UnicodeSupport": 12 },
-      "136": { "UpgradeTo30": 23 },
-      "137": { "UpgradeTo31": 13 },
-      "138": { "UpgradeTo32": 23 },
-      "139": { "UpgradeTo33": 6 },
-      "140": { "UpgradeTo335": 5 },
-      "141": { "UpgradeTo34": 17 },
-      "142": { "UpgradeTo341": 8 },
-      "143": { "UpgradeTo35": 29 },
-      "144": { "UpgradeTo36": 34 },
-      "145": { "UpgradeTo361": 12 },
-      "146": { "UpgradingTo27": 31 },
-      "147": { "UpgradingTo271": 9 },
-      "148": { "Viewport": 7 },
-      "149": { "VoiceSpeech": 9 }
+      "115": { "StandardEnums": 1 },
+      "116": { "String": 11 },
+      "117": { "StringFormats": 9 },
+      "118": { "System": 13 },
+      "119": { "SystemLimits": 4 },
+      "120": { "SystemRequirements": 4 },
+      "121": { "Templates": 22 },
+      "122": { "TextBox": 1 },
+      "123": { "TextParser": 23 },
+      "124": { "TheScriptHeader": 2 },
+      "125": { "Translations": 26 },
+      "126": { "TroubleshootingWindowsZoneID": 1 },
+      "127": { "Tumbleweed": 43 },
+      "128": { "Tumbleweed_actions": 1 },
+      "129": { "Tumbleweed_door": 13 },
+      "130": { "Tumbleweed_extensions": 7 },
+      "131": { "Tumbleweed_movement": 1 },
+      "132": { "Tumbleweed_player": 1 },
+      "133": { "Tumbleweed_translation": 22 },
+      "134": { "Tumbleweed_unhandled": 2 },
+      "135": { "Tutorial": 2 },
+      "136": { "UnicodeSupport": 12 },
+      "137": { "UpgradeTo30": 23 },
+      "138": { "UpgradeTo31": 13 },
+      "139": { "UpgradeTo32": 23 },
+      "140": { "UpgradeTo33": 6 },
+      "141": { "UpgradeTo335": 5 },
+      "142": { "UpgradeTo34": 17 },
+      "143": { "UpgradeTo341": 8 },
+      "144": { "UpgradeTo35": 29 },
+      "145": { "UpgradeTo36": 34 },
+      "146": { "UpgradeTo361": 12 },
+      "147": { "UpgradeTo362": 26 },
+      "148": { "UpgradingTo27": 31 },
+      "149": { "UpgradingTo271": 9 },
+      "150": { "Viewport": 7 },
+      "151": { "VoiceSpeech": 9 }
     },
     "you'd": {
       "0": { "acintro2": 2 },
@@ -72825,7 +73673,8 @@ var meta = {
       "21": { "Settingupthegame": 1 },
       "22": { "Templates": 1 },
       "23": { "UnicodeSupport": 2 },
-      "24": { "UpgradingTo27": 3 }
+      "24": { "UpgradeTo362": 1 },
+      "25": { "UpgradingTo27": 3 }
     },
     "you've": {
       "0": { "acintro1": 1 },
@@ -72977,8 +73826,9 @@ var meta = {
       "124": { "UpgradeTo35": 7 },
       "125": { "UpgradeTo36": 12 },
       "126": { "UpgradeTo361": 4 },
-      "127": { "UpgradingTo27": 9 },
-      "128": { "VoiceSpeech": 2 }
+      "127": { "UpgradeTo362": 9 },
+      "128": { "UpgradingTo27": 9 },
+      "129": { "VoiceSpeech": 2 }
     },
     "yours": {
       "0": { "EnginePluginRun-timeAPI": 1 }
