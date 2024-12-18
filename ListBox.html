@@ -150,42 +150,64 @@
 <p><em>(Formerly known as <code>ListBoxDirList</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">FillDirList</span><span class="op">(</span>string filemask<span class="op">,</span> optional FileSortStyle fileSortStyle<span class="op">,</span> optional SortDirection sortDirection<span class="op">)</span></span></code></pre></div>
 <p>Fills the list box with a list of filenames matching FILEMASK in the current directory. This could be useful if you have various data files and the player can choose which one to load.</p>
-<p>You can optionally use <code>fileSortStyle</code> and <code>sortDirection</code> to set how the list of files set to the list box should be sorted.</p>
-<p>FILEMASK is a standard Windows search expression such as <code>"*.dat"</code> or <code>"data*.*"</code></p>
-<p>When specifying file path you may use special location tags:<br> <code>$INSTALLDIR$</code>, which allows you to explicitly access files in the game installation directory.<br> <code>$SAVEGAMEDIR$</code>, which allows you to access files in the save game directory.<br> <code>$APPDATADIR$</code>, which allows you to access files to a folder on the system which is accessible by and shared by all users.</p>
+<p><em>filemask</em> is a standard wildcard search expression such as <code>"*.dat"</code> or <code>"data*.*"</code></p>
+<p><em>filemask</em> may include any file tags or location tags, which are described for <a href="File.html#fileopen"><code>File.Open</code></a>.</p>
+<p><em>FileSortStyle</em> determines which file property will be used when sorting the list of filenames. It can be:</p>
+<ul>
+<li>eFileSort_None - don't sort, the order will be unspecified;</li>
+<li>eFileSort_Name - sort by name (this sort is case insensitive for cross-platform compatibility);</li>
+<li>eFileSort_Time - sort by write time (time when this file was created or last written to).</li>
+</ul>
+<p><em>SortDirection</em> determines the order of sorting:</p>
+<ul>
+<li>eSortNoDirection - unspecified;</li>
+<li>eSortAscending;</li>
+<li>eSortDescending.</li>
+</ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">FillDirList</span><span class="op">(</span><span class="st">&quot;agssave.*&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">FillDirList</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/agssave.*&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will fill the listbox with the list of the saved games. Note that actually for this task you would use FillSaveGameList instead.</p>
 <p><em>Compatibility:</em> Optional <code>fileSortStyle</code> and <code>sortDirection</code> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="ListBox.html#listboxadditem"><code>ListBox.AddItem</code></a>, <a href="ListBox.html#listboxclear"><code>ListBox.Clear</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="StandardEnums.html#filesortstyle"><code>FileSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
+<p><em>See also:</em> <a href="ListBox.html#listboxadditem"><code>ListBox.AddItem</code></a>, <a href="ListBox.html#listboxclear"><code>ListBox.Clear</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="File.html#filegetfiles"><code>File.GetFiles</code></a>, <a href="StandardEnums.html#filesortstyle"><code>FileSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
 <hr />
 </section>
 <section id="listboxfillsavegamelist" class="level3">
 <h3><a href="#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a></h3>
 <p><em>(Formerly known as <code>ListBoxSaveGameList</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">FillSaveGameList</span><span class="op">(</span>optional <span class="dt">int</span> min_slot<span class="op">,</span> optional <span class="dt">int</span> max_slot<span class="op">,</span> optional SaveGameSortStyle saveSortStyle<span class="op">,</span> optional SortDirection sortDirection<span class="op">)</span></span></code></pre></div>
-<p>Fills the specified listbox with the save game list, sorted correctly with the most recent game at the top of the list.</p>
-<p>You can optionally pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that can be added to the list box.</p>
-<p>You can also optionally use <code>saveSortStyle</code> and <code>sortDirection</code> to set how the list of save games set to the list box should be sorted.</p>
-<p>This function returns true if all slots in the set range (1 to 100 if no range passed) are occupied.</p>
+<p>Fills the specified listbox with the save game list, optionally sorted using certain style and direction. By default it sorts saves by their time in descending order (with the most recent game at the top of the list).</p>
+<p>You can optionally pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that can be added to the list box. By default it uses a range of 1 to 100.</p>
+<p><em>SaveGameSortStyle</em> determines which save's property will be used when sorting the list of saves. It can be:</p>
+<ul>
+<li>eSaveGameSort_None - don't sort, the order will be unspecified;</li>
+<li>eSaveGameSort_Number - sort by the save slot number;</li>
+<li>eSaveGameSort_Time - sort by the save time (the time this save slot was last written at);</li>
+<li>eSaveGameSort_Description - sort by the save's description.</li>
+</ul>
+<p><em>SortDirection</em> determines the order of sorting:</p>
+<ul>
+<li>eSortNoDirection - unspecified;</li>
+<li>eSortAscending;</li>
+<li>eSortDescending.</li>
+</ul>
+<p>This function returns <code>true</code> if all slots in the set range are occupied, and <code>false</code> otherwise.</p>
 <p>The <a href="ListBox.html#listboxsavegameslots"><code>SaveGameSlots</code></a> property is updated to contain the save game slot number for each index in the list, so that you can do:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> index = lstSaveGames<span class="op">.</span><span class="at">SelectedIndex</span><span class="op">;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span><span class="op">(</span>lstSaveGames<span class="op">.</span><span class="at">SaveGameSlots</span><span class="op">[</span>index<span class="op">]);</span></span></code></pre></div>
-<p><strong>NOTE:</strong> The save game list can only hold 50 save games. If ListBox.ItemCount returns 50 and you are doing a Save dialog box, you may want to make the user replace an existing file rather than saving a new one. Additionally, it can only list Save Game Slots from 0 to 99, this allows using slots of higher number for other purposes.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>lstSaveGames<span class="op">.</span><span class="at">FillSaveGameList</span><span class="op">();</span></span></code></pre></div>
 <p>will fill listbox <em>lstSaveGames</em> with the list of the saved games.</p>
-<p><em>Compatibility:</em> Optional <code>min_slot</code>, <code>max_slot</code>, <code>saveSortStyle</code> and <code>sortDirection</code> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="ListBox.html#listboxsavegameslots"><code>ListBox.SaveGameSlots</code></a>, <a href="ListBox.html#listboxselectedindex"><code>ListBox.SelectedIndex</code></a>, <a href="StandardEnums.html#savegamesortstyle"><code>SaveGameSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
+<p><em>Compatibility:</em> Optional <code>min_slot</code>, <code>max_slot</code>, <code>saveSortStyle</code> and <code>sortDirection</code> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions. Prior to <strong>AGS 3.6.2</strong> this function would only search for save slots between 0 and 99, but would only list first 50 found.</p>
+<p><em>See also:</em> <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a>, <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="ListBox.html#listboxsavegameslots"><code>ListBox.SaveGameSlots</code></a>, <a href="ListBox.html#listboxselectedindex"><code>ListBox.SelectedIndex</code></a>, <a href="Game.html#gamegetsaveslots"><code>Game.GetSaveSlots</code></a>, <a href="StandardEnums.html#savegamesortstyle"><code>SaveGameSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
 <hr />
 </section>
 <section id="listboxfillsavegameslots" class="level3">
 <h3><a href="#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a></h3>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="bu">ListBox</span><span class="op">.</span><span class="at">FillSaveGameSlots</span><span class="op">(</span><span class="dt">int</span> save_slots<span class="op">[],</span> optional SaveGameSortStyle saveSortStyle<span class="op">,</span> optional SortDirection sortDirection<span class="op">)</span></span></code></pre></div>
-<p>Fills the list box with the current user's saved games using the array of slot indexes. This array must be non-empty.</p>
-<p>You can optionally use <code>saveSortStyle</code> and <code>sortDirection</code> to set how the list of save games set to the list box should be sorted.</p>
+<p>Fills the list box with the current user's saved games using the array of slot indexes, optionally sorted using certain style and direction. This array must be non-empty. By default the sorting order is unspecified.</p>
+<p>You can optionally use <code>saveSortStyle</code> and <code>sortDirection</code> to set how the list of save games set to the list box should be sorted. See their explanation in the description to <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="StandardEnums.html#savegamesortstyle"><code>SaveGameSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
+<p><em>See also:</em> <a href="ListBox.html#listboxfilldirlist"><code>ListBox.FillDirList</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxitemcount"><code>ListBox.ItemCount</code></a>, <a href="Game.html#gamegetsaveslots"><code>Game.GetSaveSlots</code></a>, <a href="StandardEnums.html#savegamesortstyle"><code>SaveGameSortStyle</code></a>, <a href="StandardEnums.html#sortdirection"><code>SortDirection</code></a></p>
 <hr />
 </section>
 <section id="listboxgetitematlocation" class="level3">
@@ -425,7 +447,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c4bf8f31c6c8a1083b3b06d55d22c621e17c7cc
+      Build: 6c418594a91569826e36a9a47c628df90c3e0264
     </p>
   </footer>
 

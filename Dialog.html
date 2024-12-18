@@ -128,66 +128,104 @@
 <section id="dialogareoptionsdisplayed" class="level3">
 <h3><a href="#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span></span></code></pre></div>
-<p>Returns <code>true</code> if dialog options are currently displayed on the screen, or false otherwise.</p>
+<p>Returns <code>true</code> if dialog options are currently displayed on the screen, or <code>false</code> otherwise.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> _previousOptionsDisplayed<span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>_previousOptionsDisplayed<span class="op">)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Dialog options are currently displayed.&quot;</span><span class="op">);</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span><span class="op">(!</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span> <span class="op">&amp;&amp;</span> _previousOptionsDisplayed<span class="op">)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;No dialog options are visible right now.&quot;</span><span class="op">);</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    _previousOptionsDisplayed = <span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span><span class="op">;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>In this example, whenever there is a transition from options being displayed or them not being displayed, it logs the new state of dialog options being shown.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsOpen<span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>VIEW_IDLE_WHILE_DIALOG<span class="op">);</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsClose<span class="op">)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span><span class="op">)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span><span class="bu">player</span><span class="op">.</span><span class="at">Animating</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="bu">Random</span><span class="op">(</span><span class="dv">100</span><span class="op">)</span> <span class="op">&lt;</span> <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Loop</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In this example the player character will be locked to a view VIEW_IDLE_WHILE_DIALOG when the dialog options are about to be shown on screen, and randomly play animations while they are displayed. When the dialog options are hidden the player character's view will be unlocked.</p>
 <p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
 <hr />
 </section>
 <section id="dialogcurrentdialog" class="level3">
 <h3><a href="#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a></h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span></span></code></pre></div>
 <p>Gets the currently running dialog. Returns <code>null</code> if no dialog is currently active.</p>
-<p><strong>NOTE:</strong> in dialog is a specific state of the AGS Engine, it means a dialog script created in the editor is being ran. It's not the same as any character speaking. Use <code>Speech.SpeakingCharacter</code> to detect if any and which character is speaking.</p>
+<p>"In dialog" is a specific state of the AGS Engine, it means that a Dialog have been run by calling <a href="Dialog.html#dialogstart"><code>Dialog.Start()</code></a>. This refers to:</p>
+<ul>
+<li>dialog script is running, either an opening or any of the option's scripts;</li>
+<li>dialog options are displayed;</li>
+</ul>
+<p>If, on another hand, you want to know when a particular character is speaking, then use <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a> instead.</p>
+<p>Current dialog may change multiple times during the conversation if you have other dialogs started from the dialog script. CurrentDialog will return <code>null</code> only when the last dialog has finished and the game returns to the normal state.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStart<span class="op">)</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">// a dialog is running, show our custom frames</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        gDialogBorders<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// there is no dialog, let&#39;s hide our custom frames</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        gDialogBorders<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>In this example, the script checks whether a dialog is active, and show or hide a GUI that contains decorative frames.</p>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStop<span class="op">)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dShopkeeper<span class="op">)</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsTimerExpired</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">320</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In this example, the script starts a timer whenever the dShopkeeper dialog starts, and keeps checking for that timer's expiration while it's running. If a timer expires while in dialog, the cThief character will appear in the room and walk across the room. The timer will be cancelled if dialog ended earlier.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Speech.html#speechtextoverlay"><code>Speech.TextOverlay</code></a>, <a href="Character.html#characterspeaking"><code>Character.Speaking</code></a>, <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a></p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
 <hr />
 </section>
 <section id="dialogexecutedoption" class="level3">
 <h3><a href="#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a></h3>
 <div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span></span></code></pre></div>
 <p>Gets the currently executed dialog option, or <code>-1</code> if none is being executed.</p>
+<p><strong>NOTE:</strong> dialog option indexes start with 1, and index 0 refers to the dialog entry (marked with '@S' in dialog script).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dAnxiousTalk <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Currently executed dialog option: %d&quot;</span><span class="op">,</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span><span class="op">);</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>This example checks if a dialog option is being executed and logs its number.</p>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>cAnxiousMan<span class="op">.</span><span class="at">Speaking</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Moving</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Animating</span><span class="op">)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">-</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">FaceCharacter</span><span class="op">(</span>cAnxiousMan<span class="op">);</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This script will make a cAnxiousMan character continuously walk back and forth during conversation, except the time when he's speaking himself or plays any custom animation.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
 <hr />
 </section>
 <section id="dialogdisplayoptions" class="level3">
@@ -359,13 +397,13 @@ eOptionOffForever
 <p>Example:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dMerchant<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span></code></pre></div>
 <p>will start the conversation topic named dMerchant.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<p><em>See also:</em> <a href="Dialog.html#stopdialog"><code>StopDialog</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
 <hr />
 </section>
 <section id="stopdialog" class="level3">
 <h3><a href="#stopdialog"><code>StopDialog</code></a></h3>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StopDialog</span> <span class="op">()</span></span></code></pre></div>
-<p>This command can only be used from within the dialog_request function. It tells AGS that when dialog_request finishes, the whole conversation should stop rather than continuing with the dialog script.</p>
+<p>This command can only be used either in dialog script or from within the "dialog_request" function, and schedules end of a conversation. If called in dialog script it will make conversation stop after current option's script completes. If called in "dialog_request" function it will make conversation stop right after "dialog_request" function finishes.</p>
 <p>You can use this function to end the conversation depending on whether the player has/does a certain thing.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span> <span class="op">(</span><span class="dt">int</span> dr<span class="op">)</span> <span class="op">{</span></span>
@@ -374,8 +412,8 @@ eOptionOffForever
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">StopDialog</span><span class="op">();</span></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will give the player the inventory item 3 and then end the conversation.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<p>will give the player the inventory item iPoster and then end the conversation.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a>, <a href="Globalfunctions_Event.html#dialog_request"><code>dialog_request</code></a></p>
 </section>
 </section>
   </main>
@@ -384,7 +422,7 @@ eOptionOffForever
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c4bf8f31c6c8a1083b3b06d55d22c621e17c7cc
+      Build: 6c418594a91569826e36a9a47c628df90c3e0264
     </p>
   </footer>
 

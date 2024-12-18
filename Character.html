@@ -645,14 +645,14 @@
 <section id="charactermovestraight" class="level3">
 <h3><a href="#charactermovestraight"><code>Character.MoveStraight</code></a></h3>
 <div class="sourceCode" id="cb57"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">MoveStraight</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">);</span></span></code></pre></div>
-<p>Moves the character in a straight line as far as possible towards the co-ordinates, without walking animation. Useful for keyboard movement. This move ignores walkable areas.</p>
-<p>Starts the character moving from its current location to (X,Y), but does not play the character's walking animation.</p>
-<p>The parameters to this command are identical to the <a href="Character.html#characterwalkstraight"><code>Character.WalkStraight</code></a> command -- see that page for more details. The only difference is that <em>WalkStraight</em> plays the walking animation whereas <em>MoveStraight</em> does not.</p>
+<p>Moves the character from its current location towards (X,Y) in a straight line as far as is possible before hitting a non-walkable area, without playing a walking animation.</p>
+<p>This is useful for keyboard movement, since it guarantees that the character will move in a straight line in the direction specified.</p>
+<p><em>blocking</em> determines whether the function waits for the character to finish moving before your script resumes. eNoBlock is the default.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">MoveStraight</span><span class="op">(</span><span class="dv">155</span><span class="op">,</span> <span class="dv">122</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
-<p>will make the character move to 155,122 without playing his walking animation in a straight line.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">MoveStraight</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
+<p>will make the character move in a straight line 10 pixels towards bottom-right, unless hitting a non-walkable area earlier, without playing his walking animation.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Character.html#characterwalkstraight"><code>Character.WalkStraight</code></a>, <a href="Character.html#charactermove"><code>Character.Move</code></a> <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
+<p><em>See also:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Character.html#characterwalkstraight"><code>Character.WalkStraight</code></a></p>
 <hr />
 </section>
 <section id="characterplaceonwalkablearea" class="level3">
@@ -948,12 +948,12 @@
 <h3><a href="#characterwalkstraight"><code>Character.WalkStraight</code></a></h3>
 <p><em>(Formerly known as <code>MoveCharacterStraight</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span><span class="op">.</span><span class="at">WalkStraight</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> optional <span class="dt">BlockingStyle</span><span class="op">);</span></span></code></pre></div>
-<p>Moves the character from its current location towards (X,Y) in a straight line as far as is possible before hitting a non-walkable area. This is useful for use with the arrow keys for character movement, since it guarantees that the character will move in a straight line in the direction specified.</p>
-<p><em>blocking</em> determines whether the function waits for the character to finish moving before your script resumes. eNoBlock is the default (which means your script resumes straight away, and the character moves in the background). You can also pass eBlock, in which case your script will not resume until the character finishes moving.</p>
+<p>Moves the character from its current location towards (X,Y) in a straight line as far as is possible before hitting a non-walkable area. This is useful for keyboard movement, since it guarantees that the character will move in a straight line in the direction specified.</p>
+<p><em>blocking</em> determines whether the function waits for the character to finish moving before your script resumes. eNoBlock is the default.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">WalkStraight</span><span class="op">(</span><span class="dv">166</span><span class="op">,</span> <span class="dv">78</span><span class="op">);</span></span></code></pre></div>
-<p>will move the character EGO in a straight line towards co ordinates 166,78 until he hits a non walkable area.</p>
-<p><em>See also:</em> <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">WalkStraight</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span> <span class="op">+</span> <span class="dv">10</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
+<p>will make the character walk in a straight line 10 pixels towards bottom-right, unless hitting a non-walkable area earlier.</p>
+<p><em>See also:</em> <a href="Character.html#charactermove"><code>Character.Move</code></a>, <a href="Character.html#charactermovestraight"><code>Character.MoveStraight</code></a> <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
 <section id="characteractiveinventory" class="level3">
@@ -1132,12 +1132,9 @@
 <div class="sourceCode" id="cb127"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">room_AfterFadeIn</span><span class="op">()</span></span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  cAlter<span class="op">.</span><span class="at">FollowCharacter</span><span class="op">(</span>cEgo<span class="op">);</span></span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span><span class="op">(</span>cAlter<span class="op">.</span><span class="at">Following</span> <span class="op">==</span> cEgo<span class="op">)</span></span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">{</span></span>
-<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>    cAlter<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I am following %s!&quot;</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span>
-<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Will have Alter saying "I am following Roger!", or whatever is <code>cEgo</code>'s name, and also follow him.</p>
+<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>  cAlter<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;I am following %s!&quot;</span><span class="op">,</span> cAlter<span class="op">.</span><span class="at">Following</span><span class="op">.</span><span class="at">Name</span><span class="op">);</span></span>
+<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Will have cAlter follow cEgo and say "I am following Ego!", or whatever <code>cEgo</code>'s name is.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Character.html#characterfollowcharacter"><code>Character.FollowCharacter</code></a></p>
 <hr />
@@ -1408,7 +1405,7 @@
 <span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="bu">eRepeat</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
 <span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will animate the character using loop 3 while they are talking (only useful with Sierra-style speech).</p>
-<p><em>Compatibility</em>: Character.Speaking used to always return <code>false</code> if the character had no SpeechView set prior to <strong>AGS 3.6.2</strong>.</p>
+<p><em>Compatibility</em>: Prior to <strong>AGS 3.6.2</strong> Character.Speaking used to always return <code>false</code> if the character had no SpeechView set.</p>
 <p><em>See also:</em> <a href="Character.html#characteranimating"><code>Character.Animating</code></a>, <a href="Character.html#charactermoving"><code>Character.Moving</code></a>, <a href="Character.html#charactersay"><code>Character.Say</code></a>, <a href="Character.html#characterspeakingframe"><code>Character.SpeakingFrame</code></a>, <a href="Character.html#characterthinking"><code>Character.Thinking</code></a></p>
 <hr />
 </section>
@@ -1633,7 +1630,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c4bf8f31c6c8a1083b3b06d55d22c621e17c7cc
+      Build: 6c418594a91569826e36a9a47c628df90c3e0264
     </p>
   </footer>
 
