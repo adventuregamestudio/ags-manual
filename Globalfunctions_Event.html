@@ -132,43 +132,67 @@
 </section>
 <section id="on_event" class="level3">
 <h3><a href="#on_event"><code>on_event</code></a></h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>on_event <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
-<p>Called whenever certain game events occur. The value of DATA depends on which event has occurred. The possible values of event are:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>on_event <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">,</span> <span class="dt">int</span> data3<span class="op">,</span> <span class="dt">int</span> data4<span class="op">)</span></span></code></pre></div>
+<p>Called whenever certain game events occur. The values of DATA1 to DATA4 arguments depend on which event has occurred. The possible values of event are:</p>
 <pre><code>eEventEnterRoomBeforeFadein
         called just before the room&#39;s &#39;Enter Before Fade-in&#39; event occurs
-        DATA = new room number
+        DATA1 = new room number
 eEventEnterRoomAfterFadein
         called just before the room&#39;s &#39;Enter After Fade-in&#39; event occurs
-        DATA = room number
+        DATA1 = room number
 eEventLeaveRoom
         called just after the room&#39;s &#39;Player Leaves Room&#39; event occurs, before the fade-out
-        DATA = room number they are leaving
+        DATA1 = room number they are leaving
 eEventLeaveRoomAfterFadeout
         called when leaving a room, right after fade-out, but while room is still in memory
-        DATA = room number they are leaving
+        DATA1 = room number they are leaving
 eEventGotScore
         called whenever the player&#39;s score changes
-        DATA = number of points they&#39;ve received
+        DATA1 = number of points they&#39;ve received
 eEventGUIMouseDown
         called when a mouse button is pressed down over a GUI
-        DATA = GUI number
+        DATA1 = GUI number
+        DATA2 = mouse button id; see [MouseButton enum](StandardEnums#mousebutton)
+        DATA3 = mouse x position, *relative* to this exact GUI
+        DATA4 = mouse y position, *relative* to this exact GUI
 eEventGUIMouseUp
         called when a mouse button is released over a GUI
-        DATA = GUI number
+        DATA1 = GUI number
+        DATA2 = mouse button id; see [MouseButton enum](StandardEnums#mousebutton)
+        DATA3 = mouse x position, *relative* to this exact GUI
+        DATA4 = mouse y position, *relative* to this exact GUI
 eEventAddInventory
         called when the player has just added an inventory item
-        DATA = inventory item number that was added
+        DATA1 = inventory item number that was added
 eEventLoseInventory
         called when the player has just lost an inventory item
-        DATA = inventory item number that was lost
+        DATA1 = inventory item number that was lost
 eEventRestoreGame
         called after a saved game has been restored
-        DATA = save slot number
+        DATA1 = save slot number
 eEventGameSaved
         called after a game was saved
-        DATA = save slot number</code></pre>
+        DATA1 = save slot number
+eEventDialogStart
+        called once the dialog state is started, but not when another topic is run
+        DATA1 = dialog ID
+eEventDialogStop
+        called once it exits the dialog state
+        DATA1 = the last dialog ID before exiting dialog state, may be different from one in eEventDialogStart
+eEventDialogRun
+        called anytime a dialog entry is ran
+        DATA1 = dialog ID
+        DATA2 = entry ID, where starting entry (@S) is 0, and user-made options begin with 1
+eEventDialogOptionsOpen
+        called when dialog options appear
+        DATA1 = dialog ID
+eEventDialogOptionsClose
+        called when dialog options close
+        DATA1 = dialog ID
+        DATA2 = entry ID, the option chosen</code></pre>
+<p><strong>NOTE:</strong> when you write this function in your script, you do not have to declare it with all 4 "data" arguments, you may put only first 1 or 2 instead, and the engine will correctly discard unused parameters without error. This also helps when you upgrade older projects to the latest version of AGS.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>event <span class="op">==</span> <span class="bu">eEventEnterRoomBeforeFadein</span><span class="op">)</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
@@ -181,9 +205,17 @@ eEventGameSaved
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em></p>
 <ul>
+<li>The <code>data2</code>, <code>data3</code> and <code>data4</code> arguments are only supported since AGS 3.6.2.</li>
 <li><code>eEventEnterRoomAfterFadein</code> event type is only supported since AGS 3.6.0.</li>
 <li><code>eEventLeaveRoomAfterFadeout</code> event type is only supported since AGS 3.6.1.</li>
 <li><code>eEventGameSaved</code> event type is only supported since AGS 3.6.1.</li>
+<li><code>eEventDialogStart</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogStop</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogRun</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogOptionsOpen</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventDialogOptionsClose</code> event type is only supported since AGS 3.6.2.</li>
+<li><code>eEventGUIMouseDown</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
+<li><code>eEventGUIMouseUp</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
 </ul>
 <hr />
 </section>
@@ -216,11 +248,13 @@ eEventGameSaved
 </section>
 <section id="on_mouse_click" class="level3">
 <h3><a href="#on_mouse_click"><code>on_mouse_click</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">)</span></span></code></pre></div>
-<p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mouse.x</code> and <code>mouse.y</code> global variables contain the mouse's position.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">,</span> <span class="dt">int</span> mx<span class="op">,</span> <span class="dt">int</span> my<span class="op">)</span></span></code></pre></div>
+<p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mx</code> and <code>my</code> parameters contain the mouse's position at the time of a click.</p>
+<p><strong>NOTE:</strong> it is an old tradition to use global variables <code>mouse.x</code> and <code>mouse.y</code> in this function to get the mouse's position. But that method is not entirely reliable, as <code>on_mouse_click</code> may be called with certain delay, when the mouse cursor has already moved a bit. Starting with AGS 3.6.2 we advise to use this function's arguments <code>mx</code> and <code>my</code> instead.</p>
 <p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
 <p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
 <p>The <code>on_mouse_click</code> function can also be defined in individual room scripts. This allows the room script to intercept a mouse-click first, and then decide whether to pass it on to the global script or not. See the <a href="Globalfunctions_General.html#claimevent"><code>ClaimEvent</code></a> function for more details.</p>
+<p><em>Compatibility:</em> The <code>mx</code> and <code>my</code> arguments are only supported since AGS 3.6.2.</p>
 <hr />
 </section>
 <section id="on_text_input" class="level3">
@@ -434,7 +468,7 @@ eEventGameSaved
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

@@ -94,30 +94,31 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>validate_restored_save<span class="op">(</span>RestoredSaveInfo<span class="op">*</span> info<span class="op">)</span></span></code></pre></div>
 <p>Starting with version 3.6.2 the engine potentially allows to restore older saves which contents do not directly match the current game. To be precise - it allows to restore saves which have <em>less</em> data of any kind than the current game: less Characters, less GUI, less controls on particular GUI, less script variables, and so forth. But would such saves be restored fully automatically, that would result in unexpected game behavior, and would come unexpected to the game developers.</p>
 <p>For that reason we have introduced a function named "validate_restored_save", which you may write in your game script if you would like to support restoring older saves with less data. If you do not plan that in your game, then you do not have to add one.</p>
-<p>The purpose of "validate_restored_save" is to receive a struct <code>RestoredSaveInfo</code> which contains a summary about the save, and lets game developer decide whether to accept or cancel this save.</p>
+<p>The purpose of "validate_restored_save" is to receive a struct <a href="RestoredSaveInfo.html"><code>RestoredSaveInfo</code></a> which contains a summary about the save, and lets game developer decide whether to accept or cancel this save.</p>
 <p>This function may be called in two cases:</p>
 <ul>
 <li>when a save is being restored by the engine, and data mismatch was detected;</li>
 <li>when <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots</code></a> is called by you.</li>
 </ul>
 <p>If we take a look at the <code>RestoredSaveInfo</code> struct, most of its properties tell the numbers of different kinds of data: <code>CharacterCount</code>, <code>GUICount</code>, and so on, - they are self-descriptive for the most part.</p>
-<p>Besides these there are 3 properties that have special meaning:</p>
-<p><em>RestoredSaveInfo.Result</em> - contains a combination of <a href="StandardEnums.html#restoredsaveresult">RestoredSaveResult values</a>. These indicate if the save contains mismatching data. This property also can tell that this call is a part of save "prescan", in which case no save is actually loaded, and engine is only testing one.</p>
+<p>Besides these there are several properties that have special meaning:</p>
+<p><em>RestoredSaveInfo.IsPrescan</em> - tells whether "validate_restored_save" was called as a part of save scanning. This means that no restored data was applied to the game, and only a save summary was gathered for validation.</p>
+<p><em>RestoredSaveInfo.HasExtraData</em> and <em>RestoredSaveInfo.HasMissingData</em> - these indicate if the save contains mismatching data.</p>
 <p><em>RestoredSaveInfo.Cancel</em> - by setting this value to <code>true</code> or <code>false</code> you decide whether to accept or cancel the save. Note that if there's any data mismatch, then Cancel will be set to <code>true</code> by default: that means that if you do not set it yourself, then the save will be cancelled automatically.</p>
-<p><em>RestoredSaveInfo.RetryWithoutComponents</em> - by setting this value to a combination of <a href="StandardEnums.html#savecomponentselection">SaveComponentSelection values</a> you can instruct the engine to reload the same save, only this time it should skip certain types of data completely. This choice may be a last resort when the save is so outdated that some parts of it cannot be applied.</p>
+<p><em>RestoredSaveInfo.RetryWithoutComponents</em> - by setting this value to a combination of <a href="StandardEnums.html#savecomponentselection">SaveComponentSelection values</a> you can instruct the engine to reload the same save, only this time it should skip certain types of data completely. This choice may be the last resort when the save is so outdated that some parts of it cannot be applied.</p>
 <p>In the most common case in this function you inspect the provided save's summary and set RestoredSaveInfo.Cancel to either <code>true</code> or <code>false</code>, judging by the summary values. What else you do in this function is completely up to you. For example, you may modify certain things in game after restoring an old save. Or you may schedule this for later, when you receive <a href="Globalfunctions_Event.html#on_event"><code>eEventRestoreGame</code></a>.</p>
 <p>Following is a relatively simple example of how such function could be implemented:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">validate_restored_save</span><span class="op">(</span>RestoredSaveInfo<span class="op">*</span> info<span class="op">)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// We do not support saves with extra data.</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span>info<span class="op">.</span><span class="at">Result</span> <span class="op">&amp;</span> eRestoredSave_ExtraData<span class="op">)</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>info<span class="op">.</span><span class="at">HasExtraData</span><span class="op">)</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        info<span class="op">.</span><span class="at">Cancel</span> = <span class="bu">true</span><span class="op">;</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// If there&#39;s no missing data, then simply accept it and return.</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span>info<span class="op">.</span><span class="at">Result</span> <span class="op">&amp;</span> eRestoredSave_MissingData<span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>info<span class="op">.</span><span class="at">HasMissingData</span><span class="op">)</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        info<span class="op">.</span><span class="at">Cancel</span> = <span class="bu">false</span><span class="op">;</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
@@ -137,7 +138,7 @@
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// If this is a &quot;prescan&quot; run, then this save is not getting loaded right away,</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">// so we should not upgrade any game data, so return.</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">((</span>info<span class="op">.</span><span class="at">Result</span> <span class="op">&amp;</span> eRestoredSave_Prescan<span class="op">)</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>info<span class="op">.</span><span class="at">IsPrescan</span><span class="op">)</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span><span class="op">;</span></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
@@ -151,7 +152,8 @@
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">// etc...</span></span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><em>See also:</em> <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots</code></a></p>
+<p><em>Compatibility:</em> <code>validate_restored_save</code> is supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="RestoredSaveInfo.html"><code>RestoredSaveInfo</code></a>, <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots</code></a></p>
 </section>
   </main>
 
@@ -159,7 +161,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

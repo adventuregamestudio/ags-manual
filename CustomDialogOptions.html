@@ -127,8 +127,9 @@
 </section>
 <section id="dialog_options_mouse_click" class="level3">
 <h3><a href="#dialog_options_mouse_click"><code>dialog_options_mouse_click</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dialog_options_mouse_click<span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">MouseButton</span> button<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dialog_options_mouse_click<span class="op">(</span><span class="bu">DialogOptionsRenderingInfo</span> <span class="op">*</span>info<span class="op">,</span> <span class="dt">MouseButton</span> button<span class="op">,</span> <span class="dt">int</span> mx<span class="op">,</span> <span class="dt">int</span> my<span class="op">)</span></span></code></pre></div>
 <p>This function is called if the player clicks the mouse anywhere on dialog options. It corresponds to the regular <a href="Globalfunctions_Event.html#on_mouse_click"><code>on_mouse_click</code></a>. You might want to use this to process clicks on dialog options, and also on some custom elements like scroll arrows, for example.</p>
+<p>The <code>mx</code> and <code>my</code> parameters contain mouse's position at the time of click. They are more reliable than using global variables <code>mouse.x</code> and <code>mouse.y</code>, because this function may be called with a small delay when the mouse have already moved away a bit. These parameters contain position in <em>screen coordinates</em>, as sometimes it may be necessary to know if player clicked outside of the dialog options bounds. Subtract <a href="DialogOptionsRenderingInfo.html#dialogoptionsrenderinginfox">DialogOptionsRenderInfo.X</a> and Y property values from these to tell the relative position.</p>
 <hr />
 </section>
 <section id="dialog_options_key_press" class="level3">
@@ -317,7 +318,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

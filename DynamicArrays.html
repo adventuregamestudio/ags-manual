@@ -87,6 +87,7 @@
 <li><a href="#dynamic-arrays" id="toc-dynamic-arrays">Dynamic Arrays</a>
 <ul>
 <li><a href="#overview" id="toc-overview">Overview</a></li>
+<li><a href="#arrays-length" id="toc-arrays-length">Array's Length</a></li>
 <li><a href="#filling-a-dynamic-array" id="toc-filling-a-dynamic-array">Filling a dynamic array</a></li>
 <li><a href="#resizing-a-dynamic-array" id="toc-resizing-a-dynamic-array">Resizing a dynamic array</a></li>
 <li><a href="#deleting-dynamic-array" id="toc-deleting-dynamic-array">Deleting dynamic array</a></li>
@@ -108,30 +109,39 @@
 <p>You may create dynamic arrays of basic types (int, char, etc), built-in types (String, Character, etc), and custom structs declared as <code>managed</code>. But currently you cannot have dynamic arrays of regular (non-managed) custom structs.</p>
 <p>On another hand, you cannot have dynamic arrays inside "managed" structs as their members, but can have them anywhere else.</p>
 </section>
+<section id="arrays-length" class="level3">
+<h3><a href="#arrays-length">Array's Length</a></h3>
+<p>Dynamic array's length is its number of elements. In AGS you can access this value using a <code>Length</code> property:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>characterHealth = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="bu">Game</span><span class="op">.</span><span class="at">CharacterCount</span><span class="op">];</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;...&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// later in script</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> len = characterHealth<span class="op">.</span><span class="at">Length</span><span class="op">;</span></span></code></pre></div>
+<p><em>Compatibility:</em> The dynamic array's Length property is supported by <strong>AGS 3.6.2</strong> and later versions. In previous versions you would have to store created array's length in a separate integer variable.</p>
+</section>
 <section id="filling-a-dynamic-array" class="level3">
 <h3><a href="#filling-a-dynamic-array">Filling a dynamic array</a></h3>
 <p>If you have dynamic array of managed pointers, then after creation all of these pointers will be null. You must also assign individual elements one by one. For example, when you want to fill an array with already existing game objects:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span> <span class="op">*</span>groupOfChars<span class="op">[]</span> = <span class="kw">new</span> <span class="bu">Character</span><span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = cRoger<span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = cMary<span class="op">;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = cThomas<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = cVillager<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Character</span> <span class="op">*</span>groupOfChars<span class="op">[]</span> = <span class="kw">new</span> <span class="bu">Character</span><span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = cRoger<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = cMary<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = cThomas<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>groupOfChars<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = cVillager<span class="op">;</span></span></code></pre></div>
 <p>Similarily, when you want to create completely new objects:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>sprites<span class="op">[]</span> = <span class="kw">new</span> <span class="bu">DynamicSprite</span><span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>sprites<span class="op">[]</span> = <span class="kw">new</span> <span class="bu">DynamicSprite</span><span class="op">[</span><span class="dv">4</span><span class="op">];</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">1</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">2</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">40</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">3</span><span class="op">]</span> = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span></code></pre></div>
 <p>Accessing individual elements is as simple as with regular array:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> health = characterHealth<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> charX = groupOfChars<span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">x</span><span class="op">;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Flip</span><span class="op">(</span><span class="bu">eFlipLeftToRight</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> health = characterHealth<span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> charX = groupOfChars<span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">x</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sprites<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Flip</span><span class="op">(</span><span class="bu">eFlipLeftToRight</span><span class="op">);</span></span></code></pre></div>
 <p>You don't <em>have</em> to fill all the array indexes of course, you may as well leave some empty (null). Just remember to keep track of that, and if your script may access empty indexes make sure to check if the element is null or not before using it:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> numSprites<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>sprites<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        sprites<span class="op">[</span>i<span class="op">].</span><span class="at">Flip</span><span class="op">(</span><span class="bu">eFlipLeftToRight</span><span class="op">);</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> sprites<span class="op">.</span><span class="at">Length</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>sprites<span class="op">[</span>i<span class="op">]</span> <span class="op">!=</span> null<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        sprites<span class="op">[</span>i<span class="op">].</span><span class="at">Flip</span><span class="op">(</span><span class="bu">eFlipLeftToRight</span><span class="op">);</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </section>
 <section id="resizing-a-dynamic-array" class="level3">
 <h3><a href="#resizing-a-dynamic-array">Resizing a dynamic array</a></h3>
@@ -142,41 +152,41 @@
 <li>Assign new array to your usual array variable.</li>
 </ul>
 <p>For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arrOfInts<span class="op">[];</span> <span class="co">// declare a dynamic array of ints</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="co">// create array of 100 ints</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">resize_array</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tempArr<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">200</span><span class="op">];</span> <span class="co">// create array of 200 ints and save it in a temp var</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">100</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        tempArr<span class="op">[</span>i<span class="op">]</span> = arrOfInts<span class="op">[</span>i<span class="op">];</span> <span class="co">// copy contents of the old array</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    arrOfInts = tempArr<span class="op">;</span> <span class="co">// assign new array to your usual variable</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arrOfInts<span class="op">[];</span> <span class="co">// declare a dynamic array of ints</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">game_start</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="co">// create array of 100 ints</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">resize_array</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tempArr<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">200</span><span class="op">];</span> <span class="co">// create array of 200 ints and save it in a temp var</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span>i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> arrOfInts<span class="op">.</span><span class="at">Length</span> <span class="op">&amp;&amp;</span> i <span class="op">&lt;</span> <span class="dv">200</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        tempArr<span class="op">[</span>i<span class="op">]</span> = arrOfInts<span class="op">[</span>i<span class="op">];</span> <span class="co">// copy contents of the old array</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    arrOfInts = tempArr<span class="op">;</span> <span class="co">// assign new array to your usual variable</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>Same solution may work when you want to reduce an array to a smaller size, except in that case you'll have to loose some elements.</p>
 </section>
 <section id="deleting-dynamic-array" class="level3">
 <h3><a href="#deleting-dynamic-array">Deleting dynamic array</a></h3>
 <p>Like most of the dynamically created objects in AGS, dynamic arrays exist so long as it is assigned to at least one pointer. If you have one pointer to array, and you change its value or assign it to null, then the dynamic array will get deleted automatically:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arrOfInts<span class="op">[];</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="co">// create and assign an array of 100 ints</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">200</span><span class="op">];</span> <span class="co">// assign a new array of 200 ints; the previous one is lost and gets deleted</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>arrOfInts = null<span class="op">;</span> <span class="co">// now the second array is also lost and get deleted</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arrOfInts<span class="op">[];</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span> <span class="co">// create and assign an array of 100 ints</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>arrOfInts = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">200</span><span class="op">];</span> <span class="co">// assign a new array of 200 ints; the previous one is lost and gets deleted</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>arrOfInts = null<span class="op">;</span> <span class="co">// now the second array is also lost and get deleted</span></span></code></pre></div>
 <p>Note that if you store a dynamic array in a local function variable, that variable will get removed as soon as function ends, and if array was not reassigned to any global pointer, then it also gets deleted automatically.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">func</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arrOfInts<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something with this array</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// as soon as function ends the array gets deleted</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">func</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arrOfInts<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">100</span><span class="op">];</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something with this array</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="co">// as soon as function ends the array gets deleted</span></span></code></pre></div>
 <p>The array will not be deleted if you <em>return</em> it from the function; so long as the returned array is assigned to a pointer of course:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> <span class="fu">func_makearr</span><span class="op">(</span><span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arrOfInts<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>size<span class="op">];</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arrOfInts<span class="op">;</span> <span class="co">// not deleted just yet</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">// somewhere else in code:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr<span class="op">[]</span> = func_makearr<span class="op">(</span><span class="dv">100</span><span class="op">);</span> <span class="co">// the returned array will be assigned to `arr` pointer</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> <span class="fu">func_makearr</span><span class="op">(</span><span class="dt">int</span> size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> arrOfInts<span class="op">[]</span> = <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span>size<span class="op">];</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arrOfInts<span class="op">;</span> <span class="co">// not deleted just yet</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// somewhere else in code:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> arr<span class="op">[]</span> = func_makearr<span class="op">(</span><span class="dv">100</span><span class="op">);</span> <span class="co">// the returned array will be assigned to `arr` pointer</span></span></code></pre></div>
 <p><em>See also:</em> <a href="ScriptKeywords.html#arrays">Arrays</a>, <a href="ScriptKeywords.html#struct">Structs</a></p>
 </section>
 </section>
@@ -186,7 +196,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

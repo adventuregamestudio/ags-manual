@@ -83,9 +83,6 @@
   </nav>
 
   <main>
-<a href="#1">1</a>&nbsp;
-<a href="#2">2</a>&nbsp;
-<a href="#3">3</a>&nbsp;
 <a href="#a">A</a>&nbsp;
 <a href="#b">B</a>&nbsp;
 <a href="#c">C</a>&nbsp;
@@ -109,12 +106,6 @@
 <a href="#v">V</a>&nbsp;
 <a href="#w">W</a>&nbsp;
 <a href="#y">Y</a>
-<h3 id="1">1</h3>
-<a href="UpgradeTo362.html#1-support-for-loading-saves-with-less-content-for-any-given-type-of-data">1. Support for loading saves with less content for any given type of data. (Upgrading to AGS 3.6.2)</a><br>
-<h3 id="2">2</h3>
-<a href="UpgradeTo362.html#2-validating-restored-saves">2. Validating restored saves. (Upgrading to AGS 3.6.2)</a><br>
-<h3 id="3">3</h3>
-<a href="UpgradeTo362.html#3-prescanning-save-slots">3. Prescanning save slots. (Upgrading to AGS 3.6.2)</a><br>
 <h3 id="a">A</h3>
 <a href="Globalfunctions_General.html#abortgame">AbortGame</a><br>
 <a href="OOProgramming.html#access-with-extender-functions">Access with extender functions (Object Oriented Programming)</a><br>
@@ -150,6 +141,7 @@
 <a href="AnonymousUsageInfo.html#anonymous-usage-information">Anonymous usage information</a><br>
 <a href="ScriptAPIOverview.html#api-switches">API switches (Script API Overview)</a><br>
 <a href="Globalfunctions_Room.html#arethingsoverlapping">AreThingsOverlapping</a><br>
+<a href="DynamicArrays.html#arrays-length">Array's Length (Dynamic Arrays)</a><br>
 <a href="ScriptKeywords.html#arrays">Arrays (Script language keywords)</a><br>
 <a href="DefaultSetup.html#audio">Audio (Default Setup)</a><br>
 <a href="AudioInScript.html#audio-in-script">Audio in script</a><br>
@@ -584,23 +576,30 @@
 <a href="File.html#file-functions-and-properties">File</a><br>
 <a href="MusicAndSound.html#file-formats">File formats (Music and sound)</a><br>
 <a href="File.html#fileclose">File.Close</a><br>
+<a href="File.html#filecopy">File.Copy</a><br>
 <a href="File.html#filedelete">File.Delete</a><br>
 <a href="File.html#fileeof">File.EOF</a><br>
 <a href="File.html#fileerror">File.Error</a><br>
 <a href="File.html#fileexists">File.Exists</a><br>
 <a href="File.html#filegetfiles">File.GetFiles</a><br>
+<a href="File.html#filegetfiletime">File.GetFileTime</a><br>
 <a href="File.html#fileopen">File.Open</a><br>
 <a href="File.html#filepath">File.Path</a><br>
 <a href="File.html#fileposition">File.Position</a><br>
+<a href="File.html#filereadbytes">File.ReadBytes</a><br>
 <a href="File.html#filereadint">File.ReadInt</a><br>
 <a href="File.html#filereadrawchar">File.ReadRawChar</a><br>
+<a href="File.html#filereadrawfloat">File.ReadRawFloat</a><br>
 <a href="File.html#filereadrawint">File.ReadRawInt</a><br>
 <a href="File.html#filereadrawlineback">File.ReadRawLineBack</a><br>
 <a href="File.html#filereadstringback">File.ReadStringBack</a><br>
+<a href="File.html#filerename">File.Rename</a><br>
 <a href="File.html#fileresolvepath">File.ResolvePath</a><br>
 <a href="File.html#fileseek">File.Seek</a><br>
+<a href="File.html#filewritebytes">File.WriteBytes</a><br>
 <a href="File.html#filewriteint">File.WriteInt</a><br>
 <a href="File.html#filewriterawchar">File.WriteRawChar</a><br>
+<a href="File.html#filewriterawfloat">File.WriteRawFloat</a><br>
 <a href="File.html#filewriterawint">File.WriteRawInt</a><br>
 <a href="File.html#filewriterawline">File.WriteRawLine</a><br>
 <a href="File.html#filewritestring">File.WriteString</a><br>
@@ -623,6 +622,7 @@
 <a href="Game.html#game-functions-and-properties">Game</a><br>
 <a href="GameEventsOrder.html#game-events-order">Game events order</a><br>
 <a href="acintro1.html#game-resolution">Game Resolution (Getting Started with AGS)</a><br>
+<a href="RuntimeEngine.html#game-saves">Game saves (The run-time engine)</a><br>
 <a href="GameSavesCompatibility.html#game-saves-compatibility">Game saves compatibility</a><br>
 <a href="acintro7.html#game-starting-point">Game starting point (Getting Started with AGS - Part 7)</a><br>
 <a href="Gamevariables.html#game-variables">Game variables</a><br>
@@ -1284,6 +1284,7 @@
 <a href="Pointers.html#pointers-for-programming-newbies">Pointers for programming newbies (Pointers in AGS)</a><br>
 <a href="Pointers.html#pointers-in-ags">Pointers in AGS</a><br>
 <a href="Preprocessor.html#preprocessor">Preprocessor</a><br>
+<a href="UpgradeTo362.html#prescanning-save-slots">Prescanning save slots. (Upgrading to AGS 3.6.2)</a><br>
 <a href="EditorInventoryItems.html#properties">Properties (Inventory Items Editor)</a><br>
 <a href="EditorView.html#properties">Properties (View Editor)</a><br>
 <a href="EditorRoom.html#properties-control">Properties control (Room Editor)</a><br>
@@ -1325,6 +1326,30 @@
 <a href="Globalfunctions_Room.html#resetroom">ResetRoom</a><br>
 <a href="DynamicArrays.html#resizing-a-dynamic-array">Resizing a dynamic array (Dynamic Arrays)</a><br>
 <a href="Globalfunctions_General.html#restartgame">RestartGame</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfo">RestoredSaveInfo</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoaudiocliptypecount">RestoredSaveInfo.AudioClipTypeCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfocancel">RestoredSaveInfo.Cancel</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfocharactercount">RestoredSaveInfo.CharacterCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfocursorcount">RestoredSaveInfo.CursorCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfodescription">RestoredSaveInfo.Description</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfodialogcount">RestoredSaveInfo.DialogCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoengineversion">RestoredSaveInfo.EngineVersion</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoglobalscriptdatasize">RestoredSaveInfo.GlobalScriptDataSize</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoguicontrolcount">RestoredSaveInfo.GUIControlCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoguicount">RestoredSaveInfo.GUICount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfohasextradata">RestoredSaveInfo.HasExtraData</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfohasmissingdata">RestoredSaveInfo.HasMissingData</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoinventoryitemcount">RestoredSaveInfo.InventoryItemCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoisprescan">RestoredSaveInfo.IsPrescan</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinforetrywithoutcomponents">RestoredSaveInfo.RetryWithoutComponents</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinforoom">RestoredSaveInfo.Room</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoscriptmodulecount">RestoredSaveInfo.ScriptModuleCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoscriptmoduledatasizes">RestoredSaveInfo.ScriptModuleDataSizes</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoscriptmodulenames">RestoredSaveInfo.ScriptModuleNames</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoslot">RestoredSaveInfo.Slot</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoviewcount">RestoredSaveInfo.ViewCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoviewframecount">RestoredSaveInfo.ViewFrameCount</a><br>
+<a href="RestoredSaveInfo.html#restoredsaveinfoviewloopcount">RestoredSaveInfo.ViewLoopCount</a><br>
 <a href="StandardEnums.html#restoredsaveresult">RestoredSaveResult</a><br>
 <a href="Globalfunctions_General.html#restoregamedialog">RestoreGameDialog</a><br>
 <a href="Globalfunctions_General.html#restoregameslot">RestoreGameSlot</a><br>
@@ -1508,6 +1533,7 @@
 <a href="ScriptKeywords.html#struct">struct (Script language keywords)</a><br>
 <a href="DialogScript.html#substituting-dialog-speech-with-custom-functions">Substituting dialog speech with custom functions (Dialog Script)</a><br>
 <a href="ScriptingTutorialPart1.html#summary">Summary (Scripting Tutorial - Part 1)</a><br>
+<a href="UpgradeTo362.html#support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with less content for any given type of data. (Upgrading to AGS 3.6.2)</a><br>
 <a href="ScriptKeywords.html#switch-case-statements">switch, case statements (Script language keywords)</a><br>
 <a href="System.html#system-functions-and-properties">System</a><br>
 <a href="SystemLimits.html#system-limits">System limits</a><br>
@@ -1630,6 +1656,7 @@
 <a href="acintro6.html#using-your-own-graphics">Using your own graphics (Getting Started with AGS - Part 6)</a><br>
 <h3 id="v">V</h3>
 <a href="ValidateRestoredSave.html#validate_restored_save">validate_restored_save</a><br>
+<a href="UpgradeTo362.html#validating-restored-saves">Validating restored saves. (Upgrading to AGS 3.6.2)</a><br>
 <a href="ScriptingTutorialPart1.html#variables">Variables (Scripting Tutorial - Part 1)</a><br>
 <a href="TemplateVerbcoin.html#verbcoin-template">VerbCoin template</a><br>
 <a href="TemplateVerbcoin.html#verbcoinactionlabel">VerbCoin.ActionLabel</a><br>
@@ -1753,7 +1780,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

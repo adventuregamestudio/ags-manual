@@ -106,11 +106,16 @@
 </ol>
 <p>Locations of two latter files differ between running platforms:</p>
 <ul>
-<li><strong>Linux</strong>:
+<li><strong>Linux</strong>, <strong>FreeBSD</strong>:
 <ul>
 <li>user's global config: <code>$XDG_DATA_HOME/ags/acsetup.cfg</code></li>
 <li>user's game config: <code>$XDG_DATA_HOME/ags/GAMENAME/acsetup.cfg</code></li>
 <li>NOTE: if <code>$XDG_DATA_HOME</code> is not defined, then <code>$HOME/.local/share</code> is used instead.</li>
+</ul></li>
+<li><strong>MacOSX</strong>:
+<ul>
+<li>user's global config: <code>Users/&lt;username&gt;/Library/Application Support/uk.co.adventuregamestudio/acsetup.cfg</code></li>
+<li>user's game config: <code>Users/&lt;username&gt;/Library/Application Support/GAMENAME/acsetup.cfg</code></li>
 </ul></li>
 <li><strong>Windows</strong>:
 <ul>
@@ -306,7 +311,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 

@@ -87,6 +87,7 @@
 <li><a href="#the-run-time-engine" id="toc-the-run-time-engine">The run-time engine</a>
 <ul>
 <li><a href="#how-the-engine-finds-the-game-data" id="toc-how-the-engine-finds-the-game-data">How the engine finds the game data</a></li>
+<li><a href="#game-saves" id="toc-game-saves">Game saves</a></li>
 <li><a href="#command-line" id="toc-command-line">Command line</a></li>
 </ul></li>
 </ul>
@@ -108,6 +109,25 @@
 <li>If there are multiple game files in the directory, usually the first in alphabetical order will get hooked up. This includes both <code>.ags</code> game files and game files attached to other exe files.</li>
 </ol>
 <p>This search order means, if you are shipping a game, make sure that only one game file is in the same directory as the engine.</p>
+</section>
+<section id="game-saves" class="level3">
+<h3><a href="#game-saves">Game saves</a></h3>
+<p>Depending on a OS, game saves default location will differ:</p>
+<ul>
+<li><strong>Linux</strong>, <strong>FreeBSD</strong>:
+<ul>
+<li><code>$XDG_DATA_HOME/ags/GAMENAME/</code></li>
+<li>NOTE: if <code>$XDG_DATA_HOME</code> is not defined, then <code>$HOME/.local/share</code> is used instead.</li>
+</ul></li>
+<li><strong>MacOSX</strong>:
+<ul>
+<li><code>Users/&lt;username&gt;/Library/Application Support/GAMENAME/</code></li>
+</ul></li>
+<li><strong>Windows</strong>:
+<ul>
+<li><code>%USERPROFILE%/Saved Games/GAMENAME/</code></li>
+</ul></li>
+</ul>
 </section>
 <section id="command-line" class="level3">
 <h3><a href="#command-line">Command line</a></h3>
@@ -209,7 +229,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 6c418594a91569826e36a9a47c628df90c3e0264
+      Build: a5600dfea82969b8beeb129196023c57565952b1
     </p>
   </footer>
 
