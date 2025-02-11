@@ -403,9 +403,15 @@ eOptionOffForever
 <section id="stopdialog" class="level3">
 <h3><a href="#stopdialog"><code>StopDialog</code></a></h3>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StopDialog</span> <span class="op">()</span></span></code></pre></div>
-<p>This command can only be used either in dialog script or from within the "dialog_request" function, and schedules end of a conversation. If called in dialog script it will make conversation stop after current option's script completes. If called in "dialog_request" function it will make conversation stop right after "dialog_request" function finishes.</p>
+<p>This command stop the current dialog, if any is running. But it's effect is not immediate.</p>
+<ul>
+<li>If called in dialog script, or in normal script function being called from a dialog script, then the dialog will stop after current option's script completes.</li>
+<li>If called in "dialog_request" function, then the dialog will stop right after "dialog_request" function finishes.</li>
+<li>If called from regular script while the dialog options are being displayed (i.e. from "repeatedly_execute_always"), then the dialog will stop after the game finishes updating.</li>
+<li>If called from any function which is a part of the <a href="CustomDialogOptions.html">custom dialog options rendering</a>, then the dialog will stop right after this script function ends.</li>
+</ul>
 <p>You can use this function to end the conversation depending on whether the player has/does a certain thing.</p>
-<p>Example:</p>
+<p>Example 1:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span> <span class="op">(</span><span class="dt">int</span> dr<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>dr<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iPoster<span class="op">);</span></span>
@@ -413,6 +419,16 @@ eOptionOffForever
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will give the player the inventory item iPoster and then end the conversation.</p>
+<p>Example 2:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span> <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dDialogThatMayBeInterrupted<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyEscape</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">StopDialog</span><span class="op">();</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will stop a certain dialog if player presses Escape while dialog options are displayed.</p>
+<p><em>Compatibility:</em> Prior to <strong>AGS 3.6.2</strong> StopDialog could only work if called from "dialog_request" function.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a>, <a href="Globalfunctions_Event.html#dialog_request"><code>dialog_request</code></a></p>
 </section>
 </section>
@@ -422,7 +438,7 @@ eOptionOffForever
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1bacf74deb9c826aefa42f852d9bc183f1121114
+      Build: 913d7c09813bf6da23e652b4d489ed2276fe9a9f
     </p>
   </footer>
 

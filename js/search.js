@@ -579,7 +579,7 @@ var meta = {
       "16": { "BuildAndroid": 7 },
       "17": { "Button": 11 },
       "18": { "Camera": 2 },
-      "19": { "Character": 55 },
+      "19": { "Character": 56 },
       "20": { "Constants": 7 },
       "21": { "ContactingTheDevelopers": 8 },
       "22": { "Copyright": 6 },
@@ -588,7 +588,7 @@ var meta = {
       "25": { "DateTime": 3 },
       "26": { "Debuggingfeatures": 2 },
       "27": { "DefaultSetup": 1 },
-      "28": { "Dialog": 15 },
+      "28": { "Dialog": 16 },
       "29": { "DialogOptionsRenderingInfo": 16 },
       "30": { "DialogScript": 4 },
       "31": { "Dictionary": 1 },
@@ -655,7 +655,7 @@ var meta = {
       "92": { "Preprocessor": 11 },
       "93": { "Region": 3 },
       "94": { "RestoredSaveInfo": 6 },
-      "95": { "Room": 3 },
+      "95": { "Room": 4 },
       "96": { "RuntimeEngine": 5 },
       "97": { "Screen": 3 },
       "98": { "ScriptAPIOverview": 14 },
@@ -1485,14 +1485,15 @@ var meta = {
       "6": { "MIDI-playback": 1 },
       "7": { "Object": 1 },
       "8": { "OOProgramming": 2 },
-      "9": { "Room": 1 },
-      "10": { "ScriptingTutorialPart1": 2 },
-      "11": { "ScriptKeywords": 1 },
-      "12": { "Slider": 2 },
-      "13": { "TroubleshootingWindowsZoneID": 1 },
-      "14": { "UpgradeTo36": 1 },
-      "15": { "UpgradeTo362": 2 },
-      "16": { "UpgradingTo271": 1 }
+      "9": { "Overlay": 1 },
+      "10": { "Room": 1 },
+      "11": { "ScriptingTutorialPart1": 2 },
+      "12": { "ScriptKeywords": 1 },
+      "13": { "Slider": 2 },
+      "14": { "TroubleshootingWindowsZoneID": 1 },
+      "15": { "UpgradeTo36": 1 },
+      "16": { "UpgradeTo362": 2 },
+      "17": { "UpgradingTo271": 1 }
     },
     "Android": {
       "0": { "BuildAndroid": 20 },
@@ -3093,7 +3094,8 @@ var meta = {
     },
     "Character.PlaceOnWalkableArea": {
       "0": { "Character": 2 },
-      "1": { "ObsoleteScriptAPI": 1 }
+      "1": { "ObsoleteScriptAPI": 1 },
+      "2": { "Room": 1 }
     },
     "Character.PreviousRoom": {
       "0": { "Character": 2 },
@@ -3369,9 +3371,8 @@ var meta = {
       "8": { "Hotspot": 1 },
       "9": { "InventoryItem": 1 },
       "10": { "Object": 4 },
-      "11": { "Overlay": 1 },
-      "12": { "Parser": 1 },
-      "13": { "String": 1 }
+      "11": { "Parser": 1 },
+      "12": { "String": 1 }
     },
     "Choose": {
       "0": { "acintro4": 1 },
@@ -3582,7 +3583,7 @@ var meta = {
       "5": { "Constants": 1 },
       "6": { "CustomDialogOptions": 4 },
       "7": { "DateTime": 2 },
-      "8": { "Dialog": 12 },
+      "8": { "Dialog": 13 },
       "9": { "DialogOptionsRenderingInfo": 13 },
       "10": { "Dictionary": 1 },
       "11": { "DrawingSurface": 2 },
@@ -3609,7 +3610,7 @@ var meta = {
       "32": { "Parser": 1 },
       "33": { "Region": 3 },
       "34": { "RestoredSaveInfo": 1 },
-      "35": { "Room": 3 },
+      "35": { "Room": 4 },
       "36": { "Screen": 2 },
       "37": { "ScriptAPIOverview": 1 },
       "38": { "Set": 1 },
@@ -4414,10 +4415,10 @@ var meta = {
       "17": { "UpgradeTo34": 1 }
     },
     "Dialog.AreOptionsDisplayed": {
-      "0": { "Dialog": 4 }
+      "0": { "Dialog": 5 }
     },
     "Dialog.CurrentDialog": {
-      "0": { "Dialog": 6 },
+      "0": { "Dialog": 7 },
       "1": { "Speech": 1 }
     },
     "Dialog.DisplayOptions": {
@@ -4718,7 +4719,7 @@ var meta = {
       "43": { "Preprocessor": 1 },
       "44": { "Region": 8 },
       "45": { "RepExec": 1 },
-      "46": { "Room": 12 },
+      "46": { "Room": 13 },
       "47": { "Screen": 2 },
       "48": { "ScriptingTutorialPart1": 17 },
       "49": { "ScriptingTutorialPart2": 7 },
@@ -5686,9 +5687,10 @@ var meta = {
       "3": { "GUIControl": 1 }
     },
     "Escape": {
-      "0": { "Keycodes": 1 },
-      "1": { "ScriptKeywords": 1 },
-      "2": { "System": 1 }
+      "0": { "Dialog": 1 },
+      "1": { "Keycodes": 1 },
+      "2": { "ScriptKeywords": 1 },
+      "3": { "System": 1 }
     },
     "Even": {
       "0": { "Room": 1 },
@@ -5753,7 +5755,7 @@ var meta = {
       "4": { "Character": 92 },
       "5": { "CustomDialogOptions": 2 },
       "6": { "DateTime": 8 },
-      "7": { "Dialog": 16 },
+      "7": { "Dialog": 17 },
       "8": { "DialogOptionsRenderingInfo": 12 },
       "9": { "Dictionary": 5 },
       "10": { "DrawingSurface": 17 },
@@ -5783,7 +5785,7 @@ var meta = {
       "34": { "Parser": 4 },
       "35": { "Region": 13 },
       "36": { "RestoredSaveInfo": 3 },
-      "37": { "Room": 17 },
+      "37": { "Room": 18 },
       "38": { "Screen": 3 },
       "39": { "ScriptKeywords": 4 },
       "40": { "Set": 4 },
@@ -6114,12 +6116,12 @@ var meta = {
     "File.Position": {
       "0": { "File": 3 }
     },
-    "File.ReadBytes": {
-      "0": { "File": 3 }
-    },
     "File.ReadInt": {
       "0": { "File": 3 },
       "1": { "ObsoleteScriptAPI": 1 }
+    },
+    "File.ReadRawBytes": {
+      "0": { "File": 3 }
     },
     "File.ReadRawChar": {
       "0": { "File": 5 },
@@ -6158,12 +6160,12 @@ var meta = {
       "0": { "File": 2 },
       "1": { "StandardEnums": 1 }
     },
-    "File.WriteBytes": {
-      "0": { "File": 4 }
-    },
     "File.WriteInt": {
       "0": { "File": 8 },
       "1": { "ObsoleteScriptAPI": 1 }
+    },
+    "File.WriteRawBytes": {
+      "0": { "File": 4 }
     },
     "File.WriteRawChar": {
       "0": { "File": 4 },
@@ -7453,14 +7455,15 @@ var meta = {
       "1": { "Setup": 1 }
     },
     "Games": {
-      "0": { "DistGame": 2 },
-      "1": { "EngineConfigFile": 2 },
-      "2": { "Game": 2 },
-      "3": { "GeneralSettings": 2 },
-      "4": { "Globalfunctions_General": 1 },
-      "5": { "GUIControl": 1 },
-      "6": { "RuntimeEngine": 1 },
-      "7": { "Setup": 1 }
+      "0": { "Credits": 2 },
+      "1": { "DistGame": 2 },
+      "2": { "EngineConfigFile": 2 },
+      "3": { "Game": 2 },
+      "4": { "GeneralSettings": 2 },
+      "5": { "Globalfunctions_General": 1 },
+      "6": { "GUIControl": 1 },
+      "7": { "RuntimeEngine": 1 },
+      "8": { "Setup": 1 }
     },
     "Gamewide": {
       "0": { "acintro1": 1 }
@@ -8543,6 +8546,9 @@ var meta = {
       "1": { "Keycodes": 1 },
       "2": { "ScriptingTutorialPart1": 1 },
       "3": { "ScriptingTutorialPart2": 2 }
+    },
+    "HomeLight": {
+      "0": { "Credits": 2 }
     },
     "Hopefully": {
       "0": { "Pointers": 1 },
@@ -9876,12 +9882,13 @@ var meta = {
       "1": { "ObsoleteScriptAPI": 1 }
     },
     "IsKeyPressed": {
-      "0": { "Globalfunctions_Event": 1 },
-      "1": { "Globalfunctions_General": 9 },
-      "2": { "Keycodes": 2 },
-      "3": { "Mouse": 1 },
-      "4": { "ScriptKeywords": 2 },
-      "5": { "UpgradeTo36": 2 }
+      "0": { "Dialog": 1 },
+      "1": { "Globalfunctions_Event": 1 },
+      "2": { "Globalfunctions_General": 9 },
+      "3": { "Keycodes": 2 },
+      "4": { "Mouse": 1 },
+      "5": { "ScriptKeywords": 2 },
+      "6": { "UpgradeTo36": 2 }
     },
     "IsMusicPlaying": {
       "0": { "Game": 1 }
@@ -11838,7 +11845,7 @@ var meta = {
       "68": { "Screen": 2 },
       "69": { "ScriptAPIOverview": 1 },
       "70": { "ScriptingTutorialPart2": 3 },
-      "71": { "ScriptKeywords": 8 },
+      "71": { "ScriptKeywords": 9 },
       "72": { "Settingupthegame": 7 },
       "73": { "Setup": 1 },
       "74": { "Speech": 7 },
@@ -11923,7 +11930,8 @@ var meta = {
       "2": { "acintro8": 1 }
     },
     "Nearest": {
-      "0": { "Setup": 1 }
+      "0": { "Room": 1 },
+      "1": { "Setup": 1 }
     },
     "Nearest-neighbour": {
       "0": { "DefaultSetup": 1 }
@@ -13043,7 +13051,7 @@ var meta = {
       "1": { "ExtenderFunctions": 1 },
       "2": { "FAQ": 2 },
       "3": { "Globalfunctions_General": 1 },
-      "4": { "Overlay": 19 },
+      "4": { "Overlay": 20 },
       "5": { "Scripting": 1 },
       "6": { "Speech": 4 }
     },
@@ -13108,7 +13116,7 @@ var meta = {
     },
     "Overlay.Valid": {
       "0": { "ObsoleteScriptAPI": 1 },
-      "1": { "Overlay": 2 }
+      "1": { "Overlay": 3 }
     },
     "Overlay.Width": {
       "0": { "Overlay": 8 }
@@ -13698,10 +13706,11 @@ var meta = {
     },
     "Point": {
       "0": { "acintro3": 1 },
-      "1": { "Screen": 6 },
-      "2": { "StandardTypes": 5 },
-      "3": { "UpgradeTo35": 1 },
-      "4": { "Viewport": 6 }
+      "1": { "Room": 4 },
+      "2": { "Screen": 6 },
+      "3": { "StandardTypes": 5 },
+      "4": { "UpgradeTo35": 1 },
+      "5": { "Viewport": 6 }
     },
     "Pointer": {
       "0": { "acintro9": 1 },
@@ -13852,10 +13861,11 @@ var meta = {
     "Prior": {
       "0": { "AudioChannel": 1 },
       "1": { "Character": 1 },
-      "2": { "Label": 1 },
-      "3": { "ListBox": 1 },
-      "4": { "MIDI-playback": 1 },
-      "5": { "Multimedia": 2 }
+      "2": { "Dialog": 1 },
+      "3": { "Label": 1 },
+      "4": { "ListBox": 1 },
+      "5": { "MIDI-playback": 1 },
+      "6": { "Multimedia": 2 }
     },
     "Priorities": {
       "0": { "MusicAndSound": 1 }
@@ -14986,6 +14996,10 @@ var meta = {
       "0": { "ObsoleteScriptAPI": 1 },
       "1": { "Room": 3 }
     },
+    "Room.NearestWalkableArea": {
+      "0": { "Character": 1 },
+      "1": { "Room": 3 }
+    },
     "Room.ObjectCount": {
       "0": { "GameSavesCompatibility": 1 },
       "1": { "GlobalArrays": 1 },
@@ -15533,9 +15547,10 @@ var meta = {
       "2": { "Viewport": 2 }
     },
     "Screen.ScreenToRoomPoint": {
-      "0": { "Screen": 4 },
-      "1": { "UpgradeTo35": 2 },
-      "2": { "Viewport": 2 }
+      "0": { "Room": 1 },
+      "1": { "Screen": 4 },
+      "2": { "UpgradeTo35": 2 },
+      "3": { "Viewport": 2 }
     },
     "Screen.Viewport": {
       "0": { "Camera": 1 },
@@ -15695,6 +15710,9 @@ var meta = {
     "Search": {
       "0": { "ContactingTheDevelopers": 1 }
     },
+    "Searches": {
+      "0": { "Room": 1 }
+    },
     "Second": {
       "0": { "Debuggingfeatures": 1 },
       "1": { "EditorPlugins": 1 },
@@ -15726,7 +15744,7 @@ var meta = {
       "5": { "AudioInScript": 1 },
       "6": { "Button": 17 },
       "7": { "Camera": 10 },
-      "8": { "Character": 97 },
+      "8": { "Character": 98 },
       "9": { "CustomProperties": 1 },
       "10": { "DateTime": 10 },
       "11": { "DefaultSetup": 1 },
@@ -15776,7 +15794,7 @@ var meta = {
       "55": { "Parser": 5 },
       "56": { "Pointers": 1 },
       "57": { "Region": 14 },
-      "58": { "Room": 13 },
+      "58": { "Room": 14 },
       "59": { "RuntimeEngine": 1 },
       "60": { "Screen": 6 },
       "61": { "ScriptAPIOverview": 4 },
@@ -17219,16 +17237,17 @@ var meta = {
     "Starting": {
       "0": { "acintro1": 1 },
       "1": { "acintro7": 1 },
-      "2": { "Dialog": 2 },
-      "3": { "Globalfunctions_Event": 2 },
-      "4": { "Keycodes": 1 },
-      "5": { "Label": 1 },
-      "6": { "StartingOff": 1 },
-      "7": { "Tutorial": 1 },
-      "8": { "UnicodeSupport": 1 },
-      "9": { "UpgradeTo361": 1 },
-      "10": { "UpgradeTo362": 1 },
-      "11": { "ValidateRestoredSave": 1 }
+      "2": { "Character": 1 },
+      "3": { "Dialog": 2 },
+      "4": { "Globalfunctions_Event": 2 },
+      "5": { "Keycodes": 1 },
+      "6": { "Label": 1 },
+      "7": { "StartingOff": 1 },
+      "8": { "Tutorial": 1 },
+      "9": { "UnicodeSupport": 1 },
+      "10": { "UpgradeTo361": 1 },
+      "11": { "UpgradeTo362": 1 },
+      "12": { "ValidateRestoredSave": 1 }
     },
     "StartingRoom": {
       "0": { "acintro7": 1 },
@@ -17306,7 +17325,7 @@ var meta = {
       "1": { "ObsoleteScriptAPI": 1 }
     },
     "StopDialog": {
-      "0": { "Dialog": 5 }
+      "0": { "Dialog": 7 }
     },
     "StopMovementStyle": {
       "0": { "Character": 15 },
@@ -17661,7 +17680,7 @@ var meta = {
       "27": { "Overlay": 11 },
       "28": { "Parser": 1 },
       "29": { "Region": 2 },
-      "30": { "Room": 3 },
+      "30": { "Room": 4 },
       "31": { "Slider": 3 },
       "32": { "Speech": 8 },
       "33": { "String": 4 },
@@ -19871,7 +19890,7 @@ var meta = {
       "44": { "MIDI-playback": 1 },
       "45": { "MusicAndSound": 2 },
       "46": { "Object": 3 },
-      "47": { "Overlay": 1 },
+      "47": { "Overlay": 2 },
       "48": { "Pointers": 1 },
       "49": { "RepExec": 1 },
       "50": { "Room": 1 },
@@ -20032,7 +20051,7 @@ var meta = {
       "2": { "acintro9": 3 },
       "3": { "AnonymousUsageInfo": 2 },
       "4": { "Copyright": 2 },
-      "5": { "Credits": 3 },
+      "5": { "Credits": 4 },
       "6": { "DistGame": 11 },
       "7": { "EditorCommandLineOptions": 2 },
       "8": { "EditorFont": 2 },
@@ -21104,17 +21123,18 @@ var meta = {
       "20": { "Multimedia": 1 },
       "21": { "Object": 1 },
       "22": { "OOProgramming": 3 },
-      "23": { "Preprocessor": 1 },
-      "24": { "RestoredSaveInfo": 1 },
-      "25": { "ScriptAPIOverview": 1 },
-      "26": { "ScriptKeywords": 3 },
-      "27": { "Settingupthegame": 4 },
-      "28": { "Speech": 2 },
-      "29": { "StringFormats": 1 },
-      "30": { "TheScriptHeader": 1 },
-      "31": { "Translations": 1 },
-      "32": { "UpgradeTo335": 1 },
-      "33": { "UpgradeTo35": 1 }
+      "23": { "Overlay": 1 },
+      "24": { "Preprocessor": 1 },
+      "25": { "RestoredSaveInfo": 1 },
+      "26": { "ScriptAPIOverview": 1 },
+      "27": { "ScriptKeywords": 3 },
+      "28": { "Settingupthegame": 4 },
+      "29": { "Speech": 2 },
+      "30": { "StringFormats": 1 },
+      "31": { "TheScriptHeader": 1 },
+      "32": { "Translations": 1 },
+      "33": { "UpgradeTo335": 1 },
+      "34": { "UpgradeTo35": 1 }
     },
     "actually": {
       "0": { "acintro2": 1 },
@@ -21315,27 +21335,28 @@ var meta = {
       "0": { "acintro9": 2 },
       "1": { "BuildAndroid": 1 },
       "2": { "Copyright": 1 },
-      "3": { "DistGame": 2 },
-      "4": { "DrawingSurface": 1 },
-      "5": { "DynamicSprite": 1 },
-      "6": { "EditorFont": 1 },
-      "7": { "EditorInventoryItems": 1 },
-      "8": { "EditorRoom": 1 },
-      "9": { "File": 3 },
-      "10": { "GameSavesCompatibility": 2 },
-      "11": { "GeneralSettings": 1 },
-      "12": { "Introduction": 1 },
-      "13": { "MIDI-playback": 1 },
-      "14": { "Parser": 1 },
-      "15": { "Screen": 2 },
-      "16": { "ScriptAPIOverview": 1 },
-      "17": { "ScriptModules": 1 },
-      "18": { "TemplateSierraStyle": 1 },
-      "19": { "TemplateVerbcoin": 1 },
-      "20": { "Tumbleweed": 1 },
-      "21": { "UpgradeTo34": 1 },
-      "22": { "UpgradeTo36": 1 },
-      "23": { "UpgradingTo271": 1 }
+      "3": { "Credits": 1 },
+      "4": { "DistGame": 2 },
+      "5": { "DrawingSurface": 1 },
+      "6": { "DynamicSprite": 1 },
+      "7": { "EditorFont": 1 },
+      "8": { "EditorInventoryItems": 1 },
+      "9": { "EditorRoom": 1 },
+      "10": { "File": 3 },
+      "11": { "GameSavesCompatibility": 2 },
+      "12": { "GeneralSettings": 1 },
+      "13": { "Introduction": 1 },
+      "14": { "MIDI-playback": 1 },
+      "15": { "Parser": 1 },
+      "16": { "Screen": 2 },
+      "17": { "ScriptAPIOverview": 1 },
+      "18": { "ScriptModules": 1 },
+      "19": { "TemplateSierraStyle": 1 },
+      "20": { "TemplateVerbcoin": 1 },
+      "21": { "Tumbleweed": 1 },
+      "22": { "UpgradeTo34": 1 },
+      "23": { "UpgradeTo36": 1 },
+      "24": { "UpgradingTo271": 1 }
     },
     "additionally": {
       "0": { "BuildAndroid": 1 },
@@ -21571,7 +21592,7 @@ var meta = {
       "9": { "Constants": 2 },
       "10": { "CustomProperties": 1 },
       "11": { "DefaultSetup": 1 },
-      "12": { "Dialog": 2 },
+      "12": { "Dialog": 4 },
       "13": { "DialogOptionsRenderingInfo": 2 },
       "14": { "DrawingSurface": 1 },
       "15": { "DynamicArrays": 1 },
@@ -22077,7 +22098,7 @@ var meta = {
       "48": { "MultipleScripts": 1 },
       "49": { "MusicAndSound": 5 },
       "50": { "Object": 1 },
-      "51": { "Overlay": 3 },
+      "51": { "Overlay": 4 },
       "52": { "Parser": 1 },
       "53": { "Region": 3 },
       "54": { "Room": 2 },
@@ -22214,18 +22235,20 @@ var meta = {
       "24": { "InvWindow": 2 },
       "25": { "ListBox": 2 },
       "26": { "MusicAndSound": 1 },
-      "27": { "Pointers": 1 },
-      "28": { "RepExec": 2 },
-      "29": { "ScriptAPIOverview": 1 },
-      "30": { "ScriptingTutorialPart1": 2 },
-      "31": { "Set": 3 },
-      "32": { "SystemRequirements": 1 },
-      "33": { "TemplateBASS": 1 },
-      "34": { "Templates": 1 },
-      "35": { "Tumbleweed": 1 },
-      "36": { "Tumbleweed_translation": 1 },
-      "37": { "UpgradeTo35": 1 },
-      "38": { "UpgradeTo361": 1 }
+      "27": { "Overlay": 1 },
+      "28": { "Pointers": 1 },
+      "29": { "RepExec": 2 },
+      "30": { "Room": 1 },
+      "31": { "ScriptAPIOverview": 1 },
+      "32": { "ScriptingTutorialPart1": 2 },
+      "33": { "Set": 3 },
+      "34": { "SystemRequirements": 1 },
+      "35": { "TemplateBASS": 1 },
+      "36": { "Templates": 1 },
+      "37": { "Tumbleweed": 1 },
+      "38": { "Tumbleweed_translation": 1 },
+      "39": { "UpgradeTo35": 1 },
+      "40": { "UpgradeTo361": 1 }
     },
     "alright": {
       "0": { "BuildAndroid": 1 }
@@ -22248,7 +22271,7 @@ var meta = {
       "11": { "BuildAndroid": 1 },
       "12": { "Button": 17 },
       "13": { "Camera": 18 },
-      "14": { "Character": 112 },
+      "14": { "Character": 113 },
       "15": { "ColoursEditor": 1 },
       "16": { "Constants": 1 },
       "17": { "CustomDialogOptions": 2 },
@@ -22314,7 +22337,7 @@ var meta = {
       "77": { "Parser": 4 },
       "78": { "Region": 14 },
       "79": { "RepExec": 1 },
-      "80": { "Room": 13 },
+      "80": { "Room": 14 },
       "81": { "RuntimeEngine": 3 },
       "82": { "Screen": 8 },
       "83": { "ScriptAPIOverview": 3 },
@@ -22623,7 +22646,7 @@ var meta = {
       "88": { "ScriptingLanguage": 1 },
       "89": { "ScriptingTutorialPart1": 15 },
       "90": { "ScriptingTutorialPart2": 1 },
-      "91": { "ScriptKeywords": 14 },
+      "91": { "ScriptKeywords": 15 },
       "92": { "ScriptModules": 4 },
       "93": { "Set": 4 },
       "94": { "Settingupthegame": 18 },
@@ -22918,7 +22941,7 @@ var meta = {
       "19": { "DateTime": 1 },
       "20": { "Debuggingfeatures": 2 },
       "21": { "DefaultSetup": 2 },
-      "22": { "Dialog": 4 },
+      "22": { "Dialog": 6 },
       "23": { "DialogScript": 1 },
       "24": { "Dictionary": 1 },
       "25": { "DistGame": 3 },
@@ -22969,7 +22992,7 @@ var meta = {
       "70": { "Region": 2 },
       "71": { "RepExec": 3 },
       "72": { "RestoredSaveInfo": 5 },
-      "73": { "Room": 1 },
+      "73": { "Room": 2 },
       "74": { "RuntimeEngine": 2 },
       "75": { "Screen": 3 },
       "76": { "ScriptAPIOverview": 2 },
@@ -23226,7 +23249,7 @@ var meta = {
       "16": { "RestoredSaveInfo": 1 },
       "17": { "RuntimeEngine": 1 },
       "18": { "Screen": 2 },
-      "19": { "ScriptKeywords": 1 },
+      "19": { "ScriptKeywords": 2 },
       "20": { "Setup": 1 },
       "21": { "StandardEnums": 1 },
       "22": { "System": 5 },
@@ -23361,7 +23384,7 @@ var meta = {
       "4": { "AdvancedRoomFeatures": 8 },
       "5": { "Button": 2 },
       "6": { "Camera": 1 },
-      "7": { "Character": 19 },
+      "7": { "Character": 20 },
       "8": { "CustomDialogOptions": 2 },
       "9": { "DialogOptionsRenderingInfo": 15 },
       "10": { "DrawingSurface": 4 },
@@ -23378,11 +23401,12 @@ var meta = {
       "21": { "Mouse": 1 },
       "22": { "Object": 6 },
       "23": { "Overlay": 2 },
-      "24": { "ScriptingTutorialPart1": 1 },
-      "25": { "Settingupthegame": 2 },
-      "26": { "System": 1 },
-      "27": { "Tumbleweed_movement": 1 },
-      "28": { "UpgradeTo35": 2 }
+      "24": { "Room": 4 },
+      "25": { "ScriptingTutorialPart1": 1 },
+      "26": { "Settingupthegame": 2 },
+      "27": { "System": 1 },
+      "28": { "Tumbleweed_movement": 1 },
+      "29": { "UpgradeTo35": 2 }
     },
     "area's": {
       "0": { "Globalfunctions_Room": 1 }
@@ -23448,7 +23472,7 @@ var meta = {
       "7": { "UpgradeTo36": 1 }
     },
     "arithmetic": {
-      "0": { "ScriptKeywords": 1 },
+      "0": { "ScriptKeywords": 2 },
       "1": { "UpgradingTo27": 1 }
     },
     "arose": {
@@ -24634,7 +24658,7 @@ var meta = {
       "0": { "acintro1": 1 },
       "1": { "acintro2": 1 },
       "2": { "acintro4": 2 },
-      "3": { "Character": 4 },
+      "3": { "Character": 5 },
       "4": { "ContactingTheDevelopers": 3 },
       "5": { "CustomProperties": 1 },
       "6": { "Dialog": 2 },
@@ -24660,7 +24684,7 @@ var meta = {
       "26": { "Multimedia": 3 },
       "27": { "MusicAndSound": 2 },
       "28": { "Object": 2 },
-      "29": { "Overlay": 1 },
+      "29": { "Overlay": 2 },
       "30": { "Pointers": 1 },
       "31": { "Region": 1 },
       "32": { "RepExec": 3 },
@@ -24886,7 +24910,7 @@ var meta = {
       "5": { "Constants": 2 },
       "6": { "ContactingTheDevelopers": 1 },
       "7": { "DefaultSetup": 1 },
-      "8": { "Dialog": 1 },
+      "8": { "Dialog": 3 },
       "9": { "DialogScript": 1 },
       "10": { "DistGame": 1 },
       "11": { "DrawingSurface": 1 },
@@ -25205,7 +25229,7 @@ var meta = {
       "14": { "MusicAndSound": 1 },
       "15": { "Pointers": 3 },
       "16": { "ScriptingTutorialPart1": 1 },
-      "17": { "ScriptKeywords": 1 },
+      "17": { "ScriptKeywords": 3 },
       "18": { "SystemLimits": 1 },
       "19": { "Tumbleweed": 1 },
       "20": { "Tumbleweed_extensions": 2 },
@@ -25246,8 +25270,9 @@ var meta = {
       "1": { "Globalfunctions_Event": 1 },
       "2": { "Globalfunctions_Wait": 1 },
       "3": { "Keycodes": 3 },
-      "4": { "StandardEnums": 5 },
-      "5": { "UpgradeTo36": 1 }
+      "4": { "ScriptKeywords": 1 },
+      "5": { "StandardEnums": 5 },
+      "6": { "UpgradeTo36": 1 }
     },
     "bkp": {
       "0": { "File": 3 }
@@ -26815,7 +26840,7 @@ var meta = {
       "9": { "Constants": 1 },
       "10": { "CustomDialogOptions": 10 },
       "11": { "DateTime": 1 },
-      "12": { "Dialog": 3 },
+      "12": { "Dialog": 7 },
       "13": { "DialogScript": 2 },
       "14": { "DistGame": 3 },
       "15": { "DynamicSprite": 3 },
@@ -26997,7 +27022,7 @@ var meta = {
       "26": { "DateTime": 2 },
       "27": { "Debuggingfeatures": 7 },
       "28": { "DefaultSetup": 1 },
-      "29": { "Dialog": 10 },
+      "29": { "Dialog": 9 },
       "30": { "DialogOptionsRenderingInfo": 19 },
       "31": { "DialogScript": 4 },
       "32": { "DistGame": 14 },
@@ -27513,7 +27538,7 @@ var meta = {
       "3": { "Constants": 1 },
       "4": { "ContactingTheDevelopers": 1 },
       "5": { "DefaultSetup": 1 },
-      "6": { "Dialog": 2 },
+      "6": { "Dialog": 3 },
       "7": { "DrawingSurface": 1 },
       "8": { "EditorGUI": 1 },
       "9": { "EditorPlugins": 1 },
@@ -28140,28 +28165,29 @@ var meta = {
       "27": { "Keycodes": 1 },
       "28": { "MusicAndSound": 2 },
       "29": { "Object": 1 },
-      "30": { "Plugins": 2 },
-      "31": { "Pointers": 1 },
-      "32": { "Preprocessor": 1 },
-      "33": { "RepExec": 2 },
-      "34": { "RestoredSaveInfo": 2 },
-      "35": { "ScriptingTutorialPart1": 1 },
-      "36": { "ScriptKeywords": 2 },
-      "37": { "Settingupthegame": 1 },
-      "38": { "SourceControl": 3 },
-      "39": { "StandardEnums": 2 },
-      "40": { "String": 1 },
-      "41": { "System": 1 },
-      "42": { "TextParser": 2 },
-      "43": { "Translations": 2 },
-      "44": { "TroubleshootingWindowsZoneID": 1 },
-      "45": { "Tumbleweed": 1 },
-      "46": { "Tumbleweed_actions": 1 },
-      "47": { "Tumbleweed_helper": 2 },
-      "48": { "Tumbleweed_movement": 2 },
-      "49": { "UnicodeSupport": 1 },
-      "50": { "UpgradeTo36": 3 },
-      "51": { "UpgradeTo362": 1 }
+      "30": { "Overlay": 1 },
+      "31": { "Plugins": 2 },
+      "32": { "Pointers": 1 },
+      "33": { "Preprocessor": 1 },
+      "34": { "RepExec": 2 },
+      "35": { "RestoredSaveInfo": 2 },
+      "36": { "ScriptingTutorialPart1": 1 },
+      "37": { "ScriptKeywords": 2 },
+      "38": { "Settingupthegame": 1 },
+      "39": { "SourceControl": 3 },
+      "40": { "StandardEnums": 2 },
+      "41": { "String": 1 },
+      "42": { "System": 1 },
+      "43": { "TextParser": 2 },
+      "44": { "Translations": 2 },
+      "45": { "TroubleshootingWindowsZoneID": 1 },
+      "46": { "Tumbleweed": 1 },
+      "47": { "Tumbleweed_actions": 1 },
+      "48": { "Tumbleweed_helper": 2 },
+      "49": { "Tumbleweed_movement": 2 },
+      "50": { "UnicodeSupport": 1 },
+      "51": { "UpgradeTo36": 3 },
+      "52": { "UpgradeTo362": 1 }
     },
     "check-box": {
       "0": { "Settingupthegame": 1 }
@@ -28704,7 +28730,7 @@ var meta = {
     "close": {
       "0": { "acintro1": 1 },
       "1": { "AudioChannel": 1 },
-      "2": { "Character": 2 },
+      "2": { "Character": 3 },
       "3": { "EnginePluginRun-timeAPI": 1 },
       "4": { "File": 8 },
       "5": { "Globalfunctions_Event": 1 },
@@ -29149,7 +29175,7 @@ var meta = {
       "50": { "MusicAndSound": 2 },
       "51": { "Object": 19 },
       "52": { "ObsoleteScriptAPI": 1 },
-      "53": { "Overlay": 4 },
+      "53": { "Overlay": 5 },
       "54": { "Parser": 7 },
       "55": { "Preprocessor": 1 },
       "56": { "Region": 5 },
@@ -30122,7 +30148,7 @@ var meta = {
     },
     "contributors": {
       "0": { "Copyright": 4 },
-      "1": { "Credits": 1 },
+      "1": { "Credits": 2 },
       "2": { "Introduction": 1 }
     },
     "control": {
@@ -30209,8 +30235,9 @@ var meta = {
     "controlled": {
       "0": { "EnginePluginRun-timeAPI": 1 },
       "1": { "Mouse": 5 },
-      "2": { "TemplateSierraStyle": 1 },
-      "3": { "UpgradeTo32": 1 }
+      "2": { "Overlay": 1 },
+      "3": { "TemplateSierraStyle": 1 },
+      "4": { "UpgradeTo32": 1 }
     },
     "controlling": {
       "0": { "Character": 1 },
@@ -30276,7 +30303,7 @@ var meta = {
     },
     "conversation": {
       "0": { "acintro8": 4 },
-      "1": { "Dialog": 15 },
+      "1": { "Dialog": 12 },
       "2": { "DialogOptionsRenderingInfo": 1 },
       "3": { "DialogScript": 4 },
       "4": { "EditorDialog": 3 },
@@ -30374,7 +30401,7 @@ var meta = {
       "14": { "Object": 2 },
       "15": { "ObsoleteScriptAPI": 1 },
       "16": { "Overlay": 4 },
-      "17": { "Room": 6 },
+      "17": { "Room": 7 },
       "18": { "Screen": 5 },
       "19": { "ScriptKeywords": 1 },
       "20": { "Speech": 1 },
@@ -30399,7 +30426,8 @@ var meta = {
       "3": { "EnginePluginRun-timeAPI": 2 },
       "4": { "Overlay": 1 },
       "5": { "Pointers": 2 },
-      "6": { "TheScriptHeader": 1 }
+      "6": { "ScriptKeywords": 1 },
+      "7": { "TheScriptHeader": 1 }
     },
     "copies": {
       "0": { "DrawingSurface": 1 },
@@ -30610,60 +30638,61 @@ var meta = {
       "6": { "AdvancedRoomFeatures": 1 },
       "7": { "AudioClip": 1 },
       "8": { "Button": 1 },
-      "9": { "Character": 3 },
+      "9": { "Character": 4 },
       "10": { "Constants": 1 },
       "11": { "CustomDialogOptions": 1 },
       "12": { "DateTime": 1 },
-      "13": { "DialogScript": 1 },
-      "14": { "DrawingSurface": 1 },
-      "15": { "DynamicSprite": 2 },
-      "16": { "EditorCommandLineOptions": 1 },
-      "17": { "EditorInventoryItems": 1 },
-      "18": { "EditorView": 1 },
-      "19": { "EngineConfigFile": 1 },
-      "20": { "EnginePluginRun-timeAPI": 11 },
-      "21": { "EventTypes": 2 },
-      "22": { "FAQ": 4 },
-      "23": { "File": 1 },
-      "24": { "Game": 5 },
-      "25": { "GameSavesCompatibility": 3 },
-      "26": { "GeneralSettings": 1 },
-      "27": { "Globalfunctions_General": 6 },
-      "28": { "Globalfunctions_Room": 1 },
-      "29": { "GUI": 2 },
-      "30": { "ImportingFunctionsAndVariables": 1 },
-      "31": { "InventoryItem": 1 },
-      "32": { "ListBox": 1 },
-      "33": { "Mouse": 4 },
-      "34": { "Multimedia": 3 },
-      "35": { "MultipleScripts": 1 },
-      "36": { "MusicAndSound": 2 },
-      "37": { "OOProgramming": 1 },
-      "38": { "Pointers": 7 },
-      "39": { "Preprocessor": 2 },
-      "40": { "Screen": 1 },
-      "41": { "ScriptingTutorialPart1": 6 },
-      "42": { "ScriptingTutorialPart2": 5 },
-      "43": { "ScriptKeywords": 6 },
-      "44": { "StandardEnums": 3 },
-      "45": { "String": 1 },
-      "46": { "StringFormats": 1 },
-      "47": { "System": 1 },
-      "48": { "SystemLimits": 1 },
-      "49": { "Templates": 3 },
-      "50": { "TemplateVerbcoin": 1 },
-      "51": { "TextParser": 1 },
-      "52": { "TroubleshootingWindowsZoneID": 1 },
-      "53": { "Tumbleweed_extensions": 1 },
-      "54": { "Tumbleweed_translation": 1 },
-      "55": { "UnicodeSupport": 1 },
-      "56": { "UpgradeTo31": 3 },
-      "57": { "UpgradeTo34": 1 },
-      "58": { "UpgradeTo35": 2 },
-      "59": { "UpgradeTo36": 1 },
-      "60": { "UpgradeTo362": 2 },
-      "61": { "UpgradingTo271": 2 },
-      "62": { "ValidateRestoredSave": 1 }
+      "13": { "Dialog": 1 },
+      "14": { "DialogScript": 1 },
+      "15": { "DrawingSurface": 1 },
+      "16": { "DynamicSprite": 2 },
+      "17": { "EditorCommandLineOptions": 1 },
+      "18": { "EditorInventoryItems": 1 },
+      "19": { "EditorView": 1 },
+      "20": { "EngineConfigFile": 1 },
+      "21": { "EnginePluginRun-timeAPI": 11 },
+      "22": { "EventTypes": 2 },
+      "23": { "FAQ": 4 },
+      "24": { "File": 1 },
+      "25": { "Game": 5 },
+      "26": { "GameSavesCompatibility": 3 },
+      "27": { "GeneralSettings": 1 },
+      "28": { "Globalfunctions_General": 6 },
+      "29": { "Globalfunctions_Room": 1 },
+      "30": { "GUI": 2 },
+      "31": { "ImportingFunctionsAndVariables": 1 },
+      "32": { "InventoryItem": 1 },
+      "33": { "ListBox": 1 },
+      "34": { "Mouse": 4 },
+      "35": { "Multimedia": 3 },
+      "36": { "MultipleScripts": 1 },
+      "37": { "MusicAndSound": 2 },
+      "38": { "OOProgramming": 1 },
+      "39": { "Pointers": 7 },
+      "40": { "Preprocessor": 2 },
+      "41": { "Screen": 1 },
+      "42": { "ScriptingTutorialPart1": 6 },
+      "43": { "ScriptingTutorialPart2": 5 },
+      "44": { "ScriptKeywords": 6 },
+      "45": { "StandardEnums": 3 },
+      "46": { "String": 1 },
+      "47": { "StringFormats": 1 },
+      "48": { "System": 1 },
+      "49": { "SystemLimits": 1 },
+      "50": { "Templates": 3 },
+      "51": { "TemplateVerbcoin": 1 },
+      "52": { "TextParser": 1 },
+      "53": { "TroubleshootingWindowsZoneID": 1 },
+      "54": { "Tumbleweed_extensions": 1 },
+      "55": { "Tumbleweed_translation": 1 },
+      "56": { "UnicodeSupport": 1 },
+      "57": { "UpgradeTo31": 3 },
+      "58": { "UpgradeTo34": 1 },
+      "59": { "UpgradeTo35": 2 },
+      "60": { "UpgradeTo36": 1 },
+      "61": { "UpgradeTo362": 2 },
+      "62": { "UpgradingTo271": 2 },
+      "63": { "ValidateRestoredSave": 1 }
     },
     "couldn't": {
       "0": { "UpgradeTo31": 1 },
@@ -31075,7 +31104,7 @@ var meta = {
       "8": { "CustomDialogOptions": 2 },
       "9": { "DateTime": 4 },
       "10": { "Debuggingfeatures": 3 },
-      "11": { "Dialog": 2 },
+      "11": { "Dialog": 3 },
       "12": { "DialogOptionsRenderingInfo": 1 },
       "13": { "DialogScript": 6 },
       "14": { "DistGame": 1 },
@@ -31107,7 +31136,7 @@ var meta = {
       "40": { "Mouse": 12 },
       "41": { "Multimedia": 2 },
       "42": { "Object": 22 },
-      "43": { "Overlay": 3 },
+      "43": { "Overlay": 2 },
       "44": { "Pointers": 1 },
       "45": { "Region": 6 },
       "46": { "RepExec": 1 },
@@ -31283,7 +31312,7 @@ var meta = {
       "3": { "CustomDialogOptions": 5 },
       "4": { "CustomProperties": 4 },
       "5": { "DefaultSetup": 4 },
-      "6": { "Dialog": 4 },
+      "6": { "Dialog": 5 },
       "7": { "DialogOptionsRenderingInfo": 2 },
       "8": { "DialogScript": 6 },
       "9": { "DistGame": 8 },
@@ -31471,6 +31500,9 @@ var meta = {
     },
     "dDialogName.SetOptionState": {
       "0": { "acintro8": 1 }
+    },
+    "dDialogThatMayBeInterrupted": {
+      "0": { "Dialog": 1 }
     },
     "dExampleDialog.CustomDialogStart": {
       "0": { "Dialog": 1 }
@@ -32709,7 +32741,7 @@ var meta = {
       "6": { "Character": 2 },
       "7": { "Constants": 1 },
       "8": { "CustomDialogOptions": 28 },
-      "9": { "Dialog": 57 },
+      "9": { "Dialog": 66 },
       "10": { "DialogOptionsRenderingInfo": 37 },
       "11": { "DialogScript": 23 },
       "12": { "EditorCursor": 1 },
@@ -33395,7 +33427,7 @@ var meta = {
       "8": { "Character": 8 },
       "9": { "ColoursEditor": 2 },
       "10": { "CustomProperties": 1 },
-      "11": { "Dialog": 3 },
+      "11": { "Dialog": 5 },
       "12": { "DialogScript": 5 },
       "13": { "Dictionary": 2 },
       "14": { "DistGame": 1 },
@@ -33454,12 +33486,13 @@ var meta = {
       "11": { "Globalfunctions_General": 4 },
       "12": { "InvWindow": 1 },
       "13": { "Mouse": 1 },
-      "14": { "ScriptingTutorialPart1": 3 },
-      "15": { "System": 2 },
-      "16": { "TemplateVerbcoin": 1 },
-      "17": { "Translations": 2 },
-      "18": { "Tumbleweed_door": 1 },
-      "19": { "UpgradeTo362": 1 }
+      "14": { "Overlay": 1 },
+      "15": { "ScriptingTutorialPart1": 3 },
+      "16": { "System": 2 },
+      "17": { "TemplateVerbcoin": 1 },
+      "18": { "Translations": 2 },
+      "19": { "Tumbleweed_door": 1 },
+      "20": { "UpgradeTo362": 1 }
     },
     "displays": {
       "0": { "acintro3": 2 },
@@ -33753,7 +33786,7 @@ var meta = {
       "5": { "AudioInScript": 2 },
       "6": { "BlockingScripts": 6 },
       "7": { "Button": 3 },
-      "8": { "Character": 18 },
+      "8": { "Character": 19 },
       "9": { "DefaultSetup": 2 },
       "10": { "Dialog": 3 },
       "11": { "DialogOptionsRenderingInfo": 2 },
@@ -35214,10 +35247,11 @@ var meta = {
       "0": { "Keycodes": 1 }
     },
     "eKeyEscape": {
-      "0": { "Globalfunctions_General": 1 },
-      "1": { "Keycodes": 1 },
-      "2": { "ScriptKeywords": 1 },
-      "3": { "System": 1 }
+      "0": { "Dialog": 1 },
+      "1": { "Globalfunctions_General": 1 },
+      "2": { "Keycodes": 1 },
+      "3": { "ScriptKeywords": 1 },
+      "4": { "System": 1 }
     },
     "eKeyExclamationMark": {
       "0": { "Keycodes": 1 }
@@ -36002,7 +36036,7 @@ var meta = {
       "6": { "AudioClip": 3 },
       "7": { "Button": 1 },
       "8": { "Camera": 2 },
-      "9": { "Character": 5 },
+      "9": { "Character": 6 },
       "10": { "ColoursEditor": 1 },
       "11": { "CustomDialogOptions": 3 },
       "12": { "CustomProperties": 1 },
@@ -36269,7 +36303,7 @@ var meta = {
       "10": { "AudioClip": 2 },
       "11": { "AudioInScript": 1 },
       "12": { "Character": 14 },
-      "13": { "Credits": 3 },
+      "13": { "Credits": 4 },
       "14": { "CustomProperties": 4 },
       "15": { "Debuggingfeatures": 2 },
       "16": { "Dialog": 3 },
@@ -36358,33 +36392,34 @@ var meta = {
       "3": { "Button": 2 },
       "4": { "Camera": 2 },
       "5": { "Character": 10 },
-      "6": { "DistGame": 1 },
-      "7": { "DynamicSprite": 2 },
-      "8": { "EditorRoom": 1 },
-      "9": { "EngineConfigFile": 1 },
-      "10": { "EnginePluginRun-timeAPI": 3 },
-      "11": { "Game": 2 },
-      "12": { "Gamevariables": 1 },
-      "13": { "GeneralSettings": 3 },
-      "14": { "Globalfunctions_General": 3 },
-      "15": { "Globalfunctions_Palette": 4 },
-      "16": { "Globalfunctions_Screen": 2 },
-      "17": { "Mouse": 4 },
-      "18": { "Multimedia": 1 },
-      "19": { "Object": 5 },
-      "20": { "Preprocessor": 1 },
-      "21": { "Region": 2 },
-      "22": { "ScriptingTutorialPart1": 1 },
-      "23": { "ScriptKeywords": 1 },
-      "24": { "Settingupthegame": 2 },
-      "25": { "Setup": 1 },
-      "26": { "Speech": 1 },
-      "27": { "System": 3 },
-      "28": { "TextParser": 1 },
-      "29": { "UpgradeTo32": 2 },
-      "30": { "UpgradeTo35": 3 },
-      "31": { "UpgradingTo27": 1 },
-      "32": { "Viewport": 1 }
+      "6": { "Dialog": 1 },
+      "7": { "DistGame": 1 },
+      "8": { "DynamicSprite": 2 },
+      "9": { "EditorRoom": 1 },
+      "10": { "EngineConfigFile": 1 },
+      "11": { "EnginePluginRun-timeAPI": 3 },
+      "12": { "Game": 2 },
+      "13": { "Gamevariables": 1 },
+      "14": { "GeneralSettings": 3 },
+      "15": { "Globalfunctions_General": 3 },
+      "16": { "Globalfunctions_Palette": 4 },
+      "17": { "Globalfunctions_Screen": 2 },
+      "18": { "Mouse": 4 },
+      "19": { "Multimedia": 1 },
+      "20": { "Object": 5 },
+      "21": { "Preprocessor": 1 },
+      "22": { "Region": 2 },
+      "23": { "ScriptingTutorialPart1": 1 },
+      "24": { "ScriptKeywords": 1 },
+      "25": { "Settingupthegame": 2 },
+      "26": { "Setup": 1 },
+      "27": { "Speech": 1 },
+      "28": { "System": 3 },
+      "29": { "TextParser": 1 },
+      "30": { "UpgradeTo32": 2 },
+      "31": { "UpgradeTo35": 3 },
+      "32": { "UpgradingTo27": 1 },
+      "33": { "Viewport": 1 }
     },
     "effective": {
       "0": { "Character": 2 },
@@ -36441,6 +36476,9 @@ var meta = {
     "effort": {
       "0": { "FAQ": 2 }
     },
+    "eg": {
+      "0": { "ScriptKeywords": 1 }
+    },
     "ego": {
       "0": { "Character": 1 },
       "1": { "DialogScript": 4 },
@@ -36461,7 +36499,7 @@ var meta = {
       "5": { "Camera": 1 },
       "6": { "Character": 11 },
       "7": { "ContactingTheDevelopers": 1 },
-      "8": { "Dialog": 3 },
+      "8": { "Dialog": 2 },
       "9": { "DistGame": 1 },
       "10": { "DrawingSurface": 1 },
       "11": { "DynamicSprite": 2 },
@@ -36491,7 +36529,7 @@ var meta = {
       "35": { "Maths": 1 },
       "36": { "Mouse": 1 },
       "37": { "Object": 5 },
-      "38": { "Overlay": 2 },
+      "38": { "Overlay": 3 },
       "39": { "Plugins": 1 },
       "40": { "Pointers": 2 },
       "41": { "RestoredSaveInfo": 1 },
@@ -36840,7 +36878,7 @@ var meta = {
       "5": { "BlockingScripts": 2 },
       "6": { "Character": 3 },
       "7": { "CustomDialogOptions": 1 },
-      "8": { "Dialog": 3 },
+      "8": { "Dialog": 2 },
       "9": { "DialogScript": 1 },
       "10": { "EditorPlugins": 1 },
       "11": { "EditorView": 1 },
@@ -36902,15 +36940,16 @@ var meta = {
     },
     "ends": {
       "0": { "AudioInScript": 1 },
-      "1": { "DialogOptionsRenderingInfo": 1 },
-      "2": { "DynamicArrays": 2 },
-      "3": { "DynamicSprite": 1 },
-      "4": { "EnginePluginRun-timeAPI": 1 },
-      "5": { "ScriptingTutorialPart1": 1 },
-      "6": { "ScriptKeywords": 3 },
-      "7": { "Speech": 2 },
-      "8": { "String": 1 },
-      "9": { "TroubleshootingWindowsZoneID": 1 }
+      "1": { "Dialog": 1 },
+      "2": { "DialogOptionsRenderingInfo": 1 },
+      "3": { "DynamicArrays": 2 },
+      "4": { "DynamicSprite": 1 },
+      "5": { "EnginePluginRun-timeAPI": 1 },
+      "6": { "ScriptingTutorialPart1": 1 },
+      "7": { "ScriptKeywords": 3 },
+      "8": { "Speech": 2 },
+      "9": { "String": 1 },
+      "10": { "TroubleshootingWindowsZoneID": 1 }
     },
     "eneath": {
       "0": { "Templates": 1 }
@@ -36947,7 +36986,7 @@ var meta = {
       "25": { "MIDI-playback": 2 },
       "26": { "Mouse": 2 },
       "27": { "Object": 1 },
-      "28": { "Overlay": 1 },
+      "28": { "Overlay": 2 },
       "29": { "RestoredSaveInfo": 2 },
       "30": { "RuntimeEngine": 11 },
       "31": { "ScriptAPIOverview": 2 },
@@ -37366,7 +37405,7 @@ var meta = {
     "even": {
       "0": { "acintro4": 1 },
       "1": { "BlockingScripts": 1 },
-      "2": { "Character": 2 },
+      "2": { "Character": 3 },
       "3": { "CustomDialogOptions": 1 },
       "4": { "DialogScript": 1 },
       "5": { "EditorPreferences": 1 },
@@ -37830,6 +37869,9 @@ var meta = {
     "exclusive": {
       "0": { "EngineConfigFile": 2 },
       "1": { "Setup": 1 }
+    },
+    "exclusively": {
+      "0": { "Overlay": 1 }
     },
     "exe": {
       "0": { "DistGame": 2 },
@@ -38405,10 +38447,10 @@ var meta = {
     "f.Close": {
       "0": { "File": 2 }
     },
-    "f.ReadBytes": {
+    "f.ReadRawBytes": {
       "0": { "File": 1 }
     },
-    "f.WriteBytes": {
+    "f.WriteRawBytes": {
       "0": { "File": 1 }
     },
     "face": {
@@ -39022,11 +39064,12 @@ var meta = {
       "10": { "Globalfunctions_General": 3 },
       "11": { "ListBox": 3 },
       "12": { "MusicAndSound": 1 },
-      "13": { "Setup": 1 },
-      "14": { "TextBox": 1 },
-      "15": { "Translations": 1 },
-      "16": { "UpgradeTo35": 1 },
-      "17": { "Viewport": 1 }
+      "13": { "ScriptKeywords": 1 },
+      "14": { "Setup": 1 },
+      "15": { "TextBox": 1 },
+      "16": { "Translations": 1 },
+      "17": { "UpgradeTo35": 1 },
+      "18": { "Viewport": 1 }
     },
     "filled": {
       "0": { "acintro2": 1 },
@@ -39226,7 +39269,7 @@ var meta = {
       "1": { "BlockingScripts": 4 },
       "2": { "Button": 1 },
       "3": { "Character": 8 },
-      "4": { "Dialog": 3 },
+      "4": { "Dialog": 4 },
       "5": { "EnginePluginRun-timeAPI": 2 },
       "6": { "Game": 1 },
       "7": { "Globalfunctions_General": 5 },
@@ -39969,35 +40012,36 @@ var meta = {
       "0": { "acintro8": 1 },
       "1": { "AnonymousUsageInfo": 1 },
       "2": { "AudioClip": 2 },
-      "3": { "ContactingTheDevelopers": 1 },
-      "4": { "Copyright": 1 },
-      "5": { "CustomDialogOptions": 2 },
-      "6": { "DefaultSetup": 1 },
-      "7": { "DistGame": 1 },
-      "8": { "DynamicSprite": 1 },
-      "9": { "EditorSprite": 1 },
-      "10": { "EngineConfigFile": 1 },
-      "11": { "EnginePluginRun-timeAPI": 1 },
-      "12": { "EventTypes": 1 },
-      "13": { "File": 3 },
-      "14": { "Game": 8 },
-      "15": { "GameEventsOrder": 2 },
-      "16": { "Globalfunctions_General": 5 },
-      "17": { "GUIControl": 1 },
-      "18": { "Introduction": 1 },
-      "19": { "ListBox": 1 },
-      "20": { "Parser": 1 },
-      "21": { "Pointers": 3 },
-      "22": { "Room": 1 },
-      "23": { "Screen": 2 },
-      "24": { "ScriptAPIOverview": 1 },
-      "25": { "ScriptKeywords": 2 },
-      "26": { "String": 1 },
-      "27": { "UpgradeTo33": 1 },
-      "28": { "UpgradeTo335": 1 },
-      "29": { "UpgradeTo36": 1 },
-      "30": { "UpgradeTo362": 3 },
-      "31": { "Viewport": 1 }
+      "3": { "Character": 1 },
+      "4": { "ContactingTheDevelopers": 1 },
+      "5": { "Copyright": 1 },
+      "6": { "CustomDialogOptions": 2 },
+      "7": { "DefaultSetup": 1 },
+      "8": { "DistGame": 1 },
+      "9": { "DynamicSprite": 1 },
+      "10": { "EditorSprite": 1 },
+      "11": { "EngineConfigFile": 1 },
+      "12": { "EnginePluginRun-timeAPI": 1 },
+      "13": { "EventTypes": 1 },
+      "14": { "File": 3 },
+      "15": { "Game": 8 },
+      "16": { "GameEventsOrder": 2 },
+      "17": { "Globalfunctions_General": 5 },
+      "18": { "GUIControl": 1 },
+      "19": { "Introduction": 1 },
+      "20": { "ListBox": 1 },
+      "21": { "Parser": 1 },
+      "22": { "Pointers": 3 },
+      "23": { "Room": 2 },
+      "24": { "Screen": 2 },
+      "25": { "ScriptAPIOverview": 1 },
+      "26": { "ScriptKeywords": 2 },
+      "27": { "String": 1 },
+      "28": { "UpgradeTo33": 1 },
+      "29": { "UpgradeTo335": 1 },
+      "30": { "UpgradeTo36": 1 },
+      "31": { "UpgradeTo362": 3 },
+      "32": { "Viewport": 1 }
     },
     "found_char": {
       "0": { "GlobalArrays": 1 }
@@ -40207,7 +40251,7 @@ var meta = {
       "24": { "CustomProperties": 2 },
       "25": { "DateTime": 7 },
       "26": { "DefaultSetup": 5 },
-      "27": { "Dialog": 12 },
+      "27": { "Dialog": 16 },
       "28": { "DialogOptionsRenderingInfo": 3 },
       "29": { "DialogScript": 3 },
       "30": { "Dictionary": 3 },
@@ -40267,7 +40311,7 @@ var meta = {
       "84": { "Plugins": 1 },
       "85": { "Pointers": 4 },
       "86": { "Region": 5 },
-      "87": { "Room": 2 },
+      "87": { "Room": 3 },
       "88": { "RuntimeEngine": 2 },
       "89": { "Screen": 2 },
       "90": { "ScriptAPIOverview": 1 },
@@ -40447,7 +40491,7 @@ var meta = {
       "9": { "Character": 64 },
       "10": { "CustomDialogOptions": 21 },
       "11": { "DateTime": 3 },
-      "12": { "Dialog": 16 },
+      "12": { "Dialog": 20 },
       "13": { "DialogOptionsRenderingInfo": 27 },
       "14": { "DialogScript": 10 },
       "15": { "Dictionary": 4 },
@@ -40874,7 +40918,7 @@ var meta = {
       "28": { "DateTime": 2 },
       "29": { "Debuggingfeatures": 13 },
       "30": { "DefaultSetup": 44 },
-      "31": { "Dialog": 3 },
+      "31": { "Dialog": 4 },
       "32": { "DialogOptionsRenderingInfo": 1 },
       "33": { "DialogScript": 3 },
       "34": { "DistGame": 48 },
@@ -41652,7 +41696,7 @@ var meta = {
       "16": { "MusicAndSound": 1 },
       "17": { "Object": 2 },
       "18": { "Preprocessor": 1 },
-      "19": { "Room": 3 },
+      "19": { "Room": 4 },
       "20": { "RuntimeEngine": 2 },
       "21": { "Screen": 2 },
       "22": { "ScriptingTutorialPart1": 2 },
@@ -41864,8 +41908,9 @@ var meta = {
       "23": { "UpgradeTo362": 1 }
     },
     "gone": {
-      "0": { "UpgradeTo30": 2 },
-      "1": { "UpgradeTo35": 1 }
+      "0": { "Overlay": 1 },
+      "1": { "UpgradeTo30": 2 },
+      "2": { "UpgradeTo35": 1 }
     },
     "good": {
       "0": { "acintro3": 1 },
@@ -42019,7 +42064,7 @@ var meta = {
       "2": { "acintro6": 10 },
       "3": { "Character": 1 },
       "4": { "ColoursEditor": 1 },
-      "5": { "Credits": 1 },
+      "5": { "Credits": 2 },
       "6": { "DefaultSetup": 5 },
       "7": { "DistGame": 1 },
       "8": { "DynamicSprite": 1 },
@@ -42557,9 +42602,10 @@ var meta = {
       "18": { "Multimedia": 1 },
       "19": { "MusicAndSound": 1 },
       "20": { "Object": 1 },
-      "21": { "Settingupthegame": 3 },
-      "22": { "Tumbleweed": 1 },
-      "23": { "UpgradeTo362": 1 }
+      "21": { "Overlay": 1 },
+      "22": { "Settingupthegame": 3 },
+      "23": { "Tumbleweed": 1 },
+      "24": { "UpgradeTo362": 1 }
     },
     "happy": {
       "0": { "acintro6": 1 },
@@ -42614,7 +42660,7 @@ var meta = {
       "13": { "AutonumberSpeechFiles": 1 },
       "14": { "BlockingScripts": 1 },
       "15": { "Button": 5 },
-      "16": { "Character": 44 },
+      "16": { "Character": 45 },
       "17": { "ContactingTheDevelopers": 3 },
       "18": { "CustomProperties": 1 },
       "19": { "DateTime": 1 },
@@ -42660,52 +42706,53 @@ var meta = {
       "59": { "MultipleScripts": 2 },
       "60": { "MusicAndSound": 5 },
       "61": { "Object": 16 },
-      "62": { "Plugins": 1 },
-      "63": { "Pointers": 1 },
-      "64": { "Preprocessor": 6 },
-      "65": { "Region": 1 },
-      "66": { "RepExec": 6 },
-      "67": { "RestoredSaveInfo": 5 },
-      "68": { "Room": 2 },
-      "69": { "ScriptingTutorialPart1": 2 },
-      "70": { "ScriptingTutorialPart2": 2 },
-      "71": { "ScriptKeywords": 3 },
-      "72": { "Set": 1 },
-      "73": { "Settingupthegame": 5 },
-      "74": { "Slider": 1 },
-      "75": { "Speech": 3 },
-      "76": { "StandardEnums": 1 },
-      "77": { "StandardTypes": 1 },
-      "78": { "String": 3 },
-      "79": { "System": 3 },
-      "80": { "SystemLimits": 1 },
-      "81": { "TemplateBASS": 1 },
-      "82": { "TextBox": 1 },
-      "83": { "TextParser": 5 },
-      "84": { "TextWindowGUI": 2 },
-      "85": { "Translations": 2 },
-      "86": { "TroubleshootingWindowsZoneID": 1 },
-      "87": { "Tumbleweed": 3 },
-      "88": { "Tumbleweed_actions": 2 },
-      "89": { "Tumbleweed_movement": 22 },
-      "90": { "Tumbleweed_translation": 2 },
-      "91": { "UnicodeSupport": 2 },
-      "92": { "UpgradeTo30": 7 },
-      "93": { "UpgradeTo31": 3 },
-      "94": { "UpgradeTo32": 2 },
-      "95": { "UpgradeTo33": 3 },
-      "96": { "UpgradeTo34": 2 },
-      "97": { "UpgradeTo341": 1 },
-      "98": { "UpgradeTo35": 8 },
-      "99": { "UpgradeTo36": 6 },
-      "100": { "UpgradeTo361": 1 },
-      "101": { "UpgradeTo362": 6 },
-      "102": { "UpgradingTo27": 7 },
-      "103": { "UpgradingTo271": 1 },
-      "104": { "ValidateRestoredSave": 1 },
-      "105": { "ViewFrame": 3 },
-      "106": { "Viewport": 1 },
-      "107": { "VoiceSpeech": 3 }
+      "62": { "Overlay": 1 },
+      "63": { "Plugins": 1 },
+      "64": { "Pointers": 1 },
+      "65": { "Preprocessor": 6 },
+      "66": { "Region": 1 },
+      "67": { "RepExec": 6 },
+      "68": { "RestoredSaveInfo": 5 },
+      "69": { "Room": 2 },
+      "70": { "ScriptingTutorialPart1": 2 },
+      "71": { "ScriptingTutorialPart2": 2 },
+      "72": { "ScriptKeywords": 3 },
+      "73": { "Set": 1 },
+      "74": { "Settingupthegame": 5 },
+      "75": { "Slider": 1 },
+      "76": { "Speech": 3 },
+      "77": { "StandardEnums": 1 },
+      "78": { "StandardTypes": 1 },
+      "79": { "String": 3 },
+      "80": { "System": 3 },
+      "81": { "SystemLimits": 1 },
+      "82": { "TemplateBASS": 1 },
+      "83": { "TextBox": 1 },
+      "84": { "TextParser": 5 },
+      "85": { "TextWindowGUI": 2 },
+      "86": { "Translations": 2 },
+      "87": { "TroubleshootingWindowsZoneID": 1 },
+      "88": { "Tumbleweed": 3 },
+      "89": { "Tumbleweed_actions": 2 },
+      "90": { "Tumbleweed_movement": 22 },
+      "91": { "Tumbleweed_translation": 2 },
+      "92": { "UnicodeSupport": 2 },
+      "93": { "UpgradeTo30": 7 },
+      "94": { "UpgradeTo31": 3 },
+      "95": { "UpgradeTo32": 2 },
+      "96": { "UpgradeTo33": 3 },
+      "97": { "UpgradeTo34": 2 },
+      "98": { "UpgradeTo341": 1 },
+      "99": { "UpgradeTo35": 8 },
+      "100": { "UpgradeTo36": 6 },
+      "101": { "UpgradeTo361": 1 },
+      "102": { "UpgradeTo362": 6 },
+      "103": { "UpgradingTo27": 7 },
+      "104": { "UpgradingTo271": 1 },
+      "105": { "ValidateRestoredSave": 1 },
+      "106": { "ViewFrame": 3 },
+      "107": { "Viewport": 1 },
+      "108": { "VoiceSpeech": 3 }
     },
     "hasAlphaChannel": {
       "0": { "DynamicSprite": 2 }
@@ -42814,7 +42861,7 @@ var meta = {
       "73": { "MusicAndSound": 9 },
       "74": { "Object": 5 },
       "75": { "OOProgramming": 4 },
-      "76": { "Overlay": 8 },
+      "76": { "Overlay": 9 },
       "77": { "Plugins": 1 },
       "78": { "Pointers": 12 },
       "79": { "Preprocessor": 1 },
@@ -43340,8 +43387,9 @@ var meta = {
       "11": { "UpgradeTo36": 1 }
     },
     "historically": {
-      "0": { "GeneralSettings": 1 },
-      "1": { "Globalfunctions_General": 1 }
+      "0": { "Character": 1 },
+      "1": { "GeneralSettings": 1 },
+      "2": { "Globalfunctions_General": 1 }
     },
     "history": {
       "0": { "GameEventsOrder": 1 }
@@ -44013,9 +44061,10 @@ var meta = {
       "1": { "GameSavesCompatibility": 1 }
     },
     "immediate": {
-      "0": { "FAQ": 1 },
-      "1": { "GameEventsOrder": 1 },
-      "2": { "ScriptKeywords": 1 }
+      "0": { "Dialog": 1 },
+      "1": { "FAQ": 1 },
+      "2": { "GameEventsOrder": 1 },
+      "3": { "ScriptKeywords": 1 }
     },
     "immediately": {
       "0": { "Character": 16 },
@@ -44839,15 +44888,16 @@ var meta = {
       "15": { "Keycodes": 1 },
       "16": { "ListBox": 3 },
       "17": { "Parser": 5 },
-      "18": { "ScriptAPIOverview": 1 },
-      "19": { "Settingupthegame": 2 },
-      "20": { "StandardEnums": 1 },
-      "21": { "String": 2 },
-      "22": { "System": 1 },
-      "23": { "TextBox": 1 },
-      "24": { "TextParser": 8 },
-      "25": { "Translations": 2 },
-      "26": { "UpgradeTo36": 2 }
+      "18": { "Room": 1 },
+      "19": { "ScriptAPIOverview": 1 },
+      "20": { "Settingupthegame": 2 },
+      "21": { "StandardEnums": 1 },
+      "22": { "String": 2 },
+      "23": { "System": 1 },
+      "24": { "TextBox": 1 },
+      "25": { "TextParser": 8 },
+      "26": { "Translations": 2 },
+      "27": { "UpgradeTo36": 2 }
     },
     "input.Append": {
       "0": { "Globalfunctions_General": 1 }
@@ -45193,11 +45243,11 @@ var meta = {
       "47": { "Pointers": 2 },
       "48": { "Region": 17 },
       "49": { "RestoredSaveInfo": 21 },
-      "50": { "Room": 15 },
+      "50": { "Room": 17 },
       "51": { "Screen": 9 },
       "52": { "ScriptingTutorialPart1": 9 },
       "53": { "ScriptingTutorialPart2": 10 },
-      "54": { "ScriptKeywords": 52 },
+      "54": { "ScriptKeywords": 53 },
       "55": { "Set": 2 },
       "56": { "Slider": 6 },
       "57": { "Speech": 7 },
@@ -45738,9 +45788,8 @@ var meta = {
       "7": { "Gamevariables": 1 },
       "8": { "Globalfunctions_General": 1 },
       "9": { "MusicAndSound": 1 },
-      "10": { "Overlay": 1 },
-      "11": { "ScriptingTutorialPart2": 1 },
-      "12": { "Tumbleweed_actions": 1 }
+      "10": { "ScriptingTutorialPart2": 1 },
+      "11": { "Tumbleweed_actions": 1 }
     },
     "issue": {
       "0": { "GameSavesCompatibility": 2 },
@@ -45780,7 +45829,7 @@ var meta = {
       "12": { "ContactingTheDevelopers": 1 },
       "13": { "CustomDialogOptions": 1 },
       "14": { "DefaultSetup": 1 },
-      "15": { "Dialog": 1 },
+      "15": { "Dialog": 2 },
       "16": { "DialogScript": 1 },
       "17": { "DistGame": 3 },
       "18": { "DrawingSurface": 1 },
@@ -46008,7 +46057,7 @@ var meta = {
       "54": { "MusicAndSound": 8 },
       "55": { "Object": 20 },
       "56": { "ObsoleteScriptAPI": 1 },
-      "57": { "Overlay": 10 },
+      "57": { "Overlay": 11 },
       "58": { "Pointers": 2 },
       "59": { "Preprocessor": 3 },
       "60": { "Region": 1 },
@@ -46063,22 +46112,23 @@ var meta = {
       "16": { "Game": 2 },
       "17": { "GameSavesCompatibility": 1 },
       "18": { "Maths": 2 },
-      "19": { "Plugins": 1 },
-      "20": { "Pointers": 3 },
-      "21": { "Preprocessor": 1 },
-      "22": { "RepExec": 1 },
-      "23": { "Room": 1 },
-      "24": { "ScriptKeywords": 6 },
-      "25": { "Setup": 1 },
-      "26": { "SourceControl": 1 },
-      "27": { "SystemLimits": 1 },
-      "28": { "TemplateSierraStyle": 1 },
-      "29": { "Tumbleweed_unhandled": 1 },
-      "30": { "UpgradeTo34": 1 },
-      "31": { "UpgradeTo341": 1 },
-      "32": { "UpgradeTo35": 1 },
-      "33": { "UpgradeTo362": 1 },
-      "34": { "VoiceSpeech": 1 }
+      "19": { "Overlay": 1 },
+      "20": { "Plugins": 1 },
+      "21": { "Pointers": 3 },
+      "22": { "Preprocessor": 1 },
+      "23": { "RepExec": 1 },
+      "24": { "Room": 1 },
+      "25": { "ScriptKeywords": 6 },
+      "26": { "Setup": 1 },
+      "27": { "SourceControl": 1 },
+      "28": { "SystemLimits": 1 },
+      "29": { "TemplateSierraStyle": 1 },
+      "30": { "Tumbleweed_unhandled": 1 },
+      "31": { "UpgradeTo34": 1 },
+      "32": { "UpgradeTo341": 1 },
+      "33": { "UpgradeTo35": 1 },
+      "34": { "UpgradeTo362": 1 },
+      "35": { "VoiceSpeech": 1 }
     },
     "jack": {
       "0": { "EngineConfigFile": 1 }
@@ -46820,7 +46870,7 @@ var meta = {
       "48": { "Parser": 2 },
       "49": { "Region": 4 },
       "50": { "RestoredSaveInfo": 1 },
-      "51": { "Room": 3 },
+      "51": { "Room": 4 },
       "52": { "Screen": 2 },
       "53": { "ScriptAPIOverview": 1 },
       "54": { "ScriptingTutorialPart1": 2 },
@@ -47440,7 +47490,8 @@ var meta = {
       "3": { "Slider": 1 }
     },
     "lies": {
-      "0": { "Slider": 2 }
+      "0": { "Room": 1 },
+      "1": { "Slider": 2 }
     },
     "life": {
       "0": { "StringFormats": 9 }
@@ -48184,7 +48235,8 @@ var meta = {
     },
     "logical": {
       "0": { "GUI": 1 },
-      "1": { "Screen": 2 }
+      "1": { "Screen": 2 },
+      "2": { "ScriptKeywords": 1 }
     },
     "logo": {
       "0": { "Globalfunctions_Palette": 1 }
@@ -48897,7 +48949,7 @@ var meta = {
       "19": { "CustomDialogOptions": 2 },
       "20": { "Debuggingfeatures": 1 },
       "21": { "DefaultSetup": 1 },
-      "22": { "Dialog": 3 },
+      "22": { "Dialog": 1 },
       "23": { "Dictionary": 1 },
       "24": { "DistGame": 2 },
       "25": { "DrawingSurface": 1 },
@@ -49101,7 +49153,8 @@ var meta = {
       "0": { "Settingupthegame": 1 }
     },
     "manipulation": {
-      "0": { "Copyright": 1 }
+      "0": { "Copyright": 1 },
+      "1": { "ScriptKeywords": 1 }
     },
     "manipulations": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -49259,6 +49312,9 @@ var meta = {
     },
     "masked": {
       "0": { "EnginePluginRun-timeAPI": 3 }
+    },
+    "masking": {
+      "0": { "ScriptKeywords": 1 }
     },
     "masks": {
       "0": { "acintro3": 1 },
@@ -49435,7 +49491,7 @@ var meta = {
       "11": { "AudioInScript": 3 },
       "12": { "BuildAndroid": 1 },
       "13": { "Camera": 13 },
-      "14": { "Character": 17 },
+      "14": { "Character": 16 },
       "15": { "ColoursEditor": 1 },
       "16": { "CustomDialogOptions": 9 },
       "17": { "DateTime": 1 },
@@ -49492,7 +49548,7 @@ var meta = {
       "68": { "MusicAndSound": 1 },
       "69": { "Object": 11 },
       "70": { "OOProgramming": 1 },
-      "71": { "Overlay": 7 },
+      "71": { "Overlay": 8 },
       "72": { "Plugins": 1 },
       "73": { "Pointers": 6 },
       "74": { "Preprocessor": 7 },
@@ -49646,7 +49702,7 @@ var meta = {
       "41": { "ScriptAPIOverview": 1 },
       "42": { "ScriptingTutorialPart1": 7 },
       "43": { "ScriptingTutorialPart2": 2 },
-      "44": { "ScriptKeywords": 4 },
+      "44": { "ScriptKeywords": 5 },
       "45": { "Settingupthegame": 5 },
       "46": { "Setup": 1 },
       "47": { "StandardEnums": 1 },
@@ -50197,6 +50253,9 @@ var meta = {
     "mismatching": {
       "0": { "ValidateRestoredSave": 1 }
     },
+    "miss": {
+      "0": { "Character": 1 }
+    },
     "missed": {
       "0": { "acintro7": 1 }
     },
@@ -50522,7 +50581,7 @@ var meta = {
       "7": { "AudioClip": 1 },
       "8": { "BuildAndroid": 1 },
       "9": { "Camera": 1 },
-      "10": { "Character": 9 },
+      "10": { "Character": 10 },
       "11": { "ColoursEditor": 2 },
       "12": { "CustomDialogOptions": 2 },
       "13": { "DefaultSetup": 2 },
@@ -50630,7 +50689,7 @@ var meta = {
       "26": { "Pointers": 1 },
       "27": { "RepExec": 1 },
       "28": { "RuntimeEngine": 1 },
-      "29": { "ScriptKeywords": 3 },
+      "29": { "ScriptKeywords": 4 },
       "30": { "Settingupthegame": 5 },
       "31": { "Translations": 1 },
       "32": { "TroubleshootingWindowsZoneID": 1 },
@@ -50786,9 +50845,10 @@ var meta = {
       "14": { "Object": 1 },
       "15": { "Pointers": 3 },
       "16": { "Region": 1 },
-      "17": { "Screen": 1 },
-      "18": { "UpgradeTo35": 2 },
-      "19": { "Viewport": 2 }
+      "17": { "Room": 1 },
+      "18": { "Screen": 1 },
+      "19": { "UpgradeTo35": 2 },
+      "20": { "Viewport": 2 }
     },
     "mouse.y": {
       "0": { "Character": 1 },
@@ -50808,9 +50868,10 @@ var meta = {
       "14": { "Object": 1 },
       "15": { "Pointers": 3 },
       "16": { "Region": 1 },
-      "17": { "Screen": 1 },
-      "18": { "UpgradeTo35": 2 },
-      "19": { "Viewport": 2 }
+      "17": { "Room": 1 },
+      "18": { "Screen": 1 },
+      "19": { "UpgradeTo35": 2 },
+      "20": { "Viewport": 2 }
     },
     "mouseOverHotspot": {
       "0": { "Pointers": 4 }
@@ -51598,7 +51659,8 @@ var meta = {
       "2": { "Character": 1 },
       "3": { "Game": 1 },
       "4": { "GUIControl": 1 },
-      "5": { "Maths": 6 }
+      "5": { "Maths": 6 },
+      "6": { "Room": 1 }
     },
     "nearest-neighbour": {
       "0": { "EngineConfigFile": 1 },
@@ -51723,7 +51785,7 @@ var meta = {
       "64": { "ScriptAPIOverview": 1 },
       "65": { "ScriptingTutorialPart1": 7 },
       "66": { "ScriptingTutorialPart2": 5 },
-      "67": { "ScriptKeywords": 11 },
+      "67": { "ScriptKeywords": 12 },
       "68": { "ScriptModules": 1 },
       "69": { "Settingupthegame": 8 },
       "70": { "Setup": 2 },
@@ -51810,8 +51872,9 @@ var meta = {
       "10": { "OOProgramming": 1 },
       "11": { "Overlay": 1 },
       "12": { "Region": 1 },
-      "13": { "Settingupthegame": 2 },
-      "14": { "SystemLimits": 1 }
+      "13": { "ScriptKeywords": 1 },
+      "14": { "Settingupthegame": 2 },
+      "15": { "SystemLimits": 1 }
     },
     "negligible": {
       "0": { "GeneralSettings": 1 }
@@ -52293,7 +52356,7 @@ var meta = {
       "4": { "AudioChannel": 1 },
       "5": { "Button": 7 },
       "6": { "Character": 25 },
-      "7": { "Dialog": 1 },
+      "7": { "Dialog": 2 },
       "8": { "DialogScript": 4 },
       "9": { "EditorCursor": 1 },
       "10": { "EditorGUI": 2 },
@@ -52609,7 +52672,7 @@ var meta = {
       "20": { "OOProgramming": 1 },
       "21": { "Parser": 2 },
       "22": { "Pointers": 14 },
-      "23": { "Room": 1 },
+      "23": { "Room": 2 },
       "24": { "Screen": 1 },
       "25": { "ScriptKeywords": 2 },
       "26": { "Set": 1 },
@@ -52973,7 +53036,7 @@ var meta = {
       "37": { "Label": 1 },
       "38": { "Mouse": 2 },
       "39": { "Object": 165 },
-      "40": { "Overlay": 2 },
+      "40": { "Overlay": 3 },
       "41": { "Pointers": 18 },
       "42": { "Region": 1 },
       "43": { "RepExec": 1 },
@@ -53707,16 +53770,17 @@ var meta = {
       "13": { "Globalfunctions_Event": 1 },
       "14": { "Globalfunctions_General": 2 },
       "15": { "Room": 1 },
-      "16": { "System": 2 },
-      "17": { "TheScriptHeader": 1 },
-      "18": { "Translations": 1 },
-      "19": { "Tumbleweed": 1 },
-      "20": { "Tumbleweed_translation": 1 },
-      "21": { "UnicodeSupport": 1 },
-      "22": { "UpgradeTo30": 1 },
-      "23": { "UpgradeTo362": 2 },
-      "24": { "UpgradingTo27": 1 },
-      "25": { "UpgradingTo271": 2 }
+      "16": { "ScriptKeywords": 1 },
+      "17": { "System": 2 },
+      "18": { "TheScriptHeader": 1 },
+      "19": { "Translations": 1 },
+      "20": { "Tumbleweed": 1 },
+      "21": { "Tumbleweed_translation": 1 },
+      "22": { "UnicodeSupport": 1 },
+      "23": { "UpgradeTo30": 1 },
+      "24": { "UpgradeTo362": 2 },
+      "25": { "UpgradingTo27": 1 },
+      "26": { "UpgradingTo271": 2 }
     },
     "online": {
       "0": { "Introduction": 1 }
@@ -54217,7 +54281,7 @@ var meta = {
       "9": { "CustomDialogOptions": 27 },
       "10": { "CustomProperties": 1 },
       "11": { "DefaultSetup": 4 },
-      "12": { "Dialog": 14 },
+      "12": { "Dialog": 17 },
       "13": { "DialogOptionsRenderingInfo": 34 },
       "14": { "DialogScript": 3 },
       "15": { "Dictionary": 1 },
@@ -54654,7 +54718,7 @@ var meta = {
       "42": { "Multimedia": 1 },
       "43": { "MusicAndSound": 1 },
       "44": { "Object": 5 },
-      "45": { "Overlay": 3 },
+      "45": { "Overlay": 4 },
       "46": { "Pointers": 2 },
       "47": { "ScriptingTutorialPart1": 1 },
       "48": { "ScriptingTutorialPart2": 1 },
@@ -54821,7 +54885,7 @@ var meta = {
       "41": { "Screen": 1 },
       "42": { "ScriptAPIOverview": 1 },
       "43": { "ScriptingTutorial": 1 },
-      "44": { "ScriptKeywords": 2 },
+      "44": { "ScriptKeywords": 3 },
       "45": { "Settingupthegame": 5 },
       "46": { "Speech": 3 },
       "47": { "TemplateVerbcoin": 1 },
@@ -54891,17 +54955,17 @@ var meta = {
     "overlay": {
       "0": { "Character": 4 },
       "1": { "GUI": 1 },
-      "2": { "Overlay": 54 },
+      "2": { "Overlay": 55 },
       "3": { "Speech": 4 }
     },
     "overlay's": {
-      "0": { "Overlay": 13 },
+      "0": { "Overlay": 14 },
       "1": { "UpgradeTo36": 1 }
     },
     "overlays": {
       "0": { "AdvancedRoomFeatures": 1 },
       "1": { "EnginePluginRun-timeAPI": 3 },
-      "2": { "Overlay": 25 },
+      "2": { "Overlay": 26 },
       "3": { "UpgradeTo36": 8 }
     },
     "overlook": {
@@ -55418,36 +55482,37 @@ var meta = {
       "6": { "Button": 7 },
       "7": { "Character": 7 },
       "8": { "CustomDialogOptions": 1 },
-      "9": { "DistGame": 1 },
-      "10": { "EditorDialog": 1 },
-      "11": { "EnginePluginRun-timeAPI": 5 },
-      "12": { "ExtenderFunctions": 1 },
-      "13": { "Game": 13 },
-      "14": { "GameSavesCompatibility": 1 },
-      "15": { "Globalfunctions_General": 1 },
-      "16": { "Globalfunctions_Room": 2 },
-      "17": { "GUI": 1 },
-      "18": { "KeyboardShortcuts": 1 },
-      "19": { "Lipsync": 1 },
-      "20": { "MusicAndSound": 1 },
-      "21": { "Pointers": 1 },
-      "22": { "Preprocessor": 4 },
-      "23": { "Region": 1 },
-      "24": { "Room": 1 },
-      "25": { "ScriptingTutorialPart1": 4 },
-      "26": { "ScriptingTutorialPart2": 3 },
-      "27": { "ScriptKeywords": 4 },
-      "28": { "Settingupthegame": 1 },
-      "29": { "String": 2 },
-      "30": { "SystemLimits": 1 },
-      "31": { "TheScriptHeader": 1 },
-      "32": { "UpgradeTo31": 1 },
-      "33": { "UpgradeTo35": 4 },
-      "34": { "UpgradeTo36": 1 },
-      "35": { "UpgradeTo362": 1 },
-      "36": { "UpgradingTo271": 1 },
-      "37": { "ValidateRestoredSave": 2 },
-      "38": { "ViewFrame": 7 }
+      "9": { "Dialog": 1 },
+      "10": { "DistGame": 1 },
+      "11": { "EditorDialog": 1 },
+      "12": { "EnginePluginRun-timeAPI": 5 },
+      "13": { "ExtenderFunctions": 1 },
+      "14": { "Game": 13 },
+      "15": { "GameSavesCompatibility": 1 },
+      "16": { "Globalfunctions_General": 1 },
+      "17": { "Globalfunctions_Room": 2 },
+      "18": { "GUI": 1 },
+      "19": { "KeyboardShortcuts": 1 },
+      "20": { "Lipsync": 1 },
+      "21": { "MusicAndSound": 1 },
+      "22": { "Pointers": 1 },
+      "23": { "Preprocessor": 4 },
+      "24": { "Region": 1 },
+      "25": { "Room": 1 },
+      "26": { "ScriptingTutorialPart1": 4 },
+      "27": { "ScriptingTutorialPart2": 3 },
+      "28": { "ScriptKeywords": 4 },
+      "29": { "Settingupthegame": 1 },
+      "30": { "String": 2 },
+      "31": { "SystemLimits": 1 },
+      "32": { "TheScriptHeader": 1 },
+      "33": { "UpgradeTo31": 1 },
+      "34": { "UpgradeTo35": 4 },
+      "35": { "UpgradeTo36": 1 },
+      "36": { "UpgradeTo362": 1 },
+      "37": { "UpgradingTo271": 1 },
+      "38": { "ValidateRestoredSave": 2 },
+      "39": { "ViewFrame": 7 }
     },
     "partially": {
       "0": { "EditorFont": 1 },
@@ -55750,17 +55815,16 @@ var meta = {
       "0": { "AnonymousUsageInfo": 6 },
       "1": { "ContactingTheDevelopers": 2 },
       "2": { "Copyright": 1 },
-      "3": { "Credits": 1 },
-      "4": { "DistGame": 2 },
-      "5": { "DynamicArrays": 1 },
-      "6": { "EditorPlugins": 1 },
-      "7": { "EditorSprite": 1 },
-      "8": { "MultipleScripts": 2 },
-      "9": { "OOProgramming": 1 },
-      "10": { "Pointers": 2 },
-      "11": { "UpgradeTo31": 1 },
-      "12": { "UpgradeTo361": 1 },
-      "13": { "UpgradingTo27": 1 }
+      "3": { "DistGame": 2 },
+      "4": { "DynamicArrays": 1 },
+      "5": { "EditorPlugins": 1 },
+      "6": { "EditorSprite": 1 },
+      "7": { "MultipleScripts": 2 },
+      "8": { "OOProgramming": 1 },
+      "9": { "Pointers": 2 },
+      "10": { "UpgradeTo31": 1 },
+      "11": { "UpgradeTo361": 1 },
+      "12": { "UpgradingTo27": 1 }
     },
     "per": {
       "0": { "acintro4": 1 },
@@ -55858,7 +55922,8 @@ var meta = {
       "8": { "UpgradeTo361": 1 }
     },
     "performant": {
-      "0": { "UpgradeTo36": 1 }
+      "0": { "Character": 1 },
+      "1": { "UpgradeTo36": 1 }
     },
     "performed": {
       "0": { "Copyright": 1 },
@@ -56068,7 +56133,7 @@ var meta = {
       "1": { "System": 1 }
     },
     "pixel": {
-      "0": { "Character": 5 },
+      "0": { "Character": 4 },
       "1": { "DrawingSurface": 9 },
       "2": { "DynamicSprite": 1 },
       "3": { "EditorInventoryItems": 1 },
@@ -56389,7 +56454,7 @@ var meta = {
       "15": { "DateTime": 1 },
       "16": { "Debuggingfeatures": 1 },
       "17": { "DefaultSetup": 1 },
-      "18": { "Dialog": 21 },
+      "18": { "Dialog": 22 },
       "19": { "DialogOptionsRenderingInfo": 2 },
       "20": { "DialogScript": 12 },
       "21": { "DistGame": 2 },
@@ -57025,14 +57090,15 @@ var meta = {
       "30": { "Object": 3 },
       "31": { "Overlay": 4 },
       "32": { "RepExec": 1 },
-      "33": { "Screen": 3 },
-      "34": { "Slider": 1 },
-      "35": { "StandardTypes": 1 },
-      "36": { "String": 2 },
-      "37": { "TemplateVerbcoin": 1 },
-      "38": { "UpgradeTo33": 1 },
-      "39": { "UpgradeTo35": 3 },
-      "40": { "Viewport": 7 }
+      "33": { "Room": 3 },
+      "34": { "Screen": 3 },
+      "35": { "Slider": 1 },
+      "36": { "StandardTypes": 1 },
+      "37": { "String": 2 },
+      "38": { "TemplateVerbcoin": 1 },
+      "39": { "UpgradeTo33": 1 },
+      "40": { "UpgradeTo35": 3 },
+      "41": { "Viewport": 7 }
     },
     "positioned": {
       "0": { "Character": 1 },
@@ -57083,9 +57149,10 @@ var meta = {
       "8": { "OOProgramming": 1 },
       "9": { "Overlay": 1 },
       "10": { "Region": 1 },
-      "11": { "SystemLimits": 1 },
-      "12": { "UnicodeSupport": 1 },
-      "13": { "VoiceSpeech": 1 }
+      "11": { "ScriptKeywords": 1 },
+      "12": { "SystemLimits": 1 },
+      "13": { "UnicodeSupport": 1 },
+      "14": { "VoiceSpeech": 1 }
     },
     "positons": {
       "0": { "Viewport": 1 }
@@ -57460,19 +57527,20 @@ var meta = {
     },
     "presses": {
       "0": { "CustomDialogOptions": 2 },
-      "1": { "DialogOptionsRenderingInfo": 1 },
-      "2": { "EditorGUI": 1 },
-      "3": { "EnginePluginRun-timeAPI": 1 },
-      "4": { "Game": 3 },
-      "5": { "Globalfunctions_Event": 1 },
-      "6": { "Globalfunctions_General": 7 },
-      "7": { "Globalfunctions_Wait": 8 },
-      "8": { "GUI": 1 },
-      "9": { "Mouse": 1 },
-      "10": { "MusicAndSound": 1 },
-      "11": { "ScriptKeywords": 1 },
-      "12": { "System": 1 },
-      "13": { "UpgradeTo34": 1 }
+      "1": { "Dialog": 1 },
+      "2": { "DialogOptionsRenderingInfo": 1 },
+      "3": { "EditorGUI": 1 },
+      "4": { "EnginePluginRun-timeAPI": 1 },
+      "5": { "Game": 3 },
+      "6": { "Globalfunctions_Event": 1 },
+      "7": { "Globalfunctions_General": 7 },
+      "8": { "Globalfunctions_Wait": 8 },
+      "9": { "GUI": 1 },
+      "10": { "Mouse": 1 },
+      "11": { "MusicAndSound": 1 },
+      "12": { "ScriptKeywords": 1 },
+      "13": { "System": 1 },
+      "14": { "UpgradeTo34": 1 }
     },
     "pressing": {
       "0": { "acintro4": 1 },
@@ -57689,7 +57757,7 @@ var meta = {
       "3": { "UpgradeTo361": 1 }
     },
     "prior": {
-      "0": { "Character": 1 },
+      "0": { "Character": 2 },
       "1": { "EnginePluginRun-timeAPI": 2 },
       "2": { "Game": 1 },
       "3": { "GameEventsOrder": 1 },
@@ -58167,7 +58235,7 @@ var meta = {
       "47": { "Object": 56 },
       "48": { "ObsoleteScriptAPI": 2 },
       "49": { "OOProgramming": 7 },
-      "50": { "Overlay": 13 },
+      "50": { "Overlay": 14 },
       "51": { "Region": 13 },
       "52": { "RestoredSaveInfo": 2 },
       "53": { "Room": 19 },
@@ -58381,7 +58449,7 @@ var meta = {
       "5": { "Globalfunctions_General": 2 },
       "6": { "Globalfunctions_Room": 1 },
       "7": { "Pointers": 1 },
-      "8": { "ScriptKeywords": 1 },
+      "8": { "ScriptKeywords": 2 },
       "9": { "System": 1 },
       "10": { "UpgradeTo361": 1 },
       "11": { "UpgradeTo362": 1 },
@@ -58654,7 +58722,7 @@ var meta = {
     },
     "range": {
       "0": { "acintro7": 1 },
-      "1": { "Character": 3 },
+      "1": { "Character": 4 },
       "2": { "ColoursEditor": 2 },
       "3": { "DateTime": 1 },
       "4": { "DrawingSurface": 1 },
@@ -59553,28 +59621,29 @@ var meta = {
       "1": { "Button": 1 },
       "2": { "Character": 1 },
       "3": { "CustomDialogOptions": 3 },
-      "4": { "DialogScript": 2 },
-      "5": { "Dictionary": 1 },
-      "6": { "DynamicArrays": 2 },
-      "7": { "EditorDialog": 1 },
-      "8": { "EnginePluginRun-timeAPI": 2 },
-      "9": { "ExtenderFunctions": 1 },
-      "10": { "Game": 2 },
-      "11": { "GameSavesCompatibility": 1 },
-      "12": { "GeneralSettings": 1 },
-      "13": { "Globalfunctions_Event": 1 },
-      "14": { "ImportingFunctionsAndVariables": 2 },
-      "15": { "Keycodes": 1 },
-      "16": { "Label": 1 },
-      "17": { "Object": 1 },
-      "18": { "Overlay": 1 },
-      "19": { "Pointers": 1 },
-      "20": { "ScriptKeywords": 1 },
-      "21": { "TextParser": 1 },
-      "22": { "TheScriptHeader": 1 },
-      "23": { "Translations": 1 },
-      "24": { "UpgradeTo35": 2 },
-      "25": { "UpgradeTo36": 3 }
+      "4": { "Dialog": 1 },
+      "5": { "DialogScript": 2 },
+      "6": { "Dictionary": 1 },
+      "7": { "DynamicArrays": 2 },
+      "8": { "EditorDialog": 1 },
+      "9": { "EnginePluginRun-timeAPI": 2 },
+      "10": { "ExtenderFunctions": 1 },
+      "11": { "Game": 2 },
+      "12": { "GameSavesCompatibility": 1 },
+      "13": { "GeneralSettings": 1 },
+      "14": { "Globalfunctions_Event": 1 },
+      "15": { "ImportingFunctionsAndVariables": 2 },
+      "16": { "Keycodes": 1 },
+      "17": { "Label": 1 },
+      "18": { "Object": 1 },
+      "19": { "Overlay": 1 },
+      "20": { "Pointers": 1 },
+      "21": { "ScriptKeywords": 1 },
+      "22": { "TextParser": 1 },
+      "23": { "TheScriptHeader": 1 },
+      "24": { "Translations": 1 },
+      "25": { "UpgradeTo35": 2 },
+      "26": { "UpgradeTo36": 3 }
     },
     "regularly": {
       "0": { "BackingUpYourGame": 1 },
@@ -59788,8 +59857,9 @@ var meta = {
     "remains": {
       "0": { "AudioInScript": 1 },
       "1": { "EnginePluginRun-timeAPI": 1 },
-      "2": { "UnicodeSupport": 1 },
-      "3": { "UpgradeTo31": 1 }
+      "2": { "Overlay": 1 },
+      "3": { "UnicodeSupport": 1 },
+      "4": { "UpgradeTo31": 1 }
     },
     "remap": {
       "0": { "File": 1 },
@@ -59895,7 +59965,7 @@ var meta = {
       "10": { "Globalfunctions_Message": 1 },
       "11": { "GUI": 2 },
       "12": { "ObsoleteScriptAPI": 1 },
-      "13": { "Overlay": 7 },
+      "13": { "Overlay": 9 },
       "14": { "ScriptKeywords": 2 },
       "15": { "StandardEnums": 2 },
       "16": { "Tumbleweed_movement": 1 },
@@ -59984,15 +60054,16 @@ var meta = {
     "rendering": {
       "0": { "Constants": 1 },
       "1": { "CustomDialogOptions": 3 },
-      "2": { "EnginePluginRun-timeAPI": 8 },
-      "3": { "GeneralSettings": 5 },
-      "4": { "Globalfunctions_General": 1 },
-      "5": { "Scripting": 1 },
-      "6": { "System": 1 },
-      "7": { "TemplateVerbcoin": 1 },
-      "8": { "TextWindowGUI": 1 },
-      "9": { "UpgradeTo33": 2 },
-      "10": { "UpgradeTo34": 3 }
+      "2": { "Dialog": 1 },
+      "3": { "EnginePluginRun-timeAPI": 8 },
+      "4": { "GeneralSettings": 5 },
+      "5": { "Globalfunctions_General": 1 },
+      "6": { "Scripting": 1 },
+      "7": { "System": 1 },
+      "8": { "TemplateVerbcoin": 1 },
+      "9": { "TextWindowGUI": 1 },
+      "10": { "UpgradeTo33": 2 },
+      "11": { "UpgradeTo34": 3 }
     },
     "renders": {
       "0": { "TemplateVerbcoin": 1 },
@@ -60063,7 +60134,7 @@ var meta = {
     "repeatedly_execute_always": {
       "0": { "BlockingScripts": 1 },
       "1": { "Character": 5 },
-      "2": { "Dialog": 3 },
+      "2": { "Dialog": 5 },
       "3": { "EditorRoom": 1 },
       "4": { "GameEventsOrder": 1 },
       "5": { "Globalfunctions_Event": 4 },
@@ -60781,7 +60852,7 @@ var meta = {
       "33": { "Pointers": 2 },
       "34": { "ScriptingTutorialPart1": 4 },
       "35": { "ScriptingTutorialPart2": 3 },
-      "36": { "ScriptKeywords": 14 },
+      "36": { "ScriptKeywords": 15 },
       "37": { "Speech": 2 },
       "38": { "StandardEnums": 2 },
       "39": { "String": 2 },
@@ -60866,7 +60937,7 @@ var meta = {
       "28": { "Parser": 3 },
       "29": { "Pointers": 1 },
       "30": { "Region": 1 },
-      "31": { "Room": 3 },
+      "31": { "Room": 5 },
       "32": { "Screen": 1 },
       "33": { "ScriptingTutorialPart2": 1 },
       "34": { "ScriptKeywords": 2 },
@@ -60934,7 +61005,7 @@ var meta = {
       "10": { "CustomDialogOptions": 2 },
       "11": { "Debuggingfeatures": 1 },
       "12": { "DefaultSetup": 1 },
-      "13": { "Dialog": 1 },
+      "13": { "Dialog": 2 },
       "14": { "DrawingSurface": 1 },
       "15": { "DynamicSprite": 3 },
       "16": { "EditorDialog": 1 },
@@ -60962,7 +61033,7 @@ var meta = {
       "38": { "RepExec": 3 },
       "39": { "Room": 2 },
       "40": { "ScriptingTutorialPart1": 5 },
-      "41": { "ScriptKeywords": 2 },
+      "41": { "ScriptKeywords": 4 },
       "42": { "ScriptModules": 1 },
       "43": { "Settingupthegame": 8 },
       "44": { "Setup": 1 },
@@ -61091,7 +61162,7 @@ var meta = {
       "12": { "BackingUpYourGame": 2 },
       "13": { "BlockingScripts": 2 },
       "14": { "Camera": 47 },
-      "15": { "Character": 60 },
+      "15": { "Character": 61 },
       "16": { "ColoursEditor": 1 },
       "17": { "Constants": 3 },
       "18": { "Debuggingfeatures": 6 },
@@ -61129,7 +61200,7 @@ var meta = {
       "50": { "Region": 3 },
       "51": { "RepExec": 8 },
       "52": { "RestoredSaveInfo": 4 },
-      "53": { "Room": 43 },
+      "53": { "Room": 45 },
       "54": { "RuntimeEngine": 5 },
       "55": { "Screen": 18 },
       "56": { "ScriptAPIOverview": 1 },
@@ -61231,6 +61302,15 @@ var meta = {
       "0": { "Character": 2 },
       "1": { "Globalfunctions_Room": 2 },
       "2": { "RuntimeEngine": 1 }
+    },
+    "room_pt": {
+      "0": { "Room": 1 }
+    },
+    "room_pt.x": {
+      "0": { "Room": 1 }
+    },
+    "room_pt.y": {
+      "0": { "Room": 1 }
     },
     "roompt": {
       "0": { "UpgradeTo35": 1 }
@@ -61416,28 +61496,29 @@ var meta = {
       "40": { "InventoryItem": 3 },
       "41": { "Mouse": 2 },
       "42": { "Object": 3 },
-      "43": { "Region": 2 },
-      "44": { "RepExec": 8 },
-      "45": { "RuntimeEngine": 8 },
-      "46": { "ScriptingTutorialPart1": 8 },
-      "47": { "ScriptingTutorialPart2": 5 },
-      "48": { "ScriptKeywords": 10 },
-      "49": { "ScriptModules": 2 },
-      "50": { "Settingupthegame": 5 },
-      "51": { "Setup": 5 },
-      "52": { "StandardEnums": 1 },
-      "53": { "System": 2 },
-      "54": { "Templates": 1 },
-      "55": { "Translations": 3 },
-      "56": { "TroubleshootingWindowsZoneID": 2 },
-      "57": { "UpgradeTo30": 2 },
-      "58": { "UpgradeTo31": 3 },
-      "59": { "UpgradeTo34": 1 },
-      "60": { "UpgradeTo35": 1 },
-      "61": { "UpgradeTo36": 1 },
-      "62": { "UpgradeTo361": 2 },
-      "63": { "UpgradeTo362": 1 },
-      "64": { "ValidateRestoredSave": 1 }
+      "43": { "Overlay": 1 },
+      "44": { "Region": 2 },
+      "45": { "RepExec": 8 },
+      "46": { "RuntimeEngine": 8 },
+      "47": { "ScriptingTutorialPart1": 8 },
+      "48": { "ScriptingTutorialPart2": 5 },
+      "49": { "ScriptKeywords": 10 },
+      "50": { "ScriptModules": 2 },
+      "51": { "Settingupthegame": 5 },
+      "52": { "Setup": 5 },
+      "53": { "StandardEnums": 1 },
+      "54": { "System": 2 },
+      "55": { "Templates": 1 },
+      "56": { "Translations": 3 },
+      "57": { "TroubleshootingWindowsZoneID": 2 },
+      "58": { "UpgradeTo30": 2 },
+      "59": { "UpgradeTo31": 3 },
+      "60": { "UpgradeTo34": 1 },
+      "61": { "UpgradeTo35": 1 },
+      "62": { "UpgradeTo36": 1 },
+      "63": { "UpgradeTo361": 2 },
+      "64": { "UpgradeTo362": 1 },
+      "65": { "ValidateRestoredSave": 1 }
     },
     "run-as": {
       "0": { "TroubleshootingWindowsZoneID": 1 }
@@ -61466,7 +61547,7 @@ var meta = {
       "4": { "Character": 2 },
       "5": { "Debuggingfeatures": 2 },
       "6": { "DefaultSetup": 3 },
-      "7": { "Dialog": 3 },
+      "7": { "Dialog": 4 },
       "8": { "DialogScript": 1 },
       "9": { "EditorLogPanel": 1 },
       "10": { "EditorView": 1 },
@@ -61653,7 +61734,7 @@ var meta = {
       "51": { "Pointers": 6 },
       "52": { "Region": 3 },
       "53": { "RestoredSaveInfo": 3 },
-      "54": { "Room": 1 },
+      "54": { "Room": 2 },
       "55": { "RuntimeEngine": 1 },
       "56": { "ScriptingTutorialPart1": 2 },
       "57": { "ScriptingTutorialPart2": 1 },
@@ -62008,9 +62089,6 @@ var meta = {
     "scheduled": {
       "0": { "GameEventsOrder": 2 }
     },
-    "schedules": {
-      "0": { "Dialog": 1 }
-    },
     "schema": {
       "0": { "CustomProperties": 5 }
     },
@@ -62104,7 +62182,7 @@ var meta = {
       "47": { "Mouse": 6 },
       "48": { "Multimedia": 3 },
       "49": { "Object": 2 },
-      "50": { "Overlay": 27 },
+      "50": { "Overlay": 28 },
       "51": { "Region": 1 },
       "52": { "RepExec": 4 },
       "53": { "Room": 4 },
@@ -62192,7 +62270,7 @@ var meta = {
       "19": { "CustomDialogOptions": 6 },
       "20": { "CustomProperties": 7 },
       "21": { "Debuggingfeatures": 8 },
-      "22": { "Dialog": 19 },
+      "22": { "Dialog": 22 },
       "23": { "DialogOptionsRenderingInfo": 2 },
       "24": { "DialogScript": 20 },
       "25": { "DrawingSurface": 2 },
@@ -62240,7 +62318,7 @@ var meta = {
       "67": { "Object": 15 },
       "68": { "ObsoleteScriptAPI": 1 },
       "69": { "OOProgramming": 7 },
-      "70": { "Overlay": 9 },
+      "70": { "Overlay": 12 },
       "71": { "Plugins": 1 },
       "72": { "Pointers": 6 },
       "73": { "Preprocessor": 30 },
@@ -62501,7 +62579,8 @@ var meta = {
     },
     "searches": {
       "0": { "AudioClip": 1 },
-      "1": { "AudioInScript": 1 }
+      "1": { "AudioInScript": 1 },
+      "2": { "Character": 1 }
     },
     "searching": {
       "0": { "Character": 1 },
@@ -63526,7 +63605,8 @@ var meta = {
     },
     "shift": {
       "0": { "acintro1": 1 },
-      "1": { "UpgradeTo36": 3 }
+      "1": { "ScriptKeywords": 2 },
+      "2": { "UpgradeTo36": 3 }
     },
     "shift-clicking": {
       "0": { "ColoursEditor": 1 }
@@ -63536,8 +63616,9 @@ var meta = {
       "1": { "Character": 2 },
       "2": { "Game": 1 },
       "3": { "Screen": 1 },
-      "4": { "UpgradeTo36": 1 },
-      "5": { "Viewport": 1 }
+      "4": { "ScriptKeywords": 1 },
+      "5": { "UpgradeTo36": 1 },
+      "6": { "Viewport": 1 }
     },
     "shipping": {
       "0": { "RuntimeEngine": 1 }
@@ -63550,7 +63631,7 @@ var meta = {
       "4": { "MusicAndSound": 1 },
       "5": { "OOProgramming": 1 },
       "6": { "ScriptingTutorialPart1": 1 },
-      "7": { "ScriptKeywords": 3 },
+      "7": { "ScriptKeywords": 4 },
       "8": { "StringFormats": 1 },
       "9": { "System": 1 },
       "10": { "TextParser": 3 }
@@ -63598,7 +63679,7 @@ var meta = {
       "8": { "AnonymousUsageInfo": 1 },
       "9": { "BackingUpYourGame": 2 },
       "10": { "Button": 1 },
-      "11": { "Character": 9 },
+      "11": { "Character": 10 },
       "12": { "Copyright": 1 },
       "13": { "CustomDialogOptions": 1 },
       "14": { "DateTime": 1 },
@@ -63849,13 +63930,15 @@ var meta = {
     },
     "signed": {
       "0": { "DateTime": 1 },
-      "1": { "SystemLimits": 1 }
+      "1": { "ScriptKeywords": 1 },
+      "2": { "SystemLimits": 1 }
     },
     "significant": {
       "0": { "GraphicsDriver": 1 },
-      "1": { "UpgradeTo34": 1 },
-      "2": { "UpgradeTo36": 1 },
-      "3": { "UpgradingTo27": 1 }
+      "1": { "ScriptKeywords": 1 },
+      "2": { "UpgradeTo34": 1 },
+      "3": { "UpgradeTo36": 1 },
+      "4": { "UpgradingTo27": 1 }
     },
     "significantly": {
       "0": { "acintro9": 1 },
@@ -64588,7 +64671,7 @@ var meta = {
       "16": { "BuildAndroid": 2 },
       "17": { "Button": 1 },
       "18": { "Camera": 2 },
-      "19": { "Character": 25 },
+      "19": { "Character": 27 },
       "20": { "ContactingTheDevelopers": 2 },
       "21": { "CustomDialogOptions": 3 },
       "22": { "CustomProperties": 4 },
@@ -65157,8 +65240,9 @@ var meta = {
       "1": { "acintro7": 1 },
       "2": { "DialogScript": 2 },
       "3": { "EditorPreferences": 1 },
-      "4": { "StandardEnums": 2 },
-      "5": { "TextParser": 1 }
+      "4": { "ScriptKeywords": 1 },
+      "5": { "StandardEnums": 2 },
+      "6": { "TextParser": 1 }
     },
     "spaceship": {
       "0": { "Globalfunctions_Room": 1 }
@@ -65421,7 +65505,7 @@ var meta = {
       "18": { "Multimedia": 6 },
       "19": { "MusicAndSound": 6 },
       "20": { "OtherFeatures": 1 },
-      "21": { "Overlay": 7 },
+      "21": { "Overlay": 8 },
       "22": { "Settingupthegame": 2 },
       "23": { "Setup": 1 },
       "24": { "Speech": 40 },
@@ -65885,10 +65969,11 @@ var meta = {
       "16": { "ListBox": 2 },
       "17": { "Multimedia": 1 },
       "18": { "Object": 2 },
-      "19": { "ScriptingTutorialPart1": 2 },
-      "20": { "Settingupthegame": 4 },
-      "21": { "String": 2 },
-      "22": { "UpgradeTo36": 1 }
+      "19": { "Room": 1 },
+      "20": { "ScriptingTutorialPart1": 2 },
+      "21": { "Settingupthegame": 4 },
+      "22": { "String": 2 },
+      "23": { "UpgradeTo36": 1 }
     },
     "startr": {
       "0": { "RuntimeEngine": 1 }
@@ -65952,17 +66037,18 @@ var meta = {
       "14": { "GUI": 1 },
       "15": { "Hotspot": 1 },
       "16": { "Object": 1 },
-      "17": { "Pointers": 2 },
-      "18": { "Region": 1 },
-      "19": { "RepExec": 4 },
-      "20": { "ScriptAPIOverview": 1 },
-      "21": { "Settingupthegame": 1 },
-      "22": { "Setup": 1 },
-      "23": { "System": 2 },
-      "24": { "Tumbleweed_door": 5 },
-      "25": { "UpgradeTo35": 1 },
-      "26": { "UpgradeTo36": 2 },
-      "27": { "UpgradeTo362": 2 }
+      "17": { "Overlay": 1 },
+      "18": { "Pointers": 2 },
+      "19": { "Region": 1 },
+      "20": { "RepExec": 4 },
+      "21": { "ScriptAPIOverview": 1 },
+      "22": { "Settingupthegame": 1 },
+      "23": { "Setup": 1 },
+      "24": { "System": 2 },
+      "25": { "Tumbleweed_door": 5 },
+      "26": { "UpgradeTo35": 1 },
+      "27": { "UpgradeTo36": 2 },
+      "28": { "UpgradeTo362": 2 }
     },
     "state-saving": {
       "0": { "SystemLimits": 1 }
@@ -66015,7 +66101,7 @@ var meta = {
       "22": { "Parser": 4 },
       "23": { "Pointers": 3 },
       "24": { "Region": 4 },
-      "25": { "Room": 15 },
+      "25": { "Room": 16 },
       "26": { "Screen": 8 },
       "27": { "Set": 1 },
       "28": { "Speech": 15 },
@@ -66173,7 +66259,7 @@ var meta = {
       "4": { "Constants": 1 },
       "5": { "CustomDialogOptions": 1 },
       "6": { "Debuggingfeatures": 1 },
-      "7": { "Dialog": 2 },
+      "7": { "Dialog": 6 },
       "8": { "DialogScript": 2 },
       "9": { "EditorFont": 1 },
       "10": { "EnginePluginRun-timeAPI": 2 },
@@ -66526,18 +66612,19 @@ var meta = {
       "5": { "GeneralSettings": 1 },
       "6": { "OOProgramming": 14 },
       "7": { "RestoredSaveInfo": 2 },
-      "8": { "Screen": 4 },
-      "9": { "ScriptAPIOverview": 1 },
-      "10": { "ScriptKeywords": 26 },
-      "11": { "Set": 1 },
-      "12": { "StandardTypes": 2 },
-      "13": { "TextWindowGUI": 2 },
-      "14": { "TheScriptHeader": 1 },
-      "15": { "UpgradeTo34": 1 },
-      "16": { "UpgradeTo35": 3 },
-      "17": { "UpgradeTo362": 1 },
-      "18": { "ValidateRestoredSave": 2 },
-      "19": { "Viewport": 4 }
+      "8": { "Room": 1 },
+      "9": { "Screen": 4 },
+      "10": { "ScriptAPIOverview": 1 },
+      "11": { "ScriptKeywords": 26 },
+      "12": { "Set": 1 },
+      "13": { "StandardTypes": 2 },
+      "14": { "TextWindowGUI": 2 },
+      "15": { "TheScriptHeader": 1 },
+      "16": { "UpgradeTo34": 1 },
+      "17": { "UpgradeTo35": 3 },
+      "18": { "UpgradeTo362": 1 },
+      "19": { "ValidateRestoredSave": 2 },
+      "20": { "Viewport": 4 }
     },
     "struct's": {
       "0": { "EnginePluginRun-timeAPI": 7 }
@@ -68093,9 +68180,10 @@ var meta = {
     },
     "texts": {
       "0": { "GeneralSettings": 1 },
-      "1": { "Translations": 4 },
-      "2": { "UnicodeSupport": 6 },
-      "3": { "UpgradeTo36": 8 }
+      "1": { "Overlay": 1 },
+      "2": { "Translations": 4 },
+      "3": { "UnicodeSupport": 6 },
+      "4": { "UpgradeTo36": 8 }
     },
     "textual": {
       "0": { "Globalfunctions_General": 1 },
@@ -68985,28 +69073,29 @@ var meta = {
       "44": { "Mouse": 1 },
       "45": { "MusicAndSound": 6 },
       "46": { "OOProgramming": 1 },
-      "47": { "Preprocessor": 1 },
-      "48": { "RestoredSaveInfo": 1 },
-      "49": { "Screen": 3 },
-      "50": { "ScriptAPIOverview": 1 },
-      "51": { "ScriptingTutorialPart1": 3 },
-      "52": { "ScriptingTutorialPart2": 1 },
-      "53": { "ScriptKeywords": 5 },
-      "54": { "Settingupthegame": 6 },
-      "55": { "Speech": 9 },
-      "56": { "System": 1 },
-      "57": { "TemplateBASS": 1 },
-      "58": { "Tumbleweed": 2 },
-      "59": { "Tumbleweed_door": 2 },
-      "60": { "UpgradeTo30": 1 },
-      "61": { "UpgradeTo31": 1 },
-      "62": { "UpgradeTo341": 3 },
-      "63": { "UpgradeTo35": 2 },
-      "64": { "UpgradeTo36": 1 },
-      "65": { "UpgradeTo362": 1 },
-      "66": { "UpgradingTo27": 3 },
-      "67": { "ValidateRestoredSave": 1 },
-      "68": { "Viewport": 2 }
+      "47": { "Overlay": 1 },
+      "48": { "Preprocessor": 1 },
+      "49": { "RestoredSaveInfo": 1 },
+      "50": { "Screen": 3 },
+      "51": { "ScriptAPIOverview": 1 },
+      "52": { "ScriptingTutorialPart1": 3 },
+      "53": { "ScriptingTutorialPart2": 1 },
+      "54": { "ScriptKeywords": 5 },
+      "55": { "Settingupthegame": 6 },
+      "56": { "Speech": 9 },
+      "57": { "System": 1 },
+      "58": { "TemplateBASS": 1 },
+      "59": { "Tumbleweed": 2 },
+      "60": { "Tumbleweed_door": 2 },
+      "61": { "UpgradeTo30": 1 },
+      "62": { "UpgradeTo31": 1 },
+      "63": { "UpgradeTo341": 3 },
+      "64": { "UpgradeTo35": 2 },
+      "65": { "UpgradeTo36": 1 },
+      "66": { "UpgradeTo362": 1 },
+      "67": { "UpgradingTo27": 3 },
+      "68": { "ValidateRestoredSave": 1 },
+      "69": { "Viewport": 2 }
     },
     "time-out": {
       "0": { "Speech": 3 }
@@ -70178,7 +70267,7 @@ var meta = {
       "31": { "RestoredSaveInfo": 1 },
       "32": { "ScriptingTutorialPart1": 1 },
       "33": { "ScriptingTutorialPart2": 1 },
-      "34": { "ScriptKeywords": 5 },
+      "34": { "ScriptKeywords": 6 },
       "35": { "StandardEnums": 4 },
       "36": { "Templates": 1 },
       "37": { "TextParser": 1 },
@@ -70816,8 +70905,9 @@ var meta = {
       "9": { "UpgradeTo34": 2 }
     },
     "updating": {
-      "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "ExtenderFunctions": 1 }
+      "0": { "Dialog": 1 },
+      "1": { "EnginePluginRun-timeAPI": 1 },
+      "2": { "ExtenderFunctions": 1 }
     },
     "upgrade": {
       "0": { "Globalfunctions_Event": 1 },
@@ -71102,7 +71192,7 @@ var meta = {
       "18": { "CustomDialogOptions": 1 },
       "19": { "Debuggingfeatures": 2 },
       "20": { "DefaultSetup": 6 },
-      "21": { "Dialog": 2 },
+      "21": { "Dialog": 1 },
       "22": { "DialogOptionsRenderingInfo": 3 },
       "23": { "DialogScript": 4 },
       "24": { "DistGame": 2 },
@@ -71241,7 +71331,7 @@ var meta = {
       "41": { "Multimedia": 1 },
       "42": { "MusicAndSound": 1 },
       "43": { "Object": 5 },
-      "44": { "Overlay": 2 },
+      "44": { "Overlay": 3 },
       "45": { "Parser": 1 },
       "46": { "RestoredSaveInfo": 1 },
       "47": { "Room": 1 },
@@ -71620,7 +71710,7 @@ var meta = {
     },
     "valid": {
       "0": { "AudioInScript": 1 },
-      "1": { "Character": 2 },
+      "1": { "Character": 1 },
       "2": { "EnginePluginDesign-timeAPI": 1 },
       "3": { "EnginePluginRun-timeAPI": 7 },
       "4": { "FAQ": 1 },
@@ -71792,7 +71882,7 @@ var meta = {
       "34": { "Region": 4 },
       "35": { "RestoredSaveInfo": 1 },
       "36": { "ScriptingTutorialPart1": 8 },
-      "37": { "ScriptKeywords": 8 },
+      "37": { "ScriptKeywords": 9 },
       "38": { "Set": 3 },
       "39": { "Setup": 1 },
       "40": { "Speech": 3 },
@@ -72144,7 +72234,7 @@ var meta = {
       "46": { "Preprocessor": 4 },
       "47": { "Region": 3 },
       "48": { "RestoredSaveInfo": 1 },
-      "49": { "Room": 3 },
+      "49": { "Room": 4 },
       "50": { "Screen": 2 },
       "51": { "ScriptAPIOverview": 1 },
       "52": { "ScriptKeywords": 1 },
@@ -72205,7 +72295,7 @@ var meta = {
       "9": { "AnonymousUsageInfo": 1 },
       "10": { "AudioChannel": 2 },
       "11": { "AudioInScript": 1 },
-      "12": { "Character": 3 },
+      "12": { "Character": 4 },
       "13": { "ColoursEditor": 1 },
       "14": { "DialogScript": 1 },
       "15": { "DistGame": 1 },
@@ -72660,6 +72750,15 @@ var meta = {
     "walkWhere": {
       "0": { "Character": 2 }
     },
+    "walk_pt": {
+      "0": { "Room": 1 }
+    },
+    "walk_pt.x": {
+      "0": { "Room": 1 }
+    },
+    "walk_pt.y": {
+      "0": { "Room": 1 }
+    },
     "walkable": {
       "0": { "acintro2": 10 },
       "1": { "acintro3": 1 },
@@ -72674,11 +72773,12 @@ var meta = {
       "10": { "Globalfunctions_General": 3 },
       "11": { "Globalfunctions_Room": 20 },
       "12": { "Object": 9 },
-      "13": { "Settingupthegame": 2 },
-      "14": { "System": 1 },
-      "15": { "SystemLimits": 1 },
-      "16": { "Tumbleweed_movement": 2 },
-      "17": { "UpgradeTo35": 5 }
+      "13": { "Room": 4 },
+      "14": { "Settingupthegame": 2 },
+      "15": { "System": 1 },
+      "16": { "SystemLimits": 1 },
+      "17": { "Tumbleweed_movement": 2 },
+      "18": { "UpgradeTo35": 5 }
     },
     "walkable-area": {
       "0": { "AdvancedRoomFeatures": 1 }
@@ -72934,7 +73034,7 @@ var meta = {
       "8": { "BlockingScripts": 1 },
       "9": { "BuildAndroid": 1 },
       "10": { "Button": 2 },
-      "11": { "Character": 4 },
+      "11": { "Character": 5 },
       "12": { "ColoursEditor": 1 },
       "13": { "DefaultSetup": 4 },
       "14": { "EditorGUI": 4 },
@@ -73420,7 +73520,7 @@ var meta = {
       "73": { "MusicAndSound": 6 },
       "74": { "Object": 9 },
       "75": { "ObsoleteScriptAPI": 1 },
-      "76": { "Overlay": 2 },
+      "76": { "Overlay": 3 },
       "77": { "Pointers": 3 },
       "78": { "Preprocessor": 1 },
       "79": { "Region": 4 },
@@ -73708,7 +73808,7 @@ var meta = {
       "26": { "DateTime": 4 },
       "27": { "Debuggingfeatures": 2 },
       "28": { "DefaultSetup": 7 },
-      "29": { "Dialog": 9 },
+      "29": { "Dialog": 10 },
       "30": { "DialogOptionsRenderingInfo": 2 },
       "31": { "DialogScript": 6 },
       "32": { "Dictionary": 2 },
@@ -73767,7 +73867,7 @@ var meta = {
       "85": { "MusicAndSound": 6 },
       "86": { "Object": 54 },
       "87": { "ObsoleteScriptAPI": 1 },
-      "88": { "Overlay": 15 },
+      "88": { "Overlay": 16 },
       "89": { "Pointers": 7 },
       "90": { "Preprocessor": 7 },
       "91": { "Region": 11 },
@@ -73778,7 +73878,7 @@ var meta = {
       "96": { "ScriptAPIOverview": 8 },
       "97": { "ScriptingTutorialPart1": 12 },
       "98": { "ScriptingTutorialPart2": 1 },
-      "99": { "ScriptKeywords": 12 },
+      "99": { "ScriptKeywords": 13 },
       "100": { "ScriptModules": 3 },
       "101": { "Set": 1 },
       "102": { "Settingupthegame": 31 },
@@ -73842,7 +73942,7 @@ var meta = {
       "10": { "CustomDialogOptions": 2 },
       "11": { "Debuggingfeatures": 1 },
       "12": { "DefaultSetup": 2 },
-      "13": { "Dialog": 3 },
+      "13": { "Dialog": 5 },
       "14": { "DistGame": 3 },
       "15": { "DrawingSurface": 1 },
       "16": { "DynamicSprite": 1 },
@@ -73913,7 +74013,7 @@ var meta = {
       "0": { "acintro2": 2 },
       "1": { "acintro6": 1 },
       "2": { "AdvancedRoomFeatures": 1 },
-      "3": { "Character": 1 },
+      "3": { "Character": 2 },
       "4": { "DefaultSetup": 3 },
       "5": { "DistGame": 1 },
       "6": { "DynamicSprite": 1 },
@@ -74126,11 +74226,11 @@ var meta = {
       "8": { "BlockingScripts": 3 },
       "9": { "Button": 2 },
       "10": { "Camera": 2 },
-      "11": { "Character": 6 },
+      "11": { "Character": 7 },
       "12": { "CustomDialogOptions": 1 },
       "13": { "DateTime": 1 },
       "14": { "DefaultSetup": 2 },
-      "15": { "Dialog": 7 },
+      "15": { "Dialog": 6 },
       "16": { "DialogOptionsRenderingInfo": 11 },
       "17": { "Dictionary": 1 },
       "18": { "DynamicSprite": 1 },
@@ -74329,7 +74429,7 @@ var meta = {
       "12": { "CustomDialogOptions": 3 },
       "13": { "CustomProperties": 1 },
       "14": { "Debuggingfeatures": 1 },
-      "15": { "Dialog": 1 },
+      "15": { "Dialog": 2 },
       "16": { "DialogScript": 1 },
       "17": { "Dictionary": 1 },
       "18": { "DrawingSurface": 1 },
@@ -75203,56 +75303,57 @@ var meta = {
       "79": { "ObsoleteScriptAPI": 5 },
       "80": { "OOProgramming": 2 },
       "81": { "OtherFeatures": 2 },
-      "82": { "Parser": 1 },
-      "83": { "Plugins": 8 },
-      "84": { "Pointers": 9 },
-      "85": { "Preprocessor": 8 },
-      "86": { "RepExec": 4 },
-      "87": { "RestoredSaveInfo": 2 },
-      "88": { "Room": 1 },
-      "89": { "RuntimeEngine": 1 },
-      "90": { "Screen": 1 },
-      "91": { "ScriptAPIOverview": 6 },
-      "92": { "ScriptingTutorial": 1 },
-      "93": { "ScriptingTutorialPart1": 8 },
-      "94": { "ScriptingTutorialPart2": 12 },
-      "95": { "ScriptKeywords": 21 },
-      "96": { "ScriptModules": 1 },
-      "97": { "Settingupthegame": 24 },
-      "98": { "SourceControl": 5 },
-      "99": { "StandardEnums": 3 },
-      "100": { "StandardTypes": 1 },
-      "101": { "StartingOff": 2 },
-      "102": { "StringFormats": 3 },
-      "103": { "System": 5 },
-      "104": { "SystemLimits": 1 },
-      "105": { "SystemRequirements": 2 },
-      "106": { "Templates": 11 },
-      "107": { "TemplateSierraStyle": 1 },
-      "108": { "TextParser": 6 },
-      "109": { "TheScriptHeader": 1 },
-      "110": { "Translations": 11 },
-      "111": { "TroubleshootingWindowsZoneID": 1 },
-      "112": { "Tumbleweed": 9 },
-      "113": { "Tumbleweed_door": 1 },
-      "114": { "Tumbleweed_extensions": 1 },
-      "115": { "Tumbleweed_translation": 3 },
-      "116": { "Tumbleweed_unhandled": 1 },
-      "117": { "UnicodeSupport": 5 },
-      "118": { "UpgradeTo30": 12 },
-      "119": { "UpgradeTo31": 13 },
-      "120": { "UpgradeTo32": 5 },
-      "121": { "UpgradeTo33": 2 },
-      "122": { "UpgradeTo335": 1 },
-      "123": { "UpgradeTo34": 12 },
-      "124": { "UpgradeTo341": 7 },
-      "125": { "UpgradeTo35": 7 },
-      "126": { "UpgradeTo36": 12 },
-      "127": { "UpgradeTo361": 4 },
-      "128": { "UpgradeTo362": 9 },
-      "129": { "UpgradingTo27": 9 },
-      "130": { "ValidateRestoredSave": 2 },
-      "131": { "VoiceSpeech": 2 }
+      "82": { "Overlay": 1 },
+      "83": { "Parser": 1 },
+      "84": { "Plugins": 8 },
+      "85": { "Pointers": 9 },
+      "86": { "Preprocessor": 8 },
+      "87": { "RepExec": 4 },
+      "88": { "RestoredSaveInfo": 2 },
+      "89": { "Room": 1 },
+      "90": { "RuntimeEngine": 1 },
+      "91": { "Screen": 1 },
+      "92": { "ScriptAPIOverview": 6 },
+      "93": { "ScriptingTutorial": 1 },
+      "94": { "ScriptingTutorialPart1": 8 },
+      "95": { "ScriptingTutorialPart2": 12 },
+      "96": { "ScriptKeywords": 21 },
+      "97": { "ScriptModules": 1 },
+      "98": { "Settingupthegame": 24 },
+      "99": { "SourceControl": 5 },
+      "100": { "StandardEnums": 3 },
+      "101": { "StandardTypes": 1 },
+      "102": { "StartingOff": 2 },
+      "103": { "StringFormats": 3 },
+      "104": { "System": 5 },
+      "105": { "SystemLimits": 1 },
+      "106": { "SystemRequirements": 2 },
+      "107": { "Templates": 11 },
+      "108": { "TemplateSierraStyle": 1 },
+      "109": { "TextParser": 6 },
+      "110": { "TheScriptHeader": 1 },
+      "111": { "Translations": 11 },
+      "112": { "TroubleshootingWindowsZoneID": 1 },
+      "113": { "Tumbleweed": 9 },
+      "114": { "Tumbleweed_door": 1 },
+      "115": { "Tumbleweed_extensions": 1 },
+      "116": { "Tumbleweed_translation": 3 },
+      "117": { "Tumbleweed_unhandled": 1 },
+      "118": { "UnicodeSupport": 5 },
+      "119": { "UpgradeTo30": 12 },
+      "120": { "UpgradeTo31": 13 },
+      "121": { "UpgradeTo32": 5 },
+      "122": { "UpgradeTo33": 2 },
+      "123": { "UpgradeTo335": 1 },
+      "124": { "UpgradeTo34": 12 },
+      "125": { "UpgradeTo341": 7 },
+      "126": { "UpgradeTo35": 7 },
+      "127": { "UpgradeTo36": 12 },
+      "128": { "UpgradeTo361": 4 },
+      "129": { "UpgradeTo362": 9 },
+      "130": { "UpgradingTo27": 9 },
+      "131": { "ValidateRestoredSave": 2 },
+      "132": { "VoiceSpeech": 2 }
     },
     "yours": {
       "0": { "EnginePluginRun-timeAPI": 1 }

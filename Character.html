@@ -662,12 +662,13 @@
 <p>Places the character in the nearest walkable area to its current location. If the character is already on a walkable area, nothing happens.</p>
 <p>This is useful for example in the Player Enters Room event of a room, to make sure the character can move if a ChangeRoom with co-ordinates has been issued to get there. You could also use this in on_event for eEventEnterRoomBeforeFadein to use whenever a player enters a room.</p>
 <p><strong>NOTE:</strong> <code>PlaceOnWalkableArea</code> ignores any parts of the room beyond room Edges. This was done so, because Edges usually serve like an area boundaries and may trigger player leaving the room.</p>
-<p><strong>NOTE:</strong> <code>PlaceOnWalkableArea</code> is searching for valid walkable areas not pixel by pixel, but in intervals of 5 pixels. This was originally done for performance reasons. Because of that it may fail if walkable areas are too thin.</p>
+<p><strong>NOTE:</strong> historically, prior to <strong>AGS 3.6.2</strong>, if no walkable area was found within a very close range, then <code>PlaceOnWalkableArea</code> has been searching whole room in intervals of 5 pixels. This was originally done for performance reasons. Because of that it could fail if walkable areas are too thin. Starting with <strong>3.6.2</strong> it searches each pixel but does so in a more performant way, so should not miss even 1-pixel areas.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">x</span> = <span class="bu">Random</span><span class="op">(</span><span class="dv">320</span><span class="op">);</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">y</span> = <span class="bu">Random</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">PlaceOnWalkableArea</span><span class="op">();</span></span></code></pre></div>
 <p>will move character EGO to a random position but make sure that he is on a walkable area.</p>
+<p><em>See also:</em> <a href="Room.html#roomnearestwalkablearea"><code>Room.NearestWalkableArea</code></a></p>
 <hr />
 </section>
 <section id="characterremovetint" class="level3">
@@ -1630,7 +1631,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1bacf74deb9c826aefa42f852d9bc183f1121114
+      Build: 913d7c09813bf6da23e652b4d489ed2276fe9a9f
     </p>
   </footer>
 

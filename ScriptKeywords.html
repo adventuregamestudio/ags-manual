@@ -369,6 +369,7 @@ You need to do this inside a function.</p>
 <p>However, it is always good practice to use parenthesis to group expressions. It's much more readable to script the above expression like this:</p>
 <p><code>if ((!a) &amp;&amp; (b &lt; 4))</code></p>
 <p><strong>NOTE:</strong> By default, when using operators of equal precedence AGS evaluates them left-to-right. For example, the expression <code>a = 5 - 4 - 2;</code> evaluates as <code>a = (5 - 4) - 2;</code>, which is what you'd commonly expect from a scripting language today.<br> For historical reasons AGS also supports right-to-left precedence mode which may be only useful if you import very old game and do not want to fix its scripts. To enable this mode find "Left-to-right operator precedence" option in "Backwards compatibility" section of the General Settings and set it to "false".</p>
+<p><strong>NOTE:</strong> For signed types (<code>short</code> and <code>int</code>), the right shift <code>&gt;&gt;</code> is an <em>arithmetic</em> right shift, which means that the most significant bit will be copied over to fill the shifted spaces (1 for negative values, and 0 for positive ones).<br> For the purpose of logical bitwise manipulation, bit masking will need to be applied, eg: <code>(0xFE223344 &gt;&gt; 24) &amp; 0xFF</code> to return <code>0xFE</code>.</p>
 <hr />
 </section>
 <section id="version-checking" class="level3">
@@ -819,7 +820,7 @@ You need to do this inside a function.</p>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1bacf74deb9c826aefa42f852d9bc183f1121114
+      Build: 913d7c09813bf6da23e652b4d489ed2276fe9a9f
     </p>
   </footer>
 
