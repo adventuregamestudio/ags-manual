@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Feature: Inventory Items</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#feature-inventory-items" id="toc-feature-inventory-items">Feature: Inventory Items</a>
+<ul>
+<li><a href="#displaying-items" id="toc-displaying-items">Displaying Items</a></li>
+<li><a href="#using-the-item-on-something-else" id="toc-using-the-item-on-something-else">Using the Item on something else</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="feature-inventory-items" class="level2">
+<h2><a href="#feature-inventory-items">Feature: Inventory Items</a></h2>
+<p>Inventory items represent things that a character may acquire, hold and use: a physical object, an idea, an usable skill, and so forth, depending on game mechanics that you want to have. Each character in the game has their own "inventory" which is the set of items they are carrying.</p>
+<p>One important thing about items is that when given to a character they are copied rather than change ownership. You may think of the items as "templates", that create "instances" of themselves when added into character's inventory. Any character may possess any number of any particular item. Same kind of item may be held by multiple characters at once. This has to be kept in mind when you want to transfer an item from one character to another: just adding that item to the second character won't remove it from the first. You must do 2 operations: remove from one and add to another (order of these actions does not matter).</p>
+<p>In summary, each inventory item has:</p>
+<ul>
+<li>A unique script name, used to refer to this item in scripts.</li>
+<li>A textual name, for describing it to a player.</li>
+<li>A graphic, for displaying it on the inventory GUI.</li>
+<li>A cursor graphic, for using as a cursor when the item is selected.</li>
+</ul>
+<p>What can you do with an inventory item?</p>
+<ul>
+<li>Add it to a character's inventory (see <a href="Character.html#characteraddinventory">AddInventory</a>).</li>
+<li>Display the character's inventory using a GUI (this can be done with the built-in Inventory Window, a List Box, or a custom GUI).</li>
+<li>Make the item "active", selected for use by the player (see <a href="Character.html#characteractiveinventory">ActiveInventory</a>).</li>
+<li>Use the item on game entities such as hotspots, room objects, characters, and other inventory items.</li>
+<li>Remove the item from a character's inventory (see <a href="Character.html#characterloseinventory">LoseInventory</a>).</li>
+</ul>
+<section id="displaying-items" class="level3">
+<h3><a href="#displaying-items">Displaying Items</a></h3>
+<p>Inventory items do not have a defined "position" in game (whether in room or on screen). They can be assigned a graphic, but they are not being displayed on their own. Instead there's a special GUI control called "Inventory Window" that displays inventory contents for particular character. The way items are aligned in this control depend on control's settings. The order in which the items are displayed matches an order in which they were acquired by the character.</p>
+<p>Alternatively, you may prefer a textual inventory, in which case you may use "List Box" control and fill it with the names of items belonging to a character. There are also multiple ways to make a completely custom inventory, which depicts items the way you like. To give an example, you may place several buttons on GUI, and assign item graphics to these buttons.</p>
+<p>Inventory item has a optional separate "cursor graphic" property, which is used to display that item on a mouse cursor. This happens when this item is "selected" by a player character, and cursor is switched to "use item" mode. Selecting an item is done by by assigning such item to the player character's <a href="Character.html#characteractiveinventory">ActiveInventory</a> property. A character may "select" only an item which it already has in its inventory.</p>
+</section>
+<section id="using-the-item-on-something-else" class="level3">
+<h3><a href="#using-the-item-on-something-else">Using the Item on something else</a></h3>
+<p>When the inventory item is selected as "active item" and cursor is set to "use item" mode, then interacting other game object with the cursor will trigger that object's "Use Inventory On" event. Types of objects that have this event are: characters, room objects, hotspots and inventory items themselves.</p>
+<p>If you attach a script function to such event, that function will run when the event triggers. Typically you would write this function so that it checks which is the player's active item, and reacts accordingly.</p>
+<p>Everything said above describes the built-in behavior, but you may script your custom one, if you require a non-standard way of using items. The contents of character's inventory may be accessed using <a href="Character.html#characterinventoryquantity">Character.InventoryQuantity</a> indexed property, the presence of particular item tested using <a href="Character.html#characterhasinventory">Character.HasInventory</a> function.</p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

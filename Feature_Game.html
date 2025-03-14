@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Feature: Game</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#feature-game" id="toc-feature-game">Feature: Game</a>
+<ul>
+<li><a href="#game-genre-and-gameplay" id="toc-game-genre-and-gameplay">Game genre and gameplay</a></li>
+<li><a href="#game-start-and-ending" id="toc-game-start-and-ending">Game start and ending</a></li>
+<li><a href="#game-scripts" id="toc-game-scripts">Game scripts</a></li>
+<li><a href="#game-templates" id="toc-game-templates">Game Templates</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="feature-game" class="level2">
+<h2><a href="#feature-game">Feature: Game</a></h2>
+<p>In Adventure Game Studio the game consists of multiple pieces. Not all of them are required for the game to run, most are optional, and should be used only when you need them. But it's a good thing to learn about them all, so to have an idea of what you can do.</p>
+<p>When you open the AGS Editor, you will see a "Project Explorer" window, it's a tree-like menu that lets you access every aspect of the game.</p>
+<p>Game may be roughly divided on: game settings, game elements, resources and scripts.</p>
+<p>Game settings let you configure the overall game's behavior.</p>
+<p>Game elements represent various objects and functionality in your game. They act, and may be interacted with when the game runs. These are: Characters, GUI, Dialogs, Inventory Items, Rooms, and few others. Most elements are created right in the Editor, but there are few that may only be created in script, these are sometimes referred as "dynamic objects".</p>
+<p>Resources (also called "assets") help game and game's elements to be seen and heard: Sprites, Audio clips and video files, animation Views, Fonts, Translations, and similar things. Game resources may also include extra files, in case you need to package custom data with your game, this option is meant for advanced users.</p>
+<p>Finally, scripts are a kind of "programs" within your game. They let you tell the engine what should happen while the game is run. What you setup in the Editor is only the <em>starting state</em> of your game. It's the scripts that make your game alive, actually make something <em>happen</em> in it. Scripts are written in a scripting language, called simply "AGS Script". This manual has a full section dedicated to this language, and available commands.</p>
+<p>In AGS the game's flow is based on Rooms. Room is a scene where any game activity takes place. The game may consist of one or many rooms, but only one Room may be loaded and active at the current time. All inactive rooms are unloaded, and only keep their saved states from the last time they were visited. When game switches to another room, the previous one saves its state in game's memory and gets unloaded. If a room was visited once before, then, upon loading it again, its state is restored. That's the default behavior, but you may also override it and make it so that the room does not keep its state, and resets each time it is visited again.</p>
+<p>Characters are another essential element of the game. In AGS one of the characters must be assigned as a "playable character" (or "player character"). The idea is that the "player character" is the one which player controls by default, but, more importantly, it's this character that allows to change rooms: engine always loads the room in which the player character is located. Rooms are changed by moving the player character elsewhere.</p>
+<p>Note that the player character does not have to be seen on screen at all. It might as well be made invisible, either temporarily or for the whole game. Only its <em>presence</em> is necessary for the game to know which room to load.</p>
+<p>While the starting "player character" is set in the Editor, you may select virtually <em>any other</em> character as playable during gameplay using a script command. This allows, for example, to have multiple playable characters in game, switching between them as the story progresses, or letting player to switch at will.</p>
+<p>NOTE: AGS game requires at least 1 Room and 1 Character (set as "player character") to run. Everything else is optional.</p>
+<p>See Also: <a href="StartingOff.html">AGS Tutorial</a></p>
+<section id="game-genre-and-gameplay" class="level3">
+<h3><a href="#game-genre-and-gameplay">Game genre and gameplay</a></h3>
+<p>AGS engine was originally designed focused on the classic "point-and-click" adventure game genre. For that reason many of its elements are primarily purposed to serve their roles in such adventure game.</p>
+<p>At the same time, AGS itself does not define your game's genre, and does not restrict the game to the single genre or gameplay style. It only provides you with tools, and lets you use them as you see fit. Rooms are also not restricted to the certain role or look. It's all about what do you put into the game and how do you script it. It is fairly possible to have multiple different genres featured in the same game in different rooms, and it is also possible to have a single room which dynamically changes its looks and behavior as the game progresses.</p>
+<p>Game elements have their standard uses, what they were meant for, but also may be used in custom, alternate ways when necessary. Same thing may often be achieved in various ways, ones more efficient than others. It's essential to learn what types of objects are there, what they can do, which commands does the scripting language provide. The more you know about them, the easier it will be to find a good way to create your game.</p>
+</section>
+<section id="game-start-and-ending" class="level3">
+<h3><a href="#game-start-and-ending">Game start and ending</a></h3>
+<p>AGS also does not strictly define such things as "game start" or "game end". This may be confusing at first, but the idea is that you define what happens in the game yourself.</p>
+<p>For example, you may make it so that the first Room loaded in game acts as a "Main Menu". Within the "Main Menu" there will be a "New Game" button, and once the players press that, they are sent to another Room where the "story" begins.</p>
+<p>On another hand, you may make it so that the game story starts right away, without any "main menus", and there's just a floating game menu displayed by clicking on a button in a corner of a screen.</p>
+<p>In a similar vein, the game ending is purely scripted by you, and so is what happens when the player reaches the end. You might want to send them back to the "Main Menu", or to the ending credits scene, or even simply shutdown the game. It's all possible to do, and is up to you to decide.</p>
+</section>
+<section id="game-scripts" class="level3">
+<h3><a href="#game-scripts">Game scripts</a></h3>
+<p>As been said, what you set in the Editor is how your game will look like when it starts, or how the Rooms will look like when they first load. But Scripts let you to control your game after it has started.</p>
+<p>AGS scripts are written in its own language called simply "AGS Script", which syntax is somewhat similar to other existing programming languages, such as C or C#. AGS Script supports various operations and commands provided by the engine, that may change the state of the game or game objects, make game objects move, act, interact with each other, display things on screen, play sounds, and much more.</p>
+<p>AGS scripts are event-based. What this means is that the script is not run on its own, but instead certain parts of it (called "functions") are run at predefined events in the game.</p>
+<p>For example, just as the game is launched, engine will run "game_start" function, if one is found in your script. When player clicks mouse button engine runs "on_mouse_click" function, when player presses a keyboard key - "on_key_press" function. For things that require continuous updates there is a group of predefined functions named "repeatedly_execute" (and similar) that are run periodically, on each game's tick. When a new room is loaded, engine triggers "Room Load" event, and if there's a function in script connected to that room's event, then such function will be run. There are events for clicking on a Character or a room object, events for pressing buttons on GUI, and so forth.</p>
+<p>What happens in these functions is entirely up to you. Event functions are optional though, you don't have to create functions for all existing events, only for those that you need to.</p>
+<p>It's important to know that there are 2 kinds of events in AGS: ones that expect a script function of predefined name to run, and ones that require you to explicitly assign your custom function name to them. The global events that refer to the game itself are of the first kind, while Room and object-related are of the second. Assigning a function to event is done in the Editor, on the "events" tab of a selected game object.</p>
+<p>See Also: <a href="ScriptingTutorial.html">Scripting Tutorial</a>, <a href="ScriptingLanguage.html">Scripting Language</a>, <a href="Scripting.html">Script API</a>, <a href="EventTypes.html">Event Types</a>, <a href="acintro3.html">How to assign functions to object events</a></p>
+</section>
+<section id="game-templates" class="level3">
+<h3><a href="#game-templates">Game Templates</a></h3>
+<p>When you create a new game in AGS Editor, you choose a Game Template to start with. Please be aware that the Template is only a starting set, but in no way a restriction to what you can do in your game. Regardless of which template do you choose, you can modify anything later: add, change, remove, and even redo all the things that template has created for you from scratch, if you find them unnecessary or conflicting with your game idea. Latter, however, would defeat the purpose of a template, therefore it's useful to learn what each template provides and start with the one best suited for your purpose.</p>
+<p>See Also: <a href="Templates.html">Templates</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

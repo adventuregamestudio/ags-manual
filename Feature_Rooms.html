@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Feature: Rooms</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#feature-rooms" id="toc-feature-rooms">Feature: Rooms</a>
+<ul>
+<li><a href="#changing-rooms" id="toc-changing-rooms">Changing Rooms</a></li>
+<li><a href="#displaying-rooms" id="toc-displaying-rooms">Displaying Rooms</a></li>
+<li><a href="#room-contents" id="toc-room-contents">Room contents</a></li>
+<li><a href="#room-backgrounds" id="toc-room-backgrounds">Room Backgrounds</a></li>
+<li><a href="#room-edges" id="toc-room-edges">Room Edges</a></li>
+<li><a href="#room-objects" id="toc-room-objects">Room Objects</a></li>
+<li><a href="#room-areas" id="toc-room-areas">Room Areas</a></li>
+<li><a href="#hotspots" id="toc-hotspots">Hotspots</a></li>
+<li><a href="#walkable-areas" id="toc-walkable-areas">Walkable areas</a></li>
+<li><a href="#regions" id="toc-regions">Regions</a></li>
+<li><a href="#walk-behinds" id="toc-walk-behinds">Walk-behinds</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="feature-rooms" class="level2">
+<h2><a href="#feature-rooms">Feature: Rooms</a></h2>
+<p>In AGS Rooms are logical parts of the game. A Room may play various roles depending on the game's genre and your needs: it may represent a physical location in a game's world, a world's map or a closeup of an object, a mini game scene, just a placeholder for displaying something else on screen (such as a title screen, main menu or end credits).</p>
+<p>A Room may be fixed in its looks and composition, or have its state changed over time completely with the use of scripting. For example, you could have a room showing a game's title, and then scroll sideways to the gameplay position. Or have same Room depict multiple similar locations, by toggling decorations and backdrops. Or depict same location but in different times of a day, and so on.</p>
+<p>Rooms are identified simply by a number, ranging from 0 to 999 (number 0 is traditionally not used, but it's still available).</p>
+<p>A Room may be "state-saving" and "not state-saving". The former keep their state when you leave them and have it restored when you enter them again. The latter have their state reset to initial setup when they are revisited.</p>
+<p>The way it currently works in AGS, Room numbers 0-300 are defined as state-saving, and Room numbers 301-999 are non-state-saving. This makes AGS support up to 1000 rooms in a single game, 301 of them save their state and the rest 699 not.</p>
+<p>Non-state-saving rooms help to save on memory, and also they guarantee that upon entering them their state will be exactly the same as you set it in the Editor each time player revisits this room. It's a good practice to have rooms serving as title screens, menus and similar be non-state-saving, because these usually don't need to be restored. Same goes to rooms which you know will only be visited once during a playthrough, such as cutscenes, for instance.</p>
+<p>See Also: <a href="acintro2.html">Tutorial: Creating your first room</a></p>
+<section id="changing-rooms" class="level3">
+<h3><a href="#changing-rooms">Changing Rooms</a></h3>
+<p>Engine can have only a single Room loaded and active at the same time. The active Room is defined by the player character location. When the game is launched it first loads the room assigned as a player character's "starting room". Changing rooms is done by moving a player character elsewhere using <a href="Character.html#characterchangeroom">Character.ChangeRoom</a> script function.</p>
+<p>Naturally, only one character is defined as "playable" at any given time. If you assign another character as playable using a script command (see <a href="Character.html#charactersetasplayer">Character.SetAsPlayer</a>), and that character happens to be in another room, then the rooms will get changed automatically.</p>
+</section>
+<section id="displaying-rooms" class="level3">
+<h3><a href="#displaying-rooms">Displaying Rooms</a></h3>
+<p>A Room has a size, it's defined by the size of Room's first background image. Room's coordinate system has a center (0,0) point at its background's top-left corner, X axis pointing from left to right and Y axis pointing from top to bottom, so the right-bottom point of the Room has coordinates (Width - 1, Height - 1).</p>
+<p>Only Room Objects and Characters positioned within these coordinates are guaranteed to be visible, although technically they may take positions outside of the room's bounds too. Having objects outside of the room background is one way to keep them out of sight, or prepare them to enter the scene. For instance, it's possible to place a Character at negative coordinates, or at positive coordinates exceeding room's Width or Height on room's "load" event prior to "fade-in", and then on the "after fade-in" event make that character walk onto the room background as a small cutscene. It is similarly possible to make Characters walk outside of the room background before transitioning to another room.</p>
+<p>Speaking of displaying a room on screen, AGS uses a concept of Room's Camera and Viewport. You may think of a Camera as of an "eye" located inside the Room and showing it whole or a part of its area, while Viewport is a "monitor" that displays what Camera can see on screen. By default both Camera and the Viewport are automatically set to either the Game's resolution or Room's size - whatever is smaller.</p>
+<p>What that means, for example, if the Game's resolution is 320x200, and room is 320x200, then the room will occupy whole game screen. If room is 160x100, then it will occupy only portion of the game screen. In both of these cases the room will be fully seen on screen at all times.</p>
+<p>However, if the room is larger than the Game's resolution, say it's 640x200, the room's Viewport will still be restricted by the game's resolution - 320x200, and only half of the room will be visible at once. As the camera moves around the room, different parts of it will be shown on screen. Rooms larger than the game are traditionally called "scrolling rooms", because when the camera moves it looks like the room is scrolling before player's eyes.</p>
+<p>By default the camera is centered at player character. When player character walks around the room, the camera will follow as far as it can without crossing the room's bounds. There are ways to control the camera using <a href="Camera.html">relevant script commands</a>.</p>
+<p>See Also: <a href="Camera.html">Camera functions and properties</a>, <a href="Viewport.html">Viewport functions and properties</a></p>
+</section>
+<section id="room-contents" class="level3">
+<h3><a href="#room-contents">Room contents</a></h3>
+<p>Besides their basic settings, rooms may have following contents in them:</p>
+<ul>
+<li>Backgrounds</li>
+<li>Edges</li>
+<li>Room Objects</li>
+<li>Hotspots</li>
+<li>Walkable areas</li>
+<li>Regions</li>
+<li>Walk-behinds</li>
+</ul>
+<p>See Also: <a href="EditorRoom.html">Room Editor</a></p>
+</section>
+<section id="room-backgrounds" class="level3">
+<h3><a href="#room-backgrounds">Room Backgrounds</a></h3>
+<p>Backgrounds are images that are displayed at the back of the room. Room must have at least a single background (this is called "main background"), but it does not have to be an actual image, and may be just a bitmap filled with a black color, for instance. It's still necessary to have one, as main background defines the room's size: that is the area that will ever be visible on screen.</p>
+<p>It's possible to add up to 5 backgrounds total for a room. The extra backgrounds are commonly meant for two purposes:</p>
+<ol type="1">
+<li>Displaying different variants of the room. This may be used, for example, to have day and night versions of the same room.</li>
+<li>Animating room background. That is known as a full room animation, and usually used when the whole background must change as one piece.</li>
+</ol>
+<p>Backgrounds are limited in what you may achieve with them alone, not only because their max number is small (5), but also because they are just flat images. For complex room transformations and visual effects (such as parallax, for instance) one would use a combination of background and multiple room objects, moving and animating simultaneously.</p>
+</section>
+<section id="room-edges" class="level3">
+<h3><a href="#room-edges">Room Edges</a></h3>
+<p>Room Edges are four lines that define room's playable area (Left, Right, Top and Bottom edges). These are optional, and may be ignored if not needed. Their purpose is to detect when player character crosses them, in which case they trigger a respective <a href="EventTypes.html#room-events">room event</a>: "Walk off left edge", "Walk off right edge", and so on. This is commonly used to script exits to other rooms.</p>
+<p>One downside of using a Room Edge is that it is a straight line running across the whole room, and will trigger regardless of which point character crosses it at. If the room has a non-trivial layout, then Hotspots or Regions would be more suitable for this purpose.</p>
+<p>See Also: <a href="EventTypes.html#room-events">Room events</a></p>
+</section>
+<section id="room-objects" class="level3">
+<h3><a href="#room-objects">Room Objects</a></h3>
+<p>Room Objects are things in room that have their own position, image, and few other visual properties, and may be interacted with by the player. They may be moved, change their graphic and animate, be turned on and off. They are suitable to represent both static and dynamic things in the room, from decorations to simple characters (although Objects are more limited in what they can do if compared to actual <a href="Feature_Characters.html">Characters</a>).</p>
+<p>Room Objects cannot change the owning room, they will always stay in one they are created in.</p>
+<p>Room Objects may be commanded to move using pathfinding (see also <a href="Feature_Rooms.html#walkable-areas">Walkable areas</a>), or freely. You may also just set the new position directly using their X and Y properties. Objects may be marked as "solid", in which case they will prevent moving characters from passing through the location which they occupy (see <a href="Object.html#objectsolid">Object.Solid</a> property).</p>
+<p>They may be <a href="Object.html#objectsetview">assigned a View</a> and animated by a <a href="Object.html#objectanimate">script command</a>. Unlike Characters, Room Objects do not have a concept of "action animation", nor "facing direction", therefore they never animate automatically, only by your command, and the animation loop does not change on its own either if they, for example, change moving direction. You may achieve similar effects with scripting though, if you want to.</p>
+<p>Room Objects may be clicked on by player to trigger one of their interaction events, depending on the active cursor mode.</p>
+<p>See Also: <a href="acintro4.html#objects">Tutorial: room objects</a>, <a href="EventTypes.html#object-events">Object events</a>, <a href="Object.html">Object functions and properties</a></p>
+</section>
+<section id="room-areas" class="level3">
+<h3><a href="#room-areas">Room Areas</a></h3>
+<p>There are 4 types of Room Areas: Hotspots, Walkable Areas, Regions, Walk-behinds. They have different uses, and are explained in a more detail below. But what they all have in common is that they are created by drawing areas of different colors on a respective "mask" image, - a sort of a layer that covers whole room but is invisible at runtime. Each area <em>type</em> has got its own mask, where each <em>area</em> is associated with its own color on that mask.</p>
+<p>Masks are 8-bit images, which means that pixel values are defined as indexes between 0 and 255 (inclusive), and max number of colors on them is technically limited to 256. The actual limit of usable areas in the engine may be lower for historical reasons. Each color index corresponds to an area. Area 0 is treated as "no area" in the engine, and as an "eraser" in the editor.</p>
+<p>As there's a single mask per area type in a room, and areas are made of pixels of certain color on that mask:</p>
+<ol type="1">
+<li>Areas of the same type <em>cannot overlap</em>.</li>
+<li>A single area may consist of multiple disconnected parts and all of these parts will act as one.</li>
+</ol>
+</section>
+<section id="hotspots" class="level3">
+<h3><a href="#hotspots">Hotspots</a></h3>
+<p>Hotspots are parts of the room background that may be interacted with by the player. They are drawn on a "hotspot mask" room layer, where each color index correspond to a respective hotspot, and Hotspot 0 is treated as "no hotspot".</p>
+<p>Hotspots do not have any visual representation of their own, they rather rely on the room background for that. That's why hotspots are commonly used to add interaction to certain areas, or things drawn on the room background that <em>do not change position or shape</em>.</p>
+<p>Hotspots can react to following:</p>
+<ul>
+<li>Player clicking on them;</li>
+<li>Player character standing on them;</li>
+<li>Cursor moving over them.</li>
+</ul>
+<p>Each of the above triggers <a href="EventTypes.html#hotspot-events">corresponding event</a>, which in turn may run a custom function in script.</p>
+<p>A hotspot may be enabled or disabled by a <a href="Hotspot.html#hotspotenabled">script command</a>. Disabled hotspots do not react to any interactions.</p>
+<p>Hotspot may have a Walk-to Point: that's an optional setting that tells where a character will walk to automatically when the player clicks on hotspot.</p>
+<p>See Also: <a href="acintro3.html#hotspots">Tutorial: hotspots</a>, <a href="EventTypes.html#hotspot-events">Hotspot events</a>, <a href="Hotspot.html">Hotspot functions and properties</a></p>
+</section>
+<section id="walkable-areas" class="level3">
+<h3><a href="#walkable-areas">Walkable areas</a></h3>
+<p>Walkable areas let define parts of the room that are permitted to move through by the Characters and Room Objects. Whenever a Character or a Room Object is commanded to <a href="Character.html#characterwalk">walk</a> or <a href="Object.html#objectmove">move</a> using walkable areas, the engine's pathfinder searches the shortest path to destination which passes through only the enabled walkable areas that you've drawn in the room.</p>
+<p>Walkable areas are drawn on a "walkable mask" room layer, where each color index correspond to a respective hotspot, and Walkable Area 0 is considered to be "non-walkable" (or "blocking").</p>
+<p>Walkable areas may be enabled or disabled by <a href="Globalfunctions_Room.html#removewalkablearea">script commands</a>. Disabled areas are treated as non-walkable. All enabled areas are viewed as one by the pathfinder, thus having different areas is necessary only if you wish to toggle them separately, or apply different effects to them.</p>
+<p>Speaking of effects, Walkable Areas may have following configured:</p>
+<ol type="1">
+<li><p>Scaling. This lets to scale any Character or Room Object positioned on the area. There are two kinds of scaling: uniform, that applies same scaling in each point of this area, and continuous scaling, that assigns a scaling range from maximum at the area's bottom edge to minimum at the area's topmost edge. Continuous scaling is used to simulate a perspective, where characters walking "away" from the player will become smaller, and those that walk "closer" will appear larger.</p></li>
+<li><p>Area specific view. You can assign a view number, which will be applied to a playable character automatically when it walks on this area.</p></li>
+</ol>
+<p>See Also: <a href="acintro2.html">Tutorial: creating your first room</a>, <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
+</section>
+<section id="regions" class="level3">
+<h3><a href="#regions">Regions</a></h3>
+<p>Regions are parts of the room that may apply certain visual effects on the standing or passing characters and room objects. They are drawn on a "region mask" room layer, where each color index correspond to a respective region, and Region 0 is treated as "no region".</p>
+<p>Regions may have following effects configured:</p>
+<ol type="1">
+<li>Color Tint.</li>
+<li>Light Level.</li>
+</ol>
+<p>Regions have a number of events, and react to following:</p>
+<ul>
+<li>Player walking onto a region;</li>
+<li>Player walking off a region;</li>
+<li>Player standing on a region (triggers repeatedly).</li>
+</ul>
+<p>Each of the above triggers <a href="EventTypes.html#region-events">corresponding event</a>, which in turn may run a custom function in script.</p>
+<p>See Also: <a href="EventTypes.html#region-events">Region events</a>, <a href="Region.html">Region functions and properties</a></p>
+</section>
+<section id="walk-behinds" class="level3">
+<h3><a href="#walk-behinds">Walk-behinds</a></h3>
+<p>Walk-behinds are used to create "cut outs" from the room background, that may be "walked behind" by a character or object, hence - "walk-behinds". Walk-behinds are normally used to simulate the three-dimensional perspective in the room, where things that are further "away" from the player's view are visually covered by things that are "closer".</p>
+<p>Walk-behinds are drawn on a "walk-behind mask" room layer, where each color index correspond to a respective cut-out, and index 0 is unused.</p>
+<p>The one and only property of a walk-behind is the Baseline. Baseline defines this cut-out's drawing order. When characters and objects are positioned in the room, they are sorted among themselves and walk-behinds. Those things that have higher baseline are drawn above, and those that have lower baseline are drawn behind others. By default, character and objects have dynamic baseline equal to their Y coordinate. In AGS Y axis points from top of the room down to bottom. This means that, for example, if a character is standing lower than a walk-behind's baseline, then it has <em>higher</em> Y coordinate, and will be displayed <em>above</em> a cut-out. While if it is standing higher than a walk-behind's baseline, then it has <em>lower</em> Y coordinate, and will be displayed <em>behind</em> a cut-out.</p>
+<p>Walk-behinds have no interactions or events.</p>
+<p>Walk-behinds may be turned off by setting their Baseline to 0.</p>
+<p>Walk-behinds are an optional feature, as they may be substituted by room objects, which have certain advantages over them. Because walk-behinds are using parts of the room background, they cannot change their looks dynamically (unless you switch whole room background), cannot animate or change position. Thus they are only suitable for static parts of the scene that never change.</p>
+<p>See Also: <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

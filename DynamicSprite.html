@@ -118,7 +118,7 @@
 <p>Each new DynamicSprite is assigned an arbitrary ID, which may be read with <a href="DynamicSprite.html#dynamicspritegraphic"><code>Graphic</code></a> property. This ID lets you assign DynamicSprite to any property that normally accepts a sprite number, or pass into any function that accepts a sprite number as a parameter.</p>
 <p><strong>IMPORTANT:</strong> DynamicSprite exist so long as it is assigned to at least one <code>DynamicSprite*</code> variable in your script. As soon as there's no variable that has a reference to it, the sprite is disposed. This also means that if you only have a local <code>DynamicSprite*</code> variable, then the sprite will be disposed when the function ends. If you want to keep the sprite, then you should store it in a global variable for as long as you need it.</p>
 <p>You may also call <a href="DynamicSprite.html#dynamicspritedelete"><code>Delete</code></a> function anytime to explicitly remove the sprite's image from memory.</p>
-<p><strong>IMPORTANT:</strong> Assigning DynamicSprite's ID to another object (such as <code>Button.NormalGraphic</code>, for example) does not count as a reference. If DynamicSprite is deleted while its ID is assigned to another object's property, that property will be reset to 0 for safety reasons.</p>
+<p><strong>IMPORTANT:</strong> Assigning DynamicSprite's ID to another object (such as <code>Button.NormalGraphic</code>, for example) does not count as a reference. If DynamicSprite is deleted while its ID is assigned to a object's property, that object's property will retain the invalid sprite's number, but the object will be displayed using placeholder sprite 0 for safety reasons.</p>
 <section id="dynamicspritecreate" class="level3">
 <h3><a href="#dynamicspritecreate"><code>DynamicSprite.Create</code></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="bu">DynamicSprite</span><span class="op">*</span> <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dt">int</span> width<span class="op">,</span> <span class="dt">int</span> height<span class="op">,</span></span>
@@ -517,7 +517,7 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 913d7c09813bf6da23e652b4d489ed2276fe9a9f
+      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
     </p>
   </footer>
 

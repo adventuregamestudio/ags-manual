@@ -996,13 +996,13 @@ eLocationObject     an object</code></pre>
 <section id="setgamespeed" class="level3">
 <h3><a href="#setgamespeed"><code>SetGameSpeed</code></a></h3>
 <div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span> <span class="op">(</span><span class="dt">int</span> new_speed<span class="op">)</span></span></code></pre></div>
-<p>Sets the maximum game frame rate to NEW_SPEED frames per second, or as near as possible to that speed. The default frame rate is 40 fps, but you can speed up or slow down the game by using this function. Note that this speed is also the rate at which the Repeatedly_Execute functions are triggered.</p>
-<p>The NEW_SPEED must lie between 10 and 1000. If it does not, it will be rounded to 10 or 1000. Note that if you set a speed which the player's computer cannot handle (for example, a 486 will not be able to manage 80 fps), then it will go as fast as possible.</p>
+<p>Sets the maximum game frame rate to NEW_SPEED frames per second, or as near as possible to that speed. The default frame rate is 40 fps, but you can speed up or slow down the game by using this function. Note that this speed is also the rate at which the <a href="RepExec.html">repeatedly_execute</a> functions are triggered.</p>
+<p>The NEW_SPEED must lie between 10 and 1000. If it does not, it will be rounded to 10 or 1000. Note that if you set a speed which the player's computer cannot handle, then it will go as fast as possible.</p>
 <p>NOTE: Because the mouse cursor is repainted at the game frame rate, at very low speeds, like 10 to 20 fps, the mouse will appear to be jumpy and not very responsive.</p>
 <p>NOTE: If you set the <a href="System.html#systemvsync"><code>System.VSync</code></a> property to <em>true</em>, the game speed will be capped at the screen's refresh rate, so you will be unable to set it higher than 60-85 (depending on the player's screen refresh).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span><span class="op">(</span><span class="dv">80</span><span class="op">);</span></span></code></pre></div>
-<p>will set the game speed to 80.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span><span class="op">(</span><span class="dv">60</span><span class="op">);</span></span></code></pre></div>
+<p>will set the game speed to 60 fps.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#getgamespeed"><code>GetGameSpeed</code></a></p>
 <hr />
 </section>
@@ -1158,7 +1158,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 913d7c09813bf6da23e652b4d489ed2276fe9a9f
+      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
     </p>
   </footer>
 
