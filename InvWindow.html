@@ -156,9 +156,13 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>invMain<span class="op">.</span><span class="at">ItemCount</span> <span class="op">&gt;</span> <span class="op">(</span>invMain<span class="op">.</span><span class="at">ItemsPerRow</span> <span class="op">*</span> invMain<span class="op">.</span><span class="at">RowCount</span><span class="op">))</span> <span class="op">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    btnInvUp<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    btnInvDown<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are more inventory items than will fit in the inventory window.</p>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    btnInvDown<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">true</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    btnInvUp<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    btnInvDown<span class="op">.</span><span class="at">Enabled</span> = <span class="bu">false</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will enable the GUI buttons <em>btnInvUp</em> and <em>btnInvDown</em> if there are more inventory items than will fit in the inventory window, and disable them otherwise.</p>
 <p><em>See also:</em> <a href="InvWindow.html#invwindowitematindex"><code>InvWindow.ItemAtIndex</code></a>, <a href="InvWindow.html#invwindowitemsperrow"><code>InvWindow.ItemsPerRow</code></a>, <a href="InvWindow.html#invwindowrowcount"><code>InvWindow.RowCount</code></a></p>
 <hr />
 </section>
@@ -230,7 +234,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

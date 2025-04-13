@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Managed Structs</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="static/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+<body>
+
+
+  <div class="container">
+    <header>
+      <label class="header_input search-box">
+        <input type="search" id="search_input" placeholder="Search">
+        <label class="toggle-icon" title="Match Case">
+          <input type="checkbox" id="citoggle" onclick="citoggle_clicked()">
+          <span>Aa</span>
+        </label>
+        <label class="toggle-icon" title="Match Whole Word">
+          <input type="checkbox" id="wwtoggle" onclick="wwtoggle_clicked()" checked="checked">
+          <span><u>ab</u></span>
+        </label>
+      </label>
+
+      <label class="toggle-icon" title="Highlight">
+        <input type="checkbox" id="hltoggle" onclick="hltoggle_clicked()" checked="checked">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="iconify iconify--carbon"><path fill="currentColor" d="M12 15H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5V5a1 1 0 0 0-1-1H3V2h6a3 3 0 0 1 3 3zM5 9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5V9zm15 14v2a1 1 0 0 0 1 1h5v-4h-5a1 1 0 0 0-1 1z"></path><path fill="currentColor" d="M2 30h28V2Zm26-2h-7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h5v-2a1 1 0 0 0-1-1h-6v-2h6a3 3 0 0 1 3 3Z"></path></svg>
+      </label>
+      
+      <label class="toggle-icon" title="Toggle dark mode">
+        <input type="checkbox" checked="checked"  id="dark_mode_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
+      </label>
+
+      <script src="js/darkmode.js"></script>
+      <script src="js/mark.min.js"></script>
+
+      <ul id="search_results"></ul>
+    </header>
+
+  <nav>
+    <h1>
+      <a href="index.html">
+        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
+          <g shape-rendering="crispEdges">
+            <rect width="10" height="7" fill="#ffffff" />
+            <svg y="1">
+              <rect width="12" height="5" fill="#ffffff" />
+            </svg>
+            <svg x="1">
+              <rect width="8" height="8" fill="#ffffff" />
+            </svg>
+            <svg x="1" y="1">
+              <rect width="8" height="5" fill="#2a7fff" />
+            </svg>
+            <svg x="2" y="6">
+              <rect width="6" height="1" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="2">
+              <rect width="2" height="3" fill="#2a7fff" />
+            </svg>
+            <svg x="9" y="3">
+              <rect width="1" height="1" fill="#ffffff" />
+            </svg>
+            <svg x="2" y="2">
+              <rect width="6" height="3" fill="#0000d4" />
+            </svg>
+            <svg x="3" y="5">
+              <rect width="4" height="1" fill="#0000d4" />
+            </svg>
+            <svg x="2" y="1">
+              <rect width="6" height="1" fill="#ffffff" />
+            </svg>
+          </g>
+        </svg>
+        AGS Manual
+      </a>
+    </h1>
+    <ul>
+      <li><a href="genindex.html">Index</a></li>
+    </ul>
+<ul>
+<li><a href="#managed-structs" id="toc-managed-structs">Managed Structs</a>
+<ul>
+<li><a href="#structs-declaration-and-creating-objects" id="toc-structs-declaration-and-creating-objects">Struct's declaration and creating objects</a></li>
+<li><a href="#passing-objects-reference" id="toc-passing-objects-reference">Passing object's reference</a></li>
+<li><a href="#arrays-of-managed-objects" id="toc-arrays-of-managed-objects">Arrays of managed objects</a></li>
+<li><a href="#built-in-managed-structs" id="toc-built-in-managed-structs">Built-in managed structs</a></li>
+<li><a href="#examples" id="toc-examples">Examples</a></li>
+</ul></li>
+</ul>
+  </nav>
+
+  <main>
+<section id="managed-structs" class="level2">
+<h2><a href="#managed-structs">Managed Structs</a></h2>
+<p>Managed struct is a special kind of <a href="ScriptStructs.html">struct</a>, which instances are allocated not in a regular script memory but in the <em>dynamic memory pool</em>, accessed using <em>pointer</em> variables, and are <em>reference counted</em>. The explanation follows.</p>
+<p>When an instance of a regular struct is created by declaring a variable of its type, such instance is allocated either in the global script memory or in a local script memory (in functions). Anything created in a global script memory exists since game start to the game's shutdown. Variables created in a local memory exist until the current function ends.</p>
+<p>Managed objects are created in the dynamic memory pool, where they stay as long as you need them to, and may be deleted when no longer needed.</p>
+<p>As managed objects are stored in the dynamic memory, they cannot be at the same time stored in regular variables. Instead you are using a <a href="Pointers.html">"pointer" type variable</a> to access them. In simple words, "pointer" is a variable that stores not the object itself, but a reference to an object. You may think of it as a "link" to an object. The interesting part here is that a pointer is not a exclusive reference to the object: same managed object may be referenced by multiple pointer variables, and the same pointer variable may be assigned a different object's reference over time. That's like switching a link from one object to another. Pointers may be assigned special value called "null", in which case they point "nowhere". Assigning a pointer to another pointer will copy the reference, making both pointers share a link to the same object.</p>
+<p>Engine has to take precaution against deleting a managed object while there are any pointer variables which have it assigned. Would an object get deleted while there are still pointers referencing it, these pointers will point to an invalid space in memory. This problem is solved by a internal system called "reference counting". "Reference count" is a number of active references to a managed object. Whenever you assign an object to a pointer variable, a reference count increases by 1. Whenever you remove such reference, by either replacing with different object, or assigning a "null", a reference count decreases by 1. When reference count becomes 0 the object gets deleted automatically.</p>
+<p>There are couple of logical consequences of reference counting. One is that you must remove all references in order to delete the object. If you have multiple pointers referring the same object, then you must set them all to "null" before it gets deleted. If at least one pointer keeps this reference, the object will be staying in memory. Another thing is that if you assign the managed object to the only pointer variable, and that is a local variable inside a function, then such variable will get removed when the function ends, and managed object will get deleted automatically. This is handy when you need it to stay only for the duration of a function, but if you want it to stay afterwards, then you will have to either return the pointer from function (if it's called from another function), or copy the reference to a global pointer variable.</p>
+<p>Speaking of copying pointers, pointers are one of the few types in AGS script that may be copied (other being trivial types such as <code>int</code>, <code>float</code>, <code>char</code> and <code>bool</code>). This makes it possible to use them as function parameters, and function's return values. Which in turn lets pass or return a reference to a managed object, which is a very convenient ability.</p>
+<p><strong>IMPORTANT:</strong> In AGS 3.x versions there's a restriction that makes managed structs somewhat limited (compared to a similar kind of objects in other programming languages). They cannot contain any pointer variables themselves, and this includes dynamic arrays and Strings (which are also secretly pointers). This restriction has been removed in an upcoming 4.x release of AGS engine.</p>
+<section id="structs-declaration-and-creating-objects" class="level3">
+<h3><a href="#structs-declaration-and-creating-objects">Struct's declaration and creating objects</a></h3>
+<p>Managed structs are declared similar to regular structs, but with a <code>managed</code> keyword, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">ManagedStruct</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// any kind of struct&#39;s members</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> VarA<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> VarB<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="dt">void</span> <span class="fu">MemberFunction</span><span class="op">();</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">attribute</span> <span class="dt">int</span> SomeProperty<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>Managed structs may contain variables, functions and attributes, just like regular structs, there's no difference in this regard.</p>
+<p>Unlike regular structs, you do not declare a variable of a managed struct though, but a pointer TO managed struct (notice a pointer declaration using <code>*</code> symbol):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> ms<span class="op">;</span></span></code></pre></div>
+<p>Above does not create an instance of a struct, only a pointer! No object exists yet, and a new pointer is assigned "null". An instance of a managed struct is created using a <a href="ScriptKeywords.html#new"><code>new</code> keyword</a>, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> ms<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ms = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span></code></pre></div>
+<p>This instructs the engine to create an object of type ManagedStruct and assign its reference to the pointer variable <code>ms</code>. If <code>ms</code> is a local function variable, you may then combine declaration and object creation:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> ms = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span></code></pre></div>
+<p>But that won't work for global pointers, because AGS script cannot execute a <code>new</code> command outside of a function.</p>
+<p>In any case, after the object was created, and assigned to a pointer, you may access it using that pointer. This looks quite similar to using the regular struct variables:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> ms = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ms<span class="op">.</span><span class="at">VarA</span> = <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ms<span class="op">.</span><span class="at">MemberFunction</span><span class="op">();</span></span></code></pre></div>
+<p>Finally, when you no longer need an object, you need to "nullify" all pointers that reference it, like:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ms = null<span class="op">;</span></span></code></pre></div>
+<p><strong>NOTE:</strong> usually you don't have to nullify a pointer declared inside a function, because it will get removed when the function exits. But you may assign "null" by hand if you need to destroy the object earlier for some reason.</p>
+</section>
+<section id="passing-objects-reference" class="level3">
+<h3><a href="#passing-objects-reference">Passing object's reference</a></h3>
+<p>As we explained earlier, the pointers may be copied, so you can do this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> another_pointer = ms<span class="op">;</span></span></code></pre></div>
+<p>This will copy a reference from a previous pointer <code>ms</code> to <code>another_pointer</code>. This does <strong>NOT</strong> copy the object, but only its reference. Both pointers will now reference same object. If you want a second object, you should be using <code>new</code> command again:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>another_pointer = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span></code></pre></div>
+<p>Pointers may be passed as function parameters, for example:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">GiveMePointers</span><span class="op">(</span>ManagedStruct<span class="op">*</span> ms1<span class="op">,</span> ManagedStruct<span class="op">*</span> ms2<span class="op">)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// call the function, passing two pointers</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>GiveMePointers<span class="op">(</span>ms<span class="op">,</span> another_pointer<span class="op">);</span></span></code></pre></div>
+<p>Pointers may be returned from a function as well, for example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> MakeObject<span class="op">(</span><span class="dt">int</span> init_value<span class="op">)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ManagedStruct<span class="op">*</span> ms = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ms<span class="op">.</span><span class="at">VarA</span> = init_value<span class="op">;</span> <span class="co">// initialize new object with some values</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ms<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// call the function, save its returned object reference in another pointer</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> obj = MakeObject<span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+</section>
+<section id="arrays-of-managed-objects" class="level3">
+<h3><a href="#arrays-of-managed-objects">Arrays of managed objects</a></h3>
+<p>It is possible to store <em>pointers</em> to managed objects in an array, both regular (fixed-size) and dynamic array. You only have to remember that in such case array's elements will be <em>pointers</em>, not objects themselves, and so when you create an array - that will be an array of pointers, each of them initialized with "null". Creating objects for this array will require extra steps.</p>
+<p>An example with fixed-size array:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// This is array of 10 pointers</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> fixed_arr<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Here we created a new object and assigned to array element 0</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>fixed_arr<span class="op">[</span><span class="dv">0</span><span class="op">]</span> = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Let&#39;s use a loop to make things faster,</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">// and fill array with objects</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    fixed_arr<span class="op">[</span>i<span class="op">]</span> = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>An example with dynamic array will be almost the same, except dynamic array itself has to be created first (right, dynamic array is also a managed object!):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// This is a dynamic array&#39;s reference, it&#39;s null and there&#39;s no real array yet</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ManagedStruct<span class="op">*</span> fixed_arr<span class="op">[];</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Here we created a dynamic array of size 10;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">// it&#39;s full of null-pointers! no actual ManagedStruct objects created yet</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>fixed_arr = <span class="kw">new</span> ManagedStruct<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Let&#39;s use a loop to fill array with objects</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    fixed_arr<span class="op">[</span>i<span class="op">]</span> = <span class="kw">new</span> ManagedStruct<span class="op">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>See also: <a href="DynamicArrays.html">Dynamic Arrays</a></p>
+</section>
+<section id="built-in-managed-structs" class="level3">
+<h3><a href="#built-in-managed-structs">Built-in managed structs</a></h3>
+<p>Besides the managed structs that you may write in your game script, there is a collection of structs declared by the engine itself. Majority of them are declared using another special keyword: <code>builtin</code>. This keyword prevents creating struct's object using <code>new</code> command. This is done because these structs have internal parts hidden from script, and only engine is allowed to create these, either at game's startup, or when you call certain functions (for example: <a href="Overlay.html#overlaycreategraphical"><code>Overlay.CreateGraphical</code></a> creates a <code>Overlay</code> managed object and returns a pointer to it).</p>
+<p>You should not be using <code>builtin</code> keyword yourself. That's not forbidden, but will do no good, as it will prevent you from working with your own managed struct.</p>
+</section>
+<section id="examples" class="level3">
+<h3><a href="#examples">Examples</a></h3>
+<p>Let's take a <code>Rectangle</code> struct from the <a href="ScriptStructs.html#examples">original example</a> and turn it into the managed struct:</p>
+<pre><code>managed struct Rectangle
+{
+    writeprotected int x;
+    writeprotected int y;
+    writeprotected int width;
+    writeprotected int height;
+    
+    import void Init(int x, int y, int w, int h);
+    import void SetPos(int x, int y);
+    import void SetSize(int w, int h);
+};</code></pre>
+<p>Creating a rectangle will look a little different now:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> rect = <span class="kw">new</span> Rectangle<span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>rect<span class="op">.</span><span class="at">Init</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<p>Because functions can return a pointer, could not we make a function that returns already initialized rectangle? We can! but the function has to be <a href="ScriptStructs.html#static-functions"><strong>static</strong></a>, because it's not going to be called from an existing object:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">managed</span> <span class="kw">struct</span> <span class="dt">Rectangle</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">//.... the rest of the struct contents here</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">import</span> <span class="kw">static</span> Rectangle<span class="op">*</span> Create<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> w<span class="op">,</span> <span class="dt">int</span> h<span class="op">);</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> Rectangle<span class="op">::</span>Create<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> w<span class="op">,</span> <span class="dt">int</span> h<span class="op">)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    Rectangle<span class="op">*</span> rect = <span class="kw">new</span> Rectangle<span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    rect<span class="op">.</span><span class="at">Init</span><span class="op">(</span>x<span class="op">,</span> y<span class="op">,</span> w<span class="op">,</span> h<span class="op">);</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rect<span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><strong>NOTE:</strong> in programming such functions are also called "factory methods".</p>
+<p>And now we can create rectangles like this:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> rect = Rectangle<span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> rect2 = Rectangle<span class="op">.</span><span class="at">Create</span><span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> rect3 = Rectangle<span class="op">.</span><span class="at">Create</span><span class="op">(-</span><span class="dv">40</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<p>Now, since we have pointers, we may pass them into other functions as well. Let's write a function that displays rectangle's variables as a text message:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">PrintRectangle</span><span class="op">(</span>Rectangle<span class="op">*</span> rect<span class="op">)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Rectangle:</span><span class="sc">\n</span><span class="st">  x = %d</span><span class="sc">\n</span><span class="st">  y = %d</span><span class="sc">\n</span><span class="st">  width = %d</span><span class="sc">\n</span><span class="st">  height = %d&quot;</span><span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>             rect<span class="op">.</span><span class="at">x</span><span class="op">,</span> rect<span class="op">.</span><span class="at">y</span><span class="op">,</span> rect<span class="op">.</span><span class="at">width</span><span class="op">,</span> rect<span class="op">.</span><span class="at">height</span><span class="op">);</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This function may be used with any rectangle:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>PrintRectangle<span class="op">(</span>rect<span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>PrintRectangle<span class="op">(</span>rect2<span class="op">);</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>PrintRectangle<span class="op">(</span>rect3<span class="op">);</span></span></code></pre></div>
+<p>We will finish this tutorial with two functions, one saving rectangle to a file, and another loading rectangle from a file:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">SaveRectangle</span><span class="op">(</span><span class="bu">File</span><span class="op">*</span> f<span class="op">,</span> Rectangle<span class="op">*</span> rect<span class="op">)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span>rect<span class="op">.</span><span class="at">x</span><span class="op">);</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span>rect<span class="op">.</span><span class="at">y</span><span class="op">);</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span>rect<span class="op">.</span><span class="at">width</span><span class="op">);</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span>rect<span class="op">.</span><span class="at">height</span><span class="op">);</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> LoadRectangle<span class="op">(</span><span class="bu">File</span><span class="op">*</span> f<span class="op">)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    Rectangle<span class="op">*</span> rect = <span class="kw">new</span> Rectangle<span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    rect<span class="op">.</span><span class="at">x</span> = f<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    rect<span class="op">.</span><span class="at">y</span> = f<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    rect<span class="op">.</span><span class="at">width</span> = f<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    rect<span class="op">.</span><span class="at">height</span> = f<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rect<span class="op">;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Here's an example of how these could be used:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">*</span> f = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/rectangles.dat&quot;</span><span class="op">,</span> <span class="bu">eFileWrite</span><span class="op">);</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>f<span class="op">.</span><span class="at">WriteInt</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span> <span class="co">// write number of rectangles which are going to be saved</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>SaveRectangle<span class="op">(</span>f<span class="op">,</span> rect<span class="op">);</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>SaveRectangle<span class="op">(</span>f<span class="op">,</span> rect2<span class="op">);</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>SaveRectangle<span class="op">(</span>f<span class="op">,</span> rect3<span class="op">);</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>f<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>Rectangle<span class="op">*</span> rect_array<span class="op">[];</span> <span class="co">// dynamic array of rectangles</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> rect_array_size = <span class="dv">0</span><span class="op">;</span> <span class="co">// will store array length here</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">File</span><span class="op">*</span> f = <span class="bu">File</span><span class="op">.</span><span class="at">Open</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/rectangles.dat&quot;</span><span class="op">,</span> <span class="bu">eFileRead</span><span class="op">);</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>f <span class="op">!=</span> null<span class="op">)</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    rect_array_size = f<span class="op">.</span><span class="at">ReadInt</span><span class="op">();</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// create array to store N pointers</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    rect_array = <span class="kw">new</span> Rectangle<span class="op">[</span>rect_array_size<span class="op">];</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i = <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> number<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// create rectangle for each loaded entry in file,</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// and put its reference into the pointers array</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>        rect_array<span class="op">[</span>i<span class="op">]</span> = LoadRectangle<span class="op">(</span>f<span class="op">);</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    f<span class="op">.</span><span class="at">Close</span><span class="op">();</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
+</section>
+  </main>
+
+
+  <footer>
+    <p>
+      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+    </p>
+  </footer>
+
+  <script src="js/search.js"></script>
+  </div>
+</body>
+</html>

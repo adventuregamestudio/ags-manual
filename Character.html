@@ -735,7 +735,17 @@
 <h3><a href="#charactersayat"><code>Character.SayAt</code></a></h3>
 <p><em>(Formerly known as <code>DisplaySpeechAt</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>SayAt<span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
-<p>Similar to <a href="Character.html#charactersay"><code>Say</code></a>, except that the text is displayed with its top left corner at (X,Y), in an area WIDTH wide.</p>
+<p>Similar to <a href="Character.html#charactersay"><code>Say</code></a>, except that the text is displayed with at the provided position (X,Y), in an area WIDTH wide.</p>
+<p>The way the text is aligned to the given position depends on the speech style:</p>
+<ul>
+<li>Lucas-Arts style speech aligns by the left-bottom corner (upwards from the passed Y coordinate);</li>
+<li>Sierra style speech aligns by the left-top corner.</li>
+</ul>
+<p>If a <em>negative</em> value is passed as either X or Y coordinate, the text will be instead set at the default position for the respective axis:</p>
+<ul>
+<li>Lucas-Arts style speech by default is positioned above the speaking character's head;</li>
+<li>Sierra style speech by default is positioned at the top of the screen, centered horizontally.</li>
+</ul>
 <p>You can use this function to write the character's speech text anywhere you like, and AGS will still play the character's talking animation and so on if appropriate.</p>
 <p>As of <strong>AGS 3.6.1</strong>, you can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p><strong>NOTE:</strong> This function does not support Whole-Screen speech.</p>
@@ -1631,7 +1641,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

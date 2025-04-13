@@ -165,6 +165,7 @@
 <p>Creates a <em>screen overlay</em> containing the text you pass at the position specified. A screen overlay looks identical to the way speech text is displayed in conversations, except that with this command the text stays on the screen until either you remove it with the Remove command, or the player goes to a different room, in which case it is automatically removed.</p>
 <p>The screen overlays are positioned in the screen graphic layer, and are visually sorted among other screen overlays and GUI using overlay's <a href="Overlay.html#overlayzorder">ZOrder</a> property.</p>
 <p>The X and Y parameters specify the upper-left corner of where the text will be written. WIDTH is the width, in pixels, of the text area. FONT is the font number from the editor to use (0 is the normal font, 1 is the speech font). COLOR is the text color. Finally, TEXT is obviously the text that gets displayed.</p>
+<p>If a <em>negative</em> value is passed as either X or Y coordinate, then the text will be instead centered on screen along the respective axis.</p>
 <p>The function returns the Overlay, which you use later to reposition and remove the overlay.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p><strong>NOTE:</strong> if the Overlay variable goes out of scope, the overlay will be removed. Hence, if you want the overlay to last on-screen outside of the script function where it was created, the <code>Overlay*</code> variable declaration needs to be at the top of the script and outside any script functions.</p>
@@ -349,7 +350,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

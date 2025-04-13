@@ -605,6 +605,7 @@ You need to do this inside a function.</p>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>weapons<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">price</span> = <span class="dv">80</span><span class="op">;</span></span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>weapons<span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">name</span> = <span class="st">&quot;Poison dagger&quot;</span><span class="op">;</span></span></code></pre></div>
 <p>structs are essential if you have complex data that you need to store in your scripts.</p>
+<p><em>See also:</em> <a href="ScriptStructs.html">Structs</a></p>
 <hr />
 </section>
 <section id="managed" class="level3">
@@ -647,7 +648,7 @@ You need to do this inside a function.</p>
 <p>and then use such function just like:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Apple <span class="op">*</span>my_apple = CreateYellowApple<span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div>
 <p><strong>When does the dynamic object gets destroyed?</strong> After you created dynamic object as described above, it will exist in memory as long as <em>there is at least one pointer variable pointing to it</em>. As soon as the last pointer gets destroyed itself (for example, if it was local function variable, and function ended), or is assigned another object, or simply assigned <code>null</code>, then the dynamic object is removed from your game forever.</p>
-<p><em>See also:</em> <a href="ScriptKeywords.html#new"><code>new</code></a>, <a href="Pointers.html">Pointers in AGS</a></p>
+<p><em>See also:</em> <a href="ScriptKeywords.html#new"><code>new</code></a>, <a href="ScriptManagedStructs.html">Managed Structs</a>, <a href="Pointers.html">Pointers in AGS</a></p>
 <hr />
 </section>
 <section id="new" class="level3">
@@ -820,7 +821,7 @@ You need to do this inside a function.</p>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

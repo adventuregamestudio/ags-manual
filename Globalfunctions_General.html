@@ -823,11 +823,10 @@ eLocationObject     an object</code></pre>
 <div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span> <span class="op">(</span>string filename<span class="op">)</span></span></code></pre></div>
 <p>Takes a screen capture and saves it to disk. The FILENAME must end in either ".BMP" or ".PCX", as those are the types of files which can be saved. Returns 1 if the shot was successfully saved, or 0 if an invalid file extension was provided.</p>
 <p><strong>NOTE:</strong> The screenshot will be saved to the Saved Games folder.</p>
-<p><strong>NOTE:</strong> This command can be slow when using the Direct3D graphics driver.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Type the filename:&quot;</span><span class="op">);</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>input = input<span class="op">.</span><span class="at">Append</span><span class="op">(</span><span class="st">&quot;.pcx&quot;</span><span class="op">);</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span><span class="op">(</span>input<span class="op">);</span></span></code></pre></div>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> filename = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;%s.pcx&quot;</span><span class="op">,</span> input<span class="op">);</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span><span class="op">(</span>filename<span class="op">);</span></span></code></pre></div>
 <p>will prompt the player for a filename and then save the screenshot with the filename the player typed.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritesavetofile"><code>DynamicSprite.SaveToFile</code></a></p>
 <hr />
@@ -1158,7 +1157,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

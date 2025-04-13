@@ -94,6 +94,7 @@
 <li><a href="#roomsetproperty" id="toc-roomsetproperty"><code>Room.SetProperty</code></a></li>
 <li><a href="#roomsettextproperty" id="toc-roomsettextproperty"><code>Room.SetTextProperty</code></a></li>
 <li><a href="#roomprocessclick" id="toc-roomprocessclick"><code>Room.ProcessClick</code></a></li>
+<li><a href="#roombackgroundcount" id="toc-roombackgroundcount"><code>Room.BackgroundCount</code></a></li>
 <li><a href="#roombottomedge" id="toc-roombottomedge"><code>Room.BottomEdge</code></a></li>
 <li><a href="#roomcolordepth" id="toc-roomcolordepth"><code>Room.ColorDepth</code></a></li>
 <li><a href="#roomheight" id="toc-roomheight"><code>Room.Height</code></a></li>
@@ -223,98 +224,110 @@
 <p><em>See also:</em> <a href="GUI.html#guiprocessclick"><code>GUI.ProcessClick</code></a>, <a href="Mouse.html#mouseclick"><code>Mouse.Click</code></a>, <a href="Globalfunctions_General.html#isinteractionavailable"><code>IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
 <hr />
 </section>
+<section id="roombackgroundcount" class="level3">
+<h3><a href="#roombackgroundcount"><code>Room.BackgroundCount</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">BackgroundCount</span></span></code></pre></div>
+<p>Returns the number of background frames in the room.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Room</span><span class="op">.</span><span class="at">BackgroundFrames</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SetBackgroundFrame</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<hr />
+</section>
 <section id="roombottomedge" class="level3">
 <h3><a href="#roombottomedge"><code>Room.BottomEdge</code></a></h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">BottomEdge</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">BottomEdge</span></span></code></pre></div>
 <p>Returns the Y co-ordinate of the bottom edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s bottom edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">BottomEdge</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s bottom edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">BottomEdge</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roomleftedge"><code>Room.LeftEdge</code></a>, <a href="Room.html#roomrightedge"><code>Room.RightEdge</code></a>, <a href="Room.html#roomtopedge"><code>Room.TopEdge</code></a></p>
 <hr />
 </section>
 <section id="roomcolordepth" class="level3">
 <h3><a href="#roomcolordepth"><code>Room.ColorDepth</code></a></h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ColorDepth</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ColorDepth</span></span></code></pre></div>
 <p>Returns the color depth of the room's background scene. This is important if you want to use DrawImage, since any sprites that you draw must be the same color depth as the room itself.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room background is %d-bit color.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room background is %d-bit color.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ColorDepth</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="DrawingSurface.html#drawingsurfacedrawimage"><code>DrawingSurface.DrawImage</code></a></p>
 <hr />
 </section>
 <section id="roomheight" class="level3">
 <h3><a href="#roomheight"><code>Room.Height</code></a></h3>
 <p><em>(Formerly known as <code>game.room_height</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span></span></code></pre></div>
 <p>Returns the height of the room.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room size is %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room size is %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roomwidth"><code>Room.Width</code></a></p>
 <hr />
 </section>
 <section id="roomleftedge" class="level3">
 <h3><a href="#roomleftedge"><code>Room.LeftEdge</code></a></h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">LeftEdge</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">LeftEdge</span></span></code></pre></div>
 <p>Returns the X co-ordinate of the left edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s left edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">LeftEdge</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s left edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">LeftEdge</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roombottomedge"><code>Room.BottomEdge</code></a>, <a href="Room.html#roomrightedge"><code>Room.RightEdge</code></a>, <a href="Room.html#roomtopedge"><code>Room.TopEdge</code></a></p>
 <hr />
 </section>
 <section id="roommessages" class="level3">
 <h3><a href="#roommessages"><code>Room.Messages</code></a></h3>
 <p><em>(Formerly known as global function <code>GetMessageText</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Messages</span><span class="op">[</span><span class="dt">int</span> message<span class="op">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Messages</span><span class="op">[</span><span class="dt">int</span> message<span class="op">]</span></span></code></pre></div>
 <p>Gets the text of the specified room message. This is useful if you want to store, for example, a room description in Message 1 in each room -- this property allows you to retrieve the text for that message from the current room.</p>
 <p>If an invalid message number is supplied, <em>null</em> will be returned. Otherwise, the message contents will be returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> message1 = <span class="bu">Room</span><span class="op">.</span><span class="at">Messages</span><span class="op">[</span><span class="dv">1</span><span class="op">];</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Message 1 says: %s&quot;</span><span class="op">,</span> message1<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> message1 = <span class="bu">Room</span><span class="op">.</span><span class="at">Messages</span><span class="op">[</span><span class="dv">1</span><span class="op">];</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Message 1 says: %s&quot;</span><span class="op">,</span> message1<span class="op">);</span></span></code></pre></div>
 <p>will print the contents of room message 1.</p>
 <hr />
 </section>
 <section id="roommusiconload" class="level3">
 <h3><a href="#roommusiconload"><code>Room.MusicOnLoad</code></a></h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">MusicOnLoad</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">MusicOnLoad</span></span></code></pre></div>
 <p><strong>This property is now obsolete.</strong> It is still accessible for backwards compatibility with old games.</p>
 <p>Returns the music number that is set to play when the player enters this room, as set in the "Room Settings" pane in the editor. If no music is set for this room, returns 0.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room plays music %d when the player enters.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">MusicOnLoad</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room plays music %d when the player enters.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">MusicOnLoad</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="roomobjectcount" class="level3">
 <h3><a href="#roomobjectcount"><code>Room.ObjectCount</code></a></h3>
 <p><em>(Formerly part of <code>GetGameParameter</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ObjectCount</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ObjectCount</span></span></code></pre></div>
 <p>Returns the number of objects in the room.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room contains %d objects.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ObjectCount</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room contains %d objects.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">ObjectCount</span><span class="op">);</span></span></code></pre></div>
 <hr />
 </section>
 <section id="roomrightedge" class="level3">
 <h3><a href="#roomrightedge"><code>Room.RightEdge</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">RightEdge</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">RightEdge</span></span></code></pre></div>
 <p>Returns the X co-ordinate of the right edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s right edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">RightEdge</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s right edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">RightEdge</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roombottomedge"><code>Room.BottomEdge</code></a>, <a href="Room.html#roomleftedge"><code>Room.LeftEdge</code></a>, <a href="Room.html#roomtopedge"><code>Room.TopEdge</code></a></p>
 <hr />
 </section>
 <section id="roomtopedge" class="level3">
 <h3><a href="#roomtopedge"><code>Room.TopEdge</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">TopEdge</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">TopEdge</span></span></code></pre></div>
 <p>Returns the Y co-ordinate of the top edge of the room, as set in the Room Settings pane of the editor.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s top edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">TopEdge</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room&#39;s top edge is at %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">TopEdge</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roombottomedge"><code>Room.BottomEdge</code></a>, <a href="Room.html#roomleftedge"><code>Room.LeftEdge</code></a>, <a href="Room.html#roomrightedge"><code>Room.RightEdge</code></a></p>
 <hr />
 </section>
 <section id="roomwidth" class="level3">
 <h3><a href="#roomwidth"><code>Room.Width</code></a></h3>
 <p><em>(Formerly known as <code>game.room_width</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span></span></code></pre></div>
 <p>Returns the width of the room.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room size is %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The current room size is %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Width</span><span class="op">,</span> <span class="bu">Room</span><span class="op">.</span><span class="at">Height</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Room.html#roomheight"><code>Room.Height</code></a></p>
 </section>
 </section>
@@ -324,7 +337,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

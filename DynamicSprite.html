@@ -424,13 +424,14 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
 <p>Saves the dynamic sprite to the specified file.</p>
 <p>The filename you supply must have a .PCX or .BMP extension; they are the only two file types that the engine supports.</p>
 <p>Returns 1 if the sprite was saved successfully, or 0 if it failed.</p>
-<p><strong>NOTE:</strong> Since AGS 3.4.1 you can use location tokens in filename, like with <a href="File.html#fileopen"><code>File.Open</code></a> and similar commands.</p>
+<p><strong>NOTE:</strong> Since AGS 3.4.1 you can (and should!) use location tokens in filename, like with <a href="File.html#fileopen"><code>File.Open</code></a> and similar commands.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromFile</span><span class="op">(</span><span class="st">&quot;CustomAvatar.bmp&quot;</span><span class="op">);</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Rotate</span><span class="op">(</span><span class="dv">90</span><span class="op">);</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">SaveToFile</span><span class="op">(</span><span class="st">&quot;RotatedAvatar.bmp&quot;</span><span class="op">);</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">SaveToFile</span><span class="op">(</span><span class="st">&quot;$SAVEGAMEDIR$/RotatedAvatar.bmp&quot;</span><span class="op">);</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise, then save the result back to the disk.</p>
+<p>will load the CustomAvatar.bmp image, rotate it 90 degrees clockwise, then save the result back to the disk to the game saves folder.</p>
+<p><em>Compatibility:</em> location tokens in path are supported since AGS 3.4.1.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromfile"><code>DynamicSprite.CreateFromFile</code></a>, <a href="Globalfunctions_General.html#savescreenshot"><code>SaveScreenShot</code></a></p>
 <hr />
 </section>
@@ -517,7 +518,7 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 

@@ -117,6 +117,7 @@
 <h3><a href="#displayat"><code>DisplayAt</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisplayAt</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> width<span class="op">,</span> string message<span class="op">,</span> <span class="op">...)</span></span></code></pre></div>
 <p>Identical to the "Display" function, only this allows you to define the position and size of the window where the text is displayed. The X and Y variables define the co-ordinates of the upper-left corner of the window.</p>
+<p>If a <em>negative</em> value is passed as either X or Y coordinate, then the text will be instead centered on screen along the respective axis.</p>
 <p>The WIDTH variable defines the maximum width of the window. The height is then automatically calculated so that the message fits into the window.</p>
 <p>You can insert the value of variables into the message. For more information, see the <a href="StringFormats.html">string formatting</a> section.</p>
 <p>Note: This is a blocking call. See the "Display" help for more information.</p>
@@ -181,7 +182,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 1cffba7060238320f26f6ed786f83c3ffe63a8a3
+      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
     </p>
   </footer>
 
