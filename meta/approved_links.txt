@@ -1,10 +1,11 @@
 http://dockpanelsuite.com/
 http://dumb.sourceforge.net/
-https://en.wikipedia.org/wiki/Single-precision_floating-point_format
-https://en.wikipedia.org/wiki/IEEE_754
 http://sci.sierrahelp.com/Tools/SCITools.html
 http://www.gamers.org/pub/idgames/music/dgguspat.zip
+https://adventuregamestudio.github.io/ags-manual
 https://discord.gg/BSvN5ZF
+https://en.wikipedia.org/wiki/Single-precision_floating-point_format
+https://en.wikipedia.org/wiki/IEEE_754
 https://github.com/adventuregamestudio/ags
 https://github.com/adventuregamestudio/ags-manual
 https://github.com/icculus
