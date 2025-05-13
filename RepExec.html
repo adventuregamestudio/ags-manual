@@ -105,7 +105,7 @@
 <p>The <em>late_repeatedly_execute_always</em> is used in similar way to its "earlier" counterpart, but it may be essential if you need to precisely keep track of a game object movement. When <em>late_repeatedly_execute_always</em> is called all the objects are already updated to their new states, therefore you will have accurate information about them. On contrary, the <em>repeatedly_execute_always</em> will always be "one step behind" of the game state.</p>
 <p>In a nutshell, if you need to do something right before game state changes, use <em>repeatedly_execute_always</em>, if you need to do something right after game state has changed, use <em>late_repeatedly_execute_always</em>.</p>
 <p><strong>How do I create them?</strong></p>
-<p>In main game scripts, you create your <em>repeatedly_execute</em> script function by just pasting it into the script as follows. In the GlobalScript.asc it is already created for you:</p>
+<p>In main game scripts, you create your <em>repeatedly_execute</em> script function by just pasting it into the script as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Put your script code here</span></span>
@@ -159,7 +159,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

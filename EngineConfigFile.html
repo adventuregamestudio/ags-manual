@@ -139,6 +139,7 @@
 <ul>
 <li><code>direct3d</code>, <code>opengl</code>, <code>opengles</code>, <code>opengles2</code>, <code>metal</code>, <code>software</code>.</li>
 </ul></li>
+<li><code>display = [integer]</code> - starting display number, which is the 1-based index of a display, and 0 means "use system defaults".</li>
 <li><code>fullscreen = [string]</code> - a fullscreen mode definition, which may be one of the following:
 <ul>
 <li><code>WxH</code> - explicit window size (e.g. <code>1280x720</code>);</li>
@@ -274,9 +275,22 @@
 <li><code>verbose</code> (1), <code>debug</code> (2), <code>info</code> (3), <code>warn</code> (4), <code>error</code> (5), <code>critical</code> (6).</li>
 </ul></li>
 </ul></li>
+<li><strong>[access]</strong> - accessibility options.
+<ul>
+<li><code>speechskip = [string]</code> - forces game to this speech skip style. Values are:
+<ul>
+<li><code>default</code> - use game defaults</li>
+<li><code>input</code> - player input (e.g. mouse click or keyboard press)</li>
+<li><code>time</code> - standard timeout</li>
+<li><code>any</code> - either input or time</li>
+</ul></li>
+<li><code>textskip = [string]</code> - forces game to this text message skip style. Values are same as for the <code>speechskip</code>.</li>
+<li><code>textreadspeed = [integer]</code> - forces game to this text reading speed (number of characters per second).</li>
+</ul></li>
 <li><strong>[override]</strong> - special options, overriding game behavior.
 <ul>
 <li><code>multitasking = [0; 1]</code> - lock the game in the "single-tasking" or "multitasking" mode. In the nutshell, "multitasking" here means that the game will continue running when player switched away from game window; otherwise it will freeze until player switches back.</li>
+<li><code>noplugins = [0; 1]</code> - don't load plugin libraries (the engine may still use plugin stubs or embedded plugins, of these are present).</li>
 <li><code>os = [string]</code> - trick the game to think that it runs on a particular operating system. This may come handy if the game is scripted to play differently depending on OS. Possible choices are:
 <ul>
 <li><code>dos</code> - MS DOS;</li>
@@ -286,18 +300,20 @@
 </ul></li>
 <li><code>legacysave_assume_dataver = [integer]</code> - when restoring a save of a legacy format, lets engine assume certain game data version ID. This may be necessary because of a mistake in pre-3.5.0 save formats, where contents depended on a game data version rather than a save version.</li>
 <li><code>legacysave_let_gui_diff = [0; 1]</code> - when restoring a save of a legacy format, lets engine read less gui elements than are registered by the current game. This was a (possibly unintended) effect in pre-3.5.0 save format.</li>
+<li><code>max_save = [integer]</code> - overrides standard save/restore game dialogs to use this as the saves limit.</li>
 <li><code>restore_game_key = [integer]</code> - key for calling built-in restore game dialog. Key value corresponds to the <a href="Keycodes.html">AGS script keycode</a>.</li>
 <li><code>save_game_key = [integer]</code> - key for calling built-in save game dialog.</li>
 <li><code>upscale = [0; 1]</code> - run game in the "upscale mode". The earlier versions of AGS provided support for "upscaling" low-res games to hi-res. The script API has means for detecting if the game is running upscaled, and game developer could use this opportunity to setup game accordingly (e.g. assign hi-res fonts, etc). This options works <strong>only</strong> for games created before AGS 3.1.0 with low-res native resolution, such as 320x200 or 320x240, and it may somewhat improve game looks.</li>
 </ul></li>
 <li><strong>[disabled]</strong> - special instructions for the setup program hinting to disable particular options or lock some in the certain state. Ignored by the engine.
 <ul>
+<li><code>access_skipstyle = [0; 1]</code> - tells to disable speech/text skip styles and text reading speed in "Accessibility" options.</li>
+<li><code>antialias = [0; 1]</code> - tells to lock "Smooth scaled sprites" selection at the value set in the config file;</li>
 <li><code>gfxdrivers = [0; 1]</code> - tells to lock "Graphics driver" selection in a default state;</li>
 <li><code>&lt;gfxdriver id&gt; = [0; 1]</code> - tells to remove particular graphics driver from the selection list;</li>
 <li><code>filters = [0; 1]</code> - tells to lock "Graphics filter" selection at the value set in the config file;</li>
 <li><code>&lt;filter id&gt; = [0; 1]</code> - tells to remove particular graphics filter from the selection list;</li>
 <li><code>fullscreen = [0; 1]</code> - tells to disable fullscreen desktop checkbox and fullscreen mode selection list;</li>
-<li><code>antialias = [0; 1]</code> - tells to lock "Smooth scaled sprites" selection at the value set in the config file;</li>
 <li><code>render_at_screenres = [0; 1]</code> - tells to lock "Render sprites in screen resolution" selection at the value set in the config file;</li>
 <li><code>speechvox = [0; 1]</code> - tells to lock "Use digital speech pack" selection at the value set in the config file;</li>
 <li><code>translation = [0; 1]</code> - tells to lock "Game language" selection at the value set in the config file;</li>
@@ -311,7 +327,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

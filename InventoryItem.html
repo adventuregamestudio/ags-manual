@@ -238,7 +238,7 @@
 <p><em>(Formerly known as <code>GetInvGraphic</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetInvItemPic</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">InventoryItem</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
 <p>Gets/sets the sprite slot number of the inventory item. You could use this with the Object.Graphic property as a means of the player 'dropping' an inventory item, or it may be useful if you want to do a Raw Drawn inventory window.</p>
-<p><strong>NOTE:</strong> For backwards compatibility, if you change this property and the CursorGraphic currently has the same sprite as the main Graphic, then the CursorGraphic will be changed too.</p>
+<p><strong>NOTE:</strong> Prior to <strong>AGS 3.6.2</strong>, if you change this property and the CursorGraphic was assigned the same sprite as the main Graphic, then the CursorGraphic will be changed too automatically. Since 3.6.2 this is no longer done, and you have to change both yourself if you need to.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> slot = <span class="bu">player</span><span class="op">.</span><span class="at">ActiveInventory</span><span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span></code></pre></div>
 <p>will place the sprite number of the player's current inventory item into slot.</p>
@@ -289,7 +289,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

@@ -90,7 +90,7 @@
 <li><a href="#information" id="toc-information">Information</a></li>
 <li><a href="#android" id="toc-android">Android</a></li>
 <li><a href="#backwards-compatibility" id="toc-backwards-compatibility">Backwards compatibility</a></li>
-<li><a href="#character-movement" id="toc-character-movement">Character movement</a></li>
+<li><a href="#character-behavior" id="toc-character-behavior">Character behavior</a></li>
 <li><a href="#compiler" id="toc-compiler">Compiler</a></li>
 <li><a href="#dialog" id="toc-dialog">Dialog</a></li>
 <li><a href="#inventory" id="toc-inventory">Inventory</a></li>
@@ -159,10 +159,11 @@
 <li><p><strong>Use low-resolution coordinates in script</strong> - always use 320x200 coordinate space when scripting your game, regardless of its actual resolution. Basically, your game will be treated as if it were 320x200, but pixels are of larger size. Normally this option should be off; it may only be useful when importing really old game project where such setting was a norm.</p></li>
 <li><p><strong>Use old-style custom dialog options API</strong> - switch to using pre-AGS 3.4.0 custom dialog options callbacks. The differences between old and new APIs <a href="UpgradeTo34.html">are explained in this topic</a>.</p></li>
 <li><p><strong>Use old-style keyboard handling</strong> - Uses pre-unicode mode key codes in <code>on_key_press</code> function, where regular keys were merged with Ctrl and Alt modifiers. In newer games, it's recommended to leave this as false, and either handle the additional 'mod' parameter or rely on <code>on_text_input</code> function for properly handled characters when building text input interfaces.</p></li>
+<li><p><strong>Use old-style voice clip naming rule</strong> - switch to using pre-AGS 3.6.2 rule for naming voice-over files. See <a href="VoiceSpeech.html">Voice Speech</a> section for more details on this.</p></li>
 </ul>
 </section>
-<section id="character-movement" class="level3">
-<h3><a href="#character-movement">Character movement</a></h3>
+<section id="character-behavior" class="level3">
+<h3><a href="#character-behavior">Character behavior</a></h3>
 <ul>
 <li><strong>Automatically move the player in Walk mode</strong> - normally, when you click the mouse in the Walk mode, the main character will move to where you clicked. However, if you want to create a game all viewed from a 1st-person perspective, and so don't have a main character, then disabling this option allows you to use the Walk mode for other things. If disabled, then "Character stands on hotspot" events are instead triggered by clicking the Walk cursor on the hotspot.</li>
 <li><strong>Automatically move to hotspots in Look mode</strong> - controls whether the player will walk to "walk-to" spots when the player looks at the hotspot. Normally he only walks on use, speak and use-inv.</li>
@@ -236,7 +237,7 @@
 <li><strong>Inventory item cursor hotspot marker crosshair color</strong> - the primary color of the item cursor hotspot marker.</li>
 <li><strong>Inventory item cursor hotspot marker dot color</strong> - the secondary color of the item cursor hotspot marker.</li>
 <li><strong>Inventory item cursor hotspot marker sprite</strong> - the sprite number to use for the item cursor hotspot marker.</li>
-<li><strong>Override built-in inventory window click handling</strong> - AGS has some built-in processing of Inventory Window GUI controls, whereby a right-click will Look at the item, and a left click will select it if the cursor mode is Interact. However, if you enable this option, then clicking on an inventory item in an Inventory Window will call your <code>on_mouse_click</code> function with eMouseLeftInv, eMouseMiddleInv or eMouseRightInv, and you then need to process it yourself. You can use the <code>game.inv_activated</code> variable to find out what they clicked on.</li>
+<li><strong>Handle inventory window clicks in script</strong> (also called <strong>Override built-in inventory window click handling</strong> in earlier versions) - AGS has a default built-in processing of Inventory Window GUI controls mimicking old Sierra point'n'click games, whereby a right-click will Look at the item, and a left click will select it if the cursor mode is Interact. However, if you enable this option, then clicking on an inventory item in an Inventory Window will call your <code>on_mouse_click</code> function with eMouseLeftInv, eMouseMiddleInv or eMouseRightInv, and you then need to process it yourself. You can use the <code>game.inv_activated</code> variable to find out the ID of an item the player clicked on.</li>
 <li><strong>Use selected inventory graphics for cursors</strong> - normally, when you select an inventory item the mouse cursor is changed into that item. However, if you want to create a LucasArts-style game (where the inventory cursor is always a cross-hair), disable this option and it won't be changed.</li>
 </ul>
 </section>
@@ -299,7 +300,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

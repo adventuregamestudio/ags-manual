@@ -88,6 +88,7 @@
 <ul>
 <li><a href="#opening-the-editor" id="toc-opening-the-editor">Opening the Editor</a></li>
 <li><a href="#compile-flag" id="toc-compile-flag">Compile Flag</a></li>
+<li><a href="#make-template-flag" id="toc-make-template-flag">Make template flag</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -100,19 +101,25 @@
 <p><strong>NOTE:</strong> If you are using the MSYS2 bash prompt on Windows, remember that <code>/</code> command flags need two slashes. (e.g. use <code>AGSEditor.exe //compile my-project/Game.agf</code>).</p>
 <section id="opening-the-editor" class="level3">
 <h3><a href="#opening-the-editor">Opening the Editor</a></h3>
-<p>You can open the Editor in the command line by simply calling its executable and passing the path to it.</p>
-<pre class="cmd"><code>C:\path\to\AGSEditor.exe</code></pre>
-<p>We won't use the full path in the rest of the text, but you still need to either pass it, put your AGS Editor folder in your system PATH, or change the directory to it before.</p>
-<p>You can also open the editor in a specific project by passing your project's <code>Game.agf</code> location.</p>
+<p>You can open the Editor from the command line by simply calling its executable and passing the path to it, for example:</p>
+<pre class="cmd"><code>C:\Program Files (x86)\Adventure Game Studio 3.6.0\AGSEditor.exe</code></pre>
+<p>We won't use the full path in the rest of the text, but you still need to either pass it, put your AGS Editor folder in your system PATH, or change the directory to it before running.</p>
+<p>You can also open a specific project in the editor by passing your project's <code>Game.agf</code> location.</p>
 <pre class="cmd"><code>AGSEditor.exe path\to\Game.agf</code></pre>
-<p>As an example, in Windows, you can create a shortcut for the AGS Editor and edit its properties to put your <code>Game.agf</code> there so you can create a shortcut that opens AGS Editor in your project.</p>
+<p>As an example, in Windows, you can create a shortcut for the AGS Editor and edit its properties to put your <code>Game.agf</code> path there, and then use this shortcut that opens your project in the AGS Editor.</p>
 </section>
 <section id="compile-flag" class="level3">
 <h3><a href="#compile-flag">Compile Flag</a></h3>
-<p>This flag will load the AGS Editor in your project, compile it, and exit.</p>
+<p>This flag will load your project into AGS Editor, compile it, and exit.</p>
 <pre class="cmd"><code>AGSEditor.exe /compile path\to\Game.agf</code></pre>
-<p>Outputs that would normally be a message box or in the output panel will instead be printed in the command line. A successful compilation will have exit code 0, and any error will give a non-zero exit code.</p>
+<p>Outputs that would normally be displayed in a message box or in the output panel will instead be printed into the console. A successful compilation will have exit code 0, and any error will give a non-zero exit code.</p>
 <p>This option can be used for automation purposes, you could use it to build your AGS Game in a Continuous Integration pipeline.</p>
+</section>
+<section id="make-template-flag" class="level3">
+<h3><a href="#make-template-flag">Make template flag</a></h3>
+<p>This flag will load your project into AGS Editor, package it as a template, and exit.</p>
+<pre class="cmd"><code>AGSEditor.exe /maketemplate path\to\Game.agf</code></pre>
+<p>The template will have a filename "gamename.agt", where "gamename" is a name of your project, and be placed in the current working directory.</p>
 </section>
 </section>
   </main>
@@ -121,7 +128,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

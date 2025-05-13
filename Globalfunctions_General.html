@@ -567,12 +567,12 @@ eLocationObject     an object</code></pre>
 <section id="givescore" class="level3">
 <h3><a href="#givescore"><code>GiveScore</code></a></h3>
 <div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span> <span class="op">(</span><span class="dt">int</span> score<span class="op">)</span></span></code></pre></div>
-<p>Adds SCORE to the player's score. This is preferable to directly modifying the variable since it will play the score sound, update any status lines and call the GOT_SCORE on_event function.</p>
+<p>Adds SCORE to the player's score. The accumulated score is stored in <code>game.score</code> variable, from which it may be read to know current score. Using GiveScore function is preferable to directly modifying the variable since it will play the score sound, update any status lines and call the <a href="Globalfunctions_Event.html#on_event">on_event</a> script callback with eEventGotScore event parameter.</p>
 <p>Note that SCORE can be negative, in which case the score sound is NOT played.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code></pre></div>
-<p>will give 5 points to the player.</p>
-<p><em>See also:</em> <a href="Game.html#gamedoonceonly"><code>Game.DoOnceOnly</code></a></p>
+<p>will give 5 points to the player's score.</p>
+<p><em>See also:</em> <a href="Gamevariables.html#game-variables">Game variables</a>, <a href="Game.html#gamedoonceonly"><code>Game.DoOnceOnly</code></a></p>
 <hr />
 </section>
 <section id="inventoryscreen" class="level3">
@@ -1157,7 +1157,7 @@ eSkipScriptOnly
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

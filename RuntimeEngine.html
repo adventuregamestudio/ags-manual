@@ -141,6 +141,7 @@
 <li><code>--clear-cache-on-room-change</code> - clears sprite cache on every room change</li>
 <li><code>--conf &lt;FILEPATH&gt;</code> - specify an explicit config file to read on startup.</li>
 <li><code>--console-attach</code> - write the output to the parent process's console (Windows only).</li>
+<li><code>--display &lt;NUMBER&gt;</code> - start the game on the selected display (1-based index, 0 means "use system default").</li>
 <li><code>--fps</code> - display fps counter.</li>
 <li><code>--fullscreen</code> - run in fullscreen mode.</li>
 <li><code>--gfxdriver &lt;name&gt;</code> - use specified graphics driver:
@@ -194,7 +195,9 @@
 </ul></li>
 </ul></li>
 <li><code>--log-file-path=PATH</code> - define a custom path for the log file.</li>
-<li><code>--no-message-box</code> - disable alerts as modal message boxes (Windows only).</li>
+<li><code>--no-message-box</code> - disable alerts as modal message boxes (on systems where applicable).</li>
+<li><code>--no-plugins</code> - don't load external plugin libraries (may still use plugin stubs or built-in replacements if they are present in the engine).</li>
+<li><code>--no-translation</code> - use default game language on start.</li>
 <li><code>--noiface</code> - don't draw game GUI (for test purposes).</li>
 <li><code>--noscript</code> - don't run room scripts (for test purposes); <em>WARNING:</em> unreliable.</li>
 <li><code>--nospr</code> - don't draw room objects and characters (for test purposes).</li>
@@ -217,6 +220,7 @@
 </ul></li>
 <li><code>--test</code> - run the game in the test mode, unlocking test key combinations and console.</li>
 <li><code>--translation</code> - select the given translation on start.</li>
+<li><code>--version</code> - print engine's version and stop.</li>
 <li><code>--user-data-dir &lt;DIR&gt;</code> - set the save game directory. Corresponds to "user_data_dir" config option.</li>
 <li><code>--windowed</code> - run in windowed mode.</li>
 </ul>
@@ -230,7 +234,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

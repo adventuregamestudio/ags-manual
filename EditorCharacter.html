@@ -95,7 +95,8 @@
 <p>By double-clicking on a character within the tree, a new editor panel will open which allows you to inspect the <code>NormalView</code> and <code>SpeechView</code> for this character. This is also where you select whether this particular character will be used as the player character.</p>
 <p><strong>NOTE:</strong> Only one character can be the designated as the player character within this panel since this will also determine which room the game starts in. Changing the player character during the game is possible by using the script function <a href="Character.html#charactersetasplayer"><code>Character.SetAsPlayer</code></a>.</p>
 <p><img src="images/EditorCharacter_1.png" /></p>
-<p>The properties panel shown will allow you to configure the initial properties of the character. The lighting bolt icon will switch to displaying the character's events, which may be mapped to functions within the game's Global Script.</p>
+<p>The properties panel shown will allow you to configure the initial properties of the character. The lighting bolt icon will switch to displaying the character's events, which may be mapped to functions within the game's script.</p>
+<p>By default event functions are created into the Global Script. Starting with <strong>AGS v3.6.2</strong> you may decide where they are created yourself by selecting any available script module in ScriptModule property's dropdown list. That is also where the engine will look for these functions when running your game. Each Character may have its own selection. (Please note that when you change ScriptModule property any existing functions are not moved to the new script automatically, you have to cut and paste them yourself.)</p>
 </section>
   </main>
 
@@ -103,7 +104,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

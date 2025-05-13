@@ -98,14 +98,18 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    ego<span class="op">:</span> <span class="st">&quot;Hi! How are you?&quot;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    michael<span class="op">:</span> <span class="st">&quot;I&#39;m fine.&quot;</span></span></code></pre></div>
 <p>Normally this would display the words in the speech text above the characters heads. However, you can add the special character '&amp;' to symbolize that a voice file should be played along with the displayed text.</p>
-<p>The file name has the format XXXXY.EXT, where XXXX comes from the <strong>first four letters</strong> of the character's script name (except the leading 'c'), the Y is the speech file number (with no leading or trailing zeroes or padding of any kind), and EXT is the file extension.</p>
+<p>The file name must follow a certain format, this format depends on the version of AGS that you are using, and an option called "Use old-style voice clip naming rule" which is found in <a href="GeneralSettings.html#backwards-compatibility">General Settings</a>.</p>
+<p>Historically, the name had to be XXXXY.EXT, where XXXX comes from the <strong>first four letters</strong> of the character's script name (except the leading 'c'), case insensitive, the Y is the speech file number (with no leading or trailing zeroes or padding of any kind), and EXT is the file extension.</p>
+<p>Starting with <strong>AGS v3.6.2</strong> the format is slightly different, it's CHARNAME.NUMBER.EXT, where CHARNAME is a full character's script name (but still except the leading 'c'), case insensitive, NUMBER is the speech file number (with no leading or trailing zeroes), and EXT is the file extension.</p>
 <p>For example, if you have dialog script:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode agsdialog"><code class="sourceCode agsdialog"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    ego<span class="op">:</span> <span class="op">&amp;</span><span class="dv">10</span> <span class="st">&quot;Hi! How are you?&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    michael<span class="op">:</span> <span class="op">&amp;</span><span class="dv">7</span> <span class="st">&quot;I&#39;m fine.&quot;</span></span></code></pre></div>
 <p>or common script using Say script function:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;&amp;10 Hi! How are you?&quot;</span><span class="op">);</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cMichael<span class="op">.</span><span class="at">Say</span><span class="op">(</span><span class="st">&quot;&amp;7 I&#39;m fine.&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>Both of those examples plays EGO10.WAV with the first line, and MICH7.WAV with the second. When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
+<p>If the old file naming format is used by your project, then both of those examples play Ego10.ogg and Mich7.ogg respectively.</p>
+<p>If the new file naming format is used, then they play Ego.10.ogg and Michael.7.ogg files respectively.</p>
+<p>When a line of text has a voice linked to it, the text on the screen will not be removed until the voice file has finished playing. If the player interrupts it by clicking the mouse or pressing a key, the text and voice will be stopped. Voice files must be placed in the "Speech" sub-directory of the game folder.</p>
 <p>Script functions that support playing voice clips using this style are:</p>
 <ul>
 <li><a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#charactersayat">Character.SayAt</a>;</li>
@@ -147,7 +151,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 

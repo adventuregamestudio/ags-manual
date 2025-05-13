@@ -86,12 +86,10 @@
 <ul>
 <li><a href="#run-time-engine-setup" id="toc-run-time-engine-setup">Run-time engine setup</a>
 <ul>
-<li><a href="#graphics-settings" id="toc-graphics-settings">Graphics settings</a></li>
-<li><a href="#gameplay-settings" id="toc-gameplay-settings">Gameplay settings</a></li>
-<li><a href="#advanced-graphics-options" id="toc-advanced-graphics-options">Advanced graphics options</a></li>
-<li><a href="#sound-options" id="toc-sound-options">Sound options</a></li>
-<li><a href="#mouse-options" id="toc-mouse-options">Mouse options</a></li>
-<li><a href="#other-advanced-settings" id="toc-other-advanced-settings">Other advanced settings</a></li>
+<li><a href="#basic-setup-page" id="toc-basic-setup-page">Basic setup page</a></li>
+<li><a href="#advanced-setup-page" id="toc-advanced-setup-page">Advanced setup page</a></li>
+<li><a href="#custom-paths-page" id="toc-custom-paths-page">Custom paths page</a></li>
+<li><a href="#accessibility" id="toc-accessibility">Accessibility</a></li>
 </ul></li>
 </ul>
   </nav>
@@ -101,17 +99,23 @@
 <h2><a href="#run-time-engine-setup">Run-time engine setup</a></h2>
 <p>The engine Setup program allows the player to customize certain game settings.</p>
 <p><strong>NOTE:</strong> currently a setup program is only available for Windows.</p>
-<p>The options in the setup program are divided into two parts: <em>common</em> and <em>advanced</em>. The advanced options can be accessed by clicking the "Advanced" button.</p>
-<section id="graphics-settings" class="level3">
-<h3><a href="#graphics-settings">Graphics settings</a></h3>
+<p><strong>NOTE:</strong> the setup program has been redesigned into a multi-page dialog for AGS v3.6.2, and looks differently from previous versions where it was just one page with "Advanced" button which expanded it making more options visible.</p>
+<section id="basic-setup-page" class="level3">
+<h3><a href="#basic-setup-page">Basic setup page</a></h3>
+<p>This page provides most common options that many player might like to adjust for their preference.</p>
+<section id="graphics-settings" class="level4">
+<h4>Graphics settings</h4>
 <p><strong>Driver</strong></p>
 <p>Lets the player choose a graphics driver. Currently supported are Software renderer (the old and slower option, but the only driver that fully supports 8-bit games), Direct3D 9 and OpenGL (newer and faster drivers with hardware acceleration, but without proper palette-based effects support).</p>
+<p><strong>Display</strong></p>
+<p><em>Available since AGS 3.6.2.</em></p>
+<p>Lets player choose a display where the game will launch. This option will only be enabled if user has multiple displays in their system. Note that it only sets the initial location, and does not prevent from dragging game window onto another display after the game was launched.</p>
 <p><strong>Start in a windowed mode</strong></p>
 <p>If checked, the game will be run in windowed mode, as opposed to fullscreen.</p>
-<p><strong>Fullscreen as borderless window</strong></p>
-<p>If checked, fullscreen will use a borderless window, keeping the current display resolution. This is preferred in modern systems.</p>
 <p><strong>Fullscreen mode</strong></p>
 <p>If <em>Fullscreen as borderless window</em> is unchecked, it will instead use exclusive fullscreen, and this options will let you select which resolution the display will adjust to. The list of modes depends on the graphic card and the system's capabilities.</p>
+<p><strong>Fullscreen as borderless window</strong></p>
+<p>If checked, fullscreen will use a borderless window, keeping the current display resolution. This is preferred in modern systems.</p>
 <p><strong>Fullscreen scale</strong> and <strong>Windowed scale</strong></p>
 <p>These two options determine the way the game will be scaled (when required) in fullscreen and windowed modes respectively:</p>
 <ul>
@@ -123,50 +127,66 @@
 <p><strong>Scaling method</strong></p>
 <p>Here the player can choose a game scaling algorithm, and the list of available filters depend on graphics driver selection. Currently OpenGL and Direct3D 9 both supports Nearest Neighbour (used more often in pixelart games) and Linear interpolation (used more often with high resolution games).</p>
 </section>
-<section id="gameplay-settings" class="level3">
-<h3><a href="#gameplay-settings">Gameplay settings</a></h3>
+<section id="gameplay-settings" class="level4">
+<h4>Gameplay settings</h4>
 <p><strong>Game language</strong></p>
 <p>Here the player selects one of the available game translations.</p>
 </section>
-<section id="advanced-graphics-options" class="level3">
-<h3><a href="#advanced-graphics-options">Advanced graphics options</a></h3>
+</section>
+<section id="advanced-setup-page" class="level3">
+<h3><a href="#advanced-setup-page">Advanced setup page</a></h3>
+<p>This page presents miscellaneous options that are meant for a more special occasions.</p>
+<section id="graphics-options-advanced" class="level4">
+<h4>Graphics options (advanced)</h4>
 <p><strong>Vertical sync</strong></p>
 <p>This option enables vertical synchronization mode, which reduces the "tearing" effect on the game graphics, but the option may decrease the game running speed.</p>
-<p><strong>Use 85 Hz display</strong></p>
-<p>This is a legacy option that sets the monitor refresh rate to 85 Hz to run the game, which eliminates flickering. However, this does not work on all monitors, and not at all on flat panel displays, which is why it is disabled by default.</p>
 <p><strong>Smooth scaled sprites</strong></p>
 <p>This option will apply anti-aliasing to scaled game objects, such as , in order to give them a smoother look after the resizing. This may affect game aesthetics, and also can slow the game down when using "Software" graphics driver, so it is off by default.</p>
 <p><strong>Render sprites at screen resolution</strong></p>
 <p>When enabled, characters and objects are scaled in screen pixels rather than game pixels. What this means is that when a low-resolution game is run in a larger window, the sprites will take advantage of this higher resolution and look less pixelated when scaled down. This option may be locked to a certain state by the game itself (according to author's choice), in which case the player will not be able to change it.</p>
-</section>
-<section id="sound-options" class="level3">
-<h3><a href="#sound-options">Sound options</a></h3>
-<p><strong>Audio Driver</strong></p>
-<p>Here the player may choose the digital audio driver, or disable digital sound completely.</p>
-<p><strong>Use voice pack if available</strong></p>
-<p>When checked, this option enables voice speech in game (where available).</p>
-<p><strong>Sound cache (RAM)</strong></p>
-<p>This is a cache for small sounds, to reduce disk access in sounds that are reused in game.</p>
-</section>
-<section id="mouse-options" class="level3">
-<h3><a href="#mouse-options">Mouse options</a></h3>
-<p><strong>Auto lock to window</strong></p>
-<p>If this option is enabled, the mouse will be locked inside game window whenever the player clicks on it or switches into game. The locked mouse cannot leave the game window, making it impossible to accidentally jump out of the game by mistake (by clicking on the desktop, for example). Naturally, this option is only important if the game is run in windowed mode; when the game runs in fullscreen mode, the mouse is always locked.</p>
-<p><strong>Mouse speed</strong></p>
-<p>This slider allows the player to set up the mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
-</section>
-<section id="other-advanced-settings" class="level3">
-<h3><a href="#other-advanced-settings">Other advanced settings</a></h3>
 <p><strong>Sprite cache (RAM) max size</strong></p>
 <p>This option limits the maximum amount of memory that the game will use for its sprite cache. The sprite cache is used to keep a partition of all the game sprites loaded to the memory, thus reducing loading times between rooms and preventing slowdowns during game play. Of course, higher values make the game use more memory. Usually only high-resolution games with long animations need to have this value increased.</p>
 <p><strong>Texture cache (VRAM) max size</strong></p>
 <p><em>Available since AGS 3.6.1.</em></p>
 <p>This option limits the maximum amount of video memory that the game will use for its texture cache. The texture cache is used to keep sprites that are pushed to the GPU in video memory, and reduce the need to convert images from the sprite cache to the video memory to present them on screen. The limits here may be affected by other things in the computer that are using video memory, and GPU available memory.</p>
+</section>
+<section id="sound-options" class="level4">
+<h4>Sound options</h4>
+<p><strong>Audio Driver</strong></p>
+<p>Here the player may choose the digital audio driver, or disable digital sound completely.</p>
+<p><strong>Use voice pack if available</strong></p>
+<p>When checked, this option enables voice speech in game (where available).</p>
+<p><strong>Sound cache (RAM)</strong></p>
+<p>This option limits the maximum amount of memory for keeping the sounds loaded. This cache is normally used for the small sounds, which helps reducing disk access when replaying clips which are reused in game often (such as footsteps, ambient sounds, etc).</p>
+</section>
+<section id="mouse-options" class="level4">
+<h4>Mouse options</h4>
+<p><strong>Auto lock to window</strong></p>
+<p>If this option is enabled, the mouse will be locked inside game window whenever the player clicks on it or switches into game. The locked mouse cannot leave the game window, making it impossible to accidentally jump out of the game by mistake (by clicking on the desktop, for example). Naturally, this option is only important if the game is run in windowed mode; when the game runs in fullscreen mode, the mouse is always locked.</p>
+<p><strong>Mouse speed</strong></p>
+<p>This slider allows the player to set up the mouse cursor speed in game. It should be noted that this parameter is only applied if the game is run in fullscreen mode.</p>
+</section>
+</section>
+<section id="custom-paths-page" class="level3">
+<h3><a href="#custom-paths-page">Custom paths page</a></h3>
+<p>This page lets players configure the location of the files created and used by the game.</p>
 <p><strong>Custom game saves path</strong></p>
 <p>When unchecked, the game will store its saved games in the default Windows folder: <code>C:/Users/&lt;Username&gt;/Saved Games/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store game saves.</p>
 <p><strong>Custom game shared data path</strong></p>
 <p>When unchecked, the game will store its shared files - custom runtime data shared among all the users of this computer - in the default Windows folder: <code>C:/Program Data/Adventure Game Studio/&lt;Game Title&gt;</code>. Players may enable this option and define their own location to store these game files.</p>
 <p><em>See also:</em> <a href="DefaultSetup.html">Default setup (Editor Pane)</a>, <a href="RuntimeEngine.html">Location of the configuration file on the system and options</a></p>
+</section>
+<section id="accessibility" class="level3">
+<h3><a href="#accessibility">Accessibility</a></h3>
+<p><em>Available since AGS 3.6.2.</em></p>
+<p>This page lets configure options which try to improve player's experience with the game.</p>
+<p>Note that the game's developer may disable this whole category in case they have accessibility options programmed into their game (in which case changing them in setup could cause conflicts with the game's implementation),</p>
+<p><strong>Speech skip style</strong></p>
+<p>Tells which character speech skipping style to use: skip by time, skip by player input (mouse clicks and key presses), or game defaults (whichever is implemented in the game).</p>
+<p><strong>Text message skip style</strong></p>
+<p>Tells which text message (not including character speech) skipping style to use: skip by time, skip by player input (mouse clicks and key presses), or game defaults (whichever is implemented in the game).</p>
+<p><strong>Text reading speed</strong></p>
+<p>By changing this value player can make speech and text messages stay on screen longer. Note that this only works if the game uses standard text and speech functions, or otherwise takes "text reading speed" parameter into account (See <a href="Game.html#gametextreadingspeed">Game.TextReadingSpeed</a>).</p>
 </section>
 </section>
   </main>
@@ -175,7 +195,7 @@
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 88ec53d28973dddced8b4b3caccefc8f482058ac
+      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
     </p>
   </footer>
 
