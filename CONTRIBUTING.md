@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Thank you for considering contributing to AGS Manual wiki. The AGS Manual is made better by people like you.
+Thank you for considering contributing to AGS Manual. The AGS Manual is made better by people like you.
 
 Since the manual is made by multiple contributions, reading the guidelines ensures we can provide a cohesive document for the game developers using AGS. 
 We also assume you are also a game developer using AGS which means in the future you will also be thanking yourself later.
@@ -13,16 +13,16 @@ We also assume you are also a game developer using AGS which means in the future
 
 - Create an account on GitHub
 - If you are unsure about your contribution, Create an issue
-- If you are REALLY confident about your contribution, and you have created at least one issue, write in the wiki
+- If you are REALLY confident about your contribution, and you have created at least one issue, send a pull request through the [ags-manual-source](https://github.com/adventuregamestudio/ags-manual-source) repository
 
 ## Opening issues
 
 - Be respectful when writing issues
-- If you want to discuss a topic already on the manual, link it in the wiki.
+- If you want to discuss a topic already on the manual, link it in the manual.
 - If you want to discuss a new entry, not in the manual, suggest it's name and where it would reside
 - Issues are where we can sketch ideas and discuss pages, so don't be afraid of writing too much, just be aware that it will take more time to think about the more that is written.
 
-## Writing in the wiki
+## Writing in the manual
 
 - Ensure all pages have at least one other page that leads to it. Do not cause or add orphaned pages.
 
@@ -41,11 +41,9 @@ Screenshots should be avoided, but they make sense in tutorials or when describi
 - Do not include any watermark or any reference to other tools in a screenshot.
 - Prefer the interface and portrayed game objects to be in English when possible.
 
-Finally, the actual inclusion of screenshots in the manual can only be done by people with commit access to the repository wiki, likely the [docs-contributors](https://github.com/orgs/adventuregamestudio/teams/docs-contributors) team.
+Clone the manual source locally 
 
-Clone the wiki locally 
-
-    git clone https://github.com/adventuregamestudio/ags-manual.wiki.git
+    git clone https://github.com/adventuregamestudio/ags-manual-source.git
 
 And add necessary screenshots inside `images/`, then add, commit and push the images.
 
@@ -77,7 +75,7 @@ H1 headings are not checked, effectively reserving their use for the primary tit
 
 ### Introduction
 
-The current build system is based on converting wiki pages which are
+The current build system is based on converting `.md` files which are
 written in GitHub Flavored Markdown (GFM). Conversion is done using
 Pandoc using templates derived from Pandoc's default templates for
 HTML4 and HTML5 output. Lua filters are used to modify content,
@@ -375,13 +373,13 @@ newly cloned working tree. Note that in order to bootstrap the build
 system you will need a local installation of Autoconf, Automake, and
 Git.
 
-### Update the wiki content
+### Update the manual content
 
-1. Clone the wiki sub-module
+1. Clone the ags-manual-source sub-module
 
-   Wiki content is referenced as a sub-module for the 'source'
+   Source content is referenced as a sub-module for the 'source'
    directory and so this directory will be initially be empty. Update
-   all sub-modules to get the version of the wiki content which is
+   all sub-modules to get the version of the source content which is
    currently referenced.
 
    ```
@@ -391,7 +389,7 @@ Git.
 2. Update the sub-module
 
    The source directory should no longer be empty. Pull the latest
-   copy of wiki content and merge it.
+   copy of source content and merge it.
 
    ```sh
    git submodule update --remote --merge
@@ -399,7 +397,7 @@ Git.
 
    If there were any changes they will be reported. Whoever is
    committing the changes is effectively responsible for promoting the
-   content from the wiki into the official release; reading the
+   content from the source into the official release; reading the
    changes in the page content is a good idea.
 
    ```sh
@@ -441,7 +439,7 @@ Git.
    ```
 
    The most likely cause of failure is that new external links have
-   been added to the wiki pages and they haven't yet been added to the
+   been added to the pages and they haven't yet been added to the
    approved links list. Approved links are listed alphabetically in
    [`meta/approved_links.txt`](https://github.com/adventuregamestudio/ags-manual/blob/master/meta/approved_links.txt).
    Once new links have been added to this file the 'distcheck' target
@@ -454,7 +452,7 @@ Git.
 
    ```sh
    git add source
-   git commit -m "Sync with wiki content"
+   git commit -m "Sync with source content"
    ```
 
    Now the changes can be pushed back.
