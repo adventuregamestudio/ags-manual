@@ -1,6 +1,6 @@
 # Adventure Game Studio Help Files
 
-[**Edit the Help in the Wiki**](https://github.com/adventuregamestudio/ags-manual/wiki) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual/wiki/_history) | [![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
+[**Edit the Help in the docs repo**](https://github.com/adventuregamestudio/ags-manual-source) | [**Revision History**](https://github.com/adventuregamestudio/ags-manual-source/commits/master/) | [![Build](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml/badge.svg)](https://github.com/adventuregamestudio/ags-manual/actions/workflows/build.yml)
 
 ## Reading the help files
 
@@ -14,8 +14,8 @@ For the most recent release of the manual two options are available:
 [![](ags-manual-readme.png)](https://adventuregamestudio.github.io/ags-manual/)
 
 The source files for the help pages are contained within the
-[wiki repository](https://github.com/adventuregamestudio/ags-manual/wiki)
-of this project and can be edited on the wiki or cloned locally and pushed back.
+[Docs repository](https://github.com/adventuregamestudio/ags-manual-source)
+of this project and can be edited or cloned locally and pushed back.
 Please open an [issue](https://github.com/adventuregamestudio/ags-manual/issues) if
 something appears to be wrong. For a more in-depth look at contributing see
 [`CONTRIBUTING.md`](CONTRIBUTING.md) for further details.
@@ -96,5 +96,5 @@ make DESTDIR=destdir install
 
 Source code in this repository is distributed under MIT license. See
 [`LICENSE`](LICENSE) for more information. The manual content which is
-included from the wiki as a sub-module follows
+included from the docs repo as a sub-module follows
 [Adventure Game Studio's license](https://github.com/adventuregamestudio/ags/blob/master/License.txt).
