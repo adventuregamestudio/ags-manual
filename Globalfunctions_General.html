@@ -820,7 +820,7 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="savescreenshot" class="level3">
 <h3><a href="#savescreenshot"><code>SaveScreenShot</code></a></h3>
-<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span> <span class="op">(</span>string filename<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SaveScreenShot</span><span class="op">(</span>string filename<span class="op">,</span> optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">,</span> optional RenderLayer layer<span class="op">)</span></span></code></pre></div>
 <p>Takes a screen capture and saves it to disk. The FILENAME must end in either ".BMP" or ".PCX", as those are the types of files which can be saved. Returns 1 if the shot was successfully saved, or 0 if an invalid file extension was provided.</p>
 <p><strong>NOTE:</strong> The screenshot will be saved to the Saved Games folder.</p>
 <p>Example:</p>
@@ -828,6 +828,8 @@ eLocationObject     an object</code></pre>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> filename = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;%s.pcx&quot;</span><span class="op">,</span> input<span class="op">);</span></span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span><span class="op">(</span>filename<span class="op">);</span></span></code></pre></div>
 <p>will prompt the player for a filename and then save the screenshot with the filename the player typed.</p>
+<p>Since <strong>AGS 3.6.2</strong>, the filename can accept standard file tokens (<code>$SAVEGAMEDIR$</code>, etc).</p>
+<p><em>Compatibility:</em> Optional <em>width</em>, <em>height</em>, and <em>layer</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritesavetofile"><code>DynamicSprite.SaveToFile</code></a></p>
 <hr />
 </section>
@@ -1151,13 +1153,14 @@ eSkipScriptOnly
 <p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 </section>
 </section>
+    <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Globalfunctions_General.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
   </main>
 
 
   <footer>
     <p>
       <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 055b8204e83ecddf3b705528cfc4c89eb76ee65d
+      Build: 5cfd7199f7e5cf0d397b25e1a7e522b9eb8ea016
     </p>
   </footer>
 
