@@ -30,14 +30,14 @@ AM_CONDITIONAL([BUILD_CHM],
     [(test "x${with_chmcmd}" != xno && test "x${CHMCMD}" != x ) || \
      (test "x${with_chmcmd}" = xno && test "x${HHC}" != x)])
 
-AC_CONFIG_LINKS([source/index.md:source/Home.md])
-AC_CONFIG_SRCDIR([source/Home.md])
+AC_CONFIG_LINKS([source/index.md:source/index.md])
+AC_CONFIG_SRCDIR([source/index.md])
 AC_CONFIG_FILES([Makefile])
 
 m4_define([IMAGEFILES_LIST],
     [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files 'images/*']))))])
 m4_define([TOPFILES_LIST],
-    [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files ':(exclude)*/*' ':(exclude)_*' ':(exclude)Home.md']))))])
+    [m4_flatten(m4_chomp(m4_quote(m4_esyscmd([git -C source ls-files ':(exclude)*/*' ':(exclude)_*' ':(exclude)index.md']))))])
 
 AM_COND_IF([BUILD_CHM],
     [m4_foreach_w([var], IMAGEFILES_LIST,
