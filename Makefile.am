@@ -19,7 +19,9 @@ websitejs_DATA = \
 	$(srcdir)/vendor/mark.js \
 	$(srcdir)/vendor/mark.min.js \
 	search.js
-websitestatic_DATA = $(srcdir)/html/static/favicon.ico
+websitestatic_DATA = \
+	$(srcdir)/html/static/favicon.ico \
+	$(srcdir)/html/static/logo.svg
 
 if BUILD_CHM
 pkgdata_DATA = source/ags-help.chm
