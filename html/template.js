@@ -42,14 +42,19 @@ var during_init = true;
 window.onload = function() { init(); }
 
 window.addEventListener('DOMContentLoaded', () => {
-
+  // Remove TOC panel and abort if there's nothing to track
+  if (document.querySelector('aside ul ul') == null) {
+    document.querySelector('aside')?.remove();
+    return;
+  }
+  
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id');
       if (entry.intersectionRatio > 0) {
-        document.querySelector('nav li a[href="#' + id +'"]').parentElement.classList.add('active');
+        document.querySelector('aside li a[href="#' + id +'"]').parentElement.classList.add('active');
       } else {
-        document.querySelector('nav li a[href="#' + id + '"]').parentElement.classList.remove('active');
+        document.querySelector('aside li a[href="#' + id + '"]').parentElement.classList.remove('active');
       }
     });
   });

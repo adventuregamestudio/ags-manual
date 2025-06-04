@@ -18,7 +18,8 @@ websitejs_DATA = \
 	$(srcdir)/html/js/darkmode.js \
 	$(srcdir)/vendor/mark.js \
 	$(srcdir)/vendor/mark.min.js \
-	search.js
+	search.js \
+	navigation.js
 websitestatic_DATA = \
 	$(srcdir)/html/static/favicon.ico \
 	$(srcdir)/html/static/logo.svg
@@ -35,6 +36,7 @@ CLEANFILES = \
 	genindex.html \
 	metadata.lua \
 	search.js \
+	navigation.js \
 	source/ags-help.hhc \
 	source/ags-help.hhk \
 	source/ags-help.hhp
@@ -46,6 +48,7 @@ EXTRA_DIST = \
 	$(srcdir)/html/jslicensing.html \
 	$(srcdir)/html/template.html5 \
 	$(srcdir)/html/template.js \
+	$(srcdir)/html/template_navigation.js \
 	$(srcdir)/htmlhelp/template.hhc \
 	$(srcdir)/htmlhelp/template.hhp \
 	$(srcdir)/htmlhelp/template.html4 \
@@ -62,6 +65,7 @@ EXTRA_DIST = \
 	$(srcdir)/lua/write_hhp.lua \
 	$(srcdir)/lua/write_metablock.lua \
 	$(srcdir)/lua/write_metajs.lua \
+	$(srcdir)/lua/write_navigationjs.lua \
 	$(srcdir)/meta/approved_links.txt \
 	$(srcdir)/syntax/ags.xml \
 	$(srcdir)/syntax/agsdialog.xml \
@@ -125,6 +129,14 @@ search.js: metadata.lua
 		--template "$(srcdir)/html/template.js" \
 		--eol lf \
 		--output $@
+
+navigation.js:
+	$(AM_V_GEN)echo | "$(PANDOC)" \
+		--to "$(srcdir)/lua/write_navigationjs.lua" \
+		--template "$(srcdir)/html/template_navigation.js" \
+		--eol lf \
+		--output $@ \
+		source/index.md
 
 .md.htm:
 	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
