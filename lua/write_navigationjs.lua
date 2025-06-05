@@ -10,17 +10,9 @@ local formatSub = [[<li><span><a id="topic-%s" href="%s.html">%s</span></a>]]
 
 Writer = pandoc.scaffolding.Writer
 
-function tablelength(T)
-  local count = 0
-  for _ in pairs(T) do count = count + 1 end
-  return count
-end
-
 local buffer = {}
 local depth = 1
 Writer.Pandoc = function(doc)
-  
-
   doc:walk {
     traverse = 'topdown',
     Header = function(header)
@@ -34,48 +26,37 @@ Writer.Pandoc = function(doc)
       end
     end,
     BulletList = function(bulletlist)
-
       bulletlist:walk {
         traverse = 'topdown',
-               
         Link = function(link)
           local name = escape(stringify(link.content))
           local target = escape(link.target)
           table.insert(buffer,
                        string.format(formatSub, target, target, name))
         end, 
-        
         BulletList = recurseBulletList
       }
-
-      
       table.insert(buffer, '</li></ul>\n</li>\n</ul>')
       return _, false
     end
   }
-
   return 'var topics = `' .. table.concat(buffer, '\n') .. '`;'
 end
 
-local li_needsclosing = 0
 function recurseBulletList(bulletlist)
   depth = depth + 1
-  if bulletlist then
-    if recurseBulletList then table.insert(buffer, '</il>') end
-    table.insert(buffer, '<ul class="level-'.. depth ..'">')
-    bulletlist:walk {
-      traverse = 'topdown',
-      Link = function(link)
-        local name = escape(stringify(link.content))
-        local target = escape(link.target)
-        table.insert(buffer,
-                     string.format(formatSub, target, target, name))
-        li_needsclosing = 1
-      end,
-      BulletList = recurseBulletList
-    }
-    table.insert(buffer, '</ul>\n')
-  end
+  table.insert(buffer, '<ul class="level-'.. depth ..'">')
+  bulletlist:walk {
+    traverse = 'topdown',
+    Link = function(link)
+      local name = escape(stringify(link.content))
+      local target = escape(link.target)
+      table.insert(buffer,
+                   string.format(formatSub, target, target, name))
+    end,
+    BulletList = recurseBulletList
+  }
+  table.insert(buffer, '</ul>\n')
   depth = depth - 1
   return bulletlist, false
 

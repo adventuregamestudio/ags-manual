@@ -32,6 +32,8 @@ AM_CONDITIONAL([BUILD_CHM],
 
 AC_CONFIG_LINKS([source/index.md:source/index.md])
 AC_CONFIG_SRCDIR([source/index.md])
+AC_CONFIG_LINKS([source/_Sidebar.md:source/_Sidebar.md])
+AC_CONFIG_SRCDIR([source/_Sidebar.md])
 AC_CONFIG_FILES([Makefile])
 
 m4_define([IMAGEFILES_LIST],

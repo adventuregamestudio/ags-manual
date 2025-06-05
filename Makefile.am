@@ -130,13 +130,13 @@ search.js: metadata.lua
 		--eol lf \
 		--output $@
 
-navigation.js:
+navigation.js: source/_Sidebar.md
 	$(AM_V_GEN)echo | "$(PANDOC)" \
 		--to "$(srcdir)/lua/write_navigationjs.lua" \
 		--template "$(srcdir)/html/template_navigation.js" \
 		--eol lf \
 		--output $@ \
-		source/index.md
+		$<
 
 .md.htm:
 	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
@@ -169,7 +169,7 @@ source/ags-help.hhk: metadata.lua
 		--eol crlf \
 		--output $@
 
-source/ags-help.hhc:
+source/ags-help.hhc: source/_Sidebar.md
 	$(AM_V_GEN)"$(PANDOC)" --from gfm-tex_math_dollars \
 		--to "$(srcdir)/lua/write_hhc.lua" \
 		--lua-filter "$(srcdir)/lua/rewrite_links.lua" \
@@ -177,7 +177,7 @@ source/ags-help.hhc:
 		--eol crlf \
 		--wrap=none \
 		--output $@ \
-		source/index.md
+		$<
 
 source/ags-help.hhp:
 	$(AM_V_GEN)echo | "$(PANDOC)" \

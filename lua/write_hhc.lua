@@ -12,9 +12,8 @@ local format = [[<LI> <OBJECT type="text/sitemap">
 
 Writer = pandoc.scaffolding.Writer
 
+local buffer = {}
 Writer.Pandoc = function(doc)
-  buffer = {}
-
   doc:walk {
     traverse = 'topdown',
     Header = function(header)
@@ -29,16 +28,37 @@ Writer.Pandoc = function(doc)
     end,
     BulletList = function(bulletlist)
       bulletlist:walk {
+        traverse = 'topdown',
         Link = function(link)
           local name = escape(stringify(link.content))
           local target = escape(link.target)
           table.insert(buffer,
                        string.format(format, name, 'Local', target))
-        end
+        end,
+        
+        BulletList = recurseBulletList
       }
       table.insert(buffer, '</UL>\n</UL>')
+      return _, false
     end
   }
 
   return table.concat(buffer, '\n')
+end
+
+function recurseBulletList(bulletlist)
+  table.insert(buffer, '<UL>')
+  bulletlist:walk {
+    traverse = 'topdown',
+    Link = function(link)
+      local name = escape(stringify(link.content))
+      local target = escape(link.target)
+      table.insert(buffer,
+                   string.format(format, name, 'Local', target))
+    end,
+    BulletList = recurseBulletList
+  }
+  table.insert(buffer, '</UL>\n')
+  return bulletlist, false
+
 end
