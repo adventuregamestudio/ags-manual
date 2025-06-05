@@ -371,12 +371,12 @@ nav .expand > span {
 .expand > span:after {
     content: "";
     position: absolute;
-    right: 11px;
-    top:7px;
+    left: 3px;
+    top:10px;
     border: solid black;
     border-width: 0 1px 1px 0;
     display: inline-block;
-    padding: 3px;
+    padding: 2px;
     vertical-align:middle;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
