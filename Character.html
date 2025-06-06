@@ -12,8 +12,15 @@
 <body>
 
 
+  <div class="header-bg"></div>
   <div class="container">
     <header>
+      <h1>
+        <a href="index.html">
+          <img src="static/logo.svg" id="cup" width="48" height="48">
+          AGS Manual
+        </a>
+      </h1>
       <label class="header_input search-box">
         <input type="search" id="search_input" placeholder="Search">
         <label class="toggle-icon" title="Match Case">
@@ -35,6 +42,10 @@
         <input type="checkbox" checked="checked"  id="dark_mode_toggle">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26a5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" /></svg>
       </label>
+      
+      <label class="mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 32 32" width="24px" fill="currentColor"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /></svg>
+      </label>
 
       <script src="js/darkmode.js"></script>
       <script src="js/mark.min.js"></script>
@@ -43,160 +54,14 @@
     </header>
 
   <nav>
-    <h1>
-      <a href="index.html">
-        <svg id="cup" width="48" height="48" viewBox="0 0 12 8" preserveAspectRatio="xMidYMid meet">
-          <g shape-rendering="crispEdges">
-            <rect width="10" height="7" fill="#ffffff" />
-            <svg y="1">
-              <rect width="12" height="5" fill="#ffffff" />
-            </svg>
-            <svg x="1">
-              <rect width="8" height="8" fill="#ffffff" />
-            </svg>
-            <svg x="1" y="1">
-              <rect width="8" height="5" fill="#2a7fff" />
-            </svg>
-            <svg x="2" y="6">
-              <rect width="6" height="1" fill="#2a7fff" />
-            </svg>
-            <svg x="9" y="2">
-              <rect width="2" height="3" fill="#2a7fff" />
-            </svg>
-            <svg x="9" y="3">
-              <rect width="1" height="1" fill="#ffffff" />
-            </svg>
-            <svg x="2" y="2">
-              <rect width="6" height="3" fill="#0000d4" />
-            </svg>
-            <svg x="3" y="5">
-              <rect width="4" height="1" fill="#0000d4" />
-            </svg>
-            <svg x="2" y="1">
-              <rect width="6" height="1" fill="#ffffff" />
-            </svg>
-          </g>
-        </svg>
-        AGS Manual
-      </a>
-    </h1>
     <ul>
       <li><a href="genindex.html">Index</a></li>
     </ul>
-<ul>
-<li><a href="#character-functions-and-properties" id="toc-character-functions-and-properties"><code>Character</code> functions and properties</a>
-<ul>
-<li><a href="#characteraddinventory" id="toc-characteraddinventory"><code>Character.AddInventory</code></a></li>
-<li><a href="#characteraddwaypoint" id="toc-characteraddwaypoint"><code>Character.AddWaypoint</code></a></li>
-<li><a href="#characteranimate" id="toc-characteranimate"><code>Character.Animate</code></a></li>
-<li><a href="#characterchangeroom" id="toc-characterchangeroom"><code>Character.ChangeRoom</code></a></li>
-<li><a href="#characterchangeroomautoposition" id="toc-characterchangeroomautoposition"><code>Character.ChangeRoomAutoPosition</code></a></li>
-<li><a href="#characterchangeview" id="toc-characterchangeview"><code>Character.ChangeView</code></a></li>
-<li><a href="#characterfacecharacter" id="toc-characterfacecharacter"><code>Character.FaceCharacter</code></a></li>
-<li><a href="#characterfacedirection" id="toc-characterfacedirection"><code>Character.FaceDirection</code></a></li>
-<li><a href="#characterfacelocation" id="toc-characterfacelocation"><code>Character.FaceLocation</code></a></li>
-<li><a href="#characterfaceobject" id="toc-characterfaceobject"><code>Character.FaceObject</code></a></li>
-<li><a href="#characterfollowcharacter" id="toc-characterfollowcharacter"><code>Character.FollowCharacter</code></a></li>
-<li><a href="#charactergetatroomxy" id="toc-charactergetatroomxy"><code>Character.GetAtRoomXY</code></a></li>
-<li><a href="#charactergetatscreenxy" id="toc-charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a></li>
-<li><a href="#charactergetbyname" id="toc-charactergetbyname"><code>Character.GetByName</code></a></li>
-<li><a href="#charactergetproperty" id="toc-charactergetproperty"><code>Character.GetProperty</code></a></li>
-<li><a href="#charactergettextproperty" id="toc-charactergettextproperty"><code>Character.GetTextProperty</code></a></li>
-<li><a href="#charactersetproperty" id="toc-charactersetproperty"><code>Character.SetProperty</code></a></li>
-<li><a href="#charactersettextproperty" id="toc-charactersettextproperty"><code>Character.SetTextProperty</code></a></li>
-<li><a href="#characterhasexplicitlight" id="toc-characterhasexplicitlight"><code>Character.HasExplicitLight</code></a></li>
-<li><a href="#characterhasinventory" id="toc-characterhasinventory"><code>Character.HasInventory</code></a></li>
-<li><a href="#characteriscollidingwithchar" id="toc-characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a></li>
-<li><a href="#characteriscollidingwithobject" id="toc-characteriscollidingwithobject"><code>Character.IsCollidingWithObject</code></a></li>
-<li><a href="#characterlightlevel" id="toc-characterlightlevel"><code>Character.LightLevel</code></a></li>
-<li><a href="#characterlockview" id="toc-characterlockview"><code>Character.LockView</code></a></li>
-<li><a href="#characterlockviewaligned" id="toc-characterlockviewaligned"><code>Character.LockViewAligned</code></a></li>
-<li><a href="#characterlockviewframe" id="toc-characterlockviewframe"><code>Character.LockViewFrame</code></a></li>
-<li><a href="#characterlockviewoffset" id="toc-characterlockviewoffset"><code>Character.LockViewOffset</code></a></li>
-<li><a href="#characterloseinventory" id="toc-characterloseinventory"><code>Character.LoseInventory</code></a></li>
-<li><a href="#charactermove" id="toc-charactermove"><code>Character.Move</code></a></li>
-<li><a href="#charactermovestraight" id="toc-charactermovestraight"><code>Character.MoveStraight</code></a></li>
-<li><a href="#characterplaceonwalkablearea" id="toc-characterplaceonwalkablearea"><code>Character.PlaceOnWalkableArea</code></a></li>
-<li><a href="#characterremovetint" id="toc-characterremovetint"><code>Character.RemoveTint</code></a></li>
-<li><a href="#characterisinteractionavailable" id="toc-characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a></li>
-<li><a href="#characterruninteraction" id="toc-characterruninteraction"><code>Character.RunInteraction</code></a></li>
-<li><a href="#charactersay" id="toc-charactersay"><code>Character.Say</code></a></li>
-<li><a href="#charactersayat" id="toc-charactersayat"><code>Character.SayAt</code></a></li>
-<li><a href="#charactersaybackground" id="toc-charactersaybackground"><code>Character.SayBackground</code></a></li>
-<li><a href="#charactersetasplayer" id="toc-charactersetasplayer"><code>Character.SetAsPlayer</code></a></li>
-<li><a href="#charactersetlightlevel" id="toc-charactersetlightlevel"><code>Character.SetLightLevel</code></a></li>
-<li><a href="#charactersetidleview" id="toc-charactersetidleview"><code>Character.SetIdleView</code></a></li>
-<li><a href="#charactersetwalkspeed" id="toc-charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a></li>
-<li><a href="#characterstopmoving" id="toc-characterstopmoving"><code>Character.StopMoving</code></a></li>
-<li><a href="#characterthink" id="toc-characterthink"><code>Character.Think</code></a></li>
-<li><a href="#charactertint" id="toc-charactertint"><code>Character.Tint</code></a></li>
-<li><a href="#charactertintblue" id="toc-charactertintblue"><code>Character.TintBlue</code></a></li>
-<li><a href="#charactertintgreen" id="toc-charactertintgreen"><code>Character.TintGreen</code></a></li>
-<li><a href="#charactertintred" id="toc-charactertintred"><code>Character.TintRed</code></a></li>
-<li><a href="#charactertintsaturation" id="toc-charactertintsaturation"><code>Character.TintSaturation</code></a></li>
-<li><a href="#charactertintluminance" id="toc-charactertintluminance"><code>Character.TintLuminance</code></a></li>
-<li><a href="#characterunlockview" id="toc-characterunlockview"><code>Character.UnlockView</code></a></li>
-<li><a href="#characterwalk" id="toc-characterwalk"><code>Character.Walk</code></a></li>
-<li><a href="#characterwalkstraight" id="toc-characterwalkstraight"><code>Character.WalkStraight</code></a></li>
-<li><a href="#characteractiveinventory" id="toc-characteractiveinventory"><code>Character.ActiveInventory</code></a></li>
-<li><a href="#characteranimating" id="toc-characteranimating"><code>Character.Animating</code></a></li>
-<li><a href="#characteranimationspeed" id="toc-characteranimationspeed"><code>Character.AnimationSpeed</code></a></li>
-<li><a href="#characteranimationvolume" id="toc-characteranimationvolume"><code>Character.AnimationVolume</code></a></li>
-<li><a href="#characterbaseline" id="toc-characterbaseline"><code>Character.Baseline</code></a></li>
-<li><a href="#characterblinkinterval" id="toc-characterblinkinterval"><code>Character.BlinkInterval</code></a></li>
-<li><a href="#characterblinkview" id="toc-characterblinkview"><code>Character.BlinkView</code></a></li>
-<li><a href="#characterblinkwhilethinking" id="toc-characterblinkwhilethinking"><code>Character.BlinkWhileThinking</code></a></li>
-<li><a href="#characterblockingheight" id="toc-characterblockingheight"><code>Character.BlockingHeight</code></a></li>
-<li><a href="#characterblockingwidth" id="toc-characterblockingwidth"><code>Character.BlockingWidth</code></a></li>
-<li><a href="#characterclickable" id="toc-characterclickable"><code>Character.Clickable</code></a></li>
-<li><a href="#characterdestinationx" id="toc-characterdestinationx"><code>Character.DestinationX</code></a></li>
-<li><a href="#characterdestinationy" id="toc-characterdestinationy"><code>Character.DestinationY</code></a></li>
-<li><a href="#characterdiagonalloops" id="toc-characterdiagonalloops"><code>Character.DiagonalLoops</code></a></li>
-<li><a href="#characterfollowing" id="toc-characterfollowing"><code>Character.Following</code></a></li>
-<li><a href="#characterframe" id="toc-characterframe"><code>Character.Frame</code></a></li>
-<li><a href="#characterhasexplicittint" id="toc-characterhasexplicittint"><code>Character.HasExplicitTint</code></a></li>
-<li><a href="#characterid" id="toc-characterid"><code>Character.ID</code></a></li>
-<li><a href="#characteridleanimationdelay" id="toc-characteridleanimationdelay"><code>Character.IdleAnimationDelay</code></a></li>
-<li><a href="#characteridleview" id="toc-characteridleview"><code>Character.IdleView</code></a></li>
-<li><a href="#characterignorelighting" id="toc-characterignorelighting"><code>Character.IgnoreLighting</code></a></li>
-<li><a href="#characterignorewalkbehinds" id="toc-characterignorewalkbehinds"><code>Character.IgnoreWalkbehinds</code></a></li>
-<li><a href="#characterinventoryquantity" id="toc-characterinventoryquantity"><code>Character.InventoryQuantity</code></a></li>
-<li><a href="#characterloop" id="toc-characterloop"><code>Character.Loop</code></a></li>
-<li><a href="#charactermanualscaling" id="toc-charactermanualscaling"><code>Character.ManualScaling</code></a></li>
-<li><a href="#charactermovementlinkedtoanimation" id="toc-charactermovementlinkedtoanimation"><code>Character.MovementLinkedToAnimation</code></a></li>
-<li><a href="#charactermoving" id="toc-charactermoving"><code>Character.Moving</code></a></li>
-<li><a href="#charactername" id="toc-charactername"><code>Character.Name</code></a></li>
-<li><a href="#characternormalview" id="toc-characternormalview"><code>Character.NormalView</code></a></li>
-<li><a href="#characteron" id="toc-characteron"><code>Character.on</code></a></li>
-<li><a href="#characterpreviousroom" id="toc-characterpreviousroom"><code>Character.PreviousRoom</code></a></li>
-<li><a href="#characterroom" id="toc-characterroom"><code>Character.Room</code></a></li>
-<li><a href="#characterscalemovespeed" id="toc-characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></li>
-<li><a href="#characterscalevolume" id="toc-characterscalevolume"><code>Character.ScaleVolume</code></a></li>
-<li><a href="#characterscaling" id="toc-characterscaling"><code>Character.Scaling</code></a></li>
-<li><a href="#characterscriptname" id="toc-characterscriptname"><code>Character.ScriptName</code></a></li>
-<li><a href="#charactersolid" id="toc-charactersolid"><code>Character.Solid</code></a></li>
-<li><a href="#characterspeaking" id="toc-characterspeaking"><code>Character.Speaking</code></a></li>
-<li><a href="#characterspeakingframe" id="toc-characterspeakingframe"><code>Character.SpeakingFrame</code></a></li>
-<li><a href="#characterspeechanimationdelay" id="toc-characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a></li>
-<li><a href="#characterspeechcolor" id="toc-characterspeechcolor"><code>Character.SpeechColor</code></a></li>
-<li><a href="#characterspeechview" id="toc-characterspeechview"><code>Character.SpeechView</code></a></li>
-<li><a href="#characterthinking" id="toc-characterthinking"><code>Character.Thinking</code></a></li>
-<li><a href="#characterthinkingframe" id="toc-characterthinkingframe"><code>Character.ThinkingFrame</code></a></li>
-<li><a href="#characterthinkview" id="toc-characterthinkview"><code>Character.ThinkView</code></a></li>
-<li><a href="#charactertransparency" id="toc-charactertransparency"><code>Character.Transparency</code></a></li>
-<li><a href="#characterturnbeforewalking" id="toc-characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></li>
-<li><a href="#characterturnwhenfacing" id="toc-characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></li>
-<li><a href="#characterview" id="toc-characterview"><code>Character.View</code></a></li>
-<li><a href="#characterwalkspeedx" id="toc-characterwalkspeedx"><code>Character.WalkSpeedX</code></a></li>
-<li><a href="#characterwalkspeedy" id="toc-characterwalkspeedy"><code>Character.WalkSpeedY</code></a></li>
-<li><a href="#characterx" id="toc-characterx"><code>Character.x</code></a></li>
-<li><a href="#charactery" id="toc-charactery"><code>Character.y</code></a></li>
-<li><a href="#characterz" id="toc-characterz"><code>Character.z</code></a></li>
-</ul></li>
-</ul>
   </nav>
 
-  <main>
+  <div class="content">
+    <article>
+      <main>
 <section id="character-functions-and-properties" class="level2">
 <h2><a href="#character-functions-and-properties"><code>Character</code> functions and properties</a></h2>
 <section id="characteraddinventory" class="level3">
@@ -1635,18 +1500,137 @@
 <p><em>See also:</em> <a href="Character.html#characterx"><code>Character.x</code></a>, <a href="Character.html#charactery"><code>Character.y</code></a></p>
 </section>
 </section>
-    <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Character.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
-  </main>
-
-
-  <footer>
-    <p>
-      <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-      Build: 5cfd7199f7e5cf0d397b25e1a7e522b9eb8ea016
-    </p>
-  </footer>
-
-  <script src="js/search.js"></script>
+      <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Character.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
+      </main>
+      <footer>
+        <p>
+          <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
+          Build: 03a7b6385d2a9615f7d5164e649b25c1ed29cc5b
+        </p>
+      </footer>
+    </article>
+    
+    <aside>
+<ul>
+<li><a href="#character-functions-and-properties" id="toc-character-functions-and-properties"><code>Character</code> functions and properties</a>
+<ul>
+<li><a href="#characteraddinventory" id="toc-characteraddinventory"><code>Character.AddInventory</code></a></li>
+<li><a href="#characteraddwaypoint" id="toc-characteraddwaypoint"><code>Character.AddWaypoint</code></a></li>
+<li><a href="#characteranimate" id="toc-characteranimate"><code>Character.Animate</code></a></li>
+<li><a href="#characterchangeroom" id="toc-characterchangeroom"><code>Character.ChangeRoom</code></a></li>
+<li><a href="#characterchangeroomautoposition" id="toc-characterchangeroomautoposition"><code>Character.ChangeRoomAutoPosition</code></a></li>
+<li><a href="#characterchangeview" id="toc-characterchangeview"><code>Character.ChangeView</code></a></li>
+<li><a href="#characterfacecharacter" id="toc-characterfacecharacter"><code>Character.FaceCharacter</code></a></li>
+<li><a href="#characterfacedirection" id="toc-characterfacedirection"><code>Character.FaceDirection</code></a></li>
+<li><a href="#characterfacelocation" id="toc-characterfacelocation"><code>Character.FaceLocation</code></a></li>
+<li><a href="#characterfaceobject" id="toc-characterfaceobject"><code>Character.FaceObject</code></a></li>
+<li><a href="#characterfollowcharacter" id="toc-characterfollowcharacter"><code>Character.FollowCharacter</code></a></li>
+<li><a href="#charactergetatroomxy" id="toc-charactergetatroomxy"><code>Character.GetAtRoomXY</code></a></li>
+<li><a href="#charactergetatscreenxy" id="toc-charactergetatscreenxy"><code>Character.GetAtScreenXY</code></a></li>
+<li><a href="#charactergetbyname" id="toc-charactergetbyname"><code>Character.GetByName</code></a></li>
+<li><a href="#charactergetproperty" id="toc-charactergetproperty"><code>Character.GetProperty</code></a></li>
+<li><a href="#charactergettextproperty" id="toc-charactergettextproperty"><code>Character.GetTextProperty</code></a></li>
+<li><a href="#charactersetproperty" id="toc-charactersetproperty"><code>Character.SetProperty</code></a></li>
+<li><a href="#charactersettextproperty" id="toc-charactersettextproperty"><code>Character.SetTextProperty</code></a></li>
+<li><a href="#characterhasexplicitlight" id="toc-characterhasexplicitlight"><code>Character.HasExplicitLight</code></a></li>
+<li><a href="#characterhasinventory" id="toc-characterhasinventory"><code>Character.HasInventory</code></a></li>
+<li><a href="#characteriscollidingwithchar" id="toc-characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a></li>
+<li><a href="#characteriscollidingwithobject" id="toc-characteriscollidingwithobject"><code>Character.IsCollidingWithObject</code></a></li>
+<li><a href="#characterlightlevel" id="toc-characterlightlevel"><code>Character.LightLevel</code></a></li>
+<li><a href="#characterlockview" id="toc-characterlockview"><code>Character.LockView</code></a></li>
+<li><a href="#characterlockviewaligned" id="toc-characterlockviewaligned"><code>Character.LockViewAligned</code></a></li>
+<li><a href="#characterlockviewframe" id="toc-characterlockviewframe"><code>Character.LockViewFrame</code></a></li>
+<li><a href="#characterlockviewoffset" id="toc-characterlockviewoffset"><code>Character.LockViewOffset</code></a></li>
+<li><a href="#characterloseinventory" id="toc-characterloseinventory"><code>Character.LoseInventory</code></a></li>
+<li><a href="#charactermove" id="toc-charactermove"><code>Character.Move</code></a></li>
+<li><a href="#charactermovestraight" id="toc-charactermovestraight"><code>Character.MoveStraight</code></a></li>
+<li><a href="#characterplaceonwalkablearea" id="toc-characterplaceonwalkablearea"><code>Character.PlaceOnWalkableArea</code></a></li>
+<li><a href="#characterremovetint" id="toc-characterremovetint"><code>Character.RemoveTint</code></a></li>
+<li><a href="#characterisinteractionavailable" id="toc-characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a></li>
+<li><a href="#characterruninteraction" id="toc-characterruninteraction"><code>Character.RunInteraction</code></a></li>
+<li><a href="#charactersay" id="toc-charactersay"><code>Character.Say</code></a></li>
+<li><a href="#charactersayat" id="toc-charactersayat"><code>Character.SayAt</code></a></li>
+<li><a href="#charactersaybackground" id="toc-charactersaybackground"><code>Character.SayBackground</code></a></li>
+<li><a href="#charactersetasplayer" id="toc-charactersetasplayer"><code>Character.SetAsPlayer</code></a></li>
+<li><a href="#charactersetlightlevel" id="toc-charactersetlightlevel"><code>Character.SetLightLevel</code></a></li>
+<li><a href="#charactersetidleview" id="toc-charactersetidleview"><code>Character.SetIdleView</code></a></li>
+<li><a href="#charactersetwalkspeed" id="toc-charactersetwalkspeed"><code>Character.SetWalkSpeed</code></a></li>
+<li><a href="#characterstopmoving" id="toc-characterstopmoving"><code>Character.StopMoving</code></a></li>
+<li><a href="#characterthink" id="toc-characterthink"><code>Character.Think</code></a></li>
+<li><a href="#charactertint" id="toc-charactertint"><code>Character.Tint</code></a></li>
+<li><a href="#charactertintblue" id="toc-charactertintblue"><code>Character.TintBlue</code></a></li>
+<li><a href="#charactertintgreen" id="toc-charactertintgreen"><code>Character.TintGreen</code></a></li>
+<li><a href="#charactertintred" id="toc-charactertintred"><code>Character.TintRed</code></a></li>
+<li><a href="#charactertintsaturation" id="toc-charactertintsaturation"><code>Character.TintSaturation</code></a></li>
+<li><a href="#charactertintluminance" id="toc-charactertintluminance"><code>Character.TintLuminance</code></a></li>
+<li><a href="#characterunlockview" id="toc-characterunlockview"><code>Character.UnlockView</code></a></li>
+<li><a href="#characterwalk" id="toc-characterwalk"><code>Character.Walk</code></a></li>
+<li><a href="#characterwalkstraight" id="toc-characterwalkstraight"><code>Character.WalkStraight</code></a></li>
+<li><a href="#characteractiveinventory" id="toc-characteractiveinventory"><code>Character.ActiveInventory</code></a></li>
+<li><a href="#characteranimating" id="toc-characteranimating"><code>Character.Animating</code></a></li>
+<li><a href="#characteranimationspeed" id="toc-characteranimationspeed"><code>Character.AnimationSpeed</code></a></li>
+<li><a href="#characteranimationvolume" id="toc-characteranimationvolume"><code>Character.AnimationVolume</code></a></li>
+<li><a href="#characterbaseline" id="toc-characterbaseline"><code>Character.Baseline</code></a></li>
+<li><a href="#characterblinkinterval" id="toc-characterblinkinterval"><code>Character.BlinkInterval</code></a></li>
+<li><a href="#characterblinkview" id="toc-characterblinkview"><code>Character.BlinkView</code></a></li>
+<li><a href="#characterblinkwhilethinking" id="toc-characterblinkwhilethinking"><code>Character.BlinkWhileThinking</code></a></li>
+<li><a href="#characterblockingheight" id="toc-characterblockingheight"><code>Character.BlockingHeight</code></a></li>
+<li><a href="#characterblockingwidth" id="toc-characterblockingwidth"><code>Character.BlockingWidth</code></a></li>
+<li><a href="#characterclickable" id="toc-characterclickable"><code>Character.Clickable</code></a></li>
+<li><a href="#characterdestinationx" id="toc-characterdestinationx"><code>Character.DestinationX</code></a></li>
+<li><a href="#characterdestinationy" id="toc-characterdestinationy"><code>Character.DestinationY</code></a></li>
+<li><a href="#characterdiagonalloops" id="toc-characterdiagonalloops"><code>Character.DiagonalLoops</code></a></li>
+<li><a href="#characterfollowing" id="toc-characterfollowing"><code>Character.Following</code></a></li>
+<li><a href="#characterframe" id="toc-characterframe"><code>Character.Frame</code></a></li>
+<li><a href="#characterhasexplicittint" id="toc-characterhasexplicittint"><code>Character.HasExplicitTint</code></a></li>
+<li><a href="#characterid" id="toc-characterid"><code>Character.ID</code></a></li>
+<li><a href="#characteridleanimationdelay" id="toc-characteridleanimationdelay"><code>Character.IdleAnimationDelay</code></a></li>
+<li><a href="#characteridleview" id="toc-characteridleview"><code>Character.IdleView</code></a></li>
+<li><a href="#characterignorelighting" id="toc-characterignorelighting"><code>Character.IgnoreLighting</code></a></li>
+<li><a href="#characterignorewalkbehinds" id="toc-characterignorewalkbehinds"><code>Character.IgnoreWalkbehinds</code></a></li>
+<li><a href="#characterinventoryquantity" id="toc-characterinventoryquantity"><code>Character.InventoryQuantity</code></a></li>
+<li><a href="#characterloop" id="toc-characterloop"><code>Character.Loop</code></a></li>
+<li><a href="#charactermanualscaling" id="toc-charactermanualscaling"><code>Character.ManualScaling</code></a></li>
+<li><a href="#charactermovementlinkedtoanimation" id="toc-charactermovementlinkedtoanimation"><code>Character.MovementLinkedToAnimation</code></a></li>
+<li><a href="#charactermoving" id="toc-charactermoving"><code>Character.Moving</code></a></li>
+<li><a href="#charactername" id="toc-charactername"><code>Character.Name</code></a></li>
+<li><a href="#characternormalview" id="toc-characternormalview"><code>Character.NormalView</code></a></li>
+<li><a href="#characteron" id="toc-characteron"><code>Character.on</code></a></li>
+<li><a href="#characterpreviousroom" id="toc-characterpreviousroom"><code>Character.PreviousRoom</code></a></li>
+<li><a href="#characterroom" id="toc-characterroom"><code>Character.Room</code></a></li>
+<li><a href="#characterscalemovespeed" id="toc-characterscalemovespeed"><code>Character.ScaleMoveSpeed</code></a></li>
+<li><a href="#characterscalevolume" id="toc-characterscalevolume"><code>Character.ScaleVolume</code></a></li>
+<li><a href="#characterscaling" id="toc-characterscaling"><code>Character.Scaling</code></a></li>
+<li><a href="#characterscriptname" id="toc-characterscriptname"><code>Character.ScriptName</code></a></li>
+<li><a href="#charactersolid" id="toc-charactersolid"><code>Character.Solid</code></a></li>
+<li><a href="#characterspeaking" id="toc-characterspeaking"><code>Character.Speaking</code></a></li>
+<li><a href="#characterspeakingframe" id="toc-characterspeakingframe"><code>Character.SpeakingFrame</code></a></li>
+<li><a href="#characterspeechanimationdelay" id="toc-characterspeechanimationdelay"><code>Character.SpeechAnimationDelay</code></a></li>
+<li><a href="#characterspeechcolor" id="toc-characterspeechcolor"><code>Character.SpeechColor</code></a></li>
+<li><a href="#characterspeechview" id="toc-characterspeechview"><code>Character.SpeechView</code></a></li>
+<li><a href="#characterthinking" id="toc-characterthinking"><code>Character.Thinking</code></a></li>
+<li><a href="#characterthinkingframe" id="toc-characterthinkingframe"><code>Character.ThinkingFrame</code></a></li>
+<li><a href="#characterthinkview" id="toc-characterthinkview"><code>Character.ThinkView</code></a></li>
+<li><a href="#charactertransparency" id="toc-charactertransparency"><code>Character.Transparency</code></a></li>
+<li><a href="#characterturnbeforewalking" id="toc-characterturnbeforewalking"><code>Character.TurnBeforeWalking</code></a></li>
+<li><a href="#characterturnwhenfacing" id="toc-characterturnwhenfacing"><code>Character.TurnWhenFacing</code></a></li>
+<li><a href="#characterview" id="toc-characterview"><code>Character.View</code></a></li>
+<li><a href="#characterwalkspeedx" id="toc-characterwalkspeedx"><code>Character.WalkSpeedX</code></a></li>
+<li><a href="#characterwalkspeedy" id="toc-characterwalkspeedy"><code>Character.WalkSpeedY</code></a></li>
+<li><a href="#characterx" id="toc-characterx"><code>Character.x</code></a></li>
+<li><a href="#charactery" id="toc-charactery"><code>Character.y</code></a></li>
+<li><a href="#characterz" id="toc-characterz"><code>Character.z</code></a></li>
+</ul></li>
+</ul>
+    </aside>
   </div>
+
+
+
+
+  </div>
+  <script src="js/navigation.js"></script>
+  <script src="js/search.js"></script>
+  
 </body>
 </html>

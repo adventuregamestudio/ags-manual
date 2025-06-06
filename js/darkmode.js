@@ -36,7 +36,7 @@ function init_dark_mode_toggle() {
     elms[i].classList.add('control-trn');
   }
 
-  document.body.style.transition = "1.2s";
+  document.body.style.transition = "0.25s";
 
   setTimeout(function () {
   }, 1);
