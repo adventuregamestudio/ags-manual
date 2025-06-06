@@ -178,6 +178,7 @@ source/ags-help.hhc: source/_Sidebar.md
 		--wrap=none \
 		--output $@ \
 		$<
+		-$(AM_V_GEN) sed -z -i -E "s/(<\/OBJECT>[^<]*?<UL>)/<param name=\"ImageNumber\" value=\"1\">\n\1/g" source/ags-help.hhc
 
 source/ags-help.hhp:
 	$(AM_V_GEN)echo | "$(PANDOC)" \
