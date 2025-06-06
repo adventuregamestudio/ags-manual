@@ -66,6 +66,12 @@ window.addEventListener('DOMContentLoaded', () => {
   
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.mobile-menu').addEventListener('click',function(){
+    document.body.classList.toggle('is-opened-mobile');
+  });
+});
+
 function update_case_sensitive_checkbox_text()
 {
   case_sensitive_checkbox.parentElement.title = case_sensitive_checkbox.checked ? "Match case" : "Ignore case";  
