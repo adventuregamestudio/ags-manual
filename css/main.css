@@ -199,6 +199,7 @@ th {
 header {
     grid-area: header;
     text-align: right;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 5;
@@ -236,9 +237,10 @@ header ul {
     background: var(--bkg-color);
     border-radius: 5px;
     position:absolute;
-    right:20px;
+    right:10px;
     max-width: 910px;
     width: 95%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.25);
 }
 
 header ul:not(:empty) {
@@ -297,11 +299,13 @@ footer p {
 nav {
     grid-area: nav;
     padding-top: 20px;
-    padding: 0 0 20px 20px;
+    padding: 5px 0 20px 26px;
     font-size:0.9em;
+    line-height: 1.4;
 }
 @media (min-width:768px) {
      nav {
+        position: -webkit-sticky;
         position: sticky;
         top: 68px;
         overflow-y: auto;
@@ -314,26 +318,31 @@ nav {
 }
 
 nav ul {
-    padding-left: 20px;
-    list-style: none;
-    /*! margin: 0 0 0 15px; */
     padding: 0;
+    padding-left: 0;
+    list-style: none;
+    margin:0;
 }
 nav > ul {
-    margin-left: 0px;
+    margin: 7px 0;
+    margin-left: 0;
 }
 
+
+nav > ul > li > a,
 nav > ul > li > span > a{
     font-weight: 600;
     cursor: pointer;
+    font-size: 13px;   
 }
 
 nav > ul > li > a {
-    font-weight: bold;
+    display:inline-block;
+    padding: 5px 0;
 }
 
 nav > ul > li { 
-    margin: 12px 0;
+    margin: 0px 0;
 }
 nav ul li {
     padding: 0px 0;
@@ -343,7 +352,7 @@ nav ul li a {
 }
 nav ul li span {
     display: block;
-    padding: 2px 5px 2px 15px;
+    padding: 5px 5px 5px 15px;
     margin-left:-15px 
 }
 nav ul li.active > span{
@@ -370,7 +379,7 @@ nav .expand > span {
     content: "";
     position: absolute;
     left: 3px;
-    top:10px;
+    top:12px;
     border: solid var(--text-color-control);
     border-width: 0 1px 1px 0;
     display: inline-block;
@@ -380,6 +389,7 @@ nav .expand > span {
     -webkit-transform: rotate(-45deg);
 }
 .expand.expand-on > span:after {
+    top:11px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
@@ -392,8 +402,9 @@ nav .expand > span {
 aside {
     /*! grid-area: aside; */
     /*! padding-top: 20px; */
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
     font-size:0.85em;
+    line-height: 1.4;
 }
 aside ul {
     padding-left: 20px;
@@ -402,17 +413,18 @@ aside ul {
     padding: 0;
 }
 aside > ul {
-    margin-left: 0px;
+    margin-left: 0px; 
 }
 
 @media (min-width:768px) {
     aside {
+        position: -webkit-sticky;
         position: sticky;
         top: 68px;
         overflow-y: auto;
         min-width: 270px;
         height: calc(100vh - 68px);
-        width: 320px;
+        width: 310px;
     }
     aside > ul > li >ul {
         border-left: 1px solid var(--border-color);
@@ -420,12 +432,16 @@ aside > ul {
     }
 }
 
+aside > ul > li >ul {
+    margin-top: 5px;
+}
+
 aside > ul > li > a{
-    font-weight: 600;
+    font-weight: 600;       
 }
 
 aside ul li {
-    padding: 2px 0;
+    padding: 5px 0;   
 }
 aside ul li a {
     color: var(--text-color);
@@ -501,10 +517,13 @@ article h3:hover:before {
 }
 
 .content {
-    display: flex;
+    display: grid;
     grid-area: content;
     min-width: 0; 
-    /*! justify-content: ; */
+    /*! justify-content: space-around; */
+    grid-template-areas: "article nav";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: min-content 0fr;
 }
 
 .search-match {
@@ -771,6 +790,7 @@ article :target:before {
         padding-top: 20px;
         padding-left: 30px;
         box-shadow: 2px 0 15px rgba(0,0,0,0.25);
+        overflow-y: auto;
         min-width: 300px;
         max-width: 87dvw;
     }
@@ -779,7 +799,7 @@ article :target:before {
     article h2, article h3 { line-height: 1.2; word-break: break-all;}
 }
 @media (max-width:768px) {
-    .content { flex-direction: column-reverse; }
+    .content {display:flex; flex-direction: column-reverse; }
     aside {
         display:block;
         position:static; 
