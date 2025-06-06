@@ -44,7 +44,8 @@ window.onload = function() { init(); }
 window.addEventListener('DOMContentLoaded', () => {
   // Remove TOC panel and abort if there's nothing to track
   if (document.querySelector('aside ul ul') == null) {
-    document.querySelector('aside')?.remove();
+    const aside = document.querySelector('aside');
+    if (aside) aside.remove();
     return;
   }
   
