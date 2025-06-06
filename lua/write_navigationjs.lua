@@ -1,18 +1,17 @@
 -- invoke as Pandoc writer
--- write a contents file for the CHM compiler
+-- write a contents file for the website
 
 package.path = package.path .. ';' ..
   string.gsub(PANDOC_SCRIPT_FILE, '/[^/]+$', '') .. '/agsman.lua'
 local escape = require('agsman').escape
 local stringify = (require 'pandoc.utils').stringify
-local format = [[<LI> <OBJECT type="text/sitemap">
-<param name="Name" value="%s">
-<param name="%s" value="%s">
-</OBJECT>]]
+local formatTop = [[<li><span><a id="topic-%s">%s</span></a>]]
+local formatSub = [[<li><span><a id="topic-%s" href="%s.html">%s</span></a>]]
 
 Writer = pandoc.scaffolding.Writer
 
 local buffer = {}
+local depth = 1
 Writer.Pandoc = function(doc)
   doc:walk {
     traverse = 'topdown',
@@ -21,9 +20,9 @@ Writer.Pandoc = function(doc)
         local name = escape(stringify(header.content))
         local id = header.identifier
         table.insert(buffer,
-                     '<UL>\n' ..
-                     string.format(format, name, 'Comment', id)
-                     .. '\n<UL>\n')
+                     '<ul class="level-0">\n' ..
+                     string.format(formatTop, id, name) ..
+                     '\n<ul class="level-1">')
       end
     end,
     BulletList = function(bulletlist)
@@ -33,32 +32,32 @@ Writer.Pandoc = function(doc)
           local name = escape(stringify(link.content))
           local target = escape(link.target)
           table.insert(buffer,
-                       string.format(format, name, 'Local', target))
-        end,
-        
+                       string.format(formatSub, target, target, name))
+        end, 
         BulletList = recurseBulletList
       }
-      table.insert(buffer, '</UL>\n</UL>')
+      table.insert(buffer, '</li></ul>\n</li>\n</ul>')
       return _, false
     end
   }
-
-  return table.concat(buffer, '\n')
+  return 'var topics = `' .. table.concat(buffer, '\n') .. '`;'
 end
 
 function recurseBulletList(bulletlist)
-  table.insert(buffer, '<UL>')
+  depth = depth + 1
+  table.insert(buffer, '<ul class="level-'.. depth ..'">')
   bulletlist:walk {
     traverse = 'topdown',
     Link = function(link)
       local name = escape(stringify(link.content))
       local target = escape(link.target)
       table.insert(buffer,
-                   string.format(format, name, 'Local', target))
+                   string.format(formatSub, target, target, name))
     end,
     BulletList = recurseBulletList
   }
-  table.insert(buffer, '</UL>\n')
+  table.insert(buffer, '</ul>\n')
+  depth = depth - 1
   return bulletlist, false
 
 end
