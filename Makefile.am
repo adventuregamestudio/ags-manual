@@ -100,7 +100,7 @@ metadata.lua: $(METADATA_FILES)
 		--lua-filter "$(srcdir)/lua/insert_anchors.lua" \
 		--template "$(srcdir)/html/template.html5" \
 		--variable footer="$(FOOTER)" \
-		--variable editlink="https://github.com/adventuregamestudio/ags-manual-source/blob/master/${*F}.md" \
+		--variable editlink="https://github.com/adventuregamestudio/ags-manual-source/blob/$(BRANCH_NAME)/${*F}.md" \
 		--table-of-contents \
 		--section-divs \
 		--css "css/normalize.css" \

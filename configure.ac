@@ -56,6 +56,7 @@ AC_SUBST([METADATA_FILES], ["m4_map_args_w(BASENAME_LIST_NO_INDEX, [[ source/]],
 AC_SUBST([TOP_FILES], ["m4_map_args_w(TOPFILES_LIST, [[ source/]])"])
 AC_SUBST([HHP_FILES], ["m4_map_args_w(BASENAME_LIST, [[ ]], [[.htm]]) IMAGEFILES_LIST"])
 AC_SUBST([FOOTER], ["m4_chomp(m4_quote(m4_esyscmd([git rev-parse HEAD])))"])
+AC_SUBST([BRANCH_NAME], ["m4_chomp(m4_quote(m4_esyscmd([git -C source branch --show-current])))"])
 AC_OUTPUT
 
 cat << EOF
