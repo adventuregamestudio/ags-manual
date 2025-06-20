@@ -132,6 +132,45 @@ jobs:
           name: chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
           path: build/destdir/usr/local/share/ags-manual/*.chm
           if-no-files-found: error
+      
+      - name: Clean up and switch to ags4 source
+        run: >
+          cd build && make maintainer-clean && cd .. &&
+          rm -rf build &&
+          git -C source config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" &&
+          git -C source fetch --all &&
+          git -C source checkout -f -b ags4 origin/ags4
+      - name: bootstrap ()
+        run: ./bootstrap
+      - name: configure
+        run: >
+          mkdir build &&
+          cd build &&
+          ../configure --prefix=/usr/local ${{ matrix.with-feature }}
+      - name: distcheck
+        env:
+          DISTCHECK_CONFIGURE_FLAGS: ${{ matrix.with-feature }}
+        run: >
+          cd build &&
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) distcheck
+      - name: stage installation
+        run: >
+          cd build &&
+          make -j $(($(getconf _NPROCESSORS_ONLN) - 1)) DESTDIR=destdir install &&
+          mv destdir/usr/local/share/ags-manual/ags-help.chm destdir/usr/local/share/ags-manual/ags4-help.chm
+      - name: Upload website
+        if: ${{ matrix.with-feature != null }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ags4_website_${{ runner.os }}_${{ env.PANDOC_VERSION }}
+          path: build/destdir/usr/local/share/ags-manual/website
+          if-no-files-found: error
+      - name: Upload CHM file
+        uses: actions/upload-artifact@v4
+        with:
+          name: ags4_chm_${{ runner.os }}_${{ env.PANDOC_VERSION }}${{ matrix.with-feature }}
+          path: build/destdir/usr/local/share/ags-manual/*.chm
+          if-no-files-found: error
   check-and-release:
     runs-on: ubuntu-22.04
     needs: build
@@ -162,7 +201,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: ncipollo/release-action@v1
         with:
-          artifacts: artifacts/chm_Windows_${{ env.PANDOC_VERSION }}/ags-help.chm,artifacts/release_Linux_${{ env.PANDOC_VERSION }}/ags-manual-*.tar.gz
+          artifacts: artifacts/chm_Windows_${{ env.PANDOC_VERSION }}/ags-help.chm,artifacts/ags4_chm_Windows_${{ env.PANDOC_VERSION }}/ags4-help.chm,artifacts/release_Linux_${{ env.PANDOC_VERSION }}/ags-manual-*.tar.gz
           allowUpdates: true
           omitBodyDuringUpdate: true
           token: ${{ secrets.GITHUB_TOKEN }}
