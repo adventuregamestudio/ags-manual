@@ -132,6 +132,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-DistGame" href="DistGame.html">Distributing your game</span></a>
 <li><span><a id="topic-BuildAndroid" href="BuildAndroid.html">Building for Android</span></a>
 <li><span><a id="topic-BackingUpYourGame" href="BackingUpYourGame.html">Backing up your game</span></a>
+<li><span><a id="topic-UnicodeSupport" href="UnicodeSupport.html">Unicode Support</span></a>
 <li><span><a id="topic-TextParser" href="TextParser.html">Text Parser</span></a>
 <li><span><a id="topic-Translations" href="Translations.html">Translations</span></a>
 <li><span><a id="topic-GlobalVariables" href="GlobalVariables.html">Global variables</span></a>
@@ -141,6 +142,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-AutonumberSpeechFiles" href="AutonumberSpeechFiles.html">Auto-number speech files</span></a>
 <li><span><a id="topic-GameSavesCompatibility" href="GameSavesCompatibility.html">Game saves compatibility</span></a>
 <li><span><a id="topic-EditorCommandLineOptions" href="EditorCommandLineOptions.html">Editor Command Line Options</span></a>
+<li><span><a id="topic-AnonymousUsageInfo" href="AnonymousUsageInfo.html">AnonymousUsageInfo</span></a>
 </ul>
 
 </li></ul>
@@ -182,10 +184,13 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-Preprocessor" href="Preprocessor.html">Preprocessor</span></a>
 <li><span><a id="topic-TheScriptHeader" href="TheScriptHeader.html">The script header</span></a>
 <li><span><a id="topic-ImportingFunctionsAndVariables" href="ImportingFunctionsAndVariables.html">Importing functions and variables in other scripts</span></a>
+<li><span><a id="topic-ScriptStructs" href="ScriptStructs.html">Structs</span></a>
+<li><span><a id="topic-ScriptAttributes" href="ScriptAttributes.html">Attributes</span></a>
 <li><span><a id="topic-Pointers" href="Pointers.html">Pointers in AGS</span></a>
 <li><span><a id="topic-DynamicArrays" href="DynamicArrays.html">Dynamic Arrays</span></a>
 <li><span><a id="topic-ExtenderFunctions" href="ExtenderFunctions.html">Extender functions</span></a>
 <li><span><a id="topic-StringFormats" href="StringFormats.html">String formatting</span></a>
+<li><span><a id="topic-ScriptManagedStructs" href="ScriptManagedStructs.html">Managed Structs</span></a>
 <li><span><a id="topic-MultipleScripts" href="MultipleScripts.html">Multiple Scripts</span></a>
 <li><span><a id="topic-DialogScript" href="DialogScript.html">Dialog Script</span></a>
 <li><span><a id="topic-OOProgramming" href="OOProgramming.html">Object Oriented programming</span></a>
@@ -203,6 +208,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-GlobalArrays" href="GlobalArrays.html">Global arrays</span></a>
 <li><span><a id="topic-Globalfunctions_Event" href="Globalfunctions_Event.html">Global event handlers</span></a>
 <li><span><a id="topic-RepExec" href="RepExec.html">repeatedly_execute / repeatedly_execute_always</span></a>
+<li><span><a id="topic-ValidateRestoredSave" href="ValidateRestoredSave.html">validate_restored_save</span></a>
 <li><span><a id="topic-CustomDialogOptions" href="CustomDialogOptions.html">Custom dialog options rendering</span></a>
 <li><span><a id="topic-Globalfunctions_General" href="Globalfunctions_General.html">Global functions: general</span></a>
 <li><span><a id="topic-Globalfunctions_Message" href="Globalfunctions_Message.html">Global functions: message display</span></a>
@@ -239,6 +245,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-Overlay" href="Overlay.html">Overlay functions and properties</span></a>
 <li><span><a id="topic-Parser" href="Parser.html">Parser functions</span></a>
 <li><span><a id="topic-Region" href="Region.html">Region functions and properties</span></a>
+<li><span><a id="topic-RestoredSaveInfo" href="RestoredSaveInfo.html">RestoredSaveInfo properties</span></a>
 <li><span><a id="topic-Room" href="Room.html">Room functions and properties</span></a>
 <li><span><a id="topic-Screen" href="Screen.html">Screen functions and properties</span></a>
 <li><span><a id="topic-Set" href="Set.html">Set functions and properties</span></a>
@@ -269,13 +276,6 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-getting-in-touch">Getting in touch</span></a>
 <ul class="level-1">
 <li><span><a id="topic-ContactingTheDevelopers" href="ContactingTheDevelopers.html">Contacting the developers</span></a>
-</li></ul>
-</li>
-</ul>
-<ul class="level-0">
-<li><span><a id="topic-misc">Misc</span></a>
-<ul class="level-1">
-<li><span><a id="topic-AnonymousUsageInfo" href="AnonymousUsageInfo.html">AnonymousUsageInfo</span></a>
 </li></ul>
 </li>
 </ul>`;
@@ -321,7 +321,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 		
 		// center sidebar to active topic
-		const bounds = active_topic.offsetParent.getBoundingClientRect();
-		active_topic.offsetParent.scrollTop = active_topic.offsetTop - bounds.height/2;
+		if (active_topic.offsetParent) {
+			const bounds = active_topic.offsetParent.getBoundingClientRect();
+			active_topic.offsetParent.scrollTop = active_topic.offsetTop - bounds.height/2;
+		}
 	}
 });

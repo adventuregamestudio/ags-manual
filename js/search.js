@@ -1654,6 +1654,9 @@ var meta = {
     "Anonymous": {
       "0": { "AnonymousUsageInfo": 1 }
     },
+    "AnonymousUsageInfo": {
+      "0": { "OtherFeatures": 1 }
+    },
     "Another": {
       "0": { "EditorGUI": 1 },
       "1": { "EditorSprite": 1 },
