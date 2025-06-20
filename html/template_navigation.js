@@ -69,7 +69,9 @@ window.addEventListener('DOMContentLoaded', () => {
 		}
 		
 		// center sidebar to active topic
-		const bounds = active_topic.offsetParent.getBoundingClientRect();
-		active_topic.offsetParent.scrollTop = active_topic.offsetTop - bounds.height/2;
+		if (active_topic.offsetParent) {
+			const bounds = active_topic.offsetParent.getBoundingClientRect();
+			active_topic.offsetParent.scrollTop = active_topic.offsetTop - bounds.height/2;
+		}
 	}
 });
