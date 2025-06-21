@@ -1,4 +1,0 @@
-[submodule "source"]
-	path = source
-	url = https://github.com/adventuregamestudio/ags-manual-source.git
-	branch = master

@@ -33,10 +33,13 @@ jobs:
     env:
       MSYS: winsymlinks:nativestrict
     steps:
-      - name: Checkout repository and submodules
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Checkout source repo
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          repository: adventuregamestudio/ags-manual-source
+          path: source
       - name: Setup msys2
         if: ${{ runner.os == 'Windows' }}
         uses: msys2/setup-msys2@v2
