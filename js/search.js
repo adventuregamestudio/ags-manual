@@ -554,8 +554,7 @@ var meta = {
       "1": { "RuntimeEngine": 1 }
     },
     "ACSPRSET.SPR": {
-      "0": { "BackingUpYourGame": 1 },
-      "1": { "Templates": 1 }
+      "0": { "BackingUpYourGame": 1 }
     },
     "ACWIN": {
       "0": { "Game": 1 }
@@ -698,7 +697,7 @@ var meta = {
       "118": { "StringFormats": 2 },
       "119": { "System": 29 },
       "120": { "SystemLimits": 3 },
-      "121": { "Templates": 9 },
+      "121": { "Templates": 11 },
       "122": { "TemplateSierraStyle": 1 },
       "123": { "TemplateVerbcoin": 1 },
       "124": { "TextBox": 2 },
@@ -1423,14 +1422,15 @@ var meta = {
       "26": { "Overlay": 2 },
       "27": { "ScriptingTutorialPart1": 1 },
       "28": { "Settingupthegame": 1 },
-      "29": { "TextParser": 1 },
-      "30": { "Translations": 1 },
-      "31": { "Tumbleweed": 1 },
-      "32": { "UnicodeSupport": 2 },
-      "33": { "UpgradeTo36": 2 },
-      "34": { "UpgradeTo361": 1 },
-      "35": { "UpgradeTo362": 1 },
-      "36": { "UpgradingTo271": 1 }
+      "29": { "Templates": 1 },
+      "30": { "TextParser": 1 },
+      "31": { "Translations": 1 },
+      "32": { "Tumbleweed": 1 },
+      "33": { "UnicodeSupport": 2 },
+      "34": { "UpgradeTo36": 2 },
+      "35": { "UpgradeTo361": 1 },
+      "36": { "UpgradeTo362": 1 },
+      "37": { "UpgradingTo271": 1 }
     },
     "Allegro": {
       "0": { "Copyright": 1 },
@@ -1877,7 +1877,7 @@ var meta = {
     },
     "Attribute's": {
       "0": { "EnginePluginRun-timeAPI": 1 },
-      "1": { "ScriptAttributes": 4 }
+      "1": { "ScriptAttributes": 3 }
     },
     "Attributes": {
       "0": { "ScriptAttributes": 4 },
@@ -1907,8 +1907,9 @@ var meta = {
     },
     "AudioCache": {
       "0": { "MusicAndSound": 4 },
-      "1": { "UpgradeTo32": 3 },
-      "2": { "UpgradeTo341": 1 }
+      "1": { "Templates": 2 },
+      "2": { "UpgradeTo32": 3 },
+      "3": { "UpgradeTo341": 1 }
     },
     "AudioChannel": {
       "0": { "AudioChannel": 17 },
@@ -3790,15 +3791,16 @@ var meta = {
       "41": { "StandardEnums": 16 },
       "42": { "String": 7 },
       "43": { "System": 15 },
-      "44": { "TextBox": 2 },
-      "45": { "TextWindowGUI": 1 },
-      "46": { "UpgradeTo34": 3 },
-      "47": { "UpgradeTo341": 1 },
-      "48": { "UpgradeTo35": 1 },
-      "49": { "UpgradeTo362": 1 },
-      "50": { "ValidateRestoredSave": 1 },
-      "51": { "ViewFrame": 1 },
-      "52": { "Viewport": 1 }
+      "44": { "Templates": 1 },
+      "45": { "TextBox": 2 },
+      "46": { "TextWindowGUI": 1 },
+      "47": { "UpgradeTo34": 3 },
+      "48": { "UpgradeTo341": 1 },
+      "49": { "UpgradeTo35": 1 },
+      "50": { "UpgradeTo362": 1 },
+      "51": { "ValidateRestoredSave": 1 },
+      "52": { "ViewFrame": 1 },
+      "53": { "Viewport": 1 }
     },
     "Competition": {
       "0": { "acintro2": 1 }
@@ -3814,8 +3816,9 @@ var meta = {
       "2": { "DistGame": 12 },
       "3": { "EnginePluginRun-timeAPI": 2 },
       "4": { "FAQ": 1 },
-      "5": { "Translations": 1 },
-      "6": { "UpgradeTo341": 8 }
+      "5": { "Templates": 1 },
+      "6": { "Translations": 1 },
+      "7": { "UpgradeTo341": 8 }
     },
     "Compiler": {
       "0": { "acintro1": 1 },
@@ -4038,7 +4041,7 @@ var meta = {
       "5": { "Plugins": 1 },
       "6": { "ScriptManagedStructs": 2 },
       "7": { "StartingOff": 2 },
-      "8": { "Templates": 1 },
+      "8": { "Templates": 2 },
       "9": { "UpgradeTo36": 1 }
     },
     "Creative": {
@@ -4379,7 +4382,8 @@ var meta = {
       "2": { "EditorPreferences": 1 },
       "3": { "GeneralSettings": 1 },
       "4": { "Globalfunctions_General": 6 },
-      "5": { "System": 3 }
+      "5": { "System": 3 },
+      "6": { "Templates": 1 }
     },
     "Debugger": {
       "0": { "KeyboardShortcuts": 2 },
@@ -5679,7 +5683,7 @@ var meta = {
       "60": { "Settingupthegame": 5 },
       "61": { "Setup": 1 },
       "62": { "SystemRequirements": 1 },
-      "63": { "Templates": 3 },
+      "63": { "Templates": 6 },
       "64": { "Translations": 1 },
       "65": { "TroubleshootingWindowsZoneID": 5 },
       "66": { "UnicodeSupport": 1 },
@@ -6029,6 +6033,9 @@ var meta = {
       "6": { "ScriptStructs": 1 },
       "7": { "String": 1 },
       "8": { "System": 1 }
+    },
+    "Exclude": {
+      "0": { "Templates": 1 }
     },
     "Execute": {
       "0": { "FAQ": 1 }
@@ -6655,9 +6662,10 @@ var meta = {
       "9": { "RuntimeEngine": 1 },
       "10": { "ScriptAttributes": 1 },
       "11": { "ScriptStructs": 1 },
-      "12": { "Translations": 1 },
-      "13": { "UpgradeTo35": 2 },
-      "14": { "ValidateRestoredSave": 1 }
+      "12": { "Templates": 1 },
+      "13": { "Translations": 1 },
+      "14": { "UpgradeTo35": 2 },
+      "15": { "ValidateRestoredSave": 1 }
     },
     "Font": {
       "0": { "acintro9": 7 },
@@ -6667,9 +6675,10 @@ var meta = {
       "4": { "Game": 3 },
       "5": { "ListBox": 1 },
       "6": { "Settingupthegame": 2 },
-      "7": { "TextBox": 1 },
-      "8": { "Translations": 1 },
-      "9": { "UpgradeTo35": 1 }
+      "7": { "Templates": 1 },
+      "8": { "TextBox": 1 },
+      "9": { "Translations": 1 },
+      "10": { "UpgradeTo35": 1 }
     },
     "Font's": {
       "0": { "GeneralSettings": 1 }
@@ -6883,8 +6892,7 @@ var meta = {
     },
     "GAME.AGF": {
       "0": { "BackingUpYourGame": 1 },
-      "1": { "DistGame": 1 },
-      "2": { "Templates": 1 }
+      "1": { "DistGame": 1 }
     },
     "GAMEFILE": {
       "0": { "RuntimeEngine": 1 }
@@ -7348,7 +7356,7 @@ var meta = {
       "33": { "Setup": 4 },
       "34": { "System": 1 },
       "35": { "SystemRequirements": 1 },
-      "36": { "Templates": 5 },
+      "36": { "Templates": 4 },
       "37": { "UpgradeTo30": 1 },
       "38": { "UpgradeTo36": 3 },
       "39": { "UpgradeTo362": 1 },
@@ -7688,7 +7696,8 @@ var meta = {
     },
     "Game.agf": {
       "0": { "EditorCommandLineOptions": 6 },
-      "1": { "EditorSprite": 1 }
+      "1": { "EditorSprite": 1 },
+      "2": { "Templates": 2 }
     },
     "GameName": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -9697,6 +9706,9 @@ var meta = {
     "Icon": {
       "0": { "DistGame": 1 }
     },
+    "Icons": {
+      "0": { "Templates": 1 }
+    },
     "Identical": {
       "0": { "Globalfunctions_Message": 3 }
     },
@@ -9785,6 +9797,9 @@ var meta = {
     "Inc": {
       "0": { "Tumbleweed": 1 }
     },
+    "Include": {
+      "0": { "Templates": 1 }
+    },
     "Increment": {
       "0": { "ScriptKeywords": 1 }
     },
@@ -9813,7 +9828,7 @@ var meta = {
       "1": { "ScriptAttributes": 2 }
     },
     "IndexedAttr": {
-      "0": { "ScriptAttributes": 1 }
+      "0": { "ScriptAttributes": 2 }
     },
     "Indexes": {
       "0": { "Character": 1 },
@@ -10811,8 +10826,7 @@ var meta = {
     },
     "Like": {
       "0": { "DialogOptionsRenderingInfo": 1 },
-      "1": { "DynamicArrays": 1 },
-      "2": { "ScriptAttributes": 1 }
+      "1": { "DynamicArrays": 1 }
     },
     "Limit": {
       "0": { "Constants": 1 }
@@ -12097,7 +12111,7 @@ var meta = {
     },
     "MyStruct": {
       "0": { "GameSavesCompatibility": 13 },
-      "1": { "ScriptAttributes": 12 },
+      "1": { "ScriptAttributes": 15 },
       "2": { "ScriptKeywords": 4 },
       "3": { "ScriptStructs": 14 }
     },
@@ -12382,7 +12396,7 @@ var meta = {
       "13": { "Globalfunctions_Event": 1 },
       "14": { "ScriptModules": 2 },
       "15": { "Settingupthegame": 4 },
-      "16": { "Templates": 3 },
+      "16": { "Templates": 2 },
       "17": { "Translations": 1 },
       "18": { "UpgradeTo33": 2 },
       "19": { "UpgradeTo34": 1 },
@@ -12581,7 +12595,7 @@ var meta = {
       "4": { "AudioInScript": 1 },
       "5": { "EditorGUI": 2 },
       "6": { "ExtenderFunctions": 1 },
-      "7": { "ScriptAttributes": 1 },
+      "7": { "ScriptAttributes": 2 },
       "8": { "ScriptingTutorialPart2": 1 },
       "9": { "ScriptStructs": 1 }
     },
@@ -13882,6 +13896,9 @@ var meta = {
       "1": { "EditorView": 2 },
       "2": { "KeyboardShortcuts": 1 }
     },
+    "Patch": {
+      "0": { "Templates": 2 }
+    },
     "Path": {
       "0": { "BuildAndroid": 2 },
       "1": { "EditorPreferences": 1 },
@@ -14275,6 +14292,9 @@ var meta = {
       "2": { "EditorLogPanel": 1 },
       "3": { "EditorPreferences": 1 },
       "4": { "UpgradeTo36": 1 }
+    },
+    "Preload": {
+      "0": { "Templates": 1 }
     },
     "Preprocessor": {
       "0": { "Preprocessor": 3 },
@@ -14820,7 +14840,8 @@ var meta = {
     },
     "Regardless": {
       "0": { "Feature_Game": 1 },
-      "1": { "UpgradeTo36": 1 }
+      "1": { "ScriptAttributes": 1 },
+      "2": { "UpgradeTo36": 1 }
     },
     "Region": {
       "0": { "EventTypes": 4 },
@@ -15450,10 +15471,11 @@ var meta = {
       "29": { "Scripting": 1 },
       "30": { "System": 1 },
       "31": { "SystemLimits": 1 },
-      "32": { "Tumbleweed_door": 1 },
-      "33": { "UpgradeTo30": 1 },
-      "34": { "UpgradeTo35": 3 },
-      "35": { "UpgradeTo36": 2 }
+      "32": { "Templates": 1 },
+      "33": { "Tumbleweed_door": 1 },
+      "34": { "UpgradeTo30": 1 },
+      "35": { "UpgradeTo35": 3 },
+      "36": { "UpgradeTo36": 2 }
     },
     "Room's": {
       "0": { "acintro2": 1 },
@@ -15910,7 +15932,8 @@ var meta = {
       "6": { "GUIControl": 1 },
       "7": { "KeyboardShortcuts": 2 },
       "8": { "Plugins": 1 },
-      "9": { "UpgradeTo30": 2 }
+      "9": { "Templates": 1 },
+      "10": { "UpgradeTo30": 2 }
     },
     "SaveComponentSelection": {
       "0": { "RestoredSaveInfo": 2 },
@@ -17392,19 +17415,18 @@ var meta = {
       "16": { "Plugins": 1 },
       "17": { "Pointers": 3 },
       "18": { "RepExec": 1 },
-      "19": { "ScriptAttributes": 1 },
-      "20": { "ScriptingTutorialPart1": 9 },
-      "21": { "ScriptingTutorialPart2": 5 },
-      "22": { "ScriptKeywords": 1 },
-      "23": { "ScriptStructs": 1 },
-      "24": { "TextParser": 6 },
-      "25": { "Tumbleweed": 3 },
-      "26": { "Tumbleweed_door": 1 },
-      "27": { "Tumbleweed_movement": 1 },
-      "28": { "UpgradeTo32": 2 },
-      "29": { "UpgradeTo36": 1 },
-      "30": { "UpgradingTo27": 7 },
-      "31": { "UpgradingTo271": 1 }
+      "19": { "ScriptingTutorialPart1": 9 },
+      "20": { "ScriptingTutorialPart2": 5 },
+      "21": { "ScriptKeywords": 1 },
+      "22": { "ScriptStructs": 1 },
+      "23": { "TextParser": 6 },
+      "24": { "Tumbleweed": 3 },
+      "25": { "Tumbleweed_door": 1 },
+      "26": { "Tumbleweed_movement": 1 },
+      "27": { "UpgradeTo32": 2 },
+      "28": { "UpgradeTo36": 1 },
+      "29": { "UpgradingTo27": 7 },
+      "30": { "UpgradingTo271": 1 }
     },
     "Software": {
       "0": { "Character": 1 },
@@ -17583,13 +17605,14 @@ var meta = {
       "11": { "Scripting": 1 },
       "12": { "Setup": 1 },
       "13": { "Speech": 1 },
-      "14": { "Translations": 1 },
-      "15": { "UnicodeSupport": 1 },
-      "16": { "UpgradeTo32": 1 },
-      "17": { "UpgradeTo33": 4 },
-      "18": { "UpgradeTo341": 2 },
-      "19": { "UpgradeTo36": 2 },
-      "20": { "VoiceSpeech": 9 }
+      "14": { "Templates": 2 },
+      "15": { "Translations": 1 },
+      "16": { "UnicodeSupport": 1 },
+      "17": { "UpgradeTo32": 1 },
+      "18": { "UpgradeTo33": 4 },
+      "19": { "UpgradeTo341": 2 },
+      "20": { "UpgradeTo36": 2 },
+      "21": { "VoiceSpeech": 9 }
     },
     "Speech.AnimationStopTimeMargin": {
       "0": { "Gamevariables": 1 },
@@ -17776,7 +17799,7 @@ var meta = {
       "2": { "EditorPlugins": 1 },
       "3": { "Plugins": 1 },
       "4": { "Setup": 1 },
-      "5": { "Templates": 3 },
+      "5": { "Templates": 2 },
       "6": { "UpgradeTo30": 1 }
     },
     "StartCutscene": {
@@ -17814,12 +17837,13 @@ var meta = {
       "7": { "Label": 1 },
       "8": { "MultipleScripts": 1 },
       "9": { "StartingOff": 1 },
-      "10": { "Tutorial": 1 },
-      "11": { "UnicodeSupport": 1 },
-      "12": { "UpgradeTo361": 1 },
-      "13": { "UpgradeTo362": 1 },
-      "14": { "ValidateRestoredSave": 1 },
-      "15": { "VoiceSpeech": 1 }
+      "10": { "Templates": 1 },
+      "11": { "Tutorial": 1 },
+      "12": { "UnicodeSupport": 1 },
+      "13": { "UpgradeTo361": 1 },
+      "14": { "UpgradeTo362": 1 },
+      "15": { "ValidateRestoredSave": 1 },
+      "16": { "VoiceSpeech": 1 }
     },
     "StartingRoom": {
       "0": { "acintro7": 1 },
@@ -17939,7 +17963,7 @@ var meta = {
       "0": { "GeneralSettings": 2 }
     },
     "StoreItem": {
-      "0": { "ScriptAttributes": 14 }
+      "0": { "ScriptAttributes": 18 }
     },
     "Stores": {
       "0": { "Parser": 1 },
@@ -18285,8 +18309,9 @@ var meta = {
       "32": { "Speech": 8 },
       "33": { "String": 4 },
       "34": { "System": 14 },
-      "35": { "TextBox": 2 },
-      "36": { "ViewFrame": 1 }
+      "35": { "Templates": 1 },
+      "36": { "TextBox": 2 },
+      "37": { "ViewFrame": 1 }
     },
     "SupportsExtendedCharacters": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -18567,9 +18592,6 @@ var meta = {
       "0": { "UpgradeTo35": 1 },
       "1": { "Viewport": 1 }
     },
-    "TXT": {
-      "0": { "Templates": 1 }
-    },
     "TYPE": {
       "0": { "Globalfunctions_Event": 2 }
     },
@@ -18711,11 +18733,12 @@ var meta = {
       "16": { "Scripting": 1 },
       "17": { "ScriptingTutorialPart1": 1 },
       "18": { "Setup": 2 },
-      "19": { "TextParser": 2 },
-      "20": { "Translations": 2 },
-      "21": { "UnicodeSupport": 2 },
-      "22": { "UpgradeTo36": 1 },
-      "23": { "UpgradingTo271": 1 }
+      "19": { "Templates": 1 },
+      "20": { "TextParser": 2 },
+      "21": { "Translations": 2 },
+      "22": { "UnicodeSupport": 2 },
+      "23": { "UpgradeTo36": 1 },
+      "24": { "UpgradingTo271": 1 }
     },
     "Text-based": {
       "0": { "Lipsync": 1 }
@@ -18837,13 +18860,14 @@ var meta = {
       "10": { "Globalfunctions_General": 1 },
       "11": { "Preprocessor": 1 },
       "12": { "Screen": 1 },
-      "13": { "ScriptKeywords": 1 },
-      "14": { "ScriptStructs": 1 },
-      "15": { "Tumbleweed": 1 },
-      "16": { "UpgradeTo33": 1 },
-      "17": { "UpgradeTo35": 2 },
-      "18": { "UpgradeTo36": 1 },
-      "19": { "UpgradingTo271": 1 }
+      "13": { "ScriptAttributes": 1 },
+      "14": { "ScriptKeywords": 1 },
+      "15": { "ScriptStructs": 1 },
+      "16": { "Tumbleweed": 1 },
+      "17": { "UpgradeTo33": 1 },
+      "18": { "UpgradeTo35": 2 },
+      "19": { "UpgradeTo36": 1 },
+      "20": { "UpgradingTo271": 1 }
     },
     "Therefore": {
       "0": { "acintro1": 1 },
@@ -19074,9 +19098,10 @@ var meta = {
       "1": { "Game": 2 },
       "2": { "GameSavesCompatibility": 1 },
       "3": { "OtherFeatures": 1 },
-      "4": { "Translations": 2 },
-      "5": { "UnicodeSupport": 4 },
-      "6": { "UpgradeTo36": 2 }
+      "4": { "Templates": 1 },
+      "5": { "Translations": 2 },
+      "6": { "UnicodeSupport": 4 },
+      "7": { "UpgradeTo36": 2 }
     },
     "Transparency": {
       "0": { "Character": 1 },
@@ -20422,17 +20447,18 @@ var meta = {
       "13": { "EnginePluginRun-timeAPI": 1 },
       "14": { "Game": 2 },
       "15": { "Object": 1 },
-      "16": { "ScriptingTutorialPart1": 2 },
-      "17": { "ScriptKeywords": 1 },
-      "18": { "ScriptManagedStructs": 2 },
-      "19": { "ScriptStructs": 3 },
-      "20": { "System": 1 },
-      "21": { "SystemLimits": 1 },
-      "22": { "Tumbleweed_translation": 1 },
-      "23": { "UpgradeTo34": 1 },
-      "24": { "UpgradeTo35": 1 },
-      "25": { "UpgradeTo36": 4 },
-      "26": { "ValidateRestoredSave": 1 }
+      "16": { "ScriptAttributes": 1 },
+      "17": { "ScriptingTutorialPart1": 2 },
+      "18": { "ScriptKeywords": 1 },
+      "19": { "ScriptManagedStructs": 2 },
+      "20": { "ScriptStructs": 3 },
+      "21": { "System": 1 },
+      "22": { "SystemLimits": 1 },
+      "23": { "Tumbleweed_translation": 1 },
+      "24": { "UpgradeTo34": 1 },
+      "25": { "UpgradeTo35": 1 },
+      "26": { "UpgradeTo36": 4 },
+      "27": { "ValidateRestoredSave": 1 }
     },
     "We'll": {
       "0": { "acintro4": 1 },
@@ -20592,7 +20618,7 @@ var meta = {
       "54": { "Room": 1 },
       "55": { "Screen": 1 },
       "56": { "ScriptAPIOverview": 1 },
-      "57": { "ScriptAttributes": 1 },
+      "57": { "ScriptAttributes": 2 },
       "58": { "ScriptingTutorialPart1": 3 },
       "59": { "ScriptKeywords": 3 },
       "60": { "ScriptManagedStructs": 2 },
@@ -21537,7 +21563,7 @@ var meta = {
       "21": { "MusicAndSound": 3 },
       "22": { "OOProgramming": 3 },
       "23": { "Screen": 1 },
-      "24": { "ScriptAttributes": 6 },
+      "24": { "ScriptAttributes": 5 },
       "25": { "ScriptingTutorialPart1": 1 },
       "26": { "ScriptKeywords": 8 },
       "27": { "ScriptManagedStructs": 2 },
@@ -21568,7 +21594,8 @@ var meta = {
       "12": { "Viewport": 2 }
     },
     "accesses": {
-      "0": { "DateTime": 1 }
+      "0": { "DateTime": 1 },
+      "1": { "ScriptAttributes": 1 }
     },
     "accessibility": {
       "0": { "EngineConfigFile": 1 },
@@ -21720,7 +21747,8 @@ var meta = {
     },
     "acsprset.spr": {
       "0": { "EditorSprite": 3 },
-      "1": { "UpgradeTo35": 1 }
+      "1": { "Templates": 2 },
+      "2": { "UpgradeTo35": 1 }
     },
     "act": {
       "0": { "acintro9": 1 },
@@ -22546,6 +22574,9 @@ var meta = {
     "agscircle.dll": {
       "0": { "Plugins": 1 }
     },
+    "agsfnt": {
+      "0": { "Templates": 2 }
+    },
     "agssave": {
       "0": { "ListBox": 1 },
       "1": { "RuntimeEngine": 1 }
@@ -22734,7 +22765,7 @@ var meta = {
       "87": { "RuntimeEngine": 5 },
       "88": { "Screen": 2 },
       "89": { "ScriptAPIOverview": 1 },
-      "90": { "ScriptAttributes": 1 },
+      "90": { "ScriptAttributes": 2 },
       "91": { "ScriptingTutorialPart1": 5 },
       "92": { "ScriptingTutorialPart2": 5 },
       "93": { "ScriptKeywords": 4 },
@@ -22749,7 +22780,7 @@ var meta = {
       "102": { "String": 1 },
       "103": { "System": 3 },
       "104": { "SystemLimits": 1 },
-      "105": { "Templates": 6 },
+      "105": { "Templates": 2 },
       "106": { "TextBox": 1 },
       "107": { "TextParser": 6 },
       "108": { "TextWindowGUI": 1 },
@@ -22833,12 +22864,11 @@ var meta = {
       "41": { "Settingupthegame": 3 },
       "42": { "StringFormats": 1 },
       "43": { "System": 1 },
-      "44": { "Templates": 1 },
-      "45": { "TemplateVerbcoin": 1 },
-      "46": { "UpgradeTo30": 1 },
-      "47": { "UpgradeTo335": 1 },
-      "48": { "UpgradeTo36": 2 },
-      "49": { "UpgradingTo271": 1 }
+      "44": { "TemplateVerbcoin": 1 },
+      "45": { "UpgradeTo30": 1 },
+      "46": { "UpgradeTo335": 1 },
+      "47": { "UpgradeTo36": 2 },
+      "48": { "UpgradingTo271": 1 }
     },
     "allowable": {
       "0": { "ListBox": 1 },
@@ -22948,18 +22978,19 @@ var meta = {
       "66": { "StandardEnums": 2 },
       "67": { "System": 1 },
       "68": { "SystemLimits": 1 },
-      "69": { "TemplateSierraStyle": 1 },
-      "70": { "TheScriptHeader": 1 },
-      "71": { "Tumbleweed": 2 },
-      "72": { "UpgradeTo30": 1 },
-      "73": { "UpgradeTo32": 2 },
-      "74": { "UpgradeTo33": 1 },
-      "75": { "UpgradeTo35": 1 },
-      "76": { "UpgradeTo36": 1 },
-      "77": { "UpgradeTo362": 4 },
-      "78": { "UpgradingTo27": 1 },
-      "79": { "UpgradingTo271": 1 },
-      "80": { "ValidateRestoredSave": 2 }
+      "69": { "Templates": 1 },
+      "70": { "TemplateSierraStyle": 1 },
+      "71": { "TheScriptHeader": 1 },
+      "72": { "Tumbleweed": 2 },
+      "73": { "UpgradeTo30": 1 },
+      "74": { "UpgradeTo32": 2 },
+      "75": { "UpgradeTo33": 1 },
+      "76": { "UpgradeTo35": 1 },
+      "77": { "UpgradeTo36": 1 },
+      "78": { "UpgradeTo362": 4 },
+      "79": { "UpgradingTo27": 1 },
+      "80": { "UpgradingTo271": 1 },
+      "81": { "ValidateRestoredSave": 2 }
     },
     "almost": {
       "0": { "acintro8": 1 },
@@ -23201,7 +23232,7 @@ var meta = {
       "102": { "System": 24 },
       "103": { "SystemLimits": 1 },
       "104": { "TemplateBASS": 2 },
-      "105": { "Templates": 3 },
+      "105": { "Templates": 4 },
       "106": { "TemplateSierraStyle": 3 },
       "107": { "TemplateVerbcoin": 1 },
       "108": { "TextBox": 4 },
@@ -23260,8 +23291,9 @@ var meta = {
     "alternative": {
       "0": { "GameSavesCompatibility": 1 },
       "1": { "ImportingFunctionsAndVariables": 1 },
-      "2": { "TextParser": 1 },
-      "3": { "Tumbleweed_translation": 1 }
+      "2": { "ScriptAttributes": 1 },
+      "3": { "TextParser": 1 },
+      "4": { "Tumbleweed_translation": 1 }
     },
     "alternatively": {
       "0": { "AdvancedRoomFeatures": 1 },
@@ -23502,7 +23534,7 @@ var meta = {
       "89": { "Room": 3 },
       "90": { "RuntimeEngine": 4 },
       "91": { "ScriptAPIOverview": 1 },
-      "92": { "ScriptAttributes": 16 },
+      "92": { "ScriptAttributes": 17 },
       "93": { "ScriptingLanguage": 1 },
       "94": { "ScriptingTutorialPart1": 15 },
       "95": { "ScriptingTutorialPart2": 1 },
@@ -23518,7 +23550,7 @@ var meta = {
       "105": { "String": 10 },
       "106": { "System": 4 },
       "107": { "SystemLimits": 2 },
-      "108": { "Templates": 3 },
+      "108": { "Templates": 6 },
       "109": { "TemplateSierraStyle": 1 },
       "110": { "TemplateVerbcoin": 1 },
       "111": { "TextParser": 6 },
@@ -23742,14 +23774,15 @@ var meta = {
       "47": { "Set": 1 },
       "48": { "Settingupthegame": 3 },
       "49": { "Setup": 1 },
-      "50": { "TheScriptHeader": 1 },
-      "51": { "TroubleshootingWindowsZoneID": 1 },
-      "52": { "Tumbleweed": 1 },
-      "53": { "UpgradeTo34": 1 },
-      "54": { "UpgradeTo35": 1 },
-      "55": { "UpgradeTo36": 2 },
-      "56": { "UpgradeTo362": 2 },
-      "57": { "Viewport": 1 }
+      "50": { "Templates": 1 },
+      "51": { "TheScriptHeader": 1 },
+      "52": { "TroubleshootingWindowsZoneID": 1 },
+      "53": { "Tumbleweed": 1 },
+      "54": { "UpgradeTo34": 1 },
+      "55": { "UpgradeTo35": 1 },
+      "56": { "UpgradeTo36": 2 },
+      "57": { "UpgradeTo362": 2 },
+      "58": { "Viewport": 1 }
     },
     "another_pointer": {
       "0": { "ScriptManagedStructs": 4 }
@@ -23896,7 +23929,7 @@ var meta = {
       "92": { "String": 1 },
       "93": { "System": 3 },
       "94": { "TemplateBASS": 1 },
-      "95": { "Templates": 2 },
+      "95": { "Templates": 5 },
       "96": { "TemplateSierraStyle": 1 },
       "97": { "TextParser": 2 },
       "98": { "Translations": 4 },
@@ -24055,9 +24088,8 @@ var meta = {
       "22": { "Settingupthegame": 1 },
       "23": { "Setup": 1 },
       "24": { "TemplateBASS": 1 },
-      "25": { "Templates": 1 },
-      "26": { "TheScriptHeader": 1 },
-      "27": { "Tumbleweed_movement": 1 }
+      "25": { "TheScriptHeader": 1 },
+      "26": { "Tumbleweed_movement": 1 }
     },
     "appearance": {
       "0": { "DefaultSetup": 1 },
@@ -24575,7 +24607,8 @@ var meta = {
     },
     "asc": {
       "0": { "ScriptStructs": 1 },
-      "1": { "Tumbleweed": 1 }
+      "1": { "Templates": 2 },
+      "2": { "Tumbleweed": 1 }
     },
     "ascender": {
       "0": { "UpgradeTo36": 1 }
@@ -24584,7 +24617,8 @@ var meta = {
       "0": { "File": 1 }
     },
     "ash": {
-      "0": { "ScriptStructs": 1 }
+      "0": { "ScriptStructs": 1 },
+      "1": { "Templates": 2 }
     },
     "ask": {
       "0": { "acintro8": 1 },
@@ -24826,7 +24860,7 @@ var meta = {
       "2": { "EditorPlugins": 3 },
       "3": { "EnginePluginRun-timeAPI": 2 },
       "4": { "OOProgramming": 15 },
-      "5": { "ScriptAttributes": 39 },
+      "5": { "ScriptAttributes": 40 },
       "6": { "ScriptKeywords": 3 },
       "7": { "ScriptManagedStructs": 1 },
       "8": { "ScriptStructs": 3 },
@@ -24837,13 +24871,13 @@ var meta = {
     },
     "attribute's": {
       "0": { "EnginePluginRun-timeAPI": 2 },
-      "1": { "ScriptAttributes": 4 }
+      "1": { "ScriptAttributes": 5 }
     },
     "attributes": {
       "0": { "EditorGUI": 1 },
       "1": { "GameSavesCompatibility": 1 },
       "2": { "OOProgramming": 3 },
-      "3": { "ScriptAttributes": 16 },
+      "3": { "ScriptAttributes": 17 },
       "4": { "ScriptManagedStructs": 1 },
       "5": { "ScriptStructs": 6 }
     },
@@ -25163,10 +25197,9 @@ var meta = {
       "14": { "Mouse": 1 },
       "15": { "ScriptKeywords": 1 },
       "16": { "Settingupthegame": 2 },
-      "17": { "Templates": 1 },
-      "18": { "TextParser": 3 },
-      "19": { "Tumbleweed": 1 },
-      "20": { "ValidateRestoredSave": 1 }
+      "17": { "TextParser": 3 },
+      "18": { "Tumbleweed": 1 },
+      "19": { "ValidateRestoredSave": 1 }
     },
     "awful": {
       "0": { "StringFormats": 1 }
@@ -25396,6 +25429,9 @@ var meta = {
       "0": { "acintro1": 1 },
       "1": { "ScriptingTutorialPart2": 1 }
     },
+    "bak": {
+      "0": { "Templates": 1 }
+    },
     "balance": {
       "0": { "AudioChannel": 2 }
     },
@@ -25582,7 +25618,7 @@ var meta = {
       "38": { "Pointers": 2 },
       "39": { "Region": 1 },
       "40": { "RepExec": 2 },
-      "41": { "ScriptAttributes": 2 },
+      "41": { "ScriptAttributes": 3 },
       "42": { "ScriptingTutorialPart1": 1 },
       "43": { "ScriptManagedStructs": 4 },
       "44": { "Settingupthegame": 5 },
@@ -26003,14 +26039,14 @@ var meta = {
       "30": { "Object": 2 },
       "31": { "Plugins": 2 },
       "32": { "Preprocessor": 3 },
-      "33": { "ScriptAttributes": 1 },
+      "33": { "ScriptAttributes": 2 },
       "34": { "ScriptKeywords": 1 },
       "35": { "ScriptModules": 1 },
       "36": { "ScriptStructs": 1 },
       "37": { "Settingupthegame": 2 },
       "38": { "Slider": 1 },
       "39": { "System": 1 },
-      "40": { "Templates": 2 },
+      "40": { "Templates": 4 },
       "41": { "TextBox": 1 },
       "42": { "TextWindowGUI": 1 },
       "43": { "TheScriptHeader": 1 },
@@ -26446,7 +26482,7 @@ var meta = {
     },
     "body": {
       "0": { "Feature_Characters": 2 },
-      "1": { "ScriptAttributes": 1 },
+      "1": { "ScriptAttributes": 2 },
       "2": { "ScriptingTutorialPart1": 1 },
       "3": { "ScriptingTutorialPart2": 1 },
       "4": { "ScriptKeywords": 1 },
@@ -26645,7 +26681,8 @@ var meta = {
       "27": { "Room": 2 },
       "28": { "ScriptingTutorialPart1": 1 },
       "29": { "Setup": 1 },
-      "30": { "Translations": 1 }
+      "30": { "Templates": 1 },
+      "31": { "Translations": 1 }
     },
     "bottom-center": {
       "0": { "Character": 2 }
@@ -26724,7 +26761,7 @@ var meta = {
       "34": { "ScriptingTutorialPart1": 1 },
       "35": { "ScriptKeywords": 1 },
       "36": { "Settingupthegame": 4 },
-      "37": { "Templates": 4 },
+      "37": { "Templates": 3 },
       "38": { "TextBox": 9 },
       "39": { "TextParser": 3 },
       "40": { "Translations": 1 },
@@ -26847,7 +26884,8 @@ var meta = {
       "4": { "Globalfunctions_General": 2 },
       "5": { "ObsoleteScriptAPI": 1 },
       "6": { "Parser": 1 },
-      "7": { "UpgradingTo27": 1 }
+      "7": { "Templates": 1 },
+      "8": { "UpgradingTo27": 1 }
     },
     "brings": {
       "0": { "ScriptAPIOverview": 1 },
@@ -27935,37 +27973,38 @@ var meta = {
       "49": { "RepExec": 2 },
       "50": { "RestoredSaveInfo": 3 },
       "51": { "RuntimeEngine": 2 },
-      "52": { "ScriptAttributes": 3 },
+      "52": { "ScriptAttributes": 4 },
       "53": { "ScriptingTutorialPart1": 6 },
       "54": { "ScriptKeywords": 5 },
       "55": { "ScriptManagedStructs": 5 },
       "56": { "ScriptStructs": 10 },
       "57": { "Settingupthegame": 3 },
       "58": { "TemplateBASS": 1 },
-      "59": { "TextParser": 1 },
-      "60": { "Translations": 2 },
-      "61": { "TroubleshootingWindowsZoneID": 1 },
-      "62": { "Tumbleweed": 6 },
-      "63": { "Tumbleweed_actions": 1 },
-      "64": { "Tumbleweed_door": 2 },
-      "65": { "Tumbleweed_extensions": 2 },
-      "66": { "Tumbleweed_movement": 3 },
-      "67": { "Tumbleweed_translation": 2 },
-      "68": { "UnicodeSupport": 1 },
-      "69": { "UpgradeTo30": 1 },
-      "70": { "UpgradeTo31": 1 },
-      "71": { "UpgradeTo32": 2 },
-      "72": { "UpgradeTo34": 7 },
-      "73": { "UpgradeTo341": 1 },
-      "74": { "UpgradeTo35": 3 },
-      "75": { "UpgradeTo36": 8 },
-      "76": { "UpgradeTo361": 1 },
-      "77": { "UpgradeTo362": 6 },
-      "78": { "UpgradingTo27": 3 },
-      "79": { "UpgradingTo271": 1 },
-      "80": { "ValidateRestoredSave": 3 },
-      "81": { "Viewport": 1 },
-      "82": { "VoiceSpeech": 1 }
+      "59": { "Templates": 1 },
+      "60": { "TextParser": 1 },
+      "61": { "Translations": 2 },
+      "62": { "TroubleshootingWindowsZoneID": 1 },
+      "63": { "Tumbleweed": 6 },
+      "64": { "Tumbleweed_actions": 1 },
+      "65": { "Tumbleweed_door": 2 },
+      "66": { "Tumbleweed_extensions": 2 },
+      "67": { "Tumbleweed_movement": 3 },
+      "68": { "Tumbleweed_translation": 2 },
+      "69": { "UnicodeSupport": 1 },
+      "70": { "UpgradeTo30": 1 },
+      "71": { "UpgradeTo31": 1 },
+      "72": { "UpgradeTo32": 2 },
+      "73": { "UpgradeTo34": 7 },
+      "74": { "UpgradeTo341": 1 },
+      "75": { "UpgradeTo35": 3 },
+      "76": { "UpgradeTo36": 8 },
+      "77": { "UpgradeTo361": 1 },
+      "78": { "UpgradeTo362": 6 },
+      "79": { "UpgradingTo27": 3 },
+      "80": { "UpgradingTo271": 1 },
+      "81": { "ValidateRestoredSave": 3 },
+      "82": { "Viewport": 1 },
+      "83": { "VoiceSpeech": 1 }
     },
     "caller": {
       "0": { "EnginePluginRun-timeAPI": 2 },
@@ -28178,7 +28217,7 @@ var meta = {
       "117": { "StringFormats": 2 },
       "118": { "System": 10 },
       "119": { "SystemLimits": 3 },
-      "120": { "Templates": 3 },
+      "120": { "Templates": 4 },
       "121": { "TemplateSierraStyle": 1 },
       "122": { "TemplateVerbcoin": 1 },
       "123": { "TextParser": 9 },
@@ -28449,7 +28488,7 @@ var meta = {
       "42": { "RestoredSaveInfo": 2 },
       "43": { "RuntimeEngine": 1 },
       "44": { "Screen": 1 },
-      "45": { "ScriptAttributes": 14 },
+      "45": { "ScriptAttributes": 17 },
       "46": { "ScriptingTutorialPart1": 5 },
       "47": { "ScriptingTutorialPart2": 1 },
       "48": { "ScriptKeywords": 16 },
@@ -28462,7 +28501,7 @@ var meta = {
       "55": { "StandardEnums": 1 },
       "56": { "String": 10 },
       "57": { "System": 2 },
-      "58": { "Templates": 1 },
+      "58": { "Templates": 2 },
       "59": { "Translations": 1 },
       "60": { "TroubleshootingWindowsZoneID": 1 },
       "61": { "Tumbleweed": 1 },
@@ -28566,8 +28605,9 @@ var meta = {
       "4": { "Globalfunctions_Screen": 1 },
       "5": { "GUI": 1 },
       "6": { "ListBox": 1 },
-      "7": { "TroubleshootingWindowsZoneID": 1 },
-      "8": { "Tumbleweed_extensions": 1 }
+      "7": { "Templates": 1 },
+      "8": { "TroubleshootingWindowsZoneID": 1 },
+      "9": { "Tumbleweed_extensions": 1 }
     },
     "causing": {
       "0": { "Feature_Characters": 1 },
@@ -29119,22 +29159,23 @@ var meta = {
       "61": { "Speech": 8 },
       "62": { "String": 14 },
       "63": { "StringFormats": 2 },
-      "64": { "TemplateSierraStyle": 1 },
-      "65": { "TemplateVerbcoin": 1 },
-      "66": { "TextWindowGUI": 1 },
-      "67": { "Translations": 5 },
-      "68": { "Tumbleweed": 2 },
-      "69": { "Tumbleweed_actions": 1 },
-      "70": { "Tumbleweed_door": 2 },
-      "71": { "Tumbleweed_movement": 15 },
-      "72": { "Tumbleweed_player": 4 },
-      "73": { "UnicodeSupport": 4 },
-      "74": { "UpgradeTo36": 3 },
-      "75": { "UpgradeTo362": 1 },
-      "76": { "UpgradingTo27": 13 },
-      "77": { "ValidateRestoredSave": 1 },
-      "78": { "Viewport": 2 },
-      "79": { "VoiceSpeech": 1 }
+      "64": { "Templates": 2 },
+      "65": { "TemplateSierraStyle": 1 },
+      "66": { "TemplateVerbcoin": 1 },
+      "67": { "TextWindowGUI": 1 },
+      "68": { "Translations": 5 },
+      "69": { "Tumbleweed": 2 },
+      "70": { "Tumbleweed_actions": 1 },
+      "71": { "Tumbleweed_door": 2 },
+      "72": { "Tumbleweed_movement": 15 },
+      "73": { "Tumbleweed_player": 4 },
+      "74": { "UnicodeSupport": 4 },
+      "75": { "UpgradeTo36": 3 },
+      "76": { "UpgradeTo362": 1 },
+      "77": { "UpgradingTo27": 13 },
+      "78": { "ValidateRestoredSave": 1 },
+      "79": { "Viewport": 2 },
+      "80": { "VoiceSpeech": 1 }
     },
     "character's": {
       "0": { "acintro2": 2 },
@@ -29544,11 +29585,12 @@ var meta = {
       "15": { "Object": 1 },
       "16": { "RuntimeEngine": 1 },
       "17": { "ScriptAPIOverview": 1 },
-      "18": { "Settingupthegame": 1 },
-      "19": { "Tumbleweed": 1 },
-      "20": { "UnicodeSupport": 1 },
-      "21": { "UpgradeTo35": 1 },
-      "22": { "UpgradingTo27": 1 }
+      "18": { "ScriptAttributes": 1 },
+      "19": { "Settingupthegame": 1 },
+      "20": { "Tumbleweed": 1 },
+      "21": { "UnicodeSupport": 1 },
+      "22": { "UpgradeTo35": 1 },
+      "23": { "UpgradingTo27": 1 }
     },
     "choses": {
       "0": { "GraphicsDriver": 1 }
@@ -30031,7 +30073,7 @@ var meta = {
       "32": { "Preprocessor": 5 },
       "33": { "RepExec": 5 },
       "34": { "ScriptAPIOverview": 1 },
-      "35": { "ScriptAttributes": 4 },
+      "35": { "ScriptAttributes": 7 },
       "36": { "ScriptingTutorialPart1": 3 },
       "37": { "ScriptingTutorialPart2": 3 },
       "38": { "ScriptKeywords": 7 },
@@ -30452,8 +30494,9 @@ var meta = {
     "comment": {
       "0": { "acintro5": 1 },
       "1": { "ScriptingTutorialPart2": 1 },
-      "2": { "Translations": 1 },
-      "3": { "UpgradeTo36": 1 }
+      "2": { "Templates": 1 },
+      "3": { "Translations": 1 },
+      "4": { "UpgradeTo36": 1 }
     },
     "comments": {
       "0": { "ContactingTheDevelopers": 1 },
@@ -31199,10 +31242,11 @@ var meta = {
       "22": { "ScriptManagedStructs": 2 },
       "23": { "Settingupthegame": 1 },
       "24": { "String": 2 },
-      "25": { "TextParser": 1 },
-      "26": { "Translations": 1 },
-      "27": { "UpgradeTo362": 1 },
-      "28": { "Viewport": 2 }
+      "25": { "Templates": 1 },
+      "26": { "TextParser": 1 },
+      "27": { "Translations": 1 },
+      "28": { "UpgradeTo362": 1 },
+      "29": { "Viewport": 2 }
     },
     "contained": {
       "0": { "InvWindow": 1 },
@@ -31265,6 +31309,9 @@ var meta = {
       "30": { "UpgradingTo271": 1 },
       "31": { "ValidateRestoredSave": 2 }
     },
+    "contants": {
+      "0": { "Templates": 1 }
+    },
     "contemporary": {
       "0": { "GeneralSettings": 2 },
       "1": { "Globalfunctions_General": 1 },
@@ -31306,7 +31353,7 @@ var meta = {
       "24": { "ScriptKeywords": 2 },
       "25": { "ScriptManagedStructs": 1 },
       "26": { "ScriptStructs": 4 },
-      "27": { "Templates": 2 },
+      "27": { "Templates": 3 },
       "28": { "TextBox": 1 },
       "29": { "TheScriptHeader": 1 },
       "30": { "TroubleshootingWindowsZoneID": 1 },
@@ -32326,6 +32373,9 @@ var meta = {
     "critical": {
       "0": { "EngineConfigFile": 1 }
     },
+    "crm": {
+      "0": { "Templates": 2 }
+    },
     "cross": {
       "0": { "Camera": 3 },
       "1": { "ScriptingTutorialPart1": 1 }
@@ -32677,15 +32727,16 @@ var meta = {
       "47": { "Setup": 1 },
       "48": { "Speech": 1 },
       "49": { "StandardEnums": 1 },
-      "50": { "TextWindowGUI": 2 },
-      "51": { "Tumbleweed": 1 },
-      "52": { "Tumbleweed_door": 2 },
-      "53": { "UpgradeTo335": 2 },
-      "54": { "UpgradeTo34": 5 },
-      "55": { "UpgradeTo35": 4 },
-      "56": { "UpgradeTo36": 8 },
-      "57": { "UpgradeTo361": 2 },
-      "58": { "UpgradingTo271": 1 }
+      "50": { "Templates": 1 },
+      "51": { "TextWindowGUI": 2 },
+      "52": { "Tumbleweed": 1 },
+      "53": { "Tumbleweed_door": 2 },
+      "54": { "UpgradeTo335": 2 },
+      "55": { "UpgradeTo34": 5 },
+      "56": { "UpgradeTo35": 4 },
+      "57": { "UpgradeTo36": 8 },
+      "58": { "UpgradeTo361": 2 },
+      "59": { "UpgradingTo271": 1 }
     },
     "custom_save.txt": {
       "0": { "File": 1 }
@@ -33157,9 +33208,10 @@ var meta = {
     },
     "declarations": {
       "0": { "ImportingFunctionsAndVariables": 2 },
-      "1": { "ScriptingTutorialPart1": 1 },
-      "2": { "ScriptStructs": 3 },
-      "3": { "TheScriptHeader": 2 }
+      "1": { "ScriptAttributes": 1 },
+      "2": { "ScriptingTutorialPart1": 1 },
+      "3": { "ScriptStructs": 3 },
+      "4": { "TheScriptHeader": 2 }
     },
     "declare": {
       "0": { "DynamicArrays": 2 },
@@ -33173,7 +33225,7 @@ var meta = {
       "8": { "ImportingFunctionsAndVariables": 1 },
       "9": { "OOProgramming": 1 },
       "10": { "Pointers": 1 },
-      "11": { "ScriptAttributes": 2 },
+      "11": { "ScriptAttributes": 4 },
       "12": { "ScriptingTutorialPart1": 3 },
       "13": { "ScriptKeywords": 9 },
       "14": { "ScriptManagedStructs": 1 },
@@ -33197,7 +33249,7 @@ var meta = {
       "12": { "OOProgramming": 1 },
       "13": { "Pointers": 4 },
       "14": { "Preprocessor": 1 },
-      "15": { "ScriptAttributes": 5 },
+      "15": { "ScriptAttributes": 8 },
       "16": { "ScriptKeywords": 4 },
       "17": { "ScriptManagedStructs": 4 },
       "18": { "ScriptModules": 2 },
@@ -33215,10 +33267,9 @@ var meta = {
       "0": { "GlobalVariables": 1 },
       "1": { "ImportingFunctionsAndVariables": 2 },
       "2": { "Pointers": 1 },
-      "3": { "ScriptAttributes": 1 },
-      "4": { "ScriptKeywords": 1 },
-      "5": { "ScriptManagedStructs": 1 },
-      "6": { "ScriptStructs": 2 }
+      "3": { "ScriptKeywords": 1 },
+      "4": { "ScriptManagedStructs": 1 },
+      "5": { "ScriptStructs": 2 }
     },
     "decoder": {
       "0": { "Copyright": 1 },
@@ -33338,7 +33389,7 @@ var meta = {
       "74": { "String": 4 },
       "75": { "System": 2 },
       "76": { "TemplateBASS": 5 },
-      "77": { "Templates": 1 },
+      "77": { "Templates": 3 },
       "78": { "TemplateSierraStyle": 3 },
       "79": { "TextBox": 1 },
       "80": { "TextWindowGUI": 1 },
@@ -33453,7 +33504,7 @@ var meta = {
       "27": { "Preprocessor": 3 },
       "28": { "Region": 1 },
       "29": { "RuntimeEngine": 3 },
-      "30": { "ScriptAttributes": 1 },
+      "30": { "ScriptAttributes": 2 },
       "31": { "Settingupthegame": 1 },
       "32": { "Speech": 1 },
       "33": { "System": 1 },
@@ -34567,7 +34618,7 @@ var meta = {
       "24": { "Room": 1 },
       "25": { "RuntimeEngine": 1 },
       "26": { "ScriptAPIOverview": 1 },
-      "27": { "ScriptAttributes": 3 },
+      "27": { "ScriptAttributes": 4 },
       "28": { "ScriptingTutorialPart1": 1 },
       "29": { "ScriptModules": 1 },
       "30": { "ScriptStructs": 1 },
@@ -34605,7 +34656,7 @@ var meta = {
       "12": { "MIDI-playback": 4 },
       "13": { "Plugins": 2 },
       "14": { "RuntimeEngine": 7 },
-      "15": { "Templates": 2 },
+      "15": { "Templates": 5 },
       "16": { "TroubleshootingWindowsZoneID": 2 },
       "17": { "UpgradeTo335": 6 },
       "18": { "VoiceSpeech": 1 }
@@ -35173,7 +35224,7 @@ var meta = {
       "76": { "RestoredSaveInfo": 1 },
       "77": { "Screen": 2 },
       "78": { "ScriptAPIOverview": 3 },
-      "79": { "ScriptAttributes": 6 },
+      "79": { "ScriptAttributes": 9 },
       "80": { "ScriptingTutorialPart1": 11 },
       "81": { "ScriptingTutorialPart2": 19 },
       "82": { "ScriptKeywords": 19 },
@@ -37614,15 +37665,16 @@ var meta = {
       "62": { "Settingupthegame": 7 },
       "63": { "Speech": 1 },
       "64": { "System": 1 },
-      "65": { "TextParser": 2 },
-      "66": { "Translations": 6 },
-      "67": { "Tumbleweed": 1 },
-      "68": { "UpgradeTo32": 2 },
-      "69": { "UpgradeTo35": 9 },
-      "70": { "UpgradeTo36": 3 },
-      "71": { "UpgradeTo362": 1 },
-      "72": { "UpgradingTo27": 1 },
-      "73": { "Viewport": 1 }
+      "65": { "Templates": 2 },
+      "66": { "TextParser": 2 },
+      "67": { "Translations": 6 },
+      "68": { "Tumbleweed": 1 },
+      "69": { "UpgradeTo32": 2 },
+      "70": { "UpgradeTo35": 9 },
+      "71": { "UpgradeTo36": 3 },
+      "72": { "UpgradeTo362": 1 },
+      "73": { "UpgradingTo27": 1 },
+      "74": { "Viewport": 1 }
     },
     "eagerness": {
       "0": { "Character": 1 }
@@ -38078,21 +38130,22 @@ var meta = {
       "45": { "Room": 1 },
       "46": { "RuntimeEngine": 3 },
       "47": { "Screen": 1 },
-      "48": { "ScriptAttributes": 2 },
+      "48": { "ScriptAttributes": 3 },
       "49": { "ScriptingTutorialPart1": 1 },
       "50": { "ScriptingTutorialPart2": 2 },
       "51": { "ScriptKeywords": 3 },
       "52": { "ScriptManagedStructs": 4 },
       "53": { "Settingupthegame": 2 },
-      "54": { "Translations": 3 },
-      "55": { "UnicodeSupport": 1 },
-      "56": { "UpgradeTo341": 1 },
-      "57": { "UpgradeTo35": 2 },
-      "58": { "UpgradeTo36": 4 },
-      "59": { "UpgradeTo361": 1 },
-      "60": { "UpgradeTo362": 1 },
-      "61": { "UpgradingTo27": 1 },
-      "62": { "ValidateRestoredSave": 1 }
+      "54": { "Templates": 1 },
+      "55": { "Translations": 3 },
+      "56": { "UnicodeSupport": 1 },
+      "57": { "UpgradeTo341": 1 },
+      "58": { "UpgradeTo35": 2 },
+      "59": { "UpgradeTo36": 4 },
+      "60": { "UpgradeTo361": 1 },
+      "61": { "UpgradeTo362": 1 },
+      "62": { "UpgradingTo27": 1 },
+      "63": { "ValidateRestoredSave": 1 }
     },
     "ejected": {
       "0": { "Multimedia": 1 }
@@ -38280,7 +38333,7 @@ var meta = {
       "16": { "Set": 2 },
       "17": { "Settingupthegame": 1 },
       "18": { "String": 2 },
-      "19": { "Templates": 2 },
+      "19": { "Templates": 3 },
       "20": { "Translations": 2 },
       "21": { "UpgradeTo362": 1 },
       "22": { "Viewport": 1 }
@@ -39383,26 +39436,27 @@ var meta = {
       "84": { "String": 3 },
       "85": { "System": 5 },
       "86": { "TemplateBASS": 1 },
-      "87": { "TextBox": 1 },
-      "88": { "TextParser": 9 },
-      "89": { "Tumbleweed": 4 },
-      "90": { "Tumbleweed_extensions": 1 },
-      "91": { "Tumbleweed_helper": 1 },
-      "92": { "Tumbleweed_movement": 1 },
-      "93": { "Tumbleweed_unhandled": 2 },
-      "94": { "UpgradeTo30": 1 },
-      "95": { "UpgradeTo32": 1 },
-      "96": { "UpgradeTo33": 1 },
-      "97": { "UpgradeTo34": 1 },
-      "98": { "UpgradeTo35": 5 },
-      "99": { "UpgradeTo36": 6 },
-      "100": { "UpgradeTo361": 1 },
-      "101": { "UpgradeTo362": 5 },
-      "102": { "UpgradingTo27": 8 },
-      "103": { "UpgradingTo271": 2 },
-      "104": { "ValidateRestoredSave": 2 },
-      "105": { "Viewport": 1 },
-      "106": { "VoiceSpeech": 2 }
+      "87": { "Templates": 1 },
+      "88": { "TextBox": 1 },
+      "89": { "TextParser": 9 },
+      "90": { "Tumbleweed": 4 },
+      "91": { "Tumbleweed_extensions": 1 },
+      "92": { "Tumbleweed_helper": 1 },
+      "93": { "Tumbleweed_movement": 1 },
+      "94": { "Tumbleweed_unhandled": 2 },
+      "95": { "UpgradeTo30": 1 },
+      "96": { "UpgradeTo32": 1 },
+      "97": { "UpgradeTo33": 1 },
+      "98": { "UpgradeTo34": 1 },
+      "99": { "UpgradeTo35": 5 },
+      "100": { "UpgradeTo36": 6 },
+      "101": { "UpgradeTo361": 1 },
+      "102": { "UpgradeTo362": 5 },
+      "103": { "UpgradingTo27": 8 },
+      "104": { "UpgradingTo271": 2 },
+      "105": { "ValidateRestoredSave": 2 },
+      "106": { "Viewport": 1 },
+      "107": { "VoiceSpeech": 2 }
     },
     "example.dat": {
       "0": { "File": 4 }
@@ -39421,7 +39475,7 @@ var meta = {
       "10": { "Object": 1 },
       "11": { "Pointers": 3 },
       "12": { "ScriptAPIOverview": 1 },
-      "13": { "ScriptAttributes": 1 },
+      "13": { "ScriptAttributes": 2 },
       "14": { "ScriptingTutorialPart2": 1 },
       "15": { "ScriptKeywords": 1 },
       "16": { "StringFormats": 2 },
@@ -39471,11 +39525,10 @@ var meta = {
       "26": { "ScriptManagedStructs": 1 },
       "27": { "ScriptStructs": 2 },
       "28": { "Settingupthegame": 1 },
-      "29": { "Templates": 1 },
-      "30": { "UpgradeTo35": 1 },
-      "31": { "UpgradeTo36": 1 },
-      "32": { "UpgradeTo362": 1 },
-      "33": { "VoiceSpeech": 2 }
+      "29": { "UpgradeTo35": 1 },
+      "30": { "UpgradeTo36": 1 },
+      "31": { "UpgradeTo362": 1 },
+      "32": { "VoiceSpeech": 2 }
     },
     "exception": {
       "0": { "Feature_Characters": 1 },
@@ -39491,9 +39544,13 @@ var meta = {
     "excess": {
       "0": { "UpgradeTo362": 1 }
     },
+    "exclamation": {
+      "0": { "Templates": 1 }
+    },
     "exclude": {
       "0": { "EditorSprite": 1 },
-      "1": { "UpgradeTo362": 2 }
+      "1": { "Templates": 3 },
+      "2": { "UpgradeTo362": 2 }
     },
     "excluding": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -39668,7 +39725,8 @@ var meta = {
       "10": { "Preprocessor": 1 },
       "11": { "Room": 3 },
       "12": { "ScriptManagedStructs": 2 },
-      "13": { "System": 3 }
+      "13": { "System": 3 },
+      "14": { "Templates": 1 }
     },
     "exit": {
       "0": { "acintro2": 1 },
@@ -39826,10 +39884,11 @@ var meta = {
       "7": { "Preprocessor": 1 },
       "8": { "ScriptManagedStructs": 1 },
       "9": { "Settingupthegame": 2 },
-      "10": { "Tumbleweed": 2 },
-      "11": { "Tumbleweed_door": 1 },
-      "12": { "UpgradeTo30": 1 },
-      "13": { "UpgradeTo35": 1 }
+      "10": { "Templates": 1 },
+      "11": { "Tumbleweed": 2 },
+      "12": { "Tumbleweed_door": 1 },
+      "13": { "UpgradeTo30": 1 },
+      "14": { "UpgradeTo35": 1 }
     },
     "explaining": {
       "0": { "UpgradingTo27": 1 }
@@ -39856,9 +39915,10 @@ var meta = {
       "6": { "Pointers": 1 },
       "7": { "RuntimeEngine": 2 },
       "8": { "System": 1 },
-      "9": { "UpgradeTo335": 1 },
-      "10": { "UpgradeTo34": 1 },
-      "11": { "UpgradeTo35": 1 }
+      "9": { "Templates": 1 },
+      "10": { "UpgradeTo335": 1 },
+      "11": { "UpgradeTo34": 1 },
+      "12": { "UpgradeTo35": 1 }
     },
     "explicitly": {
       "0": { "acintro5": 1 },
@@ -39973,12 +40033,14 @@ var meta = {
       "0": { "ExtenderFunctions": 6 },
       "1": { "GeneralSettings": 1 },
       "2": { "OOProgramming": 2 },
-      "3": { "ScriptKeywords": 3 },
-      "4": { "UpgradeTo30": 1 }
+      "3": { "ScriptAttributes": 3 },
+      "4": { "ScriptKeywords": 3 },
+      "5": { "UpgradeTo30": 1 }
     },
     "extenders": {
       "0": { "ExtenderFunctions": 1 },
-      "1": { "OOProgramming": 1 }
+      "1": { "OOProgramming": 1 },
+      "2": { "ScriptAttributes": 1 }
     },
     "extending": {
       "0": { "ScriptStructs": 4 }
@@ -40346,8 +40408,7 @@ var meta = {
       "5": { "EditorRoom": 1 },
       "6": { "Feature_Rooms": 1 },
       "7": { "Pointers": 1 },
-      "8": { "ScriptingTutorialPart2": 1 },
-      "9": { "Templates": 1 }
+      "8": { "ScriptingTutorialPart2": 1 }
     },
     "fast": {
       "0": { "Dictionary": 1 },
@@ -40609,7 +40670,7 @@ var meta = {
       "57": { "Setup": 1 },
       "58": { "Speech": 1 },
       "59": { "System": 2 },
-      "60": { "Templates": 5 },
+      "60": { "Templates": 18 },
       "61": { "TemplateSierraStyle": 1 },
       "62": { "Translations": 18 },
       "63": { "TroubleshootingWindowsZoneID": 20 },
@@ -40689,7 +40750,8 @@ var meta = {
       "0": { "EnginePluginRun-timeAPI": 1 },
       "1": { "File": 1 },
       "2": { "RuntimeEngine": 2 },
-      "3": { "UpgradeTo335": 1 }
+      "3": { "Templates": 1 },
+      "4": { "UpgradeTo335": 1 }
     },
     "filepaths": {
       "0": { "RuntimeEngine": 1 }
@@ -40732,7 +40794,7 @@ var meta = {
       "34": { "RuntimeEngine": 6 },
       "35": { "ScriptModules": 1 },
       "36": { "Setup": 3 },
-      "37": { "Templates": 6 },
+      "37": { "Templates": 16 },
       "38": { "Translations": 1 },
       "39": { "TroubleshootingWindowsZoneID": 5 },
       "40": { "Tumbleweed": 1 },
@@ -41056,7 +41118,7 @@ var meta = {
       "52": { "StandardEnums": 1 },
       "53": { "StartingOff": 1 },
       "54": { "String": 3 },
-      "55": { "Templates": 1 },
+      "55": { "Templates": 2 },
       "56": { "Tumbleweed": 2 },
       "57": { "Tumbleweed_door": 1 },
       "58": { "Tumbleweed_extensions": 1 },
@@ -41197,10 +41259,15 @@ var meta = {
       "0": { "AudioInScript": 1 }
     },
     "flc": {
-      "0": { "Multimedia": 1 }
+      "0": { "Multimedia": 1 },
+      "1": { "Templates": 1 }
+    },
+    "fli": {
+      "0": { "Templates": 1 }
     },
     "flic": {
-      "0": { "Multimedia": 1 }
+      "0": { "Multimedia": 1 },
+      "1": { "Templates": 2 }
     },
     "flic_number": {
       "0": { "Multimedia": 1 }
@@ -41485,7 +41552,8 @@ var meta = {
       "12": { "Settingupthegame": 1 },
       "13": { "StandardEnums": 1 },
       "14": { "StringFormats": 1 },
-      "15": { "UpgradeTo30": 1 }
+      "15": { "Templates": 1 },
+      "16": { "UpgradeTo30": 1 }
     },
     "font": {
       "0": { "acintro9": 21 },
@@ -41546,12 +41614,11 @@ var meta = {
       "11": { "Settingupthegame": 9 },
       "12": { "StandardEnums": 1 },
       "13": { "StartingOff": 1 },
-      "14": { "Templates": 1 },
-      "15": { "Tumbleweed_translation": 2 },
-      "16": { "UnicodeSupport": 9 },
-      "17": { "UpgradeTo34": 3 },
-      "18": { "UpgradeTo35": 1 },
-      "19": { "UpgradeTo36": 7 }
+      "14": { "Tumbleweed_translation": 2 },
+      "15": { "UnicodeSupport": 9 },
+      "16": { "UpgradeTo34": 3 },
+      "17": { "UpgradeTo35": 1 },
+      "18": { "UpgradeTo36": 7 }
     },
     "fontsheet": {
       "0": { "Translations": 1 }
@@ -41791,12 +41858,13 @@ var meta = {
       "26": { "ScriptAPIOverview": 1 },
       "27": { "ScriptKeywords": 2 },
       "28": { "String": 1 },
-      "29": { "UpgradeTo33": 1 },
-      "30": { "UpgradeTo335": 1 },
-      "31": { "UpgradeTo36": 1 },
-      "32": { "UpgradeTo362": 3 },
-      "33": { "Viewport": 1 },
-      "34": { "VoiceSpeech": 1 }
+      "29": { "Templates": 1 },
+      "30": { "UpgradeTo33": 1 },
+      "31": { "UpgradeTo335": 1 },
+      "32": { "UpgradeTo36": 1 },
+      "33": { "UpgradeTo362": 3 },
+      "34": { "Viewport": 1 },
+      "35": { "VoiceSpeech": 1 }
     },
     "found_char": {
       "0": { "GlobalArrays": 1 }
@@ -41933,8 +42001,9 @@ var meta = {
       "4": { "EnginePluginRun-timeAPI": 6 },
       "5": { "FAQ": 1 },
       "6": { "Pointers": 1 },
-      "7": { "ScriptingTutorialPart1": 1 },
-      "8": { "ScriptingTutorialPart2": 1 }
+      "7": { "ScriptAttributes": 1 },
+      "8": { "ScriptingTutorialPart1": 1 },
+      "9": { "ScriptingTutorialPart2": 1 }
     },
     "freed": {
       "0": { "EnginePluginDesign-timeAPI": 1 },
@@ -41979,9 +42048,6 @@ var meta = {
     },
     "freshness": {
       "0": { "ScriptKeywords": 3 }
-    },
-    "friend": {
-      "0": { "Templates": 1 }
     },
     "from": {
       "0": { "acintro1": 5 },
@@ -42094,7 +42160,7 @@ var meta = {
       "107": { "String": 16 },
       "108": { "System": 11 },
       "109": { "SystemLimits": 4 },
-      "110": { "Templates": 7 },
+      "110": { "Templates": 8 },
       "111": { "TemplateVerbcoin": 1 },
       "112": { "TextBox": 1 },
       "113": { "TextWindowGUI": 1 },
@@ -42321,7 +42387,7 @@ var meta = {
       "68": { "Room": 11 },
       "69": { "Screen": 2 },
       "70": { "ScriptAPIOverview": 2 },
-      "71": { "ScriptAttributes": 5 },
+      "71": { "ScriptAttributes": 6 },
       "72": { "ScriptingTutorialPart1": 16 },
       "73": { "ScriptingTutorialPart2": 22 },
       "74": { "ScriptKeywords": 51 },
@@ -42468,7 +42534,7 @@ var meta = {
       "59": { "RepExec": 1 },
       "60": { "Room": 2 },
       "61": { "ScriptAPIOverview": 8 },
-      "62": { "ScriptAttributes": 16 },
+      "62": { "ScriptAttributes": 19 },
       "63": { "Scripting": 43 },
       "64": { "ScriptingLanguage": 2 },
       "65": { "ScriptingTutorialPart1": 2 },
@@ -42783,48 +42849,49 @@ var meta = {
       "100": { "RuntimeEngine": 32 },
       "101": { "Screen": 15 },
       "102": { "ScriptAPIOverview": 2 },
-      "103": { "ScriptingTutorial": 1 },
-      "104": { "ScriptingTutorialPart1": 5 },
-      "105": { "ScriptingTutorialPart2": 2 },
-      "106": { "ScriptKeywords": 15 },
-      "107": { "ScriptManagedStructs": 2 },
-      "108": { "ScriptModules": 2 },
-      "109": { "ScriptStructs": 2 },
-      "110": { "Settingupthegame": 40 },
-      "111": { "Setup": 51 },
-      "112": { "Speech": 7 },
-      "113": { "StandardEnums": 3 },
-      "114": { "StartingOff": 1 },
-      "115": { "StringFormats": 2 },
-      "116": { "System": 31 },
-      "117": { "SystemRequirements": 1 },
-      "118": { "TemplateBASS": 1 },
-      "119": { "Templates": 22 },
-      "120": { "TemplateSierraStyle": 2 },
-      "121": { "TemplateVerbcoin": 2 },
-      "122": { "TextParser": 1 },
-      "123": { "Translations": 19 },
-      "124": { "TroubleshootingWindowsZoneID": 2 },
-      "125": { "Tumbleweed": 7 },
-      "126": { "Tumbleweed_translation": 2 },
-      "127": { "Tumbleweed_unhandled": 1 },
-      "128": { "Tutorial": 2 },
-      "129": { "UnicodeSupport": 9 },
-      "130": { "UpgradeTo30": 10 },
-      "131": { "UpgradeTo31": 15 },
-      "132": { "UpgradeTo32": 5 },
-      "133": { "UpgradeTo33": 2 },
-      "134": { "UpgradeTo335": 10 },
-      "135": { "UpgradeTo34": 12 },
-      "136": { "UpgradeTo341": 16 },
-      "137": { "UpgradeTo35": 15 },
-      "138": { "UpgradeTo36": 31 },
-      "139": { "UpgradeTo361": 6 },
-      "140": { "UpgradeTo362": 22 },
-      "141": { "UpgradingTo27": 1 },
-      "142": { "ValidateRestoredSave": 14 },
-      "143": { "Viewport": 6 },
-      "144": { "VoiceSpeech": 7 }
+      "103": { "ScriptAttributes": 1 },
+      "104": { "ScriptingTutorial": 1 },
+      "105": { "ScriptingTutorialPart1": 5 },
+      "106": { "ScriptingTutorialPart2": 2 },
+      "107": { "ScriptKeywords": 15 },
+      "108": { "ScriptManagedStructs": 2 },
+      "109": { "ScriptModules": 2 },
+      "110": { "ScriptStructs": 2 },
+      "111": { "Settingupthegame": 40 },
+      "112": { "Setup": 51 },
+      "113": { "Speech": 7 },
+      "114": { "StandardEnums": 3 },
+      "115": { "StartingOff": 1 },
+      "116": { "StringFormats": 2 },
+      "117": { "System": 31 },
+      "118": { "SystemRequirements": 1 },
+      "119": { "TemplateBASS": 1 },
+      "120": { "Templates": 19 },
+      "121": { "TemplateSierraStyle": 2 },
+      "122": { "TemplateVerbcoin": 2 },
+      "123": { "TextParser": 1 },
+      "124": { "Translations": 19 },
+      "125": { "TroubleshootingWindowsZoneID": 2 },
+      "126": { "Tumbleweed": 7 },
+      "127": { "Tumbleweed_translation": 2 },
+      "128": { "Tumbleweed_unhandled": 1 },
+      "129": { "Tutorial": 2 },
+      "130": { "UnicodeSupport": 9 },
+      "131": { "UpgradeTo30": 10 },
+      "132": { "UpgradeTo31": 15 },
+      "133": { "UpgradeTo32": 5 },
+      "134": { "UpgradeTo33": 2 },
+      "135": { "UpgradeTo335": 10 },
+      "136": { "UpgradeTo34": 12 },
+      "137": { "UpgradeTo341": 16 },
+      "138": { "UpgradeTo35": 15 },
+      "139": { "UpgradeTo36": 31 },
+      "140": { "UpgradeTo361": 6 },
+      "141": { "UpgradeTo362": 22 },
+      "142": { "UpgradingTo27": 1 },
+      "143": { "ValidateRestoredSave": 14 },
+      "144": { "Viewport": 6 },
+      "145": { "VoiceSpeech": 7 }
     },
     "game's": {
       "0": { "acintro1": 1 },
@@ -42857,11 +42924,12 @@ var meta = {
       "27": { "Settingupthegame": 1 },
       "28": { "Setup": 4 },
       "29": { "System": 11 },
-      "30": { "UnicodeSupport": 1 },
-      "31": { "UpgradeTo335": 2 },
-      "32": { "UpgradeTo341": 1 },
-      "33": { "UpgradeTo35": 2 },
-      "34": { "UpgradeTo36": 2 }
+      "30": { "Templates": 1 },
+      "31": { "UnicodeSupport": 1 },
+      "32": { "UpgradeTo335": 2 },
+      "33": { "UpgradeTo341": 1 },
+      "34": { "UpgradeTo35": 2 },
+      "35": { "UpgradeTo36": 2 }
     },
     "game-creation": {
       "0": { "AdvancedRoomFeatures": 1 }
@@ -43213,6 +43281,9 @@ var meta = {
     "gathered": {
       "0": { "ValidateRestoredSave": 1 }
     },
+    "gathering": {
+      "0": { "Templates": 1 }
+    },
     "gave": {
       "0": { "GlobalVariables": 1 },
       "1": { "Translations": 1 }
@@ -43371,7 +43442,7 @@ var meta = {
       "0": { "ScriptKeywords": 1 }
     },
     "get_Attribute": {
-      "0": { "ScriptAttributes": 3 }
+      "0": { "ScriptAttributes": 4 }
     },
     "get_AttributeName": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -43381,6 +43452,9 @@ var meta = {
     },
     "get_Damage": {
       "0": { "OOProgramming": 4 }
+    },
+    "get_IndexedAttr": {
+      "0": { "ScriptAttributes": 1 }
     },
     "get_IsWorthless": {
       "0": { "ScriptAttributes": 1 }
@@ -43396,6 +43470,9 @@ var meta = {
     },
     "get_ReadMeOnly": {
       "0": { "ScriptAttributes": 1 }
+    },
+    "get_StaticAttribute": {
+      "0": { "ScriptAttributes": 2 }
     },
     "get_Thing": {
       "0": { "OOProgramming": 1 }
@@ -43419,7 +43496,7 @@ var meta = {
       "0": { "ScriptAttributes": 1 }
     },
     "geti_IndexedAttr": {
-      "0": { "ScriptAttributes": 1 }
+      "0": { "ScriptAttributes": 2 }
     },
     "geti_Names": {
       "0": { "OOProgramming": 2 }
@@ -43458,11 +43535,12 @@ var meta = {
     "getter": {
       "0": { "EnginePluginRun-timeAPI": 2 },
       "1": { "OOProgramming": 3 },
-      "2": { "ScriptAttributes": 9 },
+      "2": { "ScriptAttributes": 13 },
       "3": { "ScriptKeywords": 1 }
     },
     "getters": {
-      "0": { "EnginePluginRun-timeAPI": 1 }
+      "0": { "EnginePluginRun-timeAPI": 1 },
+      "1": { "ScriptAttributes": 1 }
     },
     "getting": {
       "0": { "Character": 1 },
@@ -43570,7 +43648,7 @@ var meta = {
       "22": { "Room": 4 },
       "23": { "RuntimeEngine": 2 },
       "24": { "Screen": 2 },
-      "25": { "ScriptAttributes": 2 },
+      "25": { "ScriptAttributes": 4 },
       "26": { "ScriptingTutorialPart1": 2 },
       "27": { "Set": 1 },
       "28": { "Settingupthegame": 1 },
@@ -43778,15 +43856,16 @@ var meta = {
       "13": { "Globalfunctions_General": 1 },
       "14": { "OOProgramming": 1 },
       "15": { "RepExec": 2 },
-      "16": { "ScriptingTutorialPart1": 1 },
-      "17": { "ScriptManagedStructs": 2 },
-      "18": { "Settingupthegame": 2 },
-      "19": { "Speech": 1 },
-      "20": { "Templates": 1 },
-      "21": { "Translations": 1 },
-      "22": { "Tumbleweed_movement": 1 },
-      "23": { "UpgradeTo32": 1 },
-      "24": { "UpgradeTo362": 1 }
+      "16": { "ScriptAttributes": 1 },
+      "17": { "ScriptingTutorialPart1": 1 },
+      "18": { "ScriptManagedStructs": 2 },
+      "19": { "Settingupthegame": 2 },
+      "20": { "Speech": 1 },
+      "21": { "Templates": 1 },
+      "22": { "Translations": 1 },
+      "23": { "Tumbleweed_movement": 1 },
+      "24": { "UpgradeTo32": 1 },
+      "25": { "UpgradeTo362": 1 }
     },
     "gone": {
       "0": { "Overlay": 1 },
@@ -43816,19 +43895,20 @@ var meta = {
       "19": { "Pointers": 3 },
       "20": { "Preprocessor": 1 },
       "21": { "ScriptAPIOverview": 1 },
-      "22": { "ScriptKeywords": 1 },
-      "23": { "ScriptManagedStructs": 1 },
-      "24": { "ScriptStructs": 2 },
-      "25": { "TemplateSierraStyle": 1 },
-      "26": { "TheScriptHeader": 1 },
-      "27": { "Translations": 1 },
-      "28": { "UnicodeSupport": 3 },
-      "29": { "UpgradeTo30": 1 },
-      "30": { "UpgradeTo34": 1 },
-      "31": { "UpgradeTo35": 1 },
-      "32": { "UpgradeTo36": 1 },
-      "33": { "UpgradeTo361": 1 },
-      "34": { "UpgradeTo362": 1 }
+      "22": { "ScriptAttributes": 1 },
+      "23": { "ScriptKeywords": 1 },
+      "24": { "ScriptManagedStructs": 1 },
+      "25": { "ScriptStructs": 2 },
+      "26": { "TemplateSierraStyle": 1 },
+      "27": { "TheScriptHeader": 1 },
+      "28": { "Translations": 1 },
+      "29": { "UnicodeSupport": 3 },
+      "30": { "UpgradeTo30": 1 },
+      "31": { "UpgradeTo34": 1 },
+      "32": { "UpgradeTo35": 1 },
+      "33": { "UpgradeTo36": 1 },
+      "34": { "UpgradeTo361": 1 },
+      "35": { "UpgradeTo362": 1 }
     },
     "goodbye": {
       "0": { "String": 2 }
@@ -44335,11 +44415,12 @@ var meta = {
       "22": { "ScriptManagedStructs": 1 },
       "23": { "Settingupthegame": 1 },
       "24": { "SystemLimits": 1 },
-      "25": { "TheScriptHeader": 1 },
-      "26": { "UpgradeTo34": 1 },
-      "27": { "UpgradeTo341": 1 },
-      "28": { "UpgradeTo36": 1 },
-      "29": { "UpgradeTo362": 1 }
+      "25": { "Templates": 1 },
+      "26": { "TheScriptHeader": 1 },
+      "27": { "UpgradeTo34": 1 },
+      "28": { "UpgradeTo341": 1 },
+      "29": { "UpgradeTo36": 1 },
+      "30": { "UpgradeTo362": 1 }
     },
     "hand-made": {
       "0": { "acintro8": 1 }
@@ -44647,32 +44728,33 @@ var meta = {
       "88": { "System": 3 },
       "89": { "SystemLimits": 1 },
       "90": { "TemplateBASS": 1 },
-      "91": { "TextBox": 1 },
-      "92": { "TextParser": 5 },
-      "93": { "TextWindowGUI": 2 },
-      "94": { "Translations": 2 },
-      "95": { "TroubleshootingWindowsZoneID": 1 },
-      "96": { "Tumbleweed": 3 },
-      "97": { "Tumbleweed_actions": 2 },
-      "98": { "Tumbleweed_movement": 22 },
-      "99": { "Tumbleweed_translation": 2 },
-      "100": { "UnicodeSupport": 2 },
-      "101": { "UpgradeTo30": 7 },
-      "102": { "UpgradeTo31": 3 },
-      "103": { "UpgradeTo32": 2 },
-      "104": { "UpgradeTo33": 3 },
-      "105": { "UpgradeTo34": 2 },
-      "106": { "UpgradeTo341": 1 },
-      "107": { "UpgradeTo35": 8 },
-      "108": { "UpgradeTo36": 6 },
-      "109": { "UpgradeTo361": 1 },
-      "110": { "UpgradeTo362": 6 },
-      "111": { "UpgradingTo27": 7 },
-      "112": { "UpgradingTo271": 1 },
-      "113": { "ValidateRestoredSave": 1 },
-      "114": { "ViewFrame": 3 },
-      "115": { "Viewport": 1 },
-      "116": { "VoiceSpeech": 2 }
+      "91": { "Templates": 2 },
+      "92": { "TextBox": 1 },
+      "93": { "TextParser": 5 },
+      "94": { "TextWindowGUI": 2 },
+      "95": { "Translations": 2 },
+      "96": { "TroubleshootingWindowsZoneID": 1 },
+      "97": { "Tumbleweed": 3 },
+      "98": { "Tumbleweed_actions": 2 },
+      "99": { "Tumbleweed_movement": 22 },
+      "100": { "Tumbleweed_translation": 2 },
+      "101": { "UnicodeSupport": 2 },
+      "102": { "UpgradeTo30": 7 },
+      "103": { "UpgradeTo31": 3 },
+      "104": { "UpgradeTo32": 2 },
+      "105": { "UpgradeTo33": 3 },
+      "106": { "UpgradeTo34": 2 },
+      "107": { "UpgradeTo341": 1 },
+      "108": { "UpgradeTo35": 8 },
+      "109": { "UpgradeTo36": 6 },
+      "110": { "UpgradeTo361": 1 },
+      "111": { "UpgradeTo362": 6 },
+      "112": { "UpgradingTo27": 7 },
+      "113": { "UpgradingTo271": 1 },
+      "114": { "ValidateRestoredSave": 1 },
+      "115": { "ViewFrame": 3 },
+      "116": { "Viewport": 1 },
+      "117": { "VoiceSpeech": 2 }
     },
     "hasAlphaChannel": {
       "0": { "DynamicSprite": 2 }
@@ -44796,7 +44878,7 @@ var meta = {
       "88": { "RuntimeEngine": 1 },
       "89": { "Screen": 2 },
       "90": { "ScriptAPIOverview": 2 },
-      "91": { "ScriptAttributes": 13 },
+      "91": { "ScriptAttributes": 16 },
       "92": { "ScriptingTutorialPart1": 13 },
       "93": { "ScriptingTutorialPart2": 9 },
       "94": { "ScriptKeywords": 7 },
@@ -44864,17 +44946,16 @@ var meta = {
       "16": { "MusicAndSound": 2 },
       "17": { "Pointers": 1 },
       "18": { "Preprocessor": 1 },
-      "19": { "ScriptAttributes": 1 },
-      "20": { "ScriptingTutorialPart1": 1 },
-      "21": { "ScriptingTutorialPart2": 1 },
-      "22": { "Settingupthegame": 1 },
-      "23": { "StandardEnums": 1 },
-      "24": { "UnicodeSupport": 1 },
-      "25": { "UpgradeTo32": 1 },
-      "26": { "UpgradeTo335": 1 },
-      "27": { "UpgradeTo35": 1 },
-      "28": { "UpgradeTo36": 3 },
-      "29": { "UpgradingTo27": 2 }
+      "19": { "ScriptingTutorialPart1": 1 },
+      "20": { "ScriptingTutorialPart2": 1 },
+      "21": { "Settingupthegame": 1 },
+      "22": { "StandardEnums": 1 },
+      "23": { "UnicodeSupport": 1 },
+      "24": { "UpgradeTo32": 1 },
+      "25": { "UpgradeTo335": 1 },
+      "26": { "UpgradeTo35": 1 },
+      "27": { "UpgradeTo36": 3 },
+      "28": { "UpgradingTo27": 2 }
     },
     "haystack": {
       "0": { "String": 2 }
@@ -45111,7 +45192,7 @@ var meta = {
       "32": { "OOProgramming": 1 },
       "33": { "Plugins": 1 },
       "34": { "RepExec": 2 },
-      "35": { "ScriptAttributes": 5 },
+      "35": { "ScriptAttributes": 7 },
       "36": { "ScriptingTutorialPart1": 2 },
       "37": { "ScriptingTutorialPart2": 2 },
       "38": { "ScriptKeywords": 4 },
@@ -45577,32 +45658,33 @@ var meta = {
       "49": { "Pointers": 2 },
       "50": { "RepExec": 1 },
       "51": { "RestoredSaveInfo": 1 },
-      "52": { "ScriptingTutorialPart1": 2 },
-      "53": { "ScriptingTutorialPart2": 6 },
-      "54": { "ScriptManagedStructs": 1 },
-      "55": { "ScriptStructs": 4 },
-      "56": { "Set": 1 },
-      "57": { "Settingupthegame": 8 },
-      "58": { "Speech": 2 },
-      "59": { "String": 2 },
-      "60": { "SystemRequirements": 1 },
-      "61": { "TemplateBASS": 1 },
-      "62": { "Templates": 1 },
-      "63": { "TemplateSierraStyle": 1 },
-      "64": { "TextParser": 2 },
-      "65": { "Translations": 1 },
-      "66": { "Tumbleweed": 1 },
-      "67": { "Tumbleweed_translation": 1 },
-      "68": { "Tutorial": 1 },
-      "69": { "UpgradeTo30": 1 },
-      "70": { "UpgradeTo32": 1 },
-      "71": { "UpgradeTo341": 1 },
-      "72": { "UpgradeTo35": 1 },
-      "73": { "UpgradeTo36": 4 },
-      "74": { "UpgradingTo27": 2 },
-      "75": { "ValidateRestoredSave": 1 },
-      "76": { "Viewport": 1 },
-      "77": { "VoiceSpeech": 1 }
+      "52": { "ScriptAttributes": 1 },
+      "53": { "ScriptingTutorialPart1": 2 },
+      "54": { "ScriptingTutorialPart2": 6 },
+      "55": { "ScriptManagedStructs": 1 },
+      "56": { "ScriptStructs": 4 },
+      "57": { "Set": 1 },
+      "58": { "Settingupthegame": 8 },
+      "59": { "Speech": 2 },
+      "60": { "String": 2 },
+      "61": { "SystemRequirements": 1 },
+      "62": { "TemplateBASS": 1 },
+      "63": { "Templates": 1 },
+      "64": { "TemplateSierraStyle": 1 },
+      "65": { "TextParser": 2 },
+      "66": { "Translations": 1 },
+      "67": { "Tumbleweed": 1 },
+      "68": { "Tumbleweed_translation": 1 },
+      "69": { "Tutorial": 1 },
+      "70": { "UpgradeTo30": 1 },
+      "71": { "UpgradeTo32": 1 },
+      "72": { "UpgradeTo341": 1 },
+      "73": { "UpgradeTo35": 1 },
+      "74": { "UpgradeTo36": 4 },
+      "75": { "UpgradingTo27": 2 },
+      "76": { "ValidateRestoredSave": 1 },
+      "77": { "Viewport": 1 },
+      "78": { "VoiceSpeech": 1 }
     },
     "how_long": {
       "0": { "UpgradeTo362": 2 }
@@ -45785,6 +45867,9 @@ var meta = {
     "icculus": {
       "0": { "Credits": 1 }
     },
+    "ico": {
+      "0": { "Templates": 1 }
+    },
     "icon": {
       "0": { "acintro2": 1 },
       "1": { "acintro4": 1 },
@@ -45798,7 +45883,7 @@ var meta = {
       "9": { "GUI": 1 },
       "10": { "ScriptingTutorialPart1": 1 },
       "11": { "Settingupthegame": 3 },
-      "12": { "Templates": 4 }
+      "12": { "Templates": 3 }
     },
     "icon-bar": {
       "0": { "EditorGUI": 1 }
@@ -45806,8 +45891,7 @@ var meta = {
     "icons": {
       "0": { "BuildAndroid": 8 },
       "1": { "Credits": 1 },
-      "2": { "GeneralSettings": 1 },
-      "3": { "Templates": 1 }
+      "2": { "GeneralSettings": 1 }
     },
     "id": {
       "0": { "EngineConfigFile": 6 },
@@ -45830,7 +45914,7 @@ var meta = {
       "10": { "OOProgramming": 2 },
       "11": { "Pointers": 2 },
       "12": { "ScriptAPIOverview": 1 },
-      "13": { "ScriptAttributes": 1 },
+      "13": { "ScriptAttributes": 2 },
       "14": { "ScriptingTutorialPart1": 5 },
       "15": { "ScriptingTutorialPart2": 1 },
       "16": { "Translations": 1 },
@@ -46015,9 +46099,10 @@ var meta = {
       "29": { "Screen": 2 },
       "30": { "Settingupthegame": 6 },
       "31": { "Slider": 4 },
-      "32": { "UpgradeTo34": 1 },
-      "33": { "UpgradeTo35": 3 },
-      "34": { "Viewport": 3 }
+      "32": { "Templates": 1 },
+      "33": { "UpgradeTo34": 1 },
+      "34": { "UpgradeTo35": 3 },
+      "35": { "Viewport": 3 }
     },
     "image's": {
       "0": { "acintro6": 1 },
@@ -46154,7 +46239,7 @@ var meta = {
       "20": { "MusicAndSound": 4 },
       "21": { "OOProgramming": 16 },
       "22": { "Preprocessor": 1 },
-      "23": { "ScriptAttributes": 20 },
+      "23": { "ScriptAttributes": 23 },
       "24": { "ScriptingTutorialPart1": 1 },
       "25": { "ScriptKeywords": 22 },
       "26": { "ScriptManagedStructs": 6 },
@@ -46223,10 +46308,11 @@ var meta = {
       "14": { "Object": 1 },
       "15": { "Settingupthegame": 6 },
       "16": { "SystemLimits": 1 },
-      "17": { "Translations": 1 },
-      "18": { "UpgradeTo33": 1 },
-      "19": { "UpgradeTo35": 1 },
-      "20": { "UpgradeTo36": 2 }
+      "17": { "Templates": 1 },
+      "18": { "Translations": 1 },
+      "19": { "UpgradeTo33": 1 },
+      "20": { "UpgradeTo35": 1 },
+      "21": { "UpgradeTo36": 2 }
     },
     "importing": {
       "0": { "acintro6": 4 },
@@ -46354,7 +46440,7 @@ var meta = {
       "18": { "ScriptKeywords": 1 },
       "19": { "Settingupthegame": 2 },
       "20": { "StandardEnums": 1 },
-      "21": { "Templates": 3 },
+      "21": { "Templates": 7 },
       "22": { "TextParser": 1 },
       "23": { "TheScriptHeader": 1 },
       "24": { "UnicodeSupport": 1 },
@@ -46372,9 +46458,10 @@ var meta = {
       "7": { "Preprocessor": 1 },
       "8": { "ScriptKeywords": 1 },
       "9": { "System": 2 },
-      "10": { "TemplateSierraStyle": 1 },
-      "11": { "TheScriptHeader": 1 },
-      "12": { "VoiceSpeech": 1 }
+      "10": { "Templates": 5 },
+      "11": { "TemplateSierraStyle": 1 },
+      "12": { "TheScriptHeader": 1 },
+      "13": { "VoiceSpeech": 1 }
     },
     "includes": {
       "0": { "DistGame": 1 },
@@ -46543,7 +46630,7 @@ var meta = {
       "22": { "RestoredSaveInfo": 3 },
       "23": { "RuntimeEngine": 1 },
       "24": { "Screen": 3 },
-      "25": { "ScriptAttributes": 24 },
+      "25": { "ScriptAttributes": 30 },
       "26": { "ScriptKeywords": 5 },
       "27": { "Set": 1 },
       "28": { "Settingupthegame": 1 },
@@ -47033,7 +47120,7 @@ var meta = {
       "22": { "Overlay": 1 },
       "23": { "Parser": 1 },
       "24": { "Pointers": 2 },
-      "25": { "ScriptAttributes": 1 },
+      "25": { "ScriptAttributes": 3 },
       "26": { "ScriptingTutorialPart1": 5 },
       "27": { "ScriptingTutorialPart2": 5 },
       "28": { "ScriptKeywords": 7 },
@@ -47303,7 +47390,7 @@ var meta = {
       "49": { "RestoredSaveInfo": 21 },
       "50": { "Room": 18 },
       "51": { "Screen": 9 },
-      "52": { "ScriptAttributes": 45 },
+      "52": { "ScriptAttributes": 58 },
       "53": { "ScriptingTutorialPart1": 9 },
       "54": { "ScriptingTutorialPart2": 10 },
       "55": { "ScriptKeywords": 53 },
@@ -48180,7 +48267,7 @@ var meta = {
       "80": { "Speech": 1 },
       "81": { "StandardEnums": 4 },
       "82": { "TemplateBASS": 1 },
-      "83": { "Templates": 3 },
+      "83": { "Templates": 2 },
       "84": { "TemplateVerbcoin": 2 },
       "85": { "TextBox": 1 },
       "86": { "TextParser": 2 },
@@ -48361,7 +48448,7 @@ var meta = {
       "58": { "Setup": 1 },
       "59": { "String": 2 },
       "60": { "System": 1 },
-      "61": { "Templates": 3 },
+      "61": { "Templates": 2 },
       "62": { "TextParser": 4 },
       "63": { "Translations": 5 },
       "64": { "TroubleshootingWindowsZoneID": 1 },
@@ -48600,7 +48687,7 @@ var meta = {
       "3": { "OOProgramming": 2 },
       "4": { "Pointers": 6 },
       "5": { "Preprocessor": 2 },
-      "6": { "ScriptAttributes": 2 },
+      "6": { "ScriptAttributes": 4 },
       "7": { "ScriptingTutorialPart2": 5 },
       "8": { "ScriptKeywords": 18 },
       "9": { "ScriptManagedStructs": 5 },
@@ -49035,15 +49122,16 @@ var meta = {
       "60": { "StandardEnums": 3 },
       "61": { "String": 8 },
       "62": { "System": 15 },
-      "63": { "TextBox": 2 },
-      "64": { "TextParser": 1 },
-      "65": { "TextWindowGUI": 1 },
-      "66": { "Tumbleweed_door": 1 },
-      "67": { "UpgradeTo31": 1 },
-      "68": { "UpgradeTo36": 1 },
-      "69": { "ValidateRestoredSave": 2 },
-      "70": { "ViewFrame": 1 },
-      "71": { "Viewport": 3 }
+      "63": { "Templates": 2 },
+      "64": { "TextBox": 2 },
+      "65": { "TextParser": 1 },
+      "66": { "TextWindowGUI": 1 },
+      "67": { "Tumbleweed_door": 1 },
+      "68": { "UpgradeTo31": 1 },
+      "69": { "UpgradeTo36": 1 },
+      "70": { "ValidateRestoredSave": 2 },
+      "71": { "ViewFrame": 1 },
+      "72": { "Viewport": 3 }
     },
     "latest": {
       "0": { "acintro3": 1 },
@@ -49065,7 +49153,8 @@ var meta = {
       "3": { "Feature_Rooms": 1 },
       "4": { "GeneralSettings": 1 },
       "5": { "Globalfunctions_General": 1 },
-      "6": { "UpgradeTo34": 1 }
+      "6": { "ScriptAttributes": 1 },
+      "7": { "UpgradeTo34": 1 }
     },
     "launch": {
       "0": { "acintro2": 1 },
@@ -49790,7 +49879,7 @@ var meta = {
       "58": { "RepExec": 1 },
       "59": { "RestoredSaveInfo": 1 },
       "60": { "RuntimeEngine": 1 },
-      "61": { "ScriptAttributes": 9 },
+      "61": { "ScriptAttributes": 10 },
       "62": { "ScriptingTutorialPart1": 10 },
       "63": { "ScriptingTutorialPart2": 8 },
       "64": { "ScriptKeywords": 20 },
@@ -49800,7 +49889,7 @@ var meta = {
       "68": { "Setup": 1 },
       "69": { "StandardEnums": 4 },
       "70": { "StringFormats": 2 },
-      "71": { "Templates": 1 },
+      "71": { "Templates": 4 },
       "72": { "TextParser": 2 },
       "73": { "TheScriptHeader": 1 },
       "74": { "Translations": 3 },
@@ -49943,16 +50032,17 @@ var meta = {
       "39": { "Speech": 2 },
       "40": { "StringFormats": 2 },
       "41": { "System": 1 },
-      "42": { "TextParser": 1 },
-      "43": { "Translations": 13 },
-      "44": { "Tumbleweed": 3 },
-      "45": { "Tumbleweed_door": 2 },
-      "46": { "Tumbleweed_translation": 1 },
-      "47": { "UpgradeTo31": 1 },
-      "48": { "UpgradeTo36": 1 },
-      "49": { "UpgradeTo361": 1 },
-      "50": { "UpgradingTo27": 2 },
-      "51": { "VoiceSpeech": 2 }
+      "42": { "Templates": 1 },
+      "43": { "TextParser": 1 },
+      "44": { "Translations": 13 },
+      "45": { "Tumbleweed": 3 },
+      "46": { "Tumbleweed_door": 2 },
+      "47": { "Tumbleweed_translation": 1 },
+      "48": { "UpgradeTo31": 1 },
+      "49": { "UpgradeTo36": 1 },
+      "50": { "UpgradeTo361": 1 },
+      "51": { "UpgradingTo27": 2 },
+      "52": { "VoiceSpeech": 2 }
     },
     "lineNum": {
       "0": { "EnginePluginRun-timeAPI": 3 }
@@ -50042,6 +50132,9 @@ var meta = {
       "1": { "Globalfunctions_General": 1 },
       "2": { "Lipsync": 1 }
     },
+    "lipsync": {
+      "0": { "Templates": 1 }
+    },
     "list": {
       "0": { "acintro1": 3 },
       "1": { "acintro2": 4 },
@@ -50090,7 +50183,7 @@ var meta = {
       "44": { "Setup": 2 },
       "45": { "StandardEnums": 1 },
       "46": { "System": 2 },
-      "47": { "Templates": 1 },
+      "47": { "Templates": 2 },
       "48": { "TextParser": 4 },
       "49": { "UpgradeTo34": 1 },
       "50": { "UpgradeTo35": 2 },
@@ -50132,9 +50225,10 @@ var meta = {
       "20": { "Slider": 1 },
       "21": { "StringFormats": 1 },
       "22": { "System": 1 },
-      "23": { "TemplateSierraStyle": 1 },
-      "24": { "TextBox": 1 },
-      "25": { "TroubleshootingWindowsZoneID": 1 }
+      "23": { "Templates": 1 },
+      "24": { "TemplateSierraStyle": 1 },
+      "25": { "TextBox": 1 },
+      "26": { "TroubleshootingWindowsZoneID": 1 }
     },
     "listen": {
       "0": { "Lipsync": 1 }
@@ -50324,7 +50418,7 @@ var meta = {
       "4": { "Feature_Game": 1 },
       "5": { "Feature_Rooms": 1 },
       "6": { "MIDI-playback": 3 },
-      "7": { "Templates": 1 },
+      "7": { "Templates": 2 },
       "8": { "TroubleshootingWindowsZoneID": 1 },
       "9": { "UnicodeSupport": 1 },
       "10": { "UpgradeTo341": 1 },
@@ -50366,15 +50460,16 @@ var meta = {
       "27": { "Screen": 2 },
       "28": { "Settingupthegame": 2 },
       "29": { "Setup": 4 },
-      "30": { "TroubleshootingWindowsZoneID": 2 },
-      "31": { "Tumbleweed": 2 },
-      "32": { "Tumbleweed_extensions": 4 },
-      "33": { "Tumbleweed_movement": 1 },
-      "34": { "UpgradeTo32": 1 },
-      "35": { "UpgradeTo335": 7 },
-      "36": { "UpgradeTo36": 1 },
-      "37": { "ValidateRestoredSave": 1 },
-      "38": { "Viewport": 2 }
+      "30": { "Templates": 1 },
+      "31": { "TroubleshootingWindowsZoneID": 2 },
+      "32": { "Tumbleweed": 2 },
+      "33": { "Tumbleweed_extensions": 4 },
+      "34": { "Tumbleweed_movement": 1 },
+      "35": { "UpgradeTo32": 1 },
+      "36": { "UpgradeTo335": 7 },
+      "37": { "UpgradeTo36": 1 },
+      "38": { "ValidateRestoredSave": 1 },
+      "39": { "Viewport": 2 }
     },
     "locations": {
       "0": { "DefaultSetup": 1 },
@@ -50394,8 +50489,9 @@ var meta = {
       "6": { "ScriptKeywords": 1 },
       "7": { "Setup": 1 },
       "8": { "System": 1 },
-      "9": { "UpgradeTo341": 1 },
-      "10": { "UpgradeTo35": 1 }
+      "9": { "Templates": 1 },
+      "10": { "UpgradeTo341": 1 },
+      "11": { "UpgradeTo35": 1 }
     },
     "lock-ups": {
       "0": { "ContactingTheDevelopers": 1 }
@@ -50616,20 +50712,21 @@ var meta = {
       "42": { "Settingupthegame": 5 },
       "43": { "Setup": 3 },
       "44": { "TemplateBASS": 5 },
-      "45": { "TextParser": 13 },
-      "46": { "Tumbleweed": 7 },
-      "47": { "Tumbleweed_door": 4 },
-      "48": { "Tumbleweed_extensions": 5 },
-      "49": { "Tumbleweed_movement": 1 },
-      "50": { "Tumbleweed_player": 1 },
-      "51": { "Tumbleweed_translation": 5 },
-      "52": { "Tumbleweed_unhandled": 1 },
-      "53": { "UpgradeTo32": 1 },
-      "54": { "UpgradeTo335": 2 },
-      "55": { "UpgradeTo36": 2 },
-      "56": { "UpgradeTo361": 1 },
-      "57": { "UpgradingTo27": 2 },
-      "58": { "ValidateRestoredSave": 1 }
+      "45": { "Templates": 1 },
+      "46": { "TextParser": 13 },
+      "47": { "Tumbleweed": 7 },
+      "48": { "Tumbleweed_door": 4 },
+      "49": { "Tumbleweed_extensions": 5 },
+      "50": { "Tumbleweed_movement": 1 },
+      "51": { "Tumbleweed_player": 1 },
+      "52": { "Tumbleweed_translation": 5 },
+      "53": { "Tumbleweed_unhandled": 1 },
+      "54": { "UpgradeTo32": 1 },
+      "55": { "UpgradeTo335": 2 },
+      "56": { "UpgradeTo36": 2 },
+      "57": { "UpgradeTo361": 1 },
+      "58": { "UpgradingTo27": 2 },
+      "59": { "ValidateRestoredSave": 1 }
     },
     "lookForText": {
       "0": { "String": 7 }
@@ -50687,11 +50784,10 @@ var meta = {
       "27": { "ScriptManagedStructs": 1 },
       "28": { "Settingupthegame": 2 },
       "29": { "Setup": 1 },
-      "30": { "Templates": 1 },
-      "31": { "Tumbleweed": 1 },
-      "32": { "Tumbleweed_door": 1 },
-      "33": { "Tumbleweed_unhandled": 1 },
-      "34": { "Viewport": 1 }
+      "30": { "Tumbleweed": 1 },
+      "31": { "Tumbleweed_door": 1 },
+      "32": { "Tumbleweed_unhandled": 1 },
+      "33": { "Viewport": 1 }
     },
     "loop": {
       "0": { "acintro7": 7 },
@@ -51548,7 +51644,8 @@ var meta = {
       "0": { "acintro3": 1 },
       "1": { "Dialog": 1 },
       "2": { "Globalfunctions_General": 1 },
-      "3": { "Preprocessor": 1 }
+      "3": { "Preprocessor": 1 },
+      "4": { "Templates": 1 }
     },
     "marked": {
       "0": { "acintro1": 2 },
@@ -51644,16 +51741,18 @@ var meta = {
       "18": { "Set": 1 },
       "19": { "StandardEnums": 1 },
       "20": { "String": 11 },
-      "21": { "TextParser": 10 },
-      "22": { "UnicodeSupport": 1 },
-      "23": { "UpgradeTo35": 1 },
-      "24": { "ValidateRestoredSave": 1 }
+      "21": { "Templates": 2 },
+      "22": { "TextParser": 10 },
+      "23": { "UnicodeSupport": 1 },
+      "24": { "UpgradeTo35": 1 },
+      "25": { "ValidateRestoredSave": 1 }
     },
     "match_expression": {
       "0": { "ScriptKeywords": 5 }
     },
     "matched": {
-      "0": { "Globalfunctions_General": 2 }
+      "0": { "Globalfunctions_General": 2 },
+      "1": { "Templates": 1 }
     },
     "matches": {
       "0": { "Feature_InventoryItems": 1 },
@@ -51661,10 +51760,11 @@ var meta = {
       "2": { "Parser": 1 },
       "3": { "Screen": 2 },
       "4": { "String": 1 },
-      "5": { "TextParser": 1 },
-      "6": { "Translations": 2 },
-      "7": { "UpgradeTo35": 1 },
-      "8": { "UpgradeTo362": 1 }
+      "5": { "Templates": 3 },
+      "6": { "TextParser": 1 },
+      "7": { "Translations": 2 },
+      "8": { "UpgradeTo35": 1 },
+      "9": { "UpgradeTo362": 1 }
     },
     "matching": {
       "0": { "DefaultSetup": 1 },
@@ -51872,7 +51972,7 @@ var meta = {
       "96": { "StringFormats": 1 },
       "97": { "System": 6 },
       "98": { "SystemLimits": 1 },
-      "99": { "Templates": 2 },
+      "99": { "Templates": 4 },
       "100": { "TextWindowGUI": 1 },
       "101": { "TheScriptHeader": 1 },
       "102": { "Translations": 6 },
@@ -52089,7 +52189,7 @@ var meta = {
       "1": { "EnginePluginRun-timeAPI": 3 },
       "2": { "OOProgramming": 1 },
       "3": { "Pointers": 2 },
-      "4": { "ScriptAttributes": 5 },
+      "4": { "ScriptAttributes": 6 },
       "5": { "ScriptKeywords": 1 },
       "6": { "ScriptStructs": 8 },
       "7": { "UpgradeTo34": 1 },
@@ -52104,7 +52204,7 @@ var meta = {
       "5": { "Keycodes": 1 },
       "6": { "OOProgramming": 3 },
       "7": { "Pointers": 3 },
-      "8": { "ScriptAttributes": 1 },
+      "8": { "ScriptAttributes": 2 },
       "9": { "ScriptKeywords": 5 },
       "10": { "ScriptManagedStructs": 1 },
       "11": { "ScriptStructs": 6 },
@@ -52148,7 +52248,7 @@ var meta = {
       "3": { "GameSavesCompatibility": 1 },
       "4": { "Gamevariables": 1 },
       "5": { "Plugins": 1 },
-      "6": { "ScriptAttributes": 2 },
+      "6": { "ScriptAttributes": 1 },
       "7": { "Tumbleweed_player": 1 },
       "8": { "UpgradeTo361": 1 }
     },
@@ -52353,8 +52453,9 @@ var meta = {
       "25": { "Set": 2 },
       "26": { "Setup": 1 },
       "27": { "String": 1 },
-      "28": { "UpgradeTo36": 1 },
-      "29": { "UpgradingTo27": 1 }
+      "28": { "Templates": 1 },
+      "29": { "UpgradeTo36": 1 },
+      "30": { "UpgradingTo27": 1 }
     },
     "methods": {
       "0": { "CustomDialogOptions": 1 },
@@ -53008,28 +53109,27 @@ var meta = {
       "67": { "System": 2 },
       "68": { "SystemLimits": 2 },
       "69": { "SystemRequirements": 1 },
-      "70": { "Templates": 1 },
-      "71": { "TextParser": 1 },
-      "72": { "Translations": 2 },
-      "73": { "TroubleshootingWindowsZoneID": 1 },
-      "74": { "Tumbleweed": 1 },
-      "75": { "Tumbleweed_actions": 1 },
-      "76": { "Tumbleweed_translation": 1 },
-      "77": { "Tumbleweed_unhandled": 1 },
-      "78": { "UnicodeSupport": 3 },
-      "79": { "UpgradeTo30": 2 },
-      "80": { "UpgradeTo31": 3 },
-      "81": { "UpgradeTo32": 4 },
-      "82": { "UpgradeTo33": 1 },
-      "83": { "UpgradeTo34": 3 },
-      "84": { "UpgradeTo341": 1 },
-      "85": { "UpgradeTo35": 7 },
-      "86": { "UpgradeTo36": 6 },
-      "87": { "UpgradeTo361": 2 },
-      "88": { "UpgradeTo362": 1 },
-      "89": { "UpgradingTo27": 6 },
-      "90": { "UpgradingTo271": 1 },
-      "91": { "Viewport": 2 }
+      "70": { "TextParser": 1 },
+      "71": { "Translations": 2 },
+      "72": { "TroubleshootingWindowsZoneID": 1 },
+      "73": { "Tumbleweed": 1 },
+      "74": { "Tumbleweed_actions": 1 },
+      "75": { "Tumbleweed_translation": 1 },
+      "76": { "Tumbleweed_unhandled": 1 },
+      "77": { "UnicodeSupport": 3 },
+      "78": { "UpgradeTo30": 2 },
+      "79": { "UpgradeTo31": 3 },
+      "80": { "UpgradeTo32": 4 },
+      "81": { "UpgradeTo33": 1 },
+      "82": { "UpgradeTo34": 3 },
+      "83": { "UpgradeTo341": 1 },
+      "84": { "UpgradeTo35": 7 },
+      "85": { "UpgradeTo36": 6 },
+      "86": { "UpgradeTo361": 2 },
+      "87": { "UpgradeTo362": 1 },
+      "88": { "UpgradingTo27": 6 },
+      "89": { "UpgradingTo271": 1 },
+      "90": { "Viewport": 2 }
     },
     "most": {
       "0": { "acintro1": 1 },
@@ -53613,7 +53713,7 @@ var meta = {
       "45": { "RestoredSaveInfo": 1 },
       "46": { "Room": 1 },
       "47": { "RuntimeEngine": 2 },
-      "48": { "ScriptAttributes": 4 },
+      "48": { "ScriptAttributes": 5 },
       "49": { "ScriptingTutorialPart2": 1 },
       "50": { "ScriptKeywords": 2 },
       "51": { "ScriptManagedStructs": 2 },
@@ -53622,15 +53722,16 @@ var meta = {
       "54": { "Slider": 1 },
       "55": { "Speech": 1 },
       "56": { "System": 2 },
-      "57": { "Translations": 1 },
-      "58": { "UnicodeSupport": 1 },
-      "59": { "UpgradeTo30": 1 },
-      "60": { "UpgradeTo32": 1 },
-      "61": { "UpgradeTo33": 1 },
-      "62": { "UpgradeTo35": 4 },
-      "63": { "UpgradeTo36": 3 },
-      "64": { "UpgradeTo362": 3 },
-      "65": { "VoiceSpeech": 3 }
+      "57": { "Templates": 1 },
+      "58": { "Translations": 1 },
+      "59": { "UnicodeSupport": 1 },
+      "60": { "UpgradeTo30": 1 },
+      "61": { "UpgradeTo32": 1 },
+      "62": { "UpgradeTo33": 1 },
+      "63": { "UpgradeTo35": 4 },
+      "64": { "UpgradeTo36": 3 },
+      "65": { "UpgradeTo362": 3 },
+      "66": { "VoiceSpeech": 3 }
     },
     "mute": {
       "0": { "Game": 1 }
@@ -54889,15 +54990,14 @@ var meta = {
       "25": { "Globalfunctions_Wait": 1 },
       "26": { "Multimedia": 1 },
       "27": { "RestoredSaveInfo": 1 },
-      "28": { "ScriptAttributes": 1 },
-      "29": { "ScriptKeywords": 3 },
-      "30": { "ScriptStructs": 2 },
-      "31": { "Setup": 1 },
-      "32": { "String": 1 },
-      "33": { "System": 1 },
-      "34": { "Templates": 1 },
-      "35": { "TextParser": 1 },
-      "36": { "UpgradeTo33": 1 }
+      "28": { "ScriptKeywords": 3 },
+      "29": { "ScriptStructs": 2 },
+      "30": { "Setup": 1 },
+      "31": { "String": 1 },
+      "32": { "System": 1 },
+      "33": { "Templates": 1 },
+      "34": { "TextParser": 1 },
+      "35": { "UpgradeTo33": 1 }
     },
     "north": {
       "0": { "GeneralSettings": 1 },
@@ -55283,20 +55383,21 @@ var meta = {
       "83": { "StringFormats": 1 },
       "84": { "System": 6 },
       "85": { "SystemLimits": 1 },
-      "86": { "TextParser": 5 },
-      "87": { "Translations": 4 },
-      "88": { "TroubleshootingWindowsZoneID": 2 },
-      "89": { "UnicodeSupport": 1 },
-      "90": { "UpgradeTo33": 3 },
-      "91": { "UpgradeTo34": 4 },
-      "92": { "UpgradeTo341": 1 },
-      "93": { "UpgradeTo35": 3 },
-      "94": { "UpgradeTo36": 3 },
-      "95": { "UpgradeTo362": 4 },
-      "96": { "UpgradingTo27": 2 },
-      "97": { "ViewFrame": 4 },
-      "98": { "Viewport": 1 },
-      "99": { "VoiceSpeech": 2 }
+      "86": { "Templates": 1 },
+      "87": { "TextParser": 5 },
+      "88": { "Translations": 4 },
+      "89": { "TroubleshootingWindowsZoneID": 2 },
+      "90": { "UnicodeSupport": 1 },
+      "91": { "UpgradeTo33": 3 },
+      "92": { "UpgradeTo34": 4 },
+      "93": { "UpgradeTo341": 1 },
+      "94": { "UpgradeTo35": 3 },
+      "95": { "UpgradeTo36": 3 },
+      "96": { "UpgradeTo362": 4 },
+      "97": { "UpgradingTo27": 2 },
+      "98": { "ViewFrame": 4 },
+      "99": { "Viewport": 1 },
+      "100": { "VoiceSpeech": 2 }
     },
     "number-based": {
       "0": { "Hotspot": 1 },
@@ -55934,7 +56035,8 @@ var meta = {
       "0": { "RuntimeEngine": 1 }
     },
     "ogv": {
-      "0": { "Multimedia": 2 }
+      "0": { "Multimedia": 2 },
+      "1": { "Templates": 1 }
     },
     "oh": {
       "0": { "BlockingScripts": 1 }
@@ -56265,7 +56367,7 @@ var meta = {
       "91": { "String": 1 },
       "92": { "StringFormats": 1 },
       "93": { "System": 4 },
-      "94": { "Templates": 1 },
+      "94": { "Templates": 2 },
       "95": { "TextParser": 5 },
       "96": { "TheScriptHeader": 1 },
       "97": { "TroubleshootingWindowsZoneID": 1 },
@@ -56848,7 +56950,8 @@ var meta = {
       "8": { "Object": 1 },
       "9": { "Overlay": 1 },
       "10": { "String": 1 },
-      "11": { "UpgradeTo33": 1 }
+      "11": { "Templates": 1 },
+      "12": { "UpgradeTo33": 1 }
     },
     "options": {
       "0": { "acintro1": 5 },
@@ -57326,23 +57429,24 @@ var meta = {
       "45": { "Object": 5 },
       "46": { "Overlay": 4 },
       "47": { "Pointers": 2 },
-      "48": { "ScriptingTutorialPart1": 1 },
-      "49": { "ScriptingTutorialPart2": 1 },
-      "50": { "ScriptKeywords": 3 },
-      "51": { "Settingupthegame": 2 },
-      "52": { "Setup": 1 },
-      "53": { "Slider": 1 },
-      "54": { "Speech": 1 },
-      "55": { "System": 7 },
-      "56": { "Templates": 1 },
-      "57": { "TextParser": 1 },
-      "58": { "Tumbleweed": 1 },
-      "59": { "UpgradeTo30": 1 },
-      "60": { "UpgradeTo35": 1 },
-      "61": { "UpgradeTo362": 1 },
-      "62": { "UpgradingTo27": 5 },
-      "63": { "UpgradingTo271": 1 },
-      "64": { "VoiceSpeech": 1 }
+      "48": { "ScriptAttributes": 1 },
+      "49": { "ScriptingTutorialPart1": 1 },
+      "50": { "ScriptingTutorialPart2": 1 },
+      "51": { "ScriptKeywords": 3 },
+      "52": { "Settingupthegame": 2 },
+      "53": { "Setup": 1 },
+      "54": { "Slider": 1 },
+      "55": { "Speech": 1 },
+      "56": { "System": 7 },
+      "57": { "Templates": 1 },
+      "58": { "TextParser": 1 },
+      "59": { "Tumbleweed": 1 },
+      "60": { "UpgradeTo30": 1 },
+      "61": { "UpgradeTo35": 1 },
+      "62": { "UpgradeTo362": 1 },
+      "63": { "UpgradingTo27": 5 },
+      "64": { "UpgradingTo271": 1 },
+      "65": { "VoiceSpeech": 1 }
     },
     "outdated": {
       "0": { "FAQ": 1 },
@@ -58450,7 +58554,11 @@ var meta = {
       "0": { "AudioChannel": 2 },
       "1": { "File": 1 },
       "2": { "StandardEnums": 1 },
-      "3": { "System": 2 }
+      "3": { "System": 2 },
+      "4": { "Templates": 10 }
+    },
+    "patterns": {
+      "0": { "Templates": 6 }
     },
     "pause": {
       "0": { "AudioChannel": 3 },
@@ -58483,6 +58591,9 @@ var meta = {
     "pausing": {
       "0": { "Character": 1 },
       "1": { "EditorGUI": 1 }
+    },
+    "pdf": {
+      "0": { "Templates": 1 }
     },
     "pen": {
       "0": { "CustomProperties": 1 }
@@ -59600,17 +59711,16 @@ var meta = {
       "26": { "Region": 1 },
       "27": { "Room": 1 },
       "28": { "Screen": 2 },
-      "29": { "ScriptAttributes": 1 },
-      "30": { "ScriptingTutorialPart1": 1 },
-      "31": { "ScriptingTutorialPart2": 1 },
-      "32": { "ScriptKeywords": 5 },
-      "33": { "ScriptManagedStructs": 2 },
-      "34": { "Settingupthegame": 1 },
-      "35": { "StandardTypes": 1 },
-      "36": { "Tumbleweed_door": 1 },
-      "37": { "UpgradeTo36": 1 },
-      "38": { "UpgradeTo361": 1 },
-      "39": { "Viewport": 5 }
+      "29": { "ScriptingTutorialPart1": 1 },
+      "30": { "ScriptingTutorialPart2": 1 },
+      "31": { "ScriptKeywords": 5 },
+      "32": { "ScriptManagedStructs": 2 },
+      "33": { "Settingupthegame": 1 },
+      "34": { "StandardTypes": 1 },
+      "35": { "Tumbleweed_door": 1 },
+      "36": { "UpgradeTo36": 1 },
+      "37": { "UpgradeTo361": 1 },
+      "38": { "Viewport": 5 }
     },
     "point'n'click": {
       "0": { "FAQ": 1 },
@@ -60088,7 +60198,8 @@ var meta = {
       "1": { "EngineConfigFile": 1 },
       "2": { "RuntimeEngine": 1 },
       "3": { "Set": 1 },
-      "4": { "UpgradeTo36": 1 }
+      "4": { "Templates": 1 },
+      "5": { "UpgradeTo36": 1 }
     },
     "precedence": {
       "0": { "Constants": 1 },
@@ -60183,7 +60294,8 @@ var meta = {
       "1": { "TextParser": 1 }
     },
     "preload.pcx": {
-      "0": { "DistGame": 1 }
+      "0": { "DistGame": 1 },
+      "1": { "Templates": 1 }
     },
     "preloaded": {
       "0": { "Game": 2 }
@@ -60254,7 +60366,7 @@ var meta = {
       "21": { "ScriptStructs": 1 },
       "22": { "Setup": 1 },
       "23": { "String": 1 },
-      "24": { "Templates": 1 },
+      "24": { "Templates": 2 },
       "25": { "TroubleshootingWindowsZoneID": 1 },
       "26": { "UpgradeTo335": 1 },
       "27": { "UpgradeTo362": 2 }
@@ -60761,8 +60873,7 @@ var meta = {
     },
     "professional": {
       "0": { "acintro1": 1 },
-      "1": { "GeneralSettings": 1 },
-      "2": { "Templates": 1 }
+      "1": { "GeneralSettings": 1 }
     },
     "program": {
       "0": { "acintro9": 1 },
@@ -60850,17 +60961,18 @@ var meta = {
       "22": { "MusicAndSound": 6 },
       "23": { "Preprocessor": 1 },
       "24": { "Settingupthegame": 1 },
-      "25": { "Translations": 2 },
-      "26": { "TroubleshootingWindowsZoneID": 1 },
-      "27": { "UnicodeSupport": 2 },
-      "28": { "UpgradeTo32": 1 },
-      "29": { "UpgradeTo33": 1 },
-      "30": { "UpgradeTo34": 3 },
-      "31": { "UpgradeTo341": 1 },
-      "32": { "UpgradeTo35": 3 },
-      "33": { "UpgradeTo36": 3 },
-      "34": { "UpgradeTo362": 2 },
-      "35": { "VoiceSpeech": 2 }
+      "25": { "Templates": 2 },
+      "26": { "Translations": 2 },
+      "27": { "TroubleshootingWindowsZoneID": 1 },
+      "28": { "UnicodeSupport": 2 },
+      "29": { "UpgradeTo32": 1 },
+      "30": { "UpgradeTo33": 1 },
+      "31": { "UpgradeTo34": 3 },
+      "32": { "UpgradeTo341": 1 },
+      "33": { "UpgradeTo35": 3 },
+      "34": { "UpgradeTo36": 3 },
+      "35": { "UpgradeTo362": 2 },
+      "36": { "VoiceSpeech": 2 }
     },
     "project's": {
       "0": { "DefaultSetup": 1 },
@@ -60893,8 +61005,7 @@ var meta = {
       "4": { "Game": 3 },
       "5": { "Globalfunctions_General": 1 },
       "6": { "RuntimeEngine": 1 },
-      "7": { "Templates": 1 },
-      "8": { "TroubleshootingWindowsZoneID": 3 }
+      "7": { "TroubleshootingWindowsZoneID": 3 }
     },
     "prompted": {
       "0": { "acintro9": 1 }
@@ -61135,7 +61246,7 @@ var meta = {
     "protected": {
       "0": { "Copyright": 1 },
       "1": { "OOProgramming": 7 },
-      "2": { "ScriptAttributes": 9 },
+      "2": { "ScriptAttributes": 15 },
       "3": { "ScriptKeywords": 5 },
       "4": { "ScriptStructs": 4 },
       "5": { "UpgradingTo27": 1 }
@@ -62288,7 +62399,8 @@ var meta = {
       "0": { "SystemLimits": 2 }
     },
     "recursively": {
-      "0": { "TroubleshootingWindowsZoneID": 1 }
+      "0": { "Templates": 1 },
+      "1": { "TroubleshootingWindowsZoneID": 1 }
     },
     "red": {
       "0": { "Character": 1 },
@@ -62599,11 +62711,12 @@ var meta = {
       "22": { "ScriptKeywords": 1 },
       "23": { "ScriptManagedStructs": 8 },
       "24": { "ScriptStructs": 3 },
-      "25": { "TextParser": 1 },
-      "26": { "TheScriptHeader": 1 },
-      "27": { "Translations": 1 },
-      "28": { "UpgradeTo35": 2 },
-      "29": { "UpgradeTo36": 3 }
+      "25": { "Templates": 1 },
+      "26": { "TextParser": 1 },
+      "27": { "TheScriptHeader": 1 },
+      "28": { "Translations": 1 },
+      "29": { "UpgradeTo35": 2 },
+      "30": { "UpgradeTo36": 3 }
     },
     "regularly": {
       "0": { "BackingUpYourGame": 1 },
@@ -62705,7 +62818,7 @@ var meta = {
       "6": { "Introduction": 1 },
       "7": { "ScriptManagedStructs": 1 },
       "8": { "System": 1 },
-      "9": { "Templates": 1 },
+      "9": { "Templates": 2 },
       "10": { "TroubleshootingWindowsZoneID": 1 },
       "11": { "UpgradeTo34": 1 },
       "12": { "UpgradeTo36": 1 },
@@ -63358,8 +63471,9 @@ var meta = {
       "12": { "MIDI-playback": 1 },
       "13": { "MusicAndSound": 1 },
       "14": { "Preprocessor": 1 },
-      "15": { "UnicodeSupport": 1 },
-      "16": { "UpgradeTo36": 1 }
+      "15": { "Templates": 1 },
+      "16": { "UnicodeSupport": 1 },
+      "17": { "UpgradeTo36": 1 }
     },
     "requiring": {
       "0": { "UpgradeTo36": 1 }
@@ -63877,7 +63991,7 @@ var meta = {
       "31": { "OOProgramming": 8 },
       "32": { "Overlay": 1 },
       "33": { "Pointers": 2 },
-      "34": { "ScriptAttributes": 22 },
+      "34": { "ScriptAttributes": 25 },
       "35": { "ScriptingTutorialPart1": 4 },
       "36": { "ScriptingTutorialPart2": 3 },
       "37": { "ScriptKeywords": 15 },
@@ -64263,20 +64377,19 @@ var meta = {
       "67": { "StartingOff": 1 },
       "68": { "System": 2 },
       "69": { "SystemLimits": 6 },
-      "70": { "Templates": 1 },
-      "71": { "TextParser": 3 },
-      "72": { "Tumbleweed": 7 },
-      "73": { "Tumbleweed_door": 9 },
-      "74": { "Tumbleweed_extensions": 3 },
-      "75": { "Tutorial": 1 },
-      "76": { "UpgradeTo30": 5 },
-      "77": { "UpgradeTo33": 3 },
-      "78": { "UpgradeTo35": 31 },
-      "79": { "UpgradeTo36": 7 },
-      "80": { "UpgradeTo361": 1 },
-      "81": { "UpgradeTo362": 4 },
-      "82": { "ValidateRestoredSave": 2 },
-      "83": { "Viewport": 15 }
+      "70": { "TextParser": 3 },
+      "71": { "Tumbleweed": 7 },
+      "72": { "Tumbleweed_door": 9 },
+      "73": { "Tumbleweed_extensions": 3 },
+      "74": { "Tutorial": 1 },
+      "75": { "UpgradeTo30": 5 },
+      "76": { "UpgradeTo33": 3 },
+      "77": { "UpgradeTo35": 31 },
+      "78": { "UpgradeTo36": 7 },
+      "79": { "UpgradeTo361": 1 },
+      "80": { "UpgradeTo362": 4 },
+      "81": { "ValidateRestoredSave": 2 },
+      "82": { "Viewport": 15 }
     },
     "room's": {
       "0": { "acintro2": 6 },
@@ -64756,8 +64869,7 @@ var meta = {
       "6": { "Object": 1 },
       "7": { "Overlay": 1 },
       "8": { "Parser": 1 },
-      "9": { "ScriptAttributes": 1 },
-      "10": { "Settingupthegame": 2 }
+      "9": { "Settingupthegame": 2 }
     },
     "same": {
       "0": { "acintro2": 5 },
@@ -64903,14 +65015,15 @@ var meta = {
       "38": { "ScriptModules": 1 },
       "39": { "Settingupthegame": 1 },
       "40": { "StandardEnums": 3 },
-      "41": { "TemplateSierraStyle": 1 },
-      "42": { "Translations": 3 },
-      "43": { "Tumbleweed_translation": 1 },
-      "44": { "UpgradeTo30": 1 },
-      "45": { "UpgradeTo36": 2 },
-      "46": { "UpgradeTo361": 4 },
-      "47": { "UpgradeTo362": 20 },
-      "48": { "ValidateRestoredSave": 14 }
+      "41": { "Templates": 1 },
+      "42": { "TemplateSierraStyle": 1 },
+      "43": { "Translations": 3 },
+      "44": { "Tumbleweed_translation": 1 },
+      "45": { "UpgradeTo30": 1 },
+      "46": { "UpgradeTo36": 2 },
+      "47": { "UpgradeTo361": 4 },
+      "48": { "UpgradeTo362": 20 },
+      "49": { "ValidateRestoredSave": 14 }
     },
     "save's": {
       "0": { "Game": 2 },
@@ -65440,7 +65553,7 @@ var meta = {
       "82": { "RuntimeEngine": 1 },
       "83": { "Screen": 1 },
       "84": { "ScriptAPIOverview": 6 },
-      "85": { "ScriptAttributes": 6 },
+      "85": { "ScriptAttributes": 7 },
       "86": { "ScriptingLanguage": 2 },
       "87": { "ScriptingTutorial": 1 },
       "88": { "ScriptingTutorialPart1": 37 },
@@ -65749,12 +65862,13 @@ var meta = {
       "33": { "Settingupthegame": 1 },
       "34": { "Speech": 1 },
       "35": { "System": 1 },
-      "36": { "Tumbleweed": 2 },
-      "37": { "Tumbleweed_translation": 1 },
-      "38": { "UpgradeTo33": 1 },
-      "39": { "UpgradeTo34": 1 },
-      "40": { "UpgradeTo36": 1 },
-      "41": { "UpgradeTo362": 1 }
+      "36": { "Templates": 2 },
+      "37": { "Tumbleweed": 2 },
+      "38": { "Tumbleweed_translation": 1 },
+      "39": { "UpgradeTo33": 1 },
+      "40": { "UpgradeTo34": 1 },
+      "41": { "UpgradeTo36": 1 },
+      "42": { "UpgradeTo362": 1 }
     },
     "secondRect": {
       "0": { "ScriptStructs": 1 }
@@ -65821,14 +65935,15 @@ var meta = {
       "32": { "Settingupthegame": 4 },
       "33": { "String": 1 },
       "34": { "SystemLimits": 2 },
-      "35": { "Translations": 1 },
-      "36": { "Tutorial": 1 },
-      "37": { "UnicodeSupport": 1 },
-      "38": { "UpgradeTo31": 1 },
-      "39": { "UpgradeTo33": 3 },
-      "40": { "UpgradeTo34": 2 },
-      "41": { "UpgradeTo362": 2 },
-      "42": { "UpgradingTo27": 1 }
+      "35": { "Templates": 1 },
+      "36": { "Translations": 1 },
+      "37": { "Tutorial": 1 },
+      "38": { "UnicodeSupport": 1 },
+      "39": { "UpgradeTo31": 1 },
+      "40": { "UpgradeTo33": 3 },
+      "41": { "UpgradeTo34": 2 },
+      "42": { "UpgradeTo362": 2 },
+      "43": { "UpgradingTo27": 1 }
     },
     "sectionend": {
       "0": { "Preprocessor": 1 }
@@ -66025,7 +66140,7 @@ var meta = {
       "27": { "Settingupthegame": 5 },
       "28": { "Setup": 1 },
       "29": { "TemplateBASS": 1 },
-      "30": { "Templates": 1 },
+      "30": { "Templates": 2 },
       "31": { "TemplateVerbcoin": 1 },
       "32": { "TextParser": 1 },
       "33": { "Translations": 2 },
@@ -66171,8 +66286,7 @@ var meta = {
       "4": { "Tumbleweed_door": 1 }
     },
     "sending": {
-      "0": { "DistGame": 1 },
-      "1": { "Templates": 1 }
+      "0": { "DistGame": 1 }
     },
     "sends": {
       "0": { "AnonymousUsageInfo": 2 },
@@ -66473,13 +66587,16 @@ var meta = {
       "116": { "ViewFrame": 1 }
     },
     "set_Attribute": {
-      "0": { "ScriptAttributes": 3 }
+      "0": { "ScriptAttributes": 4 }
     },
     "set_AttributeName": {
       "0": { "EnginePluginRun-timeAPI": 1 }
     },
     "set_Damage": {
       "0": { "OOProgramming": 4 }
+    },
+    "set_IndexedAttr": {
+      "0": { "ScriptAttributes": 1 }
     },
     "set_Name": {
       "0": { "ScriptAttributes": 1 }
@@ -66509,7 +66626,7 @@ var meta = {
       "0": { "ScriptAttributes": 1 }
     },
     "seti_IndexedAttr": {
-      "0": { "ScriptAttributes": 1 }
+      "0": { "ScriptAttributes": 2 }
     },
     "seti_Names": {
       "0": { "OOProgramming": 2 }
@@ -66573,11 +66690,12 @@ var meta = {
     "setter": {
       "0": { "EnginePluginRun-timeAPI": 2 },
       "1": { "OOProgramming": 3 },
-      "2": { "ScriptAttributes": 9 },
+      "2": { "ScriptAttributes": 13 },
       "3": { "ScriptKeywords": 1 }
     },
     "setters": {
-      "0": { "EnginePluginRun-timeAPI": 1 }
+      "0": { "EnginePluginRun-timeAPI": 1 },
+      "1": { "ScriptAttributes": 1 }
     },
     "setting": {
       "0": { "acintro1": 1 },
@@ -66873,7 +66991,8 @@ var meta = {
       "0": { "acintro7": 1 }
     },
     "shorter": {
-      "0": { "EnginePluginRun-timeAPI": 1 }
+      "0": { "EnginePluginRun-timeAPI": 1 },
+      "1": { "ScriptAttributes": 1 }
     },
     "shortest": {
       "0": { "Feature_Rooms": 1 },
@@ -66948,7 +67067,7 @@ var meta = {
       "56": { "Pointers": 1 },
       "57": { "RestoredSaveInfo": 4 },
       "58": { "Screen": 1 },
-      "59": { "ScriptAttributes": 5 },
+      "59": { "ScriptAttributes": 3 },
       "60": { "ScriptingTutorialPart1": 6 },
       "61": { "ScriptKeywords": 1 },
       "62": { "ScriptManagedStructs": 2 },
@@ -66961,7 +67080,7 @@ var meta = {
       "69": { "String": 1 },
       "70": { "System": 1 },
       "71": { "SystemLimits": 3 },
-      "72": { "Templates": 3 },
+      "72": { "Templates": 4 },
       "73": { "TemplateVerbcoin": 1 },
       "74": { "TextParser": 3 },
       "75": { "TheScriptHeader": 1 },
@@ -67246,16 +67365,15 @@ var meta = {
       "36": { "Settingupthegame": 1 },
       "37": { "System": 1 },
       "38": { "SystemLimits": 1 },
-      "39": { "Templates": 1 },
-      "40": { "Translations": 1 },
-      "41": { "Tumbleweed": 1 },
-      "42": { "Tumbleweed_movement": 1 },
-      "43": { "UpgradeTo31": 1 },
-      "44": { "UpgradeTo33": 1 },
-      "45": { "UpgradeTo34": 1 },
-      "46": { "UpgradeTo341": 2 },
-      "47": { "UpgradeTo36": 3 },
-      "48": { "UpgradeTo361": 1 }
+      "39": { "Translations": 1 },
+      "40": { "Tumbleweed": 1 },
+      "41": { "Tumbleweed_movement": 1 },
+      "42": { "UpgradeTo31": 1 },
+      "43": { "UpgradeTo33": 1 },
+      "44": { "UpgradeTo34": 1 },
+      "45": { "UpgradeTo341": 2 },
+      "46": { "UpgradeTo36": 3 },
+      "47": { "UpgradeTo361": 1 }
     },
     "similarly": {
       "0": { "acintro8": 1 },
@@ -68006,7 +68124,7 @@ var meta = {
       "72": { "RepExec": 1 },
       "73": { "RestoredSaveInfo": 1 },
       "74": { "ScriptAPIOverview": 1 },
-      "75": { "ScriptAttributes": 1 },
+      "75": { "ScriptAttributes": 2 },
       "76": { "ScriptingTutorialPart1": 13 },
       "77": { "ScriptingTutorialPart2": 3 },
       "78": { "ScriptKeywords": 8 },
@@ -68244,7 +68362,7 @@ var meta = {
       "37": { "Pointers": 3 },
       "38": { "RepExec": 5 },
       "39": { "RestoredSaveInfo": 1 },
-      "40": { "ScriptAttributes": 4 },
+      "40": { "ScriptAttributes": 8 },
       "41": { "ScriptingTutorialPart1": 9 },
       "42": { "ScriptingTutorialPart2": 6 },
       "43": { "ScriptKeywords": 4 },
@@ -69439,7 +69557,7 @@ var meta = {
       "25": { "Region": 4 },
       "26": { "Room": 17 },
       "27": { "Screen": 8 },
-      "28": { "ScriptAttributes": 5 },
+      "28": { "ScriptAttributes": 9 },
       "29": { "ScriptManagedStructs": 3 },
       "30": { "ScriptStructs": 15 },
       "31": { "Set": 1 },
@@ -69985,7 +70103,7 @@ var meta = {
       "8": { "Room": 1 },
       "9": { "Screen": 4 },
       "10": { "ScriptAPIOverview": 1 },
-      "11": { "ScriptAttributes": 17 },
+      "11": { "ScriptAttributes": 20 },
       "12": { "ScriptKeywords": 26 },
       "13": { "ScriptManagedStructs": 15 },
       "14": { "ScriptStructs": 49 },
@@ -70088,14 +70206,15 @@ var meta = {
       "18": { "ListBox": 2 },
       "19": { "Overlay": 4 },
       "20": { "ScriptAPIOverview": 2 },
-      "21": { "Set": 6 },
-      "22": { "Setup": 4 },
-      "23": { "Speech": 3 },
-      "24": { "TemplateVerbcoin": 1 },
-      "25": { "TroubleshootingWindowsZoneID": 1 },
-      "26": { "UpgradeTo33": 2 },
-      "27": { "UpgradeTo36": 2 },
-      "28": { "VoiceSpeech": 2 }
+      "21": { "ScriptAttributes": 1 },
+      "22": { "Set": 6 },
+      "23": { "Setup": 4 },
+      "24": { "Speech": 3 },
+      "25": { "TemplateVerbcoin": 1 },
+      "26": { "TroubleshootingWindowsZoneID": 1 },
+      "27": { "UpgradeTo33": 2 },
+      "28": { "UpgradeTo36": 2 },
+      "29": { "VoiceSpeech": 2 }
     },
     "styles": {
       "0": { "CustomDialogOptions": 1 },
@@ -70149,9 +70268,10 @@ var meta = {
       "0": { "DistGame": 2 },
       "1": { "GeneralSettings": 2 },
       "2": { "MusicAndSound": 2 },
-      "3": { "UpgradeTo341": 1 },
-      "4": { "UpgradeTo36": 2 },
-      "5": { "VoiceSpeech": 1 }
+      "3": { "Templates": 1 },
+      "4": { "UpgradeTo341": 1 },
+      "5": { "UpgradeTo36": 2 },
+      "6": { "VoiceSpeech": 1 }
     },
     "subject": {
       "0": { "EditorRoom": 1 },
@@ -70472,16 +70592,17 @@ var meta = {
       "43": { "Setup": 1 },
       "44": { "StandardEnums": 15 },
       "45": { "System": 3 },
-      "46": { "TextWindowGUI": 1 },
-      "47": { "Translations": 1 },
-      "48": { "UpgradeTo30": 1 },
-      "49": { "UpgradeTo31": 1 },
-      "50": { "UpgradeTo32": 1 },
-      "51": { "UpgradeTo34": 2 },
-      "52": { "UpgradeTo36": 4 },
-      "53": { "ValidateRestoredSave": 1 },
-      "54": { "Viewport": 1 },
-      "55": { "VoiceSpeech": 1 }
+      "46": { "Templates": 1 },
+      "47": { "TextWindowGUI": 1 },
+      "48": { "Translations": 1 },
+      "49": { "UpgradeTo30": 1 },
+      "50": { "UpgradeTo31": 1 },
+      "51": { "UpgradeTo32": 1 },
+      "52": { "UpgradeTo34": 2 },
+      "53": { "UpgradeTo36": 4 },
+      "54": { "ValidateRestoredSave": 1 },
+      "55": { "Viewport": 1 },
+      "56": { "VoiceSpeech": 1 }
     },
     "supporting": {
       "0": { "Preprocessor": 1 }
@@ -70875,9 +70996,10 @@ var meta = {
       "3": { "ExtenderFunctions": 1 },
       "4": { "Feature_Game": 1 },
       "5": { "Pointers": 1 },
-      "6": { "ScriptStructs": 2 },
-      "7": { "TextParser": 1 },
-      "8": { "UpgradingTo27": 1 }
+      "6": { "ScriptAttributes": 2 },
+      "7": { "ScriptStructs": 2 },
+      "8": { "TextParser": 1 },
+      "9": { "UpgradingTo27": 1 }
     },
     "synthesizer": {
       "0": { "MIDI-playback": 3 },
@@ -71369,7 +71491,7 @@ var meta = {
       "5": { "Feature_Game": 4 },
       "6": { "GlobalArrays": 1 },
       "7": { "TemplateBASS": 2 },
-      "8": { "Templates": 15 },
+      "8": { "Templates": 17 },
       "9": { "TemplateSierraStyle": 4 },
       "10": { "TemplateVerbcoin": 3 },
       "11": { "Tumbleweed": 7 },
@@ -71382,11 +71504,14 @@ var meta = {
     "template's": {
       "0": { "Tumbleweed_translation": 2 }
     },
+    "template.files": {
+      "0": { "Templates": 5 }
+    },
     "template.ico": {
-      "0": { "Templates": 1 }
+      "0": { "Templates": 2 }
     },
     "template.txt": {
-      "0": { "Templates": 1 }
+      "0": { "Templates": 2 }
     },
     "templates": {
       "0": { "Credits": 2 },
@@ -71912,7 +72037,7 @@ var meta = {
       "65": { "Region": 1 },
       "66": { "RepExec": 3 },
       "67": { "Room": 1 },
-      "68": { "ScriptAttributes": 2 },
+      "68": { "ScriptAttributes": 3 },
       "69": { "ScriptingTutorialPart1": 8 },
       "70": { "ScriptingTutorialPart2": 4 },
       "71": { "ScriptKeywords": 7 },
@@ -72012,7 +72137,7 @@ var meta = {
       "27": { "Room": 1 },
       "28": { "RuntimeEngine": 1 },
       "29": { "ScriptAPIOverview": 1 },
-      "30": { "ScriptAttributes": 3 },
+      "30": { "ScriptAttributes": 2 },
       "31": { "ScriptingTutorialPart2": 1 },
       "32": { "ScriptManagedStructs": 3 },
       "33": { "ScriptStructs": 1 },
@@ -72995,10 +73120,11 @@ var meta = {
       "41": { "Setup": 1 },
       "42": { "StandardEnums": 1 },
       "43": { "TemplateBASS": 1 },
-      "44": { "TemplateVerbcoin": 1 },
-      "45": { "UpgradeTo31": 1 },
-      "46": { "UpgradeTo35": 1 },
-      "47": { "Viewport": 3 }
+      "44": { "Templates": 1 },
+      "45": { "TemplateVerbcoin": 1 },
+      "46": { "UpgradeTo31": 1 },
+      "47": { "UpgradeTo35": 1 },
+      "48": { "Viewport": 3 }
     },
     "top-left": {
       "0": { "Camera": 1 },
@@ -73458,7 +73584,8 @@ var meta = {
       "0": { "EditorLogPanel": 1 }
     },
     "trs": {
-      "0": { "Translations": 3 }
+      "0": { "Templates": 1 },
+      "1": { "Translations": 3 }
     },
     "true": {
       "0": { "acintro5": 1 },
@@ -73566,6 +73693,9 @@ var meta = {
       "3": { "ScriptAttributes": 1 },
       "4": { "System": 1 }
     },
+    "ttf": {
+      "0": { "Templates": 2 }
+    },
     "turn": {
       "0": { "acintro1": 2 },
       "1": { "AnonymousUsageInfo": 1 },
@@ -73623,7 +73753,8 @@ var meta = {
       "2": { "GeneralSettings": 1 },
       "3": { "GUIControl": 2 },
       "4": { "Mouse": 1 },
-      "5": { "Tumbleweed_movement": 2 }
+      "5": { "ScriptAttributes": 1 },
+      "6": { "Tumbleweed_movement": 2 }
     },
     "tutorial": {
       "0": { "acintro1": 4 },
@@ -73711,7 +73842,7 @@ var meta = {
       "46": { "Preprocessor": 1 },
       "47": { "RepExec": 1 },
       "48": { "ScriptAPIOverview": 1 },
-      "49": { "ScriptAttributes": 2 },
+      "49": { "ScriptAttributes": 3 },
       "50": { "ScriptingTutorialPart1": 9 },
       "51": { "ScriptingTutorialPart2": 4 },
       "52": { "ScriptKeywords": 2 },
@@ -73722,7 +73853,7 @@ var meta = {
       "57": { "Setup": 1 },
       "58": { "String": 1 },
       "59": { "TemplateBASS": 1 },
-      "60": { "Templates": 1 },
+      "60": { "Templates": 2 },
       "61": { "TextParser": 3 },
       "62": { "Translations": 1 },
       "63": { "Tumbleweed": 2 },
@@ -73746,6 +73877,9 @@ var meta = {
     },
     "two_fingers": {
       "0": { "EngineConfigFile": 1 }
+    },
+    "txt": {
+      "0": { "Templates": 2 }
     },
     "txtInput": {
       "0": { "TextBox": 1 }
@@ -73823,16 +73957,17 @@ var meta = {
       "48": { "Settingupthegame": 3 },
       "49": { "StandardEnums": 2 },
       "50": { "StringFormats": 1 },
-      "51": { "TextParser": 10 },
-      "52": { "UnicodeSupport": 2 },
-      "53": { "UpgradeTo32": 1 },
-      "54": { "UpgradeTo34": 1 },
-      "55": { "UpgradeTo35": 2 },
-      "56": { "UpgradeTo36": 1 },
-      "57": { "UpgradeTo361": 1 },
-      "58": { "UpgradeTo362": 1 },
-      "59": { "UpgradingTo27": 5 },
-      "60": { "UpgradingTo271": 1 }
+      "51": { "Templates": 3 },
+      "52": { "TextParser": 10 },
+      "53": { "UnicodeSupport": 2 },
+      "54": { "UpgradeTo32": 1 },
+      "55": { "UpgradeTo34": 1 },
+      "56": { "UpgradeTo35": 2 },
+      "57": { "UpgradeTo36": 1 },
+      "58": { "UpgradeTo361": 1 },
+      "59": { "UpgradeTo362": 1 },
+      "60": { "UpgradingTo27": 5 },
+      "61": { "UpgradingTo271": 1 }
     },
     "typeName": {
       "0": { "EnginePluginRun-timeAPI": 2 }
@@ -74042,10 +74177,9 @@ var meta = {
       "22": { "Screen": 2 },
       "23": { "Settingupthegame": 2 },
       "24": { "System": 2 },
-      "25": { "Templates": 1 },
-      "26": { "UpgradeTo36": 2 },
-      "27": { "UpgradeTo361": 1 },
-      "28": { "Viewport": 2 }
+      "25": { "UpgradeTo36": 2 },
+      "26": { "UpgradeTo361": 1 },
+      "27": { "Viewport": 2 }
     },
     "underflow": {
       "0": { "Maths": 1 }
@@ -74179,7 +74313,8 @@ var meta = {
       "17": { "OOProgramming": 1 },
       "18": { "Speech": 1 },
       "19": { "System": 1 },
-      "20": { "UpgradeTo35": 1 }
+      "20": { "Templates": 1 },
+      "21": { "UpgradeTo35": 1 }
     },
     "unlike": {
       "0": { "acintro4": 1 },
@@ -74435,7 +74570,7 @@ var meta = {
       "81": { "System": 2 },
       "82": { "SystemLimits": 1 },
       "83": { "TemplateBASS": 1 },
-      "84": { "Templates": 3 },
+      "84": { "Templates": 2 },
       "85": { "TemplateSierraStyle": 1 },
       "86": { "TemplateVerbcoin": 2 },
       "87": { "Translations": 3 },
@@ -74768,7 +74903,7 @@ var meta = {
       "95": { "Room": 5 },
       "96": { "RuntimeEngine": 8 },
       "97": { "ScriptAPIOverview": 3 },
-      "98": { "ScriptAttributes": 5 },
+      "98": { "ScriptAttributes": 8 },
       "99": { "ScriptingTutorialPart1": 16 },
       "100": { "ScriptingTutorialPart2": 5 },
       "101": { "ScriptKeywords": 11 },
@@ -74787,7 +74922,7 @@ var meta = {
       "114": { "System": 6 },
       "115": { "SystemRequirements": 1 },
       "116": { "TemplateBASS": 6 },
-      "117": { "Templates": 3 },
+      "117": { "Templates": 5 },
       "118": { "TemplateSierraStyle": 1 },
       "119": { "TemplateVerbcoin": 2 },
       "120": { "TextBox": 2 },
@@ -74909,7 +75044,7 @@ var meta = {
       "77": { "RuntimeEngine": 2 },
       "78": { "Screen": 1 },
       "79": { "ScriptAPIOverview": 3 },
-      "80": { "ScriptAttributes": 2 },
+      "80": { "ScriptAttributes": 3 },
       "81": { "ScriptingTutorialPart1": 4 },
       "82": { "ScriptKeywords": 7 },
       "83": { "ScriptManagedStructs": 2 },
@@ -75063,7 +75198,7 @@ var meta = {
       "29": { "StandardEnums": 1 },
       "30": { "String": 2 },
       "31": { "System": 1 },
-      "32": { "Templates": 3 },
+      "32": { "Templates": 4 },
       "33": { "TemplateVerbcoin": 1 },
       "34": { "TextBox": 1 },
       "35": { "TextParser": 3 },
@@ -75289,7 +75424,7 @@ var meta = {
       "86": { "RuntimeEngine": 1 },
       "87": { "Screen": 2 },
       "88": { "ScriptAPIOverview": 2 },
-      "89": { "ScriptAttributes": 7 },
+      "89": { "ScriptAttributes": 8 },
       "90": { "ScriptingTutorialPart1": 6 },
       "91": { "ScriptingTutorialPart2": 8 },
       "92": { "ScriptKeywords": 13 },
@@ -75393,6 +75528,9 @@ var meta = {
     },
     "utilize": {
       "0": { "Feature_Characters": 1 }
+    },
+    "utilizes": {
+      "0": { "ScriptAttributes": 1 }
     },
     "vRogerWalking": {
       "0": { "FAQ": 1 }
@@ -75506,7 +75644,7 @@ var meta = {
       "53": { "Region": 8 },
       "54": { "RestoredSaveInfo": 2 },
       "55": { "Room": 8 },
-      "56": { "ScriptAttributes": 32 },
+      "56": { "ScriptAttributes": 35 },
       "57": { "ScriptingTutorialPart1": 31 },
       "58": { "ScriptingTutorialPart2": 2 },
       "59": { "ScriptKeywords": 21 },
@@ -75723,7 +75861,8 @@ var meta = {
       "0": { "DialogScript": 1 },
       "1": { "GameSavesCompatibility": 1 },
       "2": { "Keycodes": 1 },
-      "3": { "UpgradeTo34": 1 }
+      "3": { "ScriptAttributes": 2 },
+      "4": { "UpgradeTo34": 1 }
     },
     "variants": {
       "0": { "EnginePluginRun-timeAPI": 2 },
@@ -75959,7 +76098,7 @@ var meta = {
       "60": { "String": 7 },
       "61": { "System": 15 },
       "62": { "SystemRequirements": 1 },
-      "63": { "Templates": 2 },
+      "63": { "Templates": 3 },
       "64": { "TextBox": 2 },
       "65": { "TextWindowGUI": 1 },
       "66": { "UpgradeTo30": 2 },
@@ -76074,7 +76213,8 @@ var meta = {
       "5": { "Multimedia": 16 },
       "6": { "Setup": 4 },
       "7": { "SystemRequirements": 1 },
-      "8": { "UpgradeTo36": 4 }
+      "8": { "Templates": 1 },
+      "9": { "UpgradeTo36": 4 }
     },
     "video's": {
       "0": { "Multimedia": 4 }
@@ -76286,9 +76426,10 @@ var meta = {
       "2": { "Game": 4 },
       "3": { "GeneralSettings": 1 },
       "4": { "MusicAndSound": 1 },
-      "5": { "UpgradeTo341": 1 },
-      "6": { "UpgradeTo36": 3 },
-      "7": { "VoiceSpeech": 1 }
+      "5": { "Templates": 1 },
+      "6": { "UpgradeTo341": 1 },
+      "7": { "UpgradeTo36": 3 },
+      "8": { "VoiceSpeech": 1 }
     },
     "voice-overs": {
       "0": { "EngineConfigFile": 1 }
@@ -76316,7 +76457,7 @@ var meta = {
       "15": { "Object": 3 },
       "16": { "OOProgramming": 10 },
       "17": { "Room": 1 },
-      "18": { "ScriptAttributes": 12 },
+      "18": { "ScriptAttributes": 15 },
       "19": { "ScriptKeywords": 4 },
       "20": { "ScriptManagedStructs": 5 },
       "21": { "ScriptStructs": 15 },
@@ -76832,7 +76973,7 @@ var meta = {
       "51": { "Speech": 1 },
       "52": { "SystemLimits": 1 },
       "53": { "SystemRequirements": 1 },
-      "54": { "Templates": 1 },
+      "54": { "Templates": 2 },
       "55": { "TextParser": 1 },
       "56": { "Translations": 1 },
       "57": { "TroubleshootingWindowsZoneID": 1 },
@@ -76869,9 +77010,10 @@ var meta = {
       "11": { "GlobalVariables": 1 },
       "12": { "ScriptingTutorialPart1": 1 },
       "13": { "Settingupthegame": 3 },
-      "14": { "Translations": 1 },
-      "15": { "Tumbleweed": 1 },
-      "16": { "UpgradingTo27": 1 }
+      "14": { "Templates": 1 },
+      "15": { "Translations": 1 },
+      "16": { "Tumbleweed": 1 },
+      "17": { "UpgradingTo27": 1 }
     },
     "we": {
       "0": { "acintro1": 7 },
@@ -77011,25 +77153,26 @@ var meta = {
       "27": { "Lipsync": 1 },
       "28": { "Maths": 1 },
       "29": { "MusicAndSound": 1 },
-      "30": { "ScriptingTutorialPart1": 2 },
-      "31": { "ScriptKeywords": 1 },
-      "32": { "ScriptManagedStructs": 2 },
-      "33": { "Set": 1 },
-      "34": { "Settingupthegame": 2 },
-      "35": { "String": 1 },
-      "36": { "System": 1 },
-      "37": { "TextParser": 2 },
-      "38": { "Tumbleweed": 2 },
-      "39": { "UpgradeTo30": 1 },
-      "40": { "UpgradeTo31": 1 },
-      "41": { "UpgradeTo32": 1 },
-      "42": { "UpgradeTo33": 1 },
-      "43": { "UpgradeTo34": 1 },
-      "44": { "UpgradeTo36": 1 },
-      "45": { "UpgradeTo362": 2 },
-      "46": { "UpgradingTo27": 2 },
-      "47": { "UpgradingTo271": 1 },
-      "48": { "VoiceSpeech": 1 }
+      "30": { "ScriptAttributes": 1 },
+      "31": { "ScriptingTutorialPart1": 2 },
+      "32": { "ScriptKeywords": 1 },
+      "33": { "ScriptManagedStructs": 2 },
+      "34": { "Set": 1 },
+      "35": { "Settingupthegame": 2 },
+      "36": { "String": 1 },
+      "37": { "System": 1 },
+      "38": { "TextParser": 2 },
+      "39": { "Tumbleweed": 2 },
+      "40": { "UpgradeTo30": 1 },
+      "41": { "UpgradeTo31": 1 },
+      "42": { "UpgradeTo32": 1 },
+      "43": { "UpgradeTo33": 1 },
+      "44": { "UpgradeTo34": 1 },
+      "45": { "UpgradeTo36": 1 },
+      "46": { "UpgradeTo362": 2 },
+      "47": { "UpgradingTo27": 2 },
+      "48": { "UpgradingTo271": 1 },
+      "49": { "VoiceSpeech": 1 }
     },
     "went": {
       "0": { "Templates": 1 },
@@ -77089,6 +77232,9 @@ var meta = {
     },
     "weren't": {
       "0": { "File": 1 }
+    },
+    "wfn": {
+      "0": { "Templates": 2 }
     },
     "what": {
       "0": { "acintro1": 6 },
@@ -77311,7 +77457,7 @@ var meta = {
       "87": { "Room": 5 },
       "88": { "RuntimeEngine": 2 },
       "89": { "Screen": 2 },
-      "90": { "ScriptAttributes": 1 },
+      "90": { "ScriptAttributes": 2 },
       "91": { "ScriptingTutorialPart1": 5 },
       "92": { "ScriptingTutorialPart2": 2 },
       "93": { "ScriptKeywords": 12 },
@@ -77445,7 +77591,7 @@ var meta = {
       "60": { "RepExec": 2 },
       "61": { "RuntimeEngine": 4 },
       "62": { "ScriptAPIOverview": 1 },
-      "63": { "ScriptAttributes": 2 },
+      "63": { "ScriptAttributes": 3 },
       "64": { "ScriptingTutorialPart1": 4 },
       "65": { "ScriptingTutorialPart2": 1 },
       "66": { "ScriptKeywords": 4 },
@@ -77455,22 +77601,23 @@ var meta = {
       "70": { "StandardEnums": 2 },
       "71": { "String": 3 },
       "72": { "TemplateBASS": 1 },
-      "73": { "TemplateVerbcoin": 1 },
-      "74": { "TextParser": 2 },
-      "75": { "TheScriptHeader": 1 },
-      "76": { "Translations": 4 },
-      "77": { "TroubleshootingWindowsZoneID": 7 },
-      "78": { "UpgradeTo31": 2 },
-      "79": { "UpgradeTo32": 2 },
-      "80": { "UpgradeTo33": 1 },
-      "81": { "UpgradeTo335": 1 },
-      "82": { "UpgradeTo341": 1 },
-      "83": { "UpgradeTo35": 5 },
-      "84": { "UpgradeTo36": 2 },
-      "85": { "UpgradeTo362": 1 },
-      "86": { "UpgradingTo27": 2 },
-      "87": { "Viewport": 2 },
-      "88": { "VoiceSpeech": 3 }
+      "73": { "Templates": 2 },
+      "74": { "TemplateVerbcoin": 1 },
+      "75": { "TextParser": 2 },
+      "76": { "TheScriptHeader": 1 },
+      "77": { "Translations": 4 },
+      "78": { "TroubleshootingWindowsZoneID": 7 },
+      "79": { "UpgradeTo31": 2 },
+      "80": { "UpgradeTo32": 2 },
+      "81": { "UpgradeTo33": 1 },
+      "82": { "UpgradeTo335": 1 },
+      "83": { "UpgradeTo341": 1 },
+      "84": { "UpgradeTo35": 5 },
+      "85": { "UpgradeTo36": 2 },
+      "86": { "UpgradeTo362": 1 },
+      "87": { "UpgradingTo27": 2 },
+      "88": { "Viewport": 2 },
+      "89": { "VoiceSpeech": 3 }
     },
     "whereas": {
       "0": { "acintro7": 1 },
@@ -77673,7 +77820,7 @@ var meta = {
       "98": { "RuntimeEngine": 1 },
       "99": { "Screen": 7 },
       "100": { "ScriptAPIOverview": 8 },
-      "101": { "ScriptAttributes": 1 },
+      "101": { "ScriptAttributes": 2 },
       "102": { "ScriptingTutorialPart1": 12 },
       "103": { "ScriptingTutorialPart2": 1 },
       "104": { "ScriptKeywords": 13 },
@@ -77690,7 +77837,7 @@ var meta = {
       "115": { "System": 17 },
       "116": { "SystemLimits": 2 },
       "117": { "TemplateBASS": 5 },
-      "118": { "Templates": 3 },
+      "118": { "Templates": 5 },
       "119": { "TemplateSierraStyle": 1 },
       "120": { "TemplateVerbcoin": 2 },
       "121": { "TextBox": 6 },
@@ -77917,6 +78064,9 @@ var meta = {
       "0": { "File": 1 },
       "1": { "ListBox": 1 }
     },
+    "wildcards": {
+      "0": { "Templates": 1 }
+    },
     "win": {
       "0": { "EngineConfigFile": 1 }
     },
@@ -78021,11 +78171,12 @@ var meta = {
       "9": { "GeneralSettings": 1 },
       "10": { "GUI": 1 },
       "11": { "ListBox": 1 },
-      "12": { "TextParser": 1 },
-      "13": { "Translations": 1 },
-      "14": { "UnicodeSupport": 1 },
-      "15": { "UpgradeTo34": 1 },
-      "16": { "UpgradeTo362": 1 }
+      "12": { "Templates": 1 },
+      "13": { "TextParser": 1 },
+      "14": { "Translations": 1 },
+      "15": { "UnicodeSupport": 1 },
+      "16": { "UpgradeTo34": 1 },
+      "17": { "UpgradeTo362": 1 }
     },
     "within": {
       "0": { "acintro2": 3 },
@@ -78179,18 +78330,19 @@ var meta = {
       "28": { "Overlay": 2 },
       "29": { "Plugins": 1 },
       "30": { "Pointers": 1 },
-      "31": { "ScriptingTutorialPart1": 1 },
-      "32": { "ScriptManagedStructs": 1 },
-      "33": { "Set": 1 },
-      "34": { "TextParser": 1 },
-      "35": { "Translations": 1 },
-      "36": { "Tumbleweed": 1 },
-      "37": { "UnicodeSupport": 2 },
-      "38": { "UpgradeTo34": 2 },
-      "39": { "UpgradeTo341": 1 },
-      "40": { "UpgradeTo36": 2 },
-      "41": { "UpgradeTo362": 1 },
-      "42": { "UpgradingTo271": 1 }
+      "31": { "ScriptAttributes": 1 },
+      "32": { "ScriptingTutorialPart1": 1 },
+      "33": { "ScriptManagedStructs": 1 },
+      "34": { "Set": 1 },
+      "35": { "TextParser": 1 },
+      "36": { "Translations": 1 },
+      "37": { "Tumbleweed": 1 },
+      "38": { "UnicodeSupport": 2 },
+      "39": { "UpgradeTo34": 2 },
+      "40": { "UpgradeTo341": 1 },
+      "41": { "UpgradeTo36": 2 },
+      "42": { "UpgradeTo362": 1 },
+      "43": { "UpgradingTo271": 1 }
     },
     "wonder": {
       "0": { "Character": 1 },
@@ -78590,20 +78742,21 @@ var meta = {
       "21": { "Pointers": 1 },
       "22": { "RuntimeEngine": 2 },
       "23": { "ScriptAPIOverview": 1 },
-      "24": { "ScriptAttributes": 1 },
+      "24": { "ScriptAttributes": 3 },
       "25": { "ScriptingTutorial": 1 },
       "26": { "ScriptingTutorialPart1": 7 },
       "27": { "ScriptingTutorialPart2": 7 },
       "28": { "ScriptKeywords": 4 },
       "29": { "ScriptManagedStructs": 3 },
       "30": { "Set": 1 },
-      "31": { "TroubleshootingWindowsZoneID": 2 },
-      "32": { "UpgradeTo335": 2 },
-      "33": { "UpgradeTo34": 1 },
-      "34": { "UpgradeTo36": 1 },
-      "35": { "UpgradeTo362": 1 },
-      "36": { "UpgradingTo27": 4 },
-      "37": { "ValidateRestoredSave": 1 }
+      "31": { "Templates": 1 },
+      "32": { "TroubleshootingWindowsZoneID": 2 },
+      "33": { "UpgradeTo335": 2 },
+      "34": { "UpgradeTo34": 1 },
+      "35": { "UpgradeTo36": 1 },
+      "36": { "UpgradeTo362": 1 },
+      "37": { "UpgradingTo27": 4 },
+      "38": { "ValidateRestoredSave": 1 }
     },
     "writeable": {
       "0": { "EngineConfigFile": 1 }
@@ -78640,9 +78793,10 @@ var meta = {
       "15": { "ScriptStructs": 3 },
       "16": { "StandardEnums": 1 },
       "17": { "System": 1 },
-      "18": { "Tumbleweed": 1 },
-      "19": { "UpgradeTo335": 2 },
-      "20": { "UpgradeTo36": 2 }
+      "18": { "Templates": 1 },
+      "19": { "Tumbleweed": 1 },
+      "20": { "UpgradeTo335": 2 },
+      "21": { "UpgradeTo36": 2 }
     },
     "written": {
       "0": { "AutonumberSpeechFiles": 1 },
@@ -78933,7 +79087,7 @@ var meta = {
       "105": { "RuntimeEngine": 3 },
       "106": { "Screen": 5 },
       "107": { "ScriptAPIOverview": 9 },
-      "108": { "ScriptAttributes": 6 },
+      "108": { "ScriptAttributes": 14 },
       "109": { "ScriptingTutorial": 3 },
       "110": { "ScriptingTutorialPart1": 50 },
       "111": { "ScriptingTutorialPart2": 35 },
@@ -79002,10 +79156,11 @@ var meta = {
       "13": { "Pointers": 3 },
       "14": { "ScriptKeywords": 1 },
       "15": { "System": 1 },
-      "16": { "TextParser": 1 },
-      "17": { "UnicodeSupport": 1 },
-      "18": { "UpgradeTo34": 1 },
-      "19": { "UpgradeTo35": 1 }
+      "16": { "Templates": 2 },
+      "17": { "TextParser": 1 },
+      "18": { "UnicodeSupport": 1 },
+      "19": { "UpgradeTo34": 1 },
+      "20": { "UpgradeTo35": 1 }
     },
     "you'll": {
       "0": { "acintro1": 3 },
@@ -79189,47 +79344,48 @@ var meta = {
       "93": { "RuntimeEngine": 1 },
       "94": { "Screen": 1 },
       "95": { "ScriptAPIOverview": 6 },
-      "96": { "ScriptingTutorial": 1 },
-      "97": { "ScriptingTutorialPart1": 8 },
-      "98": { "ScriptingTutorialPart2": 12 },
-      "99": { "ScriptKeywords": 20 },
-      "100": { "ScriptManagedStructs": 2 },
-      "101": { "ScriptModules": 1 },
-      "102": { "ScriptStructs": 1 },
-      "103": { "Settingupthegame": 24 },
-      "104": { "StandardEnums": 3 },
-      "105": { "StandardTypes": 1 },
-      "106": { "StartingOff": 2 },
-      "107": { "StringFormats": 3 },
-      "108": { "System": 5 },
-      "109": { "SystemLimits": 1 },
-      "110": { "SystemRequirements": 2 },
-      "111": { "Templates": 11 },
-      "112": { "TemplateSierraStyle": 1 },
-      "113": { "TextParser": 6 },
-      "114": { "TheScriptHeader": 1 },
-      "115": { "Translations": 11 },
-      "116": { "TroubleshootingWindowsZoneID": 1 },
-      "117": { "Tumbleweed": 9 },
-      "118": { "Tumbleweed_door": 1 },
-      "119": { "Tumbleweed_extensions": 1 },
-      "120": { "Tumbleweed_translation": 3 },
-      "121": { "Tumbleweed_unhandled": 1 },
-      "122": { "UnicodeSupport": 5 },
-      "123": { "UpgradeTo30": 12 },
-      "124": { "UpgradeTo31": 13 },
-      "125": { "UpgradeTo32": 5 },
-      "126": { "UpgradeTo33": 2 },
-      "127": { "UpgradeTo335": 1 },
-      "128": { "UpgradeTo34": 12 },
-      "129": { "UpgradeTo341": 7 },
-      "130": { "UpgradeTo35": 7 },
-      "131": { "UpgradeTo36": 12 },
-      "132": { "UpgradeTo361": 4 },
-      "133": { "UpgradeTo362": 9 },
-      "134": { "UpgradingTo27": 9 },
-      "135": { "ValidateRestoredSave": 2 },
-      "136": { "VoiceSpeech": 3 }
+      "96": { "ScriptAttributes": 1 },
+      "97": { "ScriptingTutorial": 1 },
+      "98": { "ScriptingTutorialPart1": 8 },
+      "99": { "ScriptingTutorialPart2": 12 },
+      "100": { "ScriptKeywords": 20 },
+      "101": { "ScriptManagedStructs": 2 },
+      "102": { "ScriptModules": 1 },
+      "103": { "ScriptStructs": 1 },
+      "104": { "Settingupthegame": 24 },
+      "105": { "StandardEnums": 3 },
+      "106": { "StandardTypes": 1 },
+      "107": { "StartingOff": 2 },
+      "108": { "StringFormats": 3 },
+      "109": { "System": 5 },
+      "110": { "SystemLimits": 1 },
+      "111": { "SystemRequirements": 2 },
+      "112": { "Templates": 11 },
+      "113": { "TemplateSierraStyle": 1 },
+      "114": { "TextParser": 6 },
+      "115": { "TheScriptHeader": 1 },
+      "116": { "Translations": 11 },
+      "117": { "TroubleshootingWindowsZoneID": 1 },
+      "118": { "Tumbleweed": 9 },
+      "119": { "Tumbleweed_door": 1 },
+      "120": { "Tumbleweed_extensions": 1 },
+      "121": { "Tumbleweed_translation": 3 },
+      "122": { "Tumbleweed_unhandled": 1 },
+      "123": { "UnicodeSupport": 5 },
+      "124": { "UpgradeTo30": 12 },
+      "125": { "UpgradeTo31": 13 },
+      "126": { "UpgradeTo32": 5 },
+      "127": { "UpgradeTo33": 2 },
+      "128": { "UpgradeTo335": 1 },
+      "129": { "UpgradeTo34": 12 },
+      "130": { "UpgradeTo341": 7 },
+      "131": { "UpgradeTo35": 7 },
+      "132": { "UpgradeTo36": 12 },
+      "133": { "UpgradeTo361": 4 },
+      "134": { "UpgradeTo362": 9 },
+      "135": { "UpgradingTo27": 9 },
+      "136": { "ValidateRestoredSave": 2 },
+      "137": { "VoiceSpeech": 3 }
     },
     "yours": {
       "0": { "EnginePluginRun-timeAPI": 1 }
@@ -79251,7 +79407,7 @@ var meta = {
       "13": { "InventoryItem": 1 },
       "14": { "MusicAndSound": 1 },
       "15": { "Screen": 1 },
-      "16": { "ScriptAttributes": 2 },
+      "16": { "ScriptAttributes": 1 },
       "17": { "ScriptingTutorialPart1": 1 },
       "18": { "ScriptManagedStructs": 1 },
       "19": { "Settingupthegame": 1 },
@@ -79319,8 +79475,7 @@ var meta = {
       "3": { "TroubleshootingWindowsZoneID": 1 }
     },
     "zipping": {
-      "0": { "DistGame": 1 },
-      "1": { "Templates": 1 }
+      "0": { "DistGame": 1 }
     },
     "zlib": {
       "0": { "Copyright": 2 },
