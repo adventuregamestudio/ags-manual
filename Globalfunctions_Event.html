@@ -92,7 +92,9 @@
 <section id="on_event" class="level3">
 <h3><a href="#on_event"><code>on_event</code></a></h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>on_event <span class="op">(</span><span class="dt">EventType</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">,</span> <span class="dt">int</span> data3<span class="op">,</span> <span class="dt">int</span> data4<span class="op">)</span></span></code></pre></div>
-<p>Called whenever certain game events occur. The values of DATA1 to DATA4 arguments depend on which event has occurred. The possible values of event are:</p>
+<p>Called whenever certain game events occur. The values of DATA1 to DATA4 arguments depend on which event has occurred (see below).</p>
+<p><strong>IMPORTANT:</strong> DATA2 to DATA4 parameters are supported since <strong>AGS 3.6.2</strong>. If you are using <strong>AGS 3.6.1</strong> or lower, then only one <code>event</code> and a single <code>data</code> (or <code>data1</code>) arguments should be declared.</p>
+<p>The possible values of event are:</p>
 <pre><code>eEventEnterRoomBeforeFadein
         called just before the room&#39;s &#39;Enter Before Fade-in&#39; event occurs
         DATA1 = new room number
@@ -180,8 +182,9 @@ eEventDialogOptionsClose
 </section>
 <section id="on_key_press" class="level3">
 <h3><a href="#on_key_press"><code>on_key_press</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>on_key_press <span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">,</span> optional <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>on_key_press <span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">,</span> <span class="dt">int</span> mod<span class="op">)</span></span></code></pre></div>
 <p>Called whenever a key is pressed on the keyboard. <code>keycode</code> holds the value of the key, while <code>mod</code> holds a combination of modifiers pressed alongside with that key. A list of these values is <a href="Keycodes.html">available here</a>.</p>
+<p><strong>IMPORTANT:</strong> <code>mod</code> argument is supported since <strong>AGS 3.6.0</strong>. If you are using <strong>AGS 3.5.1</strong> or lower, then only <code>keycode</code> argument should be declared.</p>
 <p>The <code>mod</code> argument is optional and may be omited. The <code>mod</code> contains <em>set of flags</em>, and is slightly more complicated than keycode: as you should not use regular comparison (<code>==</code>, <code>!=</code>) with it, but a bitwise operator (<code>&amp;</code>):</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// these two conditions check that ctrl was pressed (these commands are equivalent)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>mod <span class="op">&amp;</span> <span class="bu">eKeyModCtrl</span><span class="op">)</span></span>
@@ -209,6 +212,7 @@ eEventDialogOptionsClose
 <h3><a href="#on_mouse_click"><code>on_mouse_click</code></a></h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>on_mouse_click <span class="op">(</span><span class="dt">MouseButton</span> button<span class="op">,</span> <span class="dt">int</span> mx<span class="op">,</span> <span class="dt">int</span> my<span class="op">)</span></span></code></pre></div>
 <p>Called when the player clicks a mouse button. BUTTON is either <code>eMouseLeft</code>, <code>eMouseRight</code>, or <code>eMouseMiddle</code>, depending on which button was clicked. The <code>mx</code> and <code>my</code> parameters contain the mouse's position at the time of a click.</p>
+<p><strong>IMPORTANT:</strong> <code>mx</code> and <code>my</code> arguments are supported since <strong>AGS 3.6.2</strong>. If you are using <strong>AGS 3.6.1</strong> or lower, then only <code>button</code> argument should be declared.</p>
 <p><strong>NOTE:</strong> it is an old tradition to use global variables <code>mouse.x</code> and <code>mouse.y</code> in this function to get the mouse's position. But that method is not entirely reliable, as <code>on_mouse_click</code> may be called with certain delay, when the mouse cursor has already moved a bit. Starting with AGS 3.6.2 we advise to use this function's arguments <code>mx</code> and <code>my</code> instead.</p>
 <p>If 'Handle inventory clicks in script' is enabled in the game options, this function can also be called with <code>eMouseLeftInv</code>, <code>eMouseMiddleInv</code> or <code>eMouseRightInv</code>, which indicate a left, middle or right click on an inventory item, respectively.</p>
 <p>If 'Enable mouse wheel support' is enabled, this function can also be called with eMouseWheelNorth or eMouseWheelSouth, which indicate the user moving the mouse wheel north or south, respectively.</p>
@@ -426,7 +430,7 @@ eEventDialogOptionsClose
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 8638cf0d3226aebcabc41dfdaf3e9254bd191e4a
+          Build: 669210f910c43233aac1fd42b045e6d3db16036f
         </p>
       </footer>
     </article>

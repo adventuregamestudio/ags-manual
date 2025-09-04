@@ -657,9 +657,10 @@ eLocationObject     an object</code></pre>
 <section id="restartgame" class="level3">
 <h3><a href="#restartgame"><code>RestartGame</code></a></h3>
 <div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestartGame</span> <span class="op">()</span></span></code></pre></div>
-<p>Restarts the game from the beginning.</p>
+<p>Restores game to the restart point, if one was previously set by <a href="Globalfunctions_General.html#setrestartpoint"><code>SetRestartPoint</code></a>. "Restart point" is actually a save slot 999, so this command is equivalent of calling <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a> with argument "999".</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">365</span><span class="op">))</span> <span class="bu">RestartGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF7</span><span class="op">))</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestartGame</span><span class="op">();</span></span></code></pre></div>
 <p>will restart the game if the player presses the F7 key.</p>
 <p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#setrestartpoint"><code>SetRestartPoint</code></a></p>
 <hr />
@@ -671,7 +672,8 @@ eLocationObject     an object</code></pre>
 <p>You can also pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that will be shown in the dialog.</p>
 <p>The dialog is not displayed immediately; instead, it will be displayed when the script function finishes executing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">363</span><span class="op">))</span> <span class="bu">RestoreGameDialog</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF5</span><span class="op">))</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestoreGameDialog</span><span class="op">();</span></span></code></pre></div>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
 <p><em>Compatibility:</em> Optional <em>min_slot</em> and <em>max_slot</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
@@ -894,7 +896,11 @@ eLocationObject     an object</code></pre>
 </tr>
 <tr class="even">
 <td>OPT_SAVEGAMESCREENSHOTLAYER</td>
-<td>The layer to select when savingsave screenshots into save game (<a href="StandardEnums.html#renderlayer"><code>RenderLayer</code></a>).</td>
+<td>The layer to select when savingsave screenshots into game's save (<a href="StandardEnums.html#renderlayer"><code>RenderLayer</code></a>).</td>
+</tr>
+<tr class="odd">
+<td>OPT_SAVECOMPONENTSIGNORE</td>
+<td>Types of data which to <em>skip</em> when writing or restoring game saves (<a href="StandardEnums.html#savecomponentselection"><code>SaveComponentSelection</code></a>).</td>
 </tr>
 </tbody>
 </table>
@@ -960,8 +966,9 @@ eLocationObject     an object</code></pre>
 <section id="setrestartpoint" class="level3">
 <h3><a href="#setrestartpoint"><code>SetRestartPoint</code></a></h3>
 <div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetRestartPoint</span> <span class="op">()</span></span></code></pre></div>
-<p>Changes the game restart point to the current position. This means that from now on, if the player chooses the Restart Game option, it will return here.</p>
-<p>This function is useful if the default restart point doesn't work properly in your game - just use this function to move it.</p>
+<p>Sets the game restart point to the current position. This means that from now on a call to <a href="Globalfunctions_General.html#restartgame"><code>RestartGame</code></a> will return the game to this moment.</p>
+<p>The "restart point" is actually a save slot 999, and SetRestartPoint is equivalent to calling <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a> with argument "999".</p>
+<p><strong>NOTE:</strong> historically engine made a hidden call to SetRestartPoint right after the game_start function was run. Since AGS 3.6.2 there's no longer any automatic restart point made, and you have to set one yourself if you need one. This behavior was changed because not every game requires a restart point, and some games may not be using AGS save slots at all, therefore having the engine make one unconditionally would lead to a redundant save file. If you like to keep this classic behavior simply call SetRestartPoint in game_start function.</p>
 <p><strong>NOTE:</strong> The restart point cannot be set while a script is running -- therefore, when you call this it will actually set the restart point at the next game loop where there is not a blocking script running in the background.</p>
 <p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#restartgame"><code>RestartGame</code></a></p>
 <hr />
@@ -1071,7 +1078,7 @@ eSkipScriptOnly
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 8638cf0d3226aebcabc41dfdaf3e9254bd191e4a
+          Build: 669210f910c43233aac1fd42b045e6d3db16036f
         </p>
       </footer>
     </article>

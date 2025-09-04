@@ -131,7 +131,7 @@
 <p>The new 3.6.2 engine introduces a number of options that let solve, or at least partially compensate this problem.</p>
 </section>
 <section id="support-for-loading-saves-with-less-content-for-any-given-type-of-data" class="level3">
-<h3><a href="#support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with <em>less</em> content for any given type of data.</a></h3>
+<h3><a href="#support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with <em>less</em> content for any given type of data</a></h3>
 <p>This means that the engine can load saves if they have equal or less count of Characters, Dialogs, GUI, controls on each given GUI, variables in script, and so forth, compared to the current game. Please be aware that <em>only quantity</em> of data is compared. Engine still cannot distinguish the order in which the items were saved. This means that if you change their order (such as order of IDs of items, or order of variables in a script), then engine won't be able to detect that, and will apply loaded items from the save into wrong positions.</p>
 <p>There are two exceptions to this rule at the moment: script modules and plugins. Script modules and plugins are identified by their names, and so long as the name matches the script data will be correctly loaded from save. Engine also skips the data for module or plugin if one is not present in the game anymore.</p>
 <p>The loading of "incompatible" saves is not done automatically though, it has to be triggered by adding a certain function to your scripts. This function is called <a href="ValidateRestoredSave.html">"validate_restored_save"</a> (please read further below).</p>
@@ -139,7 +139,7 @@
 <p>Please remember that the engine can do only that much: load what is available from the save. It's up to you to fixup anything after save is restored, such as correcting restored objects or initializing objects that were not restored. The good place to do this is, for example, an <a href="Globalfunctions_Event.html#on_event">"on_event" function</a> which receives eEventRestoreGame event.</p>
 </section>
 <section id="validating-restored-saves" class="level3">
-<h3><a href="#validating-restored-saves">Validating restored saves.</a></h3>
+<h3><a href="#validating-restored-saves">Validating restored saves</a></h3>
 <p>In order to "validate" an "incompatible" save either when restoring one or when prescanning one (see explanation of prescanning below) you must add a function called "validate_restored_save" into one of your game scripts. The function is defined as:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">validate_restored_save</span><span class="op">(</span>RestoredSaveInfo<span class="op">*</span> saveInfo<span class="op">)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -150,7 +150,7 @@
 <p>For more detailed explanation, please see <a href="ValidateRestoredSave.html">"validate_restored_save"</a>.</p>
 </section>
 <section id="prescanning-save-slots" class="level3">
-<h3><a href="#prescanning-save-slots">Prescanning save slots.</a></h3>
+<h3><a href="#prescanning-save-slots">Prescanning save slots</a></h3>
 <p>If engine is told to load an incompatible save and fails it then will usually just stop the game. This is quite frustrating for the players. In version 3.6.2 there's a new script command called <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots()</code></a>. This function lets you <em>test</em> a range of saves and return only validated ones. When checking the saves it will also try calling "validate_restored_save" for saves with fewer data in them. Scanning saves allows you to take precaution and avoid displaying invalid saves in game menus, or reject loading a save before it crashes the game.</p>
 </section>
 </section>
@@ -159,7 +159,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 8638cf0d3226aebcabc41dfdaf3e9254bd191e4a
+          Build: 669210f910c43233aac1fd42b045e6d3db16036f
         </p>
       </footer>
     </article>
@@ -173,9 +173,9 @@
 <li><a href="#dynamic-arrays-length-attribute" id="toc-dynamic-arrays-length-attribute">Dynamic array's Length attribute</a></li>
 <li><a href="#restricting-the-data-read-or-written-in-a-save" id="toc-restricting-the-data-read-or-written-in-a-save">Restricting the data read or written in a save</a></li>
 <li><a href="#loading-old-saves-feature" id="toc-loading-old-saves-feature">Loading old saves feature</a></li>
-<li><a href="#support-for-loading-saves-with-less-content-for-any-given-type-of-data" id="toc-support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with <em>less</em> content for any given type of data.</a></li>
-<li><a href="#validating-restored-saves" id="toc-validating-restored-saves">Validating restored saves.</a></li>
-<li><a href="#prescanning-save-slots" id="toc-prescanning-save-slots">Prescanning save slots.</a></li>
+<li><a href="#support-for-loading-saves-with-less-content-for-any-given-type-of-data" id="toc-support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with <em>less</em> content for any given type of data</a></li>
+<li><a href="#validating-restored-saves" id="toc-validating-restored-saves">Validating restored saves</a></li>
+<li><a href="#prescanning-save-slots" id="toc-prescanning-save-slots">Prescanning save slots</a></li>
 </ul></li>
 </ul>
     </aside>

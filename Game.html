@@ -233,6 +233,7 @@
 <div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> slotsFound<span class="op">[]</span> = <span class="bu">Game</span><span class="op">.</span><span class="at">GetSaveSlots</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> eSaveGameSort_Time<span class="op">,</span> eSortDescending<span class="op">);</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>listBox1<span class="op">.</span><span class="at">FillSaveGameSlots</span><span class="op">(</span>slotsFound<span class="op">);</span></span></code></pre></div>
 <p>gets an array of save slots from Game.GetSaveSlots and then inserts them into the ListBox using FillSaveGameSlots function. Note that you if you do that, you don't have to provide sorting style for FillSaveGameSlots, as the slots will already be sorted by GetSaveSlots.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots</code></a>, <a href="File.html#filegetfiles"><code>File.GetFiles</code></a>, <a href="ListBox.html#listboxfillsavegamelist"><code>ListBox.FillSaveGameList</code></a>, <a href="ListBox.html#listboxfillsavegameslots"><code>ListBox.FillSaveGameSlots</code></a></p>
 <hr />
 </section>
@@ -853,7 +854,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 8638cf0d3226aebcabc41dfdaf3e9254bd191e4a
+          Build: 669210f910c43233aac1fd42b045e6d3db16036f
         </p>
       </footer>
     </article>

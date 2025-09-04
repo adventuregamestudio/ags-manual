@@ -205,9 +205,8 @@
 <a href="Camera.html#camerax">Camera.X</a><br>
 <a href="Camera.html#cameray">Camera.Y</a><br>
 <a href="Multimedia.html#cdaudio">CDAudio</a><br>
-<a href="GameSavesCompatibility.html#changes-in-the-game-project-that-break-saves">Changes in the game project that break saves (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#changes-that-dont-break-saves-and-are-safe">Changes that DON'T break saves and ARE SAFE (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#changes-that-dont-break-saves-but-are-not-safe">Changes that DON'T break saves but are NOT SAFE (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#changes-in-game-that-dont-break-saves">Changes in game that DON'T break saves (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#changes-in-game-that-may-break-saves">Changes in game that MAY break saves (Game saves compatibility)</a><br>
 <a href="UpgradeTo36.html#changes-to-key-input-handling">Changes to key input handling (Upgrading to AGS 3.6)</a><br>
 <a href="Feature_Rooms.html#changing-rooms">Changing Rooms (Feature: Rooms)</a><br>
 <a href="Character.html#character-functions-and-properties">Character</a><br>
@@ -784,6 +783,7 @@
 <a href="GUIControl.html#guicontrolzorder">GUIControl.ZOrder</a><br>
 <a href="StandardEnums.html#guipopupstyle">GUIPopupStyle</a><br>
 <h3 id="h">H</h3>
+<a href="HandlingIncompatibleSaves.html#handling-incompatible-saves">Handling incompatible saves</a><br>
 <a href="Globalfunctions_Room.html#hasplayerbeeninroom">HasPlayerBeenInRoom</a><br>
 <a href="StandardEnums.html#horizontalalignment">HorizontalAlignment</a><br>
 <a href="Hotspot.html#hotspot-functions-and-properties">Hotspot</a><br>
@@ -809,6 +809,7 @@
 <a href="EditorInventoryItems.html#hotspotx">HotspotX (Inventory Items Editor)</a><br>
 <a href="EditorInventoryItems.html#hotspoty">HotspotY (Inventory Items Editor)</a><br>
 <a href="TroubleshootingWindowsZoneID.html#how-do-i-clean-my-ags-editor-files-of-alternate-data-streams">How do I clean my AGS editor files of "alternate data streams"? (Troubleshooting Windows Zone Identifier)</a><br>
+<a href="HandlingIncompatibleSaves.html#how-it-works">How it works (Handling incompatible saves)</a><br>
 <a href="RuntimeEngine.html#how-the-engine-finds-the-game-data">How the engine finds the game data (The run-time engine)</a><br>
 <a href="MIDI-playback.html#how-to-configure-timidity">How to configure Timidity (MIDI playback)</a><br>
 <h3 id="i">I</h3>
@@ -1304,7 +1305,8 @@
 <a href="Pointers.html#pointers-for-programming-newbies">Pointers for programming newbies (Pointers in AGS)</a><br>
 <a href="Pointers.html#pointers-in-ags">Pointers in AGS</a><br>
 <a href="Preprocessor.html#preprocessor">Preprocessor</a><br>
-<a href="UpgradeTo362.html#prescanning-save-slots">Prescanning save slots. (Upgrading to AGS 3.6.2)</a><br>
+<a href="HandlingIncompatibleSaves.html#prescanning-save-slots">Prescanning save slots (Handling incompatible saves)</a><br>
+<a href="UpgradeTo362.html#prescanning-save-slots">Prescanning save slots (Upgrading to AGS 3.6.2)</a><br>
 <a href="EditorInventoryItems.html#properties">Properties (Inventory Items Editor)</a><br>
 <a href="EditorView.html#properties">Properties (View Editor)</a><br>
 <a href="EditorRoom.html#properties-control">Properties control (Room Editor)</a><br>
@@ -1497,11 +1499,13 @@
 <a href="Slider.html#slidervalue">Slider.Value</a><br>
 <a href="EditorGUI.html#sliders">Sliders (GUI Editor)</a><br>
 <a href="GameSavesCompatibility.html#solution-0-code-your-own-save-system">Solution 0: Code your own save system (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#solution-1-reusing-game-objects">Solution 1: Reusing game objects (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#solution-2-dummy-object-reserve">Solution 2: Dummy object reserve (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#solution-3-new-rooms">Solution 3: New rooms (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#solution-4-string-dictionary-and-set">Solution 4: String, Dictionary and Set (Game saves compatibility)</a><br>
-<a href="GameSavesCompatibility.html#solution-5-extending-dynamic-arrays-and-managed-structs">Solution 5: Extending dynamic arrays and managed structs (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-1-handle-incompatible-saves-in-script">Solution 1: Handle incompatible saves in script (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-2-reduce-types-of-data-stored-in-saves">Solution 2: Reduce types of data stored in saves (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-3-reusing-game-objects">Solution 3: Reusing game objects (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-4-dummy-object-reserve">Solution 4: Dummy object reserve (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-5-new-rooms">Solution 5: New rooms (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-6-string-dictionary-and-set">Solution 6: String, Dictionary and Set (Game saves compatibility)</a><br>
+<a href="GameSavesCompatibility.html#solution-7-extending-dynamic-arrays-and-managed-structs">Solution 7: Extending dynamic arrays and managed structs (Game saves compatibility)</a><br>
 <a href="UpgradeTo35.html#some-script-functions-replaced-andor-deprecated">Some script functions replaced and/or deprecated (Upgrading to AGS 3.5)</a><br>
 <a href="StandardEnums.html#sortdirection">SortDirection</a><br>
 <a href="StandardEnums.html#sortstyle">SortStyle</a><br>
@@ -1567,7 +1571,7 @@
 <a href="ScriptStructs.html#structs">Structs</a><br>
 <a href="DialogScript.html#substituting-dialog-speech-with-custom-functions">Substituting dialog speech with custom functions (Dialog Script)</a><br>
 <a href="ScriptingTutorialPart1.html#summary">Summary (Scripting Tutorial - Part 1)</a><br>
-<a href="UpgradeTo362.html#support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with less content for any given type of data. (Upgrading to AGS 3.6.2)</a><br>
+<a href="UpgradeTo362.html#support-for-loading-saves-with-less-content-for-any-given-type-of-data">Support for loading saves with less content for any given type of data (Upgrading to AGS 3.6.2)</a><br>
 <a href="ScriptKeywords.html#switch-case-statements">switch, case statements (Script language keywords)</a><br>
 <a href="System.html#system-functions-and-properties">System</a><br>
 <a href="SystemLimits.html#system-limits">System limits</a><br>
@@ -1692,7 +1696,8 @@
 <a href="acintro6.html#using-your-own-graphics">Using your own graphics (Getting Started with AGS - Part 6)</a><br>
 <h3 id="v">V</h3>
 <a href="ValidateRestoredSave.html#validate_restored_save">validate_restored_save</a><br>
-<a href="UpgradeTo362.html#validating-restored-saves">Validating restored saves. (Upgrading to AGS 3.6.2)</a><br>
+<a href="HandlingIncompatibleSaves.html#validating-restored-saves">Validating restored saves (Handling incompatible saves)</a><br>
+<a href="UpgradeTo362.html#validating-restored-saves">Validating restored saves (Upgrading to AGS 3.6.2)</a><br>
 <a href="ScriptingTutorialPart1.html#variables">Variables (Scripting Tutorial - Part 1)</a><br>
 <a href="TemplateVerbcoin.html#verbcoin-template">VerbCoin template</a><br>
 <a href="TemplateVerbcoin.html#verbcoinactionlabel">VerbCoin.ActionLabel</a><br>
@@ -1816,7 +1821,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 8638cf0d3226aebcabc41dfdaf3e9254bd191e4a
+          Build: 669210f910c43233aac1fd42b045e6d3db16036f
         </p>
       </footer>
     </article>
