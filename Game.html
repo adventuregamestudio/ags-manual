@@ -707,13 +707,14 @@
 <ul>
 <li>Display</li>
 <li>DisplayTopBar</li>
-<li>dialog options text</li>
+<li>dialog options text (only before AGS 3.6.3, see notes below)</li>
 <li>the built-in save and restore dialogs</li>
 </ul>
 <p>The Normal Font is font 0 by default.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span> = <span class="bu">eFontSpecial</span><span class="op">;</span></span></code></pre></div>
 <p>will change the normal font to the font "Special".</p>
+<p><strong>NOTE:</strong> Since AGS 3.6.3 the dialog options text font can be get/set with <a href="Dialog.html#dialogoptionsfont"><code>Dialog.OptionsFont</code></a></p>
 <p><em>See also:</em> <a href="Game.html#gamespeechfont"><code>Game.SpeechFont</code></a></p>
 <hr />
 </section>
@@ -767,8 +768,8 @@
 <p>Returns the height of the specified sprite.</p>
 <p>The height will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 0&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">],</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Game.html#gamespritewidth"><code>Game.SpriteWidth</code></a></p>
 <hr />
 </section>
@@ -779,8 +780,8 @@
 <p>Returns the width of the specified sprite.</p>
 <p>The width will be returned in the original sprite pixels (without any scaling). If an invalid sprite slot is supplied, 0 will be returned.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 0&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">],</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s sprite is sized %d x %d.&quot;</span><span class="op">,</span> oObject<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteWidth</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">],</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Game</span><span class="op">.</span><span class="at">SpriteHeight</span><span class="op">[</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">]);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Game.html#gamespriteheight"><code>Game.SpriteHeight</code></a></p>
 <hr />
 </section>
@@ -854,7 +855,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

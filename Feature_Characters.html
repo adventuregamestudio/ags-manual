@@ -66,7 +66,7 @@
 <h2><a href="#feature-characters">Feature: Characters</a></h2>
 <p>Characters are meant to represent personalities in your game. But they might as well be used for other purposes, such as a replacement for <a href="Feature_Rooms.html#room-objects">Room Objects</a> when you need them to do more than Room Object can do.</p>
 <p>Characters are global entities, which may freely travel between rooms. When in room they have position in their current room's coordinate system, visual image and properties. They may be moved around, have their looks changed, and may be interacted with by the player. Besides the above, they have several additional behaviors: walking, speaking, idling and inventory. We'll discuss these below.</p>
-<p>See Also: <a href="EditorCharacter.html">Character Editor</a>, <a href="Character.html">Character functions and properties</a></p>
+<p><em>See Also:</em> <a href="EditorCharacter.html">Character Editor</a>, <a href="Character.html">Character functions and properties</a></p>
 <section id="player-character" class="level3">
 <h3><a href="#player-character">Player Character</a></h3>
 <p>An AGS game requires to have at least one character set as "player character". You set your starting player character in the editor. Only one character may be declared "player character" at the same time, but it's possible to switch to another character during the game using <a href="Character.html#charactersetasplayer">Character.SetAsPlayer</a> script function. Having a character as "player character" has 3 effects.</p>
@@ -92,13 +92,13 @@
 <p>Idle View also can use directional loops and play different idling animation depending on where the character is looking at.</p>
 <p>Speech, Blink and Think Views only use directional loops if the game has "Lucas-Arts" speech style, in which case they animate character's body. But in other speech styles which display a portrait only the first loop of the View is ever used.</p>
 <p><strong>NOTE:</strong> Views are not <em>owned</em> by a character. A single View may be assigned to multiple characters at once (and few other types of objects), and even to multiple "slots" in a character (e.g. as both Speech View and Think View).</p>
-<p>See Also: <a href="EditorCharacter.html">Character Editor</a>, <a href="EditorView.html">View Editor</a></p>
+<p><em>See Also:</em> <a href="EditorCharacter.html">Character Editor</a>, <a href="EditorView.html">View Editor</a></p>
 </section>
 <section id="custom-views-and-animating" class="level3">
 <h3><a href="#custom-views-and-animating">Custom Views and Animating</a></h3>
 <p>Besides the standard set of Views, Character may be assigned any view for performing a custom animation. This is done by a script function <a href="Character.html#characterlockview">LockView</a> followed by a call to function <a href="Character.html#characteranimate">Animate</a>. When this view is no longer needed, it's unassigned using <a href="Character.html#characterunlockview">UnlockView</a>, and character returns to its normal looks.</p>
 <p>The common use for this is to animate any character actions not covered by default views, such as: picking items up, opening doors, jumping, performing gestures, and so forth. But you may also use custom animate function as a substitute for standard views as well (walking, speech, etc), if their default behavior is not suiting you.</p>
-<p>See Also: <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterunlockview">Character.UnlockView</a>, <a href="EditorView.html">View Editor</a></p>
+<p><em>See Also:</em> <a href="Character.html#characterlockview">Character.LockView</a>, <a href="Character.html#characteranimate">Character.Animate</a>, <a href="Character.html#characterunlockview">Character.UnlockView</a>, <a href="EditorView.html">View Editor</a></p>
 </section>
 <section id="moving-and-walking" class="level3">
 <h3><a href="#moving-and-walking">Moving and Walking</a></h3>
@@ -109,8 +109,8 @@
 <p>There are couple of additional settings related to how the walking is performed.</p>
 <p>"Movement linked to animation" is perhaps one of the most important option one has to consider when configuring character's walk. When this option is enabled the character will only be performing move steps whenever an animation frame advances. On one hand, this establishes a strong connection between animation and movement, helping to avoid the "gliding" effect when the character moves are disregarding its visible stance. On another hand, it may be seen as "jerky", especially when the camera moves along with the character. There is no best answer here, and this has to be decided to suit your preference and visual game design.</p>
 <p>"Turn when moving" option (set per character in the editor) makes character animate a turn in place step by step instead of an immediate switch to the new direction.</p>
-<p><strong>NOTE:</strong> the character does not have to be visible to move or walk. You may turn character invisible by e.g. setting its <a href="Character.html#charactertransparency">Transparency</a> property to 100%, and any moving command will still work. Such trick may be used to create an invisible "reference point" that something else, such as another character, should follow.</p>
-<p>See Also: <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Feature_Rooms.html#walkable-areas">Feature: Walkable Areas</a></p>
+<p><strong>NOTE:</strong> The character does not have to be visible to move or walk. You may turn character invisible by e.g. setting its <a href="Character.html#charactertransparency">Transparency</a> property to 100%, and any moving command will still work. Such trick may be used to create an invisible "reference point" that something else, such as another character, should follow.</p>
+<p><em>See Also:</em> <a href="Character.html#charactermove">Character.Move</a>, <a href="Character.html#characterwalk">Character.Walk</a>, <a href="Feature_Rooms.html#walkable-areas">Feature: Walkable Areas</a></p>
 </section>
 <section id="speaking" class="level3">
 <h3><a href="#speaking">Speaking</a></h3>
@@ -127,19 +127,26 @@
 <li>Voice-over will not play if it's not defined for this particular speech line (or not available in this game at all).</li>
 </ul>
 <p>All those three effects may be achieved by scripting as well, and that's how custom speech styles can be created in AGS.</p>
-<p><strong>NOTE:</strong> the character itself does not have to be seen on screen in order to do speech, it just has to be in the active room, but it may as well be invisible or offscreen. One trick that you may do with an invisible character is to position it at an arbitrary place in the room and make it speak, which will have effect of a speech appearing over that place.</p>
-<p>See Also: <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#characterthink">Character.Think</a>, <a href="DialogScript.html">Dialog Script</a></p>
+<p><strong>NOTE:</strong> The character itself does not have to be seen on screen in order to do speech, it just has to be in the active room, but it may as well be invisible or offscreen. One trick that you may do with an invisible character is to position it at an arbitrary place in the room and make it speak, which will have effect of a speech appearing over that place.</p>
+<p><em>See Also:</em> <a href="Character.html#charactersay">Character.Say</a>, <a href="Character.html#characterthink">Character.Think</a>, <a href="DialogScript.html">Dialog Script</a></p>
 </section>
 <section id="idling" class="level3">
 <h3><a href="#idling">Idling</a></h3>
 <p>Characters have a setting that tells how long to wait before it enters idling state and animates using an assigned Idle View. After a single animation idle timer resets and character waits again. This timer is also reset whenever character does something else, like walking or speaking. The idle timer setting may be set to zero, in which case character will be permanently running its "idle" animation, while standing still. This may be used as a kind of a "standing" animation.</p>
-<p>See Also: <a href="Character.html#charactersetidleview">Character.SetIdleView</a></p>
+<p>Following actions are counted as character's "activity" and will reset idle timer, or stop idle animation if one was playing:</p>
+<ul>
+<li>Walking or moving with a Walk or Move command (but not changing x,y properties directly).</li>
+<li>Regular blocking speech started with a Say command if the SpeechView is set; if SpeechView is not set, then idling timer will not be reset, and idle animation may even play during speech. Also background speech (SayBackground) does not prevent idling timer or animation either.</li>
+<li>Turning on a spot with FaceDirection and similar commands (but not changing Loop property directly).</li>
+<li>Locking the view with LockView command will prevent idle animation completely for the duration of lock. Idling timer will start anew when the view is unlocked with UnlockView.</li>
+</ul>
+<p><em>See Also:</em> <a href="Character.html#charactersetidleview">Character.SetIdleView</a></p>
 </section>
 <section id="inventory" class="level3">
 <h3><a href="#inventory">Inventory</a></h3>
 <p>Each character in the game has inventory, which is a collection of items that the character possesses. The items may be added and removed from character's inventory at any time using script functions <a href="Character.html#characteraddinventory">AddInventory</a> and <a href="Character.html#characterloseinventory">LoseInventory</a>. The way inventory items work in AGS - an item is not a unique entity and when it is given to a character what is given is an "instance" (a copy) of an item. A character may hold multiple instances of the same item, and multiple characters may hold an instance of same item. This has to be kept in mind when you want to transfer an item from one character to another: just adding that item to the second character won't remove it from the first. You must do 2 operations: remove from one and add to another (order of these actions does not matter).</p>
 <p>Each character may have a "selected item", in script this is depicted by <a href="Character.html#characteractiveinventory">ActiveInventory</a> property. When this property is set for the player character the cursor mode "use item" displays that item's graphic. This property does not have much meaning for the NPCs though.</p>
-<p>See Also: <a href="Feature_InventoryItems.html">Feature: Inventory</a></p>
+<p><em>See Also:</em> <a href="Feature_InventoryItems.html">Feature: Inventory</a></p>
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Feature_Characters.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -147,7 +154,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

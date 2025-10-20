@@ -228,6 +228,7 @@ var topics = `<ul class="level-0">
 <li><span><a id="topic-DrawingSurface" href="DrawingSurface.html">DrawingSurface functions and properties</span></a>
 <li><span><a id="topic-DynamicSprite" href="DynamicSprite.html">DynamicSprite functions and properties</span></a>
 <li><span><a id="topic-File" href="File.html">File functions and properties</span></a>
+<li><span><a id="topic-GameInfo" href="GameInfo.html">GameInfo properties</span></a>
 <li><span><a id="topic-Game" href="Game.html">Game functions and properties</span></a>
 <li><span><a id="topic-GUI" href="GUI.html">GUI functions and properties</span></a>
 <li><span><a id="topic-GUIControl" href="GUIControl.html">GUI control functions and properties</span></a>

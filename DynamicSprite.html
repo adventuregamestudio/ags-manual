@@ -256,10 +256,10 @@
 <p>Example:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">CopyTransparencyMask</span><span class="op">(</span><span class="dv">11</span><span class="op">);</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>oObject<span class="op">.</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">80</span><span class="op">);</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>creates a dynamic sprite as a copy of sprite 10, changes its transparency mask to use that of sprite 11, and displays it on object 0.</p>
+<p>creates a dynamic sprite as a copy of sprite 10, changes its transparency mask to use that of sprite 11, and displays it on object oObject.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a></p>
 <hr />
 </section>
@@ -288,11 +288,11 @@
 <p>However, when an extra sprite has been loaded into the game (for example, with the CreateFromFile or CreateFromScreenShot commands) then AGS does not delete it automatically, and you must call this command instead.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromFile</span><span class="op">(</span><span class="st">&quot;CustomAvatar.bmp&quot;</span><span class="op">);</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>oObject<span class="op">.</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">200</span><span class="op">);</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Graphic</span> = <span class="dv">22</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>oObject<span class="op">.</span><span class="at">Graphic</span> = <span class="dv">22</span><span class="op">;</span></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>will load the file "CustomAvatar.bmp", change Object 1 to display this graphic, wait 5 seconds, then change object 1 back to its old sprite 22 and free the new image.</p>
+<p>will load the file "CustomAvatar.bmp", change oObject to display this graphic, wait 5 seconds, then change oObject back to its old sprite 22 and free the new image.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromscreenshot"><code>DynamicSprite.CreateFromScreenShot</code></a>, <a href="DynamicSprite.html#dynamicspritegraphic"><code>DynamicSprite.Graphic</code></a></p>
 <hr />
 </section>
@@ -318,15 +318,15 @@
 <p>Gets the drawing surface for this dynamic sprite, which allows you to modify the sprite by drawing onto it in various ways.</p>
 <p>After calling this method, use the various <a href="DrawingSurface.html">DrawingSurface functions</a> to modify the sprite, then call Release on the surface when you are finished.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span> <span class="op">*</span>sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = sprite<span class="op">.</span><span class="at">GetDrawingSurface</span><span class="op">();</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">13</span><span class="op">;</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawLine</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>oObject<span class="op">.</span><span class="at">Graphic</span> = sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">;</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>this creates a dynamic sprite as a copy of Object 0's existing sprite, draws a pink diagonal line across it, sets this new sprite onto the object for 1 second and then removes it.</p>
+<p>this creates a dynamic sprite as a copy of oObject's existing sprite, draws a pink diagonal line across it, sets this new sprite onto the object for 1 second and then removes it.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspritecreatefromexistingsprite"><code>DynamicSprite.CreateFromExistingSprite</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawline"><code>DrawingSurface.DrawLine</code></a>, <a href="DrawingSurface.html#drawingsurfacerelease"><code>DrawingSurface.Release</code></a></p>
 <hr />
 </section>
@@ -392,13 +392,13 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
 <p>The tint set by this function is permanent for the dynamic sprite -- after the tint has been set, it is not possible to remove it. If you call Tint again with different parameters, it will apply the new tint to the already tinted sprite from the first call.</p>
 <p><strong>NOTE:</strong> This function only works with hi-color sprites.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Graphic</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DynamicSprite</span><span class="op">*</span> sprite = <span class="bu">DynamicSprite</span><span class="op">.</span><span class="at">CreateFromExistingSprite</span><span class="op">(</span>oObject<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawImage</span><span class="op">(</span><span class="dv">100</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> sprite<span class="op">.</span><span class="at">Graphic</span><span class="op">);</span></span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>sprite<span class="op">.</span><span class="at">Delete</span><span class="op">();</span></span></code></pre></div>
-<p>creates a copy of object 0's sprite, tints it red, and draws it onto the room background.</p>
+<p>creates a copy of oObject's sprite, tints it red, and draws it onto the room background.</p>
 <p><em>See also:</em> <a href="DynamicSprite.html#dynamicspriteflip"><code>DynamicSprite.Flip</code></a>, <a href="DynamicSprite.html#dynamicspriteheight"><code>DynamicSprite.Height</code></a>, <a href="DynamicSprite.html#dynamicspritewidth"><code>DynamicSprite.Width</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
 </section>
@@ -467,7 +467,7 @@ surface.DrawImage(x, y, sprite.Graphic);</code></pre>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

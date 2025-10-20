@@ -75,8 +75,8 @@
 <p>Characters are another essential element of the game. In AGS one of the characters must be assigned as a "playable character" (or "player character"). The idea is that the "player character" is the one which player controls by default, but, more importantly, it's this character that allows to change rooms: engine always loads the room in which the player character is located. Rooms are changed by moving the player character elsewhere.</p>
 <p>Note that the player character does not have to be seen on screen at all. It might as well be made invisible, either temporarily or for the whole game. Only its <em>presence</em> is necessary for the game to know which room to load.</p>
 <p>While the starting "player character" is set in the Editor, you may select virtually <em>any other</em> character as playable during gameplay using a script command. This allows, for example, to have multiple playable characters in game, switching between them as the story progresses, or letting player to switch at will.</p>
-<p>NOTE: AGS game requires at least 1 Room and 1 Character (set as "player character") to run. Everything else is optional.</p>
-<p>See Also: <a href="StartingOff.html">AGS Tutorial</a></p>
+<p><strong>NOTE:</strong> AGS game requires at least 1 Room and 1 Character (set as "player character") to run. Everything else is optional.</p>
+<p><em>See Also:</em> <a href="StartingOff.html">AGS Tutorial</a></p>
 <section id="game-genre-and-gameplay" class="level3">
 <h3><a href="#game-genre-and-gameplay">Game genre and gameplay</a></h3>
 <p>AGS engine was originally designed focused on the classic "point-and-click" adventure game genre. For that reason many of its elements are primarily purposed to serve their roles in such adventure game.</p>
@@ -98,12 +98,12 @@
 <p>For example, just as the game is launched, engine will run "game_start" function, if one is found in your script. When player clicks mouse button engine runs "on_mouse_click" function, when player presses a keyboard key - "on_key_press" function. For things that require continuous updates there is a group of predefined functions named "repeatedly_execute" (and similar) that are run periodically, on each game's tick. When a new room is loaded, engine triggers "Room Load" event, and if there's a function in script connected to that room's event, then such function will be run. There are events for clicking on a Character or a room object, events for pressing buttons on GUI, and so forth.</p>
 <p>What happens in these functions is entirely up to you. Event functions are optional though, you don't have to create functions for all existing events, only for those that you need to.</p>
 <p>It's important to know that there are 2 kinds of events in AGS: ones that expect a script function of predefined name to run, and ones that require you to explicitly assign your custom function name to them. The global events that refer to the game itself are of the first kind, while Room and object-related are of the second. Assigning a function to event is done in the Editor, on the "events" tab of a selected game object.</p>
-<p>See Also: <a href="ScriptingTutorial.html">Scripting Tutorial</a>, <a href="ScriptingLanguage.html">Scripting Language</a>, <a href="Scripting.html">Script API</a>, <a href="EventTypes.html">Event Types</a>, <a href="acintro3.html">How to assign functions to object events</a></p>
+<p><em>See Also:</em> <a href="ScriptingTutorial.html">Scripting Tutorial</a>, <a href="ScriptingLanguage.html">Scripting Language</a>, <a href="Scripting.html">Script API</a>, <a href="EventTypes.html">Event Types</a>, <a href="acintro3.html">How to assign functions to object events</a></p>
 </section>
 <section id="game-templates" class="level3">
 <h3><a href="#game-templates">Game Templates</a></h3>
 <p>When you create a new game in AGS Editor, you choose a Game Template to start with. Please be aware that the Template is only a starting set, but in no way a restriction to what you can do in your game. Regardless of which template do you choose, you can modify anything later: add, change, remove, and even redo all the things that template has created for you from scratch, if you find them unnecessary or conflicting with your game idea. Latter, however, would defeat the purpose of a template, therefore it's useful to learn what each template provides and start with the one best suited for your purpose.</p>
-<p>See Also: <a href="Templates.html">Templates</a></p>
+<p><em>See Also:</em> <a href="Templates.html">Templates</a></p>
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Feature_Game.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -111,7 +111,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

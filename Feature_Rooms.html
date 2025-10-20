@@ -70,7 +70,7 @@
 <p>A Room may be "state-saving" and "not state-saving". The former keep their state when you leave them and have it restored when you enter them again. The latter have their state reset to initial setup when they are revisited.</p>
 <p>The way it currently works in AGS, Room numbers 0-300 are defined as state-saving, and Room numbers 301-999 are non-state-saving. This makes AGS support up to 1000 rooms in a single game, 301 of them save their state and the rest 699 not.</p>
 <p>Non-state-saving rooms help to save on memory, and also they guarantee that upon entering them their state will be exactly the same as you set it in the Editor each time player revisits this room. It's a good practice to have rooms serving as title screens, menus and similar be non-state-saving, because these usually don't need to be restored. Same goes to rooms which you know will only be visited once during a playthrough, such as cutscenes, for instance.</p>
-<p>See Also: <a href="acintro2.html">Tutorial: Creating your first room</a></p>
+<p><em>See Also:</em> <a href="acintro2.html">Tutorial: Creating your first room</a></p>
 <section id="changing-rooms" class="level3">
 <h3><a href="#changing-rooms">Changing Rooms</a></h3>
 <p>Engine can have only a single Room loaded and active at the same time. The active Room is defined by the player character location. When the game is launched it first loads the room assigned as a player character's "starting room". Changing rooms is done by moving a player character elsewhere using <a href="Character.html#characterchangeroom">Character.ChangeRoom</a> script function.</p>
@@ -84,7 +84,7 @@
 <p>What that means, for example, if the Game's resolution is 320x200, and room is 320x200, then the room will occupy whole game screen. If room is 160x100, then it will occupy only portion of the game screen. In both of these cases the room will be fully seen on screen at all times.</p>
 <p>However, if the room is larger than the Game's resolution, say it's 640x200, the room's Viewport will still be restricted by the game's resolution - 320x200, and only half of the room will be visible at once. As the camera moves around the room, different parts of it will be shown on screen. Rooms larger than the game are traditionally called "scrolling rooms", because when the camera moves it looks like the room is scrolling before player's eyes.</p>
 <p>By default the camera is centered at player character. When player character walks around the room, the camera will follow as far as it can without crossing the room's bounds. There are ways to control the camera using <a href="Camera.html">relevant script commands</a>.</p>
-<p>See Also: <a href="Camera.html">Camera functions and properties</a>, <a href="Viewport.html">Viewport functions and properties</a></p>
+<p><em>See Also:</em> <a href="Camera.html">Camera functions and properties</a>, <a href="Viewport.html">Viewport functions and properties</a></p>
 </section>
 <section id="room-contents" class="level3">
 <h3><a href="#room-contents">Room contents</a></h3>
@@ -98,7 +98,7 @@
 <li>Regions</li>
 <li>Walk-behinds</li>
 </ul>
-<p>See Also: <a href="EditorRoom.html">Room Editor</a></p>
+<p><em>See Also:</em> <a href="EditorRoom.html">Room Editor</a></p>
 </section>
 <section id="room-backgrounds" class="level3">
 <h3><a href="#room-backgrounds">Room Backgrounds</a></h3>
@@ -114,7 +114,7 @@
 <h3><a href="#room-edges">Room Edges</a></h3>
 <p>Room Edges are four lines that define room's playable area (Left, Right, Top and Bottom edges). These are optional, and may be ignored if not needed. Their purpose is to detect when player character crosses them, in which case they trigger a respective <a href="EventTypes.html#room-events">room event</a>: "Walk off left edge", "Walk off right edge", and so on. This is commonly used to script exits to other rooms.</p>
 <p>One downside of using a Room Edge is that it is a straight line running across the whole room, and will trigger regardless of which point character crosses it at. If the room has a non-trivial layout, then Hotspots or Regions would be more suitable for this purpose.</p>
-<p>See Also: <a href="EventTypes.html#room-events">Room events</a></p>
+<p><em>See Also:</em> <a href="EventTypes.html#room-events">Room events</a></p>
 </section>
 <section id="room-objects" class="level3">
 <h3><a href="#room-objects">Room Objects</a></h3>
@@ -123,7 +123,7 @@
 <p>Room Objects may be commanded to move using pathfinding (see also <a href="Feature_Rooms.html#walkable-areas">Walkable areas</a>), or freely. You may also just set the new position directly using their X and Y properties. Objects may be marked as "solid", in which case they will prevent moving characters from passing through the location which they occupy (see <a href="Object.html#objectsolid">Object.Solid</a> property).</p>
 <p>They may be <a href="Object.html#objectsetview">assigned a View</a> and animated by a <a href="Object.html#objectanimate">script command</a>. Unlike Characters, Room Objects do not have a concept of "action animation", nor "facing direction", therefore they never animate automatically, only by your command, and the animation loop does not change on its own either if they, for example, change moving direction. You may achieve similar effects with scripting though, if you want to.</p>
 <p>Room Objects may be clicked on by player to trigger one of their interaction events, depending on the active cursor mode.</p>
-<p>See Also: <a href="acintro4.html#objects">Tutorial: room objects</a>, <a href="EventTypes.html#object-events">Object events</a>, <a href="Object.html">Object functions and properties</a></p>
+<p><em>See Also:</em> <a href="acintro4.html#objects">Tutorial: room objects</a>, <a href="EventTypes.html#object-events">Object events</a>, <a href="Object.html">Object functions and properties</a></p>
 </section>
 <section id="room-areas" class="level3">
 <h3><a href="#room-areas">Room Areas</a></h3>
@@ -148,7 +148,7 @@
 <p>Each of the above triggers <a href="EventTypes.html#hotspot-events">corresponding event</a>, which in turn may run a custom function in script.</p>
 <p>A hotspot may be enabled or disabled by a <a href="Hotspot.html#hotspotenabled">script command</a>. Disabled hotspots do not react to any interactions.</p>
 <p>Hotspot may have a Walk-to Point: that's an optional setting that tells where a character will walk to automatically when the player clicks on hotspot.</p>
-<p>See Also: <a href="acintro3.html#hotspots">Tutorial: hotspots</a>, <a href="EventTypes.html#hotspot-events">Hotspot events</a>, <a href="Hotspot.html">Hotspot functions and properties</a></p>
+<p><em>See Also:</em> <a href="acintro3.html#hotspots">Tutorial: hotspots</a>, <a href="EventTypes.html#hotspot-events">Hotspot events</a>, <a href="Hotspot.html">Hotspot functions and properties</a></p>
 </section>
 <section id="walkable-areas" class="level3">
 <h3><a href="#walkable-areas">Walkable areas</a></h3>
@@ -160,7 +160,7 @@
 <li><p>Scaling. This lets to scale any Character or Room Object positioned on the area. There are two kinds of scaling: uniform, that applies same scaling in each point of this area, and continuous scaling, that assigns a scaling range from maximum at the area's bottom edge to minimum at the area's topmost edge. Continuous scaling is used to simulate a perspective, where characters walking "away" from the player will become smaller, and those that walk "closer" will appear larger.</p></li>
 <li><p>Area specific view. You can assign a view number, which will be applied to a playable character automatically when it walks on this area.</p></li>
 </ol>
-<p>See Also: <a href="acintro2.html">Tutorial: creating your first room</a>, <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
+<p><em>See Also:</em> <a href="acintro2.html">Tutorial: creating your first room</a>, <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
 </section>
 <section id="regions" class="level3">
 <h3><a href="#regions">Regions</a></h3>
@@ -177,7 +177,7 @@
 <li>Player standing on a region (triggers repeatedly).</li>
 </ul>
 <p>Each of the above triggers <a href="EventTypes.html#region-events">corresponding event</a>, which in turn may run a custom function in script.</p>
-<p>See Also: <a href="EventTypes.html#region-events">Region events</a>, <a href="Region.html">Region functions and properties</a></p>
+<p><em>See Also:</em> <a href="EventTypes.html#region-events">Region events</a>, <a href="Region.html">Region functions and properties</a></p>
 </section>
 <section id="walk-behinds" class="level3">
 <h3><a href="#walk-behinds">Walk-behinds</a></h3>
@@ -187,7 +187,7 @@
 <p>Walk-behinds have no interactions or events.</p>
 <p>Walk-behinds may be turned off by setting their Baseline to 0.</p>
 <p>Walk-behinds are an optional feature, as they may be substituted by room objects, which have certain advantages over them. Because walk-behinds are using parts of the room background, they cannot change their looks dynamically (unless you switch whole room background), cannot animate or change position. Thus they are only suitable for static parts of the scene that never change.</p>
-<p>See Also: <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
+<p><em>See Also:</em> <a href="Globalfunctions_Room.html">Global functions (room actions)</a></p>
 </section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/Feature_Rooms.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
@@ -195,7 +195,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

@@ -139,7 +139,7 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 </section>
 <section id="playvideo" class="level3">
 <h3><a href="#playvideo"><code>PlayVideo</code></a></h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayVideo</span> <span class="op">(</span>string filename<span class="op">,</span> <span class="dt">VideoSkipStyle</span><span class="op">,</span> <span class="dt">int</span> flags<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayVideo</span><span class="op">(</span>const string filename<span class="op">,</span> <span class="dt">VideoSkipStyle</span><span class="op">,</span> VideoPlayStyle style<span class="op">)</span></span></code></pre></div>
 <p>Plays a supported video file. The game is paused while the video plays.</p>
 <p><strong>As of 3.6.0</strong> AGS only supports OGG Theora videos (*.ogv). <strong>Prior to 3.6.0</strong> it also supported AVI and MPG, but only on MS Windows, and if necessary codecs are installed on player's system. Please see the notes in the end of this article for more information on this.</p>
 <p><em>VideoSkipStyle</em> defines how the player can skip the video:</p>
@@ -147,11 +147,12 @@ eCDSelectActiveCDDrive - changes the current CD drive to PARAM,
 eVideoSkipEscKey         player can press ESC to skip video
 eVideoSkipAnyKey         player can press any key to skip video
 eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip</code></pre>
-<p><em>Flags</em> has these meanings:</p>
-<pre><code>0: default mode; the video is be played at original size, with its own audio; game&#39;s audio is muted.
-+1: the video will be stretched to full screen, with appropriate black borders to maintain its aspect ratio.
-+10 (i.e. 10, 11): video&#39;s own audio will be muted, and game audio will continuing playing.
-+20 (i.e. 20, 21): both game&#39;s and video&#39;s audio will be playing.</code></pre>
+<p><em>VideoPlayStyle</em> flags have these meanings:</p>
+<pre><code>(0) eVideoPlayDefault: default mode; the video is be played at original size, with its own audio; game&#39;s audio is muted.
+(+1) eVideoPlayStretchToScreen: the video will be stretched to full screen, with appropriate black borders to maintain its aspect ratio.
+(+10) eVideoPlayNoAudio (i.e. 10, 11): video&#39;s own audio will be muted, and game audio will continue playing.
+(+20) eVideoPlayAudioAndDontMuteGame (i.e. 20, 21): both game&#39;s and video&#39;s audio will be playing.</code></pre>
+<p><strong>As of 3.6.3</strong> AGS provides a VideoPlayStyle enum. <strong>Prior to 3.6.3</strong> it used a simple <code>int flags</code> in its place.</p>
 <p><strong>NOTE:</strong> In 256-color games, PlayVideo is not supported. Please use a FLC/FLI video with the <a href="Multimedia.html#playflic"><code>PlayFlic</code></a> command instead.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PlayVideo</span><span class="op">(</span><span class="st">&quot;Intro.ogv&quot;</span><span class="op">,</span> <span class="bu">eVideoSkipEscKey</span><span class="op">,</span> <span class="dv">11</span><span class="op">);</span></span></code></pre></div>
@@ -167,7 +168,7 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip</code><
 <p>OGG Theora: supported everywhere. AVI / MPG: Windows only.</p>
 <p><em>Compatibility:</em></p>
 <p>OGG Theora supported by <strong>AGS 3.1.1</strong> and later versions.<br> AVI / MPG support was discontinued in <strong>AGS 3.6.0</strong> and not supported until further notice.<br> Flag +20 (play both game and video's audio) is supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Multimedia.html#playflic"><code>PlayFlic</code></a></p>
+<p><em>See also:</em> <a href="Multimedia.html#playflic"><code>PlayFlic</code></a>, <a href="StandardEnums.html#videoskipstyle"><code>VideoSkipStyle</code></a> <a href="StandardEnums.html#videoplaystyle"><code>VideoPlayStyle</code></a></p>
 <hr />
 </section>
 <section id="setspeechvolume" class="level3">
@@ -185,7 +186,7 @@ eVideoSkipAnyKeyOrMouse  player can press any key or click mouse to skip</code><
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

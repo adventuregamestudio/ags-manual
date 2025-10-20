@@ -65,20 +65,21 @@
 <section id="handling-incompatible-saves" class="level2">
 <h2><a href="#handling-incompatible-saves">Handling incompatible saves</a></h2>
 <p>This article overviews a engine feature that is available since <strong>AGS 3.6.2</strong>, which allows to restore older saves which become incompatible after certain changes done to a game.</p>
-<p>Please note that this solution may be only applied in a limited number of cases. The problem of saves compatibility itself is thoroughly discussed in the dedicated article: <a href="GameSavesCompatibility.html">Game saves compatibility</a>. Following is a list of things that you may or may not do if you like to use this feature:</p>
+<p>Please note that this solution may be only applied in a limited number of cases. The problem of saves compatibility itself is thoroughly discussed in the dedicated article: <a href="GameSavesCompatibility.html">Game saves compatibility</a>. Following is a summary of what you may do if you like to use this feature:</p>
 <ol type="1">
-<li>Add new game objects <strong>at the end</strong> of their lists.</li>
+<li>Add new game objects <strong>at the end</strong> of their lists. This includes adding more controls to existing GUIs, adding more options to Dialogs, and more loops and frames to existing Views.</li>
 <li>Add new script variables <strong>after</strong> all the previously existing variables.</li>
 <li>Add new script modules. Note that their <em>order</em> is not relevant, but their <em>names</em> are - they should not match any existing or previously existing scripts.</li>
 <li>Add new rooms. Note that their numbers should not match any existing or previously existing ones.</li>
 <li>Add new assets, such as sprites, audio clips, etc. These may be added freely as necessary, although you should remember that reusing sprite numbers may lead to glitches after restoring older saves, and might require additional fixing things in script, after restoring a save.</li>
 <li>Add or remove plugins. Note that if you replace a plugin with another of same name (maybe another variant or version of the same plugin), and that plugin writes data to saves, then it is responsibility of plugin to correctly read that data back.</li>
 </ol>
-<p>See also:</p>
-<ul>
-<li><a href="GameSavesCompatibility.html#changes-in-game-that-may-break-saves">Changes in game that MAY break saves</a></li>
-<li><a href="GameSavesCompatibility.html#changes-in-game-that-dont-break-saves">Changes in game that DON'T break saves</a></li>
-</ul>
+<p>What you may NOT do:</p>
+<ol type="1">
+<li>Can't remove existing objects or variables. If you no longer need any, then hide or disable them, but do not remove nor change their order.</li>
+<li>Can't change an order of existing objects or order of variables in script. The reason is that the old save will load data into the wrong objects. Strictly speaking, you may still try fixing up the objects in script after loading such older save, but this is not always reliable, and it's easier not to get into such trouble in the first place.</li>
+<li>Can't insert new objects in the middle of their list, nor variables in between of existing variables. For the same reason as stated above.</li>
+</ol>
 <section id="how-it-works" class="level3">
 <h3><a href="#how-it-works">How it works</a></h3>
 <p>The engine can load saves if they have <em>equal or less</em> count of Characters, Dialogs, GUI, controls on each given GUI, variables in script, and so forth, compared to the current game. Please be aware that <em>only quantity</em> of data is compared. Engine still cannot distinguish <em>the order</em> in which the items were saved. This means that if you change their order (such as order of IDs of items, or order of variables in a script), then engine won't be able to detect that, and will apply loaded items from the save into wrong positions.</p>
@@ -88,9 +89,13 @@
 <p>But what happens to the newer objects or variables, ones that are not found in a save? All of these are going to be <em>reset to their initial states</em>, the ones they have set in the compiled game. This is achieved by <em>reloading game data</em> prior to restoring a save. As a side effect this makes restoring such saves take more time than usual.</p>
 <p>Please remember that the engine can do only that much: load what is available from the save. It's up to you to fixup anything after save is restored, such as correcting restored objects or initializing objects that were not restored. The good place to do this is, for example, an <a href="Globalfunctions_Event.html#on_event">"on_event" function</a> which receives eEventRestoreGame event.</p>
 </section>
+<section id="prescanning-save-slots" class="level3">
+<h3><a href="#prescanning-save-slots">Prescanning save slots</a></h3>
+<p>If engine is told to load an incompatible save and fails it then will usually just stop the game. This is quite frustrating for the players. In version 3.6.2 there's a new script command called <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots()</code></a>. This function lets you <em>test</em> a range of saves and return only validated ones. When checking the saves it will also try calling "validate_restored_save" for saves with fewer data in them. Scanning saves allows you to take precaution and avoid displaying invalid saves in game menus, or reject loading a save before it crashes the game.</p>
+</section>
 <section id="validating-restored-saves" class="level3">
 <h3><a href="#validating-restored-saves">Validating restored saves</a></h3>
-<p>In order to "validate" an "incompatible" save either when restoring one or when prescanning one (see explanation of prescanning below) you must add a function called "validate_restored_save" into one of your game scripts. The function is defined as:</p>
+<p>In order to "validate" an "incompatible" save either when restoring one or when prescanning one you must add a function called "validate_restored_save" into one of your game scripts. The function is defined as:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">validate_restored_save</span><span class="op">(</span>RestoredSaveInfo<span class="op">*</span> saveInfo<span class="op">)</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -99,17 +104,13 @@
 <p>The purpose of this function is to let you decide whether save may still be allowed to load or not.</p>
 <p>For more detailed explanation, please see <a href="ValidateRestoredSave.html">"validate_restored_save"</a>.</p>
 </section>
-<section id="prescanning-save-slots" class="level3">
-<h3><a href="#prescanning-save-slots">Prescanning save slots</a></h3>
-<p>If engine is told to load an incompatible save and fails it then will usually just stop the game. This is quite frustrating for the players. In version 3.6.2 there's a new script command called <a href="Game.html#gamescansaveslots"><code>Game.ScanSaveSlots()</code></a>. This function lets you <em>test</em> a range of saves and return only validated ones. When checking the saves it will also try calling "validate_restored_save" for saves with fewer data in them. Scanning saves allows you to take precaution and avoid displaying invalid saves in game menus, or reject loading a save before it crashes the game.</p>
-</section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/HandlingIncompatibleSaves.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>
@@ -119,8 +120,8 @@
 <li><a href="#handling-incompatible-saves" id="toc-handling-incompatible-saves">Handling incompatible saves</a>
 <ul>
 <li><a href="#how-it-works" id="toc-how-it-works">How it works</a></li>
-<li><a href="#validating-restored-saves" id="toc-validating-restored-saves">Validating restored saves</a></li>
 <li><a href="#prescanning-save-slots" id="toc-prescanning-save-slots">Prescanning save slots</a></li>
+<li><a href="#validating-restored-saves" id="toc-validating-restored-saves">Validating restored saves</a></li>
 </ul></li>
 </ul>
     </aside>

@@ -108,9 +108,9 @@
 <p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent GetTextProperty function to get a text property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">inventory</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">GetProperty</span><span class="op">(</span><span class="st">&quot;Value&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">200</span><span class="op">)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Inventory item 1&#39;s value is over 200!&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>will print the message if inventory item 1 has its "Value" property set to more than 200.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>iStone<span class="op">.</span><span class="at">GetProperty</span><span class="op">(</span><span class="st">&quot;Weight&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">200</span><span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Stone&#39;s weight is over 200!&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will print the message if inventory item iStone has its "Weight" property set to more than 200.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgettextproperty"><code>InventoryItem.GetTextProperty</code></a></p>
 <hr />
 </section>
@@ -122,9 +122,9 @@
 <p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent GetProperty function to get a non-text property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> description = <span class="bu">inventory</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">);</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Inv item 2&#39;s description: %s&quot;</span><span class="op">,</span> description<span class="op">);</span></span></code></pre></div>
-<p>will retrieve inv item 2's "description" property and display it.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> description = iKey<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">);</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Inv item %s&#39;s description: %s&quot;</span><span class="op">,</span> iKey<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> description<span class="op">);</span></span></code></pre></div>
+<p>will retrieve inv item iKey's "Description" property and display it.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemgetproperty"><code>InventoryItem.GetProperty</code></a></p>
 <hr />
 </section>
@@ -149,7 +149,7 @@
 <p>Use the equivalent SetProperty function to set a non-text property.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>iKey<span class="op">.</span><span class="at">SetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">,</span> <span class="st">&quot;A rusty key&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>will change key's "description" property.</p>
+<p>will change key's "Description" property.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemsetproperty"><code>InventoryItem.SetProperty</code></a></p>
 <hr />
@@ -246,7 +246,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

@@ -77,9 +77,9 @@
 <p><em>Volume</em> lets you specify the relative volume in percents (0-100) of the frame-linked sounds for the duration of this animation. It's 100 by default (which means - unchanged).</p>
 <p>You need to use SetView at some stage before this command, in order to set up the object's current view.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Animate</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Animate</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eBackwards</span><span class="op">);</span></span></code></pre></div>
-<p>will animate object 0 using loop 2 of its current view, at speed 5, and play the animation once only. This happens in the background. Then, object 1 will animate backwards using loop 1 of its current view, at speed 3. The function won't return until the animation is finished.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>oGate<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>oBridge<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">,</span> <span class="bu">eBackwards</span><span class="op">);</span></span></code></pre></div>
+<p>will animate object oGate using loop 2 of its current view, at speed 5, and play the animation once only. This happens in the background. Then, object oBridge will animate backwards using loop 1 of its current view, at speed 3. The function won't return until the animation is finished.</p>
 <p><em>Compatibility:</em> Optional <em>frame</em> parameter is supported only by <strong>AGS 3.5.0</strong> and later versions.<br> Optional <em>volume</em> parameter is supported only by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Button.html#buttonanimate"><code>Button.Animate</code></a>, <a href="Character.html#characteranimate"><code>Character.Animate</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectsetview"><code>Object.SetView</code></a>, <a href="Object.html#objectstopanimating"><code>Object.StopAnimating</code></a></p>
 <hr />
@@ -144,9 +144,9 @@
 <p>This command works with Number properties (it returns the number), and with Boolean properties (returns 1 if the box was checked, 0 if not).</p>
 <p>Use the equivalent GetTextProperty function to get a text property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">GetProperty</span><span class="op">(</span><span class="st">&quot;Value&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">200</span><span class="op">)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 0&#39;s value is over 200!&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>will print the message if object 0 has its "Value" property set to more than 200.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>oCar<span class="op">.</span><span class="at">GetProperty</span><span class="op">(</span><span class="st">&quot;Value&quot;</span><span class="op">)</span> <span class="op">&gt;</span> <span class="dv">200</span><span class="op">)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s value is over 200!&quot;</span><span class="op">,</span> oCar<span class="op">.</span><span class="at">ScriptName</span><span class="op">);</span></span></code></pre></div>
+<p>will print the message if object oCar has its "Value" property set to more than 200.</p>
 <p><em>See also:</em> <a href="Object.html#objectgettextproperty"><code>Object.GetTextProperty</code></a></p>
 <hr />
 </section>
@@ -158,9 +158,9 @@
 <p>This command works with Text properties only. The property's text will be returned from this function.</p>
 <p>Use the equivalent GetProperty function to get a non-text property.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> description = <span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">);</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 0&#39;s description: %s&quot;</span><span class="op">,</span> description<span class="op">);</span></span></code></pre></div>
-<p>will retrieve Object 0's "description" property then display it.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> description = oCar<span class="op">.</span><span class="at">GetTextProperty</span><span class="op">(</span><span class="st">&quot;Description&quot;</span><span class="op">);</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object %s&#39;s description: %s&quot;</span><span class="op">,</span> oCar<span class="op">.</span><span class="at">ScriptName</span><span class="op">,</span> description<span class="op">);</span></span></code></pre></div>
+<p>will retrieve object oCar's "description" property then display it.</p>
 <p><em>See also:</em> <a href="Object.html#objectgetproperty"><code>Object.GetProperty</code></a></p>
 <hr />
 </section>
@@ -197,11 +197,11 @@
 <p>Checks if the specified object and OBJ2 are touching each other. Returns <em>true</em> if they are, and <em>false</em> if they are not.</p>
 <p><strong>NOTE:</strong> This function only performs a rectangular check, even when pixel-perfect click detection is turned on.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">IsCollidingWithObject</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">]))</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>oCat<span class="op">.</span><span class="at">IsCollidingWithObject</span><span class="op">(</span>oMouse<span class="op">))</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;object 2 and 3 are colliding!&quot;</span><span class="op">);</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;object Cat and Mouse are colliding!&quot;</span><span class="op">);</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will display the message if the objects 2 and 3 are colliding.</p>
+<p>will display the message if the objects oCat and oMouse are colliding.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
 </section>
@@ -225,7 +225,7 @@
 <p><strong>NOTE:</strong> this is an old function that was meant primarily for optimizing the game on ancient computers. Today it is not necessary. If you desire to make object not-interactable, the good solution is to make it not-clickable by setting <a href="Object.html#objectclickable"><code>Object.Clickable</code></a> property to <code>false</code>. Similar effect may be achieved by painting <a href="Object.html#objectgraphic">object's graphic</a> onto the room background using its <a href="Room.html#roomgetdrawingsurfaceforbackground">DrawingSurface</a>, and then setting <a href="Object.html#objectvisible"><code>Object.Visible</code></a> to <code>false</code>.</p>
 <p><strong>NOTE:</strong> objects can only be merged if the object graphic was imported at the same color depth as the background graphic.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">MergeIntoBackground</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">MergeIntoBackground</span><span class="op">();</span></span></code></pre></div>
 <p>will merge the object's image into the room's background image and make the object unusable.</p>
 <hr />
 </section>
@@ -241,8 +241,8 @@
 <p>If <em>WalkWhere</em> is eWalkableAreas (the default), then the object will attempt to get as close a possible to (X,Y) by using the room's walkable areas.</p>
 <p>If <em>WalkWhere</em> is eAnywhere, then the object will simply walk directly from its current location to (X,Y), ignoring the room walkable areas.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
-<p>will move object 2 to 125,40 and return control to the player when the object gets there.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>oCar<span class="op">.</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span> <span class="dv">40</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eBlock</span><span class="op">);</span></span></code></pre></div>
+<p>will move object oCar to 125,40 and return control to the player when the object gets there.</p>
 <p><em>See also:</em> <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
@@ -252,10 +252,10 @@
 <div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">RemoveTint</span><span class="op">()</span></span></code></pre></div>
 <p>Undoes the effects of calling Tint, and returns the object to using the room's ambient tint.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Tint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>oScreen<span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">RemoveTint</span><span class="op">();</span></span></code></pre></div>
-<p>will tint object 1 green for a second, then turn it back to normal.</p>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>oScreen<span class="op">.</span><span class="at">RemoveTint</span><span class="op">();</span></span></code></pre></div>
+<p>will tint object oScreen green for a second, then turn it back to normal.</p>
 <p><em>See also:</em> <a href="Object.html#objecttint"><code>Object.Tint</code></a></p>
 <hr />
 </section>
@@ -265,8 +265,8 @@
 <div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">RunInteraction</span><span class="op">(</span><span class="dt">CursorMode</span><span class="op">)</span></span></code></pre></div>
 <p>Runs the event handler as if the player had clicked the mouse on the object in the current room, using the specified cursor mode.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">RunInteraction</span><span class="op">(</span><span class="bu">eModeInteract</span><span class="op">);</span></span></code></pre></div>
-<p>will execute the code defined in object 3's "Interact with object" event handler.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>oTable<span class="op">.</span><span class="at">RunInteraction</span><span class="op">(</span><span class="bu">eModeInteract</span><span class="op">);</span></span></code></pre></div>
+<p>will execute the code defined in object oTable's "Interact with object" event handler.</p>
 <p><em>See also:</em> <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Character.html#characterruninteraction"><code>Character.RunInteraction</code></a>, <a href="Hotspot.html#hotspotruninteraction"><code>Hotspot.RunInteraction</code></a></p>
 <hr />
 </section>
@@ -294,8 +294,8 @@
 <p>This command is equivalent to setting the object.X and object.Y separately, but provides a more convenient way of doing so.</p>
 <p><strong>NOTE:</strong> This command cannot be used while the object is moving.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
-<p>will change object's 2 position to 50,100.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>oCloud<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
+<p>will change object's oCloud position to 50,100.</p>
 <p><em>See also:</em> <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objecty"><code>Object.Y</code></a></p>
 <hr />
 </section>
@@ -311,9 +311,9 @@
 <p>You must use this command before calling Animate, so that AGS knows which view to animate the object with.</p>
 <p><strong>NOTE:</strong> prior to <strong>AGS 3.6.1</strong> calling this function would play any sound linked to the given frame. This behavior is disabled in <strong>3.6.1</strong>, because it's causing a duplicate sound playback when SetView is followed by Animate.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">].</span><span class="at">SetView</span><span class="op">(</span><span class="dv">14</span><span class="op">);</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">SetView</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
-<p>will change object 3's view to view number 14 while resetting to loop 0 and frame 0 of that view, and change object 1 to view 5, loop 2, frame 1.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">SetView</span><span class="op">(</span><span class="dv">14</span><span class="op">);</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>oWindow<span class="op">.</span><span class="at">SetView</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>will change object oDoor's view to view number 14 while resetting to loop 0 and frame 0 of that view, and change object oWindow to view 5, loop 2, frame 1.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a> <a href="Object.html#objectframe"><code>Object.Frame</code></a> <a href="Object.html#objectloop"><code>Object.Loop</code></a> <a href="Object.html#objectview"><code>Object.View</code></a></p>
 <hr />
 </section>
@@ -322,10 +322,10 @@
 <div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">StopAnimating</span><span class="op">()</span></span></code></pre></div>
 <p>Stops the object from animating. It will remain on its current frame until you change it or start a new animation.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Animating</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">StopAnimating</span><span class="op">();</span></span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>oTree<span class="op">.</span><span class="at">Animating</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    oTree<span class="op">.</span><span class="at">StopAnimating</span><span class="op">();</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will stop object 2 animating if it currently is doing so.</p>
+<p>will stop object oTree animating if it currently is doing so.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a></p>
 <hr />
 </section>
@@ -335,10 +335,10 @@
 <div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Object</span><span class="op">.</span><span class="at">StopMoving</span><span class="op">()</span></span></code></pre></div>
 <p>Stops the object from moving. It will remain in its current position until any further commands are issued.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Moving</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">StopMoving</span><span class="op">();</span></span>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>oCar<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    oCar<span class="op">.</span><span class="at">StopMoving</span><span class="op">();</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will stop object 2 moving if it currently is doing so.</p>
+<p>will stop object oCar moving if it currently is doing so.</p>
 <p><em>See also:</em> <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Object.html#objectmove"><code>Object.Move</code></a>, <a href="Character.html#characterstopmoving"><code>Character.StopMoving</code></a></p>
 <hr />
 </section>
@@ -353,8 +353,8 @@
 <p>To remove the tint set by this function and return to using the ambient tint for this object, call <a href="Object.html#objectremovetint"><code>RemoveTint</code></a>.</p>
 <p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Tint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
-<p>will tint object 1 green.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>oScreen<span class="op">.</span><span class="at">Tint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
+<p>will tint object oScreen green.</p>
 <p><em>See also:</em> <a href="Object.html#objectremovetint"><code>Object.RemoveTint</code></a>, <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a></p>
 <hr />
 </section>
@@ -365,9 +365,9 @@
 <p>Returns 1 if the specified object is currently animating.<br> Returns 0 if the object has finished its animation.</p>
 <p>This property is read-only. To change object animation, use the <a href="Object.html#objectanimate"><code>Animate</code></a> command.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Animate</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Animating</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
-<p>will animate object 2 and wait until the animation finishes.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>oTree<span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>oTree<span class="op">.</span><span class="at">Animating</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>will animate object oTree and wait until the animation finishes.</p>
 <p>In reality, you would simply use the Blocking parameter of Animate so you wouldn't need to do this.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimate"><code>Object.Animate</code></a>, <a href="Object.html#objectmoving"><code>Object.Moving</code></a>, <a href="Object.html#objectstopanimating"><code>Object.StopAnimating</code></a>, <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objecty"><code>Object.Y</code></a></p>
 <hr />
@@ -433,8 +433,8 @@
 <p>Gets/sets whether the object is recognized as something which the player can interact with.</p>
 <p>If this is set to 1, then the player can look at, speak to, and so on the object. If it is set to 0, then the object will not respond to clicks and the mouse will activate whatever is behind the object. This is useful if you are using the object for visual effects and don't want it to be clicked on by the player.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Clickable</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
-<p>will make object 2 ignore clicks from the player.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">Clickable</span> = <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<p>will make object oDoor ignore clicks from the player.</p>
 <p><em>See also:</em> <a href="Object.html#objectvisible"><code>Object.Visible</code></a>, <a href="Character.html#characterclickable"><code>Character.Clickable</code></a>, <a href="Hotspot.html#hotspotenabled"><code>Hotspot.Enabled</code></a>, <a href="Region.html#regionenabled"><code>Region.Enabled</code></a>, <a href="Globalfunctions_Room.html#removewalkablearea"><code>RemoveWalkableArea</code></a>, <a href="Globalfunctions_Room.html#restorewalkablearea"><code>RestoreWalkableArea</code></a></p>
 <hr />
 </section>
@@ -455,8 +455,8 @@
 <div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Graphic</span></span></code></pre></div>
 <p>Gets/sets the sprite slot number that the object is currently displayed as. You can get the slot number from the Sprite Manager. If the object is currently animating (from an Animate command) and you change the Graphic, then the animation will be stopped.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Graphic</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
-<p>will change the object 2's image to the image stored in the sprite manager's slot 100.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>oDoor<span class="op">.</span><span class="at">Graphic</span> = <span class="dv">100</span><span class="op">;</span></span></code></pre></div>
+<p>will change the object oDoor's image to the image stored in the sprite manager's slot 100.</p>
 <p><em>See also:</em> <a href="Object.html#objectsetview"><code>Object.SetView</code></a></p>
 <hr />
 </section>
@@ -538,9 +538,9 @@
 <p>Returns 1 if the object is currently moving, or 0 if not.</p>
 <p>This property is read-only; to change the object's movement, use the <a href="Object.html#objectmove"><code>Move</code></a> and <a href="Object.html#objectstopmoving"><code>StopMoving</code></a> commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span><span class="dv">40</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
-<p>will move object 2 to 125,40 and return control to the player when the object gets there.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>oCar<span class="op">.</span><span class="at">Move</span><span class="op">(</span><span class="dv">125</span><span class="op">,</span><span class="dv">40</span><span class="op">,</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>oCar<span class="op">.</span><span class="at">Moving</span><span class="op">)</span> <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<p>will move object oCar to 125,40 and return control to the player when the object gets there.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectstopmoving"><code>Object.StopMoving</code></a></p>
 <hr />
 </section>
@@ -548,11 +548,11 @@
 <h3><a href="#objectname"><code>Object.Name</code></a></h3>
 <p><em>(Formerly known as <code>GetObjectName</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>Object.GetName</code>, which is now obsolete)</em></p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Name</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets the name of the object.</p>
+<p>Gets/sets the name of the object. This is a human-readable name (description), not a script name.</p>
 <p><strong>NOTE:</strong> This property may be changed only in AGS versions 3.6.0 or higher. It is read-only in earlier versions.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 0&#39;s name is %s.&quot;</span><span class="op">,</span> <span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
-<p>will retrieve and then display object 0's name.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;oDoor&#39;s name is %s.&quot;</span><span class="op">,</span> oDoor<span class="op">.</span><span class="at">Name</span><span class="op">);</span></span></code></pre></div>
+<p>will retrieve and then display object oDoor's description.</p>
 <p><em>See also:</em> <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a></p>
 <hr />
 </section>
@@ -652,13 +652,13 @@
 <p>If this is set to 100, it means that the object is totally invisible, and lower values represent varying levels of transparency. Set this to 0 to stop the object being transparent.</p>
 <p><strong>NOTE:</strong> Transparency only works in 16-bit and 32-bit color games.</p>
 <p><strong>NOTE:</strong> When using the DirectX 5 driver, a large transparent object can significantly slow down AGS.</p>
-<p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>object[0].Transparency++;</code> is not recommended as it will probably end too quickly.</p>
+<p>Some rounding is done internally when the transparency is stored -- therefore, if you get the transparency after setting it, the value you get back might be one out. Therefore, using a loop with <code>oMagicChest.Transparency++;</code> is not recommended as it will probably end too quickly.</p>
 <p>In order to fade an object in/out, the best approach is shown in the example below:</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = <span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Transparency</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> trans = oMagicChest<span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>trans <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>    trans<span class="op">++;</span></span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>    oMagicChest<span class="op">.</span><span class="at">Transparency</span> = trans<span class="op">;</span></span>
 <span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
 <span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will gradually fade out the object from its current transparency level to being fully invisible.</p>
@@ -682,8 +682,8 @@
 <div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Object</span><span class="op">.</span><span class="at">Visible</span></span></code></pre></div>
 <p>Gets/sets the visible state of the object. If this is 1 (true), the object is switched on and visible in the room. If you set this to 0 (false), the object disappears and no longer appears in the room.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">5</span><span class="op">].</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
-<p>will make object number 5 in the current room disappear.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>oApple<span class="op">.</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<p>will make object oApple in the current room disappear.</p>
 <p><em>See also:</em> <a href="Object.html#objectclickable"><code>Object.Clickable</code></a>,</p>
 <hr />
 </section>
@@ -694,8 +694,8 @@
 <p>Gets/sets the X co-ordinate of the object.</p>
 <p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 1&#39;s X co-ordinate is %d.&quot;</span><span class="op">,</span> <span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">X</span><span class="op">);</span></span></code></pre></div>
-<p>will display the X co-ordinate of object 1.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oCar&#39;s X co-ordinate is %d.&quot;</span><span class="op">,</span> oCar<span class="op">.</span><span class="at">X</span><span class="op">);</span></span></code></pre></div>
+<p>will display the X co-ordinate of object oCar.</p>
 <p><em>See also:</em> <a href="Object.html#objecty"><code>Object.Y</code></a>, <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectvisible"><code>Object.Visible</code></a>, <a href="Object.html#objectsetposition"><code>Object.SetPosition</code></a></p>
 <hr />
 </section>
@@ -707,8 +707,8 @@
 <p><strong>NOTE:</strong> This property cannot be changed while the object is moving.</p>
 <p><strong>NOTE:</strong> If you try to use this co-ordinate with Object.GetAtScreenXY, you will find that the object does not get picked up. The object's sprite is drawn from the Y co-ordinate at (Object.Y - Height) to (Object.Y - 1).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object 1&#39;s Y co-ordinate is %d.&quot;</span><span class="op">,</span> <span class="bu">object</span><span class="op">[</span><span class="dv">1</span><span class="op">].</span><span class="at">Y</span><span class="op">);</span></span></code></pre></div>
-<p>will display the Y co-ordinate of object 1.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Object oCar&#39;s Y co-ordinate is %d.&quot;</span><span class="op">,</span> oCar<span class="op">.</span><span class="at">Y</span><span class="op">);</span></span></code></pre></div>
+<p>will display the Y co-ordinate of object oCar.</p>
 <p><em>See also:</em> <a href="Object.html#objectanimating"><code>Object.Animating</code></a>, <a href="Object.html#objectbaseline"><code>Object.Baseline</code></a>, <a href="Object.html#objectx"><code>Object.X</code></a>, <a href="Object.html#objectsetposition"><code>Object.SetPosition</code></a></p>
 </section>
 </section>
@@ -717,7 +717,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

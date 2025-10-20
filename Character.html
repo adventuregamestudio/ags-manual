@@ -202,8 +202,8 @@
 <p>If the character has Turning enabled (i.e. the "Characters turn to face direction" game option is turned on, and the character does not have the "Do not turn before walking" option checked), then the character will turn on the spot in order to face the new direction. In this case, the BlockingStyle parameter determines whether the script waits for the character to finish turning (eBlock, the default) or whether the script continues immediately and the character finishes turning later on (eNoBlock).</p>
 <p>If the character does not have Turning enabled, he will immediately turn to face the new direction and the BlockingStyle parameter has no effect. In this case, the screen will not be refreshed straight away -- if you want to see the character facing his new direction immediately, call Wait(1);</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">FaceObject</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">]);</span></span></code></pre></div>
-<p>will make the player character face object 2.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">player</span><span class="op">.</span><span class="at">FaceObject</span><span class="op">(</span>oTable<span class="op">);</span></span></code></pre></div>
+<p>will make the player character face object oTable.</p>
 <p><em>See also:</em> <a href="Character.html#characterfacecharacter"><code>Character.FaceCharacter</code></a>, <a href="Character.html#characterfacedirection"><code>Character.FaceDirection</code></a>, <a href="Character.html#characterfacelocation"><code>Character.FaceLocation</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a></p>
 <hr />
 </section>
@@ -371,10 +371,10 @@
 <p>Checks whether the character's feet (i.e. the bottom third of the character) are touching OBJ. This can be used to determine if the character is standing on the object.</p>
 <p>Returns 1 if they are, and 0 if they are not.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">IsCollidingWithObject</span><span class="op">(</span><span class="bu">object</span><span class="op">[</span><span class="dv">3</span><span class="op">])</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>cEgo<span class="op">.</span><span class="at">IsCollidingWithObject</span><span class="op">(</span>oPressurePlate<span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// colliding code here</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will execute the colliding code only if the character EGO and the object number 3 are colliding.</p>
+<p>will execute the colliding code only if the character cEgo and the object oPressurePlate are colliding.</p>
 <p><em>See also:</em> <a href="Character.html#characteriscollidingwithchar"><code>Character.IsCollidingWithChar</code></a>, <a href="Object.html#objectiscollidingwithobject"><code>Object.IsCollidingWithObject</code></a>, <a href="Globalfunctions_Room.html#arethingsoverlapping"><code>AreThingsOverlapping</code></a></p>
 <hr />
 </section>
@@ -671,6 +671,14 @@
 <p>Setting DELAY to 0 causes the idle view to be looped continuously when the character is not moving - this is useful when for example the character is swimming and they need to tread water when idle.</p>
 <p>Pass IDLEVIEW as -1 to disable the idle view completely.</p>
 <p><strong>NOTE:</strong> Due to a quirk in AGS, you cannot set the Idle View to view 1. In the unlikely event that you created your idle view in View 1, you'll need to move it to another view number.</p>
+<p>Following actions are counted as character's "activity" and will reset idle timer, or stop idle animation if one was playing:</p>
+<ul>
+<li>Walking or moving with a Walk or Move command (but not changing x,y properties directly).</li>
+<li>Regular blocking speech started with a Say command if the SpeechView is set; if SpeechView is not set, then idling timer will not be reset, and idle animation may even play during speech. Also background speech (SayBackground) does not prevent idling timer or animation either.</li>
+<li>Turning on a spot with FaceDirection and similar commands (but not changing Loop property directly).</li>
+<li>Locking the view with LockView command will prevent idle animation completely for the duration of lock. Idling timer will start anew when the view is unlocked with UnlockView.</li>
+</ul>
+<p><strong>NOTE:</strong> There was a historical mistake in the engine because of which FaceDirection and similar commands did not reset idling timer nor prevented idle animation. The newer versions should have this fixed.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>cEgo<span class="op">.</span><span class="at">SetIdleView</span><span class="op">(</span><span class="dv">12</span><span class="op">,</span> <span class="dv">30</span><span class="op">);</span></span></code></pre></div>
 <p>will change/set the character EGO's idle view to 12. The idle view will be played if the character is idle for 30 seconds.</p>
@@ -1505,7 +1513,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>

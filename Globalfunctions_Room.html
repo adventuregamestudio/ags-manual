@@ -83,7 +83,7 @@
 <h3><a href="#disablegroundlevelareas"><code>DisableGroundLevelAreas</code></a></h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DisableGroundLevelAreas</span><span class="op">(</span><span class="dt">int</span> disableTints<span class="op">)</span></span></code></pre></div>
 <p>Disables all ground-level events. This means that all Region events, the Player Stands On Hotspot event, and the room edges become disabled.</p>
-<p>This command is useful in conjunction with the <code>character[].z</code> variable, if you want the player to be able to temporarily fly or levitate, for example. It allows you to stop the character from triggering Player Stands On events while they are in the air.</p>
+<p>This command is useful in conjunction with the <code>Character.z</code> property, if you want the player to be able to temporarily fly or levitate, for example. It allows you to stop the character from triggering Player Stands On events while they are in the air.</p>
 <p>This command is also useful during some cutscenes, if you don't want the player to trigger events as they walk around the room while in the cutscene.</p>
 <p>The DISABLETINTS parameter specifies whether the visual effects of the regions (i.e. light levels and tints) are also disabled. If you pass this as 0, then just the events will be turned off.</p>
 <p>Example:</p>
@@ -108,8 +108,8 @@
 <p>Returns the number of the current background being displayed. In a room without animating backgrounds, this will always return 0. Otherwise, the current frame number is returned from 0 to 4.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetBackgroundFrame</span><span class="op">()==</span><span class="dv">4</span><span class="op">)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">object</span><span class="op">[</span><span class="dv">2</span><span class="op">].</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
-<p>will turn on object 2 if the background frame of the room is frame 4.</p>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    oMoon<span class="op">.</span><span class="at">Visible</span> = <span class="bu">true</span><span class="op">;</span></span></code></pre></div>
+<p>will turn on object oMoon if the background frame of the room is frame 4.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Room.html#setbackgroundframe"><code>SetBackgroundFrame</code></a></p>
 <hr />
 </section>
@@ -317,7 +317,7 @@
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: 669210f910c43233aac1fd42b045e6d3db16036f
+          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
         </p>
       </footer>
     </article>
