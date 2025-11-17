@@ -796,7 +796,7 @@ article :target:before {
     }
     .header-bg {}
     header h1 { width: 40px; overflow:hidden; }
-    article h2, article h3 { line-height: 1.2; word-break: break-all;}
+    article h2, article h3 { line-height: 1.2; word-break: break-word;}
 }
 @media (max-width:768px) {
     .content {display:flex; flex-direction: column-reverse; }
