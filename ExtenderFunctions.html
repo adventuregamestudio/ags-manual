@@ -108,13 +108,27 @@
 <p>and you use such function as:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x = <span class="bu">Maths</span><span class="op">.</span><span class="at">AbsInt</span><span class="op">(-</span><span class="dv">10</span><span class="op">);</span></span></code></pre></div>
 </section>
+<section id="extenders-and-function-overloading" class="level3">
+<h3><a href="#extenders-and-function-overloading">Extenders and function overloading</a></h3>
+<p>Function overloading is an ability of a scripting language to have multiple functions of same name but with different parameters. AGS script does not support function overloading at this moment, but when using extender functions you may have multiple extenders of the same name attached to different types. This is possible, because compiler treats such functions as members of respective structs, and it is allowed to have identically named functions in different structs.</p>
+<p>For example, you may declare functions like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">PickUp</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Object</span><span class="op">*)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// some code here</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">PickUp</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Hotspot</span><span class="op">*)</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// some code here</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/ExtenderFunctions.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>
       </main>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
+          Build: 20b91b38748188d55165d6db4652a89462bc8046
         </p>
       </footer>
     </article>
@@ -124,6 +138,7 @@
 <li><a href="#extender-functions" id="toc-extender-functions">Extender functions</a>
 <ul>
 <li><a href="#static-extenders" id="toc-static-extenders">Static extenders</a></li>
+<li><a href="#extenders-and-function-overloading" id="toc-extenders-and-function-overloading">Extenders and function overloading</a></li>
 </ul></li>
 </ul>
     </aside>

@@ -80,351 +80,14 @@
 <p><em>See also:</em> <a href="Dialog.html#dialogscriptname"><code>Dialog.ScriptName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
 <hr />
 </section>
-<section id="dialogstop" class="level3">
-<h3><a href="#dialogstop"><code>Dialog.Stop</code></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">Stop</span><span class="op">()</span></span></code></pre></div>
-<p>This command stops the current dialog, if any is running. Note that its effect is not immediate, and engine will wait until the end of the current script before closing the dialog.</p>
-<p>This function is a newer OO-style alias of an older <a href="Dialog.html#stopdialog">StopDialog()</a> function. For more detailed information on how it works, please refer to that function's description.</p>
-<p>Example:</p>
-<pre><code>function repeatedly_execute_always() {
-    if (Dialog.CurrentDialog != null) {
-        if (IsKeyPressed(eKeyEscape)) {
-            Dialog.Stop();
-        }
-    }
-}</code></pre>
-<p>Stops running dialog when player presses Escape key.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#stopdialog"><code>StopDialog</code></a></p>
-<hr />
-</section>
-<section id="dialogareoptionsdisplayed" class="level3">
-<h3><a href="#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span></span></code></pre></div>
-<p>Returns <code>true</code> if dialog options are currently displayed on the screen, or <code>false</code> otherwise.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsOpen<span class="op">)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>VIEW_IDLE_WHILE_DIALOG<span class="op">);</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsClose<span class="op">)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span><span class="op">)</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span><span class="bu">player</span><span class="op">.</span><span class="at">Animating</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="bu">Random</span><span class="op">(</span><span class="dv">100</span><span class="op">)</span> <span class="op">&lt;</span> <span class="dv">2</span><span class="op">))</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Loop</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>In this example the player character will be locked to a view VIEW_IDLE_WHILE_DIALOG when the dialog options are about to be shown on screen, and randomly play animations while they are displayed. When the dialog options are hidden the player character's view will be unlocked.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
-<hr />
-</section>
-<section id="dialogcurrentdialog" class="level3">
-<h3><a href="#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span></span></code></pre></div>
-<p>Gets the currently running dialog. Returns <code>null</code> if no dialog is currently active.</p>
-<p>"In dialog" is a specific state of the AGS Engine, it means that a Dialog have been run by calling <a href="Dialog.html#dialogstart"><code>Dialog.Start()</code></a>. This refers to:</p>
-<ul>
-<li>dialog script is running, either an opening or any of the option's scripts;</li>
-<li>dialog options are displayed;</li>
-</ul>
-<p>If, on another hand, you want to know when a particular character is speaking, then use <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a> instead.</p>
-<p>Current dialog may change multiple times during the conversation if you have other dialogs started from the dialog script. CurrentDialog will return <code>null</code> only when the last dialog has finished and the game returns to the normal state.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStart<span class="op">)</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStop<span class="op">)</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dShopkeeper<span class="op">)</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsTimerExpired</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">320</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>In this example, the script starts a timer whenever the dShopkeeper dialog starts, and keeps checking for that timer's expiration while it's running. If a timer expires while in dialog, the cThief character will appear in the room and walk across the room. The timer will be cancelled if dialog ended earlier.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
-<hr />
-</section>
-<section id="dialogexecutedoption" class="level3">
-<h3><a href="#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span></span></code></pre></div>
-<p>Gets the currently executed dialog option, or <code>-1</code> if none is being executed.</p>
-<p><strong>NOTE:</strong> dialog option indexes start with 1, and index 0 refers to the dialog entry (marked with '@S' in dialog script).</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dAnxiousTalk <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>cAnxiousMan<span class="op">.</span><span class="at">Speaking</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Moving</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Animating</span><span class="op">)</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">-</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">FaceCharacter</span><span class="op">(</span>cAnxiousMan<span class="op">);</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>This script will make a cAnxiousMan character continuously walk back and forth during conversation, except the time when he's speaking himself or plays any custom animation.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><strong>See also:</strong> <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
-<hr />
-</section>
-<section id="dialogdisplayoptions" class="level3">
-<h3><a href="#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">DisplayOptions</span><span class="op">(</span>optional <span class="dt">DialogOptionSayStyle</span><span class="op">)</span></span></code></pre></div>
-<p>Presents the options for this dialog to the user and waits until they select one of them. The selected option number is returned.</p>
-<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply displays the options and waits for the player to choose one. To run the dialog normally, use the <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a> command instead.</p>
-<p>This command is useful if you want to implement your own dialog system, but still use the standard AGS dialog option selection screens.</p>
-<p>The optional <em>DialogOptionSayStyle</em> parameter determines whether the chosen option is automatically spoken by the player character. The default is <em>eSayUseOptionSetting</em>, which will use the option's "Say" setting from the dialog editor. You can alternatively use <em>eSayAlways</em>, which will speak the chosen option regardless of its setting in the editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
-<p>If the text parser is enabled for this dialog and the player types something into it rather than selecting an option, the special value <code>DIALOG_PARSER_SELECTED</code> will be returned, and AGS will have automatically called <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a> with the player's text. Therefore, you can call <a href="Parser.html#parsersaid"><code>Parser.Said</code></a> to process it.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result = dOldMan<span class="op">.</span><span class="at">DisplayOptions</span><span class="op">();</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">==</span> <span class="cn">DIALOG_PARSER_SELECTED</span><span class="op">)</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;They typed something into the parser!!&quot;</span><span class="op">);</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;They chose dialog option %d.&quot;</span><span class="op">,</span> result<span class="op">);</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will show the options for dialog <em>dOldMan</em> and display a message depending on what the player selected.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a></p>
-<hr />
-</section>
-<section id="dialoggetoptionstate" class="level3">
-<h3><a href="#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></h3>
-<p><em>(Formerly known as global function <code>GetDialogOption</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">GetOptionState</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
-<p>Finds out whether an option in a conversation is available to the player or not.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
-<p>The return value can have the following values:</p>
-<pre><code>eOptionOff
-  The option is disabled - the player will not see it
-eOptionOn
-  The option is enabled - the player can now see and use it
-eOptionOffForever
-  The option is permanently disabled - no other command can ever turn
-  it back on again.</code></pre>
-<p>These are the same as the options passed to Dialog.SetOptionState.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dJoeExcited<span class="op">.</span><span class="at">GetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">!=</span> <span class="bu">eOptionOn</span><span class="op">)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;It&#39;s turned off&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>Will display a message if option 2 of dialog dJoeExcited is not currently switched on.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a>, <a href="Dialog.html#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
-<hr />
-</section>
-<section id="dialoggetoptiontext" class="level3">
-<h3><a href="#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a></h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetOptionText</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
-<p>Returns the text for the specified dialog option.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> optionText = dJoeBloggs<span class="op">.</span><span class="at">GetOptionText</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Option 3 of dialog dJoeBloggs is %s!&quot;</span><span class="op">,</span> optionText<span class="op">);</span></span></code></pre></div>
-<p>will display the text for the third option of the dJoeBloggs dialog.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialogoptioncount"><code>Dialog.OptionCount</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
-<hr />
-</section>
-<section id="dialoghasoptionbeenchosen" class="level3">
-<h3><a href="#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a></h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
-<p>Finds out whether the player has already chosen the specified option in this dialog. This is mainly useful when drawing your own custom dialog options display, since it allows you to differentiate options that have already been chosen.</p>
-<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dJoeExcited<span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dv">2</span><span class="op">))</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player has chosen option 2 in dialog dJoeExcited!&quot;</span><span class="op">);</span></span></code></pre></div>
-<p>will display a message if the player has used option 2 of the dialog before.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a>,</p>
-<hr />
-</section>
-<section id="dialogid" class="level3">
-<h3><a href="#dialogid"><code>Dialog.ID</code></a></h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ID</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the dialog ID number from the editor.</p>
-<p>This might be useful if you need to interoperate with legacy scripts that work with dialog ID numbers.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman is Dialog %d!&quot;</span><span class="op">,</span> dFisherman<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
-<p>will display the ID number of the dFisherman dialog</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptioncount" class="level3">
-<h3><a href="#dialogoptioncount"><code>Dialog.OptionCount</code></a></h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionCount</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the number of options that this dialog has.</p>
-<p>This might be useful in a script module if you want to iterate through all the possible choices in the dialog.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman has %d options!&quot;</span><span class="op">,</span> dFisherman<span class="op">.</span><span class="at">OptionCount</span><span class="op">);</span></span></code></pre></div>
-<p>will display the number of options in the dFisherman dialog.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
-<hr />
-</section>
-<section id="dialogoptionsbulletgraphic" class="level3">
-<h3><a href="#dialogoptionsbulletgraphic"><code>Dialog.OptionsBulletGraphic</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsBulletGraphic</span></span></code></pre></div>
-<p>Gets/sets the sprite to use as a bullet point before each dialog option (0 for none).</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsfont" class="level3">
-<h3><a href="#dialogoptionsfont"><code>Dialog.OptionsFont</code></a></h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsFont</span></span></code></pre></div>
-<p>Gets/sets the font to use when displaying dialog options.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsgap" class="level3">
-<h3><a href="#dialogoptionsgap"><code>Dialog.OptionsGap</code></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGap</span></span></code></pre></div>
-<p>Gets/sets the vertical gap between dialog options (in pixels).</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsgui" class="level3">
-<h3><a href="#dialogoptionsgui"><code>Dialog.OptionsGUI</code></a></h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUI</span></span></code></pre></div>
-<p>Gets/sets the GUI that will be used to display dialog options; set null to use default options look.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsguix" class="level3">
-<h3><a href="#dialogoptionsguix"><code>Dialog.OptionsGUIX</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUIX</span></span></code></pre></div>
-<p>Gets/sets on-screen X position of dialog options GUI; set to -1 if it should use default placement.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsguiy" class="level3">
-<h3><a href="#dialogoptionsguiy"><code>Dialog.OptionsGUIY</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUIY</span></span></code></pre></div>
-<p>Gets/sets on-screen Y position of dialog options GUI; set to -1 if it should use default placement.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionshighlightcolor" class="level3">
-<h3><a href="#dialogoptionshighlightcolor"><code>Dialog.OptionsHighlightColor</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsHighlightColor</span></span></code></pre></div>
-<p>Gets/sets the color used to draw the active (selected) dialog option.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsmaxguiwidth" class="level3">
-<h3><a href="#dialogoptionsmaxguiwidth"><code>Dialog.OptionsMaxGUIWidth</code></a></h3>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsMaxGUIWidth</span></span></code></pre></div>
-<p>Get/sets the maximal width of the auto-resizing GUI on which dialog options are drawn.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsminguiwidth" class="level3">
-<h3><a href="#dialogoptionsminguiwidth"><code>Dialog.OptionsMinGUIWidth</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsMinGUIWidth</span></span></code></pre></div>
-<p>Get/sets the minimal width of the auto-resizing GUI on which dialog options are drawn.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsnumbering" class="level3">
-<h3><a href="#dialogoptionsnumbering"><code>Dialog.OptionsNumbering</code></a></h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> DialogOptionsNumbering <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsNumbering</span></span></code></pre></div>
-<p>Gets/sets whether dialog options have numbers before them, and the numeric keys can be used to select them.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionspaddingx" class="level3">
-<h3><a href="#dialogoptionspaddingx"><code>Dialog.OptionsPaddingX</code></a></h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsPaddingX</span></span></code></pre></div>
-<p>Gets/sets the horizontal offset at which options are drawn on a standard GUI.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionspaddingy" class="level3">
-<h3><a href="#dialogoptionspaddingy"><code>Dialog.OptionsPaddingY</code></a></h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsPaddingY</span></span></code></pre></div>
-<p>Gets/sets the vertical offset at which options are drawn on a standard GUI.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionsreadcolor" class="level3">
-<h3><a href="#dialogoptionsreadcolor"><code>Dialog.OptionsReadColor</code></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsReadColor</span></span></code></pre></div>
-<p>Gets/sets the color used to draw the dialog options that have already been selected once; set to -1 for no distinct color.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionstextalignment" class="level3">
-<h3><a href="#dialogoptionstextalignment"><code>Dialog.OptionsTextAlignment</code></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">HorizontalAlignment</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsTextAlignment</span></span></code></pre></div>
-<p>Gets/sets the horizontal alignment of each dialog option's text.</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogoptionszorder" class="level3">
-<h3><a href="#dialogoptionszorder"><code>Dialog.OptionsZOrder</code></a></h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsZOrder</span></span></code></pre></div>
-<p>Gets/sets the z-order of dialog options, relative to GUI and on-screen Overlays..</p>
-<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
-<hr />
-</section>
-<section id="dialogscriptname" class="level3">
-<h3><a href="#dialogscriptname"><code>Dialog.ScriptName</code></a></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
-<p>Gets the script name of the dialog, which serves as a unique identifier.</p>
-<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each dialog in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Dialog.html#dialoggetbyname">Dialog.GetByName</a> function to retrieve the dialog by the previously saved script name.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomDialogStart</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Dialog</span><span class="op">*)</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Start</span><span class="op">();</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">String</span> dialogName = <span class="kw">this</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Starting dialog: %s&quot;</span><span class="op">,</span> dialogName<span class="op">);</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>Starting a dialog using the <code>CustomDialogStart()</code> method, like <code>dExampleDialog.CustomDialogStart()</code>, will log its script name for debugging purposes.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Dialog.html#dialoggetbyname"><code>Dialog.GetByName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
-<hr />
-</section>
 <section id="dialogsethasoptionbeenchosen" class="level3">
 <h3><a href="#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">SetHasOptionBeenChosen</span><span class="op">(</span><span class="dt">int</span> option<span class="op">,</span> <span class="dt">bool</span> chosen<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">SetHasOptionBeenChosen</span><span class="op">(</span><span class="dt">int</span> option<span class="op">,</span> <span class="dt">bool</span> chosen<span class="op">)</span></span></code></pre></div>
 <p>Changes whether an option in a conversation is marked as previously chosen by the player. The option is marked as chosen whenever player selects it during the conversation, and is usually highlighted with different text color. This function lets you to reset the option state, or force it change at any random moment.</p>
 <p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dDialog1<span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    dDialog1<span class="op">.</span><span class="at">SetHasOptionBeenChosen</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="bu">false</span><span class="op">);</span> <span class="co">// reset the option state</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dDialog1<span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    dDialog1<span class="op">.</span><span class="at">SetHasOptionBeenChosen</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="bu">false</span><span class="op">);</span> <span class="co">// reset the option state</span></span></code></pre></div>
 <p>will mark option 1 of dialog dDialog1 as "not chosen yet".</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a></p>
@@ -433,7 +96,7 @@ eOptionOffForever
 <section id="dialogsetoptionstate" class="level3">
 <h3><a href="#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></h3>
 <p><em>(Formerly known as global function <code>SetDialogOption</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dt">int</span> option<span class="op">,</span> <span class="dt">DialogOptionState</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dt">int</span> option<span class="op">,</span> <span class="dt">DialogOptionState</span><span class="op">)</span></span></code></pre></div>
 <p>Changes whether an option in a conversation is available to the player or not. This allows you to add extra options to a conversation once the player has done certain things.</p>
 <p>OPTION is the option number within the topic, from 1 to whatever the highest option is for that topic.</p>
 <p>The DialogOptionState controls what happens to this option. It can have the following values:</p>
@@ -446,41 +109,403 @@ eOptionOffForever
   it back on again.</code></pre>
 <p>These are equivalent to the option-off, option-on, and option-off-forever dialog commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>dFriend1<span class="op">.</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eOptionOn</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dFriend1<span class="op">.</span><span class="at">SetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="bu">eOptionOn</span><span class="op">);</span></span></code></pre></div>
 <p>will enable option 2 of topic number 4.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#stopdialog"><code>StopDialog</code></a></p>
-<hr />
-</section>
-<section id="dialogshowtextparser" class="level3">
-<h3><a href="#dialogshowtextparser"><code>Dialog.ShowTextParser</code></a></h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ShowTextParser</span><span class="op">;</span></span></code></pre></div>
-<p>Gets whether this dialog shows a text box allowing the player to type in text.</p>
-<p>This property is initially set in the Dialog Editor.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dFisherman<span class="op">.</span><span class="at">ShowTextParser</span><span class="op">)</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman has a text box!&quot;</span><span class="op">);</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will display a message if dFisherman has the option enabled</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.1</strong> and later versions.</p>
 <hr />
 </section>
 <section id="dialogstart" class="level3">
 <h3><a href="#dialogstart"><code>Dialog.Start</code></a></h3>
 <p><em>(Formerly known as global function <code>RunDialog</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">Start</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">Start</span><span class="op">()</span></span></code></pre></div>
 <p>Starts a conversation from the specified topic.</p>
 <p>NOTE: The conversation will not start immediately; instead, it will be run when the current script function finishes executing.</p>
 <p>If you use this command from within the dialog_request function, it will specify that the game should return to this new topic when the script finishes.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dMerchant<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dMerchant<span class="op">.</span><span class="at">Start</span><span class="op">();</span></span></code></pre></div>
 <p>will start the conversation topic named dMerchant.</p>
-<p><em>See also:</em> <a href="Dialog.html#stopdialog"><code>StopDialog</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<p><em>See also:</em> <a href="Dialog.html#dialogstartoption"><code>Dialog.StartOption</code></a>, <a href="Dialog.html#dialogstop"><code>Dialog.Stop</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialogstartoption" class="level3">
+<h3><a href="#dialogstartoption"><code>Dialog.StartOption</code></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">StartOption</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
+<p>Starts a conversation from the specified topic, and starts executing dialog script for the specified option. Remember that the user-made options begin with 1, while option 0 is a entry point, so calling Dialog.StartOption(0) will work essentially like Dialog.Start().</p>
+<p>NOTE: The conversation will not start immediately; instead, it will be run when the current script function finishes executing.</p>
+<p>Besides the starting point, there's no other differences compared to the regular Dialog.Start(), and dialog will continue as normal after the current option's script finishes. Unless it ends with <code>stop</code> command, in which case the dialog will end.</p>
+<p>This command can be useful in combination with the fully scripted dialog options, going around the standard dialog system. If you do something like that, don't forget to use <code>stop</code> in the end of each option's script to stop dialog instead of <code>return</code>.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> chosen_question = ListOfQuestions<span class="op">.</span><span class="at">SelectedIndex</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dLibrarian<span class="op">.</span><span class="at">StartDialog</span><span class="op">(</span>chosen_question<span class="op">);</span></span></code></pre></div>
+<p>will read the index of selected topic from the ListBox control, and run dLibrarian dialog from the corresponding option.</p>
+<p>For the opposite scenario see <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, which displays dialog options in a common way, but does not run dialog scripts.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogstop"><code>Dialog.Stop</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialogstop" class="level3">
+<h3><a href="#dialogstop"><code>Dialog.Stop</code></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">Stop</span><span class="op">()</span></span></code></pre></div>
+<p>This command stops the current dialog, if any is running. Note that its effect is not immediate, and engine will wait until the end of the current script before closing the dialog.</p>
+<p>This function is a newer OO-style alias of an older <a href="Dialog.html#stopdialog">StopDialog()</a> function. For more detailed information on how it works, please refer to that function's description.</p>
+<p>Example:</p>
+<pre><code>function repeatedly_execute_always() {
+    if (Dialog.CurrentDialog != null) {
+        if (IsKeyPressed(eKeyEscape)) {
+            Dialog.Stop();
+        }
+    }
+}</code></pre>
+<p>Stops running dialog when player presses Escape key.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogstartoption"><code>Dialog.StartOption</code></a>, <a href="Dialog.html#stopdialog"><code>StopDialog</code></a></p>
+<hr />
+</section>
+<section id="dialogareoptionsdisplayed" class="level3">
+<h3><a href="#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span></span></code></pre></div>
+<p>Returns <code>true</code> if dialog options are currently displayed on the screen, or <code>false</code> otherwise.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsOpen<span class="op">)</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">LockView</span><span class="op">(</span>VIEW_IDLE_WHILE_DIALOG<span class="op">);</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogOptionsClose<span class="op">)</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">UnlockView</span><span class="op">();</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span><span class="op">)</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span><span class="bu">player</span><span class="op">.</span><span class="at">Animating</span> <span class="op">&amp;&amp;</span> <span class="op">(</span><span class="bu">Random</span><span class="op">(</span><span class="dv">100</span><span class="op">)</span> <span class="op">&lt;</span> <span class="dv">2</span><span class="op">))</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">player</span><span class="op">.</span><span class="at">Animate</span><span class="op">(</span><span class="bu">player</span><span class="op">.</span><span class="at">Loop</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="bu">eOnce</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In this example the player character will be locked to a view VIEW_IDLE_WHILE_DIALOG when the dialog options are about to be shown on screen, and randomly play animations while they are displayed. When the dialog options are hidden the player character's view will be unlocked.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a>, <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
+<hr />
+</section>
+<section id="dialogcurrentdialog" class="level3">
+<h3><a href="#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="bu">Dialog</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span></span></code></pre></div>
+<p>Gets the currently running dialog. Returns <code>null</code> if no dialog is currently active.</p>
+<p>"In dialog" is a specific state of the AGS Engine, it means that a Dialog have been run by calling <a href="Dialog.html#dialogstart"><code>Dialog.Start()</code></a>. This refers to:</p>
+<ul>
+<li>dialog script is running, either an opening or any of the option's scripts;</li>
+<li>dialog options are displayed;</li>
+</ul>
+<p>If, on another hand, you want to know when a particular character is speaking, then use <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a> instead.</p>
+<p>Current dialog may change multiple times during the conversation if you have other dialogs started from the dialog script. CurrentDialog will return <code>null</code> only when the last dialog has finished and the game returns to the normal state.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">EventType</span> evt<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStart<span class="op">)</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">300</span><span class="op">);</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>evt <span class="op">==</span> eEventDialogStop<span class="op">)</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>data1 <span class="op">==</span> dShopkeeper<span class="op">.</span><span class="at">ID</span><span class="op">)</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>            <span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dShopkeeper<span class="op">)</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsTimerExpired</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>            cThief<span class="op">.</span><span class="at">Walk</span><span class="op">(</span><span class="dv">320</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">,</span> <span class="bu">eAnywhere</span><span class="op">);</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>In this example, the script starts a timer whenever the dShopkeeper dialog starts, and keeps checking for that timer's expiration while it's running. If a timer expires while in dialog, the cThief character will appear in the room and walk across the room. The timer will be cancelled if dialog ended earlier.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a>, <a href="Dialog.html#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a>, <a href="Speech.html#speechspeakingcharacter"><code>Speech.SpeakingCharacter</code></a>, <a href="Globalfunctions_Event.html#on_event"><code>on_event</code></a></p>
+<hr />
+</section>
+<section id="dialogexecutedoption" class="level3">
+<h3><a href="#dialogexecutedoption"><code>Dialog.ExecutedOption</code></a></h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span></span></code></pre></div>
+<p>Gets the currently executed dialog option, or <code>-1</code> if none is being executed.</p>
+<p><strong>NOTE:</strong> dialog option indexes start with 1, and index 0 refers to the dialog entry (marked with '@S' in dialog script).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dAnxiousTalk <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ExecutedOption</span> <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>cAnxiousMan<span class="op">.</span><span class="at">Speaking</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Moving</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>cAnxiousMan<span class="op">.</span><span class="at">Animating</span><span class="op">)</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">+</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                cAnxiousMan<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cAnxiousMan<span class="op">.</span><span class="at">x</span> <span class="op">-</span> <span class="dv">100</span><span class="op">,</span> cAnxiousMan<span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eNoBlock</span><span class="op">);</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">player</span><span class="op">.</span><span class="at">FaceCharacter</span><span class="op">(</span>cAnxiousMan<span class="op">);</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>This script will make a cAnxiousMan character continuously walk back and forth during conversation, except the time when he's speaking himself or plays any custom animation.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
+<p><strong>See also:</strong> <a href="Dialog.html#dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a>, <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialogdisplayoptions" class="level3">
+<h3><a href="#dialogdisplayoptions"><code>Dialog.DisplayOptions</code></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">DisplayOptions</span><span class="op">(</span>optional <span class="dt">DialogOptionSayStyle</span><span class="op">)</span></span></code></pre></div>
+<p>Presents the options for this dialog to the user and waits until they select one of them. The selected option number is returned.</p>
+<p><strong>NOTE:</strong> This command does not run any dialog scripts, it simply displays the options and waits for the player to choose one. To run the dialog normally, use the <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a> command instead.</p>
+<p>This command is useful if you want to implement your own dialog system, but still use the standard AGS dialog option selection screens.</p>
+<p>The optional <em>DialogOptionSayStyle</em> parameter determines whether the chosen option is automatically spoken by the player character. The default is <em>eSayUseOptionSetting</em>, which will use the option's "Say" setting from the dialog editor. You can alternatively use <em>eSayAlways</em>, which will speak the chosen option regardless of its setting in the editor; or <em>eSayNever</em>, which will not speak the chosen option.</p>
+<p>If the text parser is enabled for this dialog and the player types something into it rather than selecting an option, the special value <code>DIALOG_PARSER_SELECTED</code> will be returned, and AGS will have automatically called <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a> with the player's text. Therefore, you can call <a href="Parser.html#parsersaid"><code>Parser.Said</code></a> to process it.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> result = dOldMan<span class="op">.</span><span class="at">DisplayOptions</span><span class="op">();</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>result <span class="op">==</span> <span class="cn">DIALOG_PARSER_SELECTED</span><span class="op">)</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;They typed something into the parser!!&quot;</span><span class="op">);</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;They chose dialog option %d.&quot;</span><span class="op">,</span> result<span class="op">);</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will show the options for dialog <em>dOldMan</em> and display a message depending on what the player selected.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogstartoption"><code>Dialog.StartOption</code></a>, <a href="Parser.html#parserparsetext"><code>Parser.ParseText</code></a></p>
+<hr />
+</section>
+<section id="dialoggetoptionstate" class="level3">
+<h3><a href="#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></h3>
+<p><em>(Formerly known as global function <code>GetDialogOption</code>, which is now obsolete)</em></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Dialog</span><span class="op">.</span><span class="at">GetOptionState</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
+<p>Finds out whether an option in a conversation is available to the player or not.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
+<p>The return value can have the following values:</p>
+<pre><code>eOptionOff
+  The option is disabled - the player will not see it
+eOptionOn
+  The option is enabled - the player can now see and use it
+eOptionOffForever
+  The option is permanently disabled - no other command can ever turn
+  it back on again.</code></pre>
+<p>These are the same as the options passed to Dialog.SetOptionState.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dJoeExcited<span class="op">.</span><span class="at">GetOptionState</span><span class="op">(</span><span class="dv">2</span><span class="op">)</span> <span class="op">!=</span> <span class="bu">eOptionOn</span><span class="op">)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;It&#39;s turned off&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>Will display a message if option 2 of dialog dJoeExcited is not currently switched on.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a>, <a href="Dialog.html#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialoggetoptiontext" class="level3">
+<h3><a href="#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a></h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">GetOptionText</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
+<p>Returns the text for the specified dialog option.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> optionText = dJoeBloggs<span class="op">.</span><span class="at">GetOptionText</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Option 3 of dialog dJoeBloggs is %s!&quot;</span><span class="op">,</span> optionText<span class="op">);</span></span></code></pre></div>
+<p>will display the text for the third option of the dJoeBloggs dialog.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialogoptioncount"><code>Dialog.OptionCount</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialoghasoptionbeenchosen" class="level3">
+<h3><a href="#dialoghasoptionbeenchosen"><code>Dialog.HasOptionBeenChosen</code></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dt">int</span> option<span class="op">)</span></span></code></pre></div>
+<p>Finds out whether the player has already chosen the specified option in this dialog. This is mainly useful when drawing your own custom dialog options display, since it allows you to differentiate options that have already been chosen.</p>
+<p>OPTION is the option number within the dialog, from 1 to whatever the highest option is for that topic.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dJoeExcited<span class="op">.</span><span class="at">HasOptionBeenChosen</span><span class="op">(</span><span class="dv">2</span><span class="op">))</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player has chosen option 2 in dialog dJoeExcited!&quot;</span><span class="op">);</span></span></code></pre></div>
+<p>will display a message if the player has used option 2 of the dialog before.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a>, <a href="Dialog.html#dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a>,</p>
+<hr />
+</section>
+<section id="dialogid" class="level3">
+<h3><a href="#dialogid"><code>Dialog.ID</code></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ID</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the dialog ID number from the editor.</p>
+<p>This might be useful if you need to interoperate with legacy scripts that work with dialog ID numbers.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman is Dialog %d!&quot;</span><span class="op">,</span> dFisherman<span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
+<p>will display the ID number of the dFisherman dialog</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.1.0</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptioncount" class="level3">
+<h3><a href="#dialogoptioncount"><code>Dialog.OptionCount</code></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionCount</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the number of options that this dialog has.</p>
+<p>This might be useful in a script module if you want to iterate through all the possible choices in the dialog.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman has %d options!&quot;</span><span class="op">,</span> dFisherman<span class="op">.</span><span class="at">OptionCount</span><span class="op">);</span></span></code></pre></div>
+<p>will display the number of options in the dFisherman dialog.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.0.2</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialoggetoptiontext"><code>Dialog.GetOptionText</code></a>, <a href="Dialog.html#dialoggetoptionstate"><code>Dialog.GetOptionState</code></a></p>
+<hr />
+</section>
+<section id="dialogoptionsbulletgraphic" class="level3">
+<h3><a href="#dialogoptionsbulletgraphic"><code>Dialog.OptionsBulletGraphic</code></a></h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsBulletGraphic</span></span></code></pre></div>
+<p>Gets/sets the sprite to use as a bullet point before each dialog option (0 for none).</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsfont" class="level3">
+<h3><a href="#dialogoptionsfont"><code>Dialog.OptionsFont</code></a></h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsFont</span></span></code></pre></div>
+<p>Gets/sets the font to use when displaying dialog options.</p>
+<p>For backwards compatibility this property starts initialized with a eUndefinedFont value. While its set to eUndefinedFont, a Game.NormalFont will be used for options instead.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsgap" class="level3">
+<h3><a href="#dialogoptionsgap"><code>Dialog.OptionsGap</code></a></h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGap</span></span></code></pre></div>
+<p>Gets/sets the vertical gap between dialog options (in pixels).</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsgui" class="level3">
+<h3><a href="#dialogoptionsgui"><code>Dialog.OptionsGUI</code></a></h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="bu">GUI</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUI</span></span></code></pre></div>
+<p>Gets/sets the GUI that will be used to display dialog options; set null to use default options look.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsguix" class="level3">
+<h3><a href="#dialogoptionsguix"><code>Dialog.OptionsGUIX</code></a></h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUIX</span></span></code></pre></div>
+<p>Gets/sets on-screen X position of dialog options GUI; set to -1 if it should use default placement.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsguiy" class="level3">
+<h3><a href="#dialogoptionsguiy"><code>Dialog.OptionsGUIY</code></a></h3>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsGUIY</span></span></code></pre></div>
+<p>Gets/sets on-screen Y position of dialog options GUI; set to -1 if it should use default placement.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionshighlightcolor" class="level3">
+<h3><a href="#dialogoptionshighlightcolor"><code>Dialog.OptionsHighlightColor</code></a></h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsHighlightColor</span></span></code></pre></div>
+<p>Gets/sets the color used to draw the active (selected) dialog option.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsmaxguiwidth" class="level3">
+<h3><a href="#dialogoptionsmaxguiwidth"><code>Dialog.OptionsMaxGUIWidth</code></a></h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsMaxGUIWidth</span></span></code></pre></div>
+<p>Get/sets the maximal width of the auto-resizing GUI on which dialog options are drawn.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsminguiwidth" class="level3">
+<h3><a href="#dialogoptionsminguiwidth"><code>Dialog.OptionsMinGUIWidth</code></a></h3>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsMinGUIWidth</span></span></code></pre></div>
+<p>Get/sets the minimal width of the auto-resizing GUI on which dialog options are drawn.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsnumbering" class="level3">
+<h3><a href="#dialogoptionsnumbering"><code>Dialog.OptionsNumbering</code></a></h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> DialogOptionsNumbering <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsNumbering</span></span></code></pre></div>
+<p>Gets/sets whether dialog options have numbers before them, and the numeric keys can be used to select them.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsoverlay" class="level3">
+<h3><a href="#dialogoptionsoverlay"><code>Dialog.OptionsOverlay</code></a></h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="kw">attribute</span> <span class="bu">Overlay</span><span class="op">*</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsOverlay</span></span></code></pre></div>
+<p>Gets the Overlay object that represents dialog options on screen. This property will only return a valid Overlay while dialog options are shown, and returns null when they are not shown. You may further access this Overlay's properties and modify them (position, z-order, transparency and so forth).</p>
+<p>While it's technically possible, it is not recommended to change overlay's graphic though, because the engine will replace it with a dialog options image whenever they are updated. Removing this Overlay will also not affect the state of the options nor the Dialog, and a new overlay will appear during the next update anyway.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionspaddingx" class="level3">
+<h3><a href="#dialogoptionspaddingx"><code>Dialog.OptionsPaddingX</code></a></h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsPaddingX</span></span></code></pre></div>
+<p>Gets/sets the horizontal offset at which options are drawn on a standard GUI.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionspaddingy" class="level3">
+<h3><a href="#dialogoptionspaddingy"><code>Dialog.OptionsPaddingY</code></a></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsPaddingY</span></span></code></pre></div>
+<p>Gets/sets the vertical offset at which options are drawn on a standard GUI.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionsreadcolor" class="level3">
+<h3><a href="#dialogoptionsreadcolor"><code>Dialog.OptionsReadColor</code></a></h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsReadColor</span></span></code></pre></div>
+<p>Gets/sets the color used to draw the dialog options that have already been selected once; set to -1 for no distinct color.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionstextalignment" class="level3">
+<h3><a href="#dialogoptionstextalignment"><code>Dialog.OptionsTextAlignment</code></a></h3>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">HorizontalAlignment</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsTextAlignment</span></span></code></pre></div>
+<p>Gets/sets the horizontal alignment of each dialog option's text.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogoptionszorder" class="level3">
+<h3><a href="#dialogoptionszorder"><code>Dialog.OptionsZOrder</code></a></h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">attribute</span> <span class="dt">int</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">OptionsZOrder</span></span></code></pre></div>
+<p>Gets/sets the z-order of dialog options, relative to GUI and on-screen Overlays.</p>
+<p><strong>Compatibility:</strong> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<hr />
+</section>
+<section id="dialogscriptname" class="level3">
+<h3><a href="#dialogscriptname"><code>Dialog.ScriptName</code></a></h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="bu">String</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the script name of the dialog, which serves as a unique identifier.</p>
+<p>This may be useful if you have a pointer to some dialog stored in your variable, and want to know what it actually is. Normally you don't need a script name, as you have an automatic global variable for each dialog in the game, but sometimes you may want to save its script name as a text either to display it somewhere for testing purposes, or keep as a reference. You may later use <a href="Dialog.html#dialoggetbyname">Dialog.GetByName</a> function to retrieve the dialog by the previously saved script name.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">CustomDialogStart</span><span class="op">(</span><span class="kw">this</span> <span class="bu">Dialog</span><span class="op">*)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">.</span><span class="at">Start</span><span class="op">();</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">String</span> dialogName = <span class="kw">this</span><span class="op">.</span><span class="at">ScriptName</span><span class="op">;</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Starting dialog: %s&quot;</span><span class="op">,</span> dialogName<span class="op">);</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>Starting a dialog using the <code>CustomDialogStart()</code> method, like <code>dExampleDialog.CustomDialogStart()</code>, will log its script name for debugging purposes.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.1</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Dialog.html#dialoggetbyname"><code>Dialog.GetByName</code></a>, <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a></p>
+<hr />
+</section>
+<section id="dialogshowtextparser" class="level3">
+<h3><a href="#dialogshowtextparser"><code>Dialog.ShowTextParser</code></a></h3>
+<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">ShowTextParser</span><span class="op">;</span></span></code></pre></div>
+<p>Gets whether this dialog shows a text box allowing the player to type in text.</p>
+<p>This property is initially set in the Dialog Editor.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>dFisherman<span class="op">.</span><span class="at">ShowTextParser</span><span class="op">)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;dFisherman has a text box!&quot;</span><span class="op">);</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>will display a message if dFisherman has the option enabled</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.2.1</strong> and later versions.</p>
 <hr />
 </section>
 <section id="stopdialog" class="level3">
 <h3><a href="#stopdialog"><code>StopDialog</code></a></h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StopDialog</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StopDialog</span> <span class="op">()</span></span></code></pre></div>
 <p>This command stops the current dialog, if any is running. But it's effect is not immediate.</p>
 <ul>
 <li>If called in dialog script, or in normal script function being called from a dialog script, then the dialog will stop after current option's script completes.</li>
@@ -490,21 +515,21 @@ eOptionOffForever
 </ul>
 <p>You can use this function to end the conversation depending on whether the player has/does a certain thing.</p>
 <p>Example 1:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span> <span class="op">(</span><span class="dt">int</span> dr<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>dr<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iPoster<span class="op">);</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">StopDialog</span><span class="op">();</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">dialog_request</span> <span class="op">(</span><span class="dt">int</span> dr<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>dr<span class="op">==</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>        cEgo<span class="op">.</span><span class="at">AddInventory</span><span class="op">(</span>iPoster<span class="op">);</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">StopDialog</span><span class="op">();</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will give the player the inventory item iPoster and then end the conversation.</p>
 <p>Example 2:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span> <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dDialogThatMayBeInterrupted<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyEscape</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">StopDialog</span><span class="op">();</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute_always</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span><span class="bu">Dialog</span><span class="op">.</span><span class="at">AreOptionsDisplayed</span> <span class="op">&amp;&amp;</span> <span class="bu">Dialog</span><span class="op">.</span><span class="at">CurrentDialog</span> <span class="op">==</span> dDialogThatMayBeInterrupted<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyEscape</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">StopDialog</span><span class="op">();</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will stop a certain dialog if player presses Escape while dialog options are displayed.</p>
 <p><em>Compatibility:</em> Prior to <strong>AGS 3.6.2</strong> StopDialog could only work if called from "dialog_request" function.</p>
 <p><em>See also:</em> <a href="Dialog.html#dialogstart"><code>Dialog.Start</code></a>, <a href="Dialog.html#dialogstop"><code>Dialog.Stop</code></a>, <a href="Dialog.html#dialogsetoptionstate"><code>Dialog.SetOptionState</code></a>, <a href="Globalfunctions_Event.html#dialog_request"><code>dialog_request</code></a></p>
@@ -515,7 +540,7 @@ eOptionOffForever
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
+          Build: 20b91b38748188d55165d6db4652a89462bc8046
         </p>
       </footer>
     </article>
@@ -525,6 +550,10 @@ eOptionOffForever
 <li><a href="#dialog-functions-and-properties" id="toc-dialog-functions-and-properties"><code>Dialog</code> functions and properties</a>
 <ul>
 <li><a href="#dialoggetbyname" id="toc-dialoggetbyname"><code>Dialog.GetByName</code></a></li>
+<li><a href="#dialogsethasoptionbeenchosen" id="toc-dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></li>
+<li><a href="#dialogsetoptionstate" id="toc-dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></li>
+<li><a href="#dialogstart" id="toc-dialogstart"><code>Dialog.Start</code></a></li>
+<li><a href="#dialogstartoption" id="toc-dialogstartoption"><code>Dialog.StartOption</code></a></li>
 <li><a href="#dialogstop" id="toc-dialogstop"><code>Dialog.Stop</code></a></li>
 <li><a href="#dialogareoptionsdisplayed" id="toc-dialogareoptionsdisplayed"><code>Dialog.AreOptionsDisplayed</code></a></li>
 <li><a href="#dialogcurrentdialog" id="toc-dialogcurrentdialog"><code>Dialog.CurrentDialog</code></a></li>
@@ -545,16 +574,14 @@ eOptionOffForever
 <li><a href="#dialogoptionsmaxguiwidth" id="toc-dialogoptionsmaxguiwidth"><code>Dialog.OptionsMaxGUIWidth</code></a></li>
 <li><a href="#dialogoptionsminguiwidth" id="toc-dialogoptionsminguiwidth"><code>Dialog.OptionsMinGUIWidth</code></a></li>
 <li><a href="#dialogoptionsnumbering" id="toc-dialogoptionsnumbering"><code>Dialog.OptionsNumbering</code></a></li>
+<li><a href="#dialogoptionsoverlay" id="toc-dialogoptionsoverlay"><code>Dialog.OptionsOverlay</code></a></li>
 <li><a href="#dialogoptionspaddingx" id="toc-dialogoptionspaddingx"><code>Dialog.OptionsPaddingX</code></a></li>
 <li><a href="#dialogoptionspaddingy" id="toc-dialogoptionspaddingy"><code>Dialog.OptionsPaddingY</code></a></li>
 <li><a href="#dialogoptionsreadcolor" id="toc-dialogoptionsreadcolor"><code>Dialog.OptionsReadColor</code></a></li>
 <li><a href="#dialogoptionstextalignment" id="toc-dialogoptionstextalignment"><code>Dialog.OptionsTextAlignment</code></a></li>
 <li><a href="#dialogoptionszorder" id="toc-dialogoptionszorder"><code>Dialog.OptionsZOrder</code></a></li>
 <li><a href="#dialogscriptname" id="toc-dialogscriptname"><code>Dialog.ScriptName</code></a></li>
-<li><a href="#dialogsethasoptionbeenchosen" id="toc-dialogsethasoptionbeenchosen"><code>Dialog.SetHasOptionBeenChosen</code></a></li>
-<li><a href="#dialogsetoptionstate" id="toc-dialogsetoptionstate"><code>Dialog.SetOptionState</code></a></li>
 <li><a href="#dialogshowtextparser" id="toc-dialogshowtextparser"><code>Dialog.ShowTextParser</code></a></li>
-<li><a href="#dialogstart" id="toc-dialogstart"><code>Dialog.Start</code></a></li>
 <li><a href="#stopdialog" id="toc-stopdialog"><code>StopDialog</code></a></li>
 </ul></li>
 </ul>

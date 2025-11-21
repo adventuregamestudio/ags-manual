@@ -334,46 +334,42 @@
 </section>
 <section id="getgamespeed" class="level3">
 <h3><a href="#getgamespeed"><code>GetGameSpeed</code></a></h3>
+<p><strong>This function is obsolete since AGS 3.6.3. Use <a href="Game.html#gamespeed"><code>Game.Speed</code></a>.</strong></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGameSpeed</span> <span class="op">()</span></span></code></pre></div>
 <p>Returns the current game speed (number of cycles per second).</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGameSpeed</span><span class="op">()</span> <span class="op">&gt;</span> <span class="dv">40</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SetGameSpeed</span><span class="op">(</span><span class="dv">40</span><span class="op">);</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>will always keep the game speed at 40 cycles per second (in case the user has raised it )</p>
-<p><em>See also:</em> <a href="Globalfunctions_General.html#setgamespeed"><code>SetGameSpeed</code></a></p>
+<p><em>See also:</em> <a href="Game.html#gamespeed"><code>Game.Speed</code></a></p>
 <hr />
 </section>
 <section id="getglobalint" class="level3">
 <h3><a href="#getglobalint"><code>GetGlobalInt</code></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGlobalInt</span> <span class="op">(</span><span class="dt">int</span> index<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGlobalInt</span> <span class="op">(</span><span class="dt">int</span> index<span class="op">)</span></span></code></pre></div>
 <p>Returns the value of global int INDEX.</p>
 <p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using <a href="GlobalVariables.html">global variables</a> instead, which allow you to name the variables.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">20</span><span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// code here</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGlobalInt</span><span class="op">(</span><span class="dv">20</span><span class="op">)</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// code here</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will execute the code only if Global Integer 20 is 1.</p>
 <p><em>See also:</em> <a href="GlobalVariables.html">Global variables</a>, <a href="Globalfunctions_General.html#setglobalint"><code>SetGlobalInt</code></a>, <a href="Game.html#gameglobalstrings"><code>Game.GlobalStrings</code></a></p>
 <hr />
 </section>
 <section id="getgraphicalvariable" class="level3">
 <h3><a href="#getgraphicalvariable"><code>GetGraphicalVariable</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGraphicalVariable</span> <span class="op">(</span>string variable_name<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetGraphicalVariable</span> <span class="op">(</span>string variable_name<span class="op">);</span></span></code></pre></div>
 <p>Returns the value of the interaction editor VARIABLE_NAME variable. This allows your script to access the values of variables set in the interaction editor.</p>
 <p><strong>NOTE:</strong> This command is obsolete, and is only provided for backwards compatibility with AGS 2.x. When writing new code, use <a href="GlobalVariables.html">global variables</a> instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGraphicalVariable</span><span class="op">(</span><span class="st">&quot;climbed rock&quot;</span><span class="op">)==</span><span class="dv">1</span><span class="op">)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code here.</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetGraphicalVariable</span><span class="op">(</span><span class="st">&quot;climbed rock&quot;</span><span class="op">)==</span><span class="dv">1</span><span class="op">)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code here.</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will execute the code only if interaction variable "climbed rock" is 1.</p>
 <p><em>See also:</em> <a href="GlobalVariables.html">Global variables</a>, <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a>, <a href="Globalfunctions_General.html#setgraphicalvariable"><code>SetGraphicalVariable</code></a></p>
 <hr />
 </section>
 <section id="getlocationtype" class="level3">
 <h3><a href="#getlocationtype"><code>GetLocationType</code></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">LocationType</span> <span class="bu">GetLocationType</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dt">LocationType</span> <span class="bu">GetLocationType</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">)</span></span></code></pre></div>
 <p>Returns what type of room thing is seen under the given screen coordinates (x, y): whether it is a character, object, hotspot or nothing at all. This may be useful, for example, if you want to process a mouse click differently depending on what the player clicks on.</p>
 <p>It's important to know that this will work only if there's a room viewport found on screen at that point, otherwise this function will fail and return "nothing".</p>
 <p>Also, this function is "blocked" by any interactable non-room object, such as GUI, and will return "nothing" as well if one is found under these screen coordinates.</p>
@@ -385,80 +381,80 @@ eLocationObject     an object</code></pre>
 <p><strong>NOTE:</strong> The co-ordinates are SCREEN co-ordinates, NOT ROOM co-ordinates. This means that this function is suitable for use with the mouse cursor position variables.</p>
 <p><strong>NOTE:</strong> When looking up for an object under coordinates, GetLocationType is affected by the game setting <a href="GeneralSettings.html#visual">"Pixel-perfect click detection"</a>. It's possible to change this behavior in script by changing OPT_PIXELPERFECT option (see <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetLocationType</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span><span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="bu">eLocationCharacter</span><span class="op">)</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mouse</span><span class="op">.</span><span class="at">Mode</span> = <span class="bu">eModeTalk</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">GetLocationType</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span><span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">)</span> <span class="op">==</span> <span class="bu">eLocationCharacter</span><span class="op">)</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">mouse</span><span class="op">.</span><span class="at">Mode</span> = <span class="bu">eModeTalk</span><span class="op">;</span></span></code></pre></div>
 <p>will set the cursor mode to talk if the cursor is over a character.</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotgetatscreenxy"><code>Hotspot.GetAtScreenXY</code></a>, <a href="Game.html#gamegetlocationname"><code>Game.GetLocationName</code></a>, <a href="Object.html#objectgetatscreenxy"><code>Object.GetAtScreenXY</code></a></p>
 <hr />
 </section>
 <section id="getplayercharacter" class="level3">
 <h3><a href="#getplayercharacter"><code>GetPlayerCharacter</code></a></h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetPlayerCharacter</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetPlayerCharacter</span> <span class="op">()</span></span></code></pre></div>
 <p><strong>THIS COMMAND IS NOW OBSOLETE.</strong><br> The recommended replacement is to use the player character's ID property, as follows:</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player character number is %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The player character number is %d&quot;</span><span class="op">,</span> <span class="bu">player</span><span class="op">.</span><span class="at">ID</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Character.html#characterid"><code>Character.ID</code></a></p>
 <hr />
 </section>
 <section id="gettextheight" class="level3">
 <h3><a href="#gettextheight"><code>GetTextHeight</code></a></h3>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetTextHeight</span><span class="op">(</span>string text<span class="op">,</span> <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> width<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetTextHeight</span><span class="op">(</span>string text<span class="op">,</span> <span class="dt">FontType</span> font<span class="op">,</span> <span class="dt">int</span> width<span class="op">)</span></span></code></pre></div>
 <p>Calculates the height on the screen that drawing TEXT in FONT within an area of WIDTH would take up.</p>
 <p>This allows you to work out how tall a message displayed with a command like <a href="DrawingSurface.html#drawingsurfacedrawmessagewrapped"><code>DrawMessageWrapped</code></a> will be. WIDTH is the width of the area in which the text will be displayed.</p>
 <p>The height is returned in screen pixels, so it can be used with the screen display commands.</p>
 <p><strong>NOTE:</strong> There's a historical mistake in this function, which was kept for backwards compatibility until today. When GetTextHeight calculates line wrapping within a given width, it reduces "width" parameter by 1. For a correct result, pass "width + 1" instead (where "width" is the value that you like to have).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> height = <span class="bu">GetTextHeight</span><span class="op">(</span><span class="st">&quot;The message on the GUI!&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>gBottomLine<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">200</span> <span class="op">-</span> height<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> height = <span class="bu">GetTextHeight</span><span class="op">(</span><span class="st">&quot;The message on the GUI!&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>gBottomLine<span class="op">.</span><span class="at">SetPosition</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">200</span> <span class="op">-</span> height<span class="op">);</span></span></code></pre></div>
 <p>will move the BOTTOMLINE GUI so that it can display the text within the screen.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#gettextwidth"><code>GetTextWidth</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a></p>
 <hr />
 </section>
 <section id="gettextwidth" class="level3">
 <h3><a href="#gettextwidth"><code>GetTextWidth</code></a></h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetTextWidth</span><span class="op">(</span>string text<span class="op">,</span> <span class="dt">FontType</span> font<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GetTextWidth</span><span class="op">(</span>string text<span class="op">,</span> <span class="dt">FontType</span> font<span class="op">)</span></span></code></pre></div>
 <p>Returns the width on the screen that drawing TEXT in FONT on one line would take up.</p>
 <p>This could be useful if you manually need to center or right-align some text, for example with the raw drawing routines.</p>
 <p>The width is returned in screen pixels, so it can be used with the screen display commands.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width = <span class="bu">GetTextWidth</span><span class="op">(</span><span class="st">&quot;Hello!&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">);</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawString</span><span class="op">(</span><span class="dv">160</span> <span class="op">-</span> <span class="op">(</span>width <span class="op">/</span> <span class="dv">2</span><span class="op">),</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="st">&quot;Hello!&quot;</span><span class="op">);</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DrawingSurface</span> <span class="op">*</span>surface = <span class="bu">Room</span><span class="op">.</span><span class="at">GetDrawingSurfaceForBackground</span><span class="op">();</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawingColor</span> = <span class="dv">14</span><span class="op">;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> width = <span class="bu">GetTextWidth</span><span class="op">(</span><span class="st">&quot;Hello!&quot;</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">);</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">DrawString</span><span class="op">(</span><span class="dv">160</span> <span class="op">-</span> <span class="op">(</span>width <span class="op">/</span> <span class="dv">2</span><span class="op">),</span> <span class="dv">100</span><span class="op">,</span> <span class="bu">Game</span><span class="op">.</span><span class="at">NormalFont</span><span class="op">,</span> <span class="st">&quot;Hello!&quot;</span><span class="op">);</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>surface<span class="op">.</span><span class="at">Release</span><span class="op">();</span></span></code></pre></div>
 <p>will print "Hello!" onto the middle of the background scene.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#gettextheight"><code>GetTextHeight</code></a>, <a href="DrawingSurface.html#drawingsurfacedrawstring"><code>DrawingSurface.DrawString</code></a></p>
 <hr />
 </section>
 <section id="gettimerpos" class="level3">
 <h3><a href="#gettimerpos"><code>GetTimerPos</code></a></h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>  <span class="fu">GetTimerPos</span><span class="op">(</span><span class="dt">int</span> timerID<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>  <span class="fu">GetTimerPos</span><span class="op">(</span><span class="dt">int</span> timerID<span class="op">)</span></span></code></pre></div>
 <p>Returns the current time value for the specified timer <code>timerID</code>. It will return 0 if the timer is not running, and 1 if it's expiring.</p>
 <p>This function will throw an error if <code>timerID</code> is invalid, i.e., less than 1 or greater than 20.</p>
 <p><strong>NOTE:</strong> the time left will return 1 until a call to <code>IsTimerExpired</code> is done on the same <code>timerID</code>, or alternatively, <code>SetTimer(timerID, 0)</code> is used to stop the timer.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TIMER_ID 1</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_AfterFadeIn</span><span class="op">()</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SetTimer</span><span class="op">(</span>TIMER_ID<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_RepExec</span><span class="op">()</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> timeLeft = GetTimerPos<span class="op">(</span>TIMER_ID<span class="op">);</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>timeLeft <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Timer %d is not running&quot;</span><span class="op">,</span> TIMER_ID<span class="op">);</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>timeLeft <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Timer %d is about to expire!&quot;</span><span class="op">,</span> TIMER_ID<span class="op">);</span></span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// since we don&#39;t use IsTimerExpired, we must stop the timer ourselves</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// or the timer will be kept at 1 tick value</span></span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">SetTimer</span><span class="op">(</span>TIMER_ID<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TIMER_ID 1</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_AfterFadeIn</span><span class="op">()</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SetTimer</span><span class="op">(</span>TIMER_ID<span class="op">,</span> <span class="dv">10</span><span class="op">);</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">room_RepExec</span><span class="op">()</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> timeLeft = GetTimerPos<span class="op">(</span>TIMER_ID<span class="op">);</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>timeLeft <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Timer %d is not running&quot;</span><span class="op">,</span> TIMER_ID<span class="op">);</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>timeLeft <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogInfo</span><span class="op">,</span> <span class="st">&quot;Timer %d is about to expire!&quot;</span><span class="op">,</span> TIMER_ID<span class="op">);</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// since we don&#39;t use IsTimerExpired, we must stop the timer ourselves</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// or the timer will be kept at 1 tick value</span></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">SetTimer</span><span class="op">(</span>TIMER_ID<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>This will wait 10 game ticks and then log that the timer is about to expire and keep logging that the timer is not running.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a>, <a href="Globalfunctions_General.html#istimerexpired"><code>IsTimerExpired</code></a></p>
@@ -466,31 +462,31 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="gettranslation" class="level3">
 <h3><a href="#gettranslation"><code>GetTranslation</code></a></h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>const string <span class="bu">GetTranslation</span><span class="op">(</span>string original<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>const string <span class="bu">GetTranslation</span><span class="op">(</span>string original<span class="op">)</span></span></code></pre></div>
 <p>Gets the translated equivalent of the supplied string. You do not normally need to use this since the game translates most things for you. However, if you have used an InputBox or other form of user input, and want to compare the user's input to a particular string, it cannot be translated automatically. So, you can do this instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> buffer = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Enter the password:&quot;</span><span class="op">);</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>buffer<span class="op">.</span><span class="at">CompareTo</span><span class="op">(</span><span class="bu">GetTranslation</span><span class="op">(</span><span class="st">&quot;secret&quot;</span><span class="op">))</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// it matched the current translation of &quot;secret&quot;</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> buffer = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Enter the password:&quot;</span><span class="op">);</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>buffer<span class="op">.</span><span class="at">CompareTo</span><span class="op">(</span><span class="bu">GetTranslation</span><span class="op">(</span><span class="st">&quot;secret&quot;</span><span class="op">))</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// it matched the current translation of &quot;secret&quot;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>If there is no translation for the supplied string, it will be returned unchanged, so it is always safe to use this function.</p>
 <p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#istranslationavailable"><code>IsTranslationAvailable</code></a>, <a href="Translations.html">Translation Manual</a></p>
 <hr />
 </section>
 <section id="givescore" class="level3">
 <h3><a href="#givescore"><code>GiveScore</code></a></h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span> <span class="op">(</span><span class="dt">int</span> score<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span> <span class="op">(</span><span class="dt">int</span> score<span class="op">)</span></span></code></pre></div>
 <p>Adds SCORE to the player's score. The accumulated score is stored in <code>game.score</code> variable, from which it may be read to know current score. Using GiveScore function is preferable to directly modifying the variable since it will play the score sound, update any status lines and call the <a href="Globalfunctions_Event.html#on_event">on_event</a> script callback with eEventGotScore event parameter.</p>
 <p>Note that SCORE can be negative, in which case the score sound is NOT played.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">GiveScore</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>will give 5 points to the player's score.</p>
 <p><em>See also:</em> <a href="Gamevariables.html#game-variables">Game variables</a>, <a href="Game.html#gamedoonceonly"><code>Game.DoOnceOnly</code></a></p>
 <hr />
 </section>
 <section id="inventoryscreen" class="level3">
 <h3><a href="#inventoryscreen"><code>InventoryScreen</code></a></h3>
-<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryScreen</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">InventoryScreen</span> <span class="op">()</span></span></code></pre></div>
 <p>This command is obsolete.</p>
 <p><strong>This command was used for displaying a default inventory window in previous versions of AGS, but is no longer supported.</strong></p>
 <p>Instead of using this command, you should create your own Inventory GUI.</p>
@@ -498,31 +494,31 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="isgamepaused" class="level3">
 <h3><a href="#isgamepaused"><code>IsGamePaused</code></a></h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsGamePaused</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsGamePaused</span> <span class="op">()</span></span></code></pre></div>
 <p>Returns <em>true</em> if the game is currently paused, or <em>false</em> otherwise. The game is paused when either the icon bar interface has been popped up, or a "script-only" interface has been displayed with GUI.Visible=true. While the game is paused, no animations or other updates take place.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>will unpause the game if it's paused.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a>, <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a>, <a href="GUI.html#guivisible"><code>GUI.Visible</code></a></p>
 <hr />
 </section>
 <section id="isinteractionavailable" class="level3">
 <h3><a href="#isinteractionavailable"><code>IsInteractionAvailable</code></a></h3>
-<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">IsInteractionAvailable</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> mode<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">IsInteractionAvailable</span><span class="op">(</span><span class="dt">int</span> x<span class="op">,</span> <span class="dt">int</span> y<span class="op">,</span> <span class="dt">int</span> mode<span class="op">)</span></span></code></pre></div>
 <p>Checks whether there is an interaction defined inside a room for clicking on the screen at (X, Y) in cursor mode MODE. Please note that x and y are <em>screen</em> coordinates, not room coordinates.</p>
 <p>This function is very similar to Room.ProcessClick, except that rather than carry out any interactions it encounters, it simply returns 1 if something would have happened, or 0 if unhandled_event would have been run.</p>
 <p>Function will fail and return 0 if there's no room viewport on screen at the given coordinates. On the other hand it ignores any non-room objects such as GUI, and "clicks through" any GUI that covers room at this location.</p>
 <p>This function is useful for enabling options on a verb-coin style GUI, for example.</p>
 <p><strong>NOTE:</strong> When looking up for an object under coordinates, IsInteractionAvailable is affected by the game setting <a href="GeneralSettings.html#visual">"Pixel-perfect click detection"</a>. It's possible to change this behavior in script by changing OPT_PIXELPERFECT option (see <a href="Globalfunctions_General.html#setgameoption">SetGameOption</a>).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsInteractionAvailable</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eModeLookat</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;looking here would not do anything.&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsInteractionAvailable</span><span class="op">(</span><span class="bu">mouse</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="bu">mouse</span><span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="bu">eModeLookat</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;looking here would not do anything.&quot;</span><span class="op">);</span></span></code></pre></div>
 <p><em>See also:</em> <a href="InventoryItem.html#inventoryitemisinteractionavailable"><code>InventoryItem.IsInteractionAvailable</code></a>, <a href="Hotspot.html#hotspotisinteractionavailable"><code>Hotspot.IsInteractionAvailable</code></a>, <a href="Object.html#objectisinteractionavailable"><code>Object.IsInteractionAvailable</code></a>, <a href="Character.html#characterisinteractionavailable"><code>Character.IsInteractionAvailable</code></a>, <a href="Room.html#roomprocessclick"><code>Room.ProcessClick</code></a></p>
 <hr />
 </section>
 <section id="isinterfaceenabled" class="level3">
 <h3><a href="#isinterfaceenabled"><code>IsInterfaceEnabled</code></a></h3>
-<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsInterfaceEnabled</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsInterfaceEnabled</span><span class="op">()</span></span></code></pre></div>
 <p>Returns 1 if the player interface is currently enabled, 0 if it is disabled. There are following reasons why it may be disabled:</p>
 <ul>
 <li>DisableInterface function was called in script;</li>
@@ -530,42 +526,42 @@ eLocationObject     an object</code></pre>
 <li>the game is in a certain state, such as displaying dialog options.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsInterfaceEnabled</span><span class="op">())</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">DisableInterface</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsInterfaceEnabled</span><span class="op">())</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">DisableInterface</span><span class="op">();</span></span></code></pre></div>
 <p>will disable the user interface if it's enabled.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#disableinterface"><code>DisableInterface</code></a>, <a href="Globalfunctions_General.html#enableinterface"><code>EnableInterface</code></a></p>
 <hr />
 </section>
 <section id="iskeypressed" class="level3">
 <h3><a href="#iskeypressed"><code>IsKeyPressed</code></a></h3>
-<div class="sourceCode" id="cb54"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dt">eKeyCode</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dt">eKeyCode</span><span class="op">)</span></span></code></pre></div>
 <p>Tests whether the supplied key on the keyboard is currently pressed down or not. You could use this to move an object while the player holds an arrow key down, for instance.</p>
 <p>KEYCODE is one of the <a href="Keycodes.html">Key codes</a>, with some limitations: since it tests the raw state of the key, you CANNOT pass the Ctrl+(A-Z) or Alt+(A-Z) codes (since they are key combinations). You can, however, use some extra codes which are listed at the bottom of the section.</p>
 <p>Returns 1 if the key is currently pressed, 0 if not.</p>
 <p><strong>NOTE:</strong> The numeric keypad can have inconsistent keycodes between IsKeyPressed and on_key_press. With IsKeyPressed, the numeric keypad always uses keycodes in the 370-381 range. on_key_press, however, passes different values if Num Lock is on since the key presses are interpreted as the number key rather than the arrow key.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyUpArrow</span><span class="op">))</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span><span class="op">+</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyUpArrow</span><span class="op">))</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    cEgo<span class="op">.</span><span class="at">Walk</span><span class="op">(</span>cEgo<span class="op">.</span><span class="at">x</span><span class="op">,</span> cEgo<span class="op">.</span><span class="at">y</span><span class="op">+</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
 <p>will move the character EGO upwards 3 pixels when the up arrow is pressed.</p>
 <p><em>See also:</em> <a href="Mouse.html#mouseisbuttondown"><code>Mouse.IsButtonDown</code></a></p>
 <hr />
 </section>
 <section id="istimerexpired" class="level3">
 <h3><a href="#istimerexpired"><code>IsTimerExpired</code></a></h3>
-<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="fu">IsTimerExpired</span><span class="op">(</span><span class="dt">int</span> timer_id<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="fu">IsTimerExpired</span><span class="op">(</span><span class="dt">int</span> timer_id<span class="op">)</span></span></code></pre></div>
 <p>Checks whether the timer TIMER_ID has expired. If the timeout set with SetTimer has elapsed, returns <em>true</em>. Otherwise, returns <em>false</em>.</p>
 <p>Note that this function will only return <em>true</em> once - after that, the timer is placed into an OFF state where it will always return <em>false</em> until restarted.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsTimerExpired</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Timer 1 expired&quot;</span><span class="op">);</span></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsTimerExpired</span><span class="op">(</span><span class="dv">1</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Timer 1 expired&quot;</span><span class="op">);</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message when timer 1 expires.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a>, <a href="Globalfunctions_General.html#gettimerpos"><code>GetTimerPos</code></a></p>
 <hr />
 </section>
 <section id="istranslationavailable" class="level3">
 <h3><a href="#istranslationavailable"><code>IsTranslationAvailable</code></a></h3>
-<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsTranslationAvailable</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">IsTranslationAvailable</span> <span class="op">()</span></span></code></pre></div>
 <p>Finds out whether the player is using a game translation or not.</p>
 <p>Returns 1 if a translation is in use, 0 if not.</p>
 <p><em>See also:</em> <a href="Game.html#gamechangetranslation"><code>Game.ChangeTranslation</code></a>, <a href="Game.html#gametranslationfilename"><code>Game.TranslationFilename</code></a>, <a href="Globalfunctions_General.html#gettranslation"><code>GetTranslation</code></a>, <a href="Translations.html">Translation Manual</a></p>
@@ -574,11 +570,11 @@ eLocationObject     an object</code></pre>
 <section id="movecharactertohotspot" class="level3">
 <h3><a href="#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></h3>
 <p><strong>This function is now obsolete. Use Character.Walk instead</strong></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToHotspot</span> <span class="op">(</span>CHARID<span class="op">,</span> <span class="dt">int</span> <span class="bu">hotspot</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToHotspot</span> <span class="op">(</span>CHARID<span class="op">,</span> <span class="dt">int</span> <span class="bu">hotspot</span><span class="op">)</span></span></code></pre></div>
 <p>Moves the character CHARID from its current location to the walk-to point for the specified hotspot. If the hotspot has no walk-to point, nothing happens.</p>
 <p>This is a blocking call - control is not returned to the script until the character has reached its destination.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToHotspot</span><span class="op">(</span>EGO<span class="op">,</span><span class="dv">6</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToHotspot</span><span class="op">(</span>EGO<span class="op">,</span><span class="dv">6</span><span class="op">);</span></span></code></pre></div>
 <p>will move the character EGO to the hotspot's 6 "walk to point".</p>
 <p><em>See also:</em> <a href="Hotspot.html#hotspotwalktox"><code>Hotspot.WalkToX</code></a>, <a href="Hotspot.html#hotspotwalktoy"><code>Hotspot.WalkToY</code></a>, <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Globalfunctions_General.html#movecharactertoobject"><code>MoveCharacterToObject</code></a></p>
 <hr />
@@ -586,21 +582,21 @@ eLocationObject     an object</code></pre>
 <section id="movecharactertoobject" class="level3">
 <h3><a href="#movecharactertoobject"><code>MoveCharacterToObject</code></a></h3>
 <p><strong>This function is now obsolete. Use Character.Walk instead</strong></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToObject</span> <span class="op">(</span>CHARID<span class="op">,</span> <span class="dt">int</span> <span class="bu">object</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToObject</span> <span class="op">(</span>CHARID<span class="op">,</span> <span class="dt">int</span> <span class="bu">object</span><span class="op">)</span></span></code></pre></div>
 <p>Moves the character CHARID from its current location to a position just below the object OBJECT. This is useful for example, if you want the man to pick up an object. This is a blocking call - control is not returned to the script until the character has reached its destination.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToObject</span> <span class="op">(</span>EGO<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">MoveCharacterToObject</span> <span class="op">(</span>EGO<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="bu">object</span><span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="at">Visible</span> = <span class="bu">false</span><span class="op">;</span></span></code></pre></div>
 <p>Will move the character EGO below object number 0, then turn off object 0.</p>
 <p><em>See also:</em> <a href="Character.html#characterwalk"><code>Character.Walk</code></a>, <a href="Globalfunctions_General.html#movecharactertohotspot"><code>MoveCharacterToHotspot</code></a></p>
 <hr />
 </section>
 <section id="movesaveslot" class="level3">
 <h3><a href="#movesaveslot"><code>MoveSaveSlot</code></a></h3>
-<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">MoveSaveSlot</span> <span class="op">(</span><span class="dt">int</span> old_slot<span class="op">,</span> <span class="dt">int</span> new_slot<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">MoveSaveSlot</span> <span class="op">(</span><span class="dt">int</span> old_slot<span class="op">,</span> <span class="dt">int</span> new_slot<span class="op">)</span></span></code></pre></div>
 <p>Moves the save game from one slot to another, overwriting a save if one was already present at a new slot. This is the same as renaming the file used by the old slot with the name it would have (or that has), the file in the new slot.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>MoveSaveSlot<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>MoveSaveSlot<span class="op">(</span><span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">);</span></span></code></pre></div>
 <p>Moves the save slot 2 (which we should have saved earlier), over the save slot 5. The save slot 2 won't be found anymore in its previous slot.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#copysaveslot"><code>CopySaveSlot</code></a>, <a href="Globalfunctions_General.html#deletesaveslot"><code>DeleteSaveSlot</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a>, <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
@@ -608,7 +604,7 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="pausegame" class="level3">
 <h3><a href="#pausegame"><code>PauseGame</code></a></h3>
-<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PauseGame</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">PauseGame</span> <span class="op">()</span></span></code></pre></div>
 <p>Stops AGS processing movement and animations. This has the same effect on the game as happens when a modal GUI is popped up.</p>
 <p>When the game is paused, game cycles will continue to run but no animations or movement will be performed, and timers will not count down. Apart from that, your scripts will continue to run as normal.</p>
 <p>To be precise, following is paused by this function:</p>
@@ -621,59 +617,59 @@ eLocationObject     an object</code></pre>
 </ul>
 <p>As you may notice, GUI and Audio are not paused at all. PauseGame was historically purposed to pause the Room, while having some kind of the GUI menus and background music running. If you want to also suspend (and later unsuspend) these, you would have to script that yourself.</p>
 <p><strong>NOTE:</strong> <code>PauseGame()</code> works as a counter, so if you call it twice, you will need to call <code>UnPauseGame()</code> game twice too to resume game. To avoid this behavior make sure to only pause once:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>Game processing will not resume until you call the UnPauseGame function as needed.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">32</span><span class="op">))</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="dv">32</span><span class="op">))</span> <span class="bu">PauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>will pause the game if the player presses the space bar</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#unpausegame"><code>UnPauseGame</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 <hr />
 </section>
 <section id="quitgame" class="level3">
 <h3><a href="#quitgame"><code>QuitGame</code></a></h3>
-<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">QuitGame</span><span class="op">(</span><span class="dt">int</span> ask_first<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="bu">QuitGame</span><span class="op">(</span><span class="dt">int</span> ask_first<span class="op">)</span></span></code></pre></div>
 <p>Exits the game and returns to the operating system.</p>
 <p>If ASK_FIRST is zero, it will exit immediately. If ASK_FIRST is not zero, it will first display a message box asking the user if they are sure they want to quit.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">QuitGame</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">QuitGame</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
 <p>will quit the game without asking the player to confirm.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#abortgame"><code>AbortGame</code></a></p>
 <hr />
 </section>
 <section id="random" class="level3">
 <h3><a href="#random"><code>Random</code></a></h3>
-<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span> <span class="op">(</span><span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span> <span class="op">(</span><span class="dt">int</span> max<span class="op">)</span></span></code></pre></div>
 <p>Returns a random number between 0 and MAX. This could be useful to do various effects in your game. MAX must be a positive value in range 0-32767.</p>
 <p><strong>NOTE:</strong> Because of the way Random is implemented in AGS, the return value will never be higher than 32767.</p>
 <p><strong>NOTE:</strong> The range returned is inclusive - i.e. if you do Random(3); then it can return 0, 1, 2 or 3.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> ran=<span class="bu">Random</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>ran<span class="op">==</span><span class="dv">0</span><span class="op">)</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>ran<span class="op">==</span><span class="dv">1</span><span class="op">)</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> ran=<span class="bu">Random</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>ran<span class="op">==</span><span class="dv">0</span><span class="op">)</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>ran<span class="op">==</span><span class="dv">1</span><span class="op">)</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> cEgo<span class="op">.</span><span class="at">ChangeRoom</span><span class="op">(</span><span class="dv">3</span><span class="op">);</span></span></code></pre></div>
 <p>will change the current room to room 1,2 or 3 depending on a random result.</p>
 <hr />
 </section>
 <section id="restartgame" class="level3">
 <h3><a href="#restartgame"><code>RestartGame</code></a></h3>
-<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestartGame</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestartGame</span> <span class="op">()</span></span></code></pre></div>
 <p>Restores game to the restart point, if one was previously set by <a href="Globalfunctions_General.html#setrestartpoint"><code>SetRestartPoint</code></a>. "Restart point" is actually a save slot 999, so this command is equivalent of calling <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a> with argument "999".</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF7</span><span class="op">))</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestartGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF7</span><span class="op">))</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestartGame</span><span class="op">();</span></span></code></pre></div>
 <p>will restart the game if the player presses the F7 key.</p>
 <p><em>SeeAlso:</em> <a href="Globalfunctions_General.html#setrestartpoint"><code>SetRestartPoint</code></a></p>
 <hr />
 </section>
 <section id="restoregamedialog" class="level3">
 <h3><a href="#restoregamedialog"><code>RestoreGameDialog</code></a></h3>
-<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
 <p>Displays the restore game dialog, where the player can select a previously saved game position to restore.</p>
 <p>You can also pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that will be shown in the dialog.</p>
 <p>The dialog is not displayed immediately; instead, it will be displayed when the script function finishes executing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF5</span><span class="op">))</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestoreGameDialog</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeyF5</span><span class="op">))</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">RestoreGameDialog</span><span class="op">();</span></span></code></pre></div>
 <p>will bring up the restore game dialog if the player presses the F5 key.</p>
 <p><em>Compatibility:</em> Optional <em>min_slot</em> and <em>max_slot</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
@@ -681,18 +677,18 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="restoregameslot" class="level3">
 <h3><a href="#restoregameslot"><code>RestoreGameSlot</code></a></h3>
-<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">)</span></span></code></pre></div>
 <p>Restores the game position saved into slot number SLOT. If this slot number does not exist, an error message is displayed to the player but the game continues. To avoid the error, use the GetSaveSlotDescription function to see if the position exists before restoring it.</p>
 <p><strong>NOTE:</strong> The game will not be restored immediately; instead, it will be restored when the script function finishes executing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RestoreGameSlot</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span></code></pre></div>
 <p>will restore game slot 30 if this slot number exists.</p>
 <p><em>See also:</em> <a href="Game.html#gamegetsaveslotdescription"><code>Game.GetSaveSlotDescription</code></a>, <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
 <hr />
 </section>
 <section id="runagsgame" class="level3">
 <h3><a href="#runagsgame"><code>RunAGSGame</code></a></h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RunAGSGame</span> <span class="op">(</span>string filename<span class="op">,</span> <span class="dt">int</span> mode<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RunAGSGame</span> <span class="op">(</span>string filename<span class="op">,</span> <span class="dt">int</span> mode<span class="op">,</span> <span class="dt">int</span> data<span class="op">)</span></span></code></pre></div>
 <p>Quits the current game, and loads up FILENAME instead. FILENAME must be an AGS game EXE or AC2GAME.AGS file, and it must be in the current directory.</p>
 <p>MODE specifies various options about how you want to run the game. Currently, the supported values are:</p>
 <pre><code>0   Current game is completely exited, new game runs as if it had been launched separately
@@ -703,18 +699,18 @@ eLocationObject     an object</code></pre>
 <p><strong>NOTE:</strong> The game you run will be loaded at the same resolution and color depth as the current game; if you mismatch color depths some nasty results will occur.</p>
 <p><strong>NOTE:</strong> The game you want to launch must have been created with the same point-version of AGS as the one you are launching it from. (version 2.xy - the X must be the same version between the two games).</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RunAGSGame</span> <span class="op">(</span><span class="st">&quot;MyGame.exe&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">51</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="bu">RunAGSGame</span> <span class="op">(</span><span class="st">&quot;MyGame.exe&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">51</span><span class="op">);</span></span></code></pre></div>
 <p>will run the MyGame game, passing it the value 51.</p>
 <hr />
 </section>
 <section id="savegamedialog" class="level3">
 <h3><a href="#savegamedialog"><code>SaveGameDialog</code></a></h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameDialog</span> <span class="op">(</span><span class="dt">int</span> min_slot = <span class="dv">1</span><span class="op">,</span> <span class="dt">int</span> max_slot = <span class="dv">100</span><span class="op">)</span></span></code></pre></div>
 <p>Displays the save game dialog, where the player can save their current game position. If they select to save, then the game position will be saved.</p>
 <p>You can also pass <code>min_slot</code> and <code>max_slot</code> to select the range of save slots that will be shown in the dialog.</p>
 <p><strong>NOTE:</strong> The dialog will not be displayed immediately; instead, it will be shown when the script function finishes executing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="dv">361</span><span class="op">)</span> <span class="bu">SaveGameDialog</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="dv">361</span><span class="op">)</span> <span class="bu">SaveGameDialog</span><span class="op">();</span></span></code></pre></div>
 <p>will bring up the save game dialog if the player presses the F3 key.</p>
 <p><em>Compatibility:</em> Optional <em>min_slot</em> and <em>max_slot</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#restoregamedialog"><code>RestoreGameDialog</code></a>, <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a></p>
@@ -722,12 +718,12 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="savegameslot" class="level3">
 <h3><a href="#savegameslot"><code>SaveGameSlot</code></a></h3>
-<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">,</span> string description<span class="op">,</span> optional <span class="dt">int</span> sprite<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span> <span class="op">(</span><span class="dt">int</span> slot<span class="op">,</span> string description<span class="op">,</span> optional <span class="dt">int</span> sprite<span class="op">)</span></span></code></pre></div>
 <p>Saves the current game position to the save game number specified by SLOT, using DESCRIPTION as the textual description of the save position. Be careful using this function, because you could overwrite one of the player's save slots if you aren't careful.</p>
 <p>You can optionally pass a number of an arbitrary sprite to write into this save, instead of a standard screenshot.</p>
 <p><strong>NOTE:</strong> The game will not be saved immediately; instead, it will be saved when the script function finishes executing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span><span class="op">(</span><span class="dv">30</span><span class="op">,</span> <span class="st">&quot;save game&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveGameSlot</span><span class="op">(</span><span class="dv">30</span><span class="op">,</span> <span class="st">&quot;save game&quot;</span><span class="op">);</span></span></code></pre></div>
 <p>will save the current game position to slot 30 with the description "Save game".</p>
 <p><em>Compatibility:</em> Optional <em>sprite</em> parameter is supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#deletesaveslot"><code>DeleteSaveSlot</code></a>, <a href="Globalfunctions_General.html#restoregameslot"><code>RestoreGameSlot</code></a>, <a href="Globalfunctions_General.html#savegamedialog"><code>SaveGameDialog</code></a></p>
@@ -735,13 +731,13 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="savescreenshot" class="level3">
 <h3><a href="#savescreenshot"><code>SaveScreenShot</code></a></h3>
-<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SaveScreenShot</span><span class="op">(</span>string filename<span class="op">,</span> optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">,</span> optional RenderLayer layer<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="fu">SaveScreenShot</span><span class="op">(</span>string filename<span class="op">,</span> optional <span class="dt">int</span> width<span class="op">,</span> optional <span class="dt">int</span> height<span class="op">,</span> optional RenderLayer layer<span class="op">)</span></span></code></pre></div>
 <p>Takes a screen capture and saves it to disk. The FILENAME must end in either ".BMP" or ".PCX", as those are the types of files which can be saved. Returns 1 if the shot was successfully saved, or 0 if an invalid file extension was provided.</p>
 <p><strong>NOTE:</strong> The screenshot will be saved to the Saved Games folder.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Type the filename:&quot;</span><span class="op">);</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> filename = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;%s.pcx&quot;</span><span class="op">,</span> input<span class="op">);</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span><span class="op">(</span>filename<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> input = <span class="bu">Game</span><span class="op">.</span><span class="at">InputBox</span><span class="op">(</span><span class="st">&quot;Type the filename:&quot;</span><span class="op">);</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="bu">String</span> filename = <span class="bu">String</span><span class="op">.</span><span class="at">Format</span><span class="op">(</span><span class="st">&quot;%s.pcx&quot;</span><span class="op">,</span> input<span class="op">);</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SaveScreenShot</span><span class="op">(</span>filename<span class="op">);</span></span></code></pre></div>
 <p>will prompt the player for a filename and then save the screenshot with the filename the player typed.</p>
 <p>Since <strong>AGS 3.6.2</strong>, the filename can accept standard file tokens (<code>$SAVEGAMEDIR$</code>, etc).</p>
 <p><em>Compatibility:</em> Optional <em>width</em>, <em>height</em>, and <em>layer</em> parameters are supported only by <strong>AGS 3.6.2</strong> and later versions.</p>
@@ -750,7 +746,7 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="setambientlightlevel" class="level3">
 <h3><a href="#setambientlightlevel"><code>SetAmbientLightLevel</code></a></h3>
-<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SetAmbientLightLevel</span><span class="op">(</span><span class="dt">int</span> light_level<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SetAmbientLightLevel</span><span class="op">(</span><span class="dt">int</span> light_level<span class="op">);</span></span></code></pre></div>
 <p>Sets an ambient light level that affects all objects and characters in the room that have their UseRoomAreaLighting property set to true.</p>
 <p>The light level is from <strong>-100 to 100</strong>, where 0 means that no adjustment will be applied to sprites.</p>
 <p>In 8-bit games you cannot use positive light level for brightening effect, but you may still use negative values to produce darkening effect.</p>
@@ -758,7 +754,7 @@ eLocationObject     an object</code></pre>
 <p><strong>NOTE:</strong> This function overrides any specific region light levels or tints on the screen, but does NOT override individual character and object light levels.</p>
 <p><strong>NOTE:</strong> Setting an ambient light level will disable ambient RGB tint, if there was one previously set.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientLightLevel</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientLightLevel</span><span class="op">(</span><span class="dv">50</span><span class="op">);</span></span></code></pre></div>
 <p>will apply light level 50 to every character and object on screen (which do not have individual light levels).</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#setambienttint"><code>SetAmbientTint</code></a>, <a href="Character.html#charactersetlightlevel"><code>Character.SetLightLevel</code></a>, <a href="Object.html#objectsetlightlevel"><code>Object.SetLightLevel</code></a>, <a href="Region.html#regionlightlevel"><code>Region.LightLevel</code></a></p>
@@ -766,7 +762,7 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="setambienttint" class="level3">
 <h3><a href="#setambienttint"><code>SetAmbientTint</code></a></h3>
-<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientTint</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">,</span> <span class="dt">int</span> saturation<span class="op">,</span> <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientTint</span><span class="op">(</span><span class="dt">int</span> red<span class="op">,</span> <span class="dt">int</span> green<span class="op">,</span> <span class="dt">int</span> blue<span class="op">,</span> <span class="dt">int</span> saturation<span class="op">,</span> <span class="dt">int</span> luminance<span class="op">)</span></span></code></pre></div>
 <p>Tints all objects and characters on the screen that have their UseRoomAreaLighting property set to true to (RED, GREEN, BLUE) with SATURATION percent saturation.</p>
 <p>This allows you to apply a global tint to everything on the screen. The RED, GREEN and BLUE parameters are from 0-255, and specify the color of the tint.</p>
 <p>The SATURATION parameter defines how much the tint is applied, and is from 0-100. A saturation of 100 will completely re-colorize the sprites to the supplied color, and a saturation of 1 will give them a very minor tint towards the specified color.</p>
@@ -775,14 +771,14 @@ eLocationObject     an object</code></pre>
 <p><strong>NOTE:</strong> This function only works in hi-color games and with hi-color sprites.</p>
 <p><strong>NOTE:</strong> This function overrides any specific region light levels or tints on the screen.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientTint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetAmbientTint</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">,</span> <span class="dv">30</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span></code></pre></div>
 <p>will tint everything on the screen with a hint of blue.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#setambientlightlevel"><code>SetAmbientLightLevel</code></a>, <a href="Character.html#charactertint"><code>Character.Tint</code></a>, <a href="Object.html#objecttint"><code>Object.Tint</code></a>, <a href="Region.html#regiontint"><code>Region.Tint</code></a></p>
 <hr />
 </section>
 <section id="setgameoption" class="level3">
 <h3><a href="#setgameoption"><code>SetGameOption</code></a></h3>
-<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>option<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>option<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>Changes one of the game options, originally set in the AGS Editor Game Settings pane.</p>
 <p>OPTION specifies which option to change, and VALUE is its new value.</p>
 <p>Valid <em>modifiable</em> OPTIONs are listed below:</p>
@@ -908,50 +904,44 @@ eLocationObject     an object</code></pre>
 <p>For the list of read-only options see <a href="Globalfunctions_General.html#getgameoption"><code>GetGameOption</code></a>.</p>
 <p>This command returns the old value of the setting.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>OPT_PIXELPERFECT<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameOption</span> <span class="op">(</span>OPT_PIXELPERFECT<span class="op">,</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
 <p>will disable pixel-perfect click detection.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#getgameoption"><code>GetGameOption</code></a>, <a href="Speech.html#speechstyle"><code>Speech.Style</code></a>, <a href="Globalfunctions_General.html#settextwindowgui"><code>SetTextWindowGUI</code></a></p>
 <hr />
 </section>
 <section id="setgamespeed" class="level3">
 <h3><a href="#setgamespeed"><code>SetGameSpeed</code></a></h3>
-<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span> <span class="op">(</span><span class="dt">int</span> new_speed<span class="op">)</span></span></code></pre></div>
-<p>Sets the maximum game frame rate to NEW_SPEED frames per second, or as near as possible to that speed. The default frame rate is 40 fps, but you can speed up or slow down the game by using this function. Note that this speed is also the rate at which the <a href="RepExec.html">repeatedly_execute</a> functions are triggered.</p>
-<p>The NEW_SPEED must lie between 10 and 1000. If it does not, it will be rounded to 10 or 1000. Note that if you set a speed which the player's computer cannot handle, then it will go as fast as possible.</p>
-<p>NOTE: Because the mouse cursor is repainted at the game frame rate, at very low speeds, like 10 to 20 fps, the mouse will appear to be jumpy and not very responsive.</p>
-<p>NOTE: If you set the <a href="System.html#systemvsync"><code>System.VSync</code></a> property to <em>true</em>, the game speed will be capped at the screen's refresh rate, so you will be unable to set it higher than 60-85 (depending on the player's screen refresh).</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span><span class="op">(</span><span class="dv">60</span><span class="op">);</span></span></code></pre></div>
-<p>will set the game speed to 60 fps.</p>
-<p><em>See also:</em> <a href="Globalfunctions_General.html#getgamespeed"><code>GetGameSpeed</code></a></p>
+<p><strong>This function is obsolete since AGS 3.6.3. Use <a href="Game.html#gamespeed"><code>Game.Speed</code></a>.</strong></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGameSpeed</span> <span class="op">(</span><span class="dt">int</span> new_speed<span class="op">)</span></span></code></pre></div>
+<p><em>See also:</em> <a href="Game.html#gamespeed"><code>Game.Speed</code></a></p>
 <hr />
 </section>
 <section id="setglobalint" class="level3">
 <h3><a href="#setglobalint"><code>SetGlobalInt</code></a></h3>
-<div class="sourceCode" id="cb95"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGlobalInt</span> <span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGlobalInt</span> <span class="op">(</span><span class="dt">int</span> index<span class="op">,</span> <span class="dt">int</span> value<span class="op">)</span></span></code></pre></div>
 <p>Sets the global int INDEX to VALUE. You can then retrieve this value from any other script using GetGlobalInt.</p>
 <p>There are 500 available global variables, from index 0 to 499.</p>
 <p><strong>NOTE:</strong> GlobalInts are now considered obsolete. Consider using <a href="GlobalVariables.html">global variables</a> instead, which allow you to name the variables.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGlobalInt</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGlobalInt</span><span class="op">(</span><span class="dv">10</span><span class="op">,</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will set the Global Integer 10 to 1.</p>
 <p><em>See also:</em> <a href="GlobalVariables.html">Global variables</a>, <a href="Globalfunctions_General.html#getglobalint"><code>GetGlobalInt</code></a></p>
 <hr />
 </section>
 <section id="setgraphicalvariable" class="level3">
 <h3><a href="#setgraphicalvariable"><code>SetGraphicalVariable</code></a></h3>
-<div class="sourceCode" id="cb97"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGraphicalVariable</span><span class="op">(</span>string variable_name<span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGraphicalVariable</span><span class="op">(</span>string variable_name<span class="op">,</span> <span class="dt">int</span> value<span class="op">);</span></span></code></pre></div>
 <p>Sets the interaction editor VARIABLE_NAME variable to VALUE. This allows your script to change the values of variables set in the interaction editor.</p>
 <p><strong>NOTE:</strong> This command is obsolete, and is only provided for backwards compatibility with AGS 2.x. When writing new code, use <a href="GlobalVariables.html">global variables</a> instead.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGraphicalVariable</span><span class="op">(</span><span class="st">&quot;climbed rock&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetGraphicalVariable</span><span class="op">(</span><span class="st">&quot;climbed rock&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will set the interaction editor "climbed rock" variable to 1.</p>
 <p><em>See also:</em> <a href="GlobalVariables.html">Global variables</a>, <a href="Globalfunctions_General.html#getgraphicalvariable"><code>GetGraphicalVariable</code></a></p>
 <hr />
 </section>
 <section id="setmultitaskingmode" class="level3">
 <h3><a href="#setmultitaskingmode"><code>SetMultitaskingMode</code></a></h3>
-<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetMultitaskingMode</span> <span class="op">(</span><span class="dt">int</span> mode<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetMultitaskingMode</span> <span class="op">(</span><span class="dt">int</span> mode<span class="op">)</span></span></code></pre></div>
 <p>Allows you to set what happens when the user switches away from your game.</p>
 <p>If MODE is 0 (the default), then if the user Alt+Tabs out of your game, or clicks on another window, the game will pause and not continue until they switch back into the game.</p>
 <p>If MODE is 1, then the game will continue to run in the background if the user switches away (useful if, for example, you are just making some sort of jukebox music player with AGS).</p>
@@ -959,13 +949,13 @@ eLocationObject     an object</code></pre>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Yes</strong><br> Linux: <strong>Yes</strong><br> MacOS: <strong>Yes</strong></p>
 <p>Example:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetMultitaskingMode</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetMultitaskingMode</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span></code></pre></div>
 <p>will mean that the game continues to run in the background.</p>
 <hr />
 </section>
 <section id="setrestartpoint" class="level3">
 <h3><a href="#setrestartpoint"><code>SetRestartPoint</code></a></h3>
-<div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetRestartPoint</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetRestartPoint</span> <span class="op">()</span></span></code></pre></div>
 <p>Sets the game restart point to the current position. This means that from now on a call to <a href="Globalfunctions_General.html#restartgame"><code>RestartGame</code></a> will return the game to this moment.</p>
 <p>The "restart point" is actually a save slot 999, and SetRestartPoint is equivalent to calling <a href="Globalfunctions_General.html#savegameslot"><code>SaveGameSlot</code></a> with argument "999".</p>
 <p><strong>NOTE:</strong> historically engine made a hidden call to SetRestartPoint right after the game_start function was run. Since AGS 3.6.2 there's no longer any automatic restart point made, and you have to set one yourself if you need one. This behavior was changed because not every game requires a restart point, and some games may not be using AGS save slots at all, therefore having the engine make one unconditionally would lead to a redundant save file. If you like to keep this classic behavior simply call SetRestartPoint in game_start function.</p>
@@ -975,42 +965,42 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="settextwindowgui" class="level3">
 <h3><a href="#settextwindowgui"><code>SetTextWindowGUI</code></a></h3>
-<div class="sourceCode" id="cb102"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTextWindowGUI</span> <span class="op">(</span><span class="dt">int</span> <span class="bu">gui</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTextWindowGUI</span> <span class="op">(</span><span class="dt">int</span> <span class="bu">gui</span><span class="op">)</span></span></code></pre></div>
 <p>Changes the GUI used for text windows to the specified GUI. This overrides the "text windows use GUI" setting in the editor.</p>
 <p>You can pass -1 as the GUI number to go back to using the default white text box.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTextWindowGUI</span> <span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTextWindowGUI</span> <span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
 <p>will change <code>TextWindow</code> GUI 4 to be used for displaying text windows in future.</p>
 <hr />
 </section>
 <section id="settimer" class="level3">
 <h3><a href="#settimer"><code>SetTimer</code></a></h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span> <span class="op">(</span><span class="dt">int</span> timer_id<span class="op">,</span> <span class="dt">int</span> timeout<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span> <span class="op">(</span><span class="dt">int</span> timer_id<span class="op">,</span> <span class="dt">int</span> timeout<span class="op">)</span></span></code></pre></div>
 <p>Starts timer TIMER_ID ticking - it will tick once every game loop (normally 40 times per second), until TIMEOUT loops, after which it will stop. You can check whether the timer has finished by calling the IsTimerExpired function.</p>
 <p>Pass TIMEOUT as 0 to disable a currently running timer.</p>
 <p>There are 20 available timers, with TIMER_IDs from 1 to 20.</p>
 <p><strong>NOTE:</strong> the timer will not tick while the game is paused.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">1000</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">1000</span><span class="op">);</span></span></code></pre></div>
 <p>will set the timer 1 to expire after 1000 game cycles.</p>
 <p>Example 2:</p>
 <p>When you have a hard time keeping track of the timers only by number you can use <a href="Preprocessor.html#define">Macros</a> to replace the descriptive name with the time number everywhere the descriptive name is use. To better keep track of these macros you could put them on top of the global script.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define Delay_CustomAnimation 1</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span><span class="op">(</span>Delay_CustomAnimation<span class="op">,</span> <span class="dv">2000</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define Delay_CustomAnimation 1</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="bu">SetTimer</span><span class="op">(</span>Delay_CustomAnimation<span class="op">,</span> <span class="dv">2000</span><span class="op">);</span></span></code></pre></div>
 <p>this "names" timer 1 and sets it to expire after 2000 game cycles</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#istimerexpired"><code>IsTimerExpired</code></a>, <a href="Globalfunctions_General.html#gettimerpos"><code>GetTimerPos</code></a></p>
 <hr />
 </section>
 <section id="skipcutscene" class="level3">
 <h3><a href="#skipcutscene"><code>SkipCutscene</code></a></h3>
-<div class="sourceCode" id="cb107"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SkipCutscene</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SkipCutscene</span><span class="op">()</span></span></code></pre></div>
 <p>Explicitly commences skipping current cutscene. If game is not in a cutscene sequence or cutscene is already being skipped this function will do nothing.</p>
 <p>SkipCutscene will work regardless of the StartCutscene parameters, but is most useful when you do not want to rely on built-in skipping controls and are coding your own. In the latter case make sure to start cutscene in <strong>eSkipScriptOnly</strong> mode to prevent any standard input interference.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span> <span class="op">&amp;&amp;</span> <span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">))</span> <span class="op">{</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SkipCutscene</span><span class="op">();</span></span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">Game</span><span class="op">.</span><span class="at">InSkippableCutscene</span> <span class="op">&amp;&amp;</span> <span class="bu">IsKeyPressed</span><span class="op">(</span><span class="bu">eKeySpace</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">SkipCutscene</span><span class="op">();</span></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will check if game is inside a cutscene, and if player has pressed a space bar then commands to skip it.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.5.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#endcutscene"><code>EndCutscene</code></a>, <a href="Globalfunctions_General.html#skipuntilcharacterstops"><code>SkipUntilCharacterStops</code></a>, <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a>, <a href="Game.html#gameinskippablecutscene"><code>Game.InSkippableCutscene</code></a>, <a href="Game.html#gameskippingcutscene"><code>Game.SkippingCutscene</code></a></p>
@@ -1018,19 +1008,19 @@ eLocationObject     an object</code></pre>
 </section>
 <section id="skipuntilcharacterstops" class="level3">
 <h3><a href="#skipuntilcharacterstops"><code>SkipUntilCharacterStops</code></a></h3>
-<div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SkipUntilCharacterStops</span><span class="op">(</span>CHARID<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="bu">SkipUntilCharacterStops</span><span class="op">(</span>CHARID<span class="op">)</span></span></code></pre></div>
 <p>Skips through the game until the specified character stops walking, a blocking script runs, or a message box is displayed.</p>
 <p>The purpose of this command is to mimic the functionality in games such as The Longest Journey, where the player can press ESC to instantly get the character to its destination. It serves as a handy feature to allow you to give the player character a relatively slow walking speed, without annoying the player by making them wait ages just to get from A to B.</p>
 <p>If the specified character is not moving when this function is called, nothing happens.</p>
 <p>Example: (in on_key_press)</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyEscape</span><span class="op">)</span> <span class="bu">SkipUntilCharacterStops</span><span class="op">(</span>EGO<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyEscape</span><span class="op">)</span> <span class="bu">SkipUntilCharacterStops</span><span class="op">(</span>EGO<span class="op">);</span></span></code></pre></div>
 <p>This means that if the player presses ESC, the game will skip ahead until EGO finishes moving, or is interrupted by a Display command or a blocking cutscene.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#startcutscene"><code>StartCutscene</code></a></p>
 <hr />
 </section>
 <section id="startcutscene" class="level3">
 <h3><a href="#startcutscene"><code>StartCutscene</code></a></h3>
-<div class="sourceCode" id="cb111"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StartCutscene</span><span class="op">(</span><span class="dt">CutsceneSkipType</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="bu">StartCutscene</span><span class="op">(</span><span class="dt">CutsceneSkipType</span><span class="op">)</span></span></code></pre></div>
 <p>Marks the start of a cutscene. Once your script passes this point, the player can choose to skip a portion by pressing a key or the mouse button. This is useful for things like introduction sequences, where you want the player to be able to skip over an intro that they've seen before.</p>
 <p>The CutsceneSkipType determines how they can skip the cutscene:</p>
 <pre><code>eSkipESCOnly
@@ -1054,7 +1044,7 @@ eSkipScriptOnly
 </section>
 <section id="updateinventory" class="level3">
 <h3><a href="#updateinventory"><code>UpdateInventory</code></a></h3>
-<div class="sourceCode" id="cb113"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="bu">UpdateInventory</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="bu">UpdateInventory</span> <span class="op">()</span></span></code></pre></div>
 <p>Updates the on-screen inventory display. If you add or remove inventory items manually (i.e. by using the InventoryQuantity array rather than the AddInventory/LoseInventory functions), the display may not get updated. In this case call this function after making your changes, to update what is displayed to the player.</p>
 <p>Note that using this function will reset the order that items are displayed in the inventory window to the same order they were created in the editor.</p>
 <p><em>See also:</em> <a href="Character.html#characteraddinventory"><code>Character.AddInventory</code></a>, <a href="Character.html#characterloseinventory"><code>Character.LoseInventory</code></a>, <a href="Character.html#characterinventoryquantity"><code>Character.InventoryQuantity</code></a></p>
@@ -1062,14 +1052,14 @@ eSkipScriptOnly
 </section>
 <section id="unpausegame" class="level3">
 <h3><a href="#unpausegame"><code>UnPauseGame</code></a></h3>
-<div class="sourceCode" id="cb114"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="bu">UnPauseGame</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="bu">UnPauseGame</span> <span class="op">()</span></span></code></pre></div>
 <p>Resumes the game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
 <p>will unpause the game if it is paused.</p>
 <p><strong>NOTE:</strong> Because PauseGame works as a counter, if you called it more than once, this won't work. To ignore this behavior, unpause as much as needed with the below snippet.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="bu">IsGamePaused</span><span class="op">())</span> <span class="bu">UnPauseGame</span><span class="op">();</span></span></code></pre></div>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#pausegame"><code>PauseGame</code></a>, <a href="Globalfunctions_General.html#isgamepaused"><code>IsGamePaused</code></a></p>
 </section>
 </section>
@@ -1078,7 +1068,7 @@ eSkipScriptOnly
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
+          Build: 20b91b38748188d55165d6db4652a89462bc8046
         </p>
       </footer>
     </article>

@@ -177,57 +177,66 @@
 <section id="systemdisplayfps" class="level3">
 <h3><a href="#systemdisplayfps"><code>System.DisplayFPS</code></a></h3>
 <div class="sourceCode" id="cb16"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">DisplayFPS</span><span class="op">;</span></span></code></pre></div>
-<p>Gets/sets whether the current frames per second is displayed on the screen. This is useful for debugging purposes and quickly understanding performance impacts from different scripting approaches.</p>
+<p>Gets/sets whether the current frames per second is displayed on the screen. This is useful for debugging purposes and quickly understanding performance impacts of the changes you do to your game.</p>
 <p><strong>NOTE:</strong> if a command line flag that forces displaying fps is passed, this property will always be true, setting it will be ignored.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.2</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Globalfunctions_General.html#debug"><code>Debug</code></a></p>
+<p><em>See also:</em> <a href="System.html#systemfps"><code>System.FPS</code></a>, <a href="Globalfunctions_General.html#debug"><code>Debug</code></a></p>
+<hr />
+</section>
+<section id="systemfps" class="level3">
+<h3><a href="#systemfps"><code>System.FPS</code></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">FPS</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the current real frames per second ratio of the game. This is useful for debugging purposes and quickly understanding performance impacts of the changes you do to your game.</p>
+<p>Note that System.FPS may or not be equal to the <a href="Game.html#gamespeed"><code>Game.Speed</code></a> value. While Game.Speed reports a logical game's frame rate, and is useful for measuring timing relative to the rest of the game, System.FPS tells the real frame rate, which demonstrates rather how well your game performs on a current system, and whether it runs slower than requested.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="System.html#systemdisplayfps"><code>System.DisplayFPS</code></a>, <a href="Game.html#gamespeed"><code>Game.Speed</code></a></p>
 <hr />
 </section>
 <section id="systemgamma" class="level3">
 <h3><a href="#systemgamma"><code>System.Gamma</code></a></h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">Gamma</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">Gamma</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the current screen Gamma level. This is 100 by default, and you can set it anywhere from 0 (pitch black) to 200 (double normal brightness).</p>
 <p><a href="System.html#systemsupportsgammacontrol"><code>System.SupportsGammaControl</code></a> must return <em>true</em> in order for this property to have any effect.</p>
 <p>Because every player's monitor will be different, you should normally use this property linked to a GUI Slider in order to allow the player to adjust it to suit their system.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="at">Gamma</span> = <span class="dv">150</span><span class="op">;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">System</span><span class="op">.</span><span class="at">Gamma</span> = <span class="dv">150</span><span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will turn the screen brightness up to <code>50%</code> higher than normal</p>
 <p><em>See also:</em> <a href="System.html#systemsupportsgammacontrol"><code>System.SupportsGammaControl</code></a></p>
 <hr />
 </section>
 <section id="systemhardwareacceleration" class="level3">
 <h3><a href="#systemhardwareacceleration"><code>System.HardwareAcceleration</code></a></h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">HardwareAcceleration</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">HardwareAcceleration</span><span class="op">;</span></span></code></pre></div>
 <p>Returns whether the game is running with hardware acceleration (e.g. Direct3D or OpenGL). If this is the case then changing on-screen images with <a href="DrawingSurface.html">DrawingSurface</a> functions are likely to be slower, but sprite scaling, transparency and alpha blending effects, as well as just displaying larger sprites, are likely to be faster, than when the non-accelerated driver is used.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Direct3D, OpenGL driver</strong><br> Linux: <strong>OpenGL driver</strong><br> MacOS: <strong>OpenGL driver</strong><br> Android: <strong>OpenGL driver</strong><br> iOS: <strong>OpenGL driver</strong></p>
 <p>Example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">HardwareAcceleration</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;</span><span class="op">);</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">HardwareAcceleration</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Yay, we can draw loads of alpha blended sprites fast!&quot;</span><span class="op">);</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if the game is being run with hardware acceleration</p>
 <p><em>See also:</em> <a href="GraphicsDriver.html">AGS Graphics Drivers</a></p>
 <hr />
 </section>
 <section id="systemhasinputfocus" class="level3">
 <h3><a href="#systemhasinputfocus"><code>System.HasInputFocus</code></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span><span class="op">;</span></span></code></pre></div>
 <p>Tells whether the game window currently has input focus, meaning it is active and player can control the game.</p>
 <p>If your game is made to continue running in the background, when the user switches out from game, you may use this property in scripts to know if that actually happened.</p>
 <p>Examples:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span><span class="op">)</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(!</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span><span class="op">)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span></code></pre></div>
 <p>skips the rest of the function if player has switched out from the game.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">PauseGame</span><span class="op">();</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">UnPauseGame</span><span class="op">();</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">repeatedly_execute</span><span class="op">()</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">PauseGame</span><span class="op">();</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">HasInputFocus</span> <span class="op">&amp;&amp;</span> <span class="bu">IsGamePaused</span><span class="op">()</span> <span class="op">==</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">UnPauseGame</span><span class="op">();</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>pauses game when player switches out, and unpauses it when player switches back to game.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.3.5</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#setmultitaskingmode"><code>SetMultitaskingMode</code></a></p>
@@ -235,14 +244,14 @@
 </section>
 <section id="systemnumlock" class="level3">
 <h3><a href="#systemnumlock"><code>System.NumLock</code></a></h3>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">NumLock</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">NumLock</span><span class="op">;</span></span></code></pre></div>
 <p>Gets whether Num Lock is active on the player's system.</p>
 <p>You might want to use this to warn the player to switch it off before using the numeric keypad arrow keys, for example.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">NumLock</span><span class="op">)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The NUM LOCK light is on.&quot;</span><span class="op">);</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">NumLock</span><span class="op">)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The NUM LOCK light is on.&quot;</span><span class="op">);</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if Num Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="System.html#systemcapslock"><code>System.CapsLock</code></a>, <a href="System.html#systemscrolllock"><code>System.ScrollLock</code></a></p>
@@ -251,7 +260,7 @@
 <section id="systemoperatingsystem" class="level3">
 <h3><a href="#systemoperatingsystem"><code>System.OperatingSystem</code></a></h3>
 <p><em>(Formerly known as <code>system.os</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">eOperatingSystem</span> <span class="bu">System</span><span class="op">.</span><span class="at">OperatingSystem</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">eOperatingSystem</span> <span class="bu">System</span><span class="op">.</span><span class="at">OperatingSystem</span><span class="op">;</span></span></code></pre></div>
 <p>Returns which operating system the game is currently running under. It can be one of the following values:</p>
 <pre><code>eOSDOS (exists, but no longer supported)
 eOSWindows
@@ -263,17 +272,17 @@ eOSPSP (exists, but no longer supported)
 eOSWeb
 eOSFreeBSD</code></pre>
 <p>Example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">OperatingSystem</span> <span class="op">==</span> <span class="bu">eOSWindows</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Running on Windows!&quot;</span><span class="op">);</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Not running on Windows!&quot;</span><span class="op">);</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">OperatingSystem</span> <span class="op">==</span> <span class="bu">eOSWindows</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Running on Windows!&quot;</span><span class="op">);</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Not running on Windows!&quot;</span><span class="op">);</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <hr />
 </section>
 <section id="systemrenderatscreenresolution" class="level3">
 <h3><a href="#systemrenderatscreenresolution"><code>System.RenderAtScreenResolution</code></a></h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">RenderAtScreenResolution</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">RenderAtScreenResolution</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether sprites are rendered at screen resolution (if it's <strong>true</strong>) or native game resolution (if it's <strong>false</strong>).</p>
 <p>When your game has low native resolution and player is running it in high display mode (for example 320x200 game being run in 1920x1080), then turning this property on will let engine to take advantage of higher display resolution and draw characters and objects less pixelated when they are scaled up or down (e.g. on walkable area with scaling).</p>
 <p><strong>IMPORTANT:</strong> unless you have locked this parameter to certain value in your game's <a href="GeneralSettings.html">General settings</a>, players may also change it in the setup program. In such case it is suggested that you do not unconditionally modify this property in script, but rather provide a menu option for toggling it at runtime.</p>
@@ -282,16 +291,16 @@ eOSFreeBSD</code></pre>
 </section>
 <section id="systemruntimeinfo" class="level3">
 <h3><a href="#systemruntimeinfo"><code>System.RuntimeInfo</code></a></h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the string containing short description of the environment the game is currently running in, such as engine version, graphics mode, and available game resources.</p>
 <p>This is meant mainly for debug purposes.</p>
 <p><strong>NOTE:</strong> System.RuntimeInfo is a more convenient analogue of Debug(1,0) command, being more explicit and working on both release and debug modes of the game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyCtrlV</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">);</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyCtrlV</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">Display</span><span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">RuntimeInfo</span><span class="op">);</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.4.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Globalfunctions_General.html#debug"><code>Debug</code></a></p>
 <hr />
@@ -300,7 +309,7 @@ eOSFreeBSD</code></pre>
 <h3><a href="#systemscreenheight"><code>System.ScreenHeight</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight"><code>Screen.Height</code></a> instead.</strong></p>
 <p><em>(Formerly known as <code>system.screen_height</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenHeight</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenHeight</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black letterbox borders, making it a confusing parameter.</p>
 <p><em>See also:</em> <a href="System.html#systemcolordepth"><code>System.ColorDepth</code></a>, <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
@@ -309,21 +318,21 @@ eOSFreeBSD</code></pre>
 <h3><a href="#systemscreenwidth"><code>System.ScreenWidth</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth"><code>Screen.Width</code></a> instead.</strong></p>
 <p><em>(Formerly known as <code>system.screen_width</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenWidth</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScreenWidth</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Historically it also included a size of the black widescreen side borders, making it a confusing parameter.</p>
 <p><em>See also:</em> <a href="System.html#systemcolordepth"><code>System.ColorDepth</code></a>, <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
 </section>
 <section id="systemscrolllock" class="level3">
 <h3><a href="#systemscrolllock"><code>System.ScrollLock</code></a></h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScrollLock</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">ScrollLock</span><span class="op">;</span></span></code></pre></div>
 <p>Gets whether Scroll Lock is active on the player's system.</p>
 <p>Note that when running your game under the debugger, the Scroll Lock key will break out of the game into the debugger, so it is not advised that you use it for any other purpose in your game.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">ScrollLock</span><span class="op">)</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The SCROLL LOCK light is on.&quot;</span><span class="op">);</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">ScrollLock</span><span class="op">)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The SCROLL LOCK light is on.&quot;</span><span class="op">);</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if Scroll Lock is on.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.0.1</strong> and later versions.</p>
 <p><em>See also:</em> <a href="System.html#systemcapslock"><code>System.CapsLock</code></a>, <a href="System.html#systemnumlock"><code>System.NumLock</code></a></p>
@@ -331,15 +340,15 @@ eOSFreeBSD</code></pre>
 </section>
 <section id="systemsupportsgammacontrol" class="level3">
 <h3><a href="#systemsupportsgammacontrol"><code>System.SupportsGammaControl</code></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">;</span></span></code></pre></div>
 <p>Gets whether the player's PC supports changing the screen's gamma control settings.</p>
 <p>This must return <em>true</em> before you try and change the <a href="System.html#systemgamma"><code>System.Gamma</code></a> property. The situations in which this will be supported are listed below.</p>
 <p><strong>Cross-Platform Support</strong></p>
 <p>Windows: <strong>Full-screen only</strong><br> Linux: <strong>No</strong><br> MacOS: <strong>No</strong></p>
 <p>Example:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;We can change the system gamma level!&quot;</span><span class="op">);</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">SupportsGammaControl</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;We can change the system gamma level!&quot;</span><span class="op">);</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if the system supports changing the gamma</p>
 <p><em>See also:</em> <a href="System.html#systemgamma"><code>System.Gamma</code></a></p>
 <hr />
@@ -347,11 +356,11 @@ eOSFreeBSD</code></pre>
 <section id="systemversion" class="level3">
 <h3><a href="#systemversion"><code>System.Version</code></a></h3>
 <p><em>(Formerly known as <code>system.version</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">System</span><span class="op">.</span><span class="at">Version</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="bu">String</span> <span class="bu">System</span><span class="op">.</span><span class="at">Version</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the AGS engine version number. This could be useful from within script modules in order to use features available on a particular engine version, or work around any known bugs.</p>
 <p>The string returned is the full version number, for example "2.71.833".</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;AGS version: %s&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">Version</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;AGS version: %s&quot;</span><span class="op">,</span> <span class="bu">System</span><span class="op">.</span><span class="at">Version</span><span class="op">);</span></span></code></pre></div>
 <p>will display the AGS version number</p>
 <hr />
 </section>
@@ -359,7 +368,7 @@ eOSFreeBSD</code></pre>
 <h3><a href="#systemviewportheight"><code>System.ViewportHeight</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenheight"><code>Screen.Height</code></a> instead.</strong></p>
 <p><em>(Formerly known as <code>system.viewport_height</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ViewportHeight</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ViewportHeight</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the game's screen height in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a> is <strong>not</strong> a direct equivalent.</p>
 <p><em>See also:</em> <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
@@ -368,7 +377,7 @@ eOSFreeBSD</code></pre>
 <h3><a href="#systemviewportwidth"><code>System.ViewportWidth</code></a></h3>
 <p><strong>This property is obsolete since AGS 3.5.0. Use <a href="Screen.html#screenwidth"><code>Screen.Width</code></a> instead.</strong></p>
 <p><em>(Formerly known as <code>system.viewport_width</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ViewportWidth</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">ViewportWidth</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the game's screen width in native coordinates, <strong>not</strong> accounting for the scaling applied by graphic renderer. Note that before AGS 3.5.0 there was no differentiation between "game's viewport" (as in - full game's screen) and "room viewport", that's why <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a> is <strong>not</strong> a direct equivalent.</p>
 <p><em>See also:</em> <a href="Screen.html#screenwidth"><code>Screen.Width</code></a>, <a href="Screen.html#screenheight"><code>Screen.Height</code></a>, <a href="Viewport.html#viewportwidth"><code>Viewport.Width</code></a>, <a href="Viewport.html#viewportheight"><code>Viewport.Height</code></a></p>
 <hr />
@@ -376,10 +385,10 @@ eOSFreeBSD</code></pre>
 <section id="systemvolume" class="level3">
 <h3><a href="#systemvolume"><code>System.Volume</code></a></h3>
 <p><em>(Formerly known as <code>SetDigitalMasterVolume</code>, which is now obsolete)</em><br> <em>(Formerly known as <code>SetMusicMasterVolume</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">Volume</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">int</span> <span class="bu">System</span><span class="op">.</span><span class="at">Volume</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the overall system volume, from 0 to 100. This is the master volume control, that affects all audio in the game. You would usually attach this to a GUI Slider to enable the player to control the volume from some sort of Control Panel GUI.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="at">Volume</span> = <span class="dv">80</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="at">Volume</span> = <span class="dv">80</span><span class="op">;</span></span></code></pre></div>
 <p>will set the overall output volume to 80.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.2.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="AudioChannel.html#audiochannelvolume"><code>AudioChannel.Volume</code></a>, <a href="Game.html#gamesetaudiotypevolume"><code>Game.SetAudioTypeVolume</code></a></p>
@@ -388,35 +397,35 @@ eOSFreeBSD</code></pre>
 <section id="systemvsync" class="level3">
 <h3><a href="#systemvsync"><code>System.VSync</code></a></h3>
 <p><em>(Formerly known as <code>system.vsync</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">VSync</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">VSync</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether AGS waits for the vertical retrace before rendering each frame.</p>
 <p>When vsync is on, it can help to reduce the "tearing" effect that you can get when the screen scrolls. However, doing so will lock the game frame rate to the monitor's refresh rate, which will mean you cannot reliably set a game speed higher than 60 fps.</p>
 <p>Vertical sync is off by default. When the game starts engine reads vsync option value from the config file, if one exists.</p>
 <p>Not all renderers support changing vsync at runtime. If current one does not, then trying to change <code>System.VSync</code> will have no effect.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">VSync</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Vertical retrace sync is enabled!&quot;</span><span class="op">);</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">VSync</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Vertical retrace sync is enabled!&quot;</span><span class="op">);</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if vsync is on.</p>
 <hr />
 </section>
 <section id="systemwindowed" class="level3">
 <h3><a href="#systemwindowed"><code>System.Windowed</code></a></h3>
 <p><em>(Formerly known as <code>system.windowed</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">bool</span> <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets whether the game is running in a window (<em>true</em>) or full-screen (<em>false</em>).</p>
 <p>If you set this property at runtime, the game will try to switch to alternate window mode. If it fails, it will return to previous one.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Game is running in a window!&quot;</span><span class="op">);</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Display</span><span class="op">(</span><span class="st">&quot;Game is running in a window!&quot;</span><span class="op">);</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will display a message if the game is running in a window</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyEscape</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span> = <span class="op">!</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_key_press</span><span class="op">(</span><span class="dt">eKeyCode</span> keycode<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>keycode <span class="op">==</span> <span class="bu">eKeyEscape</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span> = <span class="op">!</span><span class="bu">System</span><span class="op">.</span><span class="at">Windowed</span><span class="op">;</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>will switch from windowed to fullscreen mode and vice-versa whenever player presses Escape key.</p>
 <p><em>Compatibility:</em> This property was read-only before <strong>AGS 3.4.1</strong>; it can be set in <strong>AGS 3.4.1</strong> and later versions.</p>
 </section>
@@ -426,7 +435,7 @@ eOSFreeBSD</code></pre>
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: fdaf6094702fc9b5d5e5e03880800b57d873444b
+          Build: 20b91b38748188d55165d6db4652a89462bc8046
         </p>
       </footer>
     </article>
@@ -444,6 +453,7 @@ eOSFreeBSD</code></pre>
 <li><a href="#systemcapslock" id="toc-systemcapslock"><code>System.CapsLock</code></a></li>
 <li><a href="#systemcolordepth" id="toc-systemcolordepth"><code>System.ColorDepth</code></a></li>
 <li><a href="#systemdisplayfps" id="toc-systemdisplayfps"><code>System.DisplayFPS</code></a></li>
+<li><a href="#systemfps" id="toc-systemfps"><code>System.FPS</code></a></li>
 <li><a href="#systemgamma" id="toc-systemgamma"><code>System.Gamma</code></a></li>
 <li><a href="#systemhardwareacceleration" id="toc-systemhardwareacceleration"><code>System.HardwareAcceleration</code></a></li>
 <li><a href="#systemhasinputfocus" id="toc-systemhasinputfocus"><code>System.HasInputFocus</code></a></li>
