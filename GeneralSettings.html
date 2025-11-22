@@ -228,8 +228,10 @@
 <li><p><strong>Custom text-windows GUI</strong> - allows you to customize the standard text window appearance in the game, using the specified interface element. See <a href="EditorGUI.html#customized-text-windows">here</a> for more information.</p></li>
 <li><p><strong>Custom thought bubble GUI</strong> - Determines which text window GUI is used for displaying thoughts with <a href="Character.html#characterthink"><code>Think</code></a>.</p></li>
 <li><p><strong>TTF fonts adjustment defaults</strong> - Automatic adjustment of the true-type font metrics; primarily for backward compatibility.</p>
-<p>This option will be used as a default value for each new imported font, but you may also customize it in the Font's properties.</p></li>
-<li><p><strong>TTF fonts height used in the game logic</strong> - How the true-type font height will be defined whenever it is required by the script of game logic.</p></li>
+<p>This option will be used as a default value for each new imported font, but you may also customize it in the Font's properties.</p>
+<p>NOTE: this option was removed from General Settings since <strong>AGS 3.6.3</strong>, you should be using a respective Font's property instead.</p></li>
+<li><p><strong>TTF fonts height used in the game logic</strong> - How the true-type font height will be defined whenever it is required by the script of game logic.</p>
+<p>NOTE: since <strong>AGS 3.6.3</strong> this option was moved from General Settings to the Font properties, where it's called "Logical font height".</p></li>
 <li><p><strong>Write game text Right-to-Left</strong> - in-game text will be written right-to-left, i.e. line breaks are worked out from the end of the sentence going backwards, and the last words are displayed first. This is used by languages such as Arabic and Hebrew.</p></li>
 </ul>
 </section>

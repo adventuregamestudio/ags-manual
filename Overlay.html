@@ -225,7 +225,7 @@
 <div class="sourceCode" id="cb19"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Transparency</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the transparency of this overlay.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
-<p><em>See also:</em> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
+<p><em>See also:</em> <a href="Overlay.html#overlayvisible"><code>Overlay.Visible</code></a> <a href="Object.html#objecttransparency"><code>Object.Transparency</code></a> <a href="Character.html#charactertransparency"><code>Character.Transparency</code></a>, <a href="GUI.html#guitransparency"><code>GUI.Transparency</code></a></p>
 <hr />
 </section>
 <section id="overlayvalid" class="level3">
@@ -242,9 +242,17 @@
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
+<section id="overlayvisible" class="level3">
+<h3><a href="#overlayvisible"><code>Overlay.Visible</code></a></h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">bool</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Visible</span><span class="op">;</span></span></code></pre></div>
+<p>Gets/sets whether the overlay is visible. This is <em>true</em> by default, but you can set it to <em>false</em> in order to temporarily hide the Overlay.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="Overlay.html#overlaytransparency"><code>Overlay.Transparency</code></a></p>
+<hr />
+</section>
 <section id="overlaywidth" class="level3">
 <h3><a href="#overlaywidth"><code>Overlay.Width</code></a></h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Width</span><span class="op">;</span></span></code></pre></div>
 <p>Get/sets the width of this overlay. Changing this property <em>will stretch or shrink</em> the overlay's image horizontally. Works with both graphical and textual overlays.</p>
 <p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
 <p><em>See also:</em> <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayheight"><code>Overlay.Height</code></a></p>
@@ -253,16 +261,16 @@
 <section id="overlayx" class="level3">
 <h3><a href="#overlayx"><code>Overlay.X</code></a></h3>
 <p><em>(Formerly known as <code>MoveOverlay</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">X</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">X</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the X co-ordinate of the overlay (i.e. the left hand side of the overlay).</p>
 <p>This allows you to dynamically move overlays around the screen.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> testOverlay = <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateTextual</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">15</span><span class="op">,</span><span class="st">&quot;This is a text overlay&quot;</span><span class="op">);</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>testOverlay<span class="op">.</span><span class="at">X</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    testOverlay<span class="op">.</span><span class="at">X</span><span class="op">++;</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>testOverlay<span class="op">.</span><span class="at">Remove</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> testOverlay = <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateTextual</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">80</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">15</span><span class="op">,</span><span class="st">&quot;This is a text overlay&quot;</span><span class="op">);</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>testOverlay<span class="op">.</span><span class="at">X</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    testOverlay<span class="op">.</span><span class="at">X</span><span class="op">++;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>testOverlay<span class="op">.</span><span class="at">Remove</span><span class="op">();</span></span></code></pre></div>
 <p>creates a text overlay, then gradually slides it across the screen.</p>
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayy"><code>Overlay.Y</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
@@ -270,23 +278,23 @@
 <section id="overlayy" class="level3">
 <h3><a href="#overlayy"><code>Overlay.Y</code></a></h3>
 <p><em>(Formerly known as <code>MoveOverlay</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">Y</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the Y co-ordinate of the overlay (i.e. the top edge of the overlay).</p>
 <p>This allows you to dynamically move overlays around the screen.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> testOverlay = <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateTextual</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">50</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">15</span><span class="op">,</span><span class="st">&quot;This is a text overlay&quot;</span><span class="op">);</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>testOverlay<span class="op">.</span><span class="at">Y</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    testOverlay<span class="op">.</span><span class="at">Y</span><span class="op">++;</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>testOverlay<span class="op">.</span><span class="at">Remove</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Overlay</span><span class="op">*</span> testOverlay = <span class="bu">Overlay</span><span class="op">.</span><span class="at">CreateTextual</span><span class="op">(</span><span class="dv">50</span><span class="op">,</span><span class="dv">50</span><span class="op">,</span><span class="dv">120</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">15</span><span class="op">,</span><span class="st">&quot;This is a text overlay&quot;</span><span class="op">);</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span>testOverlay<span class="op">.</span><span class="at">Y</span> <span class="op">&lt;</span> <span class="dv">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    testOverlay<span class="op">.</span><span class="at">Y</span><span class="op">++;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">Wait</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>testOverlay<span class="op">.</span><span class="at">Remove</span><span class="op">();</span></span></code></pre></div>
 <p>creates a text overlay, then gradually slides it down the screen.</p>
 <p><em>See also:</em> <a href="Overlay.html#overlaycreatetextual"><code>Overlay.CreateTextual</code></a>, <a href="Overlay.html#overlayx"><code>Overlay.X</code></a>, <a href="Overlay.html#overlayremove"><code>Overlay.Remove</code></a></p>
 <hr />
 </section>
 <section id="overlayzorder" class="level3">
 <h3><a href="#overlayzorder"><code>Overlay.ZOrder</code></a></h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="bu">Overlay</span><span class="op">.</span><span class="at">ZOrder</span><span class="op">;</span></span></code></pre></div>
 <p>Gets/sets the Overlay's drawing z-order. This allows you to dynamically change the ordering of Overlays on the screen.</p>
 <p>Z-order setting is an arbitrary integer number that can be positive or negative. It tells how the overlapping objects should be sorted. Those with lower z-order are drawn at the back, and those with higher z-order are drawn at the front.</p>
 <p>The <em>screen</em> Overlays are sorted among themselves and GUI, and thus their ZOrder is relative to other screen Overlays z-orders and GUIs z-order values.</p>
@@ -325,6 +333,7 @@
 <li><a href="#overlayinroom" id="toc-overlayinroom"><code>Overlay.InRoom</code></a></li>
 <li><a href="#overlaytransparency" id="toc-overlaytransparency"><code>Overlay.Transparency</code></a></li>
 <li><a href="#overlayvalid" id="toc-overlayvalid"><code>Overlay.Valid</code></a></li>
+<li><a href="#overlayvisible" id="toc-overlayvisible"><code>Overlay.Visible</code></a></li>
 <li><a href="#overlaywidth" id="toc-overlaywidth"><code>Overlay.Width</code></a></li>
 <li><a href="#overlayx" id="toc-overlayx"><code>Overlay.X</code></a></li>
 <li><a href="#overlayy" id="toc-overlayy"><code>Overlay.Y</code></a></li>

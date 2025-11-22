@@ -106,9 +106,10 @@
 <hr />
 <section id="skipwait" class="level3">
 <h3><a href="#skipwait"><code>SkipWait</code></a></h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SkipWait</span> <span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> <span class="fu">SkipWait</span> <span class="op">(</span>optional <span class="dt">int</span> resultValue<span class="op">)</span></span></code></pre></div>
 <p>Cancels current Wait function, regardless of its type, if one was active at the moment.</p>
-<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions.</p>
+<p>Optionally lets provide a "result value" that will be returned by the Wait function, or by <a href="Game.html#gameblockingwaitskipped">Game.BlockingWaitSkipped</a> property. Because of how Wait's return code is defined, this has to be a positive value not greater than 16777215.</p>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.0</strong> and later versions. A "resultValue" argument is supported since <strong>AGS 3.6.3</strong>.</p>
 <p><em>See also:</em> <a href="Globalfunctions_Wait.html#waitkey"><code>WaitKey</code></a>, <a href="Globalfunctions_Wait.html#waitmouse"><code>WaitMouse</code></a>, <a href="Globalfunctions_Wait.html#waitmousekey"><code>WaitMouseKey</code></a>, <a href="Game.html#gameblockingwaitskipped"><code>Game.BlockingWaitSkipped</code></a></p>
 <hr />
 </section>

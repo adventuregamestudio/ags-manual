@@ -66,15 +66,45 @@
 <h2><a href="#font-preview">Font Preview</a></h2>
 <p>You cannot exactly <em>edit</em> fonts from within the AGS itself at the time being (unless you are using a plugin that allows that), but AGS lets you to preview the imported fonts and configure their runtime display properties.</p>
 <p>On the Explore Project panel, you can expand the Fonts node to show the fonts which are imported for your game. Right clicking on the "Fonts" node itself allows you to create a new font. When creating a new font, or double-clicking on existing font within the tree, a new preview panel will open.</p>
-<p>When a new font is created it clones the last one in the list. To overwrite an existing font, press the "Import over this font..." button.</p>
+<p>When a new font is created it clones the last one in the list. To overwrite an existing font, press the "Import over this font..." button. You may also reimport font from a different file or with a different size by going to the Font's properties, and clicking on "..." button at "Source Filename" or "Font Size" property respectively.</p>
 <p>AGS supports two kinds of fonts: TrueType (TTF) and bitmap fonts, which are: SCI fonts (Sierra's font format) and WFN fonts (extended bitmap font format).</p>
+<p><strong>NOTE:</strong> Only TTF fonts have freely adjustable import sizes. Bitmap fonts have only one size, but may be scaled up using an integer multiplier.</p>
 <p><strong>NOTE:</strong> On Windows you cannot import fonts directly from the Windows Fonts folder. Unfortunately there is nothing that can be done about this, you must manually copy the font to another folder and import it from there.</p>
 <p>Fonts can have outlines. For LucasArts-style speech, outlines are really a necessity since they stop the text blending into the background and becoming un-readable. To outline a font, either set the OutlineStyle to "Automatic" to have AGS do it for you, or you can use a specific font slot as the outline font (it will be drawn in black behind the main font when the main font is used).</p>
 <p>Every font have following optional properties:</p>
 <ul>
-<li><strong>LineSpacing</strong> - defines default difference (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</li>
-<li><strong>SizeMultiplier</strong> - an integer scale multiplier applied to this font. Note that it commonly makes sense to assign this for the bitmap fonts, as TTF fonts may be reimported with different font size. When set for a TTF font it will simply be initialized with a higher point-size in game.</li>
-<li><strong>VerticalOffset</strong> - defines additional vertical offset applied to every drawn line of text (when using this font). This property is mainly meant to override particular font's misbehavior.</li>
+<li><p><strong>Character Spacing</strong> - defines <em>additional</em> uniform distance between each two characters in a text line. Normally the distance between each pair of characters is dictated by the font itself (and it may depend on which characters are positioned nearby). With this property you may increase or decrease this distance by a flat number. Default value is 0.</p>
+<p>NOTE: this property is available since <strong>AGS 3.6.3</strong>.</p></li>
+<li><p><strong>Line Spacing</strong> - defines default distance (in pixels) between two lines of wrapped text. Setting this to 0 will make font use its own (logical) height as a vertical spacing. Having line spacing lower than font's height will make lines partially overlap.</p></li>
+<li><p><strong>Logical Height</strong> - lets select how the font's height will be defined whenever it's requested by the script or engine, for purposes such as arrangement of visual elements. This has following choices:</p>
+<ul>
+<li><strong>Nominal height (import size)</strong> - uses the Font Size number which you entered when importing this font.</li>
+<li><strong>Real height (reported by font)</strong> - uses the "height" property reported by imported font itself.</li>
+<li><strong>User-defined value</strong> - lets you specify your own value.</li>
+</ul>
+<p>The purpose of this setting is to fix up the font height measurements in case the value reported by the font itself seems incorrect. "Nominal height" is a backwards compatible choice, as this is the way older versions of AGS were accounting font's height. "Real height" is a sensible default for properly designed TTF fonts. But if neither of the above gives good results, then you may choose to set up your own value.</p>
+<p>NOTE: this property is available since <strong>AGS 3.6.3</strong>.</p></li>
+<li><p><strong>Logical Height value</strong> - if you set Logical Height property to the "User-defined value", then this property will become visible and lets you type the exact value, that will be used as a font's height in game. Normally you should not need this, but sometimes there are fonts that do not report their height correctly, so that's where this setting comes handy.</p>
+<p>NOTE: this property is available since <strong>AGS 3.6.3</strong>.</p></li>
+<li><p><strong>Outline Style</strong> - lets you assign an outline to this font. This setting has following choices:</p>
+<ul>
+<li><strong>None</strong> - no outline.</li>
+<li><strong>Automatic</strong> - draw outline using same font. This is achieved by drawing same text but with certain offset. If selected, then two more settings become available (see below).</li>
+<li><strong>UseOutlineFont</strong> - draw same text with another font behind this one, which will serve as outline. This assumes that the font chosen for "outline" is suitable for such purpose and is slightly bigger in size than the current one.</li>
+</ul></li>
+<li><p><strong>Auto Outline Style</strong> - an additional style of the Automatic outline.</p>
+<ul>
+<li><strong>Squared</strong> - the outline will have sharp "rectangular" edges and corners.</li>
+<li><strong>Rounded</strong> - the outline will have rounded corners.</li>
+</ul></li>
+<li><p><strong>Auto Outline Thickness</strong> - thickness of the Automatic outline (in pixels).</p></li>
+<li><p><strong>Size Multiplier</strong> - an integer scale multiplier applied to this font. Note that it commonly makes sense to assign this for the bitmap fonts, as TTF fonts may be reimported with different font size. When set for a TTF font it will simply be initialized with a higher size in game.</p></li>
+<li><p><strong>TTF Font adjustment</strong> - an adjustment of the true-type font metrics. This setting is purposed for backwards compatibility only.</p>
+<ul>
+<li><strong>Do nothing</strong> - the font will be read as-is. This is the default.</li>
+<li><strong>Resize ascender to the nominal font height</strong> - the font's ascender (a part above baseline) will be resized to match the font's import size. This setting is meant to fixup fonts created for older versions of AGS, where engine had a somewhat different font rendering. If used with normal fonts, this may actually make them look worse.</li>
+</ul></li>
+<li><p><strong>Vertical Offset</strong> - defines additional vertical offset applied to every drawn line of text (when using this font). This property is mainly meant to override particular font's misbehavior.</p></li>
 </ul>
 </section>
       <a class="edit-link" href="https://github.com/adventuregamestudio/ags-manual-source/blob/master/EditorFont.md" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg> Edit this page</a>

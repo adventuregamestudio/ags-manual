@@ -76,7 +76,7 @@
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The date is: %02d/%02d/%04d&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">DayOfMonth</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Month</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Year</span><span class="op">);</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;The time is: %02d:%02d:%02d&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Hour</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Minute</span><span class="op">,</span> dt<span class="op">.</span><span class="at">Second</span><span class="op">);</span></span></code></pre></div>
 <p>will display the current date and time in 24-hour format</p>
-<p><em>See also:</em> <a href="DateTime.html#datetimedayofmonth"><code>DateTime.DayOfMonth</code></a>, <a href="DateTime.html#datetimehour"><code>DateTime.Hour</code></a>, <a href="DateTime.html#datetimeminute"><code>DateTime.Minute</code></a>, <a href="DateTime.html#datetimemonth"><code>DateTime.Month</code></a>, <a href="DateTime.html#datetimerawtime"><code>DateTime.RawTime</code></a>, <a href="DateTime.html#datetimesecond"><code>DateTime.Second</code></a>, <a href="DateTime.html#datetimeyear"><code>DateTime.Year</code></a></p>
+<p><em>See also:</em> <a href="DateTime.html#datetimedayofmonth"><code>DateTime.DayOfMonth</code></a>, <a href="DateTime.html#datetimehour"><code>DateTime.Hour</code></a>, <a href="DateTime.html#datetimemillisecond"><code>DateTime.Millisecond</code></a>, <a href="DateTime.html#datetimeminute"><code>DateTime.Minute</code></a>, <a href="DateTime.html#datetimemonth"><code>DateTime.Month</code></a>, <a href="DateTime.html#datetimerawtime"><code>DateTime.RawTime</code></a>, <a href="DateTime.html#datetimesecond"><code>DateTime.Second</code></a>, <a href="DateTime.html#datetimeyear"><code>DateTime.Year</code></a></p>
 <hr />
 </section>
 <section id="datetimecreatefromdate" class="level3">
@@ -114,9 +114,27 @@
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
 <hr />
 </section>
+<section id="datetimemillisecond" class="level3">
+<h3><a href="#datetimemillisecond"><code>DateTime.Millisecond</code></a></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Millisecond</span><span class="op">;</span></span></code></pre></div>
+<p>Gets the millisecond represented by the DateTime object. This will be from 0 to 999, meaning the milliseconds passed since the last second.</p>
+<p>Millisecond property can be used to measure time periods in combination with <a href="DateTime.html#datetimerawtime">RawTime</a>, which reports a number of seconds passed since certain zero point. This may be useful to calculate duration of events in game when you need to know such duration in a higher precision.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span><span class="op">*</span> old_time = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">// imagine some actions are performed here</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span><span class="op">*</span> new_time = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> duration_ms = <span class="op">((</span>new_time<span class="op">.</span><span class="at">RawTime</span> <span class="op">-</span> old_time<span class="op">.</span><span class="at">RawTime</span><span class="op">)</span> <span class="op">*</span> <span class="dv">1000</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span>new_time<span class="op">.</span><span class="at">Millisecond</span> <span class="op">-</span> old_time<span class="op">.</span><span class="at">Millisecond</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">System</span><span class="op">.</span><span class="at">Log</span><span class="op">(</span><span class="bu">eLogDebug</span><span class="op">,</span> <span class="st">&quot;Time passed: %d ms&quot;</span><span class="op">,</span> duration_ms<span class="op">);</span></span></code></pre></div>
+<p><em>Compatibility:</em> Supported by <strong>AGS 3.6.3</strong> and later versions.</p>
+<p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>, <a href="DateTime.html#datetimerawtime"><code>DateTime.RawTime</code></a></p>
+<hr />
+</section>
 <section id="datetimeminute" class="level3">
 <h3><a href="#datetimeminute"><code>DateTime.Minute</code></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Minute</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Minute</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the minute represented by the DateTime object. This will be from 0 to 59, representing the minute in 24-hour format.</p>
 <p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
@@ -124,7 +142,7 @@
 </section>
 <section id="datetimemonth" class="level3">
 <h3><a href="#datetimemonth"><code>DateTime.Month</code></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Month</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Month</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the month represented by the DateTime object. This will be from 1 to 12, representing the month of the year.</p>
 <p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
@@ -133,22 +151,22 @@
 <section id="datetimerawtime" class="level3">
 <h3><a href="#datetimerawtime"><code>DateTime.RawTime</code></a></h3>
 <p><em>(Formerly known as <code>GetRawTime</code>, which is now obsolete)</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span></code></pre></div>
 <p>This function returns the raw system time, as the number of seconds since January 1970. While this value is not useful in itself, you can use it to calculate time differences by getting the value at the start of the game, for example, and then getting the value later on, and the difference between the two is how much time has elapsed.</p>
 <p><strong>NOTE:</strong> Because this accesses the real-time clock on the users' system, it is not a good idea to use this for long term timing tasks, since if the user saves the game and then restores it later, the Time value returned by this function will obviously include the difference when they were not playing.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span> <span class="op">*</span>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> start_time = dt<span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;After the wait it is now %d seconds later.&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">RawTime</span> <span class="op">-</span> start_time<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">DateTime</span> <span class="op">*</span>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> start_time = dt<span class="op">.</span><span class="at">RawTime</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Wait</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dt = <span class="bu">DateTime</span><span class="op">.</span><span class="at">Now</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Display</span><span class="op">(</span><span class="st">&quot;After the wait it is now %d seconds later.&quot;</span><span class="op">,</span> dt<span class="op">.</span><span class="at">RawTime</span> <span class="op">-</span> start_time<span class="op">);</span></span></code></pre></div>
 <p>should display that 3 seconds have elapsed.</p>
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>, <a href="Globalfunctions_General.html#settimer"><code>SetTimer</code></a></p>
 <hr />
 </section>
 <section id="datetimesecond" class="level3">
 <h3><a href="#datetimesecond"><code>DateTime.Second</code></a></h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Second</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Second</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the second represented by the DateTime object. This will be from 0 to 59, representing the second.</p>
 <p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
@@ -156,7 +174,7 @@
 </section>
 <section id="datetimeyear" class="level3">
 <h3><a href="#datetimeyear"><code>DateTime.Year</code></a></h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Year</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">readonly</span> <span class="dt">int</span> <span class="bu">DateTime</span><span class="op">.</span><span class="at">Year</span><span class="op">;</span></span></code></pre></div>
 <p>Gets the year represented by the DateTime object. This is the full year, for example <em>2005</em>.</p>
 <p>Example: For an example, see <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a>.</p>
 <p><em>See also:</em> <a href="DateTime.html#datetimenow"><code>DateTime.Now</code></a></p>
@@ -181,6 +199,7 @@
 <li><a href="#datetimecreatefromrawtime" id="toc-datetimecreatefromrawtime"><code>DateTime.CreateFromRawTime</code></a></li>
 <li><a href="#datetimedayofmonth" id="toc-datetimedayofmonth"><code>DateTime.DayOfMonth</code></a></li>
 <li><a href="#datetimehour" id="toc-datetimehour"><code>DateTime.Hour</code></a></li>
+<li><a href="#datetimemillisecond" id="toc-datetimemillisecond"><code>DateTime.Millisecond</code></a></li>
 <li><a href="#datetimeminute" id="toc-datetimeminute"><code>DateTime.Minute</code></a></li>
 <li><a href="#datetimemonth" id="toc-datetimemonth"><code>DateTime.Month</code></a></li>
 <li><a href="#datetimerawtime" id="toc-datetimerawtime"><code>DateTime.RawTime</code></a></li>
