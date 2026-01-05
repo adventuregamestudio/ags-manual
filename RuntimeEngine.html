@@ -106,6 +106,34 @@
 <ul>
 <li><code>-? / --help</code> - prints the most useful command line arguments and quits.</li>
 <li><code>-v / --version</code> - prints the engine version and quits.</li>
+<li><code>--audiodriver</code> - request specified audio driver. Driver support varies between platforms:
+<ul>
+<li>For any platform:
+<ul>
+<li>default, disk, dummy;</li>
+</ul></li>
+<li>For Android:
+<ul>
+<li>aaudio, android, opensles;</li>
+</ul></li>
+<li>For Linux:
+<ul>
+<li>pulseaudio, alsa, arts, dsp, esd, jack, pipewire;</li>
+</ul></li>
+<li>For Mac OSX:
+<ul>
+<li>coreaudio;</li>
+</ul></li>
+<li>For Web/Emscripten:
+<ul>
+<li>emscripten;</li>
+</ul></li>
+<li>For Windows:
+<ul>
+<li>wasapi, directsound, winmm.</li>
+</ul></li>
+</ul></li>
+<li><code>--background</code> - keep game running in background (does not work in exclusive fullscreen).</li>
 <li><code>--clear-cache-on-room-change</code> - clears sprite cache on every room change</li>
 <li><code>--conf &lt;FILEPATH&gt;</code> - specify an explicit config file to read on startup.</li>
 <li><code>--console-attach</code> - write the output to the parent process's console (Windows only).</li>
@@ -172,6 +200,7 @@
 <li><code>--noupdate</code> - don't run game update (for test purposes).</li>
 <li><code>--novideo</code> - don't play game videos (for test purposes).</li>
 <li><code>--rotation &lt;MODE&gt;</code> - screen rotation preferences. MODEs are: unlocked (0), portrait (1), landscape (2).</li>
+<li><code>--script-log</code> - log executed script instructions in 'script.log' file. <em>WARNING:</em> extremely verbose, may slow app down.</li>
 <li><code>--sdl-log=LEVEL</code> - setup SDL's own logging level (see explanation for the related config option).</li>
 <li><code>--setup</code> - run integrated setup dialog. Currently only supported by Windows version.</li>
 <li><code>--shared-data-dir &lt;DIR&gt;</code> - set the shared game data directory. Corresponds to the "shared_data_dir" config option.</li>
@@ -188,7 +217,6 @@
 </ul></li>
 <li><code>--test</code> - run the game in the test mode, unlocking test key combinations and console.</li>
 <li><code>--translation</code> - select the given translation on start.</li>
-<li><code>--version</code> - print engine's version and stop.</li>
 <li><code>--user-data-dir &lt;DIR&gt;</code> - set the save game directory. Corresponds to "user_data_dir" config option.</li>
 <li><code>--windowed</code> - run in windowed mode.</li>
 </ul>
