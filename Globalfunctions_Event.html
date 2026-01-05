@@ -150,7 +150,12 @@ eEventDialogOptionsOpen
 eEventDialogOptionsClose
         called when dialog options close
         DATA1 = dialog ID
-        DATA2 = entry ID, the option chosen</code></pre>
+        DATA2 = entry ID, the option chosen
+eEventSavesScanComplete
+        called when the save scan, run by [`Game.ScanSaveSlots`](Game#gamescansaveslots) function, is completed
+        DATA1 = &quot;user param&quot; value passed into Game.ScanSaveSlots().
+eEventUserEvent
+        this is not a real event, but defines a minimal value for user events (see [`SendEvent`](Globalfunctions_General#SendEvent)).</code></pre>
 <p><strong>NOTE:</strong> when you write this function in your script, you do not have to declare it with all 4 "data" arguments, you may put only first 1 or 2 instead, and the engine will correctly discard unused parameters without error. This also helps when you upgrade older projects to the latest version of AGS.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ags"><code class="sourceCode ags"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">on_event</span><span class="op">(</span><span class="dt">int</span> event<span class="op">,</span> <span class="dt">int</span> data1<span class="op">,</span> <span class="dt">int</span> data2<span class="op">)</span></span>
@@ -177,7 +182,9 @@ eEventDialogOptionsClose
 <li><code>eEventDialogOptionsClose</code> event type is only supported since AGS 3.6.2.</li>
 <li><code>eEventGUIMouseDown</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
 <li><code>eEventGUIMouseUp</code> event type has 4 parameters since AGS 3.6.2, and only 1 parameter before that.</li>
+<li><code>eEventUserEvent</code> event type is only supported since AGS 3.6.2.</li>
 </ul>
+<p><em>See Also:</em> <a href="Globalfunctions_General.html#sendevent"><code>SendEvent</code></a></p>
 <hr />
 </section>
 <section id="on_key_press" class="level3">
@@ -430,7 +437,7 @@ eEventDialogOptionsClose
       <footer>
         <p>
           <a href="jslicensing.html" data-jslicense="1">Third-party JavaScript licensing</a><br>
-          Build: f06755074cc91621852b608aedf5fc27c1f5bc98
+          Build: 6a87c854c3ae58e41f9ea7fc8527af0f310d59a9
         </p>
       </footer>
     </article>
